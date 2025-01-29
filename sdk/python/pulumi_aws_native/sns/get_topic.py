@@ -124,6 +124,9 @@ class GetTopicResult:
     @property
     @pulumi.getter(name="fifoThroughputScope")
     def fifo_throughput_scope(self) -> Optional[str]:
+        """
+        Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
+        """
         return pulumi.get(self, "fifo_throughput_scope")
 
     @property

@@ -86,9 +86,7 @@ class GetServerResult:
     @pulumi.getter
     def arn(self) -> Optional[str]:
         """
-        The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-
-        An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+        Specifies the unique Amazon Resource Name (ARN) of the server.
         """
         return pulumi.get(self, "arn")
 
@@ -244,9 +242,7 @@ class GetServerResult:
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[str]:
         """
-        The service-assigned ID of the server that is created.
-
-        An example `ServerId` is `s-01234567890abcdef` .
+        Specifies the unique system-assigned identifier for a server that you instantiate.
         """
         return pulumi.get(self, "server_id")
 
@@ -324,9 +320,7 @@ def get_server(arn: Optional[str] = None,
     Definition of AWS::Transfer::Server Resource Type
 
 
-    :param str arn: The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-           
-           An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+    :param str arn: Specifies the unique Amazon Resource Name (ARN) of the server.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -358,9 +352,7 @@ def get_server_output(arn: Optional[pulumi.Input[str]] = None,
     Definition of AWS::Transfer::Server Resource Type
 
 
-    :param str arn: The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-           
-           An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+    :param str arn: Specifies the unique Amazon Resource Name (ARN) of the server.
     """
     __args__ = dict()
     __args__['arn'] = arn

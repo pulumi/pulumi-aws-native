@@ -69,6 +69,11 @@ namespace Pulumi.AwsNative.Fms
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+    /// 
+    /// Default: `AND`
+    /// </summary>
     [EnumType]
     public readonly struct PolicyResourceTagLogicalOperator : IEquatable<PolicyResourceTagLogicalOperator>
     {

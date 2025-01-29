@@ -194,6 +194,9 @@ namespace Pulumi.AwsNative.Sns
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
+        /// </summary>
         [Output("fifoThroughputScope")]
         public Output<string?> FifoThroughputScope { get; private set; } = null!;
 
@@ -353,6 +356,9 @@ namespace Pulumi.AwsNative.Sns
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        /// <summary>
+        /// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
+        /// </summary>
         [Input("fifoThroughputScope")]
         public Input<string>? FifoThroughputScope { get; set; }
 

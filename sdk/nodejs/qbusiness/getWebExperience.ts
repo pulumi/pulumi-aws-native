@@ -31,6 +31,10 @@ export interface GetWebExperienceArgs {
 
 export interface GetWebExperienceResult {
     /**
+     * The container for browser extension configuration for an Amazon Q Business web experience.
+     */
+    readonly browserExtensionConfiguration?: outputs.qbusiness.WebExperienceBrowserExtensionConfiguration;
+    /**
      * The Unix timestamp when the Amazon Q Business application was last updated.
      */
     readonly createdAt?: string;

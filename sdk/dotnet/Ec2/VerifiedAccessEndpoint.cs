@@ -19,13 +19,19 @@ namespace Pulumi.AwsNative.Ec2
         /// The DNS name for users to reach your application.
         /// </summary>
         [Output("applicationDomain")]
-        public Output<string> ApplicationDomain { get; private set; } = null!;
+        public Output<string?> ApplicationDomain { get; private set; } = null!;
 
         /// <summary>
         /// The type of attachment used to provide connectivity between the AWS Verified Access endpoint and the application.
         /// </summary>
         [Output("attachmentType")]
         public Output<string> AttachmentType { get; private set; } = null!;
+
+        /// <summary>
+        /// The options for cidr type endpoint.
+        /// </summary>
+        [Output("cidrOptions")]
+        public Output<Outputs.VerifiedAccessEndpointCidrOptions?> CidrOptions { get; private set; } = null!;
 
         /// <summary>
         /// The creation time.
@@ -49,7 +55,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The ARN of a public TLS/SSL certificate imported into or created with ACM.
         /// </summary>
         [Output("domainCertificateArn")]
-        public Output<string> DomainCertificateArn { get; private set; } = null!;
+        public Output<string?> DomainCertificateArn { get; private set; } = null!;
 
         /// <summary>
         /// A DNS name that is generated for the endpoint.
@@ -61,7 +67,7 @@ namespace Pulumi.AwsNative.Ec2
         /// A custom identifier that gets prepended to a DNS name that is generated for the endpoint.
         /// </summary>
         [Output("endpointDomainPrefix")]
-        public Output<string> EndpointDomainPrefix { get; private set; } = null!;
+        public Output<string?> EndpointDomainPrefix { get; private set; } = null!;
 
         /// <summary>
         /// The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.
@@ -98,6 +104,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Output("policyEnabled")]
         public Output<bool?> PolicyEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The options for rds type endpoint.
+        /// </summary>
+        [Output("rdsOptions")]
+        public Output<Outputs.VerifiedAccessEndpointRdsOptions?> RdsOptions { get; private set; } = null!;
 
         /// <summary>
         /// The IDs of the security groups for the endpoint.
@@ -168,11 +180,18 @@ namespace Pulumi.AwsNative.Ec2
                 {
                     "applicationDomain",
                     "attachmentType",
+                    "cidrOptions.cidr",
+                    "cidrOptions.protocol",
+                    "cidrOptions.subnetIds[*]",
                     "domainCertificateArn",
                     "endpointDomainPrefix",
                     "endpointType",
                     "loadBalancerOptions.loadBalancerArn",
                     "networkInterfaceOptions.networkInterfaceId",
+                    "rdsOptions.protocol",
+                    "rdsOptions.rdsDbClusterArn",
+                    "rdsOptions.rdsDbInstanceArn",
+                    "rdsOptions.rdsDbProxyArn",
                     "securityGroupIds[*]",
                 },
             };
@@ -200,14 +219,20 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The DNS name for users to reach your application.
         /// </summary>
-        [Input("applicationDomain", required: true)]
-        public Input<string> ApplicationDomain { get; set; } = null!;
+        [Input("applicationDomain")]
+        public Input<string>? ApplicationDomain { get; set; }
 
         /// <summary>
         /// The type of attachment used to provide connectivity between the AWS Verified Access endpoint and the application.
         /// </summary>
         [Input("attachmentType", required: true)]
         public Input<string> AttachmentType { get; set; } = null!;
+
+        /// <summary>
+        /// The options for cidr type endpoint.
+        /// </summary>
+        [Input("cidrOptions")]
+        public Input<Inputs.VerifiedAccessEndpointCidrOptionsArgs>? CidrOptions { get; set; }
 
         /// <summary>
         /// A description for the AWS Verified Access endpoint.
@@ -218,14 +243,14 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The ARN of a public TLS/SSL certificate imported into or created with ACM.
         /// </summary>
-        [Input("domainCertificateArn", required: true)]
-        public Input<string> DomainCertificateArn { get; set; } = null!;
+        [Input("domainCertificateArn")]
+        public Input<string>? DomainCertificateArn { get; set; }
 
         /// <summary>
         /// A custom identifier that gets prepended to a DNS name that is generated for the endpoint.
         /// </summary>
-        [Input("endpointDomainPrefix", required: true)]
-        public Input<string> EndpointDomainPrefix { get; set; } = null!;
+        [Input("endpointDomainPrefix")]
+        public Input<string>? EndpointDomainPrefix { get; set; }
 
         /// <summary>
         /// The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.
@@ -256,6 +281,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("policyEnabled")]
         public Input<bool>? PolicyEnabled { get; set; }
+
+        /// <summary>
+        /// The options for rds type endpoint.
+        /// </summary>
+        [Input("rdsOptions")]
+        public Input<Inputs.VerifiedAccessEndpointRdsOptionsArgs>? RdsOptions { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

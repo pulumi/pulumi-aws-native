@@ -7172,14 +7172,35 @@ class KnowledgeBaseBedrockEmbeddingModelConfiguration(dict):
     """
     The vector configuration details for the Bedrock embeddings model.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "embeddingDataType":
+            suggest = "embedding_data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseBedrockEmbeddingModelConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseBedrockEmbeddingModelConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseBedrockEmbeddingModelConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 dimensions: Optional[int] = None):
+                 dimensions: Optional[int] = None,
+                 embedding_data_type: Optional['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType'] = None):
         """
         The vector configuration details for the Bedrock embeddings model.
         :param int dimensions: The dimensions details for the vector configuration used on the Bedrock embeddings model.
+        :param 'KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType' embedding_data_type: The data type for the vectors when using a model to convert text into vector embeddings.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
+        if embedding_data_type is not None:
+            pulumi.set(__self__, "embedding_data_type", embedding_data_type)
 
     @property
     @pulumi.getter
@@ -7188,6 +7209,14 @@ class KnowledgeBaseBedrockEmbeddingModelConfiguration(dict):
         The dimensions details for the vector configuration used on the Bedrock embeddings model.
         """
         return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="embeddingDataType")
+    def embedding_data_type(self) -> Optional['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']:
+        """
+        The data type for the vectors when using a model to convert text into vector embeddings.
+        """
+        return pulumi.get(self, "embedding_data_type")
 
 
 @pulumi.output_type

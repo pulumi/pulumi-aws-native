@@ -12,7 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::RDS::DBShardGroup resource creates an Amazon Aurora Limitless DB Shard Group.
+// Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.
+//
+//	Valid for: Aurora DB clusters only
 func LookupDbShardGroup(ctx *pulumi.Context, args *LookupDbShardGroupArgs, opts ...pulumi.InvokeOption) (*LookupDbShardGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDbShardGroupResult
@@ -29,15 +31,24 @@ type LookupDbShardGroupArgs struct {
 }
 
 type LookupDbShardGroupResult struct {
-	// Specifies whether to create standby instances for the DB shard group.
+	// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
+	//   +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
+	//   +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
+	//   +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
 	ComputeRedundancy *int `pulumi:"computeRedundancy"`
-	// The Amazon Web Services Region-unique, immutable identifier for the DB shard group.
+	// The AWS Region -unique, immutable identifier for the DB shard group.
 	DbShardGroupResourceId *string `pulumi:"dbShardGroupResourceId"`
-	// The connection endpoint for the DB shard group.
+	// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+	//
+	// - `CreateDBInstance`
+	// - `DescribeDBInstances`
+	// - `DeleteDBInstance`
+	//
+	// For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
 	Endpoint *string `pulumi:"endpoint"`
 	// The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
 	MaxAcu *float64 `pulumi:"maxAcu"`
-	// An array of key-value pairs to apply to this resource.
+	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB shard group.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -73,17 +84,26 @@ func (o LookupDbShardGroupResultOutput) ToLookupDbShardGroupResultOutputWithCont
 	return o
 }
 
-// Specifies whether to create standby instances for the DB shard group.
+// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
+//   - 0 - Creates a DB shard group without a standby DB shard group. This is the default value.
+//   - 1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
+//   - 2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
 func (o LookupDbShardGroupResultOutput) ComputeRedundancy() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupDbShardGroupResult) *int { return v.ComputeRedundancy }).(pulumi.IntPtrOutput)
 }
 
-// The Amazon Web Services Region-unique, immutable identifier for the DB shard group.
+// The AWS Region -unique, immutable identifier for the DB shard group.
 func (o LookupDbShardGroupResultOutput) DbShardGroupResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbShardGroupResult) *string { return v.DbShardGroupResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The connection endpoint for the DB shard group.
+// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+//
+// - `CreateDBInstance`
+// - `DescribeDBInstances`
+// - `DeleteDBInstance`
+//
+// For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
 func (o LookupDbShardGroupResultOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbShardGroupResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
@@ -93,7 +113,7 @@ func (o LookupDbShardGroupResultOutput) MaxAcu() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupDbShardGroupResult) *float64 { return v.MaxAcu }).(pulumi.Float64PtrOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
+// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB shard group.
 func (o LookupDbShardGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDbShardGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

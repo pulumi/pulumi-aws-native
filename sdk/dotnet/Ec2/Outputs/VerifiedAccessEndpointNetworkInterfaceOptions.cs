@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly int? Port;
         /// <summary>
+        /// The list of port ranges.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VerifiedAccessEndpointPortRange> PortRanges;
+        /// <summary>
         /// The IP protocol.
         /// </summary>
         public readonly string? Protocol;
@@ -35,10 +39,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             int? port,
 
+            ImmutableArray<Outputs.VerifiedAccessEndpointPortRange> portRanges,
+
             string? protocol)
         {
             NetworkInterfaceId = networkInterfaceId;
             Port = port;
+            PortRanges = portRanges;
             Protocol = protocol;
         }
     }

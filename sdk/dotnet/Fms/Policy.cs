@@ -104,6 +104,11 @@ namespace Pulumi.AwsNative.Fms
         [Output("resourceSetIds")]
         public Output<ImmutableArray<string>> ResourceSetIds { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+        /// 
+        /// Default: `AND`
+        /// </summary>
         [Output("resourceTagLogicalOperator")]
         public Output<Pulumi.AwsNative.Fms.PolicyResourceTagLogicalOperator?> ResourceTagLogicalOperator { get; private set; } = null!;
 
@@ -371,6 +376,11 @@ namespace Pulumi.AwsNative.Fms
             set => _resourceSetIds = value;
         }
 
+        /// <summary>
+        /// Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+        /// 
+        /// Default: `AND`
+        /// </summary>
         [Input("resourceTagLogicalOperator")]
         public Input<Pulumi.AwsNative.Fms.PolicyResourceTagLogicalOperator>? ResourceTagLogicalOperator { get; set; }
 

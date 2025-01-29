@@ -27,6 +27,18 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        [Input("portRanges")]
+        private InputList<Inputs.VerifiedAccessEndpointPortRangeArgs>? _portRanges;
+
+        /// <summary>
+        /// The list of port range.
+        /// </summary>
+        public InputList<Inputs.VerifiedAccessEndpointPortRangeArgs> PortRanges
+        {
+            get => _portRanges ?? (_portRanges = new InputList<Inputs.VerifiedAccessEndpointPortRangeArgs>());
+            set => _portRanges = value;
+        }
+
         /// <summary>
         /// The IP protocol.
         /// </summary>

@@ -32,11 +32,24 @@ class DbShardGroupArgs:
         The set of arguments for constructing a DbShardGroup resource.
         :param pulumi.Input[str] db_cluster_identifier: The name of the primary DB cluster for the DB shard group.
         :param pulumi.Input[float] max_acu: The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
-        :param pulumi.Input[int] compute_redundancy: Specifies whether to create standby instances for the DB shard group.
+        :param pulumi.Input[int] compute_redundancy: Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
+                 +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
+                 +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
+                 +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
         :param pulumi.Input[str] db_shard_group_identifier: The name of the DB shard group.
         :param pulumi.Input[float] min_acu: The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
-        :param pulumi.Input[bool] publicly_accessible: Indicates whether the DB shard group is publicly accessible.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[bool] publicly_accessible: Specifies whether the DB shard group is publicly accessible.
+                When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access to the DB shard group is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB shard group doesn't permit it.
+                When the DB shard group isn't publicly accessible, it is an internal DB shard group with a DNS name that resolves to a private IP address.
+                Default: The default behavior varies depending on whether ``DBSubnetGroupName`` is specified.
+                If ``DBSubnetGroupName`` isn't specified, and ``PubliclyAccessible`` isn't specified, the following applies:
+                 +  If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB shard group is private.
+                 +  If the default VPC in the target Region has an internet gateway attached to it, the DB shard group is public.
+                 
+                If ``DBSubnetGroupName`` is specified, and ``PubliclyAccessible`` isn't specified, the following applies:
+                 +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB shard group is private.
+                 +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the DB shard group.
         """
         pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
         pulumi.set(__self__, "max_acu", max_acu)
@@ -79,7 +92,10 @@ class DbShardGroupArgs:
     @pulumi.getter(name="computeRedundancy")
     def compute_redundancy(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies whether to create standby instances for the DB shard group.
+        Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
+          +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
+          +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
+          +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
         """
         return pulumi.get(self, "compute_redundancy")
 
@@ -115,7 +131,17 @@ class DbShardGroupArgs:
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether the DB shard group is publicly accessible.
+        Specifies whether the DB shard group is publicly accessible.
+         When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access to the DB shard group is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB shard group doesn't permit it.
+         When the DB shard group isn't publicly accessible, it is an internal DB shard group with a DNS name that resolves to a private IP address.
+         Default: The default behavior varies depending on whether ``DBSubnetGroupName`` is specified.
+         If ``DBSubnetGroupName`` isn't specified, and ``PubliclyAccessible`` isn't specified, the following applies:
+          +  If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB shard group is private.
+          +  If the default VPC in the target Region has an internet gateway attached to it, the DB shard group is public.
+          
+         If ``DBSubnetGroupName`` is specified, and ``PubliclyAccessible`` isn't specified, the following applies:
+          +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB shard group is private.
+          +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public.
         """
         return pulumi.get(self, "publicly_accessible")
 
@@ -127,7 +153,7 @@ class DbShardGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        An array of key-value pairs to apply to this resource.
+        An optional set of key-value pairs to associate arbitrary data of your choosing with the DB shard group.
         """
         return pulumi.get(self, "tags")
 
@@ -150,17 +176,31 @@ class DbShardGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        The AWS::RDS::DBShardGroup resource creates an Amazon Aurora Limitless DB Shard Group.
+        Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.
+         Valid for: Aurora DB clusters only
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] compute_redundancy: Specifies whether to create standby instances for the DB shard group.
+        :param pulumi.Input[int] compute_redundancy: Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
+                 +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
+                 +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
+                 +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
         :param pulumi.Input[str] db_cluster_identifier: The name of the primary DB cluster for the DB shard group.
         :param pulumi.Input[str] db_shard_group_identifier: The name of the DB shard group.
         :param pulumi.Input[float] max_acu: The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
         :param pulumi.Input[float] min_acu: The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
-        :param pulumi.Input[bool] publicly_accessible: Indicates whether the DB shard group is publicly accessible.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[bool] publicly_accessible: Specifies whether the DB shard group is publicly accessible.
+                When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access to the DB shard group is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB shard group doesn't permit it.
+                When the DB shard group isn't publicly accessible, it is an internal DB shard group with a DNS name that resolves to a private IP address.
+                Default: The default behavior varies depending on whether ``DBSubnetGroupName`` is specified.
+                If ``DBSubnetGroupName`` isn't specified, and ``PubliclyAccessible`` isn't specified, the following applies:
+                 +  If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB shard group is private.
+                 +  If the default VPC in the target Region has an internet gateway attached to it, the DB shard group is public.
+                 
+                If ``DBSubnetGroupName`` is specified, and ``PubliclyAccessible`` isn't specified, the following applies:
+                 +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB shard group is private.
+                 +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the DB shard group.
         """
         ...
     @overload
@@ -169,7 +209,8 @@ class DbShardGroup(pulumi.CustomResource):
                  args: DbShardGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The AWS::RDS::DBShardGroup resource creates an Amazon Aurora Limitless DB Shard Group.
+        Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.
+         Valid for: Aurora DB clusters only
 
         :param str resource_name: The name of the resource.
         :param DbShardGroupArgs args: The arguments to use to populate this resource's properties.
@@ -254,7 +295,10 @@ class DbShardGroup(pulumi.CustomResource):
     @pulumi.getter(name="computeRedundancy")
     def compute_redundancy(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies whether to create standby instances for the DB shard group.
+        Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
+          +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
+          +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
+          +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
         """
         return pulumi.get(self, "compute_redundancy")
 
@@ -278,7 +322,7 @@ class DbShardGroup(pulumi.CustomResource):
     @pulumi.getter(name="dbShardGroupResourceId")
     def db_shard_group_resource_id(self) -> pulumi.Output[str]:
         """
-        The Amazon Web Services Region-unique, immutable identifier for the DB shard group.
+        The AWS Region -unique, immutable identifier for the DB shard group.
         """
         return pulumi.get(self, "db_shard_group_resource_id")
 
@@ -286,7 +330,13 @@ class DbShardGroup(pulumi.CustomResource):
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[str]:
         """
-        The connection endpoint for the DB shard group.
+        This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+
+        - `CreateDBInstance`
+        - `DescribeDBInstances`
+        - `DeleteDBInstance`
+
+        For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
         """
         return pulumi.get(self, "endpoint")
 
@@ -310,7 +360,17 @@ class DbShardGroup(pulumi.CustomResource):
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether the DB shard group is publicly accessible.
+        Specifies whether the DB shard group is publicly accessible.
+         When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access to the DB shard group is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB shard group doesn't permit it.
+         When the DB shard group isn't publicly accessible, it is an internal DB shard group with a DNS name that resolves to a private IP address.
+         Default: The default behavior varies depending on whether ``DBSubnetGroupName`` is specified.
+         If ``DBSubnetGroupName`` isn't specified, and ``PubliclyAccessible`` isn't specified, the following applies:
+          +  If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB shard group is private.
+          +  If the default VPC in the target Region has an internet gateway attached to it, the DB shard group is public.
+          
+         If ``DBSubnetGroupName`` is specified, and ``PubliclyAccessible`` isn't specified, the following applies:
+          +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB shard group is private.
+          +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public.
         """
         return pulumi.get(self, "publicly_accessible")
 
@@ -318,7 +378,7 @@ class DbShardGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        An array of key-value pairs to apply to this resource.
+        An optional set of key-value pairs to associate arbitrary data of your choosing with the DB shard group.
         """
         return pulumi.get(self, "tags")
 

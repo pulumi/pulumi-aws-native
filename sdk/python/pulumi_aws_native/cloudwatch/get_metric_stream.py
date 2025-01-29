@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetMetricStreamResult',
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetMetricStreamResult:
-    def __init__(__self__, arn=None, creation_date=None, exclude_filters=None, firehose_arn=None, include_filters=None, include_linked_accounts_metrics=None, last_update_date=None, output_format=None, role_arn=None, state=None, statistics_configurations=None):
+    def __init__(__self__, arn=None, creation_date=None, exclude_filters=None, firehose_arn=None, include_filters=None, include_linked_accounts_metrics=None, last_update_date=None, output_format=None, role_arn=None, state=None, statistics_configurations=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -58,6 +59,9 @@ class GetMetricStreamResult:
         if statistics_configurations and not isinstance(statistics_configurations, list):
             raise TypeError("Expected argument 'statistics_configurations' to be a list")
         pulumi.set(__self__, "statistics_configurations", statistics_configurations)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -147,6 +151,14 @@ class GetMetricStreamResult:
         """
         return pulumi.get(self, "statistics_configurations")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A set of tags to assign to the delivery stream.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetMetricStreamResult(GetMetricStreamResult):
     # pylint: disable=using-constant-test
@@ -164,7 +176,8 @@ class AwaitableGetMetricStreamResult(GetMetricStreamResult):
             output_format=self.output_format,
             role_arn=self.role_arn,
             state=self.state,
-            statistics_configurations=self.statistics_configurations)
+            statistics_configurations=self.statistics_configurations,
+            tags=self.tags)
 
 
 def get_metric_stream(name: Optional[str] = None,
@@ -191,7 +204,8 @@ def get_metric_stream(name: Optional[str] = None,
         output_format=pulumi.get(__ret__, 'output_format'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         state=pulumi.get(__ret__, 'state'),
-        statistics_configurations=pulumi.get(__ret__, 'statistics_configurations'))
+        statistics_configurations=pulumi.get(__ret__, 'statistics_configurations'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_metric_stream_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetricStreamResult]:
     """
@@ -215,4 +229,5 @@ def get_metric_stream_output(name: Optional[pulumi.Input[str]] = None,
         output_format=pulumi.get(__response__, 'output_format'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         state=pulumi.get(__response__, 'state'),
-        statistics_configurations=pulumi.get(__response__, 'statistics_configurations')))
+        statistics_configurations=pulumi.get(__response__, 'statistics_configurations'),
+        tags=pulumi.get(__response__, 'tags')))

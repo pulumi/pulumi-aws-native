@@ -72,9 +72,17 @@ namespace Pulumi.AwsNative.Timestream
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>
+        /// The compute instance of the InfluxDB instance.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Timestream.InfluxDbInstanceDbInstanceType? DbInstanceType;
+        /// <summary>
         /// The name of an existing InfluxDB parameter group.
         /// </summary>
         public readonly string? DbParameterGroupIdentifier;
+        /// <summary>
+        /// Deployment type of the InfluxDB Instance.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Timestream.InfluxDbInstanceDeploymentType? DeploymentType;
         /// <summary>
         /// The connection endpoint for the InfluxDB instance.
         /// </summary>
@@ -91,6 +99,10 @@ namespace Pulumi.AwsNative.Timestream
         /// Configuration for sending logs to customer account from the InfluxDB instance.
         /// </summary>
         public readonly Outputs.LogDeliveryConfigurationProperties? LogDeliveryConfiguration;
+        /// <summary>
+        /// The port number on which InfluxDB accepts connections.
+        /// </summary>
+        public readonly int? Port;
         /// <summary>
         /// The Secondary Availability Zone (AZ) where the InfluxDB instance is created, if DeploymentType is set as WITH_MULTIAZ_STANDBY.
         /// </summary>
@@ -110,7 +122,11 @@ namespace Pulumi.AwsNative.Timestream
 
             string? availabilityZone,
 
+            Pulumi.AwsNative.Timestream.InfluxDbInstanceDbInstanceType? dbInstanceType,
+
             string? dbParameterGroupIdentifier,
+
+            Pulumi.AwsNative.Timestream.InfluxDbInstanceDeploymentType? deploymentType,
 
             string? endpoint,
 
@@ -120,6 +136,8 @@ namespace Pulumi.AwsNative.Timestream
 
             Outputs.LogDeliveryConfigurationProperties? logDeliveryConfiguration,
 
+            int? port,
+
             string? secondaryAvailabilityZone,
 
             Pulumi.AwsNative.Timestream.InfluxDbInstanceStatus? status,
@@ -128,11 +146,14 @@ namespace Pulumi.AwsNative.Timestream
         {
             Arn = arn;
             AvailabilityZone = availabilityZone;
+            DbInstanceType = dbInstanceType;
             DbParameterGroupIdentifier = dbParameterGroupIdentifier;
+            DeploymentType = deploymentType;
             Endpoint = endpoint;
             Id = id;
             InfluxAuthParametersSecretArn = influxAuthParametersSecretArn;
             LogDeliveryConfiguration = logDeliveryConfiguration;
+            Port = port;
             SecondaryAvailabilityZone = secondaryAvailabilityZone;
             Status = status;
             Tags = tags;

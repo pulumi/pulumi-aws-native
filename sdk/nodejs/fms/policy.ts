@@ -106,6 +106,11 @@ export class Policy extends pulumi.CustomResource {
      * The unique identifiers of the resource sets used by the policy.
      */
     public readonly resourceSetIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+     *
+     * Default: `AND`
+     */
     public readonly resourceTagLogicalOperator!: pulumi.Output<enums.fms.PolicyResourceTagLogicalOperator | undefined>;
     /**
      * An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
@@ -358,6 +363,11 @@ export interface PolicyArgs {
      * The unique identifiers of the resource sets used by the policy.
      */
     resourceSetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+     *
+     * Default: `AND`
+     */
     resourceTagLogicalOperator?: pulumi.Input<enums.fms.PolicyResourceTagLogicalOperator>;
     /**
      * An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .

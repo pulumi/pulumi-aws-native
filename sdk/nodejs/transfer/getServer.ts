@@ -19,18 +19,14 @@ export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Pro
 
 export interface GetServerArgs {
     /**
-     * The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-     *
-     * An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+     * Specifies the unique Amazon Resource Name (ARN) of the server.
      */
     arn: string;
 }
 
 export interface GetServerResult {
     /**
-     * The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-     *
-     * An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+     * Specifies the unique Amazon Resource Name (ARN) of the server.
      */
     readonly arn?: string;
     /**
@@ -134,9 +130,7 @@ export interface GetServerResult {
      */
     readonly securityPolicyName?: string;
     /**
-     * The service-assigned ID of the server that is created.
-     *
-     * An example `ServerId` is `s-01234567890abcdef` .
+     * Specifies the unique system-assigned identifier for a server that you instantiate.
      */
     readonly serverId?: string;
     readonly state?: enums.transfer.ServerState;
@@ -177,9 +171,7 @@ export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeO
 
 export interface GetServerOutputArgs {
     /**
-     * The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-     *
-     * An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+     * Specifies the unique Amazon Resource Name (ARN) of the server.
      */
     arn: pulumi.Input<string>;
 }

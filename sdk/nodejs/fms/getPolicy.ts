@@ -77,6 +77,11 @@ export interface GetPolicyResult {
      * The unique identifiers of the resource sets used by the policy.
      */
     readonly resourceSetIds?: string[];
+    /**
+     * Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+     *
+     * Default: `AND`
+     */
     readonly resourceTagLogicalOperator?: enums.fms.PolicyResourceTagLogicalOperator;
     /**
      * An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .

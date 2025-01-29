@@ -33,11 +33,14 @@ __all__ = [
     'BridgeSourcePriority',
     'BridgeSourceVpcInterfaceAttachment',
     'BridgeVpcInterfaceAttachment',
+    'FlowAudioMonitoringSetting',
+    'FlowBlackFrames',
     'FlowEncryption',
     'FlowEntitlementEncryption',
     'FlowFailoverConfig',
     'FlowFailoverConfigSourcePriorityProperties',
     'FlowFmtp',
+    'FlowFrozenFrames',
     'FlowGatewayBridgeSource',
     'FlowInputConfiguration',
     'FlowInterface',
@@ -51,11 +54,13 @@ __all__ = [
     'FlowOutputInterface',
     'FlowOutputMediaStreamOutputConfiguration',
     'FlowOutputVpcInterfaceAttachment',
+    'FlowSilentAudio',
     'FlowSource',
     'FlowSourceEncryption',
     'FlowSourceGatewayBridgeSource',
     'FlowSourceMonitoringConfig',
     'FlowSourceVpcInterfaceAttachment',
+    'FlowVideoMonitoringSetting',
     'FlowVpcInterface',
     'FlowVpcInterfaceAttachment',
     'GatewayNetwork',
@@ -989,6 +994,98 @@ class BridgeVpcInterfaceAttachment(dict):
 
 
 @pulumi.output_type
+class FlowAudioMonitoringSetting(dict):
+    """
+    Specifies the configuration for audio stream metrics monitoring.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "silentAudio":
+            suggest = "silent_audio"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowAudioMonitoringSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowAudioMonitoringSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowAudioMonitoringSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 silent_audio: Optional['outputs.FlowSilentAudio'] = None):
+        """
+        Specifies the configuration for audio stream metrics monitoring.
+        :param 'FlowSilentAudio' silent_audio: Detects periods of silence.
+        """
+        if silent_audio is not None:
+            pulumi.set(__self__, "silent_audio", silent_audio)
+
+    @property
+    @pulumi.getter(name="silentAudio")
+    def silent_audio(self) -> Optional['outputs.FlowSilentAudio']:
+        """
+        Detects periods of silence.
+        """
+        return pulumi.get(self, "silent_audio")
+
+
+@pulumi.output_type
+class FlowBlackFrames(dict):
+    """
+    Configures settings for the BlackFrames metric.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "thresholdSeconds":
+            suggest = "threshold_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowBlackFrames. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowBlackFrames.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowBlackFrames.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 state: Optional['FlowBlackFramesState'] = None,
+                 threshold_seconds: Optional[int] = None):
+        """
+        Configures settings for the BlackFrames metric.
+        :param 'FlowBlackFramesState' state: Indicates whether the BlackFrames metric is enabled or disabled.
+        :param int threshold_seconds: Specifies the number of consecutive seconds of black frames that triggers an event or alert.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if threshold_seconds is not None:
+            pulumi.set(__self__, "threshold_seconds", threshold_seconds)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional['FlowBlackFramesState']:
+        """
+        Indicates whether the BlackFrames metric is enabled or disabled.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="thresholdSeconds")
+    def threshold_seconds(self) -> Optional[int]:
+        """
+        Specifies the number of consecutive seconds of black frames that triggers an event or alert.
+        """
+        return pulumi.get(self, "threshold_seconds")
+
+
+@pulumi.output_type
 class FlowEncryption(dict):
     """
     Information about the encryption of the flow.
@@ -1510,6 +1607,58 @@ class FlowFmtp(dict):
         The transfer characteristic system (TCS) that is used in the video.
         """
         return pulumi.get(self, "tcs")
+
+
+@pulumi.output_type
+class FlowFrozenFrames(dict):
+    """
+    Configures settings for the FrozenFrames metric.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "thresholdSeconds":
+            suggest = "threshold_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowFrozenFrames. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowFrozenFrames.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowFrozenFrames.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 state: Optional['FlowFrozenFramesState'] = None,
+                 threshold_seconds: Optional[int] = None):
+        """
+        Configures settings for the FrozenFrames metric.
+        :param 'FlowFrozenFramesState' state: Indicates whether the FrozenFrames metric is enabled or disabled.
+        :param int threshold_seconds: Specifies the number of consecutive seconds of a static image that triggers an event or alert.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if threshold_seconds is not None:
+            pulumi.set(__self__, "threshold_seconds", threshold_seconds)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional['FlowFrozenFramesState']:
+        """
+        Indicates whether the FrozenFrames metric is enabled or disabled.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="thresholdSeconds")
+    def threshold_seconds(self) -> Optional[int]:
+        """
+        Specifies the number of consecutive seconds of a static image that triggers an event or alert.
+        """
+        return pulumi.get(self, "threshold_seconds")
 
 
 @pulumi.output_type
@@ -2256,6 +2405,58 @@ class FlowOutputVpcInterfaceAttachment(dict):
 
 
 @pulumi.output_type
+class FlowSilentAudio(dict):
+    """
+    Configures settings for the SilentAudio metric.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "thresholdSeconds":
+            suggest = "threshold_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowSilentAudio. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowSilentAudio.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowSilentAudio.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 state: Optional['FlowSilentAudioState'] = None,
+                 threshold_seconds: Optional[int] = None):
+        """
+        Configures settings for the SilentAudio metric.
+        :param 'FlowSilentAudioState' state: Indicates whether the SilentAudio metric is enabled or disabled.
+        :param int threshold_seconds: Specifies the number of consecutive seconds of silence that triggers an event or alert.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if threshold_seconds is not None:
+            pulumi.set(__self__, "threshold_seconds", threshold_seconds)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional['FlowSilentAudioState']:
+        """
+        Indicates whether the SilentAudio metric is enabled or disabled.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="thresholdSeconds")
+    def threshold_seconds(self) -> Optional[int]:
+        """
+        Specifies the number of consecutive seconds of silence that triggers an event or alert.
+        """
+        return pulumi.get(self, "threshold_seconds")
+
+
+@pulumi.output_type
 class FlowSource(dict):
     """
     The settings for the source of the flow.
@@ -2787,8 +2988,14 @@ class FlowSourceMonitoringConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "thumbnailState":
+        if key == "audioMonitoringSettings":
+            suggest = "audio_monitoring_settings"
+        elif key == "contentQualityAnalysisState":
+            suggest = "content_quality_analysis_state"
+        elif key == "thumbnailState":
             suggest = "thumbnail_state"
+        elif key == "videoMonitoringSettings":
+            suggest = "video_monitoring_settings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FlowSourceMonitoringConfig. Access the value via the '{suggest}' property getter instead.")
@@ -2802,20 +3009,57 @@ class FlowSourceMonitoringConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 thumbnail_state: 'FlowSourceMonitoringConfigThumbnailState'):
+                 audio_monitoring_settings: Optional[Sequence['outputs.FlowAudioMonitoringSetting']] = None,
+                 content_quality_analysis_state: Optional['FlowSourceMonitoringConfigContentQualityAnalysisState'] = None,
+                 thumbnail_state: Optional['FlowSourceMonitoringConfigThumbnailState'] = None,
+                 video_monitoring_settings: Optional[Sequence['outputs.FlowVideoMonitoringSetting']] = None):
         """
         The settings for source monitoring.
+        :param Sequence['FlowAudioMonitoringSetting'] audio_monitoring_settings: Contains the settings for audio stream metrics monitoring.
+        :param 'FlowSourceMonitoringConfigContentQualityAnalysisState' content_quality_analysis_state: Indicates whether content quality analysis is enabled or disabled.
         :param 'FlowSourceMonitoringConfigThumbnailState' thumbnail_state: The state of thumbnail monitoring.
+        :param Sequence['FlowVideoMonitoringSetting'] video_monitoring_settings: Contains the settings for video stream metrics monitoring.
         """
-        pulumi.set(__self__, "thumbnail_state", thumbnail_state)
+        if audio_monitoring_settings is not None:
+            pulumi.set(__self__, "audio_monitoring_settings", audio_monitoring_settings)
+        if content_quality_analysis_state is not None:
+            pulumi.set(__self__, "content_quality_analysis_state", content_quality_analysis_state)
+        if thumbnail_state is not None:
+            pulumi.set(__self__, "thumbnail_state", thumbnail_state)
+        if video_monitoring_settings is not None:
+            pulumi.set(__self__, "video_monitoring_settings", video_monitoring_settings)
+
+    @property
+    @pulumi.getter(name="audioMonitoringSettings")
+    def audio_monitoring_settings(self) -> Optional[Sequence['outputs.FlowAudioMonitoringSetting']]:
+        """
+        Contains the settings for audio stream metrics monitoring.
+        """
+        return pulumi.get(self, "audio_monitoring_settings")
+
+    @property
+    @pulumi.getter(name="contentQualityAnalysisState")
+    def content_quality_analysis_state(self) -> Optional['FlowSourceMonitoringConfigContentQualityAnalysisState']:
+        """
+        Indicates whether content quality analysis is enabled or disabled.
+        """
+        return pulumi.get(self, "content_quality_analysis_state")
 
     @property
     @pulumi.getter(name="thumbnailState")
-    def thumbnail_state(self) -> 'FlowSourceMonitoringConfigThumbnailState':
+    def thumbnail_state(self) -> Optional['FlowSourceMonitoringConfigThumbnailState']:
         """
         The state of thumbnail monitoring.
         """
         return pulumi.get(self, "thumbnail_state")
+
+    @property
+    @pulumi.getter(name="videoMonitoringSettings")
+    def video_monitoring_settings(self) -> Optional[Sequence['outputs.FlowVideoMonitoringSetting']]:
+        """
+        Contains the settings for video stream metrics monitoring.
+        """
+        return pulumi.get(self, "video_monitoring_settings")
 
 
 @pulumi.output_type
@@ -2856,6 +3100,60 @@ class FlowSourceVpcInterfaceAttachment(dict):
         The name of the VPC interface to use for this resource.
         """
         return pulumi.get(self, "vpc_interface_name")
+
+
+@pulumi.output_type
+class FlowVideoMonitoringSetting(dict):
+    """
+    Specifies the configuration for video stream metrics monitoring.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blackFrames":
+            suggest = "black_frames"
+        elif key == "frozenFrames":
+            suggest = "frozen_frames"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVideoMonitoringSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVideoMonitoringSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVideoMonitoringSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 black_frames: Optional['outputs.FlowBlackFrames'] = None,
+                 frozen_frames: Optional['outputs.FlowFrozenFrames'] = None):
+        """
+        Specifies the configuration for video stream metrics monitoring.
+        :param 'FlowBlackFrames' black_frames: Detects video frames that are black.
+        :param 'FlowFrozenFrames' frozen_frames: Detects video frames that have not changed.
+        """
+        if black_frames is not None:
+            pulumi.set(__self__, "black_frames", black_frames)
+        if frozen_frames is not None:
+            pulumi.set(__self__, "frozen_frames", frozen_frames)
+
+    @property
+    @pulumi.getter(name="blackFrames")
+    def black_frames(self) -> Optional['outputs.FlowBlackFrames']:
+        """
+        Detects video frames that are black.
+        """
+        return pulumi.get(self, "black_frames")
+
+    @property
+    @pulumi.getter(name="frozenFrames")
+    def frozen_frames(self) -> Optional['outputs.FlowFrozenFrames']:
+        """
+        Detects video frames that have not changed.
+        """
+        return pulumi.get(self, "frozen_frames")
 
 
 @pulumi.output_type

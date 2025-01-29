@@ -2587,6 +2587,265 @@ func (o BridgeVpcInterfaceAttachmentPtrOutput) VpcInterfaceName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the configuration for audio stream metrics monitoring.
+type FlowAudioMonitoringSetting struct {
+	// Detects periods of silence.
+	SilentAudio *FlowSilentAudio `pulumi:"silentAudio"`
+}
+
+// FlowAudioMonitoringSettingInput is an input type that accepts FlowAudioMonitoringSettingArgs and FlowAudioMonitoringSettingOutput values.
+// You can construct a concrete instance of `FlowAudioMonitoringSettingInput` via:
+//
+//	FlowAudioMonitoringSettingArgs{...}
+type FlowAudioMonitoringSettingInput interface {
+	pulumi.Input
+
+	ToFlowAudioMonitoringSettingOutput() FlowAudioMonitoringSettingOutput
+	ToFlowAudioMonitoringSettingOutputWithContext(context.Context) FlowAudioMonitoringSettingOutput
+}
+
+// Specifies the configuration for audio stream metrics monitoring.
+type FlowAudioMonitoringSettingArgs struct {
+	// Detects periods of silence.
+	SilentAudio FlowSilentAudioPtrInput `pulumi:"silentAudio"`
+}
+
+func (FlowAudioMonitoringSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowAudioMonitoringSetting)(nil)).Elem()
+}
+
+func (i FlowAudioMonitoringSettingArgs) ToFlowAudioMonitoringSettingOutput() FlowAudioMonitoringSettingOutput {
+	return i.ToFlowAudioMonitoringSettingOutputWithContext(context.Background())
+}
+
+func (i FlowAudioMonitoringSettingArgs) ToFlowAudioMonitoringSettingOutputWithContext(ctx context.Context) FlowAudioMonitoringSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAudioMonitoringSettingOutput)
+}
+
+// FlowAudioMonitoringSettingArrayInput is an input type that accepts FlowAudioMonitoringSettingArray and FlowAudioMonitoringSettingArrayOutput values.
+// You can construct a concrete instance of `FlowAudioMonitoringSettingArrayInput` via:
+//
+//	FlowAudioMonitoringSettingArray{ FlowAudioMonitoringSettingArgs{...} }
+type FlowAudioMonitoringSettingArrayInput interface {
+	pulumi.Input
+
+	ToFlowAudioMonitoringSettingArrayOutput() FlowAudioMonitoringSettingArrayOutput
+	ToFlowAudioMonitoringSettingArrayOutputWithContext(context.Context) FlowAudioMonitoringSettingArrayOutput
+}
+
+type FlowAudioMonitoringSettingArray []FlowAudioMonitoringSettingInput
+
+func (FlowAudioMonitoringSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowAudioMonitoringSetting)(nil)).Elem()
+}
+
+func (i FlowAudioMonitoringSettingArray) ToFlowAudioMonitoringSettingArrayOutput() FlowAudioMonitoringSettingArrayOutput {
+	return i.ToFlowAudioMonitoringSettingArrayOutputWithContext(context.Background())
+}
+
+func (i FlowAudioMonitoringSettingArray) ToFlowAudioMonitoringSettingArrayOutputWithContext(ctx context.Context) FlowAudioMonitoringSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAudioMonitoringSettingArrayOutput)
+}
+
+// Specifies the configuration for audio stream metrics monitoring.
+type FlowAudioMonitoringSettingOutput struct{ *pulumi.OutputState }
+
+func (FlowAudioMonitoringSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowAudioMonitoringSetting)(nil)).Elem()
+}
+
+func (o FlowAudioMonitoringSettingOutput) ToFlowAudioMonitoringSettingOutput() FlowAudioMonitoringSettingOutput {
+	return o
+}
+
+func (o FlowAudioMonitoringSettingOutput) ToFlowAudioMonitoringSettingOutputWithContext(ctx context.Context) FlowAudioMonitoringSettingOutput {
+	return o
+}
+
+// Detects periods of silence.
+func (o FlowAudioMonitoringSettingOutput) SilentAudio() FlowSilentAudioPtrOutput {
+	return o.ApplyT(func(v FlowAudioMonitoringSetting) *FlowSilentAudio { return v.SilentAudio }).(FlowSilentAudioPtrOutput)
+}
+
+type FlowAudioMonitoringSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowAudioMonitoringSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowAudioMonitoringSetting)(nil)).Elem()
+}
+
+func (o FlowAudioMonitoringSettingArrayOutput) ToFlowAudioMonitoringSettingArrayOutput() FlowAudioMonitoringSettingArrayOutput {
+	return o
+}
+
+func (o FlowAudioMonitoringSettingArrayOutput) ToFlowAudioMonitoringSettingArrayOutputWithContext(ctx context.Context) FlowAudioMonitoringSettingArrayOutput {
+	return o
+}
+
+func (o FlowAudioMonitoringSettingArrayOutput) Index(i pulumi.IntInput) FlowAudioMonitoringSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowAudioMonitoringSetting {
+		return vs[0].([]FlowAudioMonitoringSetting)[vs[1].(int)]
+	}).(FlowAudioMonitoringSettingOutput)
+}
+
+// Configures settings for the BlackFrames metric.
+type FlowBlackFrames struct {
+	// Indicates whether the BlackFrames metric is enabled or disabled.
+	State *FlowBlackFramesState `pulumi:"state"`
+	// Specifies the number of consecutive seconds of black frames that triggers an event or alert.
+	ThresholdSeconds *int `pulumi:"thresholdSeconds"`
+}
+
+// FlowBlackFramesInput is an input type that accepts FlowBlackFramesArgs and FlowBlackFramesOutput values.
+// You can construct a concrete instance of `FlowBlackFramesInput` via:
+//
+//	FlowBlackFramesArgs{...}
+type FlowBlackFramesInput interface {
+	pulumi.Input
+
+	ToFlowBlackFramesOutput() FlowBlackFramesOutput
+	ToFlowBlackFramesOutputWithContext(context.Context) FlowBlackFramesOutput
+}
+
+// Configures settings for the BlackFrames metric.
+type FlowBlackFramesArgs struct {
+	// Indicates whether the BlackFrames metric is enabled or disabled.
+	State FlowBlackFramesStatePtrInput `pulumi:"state"`
+	// Specifies the number of consecutive seconds of black frames that triggers an event or alert.
+	ThresholdSeconds pulumi.IntPtrInput `pulumi:"thresholdSeconds"`
+}
+
+func (FlowBlackFramesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowBlackFrames)(nil)).Elem()
+}
+
+func (i FlowBlackFramesArgs) ToFlowBlackFramesOutput() FlowBlackFramesOutput {
+	return i.ToFlowBlackFramesOutputWithContext(context.Background())
+}
+
+func (i FlowBlackFramesArgs) ToFlowBlackFramesOutputWithContext(ctx context.Context) FlowBlackFramesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowBlackFramesOutput)
+}
+
+func (i FlowBlackFramesArgs) ToFlowBlackFramesPtrOutput() FlowBlackFramesPtrOutput {
+	return i.ToFlowBlackFramesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowBlackFramesArgs) ToFlowBlackFramesPtrOutputWithContext(ctx context.Context) FlowBlackFramesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowBlackFramesOutput).ToFlowBlackFramesPtrOutputWithContext(ctx)
+}
+
+// FlowBlackFramesPtrInput is an input type that accepts FlowBlackFramesArgs, FlowBlackFramesPtr and FlowBlackFramesPtrOutput values.
+// You can construct a concrete instance of `FlowBlackFramesPtrInput` via:
+//
+//	        FlowBlackFramesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowBlackFramesPtrInput interface {
+	pulumi.Input
+
+	ToFlowBlackFramesPtrOutput() FlowBlackFramesPtrOutput
+	ToFlowBlackFramesPtrOutputWithContext(context.Context) FlowBlackFramesPtrOutput
+}
+
+type flowBlackFramesPtrType FlowBlackFramesArgs
+
+func FlowBlackFramesPtr(v *FlowBlackFramesArgs) FlowBlackFramesPtrInput {
+	return (*flowBlackFramesPtrType)(v)
+}
+
+func (*flowBlackFramesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowBlackFrames)(nil)).Elem()
+}
+
+func (i *flowBlackFramesPtrType) ToFlowBlackFramesPtrOutput() FlowBlackFramesPtrOutput {
+	return i.ToFlowBlackFramesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowBlackFramesPtrType) ToFlowBlackFramesPtrOutputWithContext(ctx context.Context) FlowBlackFramesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowBlackFramesPtrOutput)
+}
+
+// Configures settings for the BlackFrames metric.
+type FlowBlackFramesOutput struct{ *pulumi.OutputState }
+
+func (FlowBlackFramesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowBlackFrames)(nil)).Elem()
+}
+
+func (o FlowBlackFramesOutput) ToFlowBlackFramesOutput() FlowBlackFramesOutput {
+	return o
+}
+
+func (o FlowBlackFramesOutput) ToFlowBlackFramesOutputWithContext(ctx context.Context) FlowBlackFramesOutput {
+	return o
+}
+
+func (o FlowBlackFramesOutput) ToFlowBlackFramesPtrOutput() FlowBlackFramesPtrOutput {
+	return o.ToFlowBlackFramesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowBlackFramesOutput) ToFlowBlackFramesPtrOutputWithContext(ctx context.Context) FlowBlackFramesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowBlackFrames) *FlowBlackFrames {
+		return &v
+	}).(FlowBlackFramesPtrOutput)
+}
+
+// Indicates whether the BlackFrames metric is enabled or disabled.
+func (o FlowBlackFramesOutput) State() FlowBlackFramesStatePtrOutput {
+	return o.ApplyT(func(v FlowBlackFrames) *FlowBlackFramesState { return v.State }).(FlowBlackFramesStatePtrOutput)
+}
+
+// Specifies the number of consecutive seconds of black frames that triggers an event or alert.
+func (o FlowBlackFramesOutput) ThresholdSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowBlackFrames) *int { return v.ThresholdSeconds }).(pulumi.IntPtrOutput)
+}
+
+type FlowBlackFramesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowBlackFramesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowBlackFrames)(nil)).Elem()
+}
+
+func (o FlowBlackFramesPtrOutput) ToFlowBlackFramesPtrOutput() FlowBlackFramesPtrOutput {
+	return o
+}
+
+func (o FlowBlackFramesPtrOutput) ToFlowBlackFramesPtrOutputWithContext(ctx context.Context) FlowBlackFramesPtrOutput {
+	return o
+}
+
+func (o FlowBlackFramesPtrOutput) Elem() FlowBlackFramesOutput {
+	return o.ApplyT(func(v *FlowBlackFrames) FlowBlackFrames {
+		if v != nil {
+			return *v
+		}
+		var ret FlowBlackFrames
+		return ret
+	}).(FlowBlackFramesOutput)
+}
+
+// Indicates whether the BlackFrames metric is enabled or disabled.
+func (o FlowBlackFramesPtrOutput) State() FlowBlackFramesStatePtrOutput {
+	return o.ApplyT(func(v *FlowBlackFrames) *FlowBlackFramesState {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(FlowBlackFramesStatePtrOutput)
+}
+
+// Specifies the number of consecutive seconds of black frames that triggers an event or alert.
+func (o FlowBlackFramesPtrOutput) ThresholdSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowBlackFrames) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 // Information about the encryption of the flow.
 type FlowEncryption struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -3760,6 +4019,165 @@ func (o FlowFmtpPtrOutput) Tcs() FlowFmtpTcsPtrOutput {
 		}
 		return v.Tcs
 	}).(FlowFmtpTcsPtrOutput)
+}
+
+// Configures settings for the FrozenFrames metric.
+type FlowFrozenFrames struct {
+	// Indicates whether the FrozenFrames metric is enabled or disabled.
+	State *FlowFrozenFramesState `pulumi:"state"`
+	// Specifies the number of consecutive seconds of a static image that triggers an event or alert.
+	ThresholdSeconds *int `pulumi:"thresholdSeconds"`
+}
+
+// FlowFrozenFramesInput is an input type that accepts FlowFrozenFramesArgs and FlowFrozenFramesOutput values.
+// You can construct a concrete instance of `FlowFrozenFramesInput` via:
+//
+//	FlowFrozenFramesArgs{...}
+type FlowFrozenFramesInput interface {
+	pulumi.Input
+
+	ToFlowFrozenFramesOutput() FlowFrozenFramesOutput
+	ToFlowFrozenFramesOutputWithContext(context.Context) FlowFrozenFramesOutput
+}
+
+// Configures settings for the FrozenFrames metric.
+type FlowFrozenFramesArgs struct {
+	// Indicates whether the FrozenFrames metric is enabled or disabled.
+	State FlowFrozenFramesStatePtrInput `pulumi:"state"`
+	// Specifies the number of consecutive seconds of a static image that triggers an event or alert.
+	ThresholdSeconds pulumi.IntPtrInput `pulumi:"thresholdSeconds"`
+}
+
+func (FlowFrozenFramesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFrozenFrames)(nil)).Elem()
+}
+
+func (i FlowFrozenFramesArgs) ToFlowFrozenFramesOutput() FlowFrozenFramesOutput {
+	return i.ToFlowFrozenFramesOutputWithContext(context.Background())
+}
+
+func (i FlowFrozenFramesArgs) ToFlowFrozenFramesOutputWithContext(ctx context.Context) FlowFrozenFramesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowFrozenFramesOutput)
+}
+
+func (i FlowFrozenFramesArgs) ToFlowFrozenFramesPtrOutput() FlowFrozenFramesPtrOutput {
+	return i.ToFlowFrozenFramesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowFrozenFramesArgs) ToFlowFrozenFramesPtrOutputWithContext(ctx context.Context) FlowFrozenFramesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowFrozenFramesOutput).ToFlowFrozenFramesPtrOutputWithContext(ctx)
+}
+
+// FlowFrozenFramesPtrInput is an input type that accepts FlowFrozenFramesArgs, FlowFrozenFramesPtr and FlowFrozenFramesPtrOutput values.
+// You can construct a concrete instance of `FlowFrozenFramesPtrInput` via:
+//
+//	        FlowFrozenFramesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowFrozenFramesPtrInput interface {
+	pulumi.Input
+
+	ToFlowFrozenFramesPtrOutput() FlowFrozenFramesPtrOutput
+	ToFlowFrozenFramesPtrOutputWithContext(context.Context) FlowFrozenFramesPtrOutput
+}
+
+type flowFrozenFramesPtrType FlowFrozenFramesArgs
+
+func FlowFrozenFramesPtr(v *FlowFrozenFramesArgs) FlowFrozenFramesPtrInput {
+	return (*flowFrozenFramesPtrType)(v)
+}
+
+func (*flowFrozenFramesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowFrozenFrames)(nil)).Elem()
+}
+
+func (i *flowFrozenFramesPtrType) ToFlowFrozenFramesPtrOutput() FlowFrozenFramesPtrOutput {
+	return i.ToFlowFrozenFramesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowFrozenFramesPtrType) ToFlowFrozenFramesPtrOutputWithContext(ctx context.Context) FlowFrozenFramesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowFrozenFramesPtrOutput)
+}
+
+// Configures settings for the FrozenFrames metric.
+type FlowFrozenFramesOutput struct{ *pulumi.OutputState }
+
+func (FlowFrozenFramesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFrozenFrames)(nil)).Elem()
+}
+
+func (o FlowFrozenFramesOutput) ToFlowFrozenFramesOutput() FlowFrozenFramesOutput {
+	return o
+}
+
+func (o FlowFrozenFramesOutput) ToFlowFrozenFramesOutputWithContext(ctx context.Context) FlowFrozenFramesOutput {
+	return o
+}
+
+func (o FlowFrozenFramesOutput) ToFlowFrozenFramesPtrOutput() FlowFrozenFramesPtrOutput {
+	return o.ToFlowFrozenFramesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowFrozenFramesOutput) ToFlowFrozenFramesPtrOutputWithContext(ctx context.Context) FlowFrozenFramesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowFrozenFrames) *FlowFrozenFrames {
+		return &v
+	}).(FlowFrozenFramesPtrOutput)
+}
+
+// Indicates whether the FrozenFrames metric is enabled or disabled.
+func (o FlowFrozenFramesOutput) State() FlowFrozenFramesStatePtrOutput {
+	return o.ApplyT(func(v FlowFrozenFrames) *FlowFrozenFramesState { return v.State }).(FlowFrozenFramesStatePtrOutput)
+}
+
+// Specifies the number of consecutive seconds of a static image that triggers an event or alert.
+func (o FlowFrozenFramesOutput) ThresholdSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowFrozenFrames) *int { return v.ThresholdSeconds }).(pulumi.IntPtrOutput)
+}
+
+type FlowFrozenFramesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowFrozenFramesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowFrozenFrames)(nil)).Elem()
+}
+
+func (o FlowFrozenFramesPtrOutput) ToFlowFrozenFramesPtrOutput() FlowFrozenFramesPtrOutput {
+	return o
+}
+
+func (o FlowFrozenFramesPtrOutput) ToFlowFrozenFramesPtrOutputWithContext(ctx context.Context) FlowFrozenFramesPtrOutput {
+	return o
+}
+
+func (o FlowFrozenFramesPtrOutput) Elem() FlowFrozenFramesOutput {
+	return o.ApplyT(func(v *FlowFrozenFrames) FlowFrozenFrames {
+		if v != nil {
+			return *v
+		}
+		var ret FlowFrozenFrames
+		return ret
+	}).(FlowFrozenFramesOutput)
+}
+
+// Indicates whether the FrozenFrames metric is enabled or disabled.
+func (o FlowFrozenFramesPtrOutput) State() FlowFrozenFramesStatePtrOutput {
+	return o.ApplyT(func(v *FlowFrozenFrames) *FlowFrozenFramesState {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(FlowFrozenFramesStatePtrOutput)
+}
+
+// Specifies the number of consecutive seconds of a static image that triggers an event or alert.
+func (o FlowFrozenFramesPtrOutput) ThresholdSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowFrozenFrames) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // The source configuration for cloud flows receiving a stream from a bridge.
@@ -5490,6 +5908,165 @@ func (o FlowOutputVpcInterfaceAttachmentPtrOutput) VpcInterfaceName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configures settings for the SilentAudio metric.
+type FlowSilentAudio struct {
+	// Indicates whether the SilentAudio metric is enabled or disabled.
+	State *FlowSilentAudioState `pulumi:"state"`
+	// Specifies the number of consecutive seconds of silence that triggers an event or alert.
+	ThresholdSeconds *int `pulumi:"thresholdSeconds"`
+}
+
+// FlowSilentAudioInput is an input type that accepts FlowSilentAudioArgs and FlowSilentAudioOutput values.
+// You can construct a concrete instance of `FlowSilentAudioInput` via:
+//
+//	FlowSilentAudioArgs{...}
+type FlowSilentAudioInput interface {
+	pulumi.Input
+
+	ToFlowSilentAudioOutput() FlowSilentAudioOutput
+	ToFlowSilentAudioOutputWithContext(context.Context) FlowSilentAudioOutput
+}
+
+// Configures settings for the SilentAudio metric.
+type FlowSilentAudioArgs struct {
+	// Indicates whether the SilentAudio metric is enabled or disabled.
+	State FlowSilentAudioStatePtrInput `pulumi:"state"`
+	// Specifies the number of consecutive seconds of silence that triggers an event or alert.
+	ThresholdSeconds pulumi.IntPtrInput `pulumi:"thresholdSeconds"`
+}
+
+func (FlowSilentAudioArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSilentAudio)(nil)).Elem()
+}
+
+func (i FlowSilentAudioArgs) ToFlowSilentAudioOutput() FlowSilentAudioOutput {
+	return i.ToFlowSilentAudioOutputWithContext(context.Background())
+}
+
+func (i FlowSilentAudioArgs) ToFlowSilentAudioOutputWithContext(ctx context.Context) FlowSilentAudioOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSilentAudioOutput)
+}
+
+func (i FlowSilentAudioArgs) ToFlowSilentAudioPtrOutput() FlowSilentAudioPtrOutput {
+	return i.ToFlowSilentAudioPtrOutputWithContext(context.Background())
+}
+
+func (i FlowSilentAudioArgs) ToFlowSilentAudioPtrOutputWithContext(ctx context.Context) FlowSilentAudioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSilentAudioOutput).ToFlowSilentAudioPtrOutputWithContext(ctx)
+}
+
+// FlowSilentAudioPtrInput is an input type that accepts FlowSilentAudioArgs, FlowSilentAudioPtr and FlowSilentAudioPtrOutput values.
+// You can construct a concrete instance of `FlowSilentAudioPtrInput` via:
+//
+//	        FlowSilentAudioArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowSilentAudioPtrInput interface {
+	pulumi.Input
+
+	ToFlowSilentAudioPtrOutput() FlowSilentAudioPtrOutput
+	ToFlowSilentAudioPtrOutputWithContext(context.Context) FlowSilentAudioPtrOutput
+}
+
+type flowSilentAudioPtrType FlowSilentAudioArgs
+
+func FlowSilentAudioPtr(v *FlowSilentAudioArgs) FlowSilentAudioPtrInput {
+	return (*flowSilentAudioPtrType)(v)
+}
+
+func (*flowSilentAudioPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSilentAudio)(nil)).Elem()
+}
+
+func (i *flowSilentAudioPtrType) ToFlowSilentAudioPtrOutput() FlowSilentAudioPtrOutput {
+	return i.ToFlowSilentAudioPtrOutputWithContext(context.Background())
+}
+
+func (i *flowSilentAudioPtrType) ToFlowSilentAudioPtrOutputWithContext(ctx context.Context) FlowSilentAudioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSilentAudioPtrOutput)
+}
+
+// Configures settings for the SilentAudio metric.
+type FlowSilentAudioOutput struct{ *pulumi.OutputState }
+
+func (FlowSilentAudioOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSilentAudio)(nil)).Elem()
+}
+
+func (o FlowSilentAudioOutput) ToFlowSilentAudioOutput() FlowSilentAudioOutput {
+	return o
+}
+
+func (o FlowSilentAudioOutput) ToFlowSilentAudioOutputWithContext(ctx context.Context) FlowSilentAudioOutput {
+	return o
+}
+
+func (o FlowSilentAudioOutput) ToFlowSilentAudioPtrOutput() FlowSilentAudioPtrOutput {
+	return o.ToFlowSilentAudioPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSilentAudioOutput) ToFlowSilentAudioPtrOutputWithContext(ctx context.Context) FlowSilentAudioPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSilentAudio) *FlowSilentAudio {
+		return &v
+	}).(FlowSilentAudioPtrOutput)
+}
+
+// Indicates whether the SilentAudio metric is enabled or disabled.
+func (o FlowSilentAudioOutput) State() FlowSilentAudioStatePtrOutput {
+	return o.ApplyT(func(v FlowSilentAudio) *FlowSilentAudioState { return v.State }).(FlowSilentAudioStatePtrOutput)
+}
+
+// Specifies the number of consecutive seconds of silence that triggers an event or alert.
+func (o FlowSilentAudioOutput) ThresholdSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowSilentAudio) *int { return v.ThresholdSeconds }).(pulumi.IntPtrOutput)
+}
+
+type FlowSilentAudioPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSilentAudioPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSilentAudio)(nil)).Elem()
+}
+
+func (o FlowSilentAudioPtrOutput) ToFlowSilentAudioPtrOutput() FlowSilentAudioPtrOutput {
+	return o
+}
+
+func (o FlowSilentAudioPtrOutput) ToFlowSilentAudioPtrOutputWithContext(ctx context.Context) FlowSilentAudioPtrOutput {
+	return o
+}
+
+func (o FlowSilentAudioPtrOutput) Elem() FlowSilentAudioOutput {
+	return o.ApplyT(func(v *FlowSilentAudio) FlowSilentAudio {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSilentAudio
+		return ret
+	}).(FlowSilentAudioOutput)
+}
+
+// Indicates whether the SilentAudio metric is enabled or disabled.
+func (o FlowSilentAudioPtrOutput) State() FlowSilentAudioStatePtrOutput {
+	return o.ApplyT(func(v *FlowSilentAudio) *FlowSilentAudioState {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(FlowSilentAudioStatePtrOutput)
+}
+
+// Specifies the number of consecutive seconds of silence that triggers an event or alert.
+func (o FlowSilentAudioPtrOutput) ThresholdSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowSilentAudio) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 // The settings for the source of the flow.
 type FlowSourceType struct {
 	// The type of decryption that is used on the content ingested from this source.
@@ -6433,8 +7010,14 @@ func (o FlowSourceGatewayBridgeSourcePtrOutput) VpcInterfaceAttachment() FlowSou
 
 // The settings for source monitoring.
 type FlowSourceMonitoringConfig struct {
+	// Contains the settings for audio stream metrics monitoring.
+	AudioMonitoringSettings []FlowAudioMonitoringSetting `pulumi:"audioMonitoringSettings"`
+	// Indicates whether content quality analysis is enabled or disabled.
+	ContentQualityAnalysisState *FlowSourceMonitoringConfigContentQualityAnalysisState `pulumi:"contentQualityAnalysisState"`
 	// The state of thumbnail monitoring.
-	ThumbnailState FlowSourceMonitoringConfigThumbnailState `pulumi:"thumbnailState"`
+	ThumbnailState *FlowSourceMonitoringConfigThumbnailState `pulumi:"thumbnailState"`
+	// Contains the settings for video stream metrics monitoring.
+	VideoMonitoringSettings []FlowVideoMonitoringSetting `pulumi:"videoMonitoringSettings"`
 }
 
 // FlowSourceMonitoringConfigInput is an input type that accepts FlowSourceMonitoringConfigArgs and FlowSourceMonitoringConfigOutput values.
@@ -6450,8 +7033,14 @@ type FlowSourceMonitoringConfigInput interface {
 
 // The settings for source monitoring.
 type FlowSourceMonitoringConfigArgs struct {
+	// Contains the settings for audio stream metrics monitoring.
+	AudioMonitoringSettings FlowAudioMonitoringSettingArrayInput `pulumi:"audioMonitoringSettings"`
+	// Indicates whether content quality analysis is enabled or disabled.
+	ContentQualityAnalysisState FlowSourceMonitoringConfigContentQualityAnalysisStatePtrInput `pulumi:"contentQualityAnalysisState"`
 	// The state of thumbnail monitoring.
-	ThumbnailState FlowSourceMonitoringConfigThumbnailStateInput `pulumi:"thumbnailState"`
+	ThumbnailState FlowSourceMonitoringConfigThumbnailStatePtrInput `pulumi:"thumbnailState"`
+	// Contains the settings for video stream metrics monitoring.
+	VideoMonitoringSettings FlowVideoMonitoringSettingArrayInput `pulumi:"videoMonitoringSettings"`
 }
 
 func (FlowSourceMonitoringConfigArgs) ElementType() reflect.Type {
@@ -6532,9 +7121,26 @@ func (o FlowSourceMonitoringConfigOutput) ToFlowSourceMonitoringConfigPtrOutputW
 	}).(FlowSourceMonitoringConfigPtrOutput)
 }
 
+// Contains the settings for audio stream metrics monitoring.
+func (o FlowSourceMonitoringConfigOutput) AudioMonitoringSettings() FlowAudioMonitoringSettingArrayOutput {
+	return o.ApplyT(func(v FlowSourceMonitoringConfig) []FlowAudioMonitoringSetting { return v.AudioMonitoringSettings }).(FlowAudioMonitoringSettingArrayOutput)
+}
+
+// Indicates whether content quality analysis is enabled or disabled.
+func (o FlowSourceMonitoringConfigOutput) ContentQualityAnalysisState() FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput {
+	return o.ApplyT(func(v FlowSourceMonitoringConfig) *FlowSourceMonitoringConfigContentQualityAnalysisState {
+		return v.ContentQualityAnalysisState
+	}).(FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput)
+}
+
 // The state of thumbnail monitoring.
-func (o FlowSourceMonitoringConfigOutput) ThumbnailState() FlowSourceMonitoringConfigThumbnailStateOutput {
-	return o.ApplyT(func(v FlowSourceMonitoringConfig) FlowSourceMonitoringConfigThumbnailState { return v.ThumbnailState }).(FlowSourceMonitoringConfigThumbnailStateOutput)
+func (o FlowSourceMonitoringConfigOutput) ThumbnailState() FlowSourceMonitoringConfigThumbnailStatePtrOutput {
+	return o.ApplyT(func(v FlowSourceMonitoringConfig) *FlowSourceMonitoringConfigThumbnailState { return v.ThumbnailState }).(FlowSourceMonitoringConfigThumbnailStatePtrOutput)
+}
+
+// Contains the settings for video stream metrics monitoring.
+func (o FlowSourceMonitoringConfigOutput) VideoMonitoringSettings() FlowVideoMonitoringSettingArrayOutput {
+	return o.ApplyT(func(v FlowSourceMonitoringConfig) []FlowVideoMonitoringSetting { return v.VideoMonitoringSettings }).(FlowVideoMonitoringSettingArrayOutput)
 }
 
 type FlowSourceMonitoringConfigPtrOutput struct{ *pulumi.OutputState }
@@ -6561,14 +7167,44 @@ func (o FlowSourceMonitoringConfigPtrOutput) Elem() FlowSourceMonitoringConfigOu
 	}).(FlowSourceMonitoringConfigOutput)
 }
 
+// Contains the settings for audio stream metrics monitoring.
+func (o FlowSourceMonitoringConfigPtrOutput) AudioMonitoringSettings() FlowAudioMonitoringSettingArrayOutput {
+	return o.ApplyT(func(v *FlowSourceMonitoringConfig) []FlowAudioMonitoringSetting {
+		if v == nil {
+			return nil
+		}
+		return v.AudioMonitoringSettings
+	}).(FlowAudioMonitoringSettingArrayOutput)
+}
+
+// Indicates whether content quality analysis is enabled or disabled.
+func (o FlowSourceMonitoringConfigPtrOutput) ContentQualityAnalysisState() FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput {
+	return o.ApplyT(func(v *FlowSourceMonitoringConfig) *FlowSourceMonitoringConfigContentQualityAnalysisState {
+		if v == nil {
+			return nil
+		}
+		return v.ContentQualityAnalysisState
+	}).(FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput)
+}
+
 // The state of thumbnail monitoring.
 func (o FlowSourceMonitoringConfigPtrOutput) ThumbnailState() FlowSourceMonitoringConfigThumbnailStatePtrOutput {
 	return o.ApplyT(func(v *FlowSourceMonitoringConfig) *FlowSourceMonitoringConfigThumbnailState {
 		if v == nil {
 			return nil
 		}
-		return &v.ThumbnailState
+		return v.ThumbnailState
 	}).(FlowSourceMonitoringConfigThumbnailStatePtrOutput)
+}
+
+// Contains the settings for video stream metrics monitoring.
+func (o FlowSourceMonitoringConfigPtrOutput) VideoMonitoringSettings() FlowVideoMonitoringSettingArrayOutput {
+	return o.ApplyT(func(v *FlowSourceMonitoringConfig) []FlowVideoMonitoringSetting {
+		if v == nil {
+			return nil
+		}
+		return v.VideoMonitoringSettings
+	}).(FlowVideoMonitoringSettingArrayOutput)
 }
 
 // The settings for attaching a VPC interface to an resource.
@@ -6709,6 +7345,115 @@ func (o FlowSourceVpcInterfaceAttachmentPtrOutput) VpcInterfaceName() pulumi.Str
 		}
 		return v.VpcInterfaceName
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the configuration for video stream metrics monitoring.
+type FlowVideoMonitoringSetting struct {
+	// Detects video frames that are black.
+	BlackFrames *FlowBlackFrames `pulumi:"blackFrames"`
+	// Detects video frames that have not changed.
+	FrozenFrames *FlowFrozenFrames `pulumi:"frozenFrames"`
+}
+
+// FlowVideoMonitoringSettingInput is an input type that accepts FlowVideoMonitoringSettingArgs and FlowVideoMonitoringSettingOutput values.
+// You can construct a concrete instance of `FlowVideoMonitoringSettingInput` via:
+//
+//	FlowVideoMonitoringSettingArgs{...}
+type FlowVideoMonitoringSettingInput interface {
+	pulumi.Input
+
+	ToFlowVideoMonitoringSettingOutput() FlowVideoMonitoringSettingOutput
+	ToFlowVideoMonitoringSettingOutputWithContext(context.Context) FlowVideoMonitoringSettingOutput
+}
+
+// Specifies the configuration for video stream metrics monitoring.
+type FlowVideoMonitoringSettingArgs struct {
+	// Detects video frames that are black.
+	BlackFrames FlowBlackFramesPtrInput `pulumi:"blackFrames"`
+	// Detects video frames that have not changed.
+	FrozenFrames FlowFrozenFramesPtrInput `pulumi:"frozenFrames"`
+}
+
+func (FlowVideoMonitoringSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVideoMonitoringSetting)(nil)).Elem()
+}
+
+func (i FlowVideoMonitoringSettingArgs) ToFlowVideoMonitoringSettingOutput() FlowVideoMonitoringSettingOutput {
+	return i.ToFlowVideoMonitoringSettingOutputWithContext(context.Background())
+}
+
+func (i FlowVideoMonitoringSettingArgs) ToFlowVideoMonitoringSettingOutputWithContext(ctx context.Context) FlowVideoMonitoringSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowVideoMonitoringSettingOutput)
+}
+
+// FlowVideoMonitoringSettingArrayInput is an input type that accepts FlowVideoMonitoringSettingArray and FlowVideoMonitoringSettingArrayOutput values.
+// You can construct a concrete instance of `FlowVideoMonitoringSettingArrayInput` via:
+//
+//	FlowVideoMonitoringSettingArray{ FlowVideoMonitoringSettingArgs{...} }
+type FlowVideoMonitoringSettingArrayInput interface {
+	pulumi.Input
+
+	ToFlowVideoMonitoringSettingArrayOutput() FlowVideoMonitoringSettingArrayOutput
+	ToFlowVideoMonitoringSettingArrayOutputWithContext(context.Context) FlowVideoMonitoringSettingArrayOutput
+}
+
+type FlowVideoMonitoringSettingArray []FlowVideoMonitoringSettingInput
+
+func (FlowVideoMonitoringSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowVideoMonitoringSetting)(nil)).Elem()
+}
+
+func (i FlowVideoMonitoringSettingArray) ToFlowVideoMonitoringSettingArrayOutput() FlowVideoMonitoringSettingArrayOutput {
+	return i.ToFlowVideoMonitoringSettingArrayOutputWithContext(context.Background())
+}
+
+func (i FlowVideoMonitoringSettingArray) ToFlowVideoMonitoringSettingArrayOutputWithContext(ctx context.Context) FlowVideoMonitoringSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowVideoMonitoringSettingArrayOutput)
+}
+
+// Specifies the configuration for video stream metrics monitoring.
+type FlowVideoMonitoringSettingOutput struct{ *pulumi.OutputState }
+
+func (FlowVideoMonitoringSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVideoMonitoringSetting)(nil)).Elem()
+}
+
+func (o FlowVideoMonitoringSettingOutput) ToFlowVideoMonitoringSettingOutput() FlowVideoMonitoringSettingOutput {
+	return o
+}
+
+func (o FlowVideoMonitoringSettingOutput) ToFlowVideoMonitoringSettingOutputWithContext(ctx context.Context) FlowVideoMonitoringSettingOutput {
+	return o
+}
+
+// Detects video frames that are black.
+func (o FlowVideoMonitoringSettingOutput) BlackFrames() FlowBlackFramesPtrOutput {
+	return o.ApplyT(func(v FlowVideoMonitoringSetting) *FlowBlackFrames { return v.BlackFrames }).(FlowBlackFramesPtrOutput)
+}
+
+// Detects video frames that have not changed.
+func (o FlowVideoMonitoringSettingOutput) FrozenFrames() FlowFrozenFramesPtrOutput {
+	return o.ApplyT(func(v FlowVideoMonitoringSetting) *FlowFrozenFrames { return v.FrozenFrames }).(FlowFrozenFramesPtrOutput)
+}
+
+type FlowVideoMonitoringSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowVideoMonitoringSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowVideoMonitoringSetting)(nil)).Elem()
+}
+
+func (o FlowVideoMonitoringSettingArrayOutput) ToFlowVideoMonitoringSettingArrayOutput() FlowVideoMonitoringSettingArrayOutput {
+	return o
+}
+
+func (o FlowVideoMonitoringSettingArrayOutput) ToFlowVideoMonitoringSettingArrayOutputWithContext(ctx context.Context) FlowVideoMonitoringSettingArrayOutput {
+	return o
+}
+
+func (o FlowVideoMonitoringSettingArrayOutput) Index(i pulumi.IntInput) FlowVideoMonitoringSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowVideoMonitoringSetting {
+		return vs[0].([]FlowVideoMonitoringSetting)[vs[1].(int)]
+	}).(FlowVideoMonitoringSettingOutput)
 }
 
 // The details of a VPC interface.
@@ -7137,6 +7882,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceVpcInterfaceAttachmentPtrInput)(nil)).Elem(), BridgeSourceVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeVpcInterfaceAttachmentInput)(nil)).Elem(), BridgeVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeVpcInterfaceAttachmentPtrInput)(nil)).Elem(), BridgeVpcInterfaceAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowAudioMonitoringSettingInput)(nil)).Elem(), FlowAudioMonitoringSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowAudioMonitoringSettingArrayInput)(nil)).Elem(), FlowAudioMonitoringSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowBlackFramesInput)(nil)).Elem(), FlowBlackFramesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowBlackFramesPtrInput)(nil)).Elem(), FlowBlackFramesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncryptionInput)(nil)).Elem(), FlowEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncryptionPtrInput)(nil)).Elem(), FlowEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEntitlementEncryptionInput)(nil)).Elem(), FlowEntitlementEncryptionArgs{})
@@ -7147,6 +7896,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigSourcePriorityPropertiesPtrInput)(nil)).Elem(), FlowFailoverConfigSourcePriorityPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFmtpInput)(nil)).Elem(), FlowFmtpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFmtpPtrInput)(nil)).Elem(), FlowFmtpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFrozenFramesInput)(nil)).Elem(), FlowFrozenFramesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFrozenFramesPtrInput)(nil)).Elem(), FlowFrozenFramesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowGatewayBridgeSourceInput)(nil)).Elem(), FlowGatewayBridgeSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowGatewayBridgeSourcePtrInput)(nil)).Elem(), FlowGatewayBridgeSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowInputConfigurationInput)(nil)).Elem(), FlowInputConfigurationArgs{})
@@ -7171,6 +7922,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputMediaStreamOutputConfigurationArrayInput)(nil)).Elem(), FlowOutputMediaStreamOutputConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputVpcInterfaceAttachmentInput)(nil)).Elem(), FlowOutputVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputVpcInterfaceAttachmentPtrInput)(nil)).Elem(), FlowOutputVpcInterfaceAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSilentAudioInput)(nil)).Elem(), FlowSilentAudioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSilentAudioPtrInput)(nil)).Elem(), FlowSilentAudioArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceTypeInput)(nil)).Elem(), FlowSourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionInput)(nil)).Elem(), FlowSourceEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionPtrInput)(nil)).Elem(), FlowSourceEncryptionArgs{})
@@ -7180,6 +7933,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceMonitoringConfigPtrInput)(nil)).Elem(), FlowSourceMonitoringConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceVpcInterfaceAttachmentInput)(nil)).Elem(), FlowSourceVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceVpcInterfaceAttachmentPtrInput)(nil)).Elem(), FlowSourceVpcInterfaceAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowVideoMonitoringSettingInput)(nil)).Elem(), FlowVideoMonitoringSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowVideoMonitoringSettingArrayInput)(nil)).Elem(), FlowVideoMonitoringSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowVpcInterfaceTypeInput)(nil)).Elem(), FlowVpcInterfaceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowVpcInterfaceTypeArrayInput)(nil)).Elem(), FlowVpcInterfaceTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowVpcInterfaceAttachmentInput)(nil)).Elem(), FlowVpcInterfaceAttachmentArgs{})
@@ -7218,6 +7973,10 @@ func init() {
 	pulumi.RegisterOutputType(BridgeSourceVpcInterfaceAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(BridgeVpcInterfaceAttachmentOutput{})
 	pulumi.RegisterOutputType(BridgeVpcInterfaceAttachmentPtrOutput{})
+	pulumi.RegisterOutputType(FlowAudioMonitoringSettingOutput{})
+	pulumi.RegisterOutputType(FlowAudioMonitoringSettingArrayOutput{})
+	pulumi.RegisterOutputType(FlowBlackFramesOutput{})
+	pulumi.RegisterOutputType(FlowBlackFramesPtrOutput{})
 	pulumi.RegisterOutputType(FlowEncryptionOutput{})
 	pulumi.RegisterOutputType(FlowEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(FlowEntitlementEncryptionOutput{})
@@ -7228,6 +7987,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowFailoverConfigSourcePriorityPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowFmtpOutput{})
 	pulumi.RegisterOutputType(FlowFmtpPtrOutput{})
+	pulumi.RegisterOutputType(FlowFrozenFramesOutput{})
+	pulumi.RegisterOutputType(FlowFrozenFramesPtrOutput{})
 	pulumi.RegisterOutputType(FlowGatewayBridgeSourceOutput{})
 	pulumi.RegisterOutputType(FlowGatewayBridgeSourcePtrOutput{})
 	pulumi.RegisterOutputType(FlowInputConfigurationOutput{})
@@ -7252,6 +8013,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowOutputMediaStreamOutputConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(FlowOutputVpcInterfaceAttachmentOutput{})
 	pulumi.RegisterOutputType(FlowOutputVpcInterfaceAttachmentPtrOutput{})
+	pulumi.RegisterOutputType(FlowSilentAudioOutput{})
+	pulumi.RegisterOutputType(FlowSilentAudioPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceTypeOutput{})
 	pulumi.RegisterOutputType(FlowSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionOutput{})
@@ -7262,6 +8025,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowSourceMonitoringConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceVpcInterfaceAttachmentOutput{})
 	pulumi.RegisterOutputType(FlowSourceVpcInterfaceAttachmentPtrOutput{})
+	pulumi.RegisterOutputType(FlowVideoMonitoringSettingOutput{})
+	pulumi.RegisterOutputType(FlowVideoMonitoringSettingArrayOutput{})
 	pulumi.RegisterOutputType(FlowVpcInterfaceTypeOutput{})
 	pulumi.RegisterOutputType(FlowVpcInterfaceTypeArrayOutput{})
 	pulumi.RegisterOutputType(FlowVpcInterfaceAttachmentOutput{})

@@ -939,6 +939,172 @@ func (o BridgeStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the BlackFrames metric is enabled or disabled.
+type FlowBlackFramesState string
+
+const (
+	FlowBlackFramesStateEnabled  = FlowBlackFramesState("ENABLED")
+	FlowBlackFramesStateDisabled = FlowBlackFramesState("DISABLED")
+)
+
+func (FlowBlackFramesState) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowBlackFramesState)(nil)).Elem()
+}
+
+func (e FlowBlackFramesState) ToFlowBlackFramesStateOutput() FlowBlackFramesStateOutput {
+	return pulumi.ToOutput(e).(FlowBlackFramesStateOutput)
+}
+
+func (e FlowBlackFramesState) ToFlowBlackFramesStateOutputWithContext(ctx context.Context) FlowBlackFramesStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowBlackFramesStateOutput)
+}
+
+func (e FlowBlackFramesState) ToFlowBlackFramesStatePtrOutput() FlowBlackFramesStatePtrOutput {
+	return e.ToFlowBlackFramesStatePtrOutputWithContext(context.Background())
+}
+
+func (e FlowBlackFramesState) ToFlowBlackFramesStatePtrOutputWithContext(ctx context.Context) FlowBlackFramesStatePtrOutput {
+	return FlowBlackFramesState(e).ToFlowBlackFramesStateOutputWithContext(ctx).ToFlowBlackFramesStatePtrOutputWithContext(ctx)
+}
+
+func (e FlowBlackFramesState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowBlackFramesState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowBlackFramesState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowBlackFramesState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowBlackFramesStateOutput struct{ *pulumi.OutputState }
+
+func (FlowBlackFramesStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowBlackFramesState)(nil)).Elem()
+}
+
+func (o FlowBlackFramesStateOutput) ToFlowBlackFramesStateOutput() FlowBlackFramesStateOutput {
+	return o
+}
+
+func (o FlowBlackFramesStateOutput) ToFlowBlackFramesStateOutputWithContext(ctx context.Context) FlowBlackFramesStateOutput {
+	return o
+}
+
+func (o FlowBlackFramesStateOutput) ToFlowBlackFramesStatePtrOutput() FlowBlackFramesStatePtrOutput {
+	return o.ToFlowBlackFramesStatePtrOutputWithContext(context.Background())
+}
+
+func (o FlowBlackFramesStateOutput) ToFlowBlackFramesStatePtrOutputWithContext(ctx context.Context) FlowBlackFramesStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowBlackFramesState) *FlowBlackFramesState {
+		return &v
+	}).(FlowBlackFramesStatePtrOutput)
+}
+
+func (o FlowBlackFramesStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowBlackFramesStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowBlackFramesState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowBlackFramesStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowBlackFramesStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowBlackFramesState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowBlackFramesStatePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowBlackFramesStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowBlackFramesState)(nil)).Elem()
+}
+
+func (o FlowBlackFramesStatePtrOutput) ToFlowBlackFramesStatePtrOutput() FlowBlackFramesStatePtrOutput {
+	return o
+}
+
+func (o FlowBlackFramesStatePtrOutput) ToFlowBlackFramesStatePtrOutputWithContext(ctx context.Context) FlowBlackFramesStatePtrOutput {
+	return o
+}
+
+func (o FlowBlackFramesStatePtrOutput) Elem() FlowBlackFramesStateOutput {
+	return o.ApplyT(func(v *FlowBlackFramesState) FlowBlackFramesState {
+		if v != nil {
+			return *v
+		}
+		var ret FlowBlackFramesState
+		return ret
+	}).(FlowBlackFramesStateOutput)
+}
+
+func (o FlowBlackFramesStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowBlackFramesStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowBlackFramesState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowBlackFramesStateInput is an input type that accepts values of the FlowBlackFramesState enum
+// A concrete instance of `FlowBlackFramesStateInput` can be one of the following:
+//
+//	FlowBlackFramesStateEnabled
+//	FlowBlackFramesStateDisabled
+type FlowBlackFramesStateInput interface {
+	pulumi.Input
+
+	ToFlowBlackFramesStateOutput() FlowBlackFramesStateOutput
+	ToFlowBlackFramesStateOutputWithContext(context.Context) FlowBlackFramesStateOutput
+}
+
+var flowBlackFramesStatePtrType = reflect.TypeOf((**FlowBlackFramesState)(nil)).Elem()
+
+type FlowBlackFramesStatePtrInput interface {
+	pulumi.Input
+
+	ToFlowBlackFramesStatePtrOutput() FlowBlackFramesStatePtrOutput
+	ToFlowBlackFramesStatePtrOutputWithContext(context.Context) FlowBlackFramesStatePtrOutput
+}
+
+type flowBlackFramesStatePtr string
+
+func FlowBlackFramesStatePtr(v string) FlowBlackFramesStatePtrInput {
+	return (*flowBlackFramesStatePtr)(&v)
+}
+
+func (*flowBlackFramesStatePtr) ElementType() reflect.Type {
+	return flowBlackFramesStatePtrType
+}
+
+func (in *flowBlackFramesStatePtr) ToFlowBlackFramesStatePtrOutput() FlowBlackFramesStatePtrOutput {
+	return pulumi.ToOutput(in).(FlowBlackFramesStatePtrOutput)
+}
+
+func (in *flowBlackFramesStatePtr) ToFlowBlackFramesStatePtrOutputWithContext(ctx context.Context) FlowBlackFramesStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowBlackFramesStatePtrOutput)
+}
+
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
 type FlowEncryptionAlgorithm string
 
@@ -2799,6 +2965,172 @@ func (in *flowFmtpTcsPtr) ToFlowFmtpTcsPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(FlowFmtpTcsPtrOutput)
 }
 
+// Indicates whether the FrozenFrames metric is enabled or disabled.
+type FlowFrozenFramesState string
+
+const (
+	FlowFrozenFramesStateEnabled  = FlowFrozenFramesState("ENABLED")
+	FlowFrozenFramesStateDisabled = FlowFrozenFramesState("DISABLED")
+)
+
+func (FlowFrozenFramesState) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFrozenFramesState)(nil)).Elem()
+}
+
+func (e FlowFrozenFramesState) ToFlowFrozenFramesStateOutput() FlowFrozenFramesStateOutput {
+	return pulumi.ToOutput(e).(FlowFrozenFramesStateOutput)
+}
+
+func (e FlowFrozenFramesState) ToFlowFrozenFramesStateOutputWithContext(ctx context.Context) FlowFrozenFramesStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowFrozenFramesStateOutput)
+}
+
+func (e FlowFrozenFramesState) ToFlowFrozenFramesStatePtrOutput() FlowFrozenFramesStatePtrOutput {
+	return e.ToFlowFrozenFramesStatePtrOutputWithContext(context.Background())
+}
+
+func (e FlowFrozenFramesState) ToFlowFrozenFramesStatePtrOutputWithContext(ctx context.Context) FlowFrozenFramesStatePtrOutput {
+	return FlowFrozenFramesState(e).ToFlowFrozenFramesStateOutputWithContext(ctx).ToFlowFrozenFramesStatePtrOutputWithContext(ctx)
+}
+
+func (e FlowFrozenFramesState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowFrozenFramesState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowFrozenFramesState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowFrozenFramesState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowFrozenFramesStateOutput struct{ *pulumi.OutputState }
+
+func (FlowFrozenFramesStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFrozenFramesState)(nil)).Elem()
+}
+
+func (o FlowFrozenFramesStateOutput) ToFlowFrozenFramesStateOutput() FlowFrozenFramesStateOutput {
+	return o
+}
+
+func (o FlowFrozenFramesStateOutput) ToFlowFrozenFramesStateOutputWithContext(ctx context.Context) FlowFrozenFramesStateOutput {
+	return o
+}
+
+func (o FlowFrozenFramesStateOutput) ToFlowFrozenFramesStatePtrOutput() FlowFrozenFramesStatePtrOutput {
+	return o.ToFlowFrozenFramesStatePtrOutputWithContext(context.Background())
+}
+
+func (o FlowFrozenFramesStateOutput) ToFlowFrozenFramesStatePtrOutputWithContext(ctx context.Context) FlowFrozenFramesStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowFrozenFramesState) *FlowFrozenFramesState {
+		return &v
+	}).(FlowFrozenFramesStatePtrOutput)
+}
+
+func (o FlowFrozenFramesStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowFrozenFramesStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowFrozenFramesState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowFrozenFramesStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowFrozenFramesStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowFrozenFramesState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowFrozenFramesStatePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowFrozenFramesStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowFrozenFramesState)(nil)).Elem()
+}
+
+func (o FlowFrozenFramesStatePtrOutput) ToFlowFrozenFramesStatePtrOutput() FlowFrozenFramesStatePtrOutput {
+	return o
+}
+
+func (o FlowFrozenFramesStatePtrOutput) ToFlowFrozenFramesStatePtrOutputWithContext(ctx context.Context) FlowFrozenFramesStatePtrOutput {
+	return o
+}
+
+func (o FlowFrozenFramesStatePtrOutput) Elem() FlowFrozenFramesStateOutput {
+	return o.ApplyT(func(v *FlowFrozenFramesState) FlowFrozenFramesState {
+		if v != nil {
+			return *v
+		}
+		var ret FlowFrozenFramesState
+		return ret
+	}).(FlowFrozenFramesStateOutput)
+}
+
+func (o FlowFrozenFramesStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowFrozenFramesStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowFrozenFramesState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowFrozenFramesStateInput is an input type that accepts values of the FlowFrozenFramesState enum
+// A concrete instance of `FlowFrozenFramesStateInput` can be one of the following:
+//
+//	FlowFrozenFramesStateEnabled
+//	FlowFrozenFramesStateDisabled
+type FlowFrozenFramesStateInput interface {
+	pulumi.Input
+
+	ToFlowFrozenFramesStateOutput() FlowFrozenFramesStateOutput
+	ToFlowFrozenFramesStateOutputWithContext(context.Context) FlowFrozenFramesStateOutput
+}
+
+var flowFrozenFramesStatePtrType = reflect.TypeOf((**FlowFrozenFramesState)(nil)).Elem()
+
+type FlowFrozenFramesStatePtrInput interface {
+	pulumi.Input
+
+	ToFlowFrozenFramesStatePtrOutput() FlowFrozenFramesStatePtrOutput
+	ToFlowFrozenFramesStatePtrOutputWithContext(context.Context) FlowFrozenFramesStatePtrOutput
+}
+
+type flowFrozenFramesStatePtr string
+
+func FlowFrozenFramesStatePtr(v string) FlowFrozenFramesStatePtrInput {
+	return (*flowFrozenFramesStatePtr)(&v)
+}
+
+func (*flowFrozenFramesStatePtr) ElementType() reflect.Type {
+	return flowFrozenFramesStatePtrType
+}
+
+func (in *flowFrozenFramesStatePtr) ToFlowFrozenFramesStatePtrOutput() FlowFrozenFramesStatePtrOutput {
+	return pulumi.ToOutput(in).(FlowFrozenFramesStatePtrOutput)
+}
+
+func (in *flowFrozenFramesStatePtr) ToFlowFrozenFramesStatePtrOutputWithContext(ctx context.Context) FlowFrozenFramesStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowFrozenFramesStatePtrOutput)
+}
+
 // A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
 type FlowMaintenanceMaintenanceDay string
 
@@ -4503,6 +4835,172 @@ func (in *flowOutputProtocolPtr) ToFlowOutputProtocolPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(FlowOutputProtocolPtrOutput)
 }
 
+// Indicates whether the SilentAudio metric is enabled or disabled.
+type FlowSilentAudioState string
+
+const (
+	FlowSilentAudioStateEnabled  = FlowSilentAudioState("ENABLED")
+	FlowSilentAudioStateDisabled = FlowSilentAudioState("DISABLED")
+)
+
+func (FlowSilentAudioState) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSilentAudioState)(nil)).Elem()
+}
+
+func (e FlowSilentAudioState) ToFlowSilentAudioStateOutput() FlowSilentAudioStateOutput {
+	return pulumi.ToOutput(e).(FlowSilentAudioStateOutput)
+}
+
+func (e FlowSilentAudioState) ToFlowSilentAudioStateOutputWithContext(ctx context.Context) FlowSilentAudioStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowSilentAudioStateOutput)
+}
+
+func (e FlowSilentAudioState) ToFlowSilentAudioStatePtrOutput() FlowSilentAudioStatePtrOutput {
+	return e.ToFlowSilentAudioStatePtrOutputWithContext(context.Background())
+}
+
+func (e FlowSilentAudioState) ToFlowSilentAudioStatePtrOutputWithContext(ctx context.Context) FlowSilentAudioStatePtrOutput {
+	return FlowSilentAudioState(e).ToFlowSilentAudioStateOutputWithContext(ctx).ToFlowSilentAudioStatePtrOutputWithContext(ctx)
+}
+
+func (e FlowSilentAudioState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowSilentAudioState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowSilentAudioState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowSilentAudioState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowSilentAudioStateOutput struct{ *pulumi.OutputState }
+
+func (FlowSilentAudioStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSilentAudioState)(nil)).Elem()
+}
+
+func (o FlowSilentAudioStateOutput) ToFlowSilentAudioStateOutput() FlowSilentAudioStateOutput {
+	return o
+}
+
+func (o FlowSilentAudioStateOutput) ToFlowSilentAudioStateOutputWithContext(ctx context.Context) FlowSilentAudioStateOutput {
+	return o
+}
+
+func (o FlowSilentAudioStateOutput) ToFlowSilentAudioStatePtrOutput() FlowSilentAudioStatePtrOutput {
+	return o.ToFlowSilentAudioStatePtrOutputWithContext(context.Background())
+}
+
+func (o FlowSilentAudioStateOutput) ToFlowSilentAudioStatePtrOutputWithContext(ctx context.Context) FlowSilentAudioStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSilentAudioState) *FlowSilentAudioState {
+		return &v
+	}).(FlowSilentAudioStatePtrOutput)
+}
+
+func (o FlowSilentAudioStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowSilentAudioStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowSilentAudioState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowSilentAudioStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSilentAudioStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowSilentAudioState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowSilentAudioStatePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSilentAudioStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSilentAudioState)(nil)).Elem()
+}
+
+func (o FlowSilentAudioStatePtrOutput) ToFlowSilentAudioStatePtrOutput() FlowSilentAudioStatePtrOutput {
+	return o
+}
+
+func (o FlowSilentAudioStatePtrOutput) ToFlowSilentAudioStatePtrOutputWithContext(ctx context.Context) FlowSilentAudioStatePtrOutput {
+	return o
+}
+
+func (o FlowSilentAudioStatePtrOutput) Elem() FlowSilentAudioStateOutput {
+	return o.ApplyT(func(v *FlowSilentAudioState) FlowSilentAudioState {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSilentAudioState
+		return ret
+	}).(FlowSilentAudioStateOutput)
+}
+
+func (o FlowSilentAudioStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSilentAudioStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowSilentAudioState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowSilentAudioStateInput is an input type that accepts values of the FlowSilentAudioState enum
+// A concrete instance of `FlowSilentAudioStateInput` can be one of the following:
+//
+//	FlowSilentAudioStateEnabled
+//	FlowSilentAudioStateDisabled
+type FlowSilentAudioStateInput interface {
+	pulumi.Input
+
+	ToFlowSilentAudioStateOutput() FlowSilentAudioStateOutput
+	ToFlowSilentAudioStateOutputWithContext(context.Context) FlowSilentAudioStateOutput
+}
+
+var flowSilentAudioStatePtrType = reflect.TypeOf((**FlowSilentAudioState)(nil)).Elem()
+
+type FlowSilentAudioStatePtrInput interface {
+	pulumi.Input
+
+	ToFlowSilentAudioStatePtrOutput() FlowSilentAudioStatePtrOutput
+	ToFlowSilentAudioStatePtrOutputWithContext(context.Context) FlowSilentAudioStatePtrOutput
+}
+
+type flowSilentAudioStatePtr string
+
+func FlowSilentAudioStatePtr(v string) FlowSilentAudioStatePtrInput {
+	return (*flowSilentAudioStatePtr)(&v)
+}
+
+func (*flowSilentAudioStatePtr) ElementType() reflect.Type {
+	return flowSilentAudioStatePtrType
+}
+
+func (in *flowSilentAudioStatePtr) ToFlowSilentAudioStatePtrOutput() FlowSilentAudioStatePtrOutput {
+	return pulumi.ToOutput(in).(FlowSilentAudioStatePtrOutput)
+}
+
+func (in *flowSilentAudioStatePtr) ToFlowSilentAudioStatePtrOutputWithContext(ctx context.Context) FlowSilentAudioStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowSilentAudioStatePtrOutput)
+}
+
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
 type FlowSourceEncryptionAlgorithm string
 
@@ -4837,6 +5335,172 @@ func (in *flowSourceEncryptionKeyTypePtr) ToFlowSourceEncryptionKeyTypePtrOutput
 
 func (in *flowSourceEncryptionKeyTypePtr) ToFlowSourceEncryptionKeyTypePtrOutputWithContext(ctx context.Context) FlowSourceEncryptionKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSourceEncryptionKeyTypePtrOutput)
+}
+
+// Indicates whether content quality analysis is enabled or disabled.
+type FlowSourceMonitoringConfigContentQualityAnalysisState string
+
+const (
+	FlowSourceMonitoringConfigContentQualityAnalysisStateEnabled  = FlowSourceMonitoringConfigContentQualityAnalysisState("ENABLED")
+	FlowSourceMonitoringConfigContentQualityAnalysisStateDisabled = FlowSourceMonitoringConfigContentQualityAnalysisState("DISABLED")
+)
+
+func (FlowSourceMonitoringConfigContentQualityAnalysisState) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceMonitoringConfigContentQualityAnalysisState)(nil)).Elem()
+}
+
+func (e FlowSourceMonitoringConfigContentQualityAnalysisState) ToFlowSourceMonitoringConfigContentQualityAnalysisStateOutput() FlowSourceMonitoringConfigContentQualityAnalysisStateOutput {
+	return pulumi.ToOutput(e).(FlowSourceMonitoringConfigContentQualityAnalysisStateOutput)
+}
+
+func (e FlowSourceMonitoringConfigContentQualityAnalysisState) ToFlowSourceMonitoringConfigContentQualityAnalysisStateOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigContentQualityAnalysisStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowSourceMonitoringConfigContentQualityAnalysisStateOutput)
+}
+
+func (e FlowSourceMonitoringConfigContentQualityAnalysisState) ToFlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput() FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput {
+	return e.ToFlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutputWithContext(context.Background())
+}
+
+func (e FlowSourceMonitoringConfigContentQualityAnalysisState) ToFlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput {
+	return FlowSourceMonitoringConfigContentQualityAnalysisState(e).ToFlowSourceMonitoringConfigContentQualityAnalysisStateOutputWithContext(ctx).ToFlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutputWithContext(ctx)
+}
+
+func (e FlowSourceMonitoringConfigContentQualityAnalysisState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowSourceMonitoringConfigContentQualityAnalysisState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowSourceMonitoringConfigContentQualityAnalysisState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowSourceMonitoringConfigContentQualityAnalysisState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowSourceMonitoringConfigContentQualityAnalysisStateOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceMonitoringConfigContentQualityAnalysisStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceMonitoringConfigContentQualityAnalysisState)(nil)).Elem()
+}
+
+func (o FlowSourceMonitoringConfigContentQualityAnalysisStateOutput) ToFlowSourceMonitoringConfigContentQualityAnalysisStateOutput() FlowSourceMonitoringConfigContentQualityAnalysisStateOutput {
+	return o
+}
+
+func (o FlowSourceMonitoringConfigContentQualityAnalysisStateOutput) ToFlowSourceMonitoringConfigContentQualityAnalysisStateOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigContentQualityAnalysisStateOutput {
+	return o
+}
+
+func (o FlowSourceMonitoringConfigContentQualityAnalysisStateOutput) ToFlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput() FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput {
+	return o.ToFlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutputWithContext(context.Background())
+}
+
+func (o FlowSourceMonitoringConfigContentQualityAnalysisStateOutput) ToFlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceMonitoringConfigContentQualityAnalysisState) *FlowSourceMonitoringConfigContentQualityAnalysisState {
+		return &v
+	}).(FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput)
+}
+
+func (o FlowSourceMonitoringConfigContentQualityAnalysisStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowSourceMonitoringConfigContentQualityAnalysisStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowSourceMonitoringConfigContentQualityAnalysisState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowSourceMonitoringConfigContentQualityAnalysisStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSourceMonitoringConfigContentQualityAnalysisStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowSourceMonitoringConfigContentQualityAnalysisState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceMonitoringConfigContentQualityAnalysisState)(nil)).Elem()
+}
+
+func (o FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput) ToFlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput() FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput {
+	return o
+}
+
+func (o FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput) ToFlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput {
+	return o
+}
+
+func (o FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput) Elem() FlowSourceMonitoringConfigContentQualityAnalysisStateOutput {
+	return o.ApplyT(func(v *FlowSourceMonitoringConfigContentQualityAnalysisState) FlowSourceMonitoringConfigContentQualityAnalysisState {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSourceMonitoringConfigContentQualityAnalysisState
+		return ret
+	}).(FlowSourceMonitoringConfigContentQualityAnalysisStateOutput)
+}
+
+func (o FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowSourceMonitoringConfigContentQualityAnalysisState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowSourceMonitoringConfigContentQualityAnalysisStateInput is an input type that accepts values of the FlowSourceMonitoringConfigContentQualityAnalysisState enum
+// A concrete instance of `FlowSourceMonitoringConfigContentQualityAnalysisStateInput` can be one of the following:
+//
+//	FlowSourceMonitoringConfigContentQualityAnalysisStateEnabled
+//	FlowSourceMonitoringConfigContentQualityAnalysisStateDisabled
+type FlowSourceMonitoringConfigContentQualityAnalysisStateInput interface {
+	pulumi.Input
+
+	ToFlowSourceMonitoringConfigContentQualityAnalysisStateOutput() FlowSourceMonitoringConfigContentQualityAnalysisStateOutput
+	ToFlowSourceMonitoringConfigContentQualityAnalysisStateOutputWithContext(context.Context) FlowSourceMonitoringConfigContentQualityAnalysisStateOutput
+}
+
+var flowSourceMonitoringConfigContentQualityAnalysisStatePtrType = reflect.TypeOf((**FlowSourceMonitoringConfigContentQualityAnalysisState)(nil)).Elem()
+
+type FlowSourceMonitoringConfigContentQualityAnalysisStatePtrInput interface {
+	pulumi.Input
+
+	ToFlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput() FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput
+	ToFlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutputWithContext(context.Context) FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput
+}
+
+type flowSourceMonitoringConfigContentQualityAnalysisStatePtr string
+
+func FlowSourceMonitoringConfigContentQualityAnalysisStatePtr(v string) FlowSourceMonitoringConfigContentQualityAnalysisStatePtrInput {
+	return (*flowSourceMonitoringConfigContentQualityAnalysisStatePtr)(&v)
+}
+
+func (*flowSourceMonitoringConfigContentQualityAnalysisStatePtr) ElementType() reflect.Type {
+	return flowSourceMonitoringConfigContentQualityAnalysisStatePtrType
+}
+
+func (in *flowSourceMonitoringConfigContentQualityAnalysisStatePtr) ToFlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput() FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput {
+	return pulumi.ToOutput(in).(FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput)
+}
+
+func (in *flowSourceMonitoringConfigContentQualityAnalysisStatePtr) ToFlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput)
 }
 
 // The state of thumbnail monitoring.
@@ -5457,6 +6121,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeProtocolEnumPtrInput)(nil)).Elem(), BridgeProtocolEnum("rtp-fec"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceProtocolEnumInput)(nil)).Elem(), BridgeSourceProtocolEnum("rtp-fec"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceProtocolEnumPtrInput)(nil)).Elem(), BridgeSourceProtocolEnum("rtp-fec"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowBlackFramesStateInput)(nil)).Elem(), FlowBlackFramesState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowBlackFramesStatePtrInput)(nil)).Elem(), FlowBlackFramesState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncryptionAlgorithmInput)(nil)).Elem(), FlowEncryptionAlgorithm("aes128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncryptionAlgorithmPtrInput)(nil)).Elem(), FlowEncryptionAlgorithm("aes128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncryptionKeyTypeInput)(nil)).Elem(), FlowEncryptionKeyType("speke"))
@@ -5479,6 +6145,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFmtpScanModePtrInput)(nil)).Elem(), FlowFmtpScanMode("progressive"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFmtpTcsInput)(nil)).Elem(), FlowFmtpTcs("SDR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFmtpTcsPtrInput)(nil)).Elem(), FlowFmtpTcs("SDR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFrozenFramesStateInput)(nil)).Elem(), FlowFrozenFramesState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFrozenFramesStatePtrInput)(nil)).Elem(), FlowFrozenFramesState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMaintenanceMaintenanceDayInput)(nil)).Elem(), FlowMaintenanceMaintenanceDay("Monday"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMaintenanceMaintenanceDayPtrInput)(nil)).Elem(), FlowMaintenanceMaintenanceDay("Monday"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamMediaStreamTypeInput)(nil)).Elem(), FlowMediaStreamMediaStreamType("video"))
@@ -5499,10 +6167,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputOutputStatusPtrInput)(nil)).Elem(), FlowOutputOutputStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputProtocolInput)(nil)).Elem(), FlowOutputProtocol("zixi-push"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputProtocolPtrInput)(nil)).Elem(), FlowOutputProtocol("zixi-push"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSilentAudioStateInput)(nil)).Elem(), FlowSilentAudioState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSilentAudioStatePtrInput)(nil)).Elem(), FlowSilentAudioState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionAlgorithmInput)(nil)).Elem(), FlowSourceEncryptionAlgorithm("aes128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionAlgorithmPtrInput)(nil)).Elem(), FlowSourceEncryptionAlgorithm("aes128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionKeyTypeInput)(nil)).Elem(), FlowSourceEncryptionKeyType("speke"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionKeyTypePtrInput)(nil)).Elem(), FlowSourceEncryptionKeyType("speke"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceMonitoringConfigContentQualityAnalysisStateInput)(nil)).Elem(), FlowSourceMonitoringConfigContentQualityAnalysisState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceMonitoringConfigContentQualityAnalysisStatePtrInput)(nil)).Elem(), FlowSourceMonitoringConfigContentQualityAnalysisState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceMonitoringConfigThumbnailStateInput)(nil)).Elem(), FlowSourceMonitoringConfigThumbnailState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceMonitoringConfigThumbnailStatePtrInput)(nil)).Elem(), FlowSourceMonitoringConfigThumbnailState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceProtocolInput)(nil)).Elem(), FlowSourceProtocol("zixi-push"))
@@ -5521,6 +6193,8 @@ func init() {
 	pulumi.RegisterOutputType(BridgeSourceProtocolEnumPtrOutput{})
 	pulumi.RegisterOutputType(BridgeStateEnumOutput{})
 	pulumi.RegisterOutputType(BridgeStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(FlowBlackFramesStateOutput{})
+	pulumi.RegisterOutputType(FlowBlackFramesStatePtrOutput{})
 	pulumi.RegisterOutputType(FlowEncryptionAlgorithmOutput{})
 	pulumi.RegisterOutputType(FlowEncryptionAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(FlowEncryptionKeyTypeOutput{})
@@ -5543,6 +6217,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowFmtpScanModePtrOutput{})
 	pulumi.RegisterOutputType(FlowFmtpTcsOutput{})
 	pulumi.RegisterOutputType(FlowFmtpTcsPtrOutput{})
+	pulumi.RegisterOutputType(FlowFrozenFramesStateOutput{})
+	pulumi.RegisterOutputType(FlowFrozenFramesStatePtrOutput{})
 	pulumi.RegisterOutputType(FlowMaintenanceMaintenanceDayOutput{})
 	pulumi.RegisterOutputType(FlowMaintenanceMaintenanceDayPtrOutput{})
 	pulumi.RegisterOutputType(FlowMediaStreamMediaStreamTypeOutput{})
@@ -5563,10 +6239,14 @@ func init() {
 	pulumi.RegisterOutputType(FlowOutputOutputStatusPtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputProtocolOutput{})
 	pulumi.RegisterOutputType(FlowOutputProtocolPtrOutput{})
+	pulumi.RegisterOutputType(FlowSilentAudioStateOutput{})
+	pulumi.RegisterOutputType(FlowSilentAudioStatePtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionAlgorithmOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionKeyTypeOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionKeyTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowSourceMonitoringConfigContentQualityAnalysisStateOutput{})
+	pulumi.RegisterOutputType(FlowSourceMonitoringConfigContentQualityAnalysisStatePtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceMonitoringConfigThumbnailStateOutput{})
 	pulumi.RegisterOutputType(FlowSourceMonitoringConfigThumbnailStatePtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceProtocolOutput{})

@@ -94,6 +94,12 @@ namespace Pulumi.AwsNative.Timestream
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Network type of the InfluxDB Instance.
+        /// </summary>
+        [Output("networkType")]
+        public Output<Pulumi.AwsNative.Timestream.InfluxDbInstanceNetworkType?> NetworkType { get; private set; } = null!;
+
+        /// <summary>
         /// The organization for the InfluxDB instance.
         /// </summary>
         [Output("organization")]
@@ -104,6 +110,12 @@ namespace Pulumi.AwsNative.Timestream
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
+
+        /// <summary>
+        /// The port number on which InfluxDB accepts connections.
+        /// </summary>
+        [Output("port")]
+        public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
         /// Attach a public IP to the customer ENI.
@@ -174,10 +186,9 @@ namespace Pulumi.AwsNative.Timestream
                 {
                     "allocatedStorage",
                     "bucket",
-                    "dbInstanceType",
                     "dbStorageType",
-                    "deploymentType",
                     "name",
+                    "networkType",
                     "organization",
                     "password",
                     "publiclyAccessible",
@@ -256,6 +267,12 @@ namespace Pulumi.AwsNative.Timestream
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Network type of the InfluxDB Instance.
+        /// </summary>
+        [Input("networkType")]
+        public Input<Pulumi.AwsNative.Timestream.InfluxDbInstanceNetworkType>? NetworkType { get; set; }
+
+        /// <summary>
         /// The organization for the InfluxDB instance.
         /// </summary>
         [Input("organization")]
@@ -266,6 +283,12 @@ namespace Pulumi.AwsNative.Timestream
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
+
+        /// <summary>
+        /// The port number on which InfluxDB accepts connections.
+        /// </summary>
+        [Input("port")]
+        public Input<int>? Port { get; set; }
 
         /// <summary>
         /// Attach a public IP to the customer ENI.

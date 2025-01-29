@@ -3331,6 +3331,216 @@ func (in *retrieverTypePtr) ToRetrieverTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(RetrieverTypePtrOutput)
 }
 
+type WebExperienceBrowserExtension string
+
+const (
+	WebExperienceBrowserExtensionFirefox = WebExperienceBrowserExtension("FIREFOX")
+	WebExperienceBrowserExtensionChrome  = WebExperienceBrowserExtension("CHROME")
+)
+
+func (WebExperienceBrowserExtension) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebExperienceBrowserExtension)(nil)).Elem()
+}
+
+func (e WebExperienceBrowserExtension) ToWebExperienceBrowserExtensionOutput() WebExperienceBrowserExtensionOutput {
+	return pulumi.ToOutput(e).(WebExperienceBrowserExtensionOutput)
+}
+
+func (e WebExperienceBrowserExtension) ToWebExperienceBrowserExtensionOutputWithContext(ctx context.Context) WebExperienceBrowserExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebExperienceBrowserExtensionOutput)
+}
+
+func (e WebExperienceBrowserExtension) ToWebExperienceBrowserExtensionPtrOutput() WebExperienceBrowserExtensionPtrOutput {
+	return e.ToWebExperienceBrowserExtensionPtrOutputWithContext(context.Background())
+}
+
+func (e WebExperienceBrowserExtension) ToWebExperienceBrowserExtensionPtrOutputWithContext(ctx context.Context) WebExperienceBrowserExtensionPtrOutput {
+	return WebExperienceBrowserExtension(e).ToWebExperienceBrowserExtensionOutputWithContext(ctx).ToWebExperienceBrowserExtensionPtrOutputWithContext(ctx)
+}
+
+func (e WebExperienceBrowserExtension) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebExperienceBrowserExtension) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebExperienceBrowserExtension) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebExperienceBrowserExtension) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebExperienceBrowserExtensionOutput struct{ *pulumi.OutputState }
+
+func (WebExperienceBrowserExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebExperienceBrowserExtension)(nil)).Elem()
+}
+
+func (o WebExperienceBrowserExtensionOutput) ToWebExperienceBrowserExtensionOutput() WebExperienceBrowserExtensionOutput {
+	return o
+}
+
+func (o WebExperienceBrowserExtensionOutput) ToWebExperienceBrowserExtensionOutputWithContext(ctx context.Context) WebExperienceBrowserExtensionOutput {
+	return o
+}
+
+func (o WebExperienceBrowserExtensionOutput) ToWebExperienceBrowserExtensionPtrOutput() WebExperienceBrowserExtensionPtrOutput {
+	return o.ToWebExperienceBrowserExtensionPtrOutputWithContext(context.Background())
+}
+
+func (o WebExperienceBrowserExtensionOutput) ToWebExperienceBrowserExtensionPtrOutputWithContext(ctx context.Context) WebExperienceBrowserExtensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebExperienceBrowserExtension) *WebExperienceBrowserExtension {
+		return &v
+	}).(WebExperienceBrowserExtensionPtrOutput)
+}
+
+func (o WebExperienceBrowserExtensionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebExperienceBrowserExtensionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebExperienceBrowserExtension) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebExperienceBrowserExtensionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebExperienceBrowserExtensionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebExperienceBrowserExtension) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebExperienceBrowserExtensionPtrOutput struct{ *pulumi.OutputState }
+
+func (WebExperienceBrowserExtensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebExperienceBrowserExtension)(nil)).Elem()
+}
+
+func (o WebExperienceBrowserExtensionPtrOutput) ToWebExperienceBrowserExtensionPtrOutput() WebExperienceBrowserExtensionPtrOutput {
+	return o
+}
+
+func (o WebExperienceBrowserExtensionPtrOutput) ToWebExperienceBrowserExtensionPtrOutputWithContext(ctx context.Context) WebExperienceBrowserExtensionPtrOutput {
+	return o
+}
+
+func (o WebExperienceBrowserExtensionPtrOutput) Elem() WebExperienceBrowserExtensionOutput {
+	return o.ApplyT(func(v *WebExperienceBrowserExtension) WebExperienceBrowserExtension {
+		if v != nil {
+			return *v
+		}
+		var ret WebExperienceBrowserExtension
+		return ret
+	}).(WebExperienceBrowserExtensionOutput)
+}
+
+func (o WebExperienceBrowserExtensionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebExperienceBrowserExtensionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebExperienceBrowserExtension) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebExperienceBrowserExtensionInput is an input type that accepts values of the WebExperienceBrowserExtension enum
+// A concrete instance of `WebExperienceBrowserExtensionInput` can be one of the following:
+//
+//	WebExperienceBrowserExtensionFirefox
+//	WebExperienceBrowserExtensionChrome
+type WebExperienceBrowserExtensionInput interface {
+	pulumi.Input
+
+	ToWebExperienceBrowserExtensionOutput() WebExperienceBrowserExtensionOutput
+	ToWebExperienceBrowserExtensionOutputWithContext(context.Context) WebExperienceBrowserExtensionOutput
+}
+
+var webExperienceBrowserExtensionPtrType = reflect.TypeOf((**WebExperienceBrowserExtension)(nil)).Elem()
+
+type WebExperienceBrowserExtensionPtrInput interface {
+	pulumi.Input
+
+	ToWebExperienceBrowserExtensionPtrOutput() WebExperienceBrowserExtensionPtrOutput
+	ToWebExperienceBrowserExtensionPtrOutputWithContext(context.Context) WebExperienceBrowserExtensionPtrOutput
+}
+
+type webExperienceBrowserExtensionPtr string
+
+func WebExperienceBrowserExtensionPtr(v string) WebExperienceBrowserExtensionPtrInput {
+	return (*webExperienceBrowserExtensionPtr)(&v)
+}
+
+func (*webExperienceBrowserExtensionPtr) ElementType() reflect.Type {
+	return webExperienceBrowserExtensionPtrType
+}
+
+func (in *webExperienceBrowserExtensionPtr) ToWebExperienceBrowserExtensionPtrOutput() WebExperienceBrowserExtensionPtrOutput {
+	return pulumi.ToOutput(in).(WebExperienceBrowserExtensionPtrOutput)
+}
+
+func (in *webExperienceBrowserExtensionPtr) ToWebExperienceBrowserExtensionPtrOutputWithContext(ctx context.Context) WebExperienceBrowserExtensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebExperienceBrowserExtensionPtrOutput)
+}
+
+// WebExperienceBrowserExtensionArrayInput is an input type that accepts WebExperienceBrowserExtensionArray and WebExperienceBrowserExtensionArrayOutput values.
+// You can construct a concrete instance of `WebExperienceBrowserExtensionArrayInput` via:
+//
+//	WebExperienceBrowserExtensionArray{ WebExperienceBrowserExtensionArgs{...} }
+type WebExperienceBrowserExtensionArrayInput interface {
+	pulumi.Input
+
+	ToWebExperienceBrowserExtensionArrayOutput() WebExperienceBrowserExtensionArrayOutput
+	ToWebExperienceBrowserExtensionArrayOutputWithContext(context.Context) WebExperienceBrowserExtensionArrayOutput
+}
+
+type WebExperienceBrowserExtensionArray []WebExperienceBrowserExtension
+
+func (WebExperienceBrowserExtensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebExperienceBrowserExtension)(nil)).Elem()
+}
+
+func (i WebExperienceBrowserExtensionArray) ToWebExperienceBrowserExtensionArrayOutput() WebExperienceBrowserExtensionArrayOutput {
+	return i.ToWebExperienceBrowserExtensionArrayOutputWithContext(context.Background())
+}
+
+func (i WebExperienceBrowserExtensionArray) ToWebExperienceBrowserExtensionArrayOutputWithContext(ctx context.Context) WebExperienceBrowserExtensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceBrowserExtensionArrayOutput)
+}
+
+type WebExperienceBrowserExtensionArrayOutput struct{ *pulumi.OutputState }
+
+func (WebExperienceBrowserExtensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebExperienceBrowserExtension)(nil)).Elem()
+}
+
+func (o WebExperienceBrowserExtensionArrayOutput) ToWebExperienceBrowserExtensionArrayOutput() WebExperienceBrowserExtensionArrayOutput {
+	return o
+}
+
+func (o WebExperienceBrowserExtensionArrayOutput) ToWebExperienceBrowserExtensionArrayOutputWithContext(ctx context.Context) WebExperienceBrowserExtensionArrayOutput {
+	return o
+}
+
+func (o WebExperienceBrowserExtensionArrayOutput) Index(i pulumi.IntInput) WebExperienceBrowserExtensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebExperienceBrowserExtension {
+		return vs[0].([]WebExperienceBrowserExtension)[vs[1].(int)]
+	}).(WebExperienceBrowserExtensionOutput)
+}
+
 type WebExperienceSamplePromptsControlMode string
 
 const (
@@ -3624,6 +3834,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QBusinessIndexStatusPtrInput)(nil)).Elem(), QBusinessIndexStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RetrieverTypeInput)(nil)).Elem(), RetrieverType("NATIVE_INDEX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RetrieverTypePtrInput)(nil)).Elem(), RetrieverType("NATIVE_INDEX"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceBrowserExtensionInput)(nil)).Elem(), WebExperienceBrowserExtension("FIREFOX"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceBrowserExtensionPtrInput)(nil)).Elem(), WebExperienceBrowserExtension("FIREFOX"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceBrowserExtensionArrayInput)(nil)).Elem(), WebExperienceBrowserExtensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceSamplePromptsControlModeInput)(nil)).Elem(), WebExperienceSamplePromptsControlMode("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceSamplePromptsControlModePtrInput)(nil)).Elem(), WebExperienceSamplePromptsControlMode("ENABLED"))
 	pulumi.RegisterOutputType(ApplicationAttachmentsControlModeOutput{})
@@ -3670,6 +3883,9 @@ func init() {
 	pulumi.RegisterOutputType(RetrieverStatusPtrOutput{})
 	pulumi.RegisterOutputType(RetrieverTypeOutput{})
 	pulumi.RegisterOutputType(RetrieverTypePtrOutput{})
+	pulumi.RegisterOutputType(WebExperienceBrowserExtensionOutput{})
+	pulumi.RegisterOutputType(WebExperienceBrowserExtensionPtrOutput{})
+	pulumi.RegisterOutputType(WebExperienceBrowserExtensionArrayOutput{})
 	pulumi.RegisterOutputType(WebExperienceSamplePromptsControlModeOutput{})
 	pulumi.RegisterOutputType(WebExperienceSamplePromptsControlModePtrOutput{})
 	pulumi.RegisterOutputType(WebExperienceStatusOutput{})

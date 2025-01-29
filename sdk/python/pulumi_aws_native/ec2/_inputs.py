@@ -324,10 +324,16 @@ __all__ = [
     'TagSpecificationArgsDict',
     'TransitGatewayConnectOptionsArgs',
     'TransitGatewayConnectOptionsArgsDict',
+    'VerifiedAccessEndpointCidrOptionsArgs',
+    'VerifiedAccessEndpointCidrOptionsArgsDict',
     'VerifiedAccessEndpointLoadBalancerOptionsArgs',
     'VerifiedAccessEndpointLoadBalancerOptionsArgsDict',
     'VerifiedAccessEndpointNetworkInterfaceOptionsArgs',
     'VerifiedAccessEndpointNetworkInterfaceOptionsArgsDict',
+    'VerifiedAccessEndpointPortRangeArgs',
+    'VerifiedAccessEndpointPortRangeArgsDict',
+    'VerifiedAccessEndpointRdsOptionsArgs',
+    'VerifiedAccessEndpointRdsOptionsArgsDict',
     'VerifiedAccessEndpointSseSpecificationArgs',
     'VerifiedAccessEndpointSseSpecificationArgsDict',
     'VerifiedAccessGroupSseSpecificationArgs',
@@ -15516,6 +15522,102 @@ class TransitGatewayConnectOptionsArgs:
 
 
 if not MYPY:
+    class VerifiedAccessEndpointCidrOptionsArgsDict(TypedDict):
+        """
+        The options for cidr type endpoint.
+        """
+        cidr: NotRequired[pulumi.Input[str]]
+        """
+        The IP address range, in CIDR notation.
+        """
+        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgsDict']]]]
+        """
+        The list of port range.
+        """
+        protocol: NotRequired[pulumi.Input[str]]
+        """
+        The IP protocol.
+        """
+        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The IDs of the subnets.
+        """
+elif False:
+    VerifiedAccessEndpointCidrOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VerifiedAccessEndpointCidrOptionsArgs:
+    def __init__(__self__, *,
+                 cidr: Optional[pulumi.Input[str]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgs']]]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The options for cidr type endpoint.
+        :param pulumi.Input[str] cidr: The IP address range, in CIDR notation.
+        :param pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgs']]] port_ranges: The list of port range.
+        :param pulumi.Input[str] protocol: The IP protocol.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of the subnets.
+        """
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address range, in CIDR notation.
+        """
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr", value)
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgs']]]]:
+        """
+        The list of port range.
+        """
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgs']]]]):
+        pulumi.set(self, "port_ranges", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IDs of the subnets.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+
+if not MYPY:
     class VerifiedAccessEndpointLoadBalancerOptionsArgsDict(TypedDict):
         """
         The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
@@ -15527,6 +15629,10 @@ if not MYPY:
         port: NotRequired[pulumi.Input[int]]
         """
         The IP port number.
+        """
+        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgsDict']]]]
+        """
+        The list of port range.
         """
         protocol: NotRequired[pulumi.Input[str]]
         """
@@ -15544,12 +15650,14 @@ class VerifiedAccessEndpointLoadBalancerOptionsArgs:
     def __init__(__self__, *,
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgs']]]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
         :param pulumi.Input[str] load_balancer_arn: The ARN of the load balancer.
         :param pulumi.Input[int] port: The IP port number.
+        :param pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgs']]] port_ranges: The list of port range.
         :param pulumi.Input[str] protocol: The IP protocol.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of the subnets.
         """
@@ -15557,6 +15665,8 @@ class VerifiedAccessEndpointLoadBalancerOptionsArgs:
             pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
         if subnet_ids is not None:
@@ -15585,6 +15695,18 @@ class VerifiedAccessEndpointLoadBalancerOptionsArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgs']]]]:
+        """
+        The list of port range.
+        """
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgs']]]]):
+        pulumi.set(self, "port_ranges", value)
 
     @property
     @pulumi.getter
@@ -15624,6 +15746,10 @@ if not MYPY:
         """
         The IP port number.
         """
+        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgsDict']]]]
+        """
+        The list of port ranges.
+        """
         protocol: NotRequired[pulumi.Input[str]]
         """
         The IP protocol.
@@ -15636,17 +15762,21 @@ class VerifiedAccessEndpointNetworkInterfaceOptionsArgs:
     def __init__(__self__, *,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgs']]]] = None,
                  protocol: Optional[pulumi.Input[str]] = None):
         """
         The options for network-interface type endpoint.
         :param pulumi.Input[str] network_interface_id: The ID of the network interface.
         :param pulumi.Input[int] port: The IP port number.
+        :param pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgs']]] port_ranges: The list of port ranges.
         :param pulumi.Input[str] protocol: The IP protocol.
         """
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
 
@@ -15675,6 +15805,18 @@ class VerifiedAccessEndpointNetworkInterfaceOptionsArgs:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgs']]]]:
+        """
+        The list of port ranges.
+        """
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgs']]]]):
+        pulumi.set(self, "port_ranges", value)
+
+    @property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
@@ -15685,6 +15827,218 @@ class VerifiedAccessEndpointNetworkInterfaceOptionsArgs:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "protocol", value)
+
+
+if not MYPY:
+    class VerifiedAccessEndpointPortRangeArgsDict(TypedDict):
+        """
+        The IP port range.
+        """
+        from_port: NotRequired[pulumi.Input[int]]
+        """
+        The first port in the range.
+        """
+        to_port: NotRequired[pulumi.Input[int]]
+        """
+        The last port in the range.
+        """
+elif False:
+    VerifiedAccessEndpointPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VerifiedAccessEndpointPortRangeArgs:
+    def __init__(__self__, *,
+                 from_port: Optional[pulumi.Input[int]] = None,
+                 to_port: Optional[pulumi.Input[int]] = None):
+        """
+        The IP port range.
+        :param pulumi.Input[int] from_port: The first port in the range.
+        :param pulumi.Input[int] to_port: The last port in the range.
+        """
+        if from_port is not None:
+            pulumi.set(__self__, "from_port", from_port)
+        if to_port is not None:
+            pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The first port in the range.
+        """
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The last port in the range.
+        """
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to_port", value)
+
+
+if not MYPY:
+    class VerifiedAccessEndpointRdsOptionsArgsDict(TypedDict):
+        """
+        The options for rds type endpoint.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The IP port number.
+        """
+        protocol: NotRequired[pulumi.Input[str]]
+        """
+        The IP protocol.
+        """
+        rds_db_cluster_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the RDS DB cluster.
+        """
+        rds_db_instance_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the RDS DB instance.
+        """
+        rds_db_proxy_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the RDS DB proxy.
+        """
+        rds_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The RDS endpoint.
+        """
+        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The IDs of the subnets.
+        """
+elif False:
+    VerifiedAccessEndpointRdsOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VerifiedAccessEndpointRdsOptionsArgs:
+    def __init__(__self__, *,
+                 port: Optional[pulumi.Input[int]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 rds_db_cluster_arn: Optional[pulumi.Input[str]] = None,
+                 rds_db_instance_arn: Optional[pulumi.Input[str]] = None,
+                 rds_db_proxy_arn: Optional[pulumi.Input[str]] = None,
+                 rds_endpoint: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The options for rds type endpoint.
+        :param pulumi.Input[int] port: The IP port number.
+        :param pulumi.Input[str] protocol: The IP protocol.
+        :param pulumi.Input[str] rds_db_cluster_arn: The ARN of the RDS DB cluster.
+        :param pulumi.Input[str] rds_db_instance_arn: The ARN of the RDS DB instance.
+        :param pulumi.Input[str] rds_db_proxy_arn: The ARN of the RDS DB proxy.
+        :param pulumi.Input[str] rds_endpoint: The RDS endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of the subnets.
+        """
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if rds_db_cluster_arn is not None:
+            pulumi.set(__self__, "rds_db_cluster_arn", rds_db_cluster_arn)
+        if rds_db_instance_arn is not None:
+            pulumi.set(__self__, "rds_db_instance_arn", rds_db_instance_arn)
+        if rds_db_proxy_arn is not None:
+            pulumi.set(__self__, "rds_db_proxy_arn", rds_db_proxy_arn)
+        if rds_endpoint is not None:
+            pulumi.set(__self__, "rds_endpoint", rds_endpoint)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The IP port number.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="rdsDbClusterArn")
+    def rds_db_cluster_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the RDS DB cluster.
+        """
+        return pulumi.get(self, "rds_db_cluster_arn")
+
+    @rds_db_cluster_arn.setter
+    def rds_db_cluster_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rds_db_cluster_arn", value)
+
+    @property
+    @pulumi.getter(name="rdsDbInstanceArn")
+    def rds_db_instance_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the RDS DB instance.
+        """
+        return pulumi.get(self, "rds_db_instance_arn")
+
+    @rds_db_instance_arn.setter
+    def rds_db_instance_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rds_db_instance_arn", value)
+
+    @property
+    @pulumi.getter(name="rdsDbProxyArn")
+    def rds_db_proxy_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the RDS DB proxy.
+        """
+        return pulumi.get(self, "rds_db_proxy_arn")
+
+    @rds_db_proxy_arn.setter
+    def rds_db_proxy_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rds_db_proxy_arn", value)
+
+    @property
+    @pulumi.getter(name="rdsEndpoint")
+    def rds_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RDS endpoint.
+        """
+        return pulumi.get(self, "rds_endpoint")
+
+    @rds_endpoint.setter
+    def rds_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rds_endpoint", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IDs of the subnets.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subnet_ids", value)
 
 
 if not MYPY:

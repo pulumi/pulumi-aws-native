@@ -230,9 +230,7 @@ export class Server extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-     *
-     * An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+     * Specifies the unique Amazon Resource Name (ARN) of the server.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -350,9 +348,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly securityPolicyName!: pulumi.Output<string | undefined>;
     /**
-     * The service-assigned ID of the server that is created.
-     *
-     * An example `ServerId` is `s-01234567890abcdef` .
+     * Specifies the unique system-assigned identifier for a server that you instantiate.
      */
     public /*out*/ readonly serverId!: pulumi.Output<string>;
     public /*out*/ readonly state!: pulumi.Output<enums.transfer.ServerState>;

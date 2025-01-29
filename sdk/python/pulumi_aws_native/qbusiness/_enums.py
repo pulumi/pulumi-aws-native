@@ -27,6 +27,7 @@ __all__ = [
     'QBusinessIndexStatus',
     'RetrieverStatus',
     'RetrieverType',
+    'WebExperienceBrowserExtension',
     'WebExperienceSamplePromptsControlMode',
     'WebExperienceStatus',
 ]
@@ -181,6 +182,11 @@ class RetrieverStatus(str, Enum):
 class RetrieverType(str, Enum):
     NATIVE_INDEX = "NATIVE_INDEX"
     KENDRA_INDEX = "KENDRA_INDEX"
+
+
+class WebExperienceBrowserExtension(str, Enum):
+    FIREFOX = "FIREFOX"
+    CHROME = "CHROME"
 
 
 class WebExperienceSamplePromptsControlMode(str, Enum):

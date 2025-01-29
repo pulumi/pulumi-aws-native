@@ -18,9 +18,11 @@ type VerifiedAccessEndpoint struct {
 	pulumi.CustomResourceState
 
 	// The DNS name for users to reach your application.
-	ApplicationDomain pulumi.StringOutput `pulumi:"applicationDomain"`
+	ApplicationDomain pulumi.StringPtrOutput `pulumi:"applicationDomain"`
 	// The type of attachment used to provide connectivity between the AWS Verified Access endpoint and the application.
 	AttachmentType pulumi.StringOutput `pulumi:"attachmentType"`
+	// The options for cidr type endpoint.
+	CidrOptions VerifiedAccessEndpointCidrOptionsPtrOutput `pulumi:"cidrOptions"`
 	// The creation time.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// A description for the AWS Verified Access endpoint.
@@ -28,11 +30,11 @@ type VerifiedAccessEndpoint struct {
 	// Returned if endpoint has a device trust provider attached.
 	DeviceValidationDomain pulumi.StringOutput `pulumi:"deviceValidationDomain"`
 	// The ARN of a public TLS/SSL certificate imported into or created with ACM.
-	DomainCertificateArn pulumi.StringOutput `pulumi:"domainCertificateArn"`
+	DomainCertificateArn pulumi.StringPtrOutput `pulumi:"domainCertificateArn"`
 	// A DNS name that is generated for the endpoint.
 	EndpointDomain pulumi.StringOutput `pulumi:"endpointDomain"`
 	// A custom identifier that gets prepended to a DNS name that is generated for the endpoint.
-	EndpointDomainPrefix pulumi.StringOutput `pulumi:"endpointDomainPrefix"`
+	EndpointDomainPrefix pulumi.StringPtrOutput `pulumi:"endpointDomainPrefix"`
 	// The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.
 	EndpointType pulumi.StringOutput `pulumi:"endpointType"`
 	// The last updated time.
@@ -45,6 +47,8 @@ type VerifiedAccessEndpoint struct {
 	PolicyDocument pulumi.StringPtrOutput `pulumi:"policyDocument"`
 	// The status of the Verified Access policy.
 	PolicyEnabled pulumi.BoolPtrOutput `pulumi:"policyEnabled"`
+	// The options for rds type endpoint.
+	RdsOptions VerifiedAccessEndpointRdsOptionsPtrOutput `pulumi:"rdsOptions"`
 	// The IDs of the security groups for the endpoint.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The configuration options for customer provided KMS encryption.
@@ -68,17 +72,8 @@ func NewVerifiedAccessEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApplicationDomain == nil {
-		return nil, errors.New("invalid value for required argument 'ApplicationDomain'")
-	}
 	if args.AttachmentType == nil {
 		return nil, errors.New("invalid value for required argument 'AttachmentType'")
-	}
-	if args.DomainCertificateArn == nil {
-		return nil, errors.New("invalid value for required argument 'DomainCertificateArn'")
-	}
-	if args.EndpointDomainPrefix == nil {
-		return nil, errors.New("invalid value for required argument 'EndpointDomainPrefix'")
 	}
 	if args.EndpointType == nil {
 		return nil, errors.New("invalid value for required argument 'EndpointType'")
@@ -89,11 +84,18 @@ func NewVerifiedAccessEndpoint(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"applicationDomain",
 		"attachmentType",
+		"cidrOptions.cidr",
+		"cidrOptions.protocol",
+		"cidrOptions.subnetIds[*]",
 		"domainCertificateArn",
 		"endpointDomainPrefix",
 		"endpointType",
 		"loadBalancerOptions.loadBalancerArn",
 		"networkInterfaceOptions.networkInterfaceId",
+		"rdsOptions.protocol",
+		"rdsOptions.rdsDbClusterArn",
+		"rdsOptions.rdsDbInstanceArn",
+		"rdsOptions.rdsDbProxyArn",
 		"securityGroupIds[*]",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -131,15 +133,17 @@ func (VerifiedAccessEndpointState) ElementType() reflect.Type {
 
 type verifiedAccessEndpointArgs struct {
 	// The DNS name for users to reach your application.
-	ApplicationDomain string `pulumi:"applicationDomain"`
+	ApplicationDomain *string `pulumi:"applicationDomain"`
 	// The type of attachment used to provide connectivity between the AWS Verified Access endpoint and the application.
 	AttachmentType string `pulumi:"attachmentType"`
+	// The options for cidr type endpoint.
+	CidrOptions *VerifiedAccessEndpointCidrOptions `pulumi:"cidrOptions"`
 	// A description for the AWS Verified Access endpoint.
 	Description *string `pulumi:"description"`
 	// The ARN of a public TLS/SSL certificate imported into or created with ACM.
-	DomainCertificateArn string `pulumi:"domainCertificateArn"`
+	DomainCertificateArn *string `pulumi:"domainCertificateArn"`
 	// A custom identifier that gets prepended to a DNS name that is generated for the endpoint.
-	EndpointDomainPrefix string `pulumi:"endpointDomainPrefix"`
+	EndpointDomainPrefix *string `pulumi:"endpointDomainPrefix"`
 	// The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.
 	EndpointType string `pulumi:"endpointType"`
 	// The load balancer details if creating the AWS Verified Access endpoint as load-balancer type.
@@ -150,6 +154,8 @@ type verifiedAccessEndpointArgs struct {
 	PolicyDocument *string `pulumi:"policyDocument"`
 	// The status of the Verified Access policy.
 	PolicyEnabled *bool `pulumi:"policyEnabled"`
+	// The options for rds type endpoint.
+	RdsOptions *VerifiedAccessEndpointRdsOptions `pulumi:"rdsOptions"`
 	// The IDs of the security groups for the endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The configuration options for customer provided KMS encryption.
@@ -163,15 +169,17 @@ type verifiedAccessEndpointArgs struct {
 // The set of arguments for constructing a VerifiedAccessEndpoint resource.
 type VerifiedAccessEndpointArgs struct {
 	// The DNS name for users to reach your application.
-	ApplicationDomain pulumi.StringInput
+	ApplicationDomain pulumi.StringPtrInput
 	// The type of attachment used to provide connectivity between the AWS Verified Access endpoint and the application.
 	AttachmentType pulumi.StringInput
+	// The options for cidr type endpoint.
+	CidrOptions VerifiedAccessEndpointCidrOptionsPtrInput
 	// A description for the AWS Verified Access endpoint.
 	Description pulumi.StringPtrInput
 	// The ARN of a public TLS/SSL certificate imported into or created with ACM.
-	DomainCertificateArn pulumi.StringInput
+	DomainCertificateArn pulumi.StringPtrInput
 	// A custom identifier that gets prepended to a DNS name that is generated for the endpoint.
-	EndpointDomainPrefix pulumi.StringInput
+	EndpointDomainPrefix pulumi.StringPtrInput
 	// The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.
 	EndpointType pulumi.StringInput
 	// The load balancer details if creating the AWS Verified Access endpoint as load-balancer type.
@@ -182,6 +190,8 @@ type VerifiedAccessEndpointArgs struct {
 	PolicyDocument pulumi.StringPtrInput
 	// The status of the Verified Access policy.
 	PolicyEnabled pulumi.BoolPtrInput
+	// The options for rds type endpoint.
+	RdsOptions VerifiedAccessEndpointRdsOptionsPtrInput
 	// The IDs of the security groups for the endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The configuration options for customer provided KMS encryption.
@@ -230,13 +240,18 @@ func (o VerifiedAccessEndpointOutput) ToVerifiedAccessEndpointOutputWithContext(
 }
 
 // The DNS name for users to reach your application.
-func (o VerifiedAccessEndpointOutput) ApplicationDomain() pulumi.StringOutput {
-	return o.ApplyT(func(v *VerifiedAccessEndpoint) pulumi.StringOutput { return v.ApplicationDomain }).(pulumi.StringOutput)
+func (o VerifiedAccessEndpointOutput) ApplicationDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpoint) pulumi.StringPtrOutput { return v.ApplicationDomain }).(pulumi.StringPtrOutput)
 }
 
 // The type of attachment used to provide connectivity between the AWS Verified Access endpoint and the application.
 func (o VerifiedAccessEndpointOutput) AttachmentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VerifiedAccessEndpoint) pulumi.StringOutput { return v.AttachmentType }).(pulumi.StringOutput)
+}
+
+// The options for cidr type endpoint.
+func (o VerifiedAccessEndpointOutput) CidrOptions() VerifiedAccessEndpointCidrOptionsPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpoint) VerifiedAccessEndpointCidrOptionsPtrOutput { return v.CidrOptions }).(VerifiedAccessEndpointCidrOptionsPtrOutput)
 }
 
 // The creation time.
@@ -255,8 +270,8 @@ func (o VerifiedAccessEndpointOutput) DeviceValidationDomain() pulumi.StringOutp
 }
 
 // The ARN of a public TLS/SSL certificate imported into or created with ACM.
-func (o VerifiedAccessEndpointOutput) DomainCertificateArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *VerifiedAccessEndpoint) pulumi.StringOutput { return v.DomainCertificateArn }).(pulumi.StringOutput)
+func (o VerifiedAccessEndpointOutput) DomainCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpoint) pulumi.StringPtrOutput { return v.DomainCertificateArn }).(pulumi.StringPtrOutput)
 }
 
 // A DNS name that is generated for the endpoint.
@@ -265,8 +280,8 @@ func (o VerifiedAccessEndpointOutput) EndpointDomain() pulumi.StringOutput {
 }
 
 // A custom identifier that gets prepended to a DNS name that is generated for the endpoint.
-func (o VerifiedAccessEndpointOutput) EndpointDomainPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *VerifiedAccessEndpoint) pulumi.StringOutput { return v.EndpointDomainPrefix }).(pulumi.StringOutput)
+func (o VerifiedAccessEndpointOutput) EndpointDomainPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpoint) pulumi.StringPtrOutput { return v.EndpointDomainPrefix }).(pulumi.StringPtrOutput)
 }
 
 // The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.
@@ -301,6 +316,11 @@ func (o VerifiedAccessEndpointOutput) PolicyDocument() pulumi.StringPtrOutput {
 // The status of the Verified Access policy.
 func (o VerifiedAccessEndpointOutput) PolicyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VerifiedAccessEndpoint) pulumi.BoolPtrOutput { return v.PolicyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The options for rds type endpoint.
+func (o VerifiedAccessEndpointOutput) RdsOptions() VerifiedAccessEndpointRdsOptionsPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpoint) VerifiedAccessEndpointRdsOptionsPtrOutput { return v.RdsOptions }).(VerifiedAccessEndpointRdsOptionsPtrOutput)
 }
 
 // The IDs of the security groups for the endpoint.

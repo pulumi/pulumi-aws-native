@@ -70,10 +70,6 @@ export class App extends pulumi.CustomResource {
      */
     public readonly permissionModel!: pulumi.Output<outputs.resiliencehub.AppPermissionModel | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Regulatory Policy.
-     */
-    public readonly regulatoryPolicyArn!: pulumi.Output<string | undefined>;
-    /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
      */
     public readonly resiliencyPolicyArn!: pulumi.Output<string | undefined>;
@@ -109,7 +105,6 @@ export class App extends pulumi.CustomResource {
             resourceInputs["eventSubscriptions"] = args ? args.eventSubscriptions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["permissionModel"] = args ? args.permissionModel : undefined;
-            resourceInputs["regulatoryPolicyArn"] = args ? args.regulatoryPolicyArn : undefined;
             resourceInputs["resiliencyPolicyArn"] = args ? args.resiliencyPolicyArn : undefined;
             resourceInputs["resourceMappings"] = args ? args.resourceMappings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -124,7 +119,6 @@ export class App extends pulumi.CustomResource {
             resourceInputs["eventSubscriptions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["permissionModel"] = undefined /*out*/;
-            resourceInputs["regulatoryPolicyArn"] = undefined /*out*/;
             resourceInputs["resiliencyPolicyArn"] = undefined /*out*/;
             resourceInputs["resourceMappings"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -164,10 +158,6 @@ export interface AppArgs {
      * Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
      */
     permissionModel?: pulumi.Input<inputs.resiliencehub.AppPermissionModelArgs>;
-    /**
-     * Amazon Resource Name (ARN) of the Regulatory Policy.
-     */
-    regulatoryPolicyArn?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
      */

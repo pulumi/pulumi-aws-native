@@ -30074,12 +30074,211 @@ type TransitGatewayVpcAttachmentTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The options for cidr type endpoint.
+type VerifiedAccessEndpointCidrOptions struct {
+	// The IP address range, in CIDR notation.
+	Cidr *string `pulumi:"cidr"`
+	// The list of port range.
+	PortRanges []VerifiedAccessEndpointPortRange `pulumi:"portRanges"`
+	// The IP protocol.
+	Protocol *string `pulumi:"protocol"`
+	// The IDs of the subnets.
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// VerifiedAccessEndpointCidrOptionsInput is an input type that accepts VerifiedAccessEndpointCidrOptionsArgs and VerifiedAccessEndpointCidrOptionsOutput values.
+// You can construct a concrete instance of `VerifiedAccessEndpointCidrOptionsInput` via:
+//
+//	VerifiedAccessEndpointCidrOptionsArgs{...}
+type VerifiedAccessEndpointCidrOptionsInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessEndpointCidrOptionsOutput() VerifiedAccessEndpointCidrOptionsOutput
+	ToVerifiedAccessEndpointCidrOptionsOutputWithContext(context.Context) VerifiedAccessEndpointCidrOptionsOutput
+}
+
+// The options for cidr type endpoint.
+type VerifiedAccessEndpointCidrOptionsArgs struct {
+	// The IP address range, in CIDR notation.
+	Cidr pulumi.StringPtrInput `pulumi:"cidr"`
+	// The list of port range.
+	PortRanges VerifiedAccessEndpointPortRangeArrayInput `pulumi:"portRanges"`
+	// The IP protocol.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// The IDs of the subnets.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (VerifiedAccessEndpointCidrOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessEndpointCidrOptions)(nil)).Elem()
+}
+
+func (i VerifiedAccessEndpointCidrOptionsArgs) ToVerifiedAccessEndpointCidrOptionsOutput() VerifiedAccessEndpointCidrOptionsOutput {
+	return i.ToVerifiedAccessEndpointCidrOptionsOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessEndpointCidrOptionsArgs) ToVerifiedAccessEndpointCidrOptionsOutputWithContext(ctx context.Context) VerifiedAccessEndpointCidrOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointCidrOptionsOutput)
+}
+
+func (i VerifiedAccessEndpointCidrOptionsArgs) ToVerifiedAccessEndpointCidrOptionsPtrOutput() VerifiedAccessEndpointCidrOptionsPtrOutput {
+	return i.ToVerifiedAccessEndpointCidrOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessEndpointCidrOptionsArgs) ToVerifiedAccessEndpointCidrOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointCidrOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointCidrOptionsOutput).ToVerifiedAccessEndpointCidrOptionsPtrOutputWithContext(ctx)
+}
+
+// VerifiedAccessEndpointCidrOptionsPtrInput is an input type that accepts VerifiedAccessEndpointCidrOptionsArgs, VerifiedAccessEndpointCidrOptionsPtr and VerifiedAccessEndpointCidrOptionsPtrOutput values.
+// You can construct a concrete instance of `VerifiedAccessEndpointCidrOptionsPtrInput` via:
+//
+//	        VerifiedAccessEndpointCidrOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VerifiedAccessEndpointCidrOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessEndpointCidrOptionsPtrOutput() VerifiedAccessEndpointCidrOptionsPtrOutput
+	ToVerifiedAccessEndpointCidrOptionsPtrOutputWithContext(context.Context) VerifiedAccessEndpointCidrOptionsPtrOutput
+}
+
+type verifiedAccessEndpointCidrOptionsPtrType VerifiedAccessEndpointCidrOptionsArgs
+
+func VerifiedAccessEndpointCidrOptionsPtr(v *VerifiedAccessEndpointCidrOptionsArgs) VerifiedAccessEndpointCidrOptionsPtrInput {
+	return (*verifiedAccessEndpointCidrOptionsPtrType)(v)
+}
+
+func (*verifiedAccessEndpointCidrOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessEndpointCidrOptions)(nil)).Elem()
+}
+
+func (i *verifiedAccessEndpointCidrOptionsPtrType) ToVerifiedAccessEndpointCidrOptionsPtrOutput() VerifiedAccessEndpointCidrOptionsPtrOutput {
+	return i.ToVerifiedAccessEndpointCidrOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *verifiedAccessEndpointCidrOptionsPtrType) ToVerifiedAccessEndpointCidrOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointCidrOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointCidrOptionsPtrOutput)
+}
+
+// The options for cidr type endpoint.
+type VerifiedAccessEndpointCidrOptionsOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessEndpointCidrOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessEndpointCidrOptions)(nil)).Elem()
+}
+
+func (o VerifiedAccessEndpointCidrOptionsOutput) ToVerifiedAccessEndpointCidrOptionsOutput() VerifiedAccessEndpointCidrOptionsOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointCidrOptionsOutput) ToVerifiedAccessEndpointCidrOptionsOutputWithContext(ctx context.Context) VerifiedAccessEndpointCidrOptionsOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointCidrOptionsOutput) ToVerifiedAccessEndpointCidrOptionsPtrOutput() VerifiedAccessEndpointCidrOptionsPtrOutput {
+	return o.ToVerifiedAccessEndpointCidrOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VerifiedAccessEndpointCidrOptionsOutput) ToVerifiedAccessEndpointCidrOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointCidrOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VerifiedAccessEndpointCidrOptions) *VerifiedAccessEndpointCidrOptions {
+		return &v
+	}).(VerifiedAccessEndpointCidrOptionsPtrOutput)
+}
+
+// The IP address range, in CIDR notation.
+func (o VerifiedAccessEndpointCidrOptionsOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointCidrOptions) *string { return v.Cidr }).(pulumi.StringPtrOutput)
+}
+
+// The list of port range.
+func (o VerifiedAccessEndpointCidrOptionsOutput) PortRanges() VerifiedAccessEndpointPortRangeArrayOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointCidrOptions) []VerifiedAccessEndpointPortRange { return v.PortRanges }).(VerifiedAccessEndpointPortRangeArrayOutput)
+}
+
+// The IP protocol.
+func (o VerifiedAccessEndpointCidrOptionsOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointCidrOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// The IDs of the subnets.
+func (o VerifiedAccessEndpointCidrOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointCidrOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type VerifiedAccessEndpointCidrOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessEndpointCidrOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessEndpointCidrOptions)(nil)).Elem()
+}
+
+func (o VerifiedAccessEndpointCidrOptionsPtrOutput) ToVerifiedAccessEndpointCidrOptionsPtrOutput() VerifiedAccessEndpointCidrOptionsPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointCidrOptionsPtrOutput) ToVerifiedAccessEndpointCidrOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointCidrOptionsPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointCidrOptionsPtrOutput) Elem() VerifiedAccessEndpointCidrOptionsOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointCidrOptions) VerifiedAccessEndpointCidrOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VerifiedAccessEndpointCidrOptions
+		return ret
+	}).(VerifiedAccessEndpointCidrOptionsOutput)
+}
+
+// The IP address range, in CIDR notation.
+func (o VerifiedAccessEndpointCidrOptionsPtrOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointCidrOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Cidr
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of port range.
+func (o VerifiedAccessEndpointCidrOptionsPtrOutput) PortRanges() VerifiedAccessEndpointPortRangeArrayOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointCidrOptions) []VerifiedAccessEndpointPortRange {
+		if v == nil {
+			return nil
+		}
+		return v.PortRanges
+	}).(VerifiedAccessEndpointPortRangeArrayOutput)
+}
+
+// The IP protocol.
+func (o VerifiedAccessEndpointCidrOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointCidrOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IDs of the subnets.
+func (o VerifiedAccessEndpointCidrOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointCidrOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
 type VerifiedAccessEndpointLoadBalancerOptions struct {
 	// The ARN of the load balancer.
 	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
 	// The IP port number.
 	Port *int `pulumi:"port"`
+	// The list of port range.
+	PortRanges []VerifiedAccessEndpointPortRange `pulumi:"portRanges"`
 	// The IP protocol.
 	Protocol *string `pulumi:"protocol"`
 	// The IDs of the subnets.
@@ -30103,6 +30302,8 @@ type VerifiedAccessEndpointLoadBalancerOptionsArgs struct {
 	LoadBalancerArn pulumi.StringPtrInput `pulumi:"loadBalancerArn"`
 	// The IP port number.
 	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The list of port range.
+	PortRanges VerifiedAccessEndpointPortRangeArrayInput `pulumi:"portRanges"`
 	// The IP protocol.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 	// The IDs of the subnets.
@@ -30197,6 +30398,13 @@ func (o VerifiedAccessEndpointLoadBalancerOptionsOutput) Port() pulumi.IntPtrOut
 	return o.ApplyT(func(v VerifiedAccessEndpointLoadBalancerOptions) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// The list of port range.
+func (o VerifiedAccessEndpointLoadBalancerOptionsOutput) PortRanges() VerifiedAccessEndpointPortRangeArrayOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointLoadBalancerOptions) []VerifiedAccessEndpointPortRange {
+		return v.PortRanges
+	}).(VerifiedAccessEndpointPortRangeArrayOutput)
+}
+
 // The IP protocol.
 func (o VerifiedAccessEndpointLoadBalancerOptionsOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VerifiedAccessEndpointLoadBalancerOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
@@ -30251,6 +30459,16 @@ func (o VerifiedAccessEndpointLoadBalancerOptionsPtrOutput) Port() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// The list of port range.
+func (o VerifiedAccessEndpointLoadBalancerOptionsPtrOutput) PortRanges() VerifiedAccessEndpointPortRangeArrayOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointLoadBalancerOptions) []VerifiedAccessEndpointPortRange {
+		if v == nil {
+			return nil
+		}
+		return v.PortRanges
+	}).(VerifiedAccessEndpointPortRangeArrayOutput)
+}
+
 // The IP protocol.
 func (o VerifiedAccessEndpointLoadBalancerOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VerifiedAccessEndpointLoadBalancerOptions) *string {
@@ -30277,6 +30495,8 @@ type VerifiedAccessEndpointNetworkInterfaceOptions struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The IP port number.
 	Port *int `pulumi:"port"`
+	// The list of port ranges.
+	PortRanges []VerifiedAccessEndpointPortRange `pulumi:"portRanges"`
 	// The IP protocol.
 	Protocol *string `pulumi:"protocol"`
 }
@@ -30298,6 +30518,8 @@ type VerifiedAccessEndpointNetworkInterfaceOptionsArgs struct {
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
 	// The IP port number.
 	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The list of port ranges.
+	PortRanges VerifiedAccessEndpointPortRangeArrayInput `pulumi:"portRanges"`
 	// The IP protocol.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
@@ -30390,6 +30612,13 @@ func (o VerifiedAccessEndpointNetworkInterfaceOptionsOutput) Port() pulumi.IntPt
 	return o.ApplyT(func(v VerifiedAccessEndpointNetworkInterfaceOptions) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// The list of port ranges.
+func (o VerifiedAccessEndpointNetworkInterfaceOptionsOutput) PortRanges() VerifiedAccessEndpointPortRangeArrayOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointNetworkInterfaceOptions) []VerifiedAccessEndpointPortRange {
+		return v.PortRanges
+	}).(VerifiedAccessEndpointPortRangeArrayOutput)
+}
+
 // The IP protocol.
 func (o VerifiedAccessEndpointNetworkInterfaceOptionsOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VerifiedAccessEndpointNetworkInterfaceOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
@@ -30439,6 +30668,16 @@ func (o VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput) Port() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// The list of port ranges.
+func (o VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput) PortRanges() VerifiedAccessEndpointPortRangeArrayOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointNetworkInterfaceOptions) []VerifiedAccessEndpointPortRange {
+		if v == nil {
+			return nil
+		}
+		return v.PortRanges
+	}).(VerifiedAccessEndpointPortRangeArrayOutput)
+}
+
 // The IP protocol.
 func (o VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VerifiedAccessEndpointNetworkInterfaceOptions) *string {
@@ -30447,6 +30686,369 @@ func (o VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput) Protocol() pulum
 		}
 		return v.Protocol
 	}).(pulumi.StringPtrOutput)
+}
+
+// The IP port range.
+type VerifiedAccessEndpointPortRange struct {
+	// The first port in the range.
+	FromPort *int `pulumi:"fromPort"`
+	// The last port in the range.
+	ToPort *int `pulumi:"toPort"`
+}
+
+// VerifiedAccessEndpointPortRangeInput is an input type that accepts VerifiedAccessEndpointPortRangeArgs and VerifiedAccessEndpointPortRangeOutput values.
+// You can construct a concrete instance of `VerifiedAccessEndpointPortRangeInput` via:
+//
+//	VerifiedAccessEndpointPortRangeArgs{...}
+type VerifiedAccessEndpointPortRangeInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessEndpointPortRangeOutput() VerifiedAccessEndpointPortRangeOutput
+	ToVerifiedAccessEndpointPortRangeOutputWithContext(context.Context) VerifiedAccessEndpointPortRangeOutput
+}
+
+// The IP port range.
+type VerifiedAccessEndpointPortRangeArgs struct {
+	// The first port in the range.
+	FromPort pulumi.IntPtrInput `pulumi:"fromPort"`
+	// The last port in the range.
+	ToPort pulumi.IntPtrInput `pulumi:"toPort"`
+}
+
+func (VerifiedAccessEndpointPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessEndpointPortRange)(nil)).Elem()
+}
+
+func (i VerifiedAccessEndpointPortRangeArgs) ToVerifiedAccessEndpointPortRangeOutput() VerifiedAccessEndpointPortRangeOutput {
+	return i.ToVerifiedAccessEndpointPortRangeOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessEndpointPortRangeArgs) ToVerifiedAccessEndpointPortRangeOutputWithContext(ctx context.Context) VerifiedAccessEndpointPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointPortRangeOutput)
+}
+
+// VerifiedAccessEndpointPortRangeArrayInput is an input type that accepts VerifiedAccessEndpointPortRangeArray and VerifiedAccessEndpointPortRangeArrayOutput values.
+// You can construct a concrete instance of `VerifiedAccessEndpointPortRangeArrayInput` via:
+//
+//	VerifiedAccessEndpointPortRangeArray{ VerifiedAccessEndpointPortRangeArgs{...} }
+type VerifiedAccessEndpointPortRangeArrayInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessEndpointPortRangeArrayOutput() VerifiedAccessEndpointPortRangeArrayOutput
+	ToVerifiedAccessEndpointPortRangeArrayOutputWithContext(context.Context) VerifiedAccessEndpointPortRangeArrayOutput
+}
+
+type VerifiedAccessEndpointPortRangeArray []VerifiedAccessEndpointPortRangeInput
+
+func (VerifiedAccessEndpointPortRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VerifiedAccessEndpointPortRange)(nil)).Elem()
+}
+
+func (i VerifiedAccessEndpointPortRangeArray) ToVerifiedAccessEndpointPortRangeArrayOutput() VerifiedAccessEndpointPortRangeArrayOutput {
+	return i.ToVerifiedAccessEndpointPortRangeArrayOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessEndpointPortRangeArray) ToVerifiedAccessEndpointPortRangeArrayOutputWithContext(ctx context.Context) VerifiedAccessEndpointPortRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointPortRangeArrayOutput)
+}
+
+// The IP port range.
+type VerifiedAccessEndpointPortRangeOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessEndpointPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessEndpointPortRange)(nil)).Elem()
+}
+
+func (o VerifiedAccessEndpointPortRangeOutput) ToVerifiedAccessEndpointPortRangeOutput() VerifiedAccessEndpointPortRangeOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointPortRangeOutput) ToVerifiedAccessEndpointPortRangeOutputWithContext(ctx context.Context) VerifiedAccessEndpointPortRangeOutput {
+	return o
+}
+
+// The first port in the range.
+func (o VerifiedAccessEndpointPortRangeOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointPortRange) *int { return v.FromPort }).(pulumi.IntPtrOutput)
+}
+
+// The last port in the range.
+func (o VerifiedAccessEndpointPortRangeOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointPortRange) *int { return v.ToPort }).(pulumi.IntPtrOutput)
+}
+
+type VerifiedAccessEndpointPortRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessEndpointPortRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VerifiedAccessEndpointPortRange)(nil)).Elem()
+}
+
+func (o VerifiedAccessEndpointPortRangeArrayOutput) ToVerifiedAccessEndpointPortRangeArrayOutput() VerifiedAccessEndpointPortRangeArrayOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointPortRangeArrayOutput) ToVerifiedAccessEndpointPortRangeArrayOutputWithContext(ctx context.Context) VerifiedAccessEndpointPortRangeArrayOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointPortRangeArrayOutput) Index(i pulumi.IntInput) VerifiedAccessEndpointPortRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VerifiedAccessEndpointPortRange {
+		return vs[0].([]VerifiedAccessEndpointPortRange)[vs[1].(int)]
+	}).(VerifiedAccessEndpointPortRangeOutput)
+}
+
+// The options for rds type endpoint.
+type VerifiedAccessEndpointRdsOptions struct {
+	// The IP port number.
+	Port *int `pulumi:"port"`
+	// The IP protocol.
+	Protocol *string `pulumi:"protocol"`
+	// The ARN of the RDS DB cluster.
+	RdsDbClusterArn *string `pulumi:"rdsDbClusterArn"`
+	// The ARN of the RDS DB instance.
+	RdsDbInstanceArn *string `pulumi:"rdsDbInstanceArn"`
+	// The ARN of the RDS DB proxy.
+	RdsDbProxyArn *string `pulumi:"rdsDbProxyArn"`
+	// The RDS endpoint.
+	RdsEndpoint *string `pulumi:"rdsEndpoint"`
+	// The IDs of the subnets.
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// VerifiedAccessEndpointRdsOptionsInput is an input type that accepts VerifiedAccessEndpointRdsOptionsArgs and VerifiedAccessEndpointRdsOptionsOutput values.
+// You can construct a concrete instance of `VerifiedAccessEndpointRdsOptionsInput` via:
+//
+//	VerifiedAccessEndpointRdsOptionsArgs{...}
+type VerifiedAccessEndpointRdsOptionsInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessEndpointRdsOptionsOutput() VerifiedAccessEndpointRdsOptionsOutput
+	ToVerifiedAccessEndpointRdsOptionsOutputWithContext(context.Context) VerifiedAccessEndpointRdsOptionsOutput
+}
+
+// The options for rds type endpoint.
+type VerifiedAccessEndpointRdsOptionsArgs struct {
+	// The IP port number.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The IP protocol.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// The ARN of the RDS DB cluster.
+	RdsDbClusterArn pulumi.StringPtrInput `pulumi:"rdsDbClusterArn"`
+	// The ARN of the RDS DB instance.
+	RdsDbInstanceArn pulumi.StringPtrInput `pulumi:"rdsDbInstanceArn"`
+	// The ARN of the RDS DB proxy.
+	RdsDbProxyArn pulumi.StringPtrInput `pulumi:"rdsDbProxyArn"`
+	// The RDS endpoint.
+	RdsEndpoint pulumi.StringPtrInput `pulumi:"rdsEndpoint"`
+	// The IDs of the subnets.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (VerifiedAccessEndpointRdsOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessEndpointRdsOptions)(nil)).Elem()
+}
+
+func (i VerifiedAccessEndpointRdsOptionsArgs) ToVerifiedAccessEndpointRdsOptionsOutput() VerifiedAccessEndpointRdsOptionsOutput {
+	return i.ToVerifiedAccessEndpointRdsOptionsOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessEndpointRdsOptionsArgs) ToVerifiedAccessEndpointRdsOptionsOutputWithContext(ctx context.Context) VerifiedAccessEndpointRdsOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointRdsOptionsOutput)
+}
+
+func (i VerifiedAccessEndpointRdsOptionsArgs) ToVerifiedAccessEndpointRdsOptionsPtrOutput() VerifiedAccessEndpointRdsOptionsPtrOutput {
+	return i.ToVerifiedAccessEndpointRdsOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessEndpointRdsOptionsArgs) ToVerifiedAccessEndpointRdsOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointRdsOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointRdsOptionsOutput).ToVerifiedAccessEndpointRdsOptionsPtrOutputWithContext(ctx)
+}
+
+// VerifiedAccessEndpointRdsOptionsPtrInput is an input type that accepts VerifiedAccessEndpointRdsOptionsArgs, VerifiedAccessEndpointRdsOptionsPtr and VerifiedAccessEndpointRdsOptionsPtrOutput values.
+// You can construct a concrete instance of `VerifiedAccessEndpointRdsOptionsPtrInput` via:
+//
+//	        VerifiedAccessEndpointRdsOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VerifiedAccessEndpointRdsOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessEndpointRdsOptionsPtrOutput() VerifiedAccessEndpointRdsOptionsPtrOutput
+	ToVerifiedAccessEndpointRdsOptionsPtrOutputWithContext(context.Context) VerifiedAccessEndpointRdsOptionsPtrOutput
+}
+
+type verifiedAccessEndpointRdsOptionsPtrType VerifiedAccessEndpointRdsOptionsArgs
+
+func VerifiedAccessEndpointRdsOptionsPtr(v *VerifiedAccessEndpointRdsOptionsArgs) VerifiedAccessEndpointRdsOptionsPtrInput {
+	return (*verifiedAccessEndpointRdsOptionsPtrType)(v)
+}
+
+func (*verifiedAccessEndpointRdsOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessEndpointRdsOptions)(nil)).Elem()
+}
+
+func (i *verifiedAccessEndpointRdsOptionsPtrType) ToVerifiedAccessEndpointRdsOptionsPtrOutput() VerifiedAccessEndpointRdsOptionsPtrOutput {
+	return i.ToVerifiedAccessEndpointRdsOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *verifiedAccessEndpointRdsOptionsPtrType) ToVerifiedAccessEndpointRdsOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointRdsOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointRdsOptionsPtrOutput)
+}
+
+// The options for rds type endpoint.
+type VerifiedAccessEndpointRdsOptionsOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessEndpointRdsOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessEndpointRdsOptions)(nil)).Elem()
+}
+
+func (o VerifiedAccessEndpointRdsOptionsOutput) ToVerifiedAccessEndpointRdsOptionsOutput() VerifiedAccessEndpointRdsOptionsOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointRdsOptionsOutput) ToVerifiedAccessEndpointRdsOptionsOutputWithContext(ctx context.Context) VerifiedAccessEndpointRdsOptionsOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointRdsOptionsOutput) ToVerifiedAccessEndpointRdsOptionsPtrOutput() VerifiedAccessEndpointRdsOptionsPtrOutput {
+	return o.ToVerifiedAccessEndpointRdsOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VerifiedAccessEndpointRdsOptionsOutput) ToVerifiedAccessEndpointRdsOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointRdsOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VerifiedAccessEndpointRdsOptions) *VerifiedAccessEndpointRdsOptions {
+		return &v
+	}).(VerifiedAccessEndpointRdsOptionsPtrOutput)
+}
+
+// The IP port number.
+func (o VerifiedAccessEndpointRdsOptionsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointRdsOptions) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// The IP protocol.
+func (o VerifiedAccessEndpointRdsOptionsOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointRdsOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the RDS DB cluster.
+func (o VerifiedAccessEndpointRdsOptionsOutput) RdsDbClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointRdsOptions) *string { return v.RdsDbClusterArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the RDS DB instance.
+func (o VerifiedAccessEndpointRdsOptionsOutput) RdsDbInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointRdsOptions) *string { return v.RdsDbInstanceArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the RDS DB proxy.
+func (o VerifiedAccessEndpointRdsOptionsOutput) RdsDbProxyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointRdsOptions) *string { return v.RdsDbProxyArn }).(pulumi.StringPtrOutput)
+}
+
+// The RDS endpoint.
+func (o VerifiedAccessEndpointRdsOptionsOutput) RdsEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointRdsOptions) *string { return v.RdsEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The IDs of the subnets.
+func (o VerifiedAccessEndpointRdsOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointRdsOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type VerifiedAccessEndpointRdsOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessEndpointRdsOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessEndpointRdsOptions)(nil)).Elem()
+}
+
+func (o VerifiedAccessEndpointRdsOptionsPtrOutput) ToVerifiedAccessEndpointRdsOptionsPtrOutput() VerifiedAccessEndpointRdsOptionsPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointRdsOptionsPtrOutput) ToVerifiedAccessEndpointRdsOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointRdsOptionsPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointRdsOptionsPtrOutput) Elem() VerifiedAccessEndpointRdsOptionsOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointRdsOptions) VerifiedAccessEndpointRdsOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VerifiedAccessEndpointRdsOptions
+		return ret
+	}).(VerifiedAccessEndpointRdsOptionsOutput)
+}
+
+// The IP port number.
+func (o VerifiedAccessEndpointRdsOptionsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointRdsOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// The IP protocol.
+func (o VerifiedAccessEndpointRdsOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointRdsOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the RDS DB cluster.
+func (o VerifiedAccessEndpointRdsOptionsPtrOutput) RdsDbClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointRdsOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RdsDbClusterArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the RDS DB instance.
+func (o VerifiedAccessEndpointRdsOptionsPtrOutput) RdsDbInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointRdsOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RdsDbInstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the RDS DB proxy.
+func (o VerifiedAccessEndpointRdsOptionsPtrOutput) RdsDbProxyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointRdsOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RdsDbProxyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The RDS endpoint.
+func (o VerifiedAccessEndpointRdsOptionsPtrOutput) RdsEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointRdsOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RdsEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IDs of the subnets.
+func (o VerifiedAccessEndpointRdsOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointRdsOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // The configuration options for customer provided KMS encryption.
@@ -34353,10 +34955,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TagSpecificationInput)(nil)).Elem(), TagSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagSpecificationArrayInput)(nil)).Elem(), TagSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectOptionsInput)(nil)).Elem(), TransitGatewayConnectOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointCidrOptionsInput)(nil)).Elem(), VerifiedAccessEndpointCidrOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointCidrOptionsPtrInput)(nil)).Elem(), VerifiedAccessEndpointCidrOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointLoadBalancerOptionsInput)(nil)).Elem(), VerifiedAccessEndpointLoadBalancerOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointLoadBalancerOptionsPtrInput)(nil)).Elem(), VerifiedAccessEndpointLoadBalancerOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointNetworkInterfaceOptionsInput)(nil)).Elem(), VerifiedAccessEndpointNetworkInterfaceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointNetworkInterfaceOptionsPtrInput)(nil)).Elem(), VerifiedAccessEndpointNetworkInterfaceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointPortRangeInput)(nil)).Elem(), VerifiedAccessEndpointPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointPortRangeArrayInput)(nil)).Elem(), VerifiedAccessEndpointPortRangeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointRdsOptionsInput)(nil)).Elem(), VerifiedAccessEndpointRdsOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointRdsOptionsPtrInput)(nil)).Elem(), VerifiedAccessEndpointRdsOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointSseSpecificationInput)(nil)).Elem(), VerifiedAccessEndpointSseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointSseSpecificationPtrInput)(nil)).Elem(), VerifiedAccessEndpointSseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessGroupSseSpecificationInput)(nil)).Elem(), VerifiedAccessGroupSseSpecificationArgs{})
@@ -34737,10 +35345,16 @@ func init() {
 	pulumi.RegisterOutputType(TransitGatewayConnectOptionsOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessEndpointCidrOptionsOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessEndpointCidrOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointLoadBalancerOptionsOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointLoadBalancerOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointNetworkInterfaceOptionsOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessEndpointPortRangeOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessEndpointPortRangeArrayOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessEndpointRdsOptionsOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessEndpointRdsOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointSseSpecificationOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointSseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessGroupSseSpecificationOutput{})

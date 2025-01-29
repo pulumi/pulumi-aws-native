@@ -89,6 +89,7 @@ __all__ = [
     'ResponseHeadersPolicyServerTimingHeadersConfig',
     'ResponseHeadersPolicyStrictTransportSecurity',
     'ResponseHeadersPolicyXssProtection',
+    'VpcOriginEndpointConfig',
 ]
 
 @pulumi.output_type
@@ -5592,5 +5593,79 @@ class ResponseHeadersPolicyXssProtection(dict):
          For more information about using a reporting URL, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
         """
         return pulumi.get(self, "report_uri")
+
+
+@pulumi.output_type
+class VpcOriginEndpointConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpPort":
+            suggest = "http_port"
+        elif key == "httpsPort":
+            suggest = "https_port"
+        elif key == "originProtocolPolicy":
+            suggest = "origin_protocol_policy"
+        elif key == "originSslProtocols":
+            suggest = "origin_ssl_protocols"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpcOriginEndpointConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpcOriginEndpointConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpcOriginEndpointConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn: str,
+                 name: str,
+                 http_port: Optional[int] = None,
+                 https_port: Optional[int] = None,
+                 origin_protocol_policy: Optional[str] = None,
+                 origin_ssl_protocols: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "name", name)
+        if http_port is not None:
+            pulumi.set(__self__, "http_port", http_port)
+        if https_port is not None:
+            pulumi.set(__self__, "https_port", https_port)
+        if origin_protocol_policy is not None:
+            pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
+        if origin_ssl_protocols is not None:
+            pulumi.set(__self__, "origin_ssl_protocols", origin_ssl_protocols)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="httpPort")
+    def http_port(self) -> Optional[int]:
+        return pulumi.get(self, "http_port")
+
+    @property
+    @pulumi.getter(name="httpsPort")
+    def https_port(self) -> Optional[int]:
+        return pulumi.get(self, "https_port")
+
+    @property
+    @pulumi.getter(name="originProtocolPolicy")
+    def origin_protocol_policy(self) -> Optional[str]:
+        return pulumi.get(self, "origin_protocol_policy")
+
+    @property
+    @pulumi.getter(name="originSslProtocols")
+    def origin_ssl_protocols(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "origin_ssl_protocols")
 
 

@@ -48,6 +48,10 @@ __all__ = [
     'BridgeSourceArgsDict',
     'BridgeVpcInterfaceAttachmentArgs',
     'BridgeVpcInterfaceAttachmentArgsDict',
+    'FlowAudioMonitoringSettingArgs',
+    'FlowAudioMonitoringSettingArgsDict',
+    'FlowBlackFramesArgs',
+    'FlowBlackFramesArgsDict',
     'FlowEncryptionArgs',
     'FlowEncryptionArgsDict',
     'FlowEntitlementEncryptionArgs',
@@ -58,6 +62,8 @@ __all__ = [
     'FlowFailoverConfigArgsDict',
     'FlowFmtpArgs',
     'FlowFmtpArgsDict',
+    'FlowFrozenFramesArgs',
+    'FlowFrozenFramesArgsDict',
     'FlowGatewayBridgeSourceArgs',
     'FlowGatewayBridgeSourceArgsDict',
     'FlowInputConfigurationArgs',
@@ -84,6 +90,8 @@ __all__ = [
     'FlowOutputMediaStreamOutputConfigurationArgsDict',
     'FlowOutputVpcInterfaceAttachmentArgs',
     'FlowOutputVpcInterfaceAttachmentArgsDict',
+    'FlowSilentAudioArgs',
+    'FlowSilentAudioArgsDict',
     'FlowSourceEncryptionArgs',
     'FlowSourceEncryptionArgsDict',
     'FlowSourceGatewayBridgeSourceArgs',
@@ -94,6 +102,8 @@ __all__ = [
     'FlowSourceVpcInterfaceAttachmentArgsDict',
     'FlowSourceArgs',
     'FlowSourceArgsDict',
+    'FlowVideoMonitoringSettingArgs',
+    'FlowVideoMonitoringSettingArgsDict',
     'FlowVpcInterfaceAttachmentArgs',
     'FlowVpcInterfaceAttachmentArgsDict',
     'FlowVpcInterfaceArgs',
@@ -1146,6 +1156,98 @@ class BridgeVpcInterfaceAttachmentArgs:
 
 
 if not MYPY:
+    class FlowAudioMonitoringSettingArgsDict(TypedDict):
+        """
+        Specifies the configuration for audio stream metrics monitoring.
+        """
+        silent_audio: NotRequired[pulumi.Input['FlowSilentAudioArgsDict']]
+        """
+        Detects periods of silence.
+        """
+elif False:
+    FlowAudioMonitoringSettingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowAudioMonitoringSettingArgs:
+    def __init__(__self__, *,
+                 silent_audio: Optional[pulumi.Input['FlowSilentAudioArgs']] = None):
+        """
+        Specifies the configuration for audio stream metrics monitoring.
+        :param pulumi.Input['FlowSilentAudioArgs'] silent_audio: Detects periods of silence.
+        """
+        if silent_audio is not None:
+            pulumi.set(__self__, "silent_audio", silent_audio)
+
+    @property
+    @pulumi.getter(name="silentAudio")
+    def silent_audio(self) -> Optional[pulumi.Input['FlowSilentAudioArgs']]:
+        """
+        Detects periods of silence.
+        """
+        return pulumi.get(self, "silent_audio")
+
+    @silent_audio.setter
+    def silent_audio(self, value: Optional[pulumi.Input['FlowSilentAudioArgs']]):
+        pulumi.set(self, "silent_audio", value)
+
+
+if not MYPY:
+    class FlowBlackFramesArgsDict(TypedDict):
+        """
+        Configures settings for the BlackFrames metric.
+        """
+        state: NotRequired[pulumi.Input['FlowBlackFramesState']]
+        """
+        Indicates whether the BlackFrames metric is enabled or disabled.
+        """
+        threshold_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of consecutive seconds of black frames that triggers an event or alert.
+        """
+elif False:
+    FlowBlackFramesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowBlackFramesArgs:
+    def __init__(__self__, *,
+                 state: Optional[pulumi.Input['FlowBlackFramesState']] = None,
+                 threshold_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        Configures settings for the BlackFrames metric.
+        :param pulumi.Input['FlowBlackFramesState'] state: Indicates whether the BlackFrames metric is enabled or disabled.
+        :param pulumi.Input[int] threshold_seconds: Specifies the number of consecutive seconds of black frames that triggers an event or alert.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if threshold_seconds is not None:
+            pulumi.set(__self__, "threshold_seconds", threshold_seconds)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input['FlowBlackFramesState']]:
+        """
+        Indicates whether the BlackFrames metric is enabled or disabled.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input['FlowBlackFramesState']]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="thresholdSeconds")
+    def threshold_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of consecutive seconds of black frames that triggers an event or alert.
+        """
+        return pulumi.get(self, "threshold_seconds")
+
+    @threshold_seconds.setter
+    def threshold_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "threshold_seconds", value)
+
+
+if not MYPY:
     class FlowEncryptionArgsDict(TypedDict):
         """
         Information about the encryption of the flow.
@@ -1819,6 +1921,62 @@ class FlowFmtpArgs:
     @tcs.setter
     def tcs(self, value: Optional[pulumi.Input['FlowFmtpTcs']]):
         pulumi.set(self, "tcs", value)
+
+
+if not MYPY:
+    class FlowFrozenFramesArgsDict(TypedDict):
+        """
+        Configures settings for the FrozenFrames metric.
+        """
+        state: NotRequired[pulumi.Input['FlowFrozenFramesState']]
+        """
+        Indicates whether the FrozenFrames metric is enabled or disabled.
+        """
+        threshold_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of consecutive seconds of a static image that triggers an event or alert.
+        """
+elif False:
+    FlowFrozenFramesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowFrozenFramesArgs:
+    def __init__(__self__, *,
+                 state: Optional[pulumi.Input['FlowFrozenFramesState']] = None,
+                 threshold_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        Configures settings for the FrozenFrames metric.
+        :param pulumi.Input['FlowFrozenFramesState'] state: Indicates whether the FrozenFrames metric is enabled or disabled.
+        :param pulumi.Input[int] threshold_seconds: Specifies the number of consecutive seconds of a static image that triggers an event or alert.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if threshold_seconds is not None:
+            pulumi.set(__self__, "threshold_seconds", threshold_seconds)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input['FlowFrozenFramesState']]:
+        """
+        Indicates whether the FrozenFrames metric is enabled or disabled.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input['FlowFrozenFramesState']]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="thresholdSeconds")
+    def threshold_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of consecutive seconds of a static image that triggers an event or alert.
+        """
+        return pulumi.get(self, "threshold_seconds")
+
+    @threshold_seconds.setter
+    def threshold_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "threshold_seconds", value)
 
 
 if not MYPY:
@@ -2710,6 +2868,62 @@ class FlowOutputVpcInterfaceAttachmentArgs:
 
 
 if not MYPY:
+    class FlowSilentAudioArgsDict(TypedDict):
+        """
+        Configures settings for the SilentAudio metric.
+        """
+        state: NotRequired[pulumi.Input['FlowSilentAudioState']]
+        """
+        Indicates whether the SilentAudio metric is enabled or disabled.
+        """
+        threshold_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of consecutive seconds of silence that triggers an event or alert.
+        """
+elif False:
+    FlowSilentAudioArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowSilentAudioArgs:
+    def __init__(__self__, *,
+                 state: Optional[pulumi.Input['FlowSilentAudioState']] = None,
+                 threshold_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        Configures settings for the SilentAudio metric.
+        :param pulumi.Input['FlowSilentAudioState'] state: Indicates whether the SilentAudio metric is enabled or disabled.
+        :param pulumi.Input[int] threshold_seconds: Specifies the number of consecutive seconds of silence that triggers an event or alert.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if threshold_seconds is not None:
+            pulumi.set(__self__, "threshold_seconds", threshold_seconds)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input['FlowSilentAudioState']]:
+        """
+        Indicates whether the SilentAudio metric is enabled or disabled.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input['FlowSilentAudioState']]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="thresholdSeconds")
+    def threshold_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of consecutive seconds of silence that triggers an event or alert.
+        """
+        return pulumi.get(self, "threshold_seconds")
+
+    @threshold_seconds.setter
+    def threshold_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "threshold_seconds", value)
+
+
+if not MYPY:
     class FlowSourceEncryptionArgsDict(TypedDict):
         """
         Information about the encryption of the flow.
@@ -2964,9 +3178,21 @@ if not MYPY:
         """
         The settings for source monitoring.
         """
-        thumbnail_state: pulumi.Input['FlowSourceMonitoringConfigThumbnailState']
+        audio_monitoring_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgsDict']]]]
+        """
+        Contains the settings for audio stream metrics monitoring.
+        """
+        content_quality_analysis_state: NotRequired[pulumi.Input['FlowSourceMonitoringConfigContentQualityAnalysisState']]
+        """
+        Indicates whether content quality analysis is enabled or disabled.
+        """
+        thumbnail_state: NotRequired[pulumi.Input['FlowSourceMonitoringConfigThumbnailState']]
         """
         The state of thumbnail monitoring.
+        """
+        video_monitoring_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgsDict']]]]
+        """
+        Contains the settings for video stream metrics monitoring.
         """
 elif False:
     FlowSourceMonitoringConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -2974,24 +3200,73 @@ elif False:
 @pulumi.input_type
 class FlowSourceMonitoringConfigArgs:
     def __init__(__self__, *,
-                 thumbnail_state: pulumi.Input['FlowSourceMonitoringConfigThumbnailState']):
+                 audio_monitoring_settings: Optional[pulumi.Input[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgs']]]] = None,
+                 content_quality_analysis_state: Optional[pulumi.Input['FlowSourceMonitoringConfigContentQualityAnalysisState']] = None,
+                 thumbnail_state: Optional[pulumi.Input['FlowSourceMonitoringConfigThumbnailState']] = None,
+                 video_monitoring_settings: Optional[pulumi.Input[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgs']]]] = None):
         """
         The settings for source monitoring.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgs']]] audio_monitoring_settings: Contains the settings for audio stream metrics monitoring.
+        :param pulumi.Input['FlowSourceMonitoringConfigContentQualityAnalysisState'] content_quality_analysis_state: Indicates whether content quality analysis is enabled or disabled.
         :param pulumi.Input['FlowSourceMonitoringConfigThumbnailState'] thumbnail_state: The state of thumbnail monitoring.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgs']]] video_monitoring_settings: Contains the settings for video stream metrics monitoring.
         """
-        pulumi.set(__self__, "thumbnail_state", thumbnail_state)
+        if audio_monitoring_settings is not None:
+            pulumi.set(__self__, "audio_monitoring_settings", audio_monitoring_settings)
+        if content_quality_analysis_state is not None:
+            pulumi.set(__self__, "content_quality_analysis_state", content_quality_analysis_state)
+        if thumbnail_state is not None:
+            pulumi.set(__self__, "thumbnail_state", thumbnail_state)
+        if video_monitoring_settings is not None:
+            pulumi.set(__self__, "video_monitoring_settings", video_monitoring_settings)
+
+    @property
+    @pulumi.getter(name="audioMonitoringSettings")
+    def audio_monitoring_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgs']]]]:
+        """
+        Contains the settings for audio stream metrics monitoring.
+        """
+        return pulumi.get(self, "audio_monitoring_settings")
+
+    @audio_monitoring_settings.setter
+    def audio_monitoring_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgs']]]]):
+        pulumi.set(self, "audio_monitoring_settings", value)
+
+    @property
+    @pulumi.getter(name="contentQualityAnalysisState")
+    def content_quality_analysis_state(self) -> Optional[pulumi.Input['FlowSourceMonitoringConfigContentQualityAnalysisState']]:
+        """
+        Indicates whether content quality analysis is enabled or disabled.
+        """
+        return pulumi.get(self, "content_quality_analysis_state")
+
+    @content_quality_analysis_state.setter
+    def content_quality_analysis_state(self, value: Optional[pulumi.Input['FlowSourceMonitoringConfigContentQualityAnalysisState']]):
+        pulumi.set(self, "content_quality_analysis_state", value)
 
     @property
     @pulumi.getter(name="thumbnailState")
-    def thumbnail_state(self) -> pulumi.Input['FlowSourceMonitoringConfigThumbnailState']:
+    def thumbnail_state(self) -> Optional[pulumi.Input['FlowSourceMonitoringConfigThumbnailState']]:
         """
         The state of thumbnail monitoring.
         """
         return pulumi.get(self, "thumbnail_state")
 
     @thumbnail_state.setter
-    def thumbnail_state(self, value: pulumi.Input['FlowSourceMonitoringConfigThumbnailState']):
+    def thumbnail_state(self, value: Optional[pulumi.Input['FlowSourceMonitoringConfigThumbnailState']]):
         pulumi.set(self, "thumbnail_state", value)
+
+    @property
+    @pulumi.getter(name="videoMonitoringSettings")
+    def video_monitoring_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgs']]]]:
+        """
+        Contains the settings for video stream metrics monitoring.
+        """
+        return pulumi.get(self, "video_monitoring_settings")
+
+    @video_monitoring_settings.setter
+    def video_monitoring_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgs']]]]):
+        pulumi.set(self, "video_monitoring_settings", value)
 
 
 if not MYPY:
@@ -3484,6 +3759,62 @@ class FlowSourceArgs:
     @whitelist_cidr.setter
     def whitelist_cidr(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "whitelist_cidr", value)
+
+
+if not MYPY:
+    class FlowVideoMonitoringSettingArgsDict(TypedDict):
+        """
+        Specifies the configuration for video stream metrics monitoring.
+        """
+        black_frames: NotRequired[pulumi.Input['FlowBlackFramesArgsDict']]
+        """
+        Detects video frames that are black.
+        """
+        frozen_frames: NotRequired[pulumi.Input['FlowFrozenFramesArgsDict']]
+        """
+        Detects video frames that have not changed.
+        """
+elif False:
+    FlowVideoMonitoringSettingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowVideoMonitoringSettingArgs:
+    def __init__(__self__, *,
+                 black_frames: Optional[pulumi.Input['FlowBlackFramesArgs']] = None,
+                 frozen_frames: Optional[pulumi.Input['FlowFrozenFramesArgs']] = None):
+        """
+        Specifies the configuration for video stream metrics monitoring.
+        :param pulumi.Input['FlowBlackFramesArgs'] black_frames: Detects video frames that are black.
+        :param pulumi.Input['FlowFrozenFramesArgs'] frozen_frames: Detects video frames that have not changed.
+        """
+        if black_frames is not None:
+            pulumi.set(__self__, "black_frames", black_frames)
+        if frozen_frames is not None:
+            pulumi.set(__self__, "frozen_frames", frozen_frames)
+
+    @property
+    @pulumi.getter(name="blackFrames")
+    def black_frames(self) -> Optional[pulumi.Input['FlowBlackFramesArgs']]:
+        """
+        Detects video frames that are black.
+        """
+        return pulumi.get(self, "black_frames")
+
+    @black_frames.setter
+    def black_frames(self, value: Optional[pulumi.Input['FlowBlackFramesArgs']]):
+        pulumi.set(self, "black_frames", value)
+
+    @property
+    @pulumi.getter(name="frozenFrames")
+    def frozen_frames(self) -> Optional[pulumi.Input['FlowFrozenFramesArgs']]:
+        """
+        Detects video frames that have not changed.
+        """
+        return pulumi.get(self, "frozen_frames")
+
+    @frozen_frames.setter
+    def frozen_frames(self, value: Optional[pulumi.Input['FlowFrozenFramesArgs']]):
+        pulumi.set(self, "frozen_frames", value)
 
 
 if not MYPY:

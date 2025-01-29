@@ -165,6 +165,9 @@ class PolicyArgs:
         :param pulumi.Input[str] policy_description: Your description of the AWS Firewall Manager policy.
         :param pulumi.Input[str] policy_name: The name of the AWS Firewall Manager policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_set_ids: The unique identifiers of the resource sets used by the policy.
+        :param pulumi.Input['PolicyResourceTagLogicalOperator'] resource_tag_logical_operator: Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+               
+               Default: `AND`
         :param pulumi.Input[Sequence[pulumi.Input['PolicyResourceTagArgs']]] resource_tags: An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
         :param pulumi.Input[str] resource_type: The type of resource protected by or in scope of the policy. This is in the format shown in the [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) . To apply this policy to multiple resource types, specify a resource type of `ResourceTypeList` and then specify the resource types in a `ResourceTypeList` .
                
@@ -439,6 +442,11 @@ class PolicyArgs:
     @property
     @pulumi.getter(name="resourceTagLogicalOperator")
     def resource_tag_logical_operator(self) -> Optional[pulumi.Input['PolicyResourceTagLogicalOperator']]:
+        """
+        Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+
+        Default: `AND`
+        """
         return pulumi.get(self, "resource_tag_logical_operator")
 
     @resource_tag_logical_operator.setter
@@ -583,6 +591,9 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] policy_name: The name of the AWS Firewall Manager policy.
         :param pulumi.Input[bool] remediation_enabled: Indicates if the policy should be automatically applied to new resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_set_ids: The unique identifiers of the resource sets used by the policy.
+        :param pulumi.Input['PolicyResourceTagLogicalOperator'] resource_tag_logical_operator: Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+               
+               Default: `AND`
         :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyResourceTagArgs', 'PolicyResourceTagArgsDict']]]] resource_tags: An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
         :param pulumi.Input[str] resource_type: The type of resource protected by or in scope of the policy. This is in the format shown in the [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) . To apply this policy to multiple resource types, specify a resource type of `ResourceTypeList` and then specify the resource types in a `ResourceTypeList` .
                
@@ -914,6 +925,11 @@ class Policy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceTagLogicalOperator")
     def resource_tag_logical_operator(self) -> pulumi.Output[Optional['PolicyResourceTagLogicalOperator']]:
+        """
+        Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+
+        Default: `AND`
+        """
         return pulumi.get(self, "resource_tag_logical_operator")
 
     @property

@@ -167,6 +167,11 @@ class GetPolicyResult:
     @property
     @pulumi.getter(name="resourceTagLogicalOperator")
     def resource_tag_logical_operator(self) -> Optional['PolicyResourceTagLogicalOperator']:
+        """
+        Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+
+        Default: `AND`
+        """
         return pulumi.get(self, "resource_tag_logical_operator")
 
     @property

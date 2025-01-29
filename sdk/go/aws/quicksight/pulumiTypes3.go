@@ -39345,6 +39345,7 @@ func (o TopicComparativeOrderPtrOutput) UseOrdering() TopicColumnOrderingTypePtr
 
 // Model for configuration of a Topic
 type TopicConfigOptions struct {
+	// Enables Amazon Q Business Insights for a `Topic` .
 	QBusinessInsightsEnabled *bool `pulumi:"qBusinessInsightsEnabled"`
 }
 
@@ -39361,6 +39362,7 @@ type TopicConfigOptionsInput interface {
 
 // Model for configuration of a Topic
 type TopicConfigOptionsArgs struct {
+	// Enables Amazon Q Business Insights for a `Topic` .
 	QBusinessInsightsEnabled pulumi.BoolPtrInput `pulumi:"qBusinessInsightsEnabled"`
 }
 
@@ -39442,6 +39444,7 @@ func (o TopicConfigOptionsOutput) ToTopicConfigOptionsPtrOutputWithContext(ctx c
 	}).(TopicConfigOptionsPtrOutput)
 }
 
+// Enables Amazon Q Business Insights for a `Topic` .
 func (o TopicConfigOptionsOutput) QBusinessInsightsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicConfigOptions) *bool { return v.QBusinessInsightsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -39470,6 +39473,7 @@ func (o TopicConfigOptionsPtrOutput) Elem() TopicConfigOptionsOutput {
 	}).(TopicConfigOptionsOutput)
 }
 
+// Enables Amazon Q Business Insights for a `Topic` .
 func (o TopicConfigOptionsPtrOutput) QBusinessInsightsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicConfigOptions) *bool {
 		if v == nil {

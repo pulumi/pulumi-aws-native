@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class TopicConfigOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables Amazon Q Business Insights for a `Topic` .
+        /// </summary>
         [Input("qBusinessInsightsEnabled")]
         public Input<bool>? QBusinessInsightsEnabled { get; set; }
 

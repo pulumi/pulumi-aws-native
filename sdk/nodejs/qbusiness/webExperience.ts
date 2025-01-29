@@ -42,6 +42,10 @@ export class WebExperience extends pulumi.CustomResource {
      */
     public readonly applicationId!: pulumi.Output<string>;
     /**
+     * The container for browser extension configuration for an Amazon Q Business web experience.
+     */
+    public readonly browserExtensionConfiguration!: pulumi.Output<outputs.qbusiness.WebExperienceBrowserExtensionConfiguration | undefined>;
+    /**
      * The Unix timestamp when the Amazon Q Business application was last updated.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
@@ -121,6 +125,7 @@ export class WebExperience extends pulumi.CustomResource {
                 throw new Error("Missing required property 'applicationId'");
             }
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["browserExtensionConfiguration"] = args ? args.browserExtensionConfiguration : undefined;
             resourceInputs["customizationConfiguration"] = args ? args.customizationConfiguration : undefined;
             resourceInputs["identityProviderConfiguration"] = args ? args.identityProviderConfiguration : undefined;
             resourceInputs["origins"] = args ? args.origins : undefined;
@@ -138,6 +143,7 @@ export class WebExperience extends pulumi.CustomResource {
             resourceInputs["webExperienceId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["browserExtensionConfiguration"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["customizationConfiguration"] = undefined /*out*/;
             resourceInputs["defaultEndpoint"] = undefined /*out*/;
@@ -169,6 +175,10 @@ export interface WebExperienceArgs {
      * The identifier of the Amazon Q Business web experience.
      */
     applicationId: pulumi.Input<string>;
+    /**
+     * The container for browser extension configuration for an Amazon Q Business web experience.
+     */
+    browserExtensionConfiguration?: pulumi.Input<inputs.qbusiness.WebExperienceBrowserExtensionConfigurationArgs>;
     /**
      * Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
      */

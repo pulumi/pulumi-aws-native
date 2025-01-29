@@ -166,6 +166,9 @@ export class Topic extends pulumi.CustomResource {
      * The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
+     */
     public readonly fifoThroughputScope!: pulumi.Output<string | undefined>;
     /**
      * Set to true to create a FIFO topic.
@@ -294,6 +297,9 @@ export interface TopicArgs {
      * The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
+     */
     fifoThroughputScope?: pulumi.Input<string>;
     /**
      * Set to true to create a FIFO topic.

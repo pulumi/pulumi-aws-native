@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.QBusiness
         public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
+        /// The container for browser extension configuration for an Amazon Q Business web experience.
+        /// </summary>
+        [Output("browserExtensionConfiguration")]
+        public Output<Outputs.WebExperienceBrowserExtensionConfiguration?> BrowserExtensionConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The Unix timestamp when the Amazon Q Business application was last updated.
         /// </summary>
         [Output("createdAt")]
@@ -169,6 +175,12 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
+
+        /// <summary>
+        /// The container for browser extension configuration for an Amazon Q Business web experience.
+        /// </summary>
+        [Input("browserExtensionConfiguration")]
+        public Input<Inputs.WebExperienceBrowserExtensionConfigurationArgs>? BrowserExtensionConfiguration { get; set; }
 
         /// <summary>
         /// Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.

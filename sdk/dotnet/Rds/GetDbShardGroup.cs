@@ -12,19 +12,22 @@ namespace Pulumi.AwsNative.Rds
     public static class GetDbShardGroup
     {
         /// <summary>
-        /// The AWS::RDS::DBShardGroup resource creates an Amazon Aurora Limitless DB Shard Group.
+        /// Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.
+        ///  Valid for: Aurora DB clusters only
         /// </summary>
         public static Task<GetDbShardGroupResult> InvokeAsync(GetDbShardGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDbShardGroupResult>("aws-native:rds:getDbShardGroup", args ?? new GetDbShardGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The AWS::RDS::DBShardGroup resource creates an Amazon Aurora Limitless DB Shard Group.
+        /// Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.
+        ///  Valid for: Aurora DB clusters only
         /// </summary>
         public static Output<GetDbShardGroupResult> Invoke(GetDbShardGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbShardGroupResult>("aws-native:rds:getDbShardGroup", args ?? new GetDbShardGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The AWS::RDS::DBShardGroup resource creates an Amazon Aurora Limitless DB Shard Group.
+        /// Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.
+        ///  Valid for: Aurora DB clusters only
         /// </summary>
         public static Output<GetDbShardGroupResult> Invoke(GetDbShardGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbShardGroupResult>("aws-native:rds:getDbShardGroup", args ?? new GetDbShardGroupInvokeArgs(), options.WithDefaults());
@@ -64,15 +67,24 @@ namespace Pulumi.AwsNative.Rds
     public sealed class GetDbShardGroupResult
     {
         /// <summary>
-        /// Specifies whether to create standby instances for the DB shard group.
+        /// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
+        ///   +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
+        ///   +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
+        ///   +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
         /// </summary>
         public readonly int? ComputeRedundancy;
         /// <summary>
-        /// The Amazon Web Services Region-unique, immutable identifier for the DB shard group.
+        /// The AWS Region -unique, immutable identifier for the DB shard group.
         /// </summary>
         public readonly string? DbShardGroupResourceId;
         /// <summary>
-        /// The connection endpoint for the DB shard group.
+        /// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+        /// 
+        /// - `CreateDBInstance`
+        /// - `DescribeDBInstances`
+        /// - `DeleteDBInstance`
+        /// 
+        /// For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
         /// </summary>
         public readonly string? Endpoint;
         /// <summary>
@@ -80,7 +92,7 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly double? MaxAcu;
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB shard group.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

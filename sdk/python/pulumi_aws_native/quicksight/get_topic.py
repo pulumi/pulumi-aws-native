@@ -56,6 +56,9 @@ class GetTopicResult:
     @property
     @pulumi.getter(name="configOptions")
     def config_options(self) -> Optional['outputs.TopicConfigOptions']:
+        """
+        Configuration options for a `Topic` .
+        """
         return pulumi.get(self, "config_options")
 
     @property

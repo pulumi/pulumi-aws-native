@@ -62,7 +62,10 @@ type LookupPolicyResult struct {
 	// Indicates if the policy should be automatically applied to new resources.
 	RemediationEnabled *bool `pulumi:"remediationEnabled"`
 	// The unique identifiers of the resource sets used by the policy.
-	ResourceSetIds             []string                          `pulumi:"resourceSetIds"`
+	ResourceSetIds []string `pulumi:"resourceSetIds"`
+	// Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+	//
+	// Default: `AND`
 	ResourceTagLogicalOperator *PolicyResourceTagLogicalOperator `pulumi:"resourceTagLogicalOperator"`
 	// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
 	ResourceTags []PolicyResourceTag `pulumi:"resourceTags"`
@@ -271,6 +274,9 @@ func (o LookupPolicyResultOutput) ResourceSetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPolicyResult) []string { return v.ResourceSetIds }).(pulumi.StringArrayOutput)
 }
 
+// Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+//
+// Default: `AND`
 func (o LookupPolicyResultOutput) ResourceTagLogicalOperator() PolicyResourceTagLogicalOperatorPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *PolicyResourceTagLogicalOperator { return v.ResourceTagLogicalOperator }).(PolicyResourceTagLogicalOperatorPtrOutput)
 }

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicConfigOptions
     {
+        /// <summary>
+        /// Enables Amazon Q Business Insights for a `Topic` .
+        /// </summary>
         public readonly bool? QBusinessInsightsEnabled;
 
         [OutputConstructor]

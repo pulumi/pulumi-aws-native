@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("dimensions")]
         public Input<int>? Dimensions { get; set; }
 
+        /// <summary>
+        /// The data type for the vectors when using a model to convert text into vector embeddings.
+        /// </summary>
+        [Input("embeddingDataType")]
+        public Input<Pulumi.AwsNative.Bedrock.KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType>? EmbeddingDataType { get; set; }
+
         public KnowledgeBaseBedrockEmbeddingModelConfigurationArgs()
         {
         }

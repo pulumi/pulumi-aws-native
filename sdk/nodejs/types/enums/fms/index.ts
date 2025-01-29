@@ -27,6 +27,11 @@ export const PolicyResourceTagLogicalOperator = {
     Or: "OR",
 } as const;
 
+/**
+ * Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+ *
+ * Default: `AND`
+ */
 export type PolicyResourceTagLogicalOperator = (typeof PolicyResourceTagLogicalOperator)[keyof typeof PolicyResourceTagLogicalOperator];
 
 export const PolicyType = {

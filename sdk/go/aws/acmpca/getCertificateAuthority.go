@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,6 +33,8 @@ type LookupCertificateAuthorityResult struct {
 	Arn *string `pulumi:"arn"`
 	// The base64 PEM-encoded certificate signing request (CSR) for your certificate authority certificate.
 	CertificateSigningRequest *string `pulumi:"certificateSigningRequest"`
+	// Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCertificateAuthorityOutput(ctx *pulumi.Context, args LookupCertificateAuthorityOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateAuthorityResultOutput {
@@ -74,6 +77,11 @@ func (o LookupCertificateAuthorityResultOutput) Arn() pulumi.StringPtrOutput {
 // The base64 PEM-encoded certificate signing request (CSR) for your certificate authority certificate.
 func (o LookupCertificateAuthorityResultOutput) CertificateSigningRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) *string { return v.CertificateSigningRequest }).(pulumi.StringPtrOutput)
+}
+
+// Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
+func (o LookupCertificateAuthorityResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCertificateAuthorityResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

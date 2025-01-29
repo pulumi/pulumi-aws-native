@@ -6707,6 +6707,172 @@ func (in *guardrailTopicTypePtr) ToGuardrailTopicTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(GuardrailTopicTypePtrOutput)
 }
 
+// The data type for the vectors when using a model to convert text into vector embeddings.
+type KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType string
+
+const (
+	KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeFloat32 = KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType("FLOAT32")
+	KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeBinary  = KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType("BINARY")
+)
+
+func (KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType)(nil)).Elem()
+}
+
+func (e KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType) ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput() KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput {
+	return pulumi.ToOutput(e).(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput)
+}
+
+func (e KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType) ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutputWithContext(ctx context.Context) KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput)
+}
+
+func (e KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType) ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput() KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput {
+	return e.ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType) ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput {
+	return KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType(e).ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutputWithContext(ctx).ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutputWithContext(ctx)
+}
+
+func (e KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput) ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput() KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput) ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutputWithContext(ctx context.Context) KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput) ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput() KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput {
+	return o.ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput) ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType) *KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType {
+		return &v
+	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput)
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput) ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput() KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput) ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput) Elem() KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput {
+	return o.ApplyT(func(v *KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType) KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType
+		return ret
+	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput)
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeInput is an input type that accepts values of the KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType enum
+// A concrete instance of `KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeInput` can be one of the following:
+//
+//	KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeFloat32
+//	KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeBinary
+type KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput() KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput
+	ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutputWithContext(context.Context) KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput
+}
+
+var knowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrType = reflect.TypeOf((**KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType)(nil)).Elem()
+
+type KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput() KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput
+	ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutputWithContext(context.Context) KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput
+}
+
+type knowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtr string
+
+func KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtr(v string) KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrInput {
+	return (*knowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtr)(&v)
+}
+
+func (*knowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtr) ElementType() reflect.Type {
+	return knowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrType
+}
+
+func (in *knowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtr) ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput() KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput {
+	return pulumi.ToOutput(in).(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput)
+}
+
+func (in *knowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtr) ToKnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput)
+}
+
 // Include or Exclude status for an entity
 type KnowledgeBaseInclusionType string
 
@@ -8881,6 +9047,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailSensitiveInformationActionPtrInput)(nil)).Elem(), GuardrailSensitiveInformationAction("BLOCK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicTypeInput)(nil)).Elem(), GuardrailTopicType("DENY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicTypePtrInput)(nil)).Elem(), GuardrailTopicType("DENY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeInput)(nil)).Elem(), KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType("FLOAT32"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrInput)(nil)).Elem(), KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType("FLOAT32"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseInclusionTypeInput)(nil)).Elem(), KnowledgeBaseInclusionType("INCLUDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseInclusionTypePtrInput)(nil)).Elem(), KnowledgeBaseInclusionType("INCLUDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseQueryEngineTypeInput)(nil)).Elem(), KnowledgeBaseQueryEngineType("REDSHIFT"))
@@ -8993,6 +9161,8 @@ func init() {
 	pulumi.RegisterOutputType(GuardrailStatusPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailTopicTypeOutput{})
 	pulumi.RegisterOutputType(GuardrailTopicTypePtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseInclusionTypeOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseInclusionTypePtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseQueryEngineTypeOutput{})

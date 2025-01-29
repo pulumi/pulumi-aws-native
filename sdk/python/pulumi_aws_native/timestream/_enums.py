@@ -8,6 +8,7 @@ __all__ = [
     'InfluxDbInstanceDbInstanceType',
     'InfluxDbInstanceDbStorageType',
     'InfluxDbInstanceDeploymentType',
+    'InfluxDbInstanceNetworkType',
     'InfluxDbInstanceStatus',
     'ScheduledQueryDimensionValueType',
     'ScheduledQueryEncryptionOption',
@@ -49,6 +50,14 @@ class InfluxDbInstanceDeploymentType(str, Enum):
     WITH_MULTIAZ_STANDBY = "WITH_MULTIAZ_STANDBY"
 
 
+class InfluxDbInstanceNetworkType(str, Enum):
+    """
+    Network type of the InfluxDB Instance.
+    """
+    IPV4 = "IPV4"
+    DUAL = "DUAL"
+
+
 class InfluxDbInstanceStatus(str, Enum):
     """
     Status of the InfluxDB Instance.
@@ -58,6 +67,8 @@ class InfluxDbInstanceStatus(str, Enum):
     DELETING = "DELETING"
     MODIFYING = "MODIFYING"
     UPDATING = "UPDATING"
+    UPDATING_DEPLOYMENT_TYPE = "UPDATING_DEPLOYMENT_TYPE"
+    UPDATING_INSTANCE_TYPE = "UPDATING_INSTANCE_TYPE"
     DELETED = "DELETED"
     FAILED = "FAILED"
 

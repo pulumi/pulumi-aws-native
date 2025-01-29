@@ -11,6 +11,7 @@ __all__ = [
     'BridgeProtocolEnum',
     'BridgeSourceProtocolEnum',
     'BridgeStateEnum',
+    'FlowBlackFramesState',
     'FlowEncryptionAlgorithm',
     'FlowEncryptionKeyType',
     'FlowEntitlementEncryptionAlgorithm',
@@ -22,6 +23,7 @@ __all__ = [
     'FlowFmtpRange',
     'FlowFmtpScanMode',
     'FlowFmtpTcs',
+    'FlowFrozenFramesState',
     'FlowMaintenanceMaintenanceDay',
     'FlowMediaStreamMediaStreamType',
     'FlowMediaStreamSourceConfigurationEncodingName',
@@ -32,8 +34,10 @@ __all__ = [
     'FlowOutputMediaStreamOutputConfigurationEncodingName',
     'FlowOutputOutputStatus',
     'FlowOutputProtocol',
+    'FlowSilentAudioState',
     'FlowSourceEncryptionAlgorithm',
     'FlowSourceEncryptionKeyType',
+    'FlowSourceMonitoringConfigContentQualityAnalysisState',
     'FlowSourceMonitoringConfigThumbnailState',
     'FlowSourceProtocol',
     'FlowVpcInterfaceNetworkInterfaceType',
@@ -83,6 +87,14 @@ class BridgeStateEnum(str, Enum):
     START_FAILED = "START_FAILED"
     START_PENDING = "START_PENDING"
     UPDATING = "UPDATING"
+
+
+class FlowBlackFramesState(str, Enum):
+    """
+    Indicates whether the BlackFrames metric is enabled or disabled.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class FlowEncryptionAlgorithm(str, Enum):
@@ -190,6 +202,14 @@ class FlowFmtpTcs(str, Enum):
     DENSITY = "DENSITY"
 
 
+class FlowFrozenFramesState(str, Enum):
+    """
+    Indicates whether the FrozenFrames metric is enabled or disabled.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 class FlowMaintenanceMaintenanceDay(str, Enum):
     """
     A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
@@ -292,6 +312,14 @@ class FlowOutputProtocol(str, Enum):
     CDI = "cdi"
 
 
+class FlowSilentAudioState(str, Enum):
+    """
+    Indicates whether the SilentAudio metric is enabled or disabled.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 class FlowSourceEncryptionAlgorithm(str, Enum):
     """
     The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -308,6 +336,14 @@ class FlowSourceEncryptionKeyType(str, Enum):
     SPEKE = "speke"
     STATIC_KEY = "static-key"
     SRT_PASSWORD = "srt-password"
+
+
+class FlowSourceMonitoringConfigContentQualityAnalysisState(str, Enum):
+    """
+    Indicates whether content quality analysis is enabled or disabled.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class FlowSourceMonitoringConfigThumbnailState(str, Enum):

@@ -31,6 +31,8 @@ type LookupWebExperienceArgs struct {
 }
 
 type LookupWebExperienceResult struct {
+	// The container for browser extension configuration for an Amazon Q Business web experience.
+	BrowserExtensionConfiguration *WebExperienceBrowserExtensionConfiguration `pulumi:"browserExtensionConfiguration"`
 	// The Unix timestamp when the Amazon Q Business application was last updated.
 	CreatedAt *string `pulumi:"createdAt"`
 	// Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
@@ -99,6 +101,13 @@ func (o LookupWebExperienceResultOutput) ToLookupWebExperienceResultOutput() Loo
 
 func (o LookupWebExperienceResultOutput) ToLookupWebExperienceResultOutputWithContext(ctx context.Context) LookupWebExperienceResultOutput {
 	return o
+}
+
+// The container for browser extension configuration for an Amazon Q Business web experience.
+func (o LookupWebExperienceResultOutput) BrowserExtensionConfiguration() WebExperienceBrowserExtensionConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupWebExperienceResult) *WebExperienceBrowserExtensionConfiguration {
+		return v.BrowserExtensionConfiguration
+	}).(WebExperienceBrowserExtensionConfigurationPtrOutput)
 }
 
 // The Unix timestamp when the Amazon Q Business application was last updated.

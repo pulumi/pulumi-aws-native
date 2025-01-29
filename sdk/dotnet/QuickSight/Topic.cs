@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("awsAccountId")]
         public Output<string?> AwsAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration options for a `Topic` .
+        /// </summary>
         [Output("configOptions")]
         public Output<Outputs.TopicConfigOptions?> ConfigOptions { get; private set; } = null!;
 
@@ -120,6 +123,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
+        /// <summary>
+        /// Configuration options for a `Topic` .
+        /// </summary>
         [Input("configOptions")]
         public Input<Inputs.TopicConfigOptionsArgs>? ConfigOptions { get; set; }
 

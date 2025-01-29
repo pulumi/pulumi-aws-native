@@ -19,7 +19,13 @@ namespace Pulumi.AwsNative.Ec2
         /// The Availability Zone in which to create the Capacity Reservation.
         /// </summary>
         [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
+
+        /// <summary>
+        /// The Availability Zone ID of the Capacity Reservation.
+        /// </summary>
+        [Output("availabilityZoneId")]
+        public Output<string?> AvailabilityZoneId { get; private set; } = null!;
 
         /// <summary>
         /// Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
@@ -176,6 +182,7 @@ namespace Pulumi.AwsNative.Ec2
                 ReplaceOnChanges =
                 {
                     "availabilityZone",
+                    "availabilityZoneId",
                     "ebsOptimized",
                     "ephemeralStorage",
                     "instancePlatform",
@@ -210,8 +217,14 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The Availability Zone in which to create the Capacity Reservation.
         /// </summary>
-        [Input("availabilityZone", required: true)]
-        public Input<string> AvailabilityZone { get; set; } = null!;
+        [Input("availabilityZone")]
+        public Input<string>? AvailabilityZone { get; set; }
+
+        /// <summary>
+        /// The Availability Zone ID of the Capacity Reservation.
+        /// </summary>
+        [Input("availabilityZoneId")]
+        public Input<string>? AvailabilityZoneId { get; set; }
 
         /// <summary>
         /// Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.

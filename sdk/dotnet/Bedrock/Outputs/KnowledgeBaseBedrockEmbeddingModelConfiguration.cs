@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// The dimensions details for the vector configuration used on the Bedrock embeddings model.
         /// </summary>
         public readonly int? Dimensions;
+        /// <summary>
+        /// The data type for the vectors when using a model to convert text into vector embeddings.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Bedrock.KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType? EmbeddingDataType;
 
         [OutputConstructor]
-        private KnowledgeBaseBedrockEmbeddingModelConfiguration(int? dimensions)
+        private KnowledgeBaseBedrockEmbeddingModelConfiguration(
+            int? dimensions,
+
+            Pulumi.AwsNative.Bedrock.KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType? embeddingDataType)
         {
             Dimensions = dimensions;
+            EmbeddingDataType = embeddingDataType;
         }
     }
 }

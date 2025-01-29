@@ -34,9 +34,7 @@ namespace Pulumi.AwsNative.Transfer
     public sealed class GetServerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-        /// 
-        /// An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+        /// Specifies the unique Amazon Resource Name (ARN) of the server.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -50,9 +48,7 @@ namespace Pulumi.AwsNative.Transfer
     public sealed class GetServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-        /// 
-        /// An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+        /// Specifies the unique Amazon Resource Name (ARN) of the server.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -68,9 +64,7 @@ namespace Pulumi.AwsNative.Transfer
     public sealed class GetServerResult
     {
         /// <summary>
-        /// The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-        /// 
-        /// An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+        /// Specifies the unique Amazon Resource Name (ARN) of the server.
         /// </summary>
         public readonly string? Arn;
         /// <summary>
@@ -174,9 +168,7 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         public readonly string? SecurityPolicyName;
         /// <summary>
-        /// The service-assigned ID of the server that is created.
-        /// 
-        /// An example `ServerId` is `s-01234567890abcdef` .
+        /// Specifies the unique system-assigned identifier for a server that you instantiate.
         /// </summary>
         public readonly string? ServerId;
         public readonly Pulumi.AwsNative.Transfer.ServerState? State;

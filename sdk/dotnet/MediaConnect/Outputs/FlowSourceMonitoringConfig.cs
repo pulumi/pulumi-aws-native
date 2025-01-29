@@ -17,14 +17,36 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
     public sealed class FlowSourceMonitoringConfig
     {
         /// <summary>
+        /// Contains the settings for audio stream metrics monitoring.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FlowAudioMonitoringSetting> AudioMonitoringSettings;
+        /// <summary>
+        /// Indicates whether content quality analysis is enabled or disabled.
+        /// </summary>
+        public readonly Pulumi.AwsNative.MediaConnect.FlowSourceMonitoringConfigContentQualityAnalysisState? ContentQualityAnalysisState;
+        /// <summary>
         /// The state of thumbnail monitoring.
         /// </summary>
-        public readonly Pulumi.AwsNative.MediaConnect.FlowSourceMonitoringConfigThumbnailState ThumbnailState;
+        public readonly Pulumi.AwsNative.MediaConnect.FlowSourceMonitoringConfigThumbnailState? ThumbnailState;
+        /// <summary>
+        /// Contains the settings for video stream metrics monitoring.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FlowVideoMonitoringSetting> VideoMonitoringSettings;
 
         [OutputConstructor]
-        private FlowSourceMonitoringConfig(Pulumi.AwsNative.MediaConnect.FlowSourceMonitoringConfigThumbnailState thumbnailState)
+        private FlowSourceMonitoringConfig(
+            ImmutableArray<Outputs.FlowAudioMonitoringSetting> audioMonitoringSettings,
+
+            Pulumi.AwsNative.MediaConnect.FlowSourceMonitoringConfigContentQualityAnalysisState? contentQualityAnalysisState,
+
+            Pulumi.AwsNative.MediaConnect.FlowSourceMonitoringConfigThumbnailState? thumbnailState,
+
+            ImmutableArray<Outputs.FlowVideoMonitoringSetting> videoMonitoringSettings)
         {
+            AudioMonitoringSettings = audioMonitoringSettings;
+            ContentQualityAnalysisState = contentQualityAnalysisState;
             ThumbnailState = thumbnailState;
+            VideoMonitoringSettings = videoMonitoringSettings;
         }
     }
 }

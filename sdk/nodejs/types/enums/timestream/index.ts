@@ -39,12 +39,24 @@ export const InfluxDbInstanceDeploymentType = {
  */
 export type InfluxDbInstanceDeploymentType = (typeof InfluxDbInstanceDeploymentType)[keyof typeof InfluxDbInstanceDeploymentType];
 
+export const InfluxDbInstanceNetworkType = {
+    Ipv4: "IPV4",
+    Dual: "DUAL",
+} as const;
+
+/**
+ * Network type of the InfluxDB Instance.
+ */
+export type InfluxDbInstanceNetworkType = (typeof InfluxDbInstanceNetworkType)[keyof typeof InfluxDbInstanceNetworkType];
+
 export const InfluxDbInstanceStatus = {
     Creating: "CREATING",
     Available: "AVAILABLE",
     Deleting: "DELETING",
     Modifying: "MODIFYING",
     Updating: "UPDATING",
+    UpdatingDeploymentType: "UPDATING_DEPLOYMENT_TYPE",
+    UpdatingInstanceType: "UPDATING_INSTANCE_TYPE",
     Deleted: "DELETED",
     Failed: "FAILED",
 } as const;

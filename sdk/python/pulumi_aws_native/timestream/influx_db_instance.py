@@ -32,8 +32,10 @@ class InfluxDbInstanceArgs:
                  deployment_type: Optional[pulumi.Input['InfluxDbInstanceDeploymentType']] = None,
                  log_delivery_configuration: Optional[pulumi.Input['LogDeliveryConfigurationPropertiesArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input['InfluxDbInstanceNetworkType']] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
@@ -49,8 +51,10 @@ class InfluxDbInstanceArgs:
         :param pulumi.Input['InfluxDbInstanceDeploymentType'] deployment_type: Deployment type of the InfluxDB Instance.
         :param pulumi.Input['LogDeliveryConfigurationPropertiesArgs'] log_delivery_configuration: Configuration for sending logs to customer account from the InfluxDB instance.
         :param pulumi.Input[str] name: The unique name that is associated with the InfluxDB instance.
+        :param pulumi.Input['InfluxDbInstanceNetworkType'] network_type: Network type of the InfluxDB Instance.
         :param pulumi.Input[str] organization: The organization for the InfluxDB instance.
         :param pulumi.Input[str] password: The password for the InfluxDB instance.
+        :param pulumi.Input[int] port: The port number on which InfluxDB accepts connections.
         :param pulumi.Input[bool] publicly_accessible: Attach a public IP to the customer ENI.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this DB instance.
         :param pulumi.Input[str] username: The username for the InfluxDB instance.
@@ -73,10 +77,14 @@ class InfluxDbInstanceArgs:
             pulumi.set(__self__, "log_delivery_configuration", log_delivery_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if organization is not None:
             pulumi.set(__self__, "organization", organization)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if tags is not None:
@@ -185,6 +193,18 @@ class InfluxDbInstanceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input['InfluxDbInstanceNetworkType']]:
+        """
+        Network type of the InfluxDB Instance.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input['InfluxDbInstanceNetworkType']]):
+        pulumi.set(self, "network_type", value)
+
+    @property
     @pulumi.getter
     def organization(self) -> Optional[pulumi.Input[str]]:
         """
@@ -207,6 +227,18 @@ class InfluxDbInstanceArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port number on which InfluxDB accepts connections.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter(name="publiclyAccessible")
@@ -282,8 +314,10 @@ class InfluxDbInstance(pulumi.CustomResource):
                  deployment_type: Optional[pulumi.Input['InfluxDbInstanceDeploymentType']] = None,
                  log_delivery_configuration: Optional[pulumi.Input[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input['InfluxDbInstanceNetworkType']] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
@@ -303,8 +337,10 @@ class InfluxDbInstance(pulumi.CustomResource):
         :param pulumi.Input['InfluxDbInstanceDeploymentType'] deployment_type: Deployment type of the InfluxDB Instance.
         :param pulumi.Input[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']] log_delivery_configuration: Configuration for sending logs to customer account from the InfluxDB instance.
         :param pulumi.Input[str] name: The unique name that is associated with the InfluxDB instance.
+        :param pulumi.Input['InfluxDbInstanceNetworkType'] network_type: Network type of the InfluxDB Instance.
         :param pulumi.Input[str] organization: The organization for the InfluxDB instance.
         :param pulumi.Input[str] password: The password for the InfluxDB instance.
+        :param pulumi.Input[int] port: The port number on which InfluxDB accepts connections.
         :param pulumi.Input[bool] publicly_accessible: Attach a public IP to the customer ENI.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this DB instance.
         :param pulumi.Input[str] username: The username for the InfluxDB instance.
@@ -343,8 +379,10 @@ class InfluxDbInstance(pulumi.CustomResource):
                  deployment_type: Optional[pulumi.Input['InfluxDbInstanceDeploymentType']] = None,
                  log_delivery_configuration: Optional[pulumi.Input[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input['InfluxDbInstanceNetworkType']] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
@@ -367,8 +405,10 @@ class InfluxDbInstance(pulumi.CustomResource):
             __props__.__dict__["deployment_type"] = deployment_type
             __props__.__dict__["log_delivery_configuration"] = log_delivery_configuration
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["organization"] = organization
             __props__.__dict__["password"] = password
+            __props__.__dict__["port"] = port
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["tags"] = tags
             __props__.__dict__["username"] = username
@@ -381,7 +421,7 @@ class InfluxDbInstance(pulumi.CustomResource):
             __props__.__dict__["influx_auth_parameters_secret_arn"] = None
             __props__.__dict__["secondary_availability_zone"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allocatedStorage", "bucket", "dbInstanceType", "dbStorageType", "deploymentType", "name", "organization", "password", "publiclyAccessible", "username", "vpcSecurityGroupIds[*]", "vpcSubnetIds[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allocatedStorage", "bucket", "dbStorageType", "name", "networkType", "organization", "password", "publiclyAccessible", "username", "vpcSecurityGroupIds[*]", "vpcSubnetIds[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(InfluxDbInstance, __self__).__init__(
             'aws-native:timestream:InfluxDbInstance',
@@ -418,8 +458,10 @@ class InfluxDbInstance(pulumi.CustomResource):
         __props__.__dict__["influx_auth_parameters_secret_arn"] = None
         __props__.__dict__["log_delivery_configuration"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_type"] = None
         __props__.__dict__["organization"] = None
         __props__.__dict__["password"] = None
+        __props__.__dict__["port"] = None
         __props__.__dict__["publicly_accessible"] = None
         __props__.__dict__["secondary_availability_zone"] = None
         __props__.__dict__["status"] = None
@@ -534,6 +576,14 @@ class InfluxDbInstance(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[Optional['InfluxDbInstanceNetworkType']]:
+        """
+        Network type of the InfluxDB Instance.
+        """
+        return pulumi.get(self, "network_type")
+
+    @property
     @pulumi.getter
     def organization(self) -> pulumi.Output[Optional[str]]:
         """
@@ -548,6 +598,14 @@ class InfluxDbInstance(pulumi.CustomResource):
         The password for the InfluxDB instance.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Output[Optional[int]]:
+        """
+        The port number on which InfluxDB accepts connections.
+        """
+        return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="publiclyAccessible")

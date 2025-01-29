@@ -6669,19 +6669,27 @@ if not MYPY:
         """
         The dimensions details for the vector configuration used on the Bedrock embeddings model.
         """
+        embedding_data_type: NotRequired[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']]
+        """
+        The data type for the vectors when using a model to convert text into vector embeddings.
+        """
 elif False:
     KnowledgeBaseBedrockEmbeddingModelConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs:
     def __init__(__self__, *,
-                 dimensions: Optional[pulumi.Input[int]] = None):
+                 dimensions: Optional[pulumi.Input[int]] = None,
+                 embedding_data_type: Optional[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']] = None):
         """
         The vector configuration details for the Bedrock embeddings model.
         :param pulumi.Input[int] dimensions: The dimensions details for the vector configuration used on the Bedrock embeddings model.
+        :param pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType'] embedding_data_type: The data type for the vectors when using a model to convert text into vector embeddings.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
+        if embedding_data_type is not None:
+            pulumi.set(__self__, "embedding_data_type", embedding_data_type)
 
     @property
     @pulumi.getter
@@ -6694,6 +6702,18 @@ class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs:
     @dimensions.setter
     def dimensions(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter(name="embeddingDataType")
+    def embedding_data_type(self) -> Optional[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']]:
+        """
+        The data type for the vectors when using a model to convert text into vector embeddings.
+        """
+        return pulumi.get(self, "embedding_data_type")
+
+    @embedding_data_type.setter
+    def embedding_data_type(self, value: Optional[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']]):
+        pulumi.set(self, "embedding_data_type", value)
 
 
 if not MYPY:

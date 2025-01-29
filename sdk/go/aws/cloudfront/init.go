@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RealtimeLogConfig{}
 	case "aws-native:cloudfront:ResponseHeadersPolicy":
 		r = &ResponseHeadersPolicy{}
+	case "aws-native:cloudfront:VpcOrigin":
+		r = &VpcOrigin{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

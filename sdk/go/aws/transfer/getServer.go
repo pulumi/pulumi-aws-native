@@ -24,16 +24,12 @@ func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.In
 }
 
 type LookupServerArgs struct {
-	// The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-	//
-	// An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+	// Specifies the unique Amazon Resource Name (ARN) of the server.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupServerResult struct {
-	// The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-	//
-	// An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+	// Specifies the unique Amazon Resource Name (ARN) of the server.
 	Arn *string `pulumi:"arn"`
 	// The list of egress IP addresses of this server. These IP addresses are only relevant for servers that use the AS2 protocol. They are used for sending asynchronous MDNs. These IP addresses are assigned automatically when you create an AS2 server. Additionally, if you update an existing server and add the AS2 protocol, static IP addresses are assigned as well.
 	As2ServiceManagedEgressIpAddresses []string `pulumi:"as2ServiceManagedEgressIpAddresses"`
@@ -111,9 +107,7 @@ type LookupServerResult struct {
 	S3StorageOptions *ServerS3StorageOptions `pulumi:"s3StorageOptions"`
 	// Specifies the name of the security policy for the server.
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
-	// The service-assigned ID of the server that is created.
-	//
-	// An example `ServerId` is `s-01234567890abcdef` .
+	// Specifies the unique system-assigned identifier for a server that you instantiate.
 	ServerId *string          `pulumi:"serverId"`
 	State    *ServerStateEnum `pulumi:"state"`
 	// Specifies the log groups to which your server logs are sent.
@@ -146,9 +140,7 @@ func LookupServerOutput(ctx *pulumi.Context, args LookupServerOutputArgs, opts .
 }
 
 type LookupServerOutputArgs struct {
-	// The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-	//
-	// An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+	// Specifies the unique Amazon Resource Name (ARN) of the server.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -170,9 +162,7 @@ func (o LookupServerResultOutput) ToLookupServerResultOutputWithContext(ctx cont
 	return o
 }
 
-// The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-//
-// An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+// Specifies the unique Amazon Resource Name (ARN) of the server.
 func (o LookupServerResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -289,9 +279,7 @@ func (o LookupServerResultOutput) SecurityPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.SecurityPolicyName }).(pulumi.StringPtrOutput)
 }
 
-// The service-assigned ID of the server that is created.
-//
-// An example `ServerId` is `s-01234567890abcdef` .
+// Specifies the unique system-assigned identifier for a server that you instantiate.
 func (o LookupServerResultOutput) ServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.ServerId }).(pulumi.StringPtrOutput)
 }

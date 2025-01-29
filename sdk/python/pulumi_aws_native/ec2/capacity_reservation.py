@@ -21,10 +21,11 @@ __all__ = ['CapacityReservationArgs', 'CapacityReservation']
 @pulumi.input_type
 class CapacityReservationArgs:
     def __init__(__self__, *,
-                 availability_zone: pulumi.Input[str],
                  instance_count: pulumi.Input[int],
                  instance_platform: pulumi.Input[str],
                  instance_type: pulumi.Input[str],
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 availability_zone_id: Optional[pulumi.Input[str]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
                  end_date_type: Optional[pulumi.Input[str]] = None,
@@ -37,7 +38,6 @@ class CapacityReservationArgs:
                  unused_reservation_billing_owner_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CapacityReservation resource.
-        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
         :param pulumi.Input[int] instance_count: The number of instances for which to reserve capacity.
                
                > You can request future-dated Capacity Reservations for an instance count with a minimum of 100 VPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ). 
@@ -49,6 +49,8 @@ class CapacityReservationArgs:
                > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, and T instance families only. 
                
                For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
+        :param pulumi.Input[str] availability_zone_id: The Availability Zone ID of the Capacity Reservation.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
         :param pulumi.Input[str] end_date: The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
                
@@ -85,10 +87,13 @@ class CapacityReservationArgs:
                
                You can assign billing only for shared Capacity Reservations. To share a Capacity Reservation, you must add it to a resource share. For more information, see [AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html) .
         """
-        pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_platform", instance_platform)
         pulumi.set(__self__, "instance_type", instance_type)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if availability_zone_id is not None:
+            pulumi.set(__self__, "availability_zone_id", availability_zone_id)
         if ebs_optimized is not None:
             pulumi.set(__self__, "ebs_optimized", ebs_optimized)
         if end_date is not None:
@@ -109,18 +114,6 @@ class CapacityReservationArgs:
             pulumi.set(__self__, "tenancy", tenancy)
         if unused_reservation_billing_owner_id is not None:
             pulumi.set(__self__, "unused_reservation_billing_owner_id", unused_reservation_billing_owner_id)
-
-    @property
-    @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Input[str]:
-        """
-        The Availability Zone in which to create the Capacity Reservation.
-        """
-        return pulumi.get(self, "availability_zone")
-
-    @availability_zone.setter
-    def availability_zone(self, value: pulumi.Input[str]):
-        pulumi.set(self, "availability_zone", value)
 
     @property
     @pulumi.getter(name="instanceCount")
@@ -165,6 +158,30 @@ class CapacityReservationArgs:
     @instance_type.setter
     def instance_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Availability Zone in which to create the Capacity Reservation.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Availability Zone ID of the Capacity Reservation.
+        """
+        return pulumi.get(self, "availability_zone_id")
+
+    @availability_zone_id.setter
+    def availability_zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone_id", value)
 
     @property
     @pulumi.getter(name="ebsOptimized")
@@ -318,6 +335,7 @@ class CapacityReservation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 availability_zone_id: Optional[pulumi.Input[str]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
                  end_date_type: Optional[pulumi.Input[str]] = None,
@@ -338,6 +356,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
+        :param pulumi.Input[str] availability_zone_id: The Availability Zone ID of the Capacity Reservation.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
         :param pulumi.Input[str] end_date: The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
                
@@ -410,6 +429,7 @@ class CapacityReservation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 availability_zone_id: Optional[pulumi.Input[str]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
                  end_date_type: Optional[pulumi.Input[str]] = None,
@@ -432,9 +452,8 @@ class CapacityReservation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CapacityReservationArgs.__new__(CapacityReservationArgs)
 
-            if availability_zone is None and not opts.urn:
-                raise TypeError("Missing required property 'availability_zone'")
             __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["availability_zone_id"] = availability_zone_id
             __props__.__dict__["ebs_optimized"] = ebs_optimized
             __props__.__dict__["end_date"] = end_date
             __props__.__dict__["end_date_type"] = end_date_type
@@ -457,7 +476,7 @@ class CapacityReservation(pulumi.CustomResource):
             __props__.__dict__["available_instance_count"] = None
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["total_instance_count"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZone", "ebsOptimized", "ephemeralStorage", "instancePlatform", "instanceType", "outPostArn", "placementGroupArn", "tagSpecifications[*]", "tenancy"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZone", "availabilityZoneId", "ebsOptimized", "ephemeralStorage", "instancePlatform", "instanceType", "outPostArn", "placementGroupArn", "tagSpecifications[*]", "tenancy"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CapacityReservation, __self__).__init__(
             'aws-native:ec2:CapacityReservation',
@@ -482,6 +501,7 @@ class CapacityReservation(pulumi.CustomResource):
         __props__ = CapacityReservationArgs.__new__(CapacityReservationArgs)
 
         __props__.__dict__["availability_zone"] = None
+        __props__.__dict__["availability_zone_id"] = None
         __props__.__dict__["available_instance_count"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["ebs_optimized"] = None
@@ -502,11 +522,19 @@ class CapacityReservation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Output[str]:
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         The Availability Zone in which to create the Capacity Reservation.
         """
         return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Availability Zone ID of the Capacity Reservation.
+        """
+        return pulumi.get(self, "availability_zone_id")
 
     @property
     @pulumi.getter(name="availableInstanceCount")

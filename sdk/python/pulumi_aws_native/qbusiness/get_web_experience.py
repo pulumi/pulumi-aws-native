@@ -26,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetWebExperienceResult:
-    def __init__(__self__, created_at=None, customization_configuration=None, default_endpoint=None, identity_provider_configuration=None, origins=None, role_arn=None, sample_prompts_control_mode=None, status=None, subtitle=None, tags=None, title=None, updated_at=None, web_experience_arn=None, web_experience_id=None, welcome_message=None):
+    def __init__(__self__, browser_extension_configuration=None, created_at=None, customization_configuration=None, default_endpoint=None, identity_provider_configuration=None, origins=None, role_arn=None, sample_prompts_control_mode=None, status=None, subtitle=None, tags=None, title=None, updated_at=None, web_experience_arn=None, web_experience_id=None, welcome_message=None):
+        if browser_extension_configuration and not isinstance(browser_extension_configuration, dict):
+            raise TypeError("Expected argument 'browser_extension_configuration' to be a dict")
+        pulumi.set(__self__, "browser_extension_configuration", browser_extension_configuration)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -72,6 +75,14 @@ class GetWebExperienceResult:
         if welcome_message and not isinstance(welcome_message, str):
             raise TypeError("Expected argument 'welcome_message' to be a str")
         pulumi.set(__self__, "welcome_message", welcome_message)
+
+    @property
+    @pulumi.getter(name="browserExtensionConfiguration")
+    def browser_extension_configuration(self) -> Optional['outputs.WebExperienceBrowserExtensionConfiguration']:
+        """
+        The container for browser extension configuration for an Amazon Q Business web experience.
+        """
+        return pulumi.get(self, "browser_extension_configuration")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -204,6 +215,7 @@ class AwaitableGetWebExperienceResult(GetWebExperienceResult):
         if False:
             yield self
         return GetWebExperienceResult(
+            browser_extension_configuration=self.browser_extension_configuration,
             created_at=self.created_at,
             customization_configuration=self.customization_configuration,
             default_endpoint=self.default_endpoint,
@@ -238,6 +250,7 @@ def get_web_experience(application_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:qbusiness:getWebExperience', __args__, opts=opts, typ=GetWebExperienceResult).value
 
     return AwaitableGetWebExperienceResult(
+        browser_extension_configuration=pulumi.get(__ret__, 'browser_extension_configuration'),
         created_at=pulumi.get(__ret__, 'created_at'),
         customization_configuration=pulumi.get(__ret__, 'customization_configuration'),
         default_endpoint=pulumi.get(__ret__, 'default_endpoint'),
@@ -269,6 +282,7 @@ def get_web_experience_output(application_id: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:qbusiness:getWebExperience', __args__, opts=opts, typ=GetWebExperienceResult)
     return __ret__.apply(lambda __response__: GetWebExperienceResult(
+        browser_extension_configuration=pulumi.get(__response__, 'browser_extension_configuration'),
         created_at=pulumi.get(__response__, 'created_at'),
         customization_configuration=pulumi.get(__response__, 'customization_configuration'),
         default_endpoint=pulumi.get(__response__, 'default_endpoint'),

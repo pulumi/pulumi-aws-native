@@ -34,9 +34,17 @@ export interface GetInfluxDbInstanceResult {
      */
     readonly availabilityZone?: string;
     /**
+     * The compute instance of the InfluxDB instance.
+     */
+    readonly dbInstanceType?: enums.timestream.InfluxDbInstanceDbInstanceType;
+    /**
      * The name of an existing InfluxDB parameter group.
      */
     readonly dbParameterGroupIdentifier?: string;
+    /**
+     * Deployment type of the InfluxDB Instance.
+     */
+    readonly deploymentType?: enums.timestream.InfluxDbInstanceDeploymentType;
     /**
      * The connection endpoint for the InfluxDB instance.
      */
@@ -53,6 +61,10 @@ export interface GetInfluxDbInstanceResult {
      * Configuration for sending logs to customer account from the InfluxDB instance.
      */
     readonly logDeliveryConfiguration?: outputs.timestream.LogDeliveryConfigurationProperties;
+    /**
+     * The port number on which InfluxDB accepts connections.
+     */
+    readonly port?: number;
     /**
      * The Secondary Availability Zone (AZ) where the InfluxDB instance is created, if DeploymentType is set as WITH_MULTIAZ_STANDBY.
      */

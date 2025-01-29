@@ -522,17 +522,185 @@ func (in *influxDbInstanceDeploymentTypePtr) ToInfluxDbInstanceDeploymentTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(InfluxDbInstanceDeploymentTypePtrOutput)
 }
 
+// Network type of the InfluxDB Instance.
+type InfluxDbInstanceNetworkType string
+
+const (
+	InfluxDbInstanceNetworkTypeIpv4 = InfluxDbInstanceNetworkType("IPV4")
+	InfluxDbInstanceNetworkTypeDual = InfluxDbInstanceNetworkType("DUAL")
+)
+
+func (InfluxDbInstanceNetworkType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbInstanceNetworkType)(nil)).Elem()
+}
+
+func (e InfluxDbInstanceNetworkType) ToInfluxDbInstanceNetworkTypeOutput() InfluxDbInstanceNetworkTypeOutput {
+	return pulumi.ToOutput(e).(InfluxDbInstanceNetworkTypeOutput)
+}
+
+func (e InfluxDbInstanceNetworkType) ToInfluxDbInstanceNetworkTypeOutputWithContext(ctx context.Context) InfluxDbInstanceNetworkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InfluxDbInstanceNetworkTypeOutput)
+}
+
+func (e InfluxDbInstanceNetworkType) ToInfluxDbInstanceNetworkTypePtrOutput() InfluxDbInstanceNetworkTypePtrOutput {
+	return e.ToInfluxDbInstanceNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (e InfluxDbInstanceNetworkType) ToInfluxDbInstanceNetworkTypePtrOutputWithContext(ctx context.Context) InfluxDbInstanceNetworkTypePtrOutput {
+	return InfluxDbInstanceNetworkType(e).ToInfluxDbInstanceNetworkTypeOutputWithContext(ctx).ToInfluxDbInstanceNetworkTypePtrOutputWithContext(ctx)
+}
+
+func (e InfluxDbInstanceNetworkType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InfluxDbInstanceNetworkType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InfluxDbInstanceNetworkType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InfluxDbInstanceNetworkType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InfluxDbInstanceNetworkTypeOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbInstanceNetworkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbInstanceNetworkType)(nil)).Elem()
+}
+
+func (o InfluxDbInstanceNetworkTypeOutput) ToInfluxDbInstanceNetworkTypeOutput() InfluxDbInstanceNetworkTypeOutput {
+	return o
+}
+
+func (o InfluxDbInstanceNetworkTypeOutput) ToInfluxDbInstanceNetworkTypeOutputWithContext(ctx context.Context) InfluxDbInstanceNetworkTypeOutput {
+	return o
+}
+
+func (o InfluxDbInstanceNetworkTypeOutput) ToInfluxDbInstanceNetworkTypePtrOutput() InfluxDbInstanceNetworkTypePtrOutput {
+	return o.ToInfluxDbInstanceNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbInstanceNetworkTypeOutput) ToInfluxDbInstanceNetworkTypePtrOutputWithContext(ctx context.Context) InfluxDbInstanceNetworkTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbInstanceNetworkType) *InfluxDbInstanceNetworkType {
+		return &v
+	}).(InfluxDbInstanceNetworkTypePtrOutput)
+}
+
+func (o InfluxDbInstanceNetworkTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfluxDbInstanceNetworkTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbInstanceNetworkType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfluxDbInstanceNetworkTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbInstanceNetworkTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbInstanceNetworkType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfluxDbInstanceNetworkTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbInstanceNetworkTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbInstanceNetworkType)(nil)).Elem()
+}
+
+func (o InfluxDbInstanceNetworkTypePtrOutput) ToInfluxDbInstanceNetworkTypePtrOutput() InfluxDbInstanceNetworkTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbInstanceNetworkTypePtrOutput) ToInfluxDbInstanceNetworkTypePtrOutputWithContext(ctx context.Context) InfluxDbInstanceNetworkTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbInstanceNetworkTypePtrOutput) Elem() InfluxDbInstanceNetworkTypeOutput {
+	return o.ApplyT(func(v *InfluxDbInstanceNetworkType) InfluxDbInstanceNetworkType {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbInstanceNetworkType
+		return ret
+	}).(InfluxDbInstanceNetworkTypeOutput)
+}
+
+func (o InfluxDbInstanceNetworkTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbInstanceNetworkTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfluxDbInstanceNetworkType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InfluxDbInstanceNetworkTypeInput is an input type that accepts values of the InfluxDbInstanceNetworkType enum
+// A concrete instance of `InfluxDbInstanceNetworkTypeInput` can be one of the following:
+//
+//	InfluxDbInstanceNetworkTypeIpv4
+//	InfluxDbInstanceNetworkTypeDual
+type InfluxDbInstanceNetworkTypeInput interface {
+	pulumi.Input
+
+	ToInfluxDbInstanceNetworkTypeOutput() InfluxDbInstanceNetworkTypeOutput
+	ToInfluxDbInstanceNetworkTypeOutputWithContext(context.Context) InfluxDbInstanceNetworkTypeOutput
+}
+
+var influxDbInstanceNetworkTypePtrType = reflect.TypeOf((**InfluxDbInstanceNetworkType)(nil)).Elem()
+
+type InfluxDbInstanceNetworkTypePtrInput interface {
+	pulumi.Input
+
+	ToInfluxDbInstanceNetworkTypePtrOutput() InfluxDbInstanceNetworkTypePtrOutput
+	ToInfluxDbInstanceNetworkTypePtrOutputWithContext(context.Context) InfluxDbInstanceNetworkTypePtrOutput
+}
+
+type influxDbInstanceNetworkTypePtr string
+
+func InfluxDbInstanceNetworkTypePtr(v string) InfluxDbInstanceNetworkTypePtrInput {
+	return (*influxDbInstanceNetworkTypePtr)(&v)
+}
+
+func (*influxDbInstanceNetworkTypePtr) ElementType() reflect.Type {
+	return influxDbInstanceNetworkTypePtrType
+}
+
+func (in *influxDbInstanceNetworkTypePtr) ToInfluxDbInstanceNetworkTypePtrOutput() InfluxDbInstanceNetworkTypePtrOutput {
+	return pulumi.ToOutput(in).(InfluxDbInstanceNetworkTypePtrOutput)
+}
+
+func (in *influxDbInstanceNetworkTypePtr) ToInfluxDbInstanceNetworkTypePtrOutputWithContext(ctx context.Context) InfluxDbInstanceNetworkTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InfluxDbInstanceNetworkTypePtrOutput)
+}
+
 // Status of the InfluxDB Instance.
 type InfluxDbInstanceStatus string
 
 const (
-	InfluxDbInstanceStatusCreating  = InfluxDbInstanceStatus("CREATING")
-	InfluxDbInstanceStatusAvailable = InfluxDbInstanceStatus("AVAILABLE")
-	InfluxDbInstanceStatusDeleting  = InfluxDbInstanceStatus("DELETING")
-	InfluxDbInstanceStatusModifying = InfluxDbInstanceStatus("MODIFYING")
-	InfluxDbInstanceStatusUpdating  = InfluxDbInstanceStatus("UPDATING")
-	InfluxDbInstanceStatusDeleted   = InfluxDbInstanceStatus("DELETED")
-	InfluxDbInstanceStatusFailed    = InfluxDbInstanceStatus("FAILED")
+	InfluxDbInstanceStatusCreating               = InfluxDbInstanceStatus("CREATING")
+	InfluxDbInstanceStatusAvailable              = InfluxDbInstanceStatus("AVAILABLE")
+	InfluxDbInstanceStatusDeleting               = InfluxDbInstanceStatus("DELETING")
+	InfluxDbInstanceStatusModifying              = InfluxDbInstanceStatus("MODIFYING")
+	InfluxDbInstanceStatusUpdating               = InfluxDbInstanceStatus("UPDATING")
+	InfluxDbInstanceStatusUpdatingDeploymentType = InfluxDbInstanceStatus("UPDATING_DEPLOYMENT_TYPE")
+	InfluxDbInstanceStatusUpdatingInstanceType   = InfluxDbInstanceStatus("UPDATING_INSTANCE_TYPE")
+	InfluxDbInstanceStatusDeleted                = InfluxDbInstanceStatus("DELETED")
+	InfluxDbInstanceStatusFailed                 = InfluxDbInstanceStatus("FAILED")
 )
 
 type InfluxDbInstanceStatusOutput struct{ *pulumi.OutputState }
@@ -1631,6 +1799,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbInstanceDbStorageTypePtrInput)(nil)).Elem(), InfluxDbInstanceDbStorageType("InfluxIOIncludedT1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbInstanceDeploymentTypeInput)(nil)).Elem(), InfluxDbInstanceDeploymentType("SINGLE_AZ"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbInstanceDeploymentTypePtrInput)(nil)).Elem(), InfluxDbInstanceDeploymentType("SINGLE_AZ"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbInstanceNetworkTypeInput)(nil)).Elem(), InfluxDbInstanceNetworkType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbInstanceNetworkTypePtrInput)(nil)).Elem(), InfluxDbInstanceNetworkType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryDimensionValueTypeInput)(nil)).Elem(), ScheduledQueryDimensionValueType("VARCHAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryDimensionValueTypePtrInput)(nil)).Elem(), ScheduledQueryDimensionValueType("VARCHAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryEncryptionOptionInput)(nil)).Elem(), ScheduledQueryEncryptionOption("SSE_S3"))
@@ -1649,6 +1819,8 @@ func init() {
 	pulumi.RegisterOutputType(InfluxDbInstanceDbStorageTypePtrOutput{})
 	pulumi.RegisterOutputType(InfluxDbInstanceDeploymentTypeOutput{})
 	pulumi.RegisterOutputType(InfluxDbInstanceDeploymentTypePtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbInstanceNetworkTypeOutput{})
+	pulumi.RegisterOutputType(InfluxDbInstanceNetworkTypePtrOutput{})
 	pulumi.RegisterOutputType(InfluxDbInstanceStatusOutput{})
 	pulumi.RegisterOutputType(InfluxDbInstanceStatusPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryDimensionValueTypeOutput{})

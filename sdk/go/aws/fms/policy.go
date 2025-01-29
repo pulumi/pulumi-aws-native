@@ -65,7 +65,10 @@ type Policy struct {
 	// Indicates if the policy should be automatically applied to new resources.
 	RemediationEnabled pulumi.BoolOutput `pulumi:"remediationEnabled"`
 	// The unique identifiers of the resource sets used by the policy.
-	ResourceSetIds             pulumi.StringArrayOutput                  `pulumi:"resourceSetIds"`
+	ResourceSetIds pulumi.StringArrayOutput `pulumi:"resourceSetIds"`
+	// Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+	//
+	// Default: `AND`
 	ResourceTagLogicalOperator PolicyResourceTagLogicalOperatorPtrOutput `pulumi:"resourceTagLogicalOperator"`
 	// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
 	ResourceTags PolicyResourceTagArrayOutput `pulumi:"resourceTags"`
@@ -274,7 +277,10 @@ type policyArgs struct {
 	// Indicates if the policy should be automatically applied to new resources.
 	RemediationEnabled bool `pulumi:"remediationEnabled"`
 	// The unique identifiers of the resource sets used by the policy.
-	ResourceSetIds             []string                          `pulumi:"resourceSetIds"`
+	ResourceSetIds []string `pulumi:"resourceSetIds"`
+	// Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+	//
+	// Default: `AND`
 	ResourceTagLogicalOperator *PolicyResourceTagLogicalOperator `pulumi:"resourceTagLogicalOperator"`
 	// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
 	ResourceTags []PolicyResourceTag `pulumi:"resourceTags"`
@@ -436,7 +442,10 @@ type PolicyArgs struct {
 	// Indicates if the policy should be automatically applied to new resources.
 	RemediationEnabled pulumi.BoolInput
 	// The unique identifiers of the resource sets used by the policy.
-	ResourceSetIds             pulumi.StringArrayInput
+	ResourceSetIds pulumi.StringArrayInput
+	// Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+	//
+	// Default: `AND`
 	ResourceTagLogicalOperator PolicyResourceTagLogicalOperatorPtrInput
 	// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
 	ResourceTags PolicyResourceTagArrayInput
@@ -668,6 +677,9 @@ func (o PolicyOutput) ResourceSetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.ResourceSetIds }).(pulumi.StringArrayOutput)
 }
 
+// Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+//
+// Default: `AND`
 func (o PolicyOutput) ResourceTagLogicalOperator() PolicyResourceTagLogicalOperatorPtrOutput {
 	return o.ApplyT(func(v *Policy) PolicyResourceTagLogicalOperatorPtrOutput { return v.ResourceTagLogicalOperator }).(PolicyResourceTagLogicalOperatorPtrOutput)
 }

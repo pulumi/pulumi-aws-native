@@ -342,6 +342,9 @@ func (in *policyNetworkAclEntryRuleActionPtr) ToPolicyNetworkAclEntryRuleActionP
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyNetworkAclEntryRuleActionPtrOutput)
 }
 
+// Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+//
+// Default: `AND`
 type PolicyResourceTagLogicalOperator string
 
 const (

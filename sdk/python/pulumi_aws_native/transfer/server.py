@@ -1034,9 +1034,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-
-        An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+        Specifies the unique Amazon Resource Name (ARN) of the server.
         """
         return pulumi.get(self, "arn")
 
@@ -1214,9 +1212,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Output[str]:
         """
-        The service-assigned ID of the server that is created.
-
-        An example `ServerId` is `s-01234567890abcdef` .
+        Specifies the unique system-assigned identifier for a server that you instantiate.
         """
         return pulumi.get(self, "server_id")
 

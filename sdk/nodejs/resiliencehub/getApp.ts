@@ -54,10 +54,6 @@ export interface GetAppResult {
      */
     readonly permissionModel?: outputs.resiliencehub.AppPermissionModel;
     /**
-     * Amazon Resource Name (ARN) of the Regulatory Policy.
-     */
-    readonly regulatoryPolicyArn?: string;
-    /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
      */
     readonly resiliencyPolicyArn?: string;

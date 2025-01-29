@@ -33,8 +33,12 @@ type LookupInfluxDbInstanceResult struct {
 	Arn *string `pulumi:"arn"`
 	// The Availability Zone (AZ) where the InfluxDB instance is created.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The compute instance of the InfluxDB instance.
+	DbInstanceType *InfluxDbInstanceDbInstanceType `pulumi:"dbInstanceType"`
 	// The name of an existing InfluxDB parameter group.
 	DbParameterGroupIdentifier *string `pulumi:"dbParameterGroupIdentifier"`
+	// Deployment type of the InfluxDB Instance.
+	DeploymentType *InfluxDbInstanceDeploymentType `pulumi:"deploymentType"`
 	// The connection endpoint for the InfluxDB instance.
 	Endpoint *string `pulumi:"endpoint"`
 	// The service generated unique identifier for InfluxDB instance.
@@ -43,6 +47,8 @@ type LookupInfluxDbInstanceResult struct {
 	InfluxAuthParametersSecretArn *string `pulumi:"influxAuthParametersSecretArn"`
 	// Configuration for sending logs to customer account from the InfluxDB instance.
 	LogDeliveryConfiguration *LogDeliveryConfigurationProperties `pulumi:"logDeliveryConfiguration"`
+	// The port number on which InfluxDB accepts connections.
+	Port *int `pulumi:"port"`
 	// The Secondary Availability Zone (AZ) where the InfluxDB instance is created, if DeploymentType is set as WITH_MULTIAZ_STANDBY.
 	SecondaryAvailabilityZone *string `pulumi:"secondaryAvailabilityZone"`
 	// Status of the InfluxDB Instance.
@@ -93,9 +99,19 @@ func (o LookupInfluxDbInstanceResultOutput) AvailabilityZone() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupInfluxDbInstanceResult) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The compute instance of the InfluxDB instance.
+func (o LookupInfluxDbInstanceResultOutput) DbInstanceType() InfluxDbInstanceDbInstanceTypePtrOutput {
+	return o.ApplyT(func(v LookupInfluxDbInstanceResult) *InfluxDbInstanceDbInstanceType { return v.DbInstanceType }).(InfluxDbInstanceDbInstanceTypePtrOutput)
+}
+
 // The name of an existing InfluxDB parameter group.
 func (o LookupInfluxDbInstanceResultOutput) DbParameterGroupIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInfluxDbInstanceResult) *string { return v.DbParameterGroupIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Deployment type of the InfluxDB Instance.
+func (o LookupInfluxDbInstanceResultOutput) DeploymentType() InfluxDbInstanceDeploymentTypePtrOutput {
+	return o.ApplyT(func(v LookupInfluxDbInstanceResult) *InfluxDbInstanceDeploymentType { return v.DeploymentType }).(InfluxDbInstanceDeploymentTypePtrOutput)
 }
 
 // The connection endpoint for the InfluxDB instance.
@@ -118,6 +134,11 @@ func (o LookupInfluxDbInstanceResultOutput) LogDeliveryConfiguration() LogDelive
 	return o.ApplyT(func(v LookupInfluxDbInstanceResult) *LogDeliveryConfigurationProperties {
 		return v.LogDeliveryConfiguration
 	}).(LogDeliveryConfigurationPropertiesPtrOutput)
+}
+
+// The port number on which InfluxDB accepts connections.
+func (o LookupInfluxDbInstanceResultOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupInfluxDbInstanceResult) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // The Secondary Availability Zone (AZ) where the InfluxDB instance is created, if DeploymentType is set as WITH_MULTIAZ_STANDBY.

@@ -108,6 +108,37 @@ namespace Pulumi.AwsNative.Timestream
     }
 
     /// <summary>
+    /// Network type of the InfluxDB Instance.
+    /// </summary>
+    [EnumType]
+    public readonly struct InfluxDbInstanceNetworkType : IEquatable<InfluxDbInstanceNetworkType>
+    {
+        private readonly string _value;
+
+        private InfluxDbInstanceNetworkType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InfluxDbInstanceNetworkType Ipv4 { get; } = new InfluxDbInstanceNetworkType("IPV4");
+        public static InfluxDbInstanceNetworkType Dual { get; } = new InfluxDbInstanceNetworkType("DUAL");
+
+        public static bool operator ==(InfluxDbInstanceNetworkType left, InfluxDbInstanceNetworkType right) => left.Equals(right);
+        public static bool operator !=(InfluxDbInstanceNetworkType left, InfluxDbInstanceNetworkType right) => !left.Equals(right);
+
+        public static explicit operator string(InfluxDbInstanceNetworkType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InfluxDbInstanceNetworkType other && Equals(other);
+        public bool Equals(InfluxDbInstanceNetworkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Status of the InfluxDB Instance.
     /// </summary>
     [EnumType]
@@ -125,6 +156,8 @@ namespace Pulumi.AwsNative.Timestream
         public static InfluxDbInstanceStatus Deleting { get; } = new InfluxDbInstanceStatus("DELETING");
         public static InfluxDbInstanceStatus Modifying { get; } = new InfluxDbInstanceStatus("MODIFYING");
         public static InfluxDbInstanceStatus Updating { get; } = new InfluxDbInstanceStatus("UPDATING");
+        public static InfluxDbInstanceStatus UpdatingDeploymentType { get; } = new InfluxDbInstanceStatus("UPDATING_DEPLOYMENT_TYPE");
+        public static InfluxDbInstanceStatus UpdatingInstanceType { get; } = new InfluxDbInstanceStatus("UPDATING_INSTANCE_TYPE");
         public static InfluxDbInstanceStatus Deleted { get; } = new InfluxDbInstanceStatus("DELETED");
         public static InfluxDbInstanceStatus Failed { get; } = new InfluxDbInstanceStatus("FAILED");
 

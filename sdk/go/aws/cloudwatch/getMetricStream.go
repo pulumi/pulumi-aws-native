@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -50,6 +51,8 @@ type LookupMetricStreamResult struct {
 	State *string `pulumi:"state"`
 	// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
 	StatisticsConfigurations []MetricStreamStatisticsConfiguration `pulumi:"statisticsConfigurations"`
+	// A set of tags to assign to the delivery stream.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupMetricStreamOutput(ctx *pulumi.Context, args LookupMetricStreamOutputArgs, opts ...pulumi.InvokeOption) LookupMetricStreamResultOutput {
@@ -139,6 +142,11 @@ func (o LookupMetricStreamResultOutput) StatisticsConfigurations() MetricStreamS
 	return o.ApplyT(func(v LookupMetricStreamResult) []MetricStreamStatisticsConfiguration {
 		return v.StatisticsConfigurations
 	}).(MetricStreamStatisticsConfigurationArrayOutput)
+}
+
+// A set of tags to assign to the delivery stream.
+func (o LookupMetricStreamResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupMetricStreamResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

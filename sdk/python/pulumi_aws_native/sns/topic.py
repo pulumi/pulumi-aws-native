@@ -61,6 +61,7 @@ class TopicArgs:
                  
                 Once configured, log entries are sent to Amazon CloudWatch Logs.
         :param pulumi.Input[str] display_name: The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
+        :param pulumi.Input[str] fifo_throughput_scope: Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
         :param pulumi.Input[bool] fifo_topic: Set to true to create a FIFO topic.
         :param pulumi.Input[str] kms_master_key_id: The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
                 This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
@@ -181,6 +182,9 @@ class TopicArgs:
     @property
     @pulumi.getter(name="fifoThroughputScope")
     def fifo_throughput_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
+        """
         return pulumi.get(self, "fifo_throughput_scope")
 
     @fifo_throughput_scope.setter
@@ -409,6 +413,7 @@ class Topic(pulumi.CustomResource):
                  
                 Once configured, log entries are sent to Amazon CloudWatch Logs.
         :param pulumi.Input[str] display_name: The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
+        :param pulumi.Input[str] fifo_throughput_scope: Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
         :param pulumi.Input[bool] fifo_topic: Set to true to create a FIFO topic.
         :param pulumi.Input[str] kms_master_key_id: The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
                 This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
@@ -668,6 +673,9 @@ class Topic(pulumi.CustomResource):
     @property
     @pulumi.getter(name="fifoThroughputScope")
     def fifo_throughput_scope(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
+        """
         return pulumi.get(self, "fifo_throughput_scope")
 
     @property

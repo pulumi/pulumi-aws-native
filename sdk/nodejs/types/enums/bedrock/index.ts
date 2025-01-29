@@ -530,6 +530,16 @@ export const GuardrailTopicType = {
  */
 export type GuardrailTopicType = (typeof GuardrailTopicType)[keyof typeof GuardrailTopicType];
 
+export const KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType = {
+    Float32: "FLOAT32",
+    Binary: "BINARY",
+} as const;
+
+/**
+ * The data type for the vectors when using a model to convert text into vector embeddings.
+ */
+export type KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType = (typeof KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType)[keyof typeof KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType];
+
 export const KnowledgeBaseInclusionType = {
     Include: "INCLUDE",
     Exclude: "EXCLUDE",

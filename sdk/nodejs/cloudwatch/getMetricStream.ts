@@ -69,6 +69,10 @@ export interface GetMetricStreamResult {
      * By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
      */
     readonly statisticsConfigurations?: outputs.cloudwatch.MetricStreamStatisticsConfiguration[];
+    /**
+     * A set of tags to assign to the delivery stream.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for Metric Stream

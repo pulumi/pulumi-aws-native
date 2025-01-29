@@ -29,6 +29,8 @@ type LookupVerifiedAccessEndpointArgs struct {
 }
 
 type LookupVerifiedAccessEndpointResult struct {
+	// The options for cidr type endpoint.
+	CidrOptions *VerifiedAccessEndpointCidrOptions `pulumi:"cidrOptions"`
 	// The creation time.
 	CreationTime *string `pulumi:"creationTime"`
 	// A description for the AWS Verified Access endpoint.
@@ -47,6 +49,8 @@ type LookupVerifiedAccessEndpointResult struct {
 	PolicyDocument *string `pulumi:"policyDocument"`
 	// The status of the Verified Access policy.
 	PolicyEnabled *bool `pulumi:"policyEnabled"`
+	// The options for rds type endpoint.
+	RdsOptions *VerifiedAccessEndpointRdsOptions `pulumi:"rdsOptions"`
 	// The configuration options for customer provided KMS encryption.
 	SseSpecification *VerifiedAccessEndpointSseSpecification `pulumi:"sseSpecification"`
 	// The endpoint status.
@@ -91,6 +95,11 @@ func (o LookupVerifiedAccessEndpointResultOutput) ToLookupVerifiedAccessEndpoint
 
 func (o LookupVerifiedAccessEndpointResultOutput) ToLookupVerifiedAccessEndpointResultOutputWithContext(ctx context.Context) LookupVerifiedAccessEndpointResultOutput {
 	return o
+}
+
+// The options for cidr type endpoint.
+func (o LookupVerifiedAccessEndpointResultOutput) CidrOptions() VerifiedAccessEndpointCidrOptionsPtrOutput {
+	return o.ApplyT(func(v LookupVerifiedAccessEndpointResult) *VerifiedAccessEndpointCidrOptions { return v.CidrOptions }).(VerifiedAccessEndpointCidrOptionsPtrOutput)
 }
 
 // The creation time.
@@ -140,6 +149,11 @@ func (o LookupVerifiedAccessEndpointResultOutput) PolicyDocument() pulumi.String
 // The status of the Verified Access policy.
 func (o LookupVerifiedAccessEndpointResultOutput) PolicyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupVerifiedAccessEndpointResult) *bool { return v.PolicyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The options for rds type endpoint.
+func (o LookupVerifiedAccessEndpointResultOutput) RdsOptions() VerifiedAccessEndpointRdsOptionsPtrOutput {
+	return o.ApplyT(func(v LookupVerifiedAccessEndpointResult) *VerifiedAccessEndpointRdsOptions { return v.RdsOptions }).(VerifiedAccessEndpointRdsOptionsPtrOutput)
 }
 
 // The configuration options for customer provided KMS encryption.

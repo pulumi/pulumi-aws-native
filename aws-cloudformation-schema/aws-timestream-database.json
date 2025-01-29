@@ -50,6 +50,14 @@
   "primaryIdentifier" : [ "/properties/DatabaseName" ],
   "createOnlyProperties" : [ "/properties/DatabaseName" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "timestream:TagResource", "timestream:ListTagsForResource", "timestream:UntagResource" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "timestream:CreateDatabase", "timestream:DescribeEndpoints", "timestream:TagResource", "kms:CreateGrant", "kms:DescribeKey", "kms:Decrypt" ]

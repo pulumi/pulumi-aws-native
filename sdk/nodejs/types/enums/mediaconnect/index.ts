@@ -58,6 +58,16 @@ export const BridgeStateEnum = {
 
 export type BridgeStateEnum = (typeof BridgeStateEnum)[keyof typeof BridgeStateEnum];
 
+export const FlowBlackFramesState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Indicates whether the BlackFrames metric is enabled or disabled.
+ */
+export type FlowBlackFramesState = (typeof FlowBlackFramesState)[keyof typeof FlowBlackFramesState];
+
 export const FlowEncryptionAlgorithm = {
     Aes128: "aes128",
     Aes192: "aes192",
@@ -185,6 +195,16 @@ export const FlowFmtpTcs = {
  */
 export type FlowFmtpTcs = (typeof FlowFmtpTcs)[keyof typeof FlowFmtpTcs];
 
+export const FlowFrozenFramesState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Indicates whether the FrozenFrames metric is enabled or disabled.
+ */
+export type FlowFrozenFramesState = (typeof FlowFrozenFramesState)[keyof typeof FlowFrozenFramesState];
+
 export const FlowMaintenanceMaintenanceDay = {
     Monday: "Monday",
     Tuesday: "Tuesday",
@@ -307,6 +327,16 @@ export const FlowOutputProtocol = {
  */
 export type FlowOutputProtocol = (typeof FlowOutputProtocol)[keyof typeof FlowOutputProtocol];
 
+export const FlowSilentAudioState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Indicates whether the SilentAudio metric is enabled or disabled.
+ */
+export type FlowSilentAudioState = (typeof FlowSilentAudioState)[keyof typeof FlowSilentAudioState];
+
 export const FlowSourceEncryptionAlgorithm = {
     Aes128: "aes128",
     Aes192: "aes192",
@@ -328,6 +358,16 @@ export const FlowSourceEncryptionKeyType = {
  * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
  */
 export type FlowSourceEncryptionKeyType = (typeof FlowSourceEncryptionKeyType)[keyof typeof FlowSourceEncryptionKeyType];
+
+export const FlowSourceMonitoringConfigContentQualityAnalysisState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Indicates whether content quality analysis is enabled or disabled.
+ */
+export type FlowSourceMonitoringConfigContentQualityAnalysisState = (typeof FlowSourceMonitoringConfigContentQualityAnalysisState)[keyof typeof FlowSourceMonitoringConfigContentQualityAnalysisState];
 
 export const FlowSourceMonitoringConfigThumbnailState = {
     Enabled: "ENABLED",

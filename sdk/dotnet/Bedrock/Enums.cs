@@ -1481,6 +1481,37 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// The data type for the vectors when using a model to convert text into vector embeddings.
+    /// </summary>
+    [EnumType]
+    public readonly struct KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType : IEquatable<KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType>
+    {
+        private readonly string _value;
+
+        private KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType Float32 { get; } = new KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType("FLOAT32");
+        public static KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType Binary { get; } = new KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType("BINARY");
+
+        public static bool operator ==(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType left, KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType right) => left.Equals(right);
+        public static bool operator !=(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType left, KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType other && Equals(other);
+        public bool Equals(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Include or Exclude status for an entity
     /// </summary>
     [EnumType]

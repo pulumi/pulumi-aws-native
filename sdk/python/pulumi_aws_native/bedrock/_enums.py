@@ -50,6 +50,7 @@ __all__ = [
     'GuardrailSensitiveInformationAction',
     'GuardrailStatus',
     'GuardrailTopicType',
+    'KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType',
     'KnowledgeBaseInclusionType',
     'KnowledgeBaseQueryEngineType',
     'KnowledgeBaseRedshiftProvisionedAuthType',
@@ -503,6 +504,14 @@ class GuardrailTopicType(str, Enum):
     Type of topic in a policy
     """
     DENY = "DENY"
+
+
+class KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType(str, Enum):
+    """
+    The data type for the vectors when using a model to convert text into vector embeddings.
+    """
+    FLOAT32 = "FLOAT32"
+    BINARY = "BINARY"
 
 
 class KnowledgeBaseInclusionType(str, Enum):

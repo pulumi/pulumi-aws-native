@@ -29,6 +29,11 @@ class PolicyNetworkAclEntryRuleAction(str, Enum):
 
 
 class PolicyResourceTagLogicalOperator(str, Enum):
+    """
+    Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
+
+    Default: `AND`
+    """
     AND_ = "AND"
     OR_ = "OR"
 

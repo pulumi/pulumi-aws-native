@@ -90,6 +90,10 @@ export class InfluxDbInstance extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
+     * Network type of the InfluxDB Instance.
+     */
+    public readonly networkType!: pulumi.Output<enums.timestream.InfluxDbInstanceNetworkType | undefined>;
+    /**
      * The organization for the InfluxDB instance.
      */
     public readonly organization!: pulumi.Output<string | undefined>;
@@ -97,6 +101,10 @@ export class InfluxDbInstance extends pulumi.CustomResource {
      * The password for the InfluxDB instance.
      */
     public readonly password!: pulumi.Output<string | undefined>;
+    /**
+     * The port number on which InfluxDB accepts connections.
+     */
+    public readonly port!: pulumi.Output<number | undefined>;
     /**
      * Attach a public IP to the customer ENI.
      */
@@ -145,8 +153,10 @@ export class InfluxDbInstance extends pulumi.CustomResource {
             resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
             resourceInputs["logDeliveryConfiguration"] = args ? args.logDeliveryConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["organization"] = args ? args.organization : undefined;
             resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
@@ -173,8 +183,10 @@ export class InfluxDbInstance extends pulumi.CustomResource {
             resourceInputs["influxAuthParametersSecretArn"] = undefined /*out*/;
             resourceInputs["logDeliveryConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkType"] = undefined /*out*/;
             resourceInputs["organization"] = undefined /*out*/;
             resourceInputs["password"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
             resourceInputs["publiclyAccessible"] = undefined /*out*/;
             resourceInputs["secondaryAvailabilityZone"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -184,7 +196,7 @@ export class InfluxDbInstance extends pulumi.CustomResource {
             resourceInputs["vpcSubnetIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["allocatedStorage", "bucket", "dbInstanceType", "dbStorageType", "deploymentType", "name", "organization", "password", "publiclyAccessible", "username", "vpcSecurityGroupIds[*]", "vpcSubnetIds[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["allocatedStorage", "bucket", "dbStorageType", "name", "networkType", "organization", "password", "publiclyAccessible", "username", "vpcSecurityGroupIds[*]", "vpcSubnetIds[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(InfluxDbInstance.__pulumiType, name, resourceInputs, opts);
     }
@@ -227,6 +239,10 @@ export interface InfluxDbInstanceArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * Network type of the InfluxDB Instance.
+     */
+    networkType?: pulumi.Input<enums.timestream.InfluxDbInstanceNetworkType>;
+    /**
      * The organization for the InfluxDB instance.
      */
     organization?: pulumi.Input<string>;
@@ -234,6 +250,10 @@ export interface InfluxDbInstanceArgs {
      * The password for the InfluxDB instance.
      */
     password?: pulumi.Input<string>;
+    /**
+     * The port number on which InfluxDB accepts connections.
+     */
+    port?: pulumi.Input<number>;
     /**
      * Attach a public IP to the customer ENI.
      */

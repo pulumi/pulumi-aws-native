@@ -24,6 +24,7 @@ from .get_origin_request_policy import *
 from .get_public_key import *
 from .get_realtime_log_config import *
 from .get_response_headers_policy import *
+from .get_vpc_origin import *
 from .key_group import *
 from .key_value_store import *
 from .monitoring_subscription import *
@@ -32,5 +33,6 @@ from .origin_request_policy import *
 from .public_key import *
 from .realtime_log_config import *
 from .response_headers_policy import *
+from .vpc_origin import *
 from ._inputs import *
 from . import outputs

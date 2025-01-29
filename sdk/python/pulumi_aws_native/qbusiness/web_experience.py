@@ -25,6 +25,7 @@ __all__ = ['WebExperienceArgs', 'WebExperience']
 class WebExperienceArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
+                 browser_extension_configuration: Optional[pulumi.Input['WebExperienceBrowserExtensionConfigurationArgs']] = None,
                  customization_configuration: Optional[pulumi.Input['WebExperienceCustomizationConfigurationArgs']] = None,
                  identity_provider_configuration: Optional[pulumi.Input[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgs']]] = None,
                  origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -37,6 +38,7 @@ class WebExperienceArgs:
         """
         The set of arguments for constructing a WebExperience resource.
         :param pulumi.Input[str] application_id: The identifier of the Amazon Q Business web experience.
+        :param pulumi.Input['WebExperienceBrowserExtensionConfigurationArgs'] browser_extension_configuration: The container for browser extension configuration for an Amazon Q Business web experience.
         :param pulumi.Input['WebExperienceCustomizationConfigurationArgs'] customization_configuration: Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
         :param pulumi.Input[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgs']] identity_provider_configuration: Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] origins: Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
@@ -52,6 +54,8 @@ class WebExperienceArgs:
         :param pulumi.Input[str] welcome_message: A message in an Amazon Q Business web experience.
         """
         pulumi.set(__self__, "application_id", application_id)
+        if browser_extension_configuration is not None:
+            pulumi.set(__self__, "browser_extension_configuration", browser_extension_configuration)
         if customization_configuration is not None:
             pulumi.set(__self__, "customization_configuration", customization_configuration)
         if identity_provider_configuration is not None:
@@ -82,6 +86,18 @@ class WebExperienceArgs:
     @application_id.setter
     def application_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "application_id", value)
+
+    @property
+    @pulumi.getter(name="browserExtensionConfiguration")
+    def browser_extension_configuration(self) -> Optional[pulumi.Input['WebExperienceBrowserExtensionConfigurationArgs']]:
+        """
+        The container for browser extension configuration for an Amazon Q Business web experience.
+        """
+        return pulumi.get(self, "browser_extension_configuration")
+
+    @browser_extension_configuration.setter
+    def browser_extension_configuration(self, value: Optional[pulumi.Input['WebExperienceBrowserExtensionConfigurationArgs']]):
+        pulumi.set(self, "browser_extension_configuration", value)
 
     @property
     @pulumi.getter(name="customizationConfiguration")
@@ -202,6 +218,7 @@ class WebExperience(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
+                 browser_extension_configuration: Optional[pulumi.Input[Union['WebExperienceBrowserExtensionConfigurationArgs', 'WebExperienceBrowserExtensionConfigurationArgsDict']]] = None,
                  customization_configuration: Optional[pulumi.Input[Union['WebExperienceCustomizationConfigurationArgs', 'WebExperienceCustomizationConfigurationArgsDict']]] = None,
                  identity_provider_configuration: Optional[pulumi.Input[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict']]]] = None,
                  origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -218,6 +235,7 @@ class WebExperience(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The identifier of the Amazon Q Business web experience.
+        :param pulumi.Input[Union['WebExperienceBrowserExtensionConfigurationArgs', 'WebExperienceBrowserExtensionConfigurationArgsDict']] browser_extension_configuration: The container for browser extension configuration for an Amazon Q Business web experience.
         :param pulumi.Input[Union['WebExperienceCustomizationConfigurationArgs', 'WebExperienceCustomizationConfigurationArgsDict']] customization_configuration: Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
         :param pulumi.Input[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict']]] identity_provider_configuration: Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] origins: Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
@@ -257,6 +275,7 @@ class WebExperience(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
+                 browser_extension_configuration: Optional[pulumi.Input[Union['WebExperienceBrowserExtensionConfigurationArgs', 'WebExperienceBrowserExtensionConfigurationArgsDict']]] = None,
                  customization_configuration: Optional[pulumi.Input[Union['WebExperienceCustomizationConfigurationArgs', 'WebExperienceCustomizationConfigurationArgsDict']]] = None,
                  identity_provider_configuration: Optional[pulumi.Input[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict']]]] = None,
                  origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -278,6 +297,7 @@ class WebExperience(pulumi.CustomResource):
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
+            __props__.__dict__["browser_extension_configuration"] = browser_extension_configuration
             __props__.__dict__["customization_configuration"] = customization_configuration
             __props__.__dict__["identity_provider_configuration"] = identity_provider_configuration
             __props__.__dict__["origins"] = origins
@@ -318,6 +338,7 @@ class WebExperience(pulumi.CustomResource):
         __props__ = WebExperienceArgs.__new__(WebExperienceArgs)
 
         __props__.__dict__["application_id"] = None
+        __props__.__dict__["browser_extension_configuration"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["customization_configuration"] = None
         __props__.__dict__["default_endpoint"] = None
@@ -342,6 +363,14 @@ class WebExperience(pulumi.CustomResource):
         The identifier of the Amazon Q Business web experience.
         """
         return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="browserExtensionConfiguration")
+    def browser_extension_configuration(self) -> pulumi.Output[Optional['outputs.WebExperienceBrowserExtensionConfiguration']]:
+        """
+        The container for browser extension configuration for an Amazon Q Business web experience.
+        """
+        return pulumi.get(self, "browser_extension_configuration")
 
     @property
     @pulumi.getter(name="createdAt")

@@ -26,6 +26,10 @@ export interface GetVerifiedAccessEndpointArgs {
 
 export interface GetVerifiedAccessEndpointResult {
     /**
+     * The options for cidr type endpoint.
+     */
+    readonly cidrOptions?: outputs.ec2.VerifiedAccessEndpointCidrOptions;
+    /**
      * The creation time.
      */
     readonly creationTime?: string;
@@ -61,6 +65,10 @@ export interface GetVerifiedAccessEndpointResult {
      * The status of the Verified Access policy.
      */
     readonly policyEnabled?: boolean;
+    /**
+     * The options for rds type endpoint.
+     */
+    readonly rdsOptions?: outputs.ec2.VerifiedAccessEndpointRdsOptions;
     /**
      * The configuration options for customer provided KMS encryption.
      */

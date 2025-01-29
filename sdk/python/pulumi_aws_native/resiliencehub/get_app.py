@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAppResult:
-    def __init__(__self__, app_arn=None, app_assessment_schedule=None, app_template_body=None, description=None, drift_status=None, event_subscriptions=None, permission_model=None, regulatory_policy_arn=None, resiliency_policy_arn=None, resource_mappings=None, tags=None):
+    def __init__(__self__, app_arn=None, app_assessment_schedule=None, app_template_body=None, description=None, drift_status=None, event_subscriptions=None, permission_model=None, resiliency_policy_arn=None, resource_mappings=None, tags=None):
         if app_arn and not isinstance(app_arn, str):
             raise TypeError("Expected argument 'app_arn' to be a str")
         pulumi.set(__self__, "app_arn", app_arn)
@@ -47,9 +47,6 @@ class GetAppResult:
         if permission_model and not isinstance(permission_model, dict):
             raise TypeError("Expected argument 'permission_model' to be a dict")
         pulumi.set(__self__, "permission_model", permission_model)
-        if regulatory_policy_arn and not isinstance(regulatory_policy_arn, str):
-            raise TypeError("Expected argument 'regulatory_policy_arn' to be a str")
-        pulumi.set(__self__, "regulatory_policy_arn", regulatory_policy_arn)
         if resiliency_policy_arn and not isinstance(resiliency_policy_arn, str):
             raise TypeError("Expected argument 'resiliency_policy_arn' to be a str")
         pulumi.set(__self__, "resiliency_policy_arn", resiliency_policy_arn)
@@ -117,14 +114,6 @@ class GetAppResult:
         return pulumi.get(self, "permission_model")
 
     @property
-    @pulumi.getter(name="regulatoryPolicyArn")
-    def regulatory_policy_arn(self) -> Optional[str]:
-        """
-        Amazon Resource Name (ARN) of the Regulatory Policy.
-        """
-        return pulumi.get(self, "regulatory_policy_arn")
-
-    @property
     @pulumi.getter(name="resiliencyPolicyArn")
     def resiliency_policy_arn(self) -> Optional[str]:
         """
@@ -162,7 +151,6 @@ class AwaitableGetAppResult(GetAppResult):
             drift_status=self.drift_status,
             event_subscriptions=self.event_subscriptions,
             permission_model=self.permission_model,
-            regulatory_policy_arn=self.regulatory_policy_arn,
             resiliency_policy_arn=self.resiliency_policy_arn,
             resource_mappings=self.resource_mappings,
             tags=self.tags)
@@ -189,7 +177,6 @@ def get_app(app_arn: Optional[str] = None,
         drift_status=pulumi.get(__ret__, 'drift_status'),
         event_subscriptions=pulumi.get(__ret__, 'event_subscriptions'),
         permission_model=pulumi.get(__ret__, 'permission_model'),
-        regulatory_policy_arn=pulumi.get(__ret__, 'regulatory_policy_arn'),
         resiliency_policy_arn=pulumi.get(__ret__, 'resiliency_policy_arn'),
         resource_mappings=pulumi.get(__ret__, 'resource_mappings'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -213,7 +200,6 @@ def get_app_output(app_arn: Optional[pulumi.Input[str]] = None,
         drift_status=pulumi.get(__response__, 'drift_status'),
         event_subscriptions=pulumi.get(__response__, 'event_subscriptions'),
         permission_model=pulumi.get(__response__, 'permission_model'),
-        regulatory_policy_arn=pulumi.get(__response__, 'regulatory_policy_arn'),
         resiliency_policy_arn=pulumi.get(__response__, 'resiliency_policy_arn'),
         resource_mappings=pulumi.get(__response__, 'resource_mappings'),
         tags=pulumi.get(__response__, 'tags')))

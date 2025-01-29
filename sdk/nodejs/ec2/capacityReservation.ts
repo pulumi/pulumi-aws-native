@@ -40,7 +40,11 @@ export class CapacityReservation extends pulumi.CustomResource {
     /**
      * The Availability Zone in which to create the Capacity Reservation.
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    /**
+     * The Availability Zone ID of the Capacity Reservation.
+     */
+    public readonly availabilityZoneId!: pulumi.Output<string | undefined>;
     /**
      * Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
      */
@@ -150,9 +154,6 @@ export class CapacityReservation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'availabilityZone'");
-            }
             if ((!args || args.instanceCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceCount'");
             }
@@ -163,6 +164,7 @@ export class CapacityReservation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'instanceType'");
             }
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
             resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
             resourceInputs["endDate"] = args ? args.endDate : undefined;
             resourceInputs["endDateType"] = args ? args.endDateType : undefined;
@@ -181,6 +183,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["totalInstanceCount"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["availabilityZoneId"] = undefined /*out*/;
             resourceInputs["availableInstanceCount"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ebsOptimized"] = undefined /*out*/;
@@ -199,7 +202,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["unusedReservationBillingOwnerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["availabilityZone", "ebsOptimized", "ephemeralStorage", "instancePlatform", "instanceType", "outPostArn", "placementGroupArn", "tagSpecifications[*]", "tenancy"] };
+        const replaceOnChanges = { replaceOnChanges: ["availabilityZone", "availabilityZoneId", "ebsOptimized", "ephemeralStorage", "instancePlatform", "instanceType", "outPostArn", "placementGroupArn", "tagSpecifications[*]", "tenancy"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CapacityReservation.__pulumiType, name, resourceInputs, opts);
     }
@@ -212,7 +215,11 @@ export interface CapacityReservationArgs {
     /**
      * The Availability Zone in which to create the Capacity Reservation.
      */
-    availabilityZone: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
+    /**
+     * The Availability Zone ID of the Capacity Reservation.
+     */
+    availabilityZoneId?: pulumi.Input<string>;
     /**
      * Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
      */

@@ -190,6 +190,37 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     /// <summary>
+    /// Indicates whether the BlackFrames metric is enabled or disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowBlackFramesState : IEquatable<FlowBlackFramesState>
+    {
+        private readonly string _value;
+
+        private FlowBlackFramesState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowBlackFramesState Enabled { get; } = new FlowBlackFramesState("ENABLED");
+        public static FlowBlackFramesState Disabled { get; } = new FlowBlackFramesState("DISABLED");
+
+        public static bool operator ==(FlowBlackFramesState left, FlowBlackFramesState right) => left.Equals(right);
+        public static bool operator !=(FlowBlackFramesState left, FlowBlackFramesState right) => !left.Equals(right);
+
+        public static explicit operator string(FlowBlackFramesState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowBlackFramesState other && Equals(other);
+        public bool Equals(FlowBlackFramesState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
     /// </summary>
     [EnumType]
@@ -548,6 +579,37 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     /// <summary>
+    /// Indicates whether the FrozenFrames metric is enabled or disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowFrozenFramesState : IEquatable<FlowFrozenFramesState>
+    {
+        private readonly string _value;
+
+        private FlowFrozenFramesState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowFrozenFramesState Enabled { get; } = new FlowFrozenFramesState("ENABLED");
+        public static FlowFrozenFramesState Disabled { get; } = new FlowFrozenFramesState("DISABLED");
+
+        public static bool operator ==(FlowFrozenFramesState left, FlowFrozenFramesState right) => left.Equals(right);
+        public static bool operator !=(FlowFrozenFramesState left, FlowFrozenFramesState right) => !left.Equals(right);
+
+        public static explicit operator string(FlowFrozenFramesState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowFrozenFramesState other && Equals(other);
+        public bool Equals(FlowFrozenFramesState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
     /// </summary>
     [EnumType]
@@ -880,6 +942,37 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     /// <summary>
+    /// Indicates whether the SilentAudio metric is enabled or disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowSilentAudioState : IEquatable<FlowSilentAudioState>
+    {
+        private readonly string _value;
+
+        private FlowSilentAudioState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowSilentAudioState Enabled { get; } = new FlowSilentAudioState("ENABLED");
+        public static FlowSilentAudioState Disabled { get; } = new FlowSilentAudioState("DISABLED");
+
+        public static bool operator ==(FlowSilentAudioState left, FlowSilentAudioState right) => left.Equals(right);
+        public static bool operator !=(FlowSilentAudioState left, FlowSilentAudioState right) => !left.Equals(right);
+
+        public static explicit operator string(FlowSilentAudioState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowSilentAudioState other && Equals(other);
+        public bool Equals(FlowSilentAudioState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
     /// </summary>
     [EnumType]
@@ -936,6 +1029,37 @@ namespace Pulumi.AwsNative.MediaConnect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowSourceEncryptionKeyType other && Equals(other);
         public bool Equals(FlowSourceEncryptionKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether content quality analysis is enabled or disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowSourceMonitoringConfigContentQualityAnalysisState : IEquatable<FlowSourceMonitoringConfigContentQualityAnalysisState>
+    {
+        private readonly string _value;
+
+        private FlowSourceMonitoringConfigContentQualityAnalysisState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowSourceMonitoringConfigContentQualityAnalysisState Enabled { get; } = new FlowSourceMonitoringConfigContentQualityAnalysisState("ENABLED");
+        public static FlowSourceMonitoringConfigContentQualityAnalysisState Disabled { get; } = new FlowSourceMonitoringConfigContentQualityAnalysisState("DISABLED");
+
+        public static bool operator ==(FlowSourceMonitoringConfigContentQualityAnalysisState left, FlowSourceMonitoringConfigContentQualityAnalysisState right) => left.Equals(right);
+        public static bool operator !=(FlowSourceMonitoringConfigContentQualityAnalysisState left, FlowSourceMonitoringConfigContentQualityAnalysisState right) => !left.Equals(right);
+
+        public static explicit operator string(FlowSourceMonitoringConfigContentQualityAnalysisState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowSourceMonitoringConfigContentQualityAnalysisState other && Equals(other);
+        public bool Equals(FlowSourceMonitoringConfigContentQualityAnalysisState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

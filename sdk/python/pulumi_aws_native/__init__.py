@@ -1114,7 +1114,8 @@ _utilities.register(
    "aws-native:cloudfront:OriginRequestPolicy": "OriginRequestPolicy",
    "aws-native:cloudfront:PublicKey": "PublicKey",
    "aws-native:cloudfront:RealtimeLogConfig": "RealtimeLogConfig",
-   "aws-native:cloudfront:ResponseHeadersPolicy": "ResponseHeadersPolicy"
+   "aws-native:cloudfront:ResponseHeadersPolicy": "ResponseHeadersPolicy",
+   "aws-native:cloudfront:VpcOrigin": "VpcOrigin"
   }
  },
  {

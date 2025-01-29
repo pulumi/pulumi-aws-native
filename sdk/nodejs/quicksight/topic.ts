@@ -45,6 +45,9 @@ export class Topic extends pulumi.CustomResource {
      * The ID of the AWS account that you want to create a topic in.
      */
     public readonly awsAccountId!: pulumi.Output<string | undefined>;
+    /**
+     * Configuration options for a `Topic` .
+     */
     public readonly configOptions!: pulumi.Output<outputs.quicksight.TopicConfigOptions | undefined>;
     /**
      * The data sets that the topic is associated with.
@@ -114,6 +117,9 @@ export interface TopicArgs {
      * The ID of the AWS account that you want to create a topic in.
      */
     awsAccountId?: pulumi.Input<string>;
+    /**
+     * Configuration options for a `Topic` .
+     */
     configOptions?: pulumi.Input<inputs.quicksight.TopicConfigOptionsArgs>;
     /**
      * The data sets that the topic is associated with.

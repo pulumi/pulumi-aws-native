@@ -25,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetVerifiedAccessEndpointResult:
-    def __init__(__self__, creation_time=None, description=None, device_validation_domain=None, endpoint_domain=None, last_updated_time=None, load_balancer_options=None, network_interface_options=None, policy_document=None, policy_enabled=None, sse_specification=None, status=None, tags=None, verified_access_endpoint_id=None, verified_access_group_id=None, verified_access_instance_id=None):
+    def __init__(__self__, cidr_options=None, creation_time=None, description=None, device_validation_domain=None, endpoint_domain=None, last_updated_time=None, load_balancer_options=None, network_interface_options=None, policy_document=None, policy_enabled=None, rds_options=None, sse_specification=None, status=None, tags=None, verified_access_endpoint_id=None, verified_access_group_id=None, verified_access_instance_id=None):
+        if cidr_options and not isinstance(cidr_options, dict):
+            raise TypeError("Expected argument 'cidr_options' to be a dict")
+        pulumi.set(__self__, "cidr_options", cidr_options)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -53,6 +56,9 @@ class GetVerifiedAccessEndpointResult:
         if policy_enabled and not isinstance(policy_enabled, bool):
             raise TypeError("Expected argument 'policy_enabled' to be a bool")
         pulumi.set(__self__, "policy_enabled", policy_enabled)
+        if rds_options and not isinstance(rds_options, dict):
+            raise TypeError("Expected argument 'rds_options' to be a dict")
+        pulumi.set(__self__, "rds_options", rds_options)
         if sse_specification and not isinstance(sse_specification, dict):
             raise TypeError("Expected argument 'sse_specification' to be a dict")
         pulumi.set(__self__, "sse_specification", sse_specification)
@@ -71,6 +77,14 @@ class GetVerifiedAccessEndpointResult:
         if verified_access_instance_id and not isinstance(verified_access_instance_id, str):
             raise TypeError("Expected argument 'verified_access_instance_id' to be a str")
         pulumi.set(__self__, "verified_access_instance_id", verified_access_instance_id)
+
+    @property
+    @pulumi.getter(name="cidrOptions")
+    def cidr_options(self) -> Optional['outputs.VerifiedAccessEndpointCidrOptions']:
+        """
+        The options for cidr type endpoint.
+        """
+        return pulumi.get(self, "cidr_options")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -145,6 +159,14 @@ class GetVerifiedAccessEndpointResult:
         return pulumi.get(self, "policy_enabled")
 
     @property
+    @pulumi.getter(name="rdsOptions")
+    def rds_options(self) -> Optional['outputs.VerifiedAccessEndpointRdsOptions']:
+        """
+        The options for rds type endpoint.
+        """
+        return pulumi.get(self, "rds_options")
+
+    @property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> Optional['outputs.VerifiedAccessEndpointSseSpecification']:
         """
@@ -199,6 +221,7 @@ class AwaitableGetVerifiedAccessEndpointResult(GetVerifiedAccessEndpointResult):
         if False:
             yield self
         return GetVerifiedAccessEndpointResult(
+            cidr_options=self.cidr_options,
             creation_time=self.creation_time,
             description=self.description,
             device_validation_domain=self.device_validation_domain,
@@ -208,6 +231,7 @@ class AwaitableGetVerifiedAccessEndpointResult(GetVerifiedAccessEndpointResult):
             network_interface_options=self.network_interface_options,
             policy_document=self.policy_document,
             policy_enabled=self.policy_enabled,
+            rds_options=self.rds_options,
             sse_specification=self.sse_specification,
             status=self.status,
             tags=self.tags,
@@ -230,6 +254,7 @@ def get_verified_access_endpoint(verified_access_endpoint_id: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVerifiedAccessEndpoint', __args__, opts=opts, typ=GetVerifiedAccessEndpointResult).value
 
     return AwaitableGetVerifiedAccessEndpointResult(
+        cidr_options=pulumi.get(__ret__, 'cidr_options'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         description=pulumi.get(__ret__, 'description'),
         device_validation_domain=pulumi.get(__ret__, 'device_validation_domain'),
@@ -239,6 +264,7 @@ def get_verified_access_endpoint(verified_access_endpoint_id: Optional[str] = No
         network_interface_options=pulumi.get(__ret__, 'network_interface_options'),
         policy_document=pulumi.get(__ret__, 'policy_document'),
         policy_enabled=pulumi.get(__ret__, 'policy_enabled'),
+        rds_options=pulumi.get(__ret__, 'rds_options'),
         sse_specification=pulumi.get(__ret__, 'sse_specification'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -258,6 +284,7 @@ def get_verified_access_endpoint_output(verified_access_endpoint_id: Optional[pu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVerifiedAccessEndpoint', __args__, opts=opts, typ=GetVerifiedAccessEndpointResult)
     return __ret__.apply(lambda __response__: GetVerifiedAccessEndpointResult(
+        cidr_options=pulumi.get(__response__, 'cidr_options'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         description=pulumi.get(__response__, 'description'),
         device_validation_domain=pulumi.get(__response__, 'device_validation_domain'),
@@ -267,6 +294,7 @@ def get_verified_access_endpoint_output(verified_access_endpoint_id: Optional[pu
         network_interface_options=pulumi.get(__response__, 'network_interface_options'),
         policy_document=pulumi.get(__response__, 'policy_document'),
         policy_enabled=pulumi.get(__response__, 'policy_enabled'),
+        rds_options=pulumi.get(__response__, 'rds_options'),
         sse_specification=pulumi.get(__response__, 'sse_specification'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),

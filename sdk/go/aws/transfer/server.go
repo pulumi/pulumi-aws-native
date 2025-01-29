@@ -298,9 +298,7 @@ import (
 type Server struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-	//
-	// An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+	// Specifies the unique Amazon Resource Name (ARN) of the server.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The list of egress IP addresses of this server. These IP addresses are only relevant for servers that use the AS2 protocol. They are used for sending asynchronous MDNs. These IP addresses are assigned automatically when you create an AS2 server. Additionally, if you update an existing server and add the AS2 protocol, static IP addresses are assigned as well.
 	As2ServiceManagedEgressIpAddresses pulumi.StringArrayOutput `pulumi:"as2ServiceManagedEgressIpAddresses"`
@@ -388,9 +386,7 @@ type Server struct {
 	S3StorageOptions ServerS3StorageOptionsPtrOutput `pulumi:"s3StorageOptions"`
 	// Specifies the name of the security policy for the server.
 	SecurityPolicyName pulumi.StringPtrOutput `pulumi:"securityPolicyName"`
-	// The service-assigned ID of the server that is created.
-	//
-	// An example `ServerId` is `s-01234567890abcdef` .
+	// Specifies the unique system-assigned identifier for a server that you instantiate.
 	ServerId pulumi.StringOutput   `pulumi:"serverId"`
 	State    ServerStateEnumOutput `pulumi:"state"`
 	// Specifies the log groups to which your server logs are sent.
@@ -705,9 +701,7 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 	return o
 }
 
-// The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-//
-// An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+// Specifies the unique Amazon Resource Name (ARN) of the server.
 func (o ServerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -840,9 +834,7 @@ func (o ServerOutput) SecurityPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.SecurityPolicyName }).(pulumi.StringPtrOutput)
 }
 
-// The service-assigned ID of the server that is created.
-//
-// An example `ServerId` is `s-01234567890abcdef` .
+// Specifies the unique system-assigned identifier for a server that you instantiate.
 func (o ServerOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.ServerId }).(pulumi.StringOutput)
 }

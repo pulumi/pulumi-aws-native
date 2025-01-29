@@ -15,11 +15,41 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
     /// </summary>
     public sealed class FlowSourceMonitoringConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("audioMonitoringSettings")]
+        private InputList<Inputs.FlowAudioMonitoringSettingArgs>? _audioMonitoringSettings;
+
+        /// <summary>
+        /// Contains the settings for audio stream metrics monitoring.
+        /// </summary>
+        public InputList<Inputs.FlowAudioMonitoringSettingArgs> AudioMonitoringSettings
+        {
+            get => _audioMonitoringSettings ?? (_audioMonitoringSettings = new InputList<Inputs.FlowAudioMonitoringSettingArgs>());
+            set => _audioMonitoringSettings = value;
+        }
+
+        /// <summary>
+        /// Indicates whether content quality analysis is enabled or disabled.
+        /// </summary>
+        [Input("contentQualityAnalysisState")]
+        public Input<Pulumi.AwsNative.MediaConnect.FlowSourceMonitoringConfigContentQualityAnalysisState>? ContentQualityAnalysisState { get; set; }
+
         /// <summary>
         /// The state of thumbnail monitoring.
         /// </summary>
-        [Input("thumbnailState", required: true)]
-        public Input<Pulumi.AwsNative.MediaConnect.FlowSourceMonitoringConfigThumbnailState> ThumbnailState { get; set; } = null!;
+        [Input("thumbnailState")]
+        public Input<Pulumi.AwsNative.MediaConnect.FlowSourceMonitoringConfigThumbnailState>? ThumbnailState { get; set; }
+
+        [Input("videoMonitoringSettings")]
+        private InputList<Inputs.FlowVideoMonitoringSettingArgs>? _videoMonitoringSettings;
+
+        /// <summary>
+        /// Contains the settings for video stream metrics monitoring.
+        /// </summary>
+        public InputList<Inputs.FlowVideoMonitoringSettingArgs> VideoMonitoringSettings
+        {
+            get => _videoMonitoringSettings ?? (_videoMonitoringSettings = new InputList<Inputs.FlowVideoMonitoringSettingArgs>());
+            set => _videoMonitoringSettings = value;
+        }
 
         public FlowSourceMonitoringConfigArgs()
         {

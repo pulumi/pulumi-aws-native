@@ -201,7 +201,8 @@ type Topic struct {
 	//  Once configured, log entries are sent to Amazon CloudWatch Logs.
 	DeliveryStatusLogging TopicLoggingConfigArrayOutput `pulumi:"deliveryStatusLogging"`
 	// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
-	DisplayName         pulumi.StringPtrOutput `pulumi:"displayName"`
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
 	FifoThroughputScope pulumi.StringPtrOutput `pulumi:"fifoThroughputScope"`
 	// Set to true to create a FIFO topic.
 	FifoTopic pulumi.BoolPtrOutput `pulumi:"fifoTopic"`
@@ -297,7 +298,8 @@ type topicArgs struct {
 	//  Once configured, log entries are sent to Amazon CloudWatch Logs.
 	DeliveryStatusLogging []TopicLoggingConfig `pulumi:"deliveryStatusLogging"`
 	// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
-	DisplayName         *string `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
+	// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
 	FifoThroughputScope *string `pulumi:"fifoThroughputScope"`
 	// Set to true to create a FIFO topic.
 	FifoTopic *bool `pulumi:"fifoTopic"`
@@ -348,7 +350,8 @@ type TopicArgs struct {
 	//  Once configured, log entries are sent to Amazon CloudWatch Logs.
 	DeliveryStatusLogging TopicLoggingConfigArrayInput
 	// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
-	DisplayName         pulumi.StringPtrInput
+	DisplayName pulumi.StringPtrInput
+	// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
 	FifoThroughputScope pulumi.StringPtrInput
 	// Set to true to create a FIFO topic.
 	FifoTopic pulumi.BoolPtrInput
@@ -456,6 +459,7 @@ func (o TopicOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
 func (o TopicOutput) FifoThroughputScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.FifoThroughputScope }).(pulumi.StringPtrOutput)
 }

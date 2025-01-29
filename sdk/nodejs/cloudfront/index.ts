@@ -95,6 +95,11 @@ export const getResponseHeadersPolicy: typeof import("./getResponseHeadersPolicy
 export const getResponseHeadersPolicyOutput: typeof import("./getResponseHeadersPolicy").getResponseHeadersPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getResponseHeadersPolicy","getResponseHeadersPolicyOutput"], () => require("./getResponseHeadersPolicy"));
 
+export { GetVpcOriginArgs, GetVpcOriginResult, GetVpcOriginOutputArgs } from "./getVpcOrigin";
+export const getVpcOrigin: typeof import("./getVpcOrigin").getVpcOrigin = null as any;
+export const getVpcOriginOutput: typeof import("./getVpcOrigin").getVpcOriginOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcOrigin","getVpcOriginOutput"], () => require("./getVpcOrigin"));
+
 export { KeyGroupArgs } from "./keyGroup";
 export type KeyGroup = import("./keyGroup").KeyGroup;
 export const KeyGroup: typeof import("./keyGroup").KeyGroup = null as any;
@@ -135,6 +140,11 @@ export type ResponseHeadersPolicy = import("./responseHeadersPolicy").ResponseHe
 export const ResponseHeadersPolicy: typeof import("./responseHeadersPolicy").ResponseHeadersPolicy = null as any;
 utilities.lazyLoad(exports, ["ResponseHeadersPolicy"], () => require("./responseHeadersPolicy"));
 
+export { VpcOriginArgs } from "./vpcOrigin";
+export type VpcOrigin = import("./vpcOrigin").VpcOrigin;
+export const VpcOrigin: typeof import("./vpcOrigin").VpcOrigin = null as any;
+utilities.lazyLoad(exports, ["VpcOrigin"], () => require("./vpcOrigin"));
+
 
 // Export enums:
 export * from "../types/enums/cloudfront";
@@ -169,6 +179,8 @@ const _module = {
                 return new RealtimeLogConfig(name, <any>undefined, { urn })
             case "aws-native:cloudfront:ResponseHeadersPolicy":
                 return new ResponseHeadersPolicy(name, <any>undefined, { urn })
+            case "aws-native:cloudfront:VpcOrigin":
+                return new VpcOrigin(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

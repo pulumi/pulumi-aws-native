@@ -58,7 +58,8 @@ type LookupTopicResult struct {
 	//  Once configured, log entries are sent to Amazon CloudWatch Logs.
 	DeliveryStatusLogging []TopicLoggingConfig `pulumi:"deliveryStatusLogging"`
 	// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
-	DisplayName         *string `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
+	// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
 	FifoThroughputScope *string `pulumi:"fifoThroughputScope"`
 	// The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
 	//  This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
@@ -157,6 +158,7 @@ func (o LookupTopicResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
 func (o LookupTopicResultOutput) FifoThroughputScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.FifoThroughputScope }).(pulumi.StringPtrOutput)
 }

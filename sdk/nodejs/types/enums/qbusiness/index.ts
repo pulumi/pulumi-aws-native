@@ -197,6 +197,13 @@ export const RetrieverType = {
 
 export type RetrieverType = (typeof RetrieverType)[keyof typeof RetrieverType];
 
+export const WebExperienceBrowserExtension = {
+    Firefox: "FIREFOX",
+    Chrome: "CHROME",
+} as const;
+
+export type WebExperienceBrowserExtension = (typeof WebExperienceBrowserExtension)[keyof typeof WebExperienceBrowserExtension];
+
 export const WebExperienceSamplePromptsControlMode = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

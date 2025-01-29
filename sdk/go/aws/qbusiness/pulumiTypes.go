@@ -5897,6 +5897,161 @@ type RetrieverTag struct {
 	Value string `pulumi:"value"`
 }
 
+type WebExperienceBrowserExtensionConfiguration struct {
+	// Specify the browser extensions allowed for your Amazon Q web experience.
+	//
+	// - `CHROME` — Enables the extension for Chromium-based browsers (Google Chrome, Microsoft Edge, Opera, etc.).
+	// - `FIREFOX` — Enables the extension for Mozilla Firefox.
+	// - `CHROME` and `FIREFOX` — Enable the extension for Chromium-based browsers and Mozilla Firefox.
+	EnabledBrowserExtensions []WebExperienceBrowserExtension `pulumi:"enabledBrowserExtensions"`
+}
+
+// WebExperienceBrowserExtensionConfigurationInput is an input type that accepts WebExperienceBrowserExtensionConfigurationArgs and WebExperienceBrowserExtensionConfigurationOutput values.
+// You can construct a concrete instance of `WebExperienceBrowserExtensionConfigurationInput` via:
+//
+//	WebExperienceBrowserExtensionConfigurationArgs{...}
+type WebExperienceBrowserExtensionConfigurationInput interface {
+	pulumi.Input
+
+	ToWebExperienceBrowserExtensionConfigurationOutput() WebExperienceBrowserExtensionConfigurationOutput
+	ToWebExperienceBrowserExtensionConfigurationOutputWithContext(context.Context) WebExperienceBrowserExtensionConfigurationOutput
+}
+
+type WebExperienceBrowserExtensionConfigurationArgs struct {
+	// Specify the browser extensions allowed for your Amazon Q web experience.
+	//
+	// - `CHROME` — Enables the extension for Chromium-based browsers (Google Chrome, Microsoft Edge, Opera, etc.).
+	// - `FIREFOX` — Enables the extension for Mozilla Firefox.
+	// - `CHROME` and `FIREFOX` — Enable the extension for Chromium-based browsers and Mozilla Firefox.
+	EnabledBrowserExtensions WebExperienceBrowserExtensionArrayInput `pulumi:"enabledBrowserExtensions"`
+}
+
+func (WebExperienceBrowserExtensionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebExperienceBrowserExtensionConfiguration)(nil)).Elem()
+}
+
+func (i WebExperienceBrowserExtensionConfigurationArgs) ToWebExperienceBrowserExtensionConfigurationOutput() WebExperienceBrowserExtensionConfigurationOutput {
+	return i.ToWebExperienceBrowserExtensionConfigurationOutputWithContext(context.Background())
+}
+
+func (i WebExperienceBrowserExtensionConfigurationArgs) ToWebExperienceBrowserExtensionConfigurationOutputWithContext(ctx context.Context) WebExperienceBrowserExtensionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceBrowserExtensionConfigurationOutput)
+}
+
+func (i WebExperienceBrowserExtensionConfigurationArgs) ToWebExperienceBrowserExtensionConfigurationPtrOutput() WebExperienceBrowserExtensionConfigurationPtrOutput {
+	return i.ToWebExperienceBrowserExtensionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WebExperienceBrowserExtensionConfigurationArgs) ToWebExperienceBrowserExtensionConfigurationPtrOutputWithContext(ctx context.Context) WebExperienceBrowserExtensionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceBrowserExtensionConfigurationOutput).ToWebExperienceBrowserExtensionConfigurationPtrOutputWithContext(ctx)
+}
+
+// WebExperienceBrowserExtensionConfigurationPtrInput is an input type that accepts WebExperienceBrowserExtensionConfigurationArgs, WebExperienceBrowserExtensionConfigurationPtr and WebExperienceBrowserExtensionConfigurationPtrOutput values.
+// You can construct a concrete instance of `WebExperienceBrowserExtensionConfigurationPtrInput` via:
+//
+//	        WebExperienceBrowserExtensionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebExperienceBrowserExtensionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWebExperienceBrowserExtensionConfigurationPtrOutput() WebExperienceBrowserExtensionConfigurationPtrOutput
+	ToWebExperienceBrowserExtensionConfigurationPtrOutputWithContext(context.Context) WebExperienceBrowserExtensionConfigurationPtrOutput
+}
+
+type webExperienceBrowserExtensionConfigurationPtrType WebExperienceBrowserExtensionConfigurationArgs
+
+func WebExperienceBrowserExtensionConfigurationPtr(v *WebExperienceBrowserExtensionConfigurationArgs) WebExperienceBrowserExtensionConfigurationPtrInput {
+	return (*webExperienceBrowserExtensionConfigurationPtrType)(v)
+}
+
+func (*webExperienceBrowserExtensionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebExperienceBrowserExtensionConfiguration)(nil)).Elem()
+}
+
+func (i *webExperienceBrowserExtensionConfigurationPtrType) ToWebExperienceBrowserExtensionConfigurationPtrOutput() WebExperienceBrowserExtensionConfigurationPtrOutput {
+	return i.ToWebExperienceBrowserExtensionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *webExperienceBrowserExtensionConfigurationPtrType) ToWebExperienceBrowserExtensionConfigurationPtrOutputWithContext(ctx context.Context) WebExperienceBrowserExtensionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceBrowserExtensionConfigurationPtrOutput)
+}
+
+type WebExperienceBrowserExtensionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WebExperienceBrowserExtensionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebExperienceBrowserExtensionConfiguration)(nil)).Elem()
+}
+
+func (o WebExperienceBrowserExtensionConfigurationOutput) ToWebExperienceBrowserExtensionConfigurationOutput() WebExperienceBrowserExtensionConfigurationOutput {
+	return o
+}
+
+func (o WebExperienceBrowserExtensionConfigurationOutput) ToWebExperienceBrowserExtensionConfigurationOutputWithContext(ctx context.Context) WebExperienceBrowserExtensionConfigurationOutput {
+	return o
+}
+
+func (o WebExperienceBrowserExtensionConfigurationOutput) ToWebExperienceBrowserExtensionConfigurationPtrOutput() WebExperienceBrowserExtensionConfigurationPtrOutput {
+	return o.ToWebExperienceBrowserExtensionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WebExperienceBrowserExtensionConfigurationOutput) ToWebExperienceBrowserExtensionConfigurationPtrOutputWithContext(ctx context.Context) WebExperienceBrowserExtensionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebExperienceBrowserExtensionConfiguration) *WebExperienceBrowserExtensionConfiguration {
+		return &v
+	}).(WebExperienceBrowserExtensionConfigurationPtrOutput)
+}
+
+// Specify the browser extensions allowed for your Amazon Q web experience.
+//
+// - `CHROME` — Enables the extension for Chromium-based browsers (Google Chrome, Microsoft Edge, Opera, etc.).
+// - `FIREFOX` — Enables the extension for Mozilla Firefox.
+// - `CHROME` and `FIREFOX` — Enable the extension for Chromium-based browsers and Mozilla Firefox.
+func (o WebExperienceBrowserExtensionConfigurationOutput) EnabledBrowserExtensions() WebExperienceBrowserExtensionArrayOutput {
+	return o.ApplyT(func(v WebExperienceBrowserExtensionConfiguration) []WebExperienceBrowserExtension {
+		return v.EnabledBrowserExtensions
+	}).(WebExperienceBrowserExtensionArrayOutput)
+}
+
+type WebExperienceBrowserExtensionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WebExperienceBrowserExtensionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebExperienceBrowserExtensionConfiguration)(nil)).Elem()
+}
+
+func (o WebExperienceBrowserExtensionConfigurationPtrOutput) ToWebExperienceBrowserExtensionConfigurationPtrOutput() WebExperienceBrowserExtensionConfigurationPtrOutput {
+	return o
+}
+
+func (o WebExperienceBrowserExtensionConfigurationPtrOutput) ToWebExperienceBrowserExtensionConfigurationPtrOutputWithContext(ctx context.Context) WebExperienceBrowserExtensionConfigurationPtrOutput {
+	return o
+}
+
+func (o WebExperienceBrowserExtensionConfigurationPtrOutput) Elem() WebExperienceBrowserExtensionConfigurationOutput {
+	return o.ApplyT(func(v *WebExperienceBrowserExtensionConfiguration) WebExperienceBrowserExtensionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WebExperienceBrowserExtensionConfiguration
+		return ret
+	}).(WebExperienceBrowserExtensionConfigurationOutput)
+}
+
+// Specify the browser extensions allowed for your Amazon Q web experience.
+//
+// - `CHROME` — Enables the extension for Chromium-based browsers (Google Chrome, Microsoft Edge, Opera, etc.).
+// - `FIREFOX` — Enables the extension for Mozilla Firefox.
+// - `CHROME` and `FIREFOX` — Enable the extension for Chromium-based browsers and Mozilla Firefox.
+func (o WebExperienceBrowserExtensionConfigurationPtrOutput) EnabledBrowserExtensions() WebExperienceBrowserExtensionArrayOutput {
+	return o.ApplyT(func(v *WebExperienceBrowserExtensionConfiguration) []WebExperienceBrowserExtension {
+		if v == nil {
+			return nil
+		}
+		return v.EnabledBrowserExtensions
+	}).(WebExperienceBrowserExtensionArrayOutput)
+}
+
 type WebExperienceCustomizationConfiguration struct {
 	// Provides the URL where the custom CSS file is hosted for an Amazon Q web experience.
 	CustomCssUrl *string `pulumi:"customCssUrl"`
@@ -6725,6 +6880,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RetrieverConfiguration1PropertiesInput)(nil)).Elem(), RetrieverConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RetrieverKendraIndexConfigurationInput)(nil)).Elem(), RetrieverKendraIndexConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RetrieverNativeIndexConfigurationInput)(nil)).Elem(), RetrieverNativeIndexConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceBrowserExtensionConfigurationInput)(nil)).Elem(), WebExperienceBrowserExtensionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceBrowserExtensionConfigurationPtrInput)(nil)).Elem(), WebExperienceBrowserExtensionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceCustomizationConfigurationInput)(nil)).Elem(), WebExperienceCustomizationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceCustomizationConfigurationPtrInput)(nil)).Elem(), WebExperienceCustomizationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceIdentityProviderConfiguration0PropertiesInput)(nil)).Elem(), WebExperienceIdentityProviderConfiguration0PropertiesArgs{})
@@ -6824,6 +6981,8 @@ func init() {
 	pulumi.RegisterOutputType(RetrieverKendraIndexConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RetrieverNativeIndexConfigurationOutput{})
 	pulumi.RegisterOutputType(RetrieverNativeIndexConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WebExperienceBrowserExtensionConfigurationOutput{})
+	pulumi.RegisterOutputType(WebExperienceBrowserExtensionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebExperienceCustomizationConfigurationOutput{})
 	pulumi.RegisterOutputType(WebExperienceCustomizationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebExperienceIdentityProviderConfiguration0PropertiesOutput{})

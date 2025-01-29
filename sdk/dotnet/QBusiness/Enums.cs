@@ -665,6 +665,34 @@ namespace Pulumi.AwsNative.QBusiness
     }
 
     [EnumType]
+    public readonly struct WebExperienceBrowserExtension : IEquatable<WebExperienceBrowserExtension>
+    {
+        private readonly string _value;
+
+        private WebExperienceBrowserExtension(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebExperienceBrowserExtension Firefox { get; } = new WebExperienceBrowserExtension("FIREFOX");
+        public static WebExperienceBrowserExtension Chrome { get; } = new WebExperienceBrowserExtension("CHROME");
+
+        public static bool operator ==(WebExperienceBrowserExtension left, WebExperienceBrowserExtension right) => left.Equals(right);
+        public static bool operator !=(WebExperienceBrowserExtension left, WebExperienceBrowserExtension right) => !left.Equals(right);
+
+        public static explicit operator string(WebExperienceBrowserExtension value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebExperienceBrowserExtension other && Equals(other);
+        public bool Equals(WebExperienceBrowserExtension other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct WebExperienceSamplePromptsControlMode : IEquatable<WebExperienceSamplePromptsControlMode>
     {
         private readonly string _value;

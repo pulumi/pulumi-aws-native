@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.QBusiness
     public sealed class GetWebExperienceResult
     {
         /// <summary>
+        /// The container for browser extension configuration for an Amazon Q Business web experience.
+        /// </summary>
+        public readonly Outputs.WebExperienceBrowserExtensionConfiguration? BrowserExtensionConfiguration;
+        /// <summary>
         /// The Unix timestamp when the Amazon Q Business application was last updated.
         /// </summary>
         public readonly string? CreatedAt;
@@ -142,6 +146,8 @@ namespace Pulumi.AwsNative.QBusiness
 
         [OutputConstructor]
         private GetWebExperienceResult(
+            Outputs.WebExperienceBrowserExtensionConfiguration? browserExtensionConfiguration,
+
             string? createdAt,
 
             Outputs.WebExperienceCustomizationConfiguration? customizationConfiguration,
@@ -172,6 +178,7 @@ namespace Pulumi.AwsNative.QBusiness
 
             string? welcomeMessage)
         {
+            BrowserExtensionConfiguration = browserExtensionConfiguration;
             CreatedAt = createdAt;
             CustomizationConfiguration = customizationConfiguration;
             DefaultEndpoint = defaultEndpoint;

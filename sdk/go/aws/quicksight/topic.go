@@ -18,7 +18,8 @@ type Topic struct {
 	// The Amazon Resource Name (ARN) of the topic.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the AWS account that you want to create a topic in.
-	AwsAccountId  pulumi.StringPtrOutput      `pulumi:"awsAccountId"`
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
+	// Configuration options for a `Topic` .
 	ConfigOptions TopicConfigOptionsPtrOutput `pulumi:"configOptions"`
 	// The data sets that the topic is associated with.
 	DataSets TopicDatasetMetadataArrayOutput `pulumi:"dataSets"`
@@ -80,7 +81,8 @@ func (TopicState) ElementType() reflect.Type {
 
 type topicArgs struct {
 	// The ID of the AWS account that you want to create a topic in.
-	AwsAccountId  *string             `pulumi:"awsAccountId"`
+	AwsAccountId *string `pulumi:"awsAccountId"`
+	// Configuration options for a `Topic` .
 	ConfigOptions *TopicConfigOptions `pulumi:"configOptions"`
 	// The data sets that the topic is associated with.
 	DataSets []TopicDatasetMetadata `pulumi:"dataSets"`
@@ -98,7 +100,8 @@ type topicArgs struct {
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
 	// The ID of the AWS account that you want to create a topic in.
-	AwsAccountId  pulumi.StringPtrInput
+	AwsAccountId pulumi.StringPtrInput
+	// Configuration options for a `Topic` .
 	ConfigOptions TopicConfigOptionsPtrInput
 	// The data sets that the topic is associated with.
 	DataSets TopicDatasetMetadataArrayInput
@@ -160,6 +163,7 @@ func (o TopicOutput) AwsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
+// Configuration options for a `Topic` .
 func (o TopicOutput) ConfigOptions() TopicConfigOptionsPtrOutput {
 	return o.ApplyT(func(v *Topic) TopicConfigOptionsPtrOutput { return v.ConfigOptions }).(TopicConfigOptionsPtrOutput)
 }

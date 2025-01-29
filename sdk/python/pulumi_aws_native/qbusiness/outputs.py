@@ -61,6 +61,7 @@ __all__ = [
     'RetrieverConfiguration1Properties',
     'RetrieverKendraIndexConfiguration',
     'RetrieverNativeIndexConfiguration',
+    'WebExperienceBrowserExtensionConfiguration',
     'WebExperienceCustomizationConfiguration',
     'WebExperienceIdentityProviderConfiguration0Properties',
     'WebExperienceIdentityProviderConfiguration1Properties',
@@ -1792,6 +1793,49 @@ class RetrieverNativeIndexConfiguration(dict):
     @pulumi.getter(name="indexId")
     def index_id(self) -> str:
         return pulumi.get(self, "index_id")
+
+
+@pulumi.output_type
+class WebExperienceBrowserExtensionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enabledBrowserExtensions":
+            suggest = "enabled_browser_extensions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebExperienceBrowserExtensionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebExperienceBrowserExtensionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebExperienceBrowserExtensionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled_browser_extensions: Sequence['WebExperienceBrowserExtension']):
+        """
+        :param Sequence['WebExperienceBrowserExtension'] enabled_browser_extensions: Specify the browser extensions allowed for your Amazon Q web experience.
+               
+               - `CHROME` — Enables the extension for Chromium-based browsers (Google Chrome, Microsoft Edge, Opera, etc.).
+               - `FIREFOX` — Enables the extension for Mozilla Firefox.
+               - `CHROME` and `FIREFOX` — Enable the extension for Chromium-based browsers and Mozilla Firefox.
+        """
+        pulumi.set(__self__, "enabled_browser_extensions", enabled_browser_extensions)
+
+    @property
+    @pulumi.getter(name="enabledBrowserExtensions")
+    def enabled_browser_extensions(self) -> Sequence['WebExperienceBrowserExtension']:
+        """
+        Specify the browser extensions allowed for your Amazon Q web experience.
+
+        - `CHROME` — Enables the extension for Chromium-based browsers (Google Chrome, Microsoft Edge, Opera, etc.).
+        - `FIREFOX` — Enables the extension for Mozilla Firefox.
+        - `CHROME` and `FIREFOX` — Enable the extension for Chromium-based browsers and Mozilla Firefox.
+        """
+        return pulumi.get(self, "enabled_browser_extensions")
 
 
 @pulumi.output_type

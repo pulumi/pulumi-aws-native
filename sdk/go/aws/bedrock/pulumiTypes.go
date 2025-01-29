@@ -20115,6 +20115,8 @@ func (o GuardrailWordPolicyConfigPtrOutput) WordsConfig() GuardrailWordConfigArr
 type KnowledgeBaseBedrockEmbeddingModelConfiguration struct {
 	// The dimensions details for the vector configuration used on the Bedrock embeddings model.
 	Dimensions *int `pulumi:"dimensions"`
+	// The data type for the vectors when using a model to convert text into vector embeddings.
+	EmbeddingDataType *KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType `pulumi:"embeddingDataType"`
 }
 
 // KnowledgeBaseBedrockEmbeddingModelConfigurationInput is an input type that accepts KnowledgeBaseBedrockEmbeddingModelConfigurationArgs and KnowledgeBaseBedrockEmbeddingModelConfigurationOutput values.
@@ -20132,6 +20134,8 @@ type KnowledgeBaseBedrockEmbeddingModelConfigurationInput interface {
 type KnowledgeBaseBedrockEmbeddingModelConfigurationArgs struct {
 	// The dimensions details for the vector configuration used on the Bedrock embeddings model.
 	Dimensions pulumi.IntPtrInput `pulumi:"dimensions"`
+	// The data type for the vectors when using a model to convert text into vector embeddings.
+	EmbeddingDataType KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrInput `pulumi:"embeddingDataType"`
 }
 
 func (KnowledgeBaseBedrockEmbeddingModelConfigurationArgs) ElementType() reflect.Type {
@@ -20217,6 +20221,13 @@ func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) Dimensions() pulu
 	return o.ApplyT(func(v KnowledgeBaseBedrockEmbeddingModelConfiguration) *int { return v.Dimensions }).(pulumi.IntPtrOutput)
 }
 
+// The data type for the vectors when using a model to convert text into vector embeddings.
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) EmbeddingDataType() KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseBedrockEmbeddingModelConfiguration) *KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType {
+		return v.EmbeddingDataType
+	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput)
+}
+
 type KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) ElementType() reflect.Type {
@@ -20249,6 +20260,16 @@ func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) Dimensions() p
 		}
 		return v.Dimensions
 	}).(pulumi.IntPtrOutput)
+}
+
+// The data type for the vectors when using a model to convert text into vector embeddings.
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) EmbeddingDataType() KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseBedrockEmbeddingModelConfiguration) *KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType {
+		if v == nil {
+			return nil
+		}
+		return v.EmbeddingDataType
+	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput)
 }
 
 // Contains details about the embeddings model used for the knowledge base.

@@ -160,6 +160,8 @@ __all__ = [
     'ResponseHeadersPolicyStrictTransportSecurityArgsDict',
     'ResponseHeadersPolicyXssProtectionArgs',
     'ResponseHeadersPolicyXssProtectionArgsDict',
+    'VpcOriginEndpointConfigArgs',
+    'VpcOriginEndpointConfigArgsDict',
 ]
 
 MYPY = False
@@ -7094,5 +7096,91 @@ class ResponseHeadersPolicyXssProtectionArgs:
     @report_uri.setter
     def report_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "report_uri", value)
+
+
+if not MYPY:
+    class VpcOriginEndpointConfigArgsDict(TypedDict):
+        arn: pulumi.Input[str]
+        name: pulumi.Input[str]
+        http_port: NotRequired[pulumi.Input[int]]
+        https_port: NotRequired[pulumi.Input[int]]
+        origin_protocol_policy: NotRequired[pulumi.Input[str]]
+        origin_ssl_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    VpcOriginEndpointConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcOriginEndpointConfigArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 http_port: Optional[pulumi.Input[int]] = None,
+                 https_port: Optional[pulumi.Input[int]] = None,
+                 origin_protocol_policy: Optional[pulumi.Input[str]] = None,
+                 origin_ssl_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "name", name)
+        if http_port is not None:
+            pulumi.set(__self__, "http_port", http_port)
+        if https_port is not None:
+            pulumi.set(__self__, "https_port", https_port)
+        if origin_protocol_policy is not None:
+            pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
+        if origin_ssl_protocols is not None:
+            pulumi.set(__self__, "origin_ssl_protocols", origin_ssl_protocols)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="httpPort")
+    def http_port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "http_port")
+
+    @http_port.setter
+    def http_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "http_port", value)
+
+    @property
+    @pulumi.getter(name="httpsPort")
+    def https_port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "https_port")
+
+    @https_port.setter
+    def https_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "https_port", value)
+
+    @property
+    @pulumi.getter(name="originProtocolPolicy")
+    def origin_protocol_policy(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "origin_protocol_policy")
+
+    @origin_protocol_policy.setter
+    def origin_protocol_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin_protocol_policy", value)
+
+    @property
+    @pulumi.getter(name="originSslProtocols")
+    def origin_ssl_protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "origin_ssl_protocols")
+
+    @origin_ssl_protocols.setter
+    def origin_ssl_protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "origin_ssl_protocols", value)
 
 

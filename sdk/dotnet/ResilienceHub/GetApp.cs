@@ -92,10 +92,6 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// </summary>
         public readonly Outputs.AppPermissionModel? PermissionModel;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Regulatory Policy.
-        /// </summary>
-        public readonly string? RegulatoryPolicyArn;
-        /// <summary>
         /// Amazon Resource Name (ARN) of the Resiliency Policy.
         /// </summary>
         public readonly string? ResiliencyPolicyArn;
@@ -124,8 +120,6 @@ namespace Pulumi.AwsNative.ResilienceHub
 
             Outputs.AppPermissionModel? permissionModel,
 
-            string? regulatoryPolicyArn,
-
             string? resiliencyPolicyArn,
 
             ImmutableArray<Outputs.AppResourceMapping> resourceMappings,
@@ -139,7 +133,6 @@ namespace Pulumi.AwsNative.ResilienceHub
             DriftStatus = driftStatus;
             EventSubscriptions = eventSubscriptions;
             PermissionModel = permissionModel;
-            RegulatoryPolicyArn = regulatoryPolicyArn;
             ResiliencyPolicyArn = resiliencyPolicyArn;
             ResourceMappings = resourceMappings;
             Tags = tags;

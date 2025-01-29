@@ -17,7 +17,9 @@ type CapacityReservation struct {
 	pulumi.CustomResourceState
 
 	// The Availability Zone in which to create the Capacity Reservation.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
+	// The Availability Zone ID of the Capacity Reservation.
+	AvailabilityZoneId pulumi.StringPtrOutput `pulumi:"availabilityZoneId"`
 	// Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
 	AvailableInstanceCount pulumi.IntOutput `pulumi:"availableInstanceCount"`
 	// The ID of the Capacity Reservation.
@@ -92,9 +94,6 @@ func NewCapacityReservation(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AvailabilityZone == nil {
-		return nil, errors.New("invalid value for required argument 'AvailabilityZone'")
-	}
 	if args.InstanceCount == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceCount'")
 	}
@@ -106,6 +105,7 @@ func NewCapacityReservation(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"availabilityZone",
+		"availabilityZoneId",
 		"ebsOptimized",
 		"ephemeralStorage",
 		"instancePlatform",
@@ -150,7 +150,9 @@ func (CapacityReservationState) ElementType() reflect.Type {
 
 type capacityReservationArgs struct {
 	// The Availability Zone in which to create the Capacity Reservation.
-	AvailabilityZone string `pulumi:"availabilityZone"`
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The Availability Zone ID of the Capacity Reservation.
+	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
 	EbsOptimized *bool `pulumi:"ebsOptimized"`
 	// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
@@ -215,7 +217,9 @@ type capacityReservationArgs struct {
 // The set of arguments for constructing a CapacityReservation resource.
 type CapacityReservationArgs struct {
 	// The Availability Zone in which to create the Capacity Reservation.
-	AvailabilityZone pulumi.StringInput
+	AvailabilityZone pulumi.StringPtrInput
+	// The Availability Zone ID of the Capacity Reservation.
+	AvailabilityZoneId pulumi.StringPtrInput
 	// Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
 	EbsOptimized pulumi.BoolPtrInput
 	// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
@@ -315,8 +319,13 @@ func (o CapacityReservationOutput) ToCapacityReservationOutputWithContext(ctx co
 }
 
 // The Availability Zone in which to create the Capacity Reservation.
-func (o CapacityReservationOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o CapacityReservationOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The Availability Zone ID of the Capacity Reservation.
+func (o CapacityReservationOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
 }
 
 // Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .

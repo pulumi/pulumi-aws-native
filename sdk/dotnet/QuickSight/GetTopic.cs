@@ -79,6 +79,9 @@ namespace Pulumi.AwsNative.QuickSight
         /// The Amazon Resource Name (ARN) of the topic.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Configuration options for a `Topic` .
+        /// </summary>
         public readonly Outputs.TopicConfigOptions? ConfigOptions;
         /// <summary>
         /// The data sets that the topic is associated with.

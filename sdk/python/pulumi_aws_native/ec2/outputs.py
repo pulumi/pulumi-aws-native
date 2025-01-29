@@ -186,8 +186,11 @@ __all__ = [
     'TagSpecification',
     'TransitGatewayConnectOptions',
     'TransitGatewayPeeringAttachmentPeeringAttachmentStatus',
+    'VerifiedAccessEndpointCidrOptions',
     'VerifiedAccessEndpointLoadBalancerOptions',
     'VerifiedAccessEndpointNetworkInterfaceOptions',
+    'VerifiedAccessEndpointPortRange',
+    'VerifiedAccessEndpointRdsOptions',
     'VerifiedAccessEndpointSseSpecification',
     'VerifiedAccessGroupSseSpecification',
     'VerifiedAccessInstanceVerifiedAccessLogs',
@@ -13733,6 +13736,84 @@ class TransitGatewayPeeringAttachmentPeeringAttachmentStatus(dict):
 
 
 @pulumi.output_type
+class VerifiedAccessEndpointCidrOptions(dict):
+    """
+    The options for cidr type endpoint.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portRanges":
+            suggest = "port_ranges"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VerifiedAccessEndpointCidrOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VerifiedAccessEndpointCidrOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VerifiedAccessEndpointCidrOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cidr: Optional[str] = None,
+                 port_ranges: Optional[Sequence['outputs.VerifiedAccessEndpointPortRange']] = None,
+                 protocol: Optional[str] = None,
+                 subnet_ids: Optional[Sequence[str]] = None):
+        """
+        The options for cidr type endpoint.
+        :param str cidr: The IP address range, in CIDR notation.
+        :param Sequence['VerifiedAccessEndpointPortRange'] port_ranges: The list of port range.
+        :param str protocol: The IP protocol.
+        :param Sequence[str] subnet_ids: The IDs of the subnets.
+        """
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> Optional[str]:
+        """
+        The IP address range, in CIDR notation.
+        """
+        return pulumi.get(self, "cidr")
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[Sequence['outputs.VerifiedAccessEndpointPortRange']]:
+        """
+        The list of port range.
+        """
+        return pulumi.get(self, "port_ranges")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The IP protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence[str]]:
+        """
+        The IDs of the subnets.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+
+@pulumi.output_type
 class VerifiedAccessEndpointLoadBalancerOptions(dict):
     """
     The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
@@ -13742,6 +13823,8 @@ class VerifiedAccessEndpointLoadBalancerOptions(dict):
         suggest = None
         if key == "loadBalancerArn":
             suggest = "load_balancer_arn"
+        elif key == "portRanges":
+            suggest = "port_ranges"
         elif key == "subnetIds":
             suggest = "subnet_ids"
 
@@ -13759,12 +13842,14 @@ class VerifiedAccessEndpointLoadBalancerOptions(dict):
     def __init__(__self__, *,
                  load_balancer_arn: Optional[str] = None,
                  port: Optional[int] = None,
+                 port_ranges: Optional[Sequence['outputs.VerifiedAccessEndpointPortRange']] = None,
                  protocol: Optional[str] = None,
                  subnet_ids: Optional[Sequence[str]] = None):
         """
         The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
         :param str load_balancer_arn: The ARN of the load balancer.
         :param int port: The IP port number.
+        :param Sequence['VerifiedAccessEndpointPortRange'] port_ranges: The list of port range.
         :param str protocol: The IP protocol.
         :param Sequence[str] subnet_ids: The IDs of the subnets.
         """
@@ -13772,6 +13857,8 @@ class VerifiedAccessEndpointLoadBalancerOptions(dict):
             pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
         if subnet_ids is not None:
@@ -13792,6 +13879,14 @@ class VerifiedAccessEndpointLoadBalancerOptions(dict):
         The IP port number.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[Sequence['outputs.VerifiedAccessEndpointPortRange']]:
+        """
+        The list of port range.
+        """
+        return pulumi.get(self, "port_ranges")
 
     @property
     @pulumi.getter
@@ -13820,6 +13915,8 @@ class VerifiedAccessEndpointNetworkInterfaceOptions(dict):
         suggest = None
         if key == "networkInterfaceId":
             suggest = "network_interface_id"
+        elif key == "portRanges":
+            suggest = "port_ranges"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VerifiedAccessEndpointNetworkInterfaceOptions. Access the value via the '{suggest}' property getter instead.")
@@ -13835,17 +13932,21 @@ class VerifiedAccessEndpointNetworkInterfaceOptions(dict):
     def __init__(__self__, *,
                  network_interface_id: Optional[str] = None,
                  port: Optional[int] = None,
+                 port_ranges: Optional[Sequence['outputs.VerifiedAccessEndpointPortRange']] = None,
                  protocol: Optional[str] = None):
         """
         The options for network-interface type endpoint.
         :param str network_interface_id: The ID of the network interface.
         :param int port: The IP port number.
+        :param Sequence['VerifiedAccessEndpointPortRange'] port_ranges: The list of port ranges.
         :param str protocol: The IP protocol.
         """
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
 
@@ -13866,12 +13967,194 @@ class VerifiedAccessEndpointNetworkInterfaceOptions(dict):
         return pulumi.get(self, "port")
 
     @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[Sequence['outputs.VerifiedAccessEndpointPortRange']]:
+        """
+        The list of port ranges.
+        """
+        return pulumi.get(self, "port_ranges")
+
+    @property
     @pulumi.getter
     def protocol(self) -> Optional[str]:
         """
         The IP protocol.
         """
         return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class VerifiedAccessEndpointPortRange(dict):
+    """
+    The IP port range.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VerifiedAccessEndpointPortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VerifiedAccessEndpointPortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VerifiedAccessEndpointPortRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: Optional[int] = None,
+                 to_port: Optional[int] = None):
+        """
+        The IP port range.
+        :param int from_port: The first port in the range.
+        :param int to_port: The last port in the range.
+        """
+        if from_port is not None:
+            pulumi.set(__self__, "from_port", from_port)
+        if to_port is not None:
+            pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> Optional[int]:
+        """
+        The first port in the range.
+        """
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> Optional[int]:
+        """
+        The last port in the range.
+        """
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class VerifiedAccessEndpointRdsOptions(dict):
+    """
+    The options for rds type endpoint.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rdsDbClusterArn":
+            suggest = "rds_db_cluster_arn"
+        elif key == "rdsDbInstanceArn":
+            suggest = "rds_db_instance_arn"
+        elif key == "rdsDbProxyArn":
+            suggest = "rds_db_proxy_arn"
+        elif key == "rdsEndpoint":
+            suggest = "rds_endpoint"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VerifiedAccessEndpointRdsOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VerifiedAccessEndpointRdsOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VerifiedAccessEndpointRdsOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port: Optional[int] = None,
+                 protocol: Optional[str] = None,
+                 rds_db_cluster_arn: Optional[str] = None,
+                 rds_db_instance_arn: Optional[str] = None,
+                 rds_db_proxy_arn: Optional[str] = None,
+                 rds_endpoint: Optional[str] = None,
+                 subnet_ids: Optional[Sequence[str]] = None):
+        """
+        The options for rds type endpoint.
+        :param int port: The IP port number.
+        :param str protocol: The IP protocol.
+        :param str rds_db_cluster_arn: The ARN of the RDS DB cluster.
+        :param str rds_db_instance_arn: The ARN of the RDS DB instance.
+        :param str rds_db_proxy_arn: The ARN of the RDS DB proxy.
+        :param str rds_endpoint: The RDS endpoint.
+        :param Sequence[str] subnet_ids: The IDs of the subnets.
+        """
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if rds_db_cluster_arn is not None:
+            pulumi.set(__self__, "rds_db_cluster_arn", rds_db_cluster_arn)
+        if rds_db_instance_arn is not None:
+            pulumi.set(__self__, "rds_db_instance_arn", rds_db_instance_arn)
+        if rds_db_proxy_arn is not None:
+            pulumi.set(__self__, "rds_db_proxy_arn", rds_db_proxy_arn)
+        if rds_endpoint is not None:
+            pulumi.set(__self__, "rds_endpoint", rds_endpoint)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The IP port number.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The IP protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="rdsDbClusterArn")
+    def rds_db_cluster_arn(self) -> Optional[str]:
+        """
+        The ARN of the RDS DB cluster.
+        """
+        return pulumi.get(self, "rds_db_cluster_arn")
+
+    @property
+    @pulumi.getter(name="rdsDbInstanceArn")
+    def rds_db_instance_arn(self) -> Optional[str]:
+        """
+        The ARN of the RDS DB instance.
+        """
+        return pulumi.get(self, "rds_db_instance_arn")
+
+    @property
+    @pulumi.getter(name="rdsDbProxyArn")
+    def rds_db_proxy_arn(self) -> Optional[str]:
+        """
+        The ARN of the RDS DB proxy.
+        """
+        return pulumi.get(self, "rds_db_proxy_arn")
+
+    @property
+    @pulumi.getter(name="rdsEndpoint")
+    def rds_endpoint(self) -> Optional[str]:
+        """
+        The RDS endpoint.
+        """
+        return pulumi.get(self, "rds_endpoint")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence[str]]:
+        """
+        The IDs of the subnets.
+        """
+        return pulumi.get(self, "subnet_ids")
 
 
 @pulumi.output_type

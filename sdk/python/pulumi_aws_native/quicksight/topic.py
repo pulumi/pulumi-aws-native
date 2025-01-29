@@ -33,6 +33,7 @@ class TopicArgs:
         """
         The set of arguments for constructing a Topic resource.
         :param pulumi.Input[str] aws_account_id: The ID of the AWS account that you want to create a topic in.
+        :param pulumi.Input['TopicConfigOptionsArgs'] config_options: Configuration options for a `Topic` .
         :param pulumi.Input[Sequence[pulumi.Input['TopicDatasetMetadataArgs']]] data_sets: The data sets that the topic is associated with.
         :param pulumi.Input[str] description: The description of the topic.
         :param pulumi.Input[str] name: The name of the topic.
@@ -71,6 +72,9 @@ class TopicArgs:
     @property
     @pulumi.getter(name="configOptions")
     def config_options(self) -> Optional[pulumi.Input['TopicConfigOptionsArgs']]:
+        """
+        Configuration options for a `Topic` .
+        """
         return pulumi.get(self, "config_options")
 
     @config_options.setter
@@ -167,6 +171,7 @@ class Topic(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: The ID of the AWS account that you want to create a topic in.
+        :param pulumi.Input[Union['TopicConfigOptionsArgs', 'TopicConfigOptionsArgsDict']] config_options: Configuration options for a `Topic` .
         :param pulumi.Input[Sequence[pulumi.Input[Union['TopicDatasetMetadataArgs', 'TopicDatasetMetadataArgsDict']]]] data_sets: The data sets that the topic is associated with.
         :param pulumi.Input[str] description: The description of the topic.
         :param pulumi.Input[str] name: The name of the topic.
@@ -277,6 +282,9 @@ class Topic(pulumi.CustomResource):
     @property
     @pulumi.getter(name="configOptions")
     def config_options(self) -> pulumi.Output[Optional['outputs.TopicConfigOptions']]:
+        """
+        Configuration options for a `Topic` .
+        """
         return pulumi.get(self, "config_options")
 
     @property

@@ -106,6 +106,9 @@ namespace Pulumi.AwsNative.Sns
         /// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
         /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
+        /// </summary>
         public readonly string? FifoThroughputScope;
         /// <summary>
         /// The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.

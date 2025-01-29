@@ -12764,6 +12764,168 @@ func (o ResponseHeadersPolicyXssProtectionPtrOutput) ReportUri() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+type VpcOriginEndpointConfig struct {
+	Arn                  string   `pulumi:"arn"`
+	HttpPort             *int     `pulumi:"httpPort"`
+	HttpsPort            *int     `pulumi:"httpsPort"`
+	Name                 string   `pulumi:"name"`
+	OriginProtocolPolicy *string  `pulumi:"originProtocolPolicy"`
+	OriginSslProtocols   []string `pulumi:"originSslProtocols"`
+}
+
+// VpcOriginEndpointConfigInput is an input type that accepts VpcOriginEndpointConfigArgs and VpcOriginEndpointConfigOutput values.
+// You can construct a concrete instance of `VpcOriginEndpointConfigInput` via:
+//
+//	VpcOriginEndpointConfigArgs{...}
+type VpcOriginEndpointConfigInput interface {
+	pulumi.Input
+
+	ToVpcOriginEndpointConfigOutput() VpcOriginEndpointConfigOutput
+	ToVpcOriginEndpointConfigOutputWithContext(context.Context) VpcOriginEndpointConfigOutput
+}
+
+type VpcOriginEndpointConfigArgs struct {
+	Arn                  pulumi.StringInput      `pulumi:"arn"`
+	HttpPort             pulumi.IntPtrInput      `pulumi:"httpPort"`
+	HttpsPort            pulumi.IntPtrInput      `pulumi:"httpsPort"`
+	Name                 pulumi.StringInput      `pulumi:"name"`
+	OriginProtocolPolicy pulumi.StringPtrInput   `pulumi:"originProtocolPolicy"`
+	OriginSslProtocols   pulumi.StringArrayInput `pulumi:"originSslProtocols"`
+}
+
+func (VpcOriginEndpointConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcOriginEndpointConfig)(nil)).Elem()
+}
+
+func (i VpcOriginEndpointConfigArgs) ToVpcOriginEndpointConfigOutput() VpcOriginEndpointConfigOutput {
+	return i.ToVpcOriginEndpointConfigOutputWithContext(context.Background())
+}
+
+func (i VpcOriginEndpointConfigArgs) ToVpcOriginEndpointConfigOutputWithContext(ctx context.Context) VpcOriginEndpointConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcOriginEndpointConfigOutput)
+}
+
+type VpcOriginEndpointConfigOutput struct{ *pulumi.OutputState }
+
+func (VpcOriginEndpointConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcOriginEndpointConfig)(nil)).Elem()
+}
+
+func (o VpcOriginEndpointConfigOutput) ToVpcOriginEndpointConfigOutput() VpcOriginEndpointConfigOutput {
+	return o
+}
+
+func (o VpcOriginEndpointConfigOutput) ToVpcOriginEndpointConfigOutputWithContext(ctx context.Context) VpcOriginEndpointConfigOutput {
+	return o
+}
+
+func (o VpcOriginEndpointConfigOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcOriginEndpointConfig) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o VpcOriginEndpointConfigOutput) HttpPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VpcOriginEndpointConfig) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
+}
+
+func (o VpcOriginEndpointConfigOutput) HttpsPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VpcOriginEndpointConfig) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
+}
+
+func (o VpcOriginEndpointConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcOriginEndpointConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o VpcOriginEndpointConfigOutput) OriginProtocolPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcOriginEndpointConfig) *string { return v.OriginProtocolPolicy }).(pulumi.StringPtrOutput)
+}
+
+func (o VpcOriginEndpointConfigOutput) OriginSslProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpcOriginEndpointConfig) []string { return v.OriginSslProtocols }).(pulumi.StringArrayOutput)
+}
+
+type VpcOriginEndpointConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcOriginEndpointConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcOriginEndpointConfig)(nil)).Elem()
+}
+
+func (o VpcOriginEndpointConfigPtrOutput) ToVpcOriginEndpointConfigPtrOutput() VpcOriginEndpointConfigPtrOutput {
+	return o
+}
+
+func (o VpcOriginEndpointConfigPtrOutput) ToVpcOriginEndpointConfigPtrOutputWithContext(ctx context.Context) VpcOriginEndpointConfigPtrOutput {
+	return o
+}
+
+func (o VpcOriginEndpointConfigPtrOutput) Elem() VpcOriginEndpointConfigOutput {
+	return o.ApplyT(func(v *VpcOriginEndpointConfig) VpcOriginEndpointConfig {
+		if v != nil {
+			return *v
+		}
+		var ret VpcOriginEndpointConfig
+		return ret
+	}).(VpcOriginEndpointConfigOutput)
+}
+
+func (o VpcOriginEndpointConfigPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcOriginEndpointConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VpcOriginEndpointConfigPtrOutput) HttpPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VpcOriginEndpointConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpPort
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o VpcOriginEndpointConfigPtrOutput) HttpsPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VpcOriginEndpointConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpsPort
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o VpcOriginEndpointConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcOriginEndpointConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VpcOriginEndpointConfigPtrOutput) OriginProtocolPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcOriginEndpointConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OriginProtocolPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VpcOriginEndpointConfigPtrOutput) OriginSslProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpcOriginEndpointConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OriginSslProtocols
+	}).(pulumi.StringArrayOutput)
+}
+
+type VpcOriginTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyConfigInput)(nil)).Elem(), CachePolicyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyCookiesConfigInput)(nil)).Elem(), CachePolicyCookiesConfigArgs{})
@@ -12886,6 +13048,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyStrictTransportSecurityPtrInput)(nil)).Elem(), ResponseHeadersPolicyStrictTransportSecurityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyXssProtectionInput)(nil)).Elem(), ResponseHeadersPolicyXssProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyXssProtectionPtrInput)(nil)).Elem(), ResponseHeadersPolicyXssProtectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcOriginEndpointConfigInput)(nil)).Elem(), VpcOriginEndpointConfigArgs{})
 	pulumi.RegisterOutputType(CachePolicyConfigOutput{})
 	pulumi.RegisterOutputType(CachePolicyConfigPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyCookiesConfigOutput{})
@@ -13026,4 +13189,6 @@ func init() {
 	pulumi.RegisterOutputType(ResponseHeadersPolicyStrictTransportSecurityPtrOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyXssProtectionOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyXssProtectionPtrOutput{})
+	pulumi.RegisterOutputType(VpcOriginEndpointConfigOutput{})
+	pulumi.RegisterOutputType(VpcOriginEndpointConfigPtrOutput{})
 }

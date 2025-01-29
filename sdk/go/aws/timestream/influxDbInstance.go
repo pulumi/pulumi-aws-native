@@ -42,10 +42,14 @@ type InfluxDbInstance struct {
 	LogDeliveryConfiguration LogDeliveryConfigurationPropertiesPtrOutput `pulumi:"logDeliveryConfiguration"`
 	// The unique name that is associated with the InfluxDB instance.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Network type of the InfluxDB Instance.
+	NetworkType InfluxDbInstanceNetworkTypePtrOutput `pulumi:"networkType"`
 	// The organization for the InfluxDB instance.
 	Organization pulumi.StringPtrOutput `pulumi:"organization"`
 	// The password for the InfluxDB instance.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// The port number on which InfluxDB accepts connections.
+	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// Attach a public IP to the customer ENI.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// The Secondary Availability Zone (AZ) where the InfluxDB instance is created, if DeploymentType is set as WITH_MULTIAZ_STANDBY.
@@ -72,10 +76,9 @@ func NewInfluxDbInstance(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"allocatedStorage",
 		"bucket",
-		"dbInstanceType",
 		"dbStorageType",
-		"deploymentType",
 		"name",
+		"networkType",
 		"organization",
 		"password",
 		"publiclyAccessible",
@@ -133,10 +136,14 @@ type influxDbInstanceArgs struct {
 	LogDeliveryConfiguration *LogDeliveryConfigurationProperties `pulumi:"logDeliveryConfiguration"`
 	// The unique name that is associated with the InfluxDB instance.
 	Name *string `pulumi:"name"`
+	// Network type of the InfluxDB Instance.
+	NetworkType *InfluxDbInstanceNetworkType `pulumi:"networkType"`
 	// The organization for the InfluxDB instance.
 	Organization *string `pulumi:"organization"`
 	// The password for the InfluxDB instance.
 	Password *string `pulumi:"password"`
+	// The port number on which InfluxDB accepts connections.
+	Port *int `pulumi:"port"`
 	// Attach a public IP to the customer ENI.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// An arbitrary set of tags (key-value pairs) for this DB instance.
@@ -167,10 +174,14 @@ type InfluxDbInstanceArgs struct {
 	LogDeliveryConfiguration LogDeliveryConfigurationPropertiesPtrInput
 	// The unique name that is associated with the InfluxDB instance.
 	Name pulumi.StringPtrInput
+	// Network type of the InfluxDB Instance.
+	NetworkType InfluxDbInstanceNetworkTypePtrInput
 	// The organization for the InfluxDB instance.
 	Organization pulumi.StringPtrInput
 	// The password for the InfluxDB instance.
 	Password pulumi.StringPtrInput
+	// The port number on which InfluxDB accepts connections.
+	Port pulumi.IntPtrInput
 	// Attach a public IP to the customer ENI.
 	PubliclyAccessible pulumi.BoolPtrInput
 	// An arbitrary set of tags (key-value pairs) for this DB instance.
@@ -287,6 +298,11 @@ func (o InfluxDbInstanceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfluxDbInstance) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Network type of the InfluxDB Instance.
+func (o InfluxDbInstanceOutput) NetworkType() InfluxDbInstanceNetworkTypePtrOutput {
+	return o.ApplyT(func(v *InfluxDbInstance) InfluxDbInstanceNetworkTypePtrOutput { return v.NetworkType }).(InfluxDbInstanceNetworkTypePtrOutput)
+}
+
 // The organization for the InfluxDB instance.
 func (o InfluxDbInstanceOutput) Organization() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfluxDbInstance) pulumi.StringPtrOutput { return v.Organization }).(pulumi.StringPtrOutput)
@@ -295,6 +311,11 @@ func (o InfluxDbInstanceOutput) Organization() pulumi.StringPtrOutput {
 // The password for the InfluxDB instance.
 func (o InfluxDbInstanceOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfluxDbInstance) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The port number on which InfluxDB accepts connections.
+func (o InfluxDbInstanceOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InfluxDbInstance) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // Attach a public IP to the customer ENI.

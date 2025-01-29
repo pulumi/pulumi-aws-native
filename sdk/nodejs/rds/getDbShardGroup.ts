@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::RDS::DBShardGroup resource creates an Amazon Aurora Limitless DB Shard Group.
+ * Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.
+ *  Valid for: Aurora DB clusters only
  */
 export function getDbShardGroup(args: GetDbShardGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDbShardGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -26,15 +27,24 @@ export interface GetDbShardGroupArgs {
 
 export interface GetDbShardGroupResult {
     /**
-     * Specifies whether to create standby instances for the DB shard group.
+     * Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
+     *   +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
+     *   +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
+     *   +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
      */
     readonly computeRedundancy?: number;
     /**
-     * The Amazon Web Services Region-unique, immutable identifier for the DB shard group.
+     * The AWS Region -unique, immutable identifier for the DB shard group.
      */
     readonly dbShardGroupResourceId?: string;
     /**
-     * The connection endpoint for the DB shard group.
+     * This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+     *
+     * - `CreateDBInstance`
+     * - `DescribeDBInstances`
+     * - `DeleteDBInstance`
+     *
+     * For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
      */
     readonly endpoint?: string;
     /**
@@ -42,12 +52,13 @@ export interface GetDbShardGroupResult {
      */
     readonly maxAcu?: number;
     /**
-     * An array of key-value pairs to apply to this resource.
+     * An optional set of key-value pairs to associate arbitrary data of your choosing with the DB shard group.
      */
     readonly tags?: outputs.Tag[];
 }
 /**
- * The AWS::RDS::DBShardGroup resource creates an Amazon Aurora Limitless DB Shard Group.
+ * Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.
+ *  Valid for: Aurora DB clusters only
  */
 export function getDbShardGroupOutput(args: GetDbShardGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDbShardGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

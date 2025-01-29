@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetVerifiedAccessEndpointResult
     {
         /// <summary>
+        /// The options for cidr type endpoint.
+        /// </summary>
+        public readonly Outputs.VerifiedAccessEndpointCidrOptions? CidrOptions;
+        /// <summary>
         /// The creation time.
         /// </summary>
         public readonly string? CreationTime;
@@ -100,6 +104,10 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly bool? PolicyEnabled;
         /// <summary>
+        /// The options for rds type endpoint.
+        /// </summary>
+        public readonly Outputs.VerifiedAccessEndpointRdsOptions? RdsOptions;
+        /// <summary>
         /// The configuration options for customer provided KMS encryption.
         /// </summary>
         public readonly Outputs.VerifiedAccessEndpointSseSpecification? SseSpecification;
@@ -126,6 +134,8 @@ namespace Pulumi.AwsNative.Ec2
 
         [OutputConstructor]
         private GetVerifiedAccessEndpointResult(
+            Outputs.VerifiedAccessEndpointCidrOptions? cidrOptions,
+
             string? creationTime,
 
             string? description,
@@ -144,6 +154,8 @@ namespace Pulumi.AwsNative.Ec2
 
             bool? policyEnabled,
 
+            Outputs.VerifiedAccessEndpointRdsOptions? rdsOptions,
+
             Outputs.VerifiedAccessEndpointSseSpecification? sseSpecification,
 
             string? status,
@@ -156,6 +168,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? verifiedAccessInstanceId)
         {
+            CidrOptions = cidrOptions;
             CreationTime = creationTime;
             Description = description;
             DeviceValidationDomain = deviceValidationDomain;
@@ -165,6 +178,7 @@ namespace Pulumi.AwsNative.Ec2
             NetworkInterfaceOptions = networkInterfaceOptions;
             PolicyDocument = policyDocument;
             PolicyEnabled = policyEnabled;
+            RdsOptions = rdsOptions;
             SseSpecification = sseSpecification;
             Status = status;
             Tags = tags;

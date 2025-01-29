@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetCertificateAuthorityResult',
@@ -23,13 +24,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetCertificateAuthorityResult:
-    def __init__(__self__, arn=None, certificate_signing_request=None):
+    def __init__(__self__, arn=None, certificate_signing_request=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if certificate_signing_request and not isinstance(certificate_signing_request, str):
             raise TypeError("Expected argument 'certificate_signing_request' to be a str")
         pulumi.set(__self__, "certificate_signing_request", certificate_signing_request)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -47,6 +51,14 @@ class GetCertificateAuthorityResult:
         """
         return pulumi.get(self, "certificate_signing_request")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
     # pylint: disable=using-constant-test
@@ -55,7 +67,8 @@ class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
             yield self
         return GetCertificateAuthorityResult(
             arn=self.arn,
-            certificate_signing_request=self.certificate_signing_request)
+            certificate_signing_request=self.certificate_signing_request,
+            tags=self.tags)
 
 
 def get_certificate_authority(arn: Optional[str] = None,
@@ -73,7 +86,8 @@ def get_certificate_authority(arn: Optional[str] = None,
 
     return AwaitableGetCertificateAuthorityResult(
         arn=pulumi.get(__ret__, 'arn'),
-        certificate_signing_request=pulumi.get(__ret__, 'certificate_signing_request'))
+        certificate_signing_request=pulumi.get(__ret__, 'certificate_signing_request'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_certificate_authority_output(arn: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateAuthorityResult]:
     """
@@ -88,4 +102,5 @@ def get_certificate_authority_output(arn: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:acmpca:getCertificateAuthority', __args__, opts=opts, typ=GetCertificateAuthorityResult)
     return __ret__.apply(lambda __response__: GetCertificateAuthorityResult(
         arn=pulumi.get(__response__, 'arn'),
-        certificate_signing_request=pulumi.get(__response__, 'certificate_signing_request')))
+        certificate_signing_request=pulumi.get(__response__, 'certificate_signing_request'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -13,27 +13,48 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::RDS::DBShardGroup resource creates an Amazon Aurora Limitless DB Shard Group.
+// Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.
+//
+//	Valid for: Aurora DB clusters only
 type DbShardGroup struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether to create standby instances for the DB shard group.
+	// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
+	//   +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
+	//   +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
+	//   +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
 	ComputeRedundancy pulumi.IntPtrOutput `pulumi:"computeRedundancy"`
 	// The name of the primary DB cluster for the DB shard group.
 	DbClusterIdentifier pulumi.StringOutput `pulumi:"dbClusterIdentifier"`
 	// The name of the DB shard group.
 	DbShardGroupIdentifier pulumi.StringPtrOutput `pulumi:"dbShardGroupIdentifier"`
-	// The Amazon Web Services Region-unique, immutable identifier for the DB shard group.
+	// The AWS Region -unique, immutable identifier for the DB shard group.
 	DbShardGroupResourceId pulumi.StringOutput `pulumi:"dbShardGroupResourceId"`
-	// The connection endpoint for the DB shard group.
+	// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+	//
+	// - `CreateDBInstance`
+	// - `DescribeDBInstances`
+	// - `DeleteDBInstance`
+	//
+	// For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
 	MaxAcu pulumi.Float64Output `pulumi:"maxAcu"`
 	// The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
 	MinAcu pulumi.Float64PtrOutput `pulumi:"minAcu"`
-	// Indicates whether the DB shard group is publicly accessible.
+	// Specifies whether the DB shard group is publicly accessible.
+	//  When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access to the DB shard group is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB shard group doesn't permit it.
+	//  When the DB shard group isn't publicly accessible, it is an internal DB shard group with a DNS name that resolves to a private IP address.
+	//  Default: The default behavior varies depending on whether ``DBSubnetGroupName`` is specified.
+	//  If ``DBSubnetGroupName`` isn't specified, and ``PubliclyAccessible`` isn't specified, the following applies:
+	//   +  If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB shard group is private.
+	//   +  If the default VPC in the target Region has an internet gateway attached to it, the DB shard group is public.
+	//
+	//  If ``DBSubnetGroupName`` is specified, and ``PubliclyAccessible`` isn't specified, the following applies:
+	//   +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB shard group is private.
+	//   +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
-	// An array of key-value pairs to apply to this resource.
+	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB shard group.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -89,7 +110,10 @@ func (DbShardGroupState) ElementType() reflect.Type {
 }
 
 type dbShardGroupArgs struct {
-	// Specifies whether to create standby instances for the DB shard group.
+	// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
+	//   +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
+	//   +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
+	//   +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
 	ComputeRedundancy *int `pulumi:"computeRedundancy"`
 	// The name of the primary DB cluster for the DB shard group.
 	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
@@ -99,15 +123,28 @@ type dbShardGroupArgs struct {
 	MaxAcu float64 `pulumi:"maxAcu"`
 	// The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
 	MinAcu *float64 `pulumi:"minAcu"`
-	// Indicates whether the DB shard group is publicly accessible.
+	// Specifies whether the DB shard group is publicly accessible.
+	//  When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access to the DB shard group is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB shard group doesn't permit it.
+	//  When the DB shard group isn't publicly accessible, it is an internal DB shard group with a DNS name that resolves to a private IP address.
+	//  Default: The default behavior varies depending on whether ``DBSubnetGroupName`` is specified.
+	//  If ``DBSubnetGroupName`` isn't specified, and ``PubliclyAccessible`` isn't specified, the following applies:
+	//   +  If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB shard group is private.
+	//   +  If the default VPC in the target Region has an internet gateway attached to it, the DB shard group is public.
+	//
+	//  If ``DBSubnetGroupName`` is specified, and ``PubliclyAccessible`` isn't specified, the following applies:
+	//   +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB shard group is private.
+	//   +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// An array of key-value pairs to apply to this resource.
+	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB shard group.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DbShardGroup resource.
 type DbShardGroupArgs struct {
-	// Specifies whether to create standby instances for the DB shard group.
+	// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
+	//   +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
+	//   +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
+	//   +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
 	ComputeRedundancy pulumi.IntPtrInput
 	// The name of the primary DB cluster for the DB shard group.
 	DbClusterIdentifier pulumi.StringInput
@@ -117,9 +154,19 @@ type DbShardGroupArgs struct {
 	MaxAcu pulumi.Float64Input
 	// The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
 	MinAcu pulumi.Float64PtrInput
-	// Indicates whether the DB shard group is publicly accessible.
+	// Specifies whether the DB shard group is publicly accessible.
+	//  When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access to the DB shard group is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB shard group doesn't permit it.
+	//  When the DB shard group isn't publicly accessible, it is an internal DB shard group with a DNS name that resolves to a private IP address.
+	//  Default: The default behavior varies depending on whether ``DBSubnetGroupName`` is specified.
+	//  If ``DBSubnetGroupName`` isn't specified, and ``PubliclyAccessible`` isn't specified, the following applies:
+	//   +  If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB shard group is private.
+	//   +  If the default VPC in the target Region has an internet gateway attached to it, the DB shard group is public.
+	//
+	//  If ``DBSubnetGroupName`` is specified, and ``PubliclyAccessible`` isn't specified, the following applies:
+	//   +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB shard group is private.
+	//   +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public.
 	PubliclyAccessible pulumi.BoolPtrInput
-	// An array of key-value pairs to apply to this resource.
+	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB shard group.
 	Tags aws.TagArrayInput
 }
 
@@ -160,7 +207,10 @@ func (o DbShardGroupOutput) ToDbShardGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Specifies whether to create standby instances for the DB shard group.
+// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
+//   - 0 - Creates a DB shard group without a standby DB shard group. This is the default value.
+//   - 1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
+//   - 2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
 func (o DbShardGroupOutput) ComputeRedundancy() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DbShardGroup) pulumi.IntPtrOutput { return v.ComputeRedundancy }).(pulumi.IntPtrOutput)
 }
@@ -175,12 +225,18 @@ func (o DbShardGroupOutput) DbShardGroupIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbShardGroup) pulumi.StringPtrOutput { return v.DbShardGroupIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Web Services Region-unique, immutable identifier for the DB shard group.
+// The AWS Region -unique, immutable identifier for the DB shard group.
 func (o DbShardGroupOutput) DbShardGroupResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DbShardGroup) pulumi.StringOutput { return v.DbShardGroupResourceId }).(pulumi.StringOutput)
 }
 
-// The connection endpoint for the DB shard group.
+// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+//
+// - `CreateDBInstance`
+// - `DescribeDBInstances`
+// - `DeleteDBInstance`
+//
+// For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
 func (o DbShardGroupOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *DbShardGroup) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
@@ -195,12 +251,23 @@ func (o DbShardGroupOutput) MinAcu() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DbShardGroup) pulumi.Float64PtrOutput { return v.MinAcu }).(pulumi.Float64PtrOutput)
 }
 
-// Indicates whether the DB shard group is publicly accessible.
+// Specifies whether the DB shard group is publicly accessible.
+//
+//	When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access to the DB shard group is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB shard group doesn't permit it.
+//	When the DB shard group isn't publicly accessible, it is an internal DB shard group with a DNS name that resolves to a private IP address.
+//	Default: The default behavior varies depending on whether ``DBSubnetGroupName`` is specified.
+//	If ``DBSubnetGroupName`` isn't specified, and ``PubliclyAccessible`` isn't specified, the following applies:
+//	 +  If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB shard group is private.
+//	 +  If the default VPC in the target Region has an internet gateway attached to it, the DB shard group is public.
+//
+//	If ``DBSubnetGroupName`` is specified, and ``PubliclyAccessible`` isn't specified, the following applies:
+//	 +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB shard group is private.
+//	 +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public.
 func (o DbShardGroupOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbShardGroup) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
+// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB shard group.
 func (o DbShardGroupOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DbShardGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -71,15 +71,22 @@ namespace Pulumi.AwsNative.Acmpca
         /// The base64 PEM-encoded certificate signing request (CSR) for your certificate authority certificate.
         /// </summary>
         public readonly string? CertificateSigningRequest;
+        /// <summary>
+        /// Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCertificateAuthorityResult(
             string? arn,
 
-            string? certificateSigningRequest)
+            string? certificateSigningRequest,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CertificateSigningRequest = certificateSigningRequest;
+            Tags = tags;
         }
     }
 }
