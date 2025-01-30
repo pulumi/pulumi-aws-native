@@ -102,7 +102,6 @@
     }
   },
   "additionalProperties" : false,
-  "taggable" : false,
   "required" : [ "PackageId", "PackageVersion", "PatchVersion" ],
   "readOnlyProperties" : [ "/properties/PackageName", "/properties/PackageArn", "/properties/Status", "/properties/StatusDescription", "/properties/IsLatestPatch", "/properties/RegisteredTime" ],
   "createOnlyProperties" : [ "/properties/OwnerAccount", "/properties/PackageId", "/properties/PackageVersion", "/properties/PatchVersion" ],

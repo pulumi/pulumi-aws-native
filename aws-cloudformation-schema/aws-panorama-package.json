@@ -108,11 +108,18 @@
     }
   },
   "additionalProperties" : false,
-  "taggable" : true,
   "required" : [ "PackageName" ],
   "readOnlyProperties" : [ "/properties/PackageId", "/properties/Arn", "/properties/CreatedTime", "/properties/StorageLocation/Bucket", "/properties/StorageLocation/RepoPrefixLocation", "/properties/StorageLocation/GeneratedPrefixLocation", "/properties/StorageLocation/BinaryPrefixLocation", "/properties/StorageLocation/ManifestPrefixLocation" ],
   "createOnlyProperties" : [ "/properties/PackageName" ],
   "primaryIdentifier" : [ "/properties/PackageId" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "panorama:ListTagsForResource", "panorama:TagResource", "panorama:UntagResource" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "panorama:CreatePackage", "panorama:ListTagsForResource", "panorama:TagResource", "panorama:DescribePackage", "s3:ListBucket", "s3:PutObject", "s3:GetObject", "s3:GetObjectVersion" ]

@@ -423,7 +423,7 @@
       "permissions" : [ "kafkaconnect:DeleteConnector", "kafkaconnect:DescribeConnector", "logs:DeleteLogDelivery", "logs:GetLogDelivery", "logs:ListLogDeliveries" ]
     },
     "update" : {
-      "permissions" : [ "kafkaconnect:UpdateConnector", "kafkaconnect:UpdateConnectorConfiguration", "kafkaconnect:DescribeConnector", "kafkaconnect:DescribeConnectorOperation", "kafkaconnect:TagResource", "kafkaconnect:ListTagsForResource", "kafkaconnect:UntagResource", "iam:CreateServiceLinkedRole", "logs:UpdateLogDelivery", "logs:GetLogDelivery", "logs:ListLogDeliveries", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "s3:GetBucketPolicy", "s3:PutBucketPolicy", "firehose:TagDeliveryStream" ]
+      "permissions" : [ "kafkaconnect:UpdateConnector", "kafkaconnect:DescribeConnector", "kafkaconnect:DescribeConnectorOperation", "kafkaconnect:TagResource", "kafkaconnect:ListTagsForResource", "kafkaconnect:UntagResource", "iam:CreateServiceLinkedRole", "logs:UpdateLogDelivery", "logs:GetLogDelivery", "logs:ListLogDeliveries", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "s3:GetBucketPolicy", "s3:PutBucketPolicy", "firehose:TagDeliveryStream" ]
     },
     "list" : {
       "permissions" : [ "kafkaconnect:ListConnectors" ]

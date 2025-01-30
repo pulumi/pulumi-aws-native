@@ -165,6 +165,19 @@
         }
       }
     },
+    "EksPersistentVolumeClaim" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ReadOnly" : {
+          "type" : "boolean"
+        },
+        "ClaimName" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "ClaimName" ]
+    },
     "NodeProperties" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -546,6 +559,15 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "Annotations" : {
+          "patternProperties" : {
+            ".*" : {
+              "type" : "string"
+            }
+          },
+          "additionalProperties" : false,
+          "type" : "object"
+        },
         "Labels" : {
           "patternProperties" : {
             ".*" : {
@@ -554,6 +576,9 @@
           },
           "additionalProperties" : false,
           "type" : "object"
+        },
+        "Namespace" : {
+          "type" : "string"
         }
       }
     },
@@ -749,6 +774,9 @@
         "HostPath" : {
           "$ref" : "#/definitions/EksHostPath"
         },
+        "PersistentVolumeClaim" : {
+          "$ref" : "#/definitions/EksPersistentVolumeClaim"
+        },
         "Name" : {
           "type" : "string"
         }
@@ -764,6 +792,9 @@
         },
         "ReadOnly" : {
           "type" : "boolean"
+        },
+        "SubPath" : {
+          "type" : "string"
         },
         "Name" : {
           "type" : "string"
