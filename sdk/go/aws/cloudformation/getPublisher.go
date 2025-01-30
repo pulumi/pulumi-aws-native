@@ -23,14 +23,14 @@ func LookupPublisher(ctx *pulumi.Context, args *LookupPublisherArgs, opts ...pul
 }
 
 type LookupPublisherArgs struct {
-	// The publisher id assigned by CloudFormation for publishing in this region.
+	// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
 	PublisherId string `pulumi:"publisherId"`
 }
 
 type LookupPublisherResult struct {
 	// The type of account used as the identity provider when registering this publisher with CloudFormation.
 	IdentityProvider *PublisherIdentityProvider `pulumi:"identityProvider"`
-	// The publisher id assigned by CloudFormation for publishing in this region.
+	// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
 	PublisherId *string `pulumi:"publisherId"`
 	// The URL to the publisher's profile with the identity provider.
 	PublisherProfile *string `pulumi:"publisherProfile"`
@@ -48,7 +48,7 @@ func LookupPublisherOutput(ctx *pulumi.Context, args LookupPublisherOutputArgs, 
 }
 
 type LookupPublisherOutputArgs struct {
-	// The publisher id assigned by CloudFormation for publishing in this region.
+	// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
 	PublisherId pulumi.StringInput `pulumi:"publisherId"`
 }
 
@@ -75,7 +75,7 @@ func (o LookupPublisherResultOutput) IdentityProvider() PublisherIdentityProvide
 	return o.ApplyT(func(v LookupPublisherResult) *PublisherIdentityProvider { return v.IdentityProvider }).(PublisherIdentityProviderPtrOutput)
 }
 
-// The publisher id assigned by CloudFormation for publishing in this region.
+// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
 func (o LookupPublisherResultOutput) PublisherId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPublisherResult) *string { return v.PublisherId }).(pulumi.StringPtrOutput)
 }

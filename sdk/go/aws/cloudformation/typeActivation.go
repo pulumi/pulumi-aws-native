@@ -27,7 +27,7 @@ type TypeActivation struct {
 	MajorVersion pulumi.StringPtrOutput `pulumi:"majorVersion"`
 	// The Amazon Resource Number (ARN) assigned to the public extension upon publication
 	PublicTypeArn pulumi.StringPtrOutput `pulumi:"publicTypeArn"`
-	// The publisher id assigned by CloudFormation for publishing in this region.
+	// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
 	PublisherId pulumi.StringPtrOutput `pulumi:"publisherId"`
 	// The kind of extension
 	Type TypeActivationTypePtrOutput `pulumi:"type"`
@@ -95,7 +95,7 @@ type typeActivationArgs struct {
 	MajorVersion *string `pulumi:"majorVersion"`
 	// The Amazon Resource Number (ARN) assigned to the public extension upon publication
 	PublicTypeArn *string `pulumi:"publicTypeArn"`
-	// The publisher id assigned by CloudFormation for publishing in this region.
+	// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
 	PublisherId *string `pulumi:"publisherId"`
 	// The kind of extension
 	Type *TypeActivationType `pulumi:"type"`
@@ -121,7 +121,7 @@ type TypeActivationArgs struct {
 	MajorVersion pulumi.StringPtrInput
 	// The Amazon Resource Number (ARN) assigned to the public extension upon publication
 	PublicTypeArn pulumi.StringPtrInput
-	// The publisher id assigned by CloudFormation for publishing in this region.
+	// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
 	PublisherId pulumi.StringPtrInput
 	// The kind of extension
 	Type TypeActivationTypePtrInput
@@ -202,7 +202,7 @@ func (o TypeActivationOutput) PublicTypeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TypeActivation) pulumi.StringPtrOutput { return v.PublicTypeArn }).(pulumi.StringPtrOutput)
 }
 
-// The publisher id assigned by CloudFormation for publishing in this region.
+// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
 func (o TypeActivationOutput) PublisherId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TypeActivation) pulumi.StringPtrOutput { return v.PublisherId }).(pulumi.StringPtrOutput)
 }

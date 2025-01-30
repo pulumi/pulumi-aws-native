@@ -62,6 +62,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         [Output("deliveryStreamType")]
         public Output<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamType?> DeliveryStreamType { get; private set; } = null!;
 
+        [Output("directPutSourceConfiguration")]
+        public Output<Outputs.DeliveryStreamDirectPutSourceConfiguration?> DirectPutSourceConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// An Amazon ES destination for the delivery stream.
         /// 
@@ -184,6 +187,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
                     "databaseSourceConfiguration",
                     "deliveryStreamName",
                     "deliveryStreamType",
+                    "directPutSourceConfiguration",
                     "elasticsearchDestinationConfiguration.vpcConfiguration",
                     "icebergDestinationConfiguration",
                     "kinesisStreamSourceConfiguration",
@@ -252,6 +256,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         /// </summary>
         [Input("deliveryStreamType")]
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamType>? DeliveryStreamType { get; set; }
+
+        [Input("directPutSourceConfiguration")]
+        public Input<Inputs.DeliveryStreamDirectPutSourceConfigurationArgs>? DirectPutSourceConfiguration { get; set; }
 
         /// <summary>
         /// An Amazon ES destination for the delivery stream.

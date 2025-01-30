@@ -13,15 +13,24 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionEksMetadata
     {
+        public readonly ImmutableDictionary<string, string>? Annotations;
         /// <summary>
         /// Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Labels;
+        public readonly string? Namespace;
 
         [OutputConstructor]
-        private JobDefinitionEksMetadata(ImmutableDictionary<string, string>? labels)
+        private JobDefinitionEksMetadata(
+            ImmutableDictionary<string, string>? annotations,
+
+            ImmutableDictionary<string, string>? labels,
+
+            string? @namespace)
         {
+            Annotations = annotations;
             Labels = labels;
+            Namespace = @namespace;
         }
     }
 }

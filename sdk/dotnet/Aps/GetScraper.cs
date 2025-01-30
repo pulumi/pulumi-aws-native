@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.Aps
         /// IAM role ARN for the scraper.
         /// </summary>
         public readonly string? RoleArn;
+        public readonly Outputs.ScraperRoleConfiguration? RoleConfiguration;
         /// <summary>
         /// The configuration in use by the scraper.
         /// </summary>
@@ -102,6 +103,8 @@ namespace Pulumi.AwsNative.Aps
 
             string? roleArn,
 
+            Outputs.ScraperRoleConfiguration? roleConfiguration,
+
             Outputs.ScraperScrapeConfiguration? scrapeConfiguration,
 
             string? scraperId,
@@ -112,6 +115,7 @@ namespace Pulumi.AwsNative.Aps
             Arn = arn;
             Destination = destination;
             RoleArn = roleArn;
+            RoleConfiguration = roleConfiguration;
             ScrapeConfiguration = scrapeConfiguration;
             ScraperId = scraperId;
             Tags = tags;

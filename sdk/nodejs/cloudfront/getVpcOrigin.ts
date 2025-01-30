@@ -18,16 +18,40 @@ export function getVpcOrigin(args: GetVpcOriginArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetVpcOriginArgs {
+    /**
+     * The VPC origin ID.
+     */
     id: string;
 }
 
 export interface GetVpcOriginResult {
+    /**
+     * The VPC origin ARN.
+     */
     readonly arn?: string;
+    /**
+     * The VPC origin created time.
+     */
     readonly createdTime?: string;
+    /**
+     * The VPC origin ID.
+     */
     readonly id?: string;
+    /**
+     * The VPC origin last modified time.
+     */
     readonly lastModifiedTime?: string;
+    /**
+     * The VPC origin status.
+     */
     readonly status?: string;
+    /**
+     * A complex type that contains zero or more `Tag` elements.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The VPC origin endpoint configuration.
+     */
     readonly vpcOriginEndpointConfig?: outputs.cloudfront.VpcOriginEndpointConfig;
 }
 /**
@@ -41,5 +65,8 @@ export function getVpcOriginOutput(args: GetVpcOriginOutputArgs, opts?: pulumi.I
 }
 
 export interface GetVpcOriginOutputArgs {
+    /**
+     * The VPC origin ID.
+     */
     id: pulumi.Input<string>;
 }

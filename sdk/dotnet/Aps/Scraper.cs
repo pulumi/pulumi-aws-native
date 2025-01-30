@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Aps
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        [Output("roleConfiguration")]
+        public Output<Outputs.ScraperRoleConfiguration?> RoleConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The configuration in use by the scraper.
         /// </summary>
@@ -123,6 +126,9 @@ namespace Pulumi.AwsNative.Aps
         /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.ScraperDestinationArgs> Destination { get; set; } = null!;
+
+        [Input("roleConfiguration")]
+        public Input<Inputs.ScraperRoleConfigurationArgs>? RoleConfiguration { get; set; }
 
         /// <summary>
         /// The configuration in use by the scraper.

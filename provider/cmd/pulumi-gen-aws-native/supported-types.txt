@@ -1153,6 +1153,8 @@ Datadog::Monitors::Downtime
 Datadog::Monitors::DowntimeSchedule
 Datadog::Monitors::Monitor
 Datadog::SLOs::SLO
+Dynatrace::Automation::SiteReliabilityGuardian
+Dynatrace::Automation::Workflow
 Dynatrace::Configuration::Dashboard
 Dynatrace::Environment::Metric
 Dynatrace::Environment::ServiceLevelObjective

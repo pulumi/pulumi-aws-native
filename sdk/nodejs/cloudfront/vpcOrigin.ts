@@ -37,12 +37,33 @@ export class VpcOrigin extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcOrigin.__pulumiType;
     }
 
+    /**
+     * The VPC origin ARN.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The VPC origin ID.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The VPC origin created time.
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * The VPC origin last modified time.
+     */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    /**
+     * The VPC origin status.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * A complex type that contains zero or more `Tag` elements.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The VPC origin endpoint configuration.
+     */
     public readonly vpcOriginEndpointConfig!: pulumi.Output<outputs.cloudfront.VpcOriginEndpointConfig>;
 
     /**
@@ -84,6 +105,12 @@ export class VpcOrigin extends pulumi.CustomResource {
  * The set of arguments for constructing a VpcOrigin resource.
  */
 export interface VpcOriginArgs {
+    /**
+     * A complex type that contains zero or more `Tag` elements.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The VPC origin endpoint configuration.
+     */
     vpcOriginEndpointConfig: pulumi.Input<inputs.cloudfront.VpcOriginEndpointConfigArgs>;
 }

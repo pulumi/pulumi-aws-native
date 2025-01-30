@@ -15,24 +15,45 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:VpcOrigin")]
     public partial class VpcOrigin : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The VPC origin ARN.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The VPC origin ID.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The VPC origin created time.
+        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The VPC origin last modified time.
+        /// </summary>
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The VPC origin status.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// A complex type that contains zero or more `Tag` elements.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The VPC origin endpoint configuration.
+        /// </summary>
         [Output("vpcOriginEndpointConfig")]
         public Output<Outputs.VpcOriginEndpointConfig> VpcOriginEndpointConfig { get; private set; } = null!;
 
@@ -83,12 +104,19 @@ namespace Pulumi.AwsNative.CloudFront
     {
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A complex type that contains zero or more `Tag` elements.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The VPC origin endpoint configuration.
+        /// </summary>
         [Input("vpcOriginEndpointConfig", required: true)]
         public Input<Inputs.VpcOriginEndpointConfigArgs> VpcOriginEndpointConfig { get; set; } = null!;
 

@@ -81,7 +81,7 @@
     }
   },
   "readOnlyProperties" : [ "/properties/HypervisorArn" ],
-  "writeOnlyProperties" : [ "/properties/KmsKeyArn", "/properties/LogGroupArn", "/properties/Name", "/properties/Password", "/properties/Tags", "/properties/Username" ],
+  "writeOnlyProperties" : [ "/properties/KmsKeyArn", "/properties/LogGroupArn", "/properties/Name", "/properties/Password", "/properties/Username" ],
   "createOnlyProperties" : [ "/properties/KmsKeyArn", "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/HypervisorArn" ],
   "tagging" : {
@@ -89,17 +89,18 @@
     "tagOnCreate" : true,
     "tagUpdatable" : false,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "backup-gateway:UntagResource", "backup-gateway:TagResource", "backup-gateway:ListTagsForResource" ]
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "backup-gateway:ImportHypervisorConfiguration", "backup-gateway:GetHypervisor", "backup-gateway:ListHypervisors", "backup-gateway:TagResource", "kms:CreateGrant", "kms:Encrypt", "kms:Decrypt" ]
+      "permissions" : [ "backup-gateway:ListTagsForResource", "backup-gateway:ImportHypervisorConfiguration", "backup-gateway:GetHypervisor", "backup-gateway:ListHypervisors", "backup-gateway:TagResource", "kms:CreateGrant", "kms:Encrypt", "kms:Decrypt" ]
     },
     "read" : {
-      "permissions" : [ "backup-gateway:GetHypervisor", "backup-gateway:ListHypervisors" ]
+      "permissions" : [ "backup-gateway:GetHypervisor", "backup-gateway:ListHypervisors", "backup-gateway:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "backup-gateway:UpdateHypervisor", "backup-gateway:GetHypervisor", "backup-gateway:ListHypervisors", "backup-gateway:ImportHypervisorConfiguration", "backup-gateway:DeleteHypervisor" ]
+      "permissions" : [ "backup-gateway:UpdateHypervisor", "backup-gateway:GetHypervisor", "backup-gateway:ListHypervisors", "backup-gateway:ImportHypervisorConfiguration", "backup-gateway:DeleteHypervisor", "backup-gateway:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "backup-gateway:DeleteHypervisor", "backup-gateway:GetHypervisor", "backup-gateway:ListHypervisors" ]

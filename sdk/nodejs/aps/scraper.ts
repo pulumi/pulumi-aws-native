@@ -53,6 +53,7 @@ export class Scraper extends pulumi.CustomResource {
      * IAM role ARN for the scraper.
      */
     public /*out*/ readonly roleArn!: pulumi.Output<string>;
+    public readonly roleConfiguration!: pulumi.Output<outputs.aps.ScraperRoleConfiguration | undefined>;
     /**
      * The configuration in use by the scraper.
      */
@@ -92,6 +93,7 @@ export class Scraper extends pulumi.CustomResource {
             }
             resourceInputs["alias"] = args ? args.alias : undefined;
             resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["roleConfiguration"] = args ? args.roleConfiguration : undefined;
             resourceInputs["scrapeConfiguration"] = args ? args.scrapeConfiguration : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -103,6 +105,7 @@ export class Scraper extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["destination"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["roleConfiguration"] = undefined /*out*/;
             resourceInputs["scrapeConfiguration"] = undefined /*out*/;
             resourceInputs["scraperId"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;
@@ -127,6 +130,7 @@ export interface ScraperArgs {
      * The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
      */
     destination: pulumi.Input<inputs.aps.ScraperDestinationArgs>;
+    roleConfiguration?: pulumi.Input<inputs.aps.ScraperRoleConfigurationArgs>;
     /**
      * The configuration in use by the scraper.
      */

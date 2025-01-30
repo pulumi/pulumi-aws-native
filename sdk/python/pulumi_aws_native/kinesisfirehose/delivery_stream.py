@@ -30,6 +30,7 @@ class DeliveryStreamArgs:
                  delivery_stream_encryption_configuration_input: Optional[pulumi.Input['DeliveryStreamEncryptionConfigurationInputArgs']] = None,
                  delivery_stream_name: Optional[pulumi.Input[str]] = None,
                  delivery_stream_type: Optional[pulumi.Input['DeliveryStreamType']] = None,
+                 direct_put_source_configuration: Optional[pulumi.Input['DeliveryStreamDirectPutSourceConfigurationArgs']] = None,
                  elasticsearch_destination_configuration: Optional[pulumi.Input['DeliveryStreamElasticsearchDestinationConfigurationArgs']] = None,
                  extended_s3_destination_configuration: Optional[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationArgs']] = None,
                  http_endpoint_destination_configuration: Optional[pulumi.Input['DeliveryStreamHttpEndpointDestinationConfigurationArgs']] = None,
@@ -104,6 +105,8 @@ class DeliveryStreamArgs:
             pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
         if delivery_stream_type is not None:
             pulumi.set(__self__, "delivery_stream_type", delivery_stream_type)
+        if direct_put_source_configuration is not None:
+            pulumi.set(__self__, "direct_put_source_configuration", direct_put_source_configuration)
         if elasticsearch_destination_configuration is not None:
             pulumi.set(__self__, "elasticsearch_destination_configuration", elasticsearch_destination_configuration)
         if extended_s3_destination_configuration is not None:
@@ -203,6 +206,15 @@ class DeliveryStreamArgs:
     @delivery_stream_type.setter
     def delivery_stream_type(self, value: Optional[pulumi.Input['DeliveryStreamType']]):
         pulumi.set(self, "delivery_stream_type", value)
+
+    @property
+    @pulumi.getter(name="directPutSourceConfiguration")
+    def direct_put_source_configuration(self) -> Optional[pulumi.Input['DeliveryStreamDirectPutSourceConfigurationArgs']]:
+        return pulumi.get(self, "direct_put_source_configuration")
+
+    @direct_put_source_configuration.setter
+    def direct_put_source_configuration(self, value: Optional[pulumi.Input['DeliveryStreamDirectPutSourceConfigurationArgs']]):
+        pulumi.set(self, "direct_put_source_configuration", value)
 
     @property
     @pulumi.getter(name="elasticsearchDestinationConfiguration")
@@ -374,6 +386,7 @@ class DeliveryStream(pulumi.CustomResource):
                  delivery_stream_encryption_configuration_input: Optional[pulumi.Input[Union['DeliveryStreamEncryptionConfigurationInputArgs', 'DeliveryStreamEncryptionConfigurationInputArgsDict']]] = None,
                  delivery_stream_name: Optional[pulumi.Input[str]] = None,
                  delivery_stream_type: Optional[pulumi.Input['DeliveryStreamType']] = None,
+                 direct_put_source_configuration: Optional[pulumi.Input[Union['DeliveryStreamDirectPutSourceConfigurationArgs', 'DeliveryStreamDirectPutSourceConfigurationArgsDict']]] = None,
                  elasticsearch_destination_configuration: Optional[pulumi.Input[Union['DeliveryStreamElasticsearchDestinationConfigurationArgs', 'DeliveryStreamElasticsearchDestinationConfigurationArgsDict']]] = None,
                  extended_s3_destination_configuration: Optional[pulumi.Input[Union['DeliveryStreamExtendedS3DestinationConfigurationArgs', 'DeliveryStreamExtendedS3DestinationConfigurationArgsDict']]] = None,
                  http_endpoint_destination_configuration: Optional[pulumi.Input[Union['DeliveryStreamHttpEndpointDestinationConfigurationArgs', 'DeliveryStreamHttpEndpointDestinationConfigurationArgsDict']]] = None,
@@ -470,6 +483,7 @@ class DeliveryStream(pulumi.CustomResource):
                  delivery_stream_encryption_configuration_input: Optional[pulumi.Input[Union['DeliveryStreamEncryptionConfigurationInputArgs', 'DeliveryStreamEncryptionConfigurationInputArgsDict']]] = None,
                  delivery_stream_name: Optional[pulumi.Input[str]] = None,
                  delivery_stream_type: Optional[pulumi.Input['DeliveryStreamType']] = None,
+                 direct_put_source_configuration: Optional[pulumi.Input[Union['DeliveryStreamDirectPutSourceConfigurationArgs', 'DeliveryStreamDirectPutSourceConfigurationArgsDict']]] = None,
                  elasticsearch_destination_configuration: Optional[pulumi.Input[Union['DeliveryStreamElasticsearchDestinationConfigurationArgs', 'DeliveryStreamElasticsearchDestinationConfigurationArgsDict']]] = None,
                  extended_s3_destination_configuration: Optional[pulumi.Input[Union['DeliveryStreamExtendedS3DestinationConfigurationArgs', 'DeliveryStreamExtendedS3DestinationConfigurationArgsDict']]] = None,
                  http_endpoint_destination_configuration: Optional[pulumi.Input[Union['DeliveryStreamHttpEndpointDestinationConfigurationArgs', 'DeliveryStreamHttpEndpointDestinationConfigurationArgsDict']]] = None,
@@ -496,6 +510,7 @@ class DeliveryStream(pulumi.CustomResource):
             __props__.__dict__["delivery_stream_encryption_configuration_input"] = delivery_stream_encryption_configuration_input
             __props__.__dict__["delivery_stream_name"] = delivery_stream_name
             __props__.__dict__["delivery_stream_type"] = delivery_stream_type
+            __props__.__dict__["direct_put_source_configuration"] = direct_put_source_configuration
             __props__.__dict__["elasticsearch_destination_configuration"] = elasticsearch_destination_configuration
             __props__.__dict__["extended_s3_destination_configuration"] = extended_s3_destination_configuration
             __props__.__dict__["http_endpoint_destination_configuration"] = http_endpoint_destination_configuration
@@ -508,7 +523,7 @@ class DeliveryStream(pulumi.CustomResource):
             __props__.__dict__["splunk_destination_configuration"] = splunk_destination_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "databaseSourceConfiguration", "deliveryStreamName", "deliveryStreamType", "elasticsearchDestinationConfiguration.vpcConfiguration", "icebergDestinationConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration", "snowflakeDestinationConfiguration.snowflakeVpcConfiguration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "databaseSourceConfiguration", "deliveryStreamName", "deliveryStreamType", "directPutSourceConfiguration", "elasticsearchDestinationConfiguration.vpcConfiguration", "icebergDestinationConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration", "snowflakeDestinationConfiguration.snowflakeVpcConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeliveryStream, __self__).__init__(
             'aws-native:kinesisfirehose:DeliveryStream',
@@ -539,6 +554,7 @@ class DeliveryStream(pulumi.CustomResource):
         __props__.__dict__["delivery_stream_encryption_configuration_input"] = None
         __props__.__dict__["delivery_stream_name"] = None
         __props__.__dict__["delivery_stream_type"] = None
+        __props__.__dict__["direct_put_source_configuration"] = None
         __props__.__dict__["elasticsearch_destination_configuration"] = None
         __props__.__dict__["extended_s3_destination_configuration"] = None
         __props__.__dict__["http_endpoint_destination_configuration"] = None
@@ -612,6 +628,11 @@ class DeliveryStream(pulumi.CustomResource):
         - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
         """
         return pulumi.get(self, "delivery_stream_type")
+
+    @property
+    @pulumi.getter(name="directPutSourceConfiguration")
+    def direct_put_source_configuration(self) -> pulumi.Output[Optional['outputs.DeliveryStreamDirectPutSourceConfiguration']]:
+        return pulumi.get(self, "direct_put_source_configuration")
 
     @property
     @pulumi.getter(name="elasticsearchDestinationConfiguration")

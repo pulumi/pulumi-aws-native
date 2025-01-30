@@ -1743,10 +1743,10 @@ type ClusterTag struct {
 type ServiceAwsVpcConfiguration struct {
 	// Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
 	AssignPublicIp *ServiceAwsVpcConfigurationAssignPublicIp `pulumi:"assignPublicIp"`
-	// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``awsvpcConfiguration``.
+	// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified.
 	//   All specified security groups must be from the same VPC.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``awsvpcConfiguration``.
+	// The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified.
 	//   All specified subnets must be from the same VPC.
 	Subnets []string `pulumi:"subnets"`
 }
@@ -1766,10 +1766,10 @@ type ServiceAwsVpcConfigurationInput interface {
 type ServiceAwsVpcConfigurationArgs struct {
 	// Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
 	AssignPublicIp ServiceAwsVpcConfigurationAssignPublicIpPtrInput `pulumi:"assignPublicIp"`
-	// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``awsvpcConfiguration``.
+	// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified.
 	//   All specified security groups must be from the same VPC.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``awsvpcConfiguration``.
+	// The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified.
 	//   All specified subnets must be from the same VPC.
 	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
@@ -1857,14 +1857,14 @@ func (o ServiceAwsVpcConfigurationOutput) AssignPublicIp() ServiceAwsVpcConfigur
 	return o.ApplyT(func(v ServiceAwsVpcConfiguration) *ServiceAwsVpcConfigurationAssignPublicIp { return v.AssignPublicIp }).(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput)
 }
 
-// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per “awsvpcConfiguration“.
+// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified.
 //
 //	All specified security groups must be from the same VPC.
 func (o ServiceAwsVpcConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceAwsVpcConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per “awsvpcConfiguration“.
+// The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified.
 //
 //	All specified subnets must be from the same VPC.
 func (o ServiceAwsVpcConfigurationOutput) Subnets() pulumi.StringArrayOutput {
@@ -1905,7 +1905,7 @@ func (o ServiceAwsVpcConfigurationPtrOutput) AssignPublicIp() ServiceAwsVpcConfi
 	}).(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput)
 }
 
-// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per “awsvpcConfiguration“.
+// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified.
 //
 //	All specified security groups must be from the same VPC.
 func (o ServiceAwsVpcConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
@@ -1917,7 +1917,7 @@ func (o ServiceAwsVpcConfigurationPtrOutput) SecurityGroups() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per “awsvpcConfiguration“.
+// The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified.
 //
 //	All specified subnets must be from the same VPC.
 func (o ServiceAwsVpcConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
@@ -4302,8 +4302,7 @@ type ServiceManagedEbsVolumeConfiguration struct {
 	TagSpecifications []ServiceEbsTagSpecification `pulumi:"tagSpecifications"`
 	// The throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s. This parameter maps 1:1 with the ``Throughput`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 	//   This parameter is only supported for the ``gp3`` volume type.
-	Throughput               *int `pulumi:"throughput"`
-	VolumeInitializationRate *int `pulumi:"volumeInitializationRate"`
+	Throughput *int `pulumi:"throughput"`
 	// The volume type. This parameter maps 1:1 with the ``VolumeType`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
 	//  The following are the supported volume types.
 	//   +  General Purpose SSD: ``gp2``|``gp3``
@@ -4364,8 +4363,7 @@ type ServiceManagedEbsVolumeConfigurationArgs struct {
 	TagSpecifications ServiceEbsTagSpecificationArrayInput `pulumi:"tagSpecifications"`
 	// The throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s. This parameter maps 1:1 with the ``Throughput`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 	//   This parameter is only supported for the ``gp3`` volume type.
-	Throughput               pulumi.IntPtrInput `pulumi:"throughput"`
-	VolumeInitializationRate pulumi.IntPtrInput `pulumi:"volumeInitializationRate"`
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// The volume type. This parameter maps 1:1 with the ``VolumeType`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
 	//  The following are the supported volume types.
 	//   +  General Purpose SSD: ``gp2``|``gp3``
@@ -4524,10 +4522,6 @@ func (o ServiceManagedEbsVolumeConfigurationOutput) Throughput() pulumi.IntPtrOu
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceManagedEbsVolumeConfigurationOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *int { return v.VolumeInitializationRate }).(pulumi.IntPtrOutput)
-}
-
 // The volume type. This parameter maps 1:1 with the “VolumeType“ parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
 //
 //	The following are the supported volume types.
@@ -4674,15 +4668,6 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) Throughput() pulumi.IntPt
 			return nil
 		}
 		return v.Throughput
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o ServiceManagedEbsVolumeConfigurationPtrOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *int {
-		if v == nil {
-			return nil
-		}
-		return v.VolumeInitializationRate
 	}).(pulumi.IntPtrOutput)
 }
 

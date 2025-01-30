@@ -3805,6 +3805,139 @@ func (o DeliveryStreamDestinationTableConfigurationArrayOutput) Index(i pulumi.I
 	}).(DeliveryStreamDestinationTableConfigurationOutput)
 }
 
+type DeliveryStreamDirectPutSourceConfiguration struct {
+	ThroughputHintInMbs *int `pulumi:"throughputHintInMbs"`
+}
+
+// DeliveryStreamDirectPutSourceConfigurationInput is an input type that accepts DeliveryStreamDirectPutSourceConfigurationArgs and DeliveryStreamDirectPutSourceConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamDirectPutSourceConfigurationInput` via:
+//
+//	DeliveryStreamDirectPutSourceConfigurationArgs{...}
+type DeliveryStreamDirectPutSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDirectPutSourceConfigurationOutput() DeliveryStreamDirectPutSourceConfigurationOutput
+	ToDeliveryStreamDirectPutSourceConfigurationOutputWithContext(context.Context) DeliveryStreamDirectPutSourceConfigurationOutput
+}
+
+type DeliveryStreamDirectPutSourceConfigurationArgs struct {
+	ThroughputHintInMbs pulumi.IntPtrInput `pulumi:"throughputHintInMbs"`
+}
+
+func (DeliveryStreamDirectPutSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDirectPutSourceConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamDirectPutSourceConfigurationArgs) ToDeliveryStreamDirectPutSourceConfigurationOutput() DeliveryStreamDirectPutSourceConfigurationOutput {
+	return i.ToDeliveryStreamDirectPutSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDirectPutSourceConfigurationArgs) ToDeliveryStreamDirectPutSourceConfigurationOutputWithContext(ctx context.Context) DeliveryStreamDirectPutSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDirectPutSourceConfigurationOutput)
+}
+
+func (i DeliveryStreamDirectPutSourceConfigurationArgs) ToDeliveryStreamDirectPutSourceConfigurationPtrOutput() DeliveryStreamDirectPutSourceConfigurationPtrOutput {
+	return i.ToDeliveryStreamDirectPutSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDirectPutSourceConfigurationArgs) ToDeliveryStreamDirectPutSourceConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDirectPutSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDirectPutSourceConfigurationOutput).ToDeliveryStreamDirectPutSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamDirectPutSourceConfigurationPtrInput is an input type that accepts DeliveryStreamDirectPutSourceConfigurationArgs, DeliveryStreamDirectPutSourceConfigurationPtr and DeliveryStreamDirectPutSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamDirectPutSourceConfigurationPtrInput` via:
+//
+//	        DeliveryStreamDirectPutSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamDirectPutSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDirectPutSourceConfigurationPtrOutput() DeliveryStreamDirectPutSourceConfigurationPtrOutput
+	ToDeliveryStreamDirectPutSourceConfigurationPtrOutputWithContext(context.Context) DeliveryStreamDirectPutSourceConfigurationPtrOutput
+}
+
+type deliveryStreamDirectPutSourceConfigurationPtrType DeliveryStreamDirectPutSourceConfigurationArgs
+
+func DeliveryStreamDirectPutSourceConfigurationPtr(v *DeliveryStreamDirectPutSourceConfigurationArgs) DeliveryStreamDirectPutSourceConfigurationPtrInput {
+	return (*deliveryStreamDirectPutSourceConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamDirectPutSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDirectPutSourceConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamDirectPutSourceConfigurationPtrType) ToDeliveryStreamDirectPutSourceConfigurationPtrOutput() DeliveryStreamDirectPutSourceConfigurationPtrOutput {
+	return i.ToDeliveryStreamDirectPutSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamDirectPutSourceConfigurationPtrType) ToDeliveryStreamDirectPutSourceConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDirectPutSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDirectPutSourceConfigurationPtrOutput)
+}
+
+type DeliveryStreamDirectPutSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDirectPutSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDirectPutSourceConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamDirectPutSourceConfigurationOutput) ToDeliveryStreamDirectPutSourceConfigurationOutput() DeliveryStreamDirectPutSourceConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamDirectPutSourceConfigurationOutput) ToDeliveryStreamDirectPutSourceConfigurationOutputWithContext(ctx context.Context) DeliveryStreamDirectPutSourceConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamDirectPutSourceConfigurationOutput) ToDeliveryStreamDirectPutSourceConfigurationPtrOutput() DeliveryStreamDirectPutSourceConfigurationPtrOutput {
+	return o.ToDeliveryStreamDirectPutSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDirectPutSourceConfigurationOutput) ToDeliveryStreamDirectPutSourceConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDirectPutSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamDirectPutSourceConfiguration) *DeliveryStreamDirectPutSourceConfiguration {
+		return &v
+	}).(DeliveryStreamDirectPutSourceConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamDirectPutSourceConfigurationOutput) ThroughputHintInMbs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamDirectPutSourceConfiguration) *int { return v.ThroughputHintInMbs }).(pulumi.IntPtrOutput)
+}
+
+type DeliveryStreamDirectPutSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDirectPutSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDirectPutSourceConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamDirectPutSourceConfigurationPtrOutput) ToDeliveryStreamDirectPutSourceConfigurationPtrOutput() DeliveryStreamDirectPutSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDirectPutSourceConfigurationPtrOutput) ToDeliveryStreamDirectPutSourceConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDirectPutSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDirectPutSourceConfigurationPtrOutput) Elem() DeliveryStreamDirectPutSourceConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamDirectPutSourceConfiguration) DeliveryStreamDirectPutSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamDirectPutSourceConfiguration
+		return ret
+	}).(DeliveryStreamDirectPutSourceConfigurationOutput)
+}
+
+func (o DeliveryStreamDirectPutSourceConfigurationPtrOutput) ThroughputHintInMbs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDirectPutSourceConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThroughputHintInMbs
+	}).(pulumi.IntPtrOutput)
+}
+
 type DeliveryStreamDocumentIdOptions struct {
 	// When the `FIREHOSE_DEFAULT` option is chosen, Firehose generates a unique document ID for each record based on a unique internal identifier. The generated document ID is stable across multiple delivery attempts, which helps prevent the same record from being indexed multiple times with different document IDs.
 	//
@@ -6471,6 +6604,7 @@ func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) ContentEncoding
 }
 
 type DeliveryStreamIcebergDestinationConfiguration struct {
+	AppendOnly     *bool                         `pulumi:"appendOnly"`
 	BufferingHints *DeliveryStreamBufferingHints `pulumi:"bufferingHints"`
 	// Configuration describing where the destination Apache Iceberg Tables are persisted.
 	CatalogConfiguration     DeliveryStreamCatalogConfiguration      `pulumi:"catalogConfiguration"`
@@ -6498,6 +6632,7 @@ type DeliveryStreamIcebergDestinationConfigurationInput interface {
 }
 
 type DeliveryStreamIcebergDestinationConfigurationArgs struct {
+	AppendOnly     pulumi.BoolPtrInput                  `pulumi:"appendOnly"`
 	BufferingHints DeliveryStreamBufferingHintsPtrInput `pulumi:"bufferingHints"`
 	// Configuration describing where the destination Apache Iceberg Tables are persisted.
 	CatalogConfiguration     DeliveryStreamCatalogConfigurationInput        `pulumi:"catalogConfiguration"`
@@ -6590,6 +6725,10 @@ func (o DeliveryStreamIcebergDestinationConfigurationOutput) ToDeliveryStreamIce
 	}).(DeliveryStreamIcebergDestinationConfigurationPtrOutput)
 }
 
+func (o DeliveryStreamIcebergDestinationConfigurationOutput) AppendOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) *bool { return v.AppendOnly }).(pulumi.BoolPtrOutput)
+}
+
 func (o DeliveryStreamIcebergDestinationConfigurationOutput) BufferingHints() DeliveryStreamBufferingHintsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamBufferingHints {
 		return v.BufferingHints
@@ -6668,6 +6807,15 @@ func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) Elem() DeliveryS
 		var ret DeliveryStreamIcebergDestinationConfiguration
 		return ret
 	}).(DeliveryStreamIcebergDestinationConfigurationOutput)
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) AppendOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AppendOnly
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) BufferingHints() DeliveryStreamBufferingHintsPtrOutput {
@@ -12177,6 +12325,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDeserializerPtrInput)(nil)).Elem(), DeliveryStreamDeserializerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDestinationTableConfigurationInput)(nil)).Elem(), DeliveryStreamDestinationTableConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDestinationTableConfigurationArrayInput)(nil)).Elem(), DeliveryStreamDestinationTableConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDirectPutSourceConfigurationInput)(nil)).Elem(), DeliveryStreamDirectPutSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDirectPutSourceConfigurationPtrInput)(nil)).Elem(), DeliveryStreamDirectPutSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDocumentIdOptionsInput)(nil)).Elem(), DeliveryStreamDocumentIdOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDocumentIdOptionsPtrInput)(nil)).Elem(), DeliveryStreamDocumentIdOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDynamicPartitioningConfigurationInput)(nil)).Elem(), DeliveryStreamDynamicPartitioningConfigurationArgs{})
@@ -12299,6 +12449,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamDeserializerPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDestinationTableConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDestinationTableConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDirectPutSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDirectPutSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDocumentIdOptionsOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDocumentIdOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDynamicPartitioningConfigurationOutput{})

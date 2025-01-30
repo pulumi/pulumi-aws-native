@@ -32,7 +32,7 @@ type LookupTypeActivationResult struct {
 	Arn *string `pulumi:"arn"`
 	// The Amazon Resource Number (ARN) assigned to the public extension upon publication
 	PublicTypeArn *string `pulumi:"publicTypeArn"`
-	// The publisher id assigned by CloudFormation for publishing in this region.
+	// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
 	PublisherId *string `pulumi:"publisherId"`
 	// The name of the type being registered.
 	//
@@ -84,7 +84,7 @@ func (o LookupTypeActivationResultOutput) PublicTypeArn() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupTypeActivationResult) *string { return v.PublicTypeArn }).(pulumi.StringPtrOutput)
 }
 
-// The publisher id assigned by CloudFormation for publishing in this region.
+// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
 func (o LookupTypeActivationResultOutput) PublisherId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTypeActivationResult) *string { return v.PublisherId }).(pulumi.StringPtrOutput)
 }

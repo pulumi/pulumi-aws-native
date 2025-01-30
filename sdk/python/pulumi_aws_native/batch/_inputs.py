@@ -58,6 +58,8 @@ __all__ = [
     'JobDefinitionEksHostPathArgsDict',
     'JobDefinitionEksMetadataArgs',
     'JobDefinitionEksMetadataArgsDict',
+    'JobDefinitionEksPersistentVolumeClaimArgs',
+    'JobDefinitionEksPersistentVolumeClaimArgsDict',
     'JobDefinitionEksPodPropertiesArgs',
     'JobDefinitionEksPodPropertiesArgsDict',
     'JobDefinitionEksPropertiesArgs',
@@ -2598,6 +2600,7 @@ if not MYPY:
         """
         If this value is `true` , the container has read-only access to the volume. Otherwise, the container can write to the volume. The default value is `false` .
         """
+        sub_path: NotRequired[pulumi.Input[str]]
 elif False:
     JobDefinitionEksContainerVolumeMountArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2606,7 +2609,8 @@ class JobDefinitionEksContainerVolumeMountArgs:
     def __init__(__self__, *,
                  mount_path: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 read_only: Optional[pulumi.Input[bool]] = None):
+                 read_only: Optional[pulumi.Input[bool]] = None,
+                 sub_path: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] mount_path: The path on the container where the volume is mounted.
         :param pulumi.Input[str] name: The name the volume mount. This must match the name of one of the volumes in the pod.
@@ -2618,6 +2622,8 @@ class JobDefinitionEksContainerVolumeMountArgs:
             pulumi.set(__self__, "name", name)
         if read_only is not None:
             pulumi.set(__self__, "read_only", read_only)
+        if sub_path is not None:
+            pulumi.set(__self__, "sub_path", sub_path)
 
     @property
     @pulumi.getter(name="mountPath")
@@ -2654,6 +2660,15 @@ class JobDefinitionEksContainerVolumeMountArgs:
     @read_only.setter
     def read_only(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "read_only", value)
+
+    @property
+    @pulumi.getter(name="subPath")
+    def sub_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sub_path")
+
+    @sub_path.setter
+    def sub_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sub_path", value)
 
 
 if not MYPY:
@@ -2960,22 +2975,39 @@ class JobDefinitionEksHostPathArgs:
 
 if not MYPY:
     class JobDefinitionEksMetadataArgsDict(TypedDict):
+        annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
         Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
         """
+        namespace: NotRequired[pulumi.Input[str]]
 elif False:
     JobDefinitionEksMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionEksMetadataArgs:
     def __init__(__self__, *,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 namespace: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
         """
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "annotations", value)
 
     @property
     @pulumi.getter
@@ -2988,6 +3020,50 @@ class JobDefinitionEksMetadataArgs:
     @labels.setter
     def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace", value)
+
+
+if not MYPY:
+    class JobDefinitionEksPersistentVolumeClaimArgsDict(TypedDict):
+        claim_name: pulumi.Input[str]
+        read_only: NotRequired[pulumi.Input[bool]]
+elif False:
+    JobDefinitionEksPersistentVolumeClaimArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobDefinitionEksPersistentVolumeClaimArgs:
+    def __init__(__self__, *,
+                 claim_name: pulumi.Input[str],
+                 read_only: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "claim_name", claim_name)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+
+    @property
+    @pulumi.getter(name="claimName")
+    def claim_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "claim_name")
+
+    @claim_name.setter
+    def claim_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "claim_name", value)
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only", value)
 
 
 if not MYPY:
@@ -3303,6 +3379,7 @@ if not MYPY:
         """
         Specifies the configuration of a Kubernetes `hostPath` volume. For more information, see [hostPath](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) in the *Kubernetes documentation* .
         """
+        persistent_volume_claim: NotRequired[pulumi.Input['JobDefinitionEksPersistentVolumeClaimArgsDict']]
         secret: NotRequired[pulumi.Input['JobDefinitionEksSecretArgsDict']]
         """
         Specifies the configuration of a Kubernetes `secret` volume. For more information, see [secret](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#secret) in the *Kubernetes documentation* .
@@ -3316,6 +3393,7 @@ class JobDefinitionEksVolumeArgs:
                  name: pulumi.Input[str],
                  empty_dir: Optional[pulumi.Input['JobDefinitionEksEmptyDirArgs']] = None,
                  host_path: Optional[pulumi.Input['JobDefinitionEksHostPathArgs']] = None,
+                 persistent_volume_claim: Optional[pulumi.Input['JobDefinitionEksPersistentVolumeClaimArgs']] = None,
                  secret: Optional[pulumi.Input['JobDefinitionEksSecretArgs']] = None):
         """
         :param pulumi.Input[str] name: The name of the volume. The name must be allowed as a DNS subdomain name. For more information, see [DNS subdomain names](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) in the *Kubernetes documentation* .
@@ -3328,6 +3406,8 @@ class JobDefinitionEksVolumeArgs:
             pulumi.set(__self__, "empty_dir", empty_dir)
         if host_path is not None:
             pulumi.set(__self__, "host_path", host_path)
+        if persistent_volume_claim is not None:
+            pulumi.set(__self__, "persistent_volume_claim", persistent_volume_claim)
         if secret is not None:
             pulumi.set(__self__, "secret", secret)
 
@@ -3366,6 +3446,15 @@ class JobDefinitionEksVolumeArgs:
     @host_path.setter
     def host_path(self, value: Optional[pulumi.Input['JobDefinitionEksHostPathArgs']]):
         pulumi.set(self, "host_path", value)
+
+    @property
+    @pulumi.getter(name="persistentVolumeClaim")
+    def persistent_volume_claim(self) -> Optional[pulumi.Input['JobDefinitionEksPersistentVolumeClaimArgs']]:
+        return pulumi.get(self, "persistent_volume_claim")
+
+    @persistent_volume_claim.setter
+    def persistent_volume_claim(self, value: Optional[pulumi.Input['JobDefinitionEksPersistentVolumeClaimArgs']]):
+        pulumi.set(self, "persistent_volume_claim", value)
 
     @property
     @pulumi.getter

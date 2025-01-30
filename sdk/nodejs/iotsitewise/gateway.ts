@@ -54,6 +54,10 @@ export class Gateway extends pulumi.CustomResource {
      */
     public readonly gatewayPlatform!: pulumi.Output<outputs.iotsitewise.GatewayPlatform>;
     /**
+     * The version of the gateway you want to create.
+     */
+    public readonly gatewayVersion!: pulumi.Output<string | undefined>;
+    /**
      * A list of key-value pairs that contain metadata for the gateway.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -75,6 +79,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["gatewayCapabilitySummaries"] = args ? args.gatewayCapabilitySummaries : undefined;
             resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
             resourceInputs["gatewayPlatform"] = args ? args.gatewayPlatform : undefined;
+            resourceInputs["gatewayVersion"] = args ? args.gatewayVersion : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["gatewayId"] = undefined /*out*/;
         } else {
@@ -82,10 +87,11 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["gatewayId"] = undefined /*out*/;
             resourceInputs["gatewayName"] = undefined /*out*/;
             resourceInputs["gatewayPlatform"] = undefined /*out*/;
+            resourceInputs["gatewayVersion"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["gatewayPlatform"] };
+        const replaceOnChanges = { replaceOnChanges: ["gatewayPlatform", "gatewayVersion"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Gateway.__pulumiType, name, resourceInputs, opts);
     }
@@ -107,6 +113,10 @@ export interface GatewayArgs {
      * The gateway's platform. You can only specify one platform in a gateway.
      */
     gatewayPlatform: pulumi.Input<inputs.iotsitewise.GatewayPlatformArgs>;
+    /**
+     * The version of the gateway you want to create.
+     */
+    gatewayVersion?: pulumi.Input<string>;
     /**
      * A list of key-value pairs that contain metadata for the gateway.
      */

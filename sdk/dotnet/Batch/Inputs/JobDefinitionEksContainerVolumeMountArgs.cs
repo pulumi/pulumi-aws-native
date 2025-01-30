@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
+        [Input("subPath")]
+        public Input<string>? SubPath { get; set; }
+
         public JobDefinitionEksContainerVolumeMountArgs()
         {
         }

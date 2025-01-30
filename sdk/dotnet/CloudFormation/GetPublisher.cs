@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.CloudFormation
     public sealed class GetPublisherArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The publisher id assigned by CloudFormation for publishing in this region.
+        /// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
         /// </summary>
         [Input("publisherId", required: true)]
         public string PublisherId { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.CloudFormation
     public sealed class GetPublisherInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The publisher id assigned by CloudFormation for publishing in this region.
+        /// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
         /// </summary>
         [Input("publisherId", required: true)]
         public Input<string> PublisherId { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public readonly Pulumi.AwsNative.CloudFormation.PublisherIdentityProvider? IdentityProvider;
         /// <summary>
-        /// The publisher id assigned by CloudFormation for publishing in this region.
+        /// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
         /// </summary>
         public readonly string? PublisherId;
         /// <summary>

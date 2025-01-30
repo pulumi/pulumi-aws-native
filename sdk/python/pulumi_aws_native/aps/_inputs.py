@@ -19,6 +19,8 @@ __all__ = [
     'ScraperDestinationAmpConfigurationPropertiesArgsDict',
     'ScraperDestinationArgs',
     'ScraperDestinationArgsDict',
+    'ScraperRoleConfigurationArgs',
+    'ScraperRoleConfigurationArgsDict',
     'ScraperScrapeConfigurationArgs',
     'ScraperScrapeConfigurationArgsDict',
     'ScraperSourceEksConfigurationPropertiesArgs',
@@ -100,6 +102,62 @@ class ScraperDestinationArgs:
     @amp_configuration.setter
     def amp_configuration(self, value: Optional[pulumi.Input['ScraperDestinationAmpConfigurationPropertiesArgs']]):
         pulumi.set(self, "amp_configuration", value)
+
+
+if not MYPY:
+    class ScraperRoleConfigurationArgsDict(TypedDict):
+        """
+        Role configuration
+        """
+        source_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        IAM Role in source account
+        """
+        target_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        IAM Role in the target account
+        """
+elif False:
+    ScraperRoleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScraperRoleConfigurationArgs:
+    def __init__(__self__, *,
+                 source_role_arn: Optional[pulumi.Input[str]] = None,
+                 target_role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Role configuration
+        :param pulumi.Input[str] source_role_arn: IAM Role in source account
+        :param pulumi.Input[str] target_role_arn: IAM Role in the target account
+        """
+        if source_role_arn is not None:
+            pulumi.set(__self__, "source_role_arn", source_role_arn)
+        if target_role_arn is not None:
+            pulumi.set(__self__, "target_role_arn", target_role_arn)
+
+    @property
+    @pulumi.getter(name="sourceRoleArn")
+    def source_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        IAM Role in source account
+        """
+        return pulumi.get(self, "source_role_arn")
+
+    @source_role_arn.setter
+    def source_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_role_arn", value)
+
+    @property
+    @pulumi.getter(name="targetRoleArn")
+    def target_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        IAM Role in the target account
+        """
+        return pulumi.get(self, "target_role_arn")
+
+    @target_role_arn.setter
+    def target_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_role_arn", value)
 
 
 if not MYPY:

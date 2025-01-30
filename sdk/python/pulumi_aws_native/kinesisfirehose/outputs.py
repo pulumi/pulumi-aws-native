@@ -37,6 +37,7 @@ __all__ = [
     'DeliveryStreamDatabases',
     'DeliveryStreamDeserializer',
     'DeliveryStreamDestinationTableConfiguration',
+    'DeliveryStreamDirectPutSourceConfiguration',
     'DeliveryStreamDocumentIdOptions',
     'DeliveryStreamDynamicPartitioningConfiguration',
     'DeliveryStreamElasticsearchBufferingHints',
@@ -1425,6 +1426,36 @@ class DeliveryStreamDestinationTableConfiguration(dict):
 
 
 @pulumi.output_type
+class DeliveryStreamDirectPutSourceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "throughputHintInMbs":
+            suggest = "throughput_hint_in_mbs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamDirectPutSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamDirectPutSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamDirectPutSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 throughput_hint_in_mbs: Optional[int] = None):
+        if throughput_hint_in_mbs is not None:
+            pulumi.set(__self__, "throughput_hint_in_mbs", throughput_hint_in_mbs)
+
+    @property
+    @pulumi.getter(name="throughputHintInMbs")
+    def throughput_hint_in_mbs(self) -> Optional[int]:
+        return pulumi.get(self, "throughput_hint_in_mbs")
+
+
+@pulumi.output_type
 class DeliveryStreamDocumentIdOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2515,6 +2546,8 @@ class DeliveryStreamIcebergDestinationConfiguration(dict):
             suggest = "role_arn"
         elif key == "s3Configuration":
             suggest = "s3_configuration"
+        elif key == "appendOnly":
+            suggest = "append_only"
         elif key == "bufferingHints":
             suggest = "buffering_hints"
         elif key == "cloudWatchLoggingOptions":
@@ -2543,6 +2576,7 @@ class DeliveryStreamIcebergDestinationConfiguration(dict):
                  catalog_configuration: 'outputs.DeliveryStreamCatalogConfiguration',
                  role_arn: str,
                  s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
+                 append_only: Optional[bool] = None,
                  buffering_hints: Optional['outputs.DeliveryStreamBufferingHints'] = None,
                  cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
                  destination_table_configuration_list: Optional[Sequence['outputs.DeliveryStreamDestinationTableConfiguration']] = None,
@@ -2558,6 +2592,8 @@ class DeliveryStreamIcebergDestinationConfiguration(dict):
         pulumi.set(__self__, "catalog_configuration", catalog_configuration)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "s3_configuration", s3_configuration)
+        if append_only is not None:
+            pulumi.set(__self__, "append_only", append_only)
         if buffering_hints is not None:
             pulumi.set(__self__, "buffering_hints", buffering_hints)
         if cloud_watch_logging_options is not None:
@@ -2591,6 +2627,11 @@ class DeliveryStreamIcebergDestinationConfiguration(dict):
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> 'outputs.DeliveryStreamS3DestinationConfiguration':
         return pulumi.get(self, "s3_configuration")
+
+    @property
+    @pulumi.getter(name="appendOnly")
+    def append_only(self) -> Optional[bool]:
+        return pulumi.get(self, "append_only")
 
     @property
     @pulumi.getter(name="bufferingHints")

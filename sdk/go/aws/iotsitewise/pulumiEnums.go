@@ -679,6 +679,174 @@ func (in *assetPropertyNotificationStatePtr) ToAssetPropertyNotificationStatePtr
 	return pulumi.ToOutputWithContext(ctx, in).(AssetPropertyNotificationStatePtrOutput)
 }
 
+// The operating system of the core device in AWS IoT Greengrass V2.
+type GatewayGreengrassV2CoreDeviceOperatingSystem string
+
+const (
+	GatewayGreengrassV2CoreDeviceOperatingSystemLinuxAarch64 = GatewayGreengrassV2CoreDeviceOperatingSystem("LINUX_AARCH64")
+	GatewayGreengrassV2CoreDeviceOperatingSystemLinuxAmd64   = GatewayGreengrassV2CoreDeviceOperatingSystem("LINUX_AMD64")
+	GatewayGreengrassV2CoreDeviceOperatingSystemWindowsAmd64 = GatewayGreengrassV2CoreDeviceOperatingSystem("WINDOWS_AMD64")
+)
+
+func (GatewayGreengrassV2CoreDeviceOperatingSystem) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayGreengrassV2CoreDeviceOperatingSystem)(nil)).Elem()
+}
+
+func (e GatewayGreengrassV2CoreDeviceOperatingSystem) ToGatewayGreengrassV2CoreDeviceOperatingSystemOutput() GatewayGreengrassV2CoreDeviceOperatingSystemOutput {
+	return pulumi.ToOutput(e).(GatewayGreengrassV2CoreDeviceOperatingSystemOutput)
+}
+
+func (e GatewayGreengrassV2CoreDeviceOperatingSystem) ToGatewayGreengrassV2CoreDeviceOperatingSystemOutputWithContext(ctx context.Context) GatewayGreengrassV2CoreDeviceOperatingSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GatewayGreengrassV2CoreDeviceOperatingSystemOutput)
+}
+
+func (e GatewayGreengrassV2CoreDeviceOperatingSystem) ToGatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput() GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput {
+	return e.ToGatewayGreengrassV2CoreDeviceOperatingSystemPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayGreengrassV2CoreDeviceOperatingSystem) ToGatewayGreengrassV2CoreDeviceOperatingSystemPtrOutputWithContext(ctx context.Context) GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput {
+	return GatewayGreengrassV2CoreDeviceOperatingSystem(e).ToGatewayGreengrassV2CoreDeviceOperatingSystemOutputWithContext(ctx).ToGatewayGreengrassV2CoreDeviceOperatingSystemPtrOutputWithContext(ctx)
+}
+
+func (e GatewayGreengrassV2CoreDeviceOperatingSystem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayGreengrassV2CoreDeviceOperatingSystem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayGreengrassV2CoreDeviceOperatingSystem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayGreengrassV2CoreDeviceOperatingSystem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GatewayGreengrassV2CoreDeviceOperatingSystemOutput struct{ *pulumi.OutputState }
+
+func (GatewayGreengrassV2CoreDeviceOperatingSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayGreengrassV2CoreDeviceOperatingSystem)(nil)).Elem()
+}
+
+func (o GatewayGreengrassV2CoreDeviceOperatingSystemOutput) ToGatewayGreengrassV2CoreDeviceOperatingSystemOutput() GatewayGreengrassV2CoreDeviceOperatingSystemOutput {
+	return o
+}
+
+func (o GatewayGreengrassV2CoreDeviceOperatingSystemOutput) ToGatewayGreengrassV2CoreDeviceOperatingSystemOutputWithContext(ctx context.Context) GatewayGreengrassV2CoreDeviceOperatingSystemOutput {
+	return o
+}
+
+func (o GatewayGreengrassV2CoreDeviceOperatingSystemOutput) ToGatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput() GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput {
+	return o.ToGatewayGreengrassV2CoreDeviceOperatingSystemPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayGreengrassV2CoreDeviceOperatingSystemOutput) ToGatewayGreengrassV2CoreDeviceOperatingSystemPtrOutputWithContext(ctx context.Context) GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayGreengrassV2CoreDeviceOperatingSystem) *GatewayGreengrassV2CoreDeviceOperatingSystem {
+		return &v
+	}).(GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput)
+}
+
+func (o GatewayGreengrassV2CoreDeviceOperatingSystemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayGreengrassV2CoreDeviceOperatingSystemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayGreengrassV2CoreDeviceOperatingSystem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayGreengrassV2CoreDeviceOperatingSystemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayGreengrassV2CoreDeviceOperatingSystemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayGreengrassV2CoreDeviceOperatingSystem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayGreengrassV2CoreDeviceOperatingSystem)(nil)).Elem()
+}
+
+func (o GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput) ToGatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput() GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput {
+	return o
+}
+
+func (o GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput) ToGatewayGreengrassV2CoreDeviceOperatingSystemPtrOutputWithContext(ctx context.Context) GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput {
+	return o
+}
+
+func (o GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput) Elem() GatewayGreengrassV2CoreDeviceOperatingSystemOutput {
+	return o.ApplyT(func(v *GatewayGreengrassV2CoreDeviceOperatingSystem) GatewayGreengrassV2CoreDeviceOperatingSystem {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayGreengrassV2CoreDeviceOperatingSystem
+		return ret
+	}).(GatewayGreengrassV2CoreDeviceOperatingSystemOutput)
+}
+
+func (o GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayGreengrassV2CoreDeviceOperatingSystem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GatewayGreengrassV2CoreDeviceOperatingSystemInput is an input type that accepts values of the GatewayGreengrassV2CoreDeviceOperatingSystem enum
+// A concrete instance of `GatewayGreengrassV2CoreDeviceOperatingSystemInput` can be one of the following:
+//
+//	GatewayGreengrassV2CoreDeviceOperatingSystemLinuxAarch64
+//	GatewayGreengrassV2CoreDeviceOperatingSystemLinuxAmd64
+//	GatewayGreengrassV2CoreDeviceOperatingSystemWindowsAmd64
+type GatewayGreengrassV2CoreDeviceOperatingSystemInput interface {
+	pulumi.Input
+
+	ToGatewayGreengrassV2CoreDeviceOperatingSystemOutput() GatewayGreengrassV2CoreDeviceOperatingSystemOutput
+	ToGatewayGreengrassV2CoreDeviceOperatingSystemOutputWithContext(context.Context) GatewayGreengrassV2CoreDeviceOperatingSystemOutput
+}
+
+var gatewayGreengrassV2CoreDeviceOperatingSystemPtrType = reflect.TypeOf((**GatewayGreengrassV2CoreDeviceOperatingSystem)(nil)).Elem()
+
+type GatewayGreengrassV2CoreDeviceOperatingSystemPtrInput interface {
+	pulumi.Input
+
+	ToGatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput() GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput
+	ToGatewayGreengrassV2CoreDeviceOperatingSystemPtrOutputWithContext(context.Context) GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput
+}
+
+type gatewayGreengrassV2CoreDeviceOperatingSystemPtr string
+
+func GatewayGreengrassV2CoreDeviceOperatingSystemPtr(v string) GatewayGreengrassV2CoreDeviceOperatingSystemPtrInput {
+	return (*gatewayGreengrassV2CoreDeviceOperatingSystemPtr)(&v)
+}
+
+func (*gatewayGreengrassV2CoreDeviceOperatingSystemPtr) ElementType() reflect.Type {
+	return gatewayGreengrassV2CoreDeviceOperatingSystemPtrType
+}
+
+func (in *gatewayGreengrassV2CoreDeviceOperatingSystemPtr) ToGatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput() GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput {
+	return pulumi.ToOutput(in).(GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput)
+}
+
+func (in *gatewayGreengrassV2CoreDeviceOperatingSystemPtr) ToGatewayGreengrassV2CoreDeviceOperatingSystemPtrOutputWithContext(ctx context.Context) GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput)
+}
+
 // The type of portal
 type PortalType string
 
@@ -854,6 +1022,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelTypeNamePtrInput)(nil)).Elem(), AssetModelTypeName("Measurement"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetPropertyNotificationStateInput)(nil)).Elem(), AssetPropertyNotificationState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetPropertyNotificationStatePtrInput)(nil)).Elem(), AssetPropertyNotificationState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGreengrassV2CoreDeviceOperatingSystemInput)(nil)).Elem(), GatewayGreengrassV2CoreDeviceOperatingSystem("LINUX_AARCH64"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGreengrassV2CoreDeviceOperatingSystemPtrInput)(nil)).Elem(), GatewayGreengrassV2CoreDeviceOperatingSystem("LINUX_AARCH64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PortalTypeInput)(nil)).Elem(), PortalType("SITEWISE_PORTAL_V1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PortalTypePtrInput)(nil)).Elem(), PortalType("SITEWISE_PORTAL_V1"))
 	pulumi.RegisterOutputType(AssetModelDataTypeOutput{})
@@ -864,6 +1034,8 @@ func init() {
 	pulumi.RegisterOutputType(AssetModelTypeNamePtrOutput{})
 	pulumi.RegisterOutputType(AssetPropertyNotificationStateOutput{})
 	pulumi.RegisterOutputType(AssetPropertyNotificationStatePtrOutput{})
+	pulumi.RegisterOutputType(GatewayGreengrassV2CoreDeviceOperatingSystemOutput{})
+	pulumi.RegisterOutputType(GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput{})
 	pulumi.RegisterOutputType(PortalTypeOutput{})
 	pulumi.RegisterOutputType(PortalTypePtrOutput{})
 }

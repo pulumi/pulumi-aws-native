@@ -30,7 +30,7 @@ type LookupPublicTypeVersionArgs struct {
 type LookupPublicTypeVersionResult struct {
 	// The Amazon Resource Number (ARN) assigned to the public extension upon publication
 	PublicTypeArn *string `pulumi:"publicTypeArn"`
-	// The publisher id assigned by CloudFormation for publishing in this region.
+	// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
 	PublisherId *string `pulumi:"publisherId"`
 	// The Amazon Resource Number (ARN) of the extension with the versionId.
 	TypeVersionArn *string `pulumi:"typeVersionArn"`
@@ -73,7 +73,7 @@ func (o LookupPublicTypeVersionResultOutput) PublicTypeArn() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupPublicTypeVersionResult) *string { return v.PublicTypeArn }).(pulumi.StringPtrOutput)
 }
 
-// The publisher id assigned by CloudFormation for publishing in this region.
+// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
 func (o LookupPublicTypeVersionResultOutput) PublisherId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPublicTypeVersionResult) *string { return v.PublisherId }).(pulumi.StringPtrOutput)
 }

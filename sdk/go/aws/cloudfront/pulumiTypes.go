@@ -5848,7 +5848,8 @@ type DistributionOrigin struct {
 	//  For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
 	OriginShield *DistributionOriginShield `pulumi:"originShield"`
 	// Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.
-	S3OriginConfig *DistributionS3OriginConfig `pulumi:"s3OriginConfig"`
+	S3OriginConfig  *DistributionS3OriginConfig  `pulumi:"s3OriginConfig"`
+	VpcOriginConfig *DistributionVpcOriginConfig `pulumi:"vpcOriginConfig"`
 }
 
 // DistributionOriginInput is an input type that accepts DistributionOriginArgs and DistributionOriginOutput values.
@@ -5903,7 +5904,8 @@ type DistributionOriginArgs struct {
 	//  For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
 	OriginShield DistributionOriginShieldPtrInput `pulumi:"originShield"`
 	// Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.
-	S3OriginConfig DistributionS3OriginConfigPtrInput `pulumi:"s3OriginConfig"`
+	S3OriginConfig  DistributionS3OriginConfigPtrInput  `pulumi:"s3OriginConfig"`
+	VpcOriginConfig DistributionVpcOriginConfigPtrInput `pulumi:"vpcOriginConfig"`
 }
 
 func (DistributionOriginArgs) ElementType() reflect.Type {
@@ -6034,6 +6036,10 @@ func (o DistributionOriginOutput) OriginShield() DistributionOriginShieldPtrOutp
 // Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the “CustomOriginConfig“ type instead.
 func (o DistributionOriginOutput) S3OriginConfig() DistributionS3OriginConfigPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *DistributionS3OriginConfig { return v.S3OriginConfig }).(DistributionS3OriginConfigPtrOutput)
+}
+
+func (o DistributionOriginOutput) VpcOriginConfig() DistributionVpcOriginConfigPtrOutput {
+	return o.ApplyT(func(v DistributionOrigin) *DistributionVpcOriginConfig { return v.VpcOriginConfig }).(DistributionVpcOriginConfigPtrOutput)
 }
 
 type DistributionOriginArrayOutput struct{ *pulumi.OutputState }
@@ -7592,6 +7598,169 @@ func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.String
 			return nil
 		}
 		return v.SslSupportMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionVpcOriginConfig struct {
+	OriginKeepaliveTimeout *int   `pulumi:"originKeepaliveTimeout"`
+	OriginReadTimeout      *int   `pulumi:"originReadTimeout"`
+	VpcOriginId            string `pulumi:"vpcOriginId"`
+}
+
+// DistributionVpcOriginConfigInput is an input type that accepts DistributionVpcOriginConfigArgs and DistributionVpcOriginConfigOutput values.
+// You can construct a concrete instance of `DistributionVpcOriginConfigInput` via:
+//
+//	DistributionVpcOriginConfigArgs{...}
+type DistributionVpcOriginConfigInput interface {
+	pulumi.Input
+
+	ToDistributionVpcOriginConfigOutput() DistributionVpcOriginConfigOutput
+	ToDistributionVpcOriginConfigOutputWithContext(context.Context) DistributionVpcOriginConfigOutput
+}
+
+type DistributionVpcOriginConfigArgs struct {
+	OriginKeepaliveTimeout pulumi.IntPtrInput `pulumi:"originKeepaliveTimeout"`
+	OriginReadTimeout      pulumi.IntPtrInput `pulumi:"originReadTimeout"`
+	VpcOriginId            pulumi.StringInput `pulumi:"vpcOriginId"`
+}
+
+func (DistributionVpcOriginConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionVpcOriginConfig)(nil)).Elem()
+}
+
+func (i DistributionVpcOriginConfigArgs) ToDistributionVpcOriginConfigOutput() DistributionVpcOriginConfigOutput {
+	return i.ToDistributionVpcOriginConfigOutputWithContext(context.Background())
+}
+
+func (i DistributionVpcOriginConfigArgs) ToDistributionVpcOriginConfigOutputWithContext(ctx context.Context) DistributionVpcOriginConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionVpcOriginConfigOutput)
+}
+
+func (i DistributionVpcOriginConfigArgs) ToDistributionVpcOriginConfigPtrOutput() DistributionVpcOriginConfigPtrOutput {
+	return i.ToDistributionVpcOriginConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionVpcOriginConfigArgs) ToDistributionVpcOriginConfigPtrOutputWithContext(ctx context.Context) DistributionVpcOriginConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionVpcOriginConfigOutput).ToDistributionVpcOriginConfigPtrOutputWithContext(ctx)
+}
+
+// DistributionVpcOriginConfigPtrInput is an input type that accepts DistributionVpcOriginConfigArgs, DistributionVpcOriginConfigPtr and DistributionVpcOriginConfigPtrOutput values.
+// You can construct a concrete instance of `DistributionVpcOriginConfigPtrInput` via:
+//
+//	        DistributionVpcOriginConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionVpcOriginConfigPtrInput interface {
+	pulumi.Input
+
+	ToDistributionVpcOriginConfigPtrOutput() DistributionVpcOriginConfigPtrOutput
+	ToDistributionVpcOriginConfigPtrOutputWithContext(context.Context) DistributionVpcOriginConfigPtrOutput
+}
+
+type distributionVpcOriginConfigPtrType DistributionVpcOriginConfigArgs
+
+func DistributionVpcOriginConfigPtr(v *DistributionVpcOriginConfigArgs) DistributionVpcOriginConfigPtrInput {
+	return (*distributionVpcOriginConfigPtrType)(v)
+}
+
+func (*distributionVpcOriginConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionVpcOriginConfig)(nil)).Elem()
+}
+
+func (i *distributionVpcOriginConfigPtrType) ToDistributionVpcOriginConfigPtrOutput() DistributionVpcOriginConfigPtrOutput {
+	return i.ToDistributionVpcOriginConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionVpcOriginConfigPtrType) ToDistributionVpcOriginConfigPtrOutputWithContext(ctx context.Context) DistributionVpcOriginConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionVpcOriginConfigPtrOutput)
+}
+
+type DistributionVpcOriginConfigOutput struct{ *pulumi.OutputState }
+
+func (DistributionVpcOriginConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionVpcOriginConfig)(nil)).Elem()
+}
+
+func (o DistributionVpcOriginConfigOutput) ToDistributionVpcOriginConfigOutput() DistributionVpcOriginConfigOutput {
+	return o
+}
+
+func (o DistributionVpcOriginConfigOutput) ToDistributionVpcOriginConfigOutputWithContext(ctx context.Context) DistributionVpcOriginConfigOutput {
+	return o
+}
+
+func (o DistributionVpcOriginConfigOutput) ToDistributionVpcOriginConfigPtrOutput() DistributionVpcOriginConfigPtrOutput {
+	return o.ToDistributionVpcOriginConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionVpcOriginConfigOutput) ToDistributionVpcOriginConfigPtrOutputWithContext(ctx context.Context) DistributionVpcOriginConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionVpcOriginConfig) *DistributionVpcOriginConfig {
+		return &v
+	}).(DistributionVpcOriginConfigPtrOutput)
+}
+
+func (o DistributionVpcOriginConfigOutput) OriginKeepaliveTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DistributionVpcOriginConfig) *int { return v.OriginKeepaliveTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o DistributionVpcOriginConfigOutput) OriginReadTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DistributionVpcOriginConfig) *int { return v.OriginReadTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o DistributionVpcOriginConfigOutput) VpcOriginId() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionVpcOriginConfig) string { return v.VpcOriginId }).(pulumi.StringOutput)
+}
+
+type DistributionVpcOriginConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionVpcOriginConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionVpcOriginConfig)(nil)).Elem()
+}
+
+func (o DistributionVpcOriginConfigPtrOutput) ToDistributionVpcOriginConfigPtrOutput() DistributionVpcOriginConfigPtrOutput {
+	return o
+}
+
+func (o DistributionVpcOriginConfigPtrOutput) ToDistributionVpcOriginConfigPtrOutputWithContext(ctx context.Context) DistributionVpcOriginConfigPtrOutput {
+	return o
+}
+
+func (o DistributionVpcOriginConfigPtrOutput) Elem() DistributionVpcOriginConfigOutput {
+	return o.ApplyT(func(v *DistributionVpcOriginConfig) DistributionVpcOriginConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionVpcOriginConfig
+		return ret
+	}).(DistributionVpcOriginConfigOutput)
+}
+
+func (o DistributionVpcOriginConfigPtrOutput) OriginKeepaliveTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DistributionVpcOriginConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OriginKeepaliveTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DistributionVpcOriginConfigPtrOutput) OriginReadTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DistributionVpcOriginConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OriginReadTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DistributionVpcOriginConfigPtrOutput) VpcOriginId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionVpcOriginConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcOriginId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12765,10 +12934,15 @@ func (o ResponseHeadersPolicyXssProtectionPtrOutput) ReportUri() pulumi.StringPt
 }
 
 type VpcOriginEndpointConfig struct {
-	Arn                  string   `pulumi:"arn"`
-	HttpPort             *int     `pulumi:"httpPort"`
-	HttpsPort            *int     `pulumi:"httpsPort"`
-	Name                 string   `pulumi:"name"`
+	// The ARN of the CloudFront VPC origin endpoint configuration.
+	Arn string `pulumi:"arn"`
+	// The HTTP port for the CloudFront VPC origin endpoint configuration.
+	HttpPort *int `pulumi:"httpPort"`
+	// The HTTPS port of the CloudFront VPC origin endpoint configuration.
+	HttpsPort *int `pulumi:"httpsPort"`
+	// The name of the CloudFront VPC origin endpoint configuration.
+	Name string `pulumi:"name"`
+	// The origin protocol policy for the CloudFront VPC origin endpoint configuration.
 	OriginProtocolPolicy *string  `pulumi:"originProtocolPolicy"`
 	OriginSslProtocols   []string `pulumi:"originSslProtocols"`
 }
@@ -12785,10 +12959,15 @@ type VpcOriginEndpointConfigInput interface {
 }
 
 type VpcOriginEndpointConfigArgs struct {
-	Arn                  pulumi.StringInput      `pulumi:"arn"`
-	HttpPort             pulumi.IntPtrInput      `pulumi:"httpPort"`
-	HttpsPort            pulumi.IntPtrInput      `pulumi:"httpsPort"`
-	Name                 pulumi.StringInput      `pulumi:"name"`
+	// The ARN of the CloudFront VPC origin endpoint configuration.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The HTTP port for the CloudFront VPC origin endpoint configuration.
+	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
+	// The HTTPS port of the CloudFront VPC origin endpoint configuration.
+	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
+	// The name of the CloudFront VPC origin endpoint configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The origin protocol policy for the CloudFront VPC origin endpoint configuration.
 	OriginProtocolPolicy pulumi.StringPtrInput   `pulumi:"originProtocolPolicy"`
 	OriginSslProtocols   pulumi.StringArrayInput `pulumi:"originSslProtocols"`
 }
@@ -12819,22 +12998,27 @@ func (o VpcOriginEndpointConfigOutput) ToVpcOriginEndpointConfigOutputWithContex
 	return o
 }
 
+// The ARN of the CloudFront VPC origin endpoint configuration.
 func (o VpcOriginEndpointConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcOriginEndpointConfig) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The HTTP port for the CloudFront VPC origin endpoint configuration.
 func (o VpcOriginEndpointConfigOutput) HttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpcOriginEndpointConfig) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
 }
 
+// The HTTPS port of the CloudFront VPC origin endpoint configuration.
 func (o VpcOriginEndpointConfigOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpcOriginEndpointConfig) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
 
+// The name of the CloudFront VPC origin endpoint configuration.
 func (o VpcOriginEndpointConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcOriginEndpointConfig) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The origin protocol policy for the CloudFront VPC origin endpoint configuration.
 func (o VpcOriginEndpointConfigOutput) OriginProtocolPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcOriginEndpointConfig) *string { return v.OriginProtocolPolicy }).(pulumi.StringPtrOutput)
 }
@@ -12867,6 +13051,7 @@ func (o VpcOriginEndpointConfigPtrOutput) Elem() VpcOriginEndpointConfigOutput {
 	}).(VpcOriginEndpointConfigOutput)
 }
 
+// The ARN of the CloudFront VPC origin endpoint configuration.
 func (o VpcOriginEndpointConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcOriginEndpointConfig) *string {
 		if v == nil {
@@ -12876,6 +13061,7 @@ func (o VpcOriginEndpointConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The HTTP port for the CloudFront VPC origin endpoint configuration.
 func (o VpcOriginEndpointConfigPtrOutput) HttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpcOriginEndpointConfig) *int {
 		if v == nil {
@@ -12885,6 +13071,7 @@ func (o VpcOriginEndpointConfigPtrOutput) HttpPort() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The HTTPS port of the CloudFront VPC origin endpoint configuration.
 func (o VpcOriginEndpointConfigPtrOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpcOriginEndpointConfig) *int {
 		if v == nil {
@@ -12894,6 +13081,7 @@ func (o VpcOriginEndpointConfigPtrOutput) HttpsPort() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The name of the CloudFront VPC origin endpoint configuration.
 func (o VpcOriginEndpointConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcOriginEndpointConfig) *string {
 		if v == nil {
@@ -12903,6 +13091,7 @@ func (o VpcOriginEndpointConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The origin protocol policy for the CloudFront VPC origin endpoint configuration.
 func (o VpcOriginEndpointConfigPtrOutput) OriginProtocolPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcOriginEndpointConfig) *string {
 		if v == nil {
@@ -12922,7 +13111,13 @@ func (o VpcOriginEndpointConfigPtrOutput) OriginSslProtocols() pulumi.StringArra
 }
 
 type VpcOriginTag struct {
-	Key   string `pulumi:"key"`
+	// A string that contains `Tag` key.
+	//
+	// The string length should be between 1 and 128 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
+	Key string `pulumi:"key"`
+	// A string that contains an optional `Tag` value.
+	//
+	// The string length should be between 0 and 256 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
 	Value string `pulumi:"value"`
 }
 
@@ -12993,6 +13188,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionStatusCodesInput)(nil)).Elem(), DistributionStatusCodesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerCertificateInput)(nil)).Elem(), DistributionViewerCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerCertificatePtrInput)(nil)).Elem(), DistributionViewerCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionVpcOriginConfigInput)(nil)).Elem(), DistributionVpcOriginConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionVpcOriginConfigPtrInput)(nil)).Elem(), DistributionVpcOriginConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConfigInput)(nil)).Elem(), FunctionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionKeyValueStoreAssociationInput)(nil)).Elem(), FunctionKeyValueStoreAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionKeyValueStoreAssociationArrayInput)(nil)).Elem(), FunctionKeyValueStoreAssociationArray{})
@@ -13124,6 +13321,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionStatusCodesOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificateOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificatePtrOutput{})
+	pulumi.RegisterOutputType(DistributionVpcOriginConfigOutput{})
+	pulumi.RegisterOutputType(DistributionVpcOriginConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionConfigOutput{})
 	pulumi.RegisterOutputType(FunctionConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionKeyValueStoreAssociationOutput{})

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         /// A gateway that runs on AWS IoT Greengrass V1.
         /// </summary>
         [Input("greengrass")]
-        public Input<Inputs.GatewayGreengrassArgs>? Greengrass { get; set; }
+        public Input<object>? Greengrass { get; set; }
 
         /// <summary>
         /// A gateway that runs on AWS IoT Greengrass V2.

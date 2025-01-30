@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamIcebergDestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("appendOnly")]
+        public Input<bool>? AppendOnly { get; set; }
+
         [Input("bufferingHints")]
         public Input<Inputs.DeliveryStreamBufferingHintsArgs>? BufferingHints { get; set; }
 

@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['GatewayArgs', 'Gateway']
@@ -26,12 +27,14 @@ class GatewayArgs:
                  gateway_platform: pulumi.Input['GatewayPlatformArgs'],
                  gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
+                 gateway_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Gateway resource.
         :param pulumi.Input['GatewayPlatformArgs'] gateway_platform: The gateway's platform. You can only specify one platform in a gateway.
         :param pulumi.Input[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]] gateway_capability_summaries: A list of gateway capability summaries that each contain a namespace and status.
         :param pulumi.Input[str] gateway_name: A unique, friendly name for the gateway.
+        :param pulumi.Input[str] gateway_version: The version of the gateway you want to create.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the gateway.
         """
         pulumi.set(__self__, "gateway_platform", gateway_platform)
@@ -39,6 +42,8 @@ class GatewayArgs:
             pulumi.set(__self__, "gateway_capability_summaries", gateway_capability_summaries)
         if gateway_name is not None:
             pulumi.set(__self__, "gateway_name", gateway_name)
+        if gateway_version is not None:
+            pulumi.set(__self__, "gateway_version", gateway_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -79,6 +84,18 @@ class GatewayArgs:
         pulumi.set(self, "gateway_name", value)
 
     @property
+    @pulumi.getter(name="gatewayVersion")
+    def gateway_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the gateway you want to create.
+        """
+        return pulumi.get(self, "gateway_version")
+
+    @gateway_version.setter
+    def gateway_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway_version", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -99,6 +116,7 @@ class Gateway(pulumi.CustomResource):
                  gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayCapabilitySummaryArgs', 'GatewayCapabilitySummaryArgsDict']]]]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  gateway_platform: Optional[pulumi.Input[Union['GatewayPlatformArgs', 'GatewayPlatformArgsDict']]] = None,
+                 gateway_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -109,6 +127,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['GatewayCapabilitySummaryArgs', 'GatewayCapabilitySummaryArgsDict']]]] gateway_capability_summaries: A list of gateway capability summaries that each contain a namespace and status.
         :param pulumi.Input[str] gateway_name: A unique, friendly name for the gateway.
         :param pulumi.Input[Union['GatewayPlatformArgs', 'GatewayPlatformArgsDict']] gateway_platform: The gateway's platform. You can only specify one platform in a gateway.
+        :param pulumi.Input[str] gateway_version: The version of the gateway you want to create.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the gateway.
         """
         ...
@@ -138,6 +157,7 @@ class Gateway(pulumi.CustomResource):
                  gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayCapabilitySummaryArgs', 'GatewayCapabilitySummaryArgsDict']]]]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  gateway_platform: Optional[pulumi.Input[Union['GatewayPlatformArgs', 'GatewayPlatformArgsDict']]] = None,
+                 gateway_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -153,9 +173,10 @@ class Gateway(pulumi.CustomResource):
             if gateway_platform is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_platform'")
             __props__.__dict__["gateway_platform"] = gateway_platform
+            __props__.__dict__["gateway_version"] = gateway_version
             __props__.__dict__["tags"] = tags
             __props__.__dict__["gateway_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["gatewayPlatform"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["gatewayPlatform", "gatewayVersion"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Gateway, __self__).__init__(
             'aws-native:iotsitewise:Gateway',
@@ -183,6 +204,7 @@ class Gateway(pulumi.CustomResource):
         __props__.__dict__["gateway_id"] = None
         __props__.__dict__["gateway_name"] = None
         __props__.__dict__["gateway_platform"] = None
+        __props__.__dict__["gateway_version"] = None
         __props__.__dict__["tags"] = None
         return Gateway(resource_name, opts=opts, __props__=__props__)
 
@@ -217,6 +239,14 @@ class Gateway(pulumi.CustomResource):
         The gateway's platform. You can only specify one platform in a gateway.
         """
         return pulumi.get(self, "gateway_platform")
+
+    @property
+    @pulumi.getter(name="gatewayVersion")
+    def gateway_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version of the gateway you want to create.
+        """
+        return pulumi.get(self, "gateway_version")
 
     @property
     @pulumi.getter

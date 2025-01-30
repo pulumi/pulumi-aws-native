@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public Output<Outputs.GatewayPlatform> GatewayPlatform { get; private set; } = null!;
 
         /// <summary>
+        /// The version of the gateway you want to create.
+        /// </summary>
+        [Output("gatewayVersion")]
+        public Output<string?> GatewayVersion { get; private set; } = null!;
+
+        /// <summary>
         /// A list of key-value pairs that contain metadata for the gateway.
         /// </summary>
         [Output("tags")]
@@ -71,6 +77,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
                 ReplaceOnChanges =
                 {
                     "gatewayPlatform",
+                    "gatewayVersion",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,6 +124,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// </summary>
         [Input("gatewayPlatform", required: true)]
         public Input<Inputs.GatewayPlatformArgs> GatewayPlatform { get; set; } = null!;
+
+        /// <summary>
+        /// The version of the gateway you want to create.
+        /// </summary>
+        [Input("gatewayVersion")]
+        public Input<string>? GatewayVersion { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

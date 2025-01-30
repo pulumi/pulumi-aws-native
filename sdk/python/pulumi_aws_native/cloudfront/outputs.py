@@ -56,6 +56,7 @@ __all__ = [
     'DistributionS3OriginConfig',
     'DistributionStatusCodes',
     'DistributionViewerCertificate',
+    'DistributionVpcOriginConfig',
     'FunctionConfig',
     'FunctionKeyValueStoreAssociation',
     'FunctionMetadata',
@@ -2916,6 +2917,8 @@ class DistributionOrigin(dict):
             suggest = "origin_shield"
         elif key == "s3OriginConfig":
             suggest = "s3_origin_config"
+        elif key == "vpcOriginConfig":
+            suggest = "vpc_origin_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DistributionOrigin. Access the value via the '{suggest}' property getter instead.")
@@ -2938,7 +2941,8 @@ class DistributionOrigin(dict):
                  origin_custom_headers: Optional[Sequence['outputs.DistributionOriginCustomHeader']] = None,
                  origin_path: Optional[str] = None,
                  origin_shield: Optional['outputs.DistributionOriginShield'] = None,
-                 s3_origin_config: Optional['outputs.DistributionS3OriginConfig'] = None):
+                 s3_origin_config: Optional['outputs.DistributionS3OriginConfig'] = None,
+                 vpc_origin_config: Optional['outputs.DistributionVpcOriginConfig'] = None):
         """
         An origin.
          An origin is the location where content is stored, and from which CloudFront gets content to serve to viewers. To specify an origin:
@@ -2990,6 +2994,8 @@ class DistributionOrigin(dict):
             pulumi.set(__self__, "origin_shield", origin_shield)
         if s3_origin_config is not None:
             pulumi.set(__self__, "s3_origin_config", s3_origin_config)
+        if vpc_origin_config is not None:
+            pulumi.set(__self__, "vpc_origin_config", vpc_origin_config)
 
     @property
     @pulumi.getter(name="domainName")
@@ -3079,6 +3085,11 @@ class DistributionOrigin(dict):
         Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.
         """
         return pulumi.get(self, "s3_origin_config")
+
+    @property
+    @pulumi.getter(name="vpcOriginConfig")
+    def vpc_origin_config(self) -> Optional['outputs.DistributionVpcOriginConfig']:
+        return pulumi.get(self, "vpc_origin_config")
 
 
 @pulumi.output_type
@@ -3705,6 +3716,55 @@ class DistributionViewerCertificate(dict):
          If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, don't set a value for this field.
         """
         return pulumi.get(self, "ssl_support_method")
+
+
+@pulumi.output_type
+class DistributionVpcOriginConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcOriginId":
+            suggest = "vpc_origin_id"
+        elif key == "originKeepaliveTimeout":
+            suggest = "origin_keepalive_timeout"
+        elif key == "originReadTimeout":
+            suggest = "origin_read_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionVpcOriginConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionVpcOriginConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionVpcOriginConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vpc_origin_id: str,
+                 origin_keepalive_timeout: Optional[int] = None,
+                 origin_read_timeout: Optional[int] = None):
+        pulumi.set(__self__, "vpc_origin_id", vpc_origin_id)
+        if origin_keepalive_timeout is not None:
+            pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
+        if origin_read_timeout is not None:
+            pulumi.set(__self__, "origin_read_timeout", origin_read_timeout)
+
+    @property
+    @pulumi.getter(name="vpcOriginId")
+    def vpc_origin_id(self) -> str:
+        return pulumi.get(self, "vpc_origin_id")
+
+    @property
+    @pulumi.getter(name="originKeepaliveTimeout")
+    def origin_keepalive_timeout(self) -> Optional[int]:
+        return pulumi.get(self, "origin_keepalive_timeout")
+
+    @property
+    @pulumi.getter(name="originReadTimeout")
+    def origin_read_timeout(self) -> Optional[int]:
+        return pulumi.get(self, "origin_read_timeout")
 
 
 @pulumi.output_type
@@ -5627,6 +5687,13 @@ class VpcOriginEndpointConfig(dict):
                  https_port: Optional[int] = None,
                  origin_protocol_policy: Optional[str] = None,
                  origin_ssl_protocols: Optional[Sequence[str]] = None):
+        """
+        :param str arn: The ARN of the CloudFront VPC origin endpoint configuration.
+        :param str name: The name of the CloudFront VPC origin endpoint configuration.
+        :param int http_port: The HTTP port for the CloudFront VPC origin endpoint configuration.
+        :param int https_port: The HTTPS port of the CloudFront VPC origin endpoint configuration.
+        :param str origin_protocol_policy: The origin protocol policy for the CloudFront VPC origin endpoint configuration.
+        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "name", name)
         if http_port is not None:
@@ -5641,26 +5708,41 @@ class VpcOriginEndpointConfig(dict):
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        The ARN of the CloudFront VPC origin endpoint configuration.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the CloudFront VPC origin endpoint configuration.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="httpPort")
     def http_port(self) -> Optional[int]:
+        """
+        The HTTP port for the CloudFront VPC origin endpoint configuration.
+        """
         return pulumi.get(self, "http_port")
 
     @property
     @pulumi.getter(name="httpsPort")
     def https_port(self) -> Optional[int]:
+        """
+        The HTTPS port of the CloudFront VPC origin endpoint configuration.
+        """
         return pulumi.get(self, "https_port")
 
     @property
     @pulumi.getter(name="originProtocolPolicy")
     def origin_protocol_policy(self) -> Optional[str]:
+        """
+        The origin protocol policy for the CloudFront VPC origin endpoint configuration.
+        """
         return pulumi.get(self, "origin_protocol_policy")
 
     @property

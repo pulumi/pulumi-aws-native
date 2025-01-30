@@ -34,7 +34,8 @@ type DeliveryStream struct {
 	//
 	// - `DirectPut` : Provider applications access the Firehose stream directly.
 	// - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
-	DeliveryStreamType DeliveryStreamTypePtrOutput `pulumi:"deliveryStreamType"`
+	DeliveryStreamType           DeliveryStreamTypePtrOutput                         `pulumi:"deliveryStreamType"`
+	DirectPutSourceConfiguration DeliveryStreamDirectPutSourceConfigurationPtrOutput `pulumi:"directPutSourceConfiguration"`
 	// An Amazon ES destination for the delivery stream.
 	//
 	// Conditional. You must specify only one destination configuration.
@@ -98,6 +99,7 @@ func NewDeliveryStream(ctx *pulumi.Context,
 		"databaseSourceConfiguration",
 		"deliveryStreamName",
 		"deliveryStreamType",
+		"directPutSourceConfiguration",
 		"elasticsearchDestinationConfiguration.vpcConfiguration",
 		"icebergDestinationConfiguration",
 		"kinesisStreamSourceConfiguration",
@@ -154,7 +156,8 @@ type deliveryStreamArgs struct {
 	//
 	// - `DirectPut` : Provider applications access the Firehose stream directly.
 	// - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
-	DeliveryStreamType *DeliveryStreamType `pulumi:"deliveryStreamType"`
+	DeliveryStreamType           *DeliveryStreamType                         `pulumi:"deliveryStreamType"`
+	DirectPutSourceConfiguration *DeliveryStreamDirectPutSourceConfiguration `pulumi:"directPutSourceConfiguration"`
 	// An Amazon ES destination for the delivery stream.
 	//
 	// Conditional. You must specify only one destination configuration.
@@ -223,7 +226,8 @@ type DeliveryStreamArgs struct {
 	//
 	// - `DirectPut` : Provider applications access the Firehose stream directly.
 	// - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
-	DeliveryStreamType DeliveryStreamTypePtrInput
+	DeliveryStreamType           DeliveryStreamTypePtrInput
+	DirectPutSourceConfiguration DeliveryStreamDirectPutSourceConfigurationPtrInput
 	// An Amazon ES destination for the delivery stream.
 	//
 	// Conditional. You must specify only one destination configuration.
@@ -357,6 +361,12 @@ func (o DeliveryStreamOutput) DeliveryStreamName() pulumi.StringPtrOutput {
 // - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
 func (o DeliveryStreamOutput) DeliveryStreamType() DeliveryStreamTypePtrOutput {
 	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamTypePtrOutput { return v.DeliveryStreamType }).(DeliveryStreamTypePtrOutput)
+}
+
+func (o DeliveryStreamOutput) DirectPutSourceConfiguration() DeliveryStreamDirectPutSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamDirectPutSourceConfigurationPtrOutput {
+		return v.DirectPutSourceConfiguration
+	}).(DeliveryStreamDirectPutSourceConfigurationPtrOutput)
 }
 
 // An Amazon ES destination for the delivery stream.

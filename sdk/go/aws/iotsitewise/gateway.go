@@ -25,6 +25,8 @@ type Gateway struct {
 	GatewayName pulumi.StringOutput `pulumi:"gatewayName"`
 	// The gateway's platform. You can only specify one platform in a gateway.
 	GatewayPlatform GatewayPlatformOutput `pulumi:"gatewayPlatform"`
+	// The version of the gateway you want to create.
+	GatewayVersion pulumi.StringPtrOutput `pulumi:"gatewayVersion"`
 	// A list of key-value pairs that contain metadata for the gateway.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -41,6 +43,7 @@ func NewGateway(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"gatewayPlatform",
+		"gatewayVersion",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -82,6 +85,8 @@ type gatewayArgs struct {
 	GatewayName *string `pulumi:"gatewayName"`
 	// The gateway's platform. You can only specify one platform in a gateway.
 	GatewayPlatform GatewayPlatform `pulumi:"gatewayPlatform"`
+	// The version of the gateway you want to create.
+	GatewayVersion *string `pulumi:"gatewayVersion"`
 	// A list of key-value pairs that contain metadata for the gateway.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -94,6 +99,8 @@ type GatewayArgs struct {
 	GatewayName pulumi.StringPtrInput
 	// The gateway's platform. You can only specify one platform in a gateway.
 	GatewayPlatform GatewayPlatformInput
+	// The version of the gateway you want to create.
+	GatewayVersion pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the gateway.
 	Tags aws.TagArrayInput
 }
@@ -153,6 +160,11 @@ func (o GatewayOutput) GatewayName() pulumi.StringOutput {
 // The gateway's platform. You can only specify one platform in a gateway.
 func (o GatewayOutput) GatewayPlatform() GatewayPlatformOutput {
 	return o.ApplyT(func(v *Gateway) GatewayPlatformOutput { return v.GatewayPlatform }).(GatewayPlatformOutput)
+}
+
+// The version of the gateway you want to create.
+func (o GatewayOutput) GatewayVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.GatewayVersion }).(pulumi.StringPtrOutput)
 }
 
 // A list of key-value pairs that contain metadata for the gateway.

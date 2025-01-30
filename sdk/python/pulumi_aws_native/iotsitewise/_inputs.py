@@ -64,8 +64,6 @@ __all__ = [
     'GatewayCapabilitySummaryArgsDict',
     'GatewayGreengrassV2Args',
     'GatewayGreengrassV2ArgsDict',
-    'GatewayGreengrassArgs',
-    'GatewayGreengrassArgsDict',
     'GatewayPlatformArgs',
     'GatewayPlatformArgsDict',
     'GatewaySiemensIeArgs',
@@ -1878,18 +1876,26 @@ if not MYPY:
         """
         The name of the CoreDevice in GreenGrass V2.
         """
+        core_device_operating_system: NotRequired[pulumi.Input['GatewayGreengrassV2CoreDeviceOperatingSystem']]
+        """
+        The operating system of the core device in AWS IoT Greengrass V2.
+        """
 elif False:
     GatewayGreengrassV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GatewayGreengrassV2Args:
     def __init__(__self__, *,
-                 core_device_thing_name: pulumi.Input[str]):
+                 core_device_thing_name: pulumi.Input[str],
+                 core_device_operating_system: Optional[pulumi.Input['GatewayGreengrassV2CoreDeviceOperatingSystem']] = None):
         """
         Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.
         :param pulumi.Input[str] core_device_thing_name: The name of the CoreDevice in GreenGrass V2.
+        :param pulumi.Input['GatewayGreengrassV2CoreDeviceOperatingSystem'] core_device_operating_system: The operating system of the core device in AWS IoT Greengrass V2.
         """
         pulumi.set(__self__, "core_device_thing_name", core_device_thing_name)
+        if core_device_operating_system is not None:
+            pulumi.set(__self__, "core_device_operating_system", core_device_operating_system)
 
     @property
     @pulumi.getter(name="coreDeviceThingName")
@@ -1903,40 +1909,17 @@ class GatewayGreengrassV2Args:
     def core_device_thing_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "core_device_thing_name", value)
 
-
-if not MYPY:
-    class GatewayGreengrassArgsDict(TypedDict):
-        """
-        Contains the ARN of AWS IoT Greengrass Group V1 that the gateway runs on.
-        """
-        group_arn: pulumi.Input[str]
-        """
-        The ARN of the Greengrass group.
-        """
-elif False:
-    GatewayGreengrassArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GatewayGreengrassArgs:
-    def __init__(__self__, *,
-                 group_arn: pulumi.Input[str]):
-        """
-        Contains the ARN of AWS IoT Greengrass Group V1 that the gateway runs on.
-        :param pulumi.Input[str] group_arn: The ARN of the Greengrass group.
-        """
-        pulumi.set(__self__, "group_arn", group_arn)
-
     @property
-    @pulumi.getter(name="groupArn")
-    def group_arn(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="coreDeviceOperatingSystem")
+    def core_device_operating_system(self) -> Optional[pulumi.Input['GatewayGreengrassV2CoreDeviceOperatingSystem']]:
         """
-        The ARN of the Greengrass group.
+        The operating system of the core device in AWS IoT Greengrass V2.
         """
-        return pulumi.get(self, "group_arn")
+        return pulumi.get(self, "core_device_operating_system")
 
-    @group_arn.setter
-    def group_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "group_arn", value)
+    @core_device_operating_system.setter
+    def core_device_operating_system(self, value: Optional[pulumi.Input['GatewayGreengrassV2CoreDeviceOperatingSystem']]):
+        pulumi.set(self, "core_device_operating_system", value)
 
 
 if not MYPY:
@@ -1944,7 +1927,7 @@ if not MYPY:
         """
         Contains a gateway's platform information.
         """
-        greengrass: NotRequired[pulumi.Input['GatewayGreengrassArgsDict']]
+        greengrass: NotRequired[Any]
         """
         A gateway that runs on AWS IoT Greengrass V1.
         """
@@ -1962,12 +1945,12 @@ elif False:
 @pulumi.input_type
 class GatewayPlatformArgs:
     def __init__(__self__, *,
-                 greengrass: Optional[pulumi.Input['GatewayGreengrassArgs']] = None,
+                 greengrass: Optional[Any] = None,
                  greengrass_v2: Optional[pulumi.Input['GatewayGreengrassV2Args']] = None,
                  siemens_ie: Optional[pulumi.Input['GatewaySiemensIeArgs']] = None):
         """
         Contains a gateway's platform information.
-        :param pulumi.Input['GatewayGreengrassArgs'] greengrass: A gateway that runs on AWS IoT Greengrass V1.
+        :param Any greengrass: A gateway that runs on AWS IoT Greengrass V1.
         :param pulumi.Input['GatewayGreengrassV2Args'] greengrass_v2: A gateway that runs on AWS IoT Greengrass V2.
         :param pulumi.Input['GatewaySiemensIeArgs'] siemens_ie: A gateway that runs on Siemens Industrial Edge.
         """
@@ -1980,14 +1963,14 @@ class GatewayPlatformArgs:
 
     @property
     @pulumi.getter
-    def greengrass(self) -> Optional[pulumi.Input['GatewayGreengrassArgs']]:
+    def greengrass(self) -> Optional[Any]:
         """
         A gateway that runs on AWS IoT Greengrass V1.
         """
         return pulumi.get(self, "greengrass")
 
     @greengrass.setter
-    def greengrass(self, value: Optional[pulumi.Input['GatewayGreengrassArgs']]):
+    def greengrass(self, value: Optional[Any]):
         pulumi.set(self, "greengrass", value)
 
     @property

@@ -60,7 +60,7 @@ class GetTypeActivationResult:
     @pulumi.getter(name="publisherId")
     def publisher_id(self) -> Optional[str]:
         """
-        The publisher id assigned by CloudFormation for publishing in this region.
+        The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
         """
         return pulumi.get(self, "publisher_id")
 

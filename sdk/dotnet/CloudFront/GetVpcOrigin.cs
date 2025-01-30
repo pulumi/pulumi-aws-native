@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetVpcOriginArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The VPC origin ID.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetVpcOriginInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The VPC origin ID.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -57,12 +63,33 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetVpcOriginResult
     {
+        /// <summary>
+        /// The VPC origin ARN.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The VPC origin created time.
+        /// </summary>
         public readonly string? CreatedTime;
+        /// <summary>
+        /// The VPC origin ID.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The VPC origin last modified time.
+        /// </summary>
         public readonly string? LastModifiedTime;
+        /// <summary>
+        /// The VPC origin status.
+        /// </summary>
         public readonly string? Status;
+        /// <summary>
+        /// A complex type that contains zero or more `Tag` elements.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The VPC origin endpoint configuration.
+        /// </summary>
         public readonly Outputs.VpcOriginEndpointConfig? VpcOriginEndpointConfig;
 
         [OutputConstructor]

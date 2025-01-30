@@ -9,6 +9,7 @@ __all__ = [
     'AssetModelDataTypeSpec',
     'AssetModelTypeName',
     'AssetPropertyNotificationState',
+    'GatewayGreengrassV2CoreDeviceOperatingSystem',
     'PortalType',
 ]
 
@@ -38,6 +39,15 @@ class AssetPropertyNotificationState(str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+class GatewayGreengrassV2CoreDeviceOperatingSystem(str, Enum):
+    """
+    The operating system of the core device in AWS IoT Greengrass V2.
+    """
+    LINUX_AARCH64 = "LINUX_AARCH64"
+    LINUX_AMD64 = "LINUX_AMD64"
+    WINDOWS_AMD64 = "WINDOWS_AMD64"
 
 
 class PortalType(str, Enum):

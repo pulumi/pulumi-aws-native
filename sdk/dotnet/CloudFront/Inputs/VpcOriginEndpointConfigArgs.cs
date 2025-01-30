@@ -12,18 +12,33 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class VpcOriginEndpointConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the CloudFront VPC origin endpoint configuration.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
+        /// <summary>
+        /// The HTTP port for the CloudFront VPC origin endpoint configuration.
+        /// </summary>
         [Input("httpPort")]
         public Input<int>? HttpPort { get; set; }
 
+        /// <summary>
+        /// The HTTPS port of the CloudFront VPC origin endpoint configuration.
+        /// </summary>
         [Input("httpsPort")]
         public Input<int>? HttpsPort { get; set; }
 
+        /// <summary>
+        /// The name of the CloudFront VPC origin endpoint configuration.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The origin protocol policy for the CloudFront VPC origin endpoint configuration.
+        /// </summary>
         [Input("originProtocolPolicy")]
         public Input<string>? OriginProtocolPolicy { get; set; }
 

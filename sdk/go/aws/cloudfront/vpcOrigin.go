@@ -17,12 +17,19 @@ import (
 type VpcOrigin struct {
 	pulumi.CustomResourceState
 
-	Arn                     pulumi.StringOutput           `pulumi:"arn"`
-	AwsId                   pulumi.StringOutput           `pulumi:"awsId"`
-	CreatedTime             pulumi.StringOutput           `pulumi:"createdTime"`
-	LastModifiedTime        pulumi.StringOutput           `pulumi:"lastModifiedTime"`
-	Status                  pulumi.StringOutput           `pulumi:"status"`
-	Tags                    aws.TagArrayOutput            `pulumi:"tags"`
+	// The VPC origin ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The VPC origin ID.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The VPC origin created time.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// The VPC origin last modified time.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
+	// The VPC origin status.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// A complex type that contains zero or more `Tag` elements.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The VPC origin endpoint configuration.
 	VpcOriginEndpointConfig VpcOriginEndpointConfigOutput `pulumi:"vpcOriginEndpointConfig"`
 }
 
@@ -69,13 +76,17 @@ func (VpcOriginState) ElementType() reflect.Type {
 }
 
 type vpcOriginArgs struct {
-	Tags                    []aws.Tag               `pulumi:"tags"`
+	// A complex type that contains zero or more `Tag` elements.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The VPC origin endpoint configuration.
 	VpcOriginEndpointConfig VpcOriginEndpointConfig `pulumi:"vpcOriginEndpointConfig"`
 }
 
 // The set of arguments for constructing a VpcOrigin resource.
 type VpcOriginArgs struct {
-	Tags                    aws.TagArrayInput
+	// A complex type that contains zero or more `Tag` elements.
+	Tags aws.TagArrayInput
+	// The VPC origin endpoint configuration.
 	VpcOriginEndpointConfig VpcOriginEndpointConfigInput
 }
 
@@ -116,30 +127,37 @@ func (o VpcOriginOutput) ToVpcOriginOutputWithContext(ctx context.Context) VpcOr
 	return o
 }
 
+// The VPC origin ARN.
 func (o VpcOriginOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcOrigin) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The VPC origin ID.
 func (o VpcOriginOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcOrigin) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The VPC origin created time.
 func (o VpcOriginOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcOrigin) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// The VPC origin last modified time.
 func (o VpcOriginOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcOrigin) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
+// The VPC origin status.
 func (o VpcOriginOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcOrigin) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// A complex type that contains zero or more `Tag` elements.
 func (o VpcOriginOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *VpcOrigin) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The VPC origin endpoint configuration.
 func (o VpcOriginOutput) VpcOriginEndpointConfig() VpcOriginEndpointConfigOutput {
 	return o.ApplyT(func(v *VpcOrigin) VpcOriginEndpointConfigOutput { return v.VpcOriginEndpointConfig }).(VpcOriginEndpointConfigOutput)
 }

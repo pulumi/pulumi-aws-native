@@ -17,13 +17,21 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
     public sealed class GatewayGreengrassV2
     {
         /// <summary>
+        /// The operating system of the core device in AWS IoT Greengrass V2.
+        /// </summary>
+        public readonly Pulumi.AwsNative.IoTSiteWise.GatewayGreengrassV2CoreDeviceOperatingSystem? CoreDeviceOperatingSystem;
+        /// <summary>
         /// The name of the CoreDevice in GreenGrass V2.
         /// </summary>
         public readonly string CoreDeviceThingName;
 
         [OutputConstructor]
-        private GatewayGreengrassV2(string coreDeviceThingName)
+        private GatewayGreengrassV2(
+            Pulumi.AwsNative.IoTSiteWise.GatewayGreengrassV2CoreDeviceOperatingSystem? coreDeviceOperatingSystem,
+
+            string coreDeviceThingName)
         {
+            CoreDeviceOperatingSystem = coreDeviceOperatingSystem;
             CoreDeviceThingName = coreDeviceThingName;
         }
     }

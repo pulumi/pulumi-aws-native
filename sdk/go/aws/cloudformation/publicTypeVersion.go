@@ -23,7 +23,7 @@ type PublicTypeVersion struct {
 	PublicTypeArn pulumi.StringOutput `pulumi:"publicTypeArn"`
 	// The version number of a public third-party extension
 	PublicVersionNumber pulumi.StringPtrOutput `pulumi:"publicVersionNumber"`
-	// The publisher id assigned by CloudFormation for publishing in this region.
+	// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
 	PublisherId pulumi.StringOutput `pulumi:"publisherId"`
 	// The kind of extension
 	Type PublicTypeVersionTypePtrOutput `pulumi:"type"`
@@ -170,7 +170,7 @@ func (o PublicTypeVersionOutput) PublicVersionNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicTypeVersion) pulumi.StringPtrOutput { return v.PublicVersionNumber }).(pulumi.StringPtrOutput)
 }
 
-// The publisher id assigned by CloudFormation for publishing in this region.
+// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
 func (o PublicTypeVersionOutput) PublisherId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicTypeVersion) pulumi.StringOutput { return v.PublisherId }).(pulumi.StringOutput)
 }

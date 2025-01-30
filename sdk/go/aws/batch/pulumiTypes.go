@@ -4060,7 +4060,8 @@ type JobDefinitionEksContainerVolumeMount struct {
 	// The name the volume mount. This must match the name of one of the volumes in the pod.
 	Name *string `pulumi:"name"`
 	// If this value is `true` , the container has read-only access to the volume. Otherwise, the container can write to the volume. The default value is `false` .
-	ReadOnly *bool `pulumi:"readOnly"`
+	ReadOnly *bool   `pulumi:"readOnly"`
+	SubPath  *string `pulumi:"subPath"`
 }
 
 // JobDefinitionEksContainerVolumeMountInput is an input type that accepts JobDefinitionEksContainerVolumeMountArgs and JobDefinitionEksContainerVolumeMountOutput values.
@@ -4080,7 +4081,8 @@ type JobDefinitionEksContainerVolumeMountArgs struct {
 	// The name the volume mount. This must match the name of one of the volumes in the pod.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// If this value is `true` , the container has read-only access to the volume. Otherwise, the container can write to the volume. The default value is `false` .
-	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+	ReadOnly pulumi.BoolPtrInput   `pulumi:"readOnly"`
+	SubPath  pulumi.StringPtrInput `pulumi:"subPath"`
 }
 
 func (JobDefinitionEksContainerVolumeMountArgs) ElementType() reflect.Type {
@@ -4147,6 +4149,10 @@ func (o JobDefinitionEksContainerVolumeMountOutput) Name() pulumi.StringPtrOutpu
 // If this value is `true` , the container has read-only access to the volume. Otherwise, the container can write to the volume. The default value is `false` .
 func (o JobDefinitionEksContainerVolumeMountOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksContainerVolumeMount) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksContainerVolumeMountOutput) SubPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksContainerVolumeMount) *string { return v.SubPath }).(pulumi.StringPtrOutput)
 }
 
 type JobDefinitionEksContainerVolumeMountArrayOutput struct{ *pulumi.OutputState }
@@ -4475,8 +4481,10 @@ func (o JobDefinitionEksHostPathPtrOutput) Path() pulumi.StringPtrOutput {
 }
 
 type JobDefinitionEksMetadata struct {
+	Annotations map[string]string `pulumi:"annotations"`
 	// Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
-	Labels map[string]string `pulumi:"labels"`
+	Labels    map[string]string `pulumi:"labels"`
+	Namespace *string           `pulumi:"namespace"`
 }
 
 // JobDefinitionEksMetadataInput is an input type that accepts JobDefinitionEksMetadataArgs and JobDefinitionEksMetadataOutput values.
@@ -4491,8 +4499,10 @@ type JobDefinitionEksMetadataInput interface {
 }
 
 type JobDefinitionEksMetadataArgs struct {
+	Annotations pulumi.StringMapInput `pulumi:"annotations"`
 	// Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
-	Labels pulumi.StringMapInput `pulumi:"labels"`
+	Labels    pulumi.StringMapInput `pulumi:"labels"`
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 }
 
 func (JobDefinitionEksMetadataArgs) ElementType() reflect.Type {
@@ -4572,9 +4582,17 @@ func (o JobDefinitionEksMetadataOutput) ToJobDefinitionEksMetadataPtrOutputWithC
 	}).(JobDefinitionEksMetadataPtrOutput)
 }
 
+func (o JobDefinitionEksMetadataOutput) Annotations() pulumi.StringMapOutput {
+	return o.ApplyT(func(v JobDefinitionEksMetadata) map[string]string { return v.Annotations }).(pulumi.StringMapOutput)
+}
+
 // Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
 func (o JobDefinitionEksMetadataOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v JobDefinitionEksMetadata) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+func (o JobDefinitionEksMetadataOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksMetadata) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
 type JobDefinitionEksMetadataPtrOutput struct{ *pulumi.OutputState }
@@ -4601,6 +4619,15 @@ func (o JobDefinitionEksMetadataPtrOutput) Elem() JobDefinitionEksMetadataOutput
 	}).(JobDefinitionEksMetadataOutput)
 }
 
+func (o JobDefinitionEksMetadataPtrOutput) Annotations() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *JobDefinitionEksMetadata) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Annotations
+	}).(pulumi.StringMapOutput)
+}
+
 // Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
 func (o JobDefinitionEksMetadataPtrOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobDefinitionEksMetadata) map[string]string {
@@ -4609,6 +4636,163 @@ func (o JobDefinitionEksMetadataPtrOutput) Labels() pulumi.StringMapOutput {
 		}
 		return v.Labels
 	}).(pulumi.StringMapOutput)
+}
+
+func (o JobDefinitionEksMetadataPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobDefinitionEksPersistentVolumeClaim struct {
+	ClaimName string `pulumi:"claimName"`
+	ReadOnly  *bool  `pulumi:"readOnly"`
+}
+
+// JobDefinitionEksPersistentVolumeClaimInput is an input type that accepts JobDefinitionEksPersistentVolumeClaimArgs and JobDefinitionEksPersistentVolumeClaimOutput values.
+// You can construct a concrete instance of `JobDefinitionEksPersistentVolumeClaimInput` via:
+//
+//	JobDefinitionEksPersistentVolumeClaimArgs{...}
+type JobDefinitionEksPersistentVolumeClaimInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksPersistentVolumeClaimOutput() JobDefinitionEksPersistentVolumeClaimOutput
+	ToJobDefinitionEksPersistentVolumeClaimOutputWithContext(context.Context) JobDefinitionEksPersistentVolumeClaimOutput
+}
+
+type JobDefinitionEksPersistentVolumeClaimArgs struct {
+	ClaimName pulumi.StringInput  `pulumi:"claimName"`
+	ReadOnly  pulumi.BoolPtrInput `pulumi:"readOnly"`
+}
+
+func (JobDefinitionEksPersistentVolumeClaimArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksPersistentVolumeClaim)(nil)).Elem()
+}
+
+func (i JobDefinitionEksPersistentVolumeClaimArgs) ToJobDefinitionEksPersistentVolumeClaimOutput() JobDefinitionEksPersistentVolumeClaimOutput {
+	return i.ToJobDefinitionEksPersistentVolumeClaimOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksPersistentVolumeClaimArgs) ToJobDefinitionEksPersistentVolumeClaimOutputWithContext(ctx context.Context) JobDefinitionEksPersistentVolumeClaimOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPersistentVolumeClaimOutput)
+}
+
+func (i JobDefinitionEksPersistentVolumeClaimArgs) ToJobDefinitionEksPersistentVolumeClaimPtrOutput() JobDefinitionEksPersistentVolumeClaimPtrOutput {
+	return i.ToJobDefinitionEksPersistentVolumeClaimPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksPersistentVolumeClaimArgs) ToJobDefinitionEksPersistentVolumeClaimPtrOutputWithContext(ctx context.Context) JobDefinitionEksPersistentVolumeClaimPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPersistentVolumeClaimOutput).ToJobDefinitionEksPersistentVolumeClaimPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionEksPersistentVolumeClaimPtrInput is an input type that accepts JobDefinitionEksPersistentVolumeClaimArgs, JobDefinitionEksPersistentVolumeClaimPtr and JobDefinitionEksPersistentVolumeClaimPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionEksPersistentVolumeClaimPtrInput` via:
+//
+//	        JobDefinitionEksPersistentVolumeClaimArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionEksPersistentVolumeClaimPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksPersistentVolumeClaimPtrOutput() JobDefinitionEksPersistentVolumeClaimPtrOutput
+	ToJobDefinitionEksPersistentVolumeClaimPtrOutputWithContext(context.Context) JobDefinitionEksPersistentVolumeClaimPtrOutput
+}
+
+type jobDefinitionEksPersistentVolumeClaimPtrType JobDefinitionEksPersistentVolumeClaimArgs
+
+func JobDefinitionEksPersistentVolumeClaimPtr(v *JobDefinitionEksPersistentVolumeClaimArgs) JobDefinitionEksPersistentVolumeClaimPtrInput {
+	return (*jobDefinitionEksPersistentVolumeClaimPtrType)(v)
+}
+
+func (*jobDefinitionEksPersistentVolumeClaimPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksPersistentVolumeClaim)(nil)).Elem()
+}
+
+func (i *jobDefinitionEksPersistentVolumeClaimPtrType) ToJobDefinitionEksPersistentVolumeClaimPtrOutput() JobDefinitionEksPersistentVolumeClaimPtrOutput {
+	return i.ToJobDefinitionEksPersistentVolumeClaimPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionEksPersistentVolumeClaimPtrType) ToJobDefinitionEksPersistentVolumeClaimPtrOutputWithContext(ctx context.Context) JobDefinitionEksPersistentVolumeClaimPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPersistentVolumeClaimPtrOutput)
+}
+
+type JobDefinitionEksPersistentVolumeClaimOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksPersistentVolumeClaimOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksPersistentVolumeClaim)(nil)).Elem()
+}
+
+func (o JobDefinitionEksPersistentVolumeClaimOutput) ToJobDefinitionEksPersistentVolumeClaimOutput() JobDefinitionEksPersistentVolumeClaimOutput {
+	return o
+}
+
+func (o JobDefinitionEksPersistentVolumeClaimOutput) ToJobDefinitionEksPersistentVolumeClaimOutputWithContext(ctx context.Context) JobDefinitionEksPersistentVolumeClaimOutput {
+	return o
+}
+
+func (o JobDefinitionEksPersistentVolumeClaimOutput) ToJobDefinitionEksPersistentVolumeClaimPtrOutput() JobDefinitionEksPersistentVolumeClaimPtrOutput {
+	return o.ToJobDefinitionEksPersistentVolumeClaimPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionEksPersistentVolumeClaimOutput) ToJobDefinitionEksPersistentVolumeClaimPtrOutputWithContext(ctx context.Context) JobDefinitionEksPersistentVolumeClaimPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEksPersistentVolumeClaim) *JobDefinitionEksPersistentVolumeClaim {
+		return &v
+	}).(JobDefinitionEksPersistentVolumeClaimPtrOutput)
+}
+
+func (o JobDefinitionEksPersistentVolumeClaimOutput) ClaimName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionEksPersistentVolumeClaim) string { return v.ClaimName }).(pulumi.StringOutput)
+}
+
+func (o JobDefinitionEksPersistentVolumeClaimOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPersistentVolumeClaim) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+type JobDefinitionEksPersistentVolumeClaimPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksPersistentVolumeClaimPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksPersistentVolumeClaim)(nil)).Elem()
+}
+
+func (o JobDefinitionEksPersistentVolumeClaimPtrOutput) ToJobDefinitionEksPersistentVolumeClaimPtrOutput() JobDefinitionEksPersistentVolumeClaimPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksPersistentVolumeClaimPtrOutput) ToJobDefinitionEksPersistentVolumeClaimPtrOutputWithContext(ctx context.Context) JobDefinitionEksPersistentVolumeClaimPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksPersistentVolumeClaimPtrOutput) Elem() JobDefinitionEksPersistentVolumeClaimOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPersistentVolumeClaim) JobDefinitionEksPersistentVolumeClaim {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionEksPersistentVolumeClaim
+		return ret
+	}).(JobDefinitionEksPersistentVolumeClaimOutput)
+}
+
+func (o JobDefinitionEksPersistentVolumeClaimPtrOutput) ClaimName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPersistentVolumeClaim) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClaimName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionEksPersistentVolumeClaimPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPersistentVolumeClaim) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReadOnly
+	}).(pulumi.BoolPtrOutput)
 }
 
 type JobDefinitionEksPodProperties struct {
@@ -5231,7 +5415,8 @@ type JobDefinitionEksVolume struct {
 	// Specifies the configuration of a Kubernetes `hostPath` volume. For more information, see [hostPath](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) in the *Kubernetes documentation* .
 	HostPath *JobDefinitionEksHostPath `pulumi:"hostPath"`
 	// The name of the volume. The name must be allowed as a DNS subdomain name. For more information, see [DNS subdomain names](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) in the *Kubernetes documentation* .
-	Name string `pulumi:"name"`
+	Name                  string                                 `pulumi:"name"`
+	PersistentVolumeClaim *JobDefinitionEksPersistentVolumeClaim `pulumi:"persistentVolumeClaim"`
 	// Specifies the configuration of a Kubernetes `secret` volume. For more information, see [secret](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#secret) in the *Kubernetes documentation* .
 	Secret *JobDefinitionEksSecret `pulumi:"secret"`
 }
@@ -5253,7 +5438,8 @@ type JobDefinitionEksVolumeArgs struct {
 	// Specifies the configuration of a Kubernetes `hostPath` volume. For more information, see [hostPath](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) in the *Kubernetes documentation* .
 	HostPath JobDefinitionEksHostPathPtrInput `pulumi:"hostPath"`
 	// The name of the volume. The name must be allowed as a DNS subdomain name. For more information, see [DNS subdomain names](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) in the *Kubernetes documentation* .
-	Name pulumi.StringInput `pulumi:"name"`
+	Name                  pulumi.StringInput                            `pulumi:"name"`
+	PersistentVolumeClaim JobDefinitionEksPersistentVolumeClaimPtrInput `pulumi:"persistentVolumeClaim"`
 	// Specifies the configuration of a Kubernetes `secret` volume. For more information, see [secret](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#secret) in the *Kubernetes documentation* .
 	Secret JobDefinitionEksSecretPtrInput `pulumi:"secret"`
 }
@@ -5322,6 +5508,10 @@ func (o JobDefinitionEksVolumeOutput) HostPath() JobDefinitionEksHostPathPtrOutp
 // The name of the volume. The name must be allowed as a DNS subdomain name. For more information, see [DNS subdomain names](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) in the *Kubernetes documentation* .
 func (o JobDefinitionEksVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksVolume) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o JobDefinitionEksVolumeOutput) PersistentVolumeClaim() JobDefinitionEksPersistentVolumeClaimPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksVolume) *JobDefinitionEksPersistentVolumeClaim { return v.PersistentVolumeClaim }).(JobDefinitionEksPersistentVolumeClaimPtrOutput)
 }
 
 // Specifies the configuration of a Kubernetes `secret` volume. For more information, see [secret](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#secret) in the *Kubernetes documentation* .
@@ -10183,6 +10373,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksHostPathPtrInput)(nil)).Elem(), JobDefinitionEksHostPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksMetadataInput)(nil)).Elem(), JobDefinitionEksMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksMetadataPtrInput)(nil)).Elem(), JobDefinitionEksMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPersistentVolumeClaimInput)(nil)).Elem(), JobDefinitionEksPersistentVolumeClaimArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPersistentVolumeClaimPtrInput)(nil)).Elem(), JobDefinitionEksPersistentVolumeClaimArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPodPropertiesInput)(nil)).Elem(), JobDefinitionEksPodPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPodPropertiesPtrInput)(nil)).Elem(), JobDefinitionEksPodPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesInput)(nil)).Elem(), JobDefinitionEksPropertiesArgs{})
@@ -10291,6 +10483,8 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionEksHostPathPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksMetadataOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksMetadataPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksPersistentVolumeClaimOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksPersistentVolumeClaimPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksPodPropertiesOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksPodPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksPropertiesOutput{})

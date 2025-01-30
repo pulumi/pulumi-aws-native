@@ -37,6 +37,21 @@
       } ],
       "additionalProperties" : false
     },
+    "RoleConfiguration" : {
+      "description" : "Role configuration",
+      "type" : "object",
+      "properties" : {
+        "SourceRoleArn" : {
+          "description" : "IAM Role in source account",
+          "type" : "string"
+        },
+        "TargetRoleArn" : {
+          "description" : "IAM Role in the target account",
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
     "Source" : {
       "description" : "Scraper metrics source",
       "type" : "object",
@@ -140,6 +155,9 @@
     "ScrapeConfiguration" : {
       "$ref" : "#/definitions/ScrapeConfiguration"
     },
+    "RoleConfiguration" : {
+      "$ref" : "#/definitions/RoleConfiguration"
+    },
     "Source" : {
       "$ref" : "#/definitions/Source"
     },
@@ -170,13 +188,13 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "aps:CreateScraper", "aps:DescribeScraper", "aps:DescribeWorkspace", "aps:TagResource", "eks:CreateAccessEntry", "eks:AssociateAccessPolicy", "eks:DescribeCluster", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "aps:CreateScraper", "aps:DescribeScraper", "aps:DescribeWorkspace", "aps:TagResource", "eks:CreateAccessEntry", "eks:AssociateAccessPolicy", "eks:DescribeCluster", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "iam:CreateServiceLinkedRole", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "aps:DescribeScraper", "aps:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "aps:CreateScraper", "aps:DescribeScraper", "aps:UpdateScraper", "aps:DescribeWorkspace", "aps:TagResource", "aps:UntagResource", "aps:ListTagsForResource" ]
+      "permissions" : [ "aps:CreateScraper", "aps:DescribeScraper", "aps:UpdateScraper", "aps:DescribeWorkspace", "aps:TagResource", "aps:UntagResource", "aps:ListTagsForResource", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "aps:DeleteScraper", "aps:DescribeScraper", "aps:DescribeWorkspace", "eks:AssociateAccessPolicy", "eks:DescribeCluster", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "iam:DeleteServiceLinkedRole" ]

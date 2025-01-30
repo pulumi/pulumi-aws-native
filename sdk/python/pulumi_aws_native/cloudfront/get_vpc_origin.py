@@ -51,36 +51,57 @@ class GetVpcOriginResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The VPC origin ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
+        """
+        The VPC origin created time.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The VPC origin ID.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[str]:
+        """
+        The VPC origin last modified time.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter
     def status(self) -> Optional[str]:
+        """
+        The VPC origin status.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A complex type that contains zero or more `Tag` elements.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcOriginEndpointConfig")
     def vpc_origin_endpoint_config(self) -> Optional['outputs.VpcOriginEndpointConfig']:
+        """
+        The VPC origin endpoint configuration.
+        """
         return pulumi.get(self, "vpc_origin_endpoint_config")
 
 
@@ -103,6 +124,9 @@ def get_vpc_origin(id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcOriginResult:
     """
     Resource Type definition for AWS::CloudFront::VpcOrigin
+
+
+    :param str id: The VPC origin ID.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -121,6 +145,9 @@ def get_vpc_origin_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcOriginResult]:
     """
     Resource Type definition for AWS::CloudFront::VpcOrigin
+
+
+    :param str id: The VPC origin ID.
     """
     __args__ = dict()
     __args__['id'] = id

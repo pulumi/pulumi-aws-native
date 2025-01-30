@@ -54,7 +54,7 @@ export class PublicTypeVersion extends pulumi.CustomResource {
      */
     public readonly publicVersionNumber!: pulumi.Output<string | undefined>;
     /**
-     * The publisher id assigned by CloudFormation for publishing in this region.
+     * The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
      */
     public /*out*/ readonly publisherId!: pulumi.Output<string>;
     /**

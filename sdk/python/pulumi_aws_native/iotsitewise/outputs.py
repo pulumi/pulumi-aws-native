@@ -40,7 +40,6 @@ __all__ = [
     'AssetModelVariableValue',
     'AssetProperty',
     'GatewayCapabilitySummary',
-    'GatewayGreengrass',
     'GatewayGreengrassV2',
     'GatewayPlatform',
     'GatewaySiemensIe',
@@ -1375,45 +1374,6 @@ class GatewayCapabilitySummary(dict):
 
 
 @pulumi.output_type
-class GatewayGreengrass(dict):
-    """
-    Contains the ARN of AWS IoT Greengrass Group V1 that the gateway runs on.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "groupArn":
-            suggest = "group_arn"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GatewayGreengrass. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GatewayGreengrass.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GatewayGreengrass.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 group_arn: str):
-        """
-        Contains the ARN of AWS IoT Greengrass Group V1 that the gateway runs on.
-        :param str group_arn: The ARN of the Greengrass group.
-        """
-        pulumi.set(__self__, "group_arn", group_arn)
-
-    @property
-    @pulumi.getter(name="groupArn")
-    def group_arn(self) -> str:
-        """
-        The ARN of the Greengrass group.
-        """
-        return pulumi.get(self, "group_arn")
-
-
-@pulumi.output_type
 class GatewayGreengrassV2(dict):
     """
     Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.
@@ -1423,6 +1383,8 @@ class GatewayGreengrassV2(dict):
         suggest = None
         if key == "coreDeviceThingName":
             suggest = "core_device_thing_name"
+        elif key == "coreDeviceOperatingSystem":
+            suggest = "core_device_operating_system"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GatewayGreengrassV2. Access the value via the '{suggest}' property getter instead.")
@@ -1436,12 +1398,16 @@ class GatewayGreengrassV2(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 core_device_thing_name: str):
+                 core_device_thing_name: str,
+                 core_device_operating_system: Optional['GatewayGreengrassV2CoreDeviceOperatingSystem'] = None):
         """
         Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.
         :param str core_device_thing_name: The name of the CoreDevice in GreenGrass V2.
+        :param 'GatewayGreengrassV2CoreDeviceOperatingSystem' core_device_operating_system: The operating system of the core device in AWS IoT Greengrass V2.
         """
         pulumi.set(__self__, "core_device_thing_name", core_device_thing_name)
+        if core_device_operating_system is not None:
+            pulumi.set(__self__, "core_device_operating_system", core_device_operating_system)
 
     @property
     @pulumi.getter(name="coreDeviceThingName")
@@ -1450,6 +1416,14 @@ class GatewayGreengrassV2(dict):
         The name of the CoreDevice in GreenGrass V2.
         """
         return pulumi.get(self, "core_device_thing_name")
+
+    @property
+    @pulumi.getter(name="coreDeviceOperatingSystem")
+    def core_device_operating_system(self) -> Optional['GatewayGreengrassV2CoreDeviceOperatingSystem']:
+        """
+        The operating system of the core device in AWS IoT Greengrass V2.
+        """
+        return pulumi.get(self, "core_device_operating_system")
 
 
 @pulumi.output_type
@@ -1477,12 +1451,12 @@ class GatewayPlatform(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 greengrass: Optional['outputs.GatewayGreengrass'] = None,
+                 greengrass: Optional[Any] = None,
                  greengrass_v2: Optional['outputs.GatewayGreengrassV2'] = None,
                  siemens_ie: Optional['outputs.GatewaySiemensIe'] = None):
         """
         Contains a gateway's platform information.
-        :param 'GatewayGreengrass' greengrass: A gateway that runs on AWS IoT Greengrass V1.
+        :param Any greengrass: A gateway that runs on AWS IoT Greengrass V1.
         :param 'GatewayGreengrassV2' greengrass_v2: A gateway that runs on AWS IoT Greengrass V2.
         :param 'GatewaySiemensIe' siemens_ie: A gateway that runs on Siemens Industrial Edge.
         """
@@ -1495,7 +1469,7 @@ class GatewayPlatform(dict):
 
     @property
     @pulumi.getter
-    def greengrass(self) -> Optional['outputs.GatewayGreengrass']:
+    def greengrass(self) -> Optional[Any]:
         """
         A gateway that runs on AWS IoT Greengrass V1.
         """

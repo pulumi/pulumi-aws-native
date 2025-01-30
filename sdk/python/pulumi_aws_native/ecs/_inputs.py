@@ -972,12 +972,12 @@ if not MYPY:
         """
         security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``awsvpcConfiguration``.
+        The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified.
           All specified security groups must be from the same VPC.
         """
         subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``awsvpcConfiguration``.
+        The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified.
           All specified subnets must be from the same VPC.
         """
 elif False:
@@ -992,9 +992,9 @@ class ServiceAwsVpcConfigurationArgs:
         """
         An object representing the networking details for a task or service. For example ``awsVpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}``.
         :param pulumi.Input['ServiceAwsVpcConfigurationAssignPublicIp'] assign_public_ip: Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``awsvpcConfiguration``.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified.
                  All specified security groups must be from the same VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``awsvpcConfiguration``.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified.
                  All specified subnets must be from the same VPC.
         """
         if assign_public_ip is not None:
@@ -1020,7 +1020,7 @@ class ServiceAwsVpcConfigurationArgs:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``awsvpcConfiguration``.
+        The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified.
           All specified security groups must be from the same VPC.
         """
         return pulumi.get(self, "security_groups")
@@ -1033,7 +1033,7 @@ class ServiceAwsVpcConfigurationArgs:
     @pulumi.getter
     def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``awsvpcConfiguration``.
+        The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified.
           All specified subnets must be from the same VPC.
         """
         return pulumi.get(self, "subnets")
@@ -2317,7 +2317,6 @@ if not MYPY:
         The throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s. This parameter maps 1:1 with the ``Throughput`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
           This parameter is only supported for the ``gp3`` volume type.
         """
-        volume_initialization_rate: NotRequired[pulumi.Input[int]]
         volume_type: NotRequired[pulumi.Input[str]]
         """
         The volume type. This parameter maps 1:1 with the ``VolumeType`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
@@ -2344,7 +2343,6 @@ class ServiceManagedEbsVolumeConfigurationArgs:
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEbsTagSpecificationArgs']]]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
-                 volume_initialization_rate: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
         The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. For information about the supported launch types and operating systems, see [Supported operating systems and launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volumes-configuration) in the*Amazon Elastic Container Service Developer Guide*.
@@ -2401,8 +2399,6 @@ class ServiceManagedEbsVolumeConfigurationArgs:
             pulumi.set(__self__, "tag_specifications", tag_specifications)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
-        if volume_initialization_rate is not None:
-            pulumi.set(__self__, "volume_initialization_rate", volume_initialization_rate)
         if volume_type is not None:
             pulumi.set(__self__, "volume_type", volume_type)
 
@@ -2530,15 +2526,6 @@ class ServiceManagedEbsVolumeConfigurationArgs:
     @throughput.setter
     def throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "throughput", value)
-
-    @property
-    @pulumi.getter(name="volumeInitializationRate")
-    def volume_initialization_rate(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "volume_initialization_rate")
-
-    @volume_initialization_rate.setter
-    def volume_initialization_rate(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "volume_initialization_rate", value)
 
     @property
     @pulumi.getter(name="volumeType")

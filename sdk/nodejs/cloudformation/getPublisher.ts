@@ -19,7 +19,7 @@ export function getPublisher(args: GetPublisherArgs, opts?: pulumi.InvokeOptions
 
 export interface GetPublisherArgs {
     /**
-     * The publisher id assigned by CloudFormation for publishing in this region.
+     * The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
      */
     publisherId: string;
 }
@@ -30,7 +30,7 @@ export interface GetPublisherResult {
      */
     readonly identityProvider?: enums.cloudformation.PublisherIdentityProvider;
     /**
-     * The publisher id assigned by CloudFormation for publishing in this region.
+     * The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
      */
     readonly publisherId?: string;
     /**
@@ -54,7 +54,7 @@ export function getPublisherOutput(args: GetPublisherOutputArgs, opts?: pulumi.I
 
 export interface GetPublisherOutputArgs {
     /**
-     * The publisher id assigned by CloudFormation for publishing in this region.
+     * The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
      */
     publisherId: pulumi.Input<string>;
 }

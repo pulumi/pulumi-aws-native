@@ -22,7 +22,7 @@ type Publisher struct {
 	ConnectionArn pulumi.StringPtrOutput `pulumi:"connectionArn"`
 	// The type of account used as the identity provider when registering this publisher with CloudFormation.
 	IdentityProvider PublisherIdentityProviderOutput `pulumi:"identityProvider"`
-	// The publisher id assigned by CloudFormation for publishing in this region.
+	// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
 	PublisherId pulumi.StringOutput `pulumi:"publisherId"`
 	// The URL to the publisher's profile with the identity provider.
 	PublisherProfile pulumi.StringOutput `pulumi:"publisherProfile"`
@@ -144,7 +144,7 @@ func (o PublisherOutput) IdentityProvider() PublisherIdentityProviderOutput {
 	return o.ApplyT(func(v *Publisher) PublisherIdentityProviderOutput { return v.IdentityProvider }).(PublisherIdentityProviderOutput)
 }
 
-// The publisher id assigned by CloudFormation for publishing in this region.
+// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
 func (o PublisherOutput) PublisherId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Publisher) pulumi.StringOutput { return v.PublisherId }).(pulumi.StringOutput)
 }

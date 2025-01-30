@@ -56,6 +56,8 @@ __all__ = [
     'DeliveryStreamDeserializerArgsDict',
     'DeliveryStreamDestinationTableConfigurationArgs',
     'DeliveryStreamDestinationTableConfigurationArgsDict',
+    'DeliveryStreamDirectPutSourceConfigurationArgs',
+    'DeliveryStreamDirectPutSourceConfigurationArgsDict',
     'DeliveryStreamDocumentIdOptionsArgs',
     'DeliveryStreamDocumentIdOptionsArgsDict',
     'DeliveryStreamDynamicPartitioningConfigurationArgs',
@@ -1781,6 +1783,29 @@ class DeliveryStreamDestinationTableConfigurationArgs:
 
 
 if not MYPY:
+    class DeliveryStreamDirectPutSourceConfigurationArgsDict(TypedDict):
+        throughput_hint_in_mbs: NotRequired[pulumi.Input[int]]
+elif False:
+    DeliveryStreamDirectPutSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeliveryStreamDirectPutSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 throughput_hint_in_mbs: Optional[pulumi.Input[int]] = None):
+        if throughput_hint_in_mbs is not None:
+            pulumi.set(__self__, "throughput_hint_in_mbs", throughput_hint_in_mbs)
+
+    @property
+    @pulumi.getter(name="throughputHintInMbs")
+    def throughput_hint_in_mbs(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "throughput_hint_in_mbs")
+
+    @throughput_hint_in_mbs.setter
+    def throughput_hint_in_mbs(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throughput_hint_in_mbs", value)
+
+
+if not MYPY:
     class DeliveryStreamDocumentIdOptionsArgsDict(TypedDict):
         default_document_id_format: pulumi.Input['DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat']
         """
@@ -3099,6 +3124,7 @@ if not MYPY:
         The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
         """
         s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgsDict']
+        append_only: NotRequired[pulumi.Input[bool]]
         buffering_hints: NotRequired[pulumi.Input['DeliveryStreamBufferingHintsArgsDict']]
         cloud_watch_logging_options: NotRequired[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgsDict']]
         destination_table_configuration_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamDestinationTableConfigurationArgsDict']]]]
@@ -3120,6 +3146,7 @@ class DeliveryStreamIcebergDestinationConfigurationArgs:
                  catalog_configuration: pulumi.Input['DeliveryStreamCatalogConfigurationArgs'],
                  role_arn: pulumi.Input[str],
                  s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
+                 append_only: Optional[pulumi.Input[bool]] = None,
                  buffering_hints: Optional[pulumi.Input['DeliveryStreamBufferingHintsArgs']] = None,
                  cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
                  destination_table_configuration_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamDestinationTableConfigurationArgs']]]] = None,
@@ -3135,6 +3162,8 @@ class DeliveryStreamIcebergDestinationConfigurationArgs:
         pulumi.set(__self__, "catalog_configuration", catalog_configuration)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "s3_configuration", s3_configuration)
+        if append_only is not None:
+            pulumi.set(__self__, "append_only", append_only)
         if buffering_hints is not None:
             pulumi.set(__self__, "buffering_hints", buffering_hints)
         if cloud_watch_logging_options is not None:
@@ -3180,6 +3209,15 @@ class DeliveryStreamIcebergDestinationConfigurationArgs:
     @s3_configuration.setter
     def s3_configuration(self, value: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']):
         pulumi.set(self, "s3_configuration", value)
+
+    @property
+    @pulumi.getter(name="appendOnly")
+    def append_only(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "append_only")
+
+    @append_only.setter
+    def append_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "append_only", value)
 
     @property
     @pulumi.getter(name="bufferingHints")

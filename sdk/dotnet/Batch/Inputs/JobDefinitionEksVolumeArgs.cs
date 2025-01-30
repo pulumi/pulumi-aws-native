@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("persistentVolumeClaim")]
+        public Input<Inputs.JobDefinitionEksPersistentVolumeClaimArgs>? PersistentVolumeClaim { get; set; }
+
         /// <summary>
         /// Specifies the configuration of a Kubernetes `secret` volume. For more information, see [secret](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#secret) in the *Kubernetes documentation* .
         /// </summary>

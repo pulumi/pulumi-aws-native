@@ -147,7 +147,7 @@
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
-    "permissions" : [ "resource-groups:Tag", "resource-groups:Untag" ]
+    "permissions" : [ "resource-groups:Tag", "resource-groups:Untag", "resource-groups:GetTags" ]
   },
   "handlers" : {
     "create" : {

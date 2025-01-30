@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetScraperResult:
-    def __init__(__self__, alias=None, arn=None, destination=None, role_arn=None, scrape_configuration=None, scraper_id=None, tags=None):
+    def __init__(__self__, alias=None, arn=None, destination=None, role_arn=None, role_configuration=None, scrape_configuration=None, scraper_id=None, tags=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
@@ -38,6 +38,9 @@ class GetScraperResult:
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
+        if role_configuration and not isinstance(role_configuration, dict):
+            raise TypeError("Expected argument 'role_configuration' to be a dict")
+        pulumi.set(__self__, "role_configuration", role_configuration)
         if scrape_configuration and not isinstance(scrape_configuration, dict):
             raise TypeError("Expected argument 'scrape_configuration' to be a dict")
         pulumi.set(__self__, "scrape_configuration", scrape_configuration)
@@ -81,6 +84,11 @@ class GetScraperResult:
         return pulumi.get(self, "role_arn")
 
     @property
+    @pulumi.getter(name="roleConfiguration")
+    def role_configuration(self) -> Optional['outputs.ScraperRoleConfiguration']:
+        return pulumi.get(self, "role_configuration")
+
+    @property
     @pulumi.getter(name="scrapeConfiguration")
     def scrape_configuration(self) -> Optional['outputs.ScraperScrapeConfiguration']:
         """
@@ -115,6 +123,7 @@ class AwaitableGetScraperResult(GetScraperResult):
             arn=self.arn,
             destination=self.destination,
             role_arn=self.role_arn,
+            role_configuration=self.role_configuration,
             scrape_configuration=self.scrape_configuration,
             scraper_id=self.scraper_id,
             tags=self.tags)
@@ -138,6 +147,7 @@ def get_scraper(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         destination=pulumi.get(__ret__, 'destination'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
+        role_configuration=pulumi.get(__ret__, 'role_configuration'),
         scrape_configuration=pulumi.get(__ret__, 'scrape_configuration'),
         scraper_id=pulumi.get(__ret__, 'scraper_id'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -158,6 +168,7 @@ def get_scraper_output(arn: Optional[pulumi.Input[str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         destination=pulumi.get(__response__, 'destination'),
         role_arn=pulumi.get(__response__, 'role_arn'),
+        role_configuration=pulumi.get(__response__, 'role_configuration'),
         scrape_configuration=pulumi.get(__response__, 'scrape_configuration'),
         scraper_id=pulumi.get(__response__, 'scraper_id'),
         tags=pulumi.get(__response__, 'tags')))

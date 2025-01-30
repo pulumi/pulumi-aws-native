@@ -27,6 +27,7 @@ class ScraperArgs:
                  scrape_configuration: pulumi.Input['ScraperScrapeConfigurationArgs'],
                  source: pulumi.Input['ScraperSourceArgs'],
                  alias: Optional[pulumi.Input[str]] = None,
+                 role_configuration: Optional[pulumi.Input['ScraperRoleConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Scraper resource.
@@ -41,6 +42,8 @@ class ScraperArgs:
         pulumi.set(__self__, "source", source)
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
+        if role_configuration is not None:
+            pulumi.set(__self__, "role_configuration", role_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -93,6 +96,15 @@ class ScraperArgs:
         pulumi.set(self, "alias", value)
 
     @property
+    @pulumi.getter(name="roleConfiguration")
+    def role_configuration(self) -> Optional[pulumi.Input['ScraperRoleConfigurationArgs']]:
+        return pulumi.get(self, "role_configuration")
+
+    @role_configuration.setter
+    def role_configuration(self, value: Optional[pulumi.Input['ScraperRoleConfigurationArgs']]):
+        pulumi.set(self, "role_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -112,6 +124,7 @@ class Scraper(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
+                 role_configuration: Optional[pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']]] = None,
                  scrape_configuration: Optional[pulumi.Input[Union['ScraperScrapeConfigurationArgs', 'ScraperScrapeConfigurationArgsDict']]] = None,
                  source: Optional[pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -153,6 +166,7 @@ class Scraper(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
+                 role_configuration: Optional[pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']]] = None,
                  scrape_configuration: Optional[pulumi.Input[Union['ScraperScrapeConfigurationArgs', 'ScraperScrapeConfigurationArgsDict']]] = None,
                  source: Optional[pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -169,6 +183,7 @@ class Scraper(pulumi.CustomResource):
             if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")
             __props__.__dict__["destination"] = destination
+            __props__.__dict__["role_configuration"] = role_configuration
             if scrape_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'scrape_configuration'")
             __props__.__dict__["scrape_configuration"] = scrape_configuration
@@ -207,6 +222,7 @@ class Scraper(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["destination"] = None
         __props__.__dict__["role_arn"] = None
+        __props__.__dict__["role_configuration"] = None
         __props__.__dict__["scrape_configuration"] = None
         __props__.__dict__["scraper_id"] = None
         __props__.__dict__["source"] = None
@@ -244,6 +260,11 @@ class Scraper(pulumi.CustomResource):
         IAM role ARN for the scraper.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="roleConfiguration")
+    def role_configuration(self) -> pulumi.Output[Optional['outputs.ScraperRoleConfiguration']]:
+        return pulumi.get(self, "role_configuration")
 
     @property
     @pulumi.getter(name="scrapeConfiguration")

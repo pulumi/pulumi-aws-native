@@ -1205,6 +1205,9 @@
         "$ref": "#/types/aws-native:aps:ScraperDestination",
         "description": "The Amazon Managed Service for Prometheus workspace the scraper sends metrics to."
       },
+      "roleConfiguration": {
+        "$ref": "#/types/aws-native:aps:ScraperRoleConfiguration"
+      },
       "scrapeConfiguration": {
         "$ref": "#/types/aws-native:aps:ScraperScrapeConfiguration",
         "description": "The configuration in use by the scraper."
@@ -1878,7 +1881,7 @@
       },
       "publisherId": {
         "type": "string",
-        "description": "The publisher id assigned by CloudFormation for publishing in this region."
+        "description": "The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region."
       },
       "type": {
         "$ref": "#/types/aws-native:cloudformation:TypeActivationType",
@@ -2011,10 +2014,12 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
-        }
+        },
+        "description": "A complex type that contains zero or more `Tag` elements."
       },
       "vpcOriginEndpointConfig": {
-        "$ref": "#/types/aws-native:cloudfront:VpcOriginEndpointConfig"
+        "$ref": "#/types/aws-native:cloudfront:VpcOriginEndpointConfig",
+        "description": "The VPC origin endpoint configuration."
       }
     }
   },
@@ -3707,7 +3712,7 @@
       },
       "instanceCount": {
         "type": "integer",
-        "description": "The number of instances for which to reserve capacity.\n\n\u003e You can request future-dated Capacity Reservations for an instance count with a minimum of 100 VPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ). \n\nValid range: 1 - 1000"
+        "description": "The number of instances for which to reserve capacity.\n\n\u003e You can request future-dated Capacity Reservations for an instance count with a minimum of 100 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ). \n\nValid range: 1 - 1000"
       },
       "instanceMatchCriteria": {
         "type": "string",

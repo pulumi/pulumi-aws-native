@@ -24,16 +24,24 @@ func LookupVpcOrigin(ctx *pulumi.Context, args *LookupVpcOriginArgs, opts ...pul
 }
 
 type LookupVpcOriginArgs struct {
+	// The VPC origin ID.
 	Id string `pulumi:"id"`
 }
 
 type LookupVpcOriginResult struct {
-	Arn                     *string                  `pulumi:"arn"`
-	CreatedTime             *string                  `pulumi:"createdTime"`
-	Id                      *string                  `pulumi:"id"`
-	LastModifiedTime        *string                  `pulumi:"lastModifiedTime"`
-	Status                  *string                  `pulumi:"status"`
-	Tags                    []aws.Tag                `pulumi:"tags"`
+	// The VPC origin ARN.
+	Arn *string `pulumi:"arn"`
+	// The VPC origin created time.
+	CreatedTime *string `pulumi:"createdTime"`
+	// The VPC origin ID.
+	Id *string `pulumi:"id"`
+	// The VPC origin last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// The VPC origin status.
+	Status *string `pulumi:"status"`
+	// A complex type that contains zero or more `Tag` elements.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The VPC origin endpoint configuration.
 	VpcOriginEndpointConfig *VpcOriginEndpointConfig `pulumi:"vpcOriginEndpointConfig"`
 }
 
@@ -47,6 +55,7 @@ func LookupVpcOriginOutput(ctx *pulumi.Context, args LookupVpcOriginOutputArgs, 
 }
 
 type LookupVpcOriginOutputArgs struct {
+	// The VPC origin ID.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -68,30 +77,37 @@ func (o LookupVpcOriginResultOutput) ToLookupVpcOriginResultOutputWithContext(ct
 	return o
 }
 
+// The VPC origin ARN.
 func (o LookupVpcOriginResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcOriginResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The VPC origin created time.
 func (o LookupVpcOriginResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcOriginResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The VPC origin ID.
 func (o LookupVpcOriginResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcOriginResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The VPC origin last modified time.
 func (o LookupVpcOriginResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcOriginResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
+// The VPC origin status.
 func (o LookupVpcOriginResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcOriginResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// A complex type that contains zero or more `Tag` elements.
 func (o LookupVpcOriginResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupVpcOriginResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The VPC origin endpoint configuration.
 func (o LookupVpcOriginResultOutput) VpcOriginEndpointConfig() VpcOriginEndpointConfigPtrOutput {
 	return o.ApplyT(func(v LookupVpcOriginResult) *VpcOriginEndpointConfig { return v.VpcOriginEndpointConfig }).(VpcOriginEndpointConfigPtrOutput)
 }

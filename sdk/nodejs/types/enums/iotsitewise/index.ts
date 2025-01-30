@@ -37,6 +37,17 @@ export const AssetPropertyNotificationState = {
  */
 export type AssetPropertyNotificationState = (typeof AssetPropertyNotificationState)[keyof typeof AssetPropertyNotificationState];
 
+export const GatewayGreengrassV2CoreDeviceOperatingSystem = {
+    LinuxAarch64: "LINUX_AARCH64",
+    LinuxAmd64: "LINUX_AMD64",
+    WindowsAmd64: "WINDOWS_AMD64",
+} as const;
+
+/**
+ * The operating system of the core device in AWS IoT Greengrass V2.
+ */
+export type GatewayGreengrassV2CoreDeviceOperatingSystem = (typeof GatewayGreengrassV2CoreDeviceOperatingSystem)[keyof typeof GatewayGreengrassV2CoreDeviceOperatingSystem];
+
 export const PortalType = {
     SitewisePortalV1: "SITEWISE_PORTAL_V1",
     SitewisePortalV2: "SITEWISE_PORTAL_V2",

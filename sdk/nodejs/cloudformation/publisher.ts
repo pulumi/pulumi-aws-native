@@ -50,7 +50,7 @@ export class Publisher extends pulumi.CustomResource {
      */
     public /*out*/ readonly identityProvider!: pulumi.Output<enums.cloudformation.PublisherIdentityProvider>;
     /**
-     * The publisher id assigned by CloudFormation for publishing in this region.
+     * The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
      */
     public /*out*/ readonly publisherId!: pulumi.Output<string>;
     /**

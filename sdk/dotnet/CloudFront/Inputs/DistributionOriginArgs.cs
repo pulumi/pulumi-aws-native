@@ -101,6 +101,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("s3OriginConfig")]
         public Input<Inputs.DistributionS3OriginConfigArgs>? S3OriginConfig { get; set; }
 
+        [Input("vpcOriginConfig")]
+        public Input<Inputs.DistributionVpcOriginConfigArgs>? VpcOriginConfig { get; set; }
+
         public DistributionOriginArgs()
         {
         }

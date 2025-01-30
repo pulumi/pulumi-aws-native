@@ -25,6 +25,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// If this value is `true` , the container has read-only access to the volume. Otherwise, the container can write to the volume. The default value is `false` .
         /// </summary>
         public readonly bool? ReadOnly;
+        public readonly string? SubPath;
 
         [OutputConstructor]
         private JobDefinitionEksContainerVolumeMount(
@@ -32,11 +33,14 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             string? name,
 
-            bool? readOnly)
+            bool? readOnly,
+
+            string? subPath)
         {
             MountPath = mountPath;
             Name = name;
             ReadOnly = readOnly;
+            SubPath = subPath;
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamIcebergDestinationConfiguration
     {
+        public readonly bool? AppendOnly;
         public readonly Outputs.DeliveryStreamBufferingHints? BufferingHints;
         /// <summary>
         /// Configuration describing where the destination Apache Iceberg Tables are persisted.
@@ -37,6 +38,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamIcebergDestinationConfiguration(
+            bool? appendOnly,
+
             Outputs.DeliveryStreamBufferingHints? bufferingHints,
 
             Outputs.DeliveryStreamCatalogConfiguration catalogConfiguration,
@@ -55,6 +58,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             Outputs.DeliveryStreamS3DestinationConfiguration s3Configuration)
         {
+            AppendOnly = appendOnly;
             BufferingHints = bufferingHints;
             CatalogConfiguration = catalogConfiguration;
             CloudWatchLoggingOptions = cloudWatchLoggingOptions;

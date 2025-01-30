@@ -50,7 +50,7 @@ class GetPublisherResult:
     @pulumi.getter(name="publisherId")
     def publisher_id(self) -> Optional[str]:
         """
-        The publisher id assigned by CloudFormation for publishing in this region.
+        The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
         """
         return pulumi.get(self, "publisher_id")
 
@@ -89,7 +89,7 @@ def get_publisher(publisher_id: Optional[str] = None,
     Register as a publisher in the CloudFormation Registry.
 
 
-    :param str publisher_id: The publisher id assigned by CloudFormation for publishing in this region.
+    :param str publisher_id: The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
     """
     __args__ = dict()
     __args__['publisherId'] = publisher_id
@@ -107,7 +107,7 @@ def get_publisher_output(publisher_id: Optional[pulumi.Input[str]] = None,
     Register as a publisher in the CloudFormation Registry.
 
 
-    :param str publisher_id: The publisher id assigned by CloudFormation for publishing in this region.
+    :param str publisher_id: The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
     """
     __args__ = dict()
     __args__['publisherId'] = publisher_id

@@ -70,6 +70,7 @@ export class DeliveryStream extends pulumi.CustomResource {
      * - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
      */
     public readonly deliveryStreamType!: pulumi.Output<enums.kinesisfirehose.DeliveryStreamType | undefined>;
+    public readonly directPutSourceConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamDirectPutSourceConfiguration | undefined>;
     /**
      * An Amazon ES destination for the delivery stream.
      *
@@ -158,6 +159,7 @@ export class DeliveryStream extends pulumi.CustomResource {
             resourceInputs["deliveryStreamEncryptionConfigurationInput"] = args ? args.deliveryStreamEncryptionConfigurationInput : undefined;
             resourceInputs["deliveryStreamName"] = args ? args.deliveryStreamName : undefined;
             resourceInputs["deliveryStreamType"] = args ? args.deliveryStreamType : undefined;
+            resourceInputs["directPutSourceConfiguration"] = args ? args.directPutSourceConfiguration : undefined;
             resourceInputs["elasticsearchDestinationConfiguration"] = args ? args.elasticsearchDestinationConfiguration : undefined;
             resourceInputs["extendedS3DestinationConfiguration"] = args ? args.extendedS3DestinationConfiguration : undefined;
             resourceInputs["httpEndpointDestinationConfiguration"] = args ? args.httpEndpointDestinationConfiguration : undefined;
@@ -178,6 +180,7 @@ export class DeliveryStream extends pulumi.CustomResource {
             resourceInputs["deliveryStreamEncryptionConfigurationInput"] = undefined /*out*/;
             resourceInputs["deliveryStreamName"] = undefined /*out*/;
             resourceInputs["deliveryStreamType"] = undefined /*out*/;
+            resourceInputs["directPutSourceConfiguration"] = undefined /*out*/;
             resourceInputs["elasticsearchDestinationConfiguration"] = undefined /*out*/;
             resourceInputs["extendedS3DestinationConfiguration"] = undefined /*out*/;
             resourceInputs["httpEndpointDestinationConfiguration"] = undefined /*out*/;
@@ -191,7 +194,7 @@ export class DeliveryStream extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "databaseSourceConfiguration", "deliveryStreamName", "deliveryStreamType", "elasticsearchDestinationConfiguration.vpcConfiguration", "icebergDestinationConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration", "snowflakeDestinationConfiguration.snowflakeVpcConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "databaseSourceConfiguration", "deliveryStreamName", "deliveryStreamType", "directPutSourceConfiguration", "elasticsearchDestinationConfiguration.vpcConfiguration", "icebergDestinationConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration", "snowflakeDestinationConfiguration.snowflakeVpcConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeliveryStream.__pulumiType, name, resourceInputs, opts);
     }
@@ -230,6 +233,7 @@ export interface DeliveryStreamArgs {
      * - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
      */
     deliveryStreamType?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamType>;
+    directPutSourceConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamDirectPutSourceConfigurationArgs>;
     /**
      * An Amazon ES destination for the delivery stream.
      *

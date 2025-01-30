@@ -62,7 +62,7 @@ export class TypeActivation extends pulumi.CustomResource {
      */
     public readonly publicTypeArn!: pulumi.Output<string | undefined>;
     /**
-     * The publisher id assigned by CloudFormation for publishing in this region.
+     * The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
      */
     public readonly publisherId!: pulumi.Output<string | undefined>;
     /**
@@ -151,7 +151,7 @@ export interface TypeActivationArgs {
      */
     publicTypeArn?: pulumi.Input<string>;
     /**
-     * The publisher id assigned by CloudFormation for publishing in this region.
+     * The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
      */
     publisherId?: pulumi.Input<string>;
     /**

@@ -39,7 +39,7 @@ class TypeActivationArgs:
         :param pulumi.Input['TypeActivationLoggingConfigArgs'] logging_config: Specifies logging configuration information for a type.
         :param pulumi.Input[str] major_version: The Major Version of the type you want to enable
         :param pulumi.Input[str] public_type_arn: The Amazon Resource Number (ARN) assigned to the public extension upon publication
-        :param pulumi.Input[str] publisher_id: The publisher id assigned by CloudFormation for publishing in this region.
+        :param pulumi.Input[str] publisher_id: The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
         :param pulumi.Input['TypeActivationType'] type: The kind of extension
         :param pulumi.Input[str] type_name: The name of the type being registered.
                
@@ -132,7 +132,7 @@ class TypeActivationArgs:
     @pulumi.getter(name="publisherId")
     def publisher_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The publisher id assigned by CloudFormation for publishing in this region.
+        The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
         """
         return pulumi.get(self, "publisher_id")
 
@@ -217,7 +217,7 @@ class TypeActivation(pulumi.CustomResource):
         :param pulumi.Input[Union['TypeActivationLoggingConfigArgs', 'TypeActivationLoggingConfigArgsDict']] logging_config: Specifies logging configuration information for a type.
         :param pulumi.Input[str] major_version: The Major Version of the type you want to enable
         :param pulumi.Input[str] public_type_arn: The Amazon Resource Number (ARN) assigned to the public extension upon publication
-        :param pulumi.Input[str] publisher_id: The publisher id assigned by CloudFormation for publishing in this region.
+        :param pulumi.Input[str] publisher_id: The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
         :param pulumi.Input['TypeActivationType'] type: The kind of extension
         :param pulumi.Input[str] type_name: The name of the type being registered.
                
@@ -368,7 +368,7 @@ class TypeActivation(pulumi.CustomResource):
     @pulumi.getter(name="publisherId")
     def publisher_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The publisher id assigned by CloudFormation for publishing in this region.
+        The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
         """
         return pulumi.get(self, "publisher_id")
 

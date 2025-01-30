@@ -127,6 +127,38 @@ namespace Pulumi.AwsNative.IoTSiteWise
     }
 
     /// <summary>
+    /// The operating system of the core device in AWS IoT Greengrass V2.
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayGreengrassV2CoreDeviceOperatingSystem : IEquatable<GatewayGreengrassV2CoreDeviceOperatingSystem>
+    {
+        private readonly string _value;
+
+        private GatewayGreengrassV2CoreDeviceOperatingSystem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayGreengrassV2CoreDeviceOperatingSystem LinuxAarch64 { get; } = new GatewayGreengrassV2CoreDeviceOperatingSystem("LINUX_AARCH64");
+        public static GatewayGreengrassV2CoreDeviceOperatingSystem LinuxAmd64 { get; } = new GatewayGreengrassV2CoreDeviceOperatingSystem("LINUX_AMD64");
+        public static GatewayGreengrassV2CoreDeviceOperatingSystem WindowsAmd64 { get; } = new GatewayGreengrassV2CoreDeviceOperatingSystem("WINDOWS_AMD64");
+
+        public static bool operator ==(GatewayGreengrassV2CoreDeviceOperatingSystem left, GatewayGreengrassV2CoreDeviceOperatingSystem right) => left.Equals(right);
+        public static bool operator !=(GatewayGreengrassV2CoreDeviceOperatingSystem left, GatewayGreengrassV2CoreDeviceOperatingSystem right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayGreengrassV2CoreDeviceOperatingSystem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayGreengrassV2CoreDeviceOperatingSystem other && Equals(other);
+        public bool Equals(GatewayGreengrassV2CoreDeviceOperatingSystem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of portal
     /// </summary>
     [EnumType]

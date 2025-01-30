@@ -41,6 +41,7 @@ export interface GetScraperResult {
      * IAM role ARN for the scraper.
      */
     readonly roleArn?: string;
+    readonly roleConfiguration?: outputs.aps.ScraperRoleConfiguration;
     /**
      * The configuration in use by the scraper.
      */

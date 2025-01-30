@@ -777,9 +777,9 @@ class ServiceAwsVpcConfiguration(dict):
         """
         An object representing the networking details for a task or service. For example ``awsVpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}``.
         :param 'ServiceAwsVpcConfigurationAssignPublicIp' assign_public_ip: Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
-        :param Sequence[str] security_groups: The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``awsvpcConfiguration``.
+        :param Sequence[str] security_groups: The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified.
                  All specified security groups must be from the same VPC.
-        :param Sequence[str] subnets: The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``awsvpcConfiguration``.
+        :param Sequence[str] subnets: The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified.
                  All specified subnets must be from the same VPC.
         """
         if assign_public_ip is not None:
@@ -801,7 +801,7 @@ class ServiceAwsVpcConfiguration(dict):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
         """
-        The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``awsvpcConfiguration``.
+        The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified.
           All specified security groups must be from the same VPC.
         """
         return pulumi.get(self, "security_groups")
@@ -810,7 +810,7 @@ class ServiceAwsVpcConfiguration(dict):
     @pulumi.getter
     def subnets(self) -> Optional[Sequence[str]]:
         """
-        The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``awsvpcConfiguration``.
+        The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified.
           All specified subnets must be from the same VPC.
         """
         return pulumi.get(self, "subnets")
@@ -1821,8 +1821,6 @@ class ServiceManagedEbsVolumeConfiguration(dict):
             suggest = "snapshot_id"
         elif key == "tagSpecifications":
             suggest = "tag_specifications"
-        elif key == "volumeInitializationRate":
-            suggest = "volume_initialization_rate"
         elif key == "volumeType":
             suggest = "volume_type"
 
@@ -1847,7 +1845,6 @@ class ServiceManagedEbsVolumeConfiguration(dict):
                  snapshot_id: Optional[str] = None,
                  tag_specifications: Optional[Sequence['outputs.ServiceEbsTagSpecification']] = None,
                  throughput: Optional[int] = None,
-                 volume_initialization_rate: Optional[int] = None,
                  volume_type: Optional[str] = None):
         """
         The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. For information about the supported launch types and operating systems, see [Supported operating systems and launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volumes-configuration) in the*Amazon Elastic Container Service Developer Guide*.
@@ -1904,8 +1901,6 @@ class ServiceManagedEbsVolumeConfiguration(dict):
             pulumi.set(__self__, "tag_specifications", tag_specifications)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
-        if volume_initialization_rate is not None:
-            pulumi.set(__self__, "volume_initialization_rate", volume_initialization_rate)
         if volume_type is not None:
             pulumi.set(__self__, "volume_type", volume_type)
 
@@ -1997,11 +1992,6 @@ class ServiceManagedEbsVolumeConfiguration(dict):
           This parameter is only supported for the ``gp3`` volume type.
         """
         return pulumi.get(self, "throughput")
-
-    @property
-    @pulumi.getter(name="volumeInitializationRate")
-    def volume_initialization_rate(self) -> Optional[int]:
-        return pulumi.get(self, "volume_initialization_rate")
 
     @property
     @pulumi.getter(name="volumeType")

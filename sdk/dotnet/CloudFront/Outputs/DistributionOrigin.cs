@@ -76,6 +76,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.
         /// </summary>
         public readonly Outputs.DistributionS3OriginConfig? S3OriginConfig;
+        public readonly Outputs.DistributionVpcOriginConfig? VpcOriginConfig;
 
         [OutputConstructor]
         private DistributionOrigin(
@@ -97,7 +98,9 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             Outputs.DistributionOriginShield? originShield,
 
-            Outputs.DistributionS3OriginConfig? s3OriginConfig)
+            Outputs.DistributionS3OriginConfig? s3OriginConfig,
+
+            Outputs.DistributionVpcOriginConfig? vpcOriginConfig)
         {
             ConnectionAttempts = connectionAttempts;
             ConnectionTimeout = connectionTimeout;
@@ -109,6 +112,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             OriginPath = originPath;
             OriginShield = originShield;
             S3OriginConfig = s3OriginConfig;
+            VpcOriginConfig = vpcOriginConfig;
         }
     }
 }

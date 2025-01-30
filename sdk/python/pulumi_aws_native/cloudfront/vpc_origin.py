@@ -27,6 +27,8 @@ class VpcOriginArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VpcOrigin resource.
+        :param pulumi.Input['VpcOriginEndpointConfigArgs'] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more `Tag` elements.
         """
         pulumi.set(__self__, "vpc_origin_endpoint_config", vpc_origin_endpoint_config)
         if tags is not None:
@@ -35,6 +37,9 @@ class VpcOriginArgs:
     @property
     @pulumi.getter(name="vpcOriginEndpointConfig")
     def vpc_origin_endpoint_config(self) -> pulumi.Input['VpcOriginEndpointConfigArgs']:
+        """
+        The VPC origin endpoint configuration.
+        """
         return pulumi.get(self, "vpc_origin_endpoint_config")
 
     @vpc_origin_endpoint_config.setter
@@ -44,6 +49,9 @@ class VpcOriginArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A complex type that contains zero or more `Tag` elements.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -64,6 +72,8 @@ class VpcOrigin(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more `Tag` elements.
+        :param pulumi.Input[Union['VpcOriginEndpointConfigArgs', 'VpcOriginEndpointConfigArgsDict']] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
         """
         ...
     @overload
@@ -143,35 +153,56 @@ class VpcOrigin(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The VPC origin ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The VPC origin ID.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        The VPC origin created time.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[str]:
+        """
+        The VPC origin last modified time.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The VPC origin status.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A complex type that contains zero or more `Tag` elements.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcOriginEndpointConfig")
     def vpc_origin_endpoint_config(self) -> pulumi.Output['outputs.VpcOriginEndpointConfig']:
+        """
+        The VPC origin endpoint configuration.
+        """
         return pulumi.get(self, "vpc_origin_endpoint_config")
 

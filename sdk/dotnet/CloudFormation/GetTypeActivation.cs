@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public readonly string? PublicTypeArn;
         /// <summary>
-        /// The publisher id assigned by CloudFormation for publishing in this region.
+        /// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
         /// </summary>
         public readonly string? PublisherId;
         /// <summary>

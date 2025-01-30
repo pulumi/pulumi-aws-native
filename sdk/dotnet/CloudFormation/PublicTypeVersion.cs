@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<string?> PublicVersionNumber { get; private set; } = null!;
 
         /// <summary>
-        /// The publisher id assigned by CloudFormation for publishing in this region.
+        /// The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
         /// </summary>
         [Output("publisherId")]
         public Output<string> PublisherId { get; private set; } = null!;

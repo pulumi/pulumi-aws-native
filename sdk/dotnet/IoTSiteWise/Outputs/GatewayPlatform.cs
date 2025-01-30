@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         /// <summary>
         /// A gateway that runs on AWS IoT Greengrass V1.
         /// </summary>
-        public readonly Outputs.GatewayGreengrass? Greengrass;
+        public readonly object? Greengrass;
         /// <summary>
         /// A gateway that runs on AWS IoT Greengrass V2.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 
         [OutputConstructor]
         private GatewayPlatform(
-            Outputs.GatewayGreengrass? greengrass,
+            object? greengrass,
 
             Outputs.GatewayGreengrassV2? greengrassV2,
 

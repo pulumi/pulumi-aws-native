@@ -34,6 +34,9 @@
     "DatabaseSourceConfiguration" : {
       "$ref" : "#/definitions/DatabaseSourceConfiguration"
     },
+    "DirectPutSourceConfiguration" : {
+      "$ref" : "#/definitions/DirectPutSourceConfiguration"
+    },
     "KinesisStreamSourceConfiguration" : {
       "$ref" : "#/definitions/KinesisStreamSourceConfiguration"
     },
@@ -179,6 +182,17 @@
         }
       },
       "required" : [ "EndpointConfiguration", "S3Configuration" ]
+    },
+    "DirectPutSourceConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ThroughputHintInMBs" : {
+          "type" : "integer",
+          "minimum" : 1,
+          "maximum" : 100
+        }
+      }
     },
     "KinesisStreamSourceConfiguration" : {
       "type" : "object",
@@ -985,6 +999,9 @@
             "propertyPath" : "/properties/Arn"
           }
         },
+        "AppendOnly" : {
+          "type" : "boolean"
+        },
         "RetryOptions" : {
           "$ref" : "#/definitions/RetryOptions"
         },
@@ -1685,6 +1702,6 @@
     }
   },
   "readOnlyProperties" : [ "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/DeliveryStreamName", "/properties/DeliveryStreamType", "/properties/ElasticsearchDestinationConfiguration/VpcConfiguration", "/properties/AmazonopensearchserviceDestinationConfiguration/VpcConfiguration", "/properties/AmazonOpenSearchServerlessDestinationConfiguration/VpcConfiguration", "/properties/DatabaseSourceConfiguration", "/properties/KinesisStreamSourceConfiguration", "/properties/MSKSourceConfiguration", "/properties/IcebergDestinationConfiguration", "/properties/SnowflakeDestinationConfiguration/SnowflakeVpcConfiguration" ],
+  "createOnlyProperties" : [ "/properties/DeliveryStreamName", "/properties/DeliveryStreamType", "/properties/ElasticsearchDestinationConfiguration/VpcConfiguration", "/properties/AmazonopensearchserviceDestinationConfiguration/VpcConfiguration", "/properties/AmazonOpenSearchServerlessDestinationConfiguration/VpcConfiguration", "/properties/DatabaseSourceConfiguration", "/properties/KinesisStreamSourceConfiguration", "/properties/DirectPutSourceConfiguration", "/properties/MSKSourceConfiguration", "/properties/IcebergDestinationConfiguration", "/properties/SnowflakeDestinationConfiguration/SnowflakeVpcConfiguration" ],
   "primaryIdentifier" : [ "/properties/DeliveryStreamName" ]
 }

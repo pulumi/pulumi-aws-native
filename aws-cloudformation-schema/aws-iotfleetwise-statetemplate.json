@@ -48,6 +48,12 @@
       "minLength" : 1,
       "pattern" : "^[a-zA-Z\\d\\-_:]+$"
     },
+    "Id" : {
+      "type" : "string",
+      "maxLength" : 26,
+      "minLength" : 26,
+      "pattern" : "^[A-Z0-9]+$"
+    },
     "SignalCatalogArn" : {
       "type" : "string"
     },
@@ -99,7 +105,7 @@
     }
   },
   "required" : [ "Name", "SignalCatalogArn", "StateTemplateProperties" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreationTime", "/properties/LastModificationTime" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Id", "/properties/CreationTime", "/properties/LastModificationTime" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/SignalCatalogArn" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "handlers" : {

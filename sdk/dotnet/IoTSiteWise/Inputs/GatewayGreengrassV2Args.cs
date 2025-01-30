@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     public sealed class GatewayGreengrassV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The operating system of the core device in AWS IoT Greengrass V2.
+        /// </summary>
+        [Input("coreDeviceOperatingSystem")]
+        public Input<Pulumi.AwsNative.IoTSiteWise.GatewayGreengrassV2CoreDeviceOperatingSystem>? CoreDeviceOperatingSystem { get; set; }
+
+        /// <summary>
         /// The name of the CoreDevice in GreenGrass V2.
         /// </summary>
         [Input("coreDeviceThingName", required: true)]
