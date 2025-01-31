@@ -81,12 +81,13 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "connect:UntagResource", "connect:TagResource" ]
   },
   "required" : [ "TargetArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "connect:ClaimPhoneNumber", "connect:SearchAvailablePhoneNumbers", "connect:DescribePhoneNumber", "connect:TagResource", "connect:ImportPhoneNumber", "sms-voice:DescribePhoneNumbers" ]
+      "permissions" : [ "connect:ClaimPhoneNumber", "connect:SearchAvailablePhoneNumbers", "connect:DescribePhoneNumber", "connect:TagResource", "connect:ImportPhoneNumber", "sms-voice:DescribePhoneNumbers", "social-messaging:GetLinkedWhatsAppBusinessAccountPhoneNumber", "social-messaging:TagResource" ]
     },
     "read" : {
       "permissions" : [ "connect:DescribePhoneNumber" ]

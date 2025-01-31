@@ -25,6 +25,12 @@
   "required" : [ "ProfileName", "Action", "Principal", "StatementId" ],
   "createOnlyProperties" : [ "/properties/ProfileName", "/properties/Action", "/properties/Principal", "/properties/StatementId", "/properties/ProfileVersion" ],
   "primaryIdentifier" : [ "/properties/StatementId", "/properties/ProfileName" ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "signer:AddProfilePermission", "signer:ListProfilePermissions" ]
