@@ -51,10 +51,6 @@ export interface GetGlobalTableResult {
      */
     readonly globalSecondaryIndexes?: outputs.dynamodb.GlobalTableGlobalSecondaryIndex[];
     /**
-     * Represents the settings used to enable point in time recovery.
-     */
-    readonly pointInTimeRecoverySpecification?: outputs.dynamodb.GlobalTablePointInTimeRecoverySpecification;
-    /**
      * Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
      *
      * > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.

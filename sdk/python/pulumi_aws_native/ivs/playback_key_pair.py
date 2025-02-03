@@ -27,7 +27,7 @@ class PlaybackKeyPairArgs:
         """
         The set of arguments for constructing a PlaybackKeyPair resource.
         :param pulumi.Input[str] name: An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
-        :param pulumi.Input[str] public_key_material: The public portion of a customer-generated key pair.
+        :param pulumi.Input[str] public_key_material: The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PlaybackKeyPair resource.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
         if name is not None:
@@ -53,7 +53,7 @@ class PlaybackKeyPairArgs:
     @pulumi.getter(name="publicKeyMaterial")
     def public_key_material(self) -> Optional[pulumi.Input[str]]:
         """
-        The public portion of a customer-generated key pair.
+        The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PlaybackKeyPair resource.
         """
         return pulumi.get(self, "public_key_material")
 
@@ -135,7 +135,7 @@ class PlaybackKeyPair(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
-        :param pulumi.Input[str] public_key_material: The public portion of a customer-generated key pair.
+        :param pulumi.Input[str] public_key_material: The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PlaybackKeyPair resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
         ...
@@ -284,7 +284,7 @@ class PlaybackKeyPair(pulumi.CustomResource):
     @pulumi.getter(name="publicKeyMaterial")
     def public_key_material(self) -> pulumi.Output[Optional[str]]:
         """
-        The public portion of a customer-generated key pair.
+        The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PlaybackKeyPair resource.
         """
         return pulumi.get(self, "public_key_material")
 

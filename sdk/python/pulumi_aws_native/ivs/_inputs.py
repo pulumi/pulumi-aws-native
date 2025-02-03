@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ChannelMultitrackInputConfigurationArgs',
+    'ChannelMultitrackInputConfigurationArgsDict',
     'RecordingConfigurationDestinationConfigurationArgs',
     'RecordingConfigurationDestinationConfigurationArgsDict',
     'RecordingConfigurationRenditionConfigurationArgs',
@@ -33,6 +35,78 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ChannelMultitrackInputConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether multitrack input is enabled. Can be set to true only if channel type is STANDARD. Setting enabled to true with any other channel type will cause an exception. If true, then policy, maximumResolution, and containerFormat are required, and containerFormat must be set to FRAGMENTED_MP4. Default: false.
+        """
+        maximum_resolution: NotRequired[pulumi.Input['ChannelMultitrackInputConfigurationMaximumResolution']]
+        """
+        Maximum resolution for multitrack input. Required if enabled is true.
+        """
+        policy: NotRequired[pulumi.Input['ChannelMultitrackInputConfigurationPolicy']]
+        """
+        Indicates whether multitrack input is allowed or required. Required if enabled is true.
+        """
+elif False:
+    ChannelMultitrackInputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ChannelMultitrackInputConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 maximum_resolution: Optional[pulumi.Input['ChannelMultitrackInputConfigurationMaximumResolution']] = None,
+                 policy: Optional[pulumi.Input['ChannelMultitrackInputConfigurationPolicy']] = None):
+        """
+        :param pulumi.Input[bool] enabled: Indicates whether multitrack input is enabled. Can be set to true only if channel type is STANDARD. Setting enabled to true with any other channel type will cause an exception. If true, then policy, maximumResolution, and containerFormat are required, and containerFormat must be set to FRAGMENTED_MP4. Default: false.
+        :param pulumi.Input['ChannelMultitrackInputConfigurationMaximumResolution'] maximum_resolution: Maximum resolution for multitrack input. Required if enabled is true.
+        :param pulumi.Input['ChannelMultitrackInputConfigurationPolicy'] policy: Indicates whether multitrack input is allowed or required. Required if enabled is true.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if maximum_resolution is not None:
+            pulumi.set(__self__, "maximum_resolution", maximum_resolution)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether multitrack input is enabled. Can be set to true only if channel type is STANDARD. Setting enabled to true with any other channel type will cause an exception. If true, then policy, maximumResolution, and containerFormat are required, and containerFormat must be set to FRAGMENTED_MP4. Default: false.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="maximumResolution")
+    def maximum_resolution(self) -> Optional[pulumi.Input['ChannelMultitrackInputConfigurationMaximumResolution']]:
+        """
+        Maximum resolution for multitrack input. Required if enabled is true.
+        """
+        return pulumi.get(self, "maximum_resolution")
+
+    @maximum_resolution.setter
+    def maximum_resolution(self, value: Optional[pulumi.Input['ChannelMultitrackInputConfigurationMaximumResolution']]):
+        pulumi.set(self, "maximum_resolution", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ChannelMultitrackInputConfigurationPolicy']]:
+        """
+        Indicates whether multitrack input is allowed or required. Required if enabled is true.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ChannelMultitrackInputConfigurationPolicy']]):
+        pulumi.set(self, "policy", value)
+
 
 if not MYPY:
     class RecordingConfigurationDestinationConfigurationArgsDict(TypedDict):

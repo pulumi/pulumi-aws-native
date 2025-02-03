@@ -22,7 +22,7 @@ type PublicKey struct {
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
 	// Name of the public key to be imported. The value does not need to be unique.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The public portion of a customer-generated key pair.
+	// The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PublicKey resource.
 	PublicKeyMaterial pulumi.StringPtrOutput `pulumi:"publicKeyMaterial"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -75,7 +75,7 @@ func (PublicKeyState) ElementType() reflect.Type {
 type publicKeyArgs struct {
 	// Name of the public key to be imported. The value does not need to be unique.
 	Name *string `pulumi:"name"`
-	// The public portion of a customer-generated key pair.
+	// The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PublicKey resource.
 	PublicKeyMaterial *string `pulumi:"publicKeyMaterial"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -85,7 +85,7 @@ type publicKeyArgs struct {
 type PublicKeyArgs struct {
 	// Name of the public key to be imported. The value does not need to be unique.
 	Name pulumi.StringPtrInput
-	// The public portion of a customer-generated key pair.
+	// The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PublicKey resource.
 	PublicKeyMaterial pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags aws.TagArrayInput
@@ -143,7 +143,7 @@ func (o PublicKeyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicKey) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The public portion of a customer-generated key pair.
+// The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PublicKey resource.
 func (o PublicKeyOutput) PublicKeyMaterial() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicKey) pulumi.StringPtrOutput { return v.PublicKeyMaterial }).(pulumi.StringPtrOutput)
 }

@@ -33,12 +33,15 @@ type LookupChannelResult struct {
 	Arn *string `pulumi:"arn"`
 	// Whether the channel is authorized.
 	Authorized *bool `pulumi:"authorized"`
+	// Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+	ContainerFormat *ChannelContainerFormat `pulumi:"containerFormat"`
 	// Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
 	IngestEndpoint *string `pulumi:"ingestEndpoint"`
 	// Whether the channel allows insecure ingest.
 	InsecureIngest *bool `pulumi:"insecureIngest"`
 	// Channel latency mode.
-	LatencyMode *ChannelLatencyMode `pulumi:"latencyMode"`
+	LatencyMode                  *ChannelLatencyMode                  `pulumi:"latencyMode"`
+	MultitrackInputConfiguration *ChannelMultitrackInputConfiguration `pulumi:"multitrackInputConfiguration"`
 	// Channel
 	Name *string `pulumi:"name"`
 	// Channel Playback URL.
@@ -95,6 +98,11 @@ func (o LookupChannelResultOutput) Authorized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *bool { return v.Authorized }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+func (o LookupChannelResultOutput) ContainerFormat() ChannelContainerFormatPtrOutput {
+	return o.ApplyT(func(v LookupChannelResult) *ChannelContainerFormat { return v.ContainerFormat }).(ChannelContainerFormatPtrOutput)
+}
+
 // Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
 func (o LookupChannelResultOutput) IngestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.IngestEndpoint }).(pulumi.StringPtrOutput)
@@ -108,6 +116,12 @@ func (o LookupChannelResultOutput) InsecureIngest() pulumi.BoolPtrOutput {
 // Channel latency mode.
 func (o LookupChannelResultOutput) LatencyMode() ChannelLatencyModePtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *ChannelLatencyMode { return v.LatencyMode }).(ChannelLatencyModePtrOutput)
+}
+
+func (o LookupChannelResultOutput) MultitrackInputConfiguration() ChannelMultitrackInputConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupChannelResult) *ChannelMultitrackInputConfiguration {
+		return v.MultitrackInputConfiguration
+	}).(ChannelMultitrackInputConfigurationPtrOutput)
 }
 
 // Channel

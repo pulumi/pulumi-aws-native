@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamDirectPutSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The value that you configure for this parameter is for information purpose only and does not affect Firehose delivery throughput limit. You can use the [Firehose Limits form](https://docs.aws.amazon.com/https://support.console.aws.amazon.com/support/home#/case/create%3FissueType=service-limit-increase%26limitType=kinesis-firehose-limits) to request a throughput limit increase.
+        /// </summary>
         [Input("throughputHintInMbs")]
         public Input<int>? ThroughputHintInMbs { get; set; }
 

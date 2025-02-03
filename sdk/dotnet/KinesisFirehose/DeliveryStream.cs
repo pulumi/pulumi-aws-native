@@ -62,6 +62,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         [Output("deliveryStreamType")]
         public Output<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamType?> DeliveryStreamType { get; private set; } = null!;
 
+        /// <summary>
+        /// The structure that configures parameters such as `ThroughputHintInMBs` for a stream configured with Direct PUT as a source.
+        /// </summary>
         [Output("directPutSourceConfiguration")]
         public Output<Outputs.DeliveryStreamDirectPutSourceConfiguration?> DirectPutSourceConfiguration { get; private set; } = null!;
 
@@ -257,6 +260,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         [Input("deliveryStreamType")]
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamType>? DeliveryStreamType { get; set; }
 
+        /// <summary>
+        /// The structure that configures parameters such as `ThroughputHintInMBs` for a stream configured with Direct PUT as a source.
+        /// </summary>
         [Input("directPutSourceConfiguration")]
         public Input<Inputs.DeliveryStreamDirectPutSourceConfigurationArgs>? DirectPutSourceConfiguration { get; set; }
 

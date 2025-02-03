@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// If this value is `true` , the container has read-only access to the volume. Otherwise, the container can write to the volume. The default value is `false` .
         /// </summary>
         public readonly bool? ReadOnly;
+        /// <summary>
+        /// A sub-path inside the referenced volume instead of its root.
+        /// </summary>
         public readonly string? SubPath;
 
         [OutputConstructor]

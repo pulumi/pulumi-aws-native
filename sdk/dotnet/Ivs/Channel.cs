@@ -124,6 +124,12 @@ namespace Pulumi.AwsNative.Ivs
         public Output<bool?> Authorized { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+        /// </summary>
+        [Output("containerFormat")]
+        public Output<Pulumi.AwsNative.Ivs.ChannelContainerFormat?> ContainerFormat { get; private set; } = null!;
+
+        /// <summary>
         /// Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
         /// </summary>
         [Output("ingestEndpoint")]
@@ -140,6 +146,9 @@ namespace Pulumi.AwsNative.Ivs
         /// </summary>
         [Output("latencyMode")]
         public Output<Pulumi.AwsNative.Ivs.ChannelLatencyMode?> LatencyMode { get; private set; } = null!;
+
+        [Output("multitrackInputConfiguration")]
+        public Output<Outputs.ChannelMultitrackInputConfiguration?> MultitrackInputConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Channel
@@ -229,6 +238,12 @@ namespace Pulumi.AwsNative.Ivs
         public Input<bool>? Authorized { get; set; }
 
         /// <summary>
+        /// Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+        /// </summary>
+        [Input("containerFormat")]
+        public Input<Pulumi.AwsNative.Ivs.ChannelContainerFormat>? ContainerFormat { get; set; }
+
+        /// <summary>
         /// Whether the channel allows insecure ingest.
         /// </summary>
         [Input("insecureIngest")]
@@ -239,6 +254,9 @@ namespace Pulumi.AwsNative.Ivs
         /// </summary>
         [Input("latencyMode")]
         public Input<Pulumi.AwsNative.Ivs.ChannelLatencyMode>? LatencyMode { get; set; }
+
+        [Input("multitrackInputConfiguration")]
+        public Input<Inputs.ChannelMultitrackInputConfigurationArgs>? MultitrackInputConfiguration { get; set; }
 
         /// <summary>
         /// Channel

@@ -798,7 +798,7 @@ type Bucket struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
 	BucketEncryption BucketEncryptionPtrOutput `pulumi:"bucketEncryption"`
-	// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*.
+	// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*.
 	//   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
 	BucketName pulumi.StringPtrOutput `pulumi:"bucketName"`
 	// Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
@@ -820,12 +820,13 @@ type Bucket struct {
 	// Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
 	LifecycleConfiguration BucketLifecycleConfigurationPtrOutput `pulumi:"lifecycleConfiguration"`
 	// Settings that define where logs are stored.
-	LoggingConfiguration BucketLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
+	LoggingConfiguration       BucketLoggingConfigurationPtrOutput       `pulumi:"loggingConfiguration"`
+	MetadataTableConfiguration BucketMetadataTableConfigurationPtrOutput `pulumi:"metadataTableConfiguration"`
 	// Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
 	MetricsConfigurations BucketMetricsConfigurationArrayOutput `pulumi:"metricsConfigurations"`
 	// Configuration that defines how Amazon S3 handles bucket notifications.
 	NotificationConfiguration BucketNotificationConfigurationPtrOutput `pulumi:"notificationConfiguration"`
-	// This operation is not supported by directory buckets.
+	// This operation is not supported for directory buckets.
 	//   Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
 	//    +  The ``DefaultRetention`` settings require both a mode and a period.
 	//   +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
@@ -914,7 +915,7 @@ type bucketArgs struct {
 	AnalyticsConfigurations []BucketAnalyticsConfiguration `pulumi:"analyticsConfigurations"`
 	// Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
 	BucketEncryption *BucketEncryption `pulumi:"bucketEncryption"`
-	// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*.
+	// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*.
 	//   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
 	BucketName *string `pulumi:"bucketName"`
 	// Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
@@ -926,12 +927,13 @@ type bucketArgs struct {
 	// Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
 	LifecycleConfiguration *BucketLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// Settings that define where logs are stored.
-	LoggingConfiguration *BucketLoggingConfiguration `pulumi:"loggingConfiguration"`
+	LoggingConfiguration       *BucketLoggingConfiguration       `pulumi:"loggingConfiguration"`
+	MetadataTableConfiguration *BucketMetadataTableConfiguration `pulumi:"metadataTableConfiguration"`
 	// Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
 	MetricsConfigurations []BucketMetricsConfiguration `pulumi:"metricsConfigurations"`
 	// Configuration that defines how Amazon S3 handles bucket notifications.
 	NotificationConfiguration *BucketNotificationConfiguration `pulumi:"notificationConfiguration"`
-	// This operation is not supported by directory buckets.
+	// This operation is not supported for directory buckets.
 	//   Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
 	//    +  The ``DefaultRetention`` settings require both a mode and a period.
 	//   +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
@@ -968,7 +970,7 @@ type BucketArgs struct {
 	AnalyticsConfigurations BucketAnalyticsConfigurationArrayInput
 	// Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
 	BucketEncryption BucketEncryptionPtrInput
-	// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*.
+	// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*.
 	//   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
 	BucketName pulumi.StringPtrInput
 	// Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
@@ -980,12 +982,13 @@ type BucketArgs struct {
 	// Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
 	LifecycleConfiguration BucketLifecycleConfigurationPtrInput
 	// Settings that define where logs are stored.
-	LoggingConfiguration BucketLoggingConfigurationPtrInput
+	LoggingConfiguration       BucketLoggingConfigurationPtrInput
+	MetadataTableConfiguration BucketMetadataTableConfigurationPtrInput
 	// Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
 	MetricsConfigurations BucketMetricsConfigurationArrayInput
 	// Configuration that defines how Amazon S3 handles bucket notifications.
 	NotificationConfiguration BucketNotificationConfigurationPtrInput
-	// This operation is not supported by directory buckets.
+	// This operation is not supported for directory buckets.
 	//   Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
 	//    +  The ``DefaultRetention`` settings require both a mode and a period.
 	//   +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
@@ -1077,7 +1080,7 @@ func (o BucketOutput) BucketEncryption() BucketEncryptionPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketEncryptionPtrOutput { return v.BucketEncryption }).(BucketEncryptionPtrOutput)
 }
 
-// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*.
+// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*.
 //
 //	If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
 func (o BucketOutput) BucketName() pulumi.StringPtrOutput {
@@ -1127,6 +1130,10 @@ func (o BucketOutput) LoggingConfiguration() BucketLoggingConfigurationPtrOutput
 	return o.ApplyT(func(v *Bucket) BucketLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(BucketLoggingConfigurationPtrOutput)
 }
 
+func (o BucketOutput) MetadataTableConfiguration() BucketMetadataTableConfigurationPtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketMetadataTableConfigurationPtrOutput { return v.MetadataTableConfiguration }).(BucketMetadataTableConfigurationPtrOutput)
+}
+
 // Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
 func (o BucketOutput) MetricsConfigurations() BucketMetricsConfigurationArrayOutput {
 	return o.ApplyT(func(v *Bucket) BucketMetricsConfigurationArrayOutput { return v.MetricsConfigurations }).(BucketMetricsConfigurationArrayOutput)
@@ -1137,7 +1144,7 @@ func (o BucketOutput) NotificationConfiguration() BucketNotificationConfiguratio
 	return o.ApplyT(func(v *Bucket) BucketNotificationConfigurationPtrOutput { return v.NotificationConfiguration }).(BucketNotificationConfigurationPtrOutput)
 }
 
-// This operation is not supported by directory buckets.
+// This operation is not supported for directory buckets.
 //
 //	Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
 //	 +  The ``DefaultRetention`` settings require both a mode and a period.

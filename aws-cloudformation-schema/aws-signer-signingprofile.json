@@ -91,6 +91,14 @@
   "readOnlyProperties" : [ "/properties/ProfileName", "/properties/ProfileVersion", "/properties/Arn", "/properties/ProfileVersionArn" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "additionalIdentifiers" : [ [ "/properties/ProfileName" ], [ "/properties/ProfileVersionArn" ] ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "signer:TagResource", "signer:UntagResource", "signer:ListTagsForResource" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "signer:PutSigningProfile", "signer:TagResource" ]

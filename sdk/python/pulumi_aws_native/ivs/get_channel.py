@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 from ._enums import *
 
@@ -25,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetChannelResult:
-    def __init__(__self__, arn=None, authorized=None, ingest_endpoint=None, insecure_ingest=None, latency_mode=None, name=None, playback_url=None, preset=None, recording_configuration_arn=None, tags=None, type=None):
+    def __init__(__self__, arn=None, authorized=None, container_format=None, ingest_endpoint=None, insecure_ingest=None, latency_mode=None, multitrack_input_configuration=None, name=None, playback_url=None, preset=None, recording_configuration_arn=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if authorized and not isinstance(authorized, bool):
             raise TypeError("Expected argument 'authorized' to be a bool")
         pulumi.set(__self__, "authorized", authorized)
+        if container_format and not isinstance(container_format, str):
+            raise TypeError("Expected argument 'container_format' to be a str")
+        pulumi.set(__self__, "container_format", container_format)
         if ingest_endpoint and not isinstance(ingest_endpoint, str):
             raise TypeError("Expected argument 'ingest_endpoint' to be a str")
         pulumi.set(__self__, "ingest_endpoint", ingest_endpoint)
@@ -41,6 +45,9 @@ class GetChannelResult:
         if latency_mode and not isinstance(latency_mode, str):
             raise TypeError("Expected argument 'latency_mode' to be a str")
         pulumi.set(__self__, "latency_mode", latency_mode)
+        if multitrack_input_configuration and not isinstance(multitrack_input_configuration, dict):
+            raise TypeError("Expected argument 'multitrack_input_configuration' to be a dict")
+        pulumi.set(__self__, "multitrack_input_configuration", multitrack_input_configuration)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -77,6 +84,14 @@ class GetChannelResult:
         return pulumi.get(self, "authorized")
 
     @property
+    @pulumi.getter(name="containerFormat")
+    def container_format(self) -> Optional['ChannelContainerFormat']:
+        """
+        Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+        """
+        return pulumi.get(self, "container_format")
+
+    @property
     @pulumi.getter(name="ingestEndpoint")
     def ingest_endpoint(self) -> Optional[str]:
         """
@@ -99,6 +114,11 @@ class GetChannelResult:
         Channel latency mode.
         """
         return pulumi.get(self, "latency_mode")
+
+    @property
+    @pulumi.getter(name="multitrackInputConfiguration")
+    def multitrack_input_configuration(self) -> Optional['outputs.ChannelMultitrackInputConfiguration']:
+        return pulumi.get(self, "multitrack_input_configuration")
 
     @property
     @pulumi.getter
@@ -157,9 +177,11 @@ class AwaitableGetChannelResult(GetChannelResult):
         return GetChannelResult(
             arn=self.arn,
             authorized=self.authorized,
+            container_format=self.container_format,
             ingest_endpoint=self.ingest_endpoint,
             insecure_ingest=self.insecure_ingest,
             latency_mode=self.latency_mode,
+            multitrack_input_configuration=self.multitrack_input_configuration,
             name=self.name,
             playback_url=self.playback_url,
             preset=self.preset,
@@ -184,9 +206,11 @@ def get_channel(arn: Optional[str] = None,
     return AwaitableGetChannelResult(
         arn=pulumi.get(__ret__, 'arn'),
         authorized=pulumi.get(__ret__, 'authorized'),
+        container_format=pulumi.get(__ret__, 'container_format'),
         ingest_endpoint=pulumi.get(__ret__, 'ingest_endpoint'),
         insecure_ingest=pulumi.get(__ret__, 'insecure_ingest'),
         latency_mode=pulumi.get(__ret__, 'latency_mode'),
+        multitrack_input_configuration=pulumi.get(__ret__, 'multitrack_input_configuration'),
         name=pulumi.get(__ret__, 'name'),
         playback_url=pulumi.get(__ret__, 'playback_url'),
         preset=pulumi.get(__ret__, 'preset'),
@@ -208,9 +232,11 @@ def get_channel_output(arn: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetChannelResult(
         arn=pulumi.get(__response__, 'arn'),
         authorized=pulumi.get(__response__, 'authorized'),
+        container_format=pulumi.get(__response__, 'container_format'),
         ingest_endpoint=pulumi.get(__response__, 'ingest_endpoint'),
         insecure_ingest=pulumi.get(__response__, 'insecure_ingest'),
         latency_mode=pulumi.get(__response__, 'latency_mode'),
+        multitrack_input_configuration=pulumi.get(__response__, 'multitrack_input_configuration'),
         name=pulumi.get(__response__, 'name'),
         playback_url=pulumi.get(__response__, 'playback_url'),
         preset=pulumi.get(__response__, 'preset'),

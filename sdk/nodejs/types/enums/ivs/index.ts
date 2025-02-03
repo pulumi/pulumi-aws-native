@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ChannelContainerFormat = {
+    Ts: "TS",
+    FragmentedMp4: "FRAGMENTED_MP4",
+} as const;
+
+/**
+ * Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+ */
+export type ChannelContainerFormat = (typeof ChannelContainerFormat)[keyof typeof ChannelContainerFormat];
+
 export const ChannelLatencyMode = {
     Normal: "NORMAL",
     Low: "LOW",
@@ -11,6 +21,27 @@ export const ChannelLatencyMode = {
  * Channel latency mode.
  */
 export type ChannelLatencyMode = (typeof ChannelLatencyMode)[keyof typeof ChannelLatencyMode];
+
+export const ChannelMultitrackInputConfigurationMaximumResolution = {
+    Sd: "SD",
+    Hd: "HD",
+    FullHd: "FULL_HD",
+} as const;
+
+/**
+ * Maximum resolution for multitrack input. Required if enabled is true.
+ */
+export type ChannelMultitrackInputConfigurationMaximumResolution = (typeof ChannelMultitrackInputConfigurationMaximumResolution)[keyof typeof ChannelMultitrackInputConfigurationMaximumResolution];
+
+export const ChannelMultitrackInputConfigurationPolicy = {
+    Allow: "ALLOW",
+    Require: "REQUIRE",
+} as const;
+
+/**
+ * Indicates whether multitrack input is allowed or required. Required if enabled is true.
+ */
+export type ChannelMultitrackInputConfigurationPolicy = (typeof ChannelMultitrackInputConfigurationPolicy)[keyof typeof ChannelMultitrackInputConfigurationPolicy];
 
 export const ChannelPreset = {
     Empty: "",

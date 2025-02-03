@@ -28,7 +28,6 @@ class GlobalTableArgs:
                  billing_mode: Optional[pulumi.Input[str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableGlobalSecondaryIndexArgs']]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]]] = None,
-                 point_in_time_recovery_specification: Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']] = None,
                  sse_specification: Optional[pulumi.Input['GlobalTableSseSpecificationArgs']] = None,
                  stream_specification: Optional[pulumi.Input['GlobalTableStreamSpecificationArgs']] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
@@ -57,7 +56,6 @@ class GlobalTableArgs:
                
                Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
         :param pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]] local_secondary_indexes: Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
-        :param pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs'] point_in_time_recovery_specification: Represents the settings used to enable point in time recovery.
         :param pulumi.Input['GlobalTableSseSpecificationArgs'] sse_specification: Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
         :param pulumi.Input['GlobalTableStreamSpecificationArgs'] stream_specification: Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
         :param pulumi.Input[str] table_name: A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
@@ -77,8 +75,6 @@ class GlobalTableArgs:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
         if local_secondary_indexes is not None:
             pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
-        if point_in_time_recovery_specification is not None:
-            pulumi.set(__self__, "point_in_time_recovery_specification", point_in_time_recovery_specification)
         if sse_specification is not None:
             pulumi.set(__self__, "sse_specification", sse_specification)
         if stream_specification is not None:
@@ -180,18 +176,6 @@ class GlobalTableArgs:
         pulumi.set(self, "local_secondary_indexes", value)
 
     @property
-    @pulumi.getter(name="pointInTimeRecoverySpecification")
-    def point_in_time_recovery_specification(self) -> Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']]:
-        """
-        Represents the settings used to enable point in time recovery.
-        """
-        return pulumi.get(self, "point_in_time_recovery_specification")
-
-    @point_in_time_recovery_specification.setter
-    def point_in_time_recovery_specification(self, value: Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']]):
-        pulumi.set(self, "point_in_time_recovery_specification", value)
-
-    @property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> Optional[pulumi.Input['GlobalTableSseSpecificationArgs']]:
         """
@@ -288,7 +272,6 @@ class GlobalTable(pulumi.CustomResource):
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]]] = None,
                  key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]]] = None,
-                 point_in_time_recovery_specification: Optional[pulumi.Input[Union['GlobalTablePointInTimeRecoverySpecificationArgs', 'GlobalTablePointInTimeRecoverySpecificationArgsDict']]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict']]]]] = None,
                  sse_specification: Optional[pulumi.Input[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict']]] = None,
                  stream_specification: Optional[pulumi.Input[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']]] = None,
@@ -315,7 +298,6 @@ class GlobalTable(pulumi.CustomResource):
                Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]] local_secondary_indexes: Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
-        :param pulumi.Input[Union['GlobalTablePointInTimeRecoverySpecificationArgs', 'GlobalTablePointInTimeRecoverySpecificationArgsDict']] point_in_time_recovery_specification: Represents the settings used to enable point in time recovery.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict']]]] replicas: Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
                
                > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
@@ -362,7 +344,6 @@ class GlobalTable(pulumi.CustomResource):
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]]] = None,
                  key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]]] = None,
-                 point_in_time_recovery_specification: Optional[pulumi.Input[Union['GlobalTablePointInTimeRecoverySpecificationArgs', 'GlobalTablePointInTimeRecoverySpecificationArgsDict']]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict']]]]] = None,
                  sse_specification: Optional[pulumi.Input[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict']]] = None,
                  stream_specification: Optional[pulumi.Input[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']]] = None,
@@ -389,7 +370,6 @@ class GlobalTable(pulumi.CustomResource):
                 raise TypeError("Missing required property 'key_schema'")
             __props__.__dict__["key_schema"] = key_schema
             __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
-            __props__.__dict__["point_in_time_recovery_specification"] = point_in_time_recovery_specification
             if replicas is None and not opts.urn:
                 raise TypeError("Missing required property 'replicas'")
             __props__.__dict__["replicas"] = replicas
@@ -433,7 +413,6 @@ class GlobalTable(pulumi.CustomResource):
         __props__.__dict__["global_secondary_indexes"] = None
         __props__.__dict__["key_schema"] = None
         __props__.__dict__["local_secondary_indexes"] = None
-        __props__.__dict__["point_in_time_recovery_specification"] = None
         __props__.__dict__["replicas"] = None
         __props__.__dict__["sse_specification"] = None
         __props__.__dict__["stream_arn"] = None
@@ -500,14 +479,6 @@ class GlobalTable(pulumi.CustomResource):
         Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
         """
         return pulumi.get(self, "local_secondary_indexes")
-
-    @property
-    @pulumi.getter(name="pointInTimeRecoverySpecification")
-    def point_in_time_recovery_specification(self) -> pulumi.Output[Optional['outputs.GlobalTablePointInTimeRecoverySpecification']]:
-        """
-        Represents the settings used to enable point in time recovery.
-        """
-        return pulumi.get(self, "point_in_time_recovery_specification")
 
     @property
     @pulumi.getter

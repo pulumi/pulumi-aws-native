@@ -894,7 +894,7 @@ namespace Pulumi.AwsNative.S3
         public Output<Outputs.BucketEncryption?> BucketEncryption { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*. 
+        /// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*. 
         ///   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
         /// </summary>
         [Output("bucketName")]
@@ -948,6 +948,9 @@ namespace Pulumi.AwsNative.S3
         [Output("loggingConfiguration")]
         public Output<Outputs.BucketLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
 
+        [Output("metadataTableConfiguration")]
+        public Output<Outputs.BucketMetadataTableConfiguration?> MetadataTableConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
         /// </summary>
@@ -961,7 +964,7 @@ namespace Pulumi.AwsNative.S3
         public Output<Outputs.BucketNotificationConfiguration?> NotificationConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// This operation is not supported by directory buckets.
+        /// This operation is not supported for directory buckets.
         ///   Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). 
         ///    +  The ``DefaultRetention`` settings require both a mode and a period.
         ///   +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
@@ -1115,7 +1118,7 @@ namespace Pulumi.AwsNative.S3
         public Input<Inputs.BucketEncryptionArgs>? BucketEncryption { get; set; }
 
         /// <summary>
-        /// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*. 
+        /// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*. 
         ///   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
         /// </summary>
         [Input("bucketName")]
@@ -1163,6 +1166,9 @@ namespace Pulumi.AwsNative.S3
         [Input("loggingConfiguration")]
         public Input<Inputs.BucketLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
+        [Input("metadataTableConfiguration")]
+        public Input<Inputs.BucketMetadataTableConfigurationArgs>? MetadataTableConfiguration { get; set; }
+
         [Input("metricsConfigurations")]
         private InputList<Inputs.BucketMetricsConfigurationArgs>? _metricsConfigurations;
 
@@ -1182,7 +1188,7 @@ namespace Pulumi.AwsNative.S3
         public Input<Inputs.BucketNotificationConfigurationArgs>? NotificationConfiguration { get; set; }
 
         /// <summary>
-        /// This operation is not supported by directory buckets.
+        /// This operation is not supported for directory buckets.
         ///   Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). 
         ///    +  The ``DefaultRetention`` settings require both a mode and a period.
         ///   +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.

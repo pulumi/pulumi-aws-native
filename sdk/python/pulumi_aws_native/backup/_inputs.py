@@ -22,6 +22,8 @@ __all__ = [
     'BackupPlanBackupRuleResourceTypeArgsDict',
     'BackupPlanCopyActionResourceTypeArgs',
     'BackupPlanCopyActionResourceTypeArgsDict',
+    'BackupPlanIndexActionsResourceTypeArgs',
+    'BackupPlanIndexActionsResourceTypeArgsDict',
     'BackupPlanLifecycleResourceTypeArgs',
     'BackupPlanLifecycleResourceTypeArgsDict',
     'BackupPlanResourceTypeArgs',
@@ -164,6 +166,7 @@ if not MYPY:
         """
         Enables continuous backup and point-in-time restores (PITR).
         """
+        index_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackupPlanIndexActionsResourceTypeArgsDict']]]]
         lifecycle: NotRequired[pulumi.Input['BackupPlanLifecycleResourceTypeArgsDict']]
         """
         The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
@@ -197,6 +200,7 @@ class BackupPlanBackupRuleResourceTypeArgs:
                  completion_window_minutes: Optional[pulumi.Input[float]] = None,
                  copy_actions: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanCopyActionResourceTypeArgs']]]] = None,
                  enable_continuous_backup: Optional[pulumi.Input[bool]] = None,
+                 index_actions: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanIndexActionsResourceTypeArgs']]]] = None,
                  lifecycle: Optional[pulumi.Input['BackupPlanLifecycleResourceTypeArgs']] = None,
                  recovery_point_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
@@ -224,6 +228,8 @@ class BackupPlanBackupRuleResourceTypeArgs:
             pulumi.set(__self__, "copy_actions", copy_actions)
         if enable_continuous_backup is not None:
             pulumi.set(__self__, "enable_continuous_backup", enable_continuous_backup)
+        if index_actions is not None:
+            pulumi.set(__self__, "index_actions", index_actions)
         if lifecycle is not None:
             pulumi.set(__self__, "lifecycle", lifecycle)
         if recovery_point_tags is not None:
@@ -294,6 +300,15 @@ class BackupPlanBackupRuleResourceTypeArgs:
     @enable_continuous_backup.setter
     def enable_continuous_backup(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_continuous_backup", value)
+
+    @property
+    @pulumi.getter(name="indexActions")
+    def index_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanIndexActionsResourceTypeArgs']]]]:
+        return pulumi.get(self, "index_actions")
+
+    @index_actions.setter
+    def index_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanIndexActionsResourceTypeArgs']]]]):
+        pulumi.set(self, "index_actions", value)
 
     @property
     @pulumi.getter
@@ -413,6 +428,29 @@ class BackupPlanCopyActionResourceTypeArgs:
     @lifecycle.setter
     def lifecycle(self, value: Optional[pulumi.Input['BackupPlanLifecycleResourceTypeArgs']]):
         pulumi.set(self, "lifecycle", value)
+
+
+if not MYPY:
+    class BackupPlanIndexActionsResourceTypeArgsDict(TypedDict):
+        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    BackupPlanIndexActionsResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BackupPlanIndexActionsResourceTypeArgs:
+    def __init__(__self__, *,
+                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "resource_types")
+
+    @resource_types.setter
+    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_types", value)
 
 
 if not MYPY:

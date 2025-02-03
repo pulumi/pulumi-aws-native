@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.S3.Inputs
 {
 
     /// <summary>
-    /// Specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
+    /// Specifies tags to use to identify a subset of objects for an Amazon S3 bucket. For more information, see [Categorizing your storage using tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html) in the *Amazon Simple Storage Service User Guide*.
     /// </summary>
     public sealed class BucketTagFilterArgs : global::Pulumi.ResourceArgs
     {

@@ -34,6 +34,10 @@ export interface GetChannelResult {
      */
     readonly authorized?: boolean;
     /**
+     * Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+     */
+    readonly containerFormat?: enums.ivs.ChannelContainerFormat;
+    /**
      * Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
      */
     readonly ingestEndpoint?: string;
@@ -45,6 +49,7 @@ export interface GetChannelResult {
      * Channel latency mode.
      */
     readonly latencyMode?: enums.ivs.ChannelLatencyMode;
+    readonly multitrackInputConfiguration?: outputs.ivs.ChannelMultitrackInputConfiguration;
     /**
      * Channel
      */

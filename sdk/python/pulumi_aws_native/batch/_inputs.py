@@ -2601,6 +2601,9 @@ if not MYPY:
         If this value is `true` , the container has read-only access to the volume. Otherwise, the container can write to the volume. The default value is `false` .
         """
         sub_path: NotRequired[pulumi.Input[str]]
+        """
+        A sub-path inside the referenced volume instead of its root.
+        """
 elif False:
     JobDefinitionEksContainerVolumeMountArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2615,6 +2618,7 @@ class JobDefinitionEksContainerVolumeMountArgs:
         :param pulumi.Input[str] mount_path: The path on the container where the volume is mounted.
         :param pulumi.Input[str] name: The name the volume mount. This must match the name of one of the volumes in the pod.
         :param pulumi.Input[bool] read_only: If this value is `true` , the container has read-only access to the volume. Otherwise, the container can write to the volume. The default value is `false` .
+        :param pulumi.Input[str] sub_path: A sub-path inside the referenced volume instead of its root.
         """
         if mount_path is not None:
             pulumi.set(__self__, "mount_path", mount_path)
@@ -2664,6 +2668,9 @@ class JobDefinitionEksContainerVolumeMountArgs:
     @property
     @pulumi.getter(name="subPath")
     def sub_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        A sub-path inside the referenced volume instead of its root.
+        """
         return pulumi.get(self, "sub_path")
 
     @sub_path.setter
@@ -2976,11 +2983,31 @@ class JobDefinitionEksHostPathArgs:
 if not MYPY:
     class JobDefinitionEksMetadataArgsDict(TypedDict):
         annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key-value pairs used to attach arbitrary, non-identifying metadata to Kubernetes objects. Valid annotation keys have two segments: an optional prefix and a name, separated by a slash (/).
+
+        - The prefix is optional and must be 253 characters or less. If specified, the prefix must be a DNS subdomain− a series of DNS labels separated by dots (.), and it must end with a slash (/).
+        - The name segment is required and must be 63 characters or less. It can include alphanumeric characters ([a-z0-9A-Z]), dashes (-), underscores (_), and dots (.), but must begin and end with an alphanumeric character.
+
+        > Annotation values must be 255 characters or less. 
+
+        Annotations can be added or modified at any time. Each resource can have multiple annotations.
+        """
         labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
         Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
         """
         namespace: NotRequired[pulumi.Input[str]]
+        """
+        The namespace of the Amazon EKS cluster. In Kubernetes, namespaces provide a mechanism for isolating groups of resources within a single cluster. Names of resources need to be unique within a namespace, but not across namespaces. AWS Batch places Batch Job pods in this namespace. If this field is provided, the value can't be empty or null. It must meet the following requirements:
+
+        - 1-63 characters long
+        - Can't be set to default
+        - Can't start with `kube`
+        - Must match the following regular expression: `^[a-z0-9]([-a-z0-9]*[a-z0-9])?$`
+
+        For more information, see [Namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) in the *Kubernetes documentation* . This namespace can be different from the `kubernetesNamespace` set in the compute environment's `EksConfiguration` , but must have identical role-based access control (RBAC) roles as the compute environment's `kubernetesNamespace` . For multi-node parallel jobs, the same value must be provided across all the node ranges.
+        """
 elif False:
     JobDefinitionEksMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2991,7 +3018,23 @@ class JobDefinitionEksMetadataArgs:
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  namespace: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] annotations: Key-value pairs used to attach arbitrary, non-identifying metadata to Kubernetes objects. Valid annotation keys have two segments: an optional prefix and a name, separated by a slash (/).
+               
+               - The prefix is optional and must be 253 characters or less. If specified, the prefix must be a DNS subdomain− a series of DNS labels separated by dots (.), and it must end with a slash (/).
+               - The name segment is required and must be 63 characters or less. It can include alphanumeric characters ([a-z0-9A-Z]), dashes (-), underscores (_), and dots (.), but must begin and end with an alphanumeric character.
+               
+               > Annotation values must be 255 characters or less. 
+               
+               Annotations can be added or modified at any time. Each resource can have multiple annotations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
+        :param pulumi.Input[str] namespace: The namespace of the Amazon EKS cluster. In Kubernetes, namespaces provide a mechanism for isolating groups of resources within a single cluster. Names of resources need to be unique within a namespace, but not across namespaces. AWS Batch places Batch Job pods in this namespace. If this field is provided, the value can't be empty or null. It must meet the following requirements:
+               
+               - 1-63 characters long
+               - Can't be set to default
+               - Can't start with `kube`
+               - Must match the following regular expression: `^[a-z0-9]([-a-z0-9]*[a-z0-9])?$`
+               
+               For more information, see [Namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) in the *Kubernetes documentation* . This namespace can be different from the `kubernetesNamespace` set in the compute environment's `EksConfiguration` , but must have identical role-based access control (RBAC) roles as the compute environment's `kubernetesNamespace` . For multi-node parallel jobs, the same value must be provided across all the node ranges.
         """
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
@@ -3003,6 +3046,16 @@ class JobDefinitionEksMetadataArgs:
     @property
     @pulumi.getter
     def annotations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value pairs used to attach arbitrary, non-identifying metadata to Kubernetes objects. Valid annotation keys have two segments: an optional prefix and a name, separated by a slash (/).
+
+        - The prefix is optional and must be 253 characters or less. If specified, the prefix must be a DNS subdomain− a series of DNS labels separated by dots (.), and it must end with a slash (/).
+        - The name segment is required and must be 63 characters or less. It can include alphanumeric characters ([a-z0-9A-Z]), dashes (-), underscores (_), and dots (.), but must begin and end with an alphanumeric character.
+
+        > Annotation values must be 255 characters or less. 
+
+        Annotations can be added or modified at any time. Each resource can have multiple annotations.
+        """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
@@ -3024,6 +3077,16 @@ class JobDefinitionEksMetadataArgs:
     @property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        The namespace of the Amazon EKS cluster. In Kubernetes, namespaces provide a mechanism for isolating groups of resources within a single cluster. Names of resources need to be unique within a namespace, but not across namespaces. AWS Batch places Batch Job pods in this namespace. If this field is provided, the value can't be empty or null. It must meet the following requirements:
+
+        - 1-63 characters long
+        - Can't be set to default
+        - Can't start with `kube`
+        - Must match the following regular expression: `^[a-z0-9]([-a-z0-9]*[a-z0-9])?$`
+
+        For more information, see [Namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) in the *Kubernetes documentation* . This namespace can be different from the `kubernetesNamespace` set in the compute environment's `EksConfiguration` , but must have identical role-based access control (RBAC) roles as the compute environment's `kubernetesNamespace` . For multi-node parallel jobs, the same value must be provided across all the node ranges.
+        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -3034,7 +3097,13 @@ class JobDefinitionEksMetadataArgs:
 if not MYPY:
     class JobDefinitionEksPersistentVolumeClaimArgsDict(TypedDict):
         claim_name: pulumi.Input[str]
+        """
+        The name of the `persistentVolumeClaim` bounded to a `persistentVolume` . For more information, see [Persistent Volume Claims](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) in the *Kubernetes documentation* .
+        """
         read_only: NotRequired[pulumi.Input[bool]]
+        """
+        An optional boolean value indicating if the mount is read only. Default is false. For more information, see [Read Only Mounts](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#read-only-mounts) in the *Kubernetes documentation* .
+        """
 elif False:
     JobDefinitionEksPersistentVolumeClaimArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3043,6 +3112,10 @@ class JobDefinitionEksPersistentVolumeClaimArgs:
     def __init__(__self__, *,
                  claim_name: pulumi.Input[str],
                  read_only: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] claim_name: The name of the `persistentVolumeClaim` bounded to a `persistentVolume` . For more information, see [Persistent Volume Claims](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) in the *Kubernetes documentation* .
+        :param pulumi.Input[bool] read_only: An optional boolean value indicating if the mount is read only. Default is false. For more information, see [Read Only Mounts](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#read-only-mounts) in the *Kubernetes documentation* .
+        """
         pulumi.set(__self__, "claim_name", claim_name)
         if read_only is not None:
             pulumi.set(__self__, "read_only", read_only)
@@ -3050,6 +3123,9 @@ class JobDefinitionEksPersistentVolumeClaimArgs:
     @property
     @pulumi.getter(name="claimName")
     def claim_name(self) -> pulumi.Input[str]:
+        """
+        The name of the `persistentVolumeClaim` bounded to a `persistentVolume` . For more information, see [Persistent Volume Claims](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) in the *Kubernetes documentation* .
+        """
         return pulumi.get(self, "claim_name")
 
     @claim_name.setter
@@ -3059,6 +3135,9 @@ class JobDefinitionEksPersistentVolumeClaimArgs:
     @property
     @pulumi.getter(name="readOnly")
     def read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        An optional boolean value indicating if the mount is read only. Default is false. For more information, see [Read Only Mounts](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#read-only-mounts) in the *Kubernetes documentation* .
+        """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
@@ -3380,6 +3459,9 @@ if not MYPY:
         Specifies the configuration of a Kubernetes `hostPath` volume. For more information, see [hostPath](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) in the *Kubernetes documentation* .
         """
         persistent_volume_claim: NotRequired[pulumi.Input['JobDefinitionEksPersistentVolumeClaimArgsDict']]
+        """
+        Specifies the configuration of a Kubernetes `persistentVolumeClaim` bounded to a `persistentVolume` . For more information, see [Persistent Volume Claims](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) in the *Kubernetes documentation* .
+        """
         secret: NotRequired[pulumi.Input['JobDefinitionEksSecretArgsDict']]
         """
         Specifies the configuration of a Kubernetes `secret` volume. For more information, see [secret](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#secret) in the *Kubernetes documentation* .
@@ -3399,6 +3481,7 @@ class JobDefinitionEksVolumeArgs:
         :param pulumi.Input[str] name: The name of the volume. The name must be allowed as a DNS subdomain name. For more information, see [DNS subdomain names](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) in the *Kubernetes documentation* .
         :param pulumi.Input['JobDefinitionEksEmptyDirArgs'] empty_dir: Specifies the configuration of a Kubernetes `emptyDir` volume. For more information, see [emptyDir](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) in the *Kubernetes documentation* .
         :param pulumi.Input['JobDefinitionEksHostPathArgs'] host_path: Specifies the configuration of a Kubernetes `hostPath` volume. For more information, see [hostPath](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) in the *Kubernetes documentation* .
+        :param pulumi.Input['JobDefinitionEksPersistentVolumeClaimArgs'] persistent_volume_claim: Specifies the configuration of a Kubernetes `persistentVolumeClaim` bounded to a `persistentVolume` . For more information, see [Persistent Volume Claims](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) in the *Kubernetes documentation* .
         :param pulumi.Input['JobDefinitionEksSecretArgs'] secret: Specifies the configuration of a Kubernetes `secret` volume. For more information, see [secret](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#secret) in the *Kubernetes documentation* .
         """
         pulumi.set(__self__, "name", name)
@@ -3450,6 +3533,9 @@ class JobDefinitionEksVolumeArgs:
     @property
     @pulumi.getter(name="persistentVolumeClaim")
     def persistent_volume_claim(self) -> Optional[pulumi.Input['JobDefinitionEksPersistentVolumeClaimArgs']]:
+        """
+        Specifies the configuration of a Kubernetes `persistentVolumeClaim` bounded to a `persistentVolume` . For more information, see [Persistent Volume Claims](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) in the *Kubernetes documentation* .
+        """
         return pulumi.get(self, "persistent_volume_claim")
 
     @persistent_volume_claim.setter

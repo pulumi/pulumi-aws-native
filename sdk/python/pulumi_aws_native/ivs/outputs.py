@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ChannelMultitrackInputConfiguration',
     'RecordingConfigurationDestinationConfiguration',
     'RecordingConfigurationRenditionConfiguration',
     'RecordingConfigurationS3DestinationConfiguration',
@@ -25,6 +26,66 @@ __all__ = [
     'StorageConfigurationS3StorageConfiguration',
     'VideoProperties',
 ]
+
+@pulumi.output_type
+class ChannelMultitrackInputConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumResolution":
+            suggest = "maximum_resolution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelMultitrackInputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelMultitrackInputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelMultitrackInputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 maximum_resolution: Optional['ChannelMultitrackInputConfigurationMaximumResolution'] = None,
+                 policy: Optional['ChannelMultitrackInputConfigurationPolicy'] = None):
+        """
+        :param bool enabled: Indicates whether multitrack input is enabled. Can be set to true only if channel type is STANDARD. Setting enabled to true with any other channel type will cause an exception. If true, then policy, maximumResolution, and containerFormat are required, and containerFormat must be set to FRAGMENTED_MP4. Default: false.
+        :param 'ChannelMultitrackInputConfigurationMaximumResolution' maximum_resolution: Maximum resolution for multitrack input. Required if enabled is true.
+        :param 'ChannelMultitrackInputConfigurationPolicy' policy: Indicates whether multitrack input is allowed or required. Required if enabled is true.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if maximum_resolution is not None:
+            pulumi.set(__self__, "maximum_resolution", maximum_resolution)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates whether multitrack input is enabled. Can be set to true only if channel type is STANDARD. Setting enabled to true with any other channel type will cause an exception. If true, then policy, maximumResolution, and containerFormat are required, and containerFormat must be set to FRAGMENTED_MP4. Default: false.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="maximumResolution")
+    def maximum_resolution(self) -> Optional['ChannelMultitrackInputConfigurationMaximumResolution']:
+        """
+        Maximum resolution for multitrack input. Required if enabled is true.
+        """
+        return pulumi.get(self, "maximum_resolution")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional['ChannelMultitrackInputConfigurationPolicy']:
+        """
+        Indicates whether multitrack input is allowed or required. Required if enabled is true.
+        """
+        return pulumi.get(self, "policy")
+
 
 @pulumi.output_type
 class RecordingConfigurationDestinationConfiguration(dict):

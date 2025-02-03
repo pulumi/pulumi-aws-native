@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetBucketResult:
-    def __init__(__self__, accelerate_configuration=None, analytics_configurations=None, arn=None, bucket_encryption=None, cors_configuration=None, domain_name=None, dual_stack_domain_name=None, intelligent_tiering_configurations=None, inventory_configurations=None, lifecycle_configuration=None, logging_configuration=None, metrics_configurations=None, notification_configuration=None, object_lock_configuration=None, object_lock_enabled=None, ownership_controls=None, public_access_block_configuration=None, regional_domain_name=None, replication_configuration=None, tags=None, versioning_configuration=None, website_configuration=None, website_url=None):
+    def __init__(__self__, accelerate_configuration=None, analytics_configurations=None, arn=None, bucket_encryption=None, cors_configuration=None, domain_name=None, dual_stack_domain_name=None, intelligent_tiering_configurations=None, inventory_configurations=None, lifecycle_configuration=None, logging_configuration=None, metadata_table_configuration=None, metrics_configurations=None, notification_configuration=None, object_lock_configuration=None, object_lock_enabled=None, ownership_controls=None, public_access_block_configuration=None, regional_domain_name=None, replication_configuration=None, tags=None, versioning_configuration=None, website_configuration=None, website_url=None):
         if accelerate_configuration and not isinstance(accelerate_configuration, dict):
             raise TypeError("Expected argument 'accelerate_configuration' to be a dict")
         pulumi.set(__self__, "accelerate_configuration", accelerate_configuration)
@@ -60,6 +60,9 @@ class GetBucketResult:
         if logging_configuration and not isinstance(logging_configuration, dict):
             raise TypeError("Expected argument 'logging_configuration' to be a dict")
         pulumi.set(__self__, "logging_configuration", logging_configuration)
+        if metadata_table_configuration and not isinstance(metadata_table_configuration, dict):
+            raise TypeError("Expected argument 'metadata_table_configuration' to be a dict")
+        pulumi.set(__self__, "metadata_table_configuration", metadata_table_configuration)
         if metrics_configurations and not isinstance(metrics_configurations, list):
             raise TypeError("Expected argument 'metrics_configurations' to be a list")
         pulumi.set(__self__, "metrics_configurations", metrics_configurations)
@@ -194,6 +197,11 @@ class GetBucketResult:
         return pulumi.get(self, "logging_configuration")
 
     @property
+    @pulumi.getter(name="metadataTableConfiguration")
+    def metadata_table_configuration(self) -> Optional['outputs.BucketMetadataTableConfiguration']:
+        return pulumi.get(self, "metadata_table_configuration")
+
+    @property
     @pulumi.getter(name="metricsConfigurations")
     def metrics_configurations(self) -> Optional[Sequence['outputs.BucketMetricsConfiguration']]:
         """
@@ -213,7 +221,7 @@ class GetBucketResult:
     @pulumi.getter(name="objectLockConfiguration")
     def object_lock_configuration(self) -> Optional['outputs.BucketObjectLockConfiguration']:
         """
-        This operation is not supported by directory buckets.
+        This operation is not supported for directory buckets.
           Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). 
            +  The ``DefaultRetention`` settings require both a mode and a period.
           +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
@@ -319,6 +327,7 @@ class AwaitableGetBucketResult(GetBucketResult):
             inventory_configurations=self.inventory_configurations,
             lifecycle_configuration=self.lifecycle_configuration,
             logging_configuration=self.logging_configuration,
+            metadata_table_configuration=self.metadata_table_configuration,
             metrics_configurations=self.metrics_configurations,
             notification_configuration=self.notification_configuration,
             object_lock_configuration=self.object_lock_configuration,
@@ -341,7 +350,7 @@ def get_bucket(bucket_name: Optional[str] = None,
       You can only delete empty buckets. Deletion fails for buckets that have contents.
 
 
-    :param str bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*. 
+    :param str bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*. 
              If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
     """
     __args__ = dict()
@@ -361,6 +370,7 @@ def get_bucket(bucket_name: Optional[str] = None,
         inventory_configurations=pulumi.get(__ret__, 'inventory_configurations'),
         lifecycle_configuration=pulumi.get(__ret__, 'lifecycle_configuration'),
         logging_configuration=pulumi.get(__ret__, 'logging_configuration'),
+        metadata_table_configuration=pulumi.get(__ret__, 'metadata_table_configuration'),
         metrics_configurations=pulumi.get(__ret__, 'metrics_configurations'),
         notification_configuration=pulumi.get(__ret__, 'notification_configuration'),
         object_lock_configuration=pulumi.get(__ret__, 'object_lock_configuration'),
@@ -381,7 +391,7 @@ def get_bucket_output(bucket_name: Optional[pulumi.Input[str]] = None,
       You can only delete empty buckets. Deletion fails for buckets that have contents.
 
 
-    :param str bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*. 
+    :param str bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*. 
              If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
     """
     __args__ = dict()
@@ -400,6 +410,7 @@ def get_bucket_output(bucket_name: Optional[pulumi.Input[str]] = None,
         inventory_configurations=pulumi.get(__response__, 'inventory_configurations'),
         lifecycle_configuration=pulumi.get(__response__, 'lifecycle_configuration'),
         logging_configuration=pulumi.get(__response__, 'logging_configuration'),
+        metadata_table_configuration=pulumi.get(__response__, 'metadata_table_configuration'),
         metrics_configurations=pulumi.get(__response__, 'metrics_configurations'),
         notification_configuration=pulumi.get(__response__, 'notification_configuration'),
         object_lock_configuration=pulumi.get(__response__, 'object_lock_configuration'),

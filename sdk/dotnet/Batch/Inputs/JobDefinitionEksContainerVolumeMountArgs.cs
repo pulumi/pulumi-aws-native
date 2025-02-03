@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
+        /// <summary>
+        /// A sub-path inside the referenced volume instead of its root.
+        /// </summary>
         [Input("subPath")]
         public Input<string>? SubPath { get; set; }
 

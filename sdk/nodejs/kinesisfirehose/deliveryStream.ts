@@ -70,6 +70,9 @@ export class DeliveryStream extends pulumi.CustomResource {
      * - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
      */
     public readonly deliveryStreamType!: pulumi.Output<enums.kinesisfirehose.DeliveryStreamType | undefined>;
+    /**
+     * The structure that configures parameters such as `ThroughputHintInMBs` for a stream configured with Direct PUT as a source.
+     */
     public readonly directPutSourceConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamDirectPutSourceConfiguration | undefined>;
     /**
      * An Amazon ES destination for the delivery stream.
@@ -233,6 +236,9 @@ export interface DeliveryStreamArgs {
      * - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
      */
     deliveryStreamType?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamType>;
+    /**
+     * The structure that configures parameters such as `ThroughputHintInMBs` for a stream configured with Direct PUT as a source.
+     */
     directPutSourceConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamDirectPutSourceConfigurationArgs>;
     /**
      * An Amazon ES destination for the delivery stream.

@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AwsNative.Ivs
 {
     /// <summary>
+    /// Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+    /// </summary>
+    [EnumType]
+    public readonly struct ChannelContainerFormat : IEquatable<ChannelContainerFormat>
+    {
+        private readonly string _value;
+
+        private ChannelContainerFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelContainerFormat Ts { get; } = new ChannelContainerFormat("TS");
+        public static ChannelContainerFormat FragmentedMp4 { get; } = new ChannelContainerFormat("FRAGMENTED_MP4");
+
+        public static bool operator ==(ChannelContainerFormat left, ChannelContainerFormat right) => left.Equals(right);
+        public static bool operator !=(ChannelContainerFormat left, ChannelContainerFormat right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelContainerFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelContainerFormat other && Equals(other);
+        public bool Equals(ChannelContainerFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Channel latency mode.
     /// </summary>
     [EnumType]
@@ -31,6 +62,69 @@ namespace Pulumi.AwsNative.Ivs
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ChannelLatencyMode other && Equals(other);
         public bool Equals(ChannelLatencyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Maximum resolution for multitrack input. Required if enabled is true.
+    /// </summary>
+    [EnumType]
+    public readonly struct ChannelMultitrackInputConfigurationMaximumResolution : IEquatable<ChannelMultitrackInputConfigurationMaximumResolution>
+    {
+        private readonly string _value;
+
+        private ChannelMultitrackInputConfigurationMaximumResolution(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelMultitrackInputConfigurationMaximumResolution Sd { get; } = new ChannelMultitrackInputConfigurationMaximumResolution("SD");
+        public static ChannelMultitrackInputConfigurationMaximumResolution Hd { get; } = new ChannelMultitrackInputConfigurationMaximumResolution("HD");
+        public static ChannelMultitrackInputConfigurationMaximumResolution FullHd { get; } = new ChannelMultitrackInputConfigurationMaximumResolution("FULL_HD");
+
+        public static bool operator ==(ChannelMultitrackInputConfigurationMaximumResolution left, ChannelMultitrackInputConfigurationMaximumResolution right) => left.Equals(right);
+        public static bool operator !=(ChannelMultitrackInputConfigurationMaximumResolution left, ChannelMultitrackInputConfigurationMaximumResolution right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelMultitrackInputConfigurationMaximumResolution value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelMultitrackInputConfigurationMaximumResolution other && Equals(other);
+        public bool Equals(ChannelMultitrackInputConfigurationMaximumResolution other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether multitrack input is allowed or required. Required if enabled is true.
+    /// </summary>
+    [EnumType]
+    public readonly struct ChannelMultitrackInputConfigurationPolicy : IEquatable<ChannelMultitrackInputConfigurationPolicy>
+    {
+        private readonly string _value;
+
+        private ChannelMultitrackInputConfigurationPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelMultitrackInputConfigurationPolicy Allow { get; } = new ChannelMultitrackInputConfigurationPolicy("ALLOW");
+        public static ChannelMultitrackInputConfigurationPolicy Require { get; } = new ChannelMultitrackInputConfigurationPolicy("REQUIRE");
+
+        public static bool operator ==(ChannelMultitrackInputConfigurationPolicy left, ChannelMultitrackInputConfigurationPolicy right) => left.Equals(right);
+        public static bool operator !=(ChannelMultitrackInputConfigurationPolicy left, ChannelMultitrackInputConfigurationPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelMultitrackInputConfigurationPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelMultitrackInputConfigurationPolicy other && Equals(other);
+        public bool Equals(ChannelMultitrackInputConfigurationPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

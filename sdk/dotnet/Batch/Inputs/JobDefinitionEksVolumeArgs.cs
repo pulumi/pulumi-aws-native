@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the configuration of a Kubernetes `persistentVolumeClaim` bounded to a `persistentVolume` . For more information, see [Persistent Volume Claims](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) in the *Kubernetes documentation* .
+        /// </summary>
         [Input("persistentVolumeClaim")]
         public Input<Inputs.JobDefinitionEksPersistentVolumeClaimArgs>? PersistentVolumeClaim { get; set; }
 

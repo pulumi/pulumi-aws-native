@@ -36,6 +36,14 @@ namespace Pulumi.AwsNative.Backup.Inputs
         [Input("enableContinuousBackup")]
         public Input<bool>? EnableContinuousBackup { get; set; }
 
+        [Input("indexActions")]
+        private InputList<Inputs.BackupPlanIndexActionsResourceTypeArgs>? _indexActions;
+        public InputList<Inputs.BackupPlanIndexActionsResourceTypeArgs> IndexActions
+        {
+            get => _indexActions ?? (_indexActions = new InputList<Inputs.BackupPlanIndexActionsResourceTypeArgs>());
+            set => _indexActions = value;
+        }
+
         /// <summary>
         /// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
         /// </summary>

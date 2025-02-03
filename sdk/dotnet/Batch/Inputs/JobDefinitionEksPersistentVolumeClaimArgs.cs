@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionEksPersistentVolumeClaimArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the `persistentVolumeClaim` bounded to a `persistentVolume` . For more information, see [Persistent Volume Claims](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) in the *Kubernetes documentation* .
+        /// </summary>
         [Input("claimName", required: true)]
         public Input<string> ClaimName { get; set; } = null!;
 
+        /// <summary>
+        /// An optional boolean value indicating if the mount is read only. Default is false. For more information, see [Read Only Mounts](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#read-only-mounts) in the *Kubernetes documentation* .
+        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 

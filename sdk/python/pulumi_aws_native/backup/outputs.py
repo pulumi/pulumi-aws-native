@@ -20,6 +20,7 @@ __all__ = [
     'BackupPlanAdvancedBackupSettingResourceType',
     'BackupPlanBackupRuleResourceType',
     'BackupPlanCopyActionResourceType',
+    'BackupPlanIndexActionsResourceType',
     'BackupPlanLifecycleResourceType',
     'BackupPlanResourceType',
     'BackupSelectionConditionParameter',
@@ -123,6 +124,8 @@ class BackupPlanBackupRuleResourceType(dict):
             suggest = "copy_actions"
         elif key == "enableContinuousBackup":
             suggest = "enable_continuous_backup"
+        elif key == "indexActions":
+            suggest = "index_actions"
         elif key == "recoveryPointTags":
             suggest = "recovery_point_tags"
         elif key == "scheduleExpression":
@@ -149,6 +152,7 @@ class BackupPlanBackupRuleResourceType(dict):
                  completion_window_minutes: Optional[float] = None,
                  copy_actions: Optional[Sequence['outputs.BackupPlanCopyActionResourceType']] = None,
                  enable_continuous_backup: Optional[bool] = None,
+                 index_actions: Optional[Sequence['outputs.BackupPlanIndexActionsResourceType']] = None,
                  lifecycle: Optional['outputs.BackupPlanLifecycleResourceType'] = None,
                  recovery_point_tags: Optional[Mapping[str, str]] = None,
                  schedule_expression: Optional[str] = None,
@@ -176,6 +180,8 @@ class BackupPlanBackupRuleResourceType(dict):
             pulumi.set(__self__, "copy_actions", copy_actions)
         if enable_continuous_backup is not None:
             pulumi.set(__self__, "enable_continuous_backup", enable_continuous_backup)
+        if index_actions is not None:
+            pulumi.set(__self__, "index_actions", index_actions)
         if lifecycle is not None:
             pulumi.set(__self__, "lifecycle", lifecycle)
         if recovery_point_tags is not None:
@@ -226,6 +232,11 @@ class BackupPlanBackupRuleResourceType(dict):
         Enables continuous backup and point-in-time restores (PITR).
         """
         return pulumi.get(self, "enable_continuous_backup")
+
+    @property
+    @pulumi.getter(name="indexActions")
+    def index_actions(self) -> Optional[Sequence['outputs.BackupPlanIndexActionsResourceType']]:
+        return pulumi.get(self, "index_actions")
 
     @property
     @pulumi.getter
@@ -319,6 +330,36 @@ class BackupPlanCopyActionResourceType(dict):
         Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.
         """
         return pulumi.get(self, "lifecycle")
+
+
+@pulumi.output_type
+class BackupPlanIndexActionsResourceType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceTypes":
+            suggest = "resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPlanIndexActionsResourceType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPlanIndexActionsResourceType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPlanIndexActionsResourceType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_types: Optional[Sequence[str]] = None):
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "resource_types")
 
 
 @pulumi.output_type

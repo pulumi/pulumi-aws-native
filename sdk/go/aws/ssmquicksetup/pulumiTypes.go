@@ -174,7 +174,7 @@ type ConfigurationManagerConfigurationDefinition struct {
 	// - Description: (Optional) A boolean value that determines whether the EC2 Launch agent is updated on the target instances every month. The default value is " `false` ".
 	// - `CollectInventory`
 	//
-	// - Description: (Optional) A boolean value that determines whether the EC2 Launch agent is updated on the target instances every month. The default value is " `true` ".
+	// - Description: (Optional) A boolean value that determines whether instance metadata is collected on the target instances every 30 minutes. The default value is " `true` ".
 	// - `ScanInstances`
 	//
 	// - Description: (Optional) A boolean value that determines whether the target instances are scanned daily for available patches. The default value is " `true` ".
@@ -499,7 +499,7 @@ type ConfigurationManagerConfigurationDefinitionArgs struct {
 	// - Description: (Optional) A boolean value that determines whether the EC2 Launch agent is updated on the target instances every month. The default value is " `false` ".
 	// - `CollectInventory`
 	//
-	// - Description: (Optional) A boolean value that determines whether the EC2 Launch agent is updated on the target instances every month. The default value is " `true` ".
+	// - Description: (Optional) A boolean value that determines whether instance metadata is collected on the target instances every 30 minutes. The default value is " `true` ".
 	// - `ScanInstances`
 	//
 	// - Description: (Optional) A boolean value that determines whether the target instances are scanned daily for available patches. The default value is " `true` ".
@@ -874,7 +874,7 @@ func (o ConfigurationManagerConfigurationDefinitionOutput) LocalDeploymentExecut
 // - Description: (Optional) A boolean value that determines whether the EC2 Launch agent is updated on the target instances every month. The default value is " `false` ".
 // - `CollectInventory`
 //
-// - Description: (Optional) A boolean value that determines whether the EC2 Launch agent is updated on the target instances every month. The default value is " `true` ".
+// - Description: (Optional) A boolean value that determines whether instance metadata is collected on the target instances every 30 minutes. The default value is " `true` ".
 // - `ScanInstances`
 //
 // - Description: (Optional) A boolean value that determines whether the target instances are scanned daily for available patches. The default value is " `true` ".

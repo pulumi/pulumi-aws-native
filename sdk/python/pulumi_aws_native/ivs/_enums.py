@@ -5,7 +5,10 @@
 from enum import Enum
 
 __all__ = [
+    'ChannelContainerFormat',
     'ChannelLatencyMode',
+    'ChannelMultitrackInputConfigurationMaximumResolution',
+    'ChannelMultitrackInputConfigurationPolicy',
     'ChannelPreset',
     'ChannelType',
     'IngestConfigurationIngestProtocol',
@@ -20,12 +23,37 @@ __all__ = [
 ]
 
 
+class ChannelContainerFormat(str, Enum):
+    """
+    Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+    """
+    TS = "TS"
+    FRAGMENTED_MP4 = "FRAGMENTED_MP4"
+
+
 class ChannelLatencyMode(str, Enum):
     """
     Channel latency mode.
     """
     NORMAL = "NORMAL"
     LOW = "LOW"
+
+
+class ChannelMultitrackInputConfigurationMaximumResolution(str, Enum):
+    """
+    Maximum resolution for multitrack input. Required if enabled is true.
+    """
+    SD = "SD"
+    HD = "HD"
+    FULL_HD = "FULL_HD"
+
+
+class ChannelMultitrackInputConfigurationPolicy(str, Enum):
+    """
+    Indicates whether multitrack input is allowed or required. Required if enabled is true.
+    """
+    ALLOW = "ALLOW"
+    REQUIRE = "REQUIRE"
 
 
 class ChannelPreset(str, Enum):

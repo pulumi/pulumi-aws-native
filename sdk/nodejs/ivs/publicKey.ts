@@ -50,7 +50,7 @@ export class PublicKey extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The public portion of a customer-generated key pair.
+     * The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PublicKey resource.
      */
     public readonly publicKeyMaterial!: pulumi.Output<string | undefined>;
     /**
@@ -97,7 +97,7 @@ export interface PublicKeyArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The public portion of a customer-generated key pair.
+     * The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PublicKey resource.
      */
     publicKeyMaterial?: pulumi.Input<string>;
     /**

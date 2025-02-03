@@ -55,6 +55,7 @@ class DeliveryStreamArgs:
                
                - `DirectPut` : Provider applications access the Firehose stream directly.
                - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
+        :param pulumi.Input['DeliveryStreamDirectPutSourceConfigurationArgs'] direct_put_source_configuration: The structure that configures parameters such as `ThroughputHintInMBs` for a stream configured with Direct PUT as a source.
         :param pulumi.Input['DeliveryStreamElasticsearchDestinationConfigurationArgs'] elasticsearch_destination_configuration: An Amazon ES destination for the delivery stream.
                
                Conditional. You must specify only one destination configuration.
@@ -210,6 +211,9 @@ class DeliveryStreamArgs:
     @property
     @pulumi.getter(name="directPutSourceConfiguration")
     def direct_put_source_configuration(self) -> Optional[pulumi.Input['DeliveryStreamDirectPutSourceConfigurationArgs']]:
+        """
+        The structure that configures parameters such as `ThroughputHintInMBs` for a stream configured with Direct PUT as a source.
+        """
         return pulumi.get(self, "direct_put_source_configuration")
 
     @direct_put_source_configuration.setter
@@ -415,6 +419,7 @@ class DeliveryStream(pulumi.CustomResource):
                
                - `DirectPut` : Provider applications access the Firehose stream directly.
                - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
+        :param pulumi.Input[Union['DeliveryStreamDirectPutSourceConfigurationArgs', 'DeliveryStreamDirectPutSourceConfigurationArgsDict']] direct_put_source_configuration: The structure that configures parameters such as `ThroughputHintInMBs` for a stream configured with Direct PUT as a source.
         :param pulumi.Input[Union['DeliveryStreamElasticsearchDestinationConfigurationArgs', 'DeliveryStreamElasticsearchDestinationConfigurationArgsDict']] elasticsearch_destination_configuration: An Amazon ES destination for the delivery stream.
                
                Conditional. You must specify only one destination configuration.
@@ -632,6 +637,9 @@ class DeliveryStream(pulumi.CustomResource):
     @property
     @pulumi.getter(name="directPutSourceConfiguration")
     def direct_put_source_configuration(self) -> pulumi.Output[Optional['outputs.DeliveryStreamDirectPutSourceConfiguration']]:
+        """
+        The structure that configures parameters such as `ThroughputHintInMBs` for a stream configured with Direct PUT as a source.
+        """
         return pulumi.get(self, "direct_put_source_configuration")
 
     @property

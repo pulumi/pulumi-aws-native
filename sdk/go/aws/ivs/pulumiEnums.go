@@ -10,6 +10,172 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+type ChannelContainerFormat string
+
+const (
+	ChannelContainerFormatTs            = ChannelContainerFormat("TS")
+	ChannelContainerFormatFragmentedMp4 = ChannelContainerFormat("FRAGMENTED_MP4")
+)
+
+func (ChannelContainerFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelContainerFormat)(nil)).Elem()
+}
+
+func (e ChannelContainerFormat) ToChannelContainerFormatOutput() ChannelContainerFormatOutput {
+	return pulumi.ToOutput(e).(ChannelContainerFormatOutput)
+}
+
+func (e ChannelContainerFormat) ToChannelContainerFormatOutputWithContext(ctx context.Context) ChannelContainerFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelContainerFormatOutput)
+}
+
+func (e ChannelContainerFormat) ToChannelContainerFormatPtrOutput() ChannelContainerFormatPtrOutput {
+	return e.ToChannelContainerFormatPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelContainerFormat) ToChannelContainerFormatPtrOutputWithContext(ctx context.Context) ChannelContainerFormatPtrOutput {
+	return ChannelContainerFormat(e).ToChannelContainerFormatOutputWithContext(ctx).ToChannelContainerFormatPtrOutputWithContext(ctx)
+}
+
+func (e ChannelContainerFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelContainerFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelContainerFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelContainerFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelContainerFormatOutput struct{ *pulumi.OutputState }
+
+func (ChannelContainerFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelContainerFormat)(nil)).Elem()
+}
+
+func (o ChannelContainerFormatOutput) ToChannelContainerFormatOutput() ChannelContainerFormatOutput {
+	return o
+}
+
+func (o ChannelContainerFormatOutput) ToChannelContainerFormatOutputWithContext(ctx context.Context) ChannelContainerFormatOutput {
+	return o
+}
+
+func (o ChannelContainerFormatOutput) ToChannelContainerFormatPtrOutput() ChannelContainerFormatPtrOutput {
+	return o.ToChannelContainerFormatPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelContainerFormatOutput) ToChannelContainerFormatPtrOutputWithContext(ctx context.Context) ChannelContainerFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelContainerFormat) *ChannelContainerFormat {
+		return &v
+	}).(ChannelContainerFormatPtrOutput)
+}
+
+func (o ChannelContainerFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelContainerFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelContainerFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelContainerFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelContainerFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelContainerFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelContainerFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelContainerFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelContainerFormat)(nil)).Elem()
+}
+
+func (o ChannelContainerFormatPtrOutput) ToChannelContainerFormatPtrOutput() ChannelContainerFormatPtrOutput {
+	return o
+}
+
+func (o ChannelContainerFormatPtrOutput) ToChannelContainerFormatPtrOutputWithContext(ctx context.Context) ChannelContainerFormatPtrOutput {
+	return o
+}
+
+func (o ChannelContainerFormatPtrOutput) Elem() ChannelContainerFormatOutput {
+	return o.ApplyT(func(v *ChannelContainerFormat) ChannelContainerFormat {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelContainerFormat
+		return ret
+	}).(ChannelContainerFormatOutput)
+}
+
+func (o ChannelContainerFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelContainerFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelContainerFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelContainerFormatInput is an input type that accepts values of the ChannelContainerFormat enum
+// A concrete instance of `ChannelContainerFormatInput` can be one of the following:
+//
+//	ChannelContainerFormatTs
+//	ChannelContainerFormatFragmentedMp4
+type ChannelContainerFormatInput interface {
+	pulumi.Input
+
+	ToChannelContainerFormatOutput() ChannelContainerFormatOutput
+	ToChannelContainerFormatOutputWithContext(context.Context) ChannelContainerFormatOutput
+}
+
+var channelContainerFormatPtrType = reflect.TypeOf((**ChannelContainerFormat)(nil)).Elem()
+
+type ChannelContainerFormatPtrInput interface {
+	pulumi.Input
+
+	ToChannelContainerFormatPtrOutput() ChannelContainerFormatPtrOutput
+	ToChannelContainerFormatPtrOutputWithContext(context.Context) ChannelContainerFormatPtrOutput
+}
+
+type channelContainerFormatPtr string
+
+func ChannelContainerFormatPtr(v string) ChannelContainerFormatPtrInput {
+	return (*channelContainerFormatPtr)(&v)
+}
+
+func (*channelContainerFormatPtr) ElementType() reflect.Type {
+	return channelContainerFormatPtrType
+}
+
+func (in *channelContainerFormatPtr) ToChannelContainerFormatPtrOutput() ChannelContainerFormatPtrOutput {
+	return pulumi.ToOutput(in).(ChannelContainerFormatPtrOutput)
+}
+
+func (in *channelContainerFormatPtr) ToChannelContainerFormatPtrOutputWithContext(ctx context.Context) ChannelContainerFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelContainerFormatPtrOutput)
+}
+
 // Channel latency mode.
 type ChannelLatencyMode string
 
@@ -174,6 +340,340 @@ func (in *channelLatencyModePtr) ToChannelLatencyModePtrOutput() ChannelLatencyM
 
 func (in *channelLatencyModePtr) ToChannelLatencyModePtrOutputWithContext(ctx context.Context) ChannelLatencyModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ChannelLatencyModePtrOutput)
+}
+
+// Maximum resolution for multitrack input. Required if enabled is true.
+type ChannelMultitrackInputConfigurationMaximumResolution string
+
+const (
+	ChannelMultitrackInputConfigurationMaximumResolutionSd     = ChannelMultitrackInputConfigurationMaximumResolution("SD")
+	ChannelMultitrackInputConfigurationMaximumResolutionHd     = ChannelMultitrackInputConfigurationMaximumResolution("HD")
+	ChannelMultitrackInputConfigurationMaximumResolutionFullHd = ChannelMultitrackInputConfigurationMaximumResolution("FULL_HD")
+)
+
+func (ChannelMultitrackInputConfigurationMaximumResolution) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelMultitrackInputConfigurationMaximumResolution)(nil)).Elem()
+}
+
+func (e ChannelMultitrackInputConfigurationMaximumResolution) ToChannelMultitrackInputConfigurationMaximumResolutionOutput() ChannelMultitrackInputConfigurationMaximumResolutionOutput {
+	return pulumi.ToOutput(e).(ChannelMultitrackInputConfigurationMaximumResolutionOutput)
+}
+
+func (e ChannelMultitrackInputConfigurationMaximumResolution) ToChannelMultitrackInputConfigurationMaximumResolutionOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationMaximumResolutionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelMultitrackInputConfigurationMaximumResolutionOutput)
+}
+
+func (e ChannelMultitrackInputConfigurationMaximumResolution) ToChannelMultitrackInputConfigurationMaximumResolutionPtrOutput() ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput {
+	return e.ToChannelMultitrackInputConfigurationMaximumResolutionPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelMultitrackInputConfigurationMaximumResolution) ToChannelMultitrackInputConfigurationMaximumResolutionPtrOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput {
+	return ChannelMultitrackInputConfigurationMaximumResolution(e).ToChannelMultitrackInputConfigurationMaximumResolutionOutputWithContext(ctx).ToChannelMultitrackInputConfigurationMaximumResolutionPtrOutputWithContext(ctx)
+}
+
+func (e ChannelMultitrackInputConfigurationMaximumResolution) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelMultitrackInputConfigurationMaximumResolution) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelMultitrackInputConfigurationMaximumResolution) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelMultitrackInputConfigurationMaximumResolution) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelMultitrackInputConfigurationMaximumResolutionOutput struct{ *pulumi.OutputState }
+
+func (ChannelMultitrackInputConfigurationMaximumResolutionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelMultitrackInputConfigurationMaximumResolution)(nil)).Elem()
+}
+
+func (o ChannelMultitrackInputConfigurationMaximumResolutionOutput) ToChannelMultitrackInputConfigurationMaximumResolutionOutput() ChannelMultitrackInputConfigurationMaximumResolutionOutput {
+	return o
+}
+
+func (o ChannelMultitrackInputConfigurationMaximumResolutionOutput) ToChannelMultitrackInputConfigurationMaximumResolutionOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationMaximumResolutionOutput {
+	return o
+}
+
+func (o ChannelMultitrackInputConfigurationMaximumResolutionOutput) ToChannelMultitrackInputConfigurationMaximumResolutionPtrOutput() ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput {
+	return o.ToChannelMultitrackInputConfigurationMaximumResolutionPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelMultitrackInputConfigurationMaximumResolutionOutput) ToChannelMultitrackInputConfigurationMaximumResolutionPtrOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelMultitrackInputConfigurationMaximumResolution) *ChannelMultitrackInputConfigurationMaximumResolution {
+		return &v
+	}).(ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput)
+}
+
+func (o ChannelMultitrackInputConfigurationMaximumResolutionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelMultitrackInputConfigurationMaximumResolutionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelMultitrackInputConfigurationMaximumResolution) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelMultitrackInputConfigurationMaximumResolutionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelMultitrackInputConfigurationMaximumResolutionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelMultitrackInputConfigurationMaximumResolution) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelMultitrackInputConfigurationMaximumResolution)(nil)).Elem()
+}
+
+func (o ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput) ToChannelMultitrackInputConfigurationMaximumResolutionPtrOutput() ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput {
+	return o
+}
+
+func (o ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput) ToChannelMultitrackInputConfigurationMaximumResolutionPtrOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput {
+	return o
+}
+
+func (o ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput) Elem() ChannelMultitrackInputConfigurationMaximumResolutionOutput {
+	return o.ApplyT(func(v *ChannelMultitrackInputConfigurationMaximumResolution) ChannelMultitrackInputConfigurationMaximumResolution {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelMultitrackInputConfigurationMaximumResolution
+		return ret
+	}).(ChannelMultitrackInputConfigurationMaximumResolutionOutput)
+}
+
+func (o ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelMultitrackInputConfigurationMaximumResolution) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelMultitrackInputConfigurationMaximumResolutionInput is an input type that accepts values of the ChannelMultitrackInputConfigurationMaximumResolution enum
+// A concrete instance of `ChannelMultitrackInputConfigurationMaximumResolutionInput` can be one of the following:
+//
+//	ChannelMultitrackInputConfigurationMaximumResolutionSd
+//	ChannelMultitrackInputConfigurationMaximumResolutionHd
+//	ChannelMultitrackInputConfigurationMaximumResolutionFullHd
+type ChannelMultitrackInputConfigurationMaximumResolutionInput interface {
+	pulumi.Input
+
+	ToChannelMultitrackInputConfigurationMaximumResolutionOutput() ChannelMultitrackInputConfigurationMaximumResolutionOutput
+	ToChannelMultitrackInputConfigurationMaximumResolutionOutputWithContext(context.Context) ChannelMultitrackInputConfigurationMaximumResolutionOutput
+}
+
+var channelMultitrackInputConfigurationMaximumResolutionPtrType = reflect.TypeOf((**ChannelMultitrackInputConfigurationMaximumResolution)(nil)).Elem()
+
+type ChannelMultitrackInputConfigurationMaximumResolutionPtrInput interface {
+	pulumi.Input
+
+	ToChannelMultitrackInputConfigurationMaximumResolutionPtrOutput() ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput
+	ToChannelMultitrackInputConfigurationMaximumResolutionPtrOutputWithContext(context.Context) ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput
+}
+
+type channelMultitrackInputConfigurationMaximumResolutionPtr string
+
+func ChannelMultitrackInputConfigurationMaximumResolutionPtr(v string) ChannelMultitrackInputConfigurationMaximumResolutionPtrInput {
+	return (*channelMultitrackInputConfigurationMaximumResolutionPtr)(&v)
+}
+
+func (*channelMultitrackInputConfigurationMaximumResolutionPtr) ElementType() reflect.Type {
+	return channelMultitrackInputConfigurationMaximumResolutionPtrType
+}
+
+func (in *channelMultitrackInputConfigurationMaximumResolutionPtr) ToChannelMultitrackInputConfigurationMaximumResolutionPtrOutput() ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput {
+	return pulumi.ToOutput(in).(ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput)
+}
+
+func (in *channelMultitrackInputConfigurationMaximumResolutionPtr) ToChannelMultitrackInputConfigurationMaximumResolutionPtrOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput)
+}
+
+// Indicates whether multitrack input is allowed or required. Required if enabled is true.
+type ChannelMultitrackInputConfigurationPolicy string
+
+const (
+	ChannelMultitrackInputConfigurationPolicyAllow   = ChannelMultitrackInputConfigurationPolicy("ALLOW")
+	ChannelMultitrackInputConfigurationPolicyRequire = ChannelMultitrackInputConfigurationPolicy("REQUIRE")
+)
+
+func (ChannelMultitrackInputConfigurationPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelMultitrackInputConfigurationPolicy)(nil)).Elem()
+}
+
+func (e ChannelMultitrackInputConfigurationPolicy) ToChannelMultitrackInputConfigurationPolicyOutput() ChannelMultitrackInputConfigurationPolicyOutput {
+	return pulumi.ToOutput(e).(ChannelMultitrackInputConfigurationPolicyOutput)
+}
+
+func (e ChannelMultitrackInputConfigurationPolicy) ToChannelMultitrackInputConfigurationPolicyOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelMultitrackInputConfigurationPolicyOutput)
+}
+
+func (e ChannelMultitrackInputConfigurationPolicy) ToChannelMultitrackInputConfigurationPolicyPtrOutput() ChannelMultitrackInputConfigurationPolicyPtrOutput {
+	return e.ToChannelMultitrackInputConfigurationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelMultitrackInputConfigurationPolicy) ToChannelMultitrackInputConfigurationPolicyPtrOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationPolicyPtrOutput {
+	return ChannelMultitrackInputConfigurationPolicy(e).ToChannelMultitrackInputConfigurationPolicyOutputWithContext(ctx).ToChannelMultitrackInputConfigurationPolicyPtrOutputWithContext(ctx)
+}
+
+func (e ChannelMultitrackInputConfigurationPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelMultitrackInputConfigurationPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelMultitrackInputConfigurationPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelMultitrackInputConfigurationPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelMultitrackInputConfigurationPolicyOutput struct{ *pulumi.OutputState }
+
+func (ChannelMultitrackInputConfigurationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelMultitrackInputConfigurationPolicy)(nil)).Elem()
+}
+
+func (o ChannelMultitrackInputConfigurationPolicyOutput) ToChannelMultitrackInputConfigurationPolicyOutput() ChannelMultitrackInputConfigurationPolicyOutput {
+	return o
+}
+
+func (o ChannelMultitrackInputConfigurationPolicyOutput) ToChannelMultitrackInputConfigurationPolicyOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationPolicyOutput {
+	return o
+}
+
+func (o ChannelMultitrackInputConfigurationPolicyOutput) ToChannelMultitrackInputConfigurationPolicyPtrOutput() ChannelMultitrackInputConfigurationPolicyPtrOutput {
+	return o.ToChannelMultitrackInputConfigurationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelMultitrackInputConfigurationPolicyOutput) ToChannelMultitrackInputConfigurationPolicyPtrOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelMultitrackInputConfigurationPolicy) *ChannelMultitrackInputConfigurationPolicy {
+		return &v
+	}).(ChannelMultitrackInputConfigurationPolicyPtrOutput)
+}
+
+func (o ChannelMultitrackInputConfigurationPolicyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelMultitrackInputConfigurationPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelMultitrackInputConfigurationPolicy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelMultitrackInputConfigurationPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelMultitrackInputConfigurationPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelMultitrackInputConfigurationPolicy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelMultitrackInputConfigurationPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelMultitrackInputConfigurationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelMultitrackInputConfigurationPolicy)(nil)).Elem()
+}
+
+func (o ChannelMultitrackInputConfigurationPolicyPtrOutput) ToChannelMultitrackInputConfigurationPolicyPtrOutput() ChannelMultitrackInputConfigurationPolicyPtrOutput {
+	return o
+}
+
+func (o ChannelMultitrackInputConfigurationPolicyPtrOutput) ToChannelMultitrackInputConfigurationPolicyPtrOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationPolicyPtrOutput {
+	return o
+}
+
+func (o ChannelMultitrackInputConfigurationPolicyPtrOutput) Elem() ChannelMultitrackInputConfigurationPolicyOutput {
+	return o.ApplyT(func(v *ChannelMultitrackInputConfigurationPolicy) ChannelMultitrackInputConfigurationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelMultitrackInputConfigurationPolicy
+		return ret
+	}).(ChannelMultitrackInputConfigurationPolicyOutput)
+}
+
+func (o ChannelMultitrackInputConfigurationPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelMultitrackInputConfigurationPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelMultitrackInputConfigurationPolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelMultitrackInputConfigurationPolicyInput is an input type that accepts values of the ChannelMultitrackInputConfigurationPolicy enum
+// A concrete instance of `ChannelMultitrackInputConfigurationPolicyInput` can be one of the following:
+//
+//	ChannelMultitrackInputConfigurationPolicyAllow
+//	ChannelMultitrackInputConfigurationPolicyRequire
+type ChannelMultitrackInputConfigurationPolicyInput interface {
+	pulumi.Input
+
+	ToChannelMultitrackInputConfigurationPolicyOutput() ChannelMultitrackInputConfigurationPolicyOutput
+	ToChannelMultitrackInputConfigurationPolicyOutputWithContext(context.Context) ChannelMultitrackInputConfigurationPolicyOutput
+}
+
+var channelMultitrackInputConfigurationPolicyPtrType = reflect.TypeOf((**ChannelMultitrackInputConfigurationPolicy)(nil)).Elem()
+
+type ChannelMultitrackInputConfigurationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToChannelMultitrackInputConfigurationPolicyPtrOutput() ChannelMultitrackInputConfigurationPolicyPtrOutput
+	ToChannelMultitrackInputConfigurationPolicyPtrOutputWithContext(context.Context) ChannelMultitrackInputConfigurationPolicyPtrOutput
+}
+
+type channelMultitrackInputConfigurationPolicyPtr string
+
+func ChannelMultitrackInputConfigurationPolicyPtr(v string) ChannelMultitrackInputConfigurationPolicyPtrInput {
+	return (*channelMultitrackInputConfigurationPolicyPtr)(&v)
+}
+
+func (*channelMultitrackInputConfigurationPolicyPtr) ElementType() reflect.Type {
+	return channelMultitrackInputConfigurationPolicyPtrType
+}
+
+func (in *channelMultitrackInputConfigurationPolicyPtr) ToChannelMultitrackInputConfigurationPolicyPtrOutput() ChannelMultitrackInputConfigurationPolicyPtrOutput {
+	return pulumi.ToOutput(in).(ChannelMultitrackInputConfigurationPolicyPtrOutput)
+}
+
+func (in *channelMultitrackInputConfigurationPolicyPtr) ToChannelMultitrackInputConfigurationPolicyPtrOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelMultitrackInputConfigurationPolicyPtrOutput)
 }
 
 // Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
@@ -2002,8 +2502,14 @@ func (o StageAutoParticipantRecordingConfigurationMediaTypesItemArrayOutput) Ind
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelContainerFormatInput)(nil)).Elem(), ChannelContainerFormat("TS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelContainerFormatPtrInput)(nil)).Elem(), ChannelContainerFormat("TS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLatencyModeInput)(nil)).Elem(), ChannelLatencyMode("NORMAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLatencyModePtrInput)(nil)).Elem(), ChannelLatencyMode("NORMAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMultitrackInputConfigurationMaximumResolutionInput)(nil)).Elem(), ChannelMultitrackInputConfigurationMaximumResolution("SD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMultitrackInputConfigurationMaximumResolutionPtrInput)(nil)).Elem(), ChannelMultitrackInputConfigurationMaximumResolution("SD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMultitrackInputConfigurationPolicyInput)(nil)).Elem(), ChannelMultitrackInputConfigurationPolicy("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMultitrackInputConfigurationPolicyPtrInput)(nil)).Elem(), ChannelMultitrackInputConfigurationPolicy("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPresetInput)(nil)).Elem(), ChannelPreset(""))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPresetPtrInput)(nil)).Elem(), ChannelPreset(""))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTypeInput)(nil)).Elem(), ChannelType("STANDARD"))
@@ -2025,8 +2531,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationMediaTypesItemInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationMediaTypesItem("AUDIO_VIDEO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationMediaTypesItemPtrInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationMediaTypesItem("AUDIO_VIDEO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationMediaTypesItemArrayInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationMediaTypesItemArray{})
+	pulumi.RegisterOutputType(ChannelContainerFormatOutput{})
+	pulumi.RegisterOutputType(ChannelContainerFormatPtrOutput{})
 	pulumi.RegisterOutputType(ChannelLatencyModeOutput{})
 	pulumi.RegisterOutputType(ChannelLatencyModePtrOutput{})
+	pulumi.RegisterOutputType(ChannelMultitrackInputConfigurationMaximumResolutionOutput{})
+	pulumi.RegisterOutputType(ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput{})
+	pulumi.RegisterOutputType(ChannelMultitrackInputConfigurationPolicyOutput{})
+	pulumi.RegisterOutputType(ChannelMultitrackInputConfigurationPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ChannelPresetOutput{})
 	pulumi.RegisterOutputType(ChannelPresetPtrOutput{})
 	pulumi.RegisterOutputType(ChannelTypeOutput{})

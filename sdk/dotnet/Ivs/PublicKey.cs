@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Ivs
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The public portion of a customer-generated key pair.
+        /// The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PublicKey resource.
         /// </summary>
         [Output("publicKeyMaterial")]
         public Output<string?> PublicKeyMaterial { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.Ivs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The public portion of a customer-generated key pair.
+        /// The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PublicKey resource.
         /// </summary>
         [Input("publicKeyMaterial")]
         public Input<string>? PublicKeyMaterial { get; set; }

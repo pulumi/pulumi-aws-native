@@ -40,6 +40,7 @@ __all__ = [
     'BucketLambdaConfiguration',
     'BucketLifecycleConfiguration',
     'BucketLoggingConfiguration',
+    'BucketMetadataTableConfiguration',
     'BucketMetrics',
     'BucketMetricsConfiguration',
     'BucketNoncurrentVersionExpiration',
@@ -66,6 +67,7 @@ __all__ = [
     'BucketRoutingRuleCondition',
     'BucketRule',
     'BucketS3KeyFilter',
+    'BucketS3TablesDestination',
     'BucketServerSideEncryptionByDefault',
     'BucketServerSideEncryptionRule',
     'BucketSourceSelectionCriteria',
@@ -1279,13 +1281,11 @@ class BucketLifecycleConfiguration(dict):
         Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
         :param Sequence['BucketRule'] rules: A lifecycle rule for individual objects in an Amazon S3 bucket.
         :param 'BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize' transition_default_minimum_object_size: Indicates which default minimum object size behavior is applied to the lifecycle configuration.
-               
-               > This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations. 
-               
-               - `all_storage_classes_128K` - Objects smaller than 128 KB will not transition to any storage class by default.
-               - `varies_by_storage_class` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
-               
-               To customize the minimum object size for any transition you can add a filter that specifies a custom `ObjectSizeGreaterThan` or `ObjectSizeLessThan` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
+                 This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
+                  +   ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
+                 +   ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB. 
+                 
+                To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
         """
         pulumi.set(__self__, "rules", rules)
         if transition_default_minimum_object_size is not None:
@@ -1304,13 +1304,11 @@ class BucketLifecycleConfiguration(dict):
     def transition_default_minimum_object_size(self) -> Optional['BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize']:
         """
         Indicates which default minimum object size behavior is applied to the lifecycle configuration.
-
-        > This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations. 
-
-        - `all_storage_classes_128K` - Objects smaller than 128 KB will not transition to any storage class by default.
-        - `varies_by_storage_class` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
-
-        To customize the minimum object size for any transition you can add a filter that specifies a custom `ObjectSizeGreaterThan` or `ObjectSizeLessThan` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
+          This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
+           +   ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
+          +   ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB. 
+          
+         To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
         """
         return pulumi.get(self, "transition_default_minimum_object_size")
 
@@ -1383,6 +1381,35 @@ class BucketLoggingConfiguration(dict):
         Amazon S3 key format for log objects. Only one format, either PartitionedPrefix or SimplePrefix, is allowed.
         """
         return pulumi.get(self, "target_object_key_format")
+
+
+@pulumi.output_type
+class BucketMetadataTableConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3TablesDestination":
+            suggest = "s3_tables_destination"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMetadataTableConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMetadataTableConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMetadataTableConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_tables_destination: 'outputs.BucketS3TablesDestination'):
+        pulumi.set(__self__, "s3_tables_destination", s3_tables_destination)
+
+    @property
+    @pulumi.getter(name="s3TablesDestination")
+    def s3_tables_destination(self) -> 'outputs.BucketS3TablesDestination':
+        return pulumi.get(self, "s3_tables_destination")
 
 
 @pulumi.output_type
@@ -3091,11 +3118,87 @@ class BucketS3KeyFilter(dict):
 
 
 @pulumi.output_type
+class BucketS3TablesDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableBucketArn":
+            suggest = "table_bucket_arn"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "tableArn":
+            suggest = "table_arn"
+        elif key == "tableNamespace":
+            suggest = "table_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketS3TablesDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketS3TablesDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketS3TablesDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 table_bucket_arn: str,
+                 table_name: str,
+                 table_arn: Optional[str] = None,
+                 table_namespace: Optional[str] = None):
+        """
+        :param str table_bucket_arn: The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket.
+        :param str table_name: The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
+        :param str table_arn: The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
+        :param str table_namespace: The table bucket namespace for the metadata table in your metadata table configuration. This value is always <code>aws_s3_metadata</code>.
+        """
+        pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
+        pulumi.set(__self__, "table_name", table_name)
+        if table_arn is not None:
+            pulumi.set(__self__, "table_arn", table_arn)
+        if table_namespace is not None:
+            pulumi.set(__self__, "table_namespace", table_namespace)
+
+    @property
+    @pulumi.getter(name="tableBucketArn")
+    def table_bucket_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket.
+        """
+        return pulumi.get(self, "table_bucket_arn")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
+        """
+        return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter(name="tableArn")
+    def table_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
+        """
+        return pulumi.get(self, "table_arn")
+
+    @property
+    @pulumi.getter(name="tableNamespace")
+    def table_namespace(self) -> Optional[str]:
+        """
+        The table bucket namespace for the metadata table in your metadata table configuration. This value is always <code>aws_s3_metadata</code>.
+        """
+        return pulumi.get(self, "table_namespace")
+
+
+@pulumi.output_type
 class BucketServerSideEncryptionByDefault(dict):
     """
     Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. For more information, see [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html).
        +   *General purpose buckets* - If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key (``aws/s3``) in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. 
-      +   *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket for the lifetime of the bucket. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported. 
+      +   *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket's lifetime. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported. 
       +   *Directory buckets* - For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS.
     """
     @staticmethod
@@ -3123,7 +3226,7 @@ class BucketServerSideEncryptionByDefault(dict):
         """
         Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. For more information, see [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html).
            +   *General purpose buckets* - If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key (``aws/s3``) in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. 
-          +   *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket for the lifetime of the bucket. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported. 
+          +   *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket's lifetime. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported. 
           +   *Directory buckets* - For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS.
         :param 'BucketServerSideEncryptionByDefaultSseAlgorithm' sse_algorithm: Server-side encryption algorithm to use for the default encryption.
                  For directory buckets, there are only two supported values for server-side encryption: ``AES256`` and ``aws:kms``.
@@ -3356,13 +3459,13 @@ class BucketStorageClassAnalysis(dict):
 @pulumi.output_type
 class BucketTagFilter(dict):
     """
-    Specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
+    Specifies tags to use to identify a subset of objects for an Amazon S3 bucket. For more information, see [Categorizing your storage using tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html) in the *Amazon Simple Storage Service User Guide*.
     """
     def __init__(__self__, *,
                  key: str,
                  value: str):
         """
-        Specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
+        Specifies tags to use to identify a subset of objects for an Amazon S3 bucket. For more information, see [Categorizing your storage using tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html) in the *Amazon Simple Storage Service User Guide*.
         :param str key: The tag key.
         :param str value: The tag value.
         """
@@ -3527,7 +3630,7 @@ class BucketTransition(dict):
         Specifies when an object transitions to a specified storage class. For more information about Amazon S3 lifecycle configuration rules, see [Transitioning Objects Using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html) in the *Amazon S3 User Guide*.
         :param 'BucketTransitionStorageClass' storage_class: The storage class to which you want the object to transition.
         :param str transition_date: Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
-        :param int transition_in_days: Indicates the number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
+        :param int transition_in_days: Indicates the number of days after creation when objects are transitioned to the specified storage class. If the specified storage class is ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE``, valid values are ``0`` or positive integers. If the specified storage class is ``STANDARD_IA`` or ``ONEZONE_IA``, valid values are positive integers greater than ``30``. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
         """
         pulumi.set(__self__, "storage_class", storage_class)
         if transition_date is not None:
@@ -3555,7 +3658,7 @@ class BucketTransition(dict):
     @pulumi.getter(name="transitionInDays")
     def transition_in_days(self) -> Optional[int]:
         """
-        Indicates the number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
+        Indicates the number of days after creation when objects are transitioned to the specified storage class. If the specified storage class is ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE``, valid values are ``0`` or positive integers. If the specified storage class is ``STANDARD_IA`` or ``ONEZONE_IA``, valid values are positive integers greater than ``30``. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "transition_in_days")
 

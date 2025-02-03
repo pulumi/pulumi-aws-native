@@ -34,6 +34,7 @@ class BucketArgs:
                  inventory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketInventoryConfigurationArgs']]]] = None,
                  lifecycle_configuration: Optional[pulumi.Input['BucketLifecycleConfigurationArgs']] = None,
                  logging_configuration: Optional[pulumi.Input['BucketLoggingConfigurationArgs']] = None,
+                 metadata_table_configuration: Optional[pulumi.Input['BucketMetadataTableConfigurationArgs']] = None,
                  metrics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketMetricsConfigurationArgs']]]] = None,
                  notification_configuration: Optional[pulumi.Input['BucketNotificationConfigurationArgs']] = None,
                  object_lock_configuration: Optional[pulumi.Input['BucketObjectLockConfigurationArgs']] = None,
@@ -53,7 +54,7 @@ class BucketArgs:
                  The majority of access control configurations can be successfully and more easily achieved with bucket policies. For more information, see [AWS::S3::BucketPolicy](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html). For examples of common policy configurations, including S3 Server Access Logs buckets and more, see [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input[Sequence[pulumi.Input['BucketAnalyticsConfigurationArgs']]] analytics_configurations: Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
         :param pulumi.Input['BucketEncryptionArgs'] bucket_encryption: Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
-        :param pulumi.Input[str] bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*. 
+        :param pulumi.Input[str] bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*. 
                  If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
         :param pulumi.Input['BucketCorsConfigurationArgs'] cors_configuration: Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationArgs']]] intelligent_tiering_configurations: Defines how Amazon S3 handles Intelligent-Tiering storage.
@@ -62,7 +63,7 @@ class BucketArgs:
         :param pulumi.Input['BucketLoggingConfigurationArgs'] logging_configuration: Settings that define where logs are stored.
         :param pulumi.Input[Sequence[pulumi.Input['BucketMetricsConfigurationArgs']]] metrics_configurations: Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
         :param pulumi.Input['BucketNotificationConfigurationArgs'] notification_configuration: Configuration that defines how Amazon S3 handles bucket notifications.
-        :param pulumi.Input['BucketObjectLockConfigurationArgs'] object_lock_configuration: This operation is not supported by directory buckets.
+        :param pulumi.Input['BucketObjectLockConfigurationArgs'] object_lock_configuration: This operation is not supported for directory buckets.
                  Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). 
                   +  The ``DefaultRetention`` settings require both a mode and a period.
                  +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
@@ -97,6 +98,8 @@ class BucketArgs:
             pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
         if logging_configuration is not None:
             pulumi.set(__self__, "logging_configuration", logging_configuration)
+        if metadata_table_configuration is not None:
+            pulumi.set(__self__, "metadata_table_configuration", metadata_table_configuration)
         if metrics_configurations is not None:
             pulumi.set(__self__, "metrics_configurations", metrics_configurations)
         if notification_configuration is not None:
@@ -173,7 +176,7 @@ class BucketArgs:
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*. 
+        A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*. 
           If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
         """
         return pulumi.get(self, "bucket_name")
@@ -243,6 +246,15 @@ class BucketArgs:
         pulumi.set(self, "logging_configuration", value)
 
     @property
+    @pulumi.getter(name="metadataTableConfiguration")
+    def metadata_table_configuration(self) -> Optional[pulumi.Input['BucketMetadataTableConfigurationArgs']]:
+        return pulumi.get(self, "metadata_table_configuration")
+
+    @metadata_table_configuration.setter
+    def metadata_table_configuration(self, value: Optional[pulumi.Input['BucketMetadataTableConfigurationArgs']]):
+        pulumi.set(self, "metadata_table_configuration", value)
+
+    @property
     @pulumi.getter(name="metricsConfigurations")
     def metrics_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketMetricsConfigurationArgs']]]]:
         """
@@ -270,7 +282,7 @@ class BucketArgs:
     @pulumi.getter(name="objectLockConfiguration")
     def object_lock_configuration(self) -> Optional[pulumi.Input['BucketObjectLockConfigurationArgs']]:
         """
-        This operation is not supported by directory buckets.
+        This operation is not supported for directory buckets.
           Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). 
            +  The ``DefaultRetention`` settings require both a mode and a period.
           +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
@@ -384,6 +396,7 @@ class Bucket(pulumi.CustomResource):
                  inventory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketInventoryConfigurationArgs', 'BucketInventoryConfigurationArgsDict']]]]] = None,
                  lifecycle_configuration: Optional[pulumi.Input[Union['BucketLifecycleConfigurationArgs', 'BucketLifecycleConfigurationArgsDict']]] = None,
                  logging_configuration: Optional[pulumi.Input[Union['BucketLoggingConfigurationArgs', 'BucketLoggingConfigurationArgsDict']]] = None,
+                 metadata_table_configuration: Optional[pulumi.Input[Union['BucketMetadataTableConfigurationArgs', 'BucketMetadataTableConfigurationArgsDict']]] = None,
                  metrics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketMetricsConfigurationArgs', 'BucketMetricsConfigurationArgsDict']]]]] = None,
                  notification_configuration: Optional[pulumi.Input[Union['BucketNotificationConfigurationArgs', 'BucketNotificationConfigurationArgsDict']]] = None,
                  object_lock_configuration: Optional[pulumi.Input[Union['BucketObjectLockConfigurationArgs', 'BucketObjectLockConfigurationArgsDict']]] = None,
@@ -894,7 +907,7 @@ class Bucket(pulumi.CustomResource):
                  The majority of access control configurations can be successfully and more easily achieved with bucket policies. For more information, see [AWS::S3::BucketPolicy](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html). For examples of common policy configurations, including S3 Server Access Logs buckets and more, see [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketAnalyticsConfigurationArgs', 'BucketAnalyticsConfigurationArgsDict']]]] analytics_configurations: Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
         :param pulumi.Input[Union['BucketEncryptionArgs', 'BucketEncryptionArgsDict']] bucket_encryption: Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
-        :param pulumi.Input[str] bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*. 
+        :param pulumi.Input[str] bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*. 
                  If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
         :param pulumi.Input[Union['BucketCorsConfigurationArgs', 'BucketCorsConfigurationArgsDict']] cors_configuration: Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketIntelligentTieringConfigurationArgs', 'BucketIntelligentTieringConfigurationArgsDict']]]] intelligent_tiering_configurations: Defines how Amazon S3 handles Intelligent-Tiering storage.
@@ -903,7 +916,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[Union['BucketLoggingConfigurationArgs', 'BucketLoggingConfigurationArgsDict']] logging_configuration: Settings that define where logs are stored.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketMetricsConfigurationArgs', 'BucketMetricsConfigurationArgsDict']]]] metrics_configurations: Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
         :param pulumi.Input[Union['BucketNotificationConfigurationArgs', 'BucketNotificationConfigurationArgsDict']] notification_configuration: Configuration that defines how Amazon S3 handles bucket notifications.
-        :param pulumi.Input[Union['BucketObjectLockConfigurationArgs', 'BucketObjectLockConfigurationArgsDict']] object_lock_configuration: This operation is not supported by directory buckets.
+        :param pulumi.Input[Union['BucketObjectLockConfigurationArgs', 'BucketObjectLockConfigurationArgsDict']] object_lock_configuration: This operation is not supported for directory buckets.
                  Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). 
                   +  The ``DefaultRetention`` settings require both a mode and a period.
                  +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
@@ -1439,6 +1452,7 @@ class Bucket(pulumi.CustomResource):
                  inventory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketInventoryConfigurationArgs', 'BucketInventoryConfigurationArgsDict']]]]] = None,
                  lifecycle_configuration: Optional[pulumi.Input[Union['BucketLifecycleConfigurationArgs', 'BucketLifecycleConfigurationArgsDict']]] = None,
                  logging_configuration: Optional[pulumi.Input[Union['BucketLoggingConfigurationArgs', 'BucketLoggingConfigurationArgsDict']]] = None,
+                 metadata_table_configuration: Optional[pulumi.Input[Union['BucketMetadataTableConfigurationArgs', 'BucketMetadataTableConfigurationArgsDict']]] = None,
                  metrics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketMetricsConfigurationArgs', 'BucketMetricsConfigurationArgsDict']]]]] = None,
                  notification_configuration: Optional[pulumi.Input[Union['BucketNotificationConfigurationArgs', 'BucketNotificationConfigurationArgsDict']]] = None,
                  object_lock_configuration: Optional[pulumi.Input[Union['BucketObjectLockConfigurationArgs', 'BucketObjectLockConfigurationArgsDict']]] = None,
@@ -1468,6 +1482,7 @@ class Bucket(pulumi.CustomResource):
             __props__.__dict__["inventory_configurations"] = inventory_configurations
             __props__.__dict__["lifecycle_configuration"] = lifecycle_configuration
             __props__.__dict__["logging_configuration"] = logging_configuration
+            __props__.__dict__["metadata_table_configuration"] = metadata_table_configuration
             __props__.__dict__["metrics_configurations"] = metrics_configurations
             __props__.__dict__["notification_configuration"] = notification_configuration
             __props__.__dict__["object_lock_configuration"] = object_lock_configuration
@@ -1520,6 +1535,7 @@ class Bucket(pulumi.CustomResource):
         __props__.__dict__["inventory_configurations"] = None
         __props__.__dict__["lifecycle_configuration"] = None
         __props__.__dict__["logging_configuration"] = None
+        __props__.__dict__["metadata_table_configuration"] = None
         __props__.__dict__["metrics_configurations"] = None
         __props__.__dict__["notification_configuration"] = None
         __props__.__dict__["object_lock_configuration"] = None
@@ -1583,7 +1599,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Output[Optional[str]]:
         """
-        A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*. 
+        A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*. 
           If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
         """
         return pulumi.get(self, "bucket_name")
@@ -1651,6 +1667,11 @@ class Bucket(pulumi.CustomResource):
         return pulumi.get(self, "logging_configuration")
 
     @property
+    @pulumi.getter(name="metadataTableConfiguration")
+    def metadata_table_configuration(self) -> pulumi.Output[Optional['outputs.BucketMetadataTableConfiguration']]:
+        return pulumi.get(self, "metadata_table_configuration")
+
+    @property
     @pulumi.getter(name="metricsConfigurations")
     def metrics_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.BucketMetricsConfiguration']]]:
         """
@@ -1670,7 +1691,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="objectLockConfiguration")
     def object_lock_configuration(self) -> pulumi.Output[Optional['outputs.BucketObjectLockConfiguration']]:
         """
-        This operation is not supported by directory buckets.
+        This operation is not supported for directory buckets.
           Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). 
            +  The ``DefaultRetention`` settings require both a mode and a period.
           +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.

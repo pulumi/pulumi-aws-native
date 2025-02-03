@@ -3806,6 +3806,7 @@ func (o DeliveryStreamDestinationTableConfigurationArrayOutput) Index(i pulumi.I
 }
 
 type DeliveryStreamDirectPutSourceConfiguration struct {
+	// The value that you configure for this parameter is for information purpose only and does not affect Firehose delivery throughput limit. You can use the [Firehose Limits form](https://docs.aws.amazon.com/https://support.console.aws.amazon.com/support/home#/case/create%3FissueType=service-limit-increase%26limitType=kinesis-firehose-limits) to request a throughput limit increase.
 	ThroughputHintInMbs *int `pulumi:"throughputHintInMbs"`
 }
 
@@ -3821,6 +3822,7 @@ type DeliveryStreamDirectPutSourceConfigurationInput interface {
 }
 
 type DeliveryStreamDirectPutSourceConfigurationArgs struct {
+	// The value that you configure for this parameter is for information purpose only and does not affect Firehose delivery throughput limit. You can use the [Firehose Limits form](https://docs.aws.amazon.com/https://support.console.aws.amazon.com/support/home#/case/create%3FissueType=service-limit-increase%26limitType=kinesis-firehose-limits) to request a throughput limit increase.
 	ThroughputHintInMbs pulumi.IntPtrInput `pulumi:"throughputHintInMbs"`
 }
 
@@ -3901,6 +3903,7 @@ func (o DeliveryStreamDirectPutSourceConfigurationOutput) ToDeliveryStreamDirect
 	}).(DeliveryStreamDirectPutSourceConfigurationPtrOutput)
 }
 
+// The value that you configure for this parameter is for information purpose only and does not affect Firehose delivery throughput limit. You can use the [Firehose Limits form](https://docs.aws.amazon.com/https://support.console.aws.amazon.com/support/home#/case/create%3FissueType=service-limit-increase%26limitType=kinesis-firehose-limits) to request a throughput limit increase.
 func (o DeliveryStreamDirectPutSourceConfigurationOutput) ThroughputHintInMbs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamDirectPutSourceConfiguration) *int { return v.ThroughputHintInMbs }).(pulumi.IntPtrOutput)
 }
@@ -3929,6 +3932,7 @@ func (o DeliveryStreamDirectPutSourceConfigurationPtrOutput) Elem() DeliveryStre
 	}).(DeliveryStreamDirectPutSourceConfigurationOutput)
 }
 
+// The value that you configure for this parameter is for information purpose only and does not affect Firehose delivery throughput limit. You can use the [Firehose Limits form](https://docs.aws.amazon.com/https://support.console.aws.amazon.com/support/home#/case/create%3FissueType=service-limit-increase%26limitType=kinesis-firehose-limits) to request a throughput limit increase.
 func (o DeliveryStreamDirectPutSourceConfigurationPtrOutput) ThroughputHintInMbs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamDirectPutSourceConfiguration) *int {
 		if v == nil {
@@ -6604,6 +6608,9 @@ func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) ContentEncoding
 }
 
 type DeliveryStreamIcebergDestinationConfiguration struct {
+	// Describes whether all incoming data for this delivery stream will be append only (inserts only and not for updates and deletes) for Iceberg delivery. This feature is only applicable for Apache Iceberg Tables.
+	//
+	// The default value is false. If you set this value to true, Firehose automatically increases the throughput limit of a stream based on the throttling levels of the stream. If you set this parameter to true for a stream with updates and deletes, you will see out of order delivery.
 	AppendOnly     *bool                         `pulumi:"appendOnly"`
 	BufferingHints *DeliveryStreamBufferingHints `pulumi:"bufferingHints"`
 	// Configuration describing where the destination Apache Iceberg Tables are persisted.
@@ -6632,6 +6639,9 @@ type DeliveryStreamIcebergDestinationConfigurationInput interface {
 }
 
 type DeliveryStreamIcebergDestinationConfigurationArgs struct {
+	// Describes whether all incoming data for this delivery stream will be append only (inserts only and not for updates and deletes) for Iceberg delivery. This feature is only applicable for Apache Iceberg Tables.
+	//
+	// The default value is false. If you set this value to true, Firehose automatically increases the throughput limit of a stream based on the throttling levels of the stream. If you set this parameter to true for a stream with updates and deletes, you will see out of order delivery.
 	AppendOnly     pulumi.BoolPtrInput                  `pulumi:"appendOnly"`
 	BufferingHints DeliveryStreamBufferingHintsPtrInput `pulumi:"bufferingHints"`
 	// Configuration describing where the destination Apache Iceberg Tables are persisted.
@@ -6725,6 +6735,9 @@ func (o DeliveryStreamIcebergDestinationConfigurationOutput) ToDeliveryStreamIce
 	}).(DeliveryStreamIcebergDestinationConfigurationPtrOutput)
 }
 
+// Describes whether all incoming data for this delivery stream will be append only (inserts only and not for updates and deletes) for Iceberg delivery. This feature is only applicable for Apache Iceberg Tables.
+//
+// The default value is false. If you set this value to true, Firehose automatically increases the throughput limit of a stream based on the throttling levels of the stream. If you set this parameter to true for a stream with updates and deletes, you will see out of order delivery.
 func (o DeliveryStreamIcebergDestinationConfigurationOutput) AppendOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) *bool { return v.AppendOnly }).(pulumi.BoolPtrOutput)
 }
@@ -6809,6 +6822,9 @@ func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) Elem() DeliveryS
 	}).(DeliveryStreamIcebergDestinationConfigurationOutput)
 }
 
+// Describes whether all incoming data for this delivery stream will be append only (inserts only and not for updates and deletes) for Iceberg delivery. This feature is only applicable for Apache Iceberg Tables.
+//
+// The default value is false. If you set this value to true, Firehose automatically increases the throughput limit of a stream based on the throttling levels of the stream. If you set this parameter to true for a stream with updates and deletes, you will see out of order delivery.
 func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) AppendOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) *bool {
 		if v == nil {

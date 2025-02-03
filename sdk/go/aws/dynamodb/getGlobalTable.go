@@ -45,8 +45,6 @@ type LookupGlobalTableResult struct {
 	//
 	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
 	GlobalSecondaryIndexes []GlobalTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
-	// Represents the settings used to enable point in time recovery.
-	PointInTimeRecoverySpecification *GlobalTablePointInTimeRecoverySpecification `pulumi:"pointInTimeRecoverySpecification"`
 	// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
 	//
 	// > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
@@ -134,13 +132,6 @@ func (o LookupGlobalTableResultOutput) BillingMode() pulumi.StringPtrOutput {
 // Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
 func (o LookupGlobalTableResultOutput) GlobalSecondaryIndexes() GlobalTableGlobalSecondaryIndexArrayOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableGlobalSecondaryIndex { return v.GlobalSecondaryIndexes }).(GlobalTableGlobalSecondaryIndexArrayOutput)
-}
-
-// Represents the settings used to enable point in time recovery.
-func (o LookupGlobalTableResultOutput) PointInTimeRecoverySpecification() GlobalTablePointInTimeRecoverySpecificationPtrOutput {
-	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTablePointInTimeRecoverySpecification {
-		return v.PointInTimeRecoverySpecification
-	}).(GlobalTablePointInTimeRecoverySpecificationPtrOutput)
 }
 
 // Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.

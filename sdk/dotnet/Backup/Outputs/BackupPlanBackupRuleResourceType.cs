@@ -25,6 +25,7 @@ namespace Pulumi.AwsNative.Backup.Outputs
         /// Enables continuous backup and point-in-time restores (PITR).
         /// </summary>
         public readonly bool? EnableContinuousBackup;
+        public readonly ImmutableArray<Outputs.BackupPlanIndexActionsResourceType> IndexActions;
         /// <summary>
         /// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
         /// </summary>
@@ -64,6 +65,8 @@ namespace Pulumi.AwsNative.Backup.Outputs
 
             bool? enableContinuousBackup,
 
+            ImmutableArray<Outputs.BackupPlanIndexActionsResourceType> indexActions,
+
             Outputs.BackupPlanLifecycleResourceType? lifecycle,
 
             ImmutableDictionary<string, string>? recoveryPointTags,
@@ -81,6 +84,7 @@ namespace Pulumi.AwsNative.Backup.Outputs
             CompletionWindowMinutes = completionWindowMinutes;
             CopyActions = copyActions;
             EnableContinuousBackup = enableContinuousBackup;
+            IndexActions = indexActions;
             Lifecycle = lifecycle;
             RecoveryPointTags = recoveryPointTags;
             RuleName = ruleName;

@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// The name of the volume. The name must be allowed as a DNS subdomain name. For more information, see [DNS subdomain names](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) in the *Kubernetes documentation* .
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Specifies the configuration of a Kubernetes `persistentVolumeClaim` bounded to a `persistentVolume` . For more information, see [Persistent Volume Claims](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) in the *Kubernetes documentation* .
+        /// </summary>
         public readonly Outputs.JobDefinitionEksPersistentVolumeClaim? PersistentVolumeClaim;
         /// <summary>
         /// Specifies the configuration of a Kubernetes `secret` volume. For more information, see [secret](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#secret) in the *Kubernetes documentation* .

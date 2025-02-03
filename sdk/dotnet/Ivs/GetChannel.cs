@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.Ivs
         /// </summary>
         public readonly bool? Authorized;
         /// <summary>
+        /// Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Ivs.ChannelContainerFormat? ContainerFormat;
+        /// <summary>
         /// Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
         /// </summary>
         public readonly string? IngestEndpoint;
@@ -83,6 +87,7 @@ namespace Pulumi.AwsNative.Ivs
         /// Channel latency mode.
         /// </summary>
         public readonly Pulumi.AwsNative.Ivs.ChannelLatencyMode? LatencyMode;
+        public readonly Outputs.ChannelMultitrackInputConfiguration? MultitrackInputConfiguration;
         /// <summary>
         /// Channel
         /// </summary>
@@ -114,11 +119,15 @@ namespace Pulumi.AwsNative.Ivs
 
             bool? authorized,
 
+            Pulumi.AwsNative.Ivs.ChannelContainerFormat? containerFormat,
+
             string? ingestEndpoint,
 
             bool? insecureIngest,
 
             Pulumi.AwsNative.Ivs.ChannelLatencyMode? latencyMode,
+
+            Outputs.ChannelMultitrackInputConfiguration? multitrackInputConfiguration,
 
             string? name,
 
@@ -134,9 +143,11 @@ namespace Pulumi.AwsNative.Ivs
         {
             Arn = arn;
             Authorized = authorized;
+            ContainerFormat = containerFormat;
             IngestEndpoint = ingestEndpoint;
             InsecureIngest = insecureIngest;
             LatencyMode = latencyMode;
+            MultitrackInputConfiguration = multitrackInputConfiguration;
             Name = name;
             PlaybackUrl = playbackUrl;
             Preset = preset;

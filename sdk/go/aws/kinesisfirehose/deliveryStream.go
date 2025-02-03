@@ -34,7 +34,8 @@ type DeliveryStream struct {
 	//
 	// - `DirectPut` : Provider applications access the Firehose stream directly.
 	// - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
-	DeliveryStreamType           DeliveryStreamTypePtrOutput                         `pulumi:"deliveryStreamType"`
+	DeliveryStreamType DeliveryStreamTypePtrOutput `pulumi:"deliveryStreamType"`
+	// The structure that configures parameters such as `ThroughputHintInMBs` for a stream configured with Direct PUT as a source.
 	DirectPutSourceConfiguration DeliveryStreamDirectPutSourceConfigurationPtrOutput `pulumi:"directPutSourceConfiguration"`
 	// An Amazon ES destination for the delivery stream.
 	//
@@ -156,7 +157,8 @@ type deliveryStreamArgs struct {
 	//
 	// - `DirectPut` : Provider applications access the Firehose stream directly.
 	// - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
-	DeliveryStreamType           *DeliveryStreamType                         `pulumi:"deliveryStreamType"`
+	DeliveryStreamType *DeliveryStreamType `pulumi:"deliveryStreamType"`
+	// The structure that configures parameters such as `ThroughputHintInMBs` for a stream configured with Direct PUT as a source.
 	DirectPutSourceConfiguration *DeliveryStreamDirectPutSourceConfiguration `pulumi:"directPutSourceConfiguration"`
 	// An Amazon ES destination for the delivery stream.
 	//
@@ -226,7 +228,8 @@ type DeliveryStreamArgs struct {
 	//
 	// - `DirectPut` : Provider applications access the Firehose stream directly.
 	// - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
-	DeliveryStreamType           DeliveryStreamTypePtrInput
+	DeliveryStreamType DeliveryStreamTypePtrInput
+	// The structure that configures parameters such as `ThroughputHintInMBs` for a stream configured with Direct PUT as a source.
 	DirectPutSourceConfiguration DeliveryStreamDirectPutSourceConfigurationPtrInput
 	// An Amazon ES destination for the delivery stream.
 	//
@@ -363,6 +366,7 @@ func (o DeliveryStreamOutput) DeliveryStreamType() DeliveryStreamTypePtrOutput {
 	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamTypePtrOutput { return v.DeliveryStreamType }).(DeliveryStreamTypePtrOutput)
 }
 
+// The structure that configures parameters such as `ThroughputHintInMBs` for a stream configured with Direct PUT as a source.
 func (o DeliveryStreamOutput) DirectPutSourceConfiguration() DeliveryStreamDirectPutSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamDirectPutSourceConfigurationPtrOutput {
 		return v.DirectPutSourceConfiguration

@@ -13,9 +13,11 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['ChannelArgs', 'Channel']
 
@@ -23,8 +25,10 @@ __all__ = ['ChannelArgs', 'Channel']
 class ChannelArgs:
     def __init__(__self__, *,
                  authorized: Optional[pulumi.Input[bool]] = None,
+                 container_format: Optional[pulumi.Input['ChannelContainerFormat']] = None,
                  insecure_ingest: Optional[pulumi.Input[bool]] = None,
                  latency_mode: Optional[pulumi.Input['ChannelLatencyMode']] = None,
+                 multitrack_input_configuration: Optional[pulumi.Input['ChannelMultitrackInputConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preset: Optional[pulumi.Input['ChannelPreset']] = None,
                  recording_configuration_arn: Optional[pulumi.Input[str]] = None,
@@ -33,6 +37,7 @@ class ChannelArgs:
         """
         The set of arguments for constructing a Channel resource.
         :param pulumi.Input[bool] authorized: Whether the channel is authorized.
+        :param pulumi.Input['ChannelContainerFormat'] container_format: Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
         :param pulumi.Input[bool] insecure_ingest: Whether the channel allows insecure ingest.
         :param pulumi.Input['ChannelLatencyMode'] latency_mode: Channel latency mode.
         :param pulumi.Input[str] name: Channel
@@ -43,10 +48,14 @@ class ChannelArgs:
         """
         if authorized is not None:
             pulumi.set(__self__, "authorized", authorized)
+        if container_format is not None:
+            pulumi.set(__self__, "container_format", container_format)
         if insecure_ingest is not None:
             pulumi.set(__self__, "insecure_ingest", insecure_ingest)
         if latency_mode is not None:
             pulumi.set(__self__, "latency_mode", latency_mode)
+        if multitrack_input_configuration is not None:
+            pulumi.set(__self__, "multitrack_input_configuration", multitrack_input_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if preset is not None:
@@ -71,6 +80,18 @@ class ChannelArgs:
         pulumi.set(self, "authorized", value)
 
     @property
+    @pulumi.getter(name="containerFormat")
+    def container_format(self) -> Optional[pulumi.Input['ChannelContainerFormat']]:
+        """
+        Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+        """
+        return pulumi.get(self, "container_format")
+
+    @container_format.setter
+    def container_format(self, value: Optional[pulumi.Input['ChannelContainerFormat']]):
+        pulumi.set(self, "container_format", value)
+
+    @property
     @pulumi.getter(name="insecureIngest")
     def insecure_ingest(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -93,6 +114,15 @@ class ChannelArgs:
     @latency_mode.setter
     def latency_mode(self, value: Optional[pulumi.Input['ChannelLatencyMode']]):
         pulumi.set(self, "latency_mode", value)
+
+    @property
+    @pulumi.getter(name="multitrackInputConfiguration")
+    def multitrack_input_configuration(self) -> Optional[pulumi.Input['ChannelMultitrackInputConfigurationArgs']]:
+        return pulumi.get(self, "multitrack_input_configuration")
+
+    @multitrack_input_configuration.setter
+    def multitrack_input_configuration(self, value: Optional[pulumi.Input['ChannelMultitrackInputConfigurationArgs']]):
+        pulumi.set(self, "multitrack_input_configuration", value)
 
     @property
     @pulumi.getter
@@ -161,8 +191,10 @@ class Channel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorized: Optional[pulumi.Input[bool]] = None,
+                 container_format: Optional[pulumi.Input['ChannelContainerFormat']] = None,
                  insecure_ingest: Optional[pulumi.Input[bool]] = None,
                  latency_mode: Optional[pulumi.Input['ChannelLatencyMode']] = None,
+                 multitrack_input_configuration: Optional[pulumi.Input[Union['ChannelMultitrackInputConfigurationArgs', 'ChannelMultitrackInputConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preset: Optional[pulumi.Input['ChannelPreset']] = None,
                  recording_configuration_arn: Optional[pulumi.Input[str]] = None,
@@ -227,6 +259,7 @@ class Channel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] authorized: Whether the channel is authorized.
+        :param pulumi.Input['ChannelContainerFormat'] container_format: Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
         :param pulumi.Input[bool] insecure_ingest: Whether the channel allows insecure ingest.
         :param pulumi.Input['ChannelLatencyMode'] latency_mode: Channel latency mode.
         :param pulumi.Input[str] name: Channel
@@ -312,8 +345,10 @@ class Channel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorized: Optional[pulumi.Input[bool]] = None,
+                 container_format: Optional[pulumi.Input['ChannelContainerFormat']] = None,
                  insecure_ingest: Optional[pulumi.Input[bool]] = None,
                  latency_mode: Optional[pulumi.Input['ChannelLatencyMode']] = None,
+                 multitrack_input_configuration: Optional[pulumi.Input[Union['ChannelMultitrackInputConfigurationArgs', 'ChannelMultitrackInputConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preset: Optional[pulumi.Input['ChannelPreset']] = None,
                  recording_configuration_arn: Optional[pulumi.Input[str]] = None,
@@ -329,8 +364,10 @@ class Channel(pulumi.CustomResource):
             __props__ = ChannelArgs.__new__(ChannelArgs)
 
             __props__.__dict__["authorized"] = authorized
+            __props__.__dict__["container_format"] = container_format
             __props__.__dict__["insecure_ingest"] = insecure_ingest
             __props__.__dict__["latency_mode"] = latency_mode
+            __props__.__dict__["multitrack_input_configuration"] = multitrack_input_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["preset"] = preset
             __props__.__dict__["recording_configuration_arn"] = recording_configuration_arn
@@ -363,9 +400,11 @@ class Channel(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["authorized"] = None
+        __props__.__dict__["container_format"] = None
         __props__.__dict__["ingest_endpoint"] = None
         __props__.__dict__["insecure_ingest"] = None
         __props__.__dict__["latency_mode"] = None
+        __props__.__dict__["multitrack_input_configuration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["playback_url"] = None
         __props__.__dict__["preset"] = None
@@ -391,6 +430,14 @@ class Channel(pulumi.CustomResource):
         return pulumi.get(self, "authorized")
 
     @property
+    @pulumi.getter(name="containerFormat")
+    def container_format(self) -> pulumi.Output[Optional['ChannelContainerFormat']]:
+        """
+        Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+        """
+        return pulumi.get(self, "container_format")
+
+    @property
     @pulumi.getter(name="ingestEndpoint")
     def ingest_endpoint(self) -> pulumi.Output[str]:
         """
@@ -413,6 +460,11 @@ class Channel(pulumi.CustomResource):
         Channel latency mode.
         """
         return pulumi.get(self, "latency_mode")
+
+    @property
+    @pulumi.getter(name="multitrackInputConfiguration")
+    def multitrack_input_configuration(self) -> pulumi.Output[Optional['outputs.ChannelMultitrackInputConfiguration']]:
+        return pulumi.get(self, "multitrack_input_configuration")
 
     @property
     @pulumi.getter

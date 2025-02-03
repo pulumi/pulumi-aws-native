@@ -155,7 +155,8 @@ type BackupPlanBackupRuleResourceType struct {
 	// An array of CopyAction objects, which contains the details of the copy operation.
 	CopyActions []BackupPlanCopyActionResourceType `pulumi:"copyActions"`
 	// Enables continuous backup and point-in-time restores (PITR).
-	EnableContinuousBackup *bool `pulumi:"enableContinuousBackup"`
+	EnableContinuousBackup *bool                                `pulumi:"enableContinuousBackup"`
+	IndexActions           []BackupPlanIndexActionsResourceType `pulumi:"indexActions"`
 	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
 	Lifecycle *BackupPlanLifecycleResourceType `pulumi:"lifecycle"`
 	// The tags to assign to the resources.
@@ -191,7 +192,8 @@ type BackupPlanBackupRuleResourceTypeArgs struct {
 	// An array of CopyAction objects, which contains the details of the copy operation.
 	CopyActions BackupPlanCopyActionResourceTypeArrayInput `pulumi:"copyActions"`
 	// Enables continuous backup and point-in-time restores (PITR).
-	EnableContinuousBackup pulumi.BoolPtrInput `pulumi:"enableContinuousBackup"`
+	EnableContinuousBackup pulumi.BoolPtrInput                          `pulumi:"enableContinuousBackup"`
+	IndexActions           BackupPlanIndexActionsResourceTypeArrayInput `pulumi:"indexActions"`
 	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
 	Lifecycle BackupPlanLifecycleResourceTypePtrInput `pulumi:"lifecycle"`
 	// The tags to assign to the resources.
@@ -274,6 +276,10 @@ func (o BackupPlanBackupRuleResourceTypeOutput) CopyActions() BackupPlanCopyActi
 // Enables continuous backup and point-in-time restores (PITR).
 func (o BackupPlanBackupRuleResourceTypeOutput) EnableContinuousBackup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) *bool { return v.EnableContinuousBackup }).(pulumi.BoolPtrOutput)
+}
+
+func (o BackupPlanBackupRuleResourceTypeOutput) IndexActions() BackupPlanIndexActionsResourceTypeArrayOutput {
+	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) []BackupPlanIndexActionsResourceType { return v.IndexActions }).(BackupPlanIndexActionsResourceTypeArrayOutput)
 }
 
 // The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
@@ -443,6 +449,100 @@ func (o BackupPlanCopyActionResourceTypeArrayOutput) Index(i pulumi.IntInput) Ba
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPlanCopyActionResourceType {
 		return vs[0].([]BackupPlanCopyActionResourceType)[vs[1].(int)]
 	}).(BackupPlanCopyActionResourceTypeOutput)
+}
+
+type BackupPlanIndexActionsResourceType struct {
+	ResourceTypes []string `pulumi:"resourceTypes"`
+}
+
+// BackupPlanIndexActionsResourceTypeInput is an input type that accepts BackupPlanIndexActionsResourceTypeArgs and BackupPlanIndexActionsResourceTypeOutput values.
+// You can construct a concrete instance of `BackupPlanIndexActionsResourceTypeInput` via:
+//
+//	BackupPlanIndexActionsResourceTypeArgs{...}
+type BackupPlanIndexActionsResourceTypeInput interface {
+	pulumi.Input
+
+	ToBackupPlanIndexActionsResourceTypeOutput() BackupPlanIndexActionsResourceTypeOutput
+	ToBackupPlanIndexActionsResourceTypeOutputWithContext(context.Context) BackupPlanIndexActionsResourceTypeOutput
+}
+
+type BackupPlanIndexActionsResourceTypeArgs struct {
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+}
+
+func (BackupPlanIndexActionsResourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPlanIndexActionsResourceType)(nil)).Elem()
+}
+
+func (i BackupPlanIndexActionsResourceTypeArgs) ToBackupPlanIndexActionsResourceTypeOutput() BackupPlanIndexActionsResourceTypeOutput {
+	return i.ToBackupPlanIndexActionsResourceTypeOutputWithContext(context.Background())
+}
+
+func (i BackupPlanIndexActionsResourceTypeArgs) ToBackupPlanIndexActionsResourceTypeOutputWithContext(ctx context.Context) BackupPlanIndexActionsResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanIndexActionsResourceTypeOutput)
+}
+
+// BackupPlanIndexActionsResourceTypeArrayInput is an input type that accepts BackupPlanIndexActionsResourceTypeArray and BackupPlanIndexActionsResourceTypeArrayOutput values.
+// You can construct a concrete instance of `BackupPlanIndexActionsResourceTypeArrayInput` via:
+//
+//	BackupPlanIndexActionsResourceTypeArray{ BackupPlanIndexActionsResourceTypeArgs{...} }
+type BackupPlanIndexActionsResourceTypeArrayInput interface {
+	pulumi.Input
+
+	ToBackupPlanIndexActionsResourceTypeArrayOutput() BackupPlanIndexActionsResourceTypeArrayOutput
+	ToBackupPlanIndexActionsResourceTypeArrayOutputWithContext(context.Context) BackupPlanIndexActionsResourceTypeArrayOutput
+}
+
+type BackupPlanIndexActionsResourceTypeArray []BackupPlanIndexActionsResourceTypeInput
+
+func (BackupPlanIndexActionsResourceTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPlanIndexActionsResourceType)(nil)).Elem()
+}
+
+func (i BackupPlanIndexActionsResourceTypeArray) ToBackupPlanIndexActionsResourceTypeArrayOutput() BackupPlanIndexActionsResourceTypeArrayOutput {
+	return i.ToBackupPlanIndexActionsResourceTypeArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPlanIndexActionsResourceTypeArray) ToBackupPlanIndexActionsResourceTypeArrayOutputWithContext(ctx context.Context) BackupPlanIndexActionsResourceTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanIndexActionsResourceTypeArrayOutput)
+}
+
+type BackupPlanIndexActionsResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (BackupPlanIndexActionsResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPlanIndexActionsResourceType)(nil)).Elem()
+}
+
+func (o BackupPlanIndexActionsResourceTypeOutput) ToBackupPlanIndexActionsResourceTypeOutput() BackupPlanIndexActionsResourceTypeOutput {
+	return o
+}
+
+func (o BackupPlanIndexActionsResourceTypeOutput) ToBackupPlanIndexActionsResourceTypeOutputWithContext(ctx context.Context) BackupPlanIndexActionsResourceTypeOutput {
+	return o
+}
+
+func (o BackupPlanIndexActionsResourceTypeOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPlanIndexActionsResourceType) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+type BackupPlanIndexActionsResourceTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPlanIndexActionsResourceTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPlanIndexActionsResourceType)(nil)).Elem()
+}
+
+func (o BackupPlanIndexActionsResourceTypeArrayOutput) ToBackupPlanIndexActionsResourceTypeArrayOutput() BackupPlanIndexActionsResourceTypeArrayOutput {
+	return o
+}
+
+func (o BackupPlanIndexActionsResourceTypeArrayOutput) ToBackupPlanIndexActionsResourceTypeArrayOutputWithContext(ctx context.Context) BackupPlanIndexActionsResourceTypeArrayOutput {
+	return o
+}
+
+func (o BackupPlanIndexActionsResourceTypeArrayOutput) Index(i pulumi.IntInput) BackupPlanIndexActionsResourceTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPlanIndexActionsResourceType {
+		return vs[0].([]BackupPlanIndexActionsResourceType)[vs[1].(int)]
+	}).(BackupPlanIndexActionsResourceTypeOutput)
 }
 
 type BackupPlanLifecycleResourceType struct {
@@ -3111,6 +3211,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanBackupRuleResourceTypeArrayInput)(nil)).Elem(), BackupPlanBackupRuleResourceTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanCopyActionResourceTypeInput)(nil)).Elem(), BackupPlanCopyActionResourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanCopyActionResourceTypeArrayInput)(nil)).Elem(), BackupPlanCopyActionResourceTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanIndexActionsResourceTypeInput)(nil)).Elem(), BackupPlanIndexActionsResourceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanIndexActionsResourceTypeArrayInput)(nil)).Elem(), BackupPlanIndexActionsResourceTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanLifecycleResourceTypeInput)(nil)).Elem(), BackupPlanLifecycleResourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanLifecycleResourceTypePtrInput)(nil)).Elem(), BackupPlanLifecycleResourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanResourceTypeInput)(nil)).Elem(), BackupPlanResourceTypeArgs{})
@@ -3148,6 +3250,8 @@ func init() {
 	pulumi.RegisterOutputType(BackupPlanBackupRuleResourceTypeArrayOutput{})
 	pulumi.RegisterOutputType(BackupPlanCopyActionResourceTypeOutput{})
 	pulumi.RegisterOutputType(BackupPlanCopyActionResourceTypeArrayOutput{})
+	pulumi.RegisterOutputType(BackupPlanIndexActionsResourceTypeOutput{})
+	pulumi.RegisterOutputType(BackupPlanIndexActionsResourceTypeArrayOutput{})
 	pulumi.RegisterOutputType(BackupPlanLifecycleResourceTypeOutput{})
 	pulumi.RegisterOutputType(BackupPlanLifecycleResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(BackupPlanResourceTypeOutput{})

@@ -1446,12 +1446,18 @@ class DeliveryStreamDirectPutSourceConfiguration(dict):
 
     def __init__(__self__, *,
                  throughput_hint_in_mbs: Optional[int] = None):
+        """
+        :param int throughput_hint_in_mbs: The value that you configure for this parameter is for information purpose only and does not affect Firehose delivery throughput limit. You can use the [Firehose Limits form](https://docs.aws.amazon.com/https://support.console.aws.amazon.com/support/home#/case/create%3FissueType=service-limit-increase%26limitType=kinesis-firehose-limits) to request a throughput limit increase.
+        """
         if throughput_hint_in_mbs is not None:
             pulumi.set(__self__, "throughput_hint_in_mbs", throughput_hint_in_mbs)
 
     @property
     @pulumi.getter(name="throughputHintInMbs")
     def throughput_hint_in_mbs(self) -> Optional[int]:
+        """
+        The value that you configure for this parameter is for information purpose only and does not affect Firehose delivery throughput limit. You can use the [Firehose Limits form](https://docs.aws.amazon.com/https://support.console.aws.amazon.com/support/home#/case/create%3FissueType=service-limit-increase%26limitType=kinesis-firehose-limits) to request a throughput limit increase.
+        """
         return pulumi.get(self, "throughput_hint_in_mbs")
 
 
@@ -2586,6 +2592,9 @@ class DeliveryStreamIcebergDestinationConfiguration(dict):
         """
         :param 'DeliveryStreamCatalogConfiguration' catalog_configuration: Configuration describing where the destination Apache Iceberg Tables are persisted.
         :param str role_arn: The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        :param bool append_only: Describes whether all incoming data for this delivery stream will be append only (inserts only and not for updates and deletes) for Iceberg delivery. This feature is only applicable for Apache Iceberg Tables.
+               
+               The default value is false. If you set this value to true, Firehose automatically increases the throughput limit of a stream based on the throttling levels of the stream. If you set this parameter to true for a stream with updates and deletes, you will see out of order delivery.
         :param Sequence['DeliveryStreamDestinationTableConfiguration'] destination_table_configuration_list: Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided here.
         :param 'DeliveryStreamIcebergDestinationConfigurations3BackupMode' s3_backup_mode: Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
         """
@@ -2631,6 +2640,11 @@ class DeliveryStreamIcebergDestinationConfiguration(dict):
     @property
     @pulumi.getter(name="appendOnly")
     def append_only(self) -> Optional[bool]:
+        """
+        Describes whether all incoming data for this delivery stream will be append only (inserts only and not for updates and deletes) for Iceberg delivery. This feature is only applicable for Apache Iceberg Tables.
+
+        The default value is false. If you set this value to true, Firehose automatically increases the throughput limit of a stream based on the throttling levels of the stream. If you set this parameter to true for a stream with updates and deletes, you will see out of order delivery.
+        """
         return pulumi.get(self, "append_only")
 
     @property

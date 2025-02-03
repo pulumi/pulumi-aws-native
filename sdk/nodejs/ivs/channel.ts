@@ -102,6 +102,10 @@ export class Channel extends pulumi.CustomResource {
      */
     public readonly authorized!: pulumi.Output<boolean | undefined>;
     /**
+     * Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+     */
+    public readonly containerFormat!: pulumi.Output<enums.ivs.ChannelContainerFormat | undefined>;
+    /**
      * Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
      */
     public /*out*/ readonly ingestEndpoint!: pulumi.Output<string>;
@@ -113,6 +117,7 @@ export class Channel extends pulumi.CustomResource {
      * Channel latency mode.
      */
     public readonly latencyMode!: pulumi.Output<enums.ivs.ChannelLatencyMode | undefined>;
+    public readonly multitrackInputConfiguration!: pulumi.Output<outputs.ivs.ChannelMultitrackInputConfiguration | undefined>;
     /**
      * Channel
      */
@@ -150,8 +155,10 @@ export class Channel extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["authorized"] = args ? args.authorized : undefined;
+            resourceInputs["containerFormat"] = args ? args.containerFormat : undefined;
             resourceInputs["insecureIngest"] = args ? args.insecureIngest : undefined;
             resourceInputs["latencyMode"] = args ? args.latencyMode : undefined;
+            resourceInputs["multitrackInputConfiguration"] = args ? args.multitrackInputConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["preset"] = args ? args.preset : undefined;
             resourceInputs["recordingConfigurationArn"] = args ? args.recordingConfigurationArn : undefined;
@@ -163,9 +170,11 @@ export class Channel extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["authorized"] = undefined /*out*/;
+            resourceInputs["containerFormat"] = undefined /*out*/;
             resourceInputs["ingestEndpoint"] = undefined /*out*/;
             resourceInputs["insecureIngest"] = undefined /*out*/;
             resourceInputs["latencyMode"] = undefined /*out*/;
+            resourceInputs["multitrackInputConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["playbackUrl"] = undefined /*out*/;
             resourceInputs["preset"] = undefined /*out*/;
@@ -187,6 +196,10 @@ export interface ChannelArgs {
      */
     authorized?: pulumi.Input<boolean>;
     /**
+     * Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+     */
+    containerFormat?: pulumi.Input<enums.ivs.ChannelContainerFormat>;
+    /**
      * Whether the channel allows insecure ingest.
      */
     insecureIngest?: pulumi.Input<boolean>;
@@ -194,6 +207,7 @@ export interface ChannelArgs {
      * Channel latency mode.
      */
     latencyMode?: pulumi.Input<enums.ivs.ChannelLatencyMode>;
+    multitrackInputConfiguration?: pulumi.Input<inputs.ivs.ChannelMultitrackInputConfigurationArgs>;
     /**
      * Channel
      */

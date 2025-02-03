@@ -120,12 +120,15 @@ type Channel struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether the channel is authorized.
 	Authorized pulumi.BoolPtrOutput `pulumi:"authorized"`
+	// Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+	ContainerFormat ChannelContainerFormatPtrOutput `pulumi:"containerFormat"`
 	// Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
 	IngestEndpoint pulumi.StringOutput `pulumi:"ingestEndpoint"`
 	// Whether the channel allows insecure ingest.
 	InsecureIngest pulumi.BoolPtrOutput `pulumi:"insecureIngest"`
 	// Channel latency mode.
-	LatencyMode ChannelLatencyModePtrOutput `pulumi:"latencyMode"`
+	LatencyMode                  ChannelLatencyModePtrOutput                  `pulumi:"latencyMode"`
+	MultitrackInputConfiguration ChannelMultitrackInputConfigurationPtrOutput `pulumi:"multitrackInputConfiguration"`
 	// Channel
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Channel Playback URL.
@@ -182,10 +185,13 @@ func (ChannelState) ElementType() reflect.Type {
 type channelArgs struct {
 	// Whether the channel is authorized.
 	Authorized *bool `pulumi:"authorized"`
+	// Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+	ContainerFormat *ChannelContainerFormat `pulumi:"containerFormat"`
 	// Whether the channel allows insecure ingest.
 	InsecureIngest *bool `pulumi:"insecureIngest"`
 	// Channel latency mode.
-	LatencyMode *ChannelLatencyMode `pulumi:"latencyMode"`
+	LatencyMode                  *ChannelLatencyMode                  `pulumi:"latencyMode"`
+	MultitrackInputConfiguration *ChannelMultitrackInputConfiguration `pulumi:"multitrackInputConfiguration"`
 	// Channel
 	Name *string `pulumi:"name"`
 	// Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
@@ -202,10 +208,13 @@ type channelArgs struct {
 type ChannelArgs struct {
 	// Whether the channel is authorized.
 	Authorized pulumi.BoolPtrInput
+	// Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+	ContainerFormat ChannelContainerFormatPtrInput
 	// Whether the channel allows insecure ingest.
 	InsecureIngest pulumi.BoolPtrInput
 	// Channel latency mode.
-	LatencyMode ChannelLatencyModePtrInput
+	LatencyMode                  ChannelLatencyModePtrInput
+	MultitrackInputConfiguration ChannelMultitrackInputConfigurationPtrInput
 	// Channel
 	Name pulumi.StringPtrInput
 	// Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
@@ -265,6 +274,11 @@ func (o ChannelOutput) Authorized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Channel) pulumi.BoolPtrOutput { return v.Authorized }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
+func (o ChannelOutput) ContainerFormat() ChannelContainerFormatPtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelContainerFormatPtrOutput { return v.ContainerFormat }).(ChannelContainerFormatPtrOutput)
+}
+
 // Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
 func (o ChannelOutput) IngestEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.IngestEndpoint }).(pulumi.StringOutput)
@@ -278,6 +292,10 @@ func (o ChannelOutput) InsecureIngest() pulumi.BoolPtrOutput {
 // Channel latency mode.
 func (o ChannelOutput) LatencyMode() ChannelLatencyModePtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelLatencyModePtrOutput { return v.LatencyMode }).(ChannelLatencyModePtrOutput)
+}
+
+func (o ChannelOutput) MultitrackInputConfiguration() ChannelMultitrackInputConfigurationPtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelMultitrackInputConfigurationPtrOutput { return v.MultitrackInputConfiguration }).(ChannelMultitrackInputConfigurationPtrOutput)
 }
 
 // Channel

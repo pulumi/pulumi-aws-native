@@ -13,10 +13,189 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ChannelMultitrackInputConfiguration struct {
+	// Indicates whether multitrack input is enabled. Can be set to true only if channel type is STANDARD. Setting enabled to true with any other channel type will cause an exception. If true, then policy, maximumResolution, and containerFormat are required, and containerFormat must be set to FRAGMENTED_MP4. Default: false.
+	Enabled *bool `pulumi:"enabled"`
+	// Maximum resolution for multitrack input. Required if enabled is true.
+	MaximumResolution *ChannelMultitrackInputConfigurationMaximumResolution `pulumi:"maximumResolution"`
+	// Indicates whether multitrack input is allowed or required. Required if enabled is true.
+	Policy *ChannelMultitrackInputConfigurationPolicy `pulumi:"policy"`
+}
+
+// ChannelMultitrackInputConfigurationInput is an input type that accepts ChannelMultitrackInputConfigurationArgs and ChannelMultitrackInputConfigurationOutput values.
+// You can construct a concrete instance of `ChannelMultitrackInputConfigurationInput` via:
+//
+//	ChannelMultitrackInputConfigurationArgs{...}
+type ChannelMultitrackInputConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelMultitrackInputConfigurationOutput() ChannelMultitrackInputConfigurationOutput
+	ToChannelMultitrackInputConfigurationOutputWithContext(context.Context) ChannelMultitrackInputConfigurationOutput
+}
+
+type ChannelMultitrackInputConfigurationArgs struct {
+	// Indicates whether multitrack input is enabled. Can be set to true only if channel type is STANDARD. Setting enabled to true with any other channel type will cause an exception. If true, then policy, maximumResolution, and containerFormat are required, and containerFormat must be set to FRAGMENTED_MP4. Default: false.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Maximum resolution for multitrack input. Required if enabled is true.
+	MaximumResolution ChannelMultitrackInputConfigurationMaximumResolutionPtrInput `pulumi:"maximumResolution"`
+	// Indicates whether multitrack input is allowed or required. Required if enabled is true.
+	Policy ChannelMultitrackInputConfigurationPolicyPtrInput `pulumi:"policy"`
+}
+
+func (ChannelMultitrackInputConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelMultitrackInputConfiguration)(nil)).Elem()
+}
+
+func (i ChannelMultitrackInputConfigurationArgs) ToChannelMultitrackInputConfigurationOutput() ChannelMultitrackInputConfigurationOutput {
+	return i.ToChannelMultitrackInputConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelMultitrackInputConfigurationArgs) ToChannelMultitrackInputConfigurationOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelMultitrackInputConfigurationOutput)
+}
+
+func (i ChannelMultitrackInputConfigurationArgs) ToChannelMultitrackInputConfigurationPtrOutput() ChannelMultitrackInputConfigurationPtrOutput {
+	return i.ToChannelMultitrackInputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelMultitrackInputConfigurationArgs) ToChannelMultitrackInputConfigurationPtrOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelMultitrackInputConfigurationOutput).ToChannelMultitrackInputConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelMultitrackInputConfigurationPtrInput is an input type that accepts ChannelMultitrackInputConfigurationArgs, ChannelMultitrackInputConfigurationPtr and ChannelMultitrackInputConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelMultitrackInputConfigurationPtrInput` via:
+//
+//	        ChannelMultitrackInputConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelMultitrackInputConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelMultitrackInputConfigurationPtrOutput() ChannelMultitrackInputConfigurationPtrOutput
+	ToChannelMultitrackInputConfigurationPtrOutputWithContext(context.Context) ChannelMultitrackInputConfigurationPtrOutput
+}
+
+type channelMultitrackInputConfigurationPtrType ChannelMultitrackInputConfigurationArgs
+
+func ChannelMultitrackInputConfigurationPtr(v *ChannelMultitrackInputConfigurationArgs) ChannelMultitrackInputConfigurationPtrInput {
+	return (*channelMultitrackInputConfigurationPtrType)(v)
+}
+
+func (*channelMultitrackInputConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelMultitrackInputConfiguration)(nil)).Elem()
+}
+
+func (i *channelMultitrackInputConfigurationPtrType) ToChannelMultitrackInputConfigurationPtrOutput() ChannelMultitrackInputConfigurationPtrOutput {
+	return i.ToChannelMultitrackInputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelMultitrackInputConfigurationPtrType) ToChannelMultitrackInputConfigurationPtrOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelMultitrackInputConfigurationPtrOutput)
+}
+
+type ChannelMultitrackInputConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelMultitrackInputConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelMultitrackInputConfiguration)(nil)).Elem()
+}
+
+func (o ChannelMultitrackInputConfigurationOutput) ToChannelMultitrackInputConfigurationOutput() ChannelMultitrackInputConfigurationOutput {
+	return o
+}
+
+func (o ChannelMultitrackInputConfigurationOutput) ToChannelMultitrackInputConfigurationOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationOutput {
+	return o
+}
+
+func (o ChannelMultitrackInputConfigurationOutput) ToChannelMultitrackInputConfigurationPtrOutput() ChannelMultitrackInputConfigurationPtrOutput {
+	return o.ToChannelMultitrackInputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelMultitrackInputConfigurationOutput) ToChannelMultitrackInputConfigurationPtrOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelMultitrackInputConfiguration) *ChannelMultitrackInputConfiguration {
+		return &v
+	}).(ChannelMultitrackInputConfigurationPtrOutput)
+}
+
+// Indicates whether multitrack input is enabled. Can be set to true only if channel type is STANDARD. Setting enabled to true with any other channel type will cause an exception. If true, then policy, maximumResolution, and containerFormat are required, and containerFormat must be set to FRAGMENTED_MP4. Default: false.
+func (o ChannelMultitrackInputConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ChannelMultitrackInputConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Maximum resolution for multitrack input. Required if enabled is true.
+func (o ChannelMultitrackInputConfigurationOutput) MaximumResolution() ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput {
+	return o.ApplyT(func(v ChannelMultitrackInputConfiguration) *ChannelMultitrackInputConfigurationMaximumResolution {
+		return v.MaximumResolution
+	}).(ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput)
+}
+
+// Indicates whether multitrack input is allowed or required. Required if enabled is true.
+func (o ChannelMultitrackInputConfigurationOutput) Policy() ChannelMultitrackInputConfigurationPolicyPtrOutput {
+	return o.ApplyT(func(v ChannelMultitrackInputConfiguration) *ChannelMultitrackInputConfigurationPolicy {
+		return v.Policy
+	}).(ChannelMultitrackInputConfigurationPolicyPtrOutput)
+}
+
+type ChannelMultitrackInputConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelMultitrackInputConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelMultitrackInputConfiguration)(nil)).Elem()
+}
+
+func (o ChannelMultitrackInputConfigurationPtrOutput) ToChannelMultitrackInputConfigurationPtrOutput() ChannelMultitrackInputConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelMultitrackInputConfigurationPtrOutput) ToChannelMultitrackInputConfigurationPtrOutputWithContext(ctx context.Context) ChannelMultitrackInputConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelMultitrackInputConfigurationPtrOutput) Elem() ChannelMultitrackInputConfigurationOutput {
+	return o.ApplyT(func(v *ChannelMultitrackInputConfiguration) ChannelMultitrackInputConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelMultitrackInputConfiguration
+		return ret
+	}).(ChannelMultitrackInputConfigurationOutput)
+}
+
+// Indicates whether multitrack input is enabled. Can be set to true only if channel type is STANDARD. Setting enabled to true with any other channel type will cause an exception. If true, then policy, maximumResolution, and containerFormat are required, and containerFormat must be set to FRAGMENTED_MP4. Default: false.
+func (o ChannelMultitrackInputConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChannelMultitrackInputConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Maximum resolution for multitrack input. Required if enabled is true.
+func (o ChannelMultitrackInputConfigurationPtrOutput) MaximumResolution() ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput {
+	return o.ApplyT(func(v *ChannelMultitrackInputConfiguration) *ChannelMultitrackInputConfigurationMaximumResolution {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumResolution
+	}).(ChannelMultitrackInputConfigurationMaximumResolutionPtrOutput)
+}
+
+// Indicates whether multitrack input is allowed or required. Required if enabled is true.
+func (o ChannelMultitrackInputConfigurationPtrOutput) Policy() ChannelMultitrackInputConfigurationPolicyPtrOutput {
+	return o.ApplyT(func(v *ChannelMultitrackInputConfiguration) *ChannelMultitrackInputConfigurationPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.Policy
+	}).(ChannelMultitrackInputConfigurationPolicyPtrOutput)
+}
+
 type ChannelTag struct {
-	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
-	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor within a tag category (key).
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
@@ -29,9 +208,9 @@ type EncoderConfigurationTag struct {
 }
 
 type IngestConfigurationTag struct {
-	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
-	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor within a tag category (key).
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
@@ -418,9 +597,9 @@ func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) BucketName() 
 }
 
 type RecordingConfigurationTag struct {
-	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
-	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor within a tag category (key).
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
@@ -789,9 +968,9 @@ func (o StageAutoParticipantRecordingConfigurationPtrOutput) StorageConfiguratio
 }
 
 type StageTag struct {
-	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
-	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor within a tag category (key).
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
@@ -851,16 +1030,16 @@ func (o StorageConfigurationS3StorageConfigurationOutput) BucketName() pulumi.St
 }
 
 type StorageConfigurationTag struct {
-	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
-	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor within a tag category (key).
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
 type StreamKeyTag struct {
-	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
-	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor within a tag category (key).
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
@@ -1062,6 +1241,8 @@ func (o VideoPropertiesPtrOutput) Width() pulumi.IntPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMultitrackInputConfigurationInput)(nil)).Elem(), ChannelMultitrackInputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMultitrackInputConfigurationPtrInput)(nil)).Elem(), ChannelMultitrackInputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationDestinationConfigurationInput)(nil)).Elem(), RecordingConfigurationDestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationRenditionConfigurationInput)(nil)).Elem(), RecordingConfigurationRenditionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationRenditionConfigurationPtrInput)(nil)).Elem(), RecordingConfigurationRenditionConfigurationArgs{})
@@ -1074,6 +1255,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageConfigurationS3StorageConfigurationInput)(nil)).Elem(), StorageConfigurationS3StorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VideoPropertiesInput)(nil)).Elem(), VideoPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VideoPropertiesPtrInput)(nil)).Elem(), VideoPropertiesArgs{})
+	pulumi.RegisterOutputType(ChannelMultitrackInputConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelMultitrackInputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationDestinationConfigurationOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationRenditionConfigurationOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationRenditionConfigurationPtrOutput{})
