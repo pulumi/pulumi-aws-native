@@ -183,7 +183,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "aps:TagResource", "aps:UntagResource" ]
   },
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {

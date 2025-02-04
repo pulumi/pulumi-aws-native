@@ -138,6 +138,9 @@ namespace Pulumi.AwsNative.Ec2
         /// The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// The tags to associate with the endpoint.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

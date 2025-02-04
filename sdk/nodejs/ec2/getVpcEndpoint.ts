@@ -88,6 +88,9 @@ export interface GetVpcEndpointResult {
      * The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
      */
     readonly subnetIds?: string[];
+    /**
+     * The tags to associate with the endpoint.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

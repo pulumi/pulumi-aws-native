@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
     /// </summary>
     public sealed class ListenerMutualAuthenticationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether trust store CA certificate names are advertised. The default value is `off` .
+        /// </summary>
         [Input("advertiseTrustStoreCaNames")]
         public Input<string>? AdvertiseTrustStoreCaNames { get; set; }
 

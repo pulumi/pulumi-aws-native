@@ -100,7 +100,8 @@ class GetServiceResult:
         """
         The capacity provider strategy to use for the service.
          If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-         A capacity provider strategy can contain a maximum of 20 capacity providers.
+         A capacity provider strategy may contain a maximum of 6 capacity providers.
+          To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
         """
         return pulumi.get(self, "capacity_provider_strategy")
 
@@ -153,6 +154,7 @@ class GetServiceResult:
     def load_balancers(self) -> Optional[Sequence['outputs.ServiceLoadBalancer']]:
         """
         A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+          To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
         """
         return pulumi.get(self, "load_balancers")
 
@@ -177,6 +179,7 @@ class GetServiceResult:
     def placement_constraints(self) -> Optional[Sequence['outputs.ServicePlacementConstraint']]:
         """
         An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
+          To remove this property from your service resource, specify an empty ``PlacementConstraint`` array.
         """
         return pulumi.get(self, "placement_constraints")
 
@@ -185,6 +188,7 @@ class GetServiceResult:
     def placement_strategies(self) -> Optional[Sequence['outputs.ServicePlacementStrategy']]:
         """
         The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules for each service.
+          To remove this property from your service resource, specify an empty ``PlacementStrategy`` array.
         """
         return pulumi.get(self, "placement_strategies")
 
@@ -220,6 +224,7 @@ class GetServiceResult:
         """
         The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
           Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
+           To remove this property from your service resource, specify an empty ``ServiceRegistry`` array.
         """
         return pulumi.get(self, "service_registries")
 
@@ -290,7 +295,7 @@ def get_service(cluster: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     The ``AWS::ECS::Service`` resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.
-      The stack update fails if you change any properties that require replacement and at least one ECS Service Connect ``ServiceConnectConfiguration`` property the is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceConnectService`` must have a name that is unique in the namespace.
+      The stack update fails if you change any properties that require replacement and at least one ECS Service Connect ``ServiceConnectConfiguration`` property is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceConnectService`` must have a name that is unique in the namespace.
        Starting April 15, 2023, AWS; will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, ECS, or EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
 
 
@@ -328,7 +333,7 @@ def get_service_output(cluster: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     The ``AWS::ECS::Service`` resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.
-      The stack update fails if you change any properties that require replacement and at least one ECS Service Connect ``ServiceConnectConfiguration`` property the is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceConnectService`` must have a name that is unique in the namespace.
+      The stack update fails if you change any properties that require replacement and at least one ECS Service Connect ``ServiceConnectConfiguration`` property is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceConnectService`` must have a name that is unique in the namespace.
        Starting April 15, 2023, AWS; will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, ECS, or EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
 
 

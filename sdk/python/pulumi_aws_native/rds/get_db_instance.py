@@ -812,7 +812,7 @@ class GetDbInstanceResult:
         """
         The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
          Format: ``ddd:hh24:mi-ddd:hh24:mi`` 
-         The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Adjusting the Preferred DB Instance Maintenance Window](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) in the *Amazon RDS User Guide.* 
+         The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Maintaining a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) in the *Amazon RDS User Guide.* 
           This property applies when AWS CloudFormation initially creates the DB instance. If you use AWS CloudFormation to update the DB instance, those updates are applied immediately.
           Constraints: Minimum 30-minute window.
         """
@@ -875,7 +875,7 @@ class GetDbInstanceResult:
     @pulumi.getter(name="storageThroughput")
     def storage_throughput(self) -> Optional[int]:
         """
-        Specifies the storage throughput value for the DB instance. This setting applies only to the ``gp3`` storage type. 
+        Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the ``gp3`` storage type. 
          This setting doesn't apply to RDS Custom or Amazon Aurora.
         """
         return pulumi.get(self, "storage_throughput")

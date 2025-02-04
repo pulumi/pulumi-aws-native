@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
     [OutputType]
     public sealed class ListenerMutualAuthentication
     {
+        /// <summary>
+        /// Indicates whether trust store CA certificate names are advertised. The default value is `off` .
+        /// </summary>
         public readonly string? AdvertiseTrustStoreCaNames;
         /// <summary>
         /// Indicates whether expired client certificates are ignored.

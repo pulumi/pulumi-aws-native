@@ -246,7 +246,7 @@ namespace Pulumi.AwsNative.Ssm
         public Output<string?> AutomationTargetParameterName { get; private set; } = null!;
 
         /// <summary>
-        /// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+        /// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) in the *AWS Systems Manager User Guide* .
         /// </summary>
         [Output("calendarNames")]
         public Output<ImmutableArray<string>> CalendarNames { get; private set; } = null!;
@@ -406,7 +406,7 @@ namespace Pulumi.AwsNative.Ssm
         private InputList<string>? _calendarNames;
 
         /// <summary>
-        /// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+        /// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) in the *AWS Systems Manager User Guide* .
         /// </summary>
         public InputList<string> CalendarNames
         {

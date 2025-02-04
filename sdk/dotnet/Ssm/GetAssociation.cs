@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Ssm
         /// </summary>
         public readonly string? AutomationTargetParameterName;
         /// <summary>
-        /// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+        /// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) in the *AWS Systems Manager User Guide* .
         /// </summary>
         public readonly ImmutableArray<string> CalendarNames;
         /// <summary>

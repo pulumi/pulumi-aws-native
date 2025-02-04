@@ -112,6 +112,9 @@ export class VpcEndpoint extends pulumi.CustomResource {
      * The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
      */
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * The tags to associate with the endpoint.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of endpoint.
@@ -231,6 +234,9 @@ export interface VpcEndpointArgs {
      * The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The tags to associate with the endpoint.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The type of endpoint.

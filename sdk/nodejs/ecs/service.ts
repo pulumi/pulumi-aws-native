@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The ``AWS::ECS::Service`` resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.
- *   The stack update fails if you change any properties that require replacement and at least one ECS Service Connect ``ServiceConnectConfiguration`` property the is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceConnectService`` must have a name that is unique in the namespace.
+ *   The stack update fails if you change any properties that require replacement and at least one ECS Service Connect ``ServiceConnectConfiguration`` property is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceConnectService`` must have a name that is unique in the namespace.
  *    Starting April 15, 2023, AWS; will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, ECS, or EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
  */
 export class Service extends pulumi.CustomResource {
@@ -47,7 +47,8 @@ export class Service extends pulumi.CustomResource {
     /**
      * The capacity provider strategy to use for the service.
      *  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-     *  A capacity provider strategy can contain a maximum of 20 capacity providers.
+     *  A capacity provider strategy may contain a maximum of 6 capacity providers.
+     *   To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
      */
     public readonly capacityProviderStrategy!: pulumi.Output<outputs.ecs.ServiceCapacityProviderStrategyItem[] | undefined>;
     /**
@@ -88,6 +89,7 @@ export class Service extends pulumi.CustomResource {
     public readonly launchType!: pulumi.Output<enums.ecs.ServiceLaunchType | undefined>;
     /**
      * A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+     *   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
      */
     public readonly loadBalancers!: pulumi.Output<outputs.ecs.ServiceLoadBalancer[] | undefined>;
     /**
@@ -100,10 +102,12 @@ export class Service extends pulumi.CustomResource {
     public readonly networkConfiguration!: pulumi.Output<outputs.ecs.ServiceNetworkConfiguration | undefined>;
     /**
      * An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
+     *   To remove this property from your service resource, specify an empty ``PlacementConstraint`` array.
      */
     public readonly placementConstraints!: pulumi.Output<outputs.ecs.ServicePlacementConstraint[] | undefined>;
     /**
      * The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules for each service.
+     *   To remove this property from your service resource, specify an empty ``PlacementStrategy`` array.
      */
     public readonly placementStrategies!: pulumi.Output<outputs.ecs.ServicePlacementStrategy[] | undefined>;
     /**
@@ -147,6 +151,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
      *   Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
+     *    To remove this property from your service resource, specify an empty ``ServiceRegistry`` array.
      */
     public readonly serviceRegistries!: pulumi.Output<outputs.ecs.ServiceRegistry[] | undefined>;
     /**
@@ -169,6 +174,7 @@ export class Service extends pulumi.CustomResource {
     public readonly taskDefinition!: pulumi.Output<string | undefined>;
     /**
      * The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
+     *   To remove this property from your service resource, specify an empty ``ServiceVolumeConfiguration`` array.
      */
     public readonly volumeConfigurations!: pulumi.Output<outputs.ecs.ServiceVolumeConfiguration[] | undefined>;
     /**
@@ -262,7 +268,8 @@ export interface ServiceArgs {
     /**
      * The capacity provider strategy to use for the service.
      *  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-     *  A capacity provider strategy can contain a maximum of 20 capacity providers.
+     *  A capacity provider strategy may contain a maximum of 6 capacity providers.
+     *   To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
      */
     capacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceCapacityProviderStrategyItemArgs>[]>;
     /**
@@ -303,6 +310,7 @@ export interface ServiceArgs {
     launchType?: pulumi.Input<enums.ecs.ServiceLaunchType>;
     /**
      * A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+     *   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
      */
     loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceLoadBalancerArgs>[]>;
     /**
@@ -311,10 +319,12 @@ export interface ServiceArgs {
     networkConfiguration?: pulumi.Input<inputs.ecs.ServiceNetworkConfigurationArgs>;
     /**
      * An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
+     *   To remove this property from your service resource, specify an empty ``PlacementConstraint`` array.
      */
     placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.ServicePlacementConstraintArgs>[]>;
     /**
      * The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules for each service.
+     *   To remove this property from your service resource, specify an empty ``PlacementStrategy`` array.
      */
     placementStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServicePlacementStrategyArgs>[]>;
     /**
@@ -354,6 +364,7 @@ export interface ServiceArgs {
     /**
      * The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
      *   Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
+     *    To remove this property from your service resource, specify an empty ``ServiceRegistry`` array.
      */
     serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceRegistryArgs>[]>;
     /**
@@ -376,6 +387,7 @@ export interface ServiceArgs {
     taskDefinition?: pulumi.Input<string>;
     /**
      * The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
+     *   To remove this property from your service resource, specify an empty ``ServiceVolumeConfiguration`` array.
      */
     volumeConfigurations?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceVolumeConfigurationArgs>[]>;
     /**

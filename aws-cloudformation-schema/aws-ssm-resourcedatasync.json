@@ -129,7 +129,6 @@
   "tagging" : {
     "taggable" : false
   },
-  "readOnlyProperties" : [ "/properties/SyncName" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "ssm:CreateResourceDataSync", "ssm:ListResourceDataSync" ]

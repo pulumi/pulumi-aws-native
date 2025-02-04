@@ -57,6 +57,7 @@ class VpcEndpointArgs:
         :param pulumi.Input[str] service_name: The name of the endpoint service.
         :param pulumi.Input[str] service_network_arn: The Amazon Resource Name (ARN) of the service network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to associate with the endpoint.
         :param pulumi.Input['VpcEndpointType'] vpc_endpoint_type: The type of endpoint.
                 Default: Gateway
         """
@@ -228,6 +229,9 @@ class VpcEndpointArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags to associate with the endpoint.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -295,6 +299,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: The name of the endpoint service.
         :param pulumi.Input[str] service_network_arn: The Amazon Resource Name (ARN) of the service network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to associate with the endpoint.
         :param pulumi.Input['VpcEndpointType'] vpc_endpoint_type: The type of endpoint.
                 Default: Gateway
         :param pulumi.Input[str] vpc_id: The ID of the VPC.
@@ -541,6 +546,9 @@ class VpcEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags to associate with the endpoint.
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -394,7 +394,7 @@ type LookupDbInstanceResult struct {
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	//  Format: ``ddd:hh24:mi-ddd:hh24:mi``
-	//  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Adjusting the Preferred DB Instance Maintenance Window](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) in the *Amazon RDS User Guide.*
+	//  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Maintaining a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) in the *Amazon RDS User Guide.*
 	//   This property applies when AWS CloudFormation initially creates the DB instance. If you use AWS CloudFormation to update the DB instance, those updates are applied immediately.
 	//   Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
@@ -421,7 +421,7 @@ type LookupDbInstanceResult struct {
 	//   +  The specified DB cluster must have automatic backups enabled, that is, its backup retention period must be greater than 0.
 	//   +  The source DB cluster must be in the same AWS-Region as the read replica. Cross-Region replication isn't supported.
 	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
-	// Specifies the storage throughput value for the DB instance. This setting applies only to the ``gp3`` storage type.
+	// Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the ``gp3`` storage type.
 	//  This setting doesn't apply to RDS Custom or Amazon Aurora.
 	StorageThroughput *int `pulumi:"storageThroughput"`
 	// The storage type to associate with the DB instance.
@@ -996,7 +996,7 @@ func (o LookupDbInstanceResultOutput) PreferredBackupWindow() pulumi.StringPtrOu
 // The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 //
 //	Format: ``ddd:hh24:mi-ddd:hh24:mi``
-//	The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Adjusting the Preferred DB Instance Maintenance Window](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) in the *Amazon RDS User Guide.*
+//	The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Maintaining a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) in the *Amazon RDS User Guide.*
 //	 This property applies when AWS CloudFormation initially creates the DB instance. If you use AWS CloudFormation to update the DB instance, those updates are applied immediately.
 //	 Constraints: Minimum 30-minute window.
 func (o LookupDbInstanceResultOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
@@ -1046,7 +1046,7 @@ func (o LookupDbInstanceResultOutput) SourceDbClusterIdentifier() pulumi.StringP
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.SourceDbClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the storage throughput value for the DB instance. This setting applies only to the “gp3“ storage type.
+// Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the “gp3“ storage type.
 //
 //	This setting doesn't apply to RDS Custom or Amazon Aurora.
 func (o LookupDbInstanceResultOutput) StorageThroughput() pulumi.IntPtrOutput {

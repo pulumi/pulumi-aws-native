@@ -160,10 +160,6 @@ class DbClusterArgs:
                 Valid for Cluster Type: Aurora DB clusters only
         :param pulumi.Input[bool] enable_http_endpoint: Specifies whether to enable the HTTP endpoint for the DB cluster. By default, the HTTP endpoint isn't enabled.
                 When enabled, the HTTP endpoint provides a connectionless web service API (RDS Data API) for running SQL queries on the DB cluster. You can also query your database from inside the RDS console with the RDS query editor.
-                RDS Data API is supported with the following DB clusters:
-                 +  Aurora PostgreSQL Serverless v2 and provisioned
-                 +  Aurora PostgreSQL and Aurora MySQL Serverless v1
-                 
                 For more information, see [Using RDS Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html) in the *Amazon Aurora User Guide*.
                 Valid for Cluster Type: Aurora DB clusters only
         :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
@@ -295,7 +291,7 @@ class DbClusterArgs:
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
                 Format: ``ddd:hh24:mi-ddd:hh24:mi`` 
-                The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Adjusting the Preferred DB Cluster Maintenance Window](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora) in the *Amazon Aurora User Guide.* 
+                The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Maintaining an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora) in the *Amazon Aurora User Guide.* 
                 Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
                 Constraints: Minimum 30-minute window.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -826,10 +822,6 @@ class DbClusterArgs:
         """
         Specifies whether to enable the HTTP endpoint for the DB cluster. By default, the HTTP endpoint isn't enabled.
          When enabled, the HTTP endpoint provides a connectionless web service API (RDS Data API) for running SQL queries on the DB cluster. You can also query your database from inside the RDS console with the RDS query editor.
-         RDS Data API is supported with the following DB clusters:
-          +  Aurora PostgreSQL Serverless v2 and provisioned
-          +  Aurora PostgreSQL and Aurora MySQL Serverless v1
-          
          For more information, see [Using RDS Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html) in the *Amazon Aurora User Guide*.
          Valid for Cluster Type: Aurora DB clusters only
         """
@@ -1203,7 +1195,7 @@ class DbClusterArgs:
         """
         The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
          Format: ``ddd:hh24:mi-ddd:hh24:mi`` 
-         The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Adjusting the Preferred DB Cluster Maintenance Window](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora) in the *Amazon Aurora User Guide.* 
+         The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Maintaining an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora) in the *Amazon Aurora User Guide.* 
          Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
          Constraints: Minimum 30-minute window.
          Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -1638,10 +1630,6 @@ class DbCluster(pulumi.CustomResource):
                 Valid for Cluster Type: Aurora DB clusters only
         :param pulumi.Input[bool] enable_http_endpoint: Specifies whether to enable the HTTP endpoint for the DB cluster. By default, the HTTP endpoint isn't enabled.
                 When enabled, the HTTP endpoint provides a connectionless web service API (RDS Data API) for running SQL queries on the DB cluster. You can also query your database from inside the RDS console with the RDS query editor.
-                RDS Data API is supported with the following DB clusters:
-                 +  Aurora PostgreSQL Serverless v2 and provisioned
-                 +  Aurora PostgreSQL and Aurora MySQL Serverless v1
-                 
                 For more information, see [Using RDS Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html) in the *Amazon Aurora User Guide*.
                 Valid for Cluster Type: Aurora DB clusters only
         :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
@@ -1773,7 +1761,7 @@ class DbCluster(pulumi.CustomResource):
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
                 Format: ``ddd:hh24:mi-ddd:hh24:mi`` 
-                The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Adjusting the Preferred DB Cluster Maintenance Window](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora) in the *Amazon Aurora User Guide.* 
+                The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Maintaining an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora) in the *Amazon Aurora User Guide.* 
                 Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
                 Constraints: Minimum 30-minute window.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -2377,10 +2365,6 @@ class DbCluster(pulumi.CustomResource):
         """
         Specifies whether to enable the HTTP endpoint for the DB cluster. By default, the HTTP endpoint isn't enabled.
          When enabled, the HTTP endpoint provides a connectionless web service API (RDS Data API) for running SQL queries on the DB cluster. You can also query your database from inside the RDS console with the RDS query editor.
-         RDS Data API is supported with the following DB clusters:
-          +  Aurora PostgreSQL Serverless v2 and provisioned
-          +  Aurora PostgreSQL and Aurora MySQL Serverless v1
-          
          For more information, see [Using RDS Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html) in the *Amazon Aurora User Guide*.
          Valid for Cluster Type: Aurora DB clusters only
         """
@@ -2671,7 +2655,7 @@ class DbCluster(pulumi.CustomResource):
         """
         The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
          Format: ``ddd:hh24:mi-ddd:hh24:mi`` 
-         The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Adjusting the Preferred DB Cluster Maintenance Window](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora) in the *Amazon Aurora User Guide.* 
+         The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Maintaining an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora) in the *Amazon Aurora User Guide.* 
          Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
          Constraints: Minimum 30-minute window.
          Valid for: Aurora DB clusters and Multi-AZ DB clusters

@@ -55,7 +55,8 @@ class ServiceArgs:
                 For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyItemArgs']]] capacity_provider_strategy: The capacity provider strategy to use for the service.
                 If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-                A capacity provider strategy can contain a maximum of 20 capacity providers.
+                A capacity provider strategy may contain a maximum of 6 capacity providers.
+                 To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
         :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
         :param pulumi.Input['ServiceDeploymentConfigurationArgs'] deployment_configuration: Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
         :param pulumi.Input['ServiceDeploymentControllerArgs'] deployment_controller: The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
@@ -69,9 +70,12 @@ class ServiceArgs:
                 If your service's tasks take a while to start and respond to health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
         :param pulumi.Input['ServiceLaunchType'] launch_type: The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]] load_balancers: A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+                 To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
         :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]] placement_constraints: An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
+                 To remove this property from your service resource, specify an empty ``PlacementConstraint`` array.
         :param pulumi.Input[Sequence[pulumi.Input['ServicePlacementStrategyArgs']]] placement_strategies: The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules for each service.
+                 To remove this property from your service resource, specify an empty ``PlacementStrategy`` array.
         :param pulumi.Input[str] platform_version: The platform version that your tasks in the service are running on. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the ``LATEST`` platform version is used. For more information, see [platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input['ServicePropagateTags'] propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the [TagResource](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html) API action.
                 You must set this to a value other than ``NONE`` when you use Cost Explorer. For more information, see [Amazon ECS usage reports](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/usage-reports.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -90,6 +94,7 @@ class ServiceArgs:
                  The stack update fails if you change any properties that require replacement and the ``ServiceName`` is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceName`` must be unique in the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceRegistryArgs']]] service_registries: The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
                  Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
+                  To remove this property from your service resource, specify an empty ``ServiceRegistry`` array.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. When a service is deleted, the tags are deleted as well.
                 The following basic restrictions apply to tags:
                  +  Maximum number of tags per resource - 50
@@ -103,6 +108,7 @@ class ServiceArgs:
                 A task definition must be specified if the service uses either the ``ECS`` or ``CODE_DEPLOY`` deployment controllers.
                 For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
         :param pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationArgs']]] volume_configurations: The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
+                 To remove this property from your service resource, specify an empty ``ServiceVolumeConfiguration`` array.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]] vpc_lattice_configurations: The VPC Lattice configuration for the service being created.
         """
         if availability_zone_rebalancing is not None:
@@ -175,7 +181,8 @@ class ServiceArgs:
         """
         The capacity provider strategy to use for the service.
          If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-         A capacity provider strategy can contain a maximum of 20 capacity providers.
+         A capacity provider strategy may contain a maximum of 6 capacity providers.
+          To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
         """
         return pulumi.get(self, "capacity_provider_strategy")
 
@@ -288,6 +295,7 @@ class ServiceArgs:
     def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]]:
         """
         A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+          To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
         """
         return pulumi.get(self, "load_balancers")
 
@@ -312,6 +320,7 @@ class ServiceArgs:
     def placement_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]]:
         """
         An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
+          To remove this property from your service resource, specify an empty ``PlacementConstraint`` array.
         """
         return pulumi.get(self, "placement_constraints")
 
@@ -324,6 +333,7 @@ class ServiceArgs:
     def placement_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementStrategyArgs']]]]:
         """
         The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules for each service.
+          To remove this property from your service resource, specify an empty ``PlacementStrategy`` array.
         """
         return pulumi.get(self, "placement_strategies")
 
@@ -419,6 +429,7 @@ class ServiceArgs:
         """
         The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
           Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
+           To remove this property from your service resource, specify an empty ``ServiceRegistry`` array.
         """
         return pulumi.get(self, "service_registries")
 
@@ -465,6 +476,7 @@ class ServiceArgs:
     def volume_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationArgs']]]]:
         """
         The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
+          To remove this property from your service resource, specify an empty ``ServiceVolumeConfiguration`` array.
         """
         return pulumi.get(self, "volume_configurations")
 
@@ -518,7 +530,7 @@ class Service(pulumi.CustomResource):
                  __props__=None):
         """
         The ``AWS::ECS::Service`` resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.
-          The stack update fails if you change any properties that require replacement and at least one ECS Service Connect ``ServiceConnectConfiguration`` property the is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceConnectService`` must have a name that is unique in the namespace.
+          The stack update fails if you change any properties that require replacement and at least one ECS Service Connect ``ServiceConnectConfiguration`` property is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceConnectService`` must have a name that is unique in the namespace.
            Starting April 15, 2023, AWS; will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, ECS, or EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
 
         :param str resource_name: The name of the resource.
@@ -527,7 +539,8 @@ class Service(pulumi.CustomResource):
                 For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyItemArgs', 'ServiceCapacityProviderStrategyItemArgsDict']]]] capacity_provider_strategy: The capacity provider strategy to use for the service.
                 If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-                A capacity provider strategy can contain a maximum of 20 capacity providers.
+                A capacity provider strategy may contain a maximum of 6 capacity providers.
+                 To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
         :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
         :param pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']] deployment_configuration: Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
         :param pulumi.Input[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']] deployment_controller: The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
@@ -541,9 +554,12 @@ class Service(pulumi.CustomResource):
                 If your service's tasks take a while to start and respond to health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
         :param pulumi.Input['ServiceLaunchType'] launch_type: The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]] load_balancers: A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+                 To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
         :param pulumi.Input[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]] placement_constraints: An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
+                 To remove this property from your service resource, specify an empty ``PlacementConstraint`` array.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementStrategyArgs', 'ServicePlacementStrategyArgsDict']]]] placement_strategies: The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules for each service.
+                 To remove this property from your service resource, specify an empty ``PlacementStrategy`` array.
         :param pulumi.Input[str] platform_version: The platform version that your tasks in the service are running on. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the ``LATEST`` platform version is used. For more information, see [platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input['ServicePropagateTags'] propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the [TagResource](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html) API action.
                 You must set this to a value other than ``NONE`` when you use Cost Explorer. For more information, see [Amazon ECS usage reports](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/usage-reports.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -562,6 +578,7 @@ class Service(pulumi.CustomResource):
                  The stack update fails if you change any properties that require replacement and the ``ServiceName`` is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceName`` must be unique in the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceRegistryArgs', 'ServiceRegistryArgsDict']]]] service_registries: The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
                  Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
+                  To remove this property from your service resource, specify an empty ``ServiceRegistry`` array.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. When a service is deleted, the tags are deleted as well.
                 The following basic restrictions apply to tags:
                  +  Maximum number of tags per resource - 50
@@ -575,6 +592,7 @@ class Service(pulumi.CustomResource):
                 A task definition must be specified if the service uses either the ``ECS`` or ``CODE_DEPLOY`` deployment controllers.
                 For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']]]] volume_configurations: The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
+                 To remove this property from your service resource, specify an empty ``ServiceVolumeConfiguration`` array.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]] vpc_lattice_configurations: The VPC Lattice configuration for the service being created.
         """
         ...
@@ -585,7 +603,7 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ECS::Service`` resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.
-          The stack update fails if you change any properties that require replacement and at least one ECS Service Connect ``ServiceConnectConfiguration`` property the is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceConnectService`` must have a name that is unique in the namespace.
+          The stack update fails if you change any properties that require replacement and at least one ECS Service Connect ``ServiceConnectConfiguration`` property is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceConnectService`` must have a name that is unique in the namespace.
            Starting April 15, 2023, AWS; will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, ECS, or EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
 
         :param str resource_name: The name of the resource.
@@ -732,7 +750,8 @@ class Service(pulumi.CustomResource):
         """
         The capacity provider strategy to use for the service.
          If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-         A capacity provider strategy can contain a maximum of 20 capacity providers.
+         A capacity provider strategy may contain a maximum of 6 capacity providers.
+          To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
         """
         return pulumi.get(self, "capacity_provider_strategy")
 
@@ -809,6 +828,7 @@ class Service(pulumi.CustomResource):
     def load_balancers(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceLoadBalancer']]]:
         """
         A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+          To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
         """
         return pulumi.get(self, "load_balancers")
 
@@ -833,6 +853,7 @@ class Service(pulumi.CustomResource):
     def placement_constraints(self) -> pulumi.Output[Optional[Sequence['outputs.ServicePlacementConstraint']]]:
         """
         An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
+          To remove this property from your service resource, specify an empty ``PlacementConstraint`` array.
         """
         return pulumi.get(self, "placement_constraints")
 
@@ -841,6 +862,7 @@ class Service(pulumi.CustomResource):
     def placement_strategies(self) -> pulumi.Output[Optional[Sequence['outputs.ServicePlacementStrategy']]]:
         """
         The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules for each service.
+          To remove this property from your service resource, specify an empty ``PlacementStrategy`` array.
         """
         return pulumi.get(self, "placement_strategies")
 
@@ -916,6 +938,7 @@ class Service(pulumi.CustomResource):
         """
         The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
           Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
+           To remove this property from your service resource, specify an empty ``ServiceRegistry`` array.
         """
         return pulumi.get(self, "service_registries")
 
@@ -950,6 +973,7 @@ class Service(pulumi.CustomResource):
     def volume_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceVolumeConfiguration']]]:
         """
         The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
+          To remove this property from your service resource, specify an empty ``ServiceVolumeConfiguration`` array.
         """
         return pulumi.get(self, "volume_configurations")
 

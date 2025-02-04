@@ -36,7 +36,7 @@ type LookupAssociationResult struct {
 	AssociationName *string `pulumi:"associationName"`
 	// Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
 	AutomationTargetParameterName *string `pulumi:"automationTargetParameterName"`
-	// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+	// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) in the *AWS Systems Manager User Guide* .
 	CalendarNames []string `pulumi:"calendarNames"`
 	// The severity level that is assigned to the association.
 	ComplianceSeverity *AssociationComplianceSeverity `pulumi:"complianceSeverity"`
@@ -124,7 +124,7 @@ func (o LookupAssociationResultOutput) AutomationTargetParameterName() pulumi.St
 	return o.ApplyT(func(v LookupAssociationResult) *string { return v.AutomationTargetParameterName }).(pulumi.StringPtrOutput)
 }
 
-// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) in the *AWS Systems Manager User Guide* .
 func (o LookupAssociationResultOutput) CalendarNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupAssociationResult) []string { return v.CalendarNames }).(pulumi.StringArrayOutput)
 }

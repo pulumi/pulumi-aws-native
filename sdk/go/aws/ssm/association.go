@@ -247,7 +247,7 @@ type Association struct {
 	AssociationName pulumi.StringPtrOutput `pulumi:"associationName"`
 	// Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
 	AutomationTargetParameterName pulumi.StringPtrOutput `pulumi:"automationTargetParameterName"`
-	// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+	// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) in the *AWS Systems Manager User Guide* .
 	CalendarNames pulumi.StringArrayOutput `pulumi:"calendarNames"`
 	// The severity level that is assigned to the association.
 	ComplianceSeverity AssociationComplianceSeverityPtrOutput `pulumi:"complianceSeverity"`
@@ -333,7 +333,7 @@ type associationArgs struct {
 	AssociationName *string `pulumi:"associationName"`
 	// Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
 	AutomationTargetParameterName *string `pulumi:"automationTargetParameterName"`
-	// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+	// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) in the *AWS Systems Manager User Guide* .
 	CalendarNames []string `pulumi:"calendarNames"`
 	// The severity level that is assigned to the association.
 	ComplianceSeverity *AssociationComplianceSeverity `pulumi:"complianceSeverity"`
@@ -381,7 +381,7 @@ type AssociationArgs struct {
 	AssociationName pulumi.StringPtrInput
 	// Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
 	AutomationTargetParameterName pulumi.StringPtrInput
-	// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+	// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) in the *AWS Systems Manager User Guide* .
 	CalendarNames pulumi.StringArrayInput
 	// The severity level that is assigned to the association.
 	ComplianceSeverity AssociationComplianceSeverityPtrInput
@@ -478,7 +478,7 @@ func (o AssociationOutput) AutomationTargetParameterName() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.AutomationTargetParameterName }).(pulumi.StringPtrOutput)
 }
 
-// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) in the *AWS Systems Manager User Guide* .
 func (o AssociationOutput) CalendarNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringArrayOutput { return v.CalendarNames }).(pulumi.StringArrayOutput)
 }

@@ -44,7 +44,7 @@ class AssociationArgs:
         :param pulumi.Input[bool] apply_only_at_cron_interval: By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
         :param pulumi.Input[str] association_name: The name of the association.
         :param pulumi.Input[str] automation_target_parameter_name: Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] calendar_names: The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] calendar_names: The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) in the *AWS Systems Manager User Guide* .
         :param pulumi.Input['AssociationComplianceSeverity'] compliance_severity: The severity level that is assigned to the association.
         :param pulumi.Input[str] document_version: The version of the SSM document to associate with the target.
         :param pulumi.Input[str] instance_id: The ID of the instance that the SSM document is associated with.
@@ -144,7 +144,7 @@ class AssociationArgs:
     @pulumi.getter(name="calendarNames")
     def calendar_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+        The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) in the *AWS Systems Manager User Guide* .
         """
         return pulumi.get(self, "calendar_names")
 
@@ -452,7 +452,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[bool] apply_only_at_cron_interval: By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
         :param pulumi.Input[str] association_name: The name of the association.
         :param pulumi.Input[str] automation_target_parameter_name: Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] calendar_names: The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] calendar_names: The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) in the *AWS Systems Manager User Guide* .
         :param pulumi.Input['AssociationComplianceSeverity'] compliance_severity: The severity level that is assigned to the association.
         :param pulumi.Input[str] document_version: The version of the SSM document to associate with the target.
         :param pulumi.Input[str] instance_id: The ID of the instance that the SSM document is associated with.
@@ -725,7 +725,7 @@ class Association(pulumi.CustomResource):
     @pulumi.getter(name="calendarNames")
     def calendar_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+        The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) in the *AWS Systems Manager User Guide* .
         """
         return pulumi.get(self, "calendar_names")
 

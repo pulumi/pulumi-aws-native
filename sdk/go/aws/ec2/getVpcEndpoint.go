@@ -69,8 +69,9 @@ type LookupVpcEndpointResult struct {
 	// The IDs of the security groups to associate with the endpoint network interfaces. If this parameter is not specified, we use the default security group for the VPC. Security groups are supported only for interface endpoints.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
-	SubnetIds []string  `pulumi:"subnetIds"`
-	Tags      []aws.Tag `pulumi:"tags"`
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The tags to associate with the endpoint.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupVpcEndpointOutput(ctx *pulumi.Context, args LookupVpcEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupVpcEndpointResultOutput {
@@ -175,6 +176,7 @@ func (o LookupVpcEndpointResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The tags to associate with the endpoint.
 func (o LookupVpcEndpointResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

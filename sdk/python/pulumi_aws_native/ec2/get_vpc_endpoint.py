@@ -168,6 +168,9 @@ class GetVpcEndpointResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to associate with the endpoint.
+        """
         return pulumi.get(self, "tags")
 
 

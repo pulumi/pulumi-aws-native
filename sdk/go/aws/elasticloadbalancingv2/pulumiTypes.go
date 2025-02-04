@@ -1460,6 +1460,7 @@ func (o ListenerForwardConfigPtrOutput) TargetGroups() ListenerTargetGroupTupleA
 
 // Specifies the configuration information for mutual authentication.
 type ListenerMutualAuthentication struct {
+	// Indicates whether trust store CA certificate names are advertised. The default value is `off` .
 	AdvertiseTrustStoreCaNames *string `pulumi:"advertiseTrustStoreCaNames"`
 	// Indicates whether expired client certificates are ignored.
 	IgnoreClientCertificateExpiry *bool `pulumi:"ignoreClientCertificateExpiry"`
@@ -1482,6 +1483,7 @@ type ListenerMutualAuthenticationInput interface {
 
 // Specifies the configuration information for mutual authentication.
 type ListenerMutualAuthenticationArgs struct {
+	// Indicates whether trust store CA certificate names are advertised. The default value is `off` .
 	AdvertiseTrustStoreCaNames pulumi.StringPtrInput `pulumi:"advertiseTrustStoreCaNames"`
 	// Indicates whether expired client certificates are ignored.
 	IgnoreClientCertificateExpiry pulumi.BoolPtrInput `pulumi:"ignoreClientCertificateExpiry"`
@@ -1569,6 +1571,7 @@ func (o ListenerMutualAuthenticationOutput) ToListenerMutualAuthenticationPtrOut
 	}).(ListenerMutualAuthenticationPtrOutput)
 }
 
+// Indicates whether trust store CA certificate names are advertised. The default value is `off` .
 func (o ListenerMutualAuthenticationOutput) AdvertiseTrustStoreCaNames() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerMutualAuthentication) *string { return v.AdvertiseTrustStoreCaNames }).(pulumi.StringPtrOutput)
 }
@@ -1612,6 +1615,7 @@ func (o ListenerMutualAuthenticationPtrOutput) Elem() ListenerMutualAuthenticati
 	}).(ListenerMutualAuthenticationOutput)
 }
 
+// Indicates whether trust store CA certificate names are advertised. The default value is `off` .
 func (o ListenerMutualAuthenticationPtrOutput) AdvertiseTrustStoreCaNames() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerMutualAuthentication) *string {
 		if v == nil {

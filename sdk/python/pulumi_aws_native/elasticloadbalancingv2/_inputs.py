@@ -1011,6 +1011,9 @@ if not MYPY:
         Specifies the configuration information for mutual authentication.
         """
         advertise_trust_store_ca_names: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether trust store CA certificate names are advertised. The default value is `off` .
+        """
         ignore_client_certificate_expiry: NotRequired[pulumi.Input[bool]]
         """
         Indicates whether expired client certificates are ignored.
@@ -1035,6 +1038,7 @@ class ListenerMutualAuthenticationArgs:
                  trust_store_arn: Optional[pulumi.Input[str]] = None):
         """
         Specifies the configuration information for mutual authentication.
+        :param pulumi.Input[str] advertise_trust_store_ca_names: Indicates whether trust store CA certificate names are advertised. The default value is `off` .
         :param pulumi.Input[bool] ignore_client_certificate_expiry: Indicates whether expired client certificates are ignored.
         :param pulumi.Input[str] mode: The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
         :param pulumi.Input[str] trust_store_arn: The Amazon Resource Name (ARN) of the trust store.
@@ -1051,6 +1055,9 @@ class ListenerMutualAuthenticationArgs:
     @property
     @pulumi.getter(name="advertiseTrustStoreCaNames")
     def advertise_trust_store_ca_names(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether trust store CA certificate names are advertised. The default value is `off` .
+        """
         return pulumi.get(self, "advertise_trust_store_ca_names")
 
     @advertise_trust_store_ca_names.setter

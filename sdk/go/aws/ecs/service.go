@@ -14,7 +14,7 @@ import (
 
 // The “AWS::ECS::Service“ resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.
 //
-//	The stack update fails if you change any properties that require replacement and at least one ECS Service Connect ``ServiceConnectConfiguration`` property the is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceConnectService`` must have a name that is unique in the namespace.
+//	The stack update fails if you change any properties that require replacement and at least one ECS Service Connect ``ServiceConnectConfiguration`` property is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceConnectService`` must have a name that is unique in the namespace.
 //	 Starting April 15, 2023, AWS; will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, ECS, or EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
 type Service struct {
 	pulumi.CustomResourceState
@@ -24,7 +24,8 @@ type Service struct {
 	AvailabilityZoneRebalancing ServiceAvailabilityZoneRebalancingPtrOutput `pulumi:"availabilityZoneRebalancing"`
 	// The capacity provider strategy to use for the service.
 	//  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-	//  A capacity provider strategy can contain a maximum of 20 capacity providers.
+	//  A capacity provider strategy may contain a maximum of 6 capacity providers.
+	//   To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
 	CapacityProviderStrategy ServiceCapacityProviderStrategyItemArrayOutput `pulumi:"capacityProviderStrategy"`
 	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
 	Cluster pulumi.StringPtrOutput `pulumi:"cluster"`
@@ -47,14 +48,17 @@ type Service struct {
 	// The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
 	LaunchType ServiceLaunchTypePtrOutput `pulumi:"launchType"`
 	// A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
 	LoadBalancers ServiceLoadBalancerArrayOutput `pulumi:"loadBalancers"`
 	// The name of the Amazon ECS service, such as `sample-webapp` .
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
 	NetworkConfiguration ServiceNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	// An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
+	//   To remove this property from your service resource, specify an empty ``PlacementConstraint`` array.
 	PlacementConstraints ServicePlacementConstraintArrayOutput `pulumi:"placementConstraints"`
 	// The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules for each service.
+	//   To remove this property from your service resource, specify an empty ``PlacementStrategy`` array.
 	PlacementStrategies ServicePlacementStrategyArrayOutput `pulumi:"placementStrategies"`
 	// The platform version that your tasks in the service are running on. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the ``LATEST`` platform version is used. For more information, see [platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide*.
 	PlatformVersion pulumi.StringPtrOutput `pulumi:"platformVersion"`
@@ -82,6 +86,7 @@ type Service struct {
 	ServiceName pulumi.StringPtrOutput `pulumi:"serviceName"`
 	// The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
 	//   Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
+	//    To remove this property from your service resource, specify an empty ``ServiceRegistry`` array.
 	ServiceRegistries ServiceRegistryArrayOutput `pulumi:"serviceRegistries"`
 	// The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. When a service is deleted, the tags are deleted as well.
 	//  The following basic restrictions apply to tags:
@@ -98,6 +103,7 @@ type Service struct {
 	//  For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
 	TaskDefinition pulumi.StringPtrOutput `pulumi:"taskDefinition"`
 	// The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
+	//   To remove this property from your service resource, specify an empty ``ServiceVolumeConfiguration`` array.
 	VolumeConfigurations ServiceVolumeConfigurationArrayOutput `pulumi:"volumeConfigurations"`
 	// The VPC Lattice configuration for the service being created.
 	VpcLatticeConfigurations ServiceVpcLatticeConfigurationArrayOutput `pulumi:"vpcLatticeConfigurations"`
@@ -157,7 +163,8 @@ type serviceArgs struct {
 	AvailabilityZoneRebalancing *ServiceAvailabilityZoneRebalancing `pulumi:"availabilityZoneRebalancing"`
 	// The capacity provider strategy to use for the service.
 	//  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-	//  A capacity provider strategy can contain a maximum of 20 capacity providers.
+	//  A capacity provider strategy may contain a maximum of 6 capacity providers.
+	//   To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
 	CapacityProviderStrategy []ServiceCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
 	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
 	Cluster *string `pulumi:"cluster"`
@@ -180,12 +187,15 @@ type serviceArgs struct {
 	// The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
 	LaunchType *ServiceLaunchType `pulumi:"launchType"`
 	// A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
 	LoadBalancers []ServiceLoadBalancer `pulumi:"loadBalancers"`
 	// The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
 	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
 	// An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
+	//   To remove this property from your service resource, specify an empty ``PlacementConstraint`` array.
 	PlacementConstraints []ServicePlacementConstraint `pulumi:"placementConstraints"`
 	// The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules for each service.
+	//   To remove this property from your service resource, specify an empty ``PlacementStrategy`` array.
 	PlacementStrategies []ServicePlacementStrategy `pulumi:"placementStrategies"`
 	// The platform version that your tasks in the service are running on. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the ``LATEST`` platform version is used. For more information, see [platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide*.
 	PlatformVersion *string `pulumi:"platformVersion"`
@@ -211,6 +221,7 @@ type serviceArgs struct {
 	ServiceName *string `pulumi:"serviceName"`
 	// The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
 	//   Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
+	//    To remove this property from your service resource, specify an empty ``ServiceRegistry`` array.
 	ServiceRegistries []ServiceRegistry `pulumi:"serviceRegistries"`
 	// The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. When a service is deleted, the tags are deleted as well.
 	//  The following basic restrictions apply to tags:
@@ -227,6 +238,7 @@ type serviceArgs struct {
 	//  For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
 	TaskDefinition *string `pulumi:"taskDefinition"`
 	// The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
+	//   To remove this property from your service resource, specify an empty ``ServiceVolumeConfiguration`` array.
 	VolumeConfigurations []ServiceVolumeConfiguration `pulumi:"volumeConfigurations"`
 	// The VPC Lattice configuration for the service being created.
 	VpcLatticeConfigurations []ServiceVpcLatticeConfiguration `pulumi:"vpcLatticeConfigurations"`
@@ -239,7 +251,8 @@ type ServiceArgs struct {
 	AvailabilityZoneRebalancing ServiceAvailabilityZoneRebalancingPtrInput
 	// The capacity provider strategy to use for the service.
 	//  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-	//  A capacity provider strategy can contain a maximum of 20 capacity providers.
+	//  A capacity provider strategy may contain a maximum of 6 capacity providers.
+	//   To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
 	CapacityProviderStrategy ServiceCapacityProviderStrategyItemArrayInput
 	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
 	Cluster pulumi.StringPtrInput
@@ -262,12 +275,15 @@ type ServiceArgs struct {
 	// The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
 	LaunchType ServiceLaunchTypePtrInput
 	// A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
 	LoadBalancers ServiceLoadBalancerArrayInput
 	// The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
 	NetworkConfiguration ServiceNetworkConfigurationPtrInput
 	// An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
+	//   To remove this property from your service resource, specify an empty ``PlacementConstraint`` array.
 	PlacementConstraints ServicePlacementConstraintArrayInput
 	// The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules for each service.
+	//   To remove this property from your service resource, specify an empty ``PlacementStrategy`` array.
 	PlacementStrategies ServicePlacementStrategyArrayInput
 	// The platform version that your tasks in the service are running on. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the ``LATEST`` platform version is used. For more information, see [platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide*.
 	PlatformVersion pulumi.StringPtrInput
@@ -293,6 +309,7 @@ type ServiceArgs struct {
 	ServiceName pulumi.StringPtrInput
 	// The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
 	//   Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
+	//    To remove this property from your service resource, specify an empty ``ServiceRegistry`` array.
 	ServiceRegistries ServiceRegistryArrayInput
 	// The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. When a service is deleted, the tags are deleted as well.
 	//  The following basic restrictions apply to tags:
@@ -309,6 +326,7 @@ type ServiceArgs struct {
 	//  For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
 	TaskDefinition pulumi.StringPtrInput
 	// The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
+	//   To remove this property from your service resource, specify an empty ``ServiceVolumeConfiguration`` array.
 	VolumeConfigurations ServiceVolumeConfigurationArrayInput
 	// The VPC Lattice configuration for the service being created.
 	VpcLatticeConfigurations ServiceVpcLatticeConfigurationArrayInput
@@ -361,7 +379,8 @@ func (o ServiceOutput) AvailabilityZoneRebalancing() ServiceAvailabilityZoneReba
 // The capacity provider strategy to use for the service.
 //
 //	If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-//	A capacity provider strategy can contain a maximum of 20 capacity providers.
+//	A capacity provider strategy may contain a maximum of 6 capacity providers.
+//	 To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
 func (o ServiceOutput) CapacityProviderStrategy() ServiceCapacityProviderStrategyItemArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceCapacityProviderStrategyItemArrayOutput { return v.CapacityProviderStrategy }).(ServiceCapacityProviderStrategyItemArrayOutput)
 }
@@ -414,6 +433,8 @@ func (o ServiceOutput) LaunchType() ServiceLaunchTypePtrOutput {
 }
 
 // A list of load balancer objects to associate with the service. If you specify the “Role“ property, “LoadBalancers“ must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+//
+//	To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
 func (o ServiceOutput) LoadBalancers() ServiceLoadBalancerArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceLoadBalancerArrayOutput { return v.LoadBalancers }).(ServiceLoadBalancerArrayOutput)
 }
@@ -429,11 +450,15 @@ func (o ServiceOutput) NetworkConfiguration() ServiceNetworkConfigurationPtrOutp
 }
 
 // An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
+//
+//	To remove this property from your service resource, specify an empty ``PlacementConstraint`` array.
 func (o ServiceOutput) PlacementConstraints() ServicePlacementConstraintArrayOutput {
 	return o.ApplyT(func(v *Service) ServicePlacementConstraintArrayOutput { return v.PlacementConstraints }).(ServicePlacementConstraintArrayOutput)
 }
 
 // The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules for each service.
+//
+//	To remove this property from your service resource, specify an empty ``PlacementStrategy`` array.
 func (o ServiceOutput) PlacementStrategies() ServicePlacementStrategyArrayOutput {
 	return o.ApplyT(func(v *Service) ServicePlacementStrategyArrayOutput { return v.PlacementStrategies }).(ServicePlacementStrategyArrayOutput)
 }
@@ -491,6 +516,7 @@ func (o ServiceOutput) ServiceName() pulumi.StringPtrOutput {
 // The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
 //
 //	Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
+//	 To remove this property from your service resource, specify an empty ``ServiceRegistry`` array.
 func (o ServiceOutput) ServiceRegistries() ServiceRegistryArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceRegistryArrayOutput { return v.ServiceRegistries }).(ServiceRegistryArrayOutput)
 }
@@ -518,6 +544,8 @@ func (o ServiceOutput) TaskDefinition() pulumi.StringPtrOutput {
 }
 
 // The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
+//
+//	To remove this property from your service resource, specify an empty ``ServiceVolumeConfiguration`` array.
 func (o ServiceOutput) VolumeConfigurations() ServiceVolumeConfigurationArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceVolumeConfigurationArrayOutput { return v.VolumeConfigurations }).(ServiceVolumeConfigurationArrayOutput)
 }
