@@ -75,7 +75,14 @@
   "primaryIdentifier" : [ "/properties/AssistantAssociationId", "/properties/AssistantId" ],
   "additionalIdentifiers" : [ [ "/properties/AssistantAssociationArn", "/properties/AssistantArn" ] ],
   "additionalProperties" : false,
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "wisdom:TagResource" ]
+  },
   "replacementStrategy" : "delete_then_create",
   "handlers" : {
     "create" : {
