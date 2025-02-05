@@ -273,6 +273,7 @@ type FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy string
 const (
 	FhirDatastoreIdentityProviderConfigurationAuthorizationStrategySmartOnFhirV1 = FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy("SMART_ON_FHIR_V1")
 	FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyAwsAuth       = FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy("AWS_AUTH")
+	FhirDatastoreIdentityProviderConfigurationAuthorizationStrategySmartOnFhir   = FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy("SMART_ON_FHIR")
 )
 
 func (FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy) ElementType() reflect.Type {
@@ -399,6 +400,7 @@ func (o FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput
 //
 //	FhirDatastoreIdentityProviderConfigurationAuthorizationStrategySmartOnFhirV1
 //	FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyAwsAuth
+//	FhirDatastoreIdentityProviderConfigurationAuthorizationStrategySmartOnFhir
 type FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyInput interface {
 	pulumi.Input
 

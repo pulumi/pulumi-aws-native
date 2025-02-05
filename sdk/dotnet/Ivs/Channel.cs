@@ -147,6 +147,9 @@ namespace Pulumi.AwsNative.Ivs
         [Output("latencyMode")]
         public Output<Pulumi.AwsNative.Ivs.ChannelLatencyMode?> LatencyMode { get; private set; } = null!;
 
+        /// <summary>
+        /// Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
+        /// </summary>
         [Output("multitrackInputConfiguration")]
         public Output<Outputs.ChannelMultitrackInputConfiguration?> MultitrackInputConfiguration { get; private set; } = null!;
 
@@ -255,6 +258,9 @@ namespace Pulumi.AwsNative.Ivs
         [Input("latencyMode")]
         public Input<Pulumi.AwsNative.Ivs.ChannelLatencyMode>? LatencyMode { get; set; }
 
+        /// <summary>
+        /// Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
+        /// </summary>
         [Input("multitrackInputConfiguration")]
         public Input<Inputs.ChannelMultitrackInputConfigurationArgs>? MultitrackInputConfiguration { get; set; }
 

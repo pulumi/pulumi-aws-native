@@ -165,6 +165,14 @@ class Region(str, Enum):
     """
     US ISOB East (Ohio)
     """
+    US_ISOF_EAST1 = "us-isof-east-1"
+    """
+    US ISOF EAST
+    """
+    US_ISOF_SOUTH1 = "us-isof-south-1"
+    """
+    US ISOF SOUTH
+    """
     US_WEST1 = "us-west-1"
     """
     US West (N. California)

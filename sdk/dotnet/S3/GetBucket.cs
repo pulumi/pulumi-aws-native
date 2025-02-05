@@ -123,6 +123,9 @@ namespace Pulumi.AwsNative.S3
         /// Settings that define where logs are stored.
         /// </summary>
         public readonly Outputs.BucketLoggingConfiguration? LoggingConfiguration;
+        /// <summary>
+        /// The metadata table configuration of an Amazon S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html) .
+        /// </summary>
         public readonly Outputs.BucketMetadataTableConfiguration? MetadataTableConfiguration;
         /// <summary>
         /// Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).

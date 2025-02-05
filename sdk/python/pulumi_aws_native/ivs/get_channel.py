@@ -118,6 +118,9 @@ class GetChannelResult:
     @property
     @pulumi.getter(name="multitrackInputConfiguration")
     def multitrack_input_configuration(self) -> Optional['outputs.ChannelMultitrackInputConfiguration']:
+        """
+        Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
+        """
         return pulumi.get(self, "multitrack_input_configuration")
 
     @property

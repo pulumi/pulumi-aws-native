@@ -30,6 +30,11 @@ export const getLicenseEndpoint: typeof import("./getLicenseEndpoint").getLicens
 export const getLicenseEndpointOutput: typeof import("./getLicenseEndpoint").getLicenseEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getLicenseEndpoint","getLicenseEndpointOutput"], () => require("./getLicenseEndpoint"));
 
+export { GetLimitArgs, GetLimitResult, GetLimitOutputArgs } from "./getLimit";
+export const getLimit: typeof import("./getLimit").getLimit = null as any;
+export const getLimitOutput: typeof import("./getLimit").getLimitOutput = null as any;
+utilities.lazyLoad(exports, ["getLimit","getLimitOutput"], () => require("./getLimit"));
+
 export { GetMeteredProductArgs, GetMeteredProductResult, GetMeteredProductOutputArgs } from "./getMeteredProduct";
 export const getMeteredProduct: typeof import("./getMeteredProduct").getMeteredProduct = null as any;
 export const getMeteredProductOutput: typeof import("./getMeteredProduct").getMeteredProductOutput = null as any;
@@ -60,6 +65,11 @@ export type LicenseEndpoint = import("./licenseEndpoint").LicenseEndpoint;
 export const LicenseEndpoint: typeof import("./licenseEndpoint").LicenseEndpoint = null as any;
 utilities.lazyLoad(exports, ["LicenseEndpoint"], () => require("./licenseEndpoint"));
 
+export { LimitArgs } from "./limit";
+export type Limit = import("./limit").Limit;
+export const Limit: typeof import("./limit").Limit = null as any;
+utilities.lazyLoad(exports, ["Limit"], () => require("./limit"));
+
 export { MeteredProductArgs } from "./meteredProduct";
 export type MeteredProduct = import("./meteredProduct").MeteredProduct;
 export const MeteredProduct: typeof import("./meteredProduct").MeteredProduct = null as any;
@@ -85,6 +95,11 @@ export type QueueFleetAssociation = import("./queueFleetAssociation").QueueFleet
 export const QueueFleetAssociation: typeof import("./queueFleetAssociation").QueueFleetAssociation = null as any;
 utilities.lazyLoad(exports, ["QueueFleetAssociation"], () => require("./queueFleetAssociation"));
 
+export { QueueLimitAssociationArgs } from "./queueLimitAssociation";
+export type QueueLimitAssociation = import("./queueLimitAssociation").QueueLimitAssociation;
+export const QueueLimitAssociation: typeof import("./queueLimitAssociation").QueueLimitAssociation = null as any;
+utilities.lazyLoad(exports, ["QueueLimitAssociation"], () => require("./queueLimitAssociation"));
+
 export { StorageProfileArgs } from "./storageProfile";
 export type StorageProfile = import("./storageProfile").StorageProfile;
 export const StorageProfile: typeof import("./storageProfile").StorageProfile = null as any;
@@ -104,6 +119,8 @@ const _module = {
                 return new Fleet(name, <any>undefined, { urn })
             case "aws-native:deadline:LicenseEndpoint":
                 return new LicenseEndpoint(name, <any>undefined, { urn })
+            case "aws-native:deadline:Limit":
+                return new Limit(name, <any>undefined, { urn })
             case "aws-native:deadline:MeteredProduct":
                 return new MeteredProduct(name, <any>undefined, { urn })
             case "aws-native:deadline:Monitor":
@@ -114,6 +131,8 @@ const _module = {
                 return new QueueEnvironment(name, <any>undefined, { urn })
             case "aws-native:deadline:QueueFleetAssociation":
                 return new QueueFleetAssociation(name, <any>undefined, { urn })
+            case "aws-native:deadline:QueueLimitAssociation":
+                return new QueueLimitAssociation(name, <any>undefined, { urn })
             case "aws-native:deadline:StorageProfile":
                 return new StorageProfile(name, <any>undefined, { urn })
             default:

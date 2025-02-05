@@ -36,6 +36,7 @@ class FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy(str, Enum)
     """
     SMART_ON_FHIR_V1 = "SMART_ON_FHIR_V1"
     AWS_AUTH = "AWS_AUTH"
+    SMART_ON_FHIR = "SMART_ON_FHIR"
 
 
 class FhirDatastoreKmsEncryptionConfigCmkType(str, Enum):

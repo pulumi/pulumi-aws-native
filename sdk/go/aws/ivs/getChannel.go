@@ -40,7 +40,8 @@ type LookupChannelResult struct {
 	// Whether the channel allows insecure ingest.
 	InsecureIngest *bool `pulumi:"insecureIngest"`
 	// Channel latency mode.
-	LatencyMode                  *ChannelLatencyMode                  `pulumi:"latencyMode"`
+	LatencyMode *ChannelLatencyMode `pulumi:"latencyMode"`
+	// Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
 	MultitrackInputConfiguration *ChannelMultitrackInputConfiguration `pulumi:"multitrackInputConfiguration"`
 	// Channel
 	Name *string `pulumi:"name"`
@@ -118,6 +119,7 @@ func (o LookupChannelResultOutput) LatencyMode() ChannelLatencyModePtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *ChannelLatencyMode { return v.LatencyMode }).(ChannelLatencyModePtrOutput)
 }
 
+// Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
 func (o LookupChannelResultOutput) MultitrackInputConfiguration() ChannelMultitrackInputConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *ChannelMultitrackInputConfiguration {
 		return v.MultitrackInputConfiguration

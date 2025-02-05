@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.S3.Inputs
 
     public sealed class BucketMetadataTableConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket. The specified metadata table name must be unique within the `aws_s3_metadata` namespace in the destination table bucket.
+        /// </summary>
         [Input("s3TablesDestination", required: true)]
         public Input<Inputs.BucketS3TablesDestinationArgs> S3TablesDestination { get; set; } = null!;
 

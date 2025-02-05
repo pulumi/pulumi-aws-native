@@ -117,6 +117,9 @@ export class Channel extends pulumi.CustomResource {
      * Channel latency mode.
      */
     public readonly latencyMode!: pulumi.Output<enums.ivs.ChannelLatencyMode | undefined>;
+    /**
+     * Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
+     */
     public readonly multitrackInputConfiguration!: pulumi.Output<outputs.ivs.ChannelMultitrackInputConfiguration | undefined>;
     /**
      * Channel
@@ -207,6 +210,9 @@ export interface ChannelArgs {
      * Channel latency mode.
      */
     latencyMode?: pulumi.Input<enums.ivs.ChannelLatencyMode>;
+    /**
+     * Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
+     */
     multitrackInputConfiguration?: pulumi.Input<inputs.ivs.ChannelMultitrackInputConfigurationArgs>;
     /**
      * Channel

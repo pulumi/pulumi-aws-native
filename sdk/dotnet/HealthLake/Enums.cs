@@ -85,6 +85,7 @@ namespace Pulumi.AwsNative.HealthLake
 
         public static FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy SmartOnFhirV1 { get; } = new FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy("SMART_ON_FHIR_V1");
         public static FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy AwsAuth { get; } = new FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy("AWS_AUTH");
+        public static FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy SmartOnFhir { get; } = new FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy("SMART_ON_FHIR");
 
         public static bool operator ==(FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy left, FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy right) => left.Equals(right);
         public static bool operator !=(FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy left, FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy right) => !left.Equals(right);

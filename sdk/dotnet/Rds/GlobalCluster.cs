@@ -50,7 +50,7 @@ namespace Pulumi.AwsNative.Rds
         /// The writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
         /// </summary>
         [Output("globalEndpoint")]
-        public Output<Outputs.GlobalClusterGlobalEndpoint?> GlobalEndpoint { get; private set; } = null!;
+        public Output<Outputs.GlobalClusterGlobalEndpoint> GlobalEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
@@ -153,12 +153,6 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("globalClusterIdentifier")]
         public Input<string>? GlobalClusterIdentifier { get; set; }
-
-        /// <summary>
-        /// The writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
-        /// </summary>
-        [Input("globalEndpoint")]
-        public Input<Inputs.GlobalClusterGlobalEndpointArgs>? GlobalEndpoint { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.

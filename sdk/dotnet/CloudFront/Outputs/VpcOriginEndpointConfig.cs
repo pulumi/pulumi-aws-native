@@ -18,11 +18,11 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The HTTP port for the CloudFront VPC origin endpoint configuration.
+        /// The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is `80` .
         /// </summary>
         public readonly int? HttpPort;
         /// <summary>
-        /// The HTTPS port of the CloudFront VPC origin endpoint configuration.
+        /// The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is `443` .
         /// </summary>
         public readonly int? HttpsPort;
         /// <summary>

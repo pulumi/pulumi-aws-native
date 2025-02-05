@@ -49,6 +49,9 @@ export interface GetChannelResult {
      * Channel latency mode.
      */
     readonly latencyMode?: enums.ivs.ChannelLatencyMode;
+    /**
+     * Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
+     */
     readonly multitrackInputConfiguration?: outputs.ivs.ChannelMultitrackInputConfiguration;
     /**
      * Channel

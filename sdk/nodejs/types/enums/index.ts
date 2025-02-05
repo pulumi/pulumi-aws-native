@@ -506,6 +506,14 @@ export const Region = {
      */
     UsIsobEast1: "us-isob-east-1",
     /**
+     * US ISOF EAST
+     */
+    UsIsofEast1: "us-isof-east-1",
+    /**
+     * US ISOF SOUTH
+     */
+    UsIsofSouth1: "us-isof-south-1",
+    /**
      * US West (N. California)
      */
     UsWest1: "us-west-1",

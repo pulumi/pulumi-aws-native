@@ -26,6 +26,7 @@ export type FhirDatastoreDatastoreTypeVersion = (typeof FhirDatastoreDatastoreTy
 export const FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy = {
     SmartOnFhirV1: "SMART_ON_FHIR_V1",
     AwsAuth: "AWS_AUTH",
+    SmartOnFhir: "SMART_ON_FHIR",
 } as const;
 
 /**

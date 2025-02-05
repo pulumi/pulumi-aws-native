@@ -1727,6 +1727,9 @@ class BucketLoggingConfigurationArgs:
 if not MYPY:
     class BucketMetadataTableConfigurationArgsDict(TypedDict):
         s3_tables_destination: pulumi.Input['BucketS3TablesDestinationArgsDict']
+        """
+        The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket. The specified metadata table name must be unique within the `aws_s3_metadata` namespace in the destination table bucket.
+        """
 elif False:
     BucketMetadataTableConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1734,11 +1737,17 @@ elif False:
 class BucketMetadataTableConfigurationArgs:
     def __init__(__self__, *,
                  s3_tables_destination: pulumi.Input['BucketS3TablesDestinationArgs']):
+        """
+        :param pulumi.Input['BucketS3TablesDestinationArgs'] s3_tables_destination: The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket. The specified metadata table name must be unique within the `aws_s3_metadata` namespace in the destination table bucket.
+        """
         pulumi.set(__self__, "s3_tables_destination", s3_tables_destination)
 
     @property
     @pulumi.getter(name="s3TablesDestination")
     def s3_tables_destination(self) -> pulumi.Input['BucketS3TablesDestinationArgs']:
+        """
+        The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket. The specified metadata table name must be unique within the `aws_s3_metadata` namespace in the destination table bucket.
+        """
         return pulumi.get(self, "s3_tables_destination")
 
     @s3_tables_destination.setter

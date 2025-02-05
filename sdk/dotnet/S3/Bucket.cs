@@ -948,6 +948,9 @@ namespace Pulumi.AwsNative.S3
         [Output("loggingConfiguration")]
         public Output<Outputs.BucketLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The metadata table configuration of an Amazon S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html) .
+        /// </summary>
         [Output("metadataTableConfiguration")]
         public Output<Outputs.BucketMetadataTableConfiguration?> MetadataTableConfiguration { get; private set; } = null!;
 
@@ -1166,6 +1169,9 @@ namespace Pulumi.AwsNative.S3
         [Input("loggingConfiguration")]
         public Input<Inputs.BucketLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
+        /// <summary>
+        /// The metadata table configuration of an Amazon S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html) .
+        /// </summary>
         [Input("metadataTableConfiguration")]
         public Input<Inputs.BucketMetadataTableConfigurationArgs>? MetadataTableConfiguration { get; set; }
 

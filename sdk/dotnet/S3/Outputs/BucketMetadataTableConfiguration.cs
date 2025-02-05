@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class BucketMetadataTableConfiguration
     {
+        /// <summary>
+        /// The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket. The specified metadata table name must be unique within the `aws_s3_metadata` namespace in the destination table bucket.
+        /// </summary>
         public readonly Outputs.BucketS3TablesDestination S3TablesDestination;
 
         [OutputConstructor]

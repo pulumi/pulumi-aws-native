@@ -3508,6 +3508,7 @@ func (o BucketLoggingConfigurationPtrOutput) TargetObjectKeyFormat() BucketTarge
 }
 
 type BucketMetadataTableConfiguration struct {
+	// The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket. The specified metadata table name must be unique within the `aws_s3_metadata` namespace in the destination table bucket.
 	S3TablesDestination BucketS3TablesDestination `pulumi:"s3TablesDestination"`
 }
 
@@ -3523,6 +3524,7 @@ type BucketMetadataTableConfigurationInput interface {
 }
 
 type BucketMetadataTableConfigurationArgs struct {
+	// The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket. The specified metadata table name must be unique within the `aws_s3_metadata` namespace in the destination table bucket.
 	S3TablesDestination BucketS3TablesDestinationInput `pulumi:"s3TablesDestination"`
 }
 
@@ -3603,6 +3605,7 @@ func (o BucketMetadataTableConfigurationOutput) ToBucketMetadataTableConfigurati
 	}).(BucketMetadataTableConfigurationPtrOutput)
 }
 
+// The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket. The specified metadata table name must be unique within the `aws_s3_metadata` namespace in the destination table bucket.
 func (o BucketMetadataTableConfigurationOutput) S3TablesDestination() BucketS3TablesDestinationOutput {
 	return o.ApplyT(func(v BucketMetadataTableConfiguration) BucketS3TablesDestination { return v.S3TablesDestination }).(BucketS3TablesDestinationOutput)
 }
@@ -3631,6 +3634,7 @@ func (o BucketMetadataTableConfigurationPtrOutput) Elem() BucketMetadataTableCon
 	}).(BucketMetadataTableConfigurationOutput)
 }
 
+// The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket. The specified metadata table name must be unique within the `aws_s3_metadata` namespace in the destination table bucket.
 func (o BucketMetadataTableConfigurationPtrOutput) S3TablesDestination() BucketS3TablesDestinationPtrOutput {
 	return o.ApplyT(func(v *BucketMetadataTableConfiguration) *BucketS3TablesDestination {
 		if v == nil {

@@ -17,7 +17,6 @@ from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['GlobalClusterArgs', 'GlobalCluster']
 
@@ -29,7 +28,6 @@ class GlobalClusterArgs:
                  engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 global_endpoint: Optional[pulumi.Input['GlobalClusterGlobalEndpointArgs']] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -41,7 +39,6 @@ class GlobalClusterArgs:
         :param pulumi.Input[str] engine_lifecycle_support: The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
         :param pulumi.Input[str] engine_version: The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         :param pulumi.Input[str] global_cluster_identifier: The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
-        :param pulumi.Input['GlobalClusterGlobalEndpointArgs'] global_endpoint: The writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
         :param pulumi.Input[str] source_db_cluster_identifier: The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
         :param pulumi.Input[bool] storage_encrypted:  The storage encryption setting for the new global database cluster.
                If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
@@ -57,8 +54,6 @@ class GlobalClusterArgs:
             pulumi.set(__self__, "engine_version", engine_version)
         if global_cluster_identifier is not None:
             pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
-        if global_endpoint is not None:
-            pulumi.set(__self__, "global_endpoint", global_endpoint)
         if source_db_cluster_identifier is not None:
             pulumi.set(__self__, "source_db_cluster_identifier", source_db_cluster_identifier)
         if storage_encrypted is not None:
@@ -128,18 +123,6 @@ class GlobalClusterArgs:
         pulumi.set(self, "global_cluster_identifier", value)
 
     @property
-    @pulumi.getter(name="globalEndpoint")
-    def global_endpoint(self) -> Optional[pulumi.Input['GlobalClusterGlobalEndpointArgs']]:
-        """
-        The writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
-        """
-        return pulumi.get(self, "global_endpoint")
-
-    @global_endpoint.setter
-    def global_endpoint(self, value: Optional[pulumi.Input['GlobalClusterGlobalEndpointArgs']]):
-        pulumi.set(self, "global_endpoint", value)
-
-    @property
     @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
@@ -187,7 +170,6 @@ class GlobalCluster(pulumi.CustomResource):
                  engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 global_endpoint: Optional[pulumi.Input[Union['GlobalClusterGlobalEndpointArgs', 'GlobalClusterGlobalEndpointArgsDict']]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -203,7 +185,6 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine_lifecycle_support: The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
         :param pulumi.Input[str] engine_version: The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         :param pulumi.Input[str] global_cluster_identifier: The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
-        :param pulumi.Input[Union['GlobalClusterGlobalEndpointArgs', 'GlobalClusterGlobalEndpointArgsDict']] global_endpoint: The writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
         :param pulumi.Input[str] source_db_cluster_identifier: The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
         :param pulumi.Input[bool] storage_encrypted:  The storage encryption setting for the new global database cluster.
                If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
@@ -238,7 +219,6 @@ class GlobalCluster(pulumi.CustomResource):
                  engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 global_endpoint: Optional[pulumi.Input[Union['GlobalClusterGlobalEndpointArgs', 'GlobalClusterGlobalEndpointArgsDict']]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -256,10 +236,10 @@ class GlobalCluster(pulumi.CustomResource):
             __props__.__dict__["engine_lifecycle_support"] = engine_lifecycle_support
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["global_cluster_identifier"] = global_cluster_identifier
-            __props__.__dict__["global_endpoint"] = global_endpoint
             __props__.__dict__["source_db_cluster_identifier"] = source_db_cluster_identifier
             __props__.__dict__["storage_encrypted"] = storage_encrypted
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["global_endpoint"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["engine", "globalClusterIdentifier", "sourceDbClusterIdentifier", "storageEncrypted"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GlobalCluster, __self__).__init__(
@@ -338,7 +318,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="globalEndpoint")
-    def global_endpoint(self) -> pulumi.Output[Optional['outputs.GlobalClusterGlobalEndpoint']]:
+    def global_endpoint(self) -> pulumi.Output['outputs.GlobalClusterGlobalEndpoint']:
         """
         The writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
         """

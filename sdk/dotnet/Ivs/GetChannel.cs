@@ -87,6 +87,9 @@ namespace Pulumi.AwsNative.Ivs
         /// Channel latency mode.
         /// </summary>
         public readonly Pulumi.AwsNative.Ivs.ChannelLatencyMode? LatencyMode;
+        /// <summary>
+        /// Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
+        /// </summary>
         public readonly Outputs.ChannelMultitrackInputConfiguration? MultitrackInputConfiguration;
         /// <summary>
         /// Channel

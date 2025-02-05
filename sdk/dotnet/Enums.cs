@@ -173,6 +173,14 @@ namespace Pulumi.AwsNative
         /// </summary>
         public static Region UsIsobEast1 { get; } = new Region("us-isob-east-1");
         /// <summary>
+        /// US ISOF EAST
+        /// </summary>
+        public static Region UsIsofEast1 { get; } = new Region("us-isof-east-1");
+        /// <summary>
+        /// US ISOF SOUTH
+        /// </summary>
+        public static Region UsIsofSouth1 { get; } = new Region("us-isof-south-1");
+        /// <summary>
         /// US West (N. California)
         /// </summary>
         public static Region UsWest1 { get; } = new Region("us-west-1");

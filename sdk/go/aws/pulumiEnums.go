@@ -83,6 +83,10 @@ const (
 	RegionUsIsoWest1 = Region("us-iso-west-1")
 	// US ISOB East (Ohio)
 	RegionUsIsobEast1 = Region("us-isob-east-1")
+	// US ISOF EAST
+	RegionUsIsofEast1 = Region("us-isof-east-1")
+	// US ISOF SOUTH
+	RegionUsIsofSouth1 = Region("us-isof-south-1")
 	// US West (N. California)
 	RegionUsWest1 = Region("us-west-1")
 	// US West (Oregon)

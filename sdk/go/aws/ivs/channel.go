@@ -127,7 +127,8 @@ type Channel struct {
 	// Whether the channel allows insecure ingest.
 	InsecureIngest pulumi.BoolPtrOutput `pulumi:"insecureIngest"`
 	// Channel latency mode.
-	LatencyMode                  ChannelLatencyModePtrOutput                  `pulumi:"latencyMode"`
+	LatencyMode ChannelLatencyModePtrOutput `pulumi:"latencyMode"`
+	// Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
 	MultitrackInputConfiguration ChannelMultitrackInputConfigurationPtrOutput `pulumi:"multitrackInputConfiguration"`
 	// Channel
 	Name pulumi.StringPtrOutput `pulumi:"name"`
@@ -190,7 +191,8 @@ type channelArgs struct {
 	// Whether the channel allows insecure ingest.
 	InsecureIngest *bool `pulumi:"insecureIngest"`
 	// Channel latency mode.
-	LatencyMode                  *ChannelLatencyMode                  `pulumi:"latencyMode"`
+	LatencyMode *ChannelLatencyMode `pulumi:"latencyMode"`
+	// Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
 	MultitrackInputConfiguration *ChannelMultitrackInputConfiguration `pulumi:"multitrackInputConfiguration"`
 	// Channel
 	Name *string `pulumi:"name"`
@@ -213,7 +215,8 @@ type ChannelArgs struct {
 	// Whether the channel allows insecure ingest.
 	InsecureIngest pulumi.BoolPtrInput
 	// Channel latency mode.
-	LatencyMode                  ChannelLatencyModePtrInput
+	LatencyMode ChannelLatencyModePtrInput
+	// Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
 	MultitrackInputConfiguration ChannelMultitrackInputConfigurationPtrInput
 	// Channel
 	Name pulumi.StringPtrInput
@@ -294,6 +297,7 @@ func (o ChannelOutput) LatencyMode() ChannelLatencyModePtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelLatencyModePtrOutput { return v.LatencyMode }).(ChannelLatencyModePtrOutput)
 }
 
+// Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
 func (o ChannelOutput) MultitrackInputConfiguration() ChannelMultitrackInputConfigurationPtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelMultitrackInputConfigurationPtrOutput { return v.MultitrackInputConfiguration }).(ChannelMultitrackInputConfigurationPtrOutput)
 }

@@ -609,6 +609,9 @@ export class Bucket extends pulumi.CustomResource {
      * Settings that define where logs are stored.
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.s3.BucketLoggingConfiguration | undefined>;
+    /**
+     * The metadata table configuration of an Amazon S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html) .
+     */
     public readonly metadataTableConfiguration!: pulumi.Output<outputs.s3.BucketMetadataTableConfiguration | undefined>;
     /**
      * Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
@@ -791,6 +794,9 @@ export interface BucketArgs {
      * Settings that define where logs are stored.
      */
     loggingConfiguration?: pulumi.Input<inputs.s3.BucketLoggingConfigurationArgs>;
+    /**
+     * The metadata table configuration of an Amazon S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html) .
+     */
     metadataTableConfiguration?: pulumi.Input<inputs.s3.BucketMetadataTableConfigurationArgs>;
     /**
      * Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).

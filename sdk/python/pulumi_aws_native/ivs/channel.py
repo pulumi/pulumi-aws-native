@@ -40,6 +40,7 @@ class ChannelArgs:
         :param pulumi.Input['ChannelContainerFormat'] container_format: Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
         :param pulumi.Input[bool] insecure_ingest: Whether the channel allows insecure ingest.
         :param pulumi.Input['ChannelLatencyMode'] latency_mode: Channel latency mode.
+        :param pulumi.Input['ChannelMultitrackInputConfigurationArgs'] multitrack_input_configuration: Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
         :param pulumi.Input[str] name: Channel
         :param pulumi.Input['ChannelPreset'] preset: Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
         :param pulumi.Input[str] recording_configuration_arn: Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
@@ -118,6 +119,9 @@ class ChannelArgs:
     @property
     @pulumi.getter(name="multitrackInputConfiguration")
     def multitrack_input_configuration(self) -> Optional[pulumi.Input['ChannelMultitrackInputConfigurationArgs']]:
+        """
+        Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
+        """
         return pulumi.get(self, "multitrack_input_configuration")
 
     @multitrack_input_configuration.setter
@@ -262,6 +266,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input['ChannelContainerFormat'] container_format: Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
         :param pulumi.Input[bool] insecure_ingest: Whether the channel allows insecure ingest.
         :param pulumi.Input['ChannelLatencyMode'] latency_mode: Channel latency mode.
+        :param pulumi.Input[Union['ChannelMultitrackInputConfigurationArgs', 'ChannelMultitrackInputConfigurationArgsDict']] multitrack_input_configuration: Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
         :param pulumi.Input[str] name: Channel
         :param pulumi.Input['ChannelPreset'] preset: Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
         :param pulumi.Input[str] recording_configuration_arn: Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
@@ -464,6 +469,9 @@ class Channel(pulumi.CustomResource):
     @property
     @pulumi.getter(name="multitrackInputConfiguration")
     def multitrack_input_configuration(self) -> pulumi.Output[Optional['outputs.ChannelMultitrackInputConfiguration']]:
+        """
+        Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
+        """
         return pulumi.get(self, "multitrack_input_configuration")
 
     @property

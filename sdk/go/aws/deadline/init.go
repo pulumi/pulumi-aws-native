@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Fleet{}
 	case "aws-native:deadline:LicenseEndpoint":
 		r = &LicenseEndpoint{}
+	case "aws-native:deadline:Limit":
+		r = &Limit{}
 	case "aws-native:deadline:MeteredProduct":
 		r = &MeteredProduct{}
 	case "aws-native:deadline:Monitor":
@@ -37,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &QueueEnvironment{}
 	case "aws-native:deadline:QueueFleetAssociation":
 		r = &QueueFleetAssociation{}
+	case "aws-native:deadline:QueueLimitAssociation":
+		r = &QueueLimitAssociation{}
 	case "aws-native:deadline:StorageProfile":
 		r = &StorageProfile{}
 	default:

@@ -28,7 +28,7 @@ type GlobalCluster struct {
 	// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
 	GlobalClusterIdentifier pulumi.StringPtrOutput `pulumi:"globalClusterIdentifier"`
 	// The writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
-	GlobalEndpoint GlobalClusterGlobalEndpointPtrOutput `pulumi:"globalEndpoint"`
+	GlobalEndpoint GlobalClusterGlobalEndpointOutput `pulumi:"globalEndpoint"`
 	// The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
 	SourceDbClusterIdentifier pulumi.StringPtrOutput `pulumi:"sourceDbClusterIdentifier"`
 	//  The storage encryption setting for the new global database cluster.
@@ -96,8 +96,6 @@ type globalClusterArgs struct {
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
 	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
-	// The writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
-	GlobalEndpoint *GlobalClusterGlobalEndpoint `pulumi:"globalEndpoint"`
 	// The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
 	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
 	//  The storage encryption setting for the new global database cluster.
@@ -120,8 +118,6 @@ type GlobalClusterArgs struct {
 	EngineVersion pulumi.StringPtrInput
 	// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
 	GlobalClusterIdentifier pulumi.StringPtrInput
-	// The writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
-	GlobalEndpoint GlobalClusterGlobalEndpointPtrInput
 	// The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
 	SourceDbClusterIdentifier pulumi.StringPtrInput
 	//  The storage encryption setting for the new global database cluster.
@@ -195,8 +191,8 @@ func (o GlobalClusterOutput) GlobalClusterIdentifier() pulumi.StringPtrOutput {
 }
 
 // The writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
-func (o GlobalClusterOutput) GlobalEndpoint() GlobalClusterGlobalEndpointPtrOutput {
-	return o.ApplyT(func(v *GlobalCluster) GlobalClusterGlobalEndpointPtrOutput { return v.GlobalEndpoint }).(GlobalClusterGlobalEndpointPtrOutput)
+func (o GlobalClusterOutput) GlobalEndpoint() GlobalClusterGlobalEndpointOutput {
+	return o.ApplyT(func(v *GlobalCluster) GlobalClusterGlobalEndpointOutput { return v.GlobalEndpoint }).(GlobalClusterGlobalEndpointOutput)
 }
 
 // The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
