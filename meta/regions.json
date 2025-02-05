@@ -158,5 +158,13 @@
   {
     "name": "eu-isoe-west-1",
     "description": "EU ISOE West"
+  },
+  {
+    "name": "us-isof-east-1",
+    "description": "US ISOF EAST"
+  },
+  {
+    "name": "us-isof-south-1",
+    "description": "US ISOF SOUTH"
   }
 ]

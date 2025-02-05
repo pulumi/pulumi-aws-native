@@ -61,6 +61,14 @@
   },
   "additionalProperties" : false,
   "required" : [ "MetricType" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iot:TagResource", "iot:UntagResource", "iot:ListTagsForResource" ]
+  },
   "createOnlyProperties" : [ "/properties/MetricName", "/properties/MetricType" ],
   "readOnlyProperties" : [ "/properties/MetricArn" ],
   "primaryIdentifier" : [ "/properties/MetricName" ],

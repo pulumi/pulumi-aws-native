@@ -3409,6 +3409,26 @@
       }
     }
   },
+  "aws-native:deadline:Limit": {
+    "cfTypeName": "AWS::Deadline::Limit",
+    "properties": {
+      "amountRequirementName": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "displayName": {
+        "type": "string"
+      },
+      "farmId": {
+        "type": "string"
+      },
+      "maxCount": {
+        "type": "integer"
+      }
+    }
+  },
   "aws-native:deadline:MeteredProduct": {
     "cfTypeName": "AWS::Deadline::MeteredProduct",
     "properties": {
@@ -3536,6 +3556,20 @@
       "queueId": {
         "type": "string",
         "description": "The queue ID."
+      }
+    }
+  },
+  "aws-native:deadline:QueueLimitAssociation": {
+    "cfTypeName": "AWS::Deadline::QueueLimitAssociation",
+    "properties": {
+      "farmId": {
+        "type": "string"
+      },
+      "limitId": {
+        "type": "string"
+      },
+      "queueId": {
+        "type": "string"
       }
     }
   },
@@ -11622,10 +11656,6 @@
       "globalClusterIdentifier": {
         "type": "string",
         "description": "The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string."
-      },
-      "globalEndpoint": {
-        "$ref": "#/types/aws-native:rds:GlobalClusterGlobalEndpoint",
-        "description": "The writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster."
       },
       "sourceDbClusterIdentifier": {
         "type": "string",
