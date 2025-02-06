@@ -137,7 +137,7 @@
       "permissions" : [ "eks:ListFargateProfiles" ]
     },
     "update" : {
-      "permissions" : [ "eks:DescribeFargateProfile", "eks:ListTagsForResource", "eks:TagResource", "eks:UntagResource" ]
+      "permissions" : [ "eks:DescribeFargateProfile", "eks:TagResource", "eks:UntagResource" ]
     }
   }
 }
