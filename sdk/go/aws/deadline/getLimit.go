@@ -23,16 +23,29 @@ func LookupLimit(ctx *pulumi.Context, args *LookupLimitArgs, opts ...pulumi.Invo
 }
 
 type LookupLimitArgs struct {
-	FarmId  string `pulumi:"farmId"`
+	// The unique identifier of the farm that contains the limit.
+	FarmId string `pulumi:"farmId"`
+	// The unique identifier of the limit.
 	LimitId string `pulumi:"limitId"`
 }
 
 type LookupLimitResult struct {
-	CurrentCount *int    `pulumi:"currentCount"`
-	Description  *string `pulumi:"description"`
-	DisplayName  *string `pulumi:"displayName"`
-	LimitId      *string `pulumi:"limitId"`
-	MaxCount     *int    `pulumi:"maxCount"`
+	// The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.
+	CurrentCount *int `pulumi:"currentCount"`
+	// A description of the limit. A clear description helps you identify the purpose of the limit.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+	Description *string `pulumi:"description"`
+	// The name of the limit used in lists to identify the limit.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+	DisplayName *string `pulumi:"displayName"`
+	// The unique identifier of the limit.
+	LimitId *string `pulumi:"limitId"`
+	// The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.
+	//
+	// The `maxValue` must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
+	MaxCount *int `pulumi:"maxCount"`
 }
 
 func LookupLimitOutput(ctx *pulumi.Context, args LookupLimitOutputArgs, opts ...pulumi.InvokeOption) LookupLimitResultOutput {
@@ -45,7 +58,9 @@ func LookupLimitOutput(ctx *pulumi.Context, args LookupLimitOutputArgs, opts ...
 }
 
 type LookupLimitOutputArgs struct {
-	FarmId  pulumi.StringInput `pulumi:"farmId"`
+	// The unique identifier of the farm that contains the limit.
+	FarmId pulumi.StringInput `pulumi:"farmId"`
+	// The unique identifier of the limit.
 	LimitId pulumi.StringInput `pulumi:"limitId"`
 }
 
@@ -67,22 +82,33 @@ func (o LookupLimitResultOutput) ToLookupLimitResultOutputWithContext(ctx contex
 	return o
 }
 
+// The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.
 func (o LookupLimitResultOutput) CurrentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupLimitResult) *int { return v.CurrentCount }).(pulumi.IntPtrOutput)
 }
 
+// A description of the limit. A clear description helps you identify the purpose of the limit.
+//
+// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 func (o LookupLimitResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLimitResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the limit used in lists to identify the limit.
+//
+// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 func (o LookupLimitResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLimitResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the limit.
 func (o LookupLimitResultOutput) LimitId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLimitResult) *string { return v.LimitId }).(pulumi.StringPtrOutput)
 }
 
+// The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.
+//
+// The `maxValue` must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
 func (o LookupLimitResultOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupLimitResult) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }

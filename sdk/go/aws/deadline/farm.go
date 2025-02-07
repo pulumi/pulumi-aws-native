@@ -20,6 +20,8 @@ type Farm struct {
 	// The Amazon Resource Name (ARN) assigned to the farm.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description of the farm that helps identify what the farm is used for.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of the farm.
 	//
@@ -81,6 +83,8 @@ func (FarmState) ElementType() reflect.Type {
 
 type farmArgs struct {
 	// A description of the farm that helps identify what the farm is used for.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	Description *string `pulumi:"description"`
 	// The display name of the farm.
 	//
@@ -95,6 +99,8 @@ type farmArgs struct {
 // The set of arguments for constructing a Farm resource.
 type FarmArgs struct {
 	// A description of the farm that helps identify what the farm is used for.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	Description pulumi.StringPtrInput
 	// The display name of the farm.
 	//
@@ -149,6 +155,8 @@ func (o FarmOutput) Arn() pulumi.StringOutput {
 }
 
 // A description of the farm that helps identify what the farm is used for.
+//
+// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 func (o FarmOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Farm) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

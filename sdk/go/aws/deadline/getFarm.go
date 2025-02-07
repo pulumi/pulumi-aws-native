@@ -32,6 +32,8 @@ type LookupFarmResult struct {
 	// The Amazon Resource Name (ARN) assigned to the farm.
 	Arn *string `pulumi:"arn"`
 	// A description of the farm that helps identify what the farm is used for.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	Description *string `pulumi:"description"`
 	// The display name of the farm.
 	//
@@ -81,6 +83,8 @@ func (o LookupFarmResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // A description of the farm that helps identify what the farm is used for.
+//
+// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 func (o LookupFarmResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFarmResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

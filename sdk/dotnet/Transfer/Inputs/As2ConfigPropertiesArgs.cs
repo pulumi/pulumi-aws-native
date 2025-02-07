@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         public Input<string>? PartnerProfileId { get; set; }
 
         /// <summary>
+        /// Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
+        /// </summary>
+        [Input("preserveContentType")]
+        public Input<Pulumi.AwsNative.Transfer.ConnectorAs2ConfigPropertiesPreserveContentType>? PreserveContentType { get; set; }
+
+        /// <summary>
         /// Signing algorithm for this AS2 connector configuration.
         /// </summary>
         [Input("signingAlgorithm")]

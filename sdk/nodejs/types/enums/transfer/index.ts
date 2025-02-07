@@ -2,6 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AgreementEnforceMessageSigning = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Specifies whether to enforce an AS2 message is signed for this agreement.
+ */
+export type AgreementEnforceMessageSigning = (typeof AgreementEnforceMessageSigning)[keyof typeof AgreementEnforceMessageSigning];
+
+export const AgreementPreserveFilename = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Specifies whether to preserve the filename received for this agreement.
+ */
+export type AgreementPreserveFilename = (typeof AgreementPreserveFilename)[keyof typeof AgreementPreserveFilename];
+
 export const AgreementStatus = {
     Active: "ACTIVE",
     Inactive: "INACTIVE",
@@ -90,6 +110,16 @@ export const ConnectorAs2ConfigPropertiesMdnSigningAlgorithm = {
  * MDN Signing algorithm for this AS2 connector configuration.
  */
 export type ConnectorAs2ConfigPropertiesMdnSigningAlgorithm = (typeof ConnectorAs2ConfigPropertiesMdnSigningAlgorithm)[keyof typeof ConnectorAs2ConfigPropertiesMdnSigningAlgorithm];
+
+export const ConnectorAs2ConfigPropertiesPreserveContentType = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
+ */
+export type ConnectorAs2ConfigPropertiesPreserveContentType = (typeof ConnectorAs2ConfigPropertiesPreserveContentType)[keyof typeof ConnectorAs2ConfigPropertiesPreserveContentType];
 
 export const ConnectorAs2ConfigPropertiesSigningAlgorithm = {
     Sha256: "SHA256",

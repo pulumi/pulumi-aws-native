@@ -39,6 +39,8 @@ export interface GetQueueResult {
     readonly defaultBudgetAction?: enums.deadline.QueueDefaultQueueBudgetAction;
     /**
      * A description of the queue that helps identify what the queue is used for.
+     *
+     * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
     readonly description?: string;
     /**

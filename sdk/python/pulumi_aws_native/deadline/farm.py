@@ -31,6 +31,8 @@ class FarmArgs:
                
                > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[str] description: A description of the farm that helps identify what the farm is used for.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS key.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -61,6 +63,8 @@ class FarmArgs:
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         A description of the farm that helps identify what the farm is used for.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         """
         return pulumi.get(self, "description")
 
@@ -109,6 +113,8 @@ class Farm(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the farm that helps identify what the farm is used for.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[str] display_name: The display name of the farm.
                
                > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
@@ -205,6 +211,8 @@ class Farm(pulumi.CustomResource):
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the farm that helps identify what the farm is used for.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         """
         return pulumi.get(self, "description")
 

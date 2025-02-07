@@ -10,6 +10,338 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Specifies whether to enforce an AS2 message is signed for this agreement.
+type AgreementEnforceMessageSigning string
+
+const (
+	AgreementEnforceMessageSigningEnabled  = AgreementEnforceMessageSigning("ENABLED")
+	AgreementEnforceMessageSigningDisabled = AgreementEnforceMessageSigning("DISABLED")
+)
+
+func (AgreementEnforceMessageSigning) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgreementEnforceMessageSigning)(nil)).Elem()
+}
+
+func (e AgreementEnforceMessageSigning) ToAgreementEnforceMessageSigningOutput() AgreementEnforceMessageSigningOutput {
+	return pulumi.ToOutput(e).(AgreementEnforceMessageSigningOutput)
+}
+
+func (e AgreementEnforceMessageSigning) ToAgreementEnforceMessageSigningOutputWithContext(ctx context.Context) AgreementEnforceMessageSigningOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgreementEnforceMessageSigningOutput)
+}
+
+func (e AgreementEnforceMessageSigning) ToAgreementEnforceMessageSigningPtrOutput() AgreementEnforceMessageSigningPtrOutput {
+	return e.ToAgreementEnforceMessageSigningPtrOutputWithContext(context.Background())
+}
+
+func (e AgreementEnforceMessageSigning) ToAgreementEnforceMessageSigningPtrOutputWithContext(ctx context.Context) AgreementEnforceMessageSigningPtrOutput {
+	return AgreementEnforceMessageSigning(e).ToAgreementEnforceMessageSigningOutputWithContext(ctx).ToAgreementEnforceMessageSigningPtrOutputWithContext(ctx)
+}
+
+func (e AgreementEnforceMessageSigning) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgreementEnforceMessageSigning) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgreementEnforceMessageSigning) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgreementEnforceMessageSigning) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgreementEnforceMessageSigningOutput struct{ *pulumi.OutputState }
+
+func (AgreementEnforceMessageSigningOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgreementEnforceMessageSigning)(nil)).Elem()
+}
+
+func (o AgreementEnforceMessageSigningOutput) ToAgreementEnforceMessageSigningOutput() AgreementEnforceMessageSigningOutput {
+	return o
+}
+
+func (o AgreementEnforceMessageSigningOutput) ToAgreementEnforceMessageSigningOutputWithContext(ctx context.Context) AgreementEnforceMessageSigningOutput {
+	return o
+}
+
+func (o AgreementEnforceMessageSigningOutput) ToAgreementEnforceMessageSigningPtrOutput() AgreementEnforceMessageSigningPtrOutput {
+	return o.ToAgreementEnforceMessageSigningPtrOutputWithContext(context.Background())
+}
+
+func (o AgreementEnforceMessageSigningOutput) ToAgreementEnforceMessageSigningPtrOutputWithContext(ctx context.Context) AgreementEnforceMessageSigningPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgreementEnforceMessageSigning) *AgreementEnforceMessageSigning {
+		return &v
+	}).(AgreementEnforceMessageSigningPtrOutput)
+}
+
+func (o AgreementEnforceMessageSigningOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgreementEnforceMessageSigningOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgreementEnforceMessageSigning) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgreementEnforceMessageSigningOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgreementEnforceMessageSigningOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgreementEnforceMessageSigning) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgreementEnforceMessageSigningPtrOutput struct{ *pulumi.OutputState }
+
+func (AgreementEnforceMessageSigningPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgreementEnforceMessageSigning)(nil)).Elem()
+}
+
+func (o AgreementEnforceMessageSigningPtrOutput) ToAgreementEnforceMessageSigningPtrOutput() AgreementEnforceMessageSigningPtrOutput {
+	return o
+}
+
+func (o AgreementEnforceMessageSigningPtrOutput) ToAgreementEnforceMessageSigningPtrOutputWithContext(ctx context.Context) AgreementEnforceMessageSigningPtrOutput {
+	return o
+}
+
+func (o AgreementEnforceMessageSigningPtrOutput) Elem() AgreementEnforceMessageSigningOutput {
+	return o.ApplyT(func(v *AgreementEnforceMessageSigning) AgreementEnforceMessageSigning {
+		if v != nil {
+			return *v
+		}
+		var ret AgreementEnforceMessageSigning
+		return ret
+	}).(AgreementEnforceMessageSigningOutput)
+}
+
+func (o AgreementEnforceMessageSigningPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgreementEnforceMessageSigningPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgreementEnforceMessageSigning) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AgreementEnforceMessageSigningInput is an input type that accepts values of the AgreementEnforceMessageSigning enum
+// A concrete instance of `AgreementEnforceMessageSigningInput` can be one of the following:
+//
+//	AgreementEnforceMessageSigningEnabled
+//	AgreementEnforceMessageSigningDisabled
+type AgreementEnforceMessageSigningInput interface {
+	pulumi.Input
+
+	ToAgreementEnforceMessageSigningOutput() AgreementEnforceMessageSigningOutput
+	ToAgreementEnforceMessageSigningOutputWithContext(context.Context) AgreementEnforceMessageSigningOutput
+}
+
+var agreementEnforceMessageSigningPtrType = reflect.TypeOf((**AgreementEnforceMessageSigning)(nil)).Elem()
+
+type AgreementEnforceMessageSigningPtrInput interface {
+	pulumi.Input
+
+	ToAgreementEnforceMessageSigningPtrOutput() AgreementEnforceMessageSigningPtrOutput
+	ToAgreementEnforceMessageSigningPtrOutputWithContext(context.Context) AgreementEnforceMessageSigningPtrOutput
+}
+
+type agreementEnforceMessageSigningPtr string
+
+func AgreementEnforceMessageSigningPtr(v string) AgreementEnforceMessageSigningPtrInput {
+	return (*agreementEnforceMessageSigningPtr)(&v)
+}
+
+func (*agreementEnforceMessageSigningPtr) ElementType() reflect.Type {
+	return agreementEnforceMessageSigningPtrType
+}
+
+func (in *agreementEnforceMessageSigningPtr) ToAgreementEnforceMessageSigningPtrOutput() AgreementEnforceMessageSigningPtrOutput {
+	return pulumi.ToOutput(in).(AgreementEnforceMessageSigningPtrOutput)
+}
+
+func (in *agreementEnforceMessageSigningPtr) ToAgreementEnforceMessageSigningPtrOutputWithContext(ctx context.Context) AgreementEnforceMessageSigningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgreementEnforceMessageSigningPtrOutput)
+}
+
+// Specifies whether to preserve the filename received for this agreement.
+type AgreementPreserveFilename string
+
+const (
+	AgreementPreserveFilenameEnabled  = AgreementPreserveFilename("ENABLED")
+	AgreementPreserveFilenameDisabled = AgreementPreserveFilename("DISABLED")
+)
+
+func (AgreementPreserveFilename) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgreementPreserveFilename)(nil)).Elem()
+}
+
+func (e AgreementPreserveFilename) ToAgreementPreserveFilenameOutput() AgreementPreserveFilenameOutput {
+	return pulumi.ToOutput(e).(AgreementPreserveFilenameOutput)
+}
+
+func (e AgreementPreserveFilename) ToAgreementPreserveFilenameOutputWithContext(ctx context.Context) AgreementPreserveFilenameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgreementPreserveFilenameOutput)
+}
+
+func (e AgreementPreserveFilename) ToAgreementPreserveFilenamePtrOutput() AgreementPreserveFilenamePtrOutput {
+	return e.ToAgreementPreserveFilenamePtrOutputWithContext(context.Background())
+}
+
+func (e AgreementPreserveFilename) ToAgreementPreserveFilenamePtrOutputWithContext(ctx context.Context) AgreementPreserveFilenamePtrOutput {
+	return AgreementPreserveFilename(e).ToAgreementPreserveFilenameOutputWithContext(ctx).ToAgreementPreserveFilenamePtrOutputWithContext(ctx)
+}
+
+func (e AgreementPreserveFilename) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgreementPreserveFilename) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgreementPreserveFilename) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgreementPreserveFilename) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgreementPreserveFilenameOutput struct{ *pulumi.OutputState }
+
+func (AgreementPreserveFilenameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgreementPreserveFilename)(nil)).Elem()
+}
+
+func (o AgreementPreserveFilenameOutput) ToAgreementPreserveFilenameOutput() AgreementPreserveFilenameOutput {
+	return o
+}
+
+func (o AgreementPreserveFilenameOutput) ToAgreementPreserveFilenameOutputWithContext(ctx context.Context) AgreementPreserveFilenameOutput {
+	return o
+}
+
+func (o AgreementPreserveFilenameOutput) ToAgreementPreserveFilenamePtrOutput() AgreementPreserveFilenamePtrOutput {
+	return o.ToAgreementPreserveFilenamePtrOutputWithContext(context.Background())
+}
+
+func (o AgreementPreserveFilenameOutput) ToAgreementPreserveFilenamePtrOutputWithContext(ctx context.Context) AgreementPreserveFilenamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgreementPreserveFilename) *AgreementPreserveFilename {
+		return &v
+	}).(AgreementPreserveFilenamePtrOutput)
+}
+
+func (o AgreementPreserveFilenameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgreementPreserveFilenameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgreementPreserveFilename) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgreementPreserveFilenameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgreementPreserveFilenameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgreementPreserveFilename) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgreementPreserveFilenamePtrOutput struct{ *pulumi.OutputState }
+
+func (AgreementPreserveFilenamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgreementPreserveFilename)(nil)).Elem()
+}
+
+func (o AgreementPreserveFilenamePtrOutput) ToAgreementPreserveFilenamePtrOutput() AgreementPreserveFilenamePtrOutput {
+	return o
+}
+
+func (o AgreementPreserveFilenamePtrOutput) ToAgreementPreserveFilenamePtrOutputWithContext(ctx context.Context) AgreementPreserveFilenamePtrOutput {
+	return o
+}
+
+func (o AgreementPreserveFilenamePtrOutput) Elem() AgreementPreserveFilenameOutput {
+	return o.ApplyT(func(v *AgreementPreserveFilename) AgreementPreserveFilename {
+		if v != nil {
+			return *v
+		}
+		var ret AgreementPreserveFilename
+		return ret
+	}).(AgreementPreserveFilenameOutput)
+}
+
+func (o AgreementPreserveFilenamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgreementPreserveFilenamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgreementPreserveFilename) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AgreementPreserveFilenameInput is an input type that accepts values of the AgreementPreserveFilename enum
+// A concrete instance of `AgreementPreserveFilenameInput` can be one of the following:
+//
+//	AgreementPreserveFilenameEnabled
+//	AgreementPreserveFilenameDisabled
+type AgreementPreserveFilenameInput interface {
+	pulumi.Input
+
+	ToAgreementPreserveFilenameOutput() AgreementPreserveFilenameOutput
+	ToAgreementPreserveFilenameOutputWithContext(context.Context) AgreementPreserveFilenameOutput
+}
+
+var agreementPreserveFilenamePtrType = reflect.TypeOf((**AgreementPreserveFilename)(nil)).Elem()
+
+type AgreementPreserveFilenamePtrInput interface {
+	pulumi.Input
+
+	ToAgreementPreserveFilenamePtrOutput() AgreementPreserveFilenamePtrOutput
+	ToAgreementPreserveFilenamePtrOutputWithContext(context.Context) AgreementPreserveFilenamePtrOutput
+}
+
+type agreementPreserveFilenamePtr string
+
+func AgreementPreserveFilenamePtr(v string) AgreementPreserveFilenamePtrInput {
+	return (*agreementPreserveFilenamePtr)(&v)
+}
+
+func (*agreementPreserveFilenamePtr) ElementType() reflect.Type {
+	return agreementPreserveFilenamePtrType
+}
+
+func (in *agreementPreserveFilenamePtr) ToAgreementPreserveFilenamePtrOutput() AgreementPreserveFilenamePtrOutput {
+	return pulumi.ToOutput(in).(AgreementPreserveFilenamePtrOutput)
+}
+
+func (in *agreementPreserveFilenamePtr) ToAgreementPreserveFilenamePtrOutputWithContext(ctx context.Context) AgreementPreserveFilenamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgreementPreserveFilenamePtrOutput)
+}
+
 // Specifies the status of the agreement.
 type AgreementStatus string
 
@@ -1203,6 +1535,172 @@ func (in *connectorAs2ConfigPropertiesMdnSigningAlgorithmPtr) ToConnectorAs2Conf
 
 func (in *connectorAs2ConfigPropertiesMdnSigningAlgorithmPtr) ToConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput)
+}
+
+// Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
+type ConnectorAs2ConfigPropertiesPreserveContentType string
+
+const (
+	ConnectorAs2ConfigPropertiesPreserveContentTypeEnabled  = ConnectorAs2ConfigPropertiesPreserveContentType("ENABLED")
+	ConnectorAs2ConfigPropertiesPreserveContentTypeDisabled = ConnectorAs2ConfigPropertiesPreserveContentType("DISABLED")
+)
+
+func (ConnectorAs2ConfigPropertiesPreserveContentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAs2ConfigPropertiesPreserveContentType)(nil)).Elem()
+}
+
+func (e ConnectorAs2ConfigPropertiesPreserveContentType) ToConnectorAs2ConfigPropertiesPreserveContentTypeOutput() ConnectorAs2ConfigPropertiesPreserveContentTypeOutput {
+	return pulumi.ToOutput(e).(ConnectorAs2ConfigPropertiesPreserveContentTypeOutput)
+}
+
+func (e ConnectorAs2ConfigPropertiesPreserveContentType) ToConnectorAs2ConfigPropertiesPreserveContentTypeOutputWithContext(ctx context.Context) ConnectorAs2ConfigPropertiesPreserveContentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectorAs2ConfigPropertiesPreserveContentTypeOutput)
+}
+
+func (e ConnectorAs2ConfigPropertiesPreserveContentType) ToConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput() ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput {
+	return e.ToConnectorAs2ConfigPropertiesPreserveContentTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorAs2ConfigPropertiesPreserveContentType) ToConnectorAs2ConfigPropertiesPreserveContentTypePtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput {
+	return ConnectorAs2ConfigPropertiesPreserveContentType(e).ToConnectorAs2ConfigPropertiesPreserveContentTypeOutputWithContext(ctx).ToConnectorAs2ConfigPropertiesPreserveContentTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectorAs2ConfigPropertiesPreserveContentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorAs2ConfigPropertiesPreserveContentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorAs2ConfigPropertiesPreserveContentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorAs2ConfigPropertiesPreserveContentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectorAs2ConfigPropertiesPreserveContentTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAs2ConfigPropertiesPreserveContentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAs2ConfigPropertiesPreserveContentType)(nil)).Elem()
+}
+
+func (o ConnectorAs2ConfigPropertiesPreserveContentTypeOutput) ToConnectorAs2ConfigPropertiesPreserveContentTypeOutput() ConnectorAs2ConfigPropertiesPreserveContentTypeOutput {
+	return o
+}
+
+func (o ConnectorAs2ConfigPropertiesPreserveContentTypeOutput) ToConnectorAs2ConfigPropertiesPreserveContentTypeOutputWithContext(ctx context.Context) ConnectorAs2ConfigPropertiesPreserveContentTypeOutput {
+	return o
+}
+
+func (o ConnectorAs2ConfigPropertiesPreserveContentTypeOutput) ToConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput() ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput {
+	return o.ToConnectorAs2ConfigPropertiesPreserveContentTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorAs2ConfigPropertiesPreserveContentTypeOutput) ToConnectorAs2ConfigPropertiesPreserveContentTypePtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorAs2ConfigPropertiesPreserveContentType) *ConnectorAs2ConfigPropertiesPreserveContentType {
+		return &v
+	}).(ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput)
+}
+
+func (o ConnectorAs2ConfigPropertiesPreserveContentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectorAs2ConfigPropertiesPreserveContentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorAs2ConfigPropertiesPreserveContentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectorAs2ConfigPropertiesPreserveContentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorAs2ConfigPropertiesPreserveContentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorAs2ConfigPropertiesPreserveContentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorAs2ConfigPropertiesPreserveContentType)(nil)).Elem()
+}
+
+func (o ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput) ToConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput() ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput {
+	return o
+}
+
+func (o ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput) ToConnectorAs2ConfigPropertiesPreserveContentTypePtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput {
+	return o
+}
+
+func (o ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput) Elem() ConnectorAs2ConfigPropertiesPreserveContentTypeOutput {
+	return o.ApplyT(func(v *ConnectorAs2ConfigPropertiesPreserveContentType) ConnectorAs2ConfigPropertiesPreserveContentType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorAs2ConfigPropertiesPreserveContentType
+		return ret
+	}).(ConnectorAs2ConfigPropertiesPreserveContentTypeOutput)
+}
+
+func (o ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorAs2ConfigPropertiesPreserveContentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectorAs2ConfigPropertiesPreserveContentTypeInput is an input type that accepts values of the ConnectorAs2ConfigPropertiesPreserveContentType enum
+// A concrete instance of `ConnectorAs2ConfigPropertiesPreserveContentTypeInput` can be one of the following:
+//
+//	ConnectorAs2ConfigPropertiesPreserveContentTypeEnabled
+//	ConnectorAs2ConfigPropertiesPreserveContentTypeDisabled
+type ConnectorAs2ConfigPropertiesPreserveContentTypeInput interface {
+	pulumi.Input
+
+	ToConnectorAs2ConfigPropertiesPreserveContentTypeOutput() ConnectorAs2ConfigPropertiesPreserveContentTypeOutput
+	ToConnectorAs2ConfigPropertiesPreserveContentTypeOutputWithContext(context.Context) ConnectorAs2ConfigPropertiesPreserveContentTypeOutput
+}
+
+var connectorAs2ConfigPropertiesPreserveContentTypePtrType = reflect.TypeOf((**ConnectorAs2ConfigPropertiesPreserveContentType)(nil)).Elem()
+
+type ConnectorAs2ConfigPropertiesPreserveContentTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput() ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput
+	ToConnectorAs2ConfigPropertiesPreserveContentTypePtrOutputWithContext(context.Context) ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput
+}
+
+type connectorAs2ConfigPropertiesPreserveContentTypePtr string
+
+func ConnectorAs2ConfigPropertiesPreserveContentTypePtr(v string) ConnectorAs2ConfigPropertiesPreserveContentTypePtrInput {
+	return (*connectorAs2ConfigPropertiesPreserveContentTypePtr)(&v)
+}
+
+func (*connectorAs2ConfigPropertiesPreserveContentTypePtr) ElementType() reflect.Type {
+	return connectorAs2ConfigPropertiesPreserveContentTypePtrType
+}
+
+func (in *connectorAs2ConfigPropertiesPreserveContentTypePtr) ToConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput() ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput)
+}
+
+func (in *connectorAs2ConfigPropertiesPreserveContentTypePtr) ToConnectorAs2ConfigPropertiesPreserveContentTypePtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput)
 }
 
 // Signing algorithm for this AS2 connector configuration.
@@ -4225,6 +4723,10 @@ func (in *workflowStepTypePtr) ToWorkflowStepTypePtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgreementEnforceMessageSigningInput)(nil)).Elem(), AgreementEnforceMessageSigning("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgreementEnforceMessageSigningPtrInput)(nil)).Elem(), AgreementEnforceMessageSigning("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgreementPreserveFilenameInput)(nil)).Elem(), AgreementPreserveFilename("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgreementPreserveFilenamePtrInput)(nil)).Elem(), AgreementPreserveFilename("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgreementStatusInput)(nil)).Elem(), AgreementStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgreementStatusPtrInput)(nil)).Elem(), AgreementStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateUsageInput)(nil)).Elem(), CertificateUsage("SIGNING"))
@@ -4237,6 +4739,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigPropertiesMdnResponsePtrInput)(nil)).Elem(), ConnectorAs2ConfigPropertiesMdnResponse("SYNC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigPropertiesMdnSigningAlgorithmInput)(nil)).Elem(), ConnectorAs2ConfigPropertiesMdnSigningAlgorithm("SHA256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrInput)(nil)).Elem(), ConnectorAs2ConfigPropertiesMdnSigningAlgorithm("SHA256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigPropertiesPreserveContentTypeInput)(nil)).Elem(), ConnectorAs2ConfigPropertiesPreserveContentType("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigPropertiesPreserveContentTypePtrInput)(nil)).Elem(), ConnectorAs2ConfigPropertiesPreserveContentType("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigPropertiesSigningAlgorithmInput)(nil)).Elem(), ConnectorAs2ConfigPropertiesSigningAlgorithm("SHA256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigPropertiesSigningAlgorithmPtrInput)(nil)).Elem(), ConnectorAs2ConfigPropertiesSigningAlgorithm("SHA256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTypeInput)(nil)).Elem(), ProfileType("LOCAL"))
@@ -4273,6 +4777,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDecryptStepDetailsPropertiesTypePtrInput)(nil)).Elem(), WorkflowStepDecryptStepDetailsPropertiesType("PGP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTypeInput)(nil)).Elem(), WorkflowStepType("COPY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTypePtrInput)(nil)).Elem(), WorkflowStepType("COPY"))
+	pulumi.RegisterOutputType(AgreementEnforceMessageSigningOutput{})
+	pulumi.RegisterOutputType(AgreementEnforceMessageSigningPtrOutput{})
+	pulumi.RegisterOutputType(AgreementPreserveFilenameOutput{})
+	pulumi.RegisterOutputType(AgreementPreserveFilenamePtrOutput{})
 	pulumi.RegisterOutputType(AgreementStatusOutput{})
 	pulumi.RegisterOutputType(AgreementStatusPtrOutput{})
 	pulumi.RegisterOutputType(CertificateStatusOutput{})
@@ -4289,6 +4797,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorAs2ConfigPropertiesMdnResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorAs2ConfigPropertiesMdnSigningAlgorithmOutput{})
 	pulumi.RegisterOutputType(ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorAs2ConfigPropertiesPreserveContentTypeOutput{})
+	pulumi.RegisterOutputType(ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorAs2ConfigPropertiesSigningAlgorithmOutput{})
 	pulumi.RegisterOutputType(ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(ProfileTypeOutput{})

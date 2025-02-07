@@ -15,24 +15,51 @@ namespace Pulumi.AwsNative.Deadline
     [AwsNativeResourceType("aws-native:deadline:Limit")]
     public partial class Limit : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The value that you specify as the `name` in the `amounts` field of the `hostRequirements` in a step of a job template to declare the limit requirement.
+        /// </summary>
         [Output("amountRequirementName")]
         public Output<string> AmountRequirementName { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.
+        /// </summary>
         [Output("currentCount")]
         public Output<int> CurrentCount { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the limit. A clear description helps you identify the purpose of the limit.
+        /// 
+        /// &gt; This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the limit used in lists to identify the limit.
+        /// 
+        /// &gt; This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the farm that contains the limit.
+        /// </summary>
         [Output("farmId")]
         public Output<string> FarmId { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the limit.
+        /// </summary>
         [Output("limitId")]
         public Output<string> LimitId { get; private set; } = null!;
 
+        /// <summary>
+        /// The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.
+        /// 
+        /// The `maxValue` must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
+        /// </summary>
         [Output("maxCount")]
         public Output<int> MaxCount { get; private set; } = null!;
 
@@ -86,18 +113,39 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class LimitArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The value that you specify as the `name` in the `amounts` field of the `hostRequirements` in a step of a job template to declare the limit requirement.
+        /// </summary>
         [Input("amountRequirementName", required: true)]
         public Input<string> AmountRequirementName { get; set; } = null!;
 
+        /// <summary>
+        /// A description of the limit. A clear description helps you identify the purpose of the limit.
+        /// 
+        /// &gt; This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the limit used in lists to identify the limit.
+        /// 
+        /// &gt; This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the farm that contains the limit.
+        /// </summary>
         [Input("farmId", required: true)]
         public Input<string> FarmId { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.
+        /// 
+        /// The `maxValue` must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
+        /// </summary>
         [Input("maxCount", required: true)]
         public Input<int> MaxCount { get; set; } = null!;
 

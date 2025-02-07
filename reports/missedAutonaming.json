@@ -3313,7 +3313,7 @@
     "properties": {
       "description": {
         "type": "string",
-        "description": "A description of the farm that helps identify what the farm is used for."
+        "description": "A description of the farm that helps identify what the farm is used for.\n\n\u003e This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field."
       },
       "displayName": {
         "type": "string",
@@ -3348,7 +3348,7 @@
       },
       "description": {
         "type": "string",
-        "description": "A description that helps identify what the fleet is used for."
+        "description": "A description that helps identify what the fleet is used for.\n\n\u003e This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field."
       },
       "displayName": {
         "type": "string",
@@ -3413,19 +3413,24 @@
     "cfTypeName": "AWS::Deadline::Limit",
     "properties": {
       "amountRequirementName": {
-        "type": "string"
+        "type": "string",
+        "description": "The value that you specify as the `name` in the `amounts` field of the `hostRequirements` in a step of a job template to declare the limit requirement."
       },
       "description": {
-        "type": "string"
+        "type": "string",
+        "description": "A description of the limit. A clear description helps you identify the purpose of the limit.\n\n\u003e This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field."
       },
       "displayName": {
-        "type": "string"
+        "type": "string",
+        "description": "The name of the limit used in lists to identify the limit.\n\n\u003e This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field."
       },
       "farmId": {
-        "type": "string"
+        "type": "string",
+        "description": "The unique identifier of the farm that contains the limit."
       },
       "maxCount": {
-        "type": "integer"
+        "type": "integer",
+        "description": "The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.\n\nThe `maxValue` must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit."
       }
     }
   },
@@ -3479,7 +3484,7 @@
       },
       "description": {
         "type": "string",
-        "description": "A description of the queue that helps identify what the queue is used for."
+        "description": "A description of the queue that helps identify what the queue is used for.\n\n\u003e This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field."
       },
       "displayName": {
         "type": "string",
@@ -3563,13 +3568,16 @@
     "cfTypeName": "AWS::Deadline::QueueLimitAssociation",
     "properties": {
       "farmId": {
-        "type": "string"
+        "type": "string",
+        "description": "The unique identifier of the farm that contains the queue-limit association."
       },
       "limitId": {
-        "type": "string"
+        "type": "string",
+        "description": "The unique identifier of the limit in the association."
       },
       "queueId": {
-        "type": "string"
+        "type": "string",
+        "description": "The unique identifier of the queue in the association."
       }
     }
   },
@@ -13352,6 +13360,10 @@
         "type": "string",
         "description": "A textual description for the agreement."
       },
+      "enforceMessageSigning": {
+        "$ref": "#/types/aws-native:transfer:AgreementEnforceMessageSigning",
+        "description": "Specifies whether to enforce an AS2 message is signed for this agreement."
+      },
       "localProfileId": {
         "type": "string",
         "description": "A unique identifier for the local profile."
@@ -13359,6 +13371,10 @@
       "partnerProfileId": {
         "type": "string",
         "description": "A unique identifier for the partner profile."
+      },
+      "preserveFilename": {
+        "$ref": "#/types/aws-native:transfer:AgreementPreserveFilename",
+        "description": "Specifies whether to preserve the filename received for this agreement."
       },
       "serverId": {
         "type": "string",

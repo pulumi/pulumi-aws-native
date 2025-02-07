@@ -48,6 +48,8 @@ export class Fleet extends pulumi.CustomResource {
     public readonly configuration!: pulumi.Output<outputs.deadline.FleetConfiguration0Properties | outputs.deadline.FleetConfiguration1Properties>;
     /**
      * A description that helps identify what the fleet is used for.
+     *
+     * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -160,6 +162,8 @@ export interface FleetArgs {
     configuration: pulumi.Input<inputs.deadline.FleetConfiguration0PropertiesArgs | inputs.deadline.FleetConfiguration1PropertiesArgs>;
     /**
      * A description that helps identify what the fleet is used for.
+     *
+     * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
     description?: pulumi.Input<string>;
     /**

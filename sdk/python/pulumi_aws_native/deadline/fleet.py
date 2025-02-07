@@ -42,6 +42,8 @@ class FleetArgs:
         :param pulumi.Input[int] max_worker_count: The maximum number of workers specified in the fleet.
         :param pulumi.Input[str] role_arn: The IAM role that workers in the fleet use when processing jobs.
         :param pulumi.Input[str] description: A description that helps identify what the fleet is used for.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[int] min_worker_count: The minimum number of workers in the fleet.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -124,6 +126,8 @@ class FleetArgs:
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         A description that helps identify what the fleet is used for.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         """
         return pulumi.get(self, "description")
 
@@ -177,6 +181,8 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration0PropertiesArgsDict'], Union['FleetConfiguration1PropertiesArgs', 'FleetConfiguration1PropertiesArgsDict']]] configuration: The configuration details for the fleet.
         :param pulumi.Input[str] description: A description that helps identify what the fleet is used for.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[str] display_name: The display name of the fleet summary to update.
                
                > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
@@ -315,6 +321,8 @@ class Fleet(pulumi.CustomResource):
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description that helps identify what the fleet is used for.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         """
         return pulumi.get(self, "description")
 

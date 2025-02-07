@@ -8,6 +8,68 @@ using Pulumi;
 namespace Pulumi.AwsNative.Transfer
 {
     /// <summary>
+    /// Specifies whether to enforce an AS2 message is signed for this agreement.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgreementEnforceMessageSigning : IEquatable<AgreementEnforceMessageSigning>
+    {
+        private readonly string _value;
+
+        private AgreementEnforceMessageSigning(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgreementEnforceMessageSigning Enabled { get; } = new AgreementEnforceMessageSigning("ENABLED");
+        public static AgreementEnforceMessageSigning Disabled { get; } = new AgreementEnforceMessageSigning("DISABLED");
+
+        public static bool operator ==(AgreementEnforceMessageSigning left, AgreementEnforceMessageSigning right) => left.Equals(right);
+        public static bool operator !=(AgreementEnforceMessageSigning left, AgreementEnforceMessageSigning right) => !left.Equals(right);
+
+        public static explicit operator string(AgreementEnforceMessageSigning value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgreementEnforceMessageSigning other && Equals(other);
+        public bool Equals(AgreementEnforceMessageSigning other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether to preserve the filename received for this agreement.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgreementPreserveFilename : IEquatable<AgreementPreserveFilename>
+    {
+        private readonly string _value;
+
+        private AgreementPreserveFilename(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgreementPreserveFilename Enabled { get; } = new AgreementPreserveFilename("ENABLED");
+        public static AgreementPreserveFilename Disabled { get; } = new AgreementPreserveFilename("DISABLED");
+
+        public static bool operator ==(AgreementPreserveFilename left, AgreementPreserveFilename right) => left.Equals(right);
+        public static bool operator !=(AgreementPreserveFilename left, AgreementPreserveFilename right) => !left.Equals(right);
+
+        public static explicit operator string(AgreementPreserveFilename value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgreementPreserveFilename other && Equals(other);
+        public bool Equals(AgreementPreserveFilename other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the status of the agreement.
     /// </summary>
     [EnumType]
@@ -257,6 +319,37 @@ namespace Pulumi.AwsNative.Transfer
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConnectorAs2ConfigPropertiesMdnSigningAlgorithm other && Equals(other);
         public bool Equals(ConnectorAs2ConfigPropertiesMdnSigningAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectorAs2ConfigPropertiesPreserveContentType : IEquatable<ConnectorAs2ConfigPropertiesPreserveContentType>
+    {
+        private readonly string _value;
+
+        private ConnectorAs2ConfigPropertiesPreserveContentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectorAs2ConfigPropertiesPreserveContentType Enabled { get; } = new ConnectorAs2ConfigPropertiesPreserveContentType("ENABLED");
+        public static ConnectorAs2ConfigPropertiesPreserveContentType Disabled { get; } = new ConnectorAs2ConfigPropertiesPreserveContentType("DISABLED");
+
+        public static bool operator ==(ConnectorAs2ConfigPropertiesPreserveContentType left, ConnectorAs2ConfigPropertiesPreserveContentType right) => left.Equals(right);
+        public static bool operator !=(ConnectorAs2ConfigPropertiesPreserveContentType left, ConnectorAs2ConfigPropertiesPreserveContentType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectorAs2ConfigPropertiesPreserveContentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectorAs2ConfigPropertiesPreserveContentType other && Equals(other);
+        public bool Equals(ConnectorAs2ConfigPropertiesPreserveContentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -33,9 +33,15 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetLimitArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the farm that contains the limit.
+        /// </summary>
         [Input("farmId", required: true)]
         public string FarmId { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the limit.
+        /// </summary>
         [Input("limitId", required: true)]
         public string LimitId { get; set; } = null!;
 
@@ -47,9 +53,15 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetLimitInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the farm that contains the limit.
+        /// </summary>
         [Input("farmId", required: true)]
         public Input<string> FarmId { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the limit.
+        /// </summary>
         [Input("limitId", required: true)]
         public Input<string> LimitId { get; set; } = null!;
 
@@ -63,10 +75,31 @@ namespace Pulumi.AwsNative.Deadline
     [OutputType]
     public sealed class GetLimitResult
     {
+        /// <summary>
+        /// The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.
+        /// </summary>
         public readonly int? CurrentCount;
+        /// <summary>
+        /// A description of the limit. A clear description helps you identify the purpose of the limit.
+        /// 
+        /// &gt; This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The name of the limit used in lists to identify the limit.
+        /// 
+        /// &gt; This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// The unique identifier of the limit.
+        /// </summary>
         public readonly string? LimitId;
+        /// <summary>
+        /// The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.
+        /// 
+        /// The `maxValue` must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
+        /// </summary>
         public readonly int? MaxCount;
 
         [OutputConstructor]

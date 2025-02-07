@@ -96,6 +96,10 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Specifies whether to enforce an AS2 message is signed for this agreement.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Transfer.AgreementEnforceMessageSigning? EnforceMessageSigning;
+        /// <summary>
         /// A unique identifier for the local profile.
         /// </summary>
         public readonly string? LocalProfileId;
@@ -103,6 +107,10 @@ namespace Pulumi.AwsNative.Transfer
         /// A unique identifier for the partner profile.
         /// </summary>
         public readonly string? PartnerProfileId;
+        /// <summary>
+        /// Specifies whether to preserve the filename received for this agreement.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Transfer.AgreementPreserveFilename? PreserveFilename;
         /// <summary>
         /// Specifies the status of the agreement.
         /// </summary>
@@ -124,9 +132,13 @@ namespace Pulumi.AwsNative.Transfer
 
             string? description,
 
+            Pulumi.AwsNative.Transfer.AgreementEnforceMessageSigning? enforceMessageSigning,
+
             string? localProfileId,
 
             string? partnerProfileId,
+
+            Pulumi.AwsNative.Transfer.AgreementPreserveFilename? preserveFilename,
 
             Pulumi.AwsNative.Transfer.AgreementStatus? status,
 
@@ -137,8 +149,10 @@ namespace Pulumi.AwsNative.Transfer
             Arn = arn;
             BaseDirectory = baseDirectory;
             Description = description;
+            EnforceMessageSigning = enforceMessageSigning;
             LocalProfileId = localProfileId;
             PartnerProfileId = partnerProfileId;
+            PreserveFilename = preserveFilename;
             Status = status;
             Tags = tags;
         }

@@ -24,6 +24,8 @@ type Queue struct {
 	// The default action taken on a queue summary if a budget wasn't configured.
 	DefaultBudgetAction QueueDefaultQueueBudgetActionPtrOutput `pulumi:"defaultBudgetAction"`
 	// A description of the queue that helps identify what the queue is used for.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of the queue summary to update.
 	//
@@ -100,6 +102,8 @@ type queueArgs struct {
 	// The default action taken on a queue summary if a budget wasn't configured.
 	DefaultBudgetAction *QueueDefaultQueueBudgetAction `pulumi:"defaultBudgetAction"`
 	// A description of the queue that helps identify what the queue is used for.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	Description *string `pulumi:"description"`
 	// The display name of the queue summary to update.
 	//
@@ -126,6 +130,8 @@ type QueueArgs struct {
 	// The default action taken on a queue summary if a budget wasn't configured.
 	DefaultBudgetAction QueueDefaultQueueBudgetActionPtrInput
 	// A description of the queue that helps identify what the queue is used for.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	Description pulumi.StringPtrInput
 	// The display name of the queue summary to update.
 	//
@@ -198,6 +204,8 @@ func (o QueueOutput) DefaultBudgetAction() QueueDefaultQueueBudgetActionPtrOutpu
 }
 
 // A description of the queue that helps identify what the queue is used for.
+//
+// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 func (o QueueOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.Transfer
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether to enforce an AS2 message is signed for this agreement.
+        /// </summary>
+        [Output("enforceMessageSigning")]
+        public Output<Pulumi.AwsNative.Transfer.AgreementEnforceMessageSigning?> EnforceMessageSigning { get; private set; } = null!;
+
+        /// <summary>
         /// A unique identifier for the local profile.
         /// </summary>
         [Output("localProfileId")]
@@ -56,6 +62,12 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         [Output("partnerProfileId")]
         public Output<string> PartnerProfileId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether to preserve the filename received for this agreement.
+        /// </summary>
+        [Output("preserveFilename")]
+        public Output<Pulumi.AwsNative.Transfer.AgreementPreserveFilename?> PreserveFilename { get; private set; } = null!;
 
         /// <summary>
         /// A unique identifier for the server.
@@ -143,6 +155,12 @@ namespace Pulumi.AwsNative.Transfer
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Specifies whether to enforce an AS2 message is signed for this agreement.
+        /// </summary>
+        [Input("enforceMessageSigning")]
+        public Input<Pulumi.AwsNative.Transfer.AgreementEnforceMessageSigning>? EnforceMessageSigning { get; set; }
+
+        /// <summary>
         /// A unique identifier for the local profile.
         /// </summary>
         [Input("localProfileId", required: true)]
@@ -153,6 +171,12 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         [Input("partnerProfileId", required: true)]
         public Input<string> PartnerProfileId { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies whether to preserve the filename received for this agreement.
+        /// </summary>
+        [Input("preserveFilename")]
+        public Input<Pulumi.AwsNative.Transfer.AgreementPreserveFilename>? PreserveFilename { get; set; }
 
         /// <summary>
         /// A unique identifier for the server.

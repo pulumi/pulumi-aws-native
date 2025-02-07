@@ -58,6 +58,10 @@ export class Agreement extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Specifies whether to enforce an AS2 message is signed for this agreement.
+     */
+    public readonly enforceMessageSigning!: pulumi.Output<enums.transfer.AgreementEnforceMessageSigning | undefined>;
+    /**
      * A unique identifier for the local profile.
      */
     public readonly localProfileId!: pulumi.Output<string>;
@@ -65,6 +69,10 @@ export class Agreement extends pulumi.CustomResource {
      * A unique identifier for the partner profile.
      */
     public readonly partnerProfileId!: pulumi.Output<string>;
+    /**
+     * Specifies whether to preserve the filename received for this agreement.
+     */
+    public readonly preserveFilename!: pulumi.Output<enums.transfer.AgreementPreserveFilename | undefined>;
     /**
      * A unique identifier for the server.
      */
@@ -107,8 +115,10 @@ export class Agreement extends pulumi.CustomResource {
             resourceInputs["accessRole"] = args ? args.accessRole : undefined;
             resourceInputs["baseDirectory"] = args ? args.baseDirectory : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enforceMessageSigning"] = args ? args.enforceMessageSigning : undefined;
             resourceInputs["localProfileId"] = args ? args.localProfileId : undefined;
             resourceInputs["partnerProfileId"] = args ? args.partnerProfileId : undefined;
+            resourceInputs["preserveFilename"] = args ? args.preserveFilename : undefined;
             resourceInputs["serverId"] = args ? args.serverId : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -120,8 +130,10 @@ export class Agreement extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["baseDirectory"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enforceMessageSigning"] = undefined /*out*/;
             resourceInputs["localProfileId"] = undefined /*out*/;
             resourceInputs["partnerProfileId"] = undefined /*out*/;
+            resourceInputs["preserveFilename"] = undefined /*out*/;
             resourceInputs["serverId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -150,6 +162,10 @@ export interface AgreementArgs {
      */
     description?: pulumi.Input<string>;
     /**
+     * Specifies whether to enforce an AS2 message is signed for this agreement.
+     */
+    enforceMessageSigning?: pulumi.Input<enums.transfer.AgreementEnforceMessageSigning>;
+    /**
      * A unique identifier for the local profile.
      */
     localProfileId: pulumi.Input<string>;
@@ -157,6 +173,10 @@ export interface AgreementArgs {
      * A unique identifier for the partner profile.
      */
     partnerProfileId: pulumi.Input<string>;
+    /**
+     * Specifies whether to preserve the filename received for this agreement.
+     */
+    preserveFilename?: pulumi.Input<enums.transfer.AgreementPreserveFilename>;
     /**
      * A unique identifier for the server.
      */

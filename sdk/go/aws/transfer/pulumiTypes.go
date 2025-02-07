@@ -39,6 +39,8 @@ type As2ConfigProperties struct {
 	MessageSubject *string `pulumi:"messageSubject"`
 	// A unique identifier for the partner profile.
 	PartnerProfileId *string `pulumi:"partnerProfileId"`
+	// Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
+	PreserveContentType *ConnectorAs2ConfigPropertiesPreserveContentType `pulumi:"preserveContentType"`
 	// Signing algorithm for this AS2 connector configuration.
 	SigningAlgorithm *ConnectorAs2ConfigPropertiesSigningAlgorithm `pulumi:"signingAlgorithm"`
 }
@@ -72,6 +74,8 @@ type As2ConfigPropertiesArgs struct {
 	MessageSubject pulumi.StringPtrInput `pulumi:"messageSubject"`
 	// A unique identifier for the partner profile.
 	PartnerProfileId pulumi.StringPtrInput `pulumi:"partnerProfileId"`
+	// Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
+	PreserveContentType ConnectorAs2ConfigPropertiesPreserveContentTypePtrInput `pulumi:"preserveContentType"`
 	// Signing algorithm for this AS2 connector configuration.
 	SigningAlgorithm ConnectorAs2ConfigPropertiesSigningAlgorithmPtrInput `pulumi:"signingAlgorithm"`
 }
@@ -198,6 +202,13 @@ func (o As2ConfigPropertiesOutput) PartnerProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v As2ConfigProperties) *string { return v.PartnerProfileId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
+func (o As2ConfigPropertiesOutput) PreserveContentType() ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput {
+	return o.ApplyT(func(v As2ConfigProperties) *ConnectorAs2ConfigPropertiesPreserveContentType {
+		return v.PreserveContentType
+	}).(ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput)
+}
+
 // Signing algorithm for this AS2 connector configuration.
 func (o As2ConfigPropertiesOutput) SigningAlgorithm() ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput {
 	return o.ApplyT(func(v As2ConfigProperties) *ConnectorAs2ConfigPropertiesSigningAlgorithm { return v.SigningAlgorithm }).(ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput)
@@ -305,6 +316,16 @@ func (o As2ConfigPropertiesPtrOutput) PartnerProfileId() pulumi.StringPtrOutput 
 		}
 		return v.PartnerProfileId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
+func (o As2ConfigPropertiesPtrOutput) PreserveContentType() ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput {
+	return o.ApplyT(func(v *As2ConfigProperties) *ConnectorAs2ConfigPropertiesPreserveContentType {
+		if v == nil {
+			return nil
+		}
+		return v.PreserveContentType
+	}).(ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput)
 }
 
 // Signing algorithm for this AS2 connector configuration.

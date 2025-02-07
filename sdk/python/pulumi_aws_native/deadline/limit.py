@@ -26,6 +26,17 @@ class LimitArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Limit resource.
+        :param pulumi.Input[str] amount_requirement_name: The value that you specify as the `name` in the `amounts` field of the `hostRequirements` in a step of a job template to declare the limit requirement.
+        :param pulumi.Input[str] display_name: The name of the limit used in lists to identify the limit.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+        :param pulumi.Input[str] farm_id: The unique identifier of the farm that contains the limit.
+        :param pulumi.Input[int] max_count: The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.
+               
+               The `maxValue` must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
+        :param pulumi.Input[str] description: A description of the limit. A clear description helps you identify the purpose of the limit.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         """
         pulumi.set(__self__, "amount_requirement_name", amount_requirement_name)
         pulumi.set(__self__, "display_name", display_name)
@@ -37,6 +48,9 @@ class LimitArgs:
     @property
     @pulumi.getter(name="amountRequirementName")
     def amount_requirement_name(self) -> pulumi.Input[str]:
+        """
+        The value that you specify as the `name` in the `amounts` field of the `hostRequirements` in a step of a job template to declare the limit requirement.
+        """
         return pulumi.get(self, "amount_requirement_name")
 
     @amount_requirement_name.setter
@@ -46,6 +60,11 @@ class LimitArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
+        """
+        The name of the limit used in lists to identify the limit.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -55,6 +74,9 @@ class LimitArgs:
     @property
     @pulumi.getter(name="farmId")
     def farm_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the farm that contains the limit.
+        """
         return pulumi.get(self, "farm_id")
 
     @farm_id.setter
@@ -64,6 +86,11 @@ class LimitArgs:
     @property
     @pulumi.getter(name="maxCount")
     def max_count(self) -> pulumi.Input[int]:
+        """
+        The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.
+
+        The `maxValue` must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
+        """
         return pulumi.get(self, "max_count")
 
     @max_count.setter
@@ -73,6 +100,11 @@ class LimitArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the limit. A clear description helps you identify the purpose of the limit.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -96,6 +128,17 @@ class Limit(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] amount_requirement_name: The value that you specify as the `name` in the `amounts` field of the `hostRequirements` in a step of a job template to declare the limit requirement.
+        :param pulumi.Input[str] description: A description of the limit. A clear description helps you identify the purpose of the limit.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+        :param pulumi.Input[str] display_name: The name of the limit used in lists to identify the limit.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+        :param pulumi.Input[str] farm_id: The unique identifier of the farm that contains the limit.
+        :param pulumi.Input[int] max_count: The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.
+               
+               The `maxValue` must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
         """
         ...
     @overload
@@ -186,35 +229,62 @@ class Limit(pulumi.CustomResource):
     @property
     @pulumi.getter(name="amountRequirementName")
     def amount_requirement_name(self) -> pulumi.Output[str]:
+        """
+        The value that you specify as the `name` in the `amounts` field of the `hostRequirements` in a step of a job template to declare the limit requirement.
+        """
         return pulumi.get(self, "amount_requirement_name")
 
     @property
     @pulumi.getter(name="currentCount")
     def current_count(self) -> pulumi.Output[int]:
+        """
+        The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.
+        """
         return pulumi.get(self, "current_count")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the limit. A clear description helps you identify the purpose of the limit.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
+        """
+        The name of the limit used in lists to identify the limit.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="farmId")
     def farm_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the farm that contains the limit.
+        """
         return pulumi.get(self, "farm_id")
 
     @property
     @pulumi.getter(name="limitId")
     def limit_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the limit.
+        """
         return pulumi.get(self, "limit_id")
 
     @property
     @pulumi.getter(name="maxCount")
     def max_count(self) -> pulumi.Output[int]:
+        """
+        The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.
+
+        The `maxValue` must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
+        """
         return pulumi.get(self, "max_count")
 

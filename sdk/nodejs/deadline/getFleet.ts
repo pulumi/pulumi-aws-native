@@ -36,6 +36,8 @@ export interface GetFleetResult {
     readonly configuration?: outputs.deadline.FleetConfiguration0Properties | outputs.deadline.FleetConfiguration1Properties;
     /**
      * A description that helps identify what the fleet is used for.
+     *
+     * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
     readonly description?: string;
     /**

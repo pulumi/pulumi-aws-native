@@ -16,8 +16,11 @@ import (
 type QueueLimitAssociation struct {
 	pulumi.CustomResourceState
 
-	FarmId  pulumi.StringOutput `pulumi:"farmId"`
+	// The unique identifier of the farm that contains the queue-limit association.
+	FarmId pulumi.StringOutput `pulumi:"farmId"`
+	// The unique identifier of the limit in the association.
 	LimitId pulumi.StringOutput `pulumi:"limitId"`
+	// The unique identifier of the queue in the association.
 	QueueId pulumi.StringOutput `pulumi:"queueId"`
 }
 
@@ -76,15 +79,21 @@ func (QueueLimitAssociationState) ElementType() reflect.Type {
 }
 
 type queueLimitAssociationArgs struct {
-	FarmId  string `pulumi:"farmId"`
+	// The unique identifier of the farm that contains the queue-limit association.
+	FarmId string `pulumi:"farmId"`
+	// The unique identifier of the limit in the association.
 	LimitId string `pulumi:"limitId"`
+	// The unique identifier of the queue in the association.
 	QueueId string `pulumi:"queueId"`
 }
 
 // The set of arguments for constructing a QueueLimitAssociation resource.
 type QueueLimitAssociationArgs struct {
-	FarmId  pulumi.StringInput
+	// The unique identifier of the farm that contains the queue-limit association.
+	FarmId pulumi.StringInput
+	// The unique identifier of the limit in the association.
 	LimitId pulumi.StringInput
+	// The unique identifier of the queue in the association.
 	QueueId pulumi.StringInput
 }
 
@@ -125,14 +134,17 @@ func (o QueueLimitAssociationOutput) ToQueueLimitAssociationOutputWithContext(ct
 	return o
 }
 
+// The unique identifier of the farm that contains the queue-limit association.
 func (o QueueLimitAssociationOutput) FarmId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueueLimitAssociation) pulumi.StringOutput { return v.FarmId }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the limit in the association.
 func (o QueueLimitAssociationOutput) LimitId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueueLimitAssociation) pulumi.StringOutput { return v.LimitId }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the queue in the association.
 func (o QueueLimitAssociationOutput) QueueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueueLimitAssociation) pulumi.StringOutput { return v.QueueId }).(pulumi.StringOutput)
 }

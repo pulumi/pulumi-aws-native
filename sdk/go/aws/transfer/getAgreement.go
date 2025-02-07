@@ -41,10 +41,14 @@ type LookupAgreementResult struct {
 	BaseDirectory *string `pulumi:"baseDirectory"`
 	// A textual description for the agreement.
 	Description *string `pulumi:"description"`
+	// Specifies whether to enforce an AS2 message is signed for this agreement.
+	EnforceMessageSigning *AgreementEnforceMessageSigning `pulumi:"enforceMessageSigning"`
 	// A unique identifier for the local profile.
 	LocalProfileId *string `pulumi:"localProfileId"`
 	// A unique identifier for the partner profile.
 	PartnerProfileId *string `pulumi:"partnerProfileId"`
+	// Specifies whether to preserve the filename received for this agreement.
+	PreserveFilename *AgreementPreserveFilename `pulumi:"preserveFilename"`
 	// Specifies the status of the agreement.
 	Status *AgreementStatus `pulumi:"status"`
 	// Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
@@ -110,6 +114,11 @@ func (o LookupAgreementResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAgreementResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether to enforce an AS2 message is signed for this agreement.
+func (o LookupAgreementResultOutput) EnforceMessageSigning() AgreementEnforceMessageSigningPtrOutput {
+	return o.ApplyT(func(v LookupAgreementResult) *AgreementEnforceMessageSigning { return v.EnforceMessageSigning }).(AgreementEnforceMessageSigningPtrOutput)
+}
+
 // A unique identifier for the local profile.
 func (o LookupAgreementResultOutput) LocalProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAgreementResult) *string { return v.LocalProfileId }).(pulumi.StringPtrOutput)
@@ -118,6 +127,11 @@ func (o LookupAgreementResultOutput) LocalProfileId() pulumi.StringPtrOutput {
 // A unique identifier for the partner profile.
 func (o LookupAgreementResultOutput) PartnerProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAgreementResult) *string { return v.PartnerProfileId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to preserve the filename received for this agreement.
+func (o LookupAgreementResultOutput) PreserveFilename() AgreementPreserveFilenamePtrOutput {
+	return o.ApplyT(func(v LookupAgreementResult) *AgreementPreserveFilename { return v.PreserveFilename }).(AgreementPreserveFilenamePtrOutput)
 }
 
 // Specifies the status of the agreement.

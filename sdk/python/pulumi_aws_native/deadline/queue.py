@@ -43,6 +43,8 @@ class QueueArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_storage_profile_ids: The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
         :param pulumi.Input['QueueDefaultQueueBudgetAction'] default_budget_action: The default action taken on a queue summary if a budget wasn't configured.
         :param pulumi.Input[str] description: A description of the queue that helps identify what the queue is used for.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input['QueueJobAttachmentSettingsArgs'] job_attachment_settings: The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
         :param pulumi.Input['QueueJobRunAsUserArgs'] job_run_as_user: Identifies the user for a job.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] required_file_system_location_names: The file system location that the queue uses.
@@ -123,6 +125,8 @@ class QueueArgs:
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         A description of the queue that helps identify what the queue is used for.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         """
         return pulumi.get(self, "description")
 
@@ -215,6 +219,8 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_storage_profile_ids: The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
         :param pulumi.Input['QueueDefaultQueueBudgetAction'] default_budget_action: The default action taken on a queue summary if a budget wasn't configured.
         :param pulumi.Input[str] description: A description of the queue that helps identify what the queue is used for.
+               
+               > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[str] display_name: The display name of the queue summary to update.
                
                > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
@@ -351,6 +357,8 @@ class Queue(pulumi.CustomResource):
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the queue that helps identify what the queue is used for.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         """
         return pulumi.get(self, "description")
 

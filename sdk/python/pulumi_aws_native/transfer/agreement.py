@@ -28,6 +28,8 @@ class AgreementArgs:
                  partner_profile_id: pulumi.Input[str],
                  server_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 enforce_message_signing: Optional[pulumi.Input['AgreementEnforceMessageSigning']] = None,
+                 preserve_filename: Optional[pulumi.Input['AgreementPreserveFilename']] = None,
                  status: Optional[pulumi.Input['AgreementStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -38,6 +40,8 @@ class AgreementArgs:
         :param pulumi.Input[str] partner_profile_id: A unique identifier for the partner profile.
         :param pulumi.Input[str] server_id: A unique identifier for the server.
         :param pulumi.Input[str] description: A textual description for the agreement.
+        :param pulumi.Input['AgreementEnforceMessageSigning'] enforce_message_signing: Specifies whether to enforce an AS2 message is signed for this agreement.
+        :param pulumi.Input['AgreementPreserveFilename'] preserve_filename: Specifies whether to preserve the filename received for this agreement.
         :param pulumi.Input['AgreementStatus'] status: Specifies the status of the agreement.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
         """
@@ -48,6 +52,10 @@ class AgreementArgs:
         pulumi.set(__self__, "server_id", server_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enforce_message_signing is not None:
+            pulumi.set(__self__, "enforce_message_signing", enforce_message_signing)
+        if preserve_filename is not None:
+            pulumi.set(__self__, "preserve_filename", preserve_filename)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -126,6 +134,30 @@ class AgreementArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="enforceMessageSigning")
+    def enforce_message_signing(self) -> Optional[pulumi.Input['AgreementEnforceMessageSigning']]:
+        """
+        Specifies whether to enforce an AS2 message is signed for this agreement.
+        """
+        return pulumi.get(self, "enforce_message_signing")
+
+    @enforce_message_signing.setter
+    def enforce_message_signing(self, value: Optional[pulumi.Input['AgreementEnforceMessageSigning']]):
+        pulumi.set(self, "enforce_message_signing", value)
+
+    @property
+    @pulumi.getter(name="preserveFilename")
+    def preserve_filename(self) -> Optional[pulumi.Input['AgreementPreserveFilename']]:
+        """
+        Specifies whether to preserve the filename received for this agreement.
+        """
+        return pulumi.get(self, "preserve_filename")
+
+    @preserve_filename.setter
+    def preserve_filename(self, value: Optional[pulumi.Input['AgreementPreserveFilename']]):
+        pulumi.set(self, "preserve_filename", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['AgreementStatus']]:
         """
@@ -158,8 +190,10 @@ class Agreement(pulumi.CustomResource):
                  access_role: Optional[pulumi.Input[str]] = None,
                  base_directory: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 enforce_message_signing: Optional[pulumi.Input['AgreementEnforceMessageSigning']] = None,
                  local_profile_id: Optional[pulumi.Input[str]] = None,
                  partner_profile_id: Optional[pulumi.Input[str]] = None,
+                 preserve_filename: Optional[pulumi.Input['AgreementPreserveFilename']] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['AgreementStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -172,8 +206,10 @@ class Agreement(pulumi.CustomResource):
         :param pulumi.Input[str] access_role: Specifies the access role for the agreement.
         :param pulumi.Input[str] base_directory: Specifies the base directory for the agreement.
         :param pulumi.Input[str] description: A textual description for the agreement.
+        :param pulumi.Input['AgreementEnforceMessageSigning'] enforce_message_signing: Specifies whether to enforce an AS2 message is signed for this agreement.
         :param pulumi.Input[str] local_profile_id: A unique identifier for the local profile.
         :param pulumi.Input[str] partner_profile_id: A unique identifier for the partner profile.
+        :param pulumi.Input['AgreementPreserveFilename'] preserve_filename: Specifies whether to preserve the filename received for this agreement.
         :param pulumi.Input[str] server_id: A unique identifier for the server.
         :param pulumi.Input['AgreementStatus'] status: Specifies the status of the agreement.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
@@ -205,8 +241,10 @@ class Agreement(pulumi.CustomResource):
                  access_role: Optional[pulumi.Input[str]] = None,
                  base_directory: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 enforce_message_signing: Optional[pulumi.Input['AgreementEnforceMessageSigning']] = None,
                  local_profile_id: Optional[pulumi.Input[str]] = None,
                  partner_profile_id: Optional[pulumi.Input[str]] = None,
+                 preserve_filename: Optional[pulumi.Input['AgreementPreserveFilename']] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['AgreementStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -226,12 +264,14 @@ class Agreement(pulumi.CustomResource):
                 raise TypeError("Missing required property 'base_directory'")
             __props__.__dict__["base_directory"] = base_directory
             __props__.__dict__["description"] = description
+            __props__.__dict__["enforce_message_signing"] = enforce_message_signing
             if local_profile_id is None and not opts.urn:
                 raise TypeError("Missing required property 'local_profile_id'")
             __props__.__dict__["local_profile_id"] = local_profile_id
             if partner_profile_id is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_profile_id'")
             __props__.__dict__["partner_profile_id"] = partner_profile_id
+            __props__.__dict__["preserve_filename"] = preserve_filename
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
             __props__.__dict__["server_id"] = server_id
@@ -268,8 +308,10 @@ class Agreement(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["base_directory"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["enforce_message_signing"] = None
         __props__.__dict__["local_profile_id"] = None
         __props__.__dict__["partner_profile_id"] = None
+        __props__.__dict__["preserve_filename"] = None
         __props__.__dict__["server_id"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
@@ -316,6 +358,14 @@ class Agreement(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="enforceMessageSigning")
+    def enforce_message_signing(self) -> pulumi.Output[Optional['AgreementEnforceMessageSigning']]:
+        """
+        Specifies whether to enforce an AS2 message is signed for this agreement.
+        """
+        return pulumi.get(self, "enforce_message_signing")
+
+    @property
     @pulumi.getter(name="localProfileId")
     def local_profile_id(self) -> pulumi.Output[str]:
         """
@@ -330,6 +380,14 @@ class Agreement(pulumi.CustomResource):
         A unique identifier for the partner profile.
         """
         return pulumi.get(self, "partner_profile_id")
+
+    @property
+    @pulumi.getter(name="preserveFilename")
+    def preserve_filename(self) -> pulumi.Output[Optional['AgreementPreserveFilename']]:
+        """
+        Specifies whether to preserve the filename received for this agreement.
+        """
+        return pulumi.get(self, "preserve_filename")
 
     @property
     @pulumi.getter(name="serverId")

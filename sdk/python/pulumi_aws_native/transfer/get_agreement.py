@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAgreementResult:
-    def __init__(__self__, access_role=None, agreement_id=None, arn=None, base_directory=None, description=None, local_profile_id=None, partner_profile_id=None, status=None, tags=None):
+    def __init__(__self__, access_role=None, agreement_id=None, arn=None, base_directory=None, description=None, enforce_message_signing=None, local_profile_id=None, partner_profile_id=None, preserve_filename=None, status=None, tags=None):
         if access_role and not isinstance(access_role, str):
             raise TypeError("Expected argument 'access_role' to be a str")
         pulumi.set(__self__, "access_role", access_role)
@@ -41,12 +41,18 @@ class GetAgreementResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if enforce_message_signing and not isinstance(enforce_message_signing, str):
+            raise TypeError("Expected argument 'enforce_message_signing' to be a str")
+        pulumi.set(__self__, "enforce_message_signing", enforce_message_signing)
         if local_profile_id and not isinstance(local_profile_id, str):
             raise TypeError("Expected argument 'local_profile_id' to be a str")
         pulumi.set(__self__, "local_profile_id", local_profile_id)
         if partner_profile_id and not isinstance(partner_profile_id, str):
             raise TypeError("Expected argument 'partner_profile_id' to be a str")
         pulumi.set(__self__, "partner_profile_id", partner_profile_id)
+        if preserve_filename and not isinstance(preserve_filename, str):
+            raise TypeError("Expected argument 'preserve_filename' to be a str")
+        pulumi.set(__self__, "preserve_filename", preserve_filename)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -95,6 +101,14 @@ class GetAgreementResult:
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="enforceMessageSigning")
+    def enforce_message_signing(self) -> Optional['AgreementEnforceMessageSigning']:
+        """
+        Specifies whether to enforce an AS2 message is signed for this agreement.
+        """
+        return pulumi.get(self, "enforce_message_signing")
+
+    @property
     @pulumi.getter(name="localProfileId")
     def local_profile_id(self) -> Optional[str]:
         """
@@ -109,6 +123,14 @@ class GetAgreementResult:
         A unique identifier for the partner profile.
         """
         return pulumi.get(self, "partner_profile_id")
+
+    @property
+    @pulumi.getter(name="preserveFilename")
+    def preserve_filename(self) -> Optional['AgreementPreserveFilename']:
+        """
+        Specifies whether to preserve the filename received for this agreement.
+        """
+        return pulumi.get(self, "preserve_filename")
 
     @property
     @pulumi.getter
@@ -138,8 +160,10 @@ class AwaitableGetAgreementResult(GetAgreementResult):
             arn=self.arn,
             base_directory=self.base_directory,
             description=self.description,
+            enforce_message_signing=self.enforce_message_signing,
             local_profile_id=self.local_profile_id,
             partner_profile_id=self.partner_profile_id,
+            preserve_filename=self.preserve_filename,
             status=self.status,
             tags=self.tags)
 
@@ -166,8 +190,10 @@ def get_agreement(agreement_id: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         base_directory=pulumi.get(__ret__, 'base_directory'),
         description=pulumi.get(__ret__, 'description'),
+        enforce_message_signing=pulumi.get(__ret__, 'enforce_message_signing'),
         local_profile_id=pulumi.get(__ret__, 'local_profile_id'),
         partner_profile_id=pulumi.get(__ret__, 'partner_profile_id'),
+        preserve_filename=pulumi.get(__ret__, 'preserve_filename'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_agreement_output(agreement_id: Optional[pulumi.Input[str]] = None,
@@ -191,7 +217,9 @@ def get_agreement_output(agreement_id: Optional[pulumi.Input[str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         base_directory=pulumi.get(__response__, 'base_directory'),
         description=pulumi.get(__response__, 'description'),
+        enforce_message_signing=pulumi.get(__response__, 'enforce_message_signing'),
         local_profile_id=pulumi.get(__response__, 'local_profile_id'),
         partner_profile_id=pulumi.get(__response__, 'partner_profile_id'),
+        preserve_filename=pulumi.get(__response__, 'preserve_filename'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

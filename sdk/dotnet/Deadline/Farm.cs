@@ -23,6 +23,8 @@ namespace Pulumi.AwsNative.Deadline
 
         /// <summary>
         /// A description of the farm that helps identify what the farm is used for.
+        /// 
+        /// &gt; This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -104,6 +106,8 @@ namespace Pulumi.AwsNative.Deadline
     {
         /// <summary>
         /// A description of the farm that helps identify what the farm is used for.
+        /// 
+        /// &gt; This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

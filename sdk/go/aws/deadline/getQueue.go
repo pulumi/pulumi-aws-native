@@ -36,6 +36,8 @@ type LookupQueueResult struct {
 	// The default action taken on a queue summary if a budget wasn't configured.
 	DefaultBudgetAction *QueueDefaultQueueBudgetAction `pulumi:"defaultBudgetAction"`
 	// A description of the queue that helps identify what the queue is used for.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	Description *string `pulumi:"description"`
 	// The display name of the queue summary to update.
 	//
@@ -103,6 +105,8 @@ func (o LookupQueueResultOutput) DefaultBudgetAction() QueueDefaultQueueBudgetAc
 }
 
 // A description of the queue that helps identify what the queue is used for.
+//
+// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 func (o LookupQueueResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

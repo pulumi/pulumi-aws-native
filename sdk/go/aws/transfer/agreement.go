@@ -27,10 +27,14 @@ type Agreement struct {
 	BaseDirectory pulumi.StringOutput `pulumi:"baseDirectory"`
 	// A textual description for the agreement.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Specifies whether to enforce an AS2 message is signed for this agreement.
+	EnforceMessageSigning AgreementEnforceMessageSigningPtrOutput `pulumi:"enforceMessageSigning"`
 	// A unique identifier for the local profile.
 	LocalProfileId pulumi.StringOutput `pulumi:"localProfileId"`
 	// A unique identifier for the partner profile.
 	PartnerProfileId pulumi.StringOutput `pulumi:"partnerProfileId"`
+	// Specifies whether to preserve the filename received for this agreement.
+	PreserveFilename AgreementPreserveFilenamePtrOutput `pulumi:"preserveFilename"`
 	// A unique identifier for the server.
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 	// Specifies the status of the agreement.
@@ -104,10 +108,14 @@ type agreementArgs struct {
 	BaseDirectory string `pulumi:"baseDirectory"`
 	// A textual description for the agreement.
 	Description *string `pulumi:"description"`
+	// Specifies whether to enforce an AS2 message is signed for this agreement.
+	EnforceMessageSigning *AgreementEnforceMessageSigning `pulumi:"enforceMessageSigning"`
 	// A unique identifier for the local profile.
 	LocalProfileId string `pulumi:"localProfileId"`
 	// A unique identifier for the partner profile.
 	PartnerProfileId string `pulumi:"partnerProfileId"`
+	// Specifies whether to preserve the filename received for this agreement.
+	PreserveFilename *AgreementPreserveFilename `pulumi:"preserveFilename"`
 	// A unique identifier for the server.
 	ServerId string `pulumi:"serverId"`
 	// Specifies the status of the agreement.
@@ -124,10 +132,14 @@ type AgreementArgs struct {
 	BaseDirectory pulumi.StringInput
 	// A textual description for the agreement.
 	Description pulumi.StringPtrInput
+	// Specifies whether to enforce an AS2 message is signed for this agreement.
+	EnforceMessageSigning AgreementEnforceMessageSigningPtrInput
 	// A unique identifier for the local profile.
 	LocalProfileId pulumi.StringInput
 	// A unique identifier for the partner profile.
 	PartnerProfileId pulumi.StringInput
+	// Specifies whether to preserve the filename received for this agreement.
+	PreserveFilename AgreementPreserveFilenamePtrInput
 	// A unique identifier for the server.
 	ServerId pulumi.StringInput
 	// Specifies the status of the agreement.
@@ -198,6 +210,11 @@ func (o AgreementOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether to enforce an AS2 message is signed for this agreement.
+func (o AgreementOutput) EnforceMessageSigning() AgreementEnforceMessageSigningPtrOutput {
+	return o.ApplyT(func(v *Agreement) AgreementEnforceMessageSigningPtrOutput { return v.EnforceMessageSigning }).(AgreementEnforceMessageSigningPtrOutput)
+}
+
 // A unique identifier for the local profile.
 func (o AgreementOutput) LocalProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.LocalProfileId }).(pulumi.StringOutput)
@@ -206,6 +223,11 @@ func (o AgreementOutput) LocalProfileId() pulumi.StringOutput {
 // A unique identifier for the partner profile.
 func (o AgreementOutput) PartnerProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.PartnerProfileId }).(pulumi.StringOutput)
+}
+
+// Specifies whether to preserve the filename received for this agreement.
+func (o AgreementOutput) PreserveFilename() AgreementPreserveFilenamePtrOutput {
+	return o.ApplyT(func(v *Agreement) AgreementPreserveFilenamePtrOutput { return v.PreserveFilename }).(AgreementPreserveFilenamePtrOutput)
 }
 
 // A unique identifier for the server.

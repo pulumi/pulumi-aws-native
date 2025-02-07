@@ -5,6 +5,8 @@
 from enum import Enum
 
 __all__ = [
+    'AgreementEnforceMessageSigning',
+    'AgreementPreserveFilename',
     'AgreementStatus',
     'CertificateStatus',
     'CertificateType',
@@ -13,6 +15,7 @@ __all__ = [
     'ConnectorAs2ConfigPropertiesEncryptionAlgorithm',
     'ConnectorAs2ConfigPropertiesMdnResponse',
     'ConnectorAs2ConfigPropertiesMdnSigningAlgorithm',
+    'ConnectorAs2ConfigPropertiesPreserveContentType',
     'ConnectorAs2ConfigPropertiesSigningAlgorithm',
     'ProfileType',
     'ServerAs2Transport',
@@ -32,6 +35,22 @@ __all__ = [
     'WorkflowStepDecryptStepDetailsPropertiesType',
     'WorkflowStepType',
 ]
+
+
+class AgreementEnforceMessageSigning(str, Enum):
+    """
+    Specifies whether to enforce an AS2 message is signed for this agreement.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class AgreementPreserveFilename(str, Enum):
+    """
+    Specifies whether to preserve the filename received for this agreement.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class AgreementStatus(str, Enum):
@@ -105,6 +124,14 @@ class ConnectorAs2ConfigPropertiesMdnSigningAlgorithm(str, Enum):
     SHA1 = "SHA1"
     NONE = "NONE"
     DEFAULT = "DEFAULT"
+
+
+class ConnectorAs2ConfigPropertiesPreserveContentType(str, Enum):
+    """
+    Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class ConnectorAs2ConfigPropertiesSigningAlgorithm(str, Enum):

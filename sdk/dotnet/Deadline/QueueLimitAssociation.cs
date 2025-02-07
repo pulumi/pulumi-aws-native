@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.Deadline
     [AwsNativeResourceType("aws-native:deadline:QueueLimitAssociation")]
     public partial class QueueLimitAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The unique identifier of the farm that contains the queue-limit association.
+        /// </summary>
         [Output("farmId")]
         public Output<string> FarmId { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the limit in the association.
+        /// </summary>
         [Output("limitId")]
         public Output<string> LimitId { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the queue in the association.
+        /// </summary>
         [Output("queueId")]
         public Output<string> QueueId { get; private set; } = null!;
 
@@ -75,12 +84,21 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class QueueLimitAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The unique identifier of the farm that contains the queue-limit association.
+        /// </summary>
         [Input("farmId", required: true)]
         public Input<string> FarmId { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the limit in the association.
+        /// </summary>
         [Input("limitId", required: true)]
         public Input<string> LimitId { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the queue in the association.
+        /// </summary>
         [Input("queueId", required: true)]
         public Input<string> QueueId { get; set; } = null!;
 

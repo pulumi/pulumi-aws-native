@@ -99,6 +99,10 @@ if not MYPY:
         """
         A unique identifier for the partner profile.
         """
+        preserve_content_type: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesPreserveContentType']]
+        """
+        Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
+        """
         signing_algorithm: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']]
         """
         Signing algorithm for this AS2 connector configuration.
@@ -117,6 +121,7 @@ class As2ConfigPropertiesArgs:
                  mdn_signing_algorithm: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm']] = None,
                  message_subject: Optional[pulumi.Input[str]] = None,
                  partner_profile_id: Optional[pulumi.Input[str]] = None,
+                 preserve_content_type: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesPreserveContentType']] = None,
                  signing_algorithm: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']] = None):
         """
         Configuration for an AS2 connector.
@@ -128,6 +133,7 @@ class As2ConfigPropertiesArgs:
         :param pulumi.Input['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm'] mdn_signing_algorithm: MDN Signing algorithm for this AS2 connector configuration.
         :param pulumi.Input[str] message_subject: The message subject for this AS2 connector configuration.
         :param pulumi.Input[str] partner_profile_id: A unique identifier for the partner profile.
+        :param pulumi.Input['ConnectorAs2ConfigPropertiesPreserveContentType'] preserve_content_type: Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
         :param pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm'] signing_algorithm: Signing algorithm for this AS2 connector configuration.
         """
         if basic_auth_secret_id is not None:
@@ -146,6 +152,8 @@ class As2ConfigPropertiesArgs:
             pulumi.set(__self__, "message_subject", message_subject)
         if partner_profile_id is not None:
             pulumi.set(__self__, "partner_profile_id", partner_profile_id)
+        if preserve_content_type is not None:
+            pulumi.set(__self__, "preserve_content_type", preserve_content_type)
         if signing_algorithm is not None:
             pulumi.set(__self__, "signing_algorithm", signing_algorithm)
 
@@ -244,6 +252,18 @@ class As2ConfigPropertiesArgs:
     @partner_profile_id.setter
     def partner_profile_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "partner_profile_id", value)
+
+    @property
+    @pulumi.getter(name="preserveContentType")
+    def preserve_content_type(self) -> Optional[pulumi.Input['ConnectorAs2ConfigPropertiesPreserveContentType']]:
+        """
+        Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
+        """
+        return pulumi.get(self, "preserve_content_type")
+
+    @preserve_content_type.setter
+    def preserve_content_type(self, value: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesPreserveContentType']]):
+        pulumi.set(self, "preserve_content_type", value)
 
     @property
     @pulumi.getter(name="signingAlgorithm")

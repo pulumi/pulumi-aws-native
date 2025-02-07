@@ -51,6 +51,10 @@ export interface GetAgreementResult {
      */
     readonly description?: string;
     /**
+     * Specifies whether to enforce an AS2 message is signed for this agreement.
+     */
+    readonly enforceMessageSigning?: enums.transfer.AgreementEnforceMessageSigning;
+    /**
      * A unique identifier for the local profile.
      */
     readonly localProfileId?: string;
@@ -58,6 +62,10 @@ export interface GetAgreementResult {
      * A unique identifier for the partner profile.
      */
     readonly partnerProfileId?: string;
+    /**
+     * Specifies whether to preserve the filename received for this agreement.
+     */
+    readonly preserveFilename?: enums.transfer.AgreementPreserveFilename;
     /**
      * Specifies the status of the agreement.
      */

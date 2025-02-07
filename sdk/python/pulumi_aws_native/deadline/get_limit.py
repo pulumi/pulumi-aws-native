@@ -43,26 +43,47 @@ class GetLimitResult:
     @property
     @pulumi.getter(name="currentCount")
     def current_count(self) -> Optional[int]:
+        """
+        The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.
+        """
         return pulumi.get(self, "current_count")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description of the limit. A clear description helps you identify the purpose of the limit.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The name of the limit used in lists to identify the limit.
+
+        > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="limitId")
     def limit_id(self) -> Optional[str]:
+        """
+        The unique identifier of the limit.
+        """
         return pulumi.get(self, "limit_id")
 
     @property
     @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[int]:
+        """
+        The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.
+
+        The `maxValue` must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
+        """
         return pulumi.get(self, "max_count")
 
 
@@ -84,6 +105,10 @@ def get_limit(farm_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLimitResult:
     """
     Definition of AWS::Deadline::Limit Resource Type
+
+
+    :param str farm_id: The unique identifier of the farm that contains the limit.
+    :param str limit_id: The unique identifier of the limit.
     """
     __args__ = dict()
     __args__['farmId'] = farm_id
@@ -102,6 +127,10 @@ def get_limit_output(farm_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLimitResult]:
     """
     Definition of AWS::Deadline::Limit Resource Type
+
+
+    :param str farm_id: The unique identifier of the farm that contains the limit.
+    :param str limit_id: The unique identifier of the limit.
     """
     __args__ = dict()
     __args__['farmId'] = farm_id

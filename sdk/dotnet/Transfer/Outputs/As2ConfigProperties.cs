@@ -49,6 +49,10 @@ namespace Pulumi.AwsNative.Transfer.Outputs
         /// </summary>
         public readonly string? PartnerProfileId;
         /// <summary>
+        /// Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Transfer.ConnectorAs2ConfigPropertiesPreserveContentType? PreserveContentType;
+        /// <summary>
         /// Signing algorithm for this AS2 connector configuration.
         /// </summary>
         public readonly Pulumi.AwsNative.Transfer.ConnectorAs2ConfigPropertiesSigningAlgorithm? SigningAlgorithm;
@@ -71,6 +75,8 @@ namespace Pulumi.AwsNative.Transfer.Outputs
 
             string? partnerProfileId,
 
+            Pulumi.AwsNative.Transfer.ConnectorAs2ConfigPropertiesPreserveContentType? preserveContentType,
+
             Pulumi.AwsNative.Transfer.ConnectorAs2ConfigPropertiesSigningAlgorithm? signingAlgorithm)
         {
             BasicAuthSecretId = basicAuthSecretId;
@@ -81,6 +87,7 @@ namespace Pulumi.AwsNative.Transfer.Outputs
             MdnSigningAlgorithm = mdnSigningAlgorithm;
             MessageSubject = messageSubject;
             PartnerProfileId = partnerProfileId;
+            PreserveContentType = preserveContentType;
             SigningAlgorithm = signingAlgorithm;
         }
     }

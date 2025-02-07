@@ -24,6 +24,9 @@ class QueueLimitAssociationArgs:
                  queue_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a QueueLimitAssociation resource.
+        :param pulumi.Input[str] farm_id: The unique identifier of the farm that contains the queue-limit association.
+        :param pulumi.Input[str] limit_id: The unique identifier of the limit in the association.
+        :param pulumi.Input[str] queue_id: The unique identifier of the queue in the association.
         """
         pulumi.set(__self__, "farm_id", farm_id)
         pulumi.set(__self__, "limit_id", limit_id)
@@ -32,6 +35,9 @@ class QueueLimitAssociationArgs:
     @property
     @pulumi.getter(name="farmId")
     def farm_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the farm that contains the queue-limit association.
+        """
         return pulumi.get(self, "farm_id")
 
     @farm_id.setter
@@ -41,6 +47,9 @@ class QueueLimitAssociationArgs:
     @property
     @pulumi.getter(name="limitId")
     def limit_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the limit in the association.
+        """
         return pulumi.get(self, "limit_id")
 
     @limit_id.setter
@@ -50,6 +59,9 @@ class QueueLimitAssociationArgs:
     @property
     @pulumi.getter(name="queueId")
     def queue_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the queue in the association.
+        """
         return pulumi.get(self, "queue_id")
 
     @queue_id.setter
@@ -71,6 +83,9 @@ class QueueLimitAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] farm_id: The unique identifier of the farm that contains the queue-limit association.
+        :param pulumi.Input[str] limit_id: The unique identifier of the limit in the association.
+        :param pulumi.Input[str] queue_id: The unique identifier of the queue in the association.
         """
         ...
     @overload
@@ -149,15 +164,24 @@ class QueueLimitAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="farmId")
     def farm_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the farm that contains the queue-limit association.
+        """
         return pulumi.get(self, "farm_id")
 
     @property
     @pulumi.getter(name="limitId")
     def limit_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the limit in the association.
+        """
         return pulumi.get(self, "limit_id")
 
     @property
     @pulumi.getter(name="queueId")
     def queue_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the queue in the association.
+        """
         return pulumi.get(self, "queue_id")
 

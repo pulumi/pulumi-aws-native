@@ -51,6 +51,8 @@ export class Queue extends pulumi.CustomResource {
     public readonly defaultBudgetAction!: pulumi.Output<enums.deadline.QueueDefaultQueueBudgetAction | undefined>;
     /**
      * A description of the queue that helps identify what the queue is used for.
+     *
+     * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -152,6 +154,8 @@ export interface QueueArgs {
     defaultBudgetAction?: pulumi.Input<enums.deadline.QueueDefaultQueueBudgetAction>;
     /**
      * A description of the queue that helps identify what the queue is used for.
+     *
+     * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
     description?: pulumi.Input<string>;
     /**

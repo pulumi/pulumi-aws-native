@@ -23,6 +23,8 @@ type Fleet struct {
 	// The configuration details for the fleet.
 	Configuration pulumi.AnyOutput `pulumi:"configuration"`
 	// A description that helps identify what the fleet is used for.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of the fleet summary to update.
 	//
@@ -108,6 +110,8 @@ type fleetArgs struct {
 	// The configuration details for the fleet.
 	Configuration interface{} `pulumi:"configuration"`
 	// A description that helps identify what the fleet is used for.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	Description *string `pulumi:"description"`
 	// The display name of the fleet summary to update.
 	//
@@ -130,6 +134,8 @@ type FleetArgs struct {
 	// The configuration details for the fleet.
 	Configuration pulumi.Input
 	// A description that helps identify what the fleet is used for.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	Description pulumi.StringPtrInput
 	// The display name of the fleet summary to update.
 	//
@@ -199,6 +205,8 @@ func (o FleetOutput) Configuration() pulumi.AnyOutput {
 }
 
 // A description that helps identify what the fleet is used for.
+//
+// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 func (o FleetOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

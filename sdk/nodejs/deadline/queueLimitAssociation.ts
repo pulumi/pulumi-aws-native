@@ -34,8 +34,17 @@ export class QueueLimitAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === QueueLimitAssociation.__pulumiType;
     }
 
+    /**
+     * The unique identifier of the farm that contains the queue-limit association.
+     */
     public readonly farmId!: pulumi.Output<string>;
+    /**
+     * The unique identifier of the limit in the association.
+     */
     public readonly limitId!: pulumi.Output<string>;
+    /**
+     * The unique identifier of the queue in the association.
+     */
     public readonly queueId!: pulumi.Output<string>;
 
     /**
@@ -77,7 +86,16 @@ export class QueueLimitAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a QueueLimitAssociation resource.
  */
 export interface QueueLimitAssociationArgs {
+    /**
+     * The unique identifier of the farm that contains the queue-limit association.
+     */
     farmId: pulumi.Input<string>;
+    /**
+     * The unique identifier of the limit in the association.
+     */
     limitId: pulumi.Input<string>;
+    /**
+     * The unique identifier of the queue in the association.
+     */
     queueId: pulumi.Input<string>;
 }
