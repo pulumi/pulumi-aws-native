@@ -6843,7 +6843,7 @@
         "items": {
           "type": "string"
         },
-        "description": "Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified."
+        "description": "VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table)."
       },
       "subnetId": {
         "type": "string",
@@ -13576,6 +13576,31 @@
       "workflowDetails": {
         "$ref": "#/types/aws-native:transfer:ServerWorkflowDetails",
         "description": "Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.\n\nIn addition to a workflow to execute when a file is uploaded completely, `WorkflowDetails` can also contain a workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when the session disconnects."
+      }
+    }
+  },
+  "aws-native:transfer:WebApp": {
+    "cfTypeName": "AWS::Transfer::WebApp",
+    "properties": {
+      "accessEndpoint": {
+        "type": "string",
+        "description": "The AccessEndpoint is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value."
+      },
+      "identityProviderDetails": {
+        "$ref": "#/types/aws-native:transfer:WebAppIdentityProviderDetails"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Key-value pairs that can be used to group and search for web apps."
+      },
+      "webAppCustomization": {
+        "$ref": "#/types/aws-native:transfer:WebAppCustomization"
+      },
+      "webAppUnits": {
+        "$ref": "#/types/aws-native:transfer:WebAppUnitsProperties"
       }
     }
   },
