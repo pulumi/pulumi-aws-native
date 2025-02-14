@@ -74,6 +74,6 @@
     "tagUpdatable" : true,
     "tagProperty" : "/properties/Tags",
     "cloudFormationSystemTags" : false,
-    "permissions" : [ "route53-recovery-readiness:TagResource", "route53-recovery-readiness:UntagResource", "route53-recovery-readiness:ListTagsForResource" ]
+    "permissions" : [ "route53-recovery-readiness:TagResource", "route53-recovery-readiness:UntagResource", "route53-recovery-readiness:ListTagsForResources" ]
   }
 }

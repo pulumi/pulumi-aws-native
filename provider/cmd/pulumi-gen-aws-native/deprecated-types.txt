@@ -1,4 +1,3 @@
-AWS::Cognito::UserPoolDomain
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::NimbleStudio::LaunchProfile

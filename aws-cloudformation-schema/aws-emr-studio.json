@@ -160,10 +160,12 @@
   "readOnlyProperties" : [ "/properties/StudioId", "/properties/Arn", "/properties/Url" ],
   "primaryIdentifier" : [ "/properties/StudioId" ],
   "tagging" : {
-    "taggable" : false,
-    "tagOnCreate" : false,
-    "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "elasticmapreduce:AddTags", "elasticmapreduce:RemoveTags" ]
   },
   "createOnlyProperties" : [ "/properties/AuthMode", "/properties/EngineSecurityGroupId", "/properties/ServiceRole", "/properties/UserRole", "/properties/VpcId", "/properties/WorkspaceSecurityGroupId", "/properties/TrustedIdentityPropagationEnabled", "/properties/IdcUserAssignment", "/properties/IdcInstanceArn", "/properties/EncryptionKeyArn" ],
   "handlers" : {

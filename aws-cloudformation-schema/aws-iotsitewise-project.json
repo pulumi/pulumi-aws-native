@@ -88,7 +88,7 @@
       "permissions" : [ "iotsitewise:DescribeProject", "iotsitewise:DeleteProject" ]
     },
     "list" : {
-      "permissions" : [ "iotsitewise:ListProjects", "iotsitewise:ListTagsForResource" ]
+      "permissions" : [ "iotsitewise:ListPortals", "iotsitewise:ListProjects", "iotsitewise:ListTagsForResource" ]
     }
   }
 }
