@@ -27,6 +27,15 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("agentArn")]
         public Output<string> AgentArn { get; private set; } = null!;
 
+        [Output("agentCollaboration")]
+        public Output<Pulumi.AwsNative.Bedrock.AgentCollaboration?> AgentCollaboration { get; private set; } = null!;
+
+        /// <summary>
+        /// List of Agent Collaborators
+        /// </summary>
+        [Output("agentCollaborators")]
+        public Output<ImmutableArray<Outputs.AgentCollaborator>> AgentCollaborators { get; private set; } = null!;
+
         /// <summary>
         /// Identifier for a resource.
         /// </summary>
@@ -77,6 +86,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        [Output("customOrchestration")]
+        public Output<Outputs.AgentCustomOrchestration?> CustomOrchestration { get; private set; } = null!;
+
         /// <summary>
         /// A KMS key ARN
         /// </summary>
@@ -96,7 +108,7 @@ namespace Pulumi.AwsNative.Bedrock
         public Output<ImmutableArray<string>> FailureReasons { get; private set; } = null!;
 
         /// <summary>
-        /// ARN or name of a Bedrock model.
+        /// The foundation model used for orchestration by the agent.
         /// </summary>
         [Output("foundationModel")]
         public Output<string?> FoundationModel { get; private set; } = null!;
@@ -124,6 +136,12 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         [Output("knowledgeBases")]
         public Output<ImmutableArray<Outputs.AgentKnowledgeBase>> KnowledgeBases { get; private set; } = null!;
+
+        [Output("memoryConfiguration")]
+        public Output<Outputs.AgentMemoryConfiguration?> MemoryConfiguration { get; private set; } = null!;
+
+        [Output("orchestrationType")]
+        public Output<Pulumi.AwsNative.Bedrock.AgentOrchestrationType?> OrchestrationType { get; private set; } = null!;
 
         /// <summary>
         /// Time Stamp.
@@ -230,6 +248,21 @@ namespace Pulumi.AwsNative.Bedrock
             set => _actionGroups = value;
         }
 
+        [Input("agentCollaboration")]
+        public Input<Pulumi.AwsNative.Bedrock.AgentCollaboration>? AgentCollaboration { get; set; }
+
+        [Input("agentCollaborators")]
+        private InputList<Inputs.AgentCollaboratorArgs>? _agentCollaborators;
+
+        /// <summary>
+        /// List of Agent Collaborators
+        /// </summary>
+        public InputList<Inputs.AgentCollaboratorArgs> AgentCollaborators
+        {
+            get => _agentCollaborators ?? (_agentCollaborators = new InputList<Inputs.AgentCollaboratorArgs>());
+            set => _agentCollaborators = value;
+        }
+
         /// <summary>
         /// Name for a resource.
         /// </summary>
@@ -248,6 +281,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Input("autoPrepare")]
         public Input<bool>? AutoPrepare { get; set; }
 
+        [Input("customOrchestration")]
+        public Input<Inputs.AgentCustomOrchestrationArgs>? CustomOrchestration { get; set; }
+
         /// <summary>
         /// A KMS key ARN
         /// </summary>
@@ -261,7 +297,7 @@ namespace Pulumi.AwsNative.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// ARN or name of a Bedrock model.
+        /// The foundation model used for orchestration by the agent.
         /// </summary>
         [Input("foundationModel")]
         public Input<string>? FoundationModel { get; set; }
@@ -295,6 +331,12 @@ namespace Pulumi.AwsNative.Bedrock
             get => _knowledgeBases ?? (_knowledgeBases = new InputList<Inputs.AgentKnowledgeBaseArgs>());
             set => _knowledgeBases = value;
         }
+
+        [Input("memoryConfiguration")]
+        public Input<Inputs.AgentMemoryConfigurationArgs>? MemoryConfiguration { get; set; }
+
+        [Input("orchestrationType")]
+        public Input<Pulumi.AwsNative.Bedrock.AgentOrchestrationType>? OrchestrationType { get; set; }
 
         /// <summary>
         /// Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .

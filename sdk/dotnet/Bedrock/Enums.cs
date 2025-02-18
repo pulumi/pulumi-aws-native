@@ -104,6 +104,38 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Agent collaboration state
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentCollaboration : IEquatable<AgentCollaboration>
+    {
+        private readonly string _value;
+
+        private AgentCollaboration(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentCollaboration Disabled { get; } = new AgentCollaboration("DISABLED");
+        public static AgentCollaboration Supervisor { get; } = new AgentCollaboration("SUPERVISOR");
+        public static AgentCollaboration SupervisorRouter { get; } = new AgentCollaboration("SUPERVISOR_ROUTER");
+
+        public static bool operator ==(AgentCollaboration left, AgentCollaboration right) => left.Equals(right);
+        public static bool operator !=(AgentCollaboration left, AgentCollaboration right) => !left.Equals(right);
+
+        public static explicit operator string(AgentCollaboration value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentCollaboration other && Equals(other);
+        public bool Equals(AgentCollaboration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Creation Mode for Prompt Configuration.
     /// </summary>
     [EnumType]
@@ -196,6 +228,67 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Memory type
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentMemoryType : IEquatable<AgentMemoryType>
+    {
+        private readonly string _value;
+
+        private AgentMemoryType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentMemoryType SessionSummary { get; } = new AgentMemoryType("SESSION_SUMMARY");
+
+        public static bool operator ==(AgentMemoryType left, AgentMemoryType right) => left.Equals(right);
+        public static bool operator !=(AgentMemoryType left, AgentMemoryType right) => !left.Equals(right);
+
+        public static explicit operator string(AgentMemoryType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentMemoryType other && Equals(other);
+        public bool Equals(AgentMemoryType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Types of orchestration strategy for agents
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentOrchestrationType : IEquatable<AgentOrchestrationType>
+    {
+        private readonly string _value;
+
+        private AgentOrchestrationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentOrchestrationType Default { get; } = new AgentOrchestrationType("DEFAULT");
+        public static AgentOrchestrationType CustomOrchestration { get; } = new AgentOrchestrationType("CUSTOM_ORCHESTRATION");
+
+        public static bool operator ==(AgentOrchestrationType left, AgentOrchestrationType right) => left.Equals(right);
+        public static bool operator !=(AgentOrchestrationType left, AgentOrchestrationType right) => !left.Equals(right);
+
+        public static explicit operator string(AgentOrchestrationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentOrchestrationType other && Equals(other);
+        public bool Equals(AgentOrchestrationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Prompt State.
     /// </summary>
     [EnumType]
@@ -242,6 +335,8 @@ namespace Pulumi.AwsNative.Bedrock
         public static AgentPromptType PreProcessing { get; } = new AgentPromptType("PRE_PROCESSING");
         public static AgentPromptType Orchestration { get; } = new AgentPromptType("ORCHESTRATION");
         public static AgentPromptType PostProcessing { get; } = new AgentPromptType("POST_PROCESSING");
+        public static AgentPromptType RoutingClassifier { get; } = new AgentPromptType("ROUTING_CLASSIFIER");
+        public static AgentPromptType MemorySummarization { get; } = new AgentPromptType("MEMORY_SUMMARIZATION");
         public static AgentPromptType KnowledgeBaseResponseGeneration { get; } = new AgentPromptType("KNOWLEDGE_BASE_RESPONSE_GENERATION");
 
         public static bool operator ==(AgentPromptType left, AgentPromptType right) => left.Equals(right);
@@ -252,6 +347,37 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AgentPromptType other && Equals(other);
         public bool Equals(AgentPromptType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Relay conversation history state
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentRelayConversationHistory : IEquatable<AgentRelayConversationHistory>
+    {
+        private readonly string _value;
+
+        private AgentRelayConversationHistory(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentRelayConversationHistory ToCollaborator { get; } = new AgentRelayConversationHistory("TO_COLLABORATOR");
+        public static AgentRelayConversationHistory Disabled { get; } = new AgentRelayConversationHistory("DISABLED");
+
+        public static bool operator ==(AgentRelayConversationHistory left, AgentRelayConversationHistory right) => left.Equals(right);
+        public static bool operator !=(AgentRelayConversationHistory left, AgentRelayConversationHistory right) => !left.Equals(right);
+
+        public static explicit operator string(AgentRelayConversationHistory value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentRelayConversationHistory other && Equals(other);
+        public bool Equals(AgentRelayConversationHistory other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1828,6 +1954,36 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// CachePoint types for CachePointBlock
+    /// </summary>
+    [EnumType]
+    public readonly struct PromptCachePointType : IEquatable<PromptCachePointType>
+    {
+        private readonly string _value;
+
+        private PromptCachePointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PromptCachePointType Default { get; } = new PromptCachePointType("default");
+
+        public static bool operator ==(PromptCachePointType left, PromptCachePointType right) => left.Equals(right);
+        public static bool operator !=(PromptCachePointType left, PromptCachePointType right) => !left.Equals(right);
+
+        public static explicit operator string(PromptCachePointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PromptCachePointType other && Equals(other);
+        public bool Equals(PromptCachePointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Conversation roles for the chat prompt
     /// </summary>
     [EnumType]
@@ -1882,6 +2038,36 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PromptTemplateType other && Equals(other);
         public bool Equals(PromptTemplateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// CachePoint types for CachePointBlock
+    /// </summary>
+    [EnumType]
+    public readonly struct PromptVersionCachePointType : IEquatable<PromptVersionCachePointType>
+    {
+        private readonly string _value;
+
+        private PromptVersionCachePointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PromptVersionCachePointType Default { get; } = new PromptVersionCachePointType("default");
+
+        public static bool operator ==(PromptVersionCachePointType left, PromptVersionCachePointType right) => left.Equals(right);
+        public static bool operator !=(PromptVersionCachePointType left, PromptVersionCachePointType right) => !left.Equals(right);
+
+        public static explicit operator string(PromptVersionCachePointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PromptVersionCachePointType other && Equals(other);
+        public bool Equals(PromptVersionCachePointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

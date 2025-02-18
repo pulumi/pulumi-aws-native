@@ -13,9 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
 from .. import outputs as _root_outputs
-from ._enums import *
 
 __all__ = [
     'GetDataflowEndpointGroupResult',
@@ -26,19 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataflowEndpointGroupResult:
-    def __init__(__self__, arn=None, contact_post_pass_duration_seconds=None, contact_pre_pass_duration_seconds=None, endpoint_details=None, id=None, tags=None):
+    def __init__(__self__, arn=None, id=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if contact_post_pass_duration_seconds and not isinstance(contact_post_pass_duration_seconds, int):
-            raise TypeError("Expected argument 'contact_post_pass_duration_seconds' to be a int")
-        pulumi.set(__self__, "contact_post_pass_duration_seconds", contact_post_pass_duration_seconds)
-        if contact_pre_pass_duration_seconds and not isinstance(contact_pre_pass_duration_seconds, int):
-            raise TypeError("Expected argument 'contact_pre_pass_duration_seconds' to be a int")
-        pulumi.set(__self__, "contact_pre_pass_duration_seconds", contact_pre_pass_duration_seconds)
-        if endpoint_details and not isinstance(endpoint_details, list):
-            raise TypeError("Expected argument 'endpoint_details' to be a list")
-        pulumi.set(__self__, "endpoint_details", endpoint_details)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -53,30 +42,6 @@ class GetDataflowEndpointGroupResult:
         The ARN of the dataflow endpoint group, such as `arn:aws:groundstation:us-east-2:1234567890:dataflow-endpoint-group/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
         """
         return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="contactPostPassDurationSeconds")
-    def contact_post_pass_duration_seconds(self) -> Optional[int]:
-        """
-        Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
-        """
-        return pulumi.get(self, "contact_post_pass_duration_seconds")
-
-    @property
-    @pulumi.getter(name="contactPrePassDurationSeconds")
-    def contact_pre_pass_duration_seconds(self) -> Optional[int]:
-        """
-        Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
-        """
-        return pulumi.get(self, "contact_pre_pass_duration_seconds")
-
-    @property
-    @pulumi.getter(name="endpointDetails")
-    def endpoint_details(self) -> Optional[Sequence['outputs.DataflowEndpointGroupEndpointDetails']]:
-        """
-        List of Endpoint Details, containing address and port for each endpoint.
-        """
-        return pulumi.get(self, "endpoint_details")
 
     @property
     @pulumi.getter
@@ -102,9 +67,6 @@ class AwaitableGetDataflowEndpointGroupResult(GetDataflowEndpointGroupResult):
             yield self
         return GetDataflowEndpointGroupResult(
             arn=self.arn,
-            contact_post_pass_duration_seconds=self.contact_post_pass_duration_seconds,
-            contact_pre_pass_duration_seconds=self.contact_pre_pass_duration_seconds,
-            endpoint_details=self.endpoint_details,
             id=self.id,
             tags=self.tags)
 
@@ -124,9 +86,6 @@ def get_dataflow_endpoint_group(id: Optional[str] = None,
 
     return AwaitableGetDataflowEndpointGroupResult(
         arn=pulumi.get(__ret__, 'arn'),
-        contact_post_pass_duration_seconds=pulumi.get(__ret__, 'contact_post_pass_duration_seconds'),
-        contact_pre_pass_duration_seconds=pulumi.get(__ret__, 'contact_pre_pass_duration_seconds'),
-        endpoint_details=pulumi.get(__ret__, 'endpoint_details'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_dataflow_endpoint_group_output(id: Optional[pulumi.Input[str]] = None,
@@ -143,8 +102,5 @@ def get_dataflow_endpoint_group_output(id: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:groundstation:getDataflowEndpointGroup', __args__, opts=opts, typ=GetDataflowEndpointGroupResult)
     return __ret__.apply(lambda __response__: GetDataflowEndpointGroupResult(
         arn=pulumi.get(__response__, 'arn'),
-        contact_post_pass_duration_seconds=pulumi.get(__response__, 'contact_post_pass_duration_seconds'),
-        contact_pre_pass_duration_seconds=pulumi.get(__response__, 'contact_pre_pass_duration_seconds'),
-        endpoint_details=pulumi.get(__response__, 'endpoint_details'),
         id=pulumi.get(__response__, 'id'),
         tags=pulumi.get(__response__, 'tags')))

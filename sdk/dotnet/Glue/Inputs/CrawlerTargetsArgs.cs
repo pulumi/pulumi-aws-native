@@ -51,6 +51,18 @@ namespace Pulumi.AwsNative.Glue.Inputs
             set => _dynamoDbTargets = value;
         }
 
+        [Input("hudiTargets")]
+        private InputList<Inputs.CrawlerHudiTargetArgs>? _hudiTargets;
+
+        /// <summary>
+        /// Specifies Apache Hudi data store targets.
+        /// </summary>
+        public InputList<Inputs.CrawlerHudiTargetArgs> HudiTargets
+        {
+            get => _hudiTargets ?? (_hudiTargets = new InputList<Inputs.CrawlerHudiTargetArgs>());
+            set => _hudiTargets = value;
+        }
+
         [Input("icebergTargets")]
         private InputList<Inputs.CrawlerIcebergTargetArgs>? _icebergTargets;
 

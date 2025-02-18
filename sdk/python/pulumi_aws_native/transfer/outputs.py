@@ -27,6 +27,9 @@ __all__ = [
     'SftpConfigProperties',
     'UserHomeDirectoryMapEntry',
     'UserPosixProfile',
+    'WebAppCustomization',
+    'WebAppIdentityProviderDetails',
+    'WebAppUnitsProperties',
     'WorkflowEfsInputFileLocation',
     'WorkflowInputFileLocation',
     'WorkflowS3FileLocation',
@@ -875,6 +878,152 @@ class UserPosixProfile(dict):
         The secondary POSIX group IDs used for all EFS operations by this user.
         """
         return pulumi.get(self, "secondary_gids")
+
+
+@pulumi.output_type
+class WebAppCustomization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "faviconFile":
+            suggest = "favicon_file"
+        elif key == "logoFile":
+            suggest = "logo_file"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAppCustomization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAppCustomization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAppCustomization.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 favicon_file: Optional[str] = None,
+                 logo_file: Optional[str] = None,
+                 title: Optional[str] = None):
+        """
+        :param str favicon_file: Specifies a favicon to display in the browser tab.
+        :param str logo_file: Specifies a logo to display on the web app.
+        :param str title: Specifies a title to display on the web app.
+        """
+        if favicon_file is not None:
+            pulumi.set(__self__, "favicon_file", favicon_file)
+        if logo_file is not None:
+            pulumi.set(__self__, "logo_file", logo_file)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="faviconFile")
+    def favicon_file(self) -> Optional[str]:
+        """
+        Specifies a favicon to display in the browser tab.
+        """
+        return pulumi.get(self, "favicon_file")
+
+    @property
+    @pulumi.getter(name="logoFile")
+    def logo_file(self) -> Optional[str]:
+        """
+        Specifies a logo to display on the web app.
+        """
+        return pulumi.get(self, "logo_file")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        Specifies a title to display on the web app.
+        """
+        return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class WebAppIdentityProviderDetails(dict):
+    """
+    You can provide a structure that contains the details for the identity provider to use with your web app.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationArn":
+            suggest = "application_arn"
+        elif key == "instanceArn":
+            suggest = "instance_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAppIdentityProviderDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAppIdentityProviderDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAppIdentityProviderDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_arn: Optional[str] = None,
+                 instance_arn: Optional[str] = None,
+                 role: Optional[str] = None):
+        """
+        You can provide a structure that contains the details for the identity provider to use with your web app.
+        :param str application_arn: The Amazon Resource Name (ARN) for the IAM Identity Center application: this value is set automatically when you create your web app.
+        :param str instance_arn: The Amazon Resource Name (ARN) for the IAM Identity Center used for the web app.
+        :param str role: The IAM role in IAM Identity Center used for the web app.
+        """
+        if application_arn is not None:
+            pulumi.set(__self__, "application_arn", application_arn)
+        if instance_arn is not None:
+            pulumi.set(__self__, "instance_arn", instance_arn)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter(name="applicationArn")
+    def application_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the IAM Identity Center application: this value is set automatically when you create your web app.
+        """
+        return pulumi.get(self, "application_arn")
+
+    @property
+    @pulumi.getter(name="instanceArn")
+    def instance_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the IAM Identity Center used for the web app.
+        """
+        return pulumi.get(self, "instance_arn")
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[str]:
+        """
+        The IAM role in IAM Identity Center used for the web app.
+        """
+        return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class WebAppUnitsProperties(dict):
+    """
+    A union that contains the value for number of concurrent connections or the user sessions on your web app.
+    """
+    def __init__(__self__, *,
+                 provisioned: int):
+        """
+        A union that contains the value for number of concurrent connections or the user sessions on your web app.
+        """
+        pulumi.set(__self__, "provisioned", provisioned)
+
+    @property
+    @pulumi.getter
+    def provisioned(self) -> int:
+        return pulumi.get(self, "provisioned")
 
 
 @pulumi.output_type

@@ -40,6 +40,8 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         /// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
         /// 
         /// &gt; If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+        /// &gt; 
+        /// &gt; If you specify a maximum price, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an `InvalidParameterValue` error message.
         /// </summary>
         [Input("maxPrice")]
         public Input<string>? MaxPrice { get; set; }

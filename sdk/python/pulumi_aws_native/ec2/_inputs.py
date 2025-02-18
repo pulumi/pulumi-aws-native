@@ -114,6 +114,8 @@ __all__ = [
     'InstanceVolumeArgsDict',
     'IpamOperatingRegionArgs',
     'IpamOperatingRegionArgsDict',
+    'IpamOrganizationalUnitExclusionArgs',
+    'IpamOrganizationalUnitExclusionArgsDict',
     'IpamPoolProvisionedCidrArgs',
     'IpamPoolProvisionedCidrArgsDict',
     'IpamPoolSourceResourceArgs',
@@ -122,6 +124,8 @@ __all__ = [
     'IpamPoolTagArgsDict',
     'IpamResourceDiscoveryIpamOperatingRegionArgs',
     'IpamResourceDiscoveryIpamOperatingRegionArgsDict',
+    'IpamResourceDiscoveryOrganizationalUnitExclusionArgs',
+    'IpamResourceDiscoveryOrganizationalUnitExclusionArgsDict',
     'LaunchTemplateAcceleratorCountArgs',
     'LaunchTemplateAcceleratorCountArgsDict',
     'LaunchTemplateAcceleratorTotalMemoryMiBArgs',
@@ -1360,6 +1364,8 @@ if not MYPY:
         The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 
         > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+        > 
+        > If you specify a maximum price, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an `InvalidParameterValue` error message.
         """
         placement: NotRequired[pulumi.Input['Ec2FleetPlacementArgsDict']]
         """
@@ -1414,6 +1420,8 @@ class Ec2FleetFleetLaunchTemplateOverridesRequestArgs:
         :param pulumi.Input[str] max_price: The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
                
                > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+               > 
+               > If you specify a maximum price, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an `InvalidParameterValue` error message.
         :param pulumi.Input['Ec2FleetPlacementArgs'] placement: The location where the instance launched, if applicable.
         :param pulumi.Input[float] priority: The priority for the launch template override. The highest priority is launched first.
                
@@ -1495,6 +1503,8 @@ class Ec2FleetFleetLaunchTemplateOverridesRequestArgs:
         The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 
         > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+        > 
+        > If you specify a maximum price, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an `InvalidParameterValue` error message.
         """
         return pulumi.get(self, "max_price")
 
@@ -4980,6 +4990,41 @@ class IpamOperatingRegionArgs:
 
 
 if not MYPY:
+    class IpamOrganizationalUnitExclusionArgsDict(TypedDict):
+        """
+        If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+        """
+        organizations_entity_path: pulumi.Input[str]
+        """
+        An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+        """
+elif False:
+    IpamOrganizationalUnitExclusionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IpamOrganizationalUnitExclusionArgs:
+    def __init__(__self__, *,
+                 organizations_entity_path: pulumi.Input[str]):
+        """
+        If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+        :param pulumi.Input[str] organizations_entity_path: An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+        """
+        pulumi.set(__self__, "organizations_entity_path", organizations_entity_path)
+
+    @property
+    @pulumi.getter(name="organizationsEntityPath")
+    def organizations_entity_path(self) -> pulumi.Input[str]:
+        """
+        An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+        """
+        return pulumi.get(self, "organizations_entity_path")
+
+    @organizations_entity_path.setter
+    def organizations_entity_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "organizations_entity_path", value)
+
+
+if not MYPY:
     class IpamPoolProvisionedCidrArgsDict(TypedDict):
         """
         An address space to be inserted into this pool. All allocations must be made from this address space.
@@ -5193,6 +5238,41 @@ class IpamResourceDiscoveryIpamOperatingRegionArgs:
     @region_name.setter
     def region_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "region_name", value)
+
+
+if not MYPY:
+    class IpamResourceDiscoveryOrganizationalUnitExclusionArgsDict(TypedDict):
+        """
+        If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+        """
+        organizations_entity_path: pulumi.Input[str]
+        """
+        An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+        """
+elif False:
+    IpamResourceDiscoveryOrganizationalUnitExclusionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IpamResourceDiscoveryOrganizationalUnitExclusionArgs:
+    def __init__(__self__, *,
+                 organizations_entity_path: pulumi.Input[str]):
+        """
+        If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+        :param pulumi.Input[str] organizations_entity_path: An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+        """
+        pulumi.set(__self__, "organizations_entity_path", organizations_entity_path)
+
+    @property
+    @pulumi.getter(name="organizationsEntityPath")
+    def organizations_entity_path(self) -> pulumi.Input[str]:
+        """
+        An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+        """
+        return pulumi.get(self, "organizations_entity_path")
+
+    @organizations_entity_path.setter
+    def organizations_entity_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "organizations_entity_path", value)
 
 
 if not MYPY:

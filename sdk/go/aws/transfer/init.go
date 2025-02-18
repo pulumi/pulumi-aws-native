@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Server{}
 	case "aws-native:transfer:User":
 		r = &User{}
+	case "aws-native:transfer:WebApp":
+		r = &WebApp{}
 	case "aws-native:transfer:Workflow":
 		r = &Workflow{}
 	default:

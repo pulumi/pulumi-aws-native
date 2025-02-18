@@ -31,8 +31,14 @@ type LookupLocationSmbArgs struct {
 type LookupLocationSmbResult struct {
 	// The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
 	AgentArns []string `pulumi:"agentArns"`
+	// The authentication mode used to determine identity of user.
+	AuthenticationType *LocationSmbAuthenticationType `pulumi:"authenticationType"`
+	// Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
+	DnsIpAddresses []string `pulumi:"dnsIpAddresses"`
 	// The name of the Windows domain that the SMB server belongs to.
 	Domain *string `pulumi:"domain"`
+	// Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. SPNs are case sensitive and must include a prepended cifs/. For example, an SPN might look like cifs/kerberosuser@EXAMPLE.COM. Your task execution will fail if the SPN that you provide for this parameter doesn't match exactly what's in your keytab or krb5.conf files.
+	KerberosPrincipal *string `pulumi:"kerberosPrincipal"`
 	// The Amazon Resource Name (ARN) of the SMB location that is created.
 	LocationArn *string `pulumi:"locationArn"`
 	// The URL of the SMB location that was described.
@@ -82,9 +88,24 @@ func (o LookupLocationSmbResultOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLocationSmbResult) []string { return v.AgentArns }).(pulumi.StringArrayOutput)
 }
 
+// The authentication mode used to determine identity of user.
+func (o LookupLocationSmbResultOutput) AuthenticationType() LocationSmbAuthenticationTypePtrOutput {
+	return o.ApplyT(func(v LookupLocationSmbResult) *LocationSmbAuthenticationType { return v.AuthenticationType }).(LocationSmbAuthenticationTypePtrOutput)
+}
+
+// Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
+func (o LookupLocationSmbResultOutput) DnsIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupLocationSmbResult) []string { return v.DnsIpAddresses }).(pulumi.StringArrayOutput)
+}
+
 // The name of the Windows domain that the SMB server belongs to.
 func (o LookupLocationSmbResultOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocationSmbResult) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. SPNs are case sensitive and must include a prepended cifs/. For example, an SPN might look like cifs/kerberosuser@EXAMPLE.COM. Your task execution will fail if the SPN that you provide for this parameter doesn't match exactly what's in your keytab or krb5.conf files.
+func (o LookupLocationSmbResultOutput) KerberosPrincipal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLocationSmbResult) *string { return v.KerberosPrincipal }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the SMB location that is created.

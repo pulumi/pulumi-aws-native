@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.Fms.Outputs
         /// </summary>
         public readonly Outputs.PolicyOption? PolicyOption;
         /// <summary>
-        /// The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting AWS Support .
+        /// The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting SUPlong .
         /// </summary>
         public readonly Pulumi.AwsNative.Fms.PolicyType Type;
 

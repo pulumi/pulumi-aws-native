@@ -20,13 +20,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// <summary>
         /// List of Tools
         /// </summary>
-        public readonly ImmutableArray<Outputs.PromptVersionToolProperties> Tools;
+        public readonly ImmutableArray<Union<Outputs.PromptVersionTool0Properties, Outputs.PromptVersionTool1Properties>> Tools;
 
         [OutputConstructor]
         private PromptVersionToolConfiguration(
             object? toolChoice,
 
-            ImmutableArray<Outputs.PromptVersionToolProperties> tools)
+            ImmutableArray<Union<Outputs.PromptVersionTool0Properties, Outputs.PromptVersionTool1Properties>> tools)
         {
             ToolChoice = toolChoice;
             Tools = tools;

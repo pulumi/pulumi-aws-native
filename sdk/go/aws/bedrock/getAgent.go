@@ -31,7 +31,10 @@ type LookupAgentResult struct {
 	// List of ActionGroups
 	ActionGroups []AgentActionGroup `pulumi:"actionGroups"`
 	// Arn representation of the Agent.
-	AgentArn *string `pulumi:"agentArn"`
+	AgentArn           *string             `pulumi:"agentArn"`
+	AgentCollaboration *AgentCollaboration `pulumi:"agentCollaboration"`
+	// List of Agent Collaborators
+	AgentCollaborators []AgentCollaborator `pulumi:"agentCollaborators"`
 	// Identifier for a resource.
 	AgentId *string `pulumi:"agentId"`
 	// Name for a resource.
@@ -51,14 +54,15 @@ type LookupAgentResult struct {
 	// Draft Agent Version.
 	AgentVersion *string `pulumi:"agentVersion"`
 	// Time Stamp.
-	CreatedAt *string `pulumi:"createdAt"`
+	CreatedAt           *string                   `pulumi:"createdAt"`
+	CustomOrchestration *AgentCustomOrchestration `pulumi:"customOrchestration"`
 	// A KMS key ARN
 	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`
 	// Description of the Resource.
 	Description *string `pulumi:"description"`
 	// Failure Reasons for Error.
 	FailureReasons []string `pulumi:"failureReasons"`
-	// ARN or name of a Bedrock model.
+	// The foundation model used for orchestration by the agent.
 	FoundationModel *string `pulumi:"foundationModel"`
 	// Details about the guardrail associated with the agent.
 	GuardrailConfiguration *AgentGuardrailConfiguration `pulumi:"guardrailConfiguration"`
@@ -67,7 +71,9 @@ type LookupAgentResult struct {
 	// Instruction for the agent.
 	Instruction *string `pulumi:"instruction"`
 	// List of Agent Knowledge Bases
-	KnowledgeBases []AgentKnowledgeBase `pulumi:"knowledgeBases"`
+	KnowledgeBases      []AgentKnowledgeBase      `pulumi:"knowledgeBases"`
+	MemoryConfiguration *AgentMemoryConfiguration `pulumi:"memoryConfiguration"`
+	OrchestrationType   *AgentOrchestrationType   `pulumi:"orchestrationType"`
 	// Time Stamp.
 	PreparedAt *string `pulumi:"preparedAt"`
 	// Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
@@ -130,6 +136,15 @@ func (o LookupAgentResultOutput) AgentArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *string { return v.AgentArn }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupAgentResultOutput) AgentCollaboration() AgentCollaborationPtrOutput {
+	return o.ApplyT(func(v LookupAgentResult) *AgentCollaboration { return v.AgentCollaboration }).(AgentCollaborationPtrOutput)
+}
+
+// List of Agent Collaborators
+func (o LookupAgentResultOutput) AgentCollaborators() AgentCollaboratorArrayOutput {
+	return o.ApplyT(func(v LookupAgentResult) []AgentCollaborator { return v.AgentCollaborators }).(AgentCollaboratorArrayOutput)
+}
+
 // Identifier for a resource.
 func (o LookupAgentResultOutput) AgentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *string { return v.AgentId }).(pulumi.StringPtrOutput)
@@ -168,6 +183,10 @@ func (o LookupAgentResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupAgentResultOutput) CustomOrchestration() AgentCustomOrchestrationPtrOutput {
+	return o.ApplyT(func(v LookupAgentResult) *AgentCustomOrchestration { return v.CustomOrchestration }).(AgentCustomOrchestrationPtrOutput)
+}
+
 // A KMS key ARN
 func (o LookupAgentResultOutput) CustomerEncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *string { return v.CustomerEncryptionKeyArn }).(pulumi.StringPtrOutput)
@@ -183,7 +202,7 @@ func (o LookupAgentResultOutput) FailureReasons() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupAgentResult) []string { return v.FailureReasons }).(pulumi.StringArrayOutput)
 }
 
-// ARN or name of a Bedrock model.
+// The foundation model used for orchestration by the agent.
 func (o LookupAgentResultOutput) FoundationModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *string { return v.FoundationModel }).(pulumi.StringPtrOutput)
 }
@@ -206,6 +225,14 @@ func (o LookupAgentResultOutput) Instruction() pulumi.StringPtrOutput {
 // List of Agent Knowledge Bases
 func (o LookupAgentResultOutput) KnowledgeBases() AgentKnowledgeBaseArrayOutput {
 	return o.ApplyT(func(v LookupAgentResult) []AgentKnowledgeBase { return v.KnowledgeBases }).(AgentKnowledgeBaseArrayOutput)
+}
+
+func (o LookupAgentResultOutput) MemoryConfiguration() AgentMemoryConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupAgentResult) *AgentMemoryConfiguration { return v.MemoryConfiguration }).(AgentMemoryConfigurationPtrOutput)
+}
+
+func (o LookupAgentResultOutput) OrchestrationType() AgentOrchestrationTypePtrOutput {
+	return o.ApplyT(func(v LookupAgentResult) *AgentOrchestrationType { return v.OrchestrationType }).(AgentOrchestrationTypePtrOutput)
 }
 
 // Time Stamp.

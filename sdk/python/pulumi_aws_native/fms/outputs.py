@@ -579,7 +579,7 @@ class PolicySecurityServicePolicyData(dict):
                  policy_option: Optional['outputs.PolicyOption'] = None):
         """
         Firewall security service policy data.
-        :param 'PolicyType' type: The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting AWS Support .
+        :param 'PolicyType' type: The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting SUPlong .
         :param str managed_service_data: Details about the service that are specific to the service type, in JSON format.
                
                - Example: `DNS_FIREWALL`
@@ -672,7 +672,7 @@ class PolicySecurityServicePolicyData(dict):
     @pulumi.getter
     def type(self) -> 'PolicyType':
         """
-        The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting AWS Support .
+        The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting SUPlong .
         """
         return pulumi.get(self, "type")
 

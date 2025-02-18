@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.EmrContainers
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The ID of the security configuration.
+        /// </summary>
+        public readonly string? SecurityConfigurationId;
+        /// <summary>
         /// An array of key-value pairs to apply to this virtual cluster.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -82,10 +86,13 @@ namespace Pulumi.AwsNative.EmrContainers
 
             string? id,
 
+            string? securityConfigurationId,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Id = id;
+            SecurityConfigurationId = securityConfigurationId;
             Tags = tags;
         }
     }

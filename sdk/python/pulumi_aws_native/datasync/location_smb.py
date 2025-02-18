@@ -25,28 +25,47 @@ __all__ = ['LocationSmbArgs', 'LocationSmb']
 class LocationSmbArgs:
     def __init__(__self__, *,
                  agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 user: pulumi.Input[str],
+                 authentication_type: Optional[pulumi.Input['LocationSmbAuthenticationType']] = None,
+                 dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
+                 kerberos_keytab: Optional[pulumi.Input[str]] = None,
+                 kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
+                 kerberos_principal: Optional[pulumi.Input[str]] = None,
                  mount_options: Optional[pulumi.Input['LocationSmbMountOptionsArgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 user: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LocationSmb resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
-        :param pulumi.Input[str] user: The user who can mount the share, has the permissions to access files and folders in the SMB share.
+        :param pulumi.Input['LocationSmbAuthenticationType'] authentication_type: The authentication mode used to determine identity of user.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_ip_addresses: Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
         :param pulumi.Input[str] domain: The name of the Windows domain that the SMB server belongs to.
+        :param pulumi.Input[str] kerberos_keytab: The Base64 string representation of the Keytab file. Specifies your Kerberos key table (keytab) file, which includes mappings between your service principal name (SPN) and encryption keys. To avoid task execution errors, make sure that the SPN in the keytab file matches exactly what you specify for KerberosPrincipal and in your krb5.conf file.
+        :param pulumi.Input[str] kerberos_krb5_conf: The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket. Specifies a Kerberos configuration file (krb5.conf) that defines your Kerberos realm configuration. To avoid task execution errors, make sure that the service principal name (SPN) in the krb5.conf file matches exactly what you specify for KerberosPrincipal and in your keytab file.
+        :param pulumi.Input[str] kerberos_principal: Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. SPNs are case sensitive and must include a prepended cifs/. For example, an SPN might look like cifs/kerberosuser@EXAMPLE.COM. Your task execution will fail if the SPN that you provide for this parameter doesn't match exactly what's in your keytab or krb5.conf files.
         :param pulumi.Input['LocationSmbMountOptionsArgs'] mount_options: Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
         :param pulumi.Input[str] password: The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         :param pulumi.Input[str] server_hostname: The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
         :param pulumi.Input[str] subdirectory: The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] user: The user who can mount the share, has the permissions to access files and folders in the SMB share.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
-        pulumi.set(__self__, "user", user)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
+        if dns_ip_addresses is not None:
+            pulumi.set(__self__, "dns_ip_addresses", dns_ip_addresses)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if kerberos_keytab is not None:
+            pulumi.set(__self__, "kerberos_keytab", kerberos_keytab)
+        if kerberos_krb5_conf is not None:
+            pulumi.set(__self__, "kerberos_krb5_conf", kerberos_krb5_conf)
+        if kerberos_principal is not None:
+            pulumi.set(__self__, "kerberos_principal", kerberos_principal)
         if mount_options is not None:
             pulumi.set(__self__, "mount_options", mount_options)
         if password is not None:
@@ -57,6 +76,8 @@ class LocationSmbArgs:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter(name="agentArns")
@@ -71,16 +92,28 @@ class LocationSmbArgs:
         pulumi.set(self, "agent_arns", value)
 
     @property
-    @pulumi.getter
-    def user(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input['LocationSmbAuthenticationType']]:
         """
-        The user who can mount the share, has the permissions to access files and folders in the SMB share.
+        The authentication mode used to determine identity of user.
         """
-        return pulumi.get(self, "user")
+        return pulumi.get(self, "authentication_type")
 
-    @user.setter
-    def user(self, value: pulumi.Input[str]):
-        pulumi.set(self, "user", value)
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input['LocationSmbAuthenticationType']]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="dnsIpAddresses")
+    def dns_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
+        """
+        return pulumi.get(self, "dns_ip_addresses")
+
+    @dns_ip_addresses.setter
+    def dns_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_ip_addresses", value)
 
     @property
     @pulumi.getter
@@ -93,6 +126,42 @@ class LocationSmbArgs:
     @domain.setter
     def domain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="kerberosKeytab")
+    def kerberos_keytab(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64 string representation of the Keytab file. Specifies your Kerberos key table (keytab) file, which includes mappings between your service principal name (SPN) and encryption keys. To avoid task execution errors, make sure that the SPN in the keytab file matches exactly what you specify for KerberosPrincipal and in your krb5.conf file.
+        """
+        return pulumi.get(self, "kerberos_keytab")
+
+    @kerberos_keytab.setter
+    def kerberos_keytab(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kerberos_keytab", value)
+
+    @property
+    @pulumi.getter(name="kerberosKrb5Conf")
+    def kerberos_krb5_conf(self) -> Optional[pulumi.Input[str]]:
+        """
+        The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket. Specifies a Kerberos configuration file (krb5.conf) that defines your Kerberos realm configuration. To avoid task execution errors, make sure that the service principal name (SPN) in the krb5.conf file matches exactly what you specify for KerberosPrincipal and in your keytab file.
+        """
+        return pulumi.get(self, "kerberos_krb5_conf")
+
+    @kerberos_krb5_conf.setter
+    def kerberos_krb5_conf(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kerberos_krb5_conf", value)
+
+    @property
+    @pulumi.getter(name="kerberosPrincipal")
+    def kerberos_principal(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. SPNs are case sensitive and must include a prepended cifs/. For example, an SPN might look like cifs/kerberosuser@EXAMPLE.COM. Your task execution will fail if the SPN that you provide for this parameter doesn't match exactly what's in your keytab or krb5.conf files.
+        """
+        return pulumi.get(self, "kerberos_principal")
+
+    @kerberos_principal.setter
+    def kerberos_principal(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kerberos_principal", value)
 
     @property
     @pulumi.getter(name="mountOptions")
@@ -154,6 +223,18 @@ class LocationSmbArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user who can mount the share, has the permissions to access files and folders in the SMB share.
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user", value)
+
 
 class LocationSmb(pulumi.CustomResource):
     @overload
@@ -161,7 +242,12 @@ class LocationSmb(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 authentication_type: Optional[pulumi.Input['LocationSmbAuthenticationType']] = None,
+                 dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
+                 kerberos_keytab: Optional[pulumi.Input[str]] = None,
+                 kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
+                 kerberos_principal: Optional[pulumi.Input[str]] = None,
                  mount_options: Optional[pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
@@ -175,7 +261,12 @@ class LocationSmb(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
+        :param pulumi.Input['LocationSmbAuthenticationType'] authentication_type: The authentication mode used to determine identity of user.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_ip_addresses: Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
         :param pulumi.Input[str] domain: The name of the Windows domain that the SMB server belongs to.
+        :param pulumi.Input[str] kerberos_keytab: The Base64 string representation of the Keytab file. Specifies your Kerberos key table (keytab) file, which includes mappings between your service principal name (SPN) and encryption keys. To avoid task execution errors, make sure that the SPN in the keytab file matches exactly what you specify for KerberosPrincipal and in your krb5.conf file.
+        :param pulumi.Input[str] kerberos_krb5_conf: The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket. Specifies a Kerberos configuration file (krb5.conf) that defines your Kerberos realm configuration. To avoid task execution errors, make sure that the service principal name (SPN) in the krb5.conf file matches exactly what you specify for KerberosPrincipal and in your keytab file.
+        :param pulumi.Input[str] kerberos_principal: Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. SPNs are case sensitive and must include a prepended cifs/. For example, an SPN might look like cifs/kerberosuser@EXAMPLE.COM. Your task execution will fail if the SPN that you provide for this parameter doesn't match exactly what's in your keytab or krb5.conf files.
         :param pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']] mount_options: Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
         :param pulumi.Input[str] password: The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         :param pulumi.Input[str] server_hostname: The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
@@ -208,7 +299,12 @@ class LocationSmb(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 authentication_type: Optional[pulumi.Input['LocationSmbAuthenticationType']] = None,
+                 dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
+                 kerberos_keytab: Optional[pulumi.Input[str]] = None,
+                 kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
+                 kerberos_principal: Optional[pulumi.Input[str]] = None,
                  mount_options: Optional[pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
@@ -227,19 +323,20 @@ class LocationSmb(pulumi.CustomResource):
             if agent_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_arns'")
             __props__.__dict__["agent_arns"] = agent_arns
+            __props__.__dict__["authentication_type"] = authentication_type
+            __props__.__dict__["dns_ip_addresses"] = dns_ip_addresses
             __props__.__dict__["domain"] = domain
+            __props__.__dict__["kerberos_keytab"] = kerberos_keytab
+            __props__.__dict__["kerberos_krb5_conf"] = kerberos_krb5_conf
+            __props__.__dict__["kerberos_principal"] = kerberos_principal
             __props__.__dict__["mount_options"] = mount_options
             __props__.__dict__["password"] = password
             __props__.__dict__["server_hostname"] = server_hostname
             __props__.__dict__["subdirectory"] = subdirectory
             __props__.__dict__["tags"] = tags
-            if user is None and not opts.urn:
-                raise TypeError("Missing required property 'user'")
             __props__.__dict__["user"] = user
             __props__.__dict__["location_arn"] = None
             __props__.__dict__["location_uri"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["serverHostname"])
-        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LocationSmb, __self__).__init__(
             'aws-native:datasync:LocationSmb',
             resource_name,
@@ -263,7 +360,12 @@ class LocationSmb(pulumi.CustomResource):
         __props__ = LocationSmbArgs.__new__(LocationSmbArgs)
 
         __props__.__dict__["agent_arns"] = None
+        __props__.__dict__["authentication_type"] = None
+        __props__.__dict__["dns_ip_addresses"] = None
         __props__.__dict__["domain"] = None
+        __props__.__dict__["kerberos_keytab"] = None
+        __props__.__dict__["kerberos_krb5_conf"] = None
+        __props__.__dict__["kerberos_principal"] = None
         __props__.__dict__["location_arn"] = None
         __props__.__dict__["location_uri"] = None
         __props__.__dict__["mount_options"] = None
@@ -283,12 +385,52 @@ class LocationSmb(pulumi.CustomResource):
         return pulumi.get(self, "agent_arns")
 
     @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Output[Optional['LocationSmbAuthenticationType']]:
+        """
+        The authentication mode used to determine identity of user.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="dnsIpAddresses")
+    def dns_ip_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
+        """
+        return pulumi.get(self, "dns_ip_addresses")
+
+    @property
     @pulumi.getter
     def domain(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Windows domain that the SMB server belongs to.
         """
         return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="kerberosKeytab")
+    def kerberos_keytab(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Base64 string representation of the Keytab file. Specifies your Kerberos key table (keytab) file, which includes mappings between your service principal name (SPN) and encryption keys. To avoid task execution errors, make sure that the SPN in the keytab file matches exactly what you specify for KerberosPrincipal and in your krb5.conf file.
+        """
+        return pulumi.get(self, "kerberos_keytab")
+
+    @property
+    @pulumi.getter(name="kerberosKrb5Conf")
+    def kerberos_krb5_conf(self) -> pulumi.Output[Optional[str]]:
+        """
+        The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket. Specifies a Kerberos configuration file (krb5.conf) that defines your Kerberos realm configuration. To avoid task execution errors, make sure that the service principal name (SPN) in the krb5.conf file matches exactly what you specify for KerberosPrincipal and in your keytab file.
+        """
+        return pulumi.get(self, "kerberos_krb5_conf")
+
+    @property
+    @pulumi.getter(name="kerberosPrincipal")
+    def kerberos_principal(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. SPNs are case sensitive and must include a prepended cifs/. For example, an SPN might look like cifs/kerberosuser@EXAMPLE.COM. Your task execution will fail if the SPN that you provide for this parameter doesn't match exactly what's in your keytab or krb5.conf files.
+        """
+        return pulumi.get(self, "kerberos_principal")
 
     @property
     @pulumi.getter(name="locationArn")
@@ -348,7 +490,7 @@ class LocationSmb(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def user(self) -> pulumi.Output[str]:
+    def user(self) -> pulumi.Output[Optional[str]]:
         """
         The user who can mount the share, has the permissions to access files and folders in the SMB share.
         """

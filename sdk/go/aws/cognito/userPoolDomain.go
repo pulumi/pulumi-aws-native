@@ -16,8 +16,6 @@ import (
 type UserPoolDomain struct {
 	pulumi.CustomResourceState
 
-	// The resource ID.
-	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
 	CloudFrontDistribution pulumi.StringOutput `pulumi:"cloudFrontDistribution"`
 	// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
@@ -144,11 +142,6 @@ func (o UserPoolDomainOutput) ToUserPoolDomainOutput() UserPoolDomainOutput {
 
 func (o UserPoolDomainOutput) ToUserPoolDomainOutputWithContext(ctx context.Context) UserPoolDomainOutput {
 	return o
-}
-
-// The resource ID.
-func (o UserPoolDomainOutput) AwsId() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.

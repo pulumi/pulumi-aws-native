@@ -67,10 +67,12 @@ __all__ = [
     'InstanceState',
     'InstanceVolume',
     'IpamOperatingRegion',
+    'IpamOrganizationalUnitExclusion',
     'IpamPoolProvisionedCidr',
     'IpamPoolSourceResource',
     'IpamPoolTag',
     'IpamResourceDiscoveryIpamOperatingRegion',
+    'IpamResourceDiscoveryOrganizationalUnitExclusion',
     'LaunchTemplateAcceleratorCount',
     'LaunchTemplateAcceleratorTotalMemoryMiB',
     'LaunchTemplateBaselineEbsBandwidthMbps',
@@ -1011,6 +1013,8 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
         :param str max_price: The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
                
                > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+               > 
+               > If you specify a maximum price, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an `InvalidParameterValue` error message.
         :param 'Ec2FleetPlacement' placement: The location where the instance launched, if applicable.
         :param float priority: The priority for the launch template override. The highest priority is launched first.
                
@@ -1080,6 +1084,8 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
         The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 
         > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+        > 
+        > If you specify a maximum price, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an `InvalidParameterValue` error message.
         """
         return pulumi.get(self, "max_price")
 
@@ -3722,6 +3728,45 @@ class IpamOperatingRegion(dict):
 
 
 @pulumi.output_type
+class IpamOrganizationalUnitExclusion(dict):
+    """
+    If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "organizationsEntityPath":
+            suggest = "organizations_entity_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpamOrganizationalUnitExclusion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpamOrganizationalUnitExclusion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpamOrganizationalUnitExclusion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 organizations_entity_path: str):
+        """
+        If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+        :param str organizations_entity_path: An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+        """
+        pulumi.set(__self__, "organizations_entity_path", organizations_entity_path)
+
+    @property
+    @pulumi.getter(name="organizationsEntityPath")
+    def organizations_entity_path(self) -> str:
+        """
+        An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+        """
+        return pulumi.get(self, "organizations_entity_path")
+
+
+@pulumi.output_type
 class IpamPoolProvisionedCidr(dict):
     """
     An address space to be inserted into this pool. All allocations must be made from this address space.
@@ -3891,6 +3936,45 @@ class IpamResourceDiscoveryIpamOperatingRegion(dict):
         The name of the region.
         """
         return pulumi.get(self, "region_name")
+
+
+@pulumi.output_type
+class IpamResourceDiscoveryOrganizationalUnitExclusion(dict):
+    """
+    If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "organizationsEntityPath":
+            suggest = "organizations_entity_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpamResourceDiscoveryOrganizationalUnitExclusion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpamResourceDiscoveryOrganizationalUnitExclusion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpamResourceDiscoveryOrganizationalUnitExclusion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 organizations_entity_path: str):
+        """
+        If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+        :param str organizations_entity_path: An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+        """
+        pulumi.set(__self__, "organizations_entity_path", organizations_entity_path)
+
+    @property
+    @pulumi.getter(name="organizationsEntityPath")
+    def organizations_entity_path(self) -> str:
+        """
+        An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+        """
+        return pulumi.get(self, "organizations_entity_path")
 
 
 @pulumi.output_type

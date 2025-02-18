@@ -24,15 +24,21 @@ __all__ = [
     'AgentAliasRoutingConfigurationListItem',
     'AgentApiSchema0Properties',
     'AgentApiSchema1Properties',
+    'AgentCollaborator',
+    'AgentCollaboratorAgentDescriptorProperties',
+    'AgentCustomOrchestration',
     'AgentFunction',
     'AgentFunctionSchema',
     'AgentGuardrailConfiguration',
     'AgentInferenceConfiguration',
     'AgentKnowledgeBase',
+    'AgentMemoryConfiguration',
+    'AgentOrchestrationExecutor',
     'AgentParameterDetail',
     'AgentPromptConfiguration',
     'AgentPromptOverrideConfiguration',
     'AgentS3Identifier',
+    'AgentSessionSummaryConfiguration',
     'ApplicationInferenceProfileInferenceProfileModel',
     'ApplicationInferenceProfileInferenceProfileModelSourceProperties',
     'DataSourceBedrockDataAutomationConfiguration',
@@ -215,34 +221,42 @@ __all__ = [
     'KnowledgeBaseSupplementalDataStorageConfiguration',
     'KnowledgeBaseSupplementalDataStorageLocation',
     'KnowledgeBaseVectorKnowledgeBaseConfiguration',
+    'PromptAdditionalModelRequestFields',
     'PromptAgentResource',
     'PromptAnyToolChoice',
     'PromptAutoToolChoice',
+    'PromptCachePointBlock',
     'PromptChatPromptTemplateConfiguration',
-    'PromptContentBlockProperties',
+    'PromptContentBlock0Properties',
+    'PromptContentBlock1Properties',
     'PromptGenAiResourceProperties',
     'PromptInferenceConfigurationProperties',
     'PromptInputVariable',
     'PromptMessage',
     'PromptModelInferenceConfiguration',
     'PromptSpecificToolChoice',
-    'PromptSystemContentBlockProperties',
+    'PromptSystemContentBlock0Properties',
+    'PromptSystemContentBlock1Properties',
     'PromptTemplateConfiguration0Properties',
     'PromptTemplateConfiguration1Properties',
     'PromptTextPromptTemplateConfiguration',
     'PromptTextS3Location',
+    'PromptTool0Properties',
+    'PromptTool1Properties',
     'PromptToolChoice0Properties',
     'PromptToolChoice1Properties',
     'PromptToolChoice2Properties',
     'PromptToolConfiguration',
     'PromptToolInputSchemaProperties',
-    'PromptToolProperties',
     'PromptToolSpecification',
     'PromptVariant',
+    'PromptVersionAdditionalModelRequestFields',
     'PromptVersionAnyToolChoice',
     'PromptVersionAutoToolChoice',
+    'PromptVersionCachePointBlock',
     'PromptVersionChatPromptTemplateConfiguration',
-    'PromptVersionContentBlockProperties',
+    'PromptVersionContentBlock0Properties',
+    'PromptVersionContentBlock1Properties',
     'PromptVersionMessage',
     'PromptVersionPromptAgentResource',
     'PromptVersionPromptGenAiResourceProperties',
@@ -253,14 +267,16 @@ __all__ = [
     'PromptVersionPromptTemplateConfiguration1Properties',
     'PromptVersionPromptVariant',
     'PromptVersionSpecificToolChoice',
-    'PromptVersionSystemContentBlockProperties',
+    'PromptVersionSystemContentBlock0Properties',
+    'PromptVersionSystemContentBlock1Properties',
     'PromptVersionTextPromptTemplateConfiguration',
+    'PromptVersionTool0Properties',
+    'PromptVersionTool1Properties',
     'PromptVersionToolChoice0Properties',
     'PromptVersionToolChoice1Properties',
     'PromptVersionToolChoice2Properties',
     'PromptVersionToolConfiguration',
     'PromptVersionToolInputSchemaProperties',
-    'PromptVersionToolProperties',
     'PromptVersionToolSpecification',
 ]
 
@@ -625,6 +641,140 @@ class AgentApiSchema1Properties(dict):
 
 
 @pulumi.output_type
+class AgentCollaborator(dict):
+    """
+    Agent Collaborator
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentDescriptor":
+            suggest = "agent_descriptor"
+        elif key == "collaborationInstruction":
+            suggest = "collaboration_instruction"
+        elif key == "collaboratorName":
+            suggest = "collaborator_name"
+        elif key == "relayConversationHistory":
+            suggest = "relay_conversation_history"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentCollaborator. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentCollaborator.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentCollaborator.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_descriptor: 'outputs.AgentCollaboratorAgentDescriptorProperties',
+                 collaboration_instruction: str,
+                 collaborator_name: str,
+                 relay_conversation_history: Optional['AgentRelayConversationHistory'] = None):
+        """
+        Agent Collaborator
+        :param 'AgentCollaboratorAgentDescriptorProperties' agent_descriptor: Agent descriptor for agent collaborator
+        :param str collaboration_instruction: Agent collaborator instruction
+        :param str collaborator_name: Agent collaborator name
+        """
+        pulumi.set(__self__, "agent_descriptor", agent_descriptor)
+        pulumi.set(__self__, "collaboration_instruction", collaboration_instruction)
+        pulumi.set(__self__, "collaborator_name", collaborator_name)
+        if relay_conversation_history is not None:
+            pulumi.set(__self__, "relay_conversation_history", relay_conversation_history)
+
+    @property
+    @pulumi.getter(name="agentDescriptor")
+    def agent_descriptor(self) -> 'outputs.AgentCollaboratorAgentDescriptorProperties':
+        """
+        Agent descriptor for agent collaborator
+        """
+        return pulumi.get(self, "agent_descriptor")
+
+    @property
+    @pulumi.getter(name="collaborationInstruction")
+    def collaboration_instruction(self) -> str:
+        """
+        Agent collaborator instruction
+        """
+        return pulumi.get(self, "collaboration_instruction")
+
+    @property
+    @pulumi.getter(name="collaboratorName")
+    def collaborator_name(self) -> str:
+        """
+        Agent collaborator name
+        """
+        return pulumi.get(self, "collaborator_name")
+
+    @property
+    @pulumi.getter(name="relayConversationHistory")
+    def relay_conversation_history(self) -> Optional['AgentRelayConversationHistory']:
+        return pulumi.get(self, "relay_conversation_history")
+
+
+@pulumi.output_type
+class AgentCollaboratorAgentDescriptorProperties(dict):
+    """
+    Agent descriptor for agent collaborator
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aliasArn":
+            suggest = "alias_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentCollaboratorAgentDescriptorProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentCollaboratorAgentDescriptorProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentCollaboratorAgentDescriptorProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alias_arn: Optional[str] = None):
+        """
+        Agent descriptor for agent collaborator
+        :param str alias_arn: Alias ARN for agent descriptor
+        """
+        if alias_arn is not None:
+            pulumi.set(__self__, "alias_arn", alias_arn)
+
+    @property
+    @pulumi.getter(name="aliasArn")
+    def alias_arn(self) -> Optional[str]:
+        """
+        Alias ARN for agent descriptor
+        """
+        return pulumi.get(self, "alias_arn")
+
+
+@pulumi.output_type
+class AgentCustomOrchestration(dict):
+    """
+    Structure for custom orchestration
+    """
+    def __init__(__self__, *,
+                 executor: Optional['outputs.AgentOrchestrationExecutor'] = None):
+        """
+        Structure for custom orchestration
+        """
+        if executor is not None:
+            pulumi.set(__self__, "executor", executor)
+
+    @property
+    @pulumi.getter
+    def executor(self) -> Optional['outputs.AgentOrchestrationExecutor']:
+        return pulumi.get(self, "executor")
+
+
+@pulumi.output_type
 class AgentFunction(dict):
     """
     Function definition
@@ -934,6 +1084,105 @@ class AgentKnowledgeBase(dict):
 
 
 @pulumi.output_type
+class AgentMemoryConfiguration(dict):
+    """
+    Configuration for memory storage
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enabledMemoryTypes":
+            suggest = "enabled_memory_types"
+        elif key == "sessionSummaryConfiguration":
+            suggest = "session_summary_configuration"
+        elif key == "storageDays":
+            suggest = "storage_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentMemoryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentMemoryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentMemoryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled_memory_types: Optional[Sequence['AgentMemoryType']] = None,
+                 session_summary_configuration: Optional['outputs.AgentSessionSummaryConfiguration'] = None,
+                 storage_days: Optional[float] = None):
+        """
+        Configuration for memory storage
+        :param float storage_days: Maximum number of days to store session details
+        """
+        if enabled_memory_types is not None:
+            pulumi.set(__self__, "enabled_memory_types", enabled_memory_types)
+        if session_summary_configuration is not None:
+            pulumi.set(__self__, "session_summary_configuration", session_summary_configuration)
+        if storage_days is not None:
+            pulumi.set(__self__, "storage_days", storage_days)
+
+    @property
+    @pulumi.getter(name="enabledMemoryTypes")
+    def enabled_memory_types(self) -> Optional[Sequence['AgentMemoryType']]:
+        return pulumi.get(self, "enabled_memory_types")
+
+    @property
+    @pulumi.getter(name="sessionSummaryConfiguration")
+    def session_summary_configuration(self) -> Optional['outputs.AgentSessionSummaryConfiguration']:
+        return pulumi.get(self, "session_summary_configuration")
+
+    @property
+    @pulumi.getter(name="storageDays")
+    def storage_days(self) -> Optional[float]:
+        """
+        Maximum number of days to store session details
+        """
+        return pulumi.get(self, "storage_days")
+
+
+@pulumi.output_type
+class AgentOrchestrationExecutor(dict):
+    """
+    Types of executors for custom orchestration strategy
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambda":
+            suggest = "lambda_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentOrchestrationExecutor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentOrchestrationExecutor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentOrchestrationExecutor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_: str):
+        """
+        Types of executors for custom orchestration strategy
+        :param str lambda_: ARN of a Lambda.
+        """
+        pulumi.set(__self__, "lambda_", lambda_)
+
+    @property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> str:
+        """
+        ARN of a Lambda.
+        """
+        return pulumi.get(self, "lambda_")
+
+
+@pulumi.output_type
 class AgentParameterDetail(dict):
     """
     Parameter detail
@@ -989,6 +1238,8 @@ class AgentPromptConfiguration(dict):
         suggest = None
         if key == "basePromptTemplate":
             suggest = "base_prompt_template"
+        elif key == "foundationModel":
+            suggest = "foundation_model"
         elif key == "inferenceConfiguration":
             suggest = "inference_configuration"
         elif key == "parserMode":
@@ -1013,6 +1264,7 @@ class AgentPromptConfiguration(dict):
 
     def __init__(__self__, *,
                  base_prompt_template: Optional[str] = None,
+                 foundation_model: Optional[str] = None,
                  inference_configuration: Optional['outputs.AgentInferenceConfiguration'] = None,
                  parser_mode: Optional['AgentCreationMode'] = None,
                  prompt_creation_mode: Optional['AgentCreationMode'] = None,
@@ -1022,7 +1274,7 @@ class AgentPromptConfiguration(dict):
         BasePromptConfiguration per Prompt Type.
         :param str base_prompt_template: Base Prompt Template.
         :param 'AgentInferenceConfiguration' inference_configuration: Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
-        :param 'AgentCreationMode' parser_mode: Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
+        :param 'AgentCreationMode' parser_mode: Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
         :param 'AgentCreationMode' prompt_creation_mode: Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
         :param 'AgentPromptState' prompt_state: Specifies whether to allow the inline agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
                
@@ -1034,6 +1286,8 @@ class AgentPromptConfiguration(dict):
         """
         if base_prompt_template is not None:
             pulumi.set(__self__, "base_prompt_template", base_prompt_template)
+        if foundation_model is not None:
+            pulumi.set(__self__, "foundation_model", foundation_model)
         if inference_configuration is not None:
             pulumi.set(__self__, "inference_configuration", inference_configuration)
         if parser_mode is not None:
@@ -1054,6 +1308,11 @@ class AgentPromptConfiguration(dict):
         return pulumi.get(self, "base_prompt_template")
 
     @property
+    @pulumi.getter(name="foundationModel")
+    def foundation_model(self) -> Optional[str]:
+        return pulumi.get(self, "foundation_model")
+
+    @property
     @pulumi.getter(name="inferenceConfiguration")
     def inference_configuration(self) -> Optional['outputs.AgentInferenceConfiguration']:
         """
@@ -1065,7 +1324,7 @@ class AgentPromptConfiguration(dict):
     @pulumi.getter(name="parserMode")
     def parser_mode(self) -> Optional['AgentCreationMode']:
         """
-        Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
+        Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
         """
         return pulumi.get(self, "parser_mode")
 
@@ -1204,6 +1463,46 @@ class AgentS3Identifier(dict):
         A object key in S3.
         """
         return pulumi.get(self, "s3_object_key")
+
+
+@pulumi.output_type
+class AgentSessionSummaryConfiguration(dict):
+    """
+    Configuration for Session Summarization
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRecentSessions":
+            suggest = "max_recent_sessions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentSessionSummaryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentSessionSummaryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentSessionSummaryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_recent_sessions: Optional[float] = None):
+        """
+        Configuration for Session Summarization
+        :param float max_recent_sessions: Maximum number of Sessions to Summarize
+        """
+        if max_recent_sessions is not None:
+            pulumi.set(__self__, "max_recent_sessions", max_recent_sessions)
+
+    @property
+    @pulumi.getter(name="maxRecentSessions")
+    def max_recent_sessions(self) -> Optional[float]:
+        """
+        Maximum number of Sessions to Summarize
+        """
+        return pulumi.get(self, "max_recent_sessions")
 
 
 @pulumi.output_type
@@ -8999,6 +9298,18 @@ class KnowledgeBaseVectorKnowledgeBaseConfiguration(dict):
 
 
 @pulumi.output_type
+class PromptAdditionalModelRequestFields(dict):
+    """
+    Contains model-specific configurations
+    """
+    def __init__(__self__):
+        """
+        Contains model-specific configurations
+        """
+        pass
+
+
+@pulumi.output_type
 class PromptAgentResource(dict):
     """
     Target Agent to invoke with Prompt
@@ -9062,6 +9373,24 @@ class PromptAutoToolChoice(dict):
 
 
 @pulumi.output_type
+class PromptCachePointBlock(dict):
+    """
+    CachePointBlock
+    """
+    def __init__(__self__, *,
+                 type: 'PromptCachePointType'):
+        """
+        CachePointBlock
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'PromptCachePointType':
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class PromptChatPromptTemplateConfiguration(dict):
     """
     Configuration for chat prompt template
@@ -9088,13 +9417,13 @@ class PromptChatPromptTemplateConfiguration(dict):
     def __init__(__self__, *,
                  messages: Sequence['outputs.PromptMessage'],
                  input_variables: Optional[Sequence['outputs.PromptInputVariable']] = None,
-                 system: Optional[Sequence['outputs.PromptSystemContentBlockProperties']] = None,
+                 system: Optional[Sequence[Any]] = None,
                  tool_configuration: Optional['outputs.PromptToolConfiguration'] = None):
         """
         Configuration for chat prompt template
         :param Sequence['PromptMessage'] messages: List of messages for chat prompt template
         :param Sequence['PromptInputVariable'] input_variables: List of input variables
-        :param Sequence['PromptSystemContentBlockProperties'] system: Configuration for chat prompt template
+        :param Sequence[Union['PromptSystemContentBlock0Properties', 'PromptSystemContentBlock1Properties']] system: Configuration for chat prompt template
         """
         pulumi.set(__self__, "messages", messages)
         if input_variables is not None:
@@ -9122,7 +9451,7 @@ class PromptChatPromptTemplateConfiguration(dict):
 
     @property
     @pulumi.getter
-    def system(self) -> Optional[Sequence['outputs.PromptSystemContentBlockProperties']]:
+    def system(self) -> Optional[Sequence[Any]]:
         """
         Configuration for chat prompt template
         """
@@ -9135,7 +9464,7 @@ class PromptChatPromptTemplateConfiguration(dict):
 
 
 @pulumi.output_type
-class PromptContentBlockProperties(dict):
+class PromptContentBlock0Properties(dict):
     """
     Configuration for chat prompt template
     """
@@ -9154,6 +9483,41 @@ class PromptContentBlockProperties(dict):
         Configuration for chat prompt template
         """
         return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class PromptContentBlock1Properties(dict):
+    """
+    Configuration for chat prompt template
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cachePoint":
+            suggest = "cache_point"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PromptContentBlock1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PromptContentBlock1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PromptContentBlock1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cache_point: 'outputs.PromptCachePointBlock'):
+        """
+        Configuration for chat prompt template
+        """
+        pulumi.set(__self__, "cache_point", cache_point)
+
+    @property
+    @pulumi.getter(name="cachePoint")
+    def cache_point(self) -> 'outputs.PromptCachePointBlock':
+        return pulumi.get(self, "cache_point")
 
 
 @pulumi.output_type
@@ -9221,18 +9585,18 @@ class PromptMessage(dict):
     Chat prompt Message
     """
     def __init__(__self__, *,
-                 content: Sequence['outputs.PromptContentBlockProperties'],
+                 content: Sequence[Any],
                  role: 'PromptConversationRole'):
         """
         Chat prompt Message
-        :param Sequence['PromptContentBlockProperties'] content: List of Content Blocks
+        :param Sequence[Union['PromptContentBlock0Properties', 'PromptContentBlock1Properties']] content: List of Content Blocks
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "role", role)
 
     @property
     @pulumi.getter
-    def content(self) -> Sequence['outputs.PromptContentBlockProperties']:
+    def content(self) -> Sequence[Any]:
         """
         List of Content Blocks
         """
@@ -9347,7 +9711,7 @@ class PromptSpecificToolChoice(dict):
 
 
 @pulumi.output_type
-class PromptSystemContentBlockProperties(dict):
+class PromptSystemContentBlock0Properties(dict):
     """
     Configuration for chat prompt template
     """
@@ -9366,6 +9730,41 @@ class PromptSystemContentBlockProperties(dict):
         Configuration for chat prompt template
         """
         return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class PromptSystemContentBlock1Properties(dict):
+    """
+    Configuration for chat prompt template
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cachePoint":
+            suggest = "cache_point"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PromptSystemContentBlock1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PromptSystemContentBlock1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PromptSystemContentBlock1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cache_point: 'outputs.PromptCachePointBlock'):
+        """
+        Configuration for chat prompt template
+        """
+        pulumi.set(__self__, "cache_point", cache_point)
+
+    @property
+    @pulumi.getter(name="cachePoint")
+    def cache_point(self) -> 'outputs.PromptCachePointBlock':
+        return pulumi.get(self, "cache_point")
 
 
 @pulumi.output_type
@@ -9412,7 +9811,9 @@ class PromptTextPromptTemplateConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "inputVariables":
+        if key == "cachePoint":
+            suggest = "cache_point"
+        elif key == "inputVariables":
             suggest = "input_variables"
         elif key == "textS3Location":
             suggest = "text_s3_location"
@@ -9429,6 +9830,7 @@ class PromptTextPromptTemplateConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 cache_point: Optional['outputs.PromptCachePointBlock'] = None,
                  input_variables: Optional[Sequence['outputs.PromptInputVariable']] = None,
                  text: Optional[str] = None,
                  text_s3_location: Optional['outputs.PromptTextS3Location'] = None):
@@ -9437,12 +9839,19 @@ class PromptTextPromptTemplateConfiguration(dict):
         :param Sequence['PromptInputVariable'] input_variables: List of input variables
         :param str text: Prompt content for String prompt template
         """
+        if cache_point is not None:
+            pulumi.set(__self__, "cache_point", cache_point)
         if input_variables is not None:
             pulumi.set(__self__, "input_variables", input_variables)
         if text is not None:
             pulumi.set(__self__, "text", text)
         if text_s3_location is not None:
             pulumi.set(__self__, "text_s3_location", text_s3_location)
+
+    @property
+    @pulumi.getter(name="cachePoint")
+    def cache_point(self) -> Optional['outputs.PromptCachePointBlock']:
+        return pulumi.get(self, "cache_point")
 
     @property
     @pulumi.getter(name="inputVariables")
@@ -9509,6 +9918,76 @@ class PromptTextS3Location(dict):
         The version of the the S3 object to use
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class PromptTool0Properties(dict):
+    """
+    Tool details
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "toolSpec":
+            suggest = "tool_spec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PromptTool0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PromptTool0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PromptTool0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tool_spec: 'outputs.PromptToolSpecification'):
+        """
+        Tool details
+        """
+        pulumi.set(__self__, "tool_spec", tool_spec)
+
+    @property
+    @pulumi.getter(name="toolSpec")
+    def tool_spec(self) -> 'outputs.PromptToolSpecification':
+        return pulumi.get(self, "tool_spec")
+
+
+@pulumi.output_type
+class PromptTool1Properties(dict):
+    """
+    Tool details
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cachePoint":
+            suggest = "cache_point"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PromptTool1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PromptTool1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PromptTool1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cache_point: 'outputs.PromptCachePointBlock'):
+        """
+        Tool details
+        """
+        pulumi.set(__self__, "cache_point", cache_point)
+
+    @property
+    @pulumi.getter(name="cachePoint")
+    def cache_point(self) -> 'outputs.PromptCachePointBlock':
+        return pulumi.get(self, "cache_point")
 
 
 @pulumi.output_type
@@ -9588,11 +10067,11 @@ class PromptToolConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 tools: Sequence['outputs.PromptToolProperties'],
+                 tools: Sequence[Any],
                  tool_choice: Optional[Any] = None):
         """
         Tool configuration
-        :param Sequence['PromptToolProperties'] tools: List of Tools
+        :param Sequence[Union['PromptTool0Properties', 'PromptTool1Properties']] tools: List of Tools
         """
         pulumi.set(__self__, "tools", tools)
         if tool_choice is not None:
@@ -9600,7 +10079,7 @@ class PromptToolConfiguration(dict):
 
     @property
     @pulumi.getter
-    def tools(self) -> Sequence['outputs.PromptToolProperties']:
+    def tools(self) -> Sequence[Any]:
         """
         List of Tools
         """
@@ -9628,41 +10107,6 @@ class PromptToolInputSchemaProperties(dict):
     @pulumi.getter
     def json(self) -> Any:
         return pulumi.get(self, "json")
-
-
-@pulumi.output_type
-class PromptToolProperties(dict):
-    """
-    Tool details
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "toolSpec":
-            suggest = "tool_spec"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PromptToolProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PromptToolProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PromptToolProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 tool_spec: 'outputs.PromptToolSpecification'):
-        """
-        Tool details
-        """
-        pulumi.set(__self__, "tool_spec", tool_spec)
-
-    @property
-    @pulumi.getter(name="toolSpec")
-    def tool_spec(self) -> 'outputs.PromptToolSpecification':
-        return pulumi.get(self, "tool_spec")
 
 
 @pulumi.output_type
@@ -9731,6 +10175,8 @@ class PromptVariant(dict):
             suggest = "template_configuration"
         elif key == "templateType":
             suggest = "template_type"
+        elif key == "additionalModelRequestFields":
+            suggest = "additional_model_request_fields"
         elif key == "genAiResource":
             suggest = "gen_ai_resource"
         elif key == "inferenceConfiguration":
@@ -9753,6 +10199,7 @@ class PromptVariant(dict):
                  name: str,
                  template_configuration: Any,
                  template_type: 'PromptTemplateType',
+                 additional_model_request_fields: Optional['outputs.PromptAdditionalModelRequestFields'] = None,
                  gen_ai_resource: Optional['outputs.PromptGenAiResourceProperties'] = None,
                  inference_configuration: Optional['outputs.PromptInferenceConfigurationProperties'] = None,
                  model_id: Optional[str] = None):
@@ -9761,6 +10208,7 @@ class PromptVariant(dict):
         :param str name: Name for a variant.
         :param Union['PromptTemplateConfiguration0Properties', 'PromptTemplateConfiguration1Properties'] template_configuration: Contains configurations for the prompt template.
         :param 'PromptTemplateType' template_type: The type of prompt template to use.
+        :param 'PromptAdditionalModelRequestFields' additional_model_request_fields: Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
         :param 'PromptGenAiResourceProperties' gen_ai_resource: Specifies a generative AI resource with which to use the prompt.
         :param 'PromptInferenceConfigurationProperties' inference_configuration: Contains inference configurations for the prompt variant.
         :param str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
@@ -9768,6 +10216,8 @@ class PromptVariant(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "template_configuration", template_configuration)
         pulumi.set(__self__, "template_type", template_type)
+        if additional_model_request_fields is not None:
+            pulumi.set(__self__, "additional_model_request_fields", additional_model_request_fields)
         if gen_ai_resource is not None:
             pulumi.set(__self__, "gen_ai_resource", gen_ai_resource)
         if inference_configuration is not None:
@@ -9800,6 +10250,14 @@ class PromptVariant(dict):
         return pulumi.get(self, "template_type")
 
     @property
+    @pulumi.getter(name="additionalModelRequestFields")
+    def additional_model_request_fields(self) -> Optional['outputs.PromptAdditionalModelRequestFields']:
+        """
+        Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+        """
+        return pulumi.get(self, "additional_model_request_fields")
+
+    @property
     @pulumi.getter(name="genAiResource")
     def gen_ai_resource(self) -> Optional['outputs.PromptGenAiResourceProperties']:
         """
@@ -9825,6 +10283,18 @@ class PromptVariant(dict):
 
 
 @pulumi.output_type
+class PromptVersionAdditionalModelRequestFields(dict):
+    """
+    Contains model-specific configurations
+    """
+    def __init__(__self__):
+        """
+        Contains model-specific configurations
+        """
+        pass
+
+
+@pulumi.output_type
 class PromptVersionAnyToolChoice(dict):
     """
     Any Tool choice
@@ -9846,6 +10316,24 @@ class PromptVersionAutoToolChoice(dict):
         Auto Tool choice
         """
         pass
+
+
+@pulumi.output_type
+class PromptVersionCachePointBlock(dict):
+    """
+    CachePointBlock
+    """
+    def __init__(__self__, *,
+                 type: 'PromptVersionCachePointType'):
+        """
+        CachePointBlock
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'PromptVersionCachePointType':
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -9875,13 +10363,13 @@ class PromptVersionChatPromptTemplateConfiguration(dict):
     def __init__(__self__, *,
                  messages: Sequence['outputs.PromptVersionMessage'],
                  input_variables: Optional[Sequence['outputs.PromptVersionPromptInputVariable']] = None,
-                 system: Optional[Sequence['outputs.PromptVersionSystemContentBlockProperties']] = None,
+                 system: Optional[Sequence[Any]] = None,
                  tool_configuration: Optional['outputs.PromptVersionToolConfiguration'] = None):
         """
         Configuration for chat prompt template
         :param Sequence['PromptVersionMessage'] messages: List of messages for chat prompt template
         :param Sequence['PromptVersionPromptInputVariable'] input_variables: List of input variables
-        :param Sequence['PromptVersionSystemContentBlockProperties'] system: Configuration for chat prompt template
+        :param Sequence[Union['PromptVersionSystemContentBlock0Properties', 'PromptVersionSystemContentBlock1Properties']] system: Configuration for chat prompt template
         """
         pulumi.set(__self__, "messages", messages)
         if input_variables is not None:
@@ -9909,7 +10397,7 @@ class PromptVersionChatPromptTemplateConfiguration(dict):
 
     @property
     @pulumi.getter
-    def system(self) -> Optional[Sequence['outputs.PromptVersionSystemContentBlockProperties']]:
+    def system(self) -> Optional[Sequence[Any]]:
         """
         Configuration for chat prompt template
         """
@@ -9922,7 +10410,7 @@ class PromptVersionChatPromptTemplateConfiguration(dict):
 
 
 @pulumi.output_type
-class PromptVersionContentBlockProperties(dict):
+class PromptVersionContentBlock0Properties(dict):
     """
     Configuration for chat prompt template
     """
@@ -9944,23 +10432,58 @@ class PromptVersionContentBlockProperties(dict):
 
 
 @pulumi.output_type
+class PromptVersionContentBlock1Properties(dict):
+    """
+    Configuration for chat prompt template
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cachePoint":
+            suggest = "cache_point"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PromptVersionContentBlock1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PromptVersionContentBlock1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PromptVersionContentBlock1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cache_point: 'outputs.PromptVersionCachePointBlock'):
+        """
+        Configuration for chat prompt template
+        """
+        pulumi.set(__self__, "cache_point", cache_point)
+
+    @property
+    @pulumi.getter(name="cachePoint")
+    def cache_point(self) -> 'outputs.PromptVersionCachePointBlock':
+        return pulumi.get(self, "cache_point")
+
+
+@pulumi.output_type
 class PromptVersionMessage(dict):
     """
     Chat prompt Message
     """
     def __init__(__self__, *,
-                 content: Sequence['outputs.PromptVersionContentBlockProperties'],
+                 content: Sequence[Any],
                  role: 'PromptVersionConversationRole'):
         """
         Chat prompt Message
-        :param Sequence['PromptVersionContentBlockProperties'] content: List of Content Blocks
+        :param Sequence[Union['PromptVersionContentBlock0Properties', 'PromptVersionContentBlock1Properties']] content: List of Content Blocks
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "role", role)
 
     @property
     @pulumi.getter
-    def content(self) -> Sequence['outputs.PromptVersionContentBlockProperties']:
+    def content(self) -> Sequence[Any]:
         """
         List of Content Blocks
         """
@@ -10198,6 +10721,8 @@ class PromptVersionPromptVariant(dict):
             suggest = "template_configuration"
         elif key == "templateType":
             suggest = "template_type"
+        elif key == "additionalModelRequestFields":
+            suggest = "additional_model_request_fields"
         elif key == "genAiResource":
             suggest = "gen_ai_resource"
         elif key == "inferenceConfiguration":
@@ -10220,6 +10745,7 @@ class PromptVersionPromptVariant(dict):
                  name: str,
                  template_configuration: Any,
                  template_type: 'PromptVersionPromptTemplateType',
+                 additional_model_request_fields: Optional['outputs.PromptVersionAdditionalModelRequestFields'] = None,
                  gen_ai_resource: Optional['outputs.PromptVersionPromptGenAiResourceProperties'] = None,
                  inference_configuration: Optional['outputs.PromptVersionPromptInferenceConfigurationProperties'] = None,
                  model_id: Optional[str] = None):
@@ -10228,6 +10754,7 @@ class PromptVersionPromptVariant(dict):
         :param str name: Name for a variant.
         :param Union['PromptVersionPromptTemplateConfiguration0Properties', 'PromptVersionPromptTemplateConfiguration1Properties'] template_configuration: Contains configurations for the prompt template.
         :param 'PromptVersionPromptTemplateType' template_type: The type of prompt template to use.
+        :param 'PromptVersionAdditionalModelRequestFields' additional_model_request_fields: Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
         :param 'PromptVersionPromptGenAiResourceProperties' gen_ai_resource: Specifies a generative AI resource with which to use the prompt.
         :param 'PromptVersionPromptInferenceConfigurationProperties' inference_configuration: Contains inference configurations for the prompt variant.
         :param str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
@@ -10235,6 +10762,8 @@ class PromptVersionPromptVariant(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "template_configuration", template_configuration)
         pulumi.set(__self__, "template_type", template_type)
+        if additional_model_request_fields is not None:
+            pulumi.set(__self__, "additional_model_request_fields", additional_model_request_fields)
         if gen_ai_resource is not None:
             pulumi.set(__self__, "gen_ai_resource", gen_ai_resource)
         if inference_configuration is not None:
@@ -10265,6 +10794,14 @@ class PromptVersionPromptVariant(dict):
         The type of prompt template to use.
         """
         return pulumi.get(self, "template_type")
+
+    @property
+    @pulumi.getter(name="additionalModelRequestFields")
+    def additional_model_request_fields(self) -> Optional['outputs.PromptVersionAdditionalModelRequestFields']:
+        """
+        Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+        """
+        return pulumi.get(self, "additional_model_request_fields")
 
     @property
     @pulumi.getter(name="genAiResource")
@@ -10314,7 +10851,7 @@ class PromptVersionSpecificToolChoice(dict):
 
 
 @pulumi.output_type
-class PromptVersionSystemContentBlockProperties(dict):
+class PromptVersionSystemContentBlock0Properties(dict):
     """
     Configuration for chat prompt template
     """
@@ -10336,6 +10873,41 @@ class PromptVersionSystemContentBlockProperties(dict):
 
 
 @pulumi.output_type
+class PromptVersionSystemContentBlock1Properties(dict):
+    """
+    Configuration for chat prompt template
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cachePoint":
+            suggest = "cache_point"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PromptVersionSystemContentBlock1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PromptVersionSystemContentBlock1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PromptVersionSystemContentBlock1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cache_point: 'outputs.PromptVersionCachePointBlock'):
+        """
+        Configuration for chat prompt template
+        """
+        pulumi.set(__self__, "cache_point", cache_point)
+
+    @property
+    @pulumi.getter(name="cachePoint")
+    def cache_point(self) -> 'outputs.PromptVersionCachePointBlock':
+        return pulumi.get(self, "cache_point")
+
+
+@pulumi.output_type
 class PromptVersionTextPromptTemplateConfiguration(dict):
     """
     Configuration for text prompt template
@@ -10343,7 +10915,9 @@ class PromptVersionTextPromptTemplateConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "inputVariables":
+        if key == "cachePoint":
+            suggest = "cache_point"
+        elif key == "inputVariables":
             suggest = "input_variables"
 
         if suggest:
@@ -10359,6 +10933,7 @@ class PromptVersionTextPromptTemplateConfiguration(dict):
 
     def __init__(__self__, *,
                  text: str,
+                 cache_point: Optional['outputs.PromptVersionCachePointBlock'] = None,
                  input_variables: Optional[Sequence['outputs.PromptVersionPromptInputVariable']] = None):
         """
         Configuration for text prompt template
@@ -10366,6 +10941,8 @@ class PromptVersionTextPromptTemplateConfiguration(dict):
         :param Sequence['PromptVersionPromptInputVariable'] input_variables: List of input variables
         """
         pulumi.set(__self__, "text", text)
+        if cache_point is not None:
+            pulumi.set(__self__, "cache_point", cache_point)
         if input_variables is not None:
             pulumi.set(__self__, "input_variables", input_variables)
 
@@ -10378,12 +10955,87 @@ class PromptVersionTextPromptTemplateConfiguration(dict):
         return pulumi.get(self, "text")
 
     @property
+    @pulumi.getter(name="cachePoint")
+    def cache_point(self) -> Optional['outputs.PromptVersionCachePointBlock']:
+        return pulumi.get(self, "cache_point")
+
+    @property
     @pulumi.getter(name="inputVariables")
     def input_variables(self) -> Optional[Sequence['outputs.PromptVersionPromptInputVariable']]:
         """
         List of input variables
         """
         return pulumi.get(self, "input_variables")
+
+
+@pulumi.output_type
+class PromptVersionTool0Properties(dict):
+    """
+    Tool details
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "toolSpec":
+            suggest = "tool_spec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PromptVersionTool0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PromptVersionTool0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PromptVersionTool0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tool_spec: 'outputs.PromptVersionToolSpecification'):
+        """
+        Tool details
+        """
+        pulumi.set(__self__, "tool_spec", tool_spec)
+
+    @property
+    @pulumi.getter(name="toolSpec")
+    def tool_spec(self) -> 'outputs.PromptVersionToolSpecification':
+        return pulumi.get(self, "tool_spec")
+
+
+@pulumi.output_type
+class PromptVersionTool1Properties(dict):
+    """
+    Tool details
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cachePoint":
+            suggest = "cache_point"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PromptVersionTool1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PromptVersionTool1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PromptVersionTool1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cache_point: 'outputs.PromptVersionCachePointBlock'):
+        """
+        Tool details
+        """
+        pulumi.set(__self__, "cache_point", cache_point)
+
+    @property
+    @pulumi.getter(name="cachePoint")
+    def cache_point(self) -> 'outputs.PromptVersionCachePointBlock':
+        return pulumi.get(self, "cache_point")
 
 
 @pulumi.output_type
@@ -10463,11 +11115,11 @@ class PromptVersionToolConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 tools: Sequence['outputs.PromptVersionToolProperties'],
+                 tools: Sequence[Any],
                  tool_choice: Optional[Any] = None):
         """
         Tool configuration
-        :param Sequence['PromptVersionToolProperties'] tools: List of Tools
+        :param Sequence[Union['PromptVersionTool0Properties', 'PromptVersionTool1Properties']] tools: List of Tools
         """
         pulumi.set(__self__, "tools", tools)
         if tool_choice is not None:
@@ -10475,7 +11127,7 @@ class PromptVersionToolConfiguration(dict):
 
     @property
     @pulumi.getter
-    def tools(self) -> Sequence['outputs.PromptVersionToolProperties']:
+    def tools(self) -> Sequence[Any]:
         """
         List of Tools
         """
@@ -10503,41 +11155,6 @@ class PromptVersionToolInputSchemaProperties(dict):
     @pulumi.getter
     def json(self) -> Any:
         return pulumi.get(self, "json")
-
-
-@pulumi.output_type
-class PromptVersionToolProperties(dict):
-    """
-    Tool details
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "toolSpec":
-            suggest = "tool_spec"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PromptVersionToolProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PromptVersionToolProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PromptVersionToolProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 tool_spec: 'outputs.PromptVersionToolSpecification'):
-        """
-        Tool details
-        """
-        pulumi.set(__self__, "tool_spec", tool_spec)
-
-    @property
-    @pulumi.getter(name="toolSpec")
-    def tool_spec(self) -> 'outputs.PromptVersionToolSpecification':
-        return pulumi.get(self, "tool_spec")
 
 
 @pulumi.output_type

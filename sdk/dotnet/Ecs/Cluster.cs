@@ -37,7 +37,9 @@ namespace Pulumi.AwsNative.Ecs
         public Output<string?> ClusterName { get; private set; } = null!;
 
         /// <summary>
-        /// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
+        /// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
+        ///  Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up. 
+        ///  For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
         /// </summary>
         [Output("clusterSettings")]
         public Output<ImmutableArray<Outputs.ClusterSettings>> ClusterSettings { get; private set; } = null!;
@@ -149,7 +151,9 @@ namespace Pulumi.AwsNative.Ecs
         private InputList<Inputs.ClusterSettingsArgs>? _clusterSettings;
 
         /// <summary>
-        /// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
+        /// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
+        ///  Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up. 
+        ///  For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
         /// </summary>
         public InputList<Inputs.ClusterSettingsArgs> ClusterSettings
         {

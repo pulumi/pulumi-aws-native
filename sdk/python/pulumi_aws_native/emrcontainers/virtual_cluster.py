@@ -25,16 +25,20 @@ class VirtualClusterArgs:
     def __init__(__self__, *,
                  container_provider: pulumi.Input['VirtualClusterContainerProviderArgs'],
                  name: Optional[pulumi.Input[str]] = None,
+                 security_configuration_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VirtualCluster resource.
         :param pulumi.Input['VirtualClusterContainerProviderArgs'] container_provider: Container provider of the virtual cluster.
         :param pulumi.Input[str] name: Name of the virtual cluster.
+        :param pulumi.Input[str] security_configuration_id: The ID of the security configuration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this virtual cluster.
         """
         pulumi.set(__self__, "container_provider", container_provider)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if security_configuration_id is not None:
+            pulumi.set(__self__, "security_configuration_id", security_configuration_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -63,6 +67,18 @@ class VirtualClusterArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="securityConfigurationId")
+    def security_configuration_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the security configuration.
+        """
+        return pulumi.get(self, "security_configuration_id")
+
+    @security_configuration_id.setter
+    def security_configuration_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_configuration_id", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -82,6 +98,7 @@ class VirtualCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_provider: Optional[pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 security_configuration_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -141,6 +158,7 @@ class VirtualCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']] container_provider: Container provider of the virtual cluster.
         :param pulumi.Input[str] name: Name of the virtual cluster.
+        :param pulumi.Input[str] security_configuration_id: The ID of the security configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this virtual cluster.
         """
         ...
@@ -219,6 +237,7 @@ class VirtualCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_provider: Optional[pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 security_configuration_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -233,6 +252,7 @@ class VirtualCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'container_provider'")
             __props__.__dict__["container_provider"] = container_provider
             __props__.__dict__["name"] = name
+            __props__.__dict__["security_configuration_id"] = security_configuration_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
@@ -264,6 +284,7 @@ class VirtualCluster(pulumi.CustomResource):
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["container_provider"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["security_configuration_id"] = None
         __props__.__dict__["tags"] = None
         return VirtualCluster(resource_name, opts=opts, __props__=__props__)
 
@@ -298,6 +319,14 @@ class VirtualCluster(pulumi.CustomResource):
         Name of the virtual cluster.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="securityConfigurationId")
+    def security_configuration_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the security configuration.
+        """
+        return pulumi.get(self, "security_configuration_id")
 
     @property
     @pulumi.getter

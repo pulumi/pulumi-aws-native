@@ -29,6 +29,10 @@ namespace Pulumi.AwsNative.Glue.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.CrawlerDynamoDbTarget> DynamoDbTargets;
         /// <summary>
+        /// Specifies Apache Hudi data store targets.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CrawlerHudiTarget> HudiTargets;
+        /// <summary>
         /// Specifies Apache Iceberg data store targets.
         /// </summary>
         public readonly ImmutableArray<Outputs.CrawlerIcebergTarget> IcebergTargets;
@@ -53,6 +57,8 @@ namespace Pulumi.AwsNative.Glue.Outputs
 
             ImmutableArray<Outputs.CrawlerDynamoDbTarget> dynamoDbTargets,
 
+            ImmutableArray<Outputs.CrawlerHudiTarget> hudiTargets,
+
             ImmutableArray<Outputs.CrawlerIcebergTarget> icebergTargets,
 
             ImmutableArray<Outputs.CrawlerJdbcTarget> jdbcTargets,
@@ -64,6 +70,7 @@ namespace Pulumi.AwsNative.Glue.Outputs
             CatalogTargets = catalogTargets;
             DeltaTargets = deltaTargets;
             DynamoDbTargets = dynamoDbTargets;
+            HudiTargets = hudiTargets;
             IcebergTargets = icebergTargets;
             JdbcTargets = jdbcTargets;
             MongoDbTargets = mongoDbTargets;

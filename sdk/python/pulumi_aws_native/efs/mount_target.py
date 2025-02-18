@@ -26,7 +26,7 @@ class MountTargetArgs:
         """
         The set of arguments for constructing a MountTarget resource.
         :param pulumi.Input[str] file_system_id: The ID of the file system for which to create the mount target.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table).
         :param pulumi.Input[str] subnet_id: The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
         :param pulumi.Input[str] ip_address: Valid IPv4 address within the address range of the specified subnet.
         """
@@ -52,7 +52,7 @@ class MountTargetArgs:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+        VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table).
         """
         return pulumi.get(self, "security_groups")
 
@@ -102,7 +102,7 @@ class MountTarget(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] file_system_id: The ID of the file system for which to create the mount target.
         :param pulumi.Input[str] ip_address: Valid IPv4 address within the address range of the specified subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table).
         :param pulumi.Input[str] subnet_id: The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
         """
         ...
@@ -214,7 +214,7 @@ class MountTarget(pulumi.CustomResource):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Output[Sequence[str]]:
         """
-        Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+        VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table).
         """
         return pulumi.get(self, "security_groups")
 

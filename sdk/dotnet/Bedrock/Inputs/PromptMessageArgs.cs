@@ -16,14 +16,14 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     public sealed class PromptMessageArgs : global::Pulumi.ResourceArgs
     {
         [Input("content", required: true)]
-        private InputList<Inputs.PromptContentBlockPropertiesArgs>? _content;
+        private InputList<Union<Inputs.PromptContentBlock0PropertiesArgs, Inputs.PromptContentBlock1PropertiesArgs>>? _content;
 
         /// <summary>
         /// List of Content Blocks
         /// </summary>
-        public InputList<Inputs.PromptContentBlockPropertiesArgs> Content
+        public InputList<Union<Inputs.PromptContentBlock0PropertiesArgs, Inputs.PromptContentBlock1PropertiesArgs>> Content
         {
-            get => _content ?? (_content = new InputList<Inputs.PromptContentBlockPropertiesArgs>());
+            get => _content ?? (_content = new InputList<Union<Inputs.PromptContentBlock0PropertiesArgs, Inputs.PromptContentBlock1PropertiesArgs>>());
             set => _content = value;
         }
 

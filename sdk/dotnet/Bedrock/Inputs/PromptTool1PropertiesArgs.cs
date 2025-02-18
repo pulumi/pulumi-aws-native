@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// <summary>
     /// Tool details
     /// </summary>
-    public sealed class PromptToolPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class PromptTool1PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("toolSpec", required: true)]
-        public Input<Inputs.PromptToolSpecificationArgs> ToolSpec { get; set; } = null!;
+        [Input("cachePoint", required: true)]
+        public Input<Inputs.PromptCachePointBlockArgs> CachePoint { get; set; } = null!;
 
-        public PromptToolPropertiesArgs()
+        public PromptTool1PropertiesArgs()
         {
         }
-        public static new PromptToolPropertiesArgs Empty => new PromptToolPropertiesArgs();
+        public static new PromptTool1PropertiesArgs Empty => new PromptTool1PropertiesArgs();
     }
 }

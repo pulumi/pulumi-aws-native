@@ -159,7 +159,6 @@ class UserPoolDomain(pulumi.CustomResource):
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__.__dict__["user_pool_id"] = user_pool_id
-            __props__.__dict__["aws_id"] = None
             __props__.__dict__["cloud_front_distribution"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain", "userPoolId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -185,21 +184,12 @@ class UserPoolDomain(pulumi.CustomResource):
 
         __props__ = UserPoolDomainArgs.__new__(UserPoolDomainArgs)
 
-        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cloud_front_distribution"] = None
         __props__.__dict__["custom_domain_config"] = None
         __props__.__dict__["domain"] = None
         __props__.__dict__["managed_login_version"] = None
         __props__.__dict__["user_pool_id"] = None
         return UserPoolDomain(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="awsId")
-    def aws_id(self) -> pulumi.Output[str]:
-        """
-        The resource ID.
-        """
-        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cloudFrontDistribution")

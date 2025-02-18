@@ -18,7 +18,10 @@ type Agent struct {
 	// List of ActionGroups
 	ActionGroups AgentActionGroupArrayOutput `pulumi:"actionGroups"`
 	// Arn representation of the Agent.
-	AgentArn pulumi.StringOutput `pulumi:"agentArn"`
+	AgentArn           pulumi.StringOutput         `pulumi:"agentArn"`
+	AgentCollaboration AgentCollaborationPtrOutput `pulumi:"agentCollaboration"`
+	// List of Agent Collaborators
+	AgentCollaborators AgentCollaboratorArrayOutput `pulumi:"agentCollaborators"`
 	// Identifier for a resource.
 	AgentId pulumi.StringOutput `pulumi:"agentId"`
 	// Name for a resource.
@@ -40,14 +43,15 @@ type Agent struct {
 	// Specifies whether to automatically prepare after creating or updating the agent.
 	AutoPrepare pulumi.BoolPtrOutput `pulumi:"autoPrepare"`
 	// Time Stamp.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt           pulumi.StringOutput               `pulumi:"createdAt"`
+	CustomOrchestration AgentCustomOrchestrationPtrOutput `pulumi:"customOrchestration"`
 	// A KMS key ARN
 	CustomerEncryptionKeyArn pulumi.StringPtrOutput `pulumi:"customerEncryptionKeyArn"`
 	// Description of the Resource.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Failure Reasons for Error.
 	FailureReasons pulumi.StringArrayOutput `pulumi:"failureReasons"`
-	// ARN or name of a Bedrock model.
+	// The foundation model used for orchestration by the agent.
 	FoundationModel pulumi.StringPtrOutput `pulumi:"foundationModel"`
 	// Details about the guardrail associated with the agent.
 	GuardrailConfiguration AgentGuardrailConfigurationPtrOutput `pulumi:"guardrailConfiguration"`
@@ -56,7 +60,9 @@ type Agent struct {
 	// Instruction for the agent.
 	Instruction pulumi.StringPtrOutput `pulumi:"instruction"`
 	// List of Agent Knowledge Bases
-	KnowledgeBases AgentKnowledgeBaseArrayOutput `pulumi:"knowledgeBases"`
+	KnowledgeBases      AgentKnowledgeBaseArrayOutput     `pulumi:"knowledgeBases"`
+	MemoryConfiguration AgentMemoryConfigurationPtrOutput `pulumi:"memoryConfiguration"`
+	OrchestrationType   AgentOrchestrationTypePtrOutput   `pulumi:"orchestrationType"`
 	// Time Stamp.
 	PreparedAt pulumi.StringOutput `pulumi:"preparedAt"`
 	// Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
@@ -120,18 +126,22 @@ func (AgentState) ElementType() reflect.Type {
 
 type agentArgs struct {
 	// List of ActionGroups
-	ActionGroups []AgentActionGroup `pulumi:"actionGroups"`
+	ActionGroups       []AgentActionGroup  `pulumi:"actionGroups"`
+	AgentCollaboration *AgentCollaboration `pulumi:"agentCollaboration"`
+	// List of Agent Collaborators
+	AgentCollaborators []AgentCollaborator `pulumi:"agentCollaborators"`
 	// Name for a resource.
 	AgentName *string `pulumi:"agentName"`
 	// ARN of a IAM role.
 	AgentResourceRoleArn *string `pulumi:"agentResourceRoleArn"`
 	// Specifies whether to automatically prepare after creating or updating the agent.
-	AutoPrepare *bool `pulumi:"autoPrepare"`
+	AutoPrepare         *bool                     `pulumi:"autoPrepare"`
+	CustomOrchestration *AgentCustomOrchestration `pulumi:"customOrchestration"`
 	// A KMS key ARN
 	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`
 	// Description of the Resource.
 	Description *string `pulumi:"description"`
-	// ARN or name of a Bedrock model.
+	// The foundation model used for orchestration by the agent.
 	FoundationModel *string `pulumi:"foundationModel"`
 	// Details about the guardrail associated with the agent.
 	GuardrailConfiguration *AgentGuardrailConfiguration `pulumi:"guardrailConfiguration"`
@@ -140,7 +150,9 @@ type agentArgs struct {
 	// Instruction for the agent.
 	Instruction *string `pulumi:"instruction"`
 	// List of Agent Knowledge Bases
-	KnowledgeBases []AgentKnowledgeBase `pulumi:"knowledgeBases"`
+	KnowledgeBases      []AgentKnowledgeBase      `pulumi:"knowledgeBases"`
+	MemoryConfiguration *AgentMemoryConfiguration `pulumi:"memoryConfiguration"`
+	OrchestrationType   *AgentOrchestrationType   `pulumi:"orchestrationType"`
 	// Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
 	PromptOverrideConfiguration *AgentPromptOverrideConfiguration `pulumi:"promptOverrideConfiguration"`
 	// Specifies whether to allow deleting agent while it is in use.
@@ -160,18 +172,22 @@ type agentArgs struct {
 // The set of arguments for constructing a Agent resource.
 type AgentArgs struct {
 	// List of ActionGroups
-	ActionGroups AgentActionGroupArrayInput
+	ActionGroups       AgentActionGroupArrayInput
+	AgentCollaboration AgentCollaborationPtrInput
+	// List of Agent Collaborators
+	AgentCollaborators AgentCollaboratorArrayInput
 	// Name for a resource.
 	AgentName pulumi.StringPtrInput
 	// ARN of a IAM role.
 	AgentResourceRoleArn pulumi.StringPtrInput
 	// Specifies whether to automatically prepare after creating or updating the agent.
-	AutoPrepare pulumi.BoolPtrInput
+	AutoPrepare         pulumi.BoolPtrInput
+	CustomOrchestration AgentCustomOrchestrationPtrInput
 	// A KMS key ARN
 	CustomerEncryptionKeyArn pulumi.StringPtrInput
 	// Description of the Resource.
 	Description pulumi.StringPtrInput
-	// ARN or name of a Bedrock model.
+	// The foundation model used for orchestration by the agent.
 	FoundationModel pulumi.StringPtrInput
 	// Details about the guardrail associated with the agent.
 	GuardrailConfiguration AgentGuardrailConfigurationPtrInput
@@ -180,7 +196,9 @@ type AgentArgs struct {
 	// Instruction for the agent.
 	Instruction pulumi.StringPtrInput
 	// List of Agent Knowledge Bases
-	KnowledgeBases AgentKnowledgeBaseArrayInput
+	KnowledgeBases      AgentKnowledgeBaseArrayInput
+	MemoryConfiguration AgentMemoryConfigurationPtrInput
+	OrchestrationType   AgentOrchestrationTypePtrInput
 	// Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
 	PromptOverrideConfiguration AgentPromptOverrideConfigurationPtrInput
 	// Specifies whether to allow deleting agent while it is in use.
@@ -244,6 +262,15 @@ func (o AgentOutput) AgentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agent) pulumi.StringOutput { return v.AgentArn }).(pulumi.StringOutput)
 }
 
+func (o AgentOutput) AgentCollaboration() AgentCollaborationPtrOutput {
+	return o.ApplyT(func(v *Agent) AgentCollaborationPtrOutput { return v.AgentCollaboration }).(AgentCollaborationPtrOutput)
+}
+
+// List of Agent Collaborators
+func (o AgentOutput) AgentCollaborators() AgentCollaboratorArrayOutput {
+	return o.ApplyT(func(v *Agent) AgentCollaboratorArrayOutput { return v.AgentCollaborators }).(AgentCollaboratorArrayOutput)
+}
+
 // Identifier for a resource.
 func (o AgentOutput) AgentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agent) pulumi.StringOutput { return v.AgentId }).(pulumi.StringOutput)
@@ -287,6 +314,10 @@ func (o AgentOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agent) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+func (o AgentOutput) CustomOrchestration() AgentCustomOrchestrationPtrOutput {
+	return o.ApplyT(func(v *Agent) AgentCustomOrchestrationPtrOutput { return v.CustomOrchestration }).(AgentCustomOrchestrationPtrOutput)
+}
+
 // A KMS key ARN
 func (o AgentOutput) CustomerEncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Agent) pulumi.StringPtrOutput { return v.CustomerEncryptionKeyArn }).(pulumi.StringPtrOutput)
@@ -302,7 +333,7 @@ func (o AgentOutput) FailureReasons() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Agent) pulumi.StringArrayOutput { return v.FailureReasons }).(pulumi.StringArrayOutput)
 }
 
-// ARN or name of a Bedrock model.
+// The foundation model used for orchestration by the agent.
 func (o AgentOutput) FoundationModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Agent) pulumi.StringPtrOutput { return v.FoundationModel }).(pulumi.StringPtrOutput)
 }
@@ -325,6 +356,14 @@ func (o AgentOutput) Instruction() pulumi.StringPtrOutput {
 // List of Agent Knowledge Bases
 func (o AgentOutput) KnowledgeBases() AgentKnowledgeBaseArrayOutput {
 	return o.ApplyT(func(v *Agent) AgentKnowledgeBaseArrayOutput { return v.KnowledgeBases }).(AgentKnowledgeBaseArrayOutput)
+}
+
+func (o AgentOutput) MemoryConfiguration() AgentMemoryConfigurationPtrOutput {
+	return o.ApplyT(func(v *Agent) AgentMemoryConfigurationPtrOutput { return v.MemoryConfiguration }).(AgentMemoryConfigurationPtrOutput)
+}
+
+func (o AgentOutput) OrchestrationType() AgentOrchestrationTypePtrOutput {
+	return o.ApplyT(func(v *Agent) AgentOrchestrationTypePtrOutput { return v.OrchestrationType }).(AgentOrchestrationTypePtrOutput)
 }
 
 // Time Stamp.

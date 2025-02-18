@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class PromptTextPromptTemplateConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("cachePoint")]
+        public Input<Inputs.PromptCachePointBlockArgs>? CachePoint { get; set; }
+
         [Input("inputVariables")]
         private InputList<Inputs.PromptInputVariableArgs>? _inputVariables;
 

@@ -24,13 +24,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetVirtualClusterResult:
-    def __init__(__self__, arn=None, id=None, tags=None):
+    def __init__(__self__, arn=None, id=None, security_configuration_id=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if security_configuration_id and not isinstance(security_configuration_id, str):
+            raise TypeError("Expected argument 'security_configuration_id' to be a str")
+        pulumi.set(__self__, "security_configuration_id", security_configuration_id)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -52,6 +55,14 @@ class GetVirtualClusterResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="securityConfigurationId")
+    def security_configuration_id(self) -> Optional[str]:
+        """
+        The ID of the security configuration.
+        """
+        return pulumi.get(self, "security_configuration_id")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -68,6 +79,7 @@ class AwaitableGetVirtualClusterResult(GetVirtualClusterResult):
         return GetVirtualClusterResult(
             arn=self.arn,
             id=self.id,
+            security_configuration_id=self.security_configuration_id,
             tags=self.tags)
 
 
@@ -87,6 +99,7 @@ def get_virtual_cluster(id: Optional[str] = None,
     return AwaitableGetVirtualClusterResult(
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
+        security_configuration_id=pulumi.get(__ret__, 'security_configuration_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_virtual_cluster_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualClusterResult]:
@@ -103,4 +116,5 @@ def get_virtual_cluster_output(id: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetVirtualClusterResult(
         arn=pulumi.get(__response__, 'arn'),
         id=pulumi.get(__response__, 'id'),
+        security_configuration_id=pulumi.get(__response__, 'security_configuration_id'),
         tags=pulumi.get(__response__, 'tags')))

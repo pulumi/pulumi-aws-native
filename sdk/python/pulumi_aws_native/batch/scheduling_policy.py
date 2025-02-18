@@ -26,7 +26,7 @@ class SchedulingPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SchedulingPolicy resource.
-        :param pulumi.Input['SchedulingPolicyFairsharePolicyArgs'] fairshare_policy: The fair share policy of the scheduling policy.
+        :param pulumi.Input['SchedulingPolicyFairsharePolicyArgs'] fairshare_policy: The fair-share scheduling policy details.
         :param pulumi.Input[str] name: Name of Scheduling Policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
@@ -41,7 +41,7 @@ class SchedulingPolicyArgs:
     @pulumi.getter(name="fairsharePolicy")
     def fairshare_policy(self) -> Optional[pulumi.Input['SchedulingPolicyFairsharePolicyArgs']]:
         """
-        The fair share policy of the scheduling policy.
+        The fair-share scheduling policy details.
         """
         return pulumi.get(self, "fairshare_policy")
 
@@ -88,7 +88,7 @@ class SchedulingPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SchedulingPolicyFairsharePolicyArgs', 'SchedulingPolicyFairsharePolicyArgsDict']] fairshare_policy: The fair share policy of the scheduling policy.
+        :param pulumi.Input[Union['SchedulingPolicyFairsharePolicyArgs', 'SchedulingPolicyFairsharePolicyArgsDict']] fairshare_policy: The fair-share scheduling policy details.
         :param pulumi.Input[str] name: Name of Scheduling Policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
@@ -174,7 +174,7 @@ class SchedulingPolicy(pulumi.CustomResource):
     @pulumi.getter(name="fairsharePolicy")
     def fairshare_policy(self) -> pulumi.Output[Optional['outputs.SchedulingPolicyFairsharePolicy']]:
         """
-        The fair share policy of the scheduling policy.
+        The fair-share scheduling policy details.
         """
         return pulumi.get(self, "fairshare_policy")
 

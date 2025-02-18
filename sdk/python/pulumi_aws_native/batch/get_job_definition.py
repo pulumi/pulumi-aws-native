@@ -132,7 +132,7 @@ class GetJobDefinitionResult:
     @pulumi.getter(name="schedulingPriority")
     def scheduling_priority(self) -> Optional[int]:
         """
-        The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+        The scheduling priority of the job definition. This only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
         """
         return pulumi.get(self, "scheduling_priority")
 

@@ -13,9 +13,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
     public sealed class SchedulingPolicyShareAttributesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A fair share identifier or fair share identifier prefix. If the string ends with an asterisk (*), this entry specifies the weight factor to use for fair share identifiers that start with that prefix. The list of fair share identifiers in a fair share policy can't overlap. For example, you can't have one that specifies a `shareIdentifier` of `UserA*` and another that specifies a `shareIdentifier` of `UserA-1` .
+        /// A share identifier or share identifier prefix. If the string ends with an asterisk (*), this entry specifies the weight factor to use for share identifiers that start with that prefix. The list of share identifiers in a fair-share policy can't overlap. For example, you can't have one that specifies a `shareIdentifier` of `UserA*` and another that specifies a `shareIdentifier` of `UserA-1` .
         /// 
-        /// There can be no more than 500 fair share identifiers active in a job queue.
+        /// There can be no more than 500 share identifiers active in a job queue.
         /// 
         /// The string is limited to 255 alphanumeric characters, and can be followed by an asterisk (*).
         /// </summary>
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public Input<string>? ShareIdentifier { get; set; }
 
         /// <summary>
-        /// The weight factor for the fair share identifier. The default value is 1.0. A lower value has a higher priority for compute resources. For example, jobs that use a share identifier with a weight factor of 0.125 (1/8) get 8 times the compute resources of jobs that use a share identifier with a weight factor of 1.
+        /// The weight factor for the share identifier. The default value is 1.0. A lower value has a higher priority for compute resources. For example, jobs that use a share identifier with a weight factor of 0.125 (1/8) get 8 times the compute resources of jobs that use a share identifier with a weight factor of 1.
         /// 
         /// The smallest supported value is 0.0001, and the largest supported value is 999.9999.
         /// </summary>

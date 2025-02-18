@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Inputs
         public Input<string> Metadata { get; set; } = null!;
 
         /// <summary>
+        /// Custom entity id attribute to override default entity id for this saml integration
+        /// </summary>
+        [Input("openSearchServerlessEntityId")]
+        public Input<string>? OpenSearchServerlessEntityId { get; set; }
+
+        /// <summary>
         /// Defines the session timeout in minutes
         /// </summary>
         [Input("sessionTimeout")]

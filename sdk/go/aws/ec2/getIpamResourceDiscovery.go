@@ -41,6 +41,8 @@ type LookupIpamResourceDiscoveryResult struct {
 	IsDefault *bool `pulumi:"isDefault"`
 	// The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
 	OperatingRegions []IpamResourceDiscoveryIpamOperatingRegion `pulumi:"operatingRegions"`
+	// A set of organizational unit (OU) exclusions for this resource.
+	OrganizationalUnitExclusions []IpamResourceDiscoveryOrganizationalUnitExclusion `pulumi:"organizationalUnitExclusions"`
 	// Owner Account ID of the Resource Discovery
 	OwnerId *string `pulumi:"ownerId"`
 	// The state of this Resource Discovery.
@@ -111,6 +113,13 @@ func (o LookupIpamResourceDiscoveryResultOutput) OperatingRegions() IpamResource
 	return o.ApplyT(func(v LookupIpamResourceDiscoveryResult) []IpamResourceDiscoveryIpamOperatingRegion {
 		return v.OperatingRegions
 	}).(IpamResourceDiscoveryIpamOperatingRegionArrayOutput)
+}
+
+// A set of organizational unit (OU) exclusions for this resource.
+func (o LookupIpamResourceDiscoveryResultOutput) OrganizationalUnitExclusions() IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput {
+	return o.ApplyT(func(v LookupIpamResourceDiscoveryResult) []IpamResourceDiscoveryOrganizationalUnitExclusion {
+		return v.OrganizationalUnitExclusions
+	}).(IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput)
 }
 
 // Owner Account ID of the Resource Discovery

@@ -15,10 +15,12 @@ from .get_connector import *
 from .get_profile import *
 from .get_server import *
 from .get_user import *
+from .get_web_app import *
 from .get_workflow import *
 from .profile import *
 from .server import *
 from .user import *
+from .web_app import *
 from .workflow import *
 from ._inputs import *
 from . import outputs

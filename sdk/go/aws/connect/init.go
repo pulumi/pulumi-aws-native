@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ContactFlow{}
 	case "aws-native:connect:ContactFlowModule":
 		r = &ContactFlowModule{}
+	case "aws-native:connect:ContactFlowVersion":
+		r = &ContactFlowVersion{}
 	case "aws-native:connect:EmailAddress":
 		r = &EmailAddress{}
 	case "aws-native:connect:EvaluationForm":

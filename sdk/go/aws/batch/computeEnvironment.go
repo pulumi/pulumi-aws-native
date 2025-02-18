@@ -52,7 +52,7 @@ type ComputeEnvironment struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the compute environment: `MANAGED` or `UNMANAGED` . For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide* .
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.
+	// The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.
 	//
 	// > This parameter is only supported when the `type` parameter is set to `UNMANAGED` .
 	UnmanagedvCpus pulumi.IntPtrOutput `pulumi:"unmanagedvCpus"`
@@ -145,7 +145,7 @@ type computeEnvironmentArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the compute environment: `MANAGED` or `UNMANAGED` . For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide* .
 	Type string `pulumi:"type"`
-	// The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.
+	// The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.
 	//
 	// > This parameter is only supported when the `type` parameter is set to `UNMANAGED` .
 	UnmanagedvCpus *int `pulumi:"unmanagedvCpus"`
@@ -189,7 +189,7 @@ type ComputeEnvironmentArgs struct {
 	Tags pulumi.StringMapInput
 	// The type of the compute environment: `MANAGED` or `UNMANAGED` . For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide* .
 	Type pulumi.StringInput
-	// The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.
+	// The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.
 	//
 	// > This parameter is only supported when the `type` parameter is set to `UNMANAGED` .
 	UnmanagedvCpus pulumi.IntPtrInput
@@ -300,7 +300,7 @@ func (o ComputeEnvironmentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.
+// The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.
 //
 // > This parameter is only supported when the `type` parameter is set to `UNMANAGED` .
 func (o ComputeEnvironmentOutput) UnmanagedvCpus() pulumi.IntPtrOutput {

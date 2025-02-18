@@ -13,15 +13,20 @@ import * as utilities from "../utilities";
 export function getUserPoolDomain(args: GetUserPoolDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getUserPoolDomain", {
-        "id": args.id,
+        "domain": args.domain,
+        "userPoolId": args.userPoolId,
     }, opts);
 }
 
 export interface GetUserPoolDomainArgs {
     /**
-     * The resource ID.
+     * The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` .
      */
-    id: string;
+    domain: string;
+    /**
+     * The ID of the user pool that is associated with the domain you're updating.
+     */
+    userPoolId: string;
 }
 
 export interface GetUserPoolDomainResult {
@@ -35,14 +40,6 @@ export interface GetUserPoolDomainResult {
      * When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
      */
     readonly customDomainConfig?: outputs.cognito.UserPoolDomainCustomDomainConfigType;
-    /**
-     * The resource ID.
-     */
-    readonly id?: string;
-    /**
-     * A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
-     */
-    readonly managedLoginVersion?: number;
 }
 /**
  * Resource Type definition for AWS::Cognito::UserPoolDomain
@@ -50,13 +47,18 @@ export interface GetUserPoolDomainResult {
 export function getUserPoolDomainOutput(args: GetUserPoolDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserPoolDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cognito:getUserPoolDomain", {
-        "id": args.id,
+        "domain": args.domain,
+        "userPoolId": args.userPoolId,
     }, opts);
 }
 
 export interface GetUserPoolDomainOutputArgs {
     /**
-     * The resource ID.
+     * The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` .
      */
-    id: pulumi.Input<string>;
+    domain: pulumi.Input<string>;
+    /**
+     * The ID of the user pool that is associated with the domain you're updating.
+     */
+    userPoolId: pulumi.Input<string>;
 }

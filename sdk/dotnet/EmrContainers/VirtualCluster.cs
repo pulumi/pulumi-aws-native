@@ -126,6 +126,12 @@ namespace Pulumi.AwsNative.EmrContainers
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the security configuration.
+        /// </summary>
+        [Output("securityConfigurationId")]
+        public Output<string?> SecurityConfigurationId { get; private set; } = null!;
+
+        /// <summary>
         /// An array of key-value pairs to apply to this virtual cluster.
         /// </summary>
         [Output("tags")]
@@ -192,6 +198,12 @@ namespace Pulumi.AwsNative.EmrContainers
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The ID of the security configuration.
+        /// </summary>
+        [Input("securityConfigurationId")]
+        public Input<string>? SecurityConfigurationId { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

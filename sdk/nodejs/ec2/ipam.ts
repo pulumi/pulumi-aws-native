@@ -50,6 +50,10 @@ export class Ipam extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultResourceDiscoveryId!: pulumi.Output<string>;
     /**
+     * A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
+     */
+    public readonly defaultResourceDiscoveryOrganizationalUnitExclusions!: pulumi.Output<outputs.ec2.IpamOrganizationalUnitExclusion[] | undefined>;
+    /**
      * The description for the IPAM.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -101,6 +105,7 @@ export class Ipam extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["defaultResourceDiscoveryOrganizationalUnitExclusions"] = args ? args.defaultResourceDiscoveryOrganizationalUnitExclusions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enablePrivateGua"] = args ? args.enablePrivateGua : undefined;
             resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
@@ -118,6 +123,7 @@ export class Ipam extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultResourceDiscoveryAssociationId"] = undefined /*out*/;
             resourceInputs["defaultResourceDiscoveryId"] = undefined /*out*/;
+            resourceInputs["defaultResourceDiscoveryOrganizationalUnitExclusions"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["enablePrivateGua"] = undefined /*out*/;
             resourceInputs["ipamId"] = undefined /*out*/;
@@ -138,6 +144,10 @@ export class Ipam extends pulumi.CustomResource {
  * The set of arguments for constructing a Ipam resource.
  */
 export interface IpamArgs {
+    /**
+     * A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
+     */
+    defaultResourceDiscoveryOrganizationalUnitExclusions?: pulumi.Input<pulumi.Input<inputs.ec2.IpamOrganizationalUnitExclusionArgs>[]>;
     /**
      * The description for the IPAM.
      */

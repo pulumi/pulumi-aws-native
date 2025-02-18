@@ -33,6 +33,8 @@ type LookupVirtualClusterResult struct {
 	Arn *string `pulumi:"arn"`
 	// Id of the virtual cluster.
 	Id *string `pulumi:"id"`
+	// The ID of the security configuration.
+	SecurityConfigurationId *string `pulumi:"securityConfigurationId"`
 	// An array of key-value pairs to apply to this virtual cluster.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -77,6 +79,11 @@ func (o LookupVirtualClusterResultOutput) Arn() pulumi.StringPtrOutput {
 // Id of the virtual cluster.
 func (o LookupVirtualClusterResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVirtualClusterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the security configuration.
+func (o LookupVirtualClusterResultOutput) SecurityConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualClusterResult) *string { return v.SecurityConfigurationId }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this virtual cluster.

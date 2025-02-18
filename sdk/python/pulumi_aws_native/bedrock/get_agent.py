@@ -25,13 +25,19 @@ __all__ = [
 
 @pulumi.output_type
 class GetAgentResult:
-    def __init__(__self__, action_groups=None, agent_arn=None, agent_id=None, agent_name=None, agent_resource_role_arn=None, agent_status=None, agent_version=None, created_at=None, customer_encryption_key_arn=None, description=None, failure_reasons=None, foundation_model=None, guardrail_configuration=None, idle_session_ttl_in_seconds=None, instruction=None, knowledge_bases=None, prepared_at=None, prompt_override_configuration=None, recommended_actions=None, tags=None, test_alias_tags=None, updated_at=None):
+    def __init__(__self__, action_groups=None, agent_arn=None, agent_collaboration=None, agent_collaborators=None, agent_id=None, agent_name=None, agent_resource_role_arn=None, agent_status=None, agent_version=None, created_at=None, custom_orchestration=None, customer_encryption_key_arn=None, description=None, failure_reasons=None, foundation_model=None, guardrail_configuration=None, idle_session_ttl_in_seconds=None, instruction=None, knowledge_bases=None, memory_configuration=None, orchestration_type=None, prepared_at=None, prompt_override_configuration=None, recommended_actions=None, tags=None, test_alias_tags=None, updated_at=None):
         if action_groups and not isinstance(action_groups, list):
             raise TypeError("Expected argument 'action_groups' to be a list")
         pulumi.set(__self__, "action_groups", action_groups)
         if agent_arn and not isinstance(agent_arn, str):
             raise TypeError("Expected argument 'agent_arn' to be a str")
         pulumi.set(__self__, "agent_arn", agent_arn)
+        if agent_collaboration and not isinstance(agent_collaboration, str):
+            raise TypeError("Expected argument 'agent_collaboration' to be a str")
+        pulumi.set(__self__, "agent_collaboration", agent_collaboration)
+        if agent_collaborators and not isinstance(agent_collaborators, list):
+            raise TypeError("Expected argument 'agent_collaborators' to be a list")
+        pulumi.set(__self__, "agent_collaborators", agent_collaborators)
         if agent_id and not isinstance(agent_id, str):
             raise TypeError("Expected argument 'agent_id' to be a str")
         pulumi.set(__self__, "agent_id", agent_id)
@@ -50,6 +56,9 @@ class GetAgentResult:
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if custom_orchestration and not isinstance(custom_orchestration, dict):
+            raise TypeError("Expected argument 'custom_orchestration' to be a dict")
+        pulumi.set(__self__, "custom_orchestration", custom_orchestration)
         if customer_encryption_key_arn and not isinstance(customer_encryption_key_arn, str):
             raise TypeError("Expected argument 'customer_encryption_key_arn' to be a str")
         pulumi.set(__self__, "customer_encryption_key_arn", customer_encryption_key_arn)
@@ -74,6 +83,12 @@ class GetAgentResult:
         if knowledge_bases and not isinstance(knowledge_bases, list):
             raise TypeError("Expected argument 'knowledge_bases' to be a list")
         pulumi.set(__self__, "knowledge_bases", knowledge_bases)
+        if memory_configuration and not isinstance(memory_configuration, dict):
+            raise TypeError("Expected argument 'memory_configuration' to be a dict")
+        pulumi.set(__self__, "memory_configuration", memory_configuration)
+        if orchestration_type and not isinstance(orchestration_type, str):
+            raise TypeError("Expected argument 'orchestration_type' to be a str")
+        pulumi.set(__self__, "orchestration_type", orchestration_type)
         if prepared_at and not isinstance(prepared_at, str):
             raise TypeError("Expected argument 'prepared_at' to be a str")
         pulumi.set(__self__, "prepared_at", prepared_at)
@@ -108,6 +123,19 @@ class GetAgentResult:
         Arn representation of the Agent.
         """
         return pulumi.get(self, "agent_arn")
+
+    @property
+    @pulumi.getter(name="agentCollaboration")
+    def agent_collaboration(self) -> Optional['AgentCollaboration']:
+        return pulumi.get(self, "agent_collaboration")
+
+    @property
+    @pulumi.getter(name="agentCollaborators")
+    def agent_collaborators(self) -> Optional[Sequence['outputs.AgentCollaborator']]:
+        """
+        List of Agent Collaborators
+        """
+        return pulumi.get(self, "agent_collaborators")
 
     @property
     @pulumi.getter(name="agentId")
@@ -166,6 +194,11 @@ class GetAgentResult:
         return pulumi.get(self, "created_at")
 
     @property
+    @pulumi.getter(name="customOrchestration")
+    def custom_orchestration(self) -> Optional['outputs.AgentCustomOrchestration']:
+        return pulumi.get(self, "custom_orchestration")
+
+    @property
     @pulumi.getter(name="customerEncryptionKeyArn")
     def customer_encryption_key_arn(self) -> Optional[str]:
         """
@@ -193,7 +226,7 @@ class GetAgentResult:
     @pulumi.getter(name="foundationModel")
     def foundation_model(self) -> Optional[str]:
         """
-        ARN or name of a Bedrock model.
+        The foundation model used for orchestration by the agent.
         """
         return pulumi.get(self, "foundation_model")
 
@@ -228,6 +261,16 @@ class GetAgentResult:
         List of Agent Knowledge Bases
         """
         return pulumi.get(self, "knowledge_bases")
+
+    @property
+    @pulumi.getter(name="memoryConfiguration")
+    def memory_configuration(self) -> Optional['outputs.AgentMemoryConfiguration']:
+        return pulumi.get(self, "memory_configuration")
+
+    @property
+    @pulumi.getter(name="orchestrationType")
+    def orchestration_type(self) -> Optional['AgentOrchestrationType']:
+        return pulumi.get(self, "orchestration_type")
 
     @property
     @pulumi.getter(name="preparedAt")
@@ -292,12 +335,15 @@ class AwaitableGetAgentResult(GetAgentResult):
         return GetAgentResult(
             action_groups=self.action_groups,
             agent_arn=self.agent_arn,
+            agent_collaboration=self.agent_collaboration,
+            agent_collaborators=self.agent_collaborators,
             agent_id=self.agent_id,
             agent_name=self.agent_name,
             agent_resource_role_arn=self.agent_resource_role_arn,
             agent_status=self.agent_status,
             agent_version=self.agent_version,
             created_at=self.created_at,
+            custom_orchestration=self.custom_orchestration,
             customer_encryption_key_arn=self.customer_encryption_key_arn,
             description=self.description,
             failure_reasons=self.failure_reasons,
@@ -306,6 +352,8 @@ class AwaitableGetAgentResult(GetAgentResult):
             idle_session_ttl_in_seconds=self.idle_session_ttl_in_seconds,
             instruction=self.instruction,
             knowledge_bases=self.knowledge_bases,
+            memory_configuration=self.memory_configuration,
+            orchestration_type=self.orchestration_type,
             prepared_at=self.prepared_at,
             prompt_override_configuration=self.prompt_override_configuration,
             recommended_actions=self.recommended_actions,
@@ -330,12 +378,15 @@ def get_agent(agent_id: Optional[str] = None,
     return AwaitableGetAgentResult(
         action_groups=pulumi.get(__ret__, 'action_groups'),
         agent_arn=pulumi.get(__ret__, 'agent_arn'),
+        agent_collaboration=pulumi.get(__ret__, 'agent_collaboration'),
+        agent_collaborators=pulumi.get(__ret__, 'agent_collaborators'),
         agent_id=pulumi.get(__ret__, 'agent_id'),
         agent_name=pulumi.get(__ret__, 'agent_name'),
         agent_resource_role_arn=pulumi.get(__ret__, 'agent_resource_role_arn'),
         agent_status=pulumi.get(__ret__, 'agent_status'),
         agent_version=pulumi.get(__ret__, 'agent_version'),
         created_at=pulumi.get(__ret__, 'created_at'),
+        custom_orchestration=pulumi.get(__ret__, 'custom_orchestration'),
         customer_encryption_key_arn=pulumi.get(__ret__, 'customer_encryption_key_arn'),
         description=pulumi.get(__ret__, 'description'),
         failure_reasons=pulumi.get(__ret__, 'failure_reasons'),
@@ -344,6 +395,8 @@ def get_agent(agent_id: Optional[str] = None,
         idle_session_ttl_in_seconds=pulumi.get(__ret__, 'idle_session_ttl_in_seconds'),
         instruction=pulumi.get(__ret__, 'instruction'),
         knowledge_bases=pulumi.get(__ret__, 'knowledge_bases'),
+        memory_configuration=pulumi.get(__ret__, 'memory_configuration'),
+        orchestration_type=pulumi.get(__ret__, 'orchestration_type'),
         prepared_at=pulumi.get(__ret__, 'prepared_at'),
         prompt_override_configuration=pulumi.get(__ret__, 'prompt_override_configuration'),
         recommended_actions=pulumi.get(__ret__, 'recommended_actions'),
@@ -365,12 +418,15 @@ def get_agent_output(agent_id: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetAgentResult(
         action_groups=pulumi.get(__response__, 'action_groups'),
         agent_arn=pulumi.get(__response__, 'agent_arn'),
+        agent_collaboration=pulumi.get(__response__, 'agent_collaboration'),
+        agent_collaborators=pulumi.get(__response__, 'agent_collaborators'),
         agent_id=pulumi.get(__response__, 'agent_id'),
         agent_name=pulumi.get(__response__, 'agent_name'),
         agent_resource_role_arn=pulumi.get(__response__, 'agent_resource_role_arn'),
         agent_status=pulumi.get(__response__, 'agent_status'),
         agent_version=pulumi.get(__response__, 'agent_version'),
         created_at=pulumi.get(__response__, 'created_at'),
+        custom_orchestration=pulumi.get(__response__, 'custom_orchestration'),
         customer_encryption_key_arn=pulumi.get(__response__, 'customer_encryption_key_arn'),
         description=pulumi.get(__response__, 'description'),
         failure_reasons=pulumi.get(__response__, 'failure_reasons'),
@@ -379,6 +435,8 @@ def get_agent_output(agent_id: Optional[pulumi.Input[str]] = None,
         idle_session_ttl_in_seconds=pulumi.get(__response__, 'idle_session_ttl_in_seconds'),
         instruction=pulumi.get(__response__, 'instruction'),
         knowledge_bases=pulumi.get(__response__, 'knowledge_bases'),
+        memory_configuration=pulumi.get(__response__, 'memory_configuration'),
+        orchestration_type=pulumi.get(__response__, 'orchestration_type'),
         prepared_at=pulumi.get(__response__, 'prepared_at'),
         prompt_override_configuration=pulumi.get(__response__, 'prompt_override_configuration'),
         recommended_actions=pulumi.get(__response__, 'recommended_actions'),

@@ -16,12 +16,6 @@ namespace Pulumi.AwsNative.Cognito
     public partial class UserPoolDomain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The resource ID.
-        /// </summary>
-        [Output("awsId")]
-        public Output<string> AwsId { get; private set; } = null!;
-
-        /// <summary>
         /// The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
         /// </summary>
         [Output("cloudFrontDistribution")]

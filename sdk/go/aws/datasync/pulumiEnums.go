@@ -2290,6 +2290,172 @@ func (in *locationS3S3StorageClassPtr) ToLocationS3S3StorageClassPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(LocationS3S3StorageClassPtrOutput)
 }
 
+// The authentication mode used to determine identity of user.
+type LocationSmbAuthenticationType string
+
+const (
+	LocationSmbAuthenticationTypeNtlm     = LocationSmbAuthenticationType("NTLM")
+	LocationSmbAuthenticationTypeKerberos = LocationSmbAuthenticationType("KERBEROS")
+)
+
+func (LocationSmbAuthenticationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationSmbAuthenticationType)(nil)).Elem()
+}
+
+func (e LocationSmbAuthenticationType) ToLocationSmbAuthenticationTypeOutput() LocationSmbAuthenticationTypeOutput {
+	return pulumi.ToOutput(e).(LocationSmbAuthenticationTypeOutput)
+}
+
+func (e LocationSmbAuthenticationType) ToLocationSmbAuthenticationTypeOutputWithContext(ctx context.Context) LocationSmbAuthenticationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationSmbAuthenticationTypeOutput)
+}
+
+func (e LocationSmbAuthenticationType) ToLocationSmbAuthenticationTypePtrOutput() LocationSmbAuthenticationTypePtrOutput {
+	return e.ToLocationSmbAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (e LocationSmbAuthenticationType) ToLocationSmbAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationSmbAuthenticationTypePtrOutput {
+	return LocationSmbAuthenticationType(e).ToLocationSmbAuthenticationTypeOutputWithContext(ctx).ToLocationSmbAuthenticationTypePtrOutputWithContext(ctx)
+}
+
+func (e LocationSmbAuthenticationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationSmbAuthenticationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationSmbAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LocationSmbAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LocationSmbAuthenticationTypeOutput struct{ *pulumi.OutputState }
+
+func (LocationSmbAuthenticationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationSmbAuthenticationType)(nil)).Elem()
+}
+
+func (o LocationSmbAuthenticationTypeOutput) ToLocationSmbAuthenticationTypeOutput() LocationSmbAuthenticationTypeOutput {
+	return o
+}
+
+func (o LocationSmbAuthenticationTypeOutput) ToLocationSmbAuthenticationTypeOutputWithContext(ctx context.Context) LocationSmbAuthenticationTypeOutput {
+	return o
+}
+
+func (o LocationSmbAuthenticationTypeOutput) ToLocationSmbAuthenticationTypePtrOutput() LocationSmbAuthenticationTypePtrOutput {
+	return o.ToLocationSmbAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (o LocationSmbAuthenticationTypeOutput) ToLocationSmbAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationSmbAuthenticationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationSmbAuthenticationType) *LocationSmbAuthenticationType {
+		return &v
+	}).(LocationSmbAuthenticationTypePtrOutput)
+}
+
+func (o LocationSmbAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LocationSmbAuthenticationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationSmbAuthenticationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LocationSmbAuthenticationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationSmbAuthenticationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationSmbAuthenticationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LocationSmbAuthenticationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (LocationSmbAuthenticationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationSmbAuthenticationType)(nil)).Elem()
+}
+
+func (o LocationSmbAuthenticationTypePtrOutput) ToLocationSmbAuthenticationTypePtrOutput() LocationSmbAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o LocationSmbAuthenticationTypePtrOutput) ToLocationSmbAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationSmbAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o LocationSmbAuthenticationTypePtrOutput) Elem() LocationSmbAuthenticationTypeOutput {
+	return o.ApplyT(func(v *LocationSmbAuthenticationType) LocationSmbAuthenticationType {
+		if v != nil {
+			return *v
+		}
+		var ret LocationSmbAuthenticationType
+		return ret
+	}).(LocationSmbAuthenticationTypeOutput)
+}
+
+func (o LocationSmbAuthenticationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationSmbAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationSmbAuthenticationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LocationSmbAuthenticationTypeInput is an input type that accepts values of the LocationSmbAuthenticationType enum
+// A concrete instance of `LocationSmbAuthenticationTypeInput` can be one of the following:
+//
+//	LocationSmbAuthenticationTypeNtlm
+//	LocationSmbAuthenticationTypeKerberos
+type LocationSmbAuthenticationTypeInput interface {
+	pulumi.Input
+
+	ToLocationSmbAuthenticationTypeOutput() LocationSmbAuthenticationTypeOutput
+	ToLocationSmbAuthenticationTypeOutputWithContext(context.Context) LocationSmbAuthenticationTypeOutput
+}
+
+var locationSmbAuthenticationTypePtrType = reflect.TypeOf((**LocationSmbAuthenticationType)(nil)).Elem()
+
+type LocationSmbAuthenticationTypePtrInput interface {
+	pulumi.Input
+
+	ToLocationSmbAuthenticationTypePtrOutput() LocationSmbAuthenticationTypePtrOutput
+	ToLocationSmbAuthenticationTypePtrOutputWithContext(context.Context) LocationSmbAuthenticationTypePtrOutput
+}
+
+type locationSmbAuthenticationTypePtr string
+
+func LocationSmbAuthenticationTypePtr(v string) LocationSmbAuthenticationTypePtrInput {
+	return (*locationSmbAuthenticationTypePtr)(&v)
+}
+
+func (*locationSmbAuthenticationTypePtr) ElementType() reflect.Type {
+	return locationSmbAuthenticationTypePtrType
+}
+
+func (in *locationSmbAuthenticationTypePtr) ToLocationSmbAuthenticationTypePtrOutput() LocationSmbAuthenticationTypePtrOutput {
+	return pulumi.ToOutput(in).(LocationSmbAuthenticationTypePtrOutput)
+}
+
+func (in *locationSmbAuthenticationTypePtr) ToLocationSmbAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationSmbAuthenticationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationSmbAuthenticationTypePtrOutput)
+}
+
 // The specific SMB version that you want DataSync to use to mount your SMB share.
 type LocationSmbMountOptionsVersion string
 
@@ -7163,6 +7329,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageServerProtocolPtrInput)(nil)).Elem(), LocationObjectStorageServerProtocol("HTTPS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationS3S3StorageClassInput)(nil)).Elem(), LocationS3S3StorageClass("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationS3S3StorageClassPtrInput)(nil)).Elem(), LocationS3S3StorageClass("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbAuthenticationTypeInput)(nil)).Elem(), LocationSmbAuthenticationType("NTLM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbAuthenticationTypePtrInput)(nil)).Elem(), LocationSmbAuthenticationType("NTLM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbMountOptionsVersionInput)(nil)).Elem(), LocationSmbMountOptionsVersion("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbMountOptionsVersionPtrInput)(nil)).Elem(), LocationSmbMountOptionsVersion("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemSystemTypeInput)(nil)).Elem(), StorageSystemSystemType("NetAppONTAP"))
@@ -7247,6 +7415,8 @@ func init() {
 	pulumi.RegisterOutputType(LocationObjectStorageServerProtocolPtrOutput{})
 	pulumi.RegisterOutputType(LocationS3S3StorageClassOutput{})
 	pulumi.RegisterOutputType(LocationS3S3StorageClassPtrOutput{})
+	pulumi.RegisterOutputType(LocationSmbAuthenticationTypeOutput{})
+	pulumi.RegisterOutputType(LocationSmbAuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(LocationSmbMountOptionsVersionOutput{})
 	pulumi.RegisterOutputType(LocationSmbMountOptionsVersionPtrOutput{})
 	pulumi.RegisterOutputType(StorageSystemConnectivityStatusOutput{})

@@ -36,6 +36,12 @@ __all__ = [
     'UserHomeDirectoryMapEntryArgsDict',
     'UserPosixProfileArgs',
     'UserPosixProfileArgsDict',
+    'WebAppCustomizationArgs',
+    'WebAppCustomizationArgsDict',
+    'WebAppIdentityProviderDetailsArgs',
+    'WebAppIdentityProviderDetailsArgsDict',
+    'WebAppUnitsPropertiesArgs',
+    'WebAppUnitsPropertiesArgsDict',
     'WorkflowEfsInputFileLocationArgs',
     'WorkflowEfsInputFileLocationArgsDict',
     'WorkflowInputFileLocationArgs',
@@ -1114,6 +1120,182 @@ class UserPosixProfileArgs:
     @secondary_gids.setter
     def secondary_gids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]):
         pulumi.set(self, "secondary_gids", value)
+
+
+if not MYPY:
+    class WebAppCustomizationArgsDict(TypedDict):
+        favicon_file: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a favicon to display in the browser tab.
+        """
+        logo_file: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a logo to display on the web app.
+        """
+        title: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a title to display on the web app.
+        """
+elif False:
+    WebAppCustomizationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAppCustomizationArgs:
+    def __init__(__self__, *,
+                 favicon_file: Optional[pulumi.Input[str]] = None,
+                 logo_file: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] favicon_file: Specifies a favicon to display in the browser tab.
+        :param pulumi.Input[str] logo_file: Specifies a logo to display on the web app.
+        :param pulumi.Input[str] title: Specifies a title to display on the web app.
+        """
+        if favicon_file is not None:
+            pulumi.set(__self__, "favicon_file", favicon_file)
+        if logo_file is not None:
+            pulumi.set(__self__, "logo_file", logo_file)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="faviconFile")
+    def favicon_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a favicon to display in the browser tab.
+        """
+        return pulumi.get(self, "favicon_file")
+
+    @favicon_file.setter
+    def favicon_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "favicon_file", value)
+
+    @property
+    @pulumi.getter(name="logoFile")
+    def logo_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a logo to display on the web app.
+        """
+        return pulumi.get(self, "logo_file")
+
+    @logo_file.setter
+    def logo_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo_file", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a title to display on the web app.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+
+if not MYPY:
+    class WebAppIdentityProviderDetailsArgsDict(TypedDict):
+        """
+        You can provide a structure that contains the details for the identity provider to use with your web app.
+        """
+        application_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) for the IAM Identity Center application: this value is set automatically when you create your web app.
+        """
+        instance_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) for the IAM Identity Center used for the web app.
+        """
+        role: NotRequired[pulumi.Input[str]]
+        """
+        The IAM role in IAM Identity Center used for the web app.
+        """
+elif False:
+    WebAppIdentityProviderDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAppIdentityProviderDetailsArgs:
+    def __init__(__self__, *,
+                 application_arn: Optional[pulumi.Input[str]] = None,
+                 instance_arn: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input[str]] = None):
+        """
+        You can provide a structure that contains the details for the identity provider to use with your web app.
+        :param pulumi.Input[str] application_arn: The Amazon Resource Name (ARN) for the IAM Identity Center application: this value is set automatically when you create your web app.
+        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) for the IAM Identity Center used for the web app.
+        :param pulumi.Input[str] role: The IAM role in IAM Identity Center used for the web app.
+        """
+        if application_arn is not None:
+            pulumi.set(__self__, "application_arn", application_arn)
+        if instance_arn is not None:
+            pulumi.set(__self__, "instance_arn", instance_arn)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter(name="applicationArn")
+    def application_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the IAM Identity Center application: this value is set automatically when you create your web app.
+        """
+        return pulumi.get(self, "application_arn")
+
+    @application_arn.setter
+    def application_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_arn", value)
+
+    @property
+    @pulumi.getter(name="instanceArn")
+    def instance_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the IAM Identity Center used for the web app.
+        """
+        return pulumi.get(self, "instance_arn")
+
+    @instance_arn.setter
+    def instance_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_arn", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM role in IAM Identity Center used for the web app.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role", value)
+
+
+if not MYPY:
+    class WebAppUnitsPropertiesArgsDict(TypedDict):
+        """
+        A union that contains the value for number of concurrent connections or the user sessions on your web app.
+        """
+        provisioned: pulumi.Input[int]
+elif False:
+    WebAppUnitsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAppUnitsPropertiesArgs:
+    def __init__(__self__, *,
+                 provisioned: pulumi.Input[int]):
+        """
+        A union that contains the value for number of concurrent connections or the user sessions on your web app.
+        """
+        pulumi.set(__self__, "provisioned", provisioned)
+
+    @property
+    @pulumi.getter
+    def provisioned(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "provisioned")
+
+    @provisioned.setter
+    def provisioned(self, value: pulumi.Input[int]):
+        pulumi.set(self, "provisioned", value)
 
 
 if not MYPY:

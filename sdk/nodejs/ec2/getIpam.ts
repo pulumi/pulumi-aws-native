@@ -38,6 +38,10 @@ export interface GetIpamResult {
      */
     readonly defaultResourceDiscoveryId?: string;
     /**
+     * A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
+     */
+    readonly defaultResourceDiscoveryOrganizationalUnitExclusions?: outputs.ec2.IpamOrganizationalUnitExclusion[];
+    /**
      * The description for the IPAM.
      */
     readonly description?: string;

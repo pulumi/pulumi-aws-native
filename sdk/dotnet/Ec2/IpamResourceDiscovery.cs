@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<ImmutableArray<Outputs.IpamResourceDiscoveryIpamOperatingRegion>> OperatingRegions { get; private set; } = null!;
 
         /// <summary>
+        /// A set of organizational unit (OU) exclusions for this resource.
+        /// </summary>
+        [Output("organizationalUnitExclusions")]
+        public Output<ImmutableArray<Outputs.IpamResourceDiscoveryOrganizationalUnitExclusion>> OrganizationalUnitExclusions { get; private set; } = null!;
+
+        /// <summary>
         /// Owner Account ID of the Resource Discovery
         /// </summary>
         [Output("ownerId")]
@@ -130,6 +136,18 @@ namespace Pulumi.AwsNative.Ec2
         {
             get => _operatingRegions ?? (_operatingRegions = new InputList<Inputs.IpamResourceDiscoveryIpamOperatingRegionArgs>());
             set => _operatingRegions = value;
+        }
+
+        [Input("organizationalUnitExclusions")]
+        private InputList<Inputs.IpamResourceDiscoveryOrganizationalUnitExclusionArgs>? _organizationalUnitExclusions;
+
+        /// <summary>
+        /// A set of organizational unit (OU) exclusions for this resource.
+        /// </summary>
+        public InputList<Inputs.IpamResourceDiscoveryOrganizationalUnitExclusionArgs> OrganizationalUnitExclusions
+        {
+            get => _organizationalUnitExclusions ?? (_organizationalUnitExclusions = new InputList<Inputs.IpamResourceDiscoveryOrganizationalUnitExclusionArgs>());
+            set => _organizationalUnitExclusions = value;
         }
 
         [Input("tags")]

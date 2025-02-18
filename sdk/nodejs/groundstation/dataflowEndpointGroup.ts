@@ -116,6 +116,8 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["contactPostPassDurationSeconds", "contactPrePassDurationSeconds", "endpointDetails[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DataflowEndpointGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

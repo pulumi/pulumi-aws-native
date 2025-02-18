@@ -52,7 +52,7 @@ type LookupComputeEnvironmentResult struct {
 	//
 	// When an instance is idle, the instance scales down to the `minvCpus` value. However, the instance size doesn't change. For example, consider a `c5.8xlarge` instance with a `minvCpus` value of `4` and a `desiredvCpus` value of `36` . This instance doesn't scale down to a `c5.large` instance.
 	State *string `pulumi:"state"`
-	// The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.
+	// The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.
 	//
 	// > This parameter is only supported when the `type` parameter is set to `UNMANAGED` .
 	UnmanagedvCpus *int `pulumi:"unmanagedvCpus"`
@@ -129,7 +129,7 @@ func (o LookupComputeEnvironmentResultOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupComputeEnvironmentResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.
+// The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.
 //
 // > This parameter is only supported when the `type` parameter is set to `UNMANAGED` .
 func (o LookupComputeEnvironmentResultOutput) UnmanagedvCpus() pulumi.IntPtrOutput {

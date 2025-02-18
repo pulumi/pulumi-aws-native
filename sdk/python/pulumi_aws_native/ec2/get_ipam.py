@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetIpamResult:
-    def __init__(__self__, arn=None, default_resource_discovery_association_id=None, default_resource_discovery_id=None, description=None, enable_private_gua=None, ipam_id=None, operating_regions=None, private_default_scope_id=None, public_default_scope_id=None, resource_discovery_association_count=None, scope_count=None, tags=None, tier=None):
+    def __init__(__self__, arn=None, default_resource_discovery_association_id=None, default_resource_discovery_id=None, default_resource_discovery_organizational_unit_exclusions=None, description=None, enable_private_gua=None, ipam_id=None, operating_regions=None, private_default_scope_id=None, public_default_scope_id=None, resource_discovery_association_count=None, scope_count=None, tags=None, tier=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,6 +36,9 @@ class GetIpamResult:
         if default_resource_discovery_id and not isinstance(default_resource_discovery_id, str):
             raise TypeError("Expected argument 'default_resource_discovery_id' to be a str")
         pulumi.set(__self__, "default_resource_discovery_id", default_resource_discovery_id)
+        if default_resource_discovery_organizational_unit_exclusions and not isinstance(default_resource_discovery_organizational_unit_exclusions, list):
+            raise TypeError("Expected argument 'default_resource_discovery_organizational_unit_exclusions' to be a list")
+        pulumi.set(__self__, "default_resource_discovery_organizational_unit_exclusions", default_resource_discovery_organizational_unit_exclusions)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -90,6 +93,14 @@ class GetIpamResult:
         The Id of the default resource discovery, created with this IPAM.
         """
         return pulumi.get(self, "default_resource_discovery_id")
+
+    @property
+    @pulumi.getter(name="defaultResourceDiscoveryOrganizationalUnitExclusions")
+    def default_resource_discovery_organizational_unit_exclusions(self) -> Optional[Sequence['outputs.IpamOrganizationalUnitExclusion']]:
+        """
+        A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
+        """
+        return pulumi.get(self, "default_resource_discovery_organizational_unit_exclusions")
 
     @property
     @pulumi.getter
@@ -181,6 +192,7 @@ class AwaitableGetIpamResult(GetIpamResult):
             arn=self.arn,
             default_resource_discovery_association_id=self.default_resource_discovery_association_id,
             default_resource_discovery_id=self.default_resource_discovery_id,
+            default_resource_discovery_organizational_unit_exclusions=self.default_resource_discovery_organizational_unit_exclusions,
             description=self.description,
             enable_private_gua=self.enable_private_gua,
             ipam_id=self.ipam_id,
@@ -210,6 +222,7 @@ def get_ipam(ipam_id: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         default_resource_discovery_association_id=pulumi.get(__ret__, 'default_resource_discovery_association_id'),
         default_resource_discovery_id=pulumi.get(__ret__, 'default_resource_discovery_id'),
+        default_resource_discovery_organizational_unit_exclusions=pulumi.get(__ret__, 'default_resource_discovery_organizational_unit_exclusions'),
         description=pulumi.get(__ret__, 'description'),
         enable_private_gua=pulumi.get(__ret__, 'enable_private_gua'),
         ipam_id=pulumi.get(__ret__, 'ipam_id'),
@@ -236,6 +249,7 @@ def get_ipam_output(ipam_id: Optional[pulumi.Input[str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         default_resource_discovery_association_id=pulumi.get(__response__, 'default_resource_discovery_association_id'),
         default_resource_discovery_id=pulumi.get(__response__, 'default_resource_discovery_id'),
+        default_resource_discovery_organizational_unit_exclusions=pulumi.get(__response__, 'default_resource_discovery_organizational_unit_exclusions'),
         description=pulumi.get(__response__, 'description'),
         enable_private_gua=pulumi.get(__response__, 'enable_private_gua'),
         ipam_id=pulumi.get(__response__, 'ipam_id'),

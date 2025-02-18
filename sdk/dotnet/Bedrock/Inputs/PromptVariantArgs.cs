@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     public sealed class PromptVariantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+        /// </summary>
+        [Input("additionalModelRequestFields")]
+        public Input<Inputs.PromptAdditionalModelRequestFieldsArgs>? AdditionalModelRequestFields { get; set; }
+
+        /// <summary>
         /// Specifies a generative AI resource with which to use the prompt.
         /// </summary>
         [Input("genAiResource")]

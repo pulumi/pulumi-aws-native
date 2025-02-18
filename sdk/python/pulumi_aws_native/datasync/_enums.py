@@ -19,6 +19,7 @@ __all__ = [
     'LocationNfsMountOptionsVersion',
     'LocationObjectStorageServerProtocol',
     'LocationS3S3StorageClass',
+    'LocationSmbAuthenticationType',
     'LocationSmbMountOptionsVersion',
     'StorageSystemConnectivityStatus',
     'StorageSystemSystemType',
@@ -178,6 +179,14 @@ class LocationS3S3StorageClass(str, Enum):
     GLACIER = "GLACIER"
     GLACIER_INSTANT_RETRIEVAL = "GLACIER_INSTANT_RETRIEVAL"
     DEEP_ARCHIVE = "DEEP_ARCHIVE"
+
+
+class LocationSmbAuthenticationType(str, Enum):
+    """
+    The authentication mode used to determine identity of user.
+    """
+    NTLM = "NTLM"
+    KERBEROS = "KERBEROS"
 
 
 class LocationSmbMountOptionsVersion(str, Enum):

@@ -22,10 +22,40 @@ namespace Pulumi.AwsNative.DataSync
         public Output<ImmutableArray<string>> AgentArns { get; private set; } = null!;
 
         /// <summary>
+        /// The authentication mode used to determine identity of user.
+        /// </summary>
+        [Output("authenticationType")]
+        public Output<Pulumi.AwsNative.DataSync.LocationSmbAuthenticationType?> AuthenticationType { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
+        /// </summary>
+        [Output("dnsIpAddresses")]
+        public Output<ImmutableArray<string>> DnsIpAddresses { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Windows domain that the SMB server belongs to.
         /// </summary>
         [Output("domain")]
         public Output<string?> Domain { get; private set; } = null!;
+
+        /// <summary>
+        /// The Base64 string representation of the Keytab file. Specifies your Kerberos key table (keytab) file, which includes mappings between your service principal name (SPN) and encryption keys. To avoid task execution errors, make sure that the SPN in the keytab file matches exactly what you specify for KerberosPrincipal and in your krb5.conf file.
+        /// </summary>
+        [Output("kerberosKeytab")]
+        public Output<string?> KerberosKeytab { get; private set; } = null!;
+
+        /// <summary>
+        /// The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket. Specifies a Kerberos configuration file (krb5.conf) that defines your Kerberos realm configuration. To avoid task execution errors, make sure that the service principal name (SPN) in the krb5.conf file matches exactly what you specify for KerberosPrincipal and in your keytab file.
+        /// </summary>
+        [Output("kerberosKrb5Conf")]
+        public Output<string?> KerberosKrb5Conf { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. SPNs are case sensitive and must include a prepended cifs/. For example, an SPN might look like cifs/kerberosuser@EXAMPLE.COM. Your task execution will fail if the SPN that you provide for this parameter doesn't match exactly what's in your keytab or krb5.conf files.
+        /// </summary>
+        [Output("kerberosPrincipal")]
+        public Output<string?> KerberosPrincipal { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SMB location that is created.
@@ -73,7 +103,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The user who can mount the share, has the permissions to access files and folders in the SMB share.
         /// </summary>
         [Output("user")]
-        public Output<string> User { get; private set; } = null!;
+        public Output<string?> User { get; private set; } = null!;
 
 
         /// <summary>
@@ -98,10 +128,6 @@ namespace Pulumi.AwsNative.DataSync
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                ReplaceOnChanges =
-                {
-                    "serverHostname",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -137,10 +163,46 @@ namespace Pulumi.AwsNative.DataSync
         }
 
         /// <summary>
+        /// The authentication mode used to determine identity of user.
+        /// </summary>
+        [Input("authenticationType")]
+        public Input<Pulumi.AwsNative.DataSync.LocationSmbAuthenticationType>? AuthenticationType { get; set; }
+
+        [Input("dnsIpAddresses")]
+        private InputList<string>? _dnsIpAddresses;
+
+        /// <summary>
+        /// Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
+        /// </summary>
+        public InputList<string> DnsIpAddresses
+        {
+            get => _dnsIpAddresses ?? (_dnsIpAddresses = new InputList<string>());
+            set => _dnsIpAddresses = value;
+        }
+
+        /// <summary>
         /// The name of the Windows domain that the SMB server belongs to.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
+
+        /// <summary>
+        /// The Base64 string representation of the Keytab file. Specifies your Kerberos key table (keytab) file, which includes mappings between your service principal name (SPN) and encryption keys. To avoid task execution errors, make sure that the SPN in the keytab file matches exactly what you specify for KerberosPrincipal and in your krb5.conf file.
+        /// </summary>
+        [Input("kerberosKeytab")]
+        public Input<string>? KerberosKeytab { get; set; }
+
+        /// <summary>
+        /// The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket. Specifies a Kerberos configuration file (krb5.conf) that defines your Kerberos realm configuration. To avoid task execution errors, make sure that the service principal name (SPN) in the krb5.conf file matches exactly what you specify for KerberosPrincipal and in your keytab file.
+        /// </summary>
+        [Input("kerberosKrb5Conf")]
+        public Input<string>? KerberosKrb5Conf { get; set; }
+
+        /// <summary>
+        /// Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. SPNs are case sensitive and must include a prepended cifs/. For example, an SPN might look like cifs/kerberosuser@EXAMPLE.COM. Your task execution will fail if the SPN that you provide for this parameter doesn't match exactly what's in your keytab or krb5.conf files.
+        /// </summary>
+        [Input("kerberosPrincipal")]
+        public Input<string>? KerberosPrincipal { get; set; }
 
         /// <summary>
         /// Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
@@ -181,8 +243,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The user who can mount the share, has the permissions to access files and folders in the SMB share.
         /// </summary>
-        [Input("user", required: true)]
-        public Input<string> User { get; set; } = null!;
+        [Input("user")]
+        public Input<string>? User { get; set; }
 
         public LocationSmbArgs()
         {

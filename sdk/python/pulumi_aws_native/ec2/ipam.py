@@ -24,6 +24,7 @@ __all__ = ['IpamArgs', 'Ipam']
 @pulumi.input_type
 class IpamArgs:
     def __init__(__self__, *,
+                 default_resource_discovery_organizational_unit_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['IpamOrganizationalUnitExclusionArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_private_gua: Optional[pulumi.Input[bool]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['IpamOperatingRegionArgs']]]] = None,
@@ -31,12 +32,15 @@ class IpamArgs:
                  tier: Optional[pulumi.Input['IpamTier']] = None):
         """
         The set of arguments for constructing a Ipam resource.
+        :param pulumi.Input[Sequence[pulumi.Input['IpamOrganizationalUnitExclusionArgs']]] default_resource_discovery_organizational_unit_exclusions: A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
         :param pulumi.Input[str] description: The description for the IPAM.
         :param pulumi.Input[bool] enable_private_gua: Enable provisioning of GUA space in private pools.
         :param pulumi.Input[Sequence[pulumi.Input['IpamOperatingRegionArgs']]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['IpamTier'] tier: The tier of the IPAM.
         """
+        if default_resource_discovery_organizational_unit_exclusions is not None:
+            pulumi.set(__self__, "default_resource_discovery_organizational_unit_exclusions", default_resource_discovery_organizational_unit_exclusions)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enable_private_gua is not None:
@@ -47,6 +51,18 @@ class IpamArgs:
             pulumi.set(__self__, "tags", tags)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter(name="defaultResourceDiscoveryOrganizationalUnitExclusions")
+    def default_resource_discovery_organizational_unit_exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpamOrganizationalUnitExclusionArgs']]]]:
+        """
+        A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
+        """
+        return pulumi.get(self, "default_resource_discovery_organizational_unit_exclusions")
+
+    @default_resource_discovery_organizational_unit_exclusions.setter
+    def default_resource_discovery_organizational_unit_exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpamOrganizationalUnitExclusionArgs']]]]):
+        pulumi.set(self, "default_resource_discovery_organizational_unit_exclusions", value)
 
     @property
     @pulumi.getter
@@ -114,6 +130,7 @@ class Ipam(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 default_resource_discovery_organizational_unit_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamOrganizationalUnitExclusionArgs', 'IpamOrganizationalUnitExclusionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_private_gua: Optional[pulumi.Input[bool]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict']]]]] = None,
@@ -125,6 +142,7 @@ class Ipam(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpamOrganizationalUnitExclusionArgs', 'IpamOrganizationalUnitExclusionArgsDict']]]] default_resource_discovery_organizational_unit_exclusions: A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
         :param pulumi.Input[str] description: The description for the IPAM.
         :param pulumi.Input[bool] enable_private_gua: Enable provisioning of GUA space in private pools.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict']]]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
@@ -155,6 +173,7 @@ class Ipam(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 default_resource_discovery_organizational_unit_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamOrganizationalUnitExclusionArgs', 'IpamOrganizationalUnitExclusionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_private_gua: Optional[pulumi.Input[bool]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict']]]]] = None,
@@ -169,6 +188,7 @@ class Ipam(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IpamArgs.__new__(IpamArgs)
 
+            __props__.__dict__["default_resource_discovery_organizational_unit_exclusions"] = default_resource_discovery_organizational_unit_exclusions
             __props__.__dict__["description"] = description
             __props__.__dict__["enable_private_gua"] = enable_private_gua
             __props__.__dict__["operating_regions"] = operating_regions
@@ -207,6 +227,7 @@ class Ipam(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["default_resource_discovery_association_id"] = None
         __props__.__dict__["default_resource_discovery_id"] = None
+        __props__.__dict__["default_resource_discovery_organizational_unit_exclusions"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["enable_private_gua"] = None
         __props__.__dict__["ipam_id"] = None
@@ -242,6 +263,14 @@ class Ipam(pulumi.CustomResource):
         The Id of the default resource discovery, created with this IPAM.
         """
         return pulumi.get(self, "default_resource_discovery_id")
+
+    @property
+    @pulumi.getter(name="defaultResourceDiscoveryOrganizationalUnitExclusions")
+    def default_resource_discovery_organizational_unit_exclusions(self) -> pulumi.Output[Optional[Sequence['outputs.IpamOrganizationalUnitExclusion']]]:
+        """
+        A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
+        """
+        return pulumi.get(self, "default_resource_discovery_organizational_unit_exclusions")
 
     @property
     @pulumi.getter

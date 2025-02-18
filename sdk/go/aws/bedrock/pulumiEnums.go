@@ -436,6 +436,174 @@ func (o AgentAliasStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
+// Agent collaboration state
+type AgentCollaboration string
+
+const (
+	AgentCollaborationDisabled         = AgentCollaboration("DISABLED")
+	AgentCollaborationSupervisor       = AgentCollaboration("SUPERVISOR")
+	AgentCollaborationSupervisorRouter = AgentCollaboration("SUPERVISOR_ROUTER")
+)
+
+func (AgentCollaboration) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentCollaboration)(nil)).Elem()
+}
+
+func (e AgentCollaboration) ToAgentCollaborationOutput() AgentCollaborationOutput {
+	return pulumi.ToOutput(e).(AgentCollaborationOutput)
+}
+
+func (e AgentCollaboration) ToAgentCollaborationOutputWithContext(ctx context.Context) AgentCollaborationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgentCollaborationOutput)
+}
+
+func (e AgentCollaboration) ToAgentCollaborationPtrOutput() AgentCollaborationPtrOutput {
+	return e.ToAgentCollaborationPtrOutputWithContext(context.Background())
+}
+
+func (e AgentCollaboration) ToAgentCollaborationPtrOutputWithContext(ctx context.Context) AgentCollaborationPtrOutput {
+	return AgentCollaboration(e).ToAgentCollaborationOutputWithContext(ctx).ToAgentCollaborationPtrOutputWithContext(ctx)
+}
+
+func (e AgentCollaboration) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentCollaboration) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentCollaboration) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgentCollaboration) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgentCollaborationOutput struct{ *pulumi.OutputState }
+
+func (AgentCollaborationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentCollaboration)(nil)).Elem()
+}
+
+func (o AgentCollaborationOutput) ToAgentCollaborationOutput() AgentCollaborationOutput {
+	return o
+}
+
+func (o AgentCollaborationOutput) ToAgentCollaborationOutputWithContext(ctx context.Context) AgentCollaborationOutput {
+	return o
+}
+
+func (o AgentCollaborationOutput) ToAgentCollaborationPtrOutput() AgentCollaborationPtrOutput {
+	return o.ToAgentCollaborationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentCollaborationOutput) ToAgentCollaborationPtrOutputWithContext(ctx context.Context) AgentCollaborationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentCollaboration) *AgentCollaboration {
+		return &v
+	}).(AgentCollaborationPtrOutput)
+}
+
+func (o AgentCollaborationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentCollaborationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentCollaboration) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentCollaborationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentCollaborationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentCollaboration) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentCollaborationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentCollaborationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentCollaboration)(nil)).Elem()
+}
+
+func (o AgentCollaborationPtrOutput) ToAgentCollaborationPtrOutput() AgentCollaborationPtrOutput {
+	return o
+}
+
+func (o AgentCollaborationPtrOutput) ToAgentCollaborationPtrOutputWithContext(ctx context.Context) AgentCollaborationPtrOutput {
+	return o
+}
+
+func (o AgentCollaborationPtrOutput) Elem() AgentCollaborationOutput {
+	return o.ApplyT(func(v *AgentCollaboration) AgentCollaboration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentCollaboration
+		return ret
+	}).(AgentCollaborationOutput)
+}
+
+func (o AgentCollaborationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentCollaborationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentCollaboration) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AgentCollaborationInput is an input type that accepts values of the AgentCollaboration enum
+// A concrete instance of `AgentCollaborationInput` can be one of the following:
+//
+//	AgentCollaborationDisabled
+//	AgentCollaborationSupervisor
+//	AgentCollaborationSupervisorRouter
+type AgentCollaborationInput interface {
+	pulumi.Input
+
+	ToAgentCollaborationOutput() AgentCollaborationOutput
+	ToAgentCollaborationOutputWithContext(context.Context) AgentCollaborationOutput
+}
+
+var agentCollaborationPtrType = reflect.TypeOf((**AgentCollaboration)(nil)).Elem()
+
+type AgentCollaborationPtrInput interface {
+	pulumi.Input
+
+	ToAgentCollaborationPtrOutput() AgentCollaborationPtrOutput
+	ToAgentCollaborationPtrOutputWithContext(context.Context) AgentCollaborationPtrOutput
+}
+
+type agentCollaborationPtr string
+
+func AgentCollaborationPtr(v string) AgentCollaborationPtrInput {
+	return (*agentCollaborationPtr)(&v)
+}
+
+func (*agentCollaborationPtr) ElementType() reflect.Type {
+	return agentCollaborationPtrType
+}
+
+func (in *agentCollaborationPtr) ToAgentCollaborationPtrOutput() AgentCollaborationPtrOutput {
+	return pulumi.ToOutput(in).(AgentCollaborationPtrOutput)
+}
+
+func (in *agentCollaborationPtr) ToAgentCollaborationPtrOutputWithContext(ctx context.Context) AgentCollaborationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgentCollaborationPtrOutput)
+}
+
 // Creation Mode for Prompt Configuration.
 type AgentCreationMode string
 
@@ -932,6 +1100,381 @@ func (in *agentKnowledgeBaseStatePtr) ToAgentKnowledgeBaseStatePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(AgentKnowledgeBaseStatePtrOutput)
 }
 
+// Memory type
+type AgentMemoryType string
+
+const (
+	AgentMemoryTypeSessionSummary = AgentMemoryType("SESSION_SUMMARY")
+)
+
+func (AgentMemoryType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentMemoryType)(nil)).Elem()
+}
+
+func (e AgentMemoryType) ToAgentMemoryTypeOutput() AgentMemoryTypeOutput {
+	return pulumi.ToOutput(e).(AgentMemoryTypeOutput)
+}
+
+func (e AgentMemoryType) ToAgentMemoryTypeOutputWithContext(ctx context.Context) AgentMemoryTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgentMemoryTypeOutput)
+}
+
+func (e AgentMemoryType) ToAgentMemoryTypePtrOutput() AgentMemoryTypePtrOutput {
+	return e.ToAgentMemoryTypePtrOutputWithContext(context.Background())
+}
+
+func (e AgentMemoryType) ToAgentMemoryTypePtrOutputWithContext(ctx context.Context) AgentMemoryTypePtrOutput {
+	return AgentMemoryType(e).ToAgentMemoryTypeOutputWithContext(ctx).ToAgentMemoryTypePtrOutputWithContext(ctx)
+}
+
+func (e AgentMemoryType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentMemoryType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentMemoryType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgentMemoryType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgentMemoryTypeOutput struct{ *pulumi.OutputState }
+
+func (AgentMemoryTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentMemoryType)(nil)).Elem()
+}
+
+func (o AgentMemoryTypeOutput) ToAgentMemoryTypeOutput() AgentMemoryTypeOutput {
+	return o
+}
+
+func (o AgentMemoryTypeOutput) ToAgentMemoryTypeOutputWithContext(ctx context.Context) AgentMemoryTypeOutput {
+	return o
+}
+
+func (o AgentMemoryTypeOutput) ToAgentMemoryTypePtrOutput() AgentMemoryTypePtrOutput {
+	return o.ToAgentMemoryTypePtrOutputWithContext(context.Background())
+}
+
+func (o AgentMemoryTypeOutput) ToAgentMemoryTypePtrOutputWithContext(ctx context.Context) AgentMemoryTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentMemoryType) *AgentMemoryType {
+		return &v
+	}).(AgentMemoryTypePtrOutput)
+}
+
+func (o AgentMemoryTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentMemoryTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentMemoryType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentMemoryTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentMemoryTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentMemoryType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentMemoryTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentMemoryTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentMemoryType)(nil)).Elem()
+}
+
+func (o AgentMemoryTypePtrOutput) ToAgentMemoryTypePtrOutput() AgentMemoryTypePtrOutput {
+	return o
+}
+
+func (o AgentMemoryTypePtrOutput) ToAgentMemoryTypePtrOutputWithContext(ctx context.Context) AgentMemoryTypePtrOutput {
+	return o
+}
+
+func (o AgentMemoryTypePtrOutput) Elem() AgentMemoryTypeOutput {
+	return o.ApplyT(func(v *AgentMemoryType) AgentMemoryType {
+		if v != nil {
+			return *v
+		}
+		var ret AgentMemoryType
+		return ret
+	}).(AgentMemoryTypeOutput)
+}
+
+func (o AgentMemoryTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentMemoryTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentMemoryType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AgentMemoryTypeInput is an input type that accepts values of the AgentMemoryType enum
+// A concrete instance of `AgentMemoryTypeInput` can be one of the following:
+//
+//	AgentMemoryTypeSessionSummary
+type AgentMemoryTypeInput interface {
+	pulumi.Input
+
+	ToAgentMemoryTypeOutput() AgentMemoryTypeOutput
+	ToAgentMemoryTypeOutputWithContext(context.Context) AgentMemoryTypeOutput
+}
+
+var agentMemoryTypePtrType = reflect.TypeOf((**AgentMemoryType)(nil)).Elem()
+
+type AgentMemoryTypePtrInput interface {
+	pulumi.Input
+
+	ToAgentMemoryTypePtrOutput() AgentMemoryTypePtrOutput
+	ToAgentMemoryTypePtrOutputWithContext(context.Context) AgentMemoryTypePtrOutput
+}
+
+type agentMemoryTypePtr string
+
+func AgentMemoryTypePtr(v string) AgentMemoryTypePtrInput {
+	return (*agentMemoryTypePtr)(&v)
+}
+
+func (*agentMemoryTypePtr) ElementType() reflect.Type {
+	return agentMemoryTypePtrType
+}
+
+func (in *agentMemoryTypePtr) ToAgentMemoryTypePtrOutput() AgentMemoryTypePtrOutput {
+	return pulumi.ToOutput(in).(AgentMemoryTypePtrOutput)
+}
+
+func (in *agentMemoryTypePtr) ToAgentMemoryTypePtrOutputWithContext(ctx context.Context) AgentMemoryTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgentMemoryTypePtrOutput)
+}
+
+// AgentMemoryTypeArrayInput is an input type that accepts AgentMemoryTypeArray and AgentMemoryTypeArrayOutput values.
+// You can construct a concrete instance of `AgentMemoryTypeArrayInput` via:
+//
+//	AgentMemoryTypeArray{ AgentMemoryTypeArgs{...} }
+type AgentMemoryTypeArrayInput interface {
+	pulumi.Input
+
+	ToAgentMemoryTypeArrayOutput() AgentMemoryTypeArrayOutput
+	ToAgentMemoryTypeArrayOutputWithContext(context.Context) AgentMemoryTypeArrayOutput
+}
+
+type AgentMemoryTypeArray []AgentMemoryType
+
+func (AgentMemoryTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentMemoryType)(nil)).Elem()
+}
+
+func (i AgentMemoryTypeArray) ToAgentMemoryTypeArrayOutput() AgentMemoryTypeArrayOutput {
+	return i.ToAgentMemoryTypeArrayOutputWithContext(context.Background())
+}
+
+func (i AgentMemoryTypeArray) ToAgentMemoryTypeArrayOutputWithContext(ctx context.Context) AgentMemoryTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentMemoryTypeArrayOutput)
+}
+
+type AgentMemoryTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentMemoryTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentMemoryType)(nil)).Elem()
+}
+
+func (o AgentMemoryTypeArrayOutput) ToAgentMemoryTypeArrayOutput() AgentMemoryTypeArrayOutput {
+	return o
+}
+
+func (o AgentMemoryTypeArrayOutput) ToAgentMemoryTypeArrayOutputWithContext(ctx context.Context) AgentMemoryTypeArrayOutput {
+	return o
+}
+
+func (o AgentMemoryTypeArrayOutput) Index(i pulumi.IntInput) AgentMemoryTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentMemoryType {
+		return vs[0].([]AgentMemoryType)[vs[1].(int)]
+	}).(AgentMemoryTypeOutput)
+}
+
+// Types of orchestration strategy for agents
+type AgentOrchestrationType string
+
+const (
+	AgentOrchestrationTypeDefault             = AgentOrchestrationType("DEFAULT")
+	AgentOrchestrationTypeCustomOrchestration = AgentOrchestrationType("CUSTOM_ORCHESTRATION")
+)
+
+func (AgentOrchestrationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentOrchestrationType)(nil)).Elem()
+}
+
+func (e AgentOrchestrationType) ToAgentOrchestrationTypeOutput() AgentOrchestrationTypeOutput {
+	return pulumi.ToOutput(e).(AgentOrchestrationTypeOutput)
+}
+
+func (e AgentOrchestrationType) ToAgentOrchestrationTypeOutputWithContext(ctx context.Context) AgentOrchestrationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgentOrchestrationTypeOutput)
+}
+
+func (e AgentOrchestrationType) ToAgentOrchestrationTypePtrOutput() AgentOrchestrationTypePtrOutput {
+	return e.ToAgentOrchestrationTypePtrOutputWithContext(context.Background())
+}
+
+func (e AgentOrchestrationType) ToAgentOrchestrationTypePtrOutputWithContext(ctx context.Context) AgentOrchestrationTypePtrOutput {
+	return AgentOrchestrationType(e).ToAgentOrchestrationTypeOutputWithContext(ctx).ToAgentOrchestrationTypePtrOutputWithContext(ctx)
+}
+
+func (e AgentOrchestrationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentOrchestrationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentOrchestrationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgentOrchestrationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgentOrchestrationTypeOutput struct{ *pulumi.OutputState }
+
+func (AgentOrchestrationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentOrchestrationType)(nil)).Elem()
+}
+
+func (o AgentOrchestrationTypeOutput) ToAgentOrchestrationTypeOutput() AgentOrchestrationTypeOutput {
+	return o
+}
+
+func (o AgentOrchestrationTypeOutput) ToAgentOrchestrationTypeOutputWithContext(ctx context.Context) AgentOrchestrationTypeOutput {
+	return o
+}
+
+func (o AgentOrchestrationTypeOutput) ToAgentOrchestrationTypePtrOutput() AgentOrchestrationTypePtrOutput {
+	return o.ToAgentOrchestrationTypePtrOutputWithContext(context.Background())
+}
+
+func (o AgentOrchestrationTypeOutput) ToAgentOrchestrationTypePtrOutputWithContext(ctx context.Context) AgentOrchestrationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentOrchestrationType) *AgentOrchestrationType {
+		return &v
+	}).(AgentOrchestrationTypePtrOutput)
+}
+
+func (o AgentOrchestrationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentOrchestrationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentOrchestrationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentOrchestrationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentOrchestrationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentOrchestrationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentOrchestrationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentOrchestrationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentOrchestrationType)(nil)).Elem()
+}
+
+func (o AgentOrchestrationTypePtrOutput) ToAgentOrchestrationTypePtrOutput() AgentOrchestrationTypePtrOutput {
+	return o
+}
+
+func (o AgentOrchestrationTypePtrOutput) ToAgentOrchestrationTypePtrOutputWithContext(ctx context.Context) AgentOrchestrationTypePtrOutput {
+	return o
+}
+
+func (o AgentOrchestrationTypePtrOutput) Elem() AgentOrchestrationTypeOutput {
+	return o.ApplyT(func(v *AgentOrchestrationType) AgentOrchestrationType {
+		if v != nil {
+			return *v
+		}
+		var ret AgentOrchestrationType
+		return ret
+	}).(AgentOrchestrationTypeOutput)
+}
+
+func (o AgentOrchestrationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentOrchestrationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentOrchestrationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AgentOrchestrationTypeInput is an input type that accepts values of the AgentOrchestrationType enum
+// A concrete instance of `AgentOrchestrationTypeInput` can be one of the following:
+//
+//	AgentOrchestrationTypeDefault
+//	AgentOrchestrationTypeCustomOrchestration
+type AgentOrchestrationTypeInput interface {
+	pulumi.Input
+
+	ToAgentOrchestrationTypeOutput() AgentOrchestrationTypeOutput
+	ToAgentOrchestrationTypeOutputWithContext(context.Context) AgentOrchestrationTypeOutput
+}
+
+var agentOrchestrationTypePtrType = reflect.TypeOf((**AgentOrchestrationType)(nil)).Elem()
+
+type AgentOrchestrationTypePtrInput interface {
+	pulumi.Input
+
+	ToAgentOrchestrationTypePtrOutput() AgentOrchestrationTypePtrOutput
+	ToAgentOrchestrationTypePtrOutputWithContext(context.Context) AgentOrchestrationTypePtrOutput
+}
+
+type agentOrchestrationTypePtr string
+
+func AgentOrchestrationTypePtr(v string) AgentOrchestrationTypePtrInput {
+	return (*agentOrchestrationTypePtr)(&v)
+}
+
+func (*agentOrchestrationTypePtr) ElementType() reflect.Type {
+	return agentOrchestrationTypePtrType
+}
+
+func (in *agentOrchestrationTypePtr) ToAgentOrchestrationTypePtrOutput() AgentOrchestrationTypePtrOutput {
+	return pulumi.ToOutput(in).(AgentOrchestrationTypePtrOutput)
+}
+
+func (in *agentOrchestrationTypePtr) ToAgentOrchestrationTypePtrOutputWithContext(ctx context.Context) AgentOrchestrationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgentOrchestrationTypePtrOutput)
+}
+
 // Prompt State.
 type AgentPromptState string
 
@@ -1105,6 +1648,8 @@ const (
 	AgentPromptTypePreProcessing                   = AgentPromptType("PRE_PROCESSING")
 	AgentPromptTypeOrchestration                   = AgentPromptType("ORCHESTRATION")
 	AgentPromptTypePostProcessing                  = AgentPromptType("POST_PROCESSING")
+	AgentPromptTypeRoutingClassifier               = AgentPromptType("ROUTING_CLASSIFIER")
+	AgentPromptTypeMemorySummarization             = AgentPromptType("MEMORY_SUMMARIZATION")
 	AgentPromptTypeKnowledgeBaseResponseGeneration = AgentPromptType("KNOWLEDGE_BASE_RESPONSE_GENERATION")
 )
 
@@ -1233,6 +1778,8 @@ func (o AgentPromptTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 //	AgentPromptTypePreProcessing
 //	AgentPromptTypeOrchestration
 //	AgentPromptTypePostProcessing
+//	AgentPromptTypeRoutingClassifier
+//	AgentPromptTypeMemorySummarization
 //	AgentPromptTypeKnowledgeBaseResponseGeneration
 type AgentPromptTypeInput interface {
 	pulumi.Input
@@ -1266,6 +1813,172 @@ func (in *agentPromptTypePtr) ToAgentPromptTypePtrOutput() AgentPromptTypePtrOut
 
 func (in *agentPromptTypePtr) ToAgentPromptTypePtrOutputWithContext(ctx context.Context) AgentPromptTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AgentPromptTypePtrOutput)
+}
+
+// Relay conversation history state
+type AgentRelayConversationHistory string
+
+const (
+	AgentRelayConversationHistoryToCollaborator = AgentRelayConversationHistory("TO_COLLABORATOR")
+	AgentRelayConversationHistoryDisabled       = AgentRelayConversationHistory("DISABLED")
+)
+
+func (AgentRelayConversationHistory) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentRelayConversationHistory)(nil)).Elem()
+}
+
+func (e AgentRelayConversationHistory) ToAgentRelayConversationHistoryOutput() AgentRelayConversationHistoryOutput {
+	return pulumi.ToOutput(e).(AgentRelayConversationHistoryOutput)
+}
+
+func (e AgentRelayConversationHistory) ToAgentRelayConversationHistoryOutputWithContext(ctx context.Context) AgentRelayConversationHistoryOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgentRelayConversationHistoryOutput)
+}
+
+func (e AgentRelayConversationHistory) ToAgentRelayConversationHistoryPtrOutput() AgentRelayConversationHistoryPtrOutput {
+	return e.ToAgentRelayConversationHistoryPtrOutputWithContext(context.Background())
+}
+
+func (e AgentRelayConversationHistory) ToAgentRelayConversationHistoryPtrOutputWithContext(ctx context.Context) AgentRelayConversationHistoryPtrOutput {
+	return AgentRelayConversationHistory(e).ToAgentRelayConversationHistoryOutputWithContext(ctx).ToAgentRelayConversationHistoryPtrOutputWithContext(ctx)
+}
+
+func (e AgentRelayConversationHistory) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentRelayConversationHistory) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentRelayConversationHistory) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgentRelayConversationHistory) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgentRelayConversationHistoryOutput struct{ *pulumi.OutputState }
+
+func (AgentRelayConversationHistoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentRelayConversationHistory)(nil)).Elem()
+}
+
+func (o AgentRelayConversationHistoryOutput) ToAgentRelayConversationHistoryOutput() AgentRelayConversationHistoryOutput {
+	return o
+}
+
+func (o AgentRelayConversationHistoryOutput) ToAgentRelayConversationHistoryOutputWithContext(ctx context.Context) AgentRelayConversationHistoryOutput {
+	return o
+}
+
+func (o AgentRelayConversationHistoryOutput) ToAgentRelayConversationHistoryPtrOutput() AgentRelayConversationHistoryPtrOutput {
+	return o.ToAgentRelayConversationHistoryPtrOutputWithContext(context.Background())
+}
+
+func (o AgentRelayConversationHistoryOutput) ToAgentRelayConversationHistoryPtrOutputWithContext(ctx context.Context) AgentRelayConversationHistoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentRelayConversationHistory) *AgentRelayConversationHistory {
+		return &v
+	}).(AgentRelayConversationHistoryPtrOutput)
+}
+
+func (o AgentRelayConversationHistoryOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentRelayConversationHistoryOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentRelayConversationHistory) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentRelayConversationHistoryOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentRelayConversationHistoryOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentRelayConversationHistory) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentRelayConversationHistoryPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentRelayConversationHistoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentRelayConversationHistory)(nil)).Elem()
+}
+
+func (o AgentRelayConversationHistoryPtrOutput) ToAgentRelayConversationHistoryPtrOutput() AgentRelayConversationHistoryPtrOutput {
+	return o
+}
+
+func (o AgentRelayConversationHistoryPtrOutput) ToAgentRelayConversationHistoryPtrOutputWithContext(ctx context.Context) AgentRelayConversationHistoryPtrOutput {
+	return o
+}
+
+func (o AgentRelayConversationHistoryPtrOutput) Elem() AgentRelayConversationHistoryOutput {
+	return o.ApplyT(func(v *AgentRelayConversationHistory) AgentRelayConversationHistory {
+		if v != nil {
+			return *v
+		}
+		var ret AgentRelayConversationHistory
+		return ret
+	}).(AgentRelayConversationHistoryOutput)
+}
+
+func (o AgentRelayConversationHistoryPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentRelayConversationHistoryPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentRelayConversationHistory) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AgentRelayConversationHistoryInput is an input type that accepts values of the AgentRelayConversationHistory enum
+// A concrete instance of `AgentRelayConversationHistoryInput` can be one of the following:
+//
+//	AgentRelayConversationHistoryToCollaborator
+//	AgentRelayConversationHistoryDisabled
+type AgentRelayConversationHistoryInput interface {
+	pulumi.Input
+
+	ToAgentRelayConversationHistoryOutput() AgentRelayConversationHistoryOutput
+	ToAgentRelayConversationHistoryOutputWithContext(context.Context) AgentRelayConversationHistoryOutput
+}
+
+var agentRelayConversationHistoryPtrType = reflect.TypeOf((**AgentRelayConversationHistory)(nil)).Elem()
+
+type AgentRelayConversationHistoryPtrInput interface {
+	pulumi.Input
+
+	ToAgentRelayConversationHistoryPtrOutput() AgentRelayConversationHistoryPtrOutput
+	ToAgentRelayConversationHistoryPtrOutputWithContext(context.Context) AgentRelayConversationHistoryPtrOutput
+}
+
+type agentRelayConversationHistoryPtr string
+
+func AgentRelayConversationHistoryPtr(v string) AgentRelayConversationHistoryPtrInput {
+	return (*agentRelayConversationHistoryPtr)(&v)
+}
+
+func (*agentRelayConversationHistoryPtr) ElementType() reflect.Type {
+	return agentRelayConversationHistoryPtrType
+}
+
+func (in *agentRelayConversationHistoryPtr) ToAgentRelayConversationHistoryPtrOutput() AgentRelayConversationHistoryPtrOutput {
+	return pulumi.ToOutput(in).(AgentRelayConversationHistoryPtrOutput)
+}
+
+func (in *agentRelayConversationHistoryPtr) ToAgentRelayConversationHistoryPtrOutputWithContext(ctx context.Context) AgentRelayConversationHistoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgentRelayConversationHistoryPtrOutput)
 }
 
 // ENUM to check if action requires user confirmation
@@ -8466,6 +9179,170 @@ func (in *knowledgeBaseTypePtr) ToKnowledgeBaseTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseTypePtrOutput)
 }
 
+// CachePoint types for CachePointBlock
+type PromptCachePointType string
+
+const (
+	PromptCachePointTypeDefault = PromptCachePointType("default")
+)
+
+func (PromptCachePointType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptCachePointType)(nil)).Elem()
+}
+
+func (e PromptCachePointType) ToPromptCachePointTypeOutput() PromptCachePointTypeOutput {
+	return pulumi.ToOutput(e).(PromptCachePointTypeOutput)
+}
+
+func (e PromptCachePointType) ToPromptCachePointTypeOutputWithContext(ctx context.Context) PromptCachePointTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PromptCachePointTypeOutput)
+}
+
+func (e PromptCachePointType) ToPromptCachePointTypePtrOutput() PromptCachePointTypePtrOutput {
+	return e.ToPromptCachePointTypePtrOutputWithContext(context.Background())
+}
+
+func (e PromptCachePointType) ToPromptCachePointTypePtrOutputWithContext(ctx context.Context) PromptCachePointTypePtrOutput {
+	return PromptCachePointType(e).ToPromptCachePointTypeOutputWithContext(ctx).ToPromptCachePointTypePtrOutputWithContext(ctx)
+}
+
+func (e PromptCachePointType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PromptCachePointType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PromptCachePointType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PromptCachePointType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PromptCachePointTypeOutput struct{ *pulumi.OutputState }
+
+func (PromptCachePointTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptCachePointType)(nil)).Elem()
+}
+
+func (o PromptCachePointTypeOutput) ToPromptCachePointTypeOutput() PromptCachePointTypeOutput {
+	return o
+}
+
+func (o PromptCachePointTypeOutput) ToPromptCachePointTypeOutputWithContext(ctx context.Context) PromptCachePointTypeOutput {
+	return o
+}
+
+func (o PromptCachePointTypeOutput) ToPromptCachePointTypePtrOutput() PromptCachePointTypePtrOutput {
+	return o.ToPromptCachePointTypePtrOutputWithContext(context.Background())
+}
+
+func (o PromptCachePointTypeOutput) ToPromptCachePointTypePtrOutputWithContext(ctx context.Context) PromptCachePointTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PromptCachePointType) *PromptCachePointType {
+		return &v
+	}).(PromptCachePointTypePtrOutput)
+}
+
+func (o PromptCachePointTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PromptCachePointTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PromptCachePointType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PromptCachePointTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PromptCachePointTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PromptCachePointType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PromptCachePointTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PromptCachePointTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptCachePointType)(nil)).Elem()
+}
+
+func (o PromptCachePointTypePtrOutput) ToPromptCachePointTypePtrOutput() PromptCachePointTypePtrOutput {
+	return o
+}
+
+func (o PromptCachePointTypePtrOutput) ToPromptCachePointTypePtrOutputWithContext(ctx context.Context) PromptCachePointTypePtrOutput {
+	return o
+}
+
+func (o PromptCachePointTypePtrOutput) Elem() PromptCachePointTypeOutput {
+	return o.ApplyT(func(v *PromptCachePointType) PromptCachePointType {
+		if v != nil {
+			return *v
+		}
+		var ret PromptCachePointType
+		return ret
+	}).(PromptCachePointTypeOutput)
+}
+
+func (o PromptCachePointTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PromptCachePointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PromptCachePointType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PromptCachePointTypeInput is an input type that accepts values of the PromptCachePointType enum
+// A concrete instance of `PromptCachePointTypeInput` can be one of the following:
+//
+//	PromptCachePointTypeDefault
+type PromptCachePointTypeInput interface {
+	pulumi.Input
+
+	ToPromptCachePointTypeOutput() PromptCachePointTypeOutput
+	ToPromptCachePointTypeOutputWithContext(context.Context) PromptCachePointTypeOutput
+}
+
+var promptCachePointTypePtrType = reflect.TypeOf((**PromptCachePointType)(nil)).Elem()
+
+type PromptCachePointTypePtrInput interface {
+	pulumi.Input
+
+	ToPromptCachePointTypePtrOutput() PromptCachePointTypePtrOutput
+	ToPromptCachePointTypePtrOutputWithContext(context.Context) PromptCachePointTypePtrOutput
+}
+
+type promptCachePointTypePtr string
+
+func PromptCachePointTypePtr(v string) PromptCachePointTypePtrInput {
+	return (*promptCachePointTypePtr)(&v)
+}
+
+func (*promptCachePointTypePtr) ElementType() reflect.Type {
+	return promptCachePointTypePtrType
+}
+
+func (in *promptCachePointTypePtr) ToPromptCachePointTypePtrOutput() PromptCachePointTypePtrOutput {
+	return pulumi.ToOutput(in).(PromptCachePointTypePtrOutput)
+}
+
+func (in *promptCachePointTypePtr) ToPromptCachePointTypePtrOutputWithContext(ctx context.Context) PromptCachePointTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PromptCachePointTypePtrOutput)
+}
+
 // Conversation roles for the chat prompt
 type PromptConversationRole string
 
@@ -8798,6 +9675,96 @@ func (in *promptTemplateTypePtr) ToPromptTemplateTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(PromptTemplateTypePtrOutput)
 }
 
+// CachePoint types for CachePointBlock
+type PromptVersionCachePointType string
+
+const (
+	PromptVersionCachePointTypeDefault = PromptVersionCachePointType("default")
+)
+
+type PromptVersionCachePointTypeOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionCachePointTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionCachePointType)(nil)).Elem()
+}
+
+func (o PromptVersionCachePointTypeOutput) ToPromptVersionCachePointTypeOutput() PromptVersionCachePointTypeOutput {
+	return o
+}
+
+func (o PromptVersionCachePointTypeOutput) ToPromptVersionCachePointTypeOutputWithContext(ctx context.Context) PromptVersionCachePointTypeOutput {
+	return o
+}
+
+func (o PromptVersionCachePointTypeOutput) ToPromptVersionCachePointTypePtrOutput() PromptVersionCachePointTypePtrOutput {
+	return o.ToPromptVersionCachePointTypePtrOutputWithContext(context.Background())
+}
+
+func (o PromptVersionCachePointTypeOutput) ToPromptVersionCachePointTypePtrOutputWithContext(ctx context.Context) PromptVersionCachePointTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PromptVersionCachePointType) *PromptVersionCachePointType {
+		return &v
+	}).(PromptVersionCachePointTypePtrOutput)
+}
+
+func (o PromptVersionCachePointTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PromptVersionCachePointTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PromptVersionCachePointType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PromptVersionCachePointTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PromptVersionCachePointTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PromptVersionCachePointType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PromptVersionCachePointTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionCachePointTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptVersionCachePointType)(nil)).Elem()
+}
+
+func (o PromptVersionCachePointTypePtrOutput) ToPromptVersionCachePointTypePtrOutput() PromptVersionCachePointTypePtrOutput {
+	return o
+}
+
+func (o PromptVersionCachePointTypePtrOutput) ToPromptVersionCachePointTypePtrOutputWithContext(ctx context.Context) PromptVersionCachePointTypePtrOutput {
+	return o
+}
+
+func (o PromptVersionCachePointTypePtrOutput) Elem() PromptVersionCachePointTypeOutput {
+	return o.ApplyT(func(v *PromptVersionCachePointType) PromptVersionCachePointType {
+		if v != nil {
+			return *v
+		}
+		var ret PromptVersionCachePointType
+		return ret
+	}).(PromptVersionCachePointTypeOutput)
+}
+
+func (o PromptVersionCachePointTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PromptVersionCachePointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PromptVersionCachePointType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Conversation roles for the chat prompt
 type PromptVersionConversationRole string
 
@@ -8985,16 +9952,25 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentActionGroupSignaturePtrInput)(nil)).Elem(), AgentActionGroupSignature("AMAZON.UserInput"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentActionGroupStateInput)(nil)).Elem(), AgentActionGroupState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentActionGroupStatePtrInput)(nil)).Elem(), AgentActionGroupState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentCollaborationInput)(nil)).Elem(), AgentCollaboration("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentCollaborationPtrInput)(nil)).Elem(), AgentCollaboration("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentCreationModeInput)(nil)).Elem(), AgentCreationMode("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentCreationModePtrInput)(nil)).Elem(), AgentCreationMode("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentCustomControlMethodInput)(nil)).Elem(), AgentCustomControlMethod("RETURN_CONTROL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentCustomControlMethodPtrInput)(nil)).Elem(), AgentCustomControlMethod("RETURN_CONTROL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStateInput)(nil)).Elem(), AgentKnowledgeBaseState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStatePtrInput)(nil)).Elem(), AgentKnowledgeBaseState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentMemoryTypeInput)(nil)).Elem(), AgentMemoryType("SESSION_SUMMARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentMemoryTypePtrInput)(nil)).Elem(), AgentMemoryType("SESSION_SUMMARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentMemoryTypeArrayInput)(nil)).Elem(), AgentMemoryTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentOrchestrationTypeInput)(nil)).Elem(), AgentOrchestrationType("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentOrchestrationTypePtrInput)(nil)).Elem(), AgentOrchestrationType("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptStateInput)(nil)).Elem(), AgentPromptState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptStatePtrInput)(nil)).Elem(), AgentPromptState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptTypeInput)(nil)).Elem(), AgentPromptType("PRE_PROCESSING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptTypePtrInput)(nil)).Elem(), AgentPromptType("PRE_PROCESSING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentRelayConversationHistoryInput)(nil)).Elem(), AgentRelayConversationHistory("TO_COLLABORATOR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentRelayConversationHistoryPtrInput)(nil)).Elem(), AgentRelayConversationHistory("TO_COLLABORATOR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentRequireConfirmationInput)(nil)).Elem(), AgentRequireConfirmation("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentRequireConfirmationPtrInput)(nil)).Elem(), AgentRequireConfirmation("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentTypeInput)(nil)).Elem(), AgentType("string"))
@@ -9067,6 +10043,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSupplementalDataStorageLocationTypePtrInput)(nil)).Elem(), KnowledgeBaseSupplementalDataStorageLocationType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypeInput)(nil)).Elem(), KnowledgeBaseType("VECTOR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypePtrInput)(nil)).Elem(), KnowledgeBaseType("VECTOR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptCachePointTypeInput)(nil)).Elem(), PromptCachePointType("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptCachePointTypePtrInput)(nil)).Elem(), PromptCachePointType("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptConversationRoleInput)(nil)).Elem(), PromptConversationRole("user"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptConversationRolePtrInput)(nil)).Elem(), PromptConversationRole("user"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptTemplateTypeInput)(nil)).Elem(), PromptTemplateType("TEXT"))
@@ -9077,16 +10055,25 @@ func init() {
 	pulumi.RegisterOutputType(AgentActionGroupStatePtrOutput{})
 	pulumi.RegisterOutputType(AgentAliasStatusOutput{})
 	pulumi.RegisterOutputType(AgentAliasStatusPtrOutput{})
+	pulumi.RegisterOutputType(AgentCollaborationOutput{})
+	pulumi.RegisterOutputType(AgentCollaborationPtrOutput{})
 	pulumi.RegisterOutputType(AgentCreationModeOutput{})
 	pulumi.RegisterOutputType(AgentCreationModePtrOutput{})
 	pulumi.RegisterOutputType(AgentCustomControlMethodOutput{})
 	pulumi.RegisterOutputType(AgentCustomControlMethodPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseStateOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseStatePtrOutput{})
+	pulumi.RegisterOutputType(AgentMemoryTypeOutput{})
+	pulumi.RegisterOutputType(AgentMemoryTypePtrOutput{})
+	pulumi.RegisterOutputType(AgentMemoryTypeArrayOutput{})
+	pulumi.RegisterOutputType(AgentOrchestrationTypeOutput{})
+	pulumi.RegisterOutputType(AgentOrchestrationTypePtrOutput{})
 	pulumi.RegisterOutputType(AgentPromptStateOutput{})
 	pulumi.RegisterOutputType(AgentPromptStatePtrOutput{})
 	pulumi.RegisterOutputType(AgentPromptTypeOutput{})
 	pulumi.RegisterOutputType(AgentPromptTypePtrOutput{})
+	pulumi.RegisterOutputType(AgentRelayConversationHistoryOutput{})
+	pulumi.RegisterOutputType(AgentRelayConversationHistoryPtrOutput{})
 	pulumi.RegisterOutputType(AgentRequireConfirmationOutput{})
 	pulumi.RegisterOutputType(AgentRequireConfirmationPtrOutput{})
 	pulumi.RegisterOutputType(AgentStatusOutput{})
@@ -9183,10 +10170,14 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseTypeOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseTypePtrOutput{})
+	pulumi.RegisterOutputType(PromptCachePointTypeOutput{})
+	pulumi.RegisterOutputType(PromptCachePointTypePtrOutput{})
 	pulumi.RegisterOutputType(PromptConversationRoleOutput{})
 	pulumi.RegisterOutputType(PromptConversationRolePtrOutput{})
 	pulumi.RegisterOutputType(PromptTemplateTypeOutput{})
 	pulumi.RegisterOutputType(PromptTemplateTypePtrOutput{})
+	pulumi.RegisterOutputType(PromptVersionCachePointTypeOutput{})
+	pulumi.RegisterOutputType(PromptVersionCachePointTypePtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionConversationRoleOutput{})
 	pulumi.RegisterOutputType(PromptVersionConversationRolePtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptTemplateTypeOutput{})

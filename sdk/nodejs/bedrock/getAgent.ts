@@ -33,6 +33,11 @@ export interface GetAgentResult {
      * Arn representation of the Agent.
      */
     readonly agentArn?: string;
+    readonly agentCollaboration?: enums.bedrock.AgentCollaboration;
+    /**
+     * List of Agent Collaborators
+     */
+    readonly agentCollaborators?: outputs.bedrock.AgentCollaborator[];
     /**
      * Identifier for a resource.
      */
@@ -65,6 +70,7 @@ export interface GetAgentResult {
      * Time Stamp.
      */
     readonly createdAt?: string;
+    readonly customOrchestration?: outputs.bedrock.AgentCustomOrchestration;
     /**
      * A KMS key ARN
      */
@@ -78,7 +84,7 @@ export interface GetAgentResult {
      */
     readonly failureReasons?: string[];
     /**
-     * ARN or name of a Bedrock model.
+     * The foundation model used for orchestration by the agent.
      */
     readonly foundationModel?: string;
     /**
@@ -97,6 +103,8 @@ export interface GetAgentResult {
      * List of Agent Knowledge Bases
      */
     readonly knowledgeBases?: outputs.bedrock.AgentKnowledgeBase[];
+    readonly memoryConfiguration?: outputs.bedrock.AgentMemoryConfiguration;
+    readonly orchestrationType?: enums.bedrock.AgentOrchestrationType;
     /**
      * Time Stamp.
      */

@@ -99,6 +99,7 @@ namespace Pulumi.AwsNative.Bedrock
         /// - FAILED – The agent alias API operation failed.
         /// - UPDATING – The agent alias is being updated.
         /// - DELETING – The agent alias is being deleted.
+        /// - DISSOCIATED - The agent alias has no version associated with it.
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.AgentAliasStatus? AgentAliasStatus;
         /// <summary>

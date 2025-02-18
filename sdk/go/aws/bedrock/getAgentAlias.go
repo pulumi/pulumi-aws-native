@@ -45,6 +45,7 @@ type LookupAgentAliasResult struct {
 	// - FAILED – The agent alias API operation failed.
 	// - UPDATING – The agent alias is being updated.
 	// - DELETING – The agent alias is being deleted.
+	// - DISSOCIATED - The agent alias has no version associated with it.
 	AgentAliasStatus *AgentAliasStatus `pulumi:"agentAliasStatus"`
 	// Time Stamp.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -122,6 +123,7 @@ func (o LookupAgentAliasResultOutput) AgentAliasName() pulumi.StringPtrOutput {
 // - FAILED – The agent alias API operation failed.
 // - UPDATING – The agent alias is being updated.
 // - DELETING – The agent alias is being deleted.
+// - DISSOCIATED - The agent alias has no version associated with it.
 func (o LookupAgentAliasResultOutput) AgentAliasStatus() AgentAliasStatusPtrOutput {
 	return o.ApplyT(func(v LookupAgentAliasResult) *AgentAliasStatus { return v.AgentAliasStatus }).(AgentAliasStatusPtrOutput)
 }

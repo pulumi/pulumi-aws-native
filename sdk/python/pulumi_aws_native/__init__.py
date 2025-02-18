@@ -1272,6 +1272,7 @@ _utilities.register(
    "aws-native:connect:ApprovedOrigin": "ApprovedOrigin",
    "aws-native:connect:ContactFlow": "ContactFlow",
    "aws-native:connect:ContactFlowModule": "ContactFlowModule",
+   "aws-native:connect:ContactFlowVersion": "ContactFlowVersion",
    "aws-native:connect:EmailAddress": "EmailAddress",
    "aws-native:connect:EvaluationForm": "EvaluationForm",
    "aws-native:connect:HoursOfOperation": "HoursOfOperation",
@@ -3257,6 +3258,7 @@ _utilities.register(
    "aws-native:transfer:Profile": "Profile",
    "aws-native:transfer:Server": "Server",
    "aws-native:transfer:User": "User",
+   "aws-native:transfer:WebApp": "WebApp",
    "aws-native:transfer:Workflow": "Workflow"
   }
  },

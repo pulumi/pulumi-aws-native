@@ -25,17 +25,21 @@ class IpamResourceDiscoveryArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryIpamOperatingRegionArgs']]]] = None,
+                 organizational_unit_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryOrganizationalUnitExclusionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpamResourceDiscovery resource.
         :param pulumi.Input[str] description: The resource discovery description.
         :param pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryIpamOperatingRegionArgs']]] operating_regions: The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
+        :param pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryOrganizationalUnitExclusionArgs']]] organizational_unit_exclusions: A set of organizational unit (OU) exclusions for this resource.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
         if operating_regions is not None:
             pulumi.set(__self__, "operating_regions", operating_regions)
+        if organizational_unit_exclusions is not None:
+            pulumi.set(__self__, "organizational_unit_exclusions", organizational_unit_exclusions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -64,6 +68,18 @@ class IpamResourceDiscoveryArgs:
         pulumi.set(self, "operating_regions", value)
 
     @property
+    @pulumi.getter(name="organizationalUnitExclusions")
+    def organizational_unit_exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryOrganizationalUnitExclusionArgs']]]]:
+        """
+        A set of organizational unit (OU) exclusions for this resource.
+        """
+        return pulumi.get(self, "organizational_unit_exclusions")
+
+    @organizational_unit_exclusions.setter
+    def organizational_unit_exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryOrganizationalUnitExclusionArgs']]]]):
+        pulumi.set(self, "organizational_unit_exclusions", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -83,6 +99,7 @@ class IpamResourceDiscovery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamResourceDiscoveryIpamOperatingRegionArgs', 'IpamResourceDiscoveryIpamOperatingRegionArgsDict']]]]] = None,
+                 organizational_unit_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamResourceDiscoveryOrganizationalUnitExclusionArgs', 'IpamResourceDiscoveryOrganizationalUnitExclusionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -92,6 +109,7 @@ class IpamResourceDiscovery(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The resource discovery description.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IpamResourceDiscoveryIpamOperatingRegionArgs', 'IpamResourceDiscoveryIpamOperatingRegionArgsDict']]]] operating_regions: The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpamResourceDiscoveryOrganizationalUnitExclusionArgs', 'IpamResourceDiscoveryOrganizationalUnitExclusionArgsDict']]]] organizational_unit_exclusions: A set of organizational unit (OU) exclusions for this resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -120,6 +138,7 @@ class IpamResourceDiscovery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamResourceDiscoveryIpamOperatingRegionArgs', 'IpamResourceDiscoveryIpamOperatingRegionArgsDict']]]]] = None,
+                 organizational_unit_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamResourceDiscoveryOrganizationalUnitExclusionArgs', 'IpamResourceDiscoveryOrganizationalUnitExclusionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -132,6 +151,7 @@ class IpamResourceDiscovery(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["operating_regions"] = operating_regions
+            __props__.__dict__["organizational_unit_exclusions"] = organizational_unit_exclusions
             __props__.__dict__["tags"] = tags
             __props__.__dict__["ipam_resource_discovery_arn"] = None
             __props__.__dict__["ipam_resource_discovery_id"] = None
@@ -167,6 +187,7 @@ class IpamResourceDiscovery(pulumi.CustomResource):
         __props__.__dict__["ipam_resource_discovery_region"] = None
         __props__.__dict__["is_default"] = None
         __props__.__dict__["operating_regions"] = None
+        __props__.__dict__["organizational_unit_exclusions"] = None
         __props__.__dict__["owner_id"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
@@ -219,6 +240,14 @@ class IpamResourceDiscovery(pulumi.CustomResource):
         The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
         """
         return pulumi.get(self, "operating_regions")
+
+    @property
+    @pulumi.getter(name="organizationalUnitExclusions")
+    def organizational_unit_exclusions(self) -> pulumi.Output[Optional[Sequence['outputs.IpamResourceDiscoveryOrganizationalUnitExclusion']]]:
+        """
+        A set of organizational unit (OU) exclusions for this resource.
+        """
+        return pulumi.get(self, "organizational_unit_exclusions")
 
     @property
     @pulumi.getter(name="ownerId")

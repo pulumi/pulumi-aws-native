@@ -181,18 +181,18 @@
   "primaryIdentifier" : [ "/properties/ProvisionedProductId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "*" ],
+      "permissions" : [ "servicecatalog:provisionProduct", "cloudformation:CreateStack" ],
       "timeoutInMinutes" : 720
     },
     "read" : {
-      "permissions" : [ "*" ]
+      "permissions" : [ "servicecatalog:describeProvisionedProduct", "cloudformation:ListStacks" ]
     },
     "update" : {
-      "permissions" : [ "*" ],
+      "permissions" : [ "servicecatalog:updateProvisionedProduct", "cloudformation:UpdateStack" ],
       "timeoutInMinutes" : 720
     },
     "delete" : {
-      "permissions" : [ "*" ]
+      "permissions" : [ "servicecatalog:terminateProvisionedProduct", "servicecatalog:describeRecord", "cloudformation:DeleteStack" ]
     }
   }
 }

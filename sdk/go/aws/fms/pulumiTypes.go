@@ -1541,7 +1541,7 @@ type PolicySecurityServicePolicyData struct {
 	ManagedServiceData *string `pulumi:"managedServiceData"`
 	// Contains the settings to configure a network ACL policy, a AWS Network Firewall firewall policy deployment model, or a third-party firewall policy.
 	PolicyOption *PolicyOption `pulumi:"policyOption"`
-	// The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting AWS Support .
+	// The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting SUPlong .
 	Type PolicyType `pulumi:"type"`
 }
 
@@ -1641,7 +1641,7 @@ type PolicySecurityServicePolicyDataArgs struct {
 	ManagedServiceData pulumi.StringPtrInput `pulumi:"managedServiceData"`
 	// Contains the settings to configure a network ACL policy, a AWS Network Firewall firewall policy deployment model, or a third-party firewall policy.
 	PolicyOption PolicyOptionPtrInput `pulumi:"policyOption"`
-	// The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting AWS Support .
+	// The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting SUPlong .
 	Type PolicyTypeInput `pulumi:"type"`
 }
 
@@ -1761,7 +1761,7 @@ func (o PolicySecurityServicePolicyDataOutput) PolicyOption() PolicyOptionPtrOut
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) *PolicyOption { return v.PolicyOption }).(PolicyOptionPtrOutput)
 }
 
-// The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting AWS Support .
+// The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting SUPlong .
 func (o PolicySecurityServicePolicyDataOutput) Type() PolicyTypeOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) PolicyType { return v.Type }).(PolicyTypeOutput)
 }
@@ -1889,7 +1889,7 @@ func (o PolicySecurityServicePolicyDataPtrOutput) PolicyOption() PolicyOptionPtr
 	}).(PolicyOptionPtrOutput)
 }
 
-// The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting AWS Support .
+// The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting SUPlong .
 func (o PolicySecurityServicePolicyDataPtrOutput) Type() PolicyTypePtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyData) *PolicyType {
 		if v == nil {

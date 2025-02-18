@@ -50,6 +50,11 @@ export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
 utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 
+export { GetWebAppArgs, GetWebAppResult, GetWebAppOutputArgs } from "./getWebApp";
+export const getWebApp: typeof import("./getWebApp").getWebApp = null as any;
+export const getWebAppOutput: typeof import("./getWebApp").getWebAppOutput = null as any;
+utilities.lazyLoad(exports, ["getWebApp","getWebAppOutput"], () => require("./getWebApp"));
+
 export { GetWorkflowArgs, GetWorkflowResult, GetWorkflowOutputArgs } from "./getWorkflow";
 export const getWorkflow: typeof import("./getWorkflow").getWorkflow = null as any;
 export const getWorkflowOutput: typeof import("./getWorkflow").getWorkflowOutput = null as any;
@@ -69,6 +74,11 @@ export { UserArgs } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
 utilities.lazyLoad(exports, ["User"], () => require("./user"));
+
+export { WebAppArgs } from "./webApp";
+export type WebApp = import("./webApp").WebApp;
+export const WebApp: typeof import("./webApp").WebApp = null as any;
+utilities.lazyLoad(exports, ["WebApp"], () => require("./webApp"));
 
 export { WorkflowArgs } from "./workflow";
 export type Workflow = import("./workflow").Workflow;
@@ -95,6 +105,8 @@ const _module = {
                 return new Server(name, <any>undefined, { urn })
             case "aws-native:transfer:User":
                 return new User(name, <any>undefined, { urn })
+            case "aws-native:transfer:WebApp":
+                return new WebApp(name, <any>undefined, { urn })
             case "aws-native:transfer:Workflow":
                 return new Workflow(name, <any>undefined, { urn })
             default:

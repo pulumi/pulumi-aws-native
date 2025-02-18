@@ -1660,6 +1660,10 @@ if not MYPY:
         """
         KMS Alias Arn.
         """
+        kms_alias_name: NotRequired[pulumi.Input[str]]
+        """
+        KMS Alias Name.
+        """
         kms_key_arn: NotRequired[pulumi.Input[str]]
         """
         KMS Key Arn.
@@ -1671,13 +1675,17 @@ elif False:
 class MissionProfileStreamsKmsKeyArgs:
     def __init__(__self__, *,
                  kms_alias_arn: Optional[pulumi.Input[str]] = None,
+                 kms_alias_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] kms_alias_arn: KMS Alias Arn.
+        :param pulumi.Input[str] kms_alias_name: KMS Alias Name.
         :param pulumi.Input[str] kms_key_arn: KMS Key Arn.
         """
         if kms_alias_arn is not None:
             pulumi.set(__self__, "kms_alias_arn", kms_alias_arn)
+        if kms_alias_name is not None:
+            pulumi.set(__self__, "kms_alias_name", kms_alias_name)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
@@ -1692,6 +1700,18 @@ class MissionProfileStreamsKmsKeyArgs:
     @kms_alias_arn.setter
     def kms_alias_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_alias_arn", value)
+
+    @property
+    @pulumi.getter(name="kmsAliasName")
+    def kms_alias_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS Alias Name.
+        """
+        return pulumi.get(self, "kms_alias_name")
+
+    @kms_alias_name.setter
+    def kms_alias_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_alias_name", value)
 
     @property
     @pulumi.getter(name="kmsKeyArn")

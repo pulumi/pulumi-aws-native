@@ -88,6 +88,10 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly ImmutableArray<Outputs.IpamResourceDiscoveryIpamOperatingRegion> OperatingRegions;
         /// <summary>
+        /// A set of organizational unit (OU) exclusions for this resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IpamResourceDiscoveryOrganizationalUnitExclusion> OrganizationalUnitExclusions;
+        /// <summary>
         /// Owner Account ID of the Resource Discovery
         /// </summary>
         public readonly string? OwnerId;
@@ -114,6 +118,8 @@ namespace Pulumi.AwsNative.Ec2
 
             ImmutableArray<Outputs.IpamResourceDiscoveryIpamOperatingRegion> operatingRegions,
 
+            ImmutableArray<Outputs.IpamResourceDiscoveryOrganizationalUnitExclusion> organizationalUnitExclusions,
+
             string? ownerId,
 
             string? state,
@@ -126,6 +132,7 @@ namespace Pulumi.AwsNative.Ec2
             IpamResourceDiscoveryRegion = ipamResourceDiscoveryRegion;
             IsDefault = isDefault;
             OperatingRegions = operatingRegions;
+            OrganizationalUnitExclusions = organizationalUnitExclusions;
             OwnerId = ownerId;
             State = state;
             Tags = tags;

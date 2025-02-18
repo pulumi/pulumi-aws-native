@@ -45,6 +45,11 @@ export class Agent extends pulumi.CustomResource {
      * Arn representation of the Agent.
      */
     public /*out*/ readonly agentArn!: pulumi.Output<string>;
+    public readonly agentCollaboration!: pulumi.Output<enums.bedrock.AgentCollaboration | undefined>;
+    /**
+     * List of Agent Collaborators
+     */
+    public readonly agentCollaborators!: pulumi.Output<outputs.bedrock.AgentCollaborator[] | undefined>;
     /**
      * Identifier for a resource.
      */
@@ -81,6 +86,7 @@ export class Agent extends pulumi.CustomResource {
      * Time Stamp.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public readonly customOrchestration!: pulumi.Output<outputs.bedrock.AgentCustomOrchestration | undefined>;
     /**
      * A KMS key ARN
      */
@@ -94,7 +100,7 @@ export class Agent extends pulumi.CustomResource {
      */
     public /*out*/ readonly failureReasons!: pulumi.Output<string[]>;
     /**
-     * ARN or name of a Bedrock model.
+     * The foundation model used for orchestration by the agent.
      */
     public readonly foundationModel!: pulumi.Output<string | undefined>;
     /**
@@ -113,6 +119,8 @@ export class Agent extends pulumi.CustomResource {
      * List of Agent Knowledge Bases
      */
     public readonly knowledgeBases!: pulumi.Output<outputs.bedrock.AgentKnowledgeBase[] | undefined>;
+    public readonly memoryConfiguration!: pulumi.Output<outputs.bedrock.AgentMemoryConfiguration | undefined>;
+    public readonly orchestrationType!: pulumi.Output<enums.bedrock.AgentOrchestrationType | undefined>;
     /**
      * Time Stamp.
      */
@@ -160,9 +168,12 @@ export class Agent extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["actionGroups"] = args ? args.actionGroups : undefined;
+            resourceInputs["agentCollaboration"] = args ? args.agentCollaboration : undefined;
+            resourceInputs["agentCollaborators"] = args ? args.agentCollaborators : undefined;
             resourceInputs["agentName"] = args ? args.agentName : undefined;
             resourceInputs["agentResourceRoleArn"] = args ? args.agentResourceRoleArn : undefined;
             resourceInputs["autoPrepare"] = args ? args.autoPrepare : undefined;
+            resourceInputs["customOrchestration"] = args ? args.customOrchestration : undefined;
             resourceInputs["customerEncryptionKeyArn"] = args ? args.customerEncryptionKeyArn : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["foundationModel"] = args ? args.foundationModel : undefined;
@@ -170,6 +181,8 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["idleSessionTtlInSeconds"] = args ? args.idleSessionTtlInSeconds : undefined;
             resourceInputs["instruction"] = args ? args.instruction : undefined;
             resourceInputs["knowledgeBases"] = args ? args.knowledgeBases : undefined;
+            resourceInputs["memoryConfiguration"] = args ? args.memoryConfiguration : undefined;
+            resourceInputs["orchestrationType"] = args ? args.orchestrationType : undefined;
             resourceInputs["promptOverrideConfiguration"] = args ? args.promptOverrideConfiguration : undefined;
             resourceInputs["skipResourceInUseCheckOnDelete"] = args ? args.skipResourceInUseCheckOnDelete : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -186,6 +199,8 @@ export class Agent extends pulumi.CustomResource {
         } else {
             resourceInputs["actionGroups"] = undefined /*out*/;
             resourceInputs["agentArn"] = undefined /*out*/;
+            resourceInputs["agentCollaboration"] = undefined /*out*/;
+            resourceInputs["agentCollaborators"] = undefined /*out*/;
             resourceInputs["agentId"] = undefined /*out*/;
             resourceInputs["agentName"] = undefined /*out*/;
             resourceInputs["agentResourceRoleArn"] = undefined /*out*/;
@@ -193,6 +208,7 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["agentVersion"] = undefined /*out*/;
             resourceInputs["autoPrepare"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["customOrchestration"] = undefined /*out*/;
             resourceInputs["customerEncryptionKeyArn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["failureReasons"] = undefined /*out*/;
@@ -201,6 +217,8 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["idleSessionTtlInSeconds"] = undefined /*out*/;
             resourceInputs["instruction"] = undefined /*out*/;
             resourceInputs["knowledgeBases"] = undefined /*out*/;
+            resourceInputs["memoryConfiguration"] = undefined /*out*/;
+            resourceInputs["orchestrationType"] = undefined /*out*/;
             resourceInputs["preparedAt"] = undefined /*out*/;
             resourceInputs["promptOverrideConfiguration"] = undefined /*out*/;
             resourceInputs["recommendedActions"] = undefined /*out*/;
@@ -222,6 +240,11 @@ export interface AgentArgs {
      * List of ActionGroups
      */
     actionGroups?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentActionGroupArgs>[]>;
+    agentCollaboration?: pulumi.Input<enums.bedrock.AgentCollaboration>;
+    /**
+     * List of Agent Collaborators
+     */
+    agentCollaborators?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentCollaboratorArgs>[]>;
     /**
      * Name for a resource.
      */
@@ -234,6 +257,7 @@ export interface AgentArgs {
      * Specifies whether to automatically prepare after creating or updating the agent.
      */
     autoPrepare?: pulumi.Input<boolean>;
+    customOrchestration?: pulumi.Input<inputs.bedrock.AgentCustomOrchestrationArgs>;
     /**
      * A KMS key ARN
      */
@@ -243,7 +267,7 @@ export interface AgentArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * ARN or name of a Bedrock model.
+     * The foundation model used for orchestration by the agent.
      */
     foundationModel?: pulumi.Input<string>;
     /**
@@ -262,6 +286,8 @@ export interface AgentArgs {
      * List of Agent Knowledge Bases
      */
     knowledgeBases?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentKnowledgeBaseArgs>[]>;
+    memoryConfiguration?: pulumi.Input<inputs.bedrock.AgentMemoryConfigurationArgs>;
+    orchestrationType?: pulumi.Input<enums.bedrock.AgentOrchestrationType>;
     /**
      * Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
      */

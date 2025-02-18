@@ -62,6 +62,10 @@ export class IpamResourceDiscovery extends pulumi.CustomResource {
      */
     public readonly operatingRegions!: pulumi.Output<outputs.ec2.IpamResourceDiscoveryIpamOperatingRegion[] | undefined>;
     /**
+     * A set of organizational unit (OU) exclusions for this resource.
+     */
+    public readonly organizationalUnitExclusions!: pulumi.Output<outputs.ec2.IpamResourceDiscoveryOrganizationalUnitExclusion[] | undefined>;
+    /**
      * Owner Account ID of the Resource Discovery
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
@@ -87,6 +91,7 @@ export class IpamResourceDiscovery extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
+            resourceInputs["organizationalUnitExclusions"] = args ? args.organizationalUnitExclusions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["ipamResourceDiscoveryArn"] = undefined /*out*/;
             resourceInputs["ipamResourceDiscoveryId"] = undefined /*out*/;
@@ -101,6 +106,7 @@ export class IpamResourceDiscovery extends pulumi.CustomResource {
             resourceInputs["ipamResourceDiscoveryRegion"] = undefined /*out*/;
             resourceInputs["isDefault"] = undefined /*out*/;
             resourceInputs["operatingRegions"] = undefined /*out*/;
+            resourceInputs["organizationalUnitExclusions"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -122,6 +128,10 @@ export interface IpamResourceDiscoveryArgs {
      * The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
      */
     operatingRegions?: pulumi.Input<pulumi.Input<inputs.ec2.IpamResourceDiscoveryIpamOperatingRegionArgs>[]>;
+    /**
+     * A set of organizational unit (OU) exclusions for this resource.
+     */
+    organizationalUnitExclusions?: pulumi.Input<pulumi.Input<inputs.ec2.IpamResourceDiscoveryOrganizationalUnitExclusionArgs>[]>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

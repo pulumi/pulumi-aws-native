@@ -477,7 +477,7 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) RestrictPublicBucket
 
 // Configuration to define what content transformation will be applied on which S3 Action.
 type AccessPointTransformationConfiguration struct {
-	// A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObjects` , and `ListObjectsV2` .
+	// A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObject` , and `ListObjectV2` .
 	Actions []string `pulumi:"actions"`
 	// A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
 	ContentTransformation AccessPointTransformationConfigurationContentTransformationProperties `pulumi:"contentTransformation"`
@@ -496,7 +496,7 @@ type AccessPointTransformationConfigurationInput interface {
 
 // Configuration to define what content transformation will be applied on which S3 Action.
 type AccessPointTransformationConfigurationArgs struct {
-	// A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObjects` , and `ListObjectsV2` .
+	// A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObject` , and `ListObjectV2` .
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
 	// A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
 	ContentTransformation AccessPointTransformationConfigurationContentTransformationPropertiesInput `pulumi:"contentTransformation"`
@@ -554,7 +554,7 @@ func (o AccessPointTransformationConfigurationOutput) ToAccessPointTransformatio
 	return o
 }
 
-// A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObjects` , and `ListObjectsV2` .
+// A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObject` , and `ListObjectV2` .
 func (o AccessPointTransformationConfigurationOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccessPointTransformationConfiguration) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }

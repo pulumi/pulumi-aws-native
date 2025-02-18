@@ -11,20 +11,20 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 {
 
     /// <summary>
-    /// Configuration for chat prompt template
+    /// Configuration for Session Summarization
     /// </summary>
     [OutputType]
-    public sealed class PromptVersionSystemContentBlockProperties
+    public sealed class AgentSessionSummaryConfiguration
     {
         /// <summary>
-        /// Configuration for chat prompt template
+        /// Maximum number of Sessions to Summarize
         /// </summary>
-        public readonly string Text;
+        public readonly double? MaxRecentSessions;
 
         [OutputConstructor]
-        private PromptVersionSystemContentBlockProperties(string text)
+        private AgentSessionSummaryConfiguration(double? maxRecentSessions)
         {
-            Text = text;
+            MaxRecentSessions = maxRecentSessions;
         }
     }
 }

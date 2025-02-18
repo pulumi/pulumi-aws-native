@@ -36,7 +36,7 @@ type JobDefinition struct {
 	PropagateTags pulumi.BoolPtrOutput `pulumi:"propagateTags"`
 	// The retry strategy to use for failed jobs that are submitted with this job definition.
 	RetryStrategy JobDefinitionRetryStrategyPtrOutput `pulumi:"retryStrategy"`
-	// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+	// The scheduling priority of the job definition. This only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
 	SchedulingPriority pulumi.IntPtrOutput `pulumi:"schedulingPriority"`
 	// A key-value pair to associate with a resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -118,7 +118,7 @@ type jobDefinitionArgs struct {
 	PropagateTags *bool `pulumi:"propagateTags"`
 	// The retry strategy to use for failed jobs that are submitted with this job definition.
 	RetryStrategy *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
-	// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+	// The scheduling priority of the job definition. This only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
 	SchedulingPriority *int `pulumi:"schedulingPriority"`
 	// A key-value pair to associate with a resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -155,7 +155,7 @@ type JobDefinitionArgs struct {
 	PropagateTags pulumi.BoolPtrInput
 	// The retry strategy to use for failed jobs that are submitted with this job definition.
 	RetryStrategy JobDefinitionRetryStrategyPtrInput
-	// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+	// The scheduling priority of the job definition. This only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
 	SchedulingPriority pulumi.IntPtrInput
 	// A key-value pair to associate with a resource.
 	Tags pulumi.StringMapInput
@@ -254,7 +254,7 @@ func (o JobDefinitionOutput) RetryStrategy() JobDefinitionRetryStrategyPtrOutput
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionRetryStrategyPtrOutput { return v.RetryStrategy }).(JobDefinitionRetryStrategyPtrOutput)
 }
 
-// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+// The scheduling priority of the job definition. This only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
 func (o JobDefinitionOutput) SchedulingPriority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.IntPtrOutput { return v.SchedulingPriority }).(pulumi.IntPtrOutput)
 }

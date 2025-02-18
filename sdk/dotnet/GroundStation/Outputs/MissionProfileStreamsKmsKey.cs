@@ -18,6 +18,10 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
         /// </summary>
         public readonly string? KmsAliasArn;
         /// <summary>
+        /// KMS Alias Name.
+        /// </summary>
+        public readonly string? KmsAliasName;
+        /// <summary>
         /// KMS Key Arn.
         /// </summary>
         public readonly string? KmsKeyArn;
@@ -26,9 +30,12 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
         private MissionProfileStreamsKmsKey(
             string? kmsAliasArn,
 
+            string? kmsAliasName,
+
             string? kmsKeyArn)
         {
             KmsAliasArn = kmsAliasArn;
+            KmsAliasName = kmsAliasName;
             KmsKeyArn = kmsKeyArn;
         }
     }

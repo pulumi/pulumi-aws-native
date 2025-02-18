@@ -894,6 +894,321 @@ func (o AgentApiSchema1PropertiesPtrOutput) Payload() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Agent Collaborator
+type AgentCollaborator struct {
+	// Agent descriptor for agent collaborator
+	AgentDescriptor AgentCollaboratorAgentDescriptorProperties `pulumi:"agentDescriptor"`
+	// Agent collaborator instruction
+	CollaborationInstruction string `pulumi:"collaborationInstruction"`
+	// Agent collaborator name
+	CollaboratorName         string                         `pulumi:"collaboratorName"`
+	RelayConversationHistory *AgentRelayConversationHistory `pulumi:"relayConversationHistory"`
+}
+
+// AgentCollaboratorInput is an input type that accepts AgentCollaboratorArgs and AgentCollaboratorOutput values.
+// You can construct a concrete instance of `AgentCollaboratorInput` via:
+//
+//	AgentCollaboratorArgs{...}
+type AgentCollaboratorInput interface {
+	pulumi.Input
+
+	ToAgentCollaboratorOutput() AgentCollaboratorOutput
+	ToAgentCollaboratorOutputWithContext(context.Context) AgentCollaboratorOutput
+}
+
+// Agent Collaborator
+type AgentCollaboratorArgs struct {
+	// Agent descriptor for agent collaborator
+	AgentDescriptor AgentCollaboratorAgentDescriptorPropertiesInput `pulumi:"agentDescriptor"`
+	// Agent collaborator instruction
+	CollaborationInstruction pulumi.StringInput `pulumi:"collaborationInstruction"`
+	// Agent collaborator name
+	CollaboratorName         pulumi.StringInput                    `pulumi:"collaboratorName"`
+	RelayConversationHistory AgentRelayConversationHistoryPtrInput `pulumi:"relayConversationHistory"`
+}
+
+func (AgentCollaboratorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentCollaborator)(nil)).Elem()
+}
+
+func (i AgentCollaboratorArgs) ToAgentCollaboratorOutput() AgentCollaboratorOutput {
+	return i.ToAgentCollaboratorOutputWithContext(context.Background())
+}
+
+func (i AgentCollaboratorArgs) ToAgentCollaboratorOutputWithContext(ctx context.Context) AgentCollaboratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentCollaboratorOutput)
+}
+
+// AgentCollaboratorArrayInput is an input type that accepts AgentCollaboratorArray and AgentCollaboratorArrayOutput values.
+// You can construct a concrete instance of `AgentCollaboratorArrayInput` via:
+//
+//	AgentCollaboratorArray{ AgentCollaboratorArgs{...} }
+type AgentCollaboratorArrayInput interface {
+	pulumi.Input
+
+	ToAgentCollaboratorArrayOutput() AgentCollaboratorArrayOutput
+	ToAgentCollaboratorArrayOutputWithContext(context.Context) AgentCollaboratorArrayOutput
+}
+
+type AgentCollaboratorArray []AgentCollaboratorInput
+
+func (AgentCollaboratorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentCollaborator)(nil)).Elem()
+}
+
+func (i AgentCollaboratorArray) ToAgentCollaboratorArrayOutput() AgentCollaboratorArrayOutput {
+	return i.ToAgentCollaboratorArrayOutputWithContext(context.Background())
+}
+
+func (i AgentCollaboratorArray) ToAgentCollaboratorArrayOutputWithContext(ctx context.Context) AgentCollaboratorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentCollaboratorArrayOutput)
+}
+
+// Agent Collaborator
+type AgentCollaboratorOutput struct{ *pulumi.OutputState }
+
+func (AgentCollaboratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentCollaborator)(nil)).Elem()
+}
+
+func (o AgentCollaboratorOutput) ToAgentCollaboratorOutput() AgentCollaboratorOutput {
+	return o
+}
+
+func (o AgentCollaboratorOutput) ToAgentCollaboratorOutputWithContext(ctx context.Context) AgentCollaboratorOutput {
+	return o
+}
+
+// Agent descriptor for agent collaborator
+func (o AgentCollaboratorOutput) AgentDescriptor() AgentCollaboratorAgentDescriptorPropertiesOutput {
+	return o.ApplyT(func(v AgentCollaborator) AgentCollaboratorAgentDescriptorProperties { return v.AgentDescriptor }).(AgentCollaboratorAgentDescriptorPropertiesOutput)
+}
+
+// Agent collaborator instruction
+func (o AgentCollaboratorOutput) CollaborationInstruction() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentCollaborator) string { return v.CollaborationInstruction }).(pulumi.StringOutput)
+}
+
+// Agent collaborator name
+func (o AgentCollaboratorOutput) CollaboratorName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentCollaborator) string { return v.CollaboratorName }).(pulumi.StringOutput)
+}
+
+func (o AgentCollaboratorOutput) RelayConversationHistory() AgentRelayConversationHistoryPtrOutput {
+	return o.ApplyT(func(v AgentCollaborator) *AgentRelayConversationHistory { return v.RelayConversationHistory }).(AgentRelayConversationHistoryPtrOutput)
+}
+
+type AgentCollaboratorArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentCollaboratorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentCollaborator)(nil)).Elem()
+}
+
+func (o AgentCollaboratorArrayOutput) ToAgentCollaboratorArrayOutput() AgentCollaboratorArrayOutput {
+	return o
+}
+
+func (o AgentCollaboratorArrayOutput) ToAgentCollaboratorArrayOutputWithContext(ctx context.Context) AgentCollaboratorArrayOutput {
+	return o
+}
+
+func (o AgentCollaboratorArrayOutput) Index(i pulumi.IntInput) AgentCollaboratorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentCollaborator {
+		return vs[0].([]AgentCollaborator)[vs[1].(int)]
+	}).(AgentCollaboratorOutput)
+}
+
+// Agent descriptor for agent collaborator
+type AgentCollaboratorAgentDescriptorProperties struct {
+	// Alias ARN for agent descriptor
+	AliasArn *string `pulumi:"aliasArn"`
+}
+
+// AgentCollaboratorAgentDescriptorPropertiesInput is an input type that accepts AgentCollaboratorAgentDescriptorPropertiesArgs and AgentCollaboratorAgentDescriptorPropertiesOutput values.
+// You can construct a concrete instance of `AgentCollaboratorAgentDescriptorPropertiesInput` via:
+//
+//	AgentCollaboratorAgentDescriptorPropertiesArgs{...}
+type AgentCollaboratorAgentDescriptorPropertiesInput interface {
+	pulumi.Input
+
+	ToAgentCollaboratorAgentDescriptorPropertiesOutput() AgentCollaboratorAgentDescriptorPropertiesOutput
+	ToAgentCollaboratorAgentDescriptorPropertiesOutputWithContext(context.Context) AgentCollaboratorAgentDescriptorPropertiesOutput
+}
+
+// Agent descriptor for agent collaborator
+type AgentCollaboratorAgentDescriptorPropertiesArgs struct {
+	// Alias ARN for agent descriptor
+	AliasArn pulumi.StringPtrInput `pulumi:"aliasArn"`
+}
+
+func (AgentCollaboratorAgentDescriptorPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentCollaboratorAgentDescriptorProperties)(nil)).Elem()
+}
+
+func (i AgentCollaboratorAgentDescriptorPropertiesArgs) ToAgentCollaboratorAgentDescriptorPropertiesOutput() AgentCollaboratorAgentDescriptorPropertiesOutput {
+	return i.ToAgentCollaboratorAgentDescriptorPropertiesOutputWithContext(context.Background())
+}
+
+func (i AgentCollaboratorAgentDescriptorPropertiesArgs) ToAgentCollaboratorAgentDescriptorPropertiesOutputWithContext(ctx context.Context) AgentCollaboratorAgentDescriptorPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentCollaboratorAgentDescriptorPropertiesOutput)
+}
+
+// Agent descriptor for agent collaborator
+type AgentCollaboratorAgentDescriptorPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AgentCollaboratorAgentDescriptorPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentCollaboratorAgentDescriptorProperties)(nil)).Elem()
+}
+
+func (o AgentCollaboratorAgentDescriptorPropertiesOutput) ToAgentCollaboratorAgentDescriptorPropertiesOutput() AgentCollaboratorAgentDescriptorPropertiesOutput {
+	return o
+}
+
+func (o AgentCollaboratorAgentDescriptorPropertiesOutput) ToAgentCollaboratorAgentDescriptorPropertiesOutputWithContext(ctx context.Context) AgentCollaboratorAgentDescriptorPropertiesOutput {
+	return o
+}
+
+// Alias ARN for agent descriptor
+func (o AgentCollaboratorAgentDescriptorPropertiesOutput) AliasArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentCollaboratorAgentDescriptorProperties) *string { return v.AliasArn }).(pulumi.StringPtrOutput)
+}
+
+// Structure for custom orchestration
+type AgentCustomOrchestration struct {
+	Executor *AgentOrchestrationExecutor `pulumi:"executor"`
+}
+
+// AgentCustomOrchestrationInput is an input type that accepts AgentCustomOrchestrationArgs and AgentCustomOrchestrationOutput values.
+// You can construct a concrete instance of `AgentCustomOrchestrationInput` via:
+//
+//	AgentCustomOrchestrationArgs{...}
+type AgentCustomOrchestrationInput interface {
+	pulumi.Input
+
+	ToAgentCustomOrchestrationOutput() AgentCustomOrchestrationOutput
+	ToAgentCustomOrchestrationOutputWithContext(context.Context) AgentCustomOrchestrationOutput
+}
+
+// Structure for custom orchestration
+type AgentCustomOrchestrationArgs struct {
+	Executor AgentOrchestrationExecutorPtrInput `pulumi:"executor"`
+}
+
+func (AgentCustomOrchestrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentCustomOrchestration)(nil)).Elem()
+}
+
+func (i AgentCustomOrchestrationArgs) ToAgentCustomOrchestrationOutput() AgentCustomOrchestrationOutput {
+	return i.ToAgentCustomOrchestrationOutputWithContext(context.Background())
+}
+
+func (i AgentCustomOrchestrationArgs) ToAgentCustomOrchestrationOutputWithContext(ctx context.Context) AgentCustomOrchestrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentCustomOrchestrationOutput)
+}
+
+func (i AgentCustomOrchestrationArgs) ToAgentCustomOrchestrationPtrOutput() AgentCustomOrchestrationPtrOutput {
+	return i.ToAgentCustomOrchestrationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentCustomOrchestrationArgs) ToAgentCustomOrchestrationPtrOutputWithContext(ctx context.Context) AgentCustomOrchestrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentCustomOrchestrationOutput).ToAgentCustomOrchestrationPtrOutputWithContext(ctx)
+}
+
+// AgentCustomOrchestrationPtrInput is an input type that accepts AgentCustomOrchestrationArgs, AgentCustomOrchestrationPtr and AgentCustomOrchestrationPtrOutput values.
+// You can construct a concrete instance of `AgentCustomOrchestrationPtrInput` via:
+//
+//	        AgentCustomOrchestrationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentCustomOrchestrationPtrInput interface {
+	pulumi.Input
+
+	ToAgentCustomOrchestrationPtrOutput() AgentCustomOrchestrationPtrOutput
+	ToAgentCustomOrchestrationPtrOutputWithContext(context.Context) AgentCustomOrchestrationPtrOutput
+}
+
+type agentCustomOrchestrationPtrType AgentCustomOrchestrationArgs
+
+func AgentCustomOrchestrationPtr(v *AgentCustomOrchestrationArgs) AgentCustomOrchestrationPtrInput {
+	return (*agentCustomOrchestrationPtrType)(v)
+}
+
+func (*agentCustomOrchestrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentCustomOrchestration)(nil)).Elem()
+}
+
+func (i *agentCustomOrchestrationPtrType) ToAgentCustomOrchestrationPtrOutput() AgentCustomOrchestrationPtrOutput {
+	return i.ToAgentCustomOrchestrationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentCustomOrchestrationPtrType) ToAgentCustomOrchestrationPtrOutputWithContext(ctx context.Context) AgentCustomOrchestrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentCustomOrchestrationPtrOutput)
+}
+
+// Structure for custom orchestration
+type AgentCustomOrchestrationOutput struct{ *pulumi.OutputState }
+
+func (AgentCustomOrchestrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentCustomOrchestration)(nil)).Elem()
+}
+
+func (o AgentCustomOrchestrationOutput) ToAgentCustomOrchestrationOutput() AgentCustomOrchestrationOutput {
+	return o
+}
+
+func (o AgentCustomOrchestrationOutput) ToAgentCustomOrchestrationOutputWithContext(ctx context.Context) AgentCustomOrchestrationOutput {
+	return o
+}
+
+func (o AgentCustomOrchestrationOutput) ToAgentCustomOrchestrationPtrOutput() AgentCustomOrchestrationPtrOutput {
+	return o.ToAgentCustomOrchestrationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentCustomOrchestrationOutput) ToAgentCustomOrchestrationPtrOutputWithContext(ctx context.Context) AgentCustomOrchestrationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentCustomOrchestration) *AgentCustomOrchestration {
+		return &v
+	}).(AgentCustomOrchestrationPtrOutput)
+}
+
+func (o AgentCustomOrchestrationOutput) Executor() AgentOrchestrationExecutorPtrOutput {
+	return o.ApplyT(func(v AgentCustomOrchestration) *AgentOrchestrationExecutor { return v.Executor }).(AgentOrchestrationExecutorPtrOutput)
+}
+
+type AgentCustomOrchestrationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentCustomOrchestrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentCustomOrchestration)(nil)).Elem()
+}
+
+func (o AgentCustomOrchestrationPtrOutput) ToAgentCustomOrchestrationPtrOutput() AgentCustomOrchestrationPtrOutput {
+	return o
+}
+
+func (o AgentCustomOrchestrationPtrOutput) ToAgentCustomOrchestrationPtrOutputWithContext(ctx context.Context) AgentCustomOrchestrationPtrOutput {
+	return o
+}
+
+func (o AgentCustomOrchestrationPtrOutput) Elem() AgentCustomOrchestrationOutput {
+	return o.ApplyT(func(v *AgentCustomOrchestration) AgentCustomOrchestration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentCustomOrchestration
+		return ret
+	}).(AgentCustomOrchestrationOutput)
+}
+
+func (o AgentCustomOrchestrationPtrOutput) Executor() AgentOrchestrationExecutorPtrOutput {
+	return o.ApplyT(func(v *AgentCustomOrchestration) *AgentOrchestrationExecutor {
+		if v == nil {
+			return nil
+		}
+		return v.Executor
+	}).(AgentOrchestrationExecutorPtrOutput)
+}
+
 // Function definition
 type AgentFunction struct {
 	// Description of function
@@ -1654,6 +1969,318 @@ func (o AgentKnowledgeBaseArrayOutput) Index(i pulumi.IntInput) AgentKnowledgeBa
 	}).(AgentKnowledgeBaseOutput)
 }
 
+// Configuration for memory storage
+type AgentMemoryConfiguration struct {
+	EnabledMemoryTypes          []AgentMemoryType                 `pulumi:"enabledMemoryTypes"`
+	SessionSummaryConfiguration *AgentSessionSummaryConfiguration `pulumi:"sessionSummaryConfiguration"`
+	// Maximum number of days to store session details
+	StorageDays *float64 `pulumi:"storageDays"`
+}
+
+// AgentMemoryConfigurationInput is an input type that accepts AgentMemoryConfigurationArgs and AgentMemoryConfigurationOutput values.
+// You can construct a concrete instance of `AgentMemoryConfigurationInput` via:
+//
+//	AgentMemoryConfigurationArgs{...}
+type AgentMemoryConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentMemoryConfigurationOutput() AgentMemoryConfigurationOutput
+	ToAgentMemoryConfigurationOutputWithContext(context.Context) AgentMemoryConfigurationOutput
+}
+
+// Configuration for memory storage
+type AgentMemoryConfigurationArgs struct {
+	EnabledMemoryTypes          AgentMemoryTypeArrayInput                `pulumi:"enabledMemoryTypes"`
+	SessionSummaryConfiguration AgentSessionSummaryConfigurationPtrInput `pulumi:"sessionSummaryConfiguration"`
+	// Maximum number of days to store session details
+	StorageDays pulumi.Float64PtrInput `pulumi:"storageDays"`
+}
+
+func (AgentMemoryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentMemoryConfiguration)(nil)).Elem()
+}
+
+func (i AgentMemoryConfigurationArgs) ToAgentMemoryConfigurationOutput() AgentMemoryConfigurationOutput {
+	return i.ToAgentMemoryConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentMemoryConfigurationArgs) ToAgentMemoryConfigurationOutputWithContext(ctx context.Context) AgentMemoryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentMemoryConfigurationOutput)
+}
+
+func (i AgentMemoryConfigurationArgs) ToAgentMemoryConfigurationPtrOutput() AgentMemoryConfigurationPtrOutput {
+	return i.ToAgentMemoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentMemoryConfigurationArgs) ToAgentMemoryConfigurationPtrOutputWithContext(ctx context.Context) AgentMemoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentMemoryConfigurationOutput).ToAgentMemoryConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentMemoryConfigurationPtrInput is an input type that accepts AgentMemoryConfigurationArgs, AgentMemoryConfigurationPtr and AgentMemoryConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentMemoryConfigurationPtrInput` via:
+//
+//	        AgentMemoryConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentMemoryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentMemoryConfigurationPtrOutput() AgentMemoryConfigurationPtrOutput
+	ToAgentMemoryConfigurationPtrOutputWithContext(context.Context) AgentMemoryConfigurationPtrOutput
+}
+
+type agentMemoryConfigurationPtrType AgentMemoryConfigurationArgs
+
+func AgentMemoryConfigurationPtr(v *AgentMemoryConfigurationArgs) AgentMemoryConfigurationPtrInput {
+	return (*agentMemoryConfigurationPtrType)(v)
+}
+
+func (*agentMemoryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentMemoryConfiguration)(nil)).Elem()
+}
+
+func (i *agentMemoryConfigurationPtrType) ToAgentMemoryConfigurationPtrOutput() AgentMemoryConfigurationPtrOutput {
+	return i.ToAgentMemoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentMemoryConfigurationPtrType) ToAgentMemoryConfigurationPtrOutputWithContext(ctx context.Context) AgentMemoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentMemoryConfigurationPtrOutput)
+}
+
+// Configuration for memory storage
+type AgentMemoryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentMemoryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentMemoryConfiguration)(nil)).Elem()
+}
+
+func (o AgentMemoryConfigurationOutput) ToAgentMemoryConfigurationOutput() AgentMemoryConfigurationOutput {
+	return o
+}
+
+func (o AgentMemoryConfigurationOutput) ToAgentMemoryConfigurationOutputWithContext(ctx context.Context) AgentMemoryConfigurationOutput {
+	return o
+}
+
+func (o AgentMemoryConfigurationOutput) ToAgentMemoryConfigurationPtrOutput() AgentMemoryConfigurationPtrOutput {
+	return o.ToAgentMemoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentMemoryConfigurationOutput) ToAgentMemoryConfigurationPtrOutputWithContext(ctx context.Context) AgentMemoryConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentMemoryConfiguration) *AgentMemoryConfiguration {
+		return &v
+	}).(AgentMemoryConfigurationPtrOutput)
+}
+
+func (o AgentMemoryConfigurationOutput) EnabledMemoryTypes() AgentMemoryTypeArrayOutput {
+	return o.ApplyT(func(v AgentMemoryConfiguration) []AgentMemoryType { return v.EnabledMemoryTypes }).(AgentMemoryTypeArrayOutput)
+}
+
+func (o AgentMemoryConfigurationOutput) SessionSummaryConfiguration() AgentSessionSummaryConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentMemoryConfiguration) *AgentSessionSummaryConfiguration {
+		return v.SessionSummaryConfiguration
+	}).(AgentSessionSummaryConfigurationPtrOutput)
+}
+
+// Maximum number of days to store session details
+func (o AgentMemoryConfigurationOutput) StorageDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AgentMemoryConfiguration) *float64 { return v.StorageDays }).(pulumi.Float64PtrOutput)
+}
+
+type AgentMemoryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentMemoryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentMemoryConfiguration)(nil)).Elem()
+}
+
+func (o AgentMemoryConfigurationPtrOutput) ToAgentMemoryConfigurationPtrOutput() AgentMemoryConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentMemoryConfigurationPtrOutput) ToAgentMemoryConfigurationPtrOutputWithContext(ctx context.Context) AgentMemoryConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentMemoryConfigurationPtrOutput) Elem() AgentMemoryConfigurationOutput {
+	return o.ApplyT(func(v *AgentMemoryConfiguration) AgentMemoryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentMemoryConfiguration
+		return ret
+	}).(AgentMemoryConfigurationOutput)
+}
+
+func (o AgentMemoryConfigurationPtrOutput) EnabledMemoryTypes() AgentMemoryTypeArrayOutput {
+	return o.ApplyT(func(v *AgentMemoryConfiguration) []AgentMemoryType {
+		if v == nil {
+			return nil
+		}
+		return v.EnabledMemoryTypes
+	}).(AgentMemoryTypeArrayOutput)
+}
+
+func (o AgentMemoryConfigurationPtrOutput) SessionSummaryConfiguration() AgentSessionSummaryConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentMemoryConfiguration) *AgentSessionSummaryConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SessionSummaryConfiguration
+	}).(AgentSessionSummaryConfigurationPtrOutput)
+}
+
+// Maximum number of days to store session details
+func (o AgentMemoryConfigurationPtrOutput) StorageDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentMemoryConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.StorageDays
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Types of executors for custom orchestration strategy
+type AgentOrchestrationExecutor struct {
+	// ARN of a Lambda.
+	Lambda string `pulumi:"lambda"`
+}
+
+// AgentOrchestrationExecutorInput is an input type that accepts AgentOrchestrationExecutorArgs and AgentOrchestrationExecutorOutput values.
+// You can construct a concrete instance of `AgentOrchestrationExecutorInput` via:
+//
+//	AgentOrchestrationExecutorArgs{...}
+type AgentOrchestrationExecutorInput interface {
+	pulumi.Input
+
+	ToAgentOrchestrationExecutorOutput() AgentOrchestrationExecutorOutput
+	ToAgentOrchestrationExecutorOutputWithContext(context.Context) AgentOrchestrationExecutorOutput
+}
+
+// Types of executors for custom orchestration strategy
+type AgentOrchestrationExecutorArgs struct {
+	// ARN of a Lambda.
+	Lambda pulumi.StringInput `pulumi:"lambda"`
+}
+
+func (AgentOrchestrationExecutorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentOrchestrationExecutor)(nil)).Elem()
+}
+
+func (i AgentOrchestrationExecutorArgs) ToAgentOrchestrationExecutorOutput() AgentOrchestrationExecutorOutput {
+	return i.ToAgentOrchestrationExecutorOutputWithContext(context.Background())
+}
+
+func (i AgentOrchestrationExecutorArgs) ToAgentOrchestrationExecutorOutputWithContext(ctx context.Context) AgentOrchestrationExecutorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentOrchestrationExecutorOutput)
+}
+
+func (i AgentOrchestrationExecutorArgs) ToAgentOrchestrationExecutorPtrOutput() AgentOrchestrationExecutorPtrOutput {
+	return i.ToAgentOrchestrationExecutorPtrOutputWithContext(context.Background())
+}
+
+func (i AgentOrchestrationExecutorArgs) ToAgentOrchestrationExecutorPtrOutputWithContext(ctx context.Context) AgentOrchestrationExecutorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentOrchestrationExecutorOutput).ToAgentOrchestrationExecutorPtrOutputWithContext(ctx)
+}
+
+// AgentOrchestrationExecutorPtrInput is an input type that accepts AgentOrchestrationExecutorArgs, AgentOrchestrationExecutorPtr and AgentOrchestrationExecutorPtrOutput values.
+// You can construct a concrete instance of `AgentOrchestrationExecutorPtrInput` via:
+//
+//	        AgentOrchestrationExecutorArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentOrchestrationExecutorPtrInput interface {
+	pulumi.Input
+
+	ToAgentOrchestrationExecutorPtrOutput() AgentOrchestrationExecutorPtrOutput
+	ToAgentOrchestrationExecutorPtrOutputWithContext(context.Context) AgentOrchestrationExecutorPtrOutput
+}
+
+type agentOrchestrationExecutorPtrType AgentOrchestrationExecutorArgs
+
+func AgentOrchestrationExecutorPtr(v *AgentOrchestrationExecutorArgs) AgentOrchestrationExecutorPtrInput {
+	return (*agentOrchestrationExecutorPtrType)(v)
+}
+
+func (*agentOrchestrationExecutorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentOrchestrationExecutor)(nil)).Elem()
+}
+
+func (i *agentOrchestrationExecutorPtrType) ToAgentOrchestrationExecutorPtrOutput() AgentOrchestrationExecutorPtrOutput {
+	return i.ToAgentOrchestrationExecutorPtrOutputWithContext(context.Background())
+}
+
+func (i *agentOrchestrationExecutorPtrType) ToAgentOrchestrationExecutorPtrOutputWithContext(ctx context.Context) AgentOrchestrationExecutorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentOrchestrationExecutorPtrOutput)
+}
+
+// Types of executors for custom orchestration strategy
+type AgentOrchestrationExecutorOutput struct{ *pulumi.OutputState }
+
+func (AgentOrchestrationExecutorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentOrchestrationExecutor)(nil)).Elem()
+}
+
+func (o AgentOrchestrationExecutorOutput) ToAgentOrchestrationExecutorOutput() AgentOrchestrationExecutorOutput {
+	return o
+}
+
+func (o AgentOrchestrationExecutorOutput) ToAgentOrchestrationExecutorOutputWithContext(ctx context.Context) AgentOrchestrationExecutorOutput {
+	return o
+}
+
+func (o AgentOrchestrationExecutorOutput) ToAgentOrchestrationExecutorPtrOutput() AgentOrchestrationExecutorPtrOutput {
+	return o.ToAgentOrchestrationExecutorPtrOutputWithContext(context.Background())
+}
+
+func (o AgentOrchestrationExecutorOutput) ToAgentOrchestrationExecutorPtrOutputWithContext(ctx context.Context) AgentOrchestrationExecutorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentOrchestrationExecutor) *AgentOrchestrationExecutor {
+		return &v
+	}).(AgentOrchestrationExecutorPtrOutput)
+}
+
+// ARN of a Lambda.
+func (o AgentOrchestrationExecutorOutput) Lambda() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentOrchestrationExecutor) string { return v.Lambda }).(pulumi.StringOutput)
+}
+
+type AgentOrchestrationExecutorPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentOrchestrationExecutorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentOrchestrationExecutor)(nil)).Elem()
+}
+
+func (o AgentOrchestrationExecutorPtrOutput) ToAgentOrchestrationExecutorPtrOutput() AgentOrchestrationExecutorPtrOutput {
+	return o
+}
+
+func (o AgentOrchestrationExecutorPtrOutput) ToAgentOrchestrationExecutorPtrOutputWithContext(ctx context.Context) AgentOrchestrationExecutorPtrOutput {
+	return o
+}
+
+func (o AgentOrchestrationExecutorPtrOutput) Elem() AgentOrchestrationExecutorOutput {
+	return o.ApplyT(func(v *AgentOrchestrationExecutor) AgentOrchestrationExecutor {
+		if v != nil {
+			return *v
+		}
+		var ret AgentOrchestrationExecutor
+		return ret
+	}).(AgentOrchestrationExecutorOutput)
+}
+
+// ARN of a Lambda.
+func (o AgentOrchestrationExecutorPtrOutput) Lambda() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentOrchestrationExecutor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Lambda
+	}).(pulumi.StringPtrOutput)
+}
+
 // Parameter detail
 type AgentParameterDetail struct {
 	// Description of function parameter.
@@ -1776,9 +2403,10 @@ func (o AgentParameterDetailMapOutput) MapIndex(k pulumi.StringInput) AgentParam
 type AgentPromptConfiguration struct {
 	// Base Prompt Template.
 	BasePromptTemplate *string `pulumi:"basePromptTemplate"`
+	FoundationModel    *string `pulumi:"foundationModel"`
 	// Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
 	InferenceConfiguration *AgentInferenceConfiguration `pulumi:"inferenceConfiguration"`
-	// Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
+	// Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
 	ParserMode *AgentCreationMode `pulumi:"parserMode"`
 	// Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
 	PromptCreationMode *AgentCreationMode `pulumi:"promptCreationMode"`
@@ -1808,9 +2436,10 @@ type AgentPromptConfigurationInput interface {
 type AgentPromptConfigurationArgs struct {
 	// Base Prompt Template.
 	BasePromptTemplate pulumi.StringPtrInput `pulumi:"basePromptTemplate"`
+	FoundationModel    pulumi.StringPtrInput `pulumi:"foundationModel"`
 	// Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
 	InferenceConfiguration AgentInferenceConfigurationPtrInput `pulumi:"inferenceConfiguration"`
-	// Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
+	// Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
 	ParserMode AgentCreationModePtrInput `pulumi:"parserMode"`
 	// Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
 	PromptCreationMode AgentCreationModePtrInput `pulumi:"promptCreationMode"`
@@ -1882,12 +2511,16 @@ func (o AgentPromptConfigurationOutput) BasePromptTemplate() pulumi.StringPtrOut
 	return o.ApplyT(func(v AgentPromptConfiguration) *string { return v.BasePromptTemplate }).(pulumi.StringPtrOutput)
 }
 
+func (o AgentPromptConfigurationOutput) FoundationModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentPromptConfiguration) *string { return v.FoundationModel }).(pulumi.StringPtrOutput)
+}
+
 // Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
 func (o AgentPromptConfigurationOutput) InferenceConfiguration() AgentInferenceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentPromptConfiguration) *AgentInferenceConfiguration { return v.InferenceConfiguration }).(AgentInferenceConfigurationPtrOutput)
 }
 
-// Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
+// Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
 func (o AgentPromptConfigurationOutput) ParserMode() AgentCreationModePtrOutput {
 	return o.ApplyT(func(v AgentPromptConfiguration) *AgentCreationMode { return v.ParserMode }).(AgentCreationModePtrOutput)
 }
@@ -2248,6 +2881,146 @@ func (o AgentS3IdentifierPtrOutput) S3ObjectKey() pulumi.StringPtrOutput {
 		}
 		return v.S3ObjectKey
 	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for Session Summarization
+type AgentSessionSummaryConfiguration struct {
+	// Maximum number of Sessions to Summarize
+	MaxRecentSessions *float64 `pulumi:"maxRecentSessions"`
+}
+
+// AgentSessionSummaryConfigurationInput is an input type that accepts AgentSessionSummaryConfigurationArgs and AgentSessionSummaryConfigurationOutput values.
+// You can construct a concrete instance of `AgentSessionSummaryConfigurationInput` via:
+//
+//	AgentSessionSummaryConfigurationArgs{...}
+type AgentSessionSummaryConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentSessionSummaryConfigurationOutput() AgentSessionSummaryConfigurationOutput
+	ToAgentSessionSummaryConfigurationOutputWithContext(context.Context) AgentSessionSummaryConfigurationOutput
+}
+
+// Configuration for Session Summarization
+type AgentSessionSummaryConfigurationArgs struct {
+	// Maximum number of Sessions to Summarize
+	MaxRecentSessions pulumi.Float64PtrInput `pulumi:"maxRecentSessions"`
+}
+
+func (AgentSessionSummaryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSessionSummaryConfiguration)(nil)).Elem()
+}
+
+func (i AgentSessionSummaryConfigurationArgs) ToAgentSessionSummaryConfigurationOutput() AgentSessionSummaryConfigurationOutput {
+	return i.ToAgentSessionSummaryConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentSessionSummaryConfigurationArgs) ToAgentSessionSummaryConfigurationOutputWithContext(ctx context.Context) AgentSessionSummaryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSessionSummaryConfigurationOutput)
+}
+
+func (i AgentSessionSummaryConfigurationArgs) ToAgentSessionSummaryConfigurationPtrOutput() AgentSessionSummaryConfigurationPtrOutput {
+	return i.ToAgentSessionSummaryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentSessionSummaryConfigurationArgs) ToAgentSessionSummaryConfigurationPtrOutputWithContext(ctx context.Context) AgentSessionSummaryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSessionSummaryConfigurationOutput).ToAgentSessionSummaryConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentSessionSummaryConfigurationPtrInput is an input type that accepts AgentSessionSummaryConfigurationArgs, AgentSessionSummaryConfigurationPtr and AgentSessionSummaryConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentSessionSummaryConfigurationPtrInput` via:
+//
+//	        AgentSessionSummaryConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentSessionSummaryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentSessionSummaryConfigurationPtrOutput() AgentSessionSummaryConfigurationPtrOutput
+	ToAgentSessionSummaryConfigurationPtrOutputWithContext(context.Context) AgentSessionSummaryConfigurationPtrOutput
+}
+
+type agentSessionSummaryConfigurationPtrType AgentSessionSummaryConfigurationArgs
+
+func AgentSessionSummaryConfigurationPtr(v *AgentSessionSummaryConfigurationArgs) AgentSessionSummaryConfigurationPtrInput {
+	return (*agentSessionSummaryConfigurationPtrType)(v)
+}
+
+func (*agentSessionSummaryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSessionSummaryConfiguration)(nil)).Elem()
+}
+
+func (i *agentSessionSummaryConfigurationPtrType) ToAgentSessionSummaryConfigurationPtrOutput() AgentSessionSummaryConfigurationPtrOutput {
+	return i.ToAgentSessionSummaryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentSessionSummaryConfigurationPtrType) ToAgentSessionSummaryConfigurationPtrOutputWithContext(ctx context.Context) AgentSessionSummaryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSessionSummaryConfigurationPtrOutput)
+}
+
+// Configuration for Session Summarization
+type AgentSessionSummaryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentSessionSummaryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSessionSummaryConfiguration)(nil)).Elem()
+}
+
+func (o AgentSessionSummaryConfigurationOutput) ToAgentSessionSummaryConfigurationOutput() AgentSessionSummaryConfigurationOutput {
+	return o
+}
+
+func (o AgentSessionSummaryConfigurationOutput) ToAgentSessionSummaryConfigurationOutputWithContext(ctx context.Context) AgentSessionSummaryConfigurationOutput {
+	return o
+}
+
+func (o AgentSessionSummaryConfigurationOutput) ToAgentSessionSummaryConfigurationPtrOutput() AgentSessionSummaryConfigurationPtrOutput {
+	return o.ToAgentSessionSummaryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentSessionSummaryConfigurationOutput) ToAgentSessionSummaryConfigurationPtrOutputWithContext(ctx context.Context) AgentSessionSummaryConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentSessionSummaryConfiguration) *AgentSessionSummaryConfiguration {
+		return &v
+	}).(AgentSessionSummaryConfigurationPtrOutput)
+}
+
+// Maximum number of Sessions to Summarize
+func (o AgentSessionSummaryConfigurationOutput) MaxRecentSessions() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AgentSessionSummaryConfiguration) *float64 { return v.MaxRecentSessions }).(pulumi.Float64PtrOutput)
+}
+
+type AgentSessionSummaryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentSessionSummaryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSessionSummaryConfiguration)(nil)).Elem()
+}
+
+func (o AgentSessionSummaryConfigurationPtrOutput) ToAgentSessionSummaryConfigurationPtrOutput() AgentSessionSummaryConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentSessionSummaryConfigurationPtrOutput) ToAgentSessionSummaryConfigurationPtrOutputWithContext(ctx context.Context) AgentSessionSummaryConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentSessionSummaryConfigurationPtrOutput) Elem() AgentSessionSummaryConfigurationOutput {
+	return o.ApplyT(func(v *AgentSessionSummaryConfiguration) AgentSessionSummaryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentSessionSummaryConfiguration
+		return ret
+	}).(AgentSessionSummaryConfigurationOutput)
+}
+
+// Maximum number of Sessions to Summarize
+func (o AgentSessionSummaryConfigurationPtrOutput) MaxRecentSessions() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentSessionSummaryConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxRecentSessions
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Model configuration
@@ -25282,6 +26055,127 @@ func (o KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput) SupplementalData
 	}).(KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput)
 }
 
+// Contains model-specific configurations
+type PromptAdditionalModelRequestFields struct {
+}
+
+// PromptAdditionalModelRequestFieldsInput is an input type that accepts PromptAdditionalModelRequestFieldsArgs and PromptAdditionalModelRequestFieldsOutput values.
+// You can construct a concrete instance of `PromptAdditionalModelRequestFieldsInput` via:
+//
+//	PromptAdditionalModelRequestFieldsArgs{...}
+type PromptAdditionalModelRequestFieldsInput interface {
+	pulumi.Input
+
+	ToPromptAdditionalModelRequestFieldsOutput() PromptAdditionalModelRequestFieldsOutput
+	ToPromptAdditionalModelRequestFieldsOutputWithContext(context.Context) PromptAdditionalModelRequestFieldsOutput
+}
+
+// Contains model-specific configurations
+type PromptAdditionalModelRequestFieldsArgs struct {
+}
+
+func (PromptAdditionalModelRequestFieldsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptAdditionalModelRequestFields)(nil)).Elem()
+}
+
+func (i PromptAdditionalModelRequestFieldsArgs) ToPromptAdditionalModelRequestFieldsOutput() PromptAdditionalModelRequestFieldsOutput {
+	return i.ToPromptAdditionalModelRequestFieldsOutputWithContext(context.Background())
+}
+
+func (i PromptAdditionalModelRequestFieldsArgs) ToPromptAdditionalModelRequestFieldsOutputWithContext(ctx context.Context) PromptAdditionalModelRequestFieldsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PromptAdditionalModelRequestFieldsOutput)
+}
+
+func (i PromptAdditionalModelRequestFieldsArgs) ToPromptAdditionalModelRequestFieldsPtrOutput() PromptAdditionalModelRequestFieldsPtrOutput {
+	return i.ToPromptAdditionalModelRequestFieldsPtrOutputWithContext(context.Background())
+}
+
+func (i PromptAdditionalModelRequestFieldsArgs) ToPromptAdditionalModelRequestFieldsPtrOutputWithContext(ctx context.Context) PromptAdditionalModelRequestFieldsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PromptAdditionalModelRequestFieldsOutput).ToPromptAdditionalModelRequestFieldsPtrOutputWithContext(ctx)
+}
+
+// PromptAdditionalModelRequestFieldsPtrInput is an input type that accepts PromptAdditionalModelRequestFieldsArgs, PromptAdditionalModelRequestFieldsPtr and PromptAdditionalModelRequestFieldsPtrOutput values.
+// You can construct a concrete instance of `PromptAdditionalModelRequestFieldsPtrInput` via:
+//
+//	        PromptAdditionalModelRequestFieldsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PromptAdditionalModelRequestFieldsPtrInput interface {
+	pulumi.Input
+
+	ToPromptAdditionalModelRequestFieldsPtrOutput() PromptAdditionalModelRequestFieldsPtrOutput
+	ToPromptAdditionalModelRequestFieldsPtrOutputWithContext(context.Context) PromptAdditionalModelRequestFieldsPtrOutput
+}
+
+type promptAdditionalModelRequestFieldsPtrType PromptAdditionalModelRequestFieldsArgs
+
+func PromptAdditionalModelRequestFieldsPtr(v *PromptAdditionalModelRequestFieldsArgs) PromptAdditionalModelRequestFieldsPtrInput {
+	return (*promptAdditionalModelRequestFieldsPtrType)(v)
+}
+
+func (*promptAdditionalModelRequestFieldsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptAdditionalModelRequestFields)(nil)).Elem()
+}
+
+func (i *promptAdditionalModelRequestFieldsPtrType) ToPromptAdditionalModelRequestFieldsPtrOutput() PromptAdditionalModelRequestFieldsPtrOutput {
+	return i.ToPromptAdditionalModelRequestFieldsPtrOutputWithContext(context.Background())
+}
+
+func (i *promptAdditionalModelRequestFieldsPtrType) ToPromptAdditionalModelRequestFieldsPtrOutputWithContext(ctx context.Context) PromptAdditionalModelRequestFieldsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PromptAdditionalModelRequestFieldsPtrOutput)
+}
+
+// Contains model-specific configurations
+type PromptAdditionalModelRequestFieldsOutput struct{ *pulumi.OutputState }
+
+func (PromptAdditionalModelRequestFieldsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptAdditionalModelRequestFields)(nil)).Elem()
+}
+
+func (o PromptAdditionalModelRequestFieldsOutput) ToPromptAdditionalModelRequestFieldsOutput() PromptAdditionalModelRequestFieldsOutput {
+	return o
+}
+
+func (o PromptAdditionalModelRequestFieldsOutput) ToPromptAdditionalModelRequestFieldsOutputWithContext(ctx context.Context) PromptAdditionalModelRequestFieldsOutput {
+	return o
+}
+
+func (o PromptAdditionalModelRequestFieldsOutput) ToPromptAdditionalModelRequestFieldsPtrOutput() PromptAdditionalModelRequestFieldsPtrOutput {
+	return o.ToPromptAdditionalModelRequestFieldsPtrOutputWithContext(context.Background())
+}
+
+func (o PromptAdditionalModelRequestFieldsOutput) ToPromptAdditionalModelRequestFieldsPtrOutputWithContext(ctx context.Context) PromptAdditionalModelRequestFieldsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PromptAdditionalModelRequestFields) *PromptAdditionalModelRequestFields {
+		return &v
+	}).(PromptAdditionalModelRequestFieldsPtrOutput)
+}
+
+type PromptAdditionalModelRequestFieldsPtrOutput struct{ *pulumi.OutputState }
+
+func (PromptAdditionalModelRequestFieldsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptAdditionalModelRequestFields)(nil)).Elem()
+}
+
+func (o PromptAdditionalModelRequestFieldsPtrOutput) ToPromptAdditionalModelRequestFieldsPtrOutput() PromptAdditionalModelRequestFieldsPtrOutput {
+	return o
+}
+
+func (o PromptAdditionalModelRequestFieldsPtrOutput) ToPromptAdditionalModelRequestFieldsPtrOutputWithContext(ctx context.Context) PromptAdditionalModelRequestFieldsPtrOutput {
+	return o
+}
+
+func (o PromptAdditionalModelRequestFieldsPtrOutput) Elem() PromptAdditionalModelRequestFieldsOutput {
+	return o.ApplyT(func(v *PromptAdditionalModelRequestFields) PromptAdditionalModelRequestFields {
+		if v != nil {
+			return *v
+		}
+		var ret PromptAdditionalModelRequestFields
+		return ret
+	}).(PromptAdditionalModelRequestFieldsOutput)
+}
+
 // Target Agent to invoke with Prompt
 type PromptAgentResource struct {
 	// Arn representation of the Agent Alias.
@@ -25664,6 +26558,142 @@ func (o PromptAutoToolChoicePtrOutput) Elem() PromptAutoToolChoiceOutput {
 	}).(PromptAutoToolChoiceOutput)
 }
 
+// CachePointBlock
+type PromptCachePointBlock struct {
+	Type PromptCachePointType `pulumi:"type"`
+}
+
+// PromptCachePointBlockInput is an input type that accepts PromptCachePointBlockArgs and PromptCachePointBlockOutput values.
+// You can construct a concrete instance of `PromptCachePointBlockInput` via:
+//
+//	PromptCachePointBlockArgs{...}
+type PromptCachePointBlockInput interface {
+	pulumi.Input
+
+	ToPromptCachePointBlockOutput() PromptCachePointBlockOutput
+	ToPromptCachePointBlockOutputWithContext(context.Context) PromptCachePointBlockOutput
+}
+
+// CachePointBlock
+type PromptCachePointBlockArgs struct {
+	Type PromptCachePointTypeInput `pulumi:"type"`
+}
+
+func (PromptCachePointBlockArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptCachePointBlock)(nil)).Elem()
+}
+
+func (i PromptCachePointBlockArgs) ToPromptCachePointBlockOutput() PromptCachePointBlockOutput {
+	return i.ToPromptCachePointBlockOutputWithContext(context.Background())
+}
+
+func (i PromptCachePointBlockArgs) ToPromptCachePointBlockOutputWithContext(ctx context.Context) PromptCachePointBlockOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PromptCachePointBlockOutput)
+}
+
+func (i PromptCachePointBlockArgs) ToPromptCachePointBlockPtrOutput() PromptCachePointBlockPtrOutput {
+	return i.ToPromptCachePointBlockPtrOutputWithContext(context.Background())
+}
+
+func (i PromptCachePointBlockArgs) ToPromptCachePointBlockPtrOutputWithContext(ctx context.Context) PromptCachePointBlockPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PromptCachePointBlockOutput).ToPromptCachePointBlockPtrOutputWithContext(ctx)
+}
+
+// PromptCachePointBlockPtrInput is an input type that accepts PromptCachePointBlockArgs, PromptCachePointBlockPtr and PromptCachePointBlockPtrOutput values.
+// You can construct a concrete instance of `PromptCachePointBlockPtrInput` via:
+//
+//	        PromptCachePointBlockArgs{...}
+//
+//	or:
+//
+//	        nil
+type PromptCachePointBlockPtrInput interface {
+	pulumi.Input
+
+	ToPromptCachePointBlockPtrOutput() PromptCachePointBlockPtrOutput
+	ToPromptCachePointBlockPtrOutputWithContext(context.Context) PromptCachePointBlockPtrOutput
+}
+
+type promptCachePointBlockPtrType PromptCachePointBlockArgs
+
+func PromptCachePointBlockPtr(v *PromptCachePointBlockArgs) PromptCachePointBlockPtrInput {
+	return (*promptCachePointBlockPtrType)(v)
+}
+
+func (*promptCachePointBlockPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptCachePointBlock)(nil)).Elem()
+}
+
+func (i *promptCachePointBlockPtrType) ToPromptCachePointBlockPtrOutput() PromptCachePointBlockPtrOutput {
+	return i.ToPromptCachePointBlockPtrOutputWithContext(context.Background())
+}
+
+func (i *promptCachePointBlockPtrType) ToPromptCachePointBlockPtrOutputWithContext(ctx context.Context) PromptCachePointBlockPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PromptCachePointBlockPtrOutput)
+}
+
+// CachePointBlock
+type PromptCachePointBlockOutput struct{ *pulumi.OutputState }
+
+func (PromptCachePointBlockOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptCachePointBlock)(nil)).Elem()
+}
+
+func (o PromptCachePointBlockOutput) ToPromptCachePointBlockOutput() PromptCachePointBlockOutput {
+	return o
+}
+
+func (o PromptCachePointBlockOutput) ToPromptCachePointBlockOutputWithContext(ctx context.Context) PromptCachePointBlockOutput {
+	return o
+}
+
+func (o PromptCachePointBlockOutput) ToPromptCachePointBlockPtrOutput() PromptCachePointBlockPtrOutput {
+	return o.ToPromptCachePointBlockPtrOutputWithContext(context.Background())
+}
+
+func (o PromptCachePointBlockOutput) ToPromptCachePointBlockPtrOutputWithContext(ctx context.Context) PromptCachePointBlockPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PromptCachePointBlock) *PromptCachePointBlock {
+		return &v
+	}).(PromptCachePointBlockPtrOutput)
+}
+
+func (o PromptCachePointBlockOutput) Type() PromptCachePointTypeOutput {
+	return o.ApplyT(func(v PromptCachePointBlock) PromptCachePointType { return v.Type }).(PromptCachePointTypeOutput)
+}
+
+type PromptCachePointBlockPtrOutput struct{ *pulumi.OutputState }
+
+func (PromptCachePointBlockPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptCachePointBlock)(nil)).Elem()
+}
+
+func (o PromptCachePointBlockPtrOutput) ToPromptCachePointBlockPtrOutput() PromptCachePointBlockPtrOutput {
+	return o
+}
+
+func (o PromptCachePointBlockPtrOutput) ToPromptCachePointBlockPtrOutputWithContext(ctx context.Context) PromptCachePointBlockPtrOutput {
+	return o
+}
+
+func (o PromptCachePointBlockPtrOutput) Elem() PromptCachePointBlockOutput {
+	return o.ApplyT(func(v *PromptCachePointBlock) PromptCachePointBlock {
+		if v != nil {
+			return *v
+		}
+		var ret PromptCachePointBlock
+		return ret
+	}).(PromptCachePointBlockOutput)
+}
+
+func (o PromptCachePointBlockPtrOutput) Type() PromptCachePointTypePtrOutput {
+	return o.ApplyT(func(v *PromptCachePointBlock) *PromptCachePointType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(PromptCachePointTypePtrOutput)
+}
+
 // Configuration for chat prompt template
 type PromptChatPromptTemplateConfiguration struct {
 	// List of input variables
@@ -25671,8 +26701,8 @@ type PromptChatPromptTemplateConfiguration struct {
 	// List of messages for chat prompt template
 	Messages []PromptMessage `pulumi:"messages"`
 	// Configuration for chat prompt template
-	System            []PromptSystemContentBlockProperties `pulumi:"system"`
-	ToolConfiguration *PromptToolConfiguration             `pulumi:"toolConfiguration"`
+	System            []interface{}            `pulumi:"system"`
+	ToolConfiguration *PromptToolConfiguration `pulumi:"toolConfiguration"`
 }
 
 // PromptChatPromptTemplateConfigurationInput is an input type that accepts PromptChatPromptTemplateConfigurationArgs and PromptChatPromptTemplateConfigurationOutput values.
@@ -25693,8 +26723,8 @@ type PromptChatPromptTemplateConfigurationArgs struct {
 	// List of messages for chat prompt template
 	Messages PromptMessageArrayInput `pulumi:"messages"`
 	// Configuration for chat prompt template
-	System            PromptSystemContentBlockPropertiesArrayInput `pulumi:"system"`
-	ToolConfiguration PromptToolConfigurationPtrInput              `pulumi:"toolConfiguration"`
+	System            pulumi.ArrayInput               `pulumi:"system"`
+	ToolConfiguration PromptToolConfigurationPtrInput `pulumi:"toolConfiguration"`
 }
 
 func (PromptChatPromptTemplateConfigurationArgs) ElementType() reflect.Type {
@@ -25735,8 +26765,8 @@ func (o PromptChatPromptTemplateConfigurationOutput) Messages() PromptMessageArr
 }
 
 // Configuration for chat prompt template
-func (o PromptChatPromptTemplateConfigurationOutput) System() PromptSystemContentBlockPropertiesArrayOutput {
-	return o.ApplyT(func(v PromptChatPromptTemplateConfiguration) []PromptSystemContentBlockProperties { return v.System }).(PromptSystemContentBlockPropertiesArrayOutput)
+func (o PromptChatPromptTemplateConfigurationOutput) System() pulumi.ArrayOutput {
+	return o.ApplyT(func(v PromptChatPromptTemplateConfiguration) []interface{} { return v.System }).(pulumi.ArrayOutput)
 }
 
 func (o PromptChatPromptTemplateConfigurationOutput) ToolConfiguration() PromptToolConfigurationPtrOutput {
@@ -25749,104 +26779,105 @@ type PromptContentBlock0Properties struct {
 	Text string `pulumi:"text"`
 }
 
-// Configuration for chat prompt template
-type PromptContentBlockProperties struct {
-	// Configuration for chat prompt template
-	Text string `pulumi:"text"`
-}
-
-// PromptContentBlockPropertiesInput is an input type that accepts PromptContentBlockPropertiesArgs and PromptContentBlockPropertiesOutput values.
-// You can construct a concrete instance of `PromptContentBlockPropertiesInput` via:
+// PromptContentBlock0PropertiesInput is an input type that accepts PromptContentBlock0PropertiesArgs and PromptContentBlock0PropertiesOutput values.
+// You can construct a concrete instance of `PromptContentBlock0PropertiesInput` via:
 //
-//	PromptContentBlockPropertiesArgs{...}
-type PromptContentBlockPropertiesInput interface {
+//	PromptContentBlock0PropertiesArgs{...}
+type PromptContentBlock0PropertiesInput interface {
 	pulumi.Input
 
-	ToPromptContentBlockPropertiesOutput() PromptContentBlockPropertiesOutput
-	ToPromptContentBlockPropertiesOutputWithContext(context.Context) PromptContentBlockPropertiesOutput
+	ToPromptContentBlock0PropertiesOutput() PromptContentBlock0PropertiesOutput
+	ToPromptContentBlock0PropertiesOutputWithContext(context.Context) PromptContentBlock0PropertiesOutput
 }
 
 // Configuration for chat prompt template
-type PromptContentBlockPropertiesArgs struct {
+type PromptContentBlock0PropertiesArgs struct {
 	// Configuration for chat prompt template
 	Text pulumi.StringInput `pulumi:"text"`
 }
 
-func (PromptContentBlockPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PromptContentBlockProperties)(nil)).Elem()
+func (PromptContentBlock0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptContentBlock0Properties)(nil)).Elem()
 }
 
-func (i PromptContentBlockPropertiesArgs) ToPromptContentBlockPropertiesOutput() PromptContentBlockPropertiesOutput {
-	return i.ToPromptContentBlockPropertiesOutputWithContext(context.Background())
+func (i PromptContentBlock0PropertiesArgs) ToPromptContentBlock0PropertiesOutput() PromptContentBlock0PropertiesOutput {
+	return i.ToPromptContentBlock0PropertiesOutputWithContext(context.Background())
 }
 
-func (i PromptContentBlockPropertiesArgs) ToPromptContentBlockPropertiesOutputWithContext(ctx context.Context) PromptContentBlockPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PromptContentBlockPropertiesOutput)
+func (i PromptContentBlock0PropertiesArgs) ToPromptContentBlock0PropertiesOutputWithContext(ctx context.Context) PromptContentBlock0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PromptContentBlock0PropertiesOutput)
 }
 
-// PromptContentBlockPropertiesArrayInput is an input type that accepts PromptContentBlockPropertiesArray and PromptContentBlockPropertiesArrayOutput values.
-// You can construct a concrete instance of `PromptContentBlockPropertiesArrayInput` via:
+// Configuration for chat prompt template
+type PromptContentBlock0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptContentBlock0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptContentBlock0Properties)(nil)).Elem()
+}
+
+func (o PromptContentBlock0PropertiesOutput) ToPromptContentBlock0PropertiesOutput() PromptContentBlock0PropertiesOutput {
+	return o
+}
+
+func (o PromptContentBlock0PropertiesOutput) ToPromptContentBlock0PropertiesOutputWithContext(ctx context.Context) PromptContentBlock0PropertiesOutput {
+	return o
+}
+
+// Configuration for chat prompt template
+func (o PromptContentBlock0PropertiesOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v PromptContentBlock0Properties) string { return v.Text }).(pulumi.StringOutput)
+}
+
+// Configuration for chat prompt template
+type PromptContentBlock1Properties struct {
+	CachePoint PromptCachePointBlock `pulumi:"cachePoint"`
+}
+
+// PromptContentBlock1PropertiesInput is an input type that accepts PromptContentBlock1PropertiesArgs and PromptContentBlock1PropertiesOutput values.
+// You can construct a concrete instance of `PromptContentBlock1PropertiesInput` via:
 //
-//	PromptContentBlockPropertiesArray{ PromptContentBlockPropertiesArgs{...} }
-type PromptContentBlockPropertiesArrayInput interface {
+//	PromptContentBlock1PropertiesArgs{...}
+type PromptContentBlock1PropertiesInput interface {
 	pulumi.Input
 
-	ToPromptContentBlockPropertiesArrayOutput() PromptContentBlockPropertiesArrayOutput
-	ToPromptContentBlockPropertiesArrayOutputWithContext(context.Context) PromptContentBlockPropertiesArrayOutput
-}
-
-type PromptContentBlockPropertiesArray []PromptContentBlockPropertiesInput
-
-func (PromptContentBlockPropertiesArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PromptContentBlockProperties)(nil)).Elem()
-}
-
-func (i PromptContentBlockPropertiesArray) ToPromptContentBlockPropertiesArrayOutput() PromptContentBlockPropertiesArrayOutput {
-	return i.ToPromptContentBlockPropertiesArrayOutputWithContext(context.Background())
-}
-
-func (i PromptContentBlockPropertiesArray) ToPromptContentBlockPropertiesArrayOutputWithContext(ctx context.Context) PromptContentBlockPropertiesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PromptContentBlockPropertiesArrayOutput)
+	ToPromptContentBlock1PropertiesOutput() PromptContentBlock1PropertiesOutput
+	ToPromptContentBlock1PropertiesOutputWithContext(context.Context) PromptContentBlock1PropertiesOutput
 }
 
 // Configuration for chat prompt template
-type PromptContentBlockPropertiesOutput struct{ *pulumi.OutputState }
-
-func (PromptContentBlockPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PromptContentBlockProperties)(nil)).Elem()
+type PromptContentBlock1PropertiesArgs struct {
+	CachePoint PromptCachePointBlockInput `pulumi:"cachePoint"`
 }
 
-func (o PromptContentBlockPropertiesOutput) ToPromptContentBlockPropertiesOutput() PromptContentBlockPropertiesOutput {
-	return o
+func (PromptContentBlock1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptContentBlock1Properties)(nil)).Elem()
 }
 
-func (o PromptContentBlockPropertiesOutput) ToPromptContentBlockPropertiesOutputWithContext(ctx context.Context) PromptContentBlockPropertiesOutput {
-	return o
+func (i PromptContentBlock1PropertiesArgs) ToPromptContentBlock1PropertiesOutput() PromptContentBlock1PropertiesOutput {
+	return i.ToPromptContentBlock1PropertiesOutputWithContext(context.Background())
+}
+
+func (i PromptContentBlock1PropertiesArgs) ToPromptContentBlock1PropertiesOutputWithContext(ctx context.Context) PromptContentBlock1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PromptContentBlock1PropertiesOutput)
 }
 
 // Configuration for chat prompt template
-func (o PromptContentBlockPropertiesOutput) Text() pulumi.StringOutput {
-	return o.ApplyT(func(v PromptContentBlockProperties) string { return v.Text }).(pulumi.StringOutput)
+type PromptContentBlock1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptContentBlock1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptContentBlock1Properties)(nil)).Elem()
 }
 
-type PromptContentBlockPropertiesArrayOutput struct{ *pulumi.OutputState }
-
-func (PromptContentBlockPropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PromptContentBlockProperties)(nil)).Elem()
-}
-
-func (o PromptContentBlockPropertiesArrayOutput) ToPromptContentBlockPropertiesArrayOutput() PromptContentBlockPropertiesArrayOutput {
+func (o PromptContentBlock1PropertiesOutput) ToPromptContentBlock1PropertiesOutput() PromptContentBlock1PropertiesOutput {
 	return o
 }
 
-func (o PromptContentBlockPropertiesArrayOutput) ToPromptContentBlockPropertiesArrayOutputWithContext(ctx context.Context) PromptContentBlockPropertiesArrayOutput {
+func (o PromptContentBlock1PropertiesOutput) ToPromptContentBlock1PropertiesOutputWithContext(ctx context.Context) PromptContentBlock1PropertiesOutput {
 	return o
 }
 
-func (o PromptContentBlockPropertiesArrayOutput) Index(i pulumi.IntInput) PromptContentBlockPropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PromptContentBlockProperties {
-		return vs[0].([]PromptContentBlockProperties)[vs[1].(int)]
-	}).(PromptContentBlockPropertiesOutput)
+func (o PromptContentBlock1PropertiesOutput) CachePoint() PromptCachePointBlockOutput {
+	return o.ApplyT(func(v PromptContentBlock1Properties) PromptCachePointBlock { return v.CachePoint }).(PromptCachePointBlockOutput)
 }
 
 // Target resource to invoke with Prompt
@@ -26234,8 +27265,8 @@ func (o PromptInputVariableArrayOutput) Index(i pulumi.IntInput) PromptInputVari
 // Chat prompt Message
 type PromptMessage struct {
 	// List of Content Blocks
-	Content []PromptContentBlockProperties `pulumi:"content"`
-	Role    PromptConversationRole         `pulumi:"role"`
+	Content []interface{}          `pulumi:"content"`
+	Role    PromptConversationRole `pulumi:"role"`
 }
 
 // PromptMessageInput is an input type that accepts PromptMessageArgs and PromptMessageOutput values.
@@ -26252,8 +27283,8 @@ type PromptMessageInput interface {
 // Chat prompt Message
 type PromptMessageArgs struct {
 	// List of Content Blocks
-	Content PromptContentBlockPropertiesArrayInput `pulumi:"content"`
-	Role    PromptConversationRoleInput            `pulumi:"role"`
+	Content pulumi.ArrayInput           `pulumi:"content"`
+	Role    PromptConversationRoleInput `pulumi:"role"`
 }
 
 func (PromptMessageArgs) ElementType() reflect.Type {
@@ -26309,8 +27340,8 @@ func (o PromptMessageOutput) ToPromptMessageOutputWithContext(ctx context.Contex
 }
 
 // List of Content Blocks
-func (o PromptMessageOutput) Content() PromptContentBlockPropertiesArrayOutput {
-	return o.ApplyT(func(v PromptMessage) []PromptContentBlockProperties { return v.Content }).(PromptContentBlockPropertiesArrayOutput)
+func (o PromptMessageOutput) Content() pulumi.ArrayOutput {
+	return o.ApplyT(func(v PromptMessage) []interface{} { return v.Content }).(pulumi.ArrayOutput)
 }
 
 func (o PromptMessageOutput) Role() PromptConversationRoleOutput {
@@ -26680,104 +27711,105 @@ type PromptSystemContentBlock0Properties struct {
 	Text string `pulumi:"text"`
 }
 
-// Configuration for chat prompt template
-type PromptSystemContentBlockProperties struct {
-	// Configuration for chat prompt template
-	Text string `pulumi:"text"`
-}
-
-// PromptSystemContentBlockPropertiesInput is an input type that accepts PromptSystemContentBlockPropertiesArgs and PromptSystemContentBlockPropertiesOutput values.
-// You can construct a concrete instance of `PromptSystemContentBlockPropertiesInput` via:
+// PromptSystemContentBlock0PropertiesInput is an input type that accepts PromptSystemContentBlock0PropertiesArgs and PromptSystemContentBlock0PropertiesOutput values.
+// You can construct a concrete instance of `PromptSystemContentBlock0PropertiesInput` via:
 //
-//	PromptSystemContentBlockPropertiesArgs{...}
-type PromptSystemContentBlockPropertiesInput interface {
+//	PromptSystemContentBlock0PropertiesArgs{...}
+type PromptSystemContentBlock0PropertiesInput interface {
 	pulumi.Input
 
-	ToPromptSystemContentBlockPropertiesOutput() PromptSystemContentBlockPropertiesOutput
-	ToPromptSystemContentBlockPropertiesOutputWithContext(context.Context) PromptSystemContentBlockPropertiesOutput
+	ToPromptSystemContentBlock0PropertiesOutput() PromptSystemContentBlock0PropertiesOutput
+	ToPromptSystemContentBlock0PropertiesOutputWithContext(context.Context) PromptSystemContentBlock0PropertiesOutput
 }
 
 // Configuration for chat prompt template
-type PromptSystemContentBlockPropertiesArgs struct {
+type PromptSystemContentBlock0PropertiesArgs struct {
 	// Configuration for chat prompt template
 	Text pulumi.StringInput `pulumi:"text"`
 }
 
-func (PromptSystemContentBlockPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PromptSystemContentBlockProperties)(nil)).Elem()
+func (PromptSystemContentBlock0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptSystemContentBlock0Properties)(nil)).Elem()
 }
 
-func (i PromptSystemContentBlockPropertiesArgs) ToPromptSystemContentBlockPropertiesOutput() PromptSystemContentBlockPropertiesOutput {
-	return i.ToPromptSystemContentBlockPropertiesOutputWithContext(context.Background())
+func (i PromptSystemContentBlock0PropertiesArgs) ToPromptSystemContentBlock0PropertiesOutput() PromptSystemContentBlock0PropertiesOutput {
+	return i.ToPromptSystemContentBlock0PropertiesOutputWithContext(context.Background())
 }
 
-func (i PromptSystemContentBlockPropertiesArgs) ToPromptSystemContentBlockPropertiesOutputWithContext(ctx context.Context) PromptSystemContentBlockPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PromptSystemContentBlockPropertiesOutput)
+func (i PromptSystemContentBlock0PropertiesArgs) ToPromptSystemContentBlock0PropertiesOutputWithContext(ctx context.Context) PromptSystemContentBlock0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PromptSystemContentBlock0PropertiesOutput)
 }
 
-// PromptSystemContentBlockPropertiesArrayInput is an input type that accepts PromptSystemContentBlockPropertiesArray and PromptSystemContentBlockPropertiesArrayOutput values.
-// You can construct a concrete instance of `PromptSystemContentBlockPropertiesArrayInput` via:
+// Configuration for chat prompt template
+type PromptSystemContentBlock0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptSystemContentBlock0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptSystemContentBlock0Properties)(nil)).Elem()
+}
+
+func (o PromptSystemContentBlock0PropertiesOutput) ToPromptSystemContentBlock0PropertiesOutput() PromptSystemContentBlock0PropertiesOutput {
+	return o
+}
+
+func (o PromptSystemContentBlock0PropertiesOutput) ToPromptSystemContentBlock0PropertiesOutputWithContext(ctx context.Context) PromptSystemContentBlock0PropertiesOutput {
+	return o
+}
+
+// Configuration for chat prompt template
+func (o PromptSystemContentBlock0PropertiesOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v PromptSystemContentBlock0Properties) string { return v.Text }).(pulumi.StringOutput)
+}
+
+// Configuration for chat prompt template
+type PromptSystemContentBlock1Properties struct {
+	CachePoint PromptCachePointBlock `pulumi:"cachePoint"`
+}
+
+// PromptSystemContentBlock1PropertiesInput is an input type that accepts PromptSystemContentBlock1PropertiesArgs and PromptSystemContentBlock1PropertiesOutput values.
+// You can construct a concrete instance of `PromptSystemContentBlock1PropertiesInput` via:
 //
-//	PromptSystemContentBlockPropertiesArray{ PromptSystemContentBlockPropertiesArgs{...} }
-type PromptSystemContentBlockPropertiesArrayInput interface {
+//	PromptSystemContentBlock1PropertiesArgs{...}
+type PromptSystemContentBlock1PropertiesInput interface {
 	pulumi.Input
 
-	ToPromptSystemContentBlockPropertiesArrayOutput() PromptSystemContentBlockPropertiesArrayOutput
-	ToPromptSystemContentBlockPropertiesArrayOutputWithContext(context.Context) PromptSystemContentBlockPropertiesArrayOutput
-}
-
-type PromptSystemContentBlockPropertiesArray []PromptSystemContentBlockPropertiesInput
-
-func (PromptSystemContentBlockPropertiesArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PromptSystemContentBlockProperties)(nil)).Elem()
-}
-
-func (i PromptSystemContentBlockPropertiesArray) ToPromptSystemContentBlockPropertiesArrayOutput() PromptSystemContentBlockPropertiesArrayOutput {
-	return i.ToPromptSystemContentBlockPropertiesArrayOutputWithContext(context.Background())
-}
-
-func (i PromptSystemContentBlockPropertiesArray) ToPromptSystemContentBlockPropertiesArrayOutputWithContext(ctx context.Context) PromptSystemContentBlockPropertiesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PromptSystemContentBlockPropertiesArrayOutput)
+	ToPromptSystemContentBlock1PropertiesOutput() PromptSystemContentBlock1PropertiesOutput
+	ToPromptSystemContentBlock1PropertiesOutputWithContext(context.Context) PromptSystemContentBlock1PropertiesOutput
 }
 
 // Configuration for chat prompt template
-type PromptSystemContentBlockPropertiesOutput struct{ *pulumi.OutputState }
-
-func (PromptSystemContentBlockPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PromptSystemContentBlockProperties)(nil)).Elem()
+type PromptSystemContentBlock1PropertiesArgs struct {
+	CachePoint PromptCachePointBlockInput `pulumi:"cachePoint"`
 }
 
-func (o PromptSystemContentBlockPropertiesOutput) ToPromptSystemContentBlockPropertiesOutput() PromptSystemContentBlockPropertiesOutput {
-	return o
+func (PromptSystemContentBlock1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptSystemContentBlock1Properties)(nil)).Elem()
 }
 
-func (o PromptSystemContentBlockPropertiesOutput) ToPromptSystemContentBlockPropertiesOutputWithContext(ctx context.Context) PromptSystemContentBlockPropertiesOutput {
-	return o
+func (i PromptSystemContentBlock1PropertiesArgs) ToPromptSystemContentBlock1PropertiesOutput() PromptSystemContentBlock1PropertiesOutput {
+	return i.ToPromptSystemContentBlock1PropertiesOutputWithContext(context.Background())
+}
+
+func (i PromptSystemContentBlock1PropertiesArgs) ToPromptSystemContentBlock1PropertiesOutputWithContext(ctx context.Context) PromptSystemContentBlock1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PromptSystemContentBlock1PropertiesOutput)
 }
 
 // Configuration for chat prompt template
-func (o PromptSystemContentBlockPropertiesOutput) Text() pulumi.StringOutput {
-	return o.ApplyT(func(v PromptSystemContentBlockProperties) string { return v.Text }).(pulumi.StringOutput)
+type PromptSystemContentBlock1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptSystemContentBlock1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptSystemContentBlock1Properties)(nil)).Elem()
 }
 
-type PromptSystemContentBlockPropertiesArrayOutput struct{ *pulumi.OutputState }
-
-func (PromptSystemContentBlockPropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PromptSystemContentBlockProperties)(nil)).Elem()
-}
-
-func (o PromptSystemContentBlockPropertiesArrayOutput) ToPromptSystemContentBlockPropertiesArrayOutput() PromptSystemContentBlockPropertiesArrayOutput {
+func (o PromptSystemContentBlock1PropertiesOutput) ToPromptSystemContentBlock1PropertiesOutput() PromptSystemContentBlock1PropertiesOutput {
 	return o
 }
 
-func (o PromptSystemContentBlockPropertiesArrayOutput) ToPromptSystemContentBlockPropertiesArrayOutputWithContext(ctx context.Context) PromptSystemContentBlockPropertiesArrayOutput {
+func (o PromptSystemContentBlock1PropertiesOutput) ToPromptSystemContentBlock1PropertiesOutputWithContext(ctx context.Context) PromptSystemContentBlock1PropertiesOutput {
 	return o
 }
 
-func (o PromptSystemContentBlockPropertiesArrayOutput) Index(i pulumi.IntInput) PromptSystemContentBlockPropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PromptSystemContentBlockProperties {
-		return vs[0].([]PromptSystemContentBlockProperties)[vs[1].(int)]
-	}).(PromptSystemContentBlockPropertiesOutput)
+func (o PromptSystemContentBlock1PropertiesOutput) CachePoint() PromptCachePointBlockOutput {
+	return o.ApplyT(func(v PromptSystemContentBlock1Properties) PromptCachePointBlock { return v.CachePoint }).(PromptCachePointBlockOutput)
 }
 
 // Prompt template configuration
@@ -26886,6 +27918,7 @@ func (o PromptTemplateConfiguration1PropertiesOutput) Chat() PromptChatPromptTem
 
 // Configuration for text prompt template
 type PromptTextPromptTemplateConfiguration struct {
+	CachePoint *PromptCachePointBlock `pulumi:"cachePoint"`
 	// List of input variables
 	InputVariables []PromptInputVariable `pulumi:"inputVariables"`
 	// Prompt content for String prompt template
@@ -26906,6 +27939,7 @@ type PromptTextPromptTemplateConfigurationInput interface {
 
 // Configuration for text prompt template
 type PromptTextPromptTemplateConfigurationArgs struct {
+	CachePoint PromptCachePointBlockPtrInput `pulumi:"cachePoint"`
 	// List of input variables
 	InputVariables PromptInputVariableArrayInput `pulumi:"inputVariables"`
 	// Prompt content for String prompt template
@@ -26938,6 +27972,10 @@ func (o PromptTextPromptTemplateConfigurationOutput) ToPromptTextPromptTemplateC
 
 func (o PromptTextPromptTemplateConfigurationOutput) ToPromptTextPromptTemplateConfigurationOutputWithContext(ctx context.Context) PromptTextPromptTemplateConfigurationOutput {
 	return o
+}
+
+func (o PromptTextPromptTemplateConfigurationOutput) CachePoint() PromptCachePointBlockPtrOutput {
+	return o.ApplyT(func(v PromptTextPromptTemplateConfiguration) *PromptCachePointBlock { return v.CachePoint }).(PromptCachePointBlockPtrOutput)
 }
 
 // List of input variables
@@ -27135,6 +28173,105 @@ func (o PromptTextS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
 // Tool details
 type PromptTool0Properties struct {
 	ToolSpec PromptToolSpecification `pulumi:"toolSpec"`
+}
+
+// PromptTool0PropertiesInput is an input type that accepts PromptTool0PropertiesArgs and PromptTool0PropertiesOutput values.
+// You can construct a concrete instance of `PromptTool0PropertiesInput` via:
+//
+//	PromptTool0PropertiesArgs{...}
+type PromptTool0PropertiesInput interface {
+	pulumi.Input
+
+	ToPromptTool0PropertiesOutput() PromptTool0PropertiesOutput
+	ToPromptTool0PropertiesOutputWithContext(context.Context) PromptTool0PropertiesOutput
+}
+
+// Tool details
+type PromptTool0PropertiesArgs struct {
+	ToolSpec PromptToolSpecificationInput `pulumi:"toolSpec"`
+}
+
+func (PromptTool0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptTool0Properties)(nil)).Elem()
+}
+
+func (i PromptTool0PropertiesArgs) ToPromptTool0PropertiesOutput() PromptTool0PropertiesOutput {
+	return i.ToPromptTool0PropertiesOutputWithContext(context.Background())
+}
+
+func (i PromptTool0PropertiesArgs) ToPromptTool0PropertiesOutputWithContext(ctx context.Context) PromptTool0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PromptTool0PropertiesOutput)
+}
+
+// Tool details
+type PromptTool0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptTool0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptTool0Properties)(nil)).Elem()
+}
+
+func (o PromptTool0PropertiesOutput) ToPromptTool0PropertiesOutput() PromptTool0PropertiesOutput {
+	return o
+}
+
+func (o PromptTool0PropertiesOutput) ToPromptTool0PropertiesOutputWithContext(ctx context.Context) PromptTool0PropertiesOutput {
+	return o
+}
+
+func (o PromptTool0PropertiesOutput) ToolSpec() PromptToolSpecificationOutput {
+	return o.ApplyT(func(v PromptTool0Properties) PromptToolSpecification { return v.ToolSpec }).(PromptToolSpecificationOutput)
+}
+
+// Tool details
+type PromptTool1Properties struct {
+	CachePoint PromptCachePointBlock `pulumi:"cachePoint"`
+}
+
+// PromptTool1PropertiesInput is an input type that accepts PromptTool1PropertiesArgs and PromptTool1PropertiesOutput values.
+// You can construct a concrete instance of `PromptTool1PropertiesInput` via:
+//
+//	PromptTool1PropertiesArgs{...}
+type PromptTool1PropertiesInput interface {
+	pulumi.Input
+
+	ToPromptTool1PropertiesOutput() PromptTool1PropertiesOutput
+	ToPromptTool1PropertiesOutputWithContext(context.Context) PromptTool1PropertiesOutput
+}
+
+// Tool details
+type PromptTool1PropertiesArgs struct {
+	CachePoint PromptCachePointBlockInput `pulumi:"cachePoint"`
+}
+
+func (PromptTool1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptTool1Properties)(nil)).Elem()
+}
+
+func (i PromptTool1PropertiesArgs) ToPromptTool1PropertiesOutput() PromptTool1PropertiesOutput {
+	return i.ToPromptTool1PropertiesOutputWithContext(context.Background())
+}
+
+func (i PromptTool1PropertiesArgs) ToPromptTool1PropertiesOutputWithContext(ctx context.Context) PromptTool1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PromptTool1PropertiesOutput)
+}
+
+// Tool details
+type PromptTool1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptTool1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptTool1Properties)(nil)).Elem()
+}
+
+func (o PromptTool1PropertiesOutput) ToPromptTool1PropertiesOutput() PromptTool1PropertiesOutput {
+	return o
+}
+
+func (o PromptTool1PropertiesOutput) ToPromptTool1PropertiesOutputWithContext(ctx context.Context) PromptTool1PropertiesOutput {
+	return o
+}
+
+func (o PromptTool1PropertiesOutput) CachePoint() PromptCachePointBlockOutput {
+	return o.ApplyT(func(v PromptTool1Properties) PromptCachePointBlock { return v.CachePoint }).(PromptCachePointBlockOutput)
 }
 
 // Tool choice
@@ -27549,7 +28686,7 @@ func (o PromptToolChoice2PropertiesPtrOutput) Tool() PromptSpecificToolChoicePtr
 type PromptToolConfiguration struct {
 	ToolChoice interface{} `pulumi:"toolChoice"`
 	// List of Tools
-	Tools []PromptToolProperties `pulumi:"tools"`
+	Tools []interface{} `pulumi:"tools"`
 }
 
 // PromptToolConfigurationInput is an input type that accepts PromptToolConfigurationArgs and PromptToolConfigurationOutput values.
@@ -27567,7 +28704,7 @@ type PromptToolConfigurationInput interface {
 type PromptToolConfigurationArgs struct {
 	ToolChoice pulumi.Input `pulumi:"toolChoice"`
 	// List of Tools
-	Tools PromptToolPropertiesArrayInput `pulumi:"tools"`
+	Tools pulumi.ArrayInput `pulumi:"tools"`
 }
 
 func (PromptToolConfigurationArgs) ElementType() reflect.Type {
@@ -27653,8 +28790,8 @@ func (o PromptToolConfigurationOutput) ToolChoice() pulumi.AnyOutput {
 }
 
 // List of Tools
-func (o PromptToolConfigurationOutput) Tools() PromptToolPropertiesArrayOutput {
-	return o.ApplyT(func(v PromptToolConfiguration) []PromptToolProperties { return v.Tools }).(PromptToolPropertiesArrayOutput)
+func (o PromptToolConfigurationOutput) Tools() pulumi.ArrayOutput {
+	return o.ApplyT(func(v PromptToolConfiguration) []interface{} { return v.Tools }).(pulumi.ArrayOutput)
 }
 
 type PromptToolConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -27691,13 +28828,13 @@ func (o PromptToolConfigurationPtrOutput) ToolChoice() pulumi.AnyOutput {
 }
 
 // List of Tools
-func (o PromptToolConfigurationPtrOutput) Tools() PromptToolPropertiesArrayOutput {
-	return o.ApplyT(func(v *PromptToolConfiguration) []PromptToolProperties {
+func (o PromptToolConfigurationPtrOutput) Tools() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *PromptToolConfiguration) []interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Tools
-	}).(PromptToolPropertiesArrayOutput)
+	}).(pulumi.ArrayOutput)
 }
 
 // Tool input schema json
@@ -27755,103 +28892,6 @@ func (o PromptToolInputSchemaPropertiesOutput) ToPromptToolInputSchemaProperties
 
 func (o PromptToolInputSchemaPropertiesOutput) Json() pulumi.AnyOutput {
 	return o.ApplyT(func(v PromptToolInputSchemaProperties) interface{} { return v.Json }).(pulumi.AnyOutput)
-}
-
-// Tool details
-type PromptToolProperties struct {
-	ToolSpec PromptToolSpecification `pulumi:"toolSpec"`
-}
-
-// PromptToolPropertiesInput is an input type that accepts PromptToolPropertiesArgs and PromptToolPropertiesOutput values.
-// You can construct a concrete instance of `PromptToolPropertiesInput` via:
-//
-//	PromptToolPropertiesArgs{...}
-type PromptToolPropertiesInput interface {
-	pulumi.Input
-
-	ToPromptToolPropertiesOutput() PromptToolPropertiesOutput
-	ToPromptToolPropertiesOutputWithContext(context.Context) PromptToolPropertiesOutput
-}
-
-// Tool details
-type PromptToolPropertiesArgs struct {
-	ToolSpec PromptToolSpecificationInput `pulumi:"toolSpec"`
-}
-
-func (PromptToolPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PromptToolProperties)(nil)).Elem()
-}
-
-func (i PromptToolPropertiesArgs) ToPromptToolPropertiesOutput() PromptToolPropertiesOutput {
-	return i.ToPromptToolPropertiesOutputWithContext(context.Background())
-}
-
-func (i PromptToolPropertiesArgs) ToPromptToolPropertiesOutputWithContext(ctx context.Context) PromptToolPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PromptToolPropertiesOutput)
-}
-
-// PromptToolPropertiesArrayInput is an input type that accepts PromptToolPropertiesArray and PromptToolPropertiesArrayOutput values.
-// You can construct a concrete instance of `PromptToolPropertiesArrayInput` via:
-//
-//	PromptToolPropertiesArray{ PromptToolPropertiesArgs{...} }
-type PromptToolPropertiesArrayInput interface {
-	pulumi.Input
-
-	ToPromptToolPropertiesArrayOutput() PromptToolPropertiesArrayOutput
-	ToPromptToolPropertiesArrayOutputWithContext(context.Context) PromptToolPropertiesArrayOutput
-}
-
-type PromptToolPropertiesArray []PromptToolPropertiesInput
-
-func (PromptToolPropertiesArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PromptToolProperties)(nil)).Elem()
-}
-
-func (i PromptToolPropertiesArray) ToPromptToolPropertiesArrayOutput() PromptToolPropertiesArrayOutput {
-	return i.ToPromptToolPropertiesArrayOutputWithContext(context.Background())
-}
-
-func (i PromptToolPropertiesArray) ToPromptToolPropertiesArrayOutputWithContext(ctx context.Context) PromptToolPropertiesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PromptToolPropertiesArrayOutput)
-}
-
-// Tool details
-type PromptToolPropertiesOutput struct{ *pulumi.OutputState }
-
-func (PromptToolPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PromptToolProperties)(nil)).Elem()
-}
-
-func (o PromptToolPropertiesOutput) ToPromptToolPropertiesOutput() PromptToolPropertiesOutput {
-	return o
-}
-
-func (o PromptToolPropertiesOutput) ToPromptToolPropertiesOutputWithContext(ctx context.Context) PromptToolPropertiesOutput {
-	return o
-}
-
-func (o PromptToolPropertiesOutput) ToolSpec() PromptToolSpecificationOutput {
-	return o.ApplyT(func(v PromptToolProperties) PromptToolSpecification { return v.ToolSpec }).(PromptToolSpecificationOutput)
-}
-
-type PromptToolPropertiesArrayOutput struct{ *pulumi.OutputState }
-
-func (PromptToolPropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PromptToolProperties)(nil)).Elem()
-}
-
-func (o PromptToolPropertiesArrayOutput) ToPromptToolPropertiesArrayOutput() PromptToolPropertiesArrayOutput {
-	return o
-}
-
-func (o PromptToolPropertiesArrayOutput) ToPromptToolPropertiesArrayOutputWithContext(ctx context.Context) PromptToolPropertiesArrayOutput {
-	return o
-}
-
-func (o PromptToolPropertiesArrayOutput) Index(i pulumi.IntInput) PromptToolPropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PromptToolProperties {
-		return vs[0].([]PromptToolProperties)[vs[1].(int)]
-	}).(PromptToolPropertiesOutput)
 }
 
 // Tool specification
@@ -27923,6 +28963,8 @@ func (o PromptToolSpecificationOutput) Name() pulumi.StringOutput {
 
 // Prompt variant
 type PromptVariant struct {
+	// Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+	AdditionalModelRequestFields *PromptAdditionalModelRequestFields `pulumi:"additionalModelRequestFields"`
 	// Specifies a generative AI resource with which to use the prompt.
 	GenAiResource *PromptGenAiResourceProperties `pulumi:"genAiResource"`
 	// Contains inference configurations for the prompt variant.
@@ -27950,6 +28992,8 @@ type PromptVariantInput interface {
 
 // Prompt variant
 type PromptVariantArgs struct {
+	// Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+	AdditionalModelRequestFields PromptAdditionalModelRequestFieldsPtrInput `pulumi:"additionalModelRequestFields"`
 	// Specifies a generative AI resource with which to use the prompt.
 	GenAiResource PromptGenAiResourcePropertiesPtrInput `pulumi:"genAiResource"`
 	// Contains inference configurations for the prompt variant.
@@ -28016,6 +29060,11 @@ func (o PromptVariantOutput) ToPromptVariantOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+func (o PromptVariantOutput) AdditionalModelRequestFields() PromptAdditionalModelRequestFieldsPtrOutput {
+	return o.ApplyT(func(v PromptVariant) *PromptAdditionalModelRequestFields { return v.AdditionalModelRequestFields }).(PromptAdditionalModelRequestFieldsPtrOutput)
+}
+
 // Specifies a generative AI resource with which to use the prompt.
 func (o PromptVariantOutput) GenAiResource() PromptGenAiResourcePropertiesPtrOutput {
 	return o.ApplyT(func(v PromptVariant) *PromptGenAiResourceProperties { return v.GenAiResource }).(PromptGenAiResourcePropertiesPtrOutput)
@@ -28064,6 +29113,49 @@ func (o PromptVariantArrayOutput) Index(i pulumi.IntInput) PromptVariantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PromptVariant {
 		return vs[0].([]PromptVariant)[vs[1].(int)]
 	}).(PromptVariantOutput)
+}
+
+// Contains model-specific configurations
+type PromptVersionAdditionalModelRequestFields struct {
+}
+
+// Contains model-specific configurations
+type PromptVersionAdditionalModelRequestFieldsOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionAdditionalModelRequestFieldsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionAdditionalModelRequestFields)(nil)).Elem()
+}
+
+func (o PromptVersionAdditionalModelRequestFieldsOutput) ToPromptVersionAdditionalModelRequestFieldsOutput() PromptVersionAdditionalModelRequestFieldsOutput {
+	return o
+}
+
+func (o PromptVersionAdditionalModelRequestFieldsOutput) ToPromptVersionAdditionalModelRequestFieldsOutputWithContext(ctx context.Context) PromptVersionAdditionalModelRequestFieldsOutput {
+	return o
+}
+
+type PromptVersionAdditionalModelRequestFieldsPtrOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionAdditionalModelRequestFieldsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptVersionAdditionalModelRequestFields)(nil)).Elem()
+}
+
+func (o PromptVersionAdditionalModelRequestFieldsPtrOutput) ToPromptVersionAdditionalModelRequestFieldsPtrOutput() PromptVersionAdditionalModelRequestFieldsPtrOutput {
+	return o
+}
+
+func (o PromptVersionAdditionalModelRequestFieldsPtrOutput) ToPromptVersionAdditionalModelRequestFieldsPtrOutputWithContext(ctx context.Context) PromptVersionAdditionalModelRequestFieldsPtrOutput {
+	return o
+}
+
+func (o PromptVersionAdditionalModelRequestFieldsPtrOutput) Elem() PromptVersionAdditionalModelRequestFieldsOutput {
+	return o.ApplyT(func(v *PromptVersionAdditionalModelRequestFields) PromptVersionAdditionalModelRequestFields {
+		if v != nil {
+			return *v
+		}
+		var ret PromptVersionAdditionalModelRequestFields
+		return ret
+	}).(PromptVersionAdditionalModelRequestFieldsOutput)
 }
 
 // Any Tool choice
@@ -28152,6 +29244,63 @@ func (o PromptVersionAutoToolChoicePtrOutput) Elem() PromptVersionAutoToolChoice
 	}).(PromptVersionAutoToolChoiceOutput)
 }
 
+// CachePointBlock
+type PromptVersionCachePointBlock struct {
+	Type PromptVersionCachePointType `pulumi:"type"`
+}
+
+// CachePointBlock
+type PromptVersionCachePointBlockOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionCachePointBlockOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionCachePointBlock)(nil)).Elem()
+}
+
+func (o PromptVersionCachePointBlockOutput) ToPromptVersionCachePointBlockOutput() PromptVersionCachePointBlockOutput {
+	return o
+}
+
+func (o PromptVersionCachePointBlockOutput) ToPromptVersionCachePointBlockOutputWithContext(ctx context.Context) PromptVersionCachePointBlockOutput {
+	return o
+}
+
+func (o PromptVersionCachePointBlockOutput) Type() PromptVersionCachePointTypeOutput {
+	return o.ApplyT(func(v PromptVersionCachePointBlock) PromptVersionCachePointType { return v.Type }).(PromptVersionCachePointTypeOutput)
+}
+
+type PromptVersionCachePointBlockPtrOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionCachePointBlockPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptVersionCachePointBlock)(nil)).Elem()
+}
+
+func (o PromptVersionCachePointBlockPtrOutput) ToPromptVersionCachePointBlockPtrOutput() PromptVersionCachePointBlockPtrOutput {
+	return o
+}
+
+func (o PromptVersionCachePointBlockPtrOutput) ToPromptVersionCachePointBlockPtrOutputWithContext(ctx context.Context) PromptVersionCachePointBlockPtrOutput {
+	return o
+}
+
+func (o PromptVersionCachePointBlockPtrOutput) Elem() PromptVersionCachePointBlockOutput {
+	return o.ApplyT(func(v *PromptVersionCachePointBlock) PromptVersionCachePointBlock {
+		if v != nil {
+			return *v
+		}
+		var ret PromptVersionCachePointBlock
+		return ret
+	}).(PromptVersionCachePointBlockOutput)
+}
+
+func (o PromptVersionCachePointBlockPtrOutput) Type() PromptVersionCachePointTypePtrOutput {
+	return o.ApplyT(func(v *PromptVersionCachePointBlock) *PromptVersionCachePointType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(PromptVersionCachePointTypePtrOutput)
+}
+
 // Configuration for chat prompt template
 type PromptVersionChatPromptTemplateConfiguration struct {
 	// List of input variables
@@ -28159,8 +29308,8 @@ type PromptVersionChatPromptTemplateConfiguration struct {
 	// List of messages for chat prompt template
 	Messages []PromptVersionMessage `pulumi:"messages"`
 	// Configuration for chat prompt template
-	System            []PromptVersionSystemContentBlockProperties `pulumi:"system"`
-	ToolConfiguration *PromptVersionToolConfiguration             `pulumi:"toolConfiguration"`
+	System            []interface{}                   `pulumi:"system"`
+	ToolConfiguration *PromptVersionToolConfiguration `pulumi:"toolConfiguration"`
 }
 
 // Configuration for chat prompt template
@@ -28191,10 +29340,8 @@ func (o PromptVersionChatPromptTemplateConfigurationOutput) Messages() PromptVer
 }
 
 // Configuration for chat prompt template
-func (o PromptVersionChatPromptTemplateConfigurationOutput) System() PromptVersionSystemContentBlockPropertiesArrayOutput {
-	return o.ApplyT(func(v PromptVersionChatPromptTemplateConfiguration) []PromptVersionSystemContentBlockProperties {
-		return v.System
-	}).(PromptVersionSystemContentBlockPropertiesArrayOutput)
+func (o PromptVersionChatPromptTemplateConfigurationOutput) System() pulumi.ArrayOutput {
+	return o.ApplyT(func(v PromptVersionChatPromptTemplateConfiguration) []interface{} { return v.System }).(pulumi.ArrayOutput)
 }
 
 func (o PromptVersionChatPromptTemplateConfigurationOutput) ToolConfiguration() PromptVersionToolConfigurationPtrOutput {
@@ -28210,56 +29357,54 @@ type PromptVersionContentBlock0Properties struct {
 }
 
 // Configuration for chat prompt template
-type PromptVersionContentBlockProperties struct {
-	// Configuration for chat prompt template
-	Text string `pulumi:"text"`
+type PromptVersionContentBlock0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionContentBlock0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionContentBlock0Properties)(nil)).Elem()
 }
 
-// Configuration for chat prompt template
-type PromptVersionContentBlockPropertiesOutput struct{ *pulumi.OutputState }
-
-func (PromptVersionContentBlockPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PromptVersionContentBlockProperties)(nil)).Elem()
-}
-
-func (o PromptVersionContentBlockPropertiesOutput) ToPromptVersionContentBlockPropertiesOutput() PromptVersionContentBlockPropertiesOutput {
+func (o PromptVersionContentBlock0PropertiesOutput) ToPromptVersionContentBlock0PropertiesOutput() PromptVersionContentBlock0PropertiesOutput {
 	return o
 }
 
-func (o PromptVersionContentBlockPropertiesOutput) ToPromptVersionContentBlockPropertiesOutputWithContext(ctx context.Context) PromptVersionContentBlockPropertiesOutput {
+func (o PromptVersionContentBlock0PropertiesOutput) ToPromptVersionContentBlock0PropertiesOutputWithContext(ctx context.Context) PromptVersionContentBlock0PropertiesOutput {
 	return o
 }
 
 // Configuration for chat prompt template
-func (o PromptVersionContentBlockPropertiesOutput) Text() pulumi.StringOutput {
-	return o.ApplyT(func(v PromptVersionContentBlockProperties) string { return v.Text }).(pulumi.StringOutput)
+func (o PromptVersionContentBlock0PropertiesOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v PromptVersionContentBlock0Properties) string { return v.Text }).(pulumi.StringOutput)
 }
 
-type PromptVersionContentBlockPropertiesArrayOutput struct{ *pulumi.OutputState }
-
-func (PromptVersionContentBlockPropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PromptVersionContentBlockProperties)(nil)).Elem()
+// Configuration for chat prompt template
+type PromptVersionContentBlock1Properties struct {
+	CachePoint PromptVersionCachePointBlock `pulumi:"cachePoint"`
 }
 
-func (o PromptVersionContentBlockPropertiesArrayOutput) ToPromptVersionContentBlockPropertiesArrayOutput() PromptVersionContentBlockPropertiesArrayOutput {
+// Configuration for chat prompt template
+type PromptVersionContentBlock1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionContentBlock1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionContentBlock1Properties)(nil)).Elem()
+}
+
+func (o PromptVersionContentBlock1PropertiesOutput) ToPromptVersionContentBlock1PropertiesOutput() PromptVersionContentBlock1PropertiesOutput {
 	return o
 }
 
-func (o PromptVersionContentBlockPropertiesArrayOutput) ToPromptVersionContentBlockPropertiesArrayOutputWithContext(ctx context.Context) PromptVersionContentBlockPropertiesArrayOutput {
+func (o PromptVersionContentBlock1PropertiesOutput) ToPromptVersionContentBlock1PropertiesOutputWithContext(ctx context.Context) PromptVersionContentBlock1PropertiesOutput {
 	return o
 }
 
-func (o PromptVersionContentBlockPropertiesArrayOutput) Index(i pulumi.IntInput) PromptVersionContentBlockPropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PromptVersionContentBlockProperties {
-		return vs[0].([]PromptVersionContentBlockProperties)[vs[1].(int)]
-	}).(PromptVersionContentBlockPropertiesOutput)
+func (o PromptVersionContentBlock1PropertiesOutput) CachePoint() PromptVersionCachePointBlockOutput {
+	return o.ApplyT(func(v PromptVersionContentBlock1Properties) PromptVersionCachePointBlock { return v.CachePoint }).(PromptVersionCachePointBlockOutput)
 }
 
 // Chat prompt Message
 type PromptVersionMessage struct {
 	// List of Content Blocks
-	Content []PromptVersionContentBlockProperties `pulumi:"content"`
-	Role    PromptVersionConversationRole         `pulumi:"role"`
+	Content []interface{}                 `pulumi:"content"`
+	Role    PromptVersionConversationRole `pulumi:"role"`
 }
 
 // Chat prompt Message
@@ -28278,8 +29423,8 @@ func (o PromptVersionMessageOutput) ToPromptVersionMessageOutputWithContext(ctx 
 }
 
 // List of Content Blocks
-func (o PromptVersionMessageOutput) Content() PromptVersionContentBlockPropertiesArrayOutput {
-	return o.ApplyT(func(v PromptVersionMessage) []PromptVersionContentBlockProperties { return v.Content }).(PromptVersionContentBlockPropertiesArrayOutput)
+func (o PromptVersionMessageOutput) Content() pulumi.ArrayOutput {
+	return o.ApplyT(func(v PromptVersionMessage) []interface{} { return v.Content }).(pulumi.ArrayOutput)
 }
 
 func (o PromptVersionMessageOutput) Role() PromptVersionConversationRoleOutput {
@@ -28703,6 +29848,8 @@ func (o PromptVersionPromptTemplateConfiguration1PropertiesOutput) Chat() Prompt
 
 // Prompt variant
 type PromptVersionPromptVariant struct {
+	// Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+	AdditionalModelRequestFields *PromptVersionAdditionalModelRequestFields `pulumi:"additionalModelRequestFields"`
 	// Specifies a generative AI resource with which to use the prompt.
 	GenAiResource *PromptVersionPromptGenAiResourceProperties `pulumi:"genAiResource"`
 	// Contains inference configurations for the prompt variant.
@@ -28730,6 +29877,13 @@ func (o PromptVersionPromptVariantOutput) ToPromptVersionPromptVariantOutput() P
 
 func (o PromptVersionPromptVariantOutput) ToPromptVersionPromptVariantOutputWithContext(ctx context.Context) PromptVersionPromptVariantOutput {
 	return o
+}
+
+// Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+func (o PromptVersionPromptVariantOutput) AdditionalModelRequestFields() PromptVersionAdditionalModelRequestFieldsPtrOutput {
+	return o.ApplyT(func(v PromptVersionPromptVariant) *PromptVersionAdditionalModelRequestFields {
+		return v.AdditionalModelRequestFields
+	}).(PromptVersionAdditionalModelRequestFieldsPtrOutput)
 }
 
 // Specifies a generative AI resource with which to use the prompt.
@@ -28851,53 +30005,52 @@ type PromptVersionSystemContentBlock0Properties struct {
 }
 
 // Configuration for chat prompt template
-type PromptVersionSystemContentBlockProperties struct {
-	// Configuration for chat prompt template
-	Text string `pulumi:"text"`
+type PromptVersionSystemContentBlock0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionSystemContentBlock0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionSystemContentBlock0Properties)(nil)).Elem()
 }
 
-// Configuration for chat prompt template
-type PromptVersionSystemContentBlockPropertiesOutput struct{ *pulumi.OutputState }
-
-func (PromptVersionSystemContentBlockPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PromptVersionSystemContentBlockProperties)(nil)).Elem()
-}
-
-func (o PromptVersionSystemContentBlockPropertiesOutput) ToPromptVersionSystemContentBlockPropertiesOutput() PromptVersionSystemContentBlockPropertiesOutput {
+func (o PromptVersionSystemContentBlock0PropertiesOutput) ToPromptVersionSystemContentBlock0PropertiesOutput() PromptVersionSystemContentBlock0PropertiesOutput {
 	return o
 }
 
-func (o PromptVersionSystemContentBlockPropertiesOutput) ToPromptVersionSystemContentBlockPropertiesOutputWithContext(ctx context.Context) PromptVersionSystemContentBlockPropertiesOutput {
+func (o PromptVersionSystemContentBlock0PropertiesOutput) ToPromptVersionSystemContentBlock0PropertiesOutputWithContext(ctx context.Context) PromptVersionSystemContentBlock0PropertiesOutput {
 	return o
 }
 
 // Configuration for chat prompt template
-func (o PromptVersionSystemContentBlockPropertiesOutput) Text() pulumi.StringOutput {
-	return o.ApplyT(func(v PromptVersionSystemContentBlockProperties) string { return v.Text }).(pulumi.StringOutput)
+func (o PromptVersionSystemContentBlock0PropertiesOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v PromptVersionSystemContentBlock0Properties) string { return v.Text }).(pulumi.StringOutput)
 }
 
-type PromptVersionSystemContentBlockPropertiesArrayOutput struct{ *pulumi.OutputState }
-
-func (PromptVersionSystemContentBlockPropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PromptVersionSystemContentBlockProperties)(nil)).Elem()
+// Configuration for chat prompt template
+type PromptVersionSystemContentBlock1Properties struct {
+	CachePoint PromptVersionCachePointBlock `pulumi:"cachePoint"`
 }
 
-func (o PromptVersionSystemContentBlockPropertiesArrayOutput) ToPromptVersionSystemContentBlockPropertiesArrayOutput() PromptVersionSystemContentBlockPropertiesArrayOutput {
+// Configuration for chat prompt template
+type PromptVersionSystemContentBlock1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionSystemContentBlock1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionSystemContentBlock1Properties)(nil)).Elem()
+}
+
+func (o PromptVersionSystemContentBlock1PropertiesOutput) ToPromptVersionSystemContentBlock1PropertiesOutput() PromptVersionSystemContentBlock1PropertiesOutput {
 	return o
 }
 
-func (o PromptVersionSystemContentBlockPropertiesArrayOutput) ToPromptVersionSystemContentBlockPropertiesArrayOutputWithContext(ctx context.Context) PromptVersionSystemContentBlockPropertiesArrayOutput {
+func (o PromptVersionSystemContentBlock1PropertiesOutput) ToPromptVersionSystemContentBlock1PropertiesOutputWithContext(ctx context.Context) PromptVersionSystemContentBlock1PropertiesOutput {
 	return o
 }
 
-func (o PromptVersionSystemContentBlockPropertiesArrayOutput) Index(i pulumi.IntInput) PromptVersionSystemContentBlockPropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PromptVersionSystemContentBlockProperties {
-		return vs[0].([]PromptVersionSystemContentBlockProperties)[vs[1].(int)]
-	}).(PromptVersionSystemContentBlockPropertiesOutput)
+func (o PromptVersionSystemContentBlock1PropertiesOutput) CachePoint() PromptVersionCachePointBlockOutput {
+	return o.ApplyT(func(v PromptVersionSystemContentBlock1Properties) PromptVersionCachePointBlock { return v.CachePoint }).(PromptVersionCachePointBlockOutput)
 }
 
 // Configuration for text prompt template
 type PromptVersionTextPromptTemplateConfiguration struct {
+	CachePoint *PromptVersionCachePointBlock `pulumi:"cachePoint"`
 	// List of input variables
 	InputVariables []PromptVersionPromptInputVariable `pulumi:"inputVariables"`
 	// Prompt content for String prompt template
@@ -28919,6 +30072,12 @@ func (o PromptVersionTextPromptTemplateConfigurationOutput) ToPromptVersionTextP
 	return o
 }
 
+func (o PromptVersionTextPromptTemplateConfigurationOutput) CachePoint() PromptVersionCachePointBlockPtrOutput {
+	return o.ApplyT(func(v PromptVersionTextPromptTemplateConfiguration) *PromptVersionCachePointBlock {
+		return v.CachePoint
+	}).(PromptVersionCachePointBlockPtrOutput)
+}
+
 // List of input variables
 func (o PromptVersionTextPromptTemplateConfigurationOutput) InputVariables() PromptVersionPromptInputVariableArrayOutput {
 	return o.ApplyT(func(v PromptVersionTextPromptTemplateConfiguration) []PromptVersionPromptInputVariable {
@@ -28934,6 +30093,49 @@ func (o PromptVersionTextPromptTemplateConfigurationOutput) Text() pulumi.String
 // Tool details
 type PromptVersionTool0Properties struct {
 	ToolSpec PromptVersionToolSpecification `pulumi:"toolSpec"`
+}
+
+// Tool details
+type PromptVersionTool0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionTool0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionTool0Properties)(nil)).Elem()
+}
+
+func (o PromptVersionTool0PropertiesOutput) ToPromptVersionTool0PropertiesOutput() PromptVersionTool0PropertiesOutput {
+	return o
+}
+
+func (o PromptVersionTool0PropertiesOutput) ToPromptVersionTool0PropertiesOutputWithContext(ctx context.Context) PromptVersionTool0PropertiesOutput {
+	return o
+}
+
+func (o PromptVersionTool0PropertiesOutput) ToolSpec() PromptVersionToolSpecificationOutput {
+	return o.ApplyT(func(v PromptVersionTool0Properties) PromptVersionToolSpecification { return v.ToolSpec }).(PromptVersionToolSpecificationOutput)
+}
+
+// Tool details
+type PromptVersionTool1Properties struct {
+	CachePoint PromptVersionCachePointBlock `pulumi:"cachePoint"`
+}
+
+// Tool details
+type PromptVersionTool1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionTool1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionTool1Properties)(nil)).Elem()
+}
+
+func (o PromptVersionTool1PropertiesOutput) ToPromptVersionTool1PropertiesOutput() PromptVersionTool1PropertiesOutput {
+	return o
+}
+
+func (o PromptVersionTool1PropertiesOutput) ToPromptVersionTool1PropertiesOutputWithContext(ctx context.Context) PromptVersionTool1PropertiesOutput {
+	return o
+}
+
+func (o PromptVersionTool1PropertiesOutput) CachePoint() PromptVersionCachePointBlockOutput {
+	return o.ApplyT(func(v PromptVersionTool1Properties) PromptVersionCachePointBlock { return v.CachePoint }).(PromptVersionCachePointBlockOutput)
 }
 
 // Tool choice
@@ -29111,7 +30313,7 @@ func (o PromptVersionToolChoice2PropertiesPtrOutput) Tool() PromptVersionSpecifi
 type PromptVersionToolConfiguration struct {
 	ToolChoice interface{} `pulumi:"toolChoice"`
 	// List of Tools
-	Tools []PromptVersionToolProperties `pulumi:"tools"`
+	Tools []interface{} `pulumi:"tools"`
 }
 
 // Tool configuration
@@ -29134,8 +30336,8 @@ func (o PromptVersionToolConfigurationOutput) ToolChoice() pulumi.AnyOutput {
 }
 
 // List of Tools
-func (o PromptVersionToolConfigurationOutput) Tools() PromptVersionToolPropertiesArrayOutput {
-	return o.ApplyT(func(v PromptVersionToolConfiguration) []PromptVersionToolProperties { return v.Tools }).(PromptVersionToolPropertiesArrayOutput)
+func (o PromptVersionToolConfigurationOutput) Tools() pulumi.ArrayOutput {
+	return o.ApplyT(func(v PromptVersionToolConfiguration) []interface{} { return v.Tools }).(pulumi.ArrayOutput)
 }
 
 type PromptVersionToolConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -29172,13 +30374,13 @@ func (o PromptVersionToolConfigurationPtrOutput) ToolChoice() pulumi.AnyOutput {
 }
 
 // List of Tools
-func (o PromptVersionToolConfigurationPtrOutput) Tools() PromptVersionToolPropertiesArrayOutput {
-	return o.ApplyT(func(v *PromptVersionToolConfiguration) []PromptVersionToolProperties {
+func (o PromptVersionToolConfigurationPtrOutput) Tools() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *PromptVersionToolConfiguration) []interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Tools
-	}).(PromptVersionToolPropertiesArrayOutput)
+	}).(pulumi.ArrayOutput)
 }
 
 // Tool input schema json
@@ -29208,50 +30410,6 @@ func (o PromptVersionToolInputSchemaPropertiesOutput) ToPromptVersionToolInputSc
 
 func (o PromptVersionToolInputSchemaPropertiesOutput) Json() pulumi.AnyOutput {
 	return o.ApplyT(func(v PromptVersionToolInputSchemaProperties) interface{} { return v.Json }).(pulumi.AnyOutput)
-}
-
-// Tool details
-type PromptVersionToolProperties struct {
-	ToolSpec PromptVersionToolSpecification `pulumi:"toolSpec"`
-}
-
-// Tool details
-type PromptVersionToolPropertiesOutput struct{ *pulumi.OutputState }
-
-func (PromptVersionToolPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PromptVersionToolProperties)(nil)).Elem()
-}
-
-func (o PromptVersionToolPropertiesOutput) ToPromptVersionToolPropertiesOutput() PromptVersionToolPropertiesOutput {
-	return o
-}
-
-func (o PromptVersionToolPropertiesOutput) ToPromptVersionToolPropertiesOutputWithContext(ctx context.Context) PromptVersionToolPropertiesOutput {
-	return o
-}
-
-func (o PromptVersionToolPropertiesOutput) ToolSpec() PromptVersionToolSpecificationOutput {
-	return o.ApplyT(func(v PromptVersionToolProperties) PromptVersionToolSpecification { return v.ToolSpec }).(PromptVersionToolSpecificationOutput)
-}
-
-type PromptVersionToolPropertiesArrayOutput struct{ *pulumi.OutputState }
-
-func (PromptVersionToolPropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PromptVersionToolProperties)(nil)).Elem()
-}
-
-func (o PromptVersionToolPropertiesArrayOutput) ToPromptVersionToolPropertiesArrayOutput() PromptVersionToolPropertiesArrayOutput {
-	return o
-}
-
-func (o PromptVersionToolPropertiesArrayOutput) ToPromptVersionToolPropertiesArrayOutputWithContext(ctx context.Context) PromptVersionToolPropertiesArrayOutput {
-	return o
-}
-
-func (o PromptVersionToolPropertiesArrayOutput) Index(i pulumi.IntInput) PromptVersionToolPropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PromptVersionToolProperties {
-		return vs[0].([]PromptVersionToolProperties)[vs[1].(int)]
-	}).(PromptVersionToolPropertiesOutput)
 }
 
 // Tool specification
@@ -29303,6 +30461,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentApiSchema0PropertiesPtrInput)(nil)).Elem(), AgentApiSchema0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentApiSchema1PropertiesInput)(nil)).Elem(), AgentApiSchema1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentApiSchema1PropertiesPtrInput)(nil)).Elem(), AgentApiSchema1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentCollaboratorInput)(nil)).Elem(), AgentCollaboratorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentCollaboratorArrayInput)(nil)).Elem(), AgentCollaboratorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentCollaboratorAgentDescriptorPropertiesInput)(nil)).Elem(), AgentCollaboratorAgentDescriptorPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentCustomOrchestrationInput)(nil)).Elem(), AgentCustomOrchestrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentCustomOrchestrationPtrInput)(nil)).Elem(), AgentCustomOrchestrationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentFunctionInput)(nil)).Elem(), AgentFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentFunctionArrayInput)(nil)).Elem(), AgentFunctionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentFunctionSchemaInput)(nil)).Elem(), AgentFunctionSchemaArgs{})
@@ -29313,6 +30476,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentInferenceConfigurationPtrInput)(nil)).Elem(), AgentInferenceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseInput)(nil)).Elem(), AgentKnowledgeBaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseArrayInput)(nil)).Elem(), AgentKnowledgeBaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentMemoryConfigurationInput)(nil)).Elem(), AgentMemoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentMemoryConfigurationPtrInput)(nil)).Elem(), AgentMemoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentOrchestrationExecutorInput)(nil)).Elem(), AgentOrchestrationExecutorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentOrchestrationExecutorPtrInput)(nil)).Elem(), AgentOrchestrationExecutorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentParameterDetailInput)(nil)).Elem(), AgentParameterDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentParameterDetailMapInput)(nil)).Elem(), AgentParameterDetailMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptConfigurationInput)(nil)).Elem(), AgentPromptConfigurationArgs{})
@@ -29321,6 +30488,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptOverrideConfigurationPtrInput)(nil)).Elem(), AgentPromptOverrideConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentS3IdentifierInput)(nil)).Elem(), AgentS3IdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentS3IdentifierPtrInput)(nil)).Elem(), AgentS3IdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSessionSummaryConfigurationInput)(nil)).Elem(), AgentSessionSummaryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSessionSummaryConfigurationPtrInput)(nil)).Elem(), AgentSessionSummaryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInferenceProfileInferenceProfileModelSourcePropertiesInput)(nil)).Elem(), ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrInput)(nil)).Elem(), ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceBedrockDataAutomationConfigurationInput)(nil)).Elem(), DataSourceBedrockDataAutomationConfigurationArgs{})
@@ -29581,15 +30750,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSupplementalDataStorageLocationArrayInput)(nil)).Elem(), KnowledgeBaseSupplementalDataStorageLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVectorKnowledgeBaseConfigurationInput)(nil)).Elem(), KnowledgeBaseVectorKnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVectorKnowledgeBaseConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseVectorKnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptAdditionalModelRequestFieldsInput)(nil)).Elem(), PromptAdditionalModelRequestFieldsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptAdditionalModelRequestFieldsPtrInput)(nil)).Elem(), PromptAdditionalModelRequestFieldsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptAgentResourceInput)(nil)).Elem(), PromptAgentResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptAgentResourcePtrInput)(nil)).Elem(), PromptAgentResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptAnyToolChoiceInput)(nil)).Elem(), PromptAnyToolChoiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptAnyToolChoicePtrInput)(nil)).Elem(), PromptAnyToolChoiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptAutoToolChoiceInput)(nil)).Elem(), PromptAutoToolChoiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptAutoToolChoicePtrInput)(nil)).Elem(), PromptAutoToolChoiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptCachePointBlockInput)(nil)).Elem(), PromptCachePointBlockArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptCachePointBlockPtrInput)(nil)).Elem(), PromptCachePointBlockArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptChatPromptTemplateConfigurationInput)(nil)).Elem(), PromptChatPromptTemplateConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PromptContentBlockPropertiesInput)(nil)).Elem(), PromptContentBlockPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PromptContentBlockPropertiesArrayInput)(nil)).Elem(), PromptContentBlockPropertiesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptContentBlock0PropertiesInput)(nil)).Elem(), PromptContentBlock0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptContentBlock1PropertiesInput)(nil)).Elem(), PromptContentBlock1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptGenAiResourcePropertiesInput)(nil)).Elem(), PromptGenAiResourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptGenAiResourcePropertiesPtrInput)(nil)).Elem(), PromptGenAiResourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptInferenceConfigurationPropertiesInput)(nil)).Elem(), PromptInferenceConfigurationPropertiesArgs{})
@@ -29602,13 +30775,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptModelInferenceConfigurationPtrInput)(nil)).Elem(), PromptModelInferenceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptSpecificToolChoiceInput)(nil)).Elem(), PromptSpecificToolChoiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptSpecificToolChoicePtrInput)(nil)).Elem(), PromptSpecificToolChoiceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PromptSystemContentBlockPropertiesInput)(nil)).Elem(), PromptSystemContentBlockPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PromptSystemContentBlockPropertiesArrayInput)(nil)).Elem(), PromptSystemContentBlockPropertiesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptSystemContentBlock0PropertiesInput)(nil)).Elem(), PromptSystemContentBlock0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptSystemContentBlock1PropertiesInput)(nil)).Elem(), PromptSystemContentBlock1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptTemplateConfiguration0PropertiesInput)(nil)).Elem(), PromptTemplateConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptTemplateConfiguration1PropertiesInput)(nil)).Elem(), PromptTemplateConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptTextPromptTemplateConfigurationInput)(nil)).Elem(), PromptTextPromptTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptTextS3LocationInput)(nil)).Elem(), PromptTextS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptTextS3LocationPtrInput)(nil)).Elem(), PromptTextS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptTool0PropertiesInput)(nil)).Elem(), PromptTool0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptTool1PropertiesInput)(nil)).Elem(), PromptTool1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptToolChoice0PropertiesInput)(nil)).Elem(), PromptToolChoice0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptToolChoice0PropertiesPtrInput)(nil)).Elem(), PromptToolChoice0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptToolChoice1PropertiesInput)(nil)).Elem(), PromptToolChoice1PropertiesArgs{})
@@ -29618,8 +30793,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptToolConfigurationInput)(nil)).Elem(), PromptToolConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptToolConfigurationPtrInput)(nil)).Elem(), PromptToolConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptToolInputSchemaPropertiesInput)(nil)).Elem(), PromptToolInputSchemaPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PromptToolPropertiesInput)(nil)).Elem(), PromptToolPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PromptToolPropertiesArrayInput)(nil)).Elem(), PromptToolPropertiesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptToolSpecificationInput)(nil)).Elem(), PromptToolSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptVariantInput)(nil)).Elem(), PromptVariantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptVariantArrayInput)(nil)).Elem(), PromptVariantArray{})
@@ -29637,6 +30810,11 @@ func init() {
 	pulumi.RegisterOutputType(AgentApiSchema0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AgentApiSchema1PropertiesOutput{})
 	pulumi.RegisterOutputType(AgentApiSchema1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AgentCollaboratorOutput{})
+	pulumi.RegisterOutputType(AgentCollaboratorArrayOutput{})
+	pulumi.RegisterOutputType(AgentCollaboratorAgentDescriptorPropertiesOutput{})
+	pulumi.RegisterOutputType(AgentCustomOrchestrationOutput{})
+	pulumi.RegisterOutputType(AgentCustomOrchestrationPtrOutput{})
 	pulumi.RegisterOutputType(AgentFunctionOutput{})
 	pulumi.RegisterOutputType(AgentFunctionArrayOutput{})
 	pulumi.RegisterOutputType(AgentFunctionSchemaOutput{})
@@ -29647,6 +30825,10 @@ func init() {
 	pulumi.RegisterOutputType(AgentInferenceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseArrayOutput{})
+	pulumi.RegisterOutputType(AgentMemoryConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentMemoryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentOrchestrationExecutorOutput{})
+	pulumi.RegisterOutputType(AgentOrchestrationExecutorPtrOutput{})
 	pulumi.RegisterOutputType(AgentParameterDetailOutput{})
 	pulumi.RegisterOutputType(AgentParameterDetailMapOutput{})
 	pulumi.RegisterOutputType(AgentPromptConfigurationOutput{})
@@ -29655,6 +30837,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentPromptOverrideConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentS3IdentifierOutput{})
 	pulumi.RegisterOutputType(AgentS3IdentifierPtrOutput{})
+	pulumi.RegisterOutputType(AgentSessionSummaryConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentSessionSummaryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileModelOutput{})
 	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileModelArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput{})
@@ -30017,15 +31201,19 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseSupplementalDataStorageLocationArrayOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseVectorKnowledgeBaseConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PromptAdditionalModelRequestFieldsOutput{})
+	pulumi.RegisterOutputType(PromptAdditionalModelRequestFieldsPtrOutput{})
 	pulumi.RegisterOutputType(PromptAgentResourceOutput{})
 	pulumi.RegisterOutputType(PromptAgentResourcePtrOutput{})
 	pulumi.RegisterOutputType(PromptAnyToolChoiceOutput{})
 	pulumi.RegisterOutputType(PromptAnyToolChoicePtrOutput{})
 	pulumi.RegisterOutputType(PromptAutoToolChoiceOutput{})
 	pulumi.RegisterOutputType(PromptAutoToolChoicePtrOutput{})
+	pulumi.RegisterOutputType(PromptCachePointBlockOutput{})
+	pulumi.RegisterOutputType(PromptCachePointBlockPtrOutput{})
 	pulumi.RegisterOutputType(PromptChatPromptTemplateConfigurationOutput{})
-	pulumi.RegisterOutputType(PromptContentBlockPropertiesOutput{})
-	pulumi.RegisterOutputType(PromptContentBlockPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(PromptContentBlock0PropertiesOutput{})
+	pulumi.RegisterOutputType(PromptContentBlock1PropertiesOutput{})
 	pulumi.RegisterOutputType(PromptGenAiResourcePropertiesOutput{})
 	pulumi.RegisterOutputType(PromptGenAiResourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PromptInferenceConfigurationPropertiesOutput{})
@@ -30038,13 +31226,15 @@ func init() {
 	pulumi.RegisterOutputType(PromptModelInferenceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PromptSpecificToolChoiceOutput{})
 	pulumi.RegisterOutputType(PromptSpecificToolChoicePtrOutput{})
-	pulumi.RegisterOutputType(PromptSystemContentBlockPropertiesOutput{})
-	pulumi.RegisterOutputType(PromptSystemContentBlockPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(PromptSystemContentBlock0PropertiesOutput{})
+	pulumi.RegisterOutputType(PromptSystemContentBlock1PropertiesOutput{})
 	pulumi.RegisterOutputType(PromptTemplateConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(PromptTemplateConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(PromptTextPromptTemplateConfigurationOutput{})
 	pulumi.RegisterOutputType(PromptTextS3LocationOutput{})
 	pulumi.RegisterOutputType(PromptTextS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(PromptTool0PropertiesOutput{})
+	pulumi.RegisterOutputType(PromptTool1PropertiesOutput{})
 	pulumi.RegisterOutputType(PromptToolChoice0PropertiesOutput{})
 	pulumi.RegisterOutputType(PromptToolChoice0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PromptToolChoice1PropertiesOutput{})
@@ -30054,18 +31244,20 @@ func init() {
 	pulumi.RegisterOutputType(PromptToolConfigurationOutput{})
 	pulumi.RegisterOutputType(PromptToolConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PromptToolInputSchemaPropertiesOutput{})
-	pulumi.RegisterOutputType(PromptToolPropertiesOutput{})
-	pulumi.RegisterOutputType(PromptToolPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(PromptToolSpecificationOutput{})
 	pulumi.RegisterOutputType(PromptVariantOutput{})
 	pulumi.RegisterOutputType(PromptVariantArrayOutput{})
+	pulumi.RegisterOutputType(PromptVersionAdditionalModelRequestFieldsOutput{})
+	pulumi.RegisterOutputType(PromptVersionAdditionalModelRequestFieldsPtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionAnyToolChoiceOutput{})
 	pulumi.RegisterOutputType(PromptVersionAnyToolChoicePtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionAutoToolChoiceOutput{})
 	pulumi.RegisterOutputType(PromptVersionAutoToolChoicePtrOutput{})
+	pulumi.RegisterOutputType(PromptVersionCachePointBlockOutput{})
+	pulumi.RegisterOutputType(PromptVersionCachePointBlockPtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionChatPromptTemplateConfigurationOutput{})
-	pulumi.RegisterOutputType(PromptVersionContentBlockPropertiesOutput{})
-	pulumi.RegisterOutputType(PromptVersionContentBlockPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(PromptVersionContentBlock0PropertiesOutput{})
+	pulumi.RegisterOutputType(PromptVersionContentBlock1PropertiesOutput{})
 	pulumi.RegisterOutputType(PromptVersionMessageOutput{})
 	pulumi.RegisterOutputType(PromptVersionMessageArrayOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptAgentResourceOutput{})
@@ -30084,9 +31276,11 @@ func init() {
 	pulumi.RegisterOutputType(PromptVersionPromptVariantArrayOutput{})
 	pulumi.RegisterOutputType(PromptVersionSpecificToolChoiceOutput{})
 	pulumi.RegisterOutputType(PromptVersionSpecificToolChoicePtrOutput{})
-	pulumi.RegisterOutputType(PromptVersionSystemContentBlockPropertiesOutput{})
-	pulumi.RegisterOutputType(PromptVersionSystemContentBlockPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(PromptVersionSystemContentBlock0PropertiesOutput{})
+	pulumi.RegisterOutputType(PromptVersionSystemContentBlock1PropertiesOutput{})
 	pulumi.RegisterOutputType(PromptVersionTextPromptTemplateConfigurationOutput{})
+	pulumi.RegisterOutputType(PromptVersionTool0PropertiesOutput{})
+	pulumi.RegisterOutputType(PromptVersionTool1PropertiesOutput{})
 	pulumi.RegisterOutputType(PromptVersionToolChoice0PropertiesOutput{})
 	pulumi.RegisterOutputType(PromptVersionToolChoice0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionToolChoice1PropertiesOutput{})
@@ -30096,7 +31290,5 @@ func init() {
 	pulumi.RegisterOutputType(PromptVersionToolConfigurationOutput{})
 	pulumi.RegisterOutputType(PromptVersionToolConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionToolInputSchemaPropertiesOutput{})
-	pulumi.RegisterOutputType(PromptVersionToolPropertiesOutput{})
-	pulumi.RegisterOutputType(PromptVersionToolPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(PromptVersionToolSpecificationOutput{})
 }

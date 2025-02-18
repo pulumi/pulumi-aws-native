@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class PromptVersionTextPromptTemplateConfiguration
     {
+        public readonly Outputs.PromptVersionCachePointBlock? CachePoint;
         /// <summary>
         /// List of input variables
         /// </summary>
@@ -27,10 +28,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
         [OutputConstructor]
         private PromptVersionTextPromptTemplateConfiguration(
+            Outputs.PromptVersionCachePointBlock? cachePoint,
+
             ImmutableArray<Outputs.PromptVersionPromptInputVariable> inputVariables,
 
             string text)
         {
+            CachePoint = cachePoint;
             InputVariables = inputVariables;
             Text = text;
         }

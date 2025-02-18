@@ -25,7 +25,9 @@ type Cluster struct {
 	CapacityProviders pulumi.StringArrayOutput `pulumi:"capacityProviders"`
 	// A user-generated string that you use to identify your cluster. If you don't specify a name, CFNlong generates a unique physical ID for the name.
 	ClusterName pulumi.StringPtrOutput `pulumi:"clusterName"`
-	// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
+	// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
+	//  Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up.
+	//  For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
 	ClusterSettings ClusterSettingsArrayOutput `pulumi:"clusterSettings"`
 	// The execute command and managed storage configuration for the cluster.
 	Configuration ClusterConfigurationPtrOutput `pulumi:"configuration"`
@@ -97,7 +99,9 @@ type clusterArgs struct {
 	CapacityProviders []string `pulumi:"capacityProviders"`
 	// A user-generated string that you use to identify your cluster. If you don't specify a name, CFNlong generates a unique physical ID for the name.
 	ClusterName *string `pulumi:"clusterName"`
-	// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
+	// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
+	//  Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up.
+	//  For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
 	ClusterSettings []ClusterSettings `pulumi:"clusterSettings"`
 	// The execute command and managed storage configuration for the cluster.
 	Configuration *ClusterConfiguration `pulumi:"configuration"`
@@ -127,7 +131,9 @@ type ClusterArgs struct {
 	CapacityProviders pulumi.StringArrayInput
 	// A user-generated string that you use to identify your cluster. If you don't specify a name, CFNlong generates a unique physical ID for the name.
 	ClusterName pulumi.StringPtrInput
-	// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
+	// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
+	//  Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up.
+	//  For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
 	ClusterSettings ClusterSettingsArrayInput
 	// The execute command and managed storage configuration for the cluster.
 	Configuration ClusterConfigurationPtrInput
@@ -204,7 +210,10 @@ func (o ClusterOutput) ClusterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterName }).(pulumi.StringPtrOutput)
 }
 
-// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
+// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
+//
+//	Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up.
+//	For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
 func (o ClusterOutput) ClusterSettings() ClusterSettingsArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterSettingsArrayOutput { return v.ClusterSettings }).(ClusterSettingsArrayOutput)
 }

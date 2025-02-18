@@ -7,23 +7,24 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Bedrock.Inputs
+namespace Pulumi.AwsNative.Bedrock.Outputs
 {
 
     /// <summary>
     /// Configuration for chat prompt template
     /// </summary>
-    public sealed class PromptSystemContentBlockPropertiesArgs : global::Pulumi.ResourceArgs
+    [OutputType]
+    public sealed class PromptContentBlock0Properties
     {
         /// <summary>
         /// Configuration for chat prompt template
         /// </summary>
-        [Input("text", required: true)]
-        public Input<string> Text { get; set; } = null!;
+        public readonly string Text;
 
-        public PromptSystemContentBlockPropertiesArgs()
+        [OutputConstructor]
+        private PromptContentBlock0Properties(string text)
         {
+            Text = text;
         }
-        public static new PromptSystemContentBlockPropertiesArgs Empty => new PromptSystemContentBlockPropertiesArgs();
     }
 }

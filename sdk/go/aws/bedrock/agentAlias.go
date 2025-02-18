@@ -31,6 +31,7 @@ type AgentAlias struct {
 	// - FAILED – The agent alias API operation failed.
 	// - UPDATING – The agent alias is being updated.
 	// - DELETING – The agent alias is being deleted.
+	// - DISSOCIATED - The agent alias has no version associated with it.
 	AgentAliasStatus AgentAliasStatusOutput `pulumi:"agentAliasStatus"`
 	// Identifier for a resource.
 	AgentId pulumi.StringOutput `pulumi:"agentId"`
@@ -192,6 +193,7 @@ func (o AgentAliasOutput) AgentAliasName() pulumi.StringOutput {
 // - FAILED – The agent alias API operation failed.
 // - UPDATING – The agent alias is being updated.
 // - DELETING – The agent alias is being deleted.
+// - DISSOCIATED - The agent alias has no version associated with it.
 func (o AgentAliasOutput) AgentAliasStatus() AgentAliasStatusOutput {
 	return o.ApplyT(func(v *AgentAlias) AgentAliasStatusOutput { return v.AgentAliasStatus }).(AgentAliasStatusOutput)
 }

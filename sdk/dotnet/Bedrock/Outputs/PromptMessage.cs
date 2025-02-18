@@ -19,12 +19,12 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// <summary>
         /// List of Content Blocks
         /// </summary>
-        public readonly ImmutableArray<Outputs.PromptContentBlockProperties> Content;
+        public readonly ImmutableArray<Union<Outputs.PromptContentBlock0Properties, Outputs.PromptContentBlock1Properties>> Content;
         public readonly Pulumi.AwsNative.Bedrock.PromptConversationRole Role;
 
         [OutputConstructor]
         private PromptMessage(
-            ImmutableArray<Outputs.PromptContentBlockProperties> content,
+            ImmutableArray<Union<Outputs.PromptContentBlock0Properties, Outputs.PromptContentBlock1Properties>> content,
 
             Pulumi.AwsNative.Bedrock.PromptConversationRole role)
         {

@@ -246,6 +246,8 @@ type SecurityConfigSamlConfigOptions struct {
 	GroupAttribute *string `pulumi:"groupAttribute"`
 	// The XML saml provider metadata document that you want to use
 	Metadata string `pulumi:"metadata"`
+	// Custom entity id attribute to override default entity id for this saml integration
+	OpenSearchServerlessEntityId *string `pulumi:"openSearchServerlessEntityId"`
 	// Defines the session timeout in minutes
 	SessionTimeout *int `pulumi:"sessionTimeout"`
 	// Custom attribute for this saml integration
@@ -269,6 +271,8 @@ type SecurityConfigSamlConfigOptionsArgs struct {
 	GroupAttribute pulumi.StringPtrInput `pulumi:"groupAttribute"`
 	// The XML saml provider metadata document that you want to use
 	Metadata pulumi.StringInput `pulumi:"metadata"`
+	// Custom entity id attribute to override default entity id for this saml integration
+	OpenSearchServerlessEntityId pulumi.StringPtrInput `pulumi:"openSearchServerlessEntityId"`
 	// Defines the session timeout in minutes
 	SessionTimeout pulumi.IntPtrInput `pulumi:"sessionTimeout"`
 	// Custom attribute for this saml integration
@@ -363,6 +367,11 @@ func (o SecurityConfigSamlConfigOptionsOutput) Metadata() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityConfigSamlConfigOptions) string { return v.Metadata }).(pulumi.StringOutput)
 }
 
+// Custom entity id attribute to override default entity id for this saml integration
+func (o SecurityConfigSamlConfigOptionsOutput) OpenSearchServerlessEntityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigSamlConfigOptions) *string { return v.OpenSearchServerlessEntityId }).(pulumi.StringPtrOutput)
+}
+
 // Defines the session timeout in minutes
 func (o SecurityConfigSamlConfigOptionsOutput) SessionTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecurityConfigSamlConfigOptions) *int { return v.SessionTimeout }).(pulumi.IntPtrOutput)
@@ -414,6 +423,16 @@ func (o SecurityConfigSamlConfigOptionsPtrOutput) Metadata() pulumi.StringPtrOut
 			return nil
 		}
 		return &v.Metadata
+	}).(pulumi.StringPtrOutput)
+}
+
+// Custom entity id attribute to override default entity id for this saml integration
+func (o SecurityConfigSamlConfigOptionsPtrOutput) OpenSearchServerlessEntityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigSamlConfigOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OpenSearchServerlessEntityId
 	}).(pulumi.StringPtrOutput)
 }
 

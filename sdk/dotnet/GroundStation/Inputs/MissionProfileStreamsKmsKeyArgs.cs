@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         public Input<string>? KmsAliasArn { get; set; }
 
         /// <summary>
+        /// KMS Alias Name.
+        /// </summary>
+        [Input("kmsAliasName")]
+        public Input<string>? KmsAliasName { get; set; }
+
+        /// <summary>
         /// KMS Key Arn.
         /// </summary>
         [Input("kmsKeyArn")]

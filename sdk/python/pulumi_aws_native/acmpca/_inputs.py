@@ -226,11 +226,24 @@ if not MYPY:
         """
         Configures the default behavior of the CRL Distribution Point extension for certificates issued by your CA. If this field is not provided, then the CRL Distribution Point extension will be present and contain the default CRL URL.
         """
+        crl_type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of CRL. This setting determines the maximum number of certificates that the certificate authority can issue and revoke. For more information, see [AWS Private CA quotas](https://docs.aws.amazon.com/general/latest/gr/pca.html#limits_pca) .
+
+        - `COMPLETE` - The default setting. AWS Private CA maintains a single CRL file for all unexpired certificates issued by a CA that have been revoked for any reason. Each certificate that AWS Private CA issues is bound to a specific CRL through the CRL distribution point (CDP) defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) .
+        - `PARTITIONED` - Compared to complete CRLs, partitioned CRLs dramatically increase the number of certificates your private CA can issue.
+
+        > When using partitioned CRLs, you must validate that the CRL's associated issuing distribution point (IDP) URI matches the certiﬁcate's CDP URI to ensure the right CRL has been fetched. AWS Private CA marks the IDP extension as critical, which your client must be able to process.
+        """
         custom_cname: NotRequired[pulumi.Input[str]]
         """
         Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
 
         > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+        """
+        custom_path: NotRequired[pulumi.Input[str]]
+        """
+        Designates a custom file path in S3 for CRL(s). For example, `http://<CustomName>/<CustomPath>/<CrlPartition_GUID>.crl` .
         """
         expiration_in_days: NotRequired[pulumi.Input[int]]
         """
@@ -260,7 +273,9 @@ class CertificateAuthorityCrlConfigurationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  crl_distribution_point_extension_configuration: Optional[pulumi.Input['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs']] = None,
+                 crl_type: Optional[pulumi.Input[str]] = None,
                  custom_cname: Optional[pulumi.Input[str]] = None,
+                 custom_path: Optional[pulumi.Input[str]] = None,
                  expiration_in_days: Optional[pulumi.Input[int]] = None,
                  s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  s3_object_acl: Optional[pulumi.Input[str]] = None):
@@ -268,9 +283,16 @@ class CertificateAuthorityCrlConfigurationArgs:
         Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
         :param pulumi.Input[bool] enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
         :param pulumi.Input['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs'] crl_distribution_point_extension_configuration: Configures the default behavior of the CRL Distribution Point extension for certificates issued by your CA. If this field is not provided, then the CRL Distribution Point extension will be present and contain the default CRL URL.
+        :param pulumi.Input[str] crl_type: Specifies the type of CRL. This setting determines the maximum number of certificates that the certificate authority can issue and revoke. For more information, see [AWS Private CA quotas](https://docs.aws.amazon.com/general/latest/gr/pca.html#limits_pca) .
+               
+               - `COMPLETE` - The default setting. AWS Private CA maintains a single CRL file for all unexpired certificates issued by a CA that have been revoked for any reason. Each certificate that AWS Private CA issues is bound to a specific CRL through the CRL distribution point (CDP) defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) .
+               - `PARTITIONED` - Compared to complete CRLs, partitioned CRLs dramatically increase the number of certificates your private CA can issue.
+               
+               > When using partitioned CRLs, you must validate that the CRL's associated issuing distribution point (IDP) URI matches the certiﬁcate's CDP URI to ensure the right CRL has been fetched. AWS Private CA marks the IDP extension as critical, which your client must be able to process.
         :param pulumi.Input[str] custom_cname: Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
                
                > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+        :param pulumi.Input[str] custom_path: Designates a custom file path in S3 for CRL(s). For example, `http://<CustomName>/<CustomPath>/<CrlPartition_GUID>.crl` .
         :param pulumi.Input[int] expiration_in_days: Validity period of the CRL in days.
         :param pulumi.Input[str] s3_bucket_name: Name of the S3 bucket that contains the CRL. If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.
                
@@ -286,8 +308,12 @@ class CertificateAuthorityCrlConfigurationArgs:
         pulumi.set(__self__, "enabled", enabled)
         if crl_distribution_point_extension_configuration is not None:
             pulumi.set(__self__, "crl_distribution_point_extension_configuration", crl_distribution_point_extension_configuration)
+        if crl_type is not None:
+            pulumi.set(__self__, "crl_type", crl_type)
         if custom_cname is not None:
             pulumi.set(__self__, "custom_cname", custom_cname)
+        if custom_path is not None:
+            pulumi.set(__self__, "custom_path", custom_path)
         if expiration_in_days is not None:
             pulumi.set(__self__, "expiration_in_days", expiration_in_days)
         if s3_bucket_name is not None:
@@ -320,6 +346,23 @@ class CertificateAuthorityCrlConfigurationArgs:
         pulumi.set(self, "crl_distribution_point_extension_configuration", value)
 
     @property
+    @pulumi.getter(name="crlType")
+    def crl_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of CRL. This setting determines the maximum number of certificates that the certificate authority can issue and revoke. For more information, see [AWS Private CA quotas](https://docs.aws.amazon.com/general/latest/gr/pca.html#limits_pca) .
+
+        - `COMPLETE` - The default setting. AWS Private CA maintains a single CRL file for all unexpired certificates issued by a CA that have been revoked for any reason. Each certificate that AWS Private CA issues is bound to a specific CRL through the CRL distribution point (CDP) defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) .
+        - `PARTITIONED` - Compared to complete CRLs, partitioned CRLs dramatically increase the number of certificates your private CA can issue.
+
+        > When using partitioned CRLs, you must validate that the CRL's associated issuing distribution point (IDP) URI matches the certiﬁcate's CDP URI to ensure the right CRL has been fetched. AWS Private CA marks the IDP extension as critical, which your client must be able to process.
+        """
+        return pulumi.get(self, "crl_type")
+
+    @crl_type.setter
+    def crl_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "crl_type", value)
+
+    @property
     @pulumi.getter(name="customCname")
     def custom_cname(self) -> Optional[pulumi.Input[str]]:
         """
@@ -332,6 +375,18 @@ class CertificateAuthorityCrlConfigurationArgs:
     @custom_cname.setter
     def custom_cname(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_cname", value)
+
+    @property
+    @pulumi.getter(name="customPath")
+    def custom_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Designates a custom file path in S3 for CRL(s). For example, `http://<CustomName>/<CustomPath>/<CrlPartition_GUID>.crl` .
+        """
+        return pulumi.get(self, "custom_path")
+
+    @custom_path.setter
+    def custom_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_path", value)
 
     @property
     @pulumi.getter(name="expirationInDays")

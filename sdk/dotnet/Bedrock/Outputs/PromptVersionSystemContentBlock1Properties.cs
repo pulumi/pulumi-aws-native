@@ -14,17 +14,14 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     /// Configuration for chat prompt template
     /// </summary>
     [OutputType]
-    public sealed class PromptSystemContentBlockProperties
+    public sealed class PromptVersionSystemContentBlock1Properties
     {
-        /// <summary>
-        /// Configuration for chat prompt template
-        /// </summary>
-        public readonly string Text;
+        public readonly Outputs.PromptVersionCachePointBlock CachePoint;
 
         [OutputConstructor]
-        private PromptSystemContentBlockProperties(string text)
+        private PromptVersionSystemContentBlock1Properties(Outputs.PromptVersionCachePointBlock cachePoint)
         {
-            Text = text;
+            CachePoint = cachePoint;
         }
     }
 }

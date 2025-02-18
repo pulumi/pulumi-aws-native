@@ -329,7 +329,7 @@ class AccessPointTransformationConfiguration(dict):
                  content_transformation: 'outputs.AccessPointTransformationConfigurationContentTransformationProperties'):
         """
         Configuration to define what content transformation will be applied on which S3 Action.
-        :param Sequence[str] actions: A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObjects` , and `ListObjectsV2` .
+        :param Sequence[str] actions: A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObject` , and `ListObjectV2` .
         :param 'AccessPointTransformationConfigurationContentTransformationProperties' content_transformation: A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
         """
         pulumi.set(__self__, "actions", actions)
@@ -339,7 +339,7 @@ class AccessPointTransformationConfiguration(dict):
     @pulumi.getter
     def actions(self) -> Sequence[str]:
         """
-        A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObjects` , and `ListObjectsV2` .
+        A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObject` , and `ListObjectV2` .
         """
         return pulumi.get(self, "actions")
 

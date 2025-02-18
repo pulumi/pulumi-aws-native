@@ -28,6 +28,8 @@ type IpamResourceDiscovery struct {
 	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
 	// The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
 	OperatingRegions IpamResourceDiscoveryIpamOperatingRegionArrayOutput `pulumi:"operatingRegions"`
+	// A set of organizational unit (OU) exclusions for this resource.
+	OrganizationalUnitExclusions IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput `pulumi:"organizationalUnitExclusions"`
 	// Owner Account ID of the Resource Discovery
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// The state of this Resource Discovery.
@@ -80,6 +82,8 @@ type ipamResourceDiscoveryArgs struct {
 	Description *string `pulumi:"description"`
 	// The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
 	OperatingRegions []IpamResourceDiscoveryIpamOperatingRegion `pulumi:"operatingRegions"`
+	// A set of organizational unit (OU) exclusions for this resource.
+	OrganizationalUnitExclusions []IpamResourceDiscoveryOrganizationalUnitExclusion `pulumi:"organizationalUnitExclusions"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -90,6 +94,8 @@ type IpamResourceDiscoveryArgs struct {
 	Description pulumi.StringPtrInput
 	// The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
 	OperatingRegions IpamResourceDiscoveryIpamOperatingRegionArrayInput
+	// A set of organizational unit (OU) exclusions for this resource.
+	OrganizationalUnitExclusions IpamResourceDiscoveryOrganizationalUnitExclusionArrayInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
@@ -161,6 +167,13 @@ func (o IpamResourceDiscoveryOutput) OperatingRegions() IpamResourceDiscoveryIpa
 	return o.ApplyT(func(v *IpamResourceDiscovery) IpamResourceDiscoveryIpamOperatingRegionArrayOutput {
 		return v.OperatingRegions
 	}).(IpamResourceDiscoveryIpamOperatingRegionArrayOutput)
+}
+
+// A set of organizational unit (OU) exclusions for this resource.
+func (o IpamResourceDiscoveryOutput) OrganizationalUnitExclusions() IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput {
+	return o.ApplyT(func(v *IpamResourceDiscovery) IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput {
+		return v.OrganizationalUnitExclusions
+	}).(IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput)
 }
 
 // Owner Account ID of the Resource Discovery

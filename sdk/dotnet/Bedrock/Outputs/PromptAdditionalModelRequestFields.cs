@@ -11,20 +11,14 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 {
 
     /// <summary>
-    /// Configuration for chat prompt template
+    /// Contains model-specific configurations
     /// </summary>
     [OutputType]
-    public sealed class PromptContentBlockProperties
+    public sealed class PromptAdditionalModelRequestFields
     {
-        /// <summary>
-        /// Configuration for chat prompt template
-        /// </summary>
-        public readonly string Text;
-
         [OutputConstructor]
-        private PromptContentBlockProperties(string text)
+        private PromptAdditionalModelRequestFields()
         {
-            Text = text;
         }
     }
 }

@@ -30,9 +30,21 @@ export interface GetLocationSmbResult {
      */
     readonly agentArns?: string[];
     /**
+     * The authentication mode used to determine identity of user.
+     */
+    readonly authenticationType?: enums.datasync.LocationSmbAuthenticationType;
+    /**
+     * Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
+     */
+    readonly dnsIpAddresses?: string[];
+    /**
      * The name of the Windows domain that the SMB server belongs to.
      */
     readonly domain?: string;
+    /**
+     * Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. SPNs are case sensitive and must include a prepended cifs/. For example, an SPN might look like cifs/kerberosuser@EXAMPLE.COM. Your task execution will fail if the SPN that you provide for this parameter doesn't match exactly what's in your keytab or krb5.conf files.
+     */
+    readonly kerberosPrincipal?: string;
     /**
      * The Amazon Resource Name (ARN) of the SMB location that is created.
      */

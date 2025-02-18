@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Batch
         public Output<Outputs.JobDefinitionRetryStrategy?> RetryStrategy { get; private set; } = null!;
 
         /// <summary>
-        /// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+        /// The scheduling priority of the job definition. This only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
         /// </summary>
         [Output("schedulingPriority")]
         public Output<int?> SchedulingPriority { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.AwsNative.Batch
         public Input<Inputs.JobDefinitionRetryStrategyArgs>? RetryStrategy { get; set; }
 
         /// <summary>
-        /// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+        /// The scheduling priority of the job definition. This only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
         /// </summary>
         [Input("schedulingPriority")]
         public Input<int>? SchedulingPriority { get; set; }

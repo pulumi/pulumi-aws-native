@@ -42,7 +42,7 @@ export class SchedulingPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The fair share policy of the scheduling policy.
+     * The fair-share scheduling policy details.
      */
     public readonly fairsharePolicy!: pulumi.Output<outputs.batch.SchedulingPolicyFairsharePolicy | undefined>;
     /**
@@ -87,7 +87,7 @@ export class SchedulingPolicy extends pulumi.CustomResource {
  */
 export interface SchedulingPolicyArgs {
     /**
-     * The fair share policy of the scheduling policy.
+     * The fair-share scheduling policy details.
      */
     fairsharePolicy?: pulumi.Input<inputs.batch.SchedulingPolicyFairsharePolicyArgs>;
     /**

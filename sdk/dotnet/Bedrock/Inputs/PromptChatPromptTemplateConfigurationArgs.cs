@@ -40,14 +40,14 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         }
 
         [Input("system")]
-        private InputList<Inputs.PromptSystemContentBlockPropertiesArgs>? _system;
+        private InputList<Union<Inputs.PromptSystemContentBlock0PropertiesArgs, Inputs.PromptSystemContentBlock1PropertiesArgs>>? _system;
 
         /// <summary>
         /// Configuration for chat prompt template
         /// </summary>
-        public InputList<Inputs.PromptSystemContentBlockPropertiesArgs> System
+        public InputList<Union<Inputs.PromptSystemContentBlock0PropertiesArgs, Inputs.PromptSystemContentBlock1PropertiesArgs>> System
         {
-            get => _system ?? (_system = new InputList<Inputs.PromptSystemContentBlockPropertiesArgs>());
+            get => _system ?? (_system = new InputList<Union<Inputs.PromptSystemContentBlock0PropertiesArgs, Inputs.PromptSystemContentBlock1PropertiesArgs>>());
             set => _system = value;
         }
 

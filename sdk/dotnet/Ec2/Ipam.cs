@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> DefaultResourceDiscoveryId { get; private set; } = null!;
 
         /// <summary>
+        /// A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
+        /// </summary>
+        [Output("defaultResourceDiscoveryOrganizationalUnitExclusions")]
+        public Output<ImmutableArray<Outputs.IpamOrganizationalUnitExclusion>> DefaultResourceDiscoveryOrganizationalUnitExclusions { get; private set; } = null!;
+
+        /// <summary>
         /// The description for the IPAM.
         /// </summary>
         [Output("description")]
@@ -138,6 +144,18 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class IpamArgs : global::Pulumi.ResourceArgs
     {
+        [Input("defaultResourceDiscoveryOrganizationalUnitExclusions")]
+        private InputList<Inputs.IpamOrganizationalUnitExclusionArgs>? _defaultResourceDiscoveryOrganizationalUnitExclusions;
+
+        /// <summary>
+        /// A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
+        /// </summary>
+        public InputList<Inputs.IpamOrganizationalUnitExclusionArgs> DefaultResourceDiscoveryOrganizationalUnitExclusions
+        {
+            get => _defaultResourceDiscoveryOrganizationalUnitExclusions ?? (_defaultResourceDiscoveryOrganizationalUnitExclusions = new InputList<Inputs.IpamOrganizationalUnitExclusionArgs>());
+            set => _defaultResourceDiscoveryOrganizationalUnitExclusions = value;
+        }
+
         /// <summary>
         /// The description for the IPAM.
         /// </summary>

@@ -88,6 +88,12 @@ func NewDataflowEndpointGroup(ctx *pulumi.Context,
 	if args.EndpointDetails == nil {
 		return nil, errors.New("invalid value for required argument 'EndpointDetails'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"contactPostPassDurationSeconds",
+		"contactPrePassDurationSeconds",
+		"endpointDetails[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataflowEndpointGroup
 	err := ctx.RegisterResource("aws-native:groundstation:DataflowEndpointGroup", name, args, &resource, opts...)

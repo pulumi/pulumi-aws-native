@@ -106,6 +106,10 @@ export class VirtualCluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The ID of the security configuration.
+     */
+    public readonly securityConfigurationId!: pulumi.Output<string | undefined>;
+    /**
      * An array of key-value pairs to apply to this virtual cluster.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -126,6 +130,7 @@ export class VirtualCluster extends pulumi.CustomResource {
             }
             resourceInputs["containerProvider"] = args ? args.containerProvider : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["securityConfigurationId"] = args ? args.securityConfigurationId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -134,6 +139,7 @@ export class VirtualCluster extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["containerProvider"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["securityConfigurationId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -155,6 +161,10 @@ export interface VirtualClusterArgs {
      * Name of the virtual cluster.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the security configuration.
+     */
+    securityConfigurationId?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this virtual cluster.
      */

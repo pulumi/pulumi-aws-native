@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         public readonly string? State;
         /// <summary>
-        /// The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.
+        /// The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.
         /// 
         /// &gt; This parameter is only supported when the `type` parameter is set to `UNMANAGED` .
         /// </summary>

@@ -35,6 +35,8 @@ type LookupIpamResult struct {
 	DefaultResourceDiscoveryAssociationId *string `pulumi:"defaultResourceDiscoveryAssociationId"`
 	// The Id of the default resource discovery, created with this IPAM.
 	DefaultResourceDiscoveryId *string `pulumi:"defaultResourceDiscoveryId"`
+	// A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
+	DefaultResourceDiscoveryOrganizationalUnitExclusions []IpamOrganizationalUnitExclusion `pulumi:"defaultResourceDiscoveryOrganizationalUnitExclusions"`
 	// The description for the IPAM.
 	Description *string `pulumi:"description"`
 	// Enable provisioning of GUA space in private pools.
@@ -102,6 +104,13 @@ func (o LookupIpamResultOutput) DefaultResourceDiscoveryAssociationId() pulumi.S
 // The Id of the default resource discovery, created with this IPAM.
 func (o LookupIpamResultOutput) DefaultResourceDiscoveryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpamResult) *string { return v.DefaultResourceDiscoveryId }).(pulumi.StringPtrOutput)
+}
+
+// A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
+func (o LookupIpamResultOutput) DefaultResourceDiscoveryOrganizationalUnitExclusions() IpamOrganizationalUnitExclusionArrayOutput {
+	return o.ApplyT(func(v LookupIpamResult) []IpamOrganizationalUnitExclusion {
+		return v.DefaultResourceDiscoveryOrganizationalUnitExclusions
+	}).(IpamOrganizationalUnitExclusionArrayOutput)
 }
 
 // The description for the IPAM.

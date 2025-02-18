@@ -144,6 +144,10 @@ if not MYPY:
         """
         Group attribute for this saml integration
         """
+        open_search_serverless_entity_id: NotRequired[pulumi.Input[str]]
+        """
+        Custom entity id attribute to override default entity id for this saml integration
+        """
         session_timeout: NotRequired[pulumi.Input[int]]
         """
         Defines the session timeout in minutes
@@ -160,18 +164,22 @@ class SecurityConfigSamlConfigOptionsArgs:
     def __init__(__self__, *,
                  metadata: pulumi.Input[str],
                  group_attribute: Optional[pulumi.Input[str]] = None,
+                 open_search_serverless_entity_id: Optional[pulumi.Input[str]] = None,
                  session_timeout: Optional[pulumi.Input[int]] = None,
                  user_attribute: Optional[pulumi.Input[str]] = None):
         """
         Describes saml options in form of key value map
         :param pulumi.Input[str] metadata: The XML saml provider metadata document that you want to use
         :param pulumi.Input[str] group_attribute: Group attribute for this saml integration
+        :param pulumi.Input[str] open_search_serverless_entity_id: Custom entity id attribute to override default entity id for this saml integration
         :param pulumi.Input[int] session_timeout: Defines the session timeout in minutes
         :param pulumi.Input[str] user_attribute: Custom attribute for this saml integration
         """
         pulumi.set(__self__, "metadata", metadata)
         if group_attribute is not None:
             pulumi.set(__self__, "group_attribute", group_attribute)
+        if open_search_serverless_entity_id is not None:
+            pulumi.set(__self__, "open_search_serverless_entity_id", open_search_serverless_entity_id)
         if session_timeout is not None:
             pulumi.set(__self__, "session_timeout", session_timeout)
         if user_attribute is not None:
@@ -200,6 +208,18 @@ class SecurityConfigSamlConfigOptionsArgs:
     @group_attribute.setter
     def group_attribute(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "group_attribute", value)
+
+    @property
+    @pulumi.getter(name="openSearchServerlessEntityId")
+    def open_search_serverless_entity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom entity id attribute to override default entity id for this saml integration
+        """
+        return pulumi.get(self, "open_search_serverless_entity_id")
+
+    @open_search_serverless_entity_id.setter
+    def open_search_serverless_entity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "open_search_serverless_entity_id", value)
 
     @property
     @pulumi.getter(name="sessionTimeout")

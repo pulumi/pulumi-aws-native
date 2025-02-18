@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? DefaultResourceDiscoveryId;
         /// <summary>
+        /// A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IpamOrganizationalUnitExclusion> DefaultResourceDiscoveryOrganizationalUnitExclusions;
+        /// <summary>
         /// The description for the IPAM.
         /// </summary>
         public readonly string? Description;
@@ -124,6 +128,8 @@ namespace Pulumi.AwsNative.Ec2
 
             string? defaultResourceDiscoveryId,
 
+            ImmutableArray<Outputs.IpamOrganizationalUnitExclusion> defaultResourceDiscoveryOrganizationalUnitExclusions,
+
             string? description,
 
             bool? enablePrivateGua,
@@ -147,6 +153,7 @@ namespace Pulumi.AwsNative.Ec2
             Arn = arn;
             DefaultResourceDiscoveryAssociationId = defaultResourceDiscoveryAssociationId;
             DefaultResourceDiscoveryId = defaultResourceDiscoveryId;
+            DefaultResourceDiscoveryOrganizationalUnitExclusions = defaultResourceDiscoveryOrganizationalUnitExclusions;
             Description = description;
             EnablePrivateGua = enablePrivateGua;
             IpamId = ipamId;

@@ -19,14 +19,14 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         public object? ToolChoice { get; set; }
 
         [Input("tools", required: true)]
-        private InputList<Inputs.PromptToolPropertiesArgs>? _tools;
+        private InputList<Union<Inputs.PromptTool0PropertiesArgs, Inputs.PromptTool1PropertiesArgs>>? _tools;
 
         /// <summary>
         /// List of Tools
         /// </summary>
-        public InputList<Inputs.PromptToolPropertiesArgs> Tools
+        public InputList<Union<Inputs.PromptTool0PropertiesArgs, Inputs.PromptTool1PropertiesArgs>> Tools
         {
-            get => _tools ?? (_tools = new InputList<Inputs.PromptToolPropertiesArgs>());
+            get => _tools ?? (_tools = new InputList<Union<Inputs.PromptTool0PropertiesArgs, Inputs.PromptTool1PropertiesArgs>>());
             set => _tools = value;
         }
 

@@ -35,6 +35,17 @@ export const AgentAliasStatus = {
  */
 export type AgentAliasStatus = (typeof AgentAliasStatus)[keyof typeof AgentAliasStatus];
 
+export const AgentCollaboration = {
+    Disabled: "DISABLED",
+    Supervisor: "SUPERVISOR",
+    SupervisorRouter: "SUPERVISOR_ROUTER",
+} as const;
+
+/**
+ * Agent collaboration state
+ */
+export type AgentCollaboration = (typeof AgentCollaboration)[keyof typeof AgentCollaboration];
+
 export const AgentCreationMode = {
     Default: "DEFAULT",
     Overridden: "OVERRIDDEN",
@@ -64,6 +75,25 @@ export const AgentKnowledgeBaseState = {
  */
 export type AgentKnowledgeBaseState = (typeof AgentKnowledgeBaseState)[keyof typeof AgentKnowledgeBaseState];
 
+export const AgentMemoryType = {
+    SessionSummary: "SESSION_SUMMARY",
+} as const;
+
+/**
+ * Memory type
+ */
+export type AgentMemoryType = (typeof AgentMemoryType)[keyof typeof AgentMemoryType];
+
+export const AgentOrchestrationType = {
+    Default: "DEFAULT",
+    CustomOrchestration: "CUSTOM_ORCHESTRATION",
+} as const;
+
+/**
+ * Types of orchestration strategy for agents
+ */
+export type AgentOrchestrationType = (typeof AgentOrchestrationType)[keyof typeof AgentOrchestrationType];
+
 export const AgentPromptState = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
@@ -78,6 +108,8 @@ export const AgentPromptType = {
     PreProcessing: "PRE_PROCESSING",
     Orchestration: "ORCHESTRATION",
     PostProcessing: "POST_PROCESSING",
+    RoutingClassifier: "ROUTING_CLASSIFIER",
+    MemorySummarization: "MEMORY_SUMMARIZATION",
     KnowledgeBaseResponseGeneration: "KNOWLEDGE_BASE_RESPONSE_GENERATION",
 } as const;
 
@@ -85,6 +117,16 @@ export const AgentPromptType = {
  * Prompt Type.
  */
 export type AgentPromptType = (typeof AgentPromptType)[keyof typeof AgentPromptType];
+
+export const AgentRelayConversationHistory = {
+    ToCollaborator: "TO_COLLABORATOR",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Relay conversation history state
+ */
+export type AgentRelayConversationHistory = (typeof AgentRelayConversationHistory)[keyof typeof AgentRelayConversationHistory];
 
 export const AgentRequireConfirmation = {
     Enabled: "ENABLED",
@@ -646,6 +688,15 @@ export const KnowledgeBaseType = {
  */
 export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof KnowledgeBaseType];
 
+export const PromptCachePointType = {
+    Default: "default",
+} as const;
+
+/**
+ * CachePoint types for CachePointBlock
+ */
+export type PromptCachePointType = (typeof PromptCachePointType)[keyof typeof PromptCachePointType];
+
 export const PromptConversationRole = {
     User: "user",
     Assistant: "assistant",
@@ -665,6 +716,15 @@ export const PromptTemplateType = {
  * Prompt template type
  */
 export type PromptTemplateType = (typeof PromptTemplateType)[keyof typeof PromptTemplateType];
+
+export const PromptVersionCachePointType = {
+    Default: "default",
+} as const;
+
+/**
+ * CachePoint types for CachePointBlock
+ */
+export type PromptVersionCachePointType = (typeof PromptVersionCachePointType)[keyof typeof PromptVersionCachePointType];
 
 export const PromptVersionConversationRole = {
     User: "user",

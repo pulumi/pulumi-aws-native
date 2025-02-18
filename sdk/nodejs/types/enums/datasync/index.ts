@@ -158,6 +158,16 @@ export const LocationS3S3StorageClass = {
  */
 export type LocationS3S3StorageClass = (typeof LocationS3S3StorageClass)[keyof typeof LocationS3S3StorageClass];
 
+export const LocationSmbAuthenticationType = {
+    Ntlm: "NTLM",
+    Kerberos: "KERBEROS",
+} as const;
+
+/**
+ * The authentication mode used to determine identity of user.
+ */
+export type LocationSmbAuthenticationType = (typeof LocationSmbAuthenticationType)[keyof typeof LocationSmbAuthenticationType];
+
 export const LocationSmbMountOptionsVersion = {
     Automatic: "AUTOMATIC",
     Smb1: "SMB1",

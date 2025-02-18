@@ -14,12 +14,12 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     /// Tool details
     /// </summary>
     [OutputType]
-    public sealed class PromptVersionToolProperties
+    public sealed class PromptTool0Properties
     {
-        public readonly Outputs.PromptVersionToolSpecification ToolSpec;
+        public readonly Outputs.PromptToolSpecification ToolSpec;
 
         [OutputConstructor]
-        private PromptVersionToolProperties(Outputs.PromptVersionToolSpecification toolSpec)
+        private PromptTool0Properties(Outputs.PromptToolSpecification toolSpec)
         {
             ToolSpec = toolSpec;
         }

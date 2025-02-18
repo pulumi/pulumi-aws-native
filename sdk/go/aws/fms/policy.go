@@ -96,7 +96,7 @@ type Policy struct {
 	//
 	// This contains the following settings:
 	//
-	// - Type - Indicates the service type that the policy uses to protect the resource. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting AWS Support .
+	// - Type - Indicates the service type that the policy uses to protect the resource. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting  .
 	//
 	// Valid values: `DNS_FIREWALL` | `NETWORK_FIREWALL` | `SECURITY_GROUPS_COMMON` | `SECURITY_GROUPS_CONTENT_AUDIT` | `SECURITY_GROUPS_USAGE_AUDIT` | `SHIELD_ADVANCED` | `THIRD_PARTY_FIREWALL` | `WAFV2` | `WAF`
 	// - ManagedServiceData - Details about the service that are specific to the service type, in JSON format.
@@ -308,7 +308,7 @@ type policyArgs struct {
 	//
 	// This contains the following settings:
 	//
-	// - Type - Indicates the service type that the policy uses to protect the resource. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting AWS Support .
+	// - Type - Indicates the service type that the policy uses to protect the resource. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting  .
 	//
 	// Valid values: `DNS_FIREWALL` | `NETWORK_FIREWALL` | `SECURITY_GROUPS_COMMON` | `SECURITY_GROUPS_CONTENT_AUDIT` | `SECURITY_GROUPS_USAGE_AUDIT` | `SHIELD_ADVANCED` | `THIRD_PARTY_FIREWALL` | `WAFV2` | `WAF`
 	// - ManagedServiceData - Details about the service that are specific to the service type, in JSON format.
@@ -473,7 +473,7 @@ type PolicyArgs struct {
 	//
 	// This contains the following settings:
 	//
-	// - Type - Indicates the service type that the policy uses to protect the resource. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting AWS Support .
+	// - Type - Indicates the service type that the policy uses to protect the resource. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting  .
 	//
 	// Valid values: `DNS_FIREWALL` | `NETWORK_FIREWALL` | `SECURITY_GROUPS_COMMON` | `SECURITY_GROUPS_CONTENT_AUDIT` | `SECURITY_GROUPS_USAGE_AUDIT` | `SHIELD_ADVANCED` | `THIRD_PARTY_FIREWALL` | `WAFV2` | `WAF`
 	// - ManagedServiceData - Details about the service that are specific to the service type, in JSON format.
@@ -722,7 +722,7 @@ func (o PolicyOutput) ResourcesCleanUp() pulumi.BoolPtrOutput {
 //
 // This contains the following settings:
 //
-// - Type - Indicates the service type that the policy uses to protect the resource. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting AWS Support .
+// - Type - Indicates the service type that the policy uses to protect the resource. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting  .
 //
 // Valid values: `DNS_FIREWALL` | `NETWORK_FIREWALL` | `SECURITY_GROUPS_COMMON` | `SECURITY_GROUPS_CONTENT_AUDIT` | `SECURITY_GROUPS_USAGE_AUDIT` | `SHIELD_ADVANCED` | `THIRD_PARTY_FIREWALL` | `WAFV2` | `WAF`
 // - ManagedServiceData - Details about the service that are specific to the service type, in JSON format.

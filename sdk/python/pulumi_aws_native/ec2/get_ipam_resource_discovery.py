@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetIpamResourceDiscoveryResult:
-    def __init__(__self__, description=None, ipam_resource_discovery_arn=None, ipam_resource_discovery_id=None, ipam_resource_discovery_region=None, is_default=None, operating_regions=None, owner_id=None, state=None, tags=None):
+    def __init__(__self__, description=None, ipam_resource_discovery_arn=None, ipam_resource_discovery_id=None, ipam_resource_discovery_region=None, is_default=None, operating_regions=None, organizational_unit_exclusions=None, owner_id=None, state=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -44,6 +44,9 @@ class GetIpamResourceDiscoveryResult:
         if operating_regions and not isinstance(operating_regions, list):
             raise TypeError("Expected argument 'operating_regions' to be a list")
         pulumi.set(__self__, "operating_regions", operating_regions)
+        if organizational_unit_exclusions and not isinstance(organizational_unit_exclusions, list):
+            raise TypeError("Expected argument 'organizational_unit_exclusions' to be a list")
+        pulumi.set(__self__, "organizational_unit_exclusions", organizational_unit_exclusions)
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
@@ -103,6 +106,14 @@ class GetIpamResourceDiscoveryResult:
         return pulumi.get(self, "operating_regions")
 
     @property
+    @pulumi.getter(name="organizationalUnitExclusions")
+    def organizational_unit_exclusions(self) -> Optional[Sequence['outputs.IpamResourceDiscoveryOrganizationalUnitExclusion']]:
+        """
+        A set of organizational unit (OU) exclusions for this resource.
+        """
+        return pulumi.get(self, "organizational_unit_exclusions")
+
+    @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[str]:
         """
@@ -139,6 +150,7 @@ class AwaitableGetIpamResourceDiscoveryResult(GetIpamResourceDiscoveryResult):
             ipam_resource_discovery_region=self.ipam_resource_discovery_region,
             is_default=self.is_default,
             operating_regions=self.operating_regions,
+            organizational_unit_exclusions=self.organizational_unit_exclusions,
             owner_id=self.owner_id,
             state=self.state,
             tags=self.tags)
@@ -164,6 +176,7 @@ def get_ipam_resource_discovery(ipam_resource_discovery_id: Optional[str] = None
         ipam_resource_discovery_region=pulumi.get(__ret__, 'ipam_resource_discovery_region'),
         is_default=pulumi.get(__ret__, 'is_default'),
         operating_regions=pulumi.get(__ret__, 'operating_regions'),
+        organizational_unit_exclusions=pulumi.get(__ret__, 'organizational_unit_exclusions'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -186,6 +199,7 @@ def get_ipam_resource_discovery_output(ipam_resource_discovery_id: Optional[pulu
         ipam_resource_discovery_region=pulumi.get(__response__, 'ipam_resource_discovery_region'),
         is_default=pulumi.get(__response__, 'is_default'),
         operating_regions=pulumi.get(__response__, 'operating_regions'),
+        organizational_unit_exclusions=pulumi.get(__response__, 'organizational_unit_exclusions'),
         owner_id=pulumi.get(__response__, 'owner_id'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags')))

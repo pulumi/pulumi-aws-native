@@ -24,7 +24,7 @@ type MountTarget struct {
 	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
 	// Valid IPv4 address within the address range of the specified subnet.
 	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
-	// Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+	// VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table).
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
@@ -89,7 +89,7 @@ type mountTargetArgs struct {
 	FileSystemId string `pulumi:"fileSystemId"`
 	// Valid IPv4 address within the address range of the specified subnet.
 	IpAddress *string `pulumi:"ipAddress"`
-	// Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+	// VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table).
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
 	SubnetId string `pulumi:"subnetId"`
@@ -101,7 +101,7 @@ type MountTargetArgs struct {
 	FileSystemId pulumi.StringInput
 	// Valid IPv4 address within the address range of the specified subnet.
 	IpAddress pulumi.StringPtrInput
-	// Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+	// VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table).
 	SecurityGroups pulumi.StringArrayInput
 	// The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
 	SubnetId pulumi.StringInput
@@ -161,7 +161,7 @@ func (o MountTargetOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MountTarget) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Up to five VPC security group IDs, of the form “sg-xxxxxxxx“. These must be for the same VPC as subnet specified.
+// VPC security group IDs, of the form “sg-xxxxxxxx“. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table).
 func (o MountTargetOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MountTarget) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }

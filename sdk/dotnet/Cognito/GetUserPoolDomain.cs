@@ -34,10 +34,16 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolDomainArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The resource ID.
+        /// The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` .
         /// </summary>
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("domain", required: true)]
+        public string Domain { get; set; } = null!;
+
+        /// <summary>
+        /// The ID of the user pool that is associated with the domain you're updating.
+        /// </summary>
+        [Input("userPoolId", required: true)]
+        public string UserPoolId { get; set; } = null!;
 
         public GetUserPoolDomainArgs()
         {
@@ -48,10 +54,16 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The resource ID.
+        /// The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` .
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("domain", required: true)]
+        public Input<string> Domain { get; set; } = null!;
+
+        /// <summary>
+        /// The ID of the user pool that is associated with the domain you're updating.
+        /// </summary>
+        [Input("userPoolId", required: true)]
+        public Input<string> UserPoolId { get; set; } = null!;
 
         public GetUserPoolDomainInvokeArgs()
         {
@@ -73,29 +85,15 @@ namespace Pulumi.AwsNative.Cognito
         /// When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
         /// </summary>
         public readonly Outputs.UserPoolDomainCustomDomainConfigType? CustomDomainConfig;
-        /// <summary>
-        /// The resource ID.
-        /// </summary>
-        public readonly string? Id;
-        /// <summary>
-        /// A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
-        /// </summary>
-        public readonly int? ManagedLoginVersion;
 
         [OutputConstructor]
         private GetUserPoolDomainResult(
             string? cloudFrontDistribution,
 
-            Outputs.UserPoolDomainCustomDomainConfigType? customDomainConfig,
-
-            string? id,
-
-            int? managedLoginVersion)
+            Outputs.UserPoolDomainCustomDomainConfigType? customDomainConfig)
         {
             CloudFrontDistribution = cloudFrontDistribution;
             CustomDomainConfig = customDomainConfig;
-            Id = id;
-            ManagedLoginVersion = managedLoginVersion;
         }
     }
 }

@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     public sealed class PromptVariant
     {
         /// <summary>
+        /// Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+        /// </summary>
+        public readonly Outputs.PromptAdditionalModelRequestFields? AdditionalModelRequestFields;
+        /// <summary>
         /// Specifies a generative AI resource with which to use the prompt.
         /// </summary>
         public readonly Outputs.PromptGenAiResourceProperties? GenAiResource;
@@ -43,6 +47,8 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
         [OutputConstructor]
         private PromptVariant(
+            Outputs.PromptAdditionalModelRequestFields? additionalModelRequestFields,
+
             Outputs.PromptGenAiResourceProperties? genAiResource,
 
             Outputs.PromptInferenceConfigurationProperties? inferenceConfiguration,
@@ -55,6 +61,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
             Pulumi.AwsNative.Bedrock.PromptTemplateType templateType)
         {
+            AdditionalModelRequestFields = additionalModelRequestFields;
             GenAiResource = genAiResource;
             InferenceConfiguration = inferenceConfiguration;
             ModelId = modelId;

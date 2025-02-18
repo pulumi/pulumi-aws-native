@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// The fair share policy of the scheduling policy.
+        /// The fair-share scheduling policy details.
         /// </summary>
         public readonly Outputs.SchedulingPolicyFairsharePolicy? FairsharePolicy;
 

@@ -68,9 +68,21 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public readonly ImmutableArray<string> AgentArns;
         /// <summary>
+        /// The authentication mode used to determine identity of user.
+        /// </summary>
+        public readonly Pulumi.AwsNative.DataSync.LocationSmbAuthenticationType? AuthenticationType;
+        /// <summary>
+        /// Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
+        /// </summary>
+        public readonly ImmutableArray<string> DnsIpAddresses;
+        /// <summary>
         /// The name of the Windows domain that the SMB server belongs to.
         /// </summary>
         public readonly string? Domain;
+        /// <summary>
+        /// Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. SPNs are case sensitive and must include a prepended cifs/. For example, an SPN might look like cifs/kerberosuser@EXAMPLE.COM. Your task execution will fail if the SPN that you provide for this parameter doesn't match exactly what's in your keytab or krb5.conf files.
+        /// </summary>
+        public readonly string? KerberosPrincipal;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SMB location that is created.
         /// </summary>
@@ -96,7 +108,13 @@ namespace Pulumi.AwsNative.DataSync
         private GetLocationSmbResult(
             ImmutableArray<string> agentArns,
 
+            Pulumi.AwsNative.DataSync.LocationSmbAuthenticationType? authenticationType,
+
+            ImmutableArray<string> dnsIpAddresses,
+
             string? domain,
+
+            string? kerberosPrincipal,
 
             string? locationArn,
 
@@ -109,7 +127,10 @@ namespace Pulumi.AwsNative.DataSync
             string? user)
         {
             AgentArns = agentArns;
+            AuthenticationType = authenticationType;
+            DnsIpAddresses = dnsIpAddresses;
             Domain = domain;
+            KerberosPrincipal = kerberosPrincipal;
             LocationArn = locationArn;
             LocationUri = locationUri;
             MountOptions = mountOptions;

@@ -71,6 +71,11 @@ namespace Pulumi.AwsNative.Bedrock
         /// Arn representation of the Agent.
         /// </summary>
         public readonly string? AgentArn;
+        public readonly Pulumi.AwsNative.Bedrock.AgentCollaboration? AgentCollaboration;
+        /// <summary>
+        /// List of Agent Collaborators
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AgentCollaborator> AgentCollaborators;
         /// <summary>
         /// Identifier for a resource.
         /// </summary>
@@ -103,6 +108,7 @@ namespace Pulumi.AwsNative.Bedrock
         /// Time Stamp.
         /// </summary>
         public readonly string? CreatedAt;
+        public readonly Outputs.AgentCustomOrchestration? CustomOrchestration;
         /// <summary>
         /// A KMS key ARN
         /// </summary>
@@ -116,7 +122,7 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         public readonly ImmutableArray<string> FailureReasons;
         /// <summary>
-        /// ARN or name of a Bedrock model.
+        /// The foundation model used for orchestration by the agent.
         /// </summary>
         public readonly string? FoundationModel;
         /// <summary>
@@ -135,6 +141,8 @@ namespace Pulumi.AwsNative.Bedrock
         /// List of Agent Knowledge Bases
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentKnowledgeBase> KnowledgeBases;
+        public readonly Outputs.AgentMemoryConfiguration? MemoryConfiguration;
+        public readonly Pulumi.AwsNative.Bedrock.AgentOrchestrationType? OrchestrationType;
         /// <summary>
         /// Time Stamp.
         /// </summary>
@@ -172,6 +180,10 @@ namespace Pulumi.AwsNative.Bedrock
 
             string? agentArn,
 
+            Pulumi.AwsNative.Bedrock.AgentCollaboration? agentCollaboration,
+
+            ImmutableArray<Outputs.AgentCollaborator> agentCollaborators,
+
             string? agentId,
 
             string? agentName,
@@ -183,6 +195,8 @@ namespace Pulumi.AwsNative.Bedrock
             string? agentVersion,
 
             string? createdAt,
+
+            Outputs.AgentCustomOrchestration? customOrchestration,
 
             string? customerEncryptionKeyArn,
 
@@ -200,6 +214,10 @@ namespace Pulumi.AwsNative.Bedrock
 
             ImmutableArray<Outputs.AgentKnowledgeBase> knowledgeBases,
 
+            Outputs.AgentMemoryConfiguration? memoryConfiguration,
+
+            Pulumi.AwsNative.Bedrock.AgentOrchestrationType? orchestrationType,
+
             string? preparedAt,
 
             Outputs.AgentPromptOverrideConfiguration? promptOverrideConfiguration,
@@ -214,12 +232,15 @@ namespace Pulumi.AwsNative.Bedrock
         {
             ActionGroups = actionGroups;
             AgentArn = agentArn;
+            AgentCollaboration = agentCollaboration;
+            AgentCollaborators = agentCollaborators;
             AgentId = agentId;
             AgentName = agentName;
             AgentResourceRoleArn = agentResourceRoleArn;
             AgentStatus = agentStatus;
             AgentVersion = agentVersion;
             CreatedAt = createdAt;
+            CustomOrchestration = customOrchestration;
             CustomerEncryptionKeyArn = customerEncryptionKeyArn;
             Description = description;
             FailureReasons = failureReasons;
@@ -228,6 +249,8 @@ namespace Pulumi.AwsNative.Bedrock
             IdleSessionTtlInSeconds = idleSessionTtlInSeconds;
             Instruction = instruction;
             KnowledgeBases = knowledgeBases;
+            MemoryConfiguration = memoryConfiguration;
+            OrchestrationType = orchestrationType;
             PreparedAt = preparedAt;
             PromptOverrideConfiguration = promptOverrideConfiguration;
             RecommendedActions = recommendedActions;

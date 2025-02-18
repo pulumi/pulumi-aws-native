@@ -34,6 +34,10 @@ export interface GetVirtualClusterResult {
      */
     readonly id?: string;
     /**
+     * The ID of the security configuration.
+     */
+    readonly securityConfigurationId?: string;
+    /**
      * An array of key-value pairs to apply to this virtual cluster.
      */
     readonly tags?: outputs.Tag[];

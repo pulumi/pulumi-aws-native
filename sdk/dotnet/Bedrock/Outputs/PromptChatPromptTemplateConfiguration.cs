@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// <summary>
         /// Configuration for chat prompt template
         /// </summary>
-        public readonly ImmutableArray<Outputs.PromptSystemContentBlockProperties> System;
+        public readonly ImmutableArray<Union<Outputs.PromptSystemContentBlock0Properties, Outputs.PromptSystemContentBlock1Properties>> System;
         public readonly Outputs.PromptToolConfiguration? ToolConfiguration;
 
         [OutputConstructor]
@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
             ImmutableArray<Outputs.PromptMessage> messages,
 
-            ImmutableArray<Outputs.PromptSystemContentBlockProperties> system,
+            ImmutableArray<Union<Outputs.PromptSystemContentBlock0Properties, Outputs.PromptSystemContentBlock1Properties>> system,
 
             Outputs.PromptToolConfiguration? toolConfiguration)
         {

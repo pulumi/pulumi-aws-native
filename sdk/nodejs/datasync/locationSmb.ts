@@ -42,9 +42,29 @@ export class LocationSmb extends pulumi.CustomResource {
      */
     public readonly agentArns!: pulumi.Output<string[]>;
     /**
+     * The authentication mode used to determine identity of user.
+     */
+    public readonly authenticationType!: pulumi.Output<enums.datasync.LocationSmbAuthenticationType | undefined>;
+    /**
+     * Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
+     */
+    public readonly dnsIpAddresses!: pulumi.Output<string[] | undefined>;
+    /**
      * The name of the Windows domain that the SMB server belongs to.
      */
     public readonly domain!: pulumi.Output<string | undefined>;
+    /**
+     * The Base64 string representation of the Keytab file. Specifies your Kerberos key table (keytab) file, which includes mappings between your service principal name (SPN) and encryption keys. To avoid task execution errors, make sure that the SPN in the keytab file matches exactly what you specify for KerberosPrincipal and in your krb5.conf file.
+     */
+    public readonly kerberosKeytab!: pulumi.Output<string | undefined>;
+    /**
+     * The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket. Specifies a Kerberos configuration file (krb5.conf) that defines your Kerberos realm configuration. To avoid task execution errors, make sure that the service principal name (SPN) in the krb5.conf file matches exactly what you specify for KerberosPrincipal and in your keytab file.
+     */
+    public readonly kerberosKrb5Conf!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. SPNs are case sensitive and must include a prepended cifs/. For example, an SPN might look like cifs/kerberosuser@EXAMPLE.COM. Your task execution will fail if the SPN that you provide for this parameter doesn't match exactly what's in your keytab or krb5.conf files.
+     */
+    public readonly kerberosPrincipal!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the SMB location that is created.
      */
@@ -76,7 +96,7 @@ export class LocationSmb extends pulumi.CustomResource {
     /**
      * The user who can mount the share, has the permissions to access files and folders in the SMB share.
      */
-    public readonly user!: pulumi.Output<string>;
+    public readonly user!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LocationSmb resource with the given unique name, arguments, and options.
@@ -92,11 +112,13 @@ export class LocationSmb extends pulumi.CustomResource {
             if ((!args || args.agentArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'agentArns'");
             }
-            if ((!args || args.user === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'user'");
-            }
             resourceInputs["agentArns"] = args ? args.agentArns : undefined;
+            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["dnsIpAddresses"] = args ? args.dnsIpAddresses : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["kerberosKeytab"] = args ? args.kerberosKeytab : undefined;
+            resourceInputs["kerberosKrb5Conf"] = args ? args.kerberosKrb5Conf : undefined;
+            resourceInputs["kerberosPrincipal"] = args ? args.kerberosPrincipal : undefined;
             resourceInputs["mountOptions"] = args ? args.mountOptions : undefined;
             resourceInputs["password"] = args ? args.password : undefined;
             resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
@@ -107,7 +129,12 @@ export class LocationSmb extends pulumi.CustomResource {
             resourceInputs["locationUri"] = undefined /*out*/;
         } else {
             resourceInputs["agentArns"] = undefined /*out*/;
+            resourceInputs["authenticationType"] = undefined /*out*/;
+            resourceInputs["dnsIpAddresses"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
+            resourceInputs["kerberosKeytab"] = undefined /*out*/;
+            resourceInputs["kerberosKrb5Conf"] = undefined /*out*/;
+            resourceInputs["kerberosPrincipal"] = undefined /*out*/;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
             resourceInputs["mountOptions"] = undefined /*out*/;
@@ -118,8 +145,6 @@ export class LocationSmb extends pulumi.CustomResource {
             resourceInputs["user"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["serverHostname"] };
-        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LocationSmb.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -133,9 +158,29 @@ export interface LocationSmbArgs {
      */
     agentArns: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The authentication mode used to determine identity of user.
+     */
+    authenticationType?: pulumi.Input<enums.datasync.LocationSmbAuthenticationType>;
+    /**
+     * Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
+     */
+    dnsIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The name of the Windows domain that the SMB server belongs to.
      */
     domain?: pulumi.Input<string>;
+    /**
+     * The Base64 string representation of the Keytab file. Specifies your Kerberos key table (keytab) file, which includes mappings between your service principal name (SPN) and encryption keys. To avoid task execution errors, make sure that the SPN in the keytab file matches exactly what you specify for KerberosPrincipal and in your krb5.conf file.
+     */
+    kerberosKeytab?: pulumi.Input<string>;
+    /**
+     * The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket. Specifies a Kerberos configuration file (krb5.conf) that defines your Kerberos realm configuration. To avoid task execution errors, make sure that the service principal name (SPN) in the krb5.conf file matches exactly what you specify for KerberosPrincipal and in your keytab file.
+     */
+    kerberosKrb5Conf?: pulumi.Input<string>;
+    /**
+     * Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. SPNs are case sensitive and must include a prepended cifs/. For example, an SPN might look like cifs/kerberosuser@EXAMPLE.COM. Your task execution will fail if the SPN that you provide for this parameter doesn't match exactly what's in your keytab or krb5.conf files.
+     */
+    kerberosPrincipal?: pulumi.Input<string>;
     /**
      * Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
      */
@@ -159,5 +204,5 @@ export interface LocationSmbArgs {
     /**
      * The user who can mount the share, has the permissions to access files and folders in the SMB share.
      */
-    user: pulumi.Input<string>;
+    user?: pulumi.Input<string>;
 }

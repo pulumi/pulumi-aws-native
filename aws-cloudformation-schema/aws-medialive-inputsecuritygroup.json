@@ -31,6 +31,7 @@
       }
     }
   },
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/Id" ],
-  "primaryIdentifier" : [ "/properties/Id" ]
+  "createOnlyProperties" : [ "/properties/Tags" ],
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ]
 }

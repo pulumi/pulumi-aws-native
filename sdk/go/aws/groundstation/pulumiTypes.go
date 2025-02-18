@@ -4067,6 +4067,8 @@ func (o MissionProfileDataflowEdgeArrayOutput) Index(i pulumi.IntInput) MissionP
 type MissionProfileStreamsKmsKey struct {
 	// KMS Alias Arn.
 	KmsAliasArn *string `pulumi:"kmsAliasArn"`
+	// KMS Alias Name.
+	KmsAliasName *string `pulumi:"kmsAliasName"`
 	// KMS Key Arn.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
@@ -4085,6 +4087,8 @@ type MissionProfileStreamsKmsKeyInput interface {
 type MissionProfileStreamsKmsKeyArgs struct {
 	// KMS Alias Arn.
 	KmsAliasArn pulumi.StringPtrInput `pulumi:"kmsAliasArn"`
+	// KMS Alias Name.
+	KmsAliasName pulumi.StringPtrInput `pulumi:"kmsAliasName"`
 	// KMS Key Arn.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
@@ -4171,6 +4175,11 @@ func (o MissionProfileStreamsKmsKeyOutput) KmsAliasArn() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v MissionProfileStreamsKmsKey) *string { return v.KmsAliasArn }).(pulumi.StringPtrOutput)
 }
 
+// KMS Alias Name.
+func (o MissionProfileStreamsKmsKeyOutput) KmsAliasName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MissionProfileStreamsKmsKey) *string { return v.KmsAliasName }).(pulumi.StringPtrOutput)
+}
+
 // KMS Key Arn.
 func (o MissionProfileStreamsKmsKeyOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MissionProfileStreamsKmsKey) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
@@ -4207,6 +4216,16 @@ func (o MissionProfileStreamsKmsKeyPtrOutput) KmsAliasArn() pulumi.StringPtrOutp
 			return nil
 		}
 		return v.KmsAliasArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// KMS Alias Name.
+func (o MissionProfileStreamsKmsKeyPtrOutput) KmsAliasName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MissionProfileStreamsKmsKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsAliasName
 	}).(pulumi.StringPtrOutput)
 }
 

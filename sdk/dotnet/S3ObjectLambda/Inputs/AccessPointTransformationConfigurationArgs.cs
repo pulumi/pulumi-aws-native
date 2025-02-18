@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Inputs
         private InputList<string>? _actions;
 
         /// <summary>
-        /// A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObjects` , and `ListObjectsV2` .
+        /// A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObject` , and `ListObjectV2` .
         /// </summary>
         public InputList<string> Actions
         {

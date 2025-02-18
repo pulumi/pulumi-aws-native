@@ -2352,6 +2352,8 @@ type Ec2FleetFleetLaunchTemplateOverridesRequest struct {
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 	//
 	// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+	// >
+	// > If you specify a maximum price, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an `InvalidParameterValue` error message.
 	MaxPrice *string `pulumi:"maxPrice"`
 	// The location where the instance launched, if applicable.
 	Placement *Ec2FleetPlacement `pulumi:"placement"`
@@ -2400,6 +2402,8 @@ type Ec2FleetFleetLaunchTemplateOverridesRequestArgs struct {
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 	//
 	// > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+	// >
+	// > If you specify a maximum price, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an `InvalidParameterValue` error message.
 	MaxPrice pulumi.StringPtrInput `pulumi:"maxPrice"`
 	// The location where the instance launched, if applicable.
 	Placement Ec2FleetPlacementPtrInput `pulumi:"placement"`
@@ -2498,6 +2502,8 @@ func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) InstanceType() pulumi
 // The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 //
 // > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+// >
+// > If you specify a maximum price, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an `InvalidParameterValue` error message.
 func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) MaxPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *string { return v.MaxPrice }).(pulumi.StringPtrOutput)
 }
@@ -8785,6 +8791,106 @@ func (o IpamOperatingRegionArrayOutput) Index(i pulumi.IntInput) IpamOperatingRe
 	}).(IpamOperatingRegionOutput)
 }
 
+// If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+type IpamOrganizationalUnitExclusion struct {
+	// An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+	OrganizationsEntityPath string `pulumi:"organizationsEntityPath"`
+}
+
+// IpamOrganizationalUnitExclusionInput is an input type that accepts IpamOrganizationalUnitExclusionArgs and IpamOrganizationalUnitExclusionOutput values.
+// You can construct a concrete instance of `IpamOrganizationalUnitExclusionInput` via:
+//
+//	IpamOrganizationalUnitExclusionArgs{...}
+type IpamOrganizationalUnitExclusionInput interface {
+	pulumi.Input
+
+	ToIpamOrganizationalUnitExclusionOutput() IpamOrganizationalUnitExclusionOutput
+	ToIpamOrganizationalUnitExclusionOutputWithContext(context.Context) IpamOrganizationalUnitExclusionOutput
+}
+
+// If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+type IpamOrganizationalUnitExclusionArgs struct {
+	// An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+	OrganizationsEntityPath pulumi.StringInput `pulumi:"organizationsEntityPath"`
+}
+
+func (IpamOrganizationalUnitExclusionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamOrganizationalUnitExclusion)(nil)).Elem()
+}
+
+func (i IpamOrganizationalUnitExclusionArgs) ToIpamOrganizationalUnitExclusionOutput() IpamOrganizationalUnitExclusionOutput {
+	return i.ToIpamOrganizationalUnitExclusionOutputWithContext(context.Background())
+}
+
+func (i IpamOrganizationalUnitExclusionArgs) ToIpamOrganizationalUnitExclusionOutputWithContext(ctx context.Context) IpamOrganizationalUnitExclusionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamOrganizationalUnitExclusionOutput)
+}
+
+// IpamOrganizationalUnitExclusionArrayInput is an input type that accepts IpamOrganizationalUnitExclusionArray and IpamOrganizationalUnitExclusionArrayOutput values.
+// You can construct a concrete instance of `IpamOrganizationalUnitExclusionArrayInput` via:
+//
+//	IpamOrganizationalUnitExclusionArray{ IpamOrganizationalUnitExclusionArgs{...} }
+type IpamOrganizationalUnitExclusionArrayInput interface {
+	pulumi.Input
+
+	ToIpamOrganizationalUnitExclusionArrayOutput() IpamOrganizationalUnitExclusionArrayOutput
+	ToIpamOrganizationalUnitExclusionArrayOutputWithContext(context.Context) IpamOrganizationalUnitExclusionArrayOutput
+}
+
+type IpamOrganizationalUnitExclusionArray []IpamOrganizationalUnitExclusionInput
+
+func (IpamOrganizationalUnitExclusionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamOrganizationalUnitExclusion)(nil)).Elem()
+}
+
+func (i IpamOrganizationalUnitExclusionArray) ToIpamOrganizationalUnitExclusionArrayOutput() IpamOrganizationalUnitExclusionArrayOutput {
+	return i.ToIpamOrganizationalUnitExclusionArrayOutputWithContext(context.Background())
+}
+
+func (i IpamOrganizationalUnitExclusionArray) ToIpamOrganizationalUnitExclusionArrayOutputWithContext(ctx context.Context) IpamOrganizationalUnitExclusionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamOrganizationalUnitExclusionArrayOutput)
+}
+
+// If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+type IpamOrganizationalUnitExclusionOutput struct{ *pulumi.OutputState }
+
+func (IpamOrganizationalUnitExclusionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamOrganizationalUnitExclusion)(nil)).Elem()
+}
+
+func (o IpamOrganizationalUnitExclusionOutput) ToIpamOrganizationalUnitExclusionOutput() IpamOrganizationalUnitExclusionOutput {
+	return o
+}
+
+func (o IpamOrganizationalUnitExclusionOutput) ToIpamOrganizationalUnitExclusionOutputWithContext(ctx context.Context) IpamOrganizationalUnitExclusionOutput {
+	return o
+}
+
+// An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+func (o IpamOrganizationalUnitExclusionOutput) OrganizationsEntityPath() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamOrganizationalUnitExclusion) string { return v.OrganizationsEntityPath }).(pulumi.StringOutput)
+}
+
+type IpamOrganizationalUnitExclusionArrayOutput struct{ *pulumi.OutputState }
+
+func (IpamOrganizationalUnitExclusionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamOrganizationalUnitExclusion)(nil)).Elem()
+}
+
+func (o IpamOrganizationalUnitExclusionArrayOutput) ToIpamOrganizationalUnitExclusionArrayOutput() IpamOrganizationalUnitExclusionArrayOutput {
+	return o
+}
+
+func (o IpamOrganizationalUnitExclusionArrayOutput) ToIpamOrganizationalUnitExclusionArrayOutputWithContext(ctx context.Context) IpamOrganizationalUnitExclusionArrayOutput {
+	return o
+}
+
+func (o IpamOrganizationalUnitExclusionArrayOutput) Index(i pulumi.IntInput) IpamOrganizationalUnitExclusionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpamOrganizationalUnitExclusion {
+		return vs[0].([]IpamOrganizationalUnitExclusion)[vs[1].(int)]
+	}).(IpamOrganizationalUnitExclusionOutput)
+}
+
 // An address space to be inserted into this pool. All allocations must be made from this address space.
 type IpamPoolProvisionedCidr struct {
 	// The CIDR provisioned to the IPAM pool. A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is `10.24.34.0/23` . An IPv6 CIDR example is `2001:DB8::/32` .
@@ -9297,6 +9403,106 @@ func (o IpamResourceDiscoveryIpamOperatingRegionArrayOutput) Index(i pulumi.IntI
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpamResourceDiscoveryIpamOperatingRegion {
 		return vs[0].([]IpamResourceDiscoveryIpamOperatingRegion)[vs[1].(int)]
 	}).(IpamResourceDiscoveryIpamOperatingRegionOutput)
+}
+
+// If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+type IpamResourceDiscoveryOrganizationalUnitExclusion struct {
+	// An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+	OrganizationsEntityPath string `pulumi:"organizationsEntityPath"`
+}
+
+// IpamResourceDiscoveryOrganizationalUnitExclusionInput is an input type that accepts IpamResourceDiscoveryOrganizationalUnitExclusionArgs and IpamResourceDiscoveryOrganizationalUnitExclusionOutput values.
+// You can construct a concrete instance of `IpamResourceDiscoveryOrganizationalUnitExclusionInput` via:
+//
+//	IpamResourceDiscoveryOrganizationalUnitExclusionArgs{...}
+type IpamResourceDiscoveryOrganizationalUnitExclusionInput interface {
+	pulumi.Input
+
+	ToIpamResourceDiscoveryOrganizationalUnitExclusionOutput() IpamResourceDiscoveryOrganizationalUnitExclusionOutput
+	ToIpamResourceDiscoveryOrganizationalUnitExclusionOutputWithContext(context.Context) IpamResourceDiscoveryOrganizationalUnitExclusionOutput
+}
+
+// If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+type IpamResourceDiscoveryOrganizationalUnitExclusionArgs struct {
+	// An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+	OrganizationsEntityPath pulumi.StringInput `pulumi:"organizationsEntityPath"`
+}
+
+func (IpamResourceDiscoveryOrganizationalUnitExclusionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamResourceDiscoveryOrganizationalUnitExclusion)(nil)).Elem()
+}
+
+func (i IpamResourceDiscoveryOrganizationalUnitExclusionArgs) ToIpamResourceDiscoveryOrganizationalUnitExclusionOutput() IpamResourceDiscoveryOrganizationalUnitExclusionOutput {
+	return i.ToIpamResourceDiscoveryOrganizationalUnitExclusionOutputWithContext(context.Background())
+}
+
+func (i IpamResourceDiscoveryOrganizationalUnitExclusionArgs) ToIpamResourceDiscoveryOrganizationalUnitExclusionOutputWithContext(ctx context.Context) IpamResourceDiscoveryOrganizationalUnitExclusionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamResourceDiscoveryOrganizationalUnitExclusionOutput)
+}
+
+// IpamResourceDiscoveryOrganizationalUnitExclusionArrayInput is an input type that accepts IpamResourceDiscoveryOrganizationalUnitExclusionArray and IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput values.
+// You can construct a concrete instance of `IpamResourceDiscoveryOrganizationalUnitExclusionArrayInput` via:
+//
+//	IpamResourceDiscoveryOrganizationalUnitExclusionArray{ IpamResourceDiscoveryOrganizationalUnitExclusionArgs{...} }
+type IpamResourceDiscoveryOrganizationalUnitExclusionArrayInput interface {
+	pulumi.Input
+
+	ToIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput() IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput
+	ToIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutputWithContext(context.Context) IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput
+}
+
+type IpamResourceDiscoveryOrganizationalUnitExclusionArray []IpamResourceDiscoveryOrganizationalUnitExclusionInput
+
+func (IpamResourceDiscoveryOrganizationalUnitExclusionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamResourceDiscoveryOrganizationalUnitExclusion)(nil)).Elem()
+}
+
+func (i IpamResourceDiscoveryOrganizationalUnitExclusionArray) ToIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput() IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput {
+	return i.ToIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutputWithContext(context.Background())
+}
+
+func (i IpamResourceDiscoveryOrganizationalUnitExclusionArray) ToIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutputWithContext(ctx context.Context) IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput)
+}
+
+// If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+type IpamResourceDiscoveryOrganizationalUnitExclusionOutput struct{ *pulumi.OutputState }
+
+func (IpamResourceDiscoveryOrganizationalUnitExclusionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamResourceDiscoveryOrganizationalUnitExclusion)(nil)).Elem()
+}
+
+func (o IpamResourceDiscoveryOrganizationalUnitExclusionOutput) ToIpamResourceDiscoveryOrganizationalUnitExclusionOutput() IpamResourceDiscoveryOrganizationalUnitExclusionOutput {
+	return o
+}
+
+func (o IpamResourceDiscoveryOrganizationalUnitExclusionOutput) ToIpamResourceDiscoveryOrganizationalUnitExclusionOutputWithContext(ctx context.Context) IpamResourceDiscoveryOrganizationalUnitExclusionOutput {
+	return o
+}
+
+// An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+func (o IpamResourceDiscoveryOrganizationalUnitExclusionOutput) OrganizationsEntityPath() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamResourceDiscoveryOrganizationalUnitExclusion) string { return v.OrganizationsEntityPath }).(pulumi.StringOutput)
+}
+
+type IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput struct{ *pulumi.OutputState }
+
+func (IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamResourceDiscoveryOrganizationalUnitExclusion)(nil)).Elem()
+}
+
+func (o IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput) ToIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput() IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput {
+	return o
+}
+
+func (o IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput) ToIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutputWithContext(ctx context.Context) IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput {
+	return o
+}
+
+func (o IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput) Index(i pulumi.IntInput) IpamResourceDiscoveryOrganizationalUnitExclusionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpamResourceDiscoveryOrganizationalUnitExclusion {
+		return vs[0].([]IpamResourceDiscoveryOrganizationalUnitExclusion)[vs[1].(int)]
+	}).(IpamResourceDiscoveryOrganizationalUnitExclusionOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -34748,6 +34954,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceVolumeArrayInput)(nil)).Elem(), InstanceVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamOperatingRegionInput)(nil)).Elem(), IpamOperatingRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamOperatingRegionArrayInput)(nil)).Elem(), IpamOperatingRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamOrganizationalUnitExclusionInput)(nil)).Elem(), IpamOrganizationalUnitExclusionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamOrganizationalUnitExclusionArrayInput)(nil)).Elem(), IpamOrganizationalUnitExclusionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolProvisionedCidrInput)(nil)).Elem(), IpamPoolProvisionedCidrArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolProvisionedCidrArrayInput)(nil)).Elem(), IpamPoolProvisionedCidrArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolSourceResourceInput)(nil)).Elem(), IpamPoolSourceResourceArgs{})
@@ -34756,6 +34964,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolTagArrayInput)(nil)).Elem(), IpamPoolTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryIpamOperatingRegionInput)(nil)).Elem(), IpamResourceDiscoveryIpamOperatingRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryIpamOperatingRegionArrayInput)(nil)).Elem(), IpamResourceDiscoveryIpamOperatingRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryOrganizationalUnitExclusionInput)(nil)).Elem(), IpamResourceDiscoveryOrganizationalUnitExclusionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryOrganizationalUnitExclusionArrayInput)(nil)).Elem(), IpamResourceDiscoveryOrganizationalUnitExclusionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorCountInput)(nil)).Elem(), LaunchTemplateAcceleratorCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorCountPtrInput)(nil)).Elem(), LaunchTemplateAcceleratorCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorTotalMemoryMiBInput)(nil)).Elem(), LaunchTemplateAcceleratorTotalMemoryMiBArgs{})
@@ -35107,6 +35317,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceVolumeArrayOutput{})
 	pulumi.RegisterOutputType(IpamOperatingRegionOutput{})
 	pulumi.RegisterOutputType(IpamOperatingRegionArrayOutput{})
+	pulumi.RegisterOutputType(IpamOrganizationalUnitExclusionOutput{})
+	pulumi.RegisterOutputType(IpamOrganizationalUnitExclusionArrayOutput{})
 	pulumi.RegisterOutputType(IpamPoolProvisionedCidrOutput{})
 	pulumi.RegisterOutputType(IpamPoolProvisionedCidrArrayOutput{})
 	pulumi.RegisterOutputType(IpamPoolSourceResourceOutput{})
@@ -35115,6 +35327,8 @@ func init() {
 	pulumi.RegisterOutputType(IpamPoolTagArrayOutput{})
 	pulumi.RegisterOutputType(IpamResourceDiscoveryIpamOperatingRegionOutput{})
 	pulumi.RegisterOutputType(IpamResourceDiscoveryIpamOperatingRegionArrayOutput{})
+	pulumi.RegisterOutputType(IpamResourceDiscoveryOrganizationalUnitExclusionOutput{})
+	pulumi.RegisterOutputType(IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateAcceleratorCountOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateAcceleratorCountPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateAcceleratorTotalMemoryMiBOutput{})

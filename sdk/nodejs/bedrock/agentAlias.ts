@@ -61,6 +61,7 @@ export class AgentAlias extends pulumi.CustomResource {
      * - FAILED – The agent alias API operation failed.
      * - UPDATING – The agent alias is being updated.
      * - DELETING – The agent alias is being deleted.
+     * - DISSOCIATED - The agent alias has no version associated with it.
      */
     public /*out*/ readonly agentAliasStatus!: pulumi.Output<enums.bedrock.AgentAliasStatus>;
     /**

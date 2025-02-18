@@ -30,18 +30,6 @@ export interface GetDataflowEndpointGroupResult {
      */
     readonly arn?: string;
     /**
-     * Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
-     */
-    readonly contactPostPassDurationSeconds?: number;
-    /**
-     * Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
-     */
-    readonly contactPrePassDurationSeconds?: number;
-    /**
-     * List of Endpoint Details, containing address and port for each endpoint.
-     */
-    readonly endpointDetails?: outputs.groundstation.DataflowEndpointGroupEndpointDetails[];
-    /**
      * UUID of a dataflow endpoint group.
      */
     readonly id?: string;

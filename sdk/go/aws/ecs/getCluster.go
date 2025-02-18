@@ -36,7 +36,9 @@ type LookupClusterResult struct {
 	//  To use a FARGATElong capacity provider, specify either the ``FARGATE`` or ``FARGATE_SPOT`` capacity providers. The FARGATElong capacity providers are available to all accounts and only need to be associated with a cluster to be used.
 	//  The [PutCapacityProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html) API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
 	CapacityProviders []string `pulumi:"capacityProviders"`
-	// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
+	// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
+	//  Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up.
+	//  For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
 	ClusterSettings []ClusterSettings `pulumi:"clusterSettings"`
 	// The execute command and managed storage configuration for the cluster.
 	Configuration *ClusterConfiguration `pulumi:"configuration"`
@@ -100,7 +102,10 @@ func (o LookupClusterResultOutput) CapacityProviders() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.CapacityProviders }).(pulumi.StringArrayOutput)
 }
 
-// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
+// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
+//
+//	Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up.
+//	For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
 func (o LookupClusterResultOutput) ClusterSettings() ClusterSettingsArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []ClusterSettings { return v.ClusterSettings }).(ClusterSettingsArrayOutput)
 }

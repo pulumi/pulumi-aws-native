@@ -24,19 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolDomainResult:
-    def __init__(__self__, cloud_front_distribution=None, custom_domain_config=None, id=None, managed_login_version=None):
+    def __init__(__self__, cloud_front_distribution=None, custom_domain_config=None):
         if cloud_front_distribution and not isinstance(cloud_front_distribution, str):
             raise TypeError("Expected argument 'cloud_front_distribution' to be a str")
         pulumi.set(__self__, "cloud_front_distribution", cloud_front_distribution)
         if custom_domain_config and not isinstance(custom_domain_config, dict):
             raise TypeError("Expected argument 'custom_domain_config' to be a dict")
         pulumi.set(__self__, "custom_domain_config", custom_domain_config)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
-        if managed_login_version and not isinstance(managed_login_version, int):
-            raise TypeError("Expected argument 'managed_login_version' to be a int")
-        pulumi.set(__self__, "managed_login_version", managed_login_version)
 
     @property
     @pulumi.getter(name="cloudFrontDistribution")
@@ -56,22 +50,6 @@ class GetUserPoolDomainResult:
         """
         return pulumi.get(self, "custom_domain_config")
 
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="managedLoginVersion")
-    def managed_login_version(self) -> Optional[int]:
-        """
-        A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
-        """
-        return pulumi.get(self, "managed_login_version")
-
 
 class AwaitableGetUserPoolDomainResult(GetUserPoolDomainResult):
     # pylint: disable=using-constant-test
@@ -80,43 +58,43 @@ class AwaitableGetUserPoolDomainResult(GetUserPoolDomainResult):
             yield self
         return GetUserPoolDomainResult(
             cloud_front_distribution=self.cloud_front_distribution,
-            custom_domain_config=self.custom_domain_config,
-            id=self.id,
-            managed_login_version=self.managed_login_version)
+            custom_domain_config=self.custom_domain_config)
 
 
-def get_user_pool_domain(id: Optional[str] = None,
+def get_user_pool_domain(domain: Optional[str] = None,
+                         user_pool_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolDomainResult:
     """
     Resource Type definition for AWS::Cognito::UserPoolDomain
 
 
-    :param str id: The resource ID.
+    :param str domain: The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` .
+    :param str user_pool_id: The ID of the user pool that is associated with the domain you're updating.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['domain'] = domain
+    __args__['userPoolId'] = user_pool_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getUserPoolDomain', __args__, opts=opts, typ=GetUserPoolDomainResult).value
 
     return AwaitableGetUserPoolDomainResult(
         cloud_front_distribution=pulumi.get(__ret__, 'cloud_front_distribution'),
-        custom_domain_config=pulumi.get(__ret__, 'custom_domain_config'),
-        id=pulumi.get(__ret__, 'id'),
-        managed_login_version=pulumi.get(__ret__, 'managed_login_version'))
-def get_user_pool_domain_output(id: Optional[pulumi.Input[str]] = None,
+        custom_domain_config=pulumi.get(__ret__, 'custom_domain_config'))
+def get_user_pool_domain_output(domain: Optional[pulumi.Input[str]] = None,
+                                user_pool_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolDomainResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolDomain
 
 
-    :param str id: The resource ID.
+    :param str domain: The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` .
+    :param str user_pool_id: The ID of the user pool that is associated with the domain you're updating.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['domain'] = domain
+    __args__['userPoolId'] = user_pool_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getUserPoolDomain', __args__, opts=opts, typ=GetUserPoolDomainResult)
     return __ret__.apply(lambda __response__: GetUserPoolDomainResult(
         cloud_front_distribution=pulumi.get(__response__, 'cloud_front_distribution'),
-        custom_domain_config=pulumi.get(__response__, 'custom_domain_config'),
-        id=pulumi.get(__response__, 'id'),
-        managed_login_version=pulumi.get(__response__, 'managed_login_version')))
+        custom_domain_config=pulumi.get(__response__, 'custom_domain_config')))

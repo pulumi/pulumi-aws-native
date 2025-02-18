@@ -5058,7 +5058,9 @@ if not MYPY:
         """
         Indicates whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 
-        > Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+        If you configure data protection for the web ACL, the protection applies to the web ACL's sampled web request data.
+
+        > Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. You can only exclude fields from request sampling by disabling sampling in the web ACL visibility configuration or by configuring data protection for the web ACL.
         """
 elif False:
     RuleGroupVisibilityConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -5078,7 +5080,9 @@ class RuleGroupVisibilityConfigArgs:
         :param pulumi.Input[str] metric_name: A name of the Amazon CloudWatch metric dimension. The name can contain only the characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters long. It can't contain whitespace or metric names that are reserved for AWS WAF , for example `All` and `Default_Action` .
         :param pulumi.Input[bool] sampled_requests_enabled: Indicates whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
                
-               > Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+               If you configure data protection for the web ACL, the protection applies to the web ACL's sampled web request data.
+               
+               > Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. You can only exclude fields from request sampling by disabling sampling in the web ACL visibility configuration or by configuring data protection for the web ACL.
         """
         pulumi.set(__self__, "cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
         pulumi.set(__self__, "metric_name", metric_name)
@@ -5117,7 +5121,9 @@ class RuleGroupVisibilityConfigArgs:
         """
         Indicates whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 
-        > Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+        If you configure data protection for the web ACL, the protection applies to the web ACL's sampled web request data.
+
+        > Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. You can only exclude fields from request sampling by disabling sampling in the web ACL visibility configuration or by configuring data protection for the web ACL.
         """
         return pulumi.get(self, "sampled_requests_enabled")
 
@@ -11561,7 +11567,9 @@ if not MYPY:
         """
         Indicates whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 
-        > Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+        If you configure data protection for the web ACL, the protection applies to the web ACL's sampled web request data.
+
+        > Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. You can only exclude fields from request sampling by disabling sampling in the web ACL visibility configuration or by configuring data protection for the web ACL.
         """
 elif False:
     WebAclVisibilityConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -11581,7 +11589,9 @@ class WebAclVisibilityConfigArgs:
         :param pulumi.Input[str] metric_name: A name of the Amazon CloudWatch metric dimension. The name can contain only the characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters long. It can't contain whitespace or metric names that are reserved for AWS WAF , for example `All` and `Default_Action` .
         :param pulumi.Input[bool] sampled_requests_enabled: Indicates whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
                
-               > Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+               If you configure data protection for the web ACL, the protection applies to the web ACL's sampled web request data.
+               
+               > Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. You can only exclude fields from request sampling by disabling sampling in the web ACL visibility configuration or by configuring data protection for the web ACL.
         """
         pulumi.set(__self__, "cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
         pulumi.set(__self__, "metric_name", metric_name)
@@ -11620,7 +11630,9 @@ class WebAclVisibilityConfigArgs:
         """
         Indicates whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 
-        > Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+        If you configure data protection for the web ACL, the protection applies to the web ACL's sampled web request data.
+
+        > Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. You can only exclude fields from request sampling by disabling sampling in the web ACL visibility configuration or by configuring data protection for the web ACL.
         """
         return pulumi.get(self, "sampled_requests_enabled")
 

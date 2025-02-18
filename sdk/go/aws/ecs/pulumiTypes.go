@@ -1609,12 +1609,17 @@ func (o ClusterServiceConnectDefaultsPtrOutput) Namespace() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
+// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
+//
+//	Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up.
+//	For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ClusterSettings struct {
 	// The name of the cluster setting. The value is ``containerInsights`` .
 	Name *string `pulumi:"name"`
-	// The value to set for the cluster setting. The supported values are ``enabled`` and ``disabled``.
-	//  If you set ``name`` to ``containerInsights`` and ``value`` to ``enabled``, CloudWatch Container Insights will be on for the cluster, otherwise it will be off unless the ``containerInsights`` account setting is turned on. If a cluster value is specified, it will override the ``containerInsights`` value set with [PutAccountSetting](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html) or [PutAccountSettingDefault](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html).
+	// The value to set for the cluster setting. The supported values are ``enhanced``, ``enabled``, and ``disabled``.
+	//  To use Container Insights with enhanced observability, set the ``containerInsights`` account setting to ``enhanced``.
+	//  To use Container Insights, set the ``containerInsights`` account setting to ``enabled``.
+	//  If a cluster value is specified, it will override the ``containerInsights`` value set with [PutAccountSetting](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html) or [PutAccountSettingDefault](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html).
 	Value *string `pulumi:"value"`
 }
 
@@ -1629,12 +1634,17 @@ type ClusterSettingsInput interface {
 	ToClusterSettingsOutputWithContext(context.Context) ClusterSettingsOutput
 }
 
-// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
+// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
+//
+//	Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up.
+//	For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ClusterSettingsArgs struct {
 	// The name of the cluster setting. The value is ``containerInsights`` .
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value to set for the cluster setting. The supported values are ``enabled`` and ``disabled``.
-	//  If you set ``name`` to ``containerInsights`` and ``value`` to ``enabled``, CloudWatch Container Insights will be on for the cluster, otherwise it will be off unless the ``containerInsights`` account setting is turned on. If a cluster value is specified, it will override the ``containerInsights`` value set with [PutAccountSetting](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html) or [PutAccountSettingDefault](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html).
+	// The value to set for the cluster setting. The supported values are ``enhanced``, ``enabled``, and ``disabled``.
+	//  To use Container Insights with enhanced observability, set the ``containerInsights`` account setting to ``enhanced``.
+	//  To use Container Insights, set the ``containerInsights`` account setting to ``enabled``.
+	//  If a cluster value is specified, it will override the ``containerInsights`` value set with [PutAccountSetting](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html) or [PutAccountSettingDefault](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html).
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1675,7 +1685,10 @@ func (i ClusterSettingsArray) ToClusterSettingsArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSettingsArrayOutput)
 }
 
-// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
+// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
+//
+//	Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up.
+//	For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ClusterSettingsOutput struct{ *pulumi.OutputState }
 
 func (ClusterSettingsOutput) ElementType() reflect.Type {
@@ -1695,9 +1708,11 @@ func (o ClusterSettingsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterSettings) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value to set for the cluster setting. The supported values are “enabled“ and “disabled“.
+// The value to set for the cluster setting. The supported values are “enhanced“, “enabled“, and “disabled“.
 //
-//	If you set ``name`` to ``containerInsights`` and ``value`` to ``enabled``, CloudWatch Container Insights will be on for the cluster, otherwise it will be off unless the ``containerInsights`` account setting is turned on. If a cluster value is specified, it will override the ``containerInsights`` value set with [PutAccountSetting](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html) or [PutAccountSettingDefault](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html).
+//	To use Container Insights with enhanced observability, set the ``containerInsights`` account setting to ``enhanced``.
+//	To use Container Insights, set the ``containerInsights`` account setting to ``enabled``.
+//	If a cluster value is specified, it will override the ``containerInsights`` value set with [PutAccountSetting](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html) or [PutAccountSettingDefault](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html).
 func (o ClusterSettingsOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterSettings) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

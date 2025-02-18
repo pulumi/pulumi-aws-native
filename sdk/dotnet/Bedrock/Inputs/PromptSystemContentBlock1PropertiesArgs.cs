@@ -13,17 +13,14 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// <summary>
     /// Configuration for chat prompt template
     /// </summary>
-    public sealed class PromptContentBlockPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class PromptSystemContentBlock1PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration for chat prompt template
-        /// </summary>
-        [Input("text", required: true)]
-        public Input<string> Text { get; set; } = null!;
+        [Input("cachePoint", required: true)]
+        public Input<Inputs.PromptCachePointBlockArgs> CachePoint { get; set; } = null!;
 
-        public PromptContentBlockPropertiesArgs()
+        public PromptSystemContentBlock1PropertiesArgs()
         {
         }
-        public static new PromptContentBlockPropertiesArgs Empty => new PromptContentBlockPropertiesArgs();
+        public static new PromptSystemContentBlock1PropertiesArgs Empty => new PromptSystemContentBlock1PropertiesArgs();
     }
 }

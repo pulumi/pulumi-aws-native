@@ -1332,6 +1332,8 @@ class MissionProfileStreamsKmsKey(dict):
         suggest = None
         if key == "kmsAliasArn":
             suggest = "kms_alias_arn"
+        elif key == "kmsAliasName":
+            suggest = "kms_alias_name"
         elif key == "kmsKeyArn":
             suggest = "kms_key_arn"
 
@@ -1348,13 +1350,17 @@ class MissionProfileStreamsKmsKey(dict):
 
     def __init__(__self__, *,
                  kms_alias_arn: Optional[str] = None,
+                 kms_alias_name: Optional[str] = None,
                  kms_key_arn: Optional[str] = None):
         """
         :param str kms_alias_arn: KMS Alias Arn.
+        :param str kms_alias_name: KMS Alias Name.
         :param str kms_key_arn: KMS Key Arn.
         """
         if kms_alias_arn is not None:
             pulumi.set(__self__, "kms_alias_arn", kms_alias_arn)
+        if kms_alias_name is not None:
+            pulumi.set(__self__, "kms_alias_name", kms_alias_name)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
@@ -1365,6 +1371,14 @@ class MissionProfileStreamsKmsKey(dict):
         KMS Alias Arn.
         """
         return pulumi.get(self, "kms_alias_arn")
+
+    @property
+    @pulumi.getter(name="kmsAliasName")
+    def kms_alias_name(self) -> Optional[str]:
+        """
+        KMS Alias Name.
+        """
+        return pulumi.get(self, "kms_alias_name")
 
     @property
     @pulumi.getter(name="kmsKeyArn")

@@ -22,6 +22,8 @@ __all__ = [
     'CrawlerDeltaTargetArgsDict',
     'CrawlerDynamoDbTargetArgs',
     'CrawlerDynamoDbTargetArgsDict',
+    'CrawlerHudiTargetArgs',
+    'CrawlerHudiTargetArgsDict',
     'CrawlerIcebergTargetArgs',
     'CrawlerIcebergTargetArgsDict',
     'CrawlerJdbcTargetArgs',
@@ -328,6 +330,102 @@ class CrawlerDynamoDbTargetArgs:
     @path.setter
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
+
+
+if not MYPY:
+    class CrawlerHudiTargetArgsDict(TypedDict):
+        """
+        Specifies Apache Hudi data store targets.
+        """
+        connection_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the connection to use to connect to the Hudi target.
+        """
+        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of global patterns used to exclude from the crawl.
+        """
+        maximum_traversal_depth: NotRequired[pulumi.Input[int]]
+        """
+        The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time.
+        """
+        paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more Amazon S3 paths that contains Hudi metadata folders as s3://bucket/prefix .
+        """
+elif False:
+    CrawlerHudiTargetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CrawlerHudiTargetArgs:
+    def __init__(__self__, *,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 maximum_traversal_depth: Optional[pulumi.Input[int]] = None,
+                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Specifies Apache Hudi data store targets.
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Hudi target.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of global patterns used to exclude from the crawl.
+        :param pulumi.Input[int] maximum_traversal_depth: The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: One or more Amazon S3 paths that contains Hudi metadata folders as s3://bucket/prefix .
+        """
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+        if maximum_traversal_depth is not None:
+            pulumi.set(__self__, "maximum_traversal_depth", maximum_traversal_depth)
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connection to use to connect to the Hudi target.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of global patterns used to exclude from the crawl.
+        """
+        return pulumi.get(self, "exclusions")
+
+    @exclusions.setter
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclusions", value)
+
+    @property
+    @pulumi.getter(name="maximumTraversalDepth")
+    def maximum_traversal_depth(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time.
+        """
+        return pulumi.get(self, "maximum_traversal_depth")
+
+    @maximum_traversal_depth.setter
+    def maximum_traversal_depth(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_traversal_depth", value)
+
+    @property
+    @pulumi.getter
+    def paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more Amazon S3 paths that contains Hudi metadata folders as s3://bucket/prefix .
+        """
+        return pulumi.get(self, "paths")
+
+    @paths.setter
+    def paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "paths", value)
 
 
 if not MYPY:
@@ -921,6 +1019,10 @@ if not MYPY:
         """
         Specifies Amazon DynamoDB targets.
         """
+        hudi_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgsDict']]]]
+        """
+        Specifies Apache Hudi data store targets.
+        """
         iceberg_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgsDict']]]]
         """
         Specifies Apache Iceberg data store targets.
@@ -946,6 +1048,7 @@ class CrawlerTargetsArgs:
                  catalog_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]] = None,
                  delta_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]] = None,
                  dynamo_db_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDbTargetArgs']]]] = None,
+                 hudi_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]]] = None,
                  iceberg_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]] = None,
                  mongo_db_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDbTargetArgs']]]] = None,
@@ -955,6 +1058,7 @@ class CrawlerTargetsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]] catalog_targets: Specifies AWS Glue Data Catalog targets.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]] delta_targets: Specifies an array of Delta data store targets.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDbTargetArgs']]] dynamo_db_targets: Specifies Amazon DynamoDB targets.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]] hudi_targets: Specifies Apache Hudi data store targets.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]] iceberg_targets: Specifies Apache Iceberg data store targets.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]] jdbc_targets: Specifies JDBC targets.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDbTargetArgs']]] mongo_db_targets: A list of Mongo DB targets.
@@ -966,6 +1070,8 @@ class CrawlerTargetsArgs:
             pulumi.set(__self__, "delta_targets", delta_targets)
         if dynamo_db_targets is not None:
             pulumi.set(__self__, "dynamo_db_targets", dynamo_db_targets)
+        if hudi_targets is not None:
+            pulumi.set(__self__, "hudi_targets", hudi_targets)
         if iceberg_targets is not None:
             pulumi.set(__self__, "iceberg_targets", iceberg_targets)
         if jdbc_targets is not None:
@@ -1010,6 +1116,18 @@ class CrawlerTargetsArgs:
     @dynamo_db_targets.setter
     def dynamo_db_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDbTargetArgs']]]]):
         pulumi.set(self, "dynamo_db_targets", value)
+
+    @property
+    @pulumi.getter(name="hudiTargets")
+    def hudi_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]]]:
+        """
+        Specifies Apache Hudi data store targets.
+        """
+        return pulumi.get(self, "hudi_targets")
+
+    @hudi_targets.setter
+    def hudi_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]]]):
+        pulumi.set(self, "hudi_targets", value)
 
     @property
     @pulumi.getter(name="icebergTargets")

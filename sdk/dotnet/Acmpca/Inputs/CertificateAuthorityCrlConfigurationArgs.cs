@@ -22,12 +22,29 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
         public Input<Inputs.CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs>? CrlDistributionPointExtensionConfiguration { get; set; }
 
         /// <summary>
+        /// Specifies the type of CRL. This setting determines the maximum number of certificates that the certificate authority can issue and revoke. For more information, see [AWS Private CA quotas](https://docs.aws.amazon.com/general/latest/gr/pca.html#limits_pca) .
+        /// 
+        /// - `COMPLETE` - The default setting. AWS Private CA maintains a single CRL file for all unexpired certificates issued by a CA that have been revoked for any reason. Each certificate that AWS Private CA issues is bound to a specific CRL through the CRL distribution point (CDP) defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) .
+        /// - `PARTITIONED` - Compared to complete CRLs, partitioned CRLs dramatically increase the number of certificates your private CA can issue.
+        /// 
+        /// &gt; When using partitioned CRLs, you must validate that the CRL's associated issuing distribution point (IDP) URI matches the certiﬁcate's CDP URI to ensure the right CRL has been fetched. AWS Private CA marks the IDP extension as critical, which your client must be able to process.
+        /// </summary>
+        [Input("crlType")]
+        public Input<string>? CrlType { get; set; }
+
+        /// <summary>
         /// Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
         /// 
         /// &gt; The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
         /// </summary>
         [Input("customCname")]
         public Input<string>? CustomCname { get; set; }
+
+        /// <summary>
+        /// Designates a custom file path in S3 for CRL(s). For example, `http://&lt;CustomName&gt;/&lt;CustomPath&gt;/&lt;CrlPartition_GUID&gt;.crl` .
+        /// </summary>
+        [Input("customPath")]
+        public Input<string>? CustomPath { get; set; }
 
         /// <summary>
         /// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.

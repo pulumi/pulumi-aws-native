@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("basePromptTemplate")]
         public Input<string>? BasePromptTemplate { get; set; }
 
+        [Input("foundationModel")]
+        public Input<string>? FoundationModel { get; set; }
+
         /// <summary>
         /// Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
         /// </summary>
@@ -28,7 +31,7 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         public Input<Inputs.AgentInferenceConfigurationArgs>? InferenceConfiguration { get; set; }
 
         /// <summary>
-        /// Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
+        /// Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
         /// </summary>
         [Input("parserMode")]
         public Input<Pulumi.AwsNative.Bedrock.AgentCreationMode>? ParserMode { get; set; }

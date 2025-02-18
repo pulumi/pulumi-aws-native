@@ -38,10 +38,6 @@ export class UserPoolDomain extends pulumi.CustomResource {
     }
 
     /**
-     * The resource ID.
-     */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
-    /**
      * The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
      */
     public /*out*/ readonly cloudFrontDistribution!: pulumi.Output<string>;
@@ -85,10 +81,8 @@ export class UserPoolDomain extends pulumi.CustomResource {
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["managedLoginVersion"] = args ? args.managedLoginVersion : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
-            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cloudFrontDistribution"] = undefined /*out*/;
         } else {
-            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cloudFrontDistribution"] = undefined /*out*/;
             resourceInputs["customDomainConfig"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;

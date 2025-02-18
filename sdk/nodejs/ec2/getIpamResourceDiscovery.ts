@@ -50,6 +50,10 @@ export interface GetIpamResourceDiscoveryResult {
      */
     readonly operatingRegions?: outputs.ec2.IpamResourceDiscoveryIpamOperatingRegion[];
     /**
+     * A set of organizational unit (OU) exclusions for this resource.
+     */
+    readonly organizationalUnitExclusions?: outputs.ec2.IpamResourceDiscoveryOrganizationalUnitExclusion[];
+    /**
      * Owner Account ID of the Resource Discovery
      */
     readonly ownerId?: string;

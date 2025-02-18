@@ -68,18 +68,6 @@ namespace Pulumi.AwsNative.GroundStation
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
-        /// </summary>
-        public readonly int? ContactPostPassDurationSeconds;
-        /// <summary>
-        /// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
-        /// </summary>
-        public readonly int? ContactPrePassDurationSeconds;
-        /// <summary>
-        /// List of Endpoint Details, containing address and port for each endpoint.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.DataflowEndpointGroupEndpointDetails> EndpointDetails;
-        /// <summary>
         /// UUID of a dataflow endpoint group.
         /// </summary>
         public readonly string? Id;
@@ -92,20 +80,11 @@ namespace Pulumi.AwsNative.GroundStation
         private GetDataflowEndpointGroupResult(
             string? arn,
 
-            int? contactPostPassDurationSeconds,
-
-            int? contactPrePassDurationSeconds,
-
-            ImmutableArray<Outputs.DataflowEndpointGroupEndpointDetails> endpointDetails,
-
             string? id,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
-            ContactPostPassDurationSeconds = contactPostPassDurationSeconds;
-            ContactPrePassDurationSeconds = contactPrePassDurationSeconds;
-            EndpointDetails = endpointDetails;
             Id = id;
             Tags = tags;
         }

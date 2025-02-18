@@ -2098,6 +2098,457 @@ type UserTag struct {
 	Value string `pulumi:"value"`
 }
 
+type WebAppCustomization struct {
+	// Specifies a favicon to display in the browser tab.
+	FaviconFile *string `pulumi:"faviconFile"`
+	// Specifies a logo to display on the web app.
+	LogoFile *string `pulumi:"logoFile"`
+	// Specifies a title to display on the web app.
+	Title *string `pulumi:"title"`
+}
+
+// WebAppCustomizationInput is an input type that accepts WebAppCustomizationArgs and WebAppCustomizationOutput values.
+// You can construct a concrete instance of `WebAppCustomizationInput` via:
+//
+//	WebAppCustomizationArgs{...}
+type WebAppCustomizationInput interface {
+	pulumi.Input
+
+	ToWebAppCustomizationOutput() WebAppCustomizationOutput
+	ToWebAppCustomizationOutputWithContext(context.Context) WebAppCustomizationOutput
+}
+
+type WebAppCustomizationArgs struct {
+	// Specifies a favicon to display in the browser tab.
+	FaviconFile pulumi.StringPtrInput `pulumi:"faviconFile"`
+	// Specifies a logo to display on the web app.
+	LogoFile pulumi.StringPtrInput `pulumi:"logoFile"`
+	// Specifies a title to display on the web app.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+}
+
+func (WebAppCustomizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppCustomization)(nil)).Elem()
+}
+
+func (i WebAppCustomizationArgs) ToWebAppCustomizationOutput() WebAppCustomizationOutput {
+	return i.ToWebAppCustomizationOutputWithContext(context.Background())
+}
+
+func (i WebAppCustomizationArgs) ToWebAppCustomizationOutputWithContext(ctx context.Context) WebAppCustomizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppCustomizationOutput)
+}
+
+func (i WebAppCustomizationArgs) ToWebAppCustomizationPtrOutput() WebAppCustomizationPtrOutput {
+	return i.ToWebAppCustomizationPtrOutputWithContext(context.Background())
+}
+
+func (i WebAppCustomizationArgs) ToWebAppCustomizationPtrOutputWithContext(ctx context.Context) WebAppCustomizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppCustomizationOutput).ToWebAppCustomizationPtrOutputWithContext(ctx)
+}
+
+// WebAppCustomizationPtrInput is an input type that accepts WebAppCustomizationArgs, WebAppCustomizationPtr and WebAppCustomizationPtrOutput values.
+// You can construct a concrete instance of `WebAppCustomizationPtrInput` via:
+//
+//	        WebAppCustomizationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAppCustomizationPtrInput interface {
+	pulumi.Input
+
+	ToWebAppCustomizationPtrOutput() WebAppCustomizationPtrOutput
+	ToWebAppCustomizationPtrOutputWithContext(context.Context) WebAppCustomizationPtrOutput
+}
+
+type webAppCustomizationPtrType WebAppCustomizationArgs
+
+func WebAppCustomizationPtr(v *WebAppCustomizationArgs) WebAppCustomizationPtrInput {
+	return (*webAppCustomizationPtrType)(v)
+}
+
+func (*webAppCustomizationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppCustomization)(nil)).Elem()
+}
+
+func (i *webAppCustomizationPtrType) ToWebAppCustomizationPtrOutput() WebAppCustomizationPtrOutput {
+	return i.ToWebAppCustomizationPtrOutputWithContext(context.Background())
+}
+
+func (i *webAppCustomizationPtrType) ToWebAppCustomizationPtrOutputWithContext(ctx context.Context) WebAppCustomizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppCustomizationPtrOutput)
+}
+
+type WebAppCustomizationOutput struct{ *pulumi.OutputState }
+
+func (WebAppCustomizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppCustomization)(nil)).Elem()
+}
+
+func (o WebAppCustomizationOutput) ToWebAppCustomizationOutput() WebAppCustomizationOutput {
+	return o
+}
+
+func (o WebAppCustomizationOutput) ToWebAppCustomizationOutputWithContext(ctx context.Context) WebAppCustomizationOutput {
+	return o
+}
+
+func (o WebAppCustomizationOutput) ToWebAppCustomizationPtrOutput() WebAppCustomizationPtrOutput {
+	return o.ToWebAppCustomizationPtrOutputWithContext(context.Background())
+}
+
+func (o WebAppCustomizationOutput) ToWebAppCustomizationPtrOutputWithContext(ctx context.Context) WebAppCustomizationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAppCustomization) *WebAppCustomization {
+		return &v
+	}).(WebAppCustomizationPtrOutput)
+}
+
+// Specifies a favicon to display in the browser tab.
+func (o WebAppCustomizationOutput) FaviconFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppCustomization) *string { return v.FaviconFile }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a logo to display on the web app.
+func (o WebAppCustomizationOutput) LogoFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppCustomization) *string { return v.LogoFile }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a title to display on the web app.
+func (o WebAppCustomizationOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppCustomization) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+type WebAppCustomizationPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAppCustomizationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppCustomization)(nil)).Elem()
+}
+
+func (o WebAppCustomizationPtrOutput) ToWebAppCustomizationPtrOutput() WebAppCustomizationPtrOutput {
+	return o
+}
+
+func (o WebAppCustomizationPtrOutput) ToWebAppCustomizationPtrOutputWithContext(ctx context.Context) WebAppCustomizationPtrOutput {
+	return o
+}
+
+func (o WebAppCustomizationPtrOutput) Elem() WebAppCustomizationOutput {
+	return o.ApplyT(func(v *WebAppCustomization) WebAppCustomization {
+		if v != nil {
+			return *v
+		}
+		var ret WebAppCustomization
+		return ret
+	}).(WebAppCustomizationOutput)
+}
+
+// Specifies a favicon to display in the browser tab.
+func (o WebAppCustomizationPtrOutput) FaviconFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppCustomization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FaviconFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a logo to display on the web app.
+func (o WebAppCustomizationPtrOutput) LogoFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppCustomization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogoFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a title to display on the web app.
+func (o WebAppCustomizationPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppCustomization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+// You can provide a structure that contains the details for the identity provider to use with your web app.
+type WebAppIdentityProviderDetails struct {
+	// The Amazon Resource Name (ARN) for the IAM Identity Center application: this value is set automatically when you create your web app.
+	ApplicationArn *string `pulumi:"applicationArn"`
+	// The Amazon Resource Name (ARN) for the IAM Identity Center used for the web app.
+	InstanceArn *string `pulumi:"instanceArn"`
+	// The IAM role in IAM Identity Center used for the web app.
+	Role *string `pulumi:"role"`
+}
+
+// WebAppIdentityProviderDetailsInput is an input type that accepts WebAppIdentityProviderDetailsArgs and WebAppIdentityProviderDetailsOutput values.
+// You can construct a concrete instance of `WebAppIdentityProviderDetailsInput` via:
+//
+//	WebAppIdentityProviderDetailsArgs{...}
+type WebAppIdentityProviderDetailsInput interface {
+	pulumi.Input
+
+	ToWebAppIdentityProviderDetailsOutput() WebAppIdentityProviderDetailsOutput
+	ToWebAppIdentityProviderDetailsOutputWithContext(context.Context) WebAppIdentityProviderDetailsOutput
+}
+
+// You can provide a structure that contains the details for the identity provider to use with your web app.
+type WebAppIdentityProviderDetailsArgs struct {
+	// The Amazon Resource Name (ARN) for the IAM Identity Center application: this value is set automatically when you create your web app.
+	ApplicationArn pulumi.StringPtrInput `pulumi:"applicationArn"`
+	// The Amazon Resource Name (ARN) for the IAM Identity Center used for the web app.
+	InstanceArn pulumi.StringPtrInput `pulumi:"instanceArn"`
+	// The IAM role in IAM Identity Center used for the web app.
+	Role pulumi.StringPtrInput `pulumi:"role"`
+}
+
+func (WebAppIdentityProviderDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppIdentityProviderDetails)(nil)).Elem()
+}
+
+func (i WebAppIdentityProviderDetailsArgs) ToWebAppIdentityProviderDetailsOutput() WebAppIdentityProviderDetailsOutput {
+	return i.ToWebAppIdentityProviderDetailsOutputWithContext(context.Background())
+}
+
+func (i WebAppIdentityProviderDetailsArgs) ToWebAppIdentityProviderDetailsOutputWithContext(ctx context.Context) WebAppIdentityProviderDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppIdentityProviderDetailsOutput)
+}
+
+// You can provide a structure that contains the details for the identity provider to use with your web app.
+type WebAppIdentityProviderDetailsOutput struct{ *pulumi.OutputState }
+
+func (WebAppIdentityProviderDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppIdentityProviderDetails)(nil)).Elem()
+}
+
+func (o WebAppIdentityProviderDetailsOutput) ToWebAppIdentityProviderDetailsOutput() WebAppIdentityProviderDetailsOutput {
+	return o
+}
+
+func (o WebAppIdentityProviderDetailsOutput) ToWebAppIdentityProviderDetailsOutputWithContext(ctx context.Context) WebAppIdentityProviderDetailsOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) for the IAM Identity Center application: this value is set automatically when you create your web app.
+func (o WebAppIdentityProviderDetailsOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppIdentityProviderDetails) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for the IAM Identity Center used for the web app.
+func (o WebAppIdentityProviderDetailsOutput) InstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppIdentityProviderDetails) *string { return v.InstanceArn }).(pulumi.StringPtrOutput)
+}
+
+// The IAM role in IAM Identity Center used for the web app.
+func (o WebAppIdentityProviderDetailsOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppIdentityProviderDetails) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+type WebAppIdentityProviderDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAppIdentityProviderDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppIdentityProviderDetails)(nil)).Elem()
+}
+
+func (o WebAppIdentityProviderDetailsPtrOutput) ToWebAppIdentityProviderDetailsPtrOutput() WebAppIdentityProviderDetailsPtrOutput {
+	return o
+}
+
+func (o WebAppIdentityProviderDetailsPtrOutput) ToWebAppIdentityProviderDetailsPtrOutputWithContext(ctx context.Context) WebAppIdentityProviderDetailsPtrOutput {
+	return o
+}
+
+func (o WebAppIdentityProviderDetailsPtrOutput) Elem() WebAppIdentityProviderDetailsOutput {
+	return o.ApplyT(func(v *WebAppIdentityProviderDetails) WebAppIdentityProviderDetails {
+		if v != nil {
+			return *v
+		}
+		var ret WebAppIdentityProviderDetails
+		return ret
+	}).(WebAppIdentityProviderDetailsOutput)
+}
+
+// The Amazon Resource Name (ARN) for the IAM Identity Center application: this value is set automatically when you create your web app.
+func (o WebAppIdentityProviderDetailsPtrOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppIdentityProviderDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for the IAM Identity Center used for the web app.
+func (o WebAppIdentityProviderDetailsPtrOutput) InstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppIdentityProviderDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IAM role in IAM Identity Center used for the web app.
+func (o WebAppIdentityProviderDetailsPtrOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppIdentityProviderDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Role
+	}).(pulumi.StringPtrOutput)
+}
+
+// Key-value pair that can be used to group and search for web apps.
+type WebAppTag struct {
+	// The name assigned to the tag that you create.
+	Key string `pulumi:"key"`
+	// Contains one or more values that you assigned to the key name you create.
+	Value string `pulumi:"value"`
+}
+
+// A union that contains the value for number of concurrent connections or the user sessions on your web app.
+type WebAppUnits0Properties struct {
+	Provisioned int `pulumi:"provisioned"`
+}
+
+// A union that contains the value for number of concurrent connections or the user sessions on your web app.
+type WebAppUnitsProperties struct {
+	Provisioned int `pulumi:"provisioned"`
+}
+
+// WebAppUnitsPropertiesInput is an input type that accepts WebAppUnitsPropertiesArgs and WebAppUnitsPropertiesOutput values.
+// You can construct a concrete instance of `WebAppUnitsPropertiesInput` via:
+//
+//	WebAppUnitsPropertiesArgs{...}
+type WebAppUnitsPropertiesInput interface {
+	pulumi.Input
+
+	ToWebAppUnitsPropertiesOutput() WebAppUnitsPropertiesOutput
+	ToWebAppUnitsPropertiesOutputWithContext(context.Context) WebAppUnitsPropertiesOutput
+}
+
+// A union that contains the value for number of concurrent connections or the user sessions on your web app.
+type WebAppUnitsPropertiesArgs struct {
+	Provisioned pulumi.IntInput `pulumi:"provisioned"`
+}
+
+func (WebAppUnitsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppUnitsProperties)(nil)).Elem()
+}
+
+func (i WebAppUnitsPropertiesArgs) ToWebAppUnitsPropertiesOutput() WebAppUnitsPropertiesOutput {
+	return i.ToWebAppUnitsPropertiesOutputWithContext(context.Background())
+}
+
+func (i WebAppUnitsPropertiesArgs) ToWebAppUnitsPropertiesOutputWithContext(ctx context.Context) WebAppUnitsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppUnitsPropertiesOutput)
+}
+
+func (i WebAppUnitsPropertiesArgs) ToWebAppUnitsPropertiesPtrOutput() WebAppUnitsPropertiesPtrOutput {
+	return i.ToWebAppUnitsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WebAppUnitsPropertiesArgs) ToWebAppUnitsPropertiesPtrOutputWithContext(ctx context.Context) WebAppUnitsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppUnitsPropertiesOutput).ToWebAppUnitsPropertiesPtrOutputWithContext(ctx)
+}
+
+// WebAppUnitsPropertiesPtrInput is an input type that accepts WebAppUnitsPropertiesArgs, WebAppUnitsPropertiesPtr and WebAppUnitsPropertiesPtrOutput values.
+// You can construct a concrete instance of `WebAppUnitsPropertiesPtrInput` via:
+//
+//	        WebAppUnitsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAppUnitsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWebAppUnitsPropertiesPtrOutput() WebAppUnitsPropertiesPtrOutput
+	ToWebAppUnitsPropertiesPtrOutputWithContext(context.Context) WebAppUnitsPropertiesPtrOutput
+}
+
+type webAppUnitsPropertiesPtrType WebAppUnitsPropertiesArgs
+
+func WebAppUnitsPropertiesPtr(v *WebAppUnitsPropertiesArgs) WebAppUnitsPropertiesPtrInput {
+	return (*webAppUnitsPropertiesPtrType)(v)
+}
+
+func (*webAppUnitsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppUnitsProperties)(nil)).Elem()
+}
+
+func (i *webAppUnitsPropertiesPtrType) ToWebAppUnitsPropertiesPtrOutput() WebAppUnitsPropertiesPtrOutput {
+	return i.ToWebAppUnitsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *webAppUnitsPropertiesPtrType) ToWebAppUnitsPropertiesPtrOutputWithContext(ctx context.Context) WebAppUnitsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppUnitsPropertiesPtrOutput)
+}
+
+// A union that contains the value for number of concurrent connections or the user sessions on your web app.
+type WebAppUnitsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (WebAppUnitsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppUnitsProperties)(nil)).Elem()
+}
+
+func (o WebAppUnitsPropertiesOutput) ToWebAppUnitsPropertiesOutput() WebAppUnitsPropertiesOutput {
+	return o
+}
+
+func (o WebAppUnitsPropertiesOutput) ToWebAppUnitsPropertiesOutputWithContext(ctx context.Context) WebAppUnitsPropertiesOutput {
+	return o
+}
+
+func (o WebAppUnitsPropertiesOutput) ToWebAppUnitsPropertiesPtrOutput() WebAppUnitsPropertiesPtrOutput {
+	return o.ToWebAppUnitsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WebAppUnitsPropertiesOutput) ToWebAppUnitsPropertiesPtrOutputWithContext(ctx context.Context) WebAppUnitsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAppUnitsProperties) *WebAppUnitsProperties {
+		return &v
+	}).(WebAppUnitsPropertiesPtrOutput)
+}
+
+func (o WebAppUnitsPropertiesOutput) Provisioned() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAppUnitsProperties) int { return v.Provisioned }).(pulumi.IntOutput)
+}
+
+type WebAppUnitsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAppUnitsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppUnitsProperties)(nil)).Elem()
+}
+
+func (o WebAppUnitsPropertiesPtrOutput) ToWebAppUnitsPropertiesPtrOutput() WebAppUnitsPropertiesPtrOutput {
+	return o
+}
+
+func (o WebAppUnitsPropertiesPtrOutput) ToWebAppUnitsPropertiesPtrOutputWithContext(ctx context.Context) WebAppUnitsPropertiesPtrOutput {
+	return o
+}
+
+func (o WebAppUnitsPropertiesPtrOutput) Elem() WebAppUnitsPropertiesOutput {
+	return o.ApplyT(func(v *WebAppUnitsProperties) WebAppUnitsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret WebAppUnitsProperties
+		return ret
+	}).(WebAppUnitsPropertiesOutput)
+}
+
+func (o WebAppUnitsPropertiesPtrOutput) Provisioned() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WebAppUnitsProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Provisioned
+	}).(pulumi.IntPtrOutput)
+}
+
 // Specifies the details for an EFS file.
 type WorkflowEfsInputFileLocation struct {
 	// Specifies the EFS filesystem that contains the file.
@@ -3936,6 +4387,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHomeDirectoryMapEntryArrayInput)(nil)).Elem(), UserHomeDirectoryMapEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPosixProfileInput)(nil)).Elem(), UserPosixProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPosixProfilePtrInput)(nil)).Elem(), UserPosixProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppCustomizationInput)(nil)).Elem(), WebAppCustomizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppCustomizationPtrInput)(nil)).Elem(), WebAppCustomizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppIdentityProviderDetailsInput)(nil)).Elem(), WebAppIdentityProviderDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppUnitsPropertiesInput)(nil)).Elem(), WebAppUnitsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppUnitsPropertiesPtrInput)(nil)).Elem(), WebAppUnitsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEfsInputFileLocationInput)(nil)).Elem(), WorkflowEfsInputFileLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEfsInputFileLocationPtrInput)(nil)).Elem(), WorkflowEfsInputFileLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowInputFileLocationInput)(nil)).Elem(), WorkflowInputFileLocationArgs{})
@@ -3978,6 +4434,12 @@ func init() {
 	pulumi.RegisterOutputType(UserHomeDirectoryMapEntryArrayOutput{})
 	pulumi.RegisterOutputType(UserPosixProfileOutput{})
 	pulumi.RegisterOutputType(UserPosixProfilePtrOutput{})
+	pulumi.RegisterOutputType(WebAppCustomizationOutput{})
+	pulumi.RegisterOutputType(WebAppCustomizationPtrOutput{})
+	pulumi.RegisterOutputType(WebAppIdentityProviderDetailsOutput{})
+	pulumi.RegisterOutputType(WebAppIdentityProviderDetailsPtrOutput{})
+	pulumi.RegisterOutputType(WebAppUnitsPropertiesOutput{})
+	pulumi.RegisterOutputType(WebAppUnitsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowEfsInputFileLocationOutput{})
 	pulumi.RegisterOutputType(WorkflowEfsInputFileLocationPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowInputFileLocationOutput{})

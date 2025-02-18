@@ -6394,7 +6394,7 @@ type JobDefinitionLinuxParameters struct {
 	InitProcessEnabled *bool `pulumi:"initProcessEnabled"`
 	// The total amount of swap memory (in MiB) a container can use. This parameter is translated to the `--memory-swap` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) where the value is the sum of the container memory plus the `maxSwap` value. For more information, see [`--memory-swap` details](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details) in the Docker documentation.
 	//
-	// If a `maxSwap` value of `0` is specified, the container doesn't use swap. Accepted values are `0` or any positive integer. If the `maxSwap` parameter is omitted, the container doesn't use the swap configuration for the container instance that it's running on. A `maxSwap` value must be set for the `swappiness` parameter to be used.
+	// If a `maxSwap` value of `0` is specified, the container doesn't use swap. Accepted values are `0` or any positive integer. If the `maxSwap` parameter is omitted, the container doesn't use the swap configuration for the container instance on which it runs. A `maxSwap` value must be set for the `swappiness` parameter to be used.
 	//
 	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide it for these jobs.
 	MaxSwap *int `pulumi:"maxSwap"`
@@ -6440,7 +6440,7 @@ type JobDefinitionLinuxParametersArgs struct {
 	InitProcessEnabled pulumi.BoolPtrInput `pulumi:"initProcessEnabled"`
 	// The total amount of swap memory (in MiB) a container can use. This parameter is translated to the `--memory-swap` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) where the value is the sum of the container memory plus the `maxSwap` value. For more information, see [`--memory-swap` details](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details) in the Docker documentation.
 	//
-	// If a `maxSwap` value of `0` is specified, the container doesn't use swap. Accepted values are `0` or any positive integer. If the `maxSwap` parameter is omitted, the container doesn't use the swap configuration for the container instance that it's running on. A `maxSwap` value must be set for the `swappiness` parameter to be used.
+	// If a `maxSwap` value of `0` is specified, the container doesn't use swap. Accepted values are `0` or any positive integer. If the `maxSwap` parameter is omitted, the container doesn't use the swap configuration for the container instance on which it runs. A `maxSwap` value must be set for the `swappiness` parameter to be used.
 	//
 	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide it for these jobs.
 	MaxSwap pulumi.IntPtrInput `pulumi:"maxSwap"`
@@ -6557,7 +6557,7 @@ func (o JobDefinitionLinuxParametersOutput) InitProcessEnabled() pulumi.BoolPtrO
 
 // The total amount of swap memory (in MiB) a container can use. This parameter is translated to the `--memory-swap` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) where the value is the sum of the container memory plus the `maxSwap` value. For more information, see [`--memory-swap` details](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details) in the Docker documentation.
 //
-// If a `maxSwap` value of `0` is specified, the container doesn't use swap. Accepted values are `0` or any positive integer. If the `maxSwap` parameter is omitted, the container doesn't use the swap configuration for the container instance that it's running on. A `maxSwap` value must be set for the `swappiness` parameter to be used.
+// If a `maxSwap` value of `0` is specified, the container doesn't use swap. Accepted values are `0` or any positive integer. If the `maxSwap` parameter is omitted, the container doesn't use the swap configuration for the container instance on which it runs. A `maxSwap` value must be set for the `swappiness` parameter to be used.
 //
 // > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide it for these jobs.
 func (o JobDefinitionLinuxParametersOutput) MaxSwap() pulumi.IntPtrOutput {
@@ -6641,7 +6641,7 @@ func (o JobDefinitionLinuxParametersPtrOutput) InitProcessEnabled() pulumi.BoolP
 
 // The total amount of swap memory (in MiB) a container can use. This parameter is translated to the `--memory-swap` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) where the value is the sum of the container memory plus the `maxSwap` value. For more information, see [`--memory-swap` details](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details) in the Docker documentation.
 //
-// If a `maxSwap` value of `0` is specified, the container doesn't use swap. Accepted values are `0` or any positive integer. If the `maxSwap` parameter is omitted, the container doesn't use the swap configuration for the container instance that it's running on. A `maxSwap` value must be set for the `swappiness` parameter to be used.
+// If a `maxSwap` value of `0` is specified, the container doesn't use swap. Accepted values are `0` or any positive integer. If the `maxSwap` parameter is omitted, the container doesn't use the swap configuration for the container instance on which it runs. A `maxSwap` value must be set for the `swappiness` parameter to be used.
 //
 // > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide it for these jobs.
 func (o JobDefinitionLinuxParametersPtrOutput) MaxSwap() pulumi.IntPtrOutput {
@@ -10358,15 +10358,15 @@ func (o JobQueueJobStateTimeLimitActionArrayOutput) Index(i pulumi.IntInput) Job
 
 // Fair Share Policy for the Job Queue.
 type SchedulingPolicyFairsharePolicy struct {
-	// A value used to reserve some of the available maximum vCPU for fair share identifiers that aren't already used.
+	// A value used to reserve some of the available maximum vCPU for share identifiers that aren't already used.
 	//
-	// The reserved ratio is `( *computeReservation* /100)^ *ActiveFairShares*` where `*ActiveFairShares*` is the number of active fair share identifiers.
+	// The reserved ratio is `( *computeReservation* /100)^ *ActiveFairShares*` where `*ActiveFairShares*` is the number of active share identifiers.
 	//
-	// For example, a `computeReservation` value of 50 indicates that AWS Batch reserves 50% of the maximum available vCPU if there's only one fair share identifier. It reserves 25% if there are two fair share identifiers. It reserves 12.5% if there are three fair share identifiers. A `computeReservation` value of 25 indicates that AWS Batch should reserve 25% of the maximum available vCPU if there's only one fair share identifier, 6.25% if there are two fair share identifiers, and 1.56% if there are three fair share identifiers.
+	// For example, a `computeReservation` value of 50 indicates that AWS Batch reserves 50% of the maximum available vCPU if there's only one share identifier. It reserves 25% if there are two share identifiers. It reserves 12.5% if there are three share identifiers. A `computeReservation` value of 25 indicates that AWS Batch should reserve 25% of the maximum available vCPU if there's only one share identifier, 6.25% if there are two fair share identifiers, and 1.56% if there are three share identifiers.
 	//
 	// The minimum value is 0 and the maximum value is 99.
 	ComputeReservation *float64 `pulumi:"computeReservation"`
-	// The amount of time (in seconds) to use to calculate a fair share percentage for each fair share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).
+	// The amount of time (in seconds) to use to calculate a fair-share percentage for each share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).
 	//
 	// The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn’t meet your needs.
 	ShareDecaySeconds *float64 `pulumi:"shareDecaySeconds"`
@@ -10387,15 +10387,15 @@ type SchedulingPolicyFairsharePolicyInput interface {
 
 // Fair Share Policy for the Job Queue.
 type SchedulingPolicyFairsharePolicyArgs struct {
-	// A value used to reserve some of the available maximum vCPU for fair share identifiers that aren't already used.
+	// A value used to reserve some of the available maximum vCPU for share identifiers that aren't already used.
 	//
-	// The reserved ratio is `( *computeReservation* /100)^ *ActiveFairShares*` where `*ActiveFairShares*` is the number of active fair share identifiers.
+	// The reserved ratio is `( *computeReservation* /100)^ *ActiveFairShares*` where `*ActiveFairShares*` is the number of active share identifiers.
 	//
-	// For example, a `computeReservation` value of 50 indicates that AWS Batch reserves 50% of the maximum available vCPU if there's only one fair share identifier. It reserves 25% if there are two fair share identifiers. It reserves 12.5% if there are three fair share identifiers. A `computeReservation` value of 25 indicates that AWS Batch should reserve 25% of the maximum available vCPU if there's only one fair share identifier, 6.25% if there are two fair share identifiers, and 1.56% if there are three fair share identifiers.
+	// For example, a `computeReservation` value of 50 indicates that AWS Batch reserves 50% of the maximum available vCPU if there's only one share identifier. It reserves 25% if there are two share identifiers. It reserves 12.5% if there are three share identifiers. A `computeReservation` value of 25 indicates that AWS Batch should reserve 25% of the maximum available vCPU if there's only one share identifier, 6.25% if there are two fair share identifiers, and 1.56% if there are three share identifiers.
 	//
 	// The minimum value is 0 and the maximum value is 99.
 	ComputeReservation pulumi.Float64PtrInput `pulumi:"computeReservation"`
-	// The amount of time (in seconds) to use to calculate a fair share percentage for each fair share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).
+	// The amount of time (in seconds) to use to calculate a fair-share percentage for each share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).
 	//
 	// The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn’t meet your needs.
 	ShareDecaySeconds pulumi.Float64PtrInput `pulumi:"shareDecaySeconds"`
@@ -10481,18 +10481,18 @@ func (o SchedulingPolicyFairsharePolicyOutput) ToSchedulingPolicyFairsharePolicy
 	}).(SchedulingPolicyFairsharePolicyPtrOutput)
 }
 
-// A value used to reserve some of the available maximum vCPU for fair share identifiers that aren't already used.
+// A value used to reserve some of the available maximum vCPU for share identifiers that aren't already used.
 //
-// The reserved ratio is `( *computeReservation* /100)^ *ActiveFairShares*` where `*ActiveFairShares*` is the number of active fair share identifiers.
+// The reserved ratio is `( *computeReservation* /100)^ *ActiveFairShares*` where `*ActiveFairShares*` is the number of active share identifiers.
 //
-// For example, a `computeReservation` value of 50 indicates that AWS Batch reserves 50% of the maximum available vCPU if there's only one fair share identifier. It reserves 25% if there are two fair share identifiers. It reserves 12.5% if there are three fair share identifiers. A `computeReservation` value of 25 indicates that AWS Batch should reserve 25% of the maximum available vCPU if there's only one fair share identifier, 6.25% if there are two fair share identifiers, and 1.56% if there are three fair share identifiers.
+// For example, a `computeReservation` value of 50 indicates that AWS Batch reserves 50% of the maximum available vCPU if there's only one share identifier. It reserves 25% if there are two share identifiers. It reserves 12.5% if there are three share identifiers. A `computeReservation` value of 25 indicates that AWS Batch should reserve 25% of the maximum available vCPU if there's only one share identifier, 6.25% if there are two fair share identifiers, and 1.56% if there are three share identifiers.
 //
 // The minimum value is 0 and the maximum value is 99.
 func (o SchedulingPolicyFairsharePolicyOutput) ComputeReservation() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SchedulingPolicyFairsharePolicy) *float64 { return v.ComputeReservation }).(pulumi.Float64PtrOutput)
 }
 
-// The amount of time (in seconds) to use to calculate a fair share percentage for each fair share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).
+// The amount of time (in seconds) to use to calculate a fair-share percentage for each share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).
 //
 // The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn’t meet your needs.
 func (o SchedulingPolicyFairsharePolicyOutput) ShareDecaySeconds() pulumi.Float64PtrOutput {
@@ -10528,11 +10528,11 @@ func (o SchedulingPolicyFairsharePolicyPtrOutput) Elem() SchedulingPolicyFairsha
 	}).(SchedulingPolicyFairsharePolicyOutput)
 }
 
-// A value used to reserve some of the available maximum vCPU for fair share identifiers that aren't already used.
+// A value used to reserve some of the available maximum vCPU for share identifiers that aren't already used.
 //
-// The reserved ratio is `( *computeReservation* /100)^ *ActiveFairShares*` where `*ActiveFairShares*` is the number of active fair share identifiers.
+// The reserved ratio is `( *computeReservation* /100)^ *ActiveFairShares*` where `*ActiveFairShares*` is the number of active share identifiers.
 //
-// For example, a `computeReservation` value of 50 indicates that AWS Batch reserves 50% of the maximum available vCPU if there's only one fair share identifier. It reserves 25% if there are two fair share identifiers. It reserves 12.5% if there are three fair share identifiers. A `computeReservation` value of 25 indicates that AWS Batch should reserve 25% of the maximum available vCPU if there's only one fair share identifier, 6.25% if there are two fair share identifiers, and 1.56% if there are three fair share identifiers.
+// For example, a `computeReservation` value of 50 indicates that AWS Batch reserves 50% of the maximum available vCPU if there's only one share identifier. It reserves 25% if there are two share identifiers. It reserves 12.5% if there are three share identifiers. A `computeReservation` value of 25 indicates that AWS Batch should reserve 25% of the maximum available vCPU if there's only one share identifier, 6.25% if there are two fair share identifiers, and 1.56% if there are three share identifiers.
 //
 // The minimum value is 0 and the maximum value is 99.
 func (o SchedulingPolicyFairsharePolicyPtrOutput) ComputeReservation() pulumi.Float64PtrOutput {
@@ -10544,7 +10544,7 @@ func (o SchedulingPolicyFairsharePolicyPtrOutput) ComputeReservation() pulumi.Fl
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The amount of time (in seconds) to use to calculate a fair share percentage for each fair share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).
+// The amount of time (in seconds) to use to calculate a fair-share percentage for each share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).
 //
 // The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn’t meet your needs.
 func (o SchedulingPolicyFairsharePolicyPtrOutput) ShareDecaySeconds() pulumi.Float64PtrOutput {
@@ -10567,13 +10567,13 @@ func (o SchedulingPolicyFairsharePolicyPtrOutput) ShareDistribution() Scheduling
 }
 
 type SchedulingPolicyShareAttributes struct {
-	// A fair share identifier or fair share identifier prefix. If the string ends with an asterisk (*), this entry specifies the weight factor to use for fair share identifiers that start with that prefix. The list of fair share identifiers in a fair share policy can't overlap. For example, you can't have one that specifies a `shareIdentifier` of `UserA*` and another that specifies a `shareIdentifier` of `UserA-1` .
+	// A share identifier or share identifier prefix. If the string ends with an asterisk (*), this entry specifies the weight factor to use for share identifiers that start with that prefix. The list of share identifiers in a fair-share policy can't overlap. For example, you can't have one that specifies a `shareIdentifier` of `UserA*` and another that specifies a `shareIdentifier` of `UserA-1` .
 	//
-	// There can be no more than 500 fair share identifiers active in a job queue.
+	// There can be no more than 500 share identifiers active in a job queue.
 	//
 	// The string is limited to 255 alphanumeric characters, and can be followed by an asterisk (*).
 	ShareIdentifier *string `pulumi:"shareIdentifier"`
-	// The weight factor for the fair share identifier. The default value is 1.0. A lower value has a higher priority for compute resources. For example, jobs that use a share identifier with a weight factor of 0.125 (1/8) get 8 times the compute resources of jobs that use a share identifier with a weight factor of 1.
+	// The weight factor for the share identifier. The default value is 1.0. A lower value has a higher priority for compute resources. For example, jobs that use a share identifier with a weight factor of 0.125 (1/8) get 8 times the compute resources of jobs that use a share identifier with a weight factor of 1.
 	//
 	// The smallest supported value is 0.0001, and the largest supported value is 999.9999.
 	WeightFactor *float64 `pulumi:"weightFactor"`
@@ -10591,13 +10591,13 @@ type SchedulingPolicyShareAttributesInput interface {
 }
 
 type SchedulingPolicyShareAttributesArgs struct {
-	// A fair share identifier or fair share identifier prefix. If the string ends with an asterisk (*), this entry specifies the weight factor to use for fair share identifiers that start with that prefix. The list of fair share identifiers in a fair share policy can't overlap. For example, you can't have one that specifies a `shareIdentifier` of `UserA*` and another that specifies a `shareIdentifier` of `UserA-1` .
+	// A share identifier or share identifier prefix. If the string ends with an asterisk (*), this entry specifies the weight factor to use for share identifiers that start with that prefix. The list of share identifiers in a fair-share policy can't overlap. For example, you can't have one that specifies a `shareIdentifier` of `UserA*` and another that specifies a `shareIdentifier` of `UserA-1` .
 	//
-	// There can be no more than 500 fair share identifiers active in a job queue.
+	// There can be no more than 500 share identifiers active in a job queue.
 	//
 	// The string is limited to 255 alphanumeric characters, and can be followed by an asterisk (*).
 	ShareIdentifier pulumi.StringPtrInput `pulumi:"shareIdentifier"`
-	// The weight factor for the fair share identifier. The default value is 1.0. A lower value has a higher priority for compute resources. For example, jobs that use a share identifier with a weight factor of 0.125 (1/8) get 8 times the compute resources of jobs that use a share identifier with a weight factor of 1.
+	// The weight factor for the share identifier. The default value is 1.0. A lower value has a higher priority for compute resources. For example, jobs that use a share identifier with a weight factor of 0.125 (1/8) get 8 times the compute resources of jobs that use a share identifier with a weight factor of 1.
 	//
 	// The smallest supported value is 0.0001, and the largest supported value is 999.9999.
 	WeightFactor pulumi.Float64PtrInput `pulumi:"weightFactor"`
@@ -10654,16 +10654,16 @@ func (o SchedulingPolicyShareAttributesOutput) ToSchedulingPolicyShareAttributes
 	return o
 }
 
-// A fair share identifier or fair share identifier prefix. If the string ends with an asterisk (*), this entry specifies the weight factor to use for fair share identifiers that start with that prefix. The list of fair share identifiers in a fair share policy can't overlap. For example, you can't have one that specifies a `shareIdentifier` of `UserA*` and another that specifies a `shareIdentifier` of `UserA-1` .
+// A share identifier or share identifier prefix. If the string ends with an asterisk (*), this entry specifies the weight factor to use for share identifiers that start with that prefix. The list of share identifiers in a fair-share policy can't overlap. For example, you can't have one that specifies a `shareIdentifier` of `UserA*` and another that specifies a `shareIdentifier` of `UserA-1` .
 //
-// There can be no more than 500 fair share identifiers active in a job queue.
+// There can be no more than 500 share identifiers active in a job queue.
 //
 // The string is limited to 255 alphanumeric characters, and can be followed by an asterisk (*).
 func (o SchedulingPolicyShareAttributesOutput) ShareIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchedulingPolicyShareAttributes) *string { return v.ShareIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The weight factor for the fair share identifier. The default value is 1.0. A lower value has a higher priority for compute resources. For example, jobs that use a share identifier with a weight factor of 0.125 (1/8) get 8 times the compute resources of jobs that use a share identifier with a weight factor of 1.
+// The weight factor for the share identifier. The default value is 1.0. A lower value has a higher priority for compute resources. For example, jobs that use a share identifier with a weight factor of 0.125 (1/8) get 8 times the compute resources of jobs that use a share identifier with a weight factor of 1.
 //
 // The smallest supported value is 0.0001, and the largest supported value is 999.9999.
 func (o SchedulingPolicyShareAttributesOutput) WeightFactor() pulumi.Float64PtrOutput {

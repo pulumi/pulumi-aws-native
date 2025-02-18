@@ -458,6 +458,37 @@ namespace Pulumi.AwsNative.DataSync
     }
 
     /// <summary>
+    /// The authentication mode used to determine identity of user.
+    /// </summary>
+    [EnumType]
+    public readonly struct LocationSmbAuthenticationType : IEquatable<LocationSmbAuthenticationType>
+    {
+        private readonly string _value;
+
+        private LocationSmbAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LocationSmbAuthenticationType Ntlm { get; } = new LocationSmbAuthenticationType("NTLM");
+        public static LocationSmbAuthenticationType Kerberos { get; } = new LocationSmbAuthenticationType("KERBEROS");
+
+        public static bool operator ==(LocationSmbAuthenticationType left, LocationSmbAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(LocationSmbAuthenticationType left, LocationSmbAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(LocationSmbAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocationSmbAuthenticationType other && Equals(other);
+        public bool Equals(LocationSmbAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The specific SMB version that you want DataSync to use to mount your SMB share.
     /// </summary>
     [EnumType]

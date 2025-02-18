@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Outputs
         /// </summary>
         public readonly string Metadata;
         /// <summary>
+        /// Custom entity id attribute to override default entity id for this saml integration
+        /// </summary>
+        public readonly string? OpenSearchServerlessEntityId;
+        /// <summary>
         /// Defines the session timeout in minutes
         /// </summary>
         public readonly int? SessionTimeout;
@@ -39,12 +43,15 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Outputs
 
             string metadata,
 
+            string? openSearchServerlessEntityId,
+
             int? sessionTimeout,
 
             string? userAttribute)
         {
             GroupAttribute = groupAttribute;
             Metadata = metadata;
+            OpenSearchServerlessEntityId = openSearchServerlessEntityId;
             SessionTimeout = sessionTimeout;
             UserAttribute = userAttribute;
         }

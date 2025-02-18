@@ -111,6 +111,8 @@ type VirtualCluster struct {
 	ContainerProvider VirtualClusterContainerProviderOutput `pulumi:"containerProvider"`
 	// Name of the virtual cluster.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The ID of the security configuration.
+	SecurityConfigurationId pulumi.StringPtrOutput `pulumi:"securityConfigurationId"`
 	// An array of key-value pairs to apply to this virtual cluster.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -167,6 +169,8 @@ type virtualClusterArgs struct {
 	ContainerProvider VirtualClusterContainerProvider `pulumi:"containerProvider"`
 	// Name of the virtual cluster.
 	Name *string `pulumi:"name"`
+	// The ID of the security configuration.
+	SecurityConfigurationId *string `pulumi:"securityConfigurationId"`
 	// An array of key-value pairs to apply to this virtual cluster.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -177,6 +181,8 @@ type VirtualClusterArgs struct {
 	ContainerProvider VirtualClusterContainerProviderInput
 	// Name of the virtual cluster.
 	Name pulumi.StringPtrInput
+	// The ID of the security configuration.
+	SecurityConfigurationId pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this virtual cluster.
 	Tags aws.TagArrayInput
 }
@@ -236,6 +242,11 @@ func (o VirtualClusterOutput) ContainerProvider() VirtualClusterContainerProvide
 // Name of the virtual cluster.
 func (o VirtualClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the security configuration.
+func (o VirtualClusterOutput) SecurityConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualCluster) pulumi.StringPtrOutput { return v.SecurityConfigurationId }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this virtual cluster.

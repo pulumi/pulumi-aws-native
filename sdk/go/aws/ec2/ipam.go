@@ -22,6 +22,8 @@ type Ipam struct {
 	DefaultResourceDiscoveryAssociationId pulumi.StringOutput `pulumi:"defaultResourceDiscoveryAssociationId"`
 	// The Id of the default resource discovery, created with this IPAM.
 	DefaultResourceDiscoveryId pulumi.StringOutput `pulumi:"defaultResourceDiscoveryId"`
+	// A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
+	DefaultResourceDiscoveryOrganizationalUnitExclusions IpamOrganizationalUnitExclusionArrayOutput `pulumi:"defaultResourceDiscoveryOrganizationalUnitExclusions"`
 	// The description for the IPAM.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Enable provisioning of GUA space in private pools.
@@ -84,6 +86,8 @@ func (IpamState) ElementType() reflect.Type {
 }
 
 type ipamArgs struct {
+	// A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
+	DefaultResourceDiscoveryOrganizationalUnitExclusions []IpamOrganizationalUnitExclusion `pulumi:"defaultResourceDiscoveryOrganizationalUnitExclusions"`
 	// The description for the IPAM.
 	Description *string `pulumi:"description"`
 	// Enable provisioning of GUA space in private pools.
@@ -98,6 +102,8 @@ type ipamArgs struct {
 
 // The set of arguments for constructing a Ipam resource.
 type IpamArgs struct {
+	// A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
+	DefaultResourceDiscoveryOrganizationalUnitExclusions IpamOrganizationalUnitExclusionArrayInput
 	// The description for the IPAM.
 	Description pulumi.StringPtrInput
 	// Enable provisioning of GUA space in private pools.
@@ -160,6 +166,13 @@ func (o IpamOutput) DefaultResourceDiscoveryAssociationId() pulumi.StringOutput 
 // The Id of the default resource discovery, created with this IPAM.
 func (o IpamOutput) DefaultResourceDiscoveryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ipam) pulumi.StringOutput { return v.DefaultResourceDiscoveryId }).(pulumi.StringOutput)
+}
+
+// A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
+func (o IpamOutput) DefaultResourceDiscoveryOrganizationalUnitExclusions() IpamOrganizationalUnitExclusionArrayOutput {
+	return o.ApplyT(func(v *Ipam) IpamOrganizationalUnitExclusionArrayOutput {
+		return v.DefaultResourceDiscoveryOrganizationalUnitExclusions
+	}).(IpamOrganizationalUnitExclusionArrayOutput)
 }
 
 // The description for the IPAM.

@@ -23,8 +23,10 @@ func LookupUserPoolDomain(ctx *pulumi.Context, args *LookupUserPoolDomainArgs, o
 }
 
 type LookupUserPoolDomainArgs struct {
-	// The resource ID.
-	Id string `pulumi:"id"`
+	// The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` .
+	Domain string `pulumi:"domain"`
+	// The ID of the user pool that is associated with the domain you're updating.
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 type LookupUserPoolDomainResult struct {
@@ -34,10 +36,6 @@ type LookupUserPoolDomainResult struct {
 	//
 	// When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
 	CustomDomainConfig *UserPoolDomainCustomDomainConfigType `pulumi:"customDomainConfig"`
-	// The resource ID.
-	Id *string `pulumi:"id"`
-	// A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
-	ManagedLoginVersion *int `pulumi:"managedLoginVersion"`
 }
 
 func LookupUserPoolDomainOutput(ctx *pulumi.Context, args LookupUserPoolDomainOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolDomainResultOutput {
@@ -50,8 +48,10 @@ func LookupUserPoolDomainOutput(ctx *pulumi.Context, args LookupUserPoolDomainOu
 }
 
 type LookupUserPoolDomainOutputArgs struct {
-	// The resource ID.
-	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` .
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// The ID of the user pool that is associated with the domain you're updating.
+	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
 func (LookupUserPoolDomainOutputArgs) ElementType() reflect.Type {
@@ -82,16 +82,6 @@ func (o LookupUserPoolDomainResultOutput) CloudFrontDistribution() pulumi.String
 // When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
 func (o LookupUserPoolDomainResultOutput) CustomDomainConfig() UserPoolDomainCustomDomainConfigTypePtrOutput {
 	return o.ApplyT(func(v LookupUserPoolDomainResult) *UserPoolDomainCustomDomainConfigType { return v.CustomDomainConfig }).(UserPoolDomainCustomDomainConfigTypePtrOutput)
-}
-
-// The resource ID.
-func (o LookupUserPoolDomainResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupUserPoolDomainResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
-func (o LookupUserPoolDomainResultOutput) ManagedLoginVersion() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupUserPoolDomainResult) *int { return v.ManagedLoginVersion }).(pulumi.IntPtrOutput)
 }
 
 func init() {

@@ -8,11 +8,15 @@ __all__ = [
     'AgentActionGroupSignature',
     'AgentActionGroupState',
     'AgentAliasStatus',
+    'AgentCollaboration',
     'AgentCreationMode',
     'AgentCustomControlMethod',
     'AgentKnowledgeBaseState',
+    'AgentMemoryType',
+    'AgentOrchestrationType',
     'AgentPromptState',
     'AgentPromptType',
+    'AgentRelayConversationHistory',
     'AgentRequireConfirmation',
     'AgentStatus',
     'AgentType',
@@ -61,8 +65,10 @@ __all__ = [
     'KnowledgeBaseStorageType',
     'KnowledgeBaseSupplementalDataStorageLocationType',
     'KnowledgeBaseType',
+    'PromptCachePointType',
     'PromptConversationRole',
     'PromptTemplateType',
+    'PromptVersionCachePointType',
     'PromptVersionConversationRole',
     'PromptVersionPromptTemplateType',
 ]
@@ -95,6 +101,15 @@ class AgentAliasStatus(str, Enum):
     DELETING = "DELETING"
 
 
+class AgentCollaboration(str, Enum):
+    """
+    Agent collaboration state
+    """
+    DISABLED = "DISABLED"
+    SUPERVISOR = "SUPERVISOR"
+    SUPERVISOR_ROUTER = "SUPERVISOR_ROUTER"
+
+
 class AgentCreationMode(str, Enum):
     """
     Creation Mode for Prompt Configuration.
@@ -118,6 +133,21 @@ class AgentKnowledgeBaseState(str, Enum):
     DISABLED = "DISABLED"
 
 
+class AgentMemoryType(str, Enum):
+    """
+    Memory type
+    """
+    SESSION_SUMMARY = "SESSION_SUMMARY"
+
+
+class AgentOrchestrationType(str, Enum):
+    """
+    Types of orchestration strategy for agents
+    """
+    DEFAULT = "DEFAULT"
+    CUSTOM_ORCHESTRATION = "CUSTOM_ORCHESTRATION"
+
+
 class AgentPromptState(str, Enum):
     """
     Prompt State.
@@ -133,7 +163,17 @@ class AgentPromptType(str, Enum):
     PRE_PROCESSING = "PRE_PROCESSING"
     ORCHESTRATION = "ORCHESTRATION"
     POST_PROCESSING = "POST_PROCESSING"
+    ROUTING_CLASSIFIER = "ROUTING_CLASSIFIER"
+    MEMORY_SUMMARIZATION = "MEMORY_SUMMARIZATION"
     KNOWLEDGE_BASE_RESPONSE_GENERATION = "KNOWLEDGE_BASE_RESPONSE_GENERATION"
+
+
+class AgentRelayConversationHistory(str, Enum):
+    """
+    Relay conversation history state
+    """
+    TO_COLLABORATOR = "TO_COLLABORATOR"
+    DISABLED = "DISABLED"
 
 
 class AgentRequireConfirmation(str, Enum):
@@ -600,6 +640,13 @@ class KnowledgeBaseType(str, Enum):
     SQL = "SQL"
 
 
+class PromptCachePointType(str, Enum):
+    """
+    CachePoint types for CachePointBlock
+    """
+    DEFAULT = "default"
+
+
 class PromptConversationRole(str, Enum):
     """
     Conversation roles for the chat prompt
@@ -614,6 +661,13 @@ class PromptTemplateType(str, Enum):
     """
     TEXT = "TEXT"
     CHAT = "CHAT"
+
+
+class PromptVersionCachePointType(str, Enum):
+    """
+    CachePoint types for CachePointBlock
+    """
+    DEFAULT = "default"
 
 
 class PromptVersionConversationRole(str, Enum):
