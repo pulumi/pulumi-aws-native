@@ -52,7 +52,6 @@
   "required" : [ ],
   "readOnlyProperties" : [ "/properties/AccessGrantsInstanceArn", "/properties/AccessGrantsInstanceId" ],
   "createOnlyProperties" : [ "/properties/Tags" ],
-  "writeOnlyProperties" : [ "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/AccessGrantsInstanceArn" ],
   "tagging" : {
     "taggable" : true,

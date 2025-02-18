@@ -1126,6 +1126,7 @@
       }
     }
   },
+  "required" : [ "Type" ],
   "properties" : {
     "Parameters" : {
       "patternProperties" : {
@@ -1185,6 +1186,5 @@
       "additionalProperties" : false,
       "type" : "object"
     }
-  },
-  "required" : [ "Type" ]
+  }
 }

@@ -123,14 +123,15 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "sso:TagResource", "sso:UntagResource" ]
   },
   "createOnlyProperties" : [ "/properties/InstanceArn", "/properties/ApplicationProviderArn" ],
   "readOnlyProperties" : [ "/properties/ApplicationArn" ],
   "primaryIdentifier" : [ "/properties/ApplicationArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "sso:CreateApplication", "sso:DescribeApplication", "sso:TagResource" ]
+      "permissions" : [ "sso:CreateApplication", "sso:DescribeApplication", "sso:TagResource", "sso:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "sso:DescribeApplication", "sso:ListTagsForResource" ]
@@ -150,7 +151,7 @@
         },
         "required" : [ "InstanceArn" ]
       },
-      "permissions" : [ "sso:ListApplications" ]
+      "permissions" : [ "sso:ListApplications", "sso:ListTagsForResource" ]
     }
   }
 }

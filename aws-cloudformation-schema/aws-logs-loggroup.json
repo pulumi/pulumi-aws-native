@@ -85,7 +85,7 @@
       "permissions" : [ "logs:DescribeLogGroups", "logs:ListTagsForResource", "logs:GetDataProtectionPolicy", "logs:DescribeIndexPolicies" ]
     },
     "update" : {
-      "permissions" : [ "logs:DescribeLogGroups", "logs:AssociateKmsKey", "logs:DisassociateKmsKey", "logs:PutRetentionPolicy", "logs:DeleteRetentionPolicy", "logs:TagResource", "logs:UntagResource", "logs:GetDataProtectionPolicy", "logs:PutDataProtectionPolicy", "logs:CreateLogDelivery", "s3:REST.PUT.OBJECT", "firehose:TagDeliveryStream", "logs:PutIndexPolicy", "logs:DeleteIndexPolicy" ]
+      "permissions" : [ "logs:DescribeLogGroups", "logs:AssociateKmsKey", "logs:DisassociateKmsKey", "logs:PutRetentionPolicy", "logs:DeleteRetentionPolicy", "logs:TagResource", "logs:UntagResource", "logs:ListTagsForResource", "logs:GetDataProtectionPolicy", "logs:PutDataProtectionPolicy", "logs:CreateLogDelivery", "s3:REST.PUT.OBJECT", "firehose:TagDeliveryStream", "logs:PutIndexPolicy", "logs:DeleteIndexPolicy" ]
     },
     "delete" : {
       "permissions" : [ "logs:DescribeLogGroups", "logs:DeleteLogGroup", "logs:DeleteDataProtectionPolicy" ]
@@ -111,6 +111,7 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "logs:TagResource", "logs:UntagResource", "logs:ListTagsForResource" ]
   }
 }

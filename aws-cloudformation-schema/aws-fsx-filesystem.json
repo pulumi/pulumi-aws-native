@@ -441,7 +441,7 @@
     }
   },
   "required" : [ "FileSystemType", "SubnetIds" ],
-  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/SecurityGroupIds", "/properties/FileSystemTypeVersion", "/properties/FileSystemType", "/properties/SubnetIds", "/properties/BackupId" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/SecurityGroupIds", "/properties/FileSystemType", "/properties/SubnetIds", "/properties/BackupId" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/ResourceARN", "/properties/Id", "/properties/LustreMountName", "/properties/RootVolumeId", "/properties/DNSName" ]
 }

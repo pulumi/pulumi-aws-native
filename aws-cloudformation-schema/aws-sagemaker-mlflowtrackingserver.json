@@ -100,7 +100,7 @@
   "handlers" : {
     "create" : {
       "permissions" : [ "sagemaker:CreateMlflowTrackingServer", "sagemaker:DescribeMlflowTrackingServer", "sagemaker:AddTags", "sagemaker:ListTags", "iam:PassRole" ],
-      "timeoutInMinutes" : 65
+      "timeoutInMinutes" : 95
     },
     "read" : {
       "permissions" : [ "sagemaker:DescribeMlflowTrackingServer", "sagemaker:ListTags" ]
@@ -111,7 +111,7 @@
     },
     "delete" : {
       "permissions" : [ "sagemaker:DeleteMlflowTrackingServer", "sagemaker:DescribeMlflowTrackingServer" ],
-      "timeoutInMinutes" : 65
+      "timeoutInMinutes" : 95
     },
     "list" : {
       "permissions" : [ "sagemaker:ListMlflowTrackingServers" ]
