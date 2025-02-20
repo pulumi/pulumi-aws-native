@@ -61,8 +61,12 @@ class SecurityConfigIamIdentityCenterConfigOptions(dict):
                  user_attribute: Optional[str] = None):
         """
         Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
+        :param str instance_arn: The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        :param str application_arn: The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
         :param str application_description: The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
         :param str application_name: The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
+        :param str group_attribute: The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
+        :param str user_attribute: The user attribute for this IAM Identity Center integration. Defaults to `UserId`
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         if application_arn is not None:
@@ -79,11 +83,17 @@ class SecurityConfigIamIdentityCenterConfigOptions(dict):
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> str:
+        """
+        The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        """
         return pulumi.get(self, "instance_arn")
 
     @property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[str]:
+        """
+        The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
+        """
         return pulumi.get(self, "application_arn")
 
     @property
@@ -105,11 +115,17 @@ class SecurityConfigIamIdentityCenterConfigOptions(dict):
     @property
     @pulumi.getter(name="groupAttribute")
     def group_attribute(self) -> Optional[str]:
+        """
+        The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
+        """
         return pulumi.get(self, "group_attribute")
 
     @property
     @pulumi.getter(name="userAttribute")
     def user_attribute(self) -> Optional[str]:
+        """
+        The user attribute for this IAM Identity Center integration. Defaults to `UserId`
+        """
         return pulumi.get(self, "user_attribute")
 
 

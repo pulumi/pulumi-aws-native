@@ -901,7 +901,8 @@ type AgentCollaborator struct {
 	// Agent collaborator instruction
 	CollaborationInstruction string `pulumi:"collaborationInstruction"`
 	// Agent collaborator name
-	CollaboratorName         string                         `pulumi:"collaboratorName"`
+	CollaboratorName string `pulumi:"collaboratorName"`
+	// The collaborator's relay conversation history.
 	RelayConversationHistory *AgentRelayConversationHistory `pulumi:"relayConversationHistory"`
 }
 
@@ -923,7 +924,8 @@ type AgentCollaboratorArgs struct {
 	// Agent collaborator instruction
 	CollaborationInstruction pulumi.StringInput `pulumi:"collaborationInstruction"`
 	// Agent collaborator name
-	CollaboratorName         pulumi.StringInput                    `pulumi:"collaboratorName"`
+	CollaboratorName pulumi.StringInput `pulumi:"collaboratorName"`
+	// The collaborator's relay conversation history.
 	RelayConversationHistory AgentRelayConversationHistoryPtrInput `pulumi:"relayConversationHistory"`
 }
 
@@ -994,6 +996,7 @@ func (o AgentCollaboratorOutput) CollaboratorName() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentCollaborator) string { return v.CollaboratorName }).(pulumi.StringOutput)
 }
 
+// The collaborator's relay conversation history.
 func (o AgentCollaboratorOutput) RelayConversationHistory() AgentRelayConversationHistoryPtrOutput {
 	return o.ApplyT(func(v AgentCollaborator) *AgentRelayConversationHistory { return v.RelayConversationHistory }).(AgentRelayConversationHistoryPtrOutput)
 }
@@ -1075,6 +1078,7 @@ func (o AgentCollaboratorAgentDescriptorPropertiesOutput) AliasArn() pulumi.Stri
 
 // Structure for custom orchestration
 type AgentCustomOrchestration struct {
+	// The structure of the executor invoking the actions in custom orchestration.
 	Executor *AgentOrchestrationExecutor `pulumi:"executor"`
 }
 
@@ -1091,6 +1095,7 @@ type AgentCustomOrchestrationInput interface {
 
 // Structure for custom orchestration
 type AgentCustomOrchestrationArgs struct {
+	// The structure of the executor invoking the actions in custom orchestration.
 	Executor AgentOrchestrationExecutorPtrInput `pulumi:"executor"`
 }
 
@@ -1172,6 +1177,7 @@ func (o AgentCustomOrchestrationOutput) ToAgentCustomOrchestrationPtrOutputWithC
 	}).(AgentCustomOrchestrationPtrOutput)
 }
 
+// The structure of the executor invoking the actions in custom orchestration.
 func (o AgentCustomOrchestrationOutput) Executor() AgentOrchestrationExecutorPtrOutput {
 	return o.ApplyT(func(v AgentCustomOrchestration) *AgentOrchestrationExecutor { return v.Executor }).(AgentOrchestrationExecutorPtrOutput)
 }
@@ -1200,6 +1206,7 @@ func (o AgentCustomOrchestrationPtrOutput) Elem() AgentCustomOrchestrationOutput
 	}).(AgentCustomOrchestrationOutput)
 }
 
+// The structure of the executor invoking the actions in custom orchestration.
 func (o AgentCustomOrchestrationPtrOutput) Executor() AgentOrchestrationExecutorPtrOutput {
 	return o.ApplyT(func(v *AgentCustomOrchestration) *AgentOrchestrationExecutor {
 		if v == nil {
@@ -1971,7 +1978,9 @@ func (o AgentKnowledgeBaseArrayOutput) Index(i pulumi.IntInput) AgentKnowledgeBa
 
 // Configuration for memory storage
 type AgentMemoryConfiguration struct {
-	EnabledMemoryTypes          []AgentMemoryType                 `pulumi:"enabledMemoryTypes"`
+	// The type of memory that is stored.
+	EnabledMemoryTypes []AgentMemoryType `pulumi:"enabledMemoryTypes"`
+	// Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
 	SessionSummaryConfiguration *AgentSessionSummaryConfiguration `pulumi:"sessionSummaryConfiguration"`
 	// Maximum number of days to store session details
 	StorageDays *float64 `pulumi:"storageDays"`
@@ -1990,7 +1999,9 @@ type AgentMemoryConfigurationInput interface {
 
 // Configuration for memory storage
 type AgentMemoryConfigurationArgs struct {
-	EnabledMemoryTypes          AgentMemoryTypeArrayInput                `pulumi:"enabledMemoryTypes"`
+	// The type of memory that is stored.
+	EnabledMemoryTypes AgentMemoryTypeArrayInput `pulumi:"enabledMemoryTypes"`
+	// Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
 	SessionSummaryConfiguration AgentSessionSummaryConfigurationPtrInput `pulumi:"sessionSummaryConfiguration"`
 	// Maximum number of days to store session details
 	StorageDays pulumi.Float64PtrInput `pulumi:"storageDays"`
@@ -2074,10 +2085,12 @@ func (o AgentMemoryConfigurationOutput) ToAgentMemoryConfigurationPtrOutputWithC
 	}).(AgentMemoryConfigurationPtrOutput)
 }
 
+// The type of memory that is stored.
 func (o AgentMemoryConfigurationOutput) EnabledMemoryTypes() AgentMemoryTypeArrayOutput {
 	return o.ApplyT(func(v AgentMemoryConfiguration) []AgentMemoryType { return v.EnabledMemoryTypes }).(AgentMemoryTypeArrayOutput)
 }
 
+// Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
 func (o AgentMemoryConfigurationOutput) SessionSummaryConfiguration() AgentSessionSummaryConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentMemoryConfiguration) *AgentSessionSummaryConfiguration {
 		return v.SessionSummaryConfiguration
@@ -2113,6 +2126,7 @@ func (o AgentMemoryConfigurationPtrOutput) Elem() AgentMemoryConfigurationOutput
 	}).(AgentMemoryConfigurationOutput)
 }
 
+// The type of memory that is stored.
 func (o AgentMemoryConfigurationPtrOutput) EnabledMemoryTypes() AgentMemoryTypeArrayOutput {
 	return o.ApplyT(func(v *AgentMemoryConfiguration) []AgentMemoryType {
 		if v == nil {
@@ -2122,6 +2136,7 @@ func (o AgentMemoryConfigurationPtrOutput) EnabledMemoryTypes() AgentMemoryTypeA
 	}).(AgentMemoryTypeArrayOutput)
 }
 
+// Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
 func (o AgentMemoryConfigurationPtrOutput) SessionSummaryConfiguration() AgentSessionSummaryConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentMemoryConfiguration) *AgentSessionSummaryConfiguration {
 		if v == nil {
@@ -2403,7 +2418,8 @@ func (o AgentParameterDetailMapOutput) MapIndex(k pulumi.StringInput) AgentParam
 type AgentPromptConfiguration struct {
 	// Base Prompt Template.
 	BasePromptTemplate *string `pulumi:"basePromptTemplate"`
-	FoundationModel    *string `pulumi:"foundationModel"`
+	// The agent's foundation model.
+	FoundationModel *string `pulumi:"foundationModel"`
 	// Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
 	InferenceConfiguration *AgentInferenceConfiguration `pulumi:"inferenceConfiguration"`
 	// Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
@@ -2436,7 +2452,8 @@ type AgentPromptConfigurationInput interface {
 type AgentPromptConfigurationArgs struct {
 	// Base Prompt Template.
 	BasePromptTemplate pulumi.StringPtrInput `pulumi:"basePromptTemplate"`
-	FoundationModel    pulumi.StringPtrInput `pulumi:"foundationModel"`
+	// The agent's foundation model.
+	FoundationModel pulumi.StringPtrInput `pulumi:"foundationModel"`
 	// Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
 	InferenceConfiguration AgentInferenceConfigurationPtrInput `pulumi:"inferenceConfiguration"`
 	// Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
@@ -2511,6 +2528,7 @@ func (o AgentPromptConfigurationOutput) BasePromptTemplate() pulumi.StringPtrOut
 	return o.ApplyT(func(v AgentPromptConfiguration) *string { return v.BasePromptTemplate }).(pulumi.StringPtrOutput)
 }
 
+// The agent's foundation model.
 func (o AgentPromptConfigurationOutput) FoundationModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentPromptConfiguration) *string { return v.FoundationModel }).(pulumi.StringPtrOutput)
 }

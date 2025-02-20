@@ -37,6 +37,10 @@ export interface GetChannelResult {
      * The name of the channel.
      */
     readonly name?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * A channel receives events from a specific source (such as an on-premises storage solution or application, or a partner event data source), and delivers the events to one or more event data stores. You use channels to ingest events into CloudTrail from sources outside AWS.
