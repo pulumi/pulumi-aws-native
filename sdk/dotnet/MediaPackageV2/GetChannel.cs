@@ -80,10 +80,12 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// &lt;p&gt;The list of ingest endpoints.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelIngestEndpoint> IngestEndpoints;
+        public readonly Outputs.ChannelInputSwitchConfiguration? InputSwitchConfiguration;
         /// <summary>
         /// &lt;p&gt;The date and time the channel was modified.&lt;/p&gt;
         /// </summary>
         public readonly string? ModifiedAt;
+        public readonly Outputs.ChannelOutputHeaderConfiguration? OutputHeaderConfiguration;
         /// <summary>
         /// The tags associated with the channel.
         /// </summary>
@@ -101,7 +103,11 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
             ImmutableArray<Outputs.ChannelIngestEndpoint> ingestEndpoints,
 
+            Outputs.ChannelInputSwitchConfiguration? inputSwitchConfiguration,
+
             string? modifiedAt,
+
+            Outputs.ChannelOutputHeaderConfiguration? outputHeaderConfiguration,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
@@ -110,7 +116,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
             Description = description;
             IngestEndpointUrls = ingestEndpointUrls;
             IngestEndpoints = ingestEndpoints;
+            InputSwitchConfiguration = inputSwitchConfiguration;
             ModifiedAt = modifiedAt;
+            OutputHeaderConfiguration = outputHeaderConfiguration;
             Tags = tags;
         }
     }
