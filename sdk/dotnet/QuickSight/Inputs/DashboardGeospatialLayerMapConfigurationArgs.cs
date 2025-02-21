@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardGeospatialLayerMapConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("interactions")]
-        public Input<object>? Interactions { get; set; }
+        public Input<Inputs.DashboardVisualInteractionOptionsArgs>? Interactions { get; set; }
 
         [Input("legend")]
         public Input<Inputs.DashboardLegendOptionsArgs>? Legend { get; set; }

@@ -12,6 +12,7 @@ export const AiAgentAiAgentType = {
     ManualSearch: "MANUAL_SEARCH",
     AnswerRecommendation: "ANSWER_RECOMMENDATION",
     SelfService: "SELF_SERVICE",
+    SessionSummarization: "SESSION_SUMMARIZATION",
 } as const;
 
 export type AiAgentAiAgentType = (typeof AiAgentAiAgentType)[keyof typeof AiAgentAiAgentType];
@@ -145,6 +146,7 @@ export const AiPromptAiPromptType = {
     QueryReformulation: "QUERY_REFORMULATION",
     SelfServicePreProcessing: "SELF_SERVICE_PRE_PROCESSING",
     SelfServiceAnswerGeneration: "SELF_SERVICE_ANSWER_GENERATION",
+    SessionSummarization: "SESSION_SUMMARIZATION",
 } as const;
 
 export type AiPromptAiPromptType = (typeof AiPromptAiPromptType)[keyof typeof AiPromptAiPromptType];
