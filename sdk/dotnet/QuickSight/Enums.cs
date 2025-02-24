@@ -587,6 +587,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisDashboardBehavior : IEquatable<AnalysisDashboardBehavior>
+    {
+        private readonly string _value;
+
+        private AnalysisDashboardBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisDashboardBehavior Enabled { get; } = new AnalysisDashboardBehavior("ENABLED");
+        public static AnalysisDashboardBehavior Disabled { get; } = new AnalysisDashboardBehavior("DISABLED");
+
+        public static bool operator ==(AnalysisDashboardBehavior left, AnalysisDashboardBehavior right) => left.Equals(right);
+        public static bool operator !=(AnalysisDashboardBehavior left, AnalysisDashboardBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisDashboardBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisDashboardBehavior other && Equals(other);
+        public bool Equals(AnalysisDashboardBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisDataLabelContent : IEquatable<AnalysisDataLabelContent>
     {
         private readonly string _value;
@@ -1621,6 +1649,8 @@ namespace Pulumi.AwsNative.QuickSight
         public static AnalysisNumberScale Millions { get; } = new AnalysisNumberScale("MILLIONS");
         public static AnalysisNumberScale Billions { get; } = new AnalysisNumberScale("BILLIONS");
         public static AnalysisNumberScale Trillions { get; } = new AnalysisNumberScale("TRILLIONS");
+        public static AnalysisNumberScale Lakhs { get; } = new AnalysisNumberScale("LAKHS");
+        public static AnalysisNumberScale Crores { get; } = new AnalysisNumberScale("CRORES");
 
         public static bool operator ==(AnalysisNumberScale left, AnalysisNumberScale right) => left.Equals(right);
         public static bool operator !=(AnalysisNumberScale left, AnalysisNumberScale right) => !left.Equals(right);
@@ -5349,6 +5379,8 @@ namespace Pulumi.AwsNative.QuickSight
         public static DashboardNumberScale Millions { get; } = new DashboardNumberScale("MILLIONS");
         public static DashboardNumberScale Billions { get; } = new DashboardNumberScale("BILLIONS");
         public static DashboardNumberScale Trillions { get; } = new DashboardNumberScale("TRILLIONS");
+        public static DashboardNumberScale Lakhs { get; } = new DashboardNumberScale("LAKHS");
+        public static DashboardNumberScale Crores { get; } = new DashboardNumberScale("CRORES");
 
         public static bool operator ==(DashboardNumberScale left, DashboardNumberScale right) => left.Equals(right);
         public static bool operator !=(DashboardNumberScale left, DashboardNumberScale right) => !left.Equals(right);

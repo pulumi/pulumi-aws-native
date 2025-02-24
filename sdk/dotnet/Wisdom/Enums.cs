@@ -47,6 +47,7 @@ namespace Pulumi.AwsNative.Wisdom
         public static AiAgentAiAgentType ManualSearch { get; } = new AiAgentAiAgentType("MANUAL_SEARCH");
         public static AiAgentAiAgentType AnswerRecommendation { get; } = new AiAgentAiAgentType("ANSWER_RECOMMENDATION");
         public static AiAgentAiAgentType SelfService { get; } = new AiAgentAiAgentType("SELF_SERVICE");
+        public static AiAgentAiAgentType SessionSummarization { get; } = new AiAgentAiAgentType("SESSION_SUMMARIZATION");
 
         public static bool operator ==(AiAgentAiAgentType left, AiAgentAiAgentType right) => left.Equals(right);
         public static bool operator !=(AiAgentAiAgentType left, AiAgentAiAgentType right) => !left.Equals(right);
@@ -411,6 +412,7 @@ namespace Pulumi.AwsNative.Wisdom
         public static AiPromptAiPromptType QueryReformulation { get; } = new AiPromptAiPromptType("QUERY_REFORMULATION");
         public static AiPromptAiPromptType SelfServicePreProcessing { get; } = new AiPromptAiPromptType("SELF_SERVICE_PRE_PROCESSING");
         public static AiPromptAiPromptType SelfServiceAnswerGeneration { get; } = new AiPromptAiPromptType("SELF_SERVICE_ANSWER_GENERATION");
+        public static AiPromptAiPromptType SessionSummarization { get; } = new AiPromptAiPromptType("SESSION_SUMMARIZATION");
 
         public static bool operator ==(AiPromptAiPromptType left, AiPromptAiPromptType right) => left.Equals(right);
         public static bool operator !=(AiPromptAiPromptType left, AiPromptAiPromptType right) => !left.Equals(right);

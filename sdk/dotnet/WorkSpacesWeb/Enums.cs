@@ -233,4 +233,125 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct UserSettingsMaxDisplayResolution : IEquatable<UserSettingsMaxDisplayResolution>
+    {
+        private readonly string _value;
+
+        private UserSettingsMaxDisplayResolution(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserSettingsMaxDisplayResolution Size4096x2160 { get; } = new UserSettingsMaxDisplayResolution("size4096X2160");
+        public static UserSettingsMaxDisplayResolution Size3840x2160 { get; } = new UserSettingsMaxDisplayResolution("size3840X2160");
+        public static UserSettingsMaxDisplayResolution Size3440x1440 { get; } = new UserSettingsMaxDisplayResolution("size3440X1440");
+        public static UserSettingsMaxDisplayResolution Size2560x1440 { get; } = new UserSettingsMaxDisplayResolution("size2560X1440");
+        public static UserSettingsMaxDisplayResolution Size1920x1080 { get; } = new UserSettingsMaxDisplayResolution("size1920X1080");
+        public static UserSettingsMaxDisplayResolution Size1280x720 { get; } = new UserSettingsMaxDisplayResolution("size1280X720");
+        public static UserSettingsMaxDisplayResolution Size1024x768 { get; } = new UserSettingsMaxDisplayResolution("size1024X768");
+        public static UserSettingsMaxDisplayResolution Size800x600 { get; } = new UserSettingsMaxDisplayResolution("size800X600");
+
+        public static bool operator ==(UserSettingsMaxDisplayResolution left, UserSettingsMaxDisplayResolution right) => left.Equals(right);
+        public static bool operator !=(UserSettingsMaxDisplayResolution left, UserSettingsMaxDisplayResolution right) => !left.Equals(right);
+
+        public static explicit operator string(UserSettingsMaxDisplayResolution value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserSettingsMaxDisplayResolution other && Equals(other);
+        public bool Equals(UserSettingsMaxDisplayResolution other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct UserSettingsToolbarItem : IEquatable<UserSettingsToolbarItem>
+    {
+        private readonly string _value;
+
+        private UserSettingsToolbarItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserSettingsToolbarItem Windows { get; } = new UserSettingsToolbarItem("Windows");
+        public static UserSettingsToolbarItem DualMonitor { get; } = new UserSettingsToolbarItem("DualMonitor");
+        public static UserSettingsToolbarItem FullScreen { get; } = new UserSettingsToolbarItem("FullScreen");
+        public static UserSettingsToolbarItem Webcam { get; } = new UserSettingsToolbarItem("Webcam");
+        public static UserSettingsToolbarItem Microphone { get; } = new UserSettingsToolbarItem("Microphone");
+
+        public static bool operator ==(UserSettingsToolbarItem left, UserSettingsToolbarItem right) => left.Equals(right);
+        public static bool operator !=(UserSettingsToolbarItem left, UserSettingsToolbarItem right) => !left.Equals(right);
+
+        public static explicit operator string(UserSettingsToolbarItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserSettingsToolbarItem other && Equals(other);
+        public bool Equals(UserSettingsToolbarItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct UserSettingsToolbarType : IEquatable<UserSettingsToolbarType>
+    {
+        private readonly string _value;
+
+        private UserSettingsToolbarType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserSettingsToolbarType Floating { get; } = new UserSettingsToolbarType("Floating");
+        public static UserSettingsToolbarType Docked { get; } = new UserSettingsToolbarType("Docked");
+
+        public static bool operator ==(UserSettingsToolbarType left, UserSettingsToolbarType right) => left.Equals(right);
+        public static bool operator !=(UserSettingsToolbarType left, UserSettingsToolbarType right) => !left.Equals(right);
+
+        public static explicit operator string(UserSettingsToolbarType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserSettingsToolbarType other && Equals(other);
+        public bool Equals(UserSettingsToolbarType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct UserSettingsVisualMode : IEquatable<UserSettingsVisualMode>
+    {
+        private readonly string _value;
+
+        private UserSettingsVisualMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserSettingsVisualMode Dark { get; } = new UserSettingsVisualMode("Dark");
+        public static UserSettingsVisualMode Light { get; } = new UserSettingsVisualMode("Light");
+
+        public static bool operator ==(UserSettingsVisualMode left, UserSettingsVisualMode right) => left.Equals(right);
+        public static bool operator !=(UserSettingsVisualMode left, UserSettingsVisualMode right) => !left.Equals(right);
+
+        public static explicit operator string(UserSettingsVisualMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserSettingsVisualMode other && Equals(other);
+        public bool Equals(UserSettingsVisualMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

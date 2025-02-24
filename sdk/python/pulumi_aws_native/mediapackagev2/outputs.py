@@ -18,6 +18,8 @@ from ._enums import *
 
 __all__ = [
     'ChannelIngestEndpoint',
+    'ChannelInputSwitchConfiguration',
+    'ChannelOutputHeaderConfiguration',
     'OriginEndpointDashManifestConfiguration',
     'OriginEndpointDashUtcTiming',
     'OriginEndpointEncryption',
@@ -68,6 +70,86 @@ class ChannelIngestEndpoint(dict):
         <p>The ingest domain URL where the source stream should be sent.</p>
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class ChannelInputSwitchConfiguration(dict):
+    """
+    <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mqcsInputSwitching":
+            suggest = "mqcs_input_switching"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputSwitchConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputSwitchConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputSwitchConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mqcs_input_switching: Optional[bool] = None):
+        """
+        <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
+        :param bool mqcs_input_switching: <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+        """
+        if mqcs_input_switching is not None:
+            pulumi.set(__self__, "mqcs_input_switching", mqcs_input_switching)
+
+    @property
+    @pulumi.getter(name="mqcsInputSwitching")
+    def mqcs_input_switching(self) -> Optional[bool]:
+        """
+        <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+        """
+        return pulumi.get(self, "mqcs_input_switching")
+
+
+@pulumi.output_type
+class ChannelOutputHeaderConfiguration(dict):
+    """
+    <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publishMqcs":
+            suggest = "publish_mqcs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelOutputHeaderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelOutputHeaderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelOutputHeaderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 publish_mqcs: Optional[bool] = None):
+        """
+        <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
+        :param bool publish_mqcs: <p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+        """
+        if publish_mqcs is not None:
+            pulumi.set(__self__, "publish_mqcs", publish_mqcs)
+
+    @property
+    @pulumi.getter(name="publishMqcs")
+    def publish_mqcs(self) -> Optional[bool]:
+        """
+        <p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+        """
+        return pulumi.get(self, "publish_mqcs")
 
 
 @pulumi.output_type

@@ -35,7 +35,8 @@ class UserSettingsArgs:
                  deep_link_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
                  idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 toolbar_configuration: Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']] = None):
         """
         The set of arguments for constructing a UserSettings resource.
         :param pulumi.Input['UserSettingsEnabledType'] copy_allowed: Specifies whether the user can copy text from the streaming session to the local device.
@@ -70,6 +71,8 @@ class UserSettingsArgs:
             pulumi.set(__self__, "idle_disconnect_timeout_in_minutes", idle_disconnect_timeout_in_minutes)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if toolbar_configuration is not None:
+            pulumi.set(__self__, "toolbar_configuration", toolbar_configuration)
 
     @property
     @pulumi.getter(name="copyAllowed")
@@ -215,6 +218,15 @@ class UserSettingsArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="toolbarConfiguration")
+    def toolbar_configuration(self) -> Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']]:
+        return pulumi.get(self, "toolbar_configuration")
+
+    @toolbar_configuration.setter
+    def toolbar_configuration(self, value: Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']]):
+        pulumi.set(self, "toolbar_configuration", value)
+
 
 class UserSettings(pulumi.CustomResource):
     @overload
@@ -232,6 +244,7 @@ class UserSettings(pulumi.CustomResource):
                  paste_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  print_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 toolbar_configuration: Optional[pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']]] = None,
                  upload_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  __props__=None):
         """
@@ -287,6 +300,7 @@ class UserSettings(pulumi.CustomResource):
                  paste_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  print_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 toolbar_configuration: Optional[pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']]] = None,
                  upload_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -316,6 +330,7 @@ class UserSettings(pulumi.CustomResource):
                 raise TypeError("Missing required property 'print_allowed'")
             __props__.__dict__["print_allowed"] = print_allowed
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["toolbar_configuration"] = toolbar_configuration
             if upload_allowed is None and not opts.urn:
                 raise TypeError("Missing required property 'upload_allowed'")
             __props__.__dict__["upload_allowed"] = upload_allowed
@@ -355,6 +370,7 @@ class UserSettings(pulumi.CustomResource):
         __props__.__dict__["paste_allowed"] = None
         __props__.__dict__["print_allowed"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["toolbar_configuration"] = None
         __props__.__dict__["upload_allowed"] = None
         __props__.__dict__["user_settings_arn"] = None
         return UserSettings(resource_name, opts=opts, __props__=__props__)
@@ -454,6 +470,11 @@ class UserSettings(pulumi.CustomResource):
         The tags to add to the user settings resource. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="toolbarConfiguration")
+    def toolbar_configuration(self) -> pulumi.Output[Optional['outputs.UserSettingsToolbarConfiguration']]:
+        return pulumi.get(self, "toolbar_configuration")
 
     @property
     @pulumi.getter(name="uploadAllowed")

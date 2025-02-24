@@ -179,6 +179,7 @@ const (
 	AiAgentAiAgentTypeManualSearch         = AiAgentAiAgentType("MANUAL_SEARCH")
 	AiAgentAiAgentTypeAnswerRecommendation = AiAgentAiAgentType("ANSWER_RECOMMENDATION")
 	AiAgentAiAgentTypeSelfService          = AiAgentAiAgentType("SELF_SERVICE")
+	AiAgentAiAgentTypeSessionSummarization = AiAgentAiAgentType("SESSION_SUMMARIZATION")
 )
 
 func (AiAgentAiAgentType) ElementType() reflect.Type {
@@ -306,6 +307,7 @@ func (o AiAgentAiAgentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //	AiAgentAiAgentTypeManualSearch
 //	AiAgentAiAgentTypeAnswerRecommendation
 //	AiAgentAiAgentTypeSelfService
+//	AiAgentAiAgentTypeSessionSummarization
 type AiAgentAiAgentTypeInput interface {
 	pulumi.Input
 
@@ -2069,6 +2071,7 @@ const (
 	AiPromptAiPromptTypeQueryReformulation          = AiPromptAiPromptType("QUERY_REFORMULATION")
 	AiPromptAiPromptTypeSelfServicePreProcessing    = AiPromptAiPromptType("SELF_SERVICE_PRE_PROCESSING")
 	AiPromptAiPromptTypeSelfServiceAnswerGeneration = AiPromptAiPromptType("SELF_SERVICE_ANSWER_GENERATION")
+	AiPromptAiPromptTypeSessionSummarization        = AiPromptAiPromptType("SESSION_SUMMARIZATION")
 )
 
 func (AiPromptAiPromptType) ElementType() reflect.Type {
@@ -2198,6 +2201,7 @@ func (o AiPromptAiPromptTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 //	AiPromptAiPromptTypeQueryReformulation
 //	AiPromptAiPromptTypeSelfServicePreProcessing
 //	AiPromptAiPromptTypeSelfServiceAnswerGeneration
+//	AiPromptAiPromptTypeSessionSummarization
 type AiPromptAiPromptTypeInput interface {
 	pulumi.Input
 

@@ -780,6 +780,9 @@ if not MYPY:
         Agent collaborator name
         """
         relay_conversation_history: NotRequired[pulumi.Input['AgentRelayConversationHistory']]
+        """
+        The collaborator's relay conversation history.
+        """
 elif False:
     AgentCollaboratorArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -795,6 +798,7 @@ class AgentCollaboratorArgs:
         :param pulumi.Input['AgentCollaboratorAgentDescriptorPropertiesArgs'] agent_descriptor: Agent descriptor for agent collaborator
         :param pulumi.Input[str] collaboration_instruction: Agent collaborator instruction
         :param pulumi.Input[str] collaborator_name: Agent collaborator name
+        :param pulumi.Input['AgentRelayConversationHistory'] relay_conversation_history: The collaborator's relay conversation history.
         """
         pulumi.set(__self__, "agent_descriptor", agent_descriptor)
         pulumi.set(__self__, "collaboration_instruction", collaboration_instruction)
@@ -841,6 +845,9 @@ class AgentCollaboratorArgs:
     @property
     @pulumi.getter(name="relayConversationHistory")
     def relay_conversation_history(self) -> Optional[pulumi.Input['AgentRelayConversationHistory']]:
+        """
+        The collaborator's relay conversation history.
+        """
         return pulumi.get(self, "relay_conversation_history")
 
     @relay_conversation_history.setter
@@ -854,6 +861,9 @@ if not MYPY:
         Structure for custom orchestration
         """
         executor: NotRequired[pulumi.Input['AgentOrchestrationExecutorArgsDict']]
+        """
+        The structure of the executor invoking the actions in custom orchestration.
+        """
 elif False:
     AgentCustomOrchestrationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -863,6 +873,7 @@ class AgentCustomOrchestrationArgs:
                  executor: Optional[pulumi.Input['AgentOrchestrationExecutorArgs']] = None):
         """
         Structure for custom orchestration
+        :param pulumi.Input['AgentOrchestrationExecutorArgs'] executor: The structure of the executor invoking the actions in custom orchestration.
         """
         if executor is not None:
             pulumi.set(__self__, "executor", executor)
@@ -870,6 +881,9 @@ class AgentCustomOrchestrationArgs:
     @property
     @pulumi.getter
     def executor(self) -> Optional[pulumi.Input['AgentOrchestrationExecutorArgs']]:
+        """
+        The structure of the executor invoking the actions in custom orchestration.
+        """
         return pulumi.get(self, "executor")
 
     @executor.setter
@@ -1259,7 +1273,13 @@ if not MYPY:
         Configuration for memory storage
         """
         enabled_memory_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentMemoryType']]]]
+        """
+        The type of memory that is stored.
+        """
         session_summary_configuration: NotRequired[pulumi.Input['AgentSessionSummaryConfigurationArgsDict']]
+        """
+        Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
+        """
         storage_days: NotRequired[pulumi.Input[float]]
         """
         Maximum number of days to store session details
@@ -1275,6 +1295,8 @@ class AgentMemoryConfigurationArgs:
                  storage_days: Optional[pulumi.Input[float]] = None):
         """
         Configuration for memory storage
+        :param pulumi.Input[Sequence[pulumi.Input['AgentMemoryType']]] enabled_memory_types: The type of memory that is stored.
+        :param pulumi.Input['AgentSessionSummaryConfigurationArgs'] session_summary_configuration: Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
         :param pulumi.Input[float] storage_days: Maximum number of days to store session details
         """
         if enabled_memory_types is not None:
@@ -1287,6 +1309,9 @@ class AgentMemoryConfigurationArgs:
     @property
     @pulumi.getter(name="enabledMemoryTypes")
     def enabled_memory_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentMemoryType']]]]:
+        """
+        The type of memory that is stored.
+        """
         return pulumi.get(self, "enabled_memory_types")
 
     @enabled_memory_types.setter
@@ -1296,6 +1321,9 @@ class AgentMemoryConfigurationArgs:
     @property
     @pulumi.getter(name="sessionSummaryConfiguration")
     def session_summary_configuration(self) -> Optional[pulumi.Input['AgentSessionSummaryConfigurationArgs']]:
+        """
+        Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
+        """
         return pulumi.get(self, "session_summary_configuration")
 
     @session_summary_configuration.setter
@@ -1435,6 +1463,9 @@ if not MYPY:
         Base Prompt Template.
         """
         foundation_model: NotRequired[pulumi.Input[str]]
+        """
+        The agent's foundation model.
+        """
         inference_configuration: NotRequired[pulumi.Input['AgentInferenceConfigurationArgsDict']]
         """
         Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
@@ -1476,6 +1507,7 @@ class AgentPromptConfigurationArgs:
         """
         BasePromptConfiguration per Prompt Type.
         :param pulumi.Input[str] base_prompt_template: Base Prompt Template.
+        :param pulumi.Input[str] foundation_model: The agent's foundation model.
         :param pulumi.Input['AgentInferenceConfigurationArgs'] inference_configuration: Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
         :param pulumi.Input['AgentCreationMode'] parser_mode: Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
         :param pulumi.Input['AgentCreationMode'] prompt_creation_mode: Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
@@ -1517,6 +1549,9 @@ class AgentPromptConfigurationArgs:
     @property
     @pulumi.getter(name="foundationModel")
     def foundation_model(self) -> Optional[pulumi.Input[str]]:
+        """
+        The agent's foundation model.
+        """
         return pulumi.get(self, "foundation_model")
 
     @foundation_model.setter

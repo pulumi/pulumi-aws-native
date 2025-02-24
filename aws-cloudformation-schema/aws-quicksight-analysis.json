@@ -1,4 +1,18 @@
 {
+  "tagging" : {
+    "permissions" : [ "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ],
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "tagProperty" : "/properties/Tags",
+    "cloudFormationSystemTags" : false
+  },
+  "typeName" : "AWS::QuickSight::Analysis",
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime", "/properties/DataSetArns", "/properties/LastUpdatedTime" ],
+  "description" : "Definition of the AWS::QuickSight::Analysis Resource Type.",
+  "createOnlyProperties" : [ "/properties/AnalysisId", "/properties/AwsAccountId" ],
+  "primaryIdentifier" : [ "/properties/AnalysisId", "/properties/AwsAccountId" ],
+  "required" : [ "AwsAccountId", "AnalysisId", "Name" ],
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-quicksight",
   "handlers" : {
     "read" : {
@@ -25,13 +39,8 @@
       "permissions" : [ "quicksight:DescribeAnalysis", "quicksight:DeleteAnalysis" ]
     }
   },
-  "typeName" : "AWS::QuickSight::Analysis",
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime", "/properties/DataSetArns", "/properties/LastUpdatedTime" ],
-  "description" : "Definition of the AWS::QuickSight::Analysis Resource Type.",
   "writeOnlyProperties" : [ "/properties/Definition", "/properties/Parameters", "/properties/SourceEntity", "/properties/Status", "/properties/ValidationStrategy", "/properties/FolderArns" ],
-  "createOnlyProperties" : [ "/properties/AnalysisId", "/properties/AwsAccountId" ],
   "additionalProperties" : false,
-  "primaryIdentifier" : [ "/properties/AnalysisId", "/properties/AwsAccountId" ],
   "definitions" : {
     "PivotTotalOptions" : {
       "additionalProperties" : false,
@@ -135,7 +144,9 @@
         "Tooltip" : {
           "$ref" : "#/definitions/TooltipOptions"
         },
-        "Interactions" : { },
+        "Interactions" : {
+          "$ref" : "#/definitions/VisualInteractionOptions"
+        },
         "WindowOptions" : {
           "$ref" : "#/definitions/GeospatialWindowOptions"
         },
@@ -4475,7 +4486,9 @@
         "MapStyle" : {
           "$ref" : "#/definitions/GeospatialMapStyle"
         },
-        "Interactions" : { },
+        "Interactions" : {
+          "$ref" : "#/definitions/VisualInteractionOptions"
+        },
         "MapLayers" : {
           "type" : "array",
           "items" : {
@@ -5520,7 +5533,7 @@
     },
     "NumberScale" : {
       "type" : "string",
-      "enum" : [ "NONE", "AUTO", "THOUSANDS", "MILLIONS", "BILLIONS", "TRILLIONS" ]
+      "enum" : [ "NONE", "AUTO", "THOUSANDS", "MILLIONS", "BILLIONS", "TRILLIONS", "LAKHS", "CRORES" ]
     },
     "BoxPlotSortConfiguration" : {
       "additionalProperties" : false,
@@ -5543,7 +5556,9 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
-        "AvailabilityStatus" : { }
+        "AvailabilityStatus" : {
+          "$ref" : "#/definitions/DashboardBehavior"
+        }
       }
     },
     "CategoryDrillDownFilter" : {
@@ -5578,6 +5593,10 @@
         }
       },
       "required" : [ "Target" ]
+    },
+    "DashboardBehavior" : {
+      "type" : "string",
+      "enum" : [ "ENABLED", "DISABLED" ]
     },
     "GridLayoutScreenCanvasSizeOptions" : {
       "additionalProperties" : false,
@@ -5993,14 +6012,6 @@
           "description" : "<p>The unique identifier associated with a sheet.</p>",
           "type" : "string",
           "maxLength" : 512
-        },
-        "Images" : {
-          "minItems" : 0,
-          "maxItems" : 10,
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/SheetImage"
-          }
         },
         "Name" : {
           "minLength" : 1,
@@ -11395,6 +11406,14 @@
         }
       }
     },
+    "VisualInteractionOptions" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ContextMenuOption" : { },
+        "VisualMenuOption" : { }
+      }
+    },
     "PivotTableFieldWells" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -11405,7 +11424,6 @@
       }
     }
   },
-  "required" : [ "AwsAccountId", "AnalysisId", "Name" ],
   "properties" : {
     "Status" : {
       "$ref" : "#/definitions/ResourceStatus"

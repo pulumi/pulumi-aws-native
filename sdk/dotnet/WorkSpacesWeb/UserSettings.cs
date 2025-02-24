@@ -87,6 +87,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        [Output("toolbarConfiguration")]
+        public Output<Outputs.UserSettingsToolbarConfiguration?> ToolbarConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// Specifies whether the user can upload files from the local device to the streaming session.
         /// </summary>
@@ -221,6 +224,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        [Input("toolbarConfiguration")]
+        public Input<Inputs.UserSettingsToolbarConfigurationArgs>? ToolbarConfiguration { get; set; }
 
         /// <summary>
         /// Specifies whether the user can upload files from the local device to the streaming session.
