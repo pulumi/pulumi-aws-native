@@ -315,6 +315,13 @@
   "readOnlyProperties" : [ "/properties/StackSetId" ],
   "primaryIdentifier" : [ "/properties/StackSetId" ],
   "additionalIdentifiers" : [ [ "/properties/StackSetName" ] ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "cloudformation:GetTemplateSummary", "cloudformation:CreateStackSet", "cloudformation:CreateStackInstances", "cloudformation:DescribeStackSetOperation", "cloudformation:ListStackSetOperationResults", "cloudformation:TagResource", "iam:PassRole" ],
