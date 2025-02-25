@@ -179,6 +179,7 @@ const (
 	AiAgentAiAgentTypeManualSearch         = AiAgentAiAgentType("MANUAL_SEARCH")
 	AiAgentAiAgentTypeAnswerRecommendation = AiAgentAiAgentType("ANSWER_RECOMMENDATION")
 	AiAgentAiAgentTypeSelfService          = AiAgentAiAgentType("SELF_SERVICE")
+	AiAgentAiAgentTypeSessionSummarization = AiAgentAiAgentType("SESSION_SUMMARIZATION")
 )
 
 func (AiAgentAiAgentType) ElementType() reflect.Type {
@@ -306,6 +307,7 @@ func (o AiAgentAiAgentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //	AiAgentAiAgentTypeManualSearch
 //	AiAgentAiAgentTypeAnswerRecommendation
 //	AiAgentAiAgentTypeSelfService
+//	AiAgentAiAgentTypeSessionSummarization
 type AiAgentAiAgentTypeInput interface {
 	pulumi.Input
 

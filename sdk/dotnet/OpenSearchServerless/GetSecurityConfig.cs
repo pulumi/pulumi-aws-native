@@ -67,6 +67,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// Security config description
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Describes IAM Identity Center options in the form of a key-value map.
+        /// </summary>
         public readonly Outputs.SecurityConfigIamIdentityCenterConfigOptions? IamIdentityCenterOptions;
         /// <summary>
         /// The identifier of the security config

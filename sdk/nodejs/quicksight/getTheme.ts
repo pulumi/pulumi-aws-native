@@ -35,6 +35,14 @@ export interface GetThemeResult {
      */
     readonly arn?: string;
     /**
+     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+     */
+    readonly baseThemeId?: string;
+    /**
+     * The theme configuration, which contains the theme display properties.
+     */
+    readonly configuration?: outputs.quicksight.ThemeConfiguration;
+    /**
      * <p>The date and time that the theme was created.</p>
      */
     readonly createdTime?: string;
@@ -59,6 +67,10 @@ export interface GetThemeResult {
      */
     readonly type?: enums.quicksight.ThemeType;
     readonly version?: outputs.quicksight.ThemeVersion;
+    /**
+     * A description of the first version of the theme that you're creating. Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
+     */
+    readonly versionDescription?: string;
 }
 /**
  * Definition of the AWS::QuickSight::Theme Resource Type.

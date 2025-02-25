@@ -265,11 +265,96 @@ func (o AiAgentAiAgentConfiguration2PropertiesPtrOutput) SelfServiceAiAgentConfi
 	}).(AiAgentSelfServiceAiAgentConfigurationPtrOutput)
 }
 
+type AiAgentAiAgentConfiguration3Properties struct {
+	SessionSummarizationAiAgentConfiguration AiAgentSessionSummarizationAiAgentConfiguration `pulumi:"sessionSummarizationAiAgentConfiguration"`
+}
+
+// AiAgentAiAgentConfiguration3PropertiesInput is an input type that accepts AiAgentAiAgentConfiguration3PropertiesArgs and AiAgentAiAgentConfiguration3PropertiesOutput values.
+// You can construct a concrete instance of `AiAgentAiAgentConfiguration3PropertiesInput` via:
+//
+//	AiAgentAiAgentConfiguration3PropertiesArgs{...}
+type AiAgentAiAgentConfiguration3PropertiesInput interface {
+	pulumi.Input
+
+	ToAiAgentAiAgentConfiguration3PropertiesOutput() AiAgentAiAgentConfiguration3PropertiesOutput
+	ToAiAgentAiAgentConfiguration3PropertiesOutputWithContext(context.Context) AiAgentAiAgentConfiguration3PropertiesOutput
+}
+
+type AiAgentAiAgentConfiguration3PropertiesArgs struct {
+	SessionSummarizationAiAgentConfiguration AiAgentSessionSummarizationAiAgentConfigurationInput `pulumi:"sessionSummarizationAiAgentConfiguration"`
+}
+
+func (AiAgentAiAgentConfiguration3PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAiAgentConfiguration3Properties)(nil)).Elem()
+}
+
+func (i AiAgentAiAgentConfiguration3PropertiesArgs) ToAiAgentAiAgentConfiguration3PropertiesOutput() AiAgentAiAgentConfiguration3PropertiesOutput {
+	return i.ToAiAgentAiAgentConfiguration3PropertiesOutputWithContext(context.Background())
+}
+
+func (i AiAgentAiAgentConfiguration3PropertiesArgs) ToAiAgentAiAgentConfiguration3PropertiesOutputWithContext(ctx context.Context) AiAgentAiAgentConfiguration3PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentAiAgentConfiguration3PropertiesOutput)
+}
+
+type AiAgentAiAgentConfiguration3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (AiAgentAiAgentConfiguration3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAiAgentConfiguration3Properties)(nil)).Elem()
+}
+
+func (o AiAgentAiAgentConfiguration3PropertiesOutput) ToAiAgentAiAgentConfiguration3PropertiesOutput() AiAgentAiAgentConfiguration3PropertiesOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration3PropertiesOutput) ToAiAgentAiAgentConfiguration3PropertiesOutputWithContext(ctx context.Context) AiAgentAiAgentConfiguration3PropertiesOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration3PropertiesOutput) SessionSummarizationAiAgentConfiguration() AiAgentSessionSummarizationAiAgentConfigurationOutput {
+	return o.ApplyT(func(v AiAgentAiAgentConfiguration3Properties) AiAgentSessionSummarizationAiAgentConfiguration {
+		return v.SessionSummarizationAiAgentConfiguration
+	}).(AiAgentSessionSummarizationAiAgentConfigurationOutput)
+}
+
+type AiAgentAiAgentConfiguration3PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AiAgentAiAgentConfiguration3PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiAgentAiAgentConfiguration3Properties)(nil)).Elem()
+}
+
+func (o AiAgentAiAgentConfiguration3PropertiesPtrOutput) ToAiAgentAiAgentConfiguration3PropertiesPtrOutput() AiAgentAiAgentConfiguration3PropertiesPtrOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration3PropertiesPtrOutput) ToAiAgentAiAgentConfiguration3PropertiesPtrOutputWithContext(ctx context.Context) AiAgentAiAgentConfiguration3PropertiesPtrOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration3PropertiesPtrOutput) Elem() AiAgentAiAgentConfiguration3PropertiesOutput {
+	return o.ApplyT(func(v *AiAgentAiAgentConfiguration3Properties) AiAgentAiAgentConfiguration3Properties {
+		if v != nil {
+			return *v
+		}
+		var ret AiAgentAiAgentConfiguration3Properties
+		return ret
+	}).(AiAgentAiAgentConfiguration3PropertiesOutput)
+}
+
+func (o AiAgentAiAgentConfiguration3PropertiesPtrOutput) SessionSummarizationAiAgentConfiguration() AiAgentSessionSummarizationAiAgentConfigurationPtrOutput {
+	return o.ApplyT(func(v *AiAgentAiAgentConfiguration3Properties) *AiAgentSessionSummarizationAiAgentConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SessionSummarizationAiAgentConfiguration
+	}).(AiAgentSessionSummarizationAiAgentConfigurationPtrOutput)
+}
+
 type AiAgentAnswerRecommendationAiAgentConfiguration struct {
 	AnswerGenerationAiGuardrailId      *string                           `pulumi:"answerGenerationAiGuardrailId"`
 	AnswerGenerationAiPromptId         *string                           `pulumi:"answerGenerationAiPromptId"`
 	AssociationConfigurations          []AiAgentAssociationConfiguration `pulumi:"associationConfigurations"`
 	IntentLabelingGenerationAiPromptId *string                           `pulumi:"intentLabelingGenerationAiPromptId"`
+	Locale                             *string                           `pulumi:"locale"`
 	QueryReformulationAiPromptId       *string                           `pulumi:"queryReformulationAiPromptId"`
 }
 
@@ -289,6 +374,7 @@ type AiAgentAnswerRecommendationAiAgentConfigurationArgs struct {
 	AnswerGenerationAiPromptId         pulumi.StringPtrInput                     `pulumi:"answerGenerationAiPromptId"`
 	AssociationConfigurations          AiAgentAssociationConfigurationArrayInput `pulumi:"associationConfigurations"`
 	IntentLabelingGenerationAiPromptId pulumi.StringPtrInput                     `pulumi:"intentLabelingGenerationAiPromptId"`
+	Locale                             pulumi.StringPtrInput                     `pulumi:"locale"`
 	QueryReformulationAiPromptId       pulumi.StringPtrInput                     `pulumi:"queryReformulationAiPromptId"`
 }
 
@@ -338,6 +424,10 @@ func (o AiAgentAnswerRecommendationAiAgentConfigurationOutput) IntentLabelingGen
 	return o.ApplyT(func(v AiAgentAnswerRecommendationAiAgentConfiguration) *string {
 		return v.IntentLabelingGenerationAiPromptId
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentAnswerRecommendationAiAgentConfigurationOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentAnswerRecommendationAiAgentConfiguration) *string { return v.Locale }).(pulumi.StringPtrOutput)
 }
 
 func (o AiAgentAnswerRecommendationAiAgentConfigurationOutput) QueryReformulationAiPromptId() pulumi.StringPtrOutput {
@@ -401,6 +491,15 @@ func (o AiAgentAnswerRecommendationAiAgentConfigurationPtrOutput) IntentLabeling
 			return nil
 		}
 		return v.IntentLabelingGenerationAiPromptId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentAnswerRecommendationAiAgentConfigurationPtrOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentAnswerRecommendationAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Locale
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -831,6 +930,7 @@ type AiAgentManualSearchAiAgentConfiguration struct {
 	AnswerGenerationAiGuardrailId *string                           `pulumi:"answerGenerationAiGuardrailId"`
 	AnswerGenerationAiPromptId    *string                           `pulumi:"answerGenerationAiPromptId"`
 	AssociationConfigurations     []AiAgentAssociationConfiguration `pulumi:"associationConfigurations"`
+	Locale                        *string                           `pulumi:"locale"`
 }
 
 // AiAgentManualSearchAiAgentConfigurationInput is an input type that accepts AiAgentManualSearchAiAgentConfigurationArgs and AiAgentManualSearchAiAgentConfigurationOutput values.
@@ -848,6 +948,7 @@ type AiAgentManualSearchAiAgentConfigurationArgs struct {
 	AnswerGenerationAiGuardrailId pulumi.StringPtrInput                     `pulumi:"answerGenerationAiGuardrailId"`
 	AnswerGenerationAiPromptId    pulumi.StringPtrInput                     `pulumi:"answerGenerationAiPromptId"`
 	AssociationConfigurations     AiAgentAssociationConfigurationArrayInput `pulumi:"associationConfigurations"`
+	Locale                        pulumi.StringPtrInput                     `pulumi:"locale"`
 }
 
 func (AiAgentManualSearchAiAgentConfigurationArgs) ElementType() reflect.Type {
@@ -888,6 +989,10 @@ func (o AiAgentManualSearchAiAgentConfigurationOutput) AssociationConfigurations
 	return o.ApplyT(func(v AiAgentManualSearchAiAgentConfiguration) []AiAgentAssociationConfiguration {
 		return v.AssociationConfigurations
 	}).(AiAgentAssociationConfigurationArrayOutput)
+}
+
+func (o AiAgentManualSearchAiAgentConfigurationOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentManualSearchAiAgentConfiguration) *string { return v.Locale }).(pulumi.StringPtrOutput)
 }
 
 type AiAgentManualSearchAiAgentConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -939,6 +1044,15 @@ func (o AiAgentManualSearchAiAgentConfigurationPtrOutput) AssociationConfigurati
 		}
 		return v.AssociationConfigurations
 	}).(AiAgentAssociationConfigurationArrayOutput)
+}
+
+func (o AiAgentManualSearchAiAgentConfigurationPtrOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentManualSearchAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Locale
+	}).(pulumi.StringPtrOutput)
 }
 
 type AiAgentOrCondition0Properties struct {
@@ -1165,6 +1279,105 @@ func (o AiAgentSelfServiceAiAgentConfigurationPtrOutput) SelfServicePreProcessin
 			return nil
 		}
 		return v.SelfServicePreProcessingAiPromptId
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiAgentSessionSummarizationAiAgentConfiguration struct {
+	Locale                         *string `pulumi:"locale"`
+	SessionSummarizationAiPromptId *string `pulumi:"sessionSummarizationAiPromptId"`
+}
+
+// AiAgentSessionSummarizationAiAgentConfigurationInput is an input type that accepts AiAgentSessionSummarizationAiAgentConfigurationArgs and AiAgentSessionSummarizationAiAgentConfigurationOutput values.
+// You can construct a concrete instance of `AiAgentSessionSummarizationAiAgentConfigurationInput` via:
+//
+//	AiAgentSessionSummarizationAiAgentConfigurationArgs{...}
+type AiAgentSessionSummarizationAiAgentConfigurationInput interface {
+	pulumi.Input
+
+	ToAiAgentSessionSummarizationAiAgentConfigurationOutput() AiAgentSessionSummarizationAiAgentConfigurationOutput
+	ToAiAgentSessionSummarizationAiAgentConfigurationOutputWithContext(context.Context) AiAgentSessionSummarizationAiAgentConfigurationOutput
+}
+
+type AiAgentSessionSummarizationAiAgentConfigurationArgs struct {
+	Locale                         pulumi.StringPtrInput `pulumi:"locale"`
+	SessionSummarizationAiPromptId pulumi.StringPtrInput `pulumi:"sessionSummarizationAiPromptId"`
+}
+
+func (AiAgentSessionSummarizationAiAgentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentSessionSummarizationAiAgentConfiguration)(nil)).Elem()
+}
+
+func (i AiAgentSessionSummarizationAiAgentConfigurationArgs) ToAiAgentSessionSummarizationAiAgentConfigurationOutput() AiAgentSessionSummarizationAiAgentConfigurationOutput {
+	return i.ToAiAgentSessionSummarizationAiAgentConfigurationOutputWithContext(context.Background())
+}
+
+func (i AiAgentSessionSummarizationAiAgentConfigurationArgs) ToAiAgentSessionSummarizationAiAgentConfigurationOutputWithContext(ctx context.Context) AiAgentSessionSummarizationAiAgentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentSessionSummarizationAiAgentConfigurationOutput)
+}
+
+type AiAgentSessionSummarizationAiAgentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AiAgentSessionSummarizationAiAgentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentSessionSummarizationAiAgentConfiguration)(nil)).Elem()
+}
+
+func (o AiAgentSessionSummarizationAiAgentConfigurationOutput) ToAiAgentSessionSummarizationAiAgentConfigurationOutput() AiAgentSessionSummarizationAiAgentConfigurationOutput {
+	return o
+}
+
+func (o AiAgentSessionSummarizationAiAgentConfigurationOutput) ToAiAgentSessionSummarizationAiAgentConfigurationOutputWithContext(ctx context.Context) AiAgentSessionSummarizationAiAgentConfigurationOutput {
+	return o
+}
+
+func (o AiAgentSessionSummarizationAiAgentConfigurationOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentSessionSummarizationAiAgentConfiguration) *string { return v.Locale }).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentSessionSummarizationAiAgentConfigurationOutput) SessionSummarizationAiPromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentSessionSummarizationAiAgentConfiguration) *string {
+		return v.SessionSummarizationAiPromptId
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiAgentSessionSummarizationAiAgentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AiAgentSessionSummarizationAiAgentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiAgentSessionSummarizationAiAgentConfiguration)(nil)).Elem()
+}
+
+func (o AiAgentSessionSummarizationAiAgentConfigurationPtrOutput) ToAiAgentSessionSummarizationAiAgentConfigurationPtrOutput() AiAgentSessionSummarizationAiAgentConfigurationPtrOutput {
+	return o
+}
+
+func (o AiAgentSessionSummarizationAiAgentConfigurationPtrOutput) ToAiAgentSessionSummarizationAiAgentConfigurationPtrOutputWithContext(ctx context.Context) AiAgentSessionSummarizationAiAgentConfigurationPtrOutput {
+	return o
+}
+
+func (o AiAgentSessionSummarizationAiAgentConfigurationPtrOutput) Elem() AiAgentSessionSummarizationAiAgentConfigurationOutput {
+	return o.ApplyT(func(v *AiAgentSessionSummarizationAiAgentConfiguration) AiAgentSessionSummarizationAiAgentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AiAgentSessionSummarizationAiAgentConfiguration
+		return ret
+	}).(AiAgentSessionSummarizationAiAgentConfigurationOutput)
+}
+
+func (o AiAgentSessionSummarizationAiAgentConfigurationPtrOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentSessionSummarizationAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Locale
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentSessionSummarizationAiAgentConfigurationPtrOutput) SessionSummarizationAiPromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentSessionSummarizationAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionSummarizationAiPromptId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9466,6 +9679,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration0PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration1PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration2PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration3PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAnswerRecommendationAiAgentConfigurationInput)(nil)).Elem(), AiAgentAnswerRecommendationAiAgentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAssociationConfigurationInput)(nil)).Elem(), AiAgentAssociationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAssociationConfigurationArrayInput)(nil)).Elem(), AiAgentAssociationConfigurationArray{})
@@ -9477,6 +9691,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentOrCondition0PropertiesInput)(nil)).Elem(), AiAgentOrCondition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentOrCondition1PropertiesInput)(nil)).Elem(), AiAgentOrCondition1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentSelfServiceAiAgentConfigurationInput)(nil)).Elem(), AiAgentSelfServiceAiAgentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentSessionSummarizationAiAgentConfigurationInput)(nil)).Elem(), AiAgentSessionSummarizationAiAgentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentTagConditionInput)(nil)).Elem(), AiAgentTagConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentTagConditionPtrInput)(nil)).Elem(), AiAgentTagConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentTagConditionArrayInput)(nil)).Elem(), AiAgentTagConditionArray{})
@@ -9583,6 +9798,8 @@ func init() {
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration2PropertiesOutput{})
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration3PropertiesOutput{})
+	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration3PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentAnswerRecommendationAiAgentConfigurationOutput{})
 	pulumi.RegisterOutputType(AiAgentAnswerRecommendationAiAgentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentAssociationConfigurationOutput{})
@@ -9597,6 +9814,8 @@ func init() {
 	pulumi.RegisterOutputType(AiAgentOrCondition1PropertiesOutput{})
 	pulumi.RegisterOutputType(AiAgentSelfServiceAiAgentConfigurationOutput{})
 	pulumi.RegisterOutputType(AiAgentSelfServiceAiAgentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AiAgentSessionSummarizationAiAgentConfigurationOutput{})
+	pulumi.RegisterOutputType(AiAgentSessionSummarizationAiAgentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentTagConditionOutput{})
 	pulumi.RegisterOutputType(AiAgentTagConditionPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentTagConditionArrayOutput{})

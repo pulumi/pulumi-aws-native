@@ -47,7 +47,7 @@ class GetCustomActionResult:
     @pulumi.getter(name="aliasName")
     def alias_name(self) -> Optional[str]:
         """
-        The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+        The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
         """
         return pulumi.get(self, "alias_name")
 

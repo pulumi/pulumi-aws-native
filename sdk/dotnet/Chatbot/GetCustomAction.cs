@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Chatbot
     public sealed class GetCustomActionResult
     {
         /// <summary>
-        /// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+        /// The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
         /// </summary>
         public readonly string? AliasName;
         /// <summary>

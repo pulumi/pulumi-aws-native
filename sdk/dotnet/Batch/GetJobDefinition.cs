@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.Batch
     [OutputType]
     public sealed class GetJobDefinitionResult
     {
+        public readonly Outputs.JobDefinitionConsumableResourceProperties? ConsumableResourceProperties;
         /// <summary>
         /// An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
         /// </summary>
@@ -121,6 +122,8 @@ namespace Pulumi.AwsNative.Batch
 
         [OutputConstructor]
         private GetJobDefinitionResult(
+            Outputs.JobDefinitionConsumableResourceProperties? consumableResourceProperties,
+
             Outputs.JobDefinitionContainerProperties? containerProperties,
 
             Outputs.JobDefinitionEcsProperties? ecsProperties,
@@ -145,6 +148,7 @@ namespace Pulumi.AwsNative.Batch
 
             string? type)
         {
+            ConsumableResourceProperties = consumableResourceProperties;
             ContainerProperties = containerProperties;
             EcsProperties = ecsProperties;
             EksProperties = eksProperties;
