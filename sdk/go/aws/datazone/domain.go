@@ -27,6 +27,8 @@ type Domain struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
 	DomainExecutionRole pulumi.StringOutput `pulumi:"domainExecutionRole"`
+	// The version of the domain.
+	DomainVersion DomainVersionPtrOutput `pulumi:"domainVersion"`
 	// The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
 	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// The timestamp of when the Amazon DataZone domain was last updated.
@@ -37,6 +39,8 @@ type Domain struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The URL of the data portal for this Amazon DataZone domain.
 	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
+	// The service role of the domain that is created.
+	ServiceRole pulumi.StringPtrOutput `pulumi:"serviceRole"`
 	// The single-sign on configuration of the Amazon DataZone domain.
 	SingleSignOn DomainSingleSignOnPtrOutput `pulumi:"singleSignOn"`
 	// The status of the Amazon DataZone domain.
@@ -56,6 +60,7 @@ func NewDomain(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'DomainExecutionRole'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"domainVersion",
 		"kmsKeyIdentifier",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -96,10 +101,14 @@ type domainArgs struct {
 	Description *string `pulumi:"description"`
 	// The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
 	DomainExecutionRole string `pulumi:"domainExecutionRole"`
+	// The version of the domain.
+	DomainVersion *DomainVersion `pulumi:"domainVersion"`
 	// The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// The name of the Amazon DataZone domain.
 	Name *string `pulumi:"name"`
+	// The service role of the domain that is created.
+	ServiceRole *string `pulumi:"serviceRole"`
 	// The single-sign on configuration of the Amazon DataZone domain.
 	SingleSignOn *DomainSingleSignOn `pulumi:"singleSignOn"`
 	// The tags specified for the Amazon DataZone domain.
@@ -112,10 +121,14 @@ type DomainArgs struct {
 	Description pulumi.StringPtrInput
 	// The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
 	DomainExecutionRole pulumi.StringInput
+	// The version of the domain.
+	DomainVersion DomainVersionPtrInput
 	// The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// The name of the Amazon DataZone domain.
 	Name pulumi.StringPtrInput
+	// The service role of the domain that is created.
+	ServiceRole pulumi.StringPtrInput
 	// The single-sign on configuration of the Amazon DataZone domain.
 	SingleSignOn DomainSingleSignOnPtrInput
 	// The tags specified for the Amazon DataZone domain.
@@ -184,6 +197,11 @@ func (o DomainOutput) DomainExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainExecutionRole }).(pulumi.StringOutput)
 }
 
+// The version of the domain.
+func (o DomainOutput) DomainVersion() DomainVersionPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainVersionPtrOutput { return v.DomainVersion }).(DomainVersionPtrOutput)
+}
+
 // The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
 func (o DomainOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
@@ -207,6 +225,11 @@ func (o DomainOutput) Name() pulumi.StringOutput {
 // The URL of the data portal for this Amazon DataZone domain.
 func (o DomainOutput) PortalUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.PortalUrl }).(pulumi.StringOutput)
+}
+
+// The service role of the domain that is created.
+func (o DomainOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.ServiceRole }).(pulumi.StringPtrOutput)
 }
 
 // The single-sign on configuration of the Amazon DataZone domain.

@@ -61,7 +61,7 @@ class GetRepositoryCreationTemplateResult:
     @pulumi.getter(name="appliedFor")
     def applied_for(self) -> Optional[Sequence['RepositoryCreationTemplateAppliedForItem']]:
         """
-        A list of enumerable Strings representing the repository creation scenarios that the template will apply towards.
+        A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
         """
         return pulumi.get(self, "applied_for")
 
@@ -69,7 +69,7 @@ class GetRepositoryCreationTemplateResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
         """
-        Create timestamp of the template.
+        The date and time, in JavaScript date format, when the repository creation template was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -77,7 +77,7 @@ class GetRepositoryCreationTemplateResult:
     @pulumi.getter(name="customRoleArn")
     def custom_role_arn(self) -> Optional[str]:
         """
-        The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+        The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.
         """
         return pulumi.get(self, "custom_role_arn")
 
@@ -85,7 +85,7 @@ class GetRepositoryCreationTemplateResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        The description of the template.
+        The description associated with the repository creation template.
         """
         return pulumi.get(self, "description")
 
@@ -101,7 +101,7 @@ class GetRepositoryCreationTemplateResult:
     @pulumi.getter(name="imageTagMutability")
     def image_tag_mutability(self) -> Optional['RepositoryCreationTemplateImageTagMutability']:
         """
-        The image tag mutability setting for the repository.
+        The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
         """
         return pulumi.get(self, "image_tag_mutability")
 
@@ -109,7 +109,7 @@ class GetRepositoryCreationTemplateResult:
     @pulumi.getter(name="lifecyclePolicy")
     def lifecycle_policy(self) -> Optional[str]:
         """
-        The JSON lifecycle policy text to apply to the repository. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
+        The lifecycle policy to use for repositories created using the template.
         """
         return pulumi.get(self, "lifecycle_policy")
 
@@ -117,7 +117,7 @@ class GetRepositoryCreationTemplateResult:
     @pulumi.getter(name="repositoryPolicy")
     def repository_policy(self) -> Optional[str]:
         """
-        The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html
+        he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
         """
         return pulumi.get(self, "repository_policy")
 
@@ -125,7 +125,7 @@ class GetRepositoryCreationTemplateResult:
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[Sequence['outputs.RepositoryCreationTemplateTag']]:
         """
-        An array of key-value pairs to apply to this resource.
+        The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
         """
         return pulumi.get(self, "resource_tags")
 
@@ -133,7 +133,7 @@ class GetRepositoryCreationTemplateResult:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[str]:
         """
-        Update timestamp of the template.
+        The date and time, in JavaScript date format, when the repository creation template was last updated.
         """
         return pulumi.get(self, "updated_at")
 
@@ -159,10 +159,10 @@ class AwaitableGetRepositoryCreationTemplateResult(GetRepositoryCreationTemplate
 def get_repository_creation_template(prefix: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryCreationTemplateResult:
     """
-    AWS::ECR::RepositoryCreationTemplate is used to create repository with configuration from a pre-defined template.
+    The details of the repository creation template associated with the request.
 
 
-    :param str prefix: The prefix use to match the repository name and apply the template.
+    :param str prefix: The repository namespace prefix associated with the repository creation template.
     """
     __args__ = dict()
     __args__['prefix'] = prefix
@@ -183,10 +183,10 @@ def get_repository_creation_template(prefix: Optional[str] = None,
 def get_repository_creation_template_output(prefix: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryCreationTemplateResult]:
     """
-    AWS::ECR::RepositoryCreationTemplate is used to create repository with configuration from a pre-defined template.
+    The details of the repository creation template associated with the request.
 
 
-    :param str prefix: The prefix use to match the repository name and apply the template.
+    :param str prefix: The repository namespace prefix associated with the repository creation template.
     """
     __args__ = dict()
     __args__['prefix'] = prefix

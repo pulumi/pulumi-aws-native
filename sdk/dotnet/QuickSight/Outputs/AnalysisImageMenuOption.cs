@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
         /// </summary>
-        public readonly object? AvailabilityStatus;
+        public readonly Pulumi.AwsNative.QuickSight.AnalysisDashboardBehavior? AvailabilityStatus;
 
         [OutputConstructor]
-        private AnalysisImageMenuOption(object? availabilityStatus)
+        private AnalysisImageMenuOption(Pulumi.AwsNative.QuickSight.AnalysisDashboardBehavior? availabilityStatus)
         {
             AvailabilityStatus = availabilityStatus;
         }

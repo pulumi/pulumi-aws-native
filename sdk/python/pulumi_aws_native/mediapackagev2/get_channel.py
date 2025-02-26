@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetChannelResult:
-    def __init__(__self__, arn=None, created_at=None, description=None, ingest_endpoint_urls=None, ingest_endpoints=None, modified_at=None, tags=None):
+    def __init__(__self__, arn=None, created_at=None, description=None, ingest_endpoint_urls=None, ingest_endpoints=None, input_switch_configuration=None, modified_at=None, output_header_configuration=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,9 +41,15 @@ class GetChannelResult:
         if ingest_endpoints and not isinstance(ingest_endpoints, list):
             raise TypeError("Expected argument 'ingest_endpoints' to be a list")
         pulumi.set(__self__, "ingest_endpoints", ingest_endpoints)
+        if input_switch_configuration and not isinstance(input_switch_configuration, dict):
+            raise TypeError("Expected argument 'input_switch_configuration' to be a dict")
+        pulumi.set(__self__, "input_switch_configuration", input_switch_configuration)
         if modified_at and not isinstance(modified_at, str):
             raise TypeError("Expected argument 'modified_at' to be a str")
         pulumi.set(__self__, "modified_at", modified_at)
+        if output_header_configuration and not isinstance(output_header_configuration, dict):
+            raise TypeError("Expected argument 'output_header_configuration' to be a dict")
+        pulumi.set(__self__, "output_header_configuration", output_header_configuration)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -86,12 +92,28 @@ class GetChannelResult:
         return pulumi.get(self, "ingest_endpoints")
 
     @property
+    @pulumi.getter(name="inputSwitchConfiguration")
+    def input_switch_configuration(self) -> Optional['outputs.ChannelInputSwitchConfiguration']:
+        """
+        The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.
+        """
+        return pulumi.get(self, "input_switch_configuration")
+
+    @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> Optional[str]:
         """
         <p>The date and time the channel was modified.</p>
         """
         return pulumi.get(self, "modified_at")
+
+    @property
+    @pulumi.getter(name="outputHeaderConfiguration")
+    def output_header_configuration(self) -> Optional['outputs.ChannelOutputHeaderConfiguration']:
+        """
+        The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
+        """
+        return pulumi.get(self, "output_header_configuration")
 
     @property
     @pulumi.getter
@@ -113,7 +135,9 @@ class AwaitableGetChannelResult(GetChannelResult):
             description=self.description,
             ingest_endpoint_urls=self.ingest_endpoint_urls,
             ingest_endpoints=self.ingest_endpoints,
+            input_switch_configuration=self.input_switch_configuration,
             modified_at=self.modified_at,
+            output_header_configuration=self.output_header_configuration,
             tags=self.tags)
 
 
@@ -136,7 +160,9 @@ def get_channel(arn: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         ingest_endpoint_urls=pulumi.get(__ret__, 'ingest_endpoint_urls'),
         ingest_endpoints=pulumi.get(__ret__, 'ingest_endpoints'),
+        input_switch_configuration=pulumi.get(__ret__, 'input_switch_configuration'),
         modified_at=pulumi.get(__ret__, 'modified_at'),
+        output_header_configuration=pulumi.get(__ret__, 'output_header_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_channel_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelResult]:
@@ -156,5 +182,7 @@ def get_channel_output(arn: Optional[pulumi.Input[str]] = None,
         description=pulumi.get(__response__, 'description'),
         ingest_endpoint_urls=pulumi.get(__response__, 'ingest_endpoint_urls'),
         ingest_endpoints=pulumi.get(__response__, 'ingest_endpoints'),
+        input_switch_configuration=pulumi.get(__response__, 'input_switch_configuration'),
         modified_at=pulumi.get(__response__, 'modified_at'),
+        output_header_configuration=pulumi.get(__response__, 'output_header_configuration'),
         tags=pulumi.get(__response__, 'tags')))
