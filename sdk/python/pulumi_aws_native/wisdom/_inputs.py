@@ -216,6 +216,7 @@ if not MYPY:
         answer_generation_ai_prompt_id: NotRequired[pulumi.Input[str]]
         association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
         intent_labeling_generation_ai_prompt_id: NotRequired[pulumi.Input[str]]
+        locale: NotRequired[pulumi.Input[str]]
         query_reformulation_ai_prompt_id: NotRequired[pulumi.Input[str]]
 elif False:
     AiAgentAnswerRecommendationAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -227,6 +228,7 @@ class AiAgentAnswerRecommendationAiAgentConfigurationArgs:
                  answer_generation_ai_prompt_id: Optional[pulumi.Input[str]] = None,
                  association_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None,
                  intent_labeling_generation_ai_prompt_id: Optional[pulumi.Input[str]] = None,
+                 locale: Optional[pulumi.Input[str]] = None,
                  query_reformulation_ai_prompt_id: Optional[pulumi.Input[str]] = None):
         if answer_generation_ai_guardrail_id is not None:
             pulumi.set(__self__, "answer_generation_ai_guardrail_id", answer_generation_ai_guardrail_id)
@@ -236,6 +238,8 @@ class AiAgentAnswerRecommendationAiAgentConfigurationArgs:
             pulumi.set(__self__, "association_configurations", association_configurations)
         if intent_labeling_generation_ai_prompt_id is not None:
             pulumi.set(__self__, "intent_labeling_generation_ai_prompt_id", intent_labeling_generation_ai_prompt_id)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
         if query_reformulation_ai_prompt_id is not None:
             pulumi.set(__self__, "query_reformulation_ai_prompt_id", query_reformulation_ai_prompt_id)
 
@@ -274,6 +278,15 @@ class AiAgentAnswerRecommendationAiAgentConfigurationArgs:
     @intent_labeling_generation_ai_prompt_id.setter
     def intent_labeling_generation_ai_prompt_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "intent_labeling_generation_ai_prompt_id", value)
+
+    @property
+    @pulumi.getter
+    def locale(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "locale")
+
+    @locale.setter
+    def locale(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "locale", value)
 
     @property
     @pulumi.getter(name="queryReformulationAiPromptId")
@@ -410,6 +423,7 @@ if not MYPY:
         answer_generation_ai_guardrail_id: NotRequired[pulumi.Input[str]]
         answer_generation_ai_prompt_id: NotRequired[pulumi.Input[str]]
         association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
+        locale: NotRequired[pulumi.Input[str]]
 elif False:
     AiAgentManualSearchAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -418,13 +432,16 @@ class AiAgentManualSearchAiAgentConfigurationArgs:
     def __init__(__self__, *,
                  answer_generation_ai_guardrail_id: Optional[pulumi.Input[str]] = None,
                  answer_generation_ai_prompt_id: Optional[pulumi.Input[str]] = None,
-                 association_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None):
+                 association_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None,
+                 locale: Optional[pulumi.Input[str]] = None):
         if answer_generation_ai_guardrail_id is not None:
             pulumi.set(__self__, "answer_generation_ai_guardrail_id", answer_generation_ai_guardrail_id)
         if answer_generation_ai_prompt_id is not None:
             pulumi.set(__self__, "answer_generation_ai_prompt_id", answer_generation_ai_prompt_id)
         if association_configurations is not None:
             pulumi.set(__self__, "association_configurations", association_configurations)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
 
     @property
     @pulumi.getter(name="answerGenerationAiGuardrailId")
@@ -452,6 +469,15 @@ class AiAgentManualSearchAiAgentConfigurationArgs:
     @association_configurations.setter
     def association_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]):
         pulumi.set(self, "association_configurations", value)
+
+    @property
+    @pulumi.getter
+    def locale(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "locale")
+
+    @locale.setter
+    def locale(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "locale", value)
 
 
 if not MYPY:

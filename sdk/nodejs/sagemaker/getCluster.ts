@@ -42,7 +42,7 @@ export interface GetClusterResult {
      */
     readonly failureMessage?: string;
     /**
-     * The instance groups of the SageMaker HyperPod cluster.
+     * The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
      */
     readonly instanceGroups?: outputs.sagemaker.ClusterInstanceGroup[];
     /**

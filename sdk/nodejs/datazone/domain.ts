@@ -58,6 +58,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly domainExecutionRole!: pulumi.Output<string>;
     /**
+     * The version of the domain.
+     */
+    public readonly domainVersion!: pulumi.Output<enums.datazone.DomainVersion | undefined>;
+    /**
      * The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
      */
     public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
@@ -77,6 +81,10 @@ export class Domain extends pulumi.CustomResource {
      * The URL of the data portal for this Amazon DataZone domain.
      */
     public /*out*/ readonly portalUrl!: pulumi.Output<string>;
+    /**
+     * The service role of the domain that is created.
+     */
+    public readonly serviceRole!: pulumi.Output<string | undefined>;
     /**
      * The single-sign on configuration of the Amazon DataZone domain.
      */
@@ -106,8 +114,10 @@ export class Domain extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["domainExecutionRole"] = args ? args.domainExecutionRole : undefined;
+            resourceInputs["domainVersion"] = args ? args.domainVersion : undefined;
             resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
             resourceInputs["singleSignOn"] = args ? args.singleSignOn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -123,17 +133,19 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["domainExecutionRole"] = undefined /*out*/;
+            resourceInputs["domainVersion"] = undefined /*out*/;
             resourceInputs["kmsKeyIdentifier"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["managedAccountId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["portalUrl"] = undefined /*out*/;
+            resourceInputs["serviceRole"] = undefined /*out*/;
             resourceInputs["singleSignOn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["kmsKeyIdentifier"] };
+        const replaceOnChanges = { replaceOnChanges: ["domainVersion", "kmsKeyIdentifier"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Domain.__pulumiType, name, resourceInputs, opts);
     }
@@ -152,6 +164,10 @@ export interface DomainArgs {
      */
     domainExecutionRole: pulumi.Input<string>;
     /**
+     * The version of the domain.
+     */
+    domainVersion?: pulumi.Input<enums.datazone.DomainVersion>;
+    /**
      * The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
      */
     kmsKeyIdentifier?: pulumi.Input<string>;
@@ -159,6 +175,10 @@ export interface DomainArgs {
      * The name of the Amazon DataZone domain.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The service role of the domain that is created.
+     */
+    serviceRole?: pulumi.Input<string>;
     /**
      * The single-sign on configuration of the Amazon DataZone domain.
      */

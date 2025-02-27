@@ -1112,6 +1112,729 @@ func (in *userSettingsEnabledTypePtr) ToUserSettingsEnabledTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(UserSettingsEnabledTypePtrOutput)
 }
 
+type UserSettingsMaxDisplayResolution string
+
+const (
+	UserSettingsMaxDisplayResolutionSize4096x2160 = UserSettingsMaxDisplayResolution("size4096X2160")
+	UserSettingsMaxDisplayResolutionSize3840x2160 = UserSettingsMaxDisplayResolution("size3840X2160")
+	UserSettingsMaxDisplayResolutionSize3440x1440 = UserSettingsMaxDisplayResolution("size3440X1440")
+	UserSettingsMaxDisplayResolutionSize2560x1440 = UserSettingsMaxDisplayResolution("size2560X1440")
+	UserSettingsMaxDisplayResolutionSize1920x1080 = UserSettingsMaxDisplayResolution("size1920X1080")
+	UserSettingsMaxDisplayResolutionSize1280x720  = UserSettingsMaxDisplayResolution("size1280X720")
+	UserSettingsMaxDisplayResolutionSize1024x768  = UserSettingsMaxDisplayResolution("size1024X768")
+	UserSettingsMaxDisplayResolutionSize800x600   = UserSettingsMaxDisplayResolution("size800X600")
+)
+
+func (UserSettingsMaxDisplayResolution) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsMaxDisplayResolution)(nil)).Elem()
+}
+
+func (e UserSettingsMaxDisplayResolution) ToUserSettingsMaxDisplayResolutionOutput() UserSettingsMaxDisplayResolutionOutput {
+	return pulumi.ToOutput(e).(UserSettingsMaxDisplayResolutionOutput)
+}
+
+func (e UserSettingsMaxDisplayResolution) ToUserSettingsMaxDisplayResolutionOutputWithContext(ctx context.Context) UserSettingsMaxDisplayResolutionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserSettingsMaxDisplayResolutionOutput)
+}
+
+func (e UserSettingsMaxDisplayResolution) ToUserSettingsMaxDisplayResolutionPtrOutput() UserSettingsMaxDisplayResolutionPtrOutput {
+	return e.ToUserSettingsMaxDisplayResolutionPtrOutputWithContext(context.Background())
+}
+
+func (e UserSettingsMaxDisplayResolution) ToUserSettingsMaxDisplayResolutionPtrOutputWithContext(ctx context.Context) UserSettingsMaxDisplayResolutionPtrOutput {
+	return UserSettingsMaxDisplayResolution(e).ToUserSettingsMaxDisplayResolutionOutputWithContext(ctx).ToUserSettingsMaxDisplayResolutionPtrOutputWithContext(ctx)
+}
+
+func (e UserSettingsMaxDisplayResolution) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserSettingsMaxDisplayResolution) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserSettingsMaxDisplayResolution) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserSettingsMaxDisplayResolution) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserSettingsMaxDisplayResolutionOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsMaxDisplayResolutionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsMaxDisplayResolution)(nil)).Elem()
+}
+
+func (o UserSettingsMaxDisplayResolutionOutput) ToUserSettingsMaxDisplayResolutionOutput() UserSettingsMaxDisplayResolutionOutput {
+	return o
+}
+
+func (o UserSettingsMaxDisplayResolutionOutput) ToUserSettingsMaxDisplayResolutionOutputWithContext(ctx context.Context) UserSettingsMaxDisplayResolutionOutput {
+	return o
+}
+
+func (o UserSettingsMaxDisplayResolutionOutput) ToUserSettingsMaxDisplayResolutionPtrOutput() UserSettingsMaxDisplayResolutionPtrOutput {
+	return o.ToUserSettingsMaxDisplayResolutionPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsMaxDisplayResolutionOutput) ToUserSettingsMaxDisplayResolutionPtrOutputWithContext(ctx context.Context) UserSettingsMaxDisplayResolutionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSettingsMaxDisplayResolution) *UserSettingsMaxDisplayResolution {
+		return &v
+	}).(UserSettingsMaxDisplayResolutionPtrOutput)
+}
+
+func (o UserSettingsMaxDisplayResolutionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserSettingsMaxDisplayResolutionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserSettingsMaxDisplayResolution) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserSettingsMaxDisplayResolutionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsMaxDisplayResolutionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserSettingsMaxDisplayResolution) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserSettingsMaxDisplayResolutionPtrOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsMaxDisplayResolutionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSettingsMaxDisplayResolution)(nil)).Elem()
+}
+
+func (o UserSettingsMaxDisplayResolutionPtrOutput) ToUserSettingsMaxDisplayResolutionPtrOutput() UserSettingsMaxDisplayResolutionPtrOutput {
+	return o
+}
+
+func (o UserSettingsMaxDisplayResolutionPtrOutput) ToUserSettingsMaxDisplayResolutionPtrOutputWithContext(ctx context.Context) UserSettingsMaxDisplayResolutionPtrOutput {
+	return o
+}
+
+func (o UserSettingsMaxDisplayResolutionPtrOutput) Elem() UserSettingsMaxDisplayResolutionOutput {
+	return o.ApplyT(func(v *UserSettingsMaxDisplayResolution) UserSettingsMaxDisplayResolution {
+		if v != nil {
+			return *v
+		}
+		var ret UserSettingsMaxDisplayResolution
+		return ret
+	}).(UserSettingsMaxDisplayResolutionOutput)
+}
+
+func (o UserSettingsMaxDisplayResolutionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsMaxDisplayResolutionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserSettingsMaxDisplayResolution) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserSettingsMaxDisplayResolutionInput is an input type that accepts values of the UserSettingsMaxDisplayResolution enum
+// A concrete instance of `UserSettingsMaxDisplayResolutionInput` can be one of the following:
+//
+//	UserSettingsMaxDisplayResolutionSize4096x2160
+//	UserSettingsMaxDisplayResolutionSize3840x2160
+//	UserSettingsMaxDisplayResolutionSize3440x1440
+//	UserSettingsMaxDisplayResolutionSize2560x1440
+//	UserSettingsMaxDisplayResolutionSize1920x1080
+//	UserSettingsMaxDisplayResolutionSize1280x720
+//	UserSettingsMaxDisplayResolutionSize1024x768
+//	UserSettingsMaxDisplayResolutionSize800x600
+type UserSettingsMaxDisplayResolutionInput interface {
+	pulumi.Input
+
+	ToUserSettingsMaxDisplayResolutionOutput() UserSettingsMaxDisplayResolutionOutput
+	ToUserSettingsMaxDisplayResolutionOutputWithContext(context.Context) UserSettingsMaxDisplayResolutionOutput
+}
+
+var userSettingsMaxDisplayResolutionPtrType = reflect.TypeOf((**UserSettingsMaxDisplayResolution)(nil)).Elem()
+
+type UserSettingsMaxDisplayResolutionPtrInput interface {
+	pulumi.Input
+
+	ToUserSettingsMaxDisplayResolutionPtrOutput() UserSettingsMaxDisplayResolutionPtrOutput
+	ToUserSettingsMaxDisplayResolutionPtrOutputWithContext(context.Context) UserSettingsMaxDisplayResolutionPtrOutput
+}
+
+type userSettingsMaxDisplayResolutionPtr string
+
+func UserSettingsMaxDisplayResolutionPtr(v string) UserSettingsMaxDisplayResolutionPtrInput {
+	return (*userSettingsMaxDisplayResolutionPtr)(&v)
+}
+
+func (*userSettingsMaxDisplayResolutionPtr) ElementType() reflect.Type {
+	return userSettingsMaxDisplayResolutionPtrType
+}
+
+func (in *userSettingsMaxDisplayResolutionPtr) ToUserSettingsMaxDisplayResolutionPtrOutput() UserSettingsMaxDisplayResolutionPtrOutput {
+	return pulumi.ToOutput(in).(UserSettingsMaxDisplayResolutionPtrOutput)
+}
+
+func (in *userSettingsMaxDisplayResolutionPtr) ToUserSettingsMaxDisplayResolutionPtrOutputWithContext(ctx context.Context) UserSettingsMaxDisplayResolutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserSettingsMaxDisplayResolutionPtrOutput)
+}
+
+type UserSettingsToolbarItem string
+
+const (
+	UserSettingsToolbarItemWindows     = UserSettingsToolbarItem("Windows")
+	UserSettingsToolbarItemDualMonitor = UserSettingsToolbarItem("DualMonitor")
+	UserSettingsToolbarItemFullScreen  = UserSettingsToolbarItem("FullScreen")
+	UserSettingsToolbarItemWebcam      = UserSettingsToolbarItem("Webcam")
+	UserSettingsToolbarItemMicrophone  = UserSettingsToolbarItem("Microphone")
+)
+
+func (UserSettingsToolbarItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsToolbarItem)(nil)).Elem()
+}
+
+func (e UserSettingsToolbarItem) ToUserSettingsToolbarItemOutput() UserSettingsToolbarItemOutput {
+	return pulumi.ToOutput(e).(UserSettingsToolbarItemOutput)
+}
+
+func (e UserSettingsToolbarItem) ToUserSettingsToolbarItemOutputWithContext(ctx context.Context) UserSettingsToolbarItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserSettingsToolbarItemOutput)
+}
+
+func (e UserSettingsToolbarItem) ToUserSettingsToolbarItemPtrOutput() UserSettingsToolbarItemPtrOutput {
+	return e.ToUserSettingsToolbarItemPtrOutputWithContext(context.Background())
+}
+
+func (e UserSettingsToolbarItem) ToUserSettingsToolbarItemPtrOutputWithContext(ctx context.Context) UserSettingsToolbarItemPtrOutput {
+	return UserSettingsToolbarItem(e).ToUserSettingsToolbarItemOutputWithContext(ctx).ToUserSettingsToolbarItemPtrOutputWithContext(ctx)
+}
+
+func (e UserSettingsToolbarItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserSettingsToolbarItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserSettingsToolbarItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserSettingsToolbarItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserSettingsToolbarItemOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsToolbarItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsToolbarItem)(nil)).Elem()
+}
+
+func (o UserSettingsToolbarItemOutput) ToUserSettingsToolbarItemOutput() UserSettingsToolbarItemOutput {
+	return o
+}
+
+func (o UserSettingsToolbarItemOutput) ToUserSettingsToolbarItemOutputWithContext(ctx context.Context) UserSettingsToolbarItemOutput {
+	return o
+}
+
+func (o UserSettingsToolbarItemOutput) ToUserSettingsToolbarItemPtrOutput() UserSettingsToolbarItemPtrOutput {
+	return o.ToUserSettingsToolbarItemPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsToolbarItemOutput) ToUserSettingsToolbarItemPtrOutputWithContext(ctx context.Context) UserSettingsToolbarItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSettingsToolbarItem) *UserSettingsToolbarItem {
+		return &v
+	}).(UserSettingsToolbarItemPtrOutput)
+}
+
+func (o UserSettingsToolbarItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserSettingsToolbarItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserSettingsToolbarItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserSettingsToolbarItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsToolbarItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserSettingsToolbarItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserSettingsToolbarItemPtrOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsToolbarItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSettingsToolbarItem)(nil)).Elem()
+}
+
+func (o UserSettingsToolbarItemPtrOutput) ToUserSettingsToolbarItemPtrOutput() UserSettingsToolbarItemPtrOutput {
+	return o
+}
+
+func (o UserSettingsToolbarItemPtrOutput) ToUserSettingsToolbarItemPtrOutputWithContext(ctx context.Context) UserSettingsToolbarItemPtrOutput {
+	return o
+}
+
+func (o UserSettingsToolbarItemPtrOutput) Elem() UserSettingsToolbarItemOutput {
+	return o.ApplyT(func(v *UserSettingsToolbarItem) UserSettingsToolbarItem {
+		if v != nil {
+			return *v
+		}
+		var ret UserSettingsToolbarItem
+		return ret
+	}).(UserSettingsToolbarItemOutput)
+}
+
+func (o UserSettingsToolbarItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsToolbarItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserSettingsToolbarItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserSettingsToolbarItemInput is an input type that accepts values of the UserSettingsToolbarItem enum
+// A concrete instance of `UserSettingsToolbarItemInput` can be one of the following:
+//
+//	UserSettingsToolbarItemWindows
+//	UserSettingsToolbarItemDualMonitor
+//	UserSettingsToolbarItemFullScreen
+//	UserSettingsToolbarItemWebcam
+//	UserSettingsToolbarItemMicrophone
+type UserSettingsToolbarItemInput interface {
+	pulumi.Input
+
+	ToUserSettingsToolbarItemOutput() UserSettingsToolbarItemOutput
+	ToUserSettingsToolbarItemOutputWithContext(context.Context) UserSettingsToolbarItemOutput
+}
+
+var userSettingsToolbarItemPtrType = reflect.TypeOf((**UserSettingsToolbarItem)(nil)).Elem()
+
+type UserSettingsToolbarItemPtrInput interface {
+	pulumi.Input
+
+	ToUserSettingsToolbarItemPtrOutput() UserSettingsToolbarItemPtrOutput
+	ToUserSettingsToolbarItemPtrOutputWithContext(context.Context) UserSettingsToolbarItemPtrOutput
+}
+
+type userSettingsToolbarItemPtr string
+
+func UserSettingsToolbarItemPtr(v string) UserSettingsToolbarItemPtrInput {
+	return (*userSettingsToolbarItemPtr)(&v)
+}
+
+func (*userSettingsToolbarItemPtr) ElementType() reflect.Type {
+	return userSettingsToolbarItemPtrType
+}
+
+func (in *userSettingsToolbarItemPtr) ToUserSettingsToolbarItemPtrOutput() UserSettingsToolbarItemPtrOutput {
+	return pulumi.ToOutput(in).(UserSettingsToolbarItemPtrOutput)
+}
+
+func (in *userSettingsToolbarItemPtr) ToUserSettingsToolbarItemPtrOutputWithContext(ctx context.Context) UserSettingsToolbarItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserSettingsToolbarItemPtrOutput)
+}
+
+// UserSettingsToolbarItemArrayInput is an input type that accepts UserSettingsToolbarItemArray and UserSettingsToolbarItemArrayOutput values.
+// You can construct a concrete instance of `UserSettingsToolbarItemArrayInput` via:
+//
+//	UserSettingsToolbarItemArray{ UserSettingsToolbarItemArgs{...} }
+type UserSettingsToolbarItemArrayInput interface {
+	pulumi.Input
+
+	ToUserSettingsToolbarItemArrayOutput() UserSettingsToolbarItemArrayOutput
+	ToUserSettingsToolbarItemArrayOutputWithContext(context.Context) UserSettingsToolbarItemArrayOutput
+}
+
+type UserSettingsToolbarItemArray []UserSettingsToolbarItem
+
+func (UserSettingsToolbarItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserSettingsToolbarItem)(nil)).Elem()
+}
+
+func (i UserSettingsToolbarItemArray) ToUserSettingsToolbarItemArrayOutput() UserSettingsToolbarItemArrayOutput {
+	return i.ToUserSettingsToolbarItemArrayOutputWithContext(context.Background())
+}
+
+func (i UserSettingsToolbarItemArray) ToUserSettingsToolbarItemArrayOutputWithContext(ctx context.Context) UserSettingsToolbarItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsToolbarItemArrayOutput)
+}
+
+type UserSettingsToolbarItemArrayOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsToolbarItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserSettingsToolbarItem)(nil)).Elem()
+}
+
+func (o UserSettingsToolbarItemArrayOutput) ToUserSettingsToolbarItemArrayOutput() UserSettingsToolbarItemArrayOutput {
+	return o
+}
+
+func (o UserSettingsToolbarItemArrayOutput) ToUserSettingsToolbarItemArrayOutputWithContext(ctx context.Context) UserSettingsToolbarItemArrayOutput {
+	return o
+}
+
+func (o UserSettingsToolbarItemArrayOutput) Index(i pulumi.IntInput) UserSettingsToolbarItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserSettingsToolbarItem {
+		return vs[0].([]UserSettingsToolbarItem)[vs[1].(int)]
+	}).(UserSettingsToolbarItemOutput)
+}
+
+type UserSettingsToolbarType string
+
+const (
+	UserSettingsToolbarTypeFloating = UserSettingsToolbarType("Floating")
+	UserSettingsToolbarTypeDocked   = UserSettingsToolbarType("Docked")
+)
+
+func (UserSettingsToolbarType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsToolbarType)(nil)).Elem()
+}
+
+func (e UserSettingsToolbarType) ToUserSettingsToolbarTypeOutput() UserSettingsToolbarTypeOutput {
+	return pulumi.ToOutput(e).(UserSettingsToolbarTypeOutput)
+}
+
+func (e UserSettingsToolbarType) ToUserSettingsToolbarTypeOutputWithContext(ctx context.Context) UserSettingsToolbarTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserSettingsToolbarTypeOutput)
+}
+
+func (e UserSettingsToolbarType) ToUserSettingsToolbarTypePtrOutput() UserSettingsToolbarTypePtrOutput {
+	return e.ToUserSettingsToolbarTypePtrOutputWithContext(context.Background())
+}
+
+func (e UserSettingsToolbarType) ToUserSettingsToolbarTypePtrOutputWithContext(ctx context.Context) UserSettingsToolbarTypePtrOutput {
+	return UserSettingsToolbarType(e).ToUserSettingsToolbarTypeOutputWithContext(ctx).ToUserSettingsToolbarTypePtrOutputWithContext(ctx)
+}
+
+func (e UserSettingsToolbarType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserSettingsToolbarType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserSettingsToolbarType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserSettingsToolbarType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserSettingsToolbarTypeOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsToolbarTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsToolbarType)(nil)).Elem()
+}
+
+func (o UserSettingsToolbarTypeOutput) ToUserSettingsToolbarTypeOutput() UserSettingsToolbarTypeOutput {
+	return o
+}
+
+func (o UserSettingsToolbarTypeOutput) ToUserSettingsToolbarTypeOutputWithContext(ctx context.Context) UserSettingsToolbarTypeOutput {
+	return o
+}
+
+func (o UserSettingsToolbarTypeOutput) ToUserSettingsToolbarTypePtrOutput() UserSettingsToolbarTypePtrOutput {
+	return o.ToUserSettingsToolbarTypePtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsToolbarTypeOutput) ToUserSettingsToolbarTypePtrOutputWithContext(ctx context.Context) UserSettingsToolbarTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSettingsToolbarType) *UserSettingsToolbarType {
+		return &v
+	}).(UserSettingsToolbarTypePtrOutput)
+}
+
+func (o UserSettingsToolbarTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserSettingsToolbarTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserSettingsToolbarType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserSettingsToolbarTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsToolbarTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserSettingsToolbarType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserSettingsToolbarTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsToolbarTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSettingsToolbarType)(nil)).Elem()
+}
+
+func (o UserSettingsToolbarTypePtrOutput) ToUserSettingsToolbarTypePtrOutput() UserSettingsToolbarTypePtrOutput {
+	return o
+}
+
+func (o UserSettingsToolbarTypePtrOutput) ToUserSettingsToolbarTypePtrOutputWithContext(ctx context.Context) UserSettingsToolbarTypePtrOutput {
+	return o
+}
+
+func (o UserSettingsToolbarTypePtrOutput) Elem() UserSettingsToolbarTypeOutput {
+	return o.ApplyT(func(v *UserSettingsToolbarType) UserSettingsToolbarType {
+		if v != nil {
+			return *v
+		}
+		var ret UserSettingsToolbarType
+		return ret
+	}).(UserSettingsToolbarTypeOutput)
+}
+
+func (o UserSettingsToolbarTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsToolbarTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserSettingsToolbarType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserSettingsToolbarTypeInput is an input type that accepts values of the UserSettingsToolbarType enum
+// A concrete instance of `UserSettingsToolbarTypeInput` can be one of the following:
+//
+//	UserSettingsToolbarTypeFloating
+//	UserSettingsToolbarTypeDocked
+type UserSettingsToolbarTypeInput interface {
+	pulumi.Input
+
+	ToUserSettingsToolbarTypeOutput() UserSettingsToolbarTypeOutput
+	ToUserSettingsToolbarTypeOutputWithContext(context.Context) UserSettingsToolbarTypeOutput
+}
+
+var userSettingsToolbarTypePtrType = reflect.TypeOf((**UserSettingsToolbarType)(nil)).Elem()
+
+type UserSettingsToolbarTypePtrInput interface {
+	pulumi.Input
+
+	ToUserSettingsToolbarTypePtrOutput() UserSettingsToolbarTypePtrOutput
+	ToUserSettingsToolbarTypePtrOutputWithContext(context.Context) UserSettingsToolbarTypePtrOutput
+}
+
+type userSettingsToolbarTypePtr string
+
+func UserSettingsToolbarTypePtr(v string) UserSettingsToolbarTypePtrInput {
+	return (*userSettingsToolbarTypePtr)(&v)
+}
+
+func (*userSettingsToolbarTypePtr) ElementType() reflect.Type {
+	return userSettingsToolbarTypePtrType
+}
+
+func (in *userSettingsToolbarTypePtr) ToUserSettingsToolbarTypePtrOutput() UserSettingsToolbarTypePtrOutput {
+	return pulumi.ToOutput(in).(UserSettingsToolbarTypePtrOutput)
+}
+
+func (in *userSettingsToolbarTypePtr) ToUserSettingsToolbarTypePtrOutputWithContext(ctx context.Context) UserSettingsToolbarTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserSettingsToolbarTypePtrOutput)
+}
+
+type UserSettingsVisualMode string
+
+const (
+	UserSettingsVisualModeDark  = UserSettingsVisualMode("Dark")
+	UserSettingsVisualModeLight = UserSettingsVisualMode("Light")
+)
+
+func (UserSettingsVisualMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsVisualMode)(nil)).Elem()
+}
+
+func (e UserSettingsVisualMode) ToUserSettingsVisualModeOutput() UserSettingsVisualModeOutput {
+	return pulumi.ToOutput(e).(UserSettingsVisualModeOutput)
+}
+
+func (e UserSettingsVisualMode) ToUserSettingsVisualModeOutputWithContext(ctx context.Context) UserSettingsVisualModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserSettingsVisualModeOutput)
+}
+
+func (e UserSettingsVisualMode) ToUserSettingsVisualModePtrOutput() UserSettingsVisualModePtrOutput {
+	return e.ToUserSettingsVisualModePtrOutputWithContext(context.Background())
+}
+
+func (e UserSettingsVisualMode) ToUserSettingsVisualModePtrOutputWithContext(ctx context.Context) UserSettingsVisualModePtrOutput {
+	return UserSettingsVisualMode(e).ToUserSettingsVisualModeOutputWithContext(ctx).ToUserSettingsVisualModePtrOutputWithContext(ctx)
+}
+
+func (e UserSettingsVisualMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserSettingsVisualMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserSettingsVisualMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserSettingsVisualMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserSettingsVisualModeOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsVisualModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsVisualMode)(nil)).Elem()
+}
+
+func (o UserSettingsVisualModeOutput) ToUserSettingsVisualModeOutput() UserSettingsVisualModeOutput {
+	return o
+}
+
+func (o UserSettingsVisualModeOutput) ToUserSettingsVisualModeOutputWithContext(ctx context.Context) UserSettingsVisualModeOutput {
+	return o
+}
+
+func (o UserSettingsVisualModeOutput) ToUserSettingsVisualModePtrOutput() UserSettingsVisualModePtrOutput {
+	return o.ToUserSettingsVisualModePtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsVisualModeOutput) ToUserSettingsVisualModePtrOutputWithContext(ctx context.Context) UserSettingsVisualModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSettingsVisualMode) *UserSettingsVisualMode {
+		return &v
+	}).(UserSettingsVisualModePtrOutput)
+}
+
+func (o UserSettingsVisualModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserSettingsVisualModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserSettingsVisualMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserSettingsVisualModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsVisualModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserSettingsVisualMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserSettingsVisualModePtrOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsVisualModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSettingsVisualMode)(nil)).Elem()
+}
+
+func (o UserSettingsVisualModePtrOutput) ToUserSettingsVisualModePtrOutput() UserSettingsVisualModePtrOutput {
+	return o
+}
+
+func (o UserSettingsVisualModePtrOutput) ToUserSettingsVisualModePtrOutputWithContext(ctx context.Context) UserSettingsVisualModePtrOutput {
+	return o
+}
+
+func (o UserSettingsVisualModePtrOutput) Elem() UserSettingsVisualModeOutput {
+	return o.ApplyT(func(v *UserSettingsVisualMode) UserSettingsVisualMode {
+		if v != nil {
+			return *v
+		}
+		var ret UserSettingsVisualMode
+		return ret
+	}).(UserSettingsVisualModeOutput)
+}
+
+func (o UserSettingsVisualModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsVisualModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserSettingsVisualMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserSettingsVisualModeInput is an input type that accepts values of the UserSettingsVisualMode enum
+// A concrete instance of `UserSettingsVisualModeInput` can be one of the following:
+//
+//	UserSettingsVisualModeDark
+//	UserSettingsVisualModeLight
+type UserSettingsVisualModeInput interface {
+	pulumi.Input
+
+	ToUserSettingsVisualModeOutput() UserSettingsVisualModeOutput
+	ToUserSettingsVisualModeOutputWithContext(context.Context) UserSettingsVisualModeOutput
+}
+
+var userSettingsVisualModePtrType = reflect.TypeOf((**UserSettingsVisualMode)(nil)).Elem()
+
+type UserSettingsVisualModePtrInput interface {
+	pulumi.Input
+
+	ToUserSettingsVisualModePtrOutput() UserSettingsVisualModePtrOutput
+	ToUserSettingsVisualModePtrOutputWithContext(context.Context) UserSettingsVisualModePtrOutput
+}
+
+type userSettingsVisualModePtr string
+
+func UserSettingsVisualModePtr(v string) UserSettingsVisualModePtrInput {
+	return (*userSettingsVisualModePtr)(&v)
+}
+
+func (*userSettingsVisualModePtr) ElementType() reflect.Type {
+	return userSettingsVisualModePtrType
+}
+
+func (in *userSettingsVisualModePtr) ToUserSettingsVisualModePtrOutput() UserSettingsVisualModePtrOutput {
+	return pulumi.ToOutput(in).(UserSettingsVisualModePtrOutput)
+}
+
+func (in *userSettingsVisualModePtr) ToUserSettingsVisualModePtrOutputWithContext(ctx context.Context) UserSettingsVisualModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserSettingsVisualModePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsRedactionPlaceHolderTypeInput)(nil)).Elem(), DataProtectionSettingsRedactionPlaceHolderType("CustomText"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsRedactionPlaceHolderTypePtrInput)(nil)).Elem(), DataProtectionSettingsRedactionPlaceHolderType("CustomText"))
@@ -1123,6 +1846,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PortalInstanceTypePtrInput)(nil)).Elem(), PortalInstanceType("standard.regular"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsEnabledTypeInput)(nil)).Elem(), UserSettingsEnabledType("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsEnabledTypePtrInput)(nil)).Elem(), UserSettingsEnabledType("Disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsMaxDisplayResolutionInput)(nil)).Elem(), UserSettingsMaxDisplayResolution("size4096X2160"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsMaxDisplayResolutionPtrInput)(nil)).Elem(), UserSettingsMaxDisplayResolution("size4096X2160"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsToolbarItemInput)(nil)).Elem(), UserSettingsToolbarItem("Windows"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsToolbarItemPtrInput)(nil)).Elem(), UserSettingsToolbarItem("Windows"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsToolbarItemArrayInput)(nil)).Elem(), UserSettingsToolbarItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsToolbarTypeInput)(nil)).Elem(), UserSettingsToolbarType("Floating"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsToolbarTypePtrInput)(nil)).Elem(), UserSettingsToolbarType("Floating"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsVisualModeInput)(nil)).Elem(), UserSettingsVisualMode("Dark"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsVisualModePtrInput)(nil)).Elem(), UserSettingsVisualMode("Dark"))
 	pulumi.RegisterOutputType(DataProtectionSettingsRedactionPlaceHolderTypeOutput{})
 	pulumi.RegisterOutputType(DataProtectionSettingsRedactionPlaceHolderTypePtrOutput{})
 	pulumi.RegisterOutputType(IdentityProviderTypeOutput{})
@@ -1139,4 +1871,13 @@ func init() {
 	pulumi.RegisterOutputType(PortalStatusPtrOutput{})
 	pulumi.RegisterOutputType(UserSettingsEnabledTypeOutput{})
 	pulumi.RegisterOutputType(UserSettingsEnabledTypePtrOutput{})
+	pulumi.RegisterOutputType(UserSettingsMaxDisplayResolutionOutput{})
+	pulumi.RegisterOutputType(UserSettingsMaxDisplayResolutionPtrOutput{})
+	pulumi.RegisterOutputType(UserSettingsToolbarItemOutput{})
+	pulumi.RegisterOutputType(UserSettingsToolbarItemPtrOutput{})
+	pulumi.RegisterOutputType(UserSettingsToolbarItemArrayOutput{})
+	pulumi.RegisterOutputType(UserSettingsToolbarTypeOutput{})
+	pulumi.RegisterOutputType(UserSettingsToolbarTypePtrOutput{})
+	pulumi.RegisterOutputType(UserSettingsVisualModeOutput{})
+	pulumi.RegisterOutputType(UserSettingsVisualModePtrOutput{})
 }

@@ -85,7 +85,7 @@ class GetClusterResult:
     @pulumi.getter(name="instanceGroups")
     def instance_groups(self) -> Optional[Sequence['outputs.ClusterInstanceGroup']]:
         """
-        The instance groups of the SageMaker HyperPod cluster.
+        The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
         """
         return pulumi.get(self, "instance_groups")
 
