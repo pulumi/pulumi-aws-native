@@ -26,10 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetThemeResult:
-    def __init__(__self__, arn=None, created_time=None, last_updated_time=None, name=None, permissions=None, tags=None, type=None, version=None):
+    def __init__(__self__, arn=None, base_theme_id=None, configuration=None, created_time=None, last_updated_time=None, name=None, permissions=None, tags=None, type=None, version=None, version_description=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if base_theme_id and not isinstance(base_theme_id, str):
+            raise TypeError("Expected argument 'base_theme_id' to be a str")
+        pulumi.set(__self__, "base_theme_id", base_theme_id)
+        if configuration and not isinstance(configuration, dict):
+            raise TypeError("Expected argument 'configuration' to be a dict")
+        pulumi.set(__self__, "configuration", configuration)
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
@@ -51,6 +57,9 @@ class GetThemeResult:
         if version and not isinstance(version, dict):
             raise TypeError("Expected argument 'version' to be a dict")
         pulumi.set(__self__, "version", version)
+        if version_description and not isinstance(version_description, str):
+            raise TypeError("Expected argument 'version_description' to be a str")
+        pulumi.set(__self__, "version_description", version_description)
 
     @property
     @pulumi.getter
@@ -59,6 +68,22 @@ class GetThemeResult:
         <p>The Amazon Resource Name (ARN) of the theme.</p>
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="baseThemeId")
+    def base_theme_id(self) -> Optional[str]:
+        """
+        The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+        """
+        return pulumi.get(self, "base_theme_id")
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional['outputs.ThemeConfiguration']:
+        """
+        The theme configuration, which contains the theme display properties.
+        """
+        return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="createdTime")
@@ -113,6 +138,14 @@ class GetThemeResult:
     def version(self) -> Optional['outputs.ThemeVersion']:
         return pulumi.get(self, "version")
 
+    @property
+    @pulumi.getter(name="versionDescription")
+    def version_description(self) -> Optional[str]:
+        """
+        A description of the first version of the theme that you're creating. Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
+        """
+        return pulumi.get(self, "version_description")
+
 
 class AwaitableGetThemeResult(GetThemeResult):
     # pylint: disable=using-constant-test
@@ -121,13 +154,16 @@ class AwaitableGetThemeResult(GetThemeResult):
             yield self
         return GetThemeResult(
             arn=self.arn,
+            base_theme_id=self.base_theme_id,
+            configuration=self.configuration,
             created_time=self.created_time,
             last_updated_time=self.last_updated_time,
             name=self.name,
             permissions=self.permissions,
             tags=self.tags,
             type=self.type,
-            version=self.version)
+            version=self.version,
+            version_description=self.version_description)
 
 
 def get_theme(aws_account_id: Optional[str] = None,
@@ -148,13 +184,16 @@ def get_theme(aws_account_id: Optional[str] = None,
 
     return AwaitableGetThemeResult(
         arn=pulumi.get(__ret__, 'arn'),
+        base_theme_id=pulumi.get(__ret__, 'base_theme_id'),
+        configuration=pulumi.get(__ret__, 'configuration'),
         created_time=pulumi.get(__ret__, 'created_time'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         name=pulumi.get(__ret__, 'name'),
         permissions=pulumi.get(__ret__, 'permissions'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
-        version=pulumi.get(__ret__, 'version'))
+        version=pulumi.get(__ret__, 'version'),
+        version_description=pulumi.get(__ret__, 'version_description'))
 def get_theme_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                      theme_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThemeResult]:
@@ -172,10 +211,13 @@ def get_theme_output(aws_account_id: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:quicksight:getTheme', __args__, opts=opts, typ=GetThemeResult)
     return __ret__.apply(lambda __response__: GetThemeResult(
         arn=pulumi.get(__response__, 'arn'),
+        base_theme_id=pulumi.get(__response__, 'base_theme_id'),
+        configuration=pulumi.get(__response__, 'configuration'),
         created_time=pulumi.get(__response__, 'created_time'),
         last_updated_time=pulumi.get(__response__, 'last_updated_time'),
         name=pulumi.get(__response__, 'name'),
         permissions=pulumi.get(__response__, 'permissions'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version')))
+        version=pulumi.get(__response__, 'version'),
+        version_description=pulumi.get(__response__, 'version_description')))

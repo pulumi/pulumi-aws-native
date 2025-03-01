@@ -98,17 +98,21 @@ if not MYPY:
         """
         The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
         """
+        ip_address_type: NotRequired[pulumi.Input['ConnectorVpcInformationIpAddressType']]
 elif False:
     ConnectorVpcInformationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectorVpcInformationArgs:
     def __init__(__self__, *,
-                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 ip_address_type: Optional[pulumi.Input['ConnectorVpcInformationIpAddressType']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -121,6 +125,15 @@ class ConnectorVpcInformationArgs:
     @security_group_ids.setter
     def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input['ConnectorVpcInformationIpAddressType']]:
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input['ConnectorVpcInformationIpAddressType']]):
+        pulumi.set(self, "ip_address_type", value)
 
 
 if not MYPY:

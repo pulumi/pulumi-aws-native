@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:batch:ComputeEnvironment":
 		r = &ComputeEnvironment{}
+	case "aws-native:batch:ConsumableResource":
+		r = &ConsumableResource{}
 	case "aws-native:batch:JobDefinition":
 		r = &JobDefinition{}
 	case "aws-native:batch:JobQueue":

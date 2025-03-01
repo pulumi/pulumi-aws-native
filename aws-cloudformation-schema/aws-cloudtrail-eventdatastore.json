@@ -262,5 +262,13 @@
       "permissions" : [ "CloudTrail:ListEventDataStores", "CloudTrail:GetEventDataStore", "CloudTrail:GetInsightSelectors", "CloudTrail:ListTags" ]
     }
   },
-  "additionalProperties" : false
+  "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "CloudTrail:AddTags", "CloudTrail:RemoveTags", "CloudTrail:ListTags" ]
+  }
 }

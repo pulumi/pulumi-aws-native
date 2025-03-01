@@ -13,14 +13,19 @@ namespace Pulumi.AwsNative.PcaConnectorAd.Outputs
     [OutputType]
     public sealed class ConnectorVpcInformation
     {
+        public readonly Pulumi.AwsNative.PcaConnectorAd.ConnectorVpcInformationIpAddressType? IpAddressType;
         /// <summary>
         /// The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
 
         [OutputConstructor]
-        private ConnectorVpcInformation(ImmutableArray<string> securityGroupIds)
+        private ConnectorVpcInformation(
+            Pulumi.AwsNative.PcaConnectorAd.ConnectorVpcInformationIpAddressType? ipAddressType,
+
+            ImmutableArray<string> securityGroupIds)
         {
+            IpAddressType = ipAddressType;
             SecurityGroupIds = securityGroupIds;
         }
     }

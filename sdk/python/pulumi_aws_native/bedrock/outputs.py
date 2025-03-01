@@ -678,6 +678,7 @@ class AgentCollaborator(dict):
         :param 'AgentCollaboratorAgentDescriptorProperties' agent_descriptor: Agent descriptor for agent collaborator
         :param str collaboration_instruction: Agent collaborator instruction
         :param str collaborator_name: Agent collaborator name
+        :param 'AgentRelayConversationHistory' relay_conversation_history: The collaborator's relay conversation history.
         """
         pulumi.set(__self__, "agent_descriptor", agent_descriptor)
         pulumi.set(__self__, "collaboration_instruction", collaboration_instruction)
@@ -712,6 +713,9 @@ class AgentCollaborator(dict):
     @property
     @pulumi.getter(name="relayConversationHistory")
     def relay_conversation_history(self) -> Optional['AgentRelayConversationHistory']:
+        """
+        The collaborator's relay conversation history.
+        """
         return pulumi.get(self, "relay_conversation_history")
 
 
@@ -764,6 +768,7 @@ class AgentCustomOrchestration(dict):
                  executor: Optional['outputs.AgentOrchestrationExecutor'] = None):
         """
         Structure for custom orchestration
+        :param 'AgentOrchestrationExecutor' executor: The structure of the executor invoking the actions in custom orchestration.
         """
         if executor is not None:
             pulumi.set(__self__, "executor", executor)
@@ -771,6 +776,9 @@ class AgentCustomOrchestration(dict):
     @property
     @pulumi.getter
     def executor(self) -> Optional['outputs.AgentOrchestrationExecutor']:
+        """
+        The structure of the executor invoking the actions in custom orchestration.
+        """
         return pulumi.get(self, "executor")
 
 
@@ -1115,6 +1123,8 @@ class AgentMemoryConfiguration(dict):
                  storage_days: Optional[float] = None):
         """
         Configuration for memory storage
+        :param Sequence['AgentMemoryType'] enabled_memory_types: The type of memory that is stored.
+        :param 'AgentSessionSummaryConfiguration' session_summary_configuration: Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
         :param float storage_days: Maximum number of days to store session details
         """
         if enabled_memory_types is not None:
@@ -1127,11 +1137,17 @@ class AgentMemoryConfiguration(dict):
     @property
     @pulumi.getter(name="enabledMemoryTypes")
     def enabled_memory_types(self) -> Optional[Sequence['AgentMemoryType']]:
+        """
+        The type of memory that is stored.
+        """
         return pulumi.get(self, "enabled_memory_types")
 
     @property
     @pulumi.getter(name="sessionSummaryConfiguration")
     def session_summary_configuration(self) -> Optional['outputs.AgentSessionSummaryConfiguration']:
+        """
+        Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
+        """
         return pulumi.get(self, "session_summary_configuration")
 
     @property
@@ -1273,6 +1289,7 @@ class AgentPromptConfiguration(dict):
         """
         BasePromptConfiguration per Prompt Type.
         :param str base_prompt_template: Base Prompt Template.
+        :param str foundation_model: The agent's foundation model.
         :param 'AgentInferenceConfiguration' inference_configuration: Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
         :param 'AgentCreationMode' parser_mode: Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
         :param 'AgentCreationMode' prompt_creation_mode: Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
@@ -1310,6 +1327,9 @@ class AgentPromptConfiguration(dict):
     @property
     @pulumi.getter(name="foundationModel")
     def foundation_model(self) -> Optional[str]:
+        """
+        The agent's foundation model.
+        """
         return pulumi.get(self, "foundation_model")
 
     @property

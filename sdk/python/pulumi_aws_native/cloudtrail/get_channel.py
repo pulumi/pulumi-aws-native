@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetChannelResult:
-    def __init__(__self__, channel_arn=None, destinations=None, name=None):
+    def __init__(__self__, channel_arn=None, destinations=None, name=None, tags=None):
         if channel_arn and not isinstance(channel_arn, str):
             raise TypeError("Expected argument 'channel_arn' to be a str")
         pulumi.set(__self__, "channel_arn", channel_arn)
@@ -35,6 +36,9 @@ class GetChannelResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="channelArn")
@@ -60,6 +64,14 @@ class GetChannelResult:
         """
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetChannelResult(GetChannelResult):
     # pylint: disable=using-constant-test
@@ -69,7 +81,8 @@ class AwaitableGetChannelResult(GetChannelResult):
         return GetChannelResult(
             channel_arn=self.channel_arn,
             destinations=self.destinations,
-            name=self.name)
+            name=self.name,
+            tags=self.tags)
 
 
 def get_channel(channel_arn: Optional[str] = None,
@@ -88,7 +101,8 @@ def get_channel(channel_arn: Optional[str] = None,
     return AwaitableGetChannelResult(
         channel_arn=pulumi.get(__ret__, 'channel_arn'),
         destinations=pulumi.get(__ret__, 'destinations'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_channel_output(channel_arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelResult]:
     """
@@ -104,4 +118,5 @@ def get_channel_output(channel_arn: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetChannelResult(
         channel_arn=pulumi.get(__response__, 'channel_arn'),
         destinations=pulumi.get(__response__, 'destinations'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))
