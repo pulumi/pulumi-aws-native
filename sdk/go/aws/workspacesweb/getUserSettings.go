@@ -52,7 +52,8 @@ type LookupUserSettingsResult struct {
 	// Specifies whether the user can print to the local device.
 	PrintAllowed *UserSettingsEnabledType `pulumi:"printAllowed"`
 	// The tags to add to the user settings resource. A tag is a key-value pair.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags                 []aws.Tag                         `pulumi:"tags"`
+	ToolbarConfiguration *UserSettingsToolbarConfiguration `pulumi:"toolbarConfiguration"`
 	// Specifies whether the user can upload files from the local device to the streaming session.
 	UploadAllowed *UserSettingsEnabledType `pulumi:"uploadAllowed"`
 	// The ARN of the user settings.
@@ -151,6 +152,10 @@ func (o LookupUserSettingsResultOutput) PrintAllowed() UserSettingsEnabledTypePt
 // The tags to add to the user settings resource. A tag is a key-value pair.
 func (o LookupUserSettingsResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o LookupUserSettingsResultOutput) ToolbarConfiguration() UserSettingsToolbarConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupUserSettingsResult) *UserSettingsToolbarConfiguration { return v.ToolbarConfiguration }).(UserSettingsToolbarConfigurationPtrOutput)
 }
 
 // Specifies whether the user can upload files from the local device to the streaming session.

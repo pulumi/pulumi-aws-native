@@ -5,10 +5,19 @@
 from enum import Enum
 
 __all__ = [
+    'ConsumableResourceResourceType',
     'JobQueueJobStateTimeLimitActionAction',
     'JobQueueJobStateTimeLimitActionState',
     'JobQueueState',
 ]
+
+
+class ConsumableResourceResourceType(str, Enum):
+    """
+    Type of Consumable Resource.
+    """
+    REPLENISHABLE = "REPLENISHABLE"
+    NON_REPLENISHABLE = "NON_REPLENISHABLE"
 
 
 class JobQueueJobStateTimeLimitActionAction(str, Enum):

@@ -3871,7 +3871,7 @@ type RuleGroupRulesSource struct {
 	//
 	// > You can't use the `priority` keyword if the `RuleOrder` option in `StatefulRuleOptions` is set to `STRICT_ORDER` .
 	RulesString *string `pulumi:"rulesString"`
-	// An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
+	// An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-7.0.3/rules/intro.html) .
 	StatefulRules []RuleGroupStatefulRule `pulumi:"statefulRules"`
 	// Stateless inspection criteria to be used in a stateless rule group.
 	StatelessRulesAndCustomActions *RuleGroupStatelessRulesAndCustomActions `pulumi:"statelessRulesAndCustomActions"`
@@ -3897,7 +3897,7 @@ type RuleGroupRulesSourceArgs struct {
 	//
 	// > You can't use the `priority` keyword if the `RuleOrder` option in `StatefulRuleOptions` is set to `STRICT_ORDER` .
 	RulesString pulumi.StringPtrInput `pulumi:"rulesString"`
-	// An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
+	// An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-7.0.3/rules/intro.html) .
 	StatefulRules RuleGroupStatefulRuleArrayInput `pulumi:"statefulRules"`
 	// Stateless inspection criteria to be used in a stateless rule group.
 	StatelessRulesAndCustomActions RuleGroupStatelessRulesAndCustomActionsPtrInput `pulumi:"statelessRulesAndCustomActions"`
@@ -3994,7 +3994,7 @@ func (o RuleGroupRulesSourceOutput) RulesString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleGroupRulesSource) *string { return v.RulesString }).(pulumi.StringPtrOutput)
 }
 
-// An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
+// An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-7.0.3/rules/intro.html) .
 func (o RuleGroupRulesSourceOutput) StatefulRules() RuleGroupStatefulRuleArrayOutput {
 	return o.ApplyT(func(v RuleGroupRulesSource) []RuleGroupStatefulRule { return v.StatefulRules }).(RuleGroupStatefulRuleArrayOutput)
 }
@@ -4054,7 +4054,7 @@ func (o RuleGroupRulesSourcePtrOutput) RulesString() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
+// An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-7.0.3/rules/intro.html) .
 func (o RuleGroupRulesSourcePtrOutput) StatefulRules() RuleGroupStatefulRuleArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRulesSource) []RuleGroupStatefulRule {
 		if v == nil {
