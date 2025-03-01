@@ -1289,8 +1289,10 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3KeyPrefix() pulumi.Str
 // The managed storage configuration for the cluster.
 type ClusterManagedStorageConfiguration struct {
 	// Specify the KMSlong key ID for the Fargate ephemeral storage.
+	//  The key must be a single Region key.
 	FargateEphemeralStorageKmsKeyId *string `pulumi:"fargateEphemeralStorageKmsKeyId"`
 	// Specify a KMSlong key ID to encrypt the managed storage.
+	//  The key must be a single Region key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -1308,8 +1310,10 @@ type ClusterManagedStorageConfigurationInput interface {
 // The managed storage configuration for the cluster.
 type ClusterManagedStorageConfigurationArgs struct {
 	// Specify the KMSlong key ID for the Fargate ephemeral storage.
+	//  The key must be a single Region key.
 	FargateEphemeralStorageKmsKeyId pulumi.StringPtrInput `pulumi:"fargateEphemeralStorageKmsKeyId"`
 	// Specify a KMSlong key ID to encrypt the managed storage.
+	//  The key must be a single Region key.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -1392,11 +1396,15 @@ func (o ClusterManagedStorageConfigurationOutput) ToClusterManagedStorageConfigu
 }
 
 // Specify the KMSlong key ID for the Fargate ephemeral storage.
+//
+//	The key must be a single Region key.
 func (o ClusterManagedStorageConfigurationOutput) FargateEphemeralStorageKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterManagedStorageConfiguration) *string { return v.FargateEphemeralStorageKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Specify a KMSlong key ID to encrypt the managed storage.
+//
+//	The key must be a single Region key.
 func (o ClusterManagedStorageConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterManagedStorageConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -1426,6 +1434,8 @@ func (o ClusterManagedStorageConfigurationPtrOutput) Elem() ClusterManagedStorag
 }
 
 // Specify the KMSlong key ID for the Fargate ephemeral storage.
+//
+//	The key must be a single Region key.
 func (o ClusterManagedStorageConfigurationPtrOutput) FargateEphemeralStorageKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterManagedStorageConfiguration) *string {
 		if v == nil {
@@ -1436,6 +1446,8 @@ func (o ClusterManagedStorageConfigurationPtrOutput) FargateEphemeralStorageKmsK
 }
 
 // Specify a KMSlong key ID to encrypt the managed storage.
+//
+//	The key must be a single Region key.
 func (o ClusterManagedStorageConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterManagedStorageConfiguration) *string {
 		if v == nil {
@@ -1449,7 +1461,7 @@ func (o ClusterManagedStorageConfigurationPtrOutput) KmsKeyId() pulumi.StringPtr
 //
 //	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ClusterServiceConnectDefaults struct {
-	// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include hyphens (-), tilde (~), greater than (>), less than (<), or slash (/).
+	// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include greater than (>), less than (<), double quotation marks ("), or slash (/).
 	//  If you enter an existing namespace name or ARN, then that namespace will be used. Any namespace type is supported. The namespace must be in this account and this AWS Region.
 	//  If you enter a new name, a CMAPlong namespace will be created. Amazon ECS creates a CMAP namespace with the "API calls" method of instance discovery only. This instance discovery method is the "HTTP" namespace type in the CLIlong. Other types of instance discovery aren't used by Service Connect.
 	//  If you update the cluster with an empty string ``""`` for the namespace name, the cluster configuration for Service Connect is removed. Note that the namespace will remain in CMAP and must be deleted separately.
@@ -1472,7 +1484,7 @@ type ClusterServiceConnectDefaultsInput interface {
 //
 //	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ClusterServiceConnectDefaultsArgs struct {
-	// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include hyphens (-), tilde (~), greater than (>), less than (<), or slash (/).
+	// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include greater than (>), less than (<), double quotation marks ("), or slash (/).
 	//  If you enter an existing namespace name or ARN, then that namespace will be used. Any namespace type is supported. The namespace must be in this account and this AWS Region.
 	//  If you enter a new name, a CMAPlong namespace will be created. Amazon ECS creates a CMAP namespace with the "API calls" method of instance discovery only. This instance discovery method is the "HTTP" namespace type in the CLIlong. Other types of instance discovery aren't used by Service Connect.
 	//  If you update the cluster with an empty string ``""`` for the namespace name, the cluster configuration for Service Connect is removed. Note that the namespace will remain in CMAP and must be deleted separately.
@@ -1560,7 +1572,7 @@ func (o ClusterServiceConnectDefaultsOutput) ToClusterServiceConnectDefaultsPtrO
 	}).(ClusterServiceConnectDefaultsPtrOutput)
 }
 
-// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include hyphens (-), tilde (~), greater than (>), less than (<), or slash (/).
+// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include greater than (>), less than (<), double quotation marks ("), or slash (/).
 //
 //	If you enter an existing namespace name or ARN, then that namespace will be used. Any namespace type is supported. The namespace must be in this account and this AWS Region.
 //	If you enter a new name, a CMAPlong namespace will be created. Amazon ECS creates a CMAP namespace with the "API calls" method of instance discovery only. This instance discovery method is the "HTTP" namespace type in the CLIlong. Other types of instance discovery aren't used by Service Connect.
@@ -1594,7 +1606,7 @@ func (o ClusterServiceConnectDefaultsPtrOutput) Elem() ClusterServiceConnectDefa
 	}).(ClusterServiceConnectDefaultsOutput)
 }
 
-// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include hyphens (-), tilde (~), greater than (>), less than (<), or slash (/).
+// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include greater than (>), less than (<), double quotation marks ("), or slash (/).
 //
 //	If you enter an existing namespace name or ARN, then that namespace will be used. Any namespace type is supported. The namespace must be in this account and this AWS Region.
 //	If you enter a new name, a CMAPlong namespace will be created. Amazon ECS creates a CMAP namespace with the "API calls" method of instance discovery only. This instance discovery method is the "HTTP" namespace type in the CLIlong. Other types of instance discovery aren't used by Service Connect.

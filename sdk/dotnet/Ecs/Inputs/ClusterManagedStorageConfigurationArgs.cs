@@ -17,12 +17,14 @@ namespace Pulumi.AwsNative.Ecs.Inputs
     {
         /// <summary>
         /// Specify the KMSlong key ID for the Fargate ephemeral storage.
+        ///  The key must be a single Region key.
         /// </summary>
         [Input("fargateEphemeralStorageKmsKeyId")]
         public Input<string>? FargateEphemeralStorageKmsKeyId { get; set; }
 
         /// <summary>
         /// Specify a KMSlong key ID to encrypt the managed storage.
+        ///  The key must be a single Region key.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

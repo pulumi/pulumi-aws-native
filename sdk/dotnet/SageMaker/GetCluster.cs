@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public readonly string? FailureMessage;
         /// <summary>
-        /// The instance groups of the SageMaker HyperPod cluster.
+        /// The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterInstanceGroup> InstanceGroups;
         /// <summary>

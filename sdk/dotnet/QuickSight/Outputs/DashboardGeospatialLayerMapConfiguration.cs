@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGeospatialLayerMapConfiguration
     {
-        public readonly object? Interactions;
+        public readonly Outputs.DashboardVisualInteractionOptions? Interactions;
         public readonly Outputs.DashboardLegendOptions? Legend;
         /// <summary>
         /// The geospatial layers to visualize on the map.
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DashboardGeospatialLayerMapConfiguration(
-            object? interactions,
+            Outputs.DashboardVisualInteractionOptions? interactions,
 
             Outputs.DashboardLegendOptions? legend,
 

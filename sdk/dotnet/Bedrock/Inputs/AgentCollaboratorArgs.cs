@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("collaboratorName", required: true)]
         public Input<string> CollaboratorName { get; set; } = null!;
 
+        /// <summary>
+        /// The collaborator's relay conversation history.
+        /// </summary>
         [Input("relayConversationHistory")]
         public Input<Pulumi.AwsNative.Bedrock.AgentRelayConversationHistory>? RelayConversationHistory { get; set; }
 

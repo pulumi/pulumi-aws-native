@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::PCAConnectorAD::Connector Resource Type
+// Represents a Connector that connects AWS PrivateCA and your directory
 func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pulumi.InvokeOption) (*LookupConnectorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConnectorResult

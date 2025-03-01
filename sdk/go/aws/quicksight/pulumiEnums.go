@@ -3348,6 +3348,171 @@ func (in *analysisCustomContentTypePtr) ToAnalysisCustomContentTypePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisCustomContentTypePtrOutput)
 }
 
+type AnalysisDashboardBehavior string
+
+const (
+	AnalysisDashboardBehaviorEnabled  = AnalysisDashboardBehavior("ENABLED")
+	AnalysisDashboardBehaviorDisabled = AnalysisDashboardBehavior("DISABLED")
+)
+
+func (AnalysisDashboardBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisDashboardBehavior)(nil)).Elem()
+}
+
+func (e AnalysisDashboardBehavior) ToAnalysisDashboardBehaviorOutput() AnalysisDashboardBehaviorOutput {
+	return pulumi.ToOutput(e).(AnalysisDashboardBehaviorOutput)
+}
+
+func (e AnalysisDashboardBehavior) ToAnalysisDashboardBehaviorOutputWithContext(ctx context.Context) AnalysisDashboardBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisDashboardBehaviorOutput)
+}
+
+func (e AnalysisDashboardBehavior) ToAnalysisDashboardBehaviorPtrOutput() AnalysisDashboardBehaviorPtrOutput {
+	return e.ToAnalysisDashboardBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisDashboardBehavior) ToAnalysisDashboardBehaviorPtrOutputWithContext(ctx context.Context) AnalysisDashboardBehaviorPtrOutput {
+	return AnalysisDashboardBehavior(e).ToAnalysisDashboardBehaviorOutputWithContext(ctx).ToAnalysisDashboardBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e AnalysisDashboardBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisDashboardBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisDashboardBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisDashboardBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisDashboardBehaviorOutput struct{ *pulumi.OutputState }
+
+func (AnalysisDashboardBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisDashboardBehavior)(nil)).Elem()
+}
+
+func (o AnalysisDashboardBehaviorOutput) ToAnalysisDashboardBehaviorOutput() AnalysisDashboardBehaviorOutput {
+	return o
+}
+
+func (o AnalysisDashboardBehaviorOutput) ToAnalysisDashboardBehaviorOutputWithContext(ctx context.Context) AnalysisDashboardBehaviorOutput {
+	return o
+}
+
+func (o AnalysisDashboardBehaviorOutput) ToAnalysisDashboardBehaviorPtrOutput() AnalysisDashboardBehaviorPtrOutput {
+	return o.ToAnalysisDashboardBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisDashboardBehaviorOutput) ToAnalysisDashboardBehaviorPtrOutputWithContext(ctx context.Context) AnalysisDashboardBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisDashboardBehavior) *AnalysisDashboardBehavior {
+		return &v
+	}).(AnalysisDashboardBehaviorPtrOutput)
+}
+
+func (o AnalysisDashboardBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisDashboardBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisDashboardBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisDashboardBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisDashboardBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisDashboardBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisDashboardBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisDashboardBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisDashboardBehavior)(nil)).Elem()
+}
+
+func (o AnalysisDashboardBehaviorPtrOutput) ToAnalysisDashboardBehaviorPtrOutput() AnalysisDashboardBehaviorPtrOutput {
+	return o
+}
+
+func (o AnalysisDashboardBehaviorPtrOutput) ToAnalysisDashboardBehaviorPtrOutputWithContext(ctx context.Context) AnalysisDashboardBehaviorPtrOutput {
+	return o
+}
+
+func (o AnalysisDashboardBehaviorPtrOutput) Elem() AnalysisDashboardBehaviorOutput {
+	return o.ApplyT(func(v *AnalysisDashboardBehavior) AnalysisDashboardBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisDashboardBehavior
+		return ret
+	}).(AnalysisDashboardBehaviorOutput)
+}
+
+func (o AnalysisDashboardBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisDashboardBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisDashboardBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisDashboardBehaviorInput is an input type that accepts values of the AnalysisDashboardBehavior enum
+// A concrete instance of `AnalysisDashboardBehaviorInput` can be one of the following:
+//
+//	AnalysisDashboardBehaviorEnabled
+//	AnalysisDashboardBehaviorDisabled
+type AnalysisDashboardBehaviorInput interface {
+	pulumi.Input
+
+	ToAnalysisDashboardBehaviorOutput() AnalysisDashboardBehaviorOutput
+	ToAnalysisDashboardBehaviorOutputWithContext(context.Context) AnalysisDashboardBehaviorOutput
+}
+
+var analysisDashboardBehaviorPtrType = reflect.TypeOf((**AnalysisDashboardBehavior)(nil)).Elem()
+
+type AnalysisDashboardBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisDashboardBehaviorPtrOutput() AnalysisDashboardBehaviorPtrOutput
+	ToAnalysisDashboardBehaviorPtrOutputWithContext(context.Context) AnalysisDashboardBehaviorPtrOutput
+}
+
+type analysisDashboardBehaviorPtr string
+
+func AnalysisDashboardBehaviorPtr(v string) AnalysisDashboardBehaviorPtrInput {
+	return (*analysisDashboardBehaviorPtr)(&v)
+}
+
+func (*analysisDashboardBehaviorPtr) ElementType() reflect.Type {
+	return analysisDashboardBehaviorPtrType
+}
+
+func (in *analysisDashboardBehaviorPtr) ToAnalysisDashboardBehaviorPtrOutput() AnalysisDashboardBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(AnalysisDashboardBehaviorPtrOutput)
+}
+
+func (in *analysisDashboardBehaviorPtr) ToAnalysisDashboardBehaviorPtrOutputWithContext(ctx context.Context) AnalysisDashboardBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisDashboardBehaviorPtrOutput)
+}
+
 type AnalysisDataLabelContent string
 
 const (
@@ -9096,6 +9261,8 @@ const (
 	AnalysisNumberScaleMillions  = AnalysisNumberScale("MILLIONS")
 	AnalysisNumberScaleBillions  = AnalysisNumberScale("BILLIONS")
 	AnalysisNumberScaleTrillions = AnalysisNumberScale("TRILLIONS")
+	AnalysisNumberScaleLakhs     = AnalysisNumberScale("LAKHS")
+	AnalysisNumberScaleCrores    = AnalysisNumberScale("CRORES")
 )
 
 func (AnalysisNumberScale) ElementType() reflect.Type {
@@ -9226,6 +9393,8 @@ func (o AnalysisNumberScalePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 //	AnalysisNumberScaleMillions
 //	AnalysisNumberScaleBillions
 //	AnalysisNumberScaleTrillions
+//	AnalysisNumberScaleLakhs
+//	AnalysisNumberScaleCrores
 type AnalysisNumberScaleInput interface {
 	pulumi.Input
 
@@ -30416,6 +30585,8 @@ const (
 	DashboardNumberScaleMillions  = DashboardNumberScale("MILLIONS")
 	DashboardNumberScaleBillions  = DashboardNumberScale("BILLIONS")
 	DashboardNumberScaleTrillions = DashboardNumberScale("TRILLIONS")
+	DashboardNumberScaleLakhs     = DashboardNumberScale("LAKHS")
+	DashboardNumberScaleCrores    = DashboardNumberScale("CRORES")
 )
 
 func (DashboardNumberScale) ElementType() reflect.Type {
@@ -30546,6 +30717,8 @@ func (o DashboardNumberScalePtrOutput) ToStringPtrOutputWithContext(ctx context.
 //	DashboardNumberScaleMillions
 //	DashboardNumberScaleBillions
 //	DashboardNumberScaleTrillions
+//	DashboardNumberScaleLakhs
+//	DashboardNumberScaleCrores
 type DashboardNumberScaleInput interface {
 	pulumi.Input
 
@@ -49768,6 +49941,171 @@ func (in *templateCustomContentTypePtr) ToTemplateCustomContentTypePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateCustomContentTypePtrOutput)
 }
 
+type TemplateDashboardBehavior string
+
+const (
+	TemplateDashboardBehaviorEnabled  = TemplateDashboardBehavior("ENABLED")
+	TemplateDashboardBehaviorDisabled = TemplateDashboardBehavior("DISABLED")
+)
+
+func (TemplateDashboardBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateDashboardBehavior)(nil)).Elem()
+}
+
+func (e TemplateDashboardBehavior) ToTemplateDashboardBehaviorOutput() TemplateDashboardBehaviorOutput {
+	return pulumi.ToOutput(e).(TemplateDashboardBehaviorOutput)
+}
+
+func (e TemplateDashboardBehavior) ToTemplateDashboardBehaviorOutputWithContext(ctx context.Context) TemplateDashboardBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateDashboardBehaviorOutput)
+}
+
+func (e TemplateDashboardBehavior) ToTemplateDashboardBehaviorPtrOutput() TemplateDashboardBehaviorPtrOutput {
+	return e.ToTemplateDashboardBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateDashboardBehavior) ToTemplateDashboardBehaviorPtrOutputWithContext(ctx context.Context) TemplateDashboardBehaviorPtrOutput {
+	return TemplateDashboardBehavior(e).ToTemplateDashboardBehaviorOutputWithContext(ctx).ToTemplateDashboardBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e TemplateDashboardBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateDashboardBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateDashboardBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateDashboardBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateDashboardBehaviorOutput struct{ *pulumi.OutputState }
+
+func (TemplateDashboardBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateDashboardBehavior)(nil)).Elem()
+}
+
+func (o TemplateDashboardBehaviorOutput) ToTemplateDashboardBehaviorOutput() TemplateDashboardBehaviorOutput {
+	return o
+}
+
+func (o TemplateDashboardBehaviorOutput) ToTemplateDashboardBehaviorOutputWithContext(ctx context.Context) TemplateDashboardBehaviorOutput {
+	return o
+}
+
+func (o TemplateDashboardBehaviorOutput) ToTemplateDashboardBehaviorPtrOutput() TemplateDashboardBehaviorPtrOutput {
+	return o.ToTemplateDashboardBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateDashboardBehaviorOutput) ToTemplateDashboardBehaviorPtrOutputWithContext(ctx context.Context) TemplateDashboardBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateDashboardBehavior) *TemplateDashboardBehavior {
+		return &v
+	}).(TemplateDashboardBehaviorPtrOutput)
+}
+
+func (o TemplateDashboardBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateDashboardBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateDashboardBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateDashboardBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateDashboardBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateDashboardBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateDashboardBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateDashboardBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateDashboardBehavior)(nil)).Elem()
+}
+
+func (o TemplateDashboardBehaviorPtrOutput) ToTemplateDashboardBehaviorPtrOutput() TemplateDashboardBehaviorPtrOutput {
+	return o
+}
+
+func (o TemplateDashboardBehaviorPtrOutput) ToTemplateDashboardBehaviorPtrOutputWithContext(ctx context.Context) TemplateDashboardBehaviorPtrOutput {
+	return o
+}
+
+func (o TemplateDashboardBehaviorPtrOutput) Elem() TemplateDashboardBehaviorOutput {
+	return o.ApplyT(func(v *TemplateDashboardBehavior) TemplateDashboardBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateDashboardBehavior
+		return ret
+	}).(TemplateDashboardBehaviorOutput)
+}
+
+func (o TemplateDashboardBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateDashboardBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateDashboardBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateDashboardBehaviorInput is an input type that accepts values of the TemplateDashboardBehavior enum
+// A concrete instance of `TemplateDashboardBehaviorInput` can be one of the following:
+//
+//	TemplateDashboardBehaviorEnabled
+//	TemplateDashboardBehaviorDisabled
+type TemplateDashboardBehaviorInput interface {
+	pulumi.Input
+
+	ToTemplateDashboardBehaviorOutput() TemplateDashboardBehaviorOutput
+	ToTemplateDashboardBehaviorOutputWithContext(context.Context) TemplateDashboardBehaviorOutput
+}
+
+var templateDashboardBehaviorPtrType = reflect.TypeOf((**TemplateDashboardBehavior)(nil)).Elem()
+
+type TemplateDashboardBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToTemplateDashboardBehaviorPtrOutput() TemplateDashboardBehaviorPtrOutput
+	ToTemplateDashboardBehaviorPtrOutputWithContext(context.Context) TemplateDashboardBehaviorPtrOutput
+}
+
+type templateDashboardBehaviorPtr string
+
+func TemplateDashboardBehaviorPtr(v string) TemplateDashboardBehaviorPtrInput {
+	return (*templateDashboardBehaviorPtr)(&v)
+}
+
+func (*templateDashboardBehaviorPtr) ElementType() reflect.Type {
+	return templateDashboardBehaviorPtrType
+}
+
+func (in *templateDashboardBehaviorPtr) ToTemplateDashboardBehaviorPtrOutput() TemplateDashboardBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(TemplateDashboardBehaviorPtrOutput)
+}
+
+func (in *templateDashboardBehaviorPtr) ToTemplateDashboardBehaviorPtrOutputWithContext(ctx context.Context) TemplateDashboardBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateDashboardBehaviorPtrOutput)
+}
+
 type TemplateDataLabelContent string
 
 const (
@@ -54764,6 +55102,8 @@ const (
 	TemplateNumberScaleMillions  = TemplateNumberScale("MILLIONS")
 	TemplateNumberScaleBillions  = TemplateNumberScale("BILLIONS")
 	TemplateNumberScaleTrillions = TemplateNumberScale("TRILLIONS")
+	TemplateNumberScaleLakhs     = TemplateNumberScale("LAKHS")
+	TemplateNumberScaleCrores    = TemplateNumberScale("CRORES")
 )
 
 func (TemplateNumberScale) ElementType() reflect.Type {
@@ -54894,6 +55234,8 @@ func (o TemplateNumberScalePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 //	TemplateNumberScaleMillions
 //	TemplateNumberScaleBillions
 //	TemplateNumberScaleTrillions
+//	TemplateNumberScaleLakhs
+//	TemplateNumberScaleCrores
 type TemplateNumberScaleInput interface {
 	pulumi.Input
 
@@ -70665,6 +71007,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomContentImageScalingConfigurationPtrInput)(nil)).Elem(), AnalysisCustomContentImageScalingConfiguration("FIT_TO_HEIGHT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomContentTypeInput)(nil)).Elem(), AnalysisCustomContentType("IMAGE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomContentTypePtrInput)(nil)).Elem(), AnalysisCustomContentType("IMAGE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDashboardBehaviorInput)(nil)).Elem(), AnalysisDashboardBehavior("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDashboardBehaviorPtrInput)(nil)).Elem(), AnalysisDashboardBehavior("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDataLabelContentInput)(nil)).Elem(), AnalysisDataLabelContent("VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDataLabelContentPtrInput)(nil)).Elem(), AnalysisDataLabelContent("VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDataLabelOverlapInput)(nil)).Elem(), AnalysisDataLabelOverlap("DISABLE_OVERLAP"))
@@ -71216,6 +71560,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCustomContentImageScalingConfigurationPtrInput)(nil)).Elem(), TemplateCustomContentImageScalingConfiguration("FIT_TO_HEIGHT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCustomContentTypeInput)(nil)).Elem(), TemplateCustomContentType("IMAGE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCustomContentTypePtrInput)(nil)).Elem(), TemplateCustomContentType("IMAGE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDashboardBehaviorInput)(nil)).Elem(), TemplateDashboardBehavior("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDashboardBehaviorPtrInput)(nil)).Elem(), TemplateDashboardBehavior("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDataLabelContentInput)(nil)).Elem(), TemplateDataLabelContent("VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDataLabelContentPtrInput)(nil)).Elem(), TemplateDataLabelContent("VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDataLabelOverlapInput)(nil)).Elem(), TemplateDataLabelOverlap("DISABLE_OVERLAP"))
@@ -71497,6 +71843,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisCustomContentImageScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisCustomContentTypeOutput{})
 	pulumi.RegisterOutputType(AnalysisCustomContentTypePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisDashboardBehaviorOutput{})
+	pulumi.RegisterOutputType(AnalysisDashboardBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisDataLabelContentOutput{})
 	pulumi.RegisterOutputType(AnalysisDataLabelContentPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisDataLabelOverlapOutput{})
@@ -72054,6 +72402,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateCustomContentImageScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateCustomContentTypeOutput{})
 	pulumi.RegisterOutputType(TemplateCustomContentTypePtrOutput{})
+	pulumi.RegisterOutputType(TemplateDashboardBehaviorOutput{})
+	pulumi.RegisterOutputType(TemplateDashboardBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(TemplateDataLabelContentOutput{})
 	pulumi.RegisterOutputType(TemplateDataLabelContentPtrOutput{})
 	pulumi.RegisterOutputType(TemplateDataLabelOverlapOutput{})
