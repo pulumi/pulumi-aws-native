@@ -12,6 +12,7 @@ export const AiAgentAiAgentType = {
     ManualSearch: "MANUAL_SEARCH",
     AnswerRecommendation: "ANSWER_RECOMMENDATION",
     SelfService: "SELF_SERVICE",
+    SessionSummarization: "SESSION_SUMMARIZATION",
 } as const;
 
 export type AiAgentAiAgentType = (typeof AiAgentAiAgentType)[keyof typeof AiAgentAiAgentType];

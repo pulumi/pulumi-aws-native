@@ -28,6 +28,10 @@ __all__ = [
     'ComputeEnvironmentLaunchTemplateSpecificationArgsDict',
     'ComputeEnvironmentUpdatePolicyArgs',
     'ComputeEnvironmentUpdatePolicyArgsDict',
+    'JobDefinitionConsumableResourcePropertiesArgs',
+    'JobDefinitionConsumableResourcePropertiesArgsDict',
+    'JobDefinitionConsumableResourceRequirementArgs',
+    'JobDefinitionConsumableResourceRequirementArgsDict',
     'JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs',
     'JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgsDict',
     'JobDefinitionContainerPropertiesArgs',
@@ -1223,6 +1227,71 @@ class ComputeEnvironmentUpdatePolicyArgs:
     @terminate_jobs_on_update.setter
     def terminate_jobs_on_update(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "terminate_jobs_on_update", value)
+
+
+if not MYPY:
+    class JobDefinitionConsumableResourcePropertiesArgsDict(TypedDict):
+        consumable_resource_list: pulumi.Input[Sequence[pulumi.Input['JobDefinitionConsumableResourceRequirementArgsDict']]]
+elif False:
+    JobDefinitionConsumableResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobDefinitionConsumableResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 consumable_resource_list: pulumi.Input[Sequence[pulumi.Input['JobDefinitionConsumableResourceRequirementArgs']]]):
+        pulumi.set(__self__, "consumable_resource_list", consumable_resource_list)
+
+    @property
+    @pulumi.getter(name="consumableResourceList")
+    def consumable_resource_list(self) -> pulumi.Input[Sequence[pulumi.Input['JobDefinitionConsumableResourceRequirementArgs']]]:
+        return pulumi.get(self, "consumable_resource_list")
+
+    @consumable_resource_list.setter
+    def consumable_resource_list(self, value: pulumi.Input[Sequence[pulumi.Input['JobDefinitionConsumableResourceRequirementArgs']]]):
+        pulumi.set(self, "consumable_resource_list", value)
+
+
+if not MYPY:
+    class JobDefinitionConsumableResourceRequirementArgsDict(TypedDict):
+        consumable_resource: pulumi.Input[str]
+        """
+        The ARN of the consumable resource the job definition should consume.
+        """
+        quantity: pulumi.Input[int]
+elif False:
+    JobDefinitionConsumableResourceRequirementArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobDefinitionConsumableResourceRequirementArgs:
+    def __init__(__self__, *,
+                 consumable_resource: pulumi.Input[str],
+                 quantity: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] consumable_resource: The ARN of the consumable resource the job definition should consume.
+        """
+        pulumi.set(__self__, "consumable_resource", consumable_resource)
+        pulumi.set(__self__, "quantity", quantity)
+
+    @property
+    @pulumi.getter(name="consumableResource")
+    def consumable_resource(self) -> pulumi.Input[str]:
+        """
+        The ARN of the consumable resource the job definition should consume.
+        """
+        return pulumi.get(self, "consumable_resource")
+
+    @consumable_resource.setter
+    def consumable_resource(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumable_resource", value)
+
+    @property
+    @pulumi.getter
+    def quantity(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "quantity")
+
+    @quantity.setter
+    def quantity(self, value: pulumi.Input[int]):
+        pulumi.set(self, "quantity", value)
 
 
 if not MYPY:
@@ -5077,6 +5146,7 @@ if not MYPY:
         """
         The range of nodes, using node index values. A range of `0:3` indicates nodes with index values of `0` through `3` . If the starting range value is omitted ( `:n` ), then `0` is used to start the range. If the ending range value is omitted ( `n:` ), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes ( `0:n` ). You can nest node ranges (for example, `0:10` and `4:5` ). In this case, the `4:5` range properties override the `0:10` properties.
         """
+        consumable_resource_properties: NotRequired[pulumi.Input['JobDefinitionConsumableResourcePropertiesArgsDict']]
         container: NotRequired[pulumi.Input['JobDefinitionMultiNodeContainerPropertiesArgsDict']]
         """
         The container details for the node range.
@@ -5104,6 +5174,7 @@ elif False:
 class JobDefinitionNodeRangePropertyArgs:
     def __init__(__self__, *,
                  target_nodes: pulumi.Input[str],
+                 consumable_resource_properties: Optional[pulumi.Input['JobDefinitionConsumableResourcePropertiesArgs']] = None,
                  container: Optional[pulumi.Input['JobDefinitionMultiNodeContainerPropertiesArgs']] = None,
                  ecs_properties: Optional[pulumi.Input['JobDefinitionMultiNodeEcsPropertiesArgs']] = None,
                  eks_properties: Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']] = None,
@@ -5120,6 +5191,8 @@ class JobDefinitionNodeRangePropertyArgs:
                > In addition, this list object is currently limited to one element.
         """
         pulumi.set(__self__, "target_nodes", target_nodes)
+        if consumable_resource_properties is not None:
+            pulumi.set(__self__, "consumable_resource_properties", consumable_resource_properties)
         if container is not None:
             pulumi.set(__self__, "container", container)
         if ecs_properties is not None:
@@ -5140,6 +5213,15 @@ class JobDefinitionNodeRangePropertyArgs:
     @target_nodes.setter
     def target_nodes(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_nodes", value)
+
+    @property
+    @pulumi.getter(name="consumableResourceProperties")
+    def consumable_resource_properties(self) -> Optional[pulumi.Input['JobDefinitionConsumableResourcePropertiesArgs']]:
+        return pulumi.get(self, "consumable_resource_properties")
+
+    @consumable_resource_properties.setter
+    def consumable_resource_properties(self, value: Optional[pulumi.Input['JobDefinitionConsumableResourcePropertiesArgs']]):
+        pulumi.set(self, "consumable_resource_properties", value)
 
     @property
     @pulumi.getter

@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ConsumableResourceResourceType = {
+    Replenishable: "REPLENISHABLE",
+    NonReplenishable: "NON_REPLENISHABLE",
+} as const;
+
+/**
+ * Type of Consumable Resource.
+ */
+export type ConsumableResourceResourceType = (typeof ConsumableResourceResourceType)[keyof typeof ConsumableResourceResourceType];
+
 export const JobQueueJobStateTimeLimitActionAction = {
     Cancel: "CANCEL",
 } as const;
