@@ -9,7 +9,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/config v1.27.11
 	github.com/aws/aws-sdk-go-v2/service/ssm v1.56.1
 	github.com/pulumi/providertest v0.1.5
-	github.com/pulumi/pulumi/pkg/v3 v3.153.0
+	github.com/pulumi/pulumi/pkg/v3 v3.153.1
 	github.com/pulumi/pulumi/sdk/v3 v3.153.1
 	github.com/stretchr/testify v1.10.0
 )
