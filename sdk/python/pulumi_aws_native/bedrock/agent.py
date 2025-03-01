@@ -45,10 +45,12 @@ class AgentArgs:
         """
         The set of arguments for constructing a Agent resource.
         :param pulumi.Input[Sequence[pulumi.Input['AgentActionGroupArgs']]] action_groups: List of ActionGroups
+        :param pulumi.Input['AgentCollaboration'] agent_collaboration: The agent's collaboration settings.
         :param pulumi.Input[Sequence[pulumi.Input['AgentCollaboratorArgs']]] agent_collaborators: List of Agent Collaborators
         :param pulumi.Input[str] agent_name: Name for a resource.
         :param pulumi.Input[str] agent_resource_role_arn: ARN of a IAM role.
         :param pulumi.Input[bool] auto_prepare: Specifies whether to automatically prepare after creating or updating the agent.
+        :param pulumi.Input['AgentCustomOrchestrationArgs'] custom_orchestration: Contains custom orchestration configurations for the agent.
         :param pulumi.Input[str] customer_encryption_key_arn: A KMS key ARN
         :param pulumi.Input[str] description: Description of the Resource.
         :param pulumi.Input[str] foundation_model: The foundation model used for orchestration by the agent.
@@ -56,6 +58,8 @@ class AgentArgs:
         :param pulumi.Input[float] idle_session_ttl_in_seconds: Max Session Time.
         :param pulumi.Input[str] instruction: Instruction for the agent.
         :param pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseArgs']]] knowledge_bases: List of Agent Knowledge Bases
+        :param pulumi.Input['AgentMemoryConfigurationArgs'] memory_configuration: Contains memory configuration for the agent.
+        :param pulumi.Input['AgentOrchestrationType'] orchestration_type: Specifies the orchestration strategy for the agent.
         :param pulumi.Input['AgentPromptOverrideConfigurationArgs'] prompt_override_configuration: Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
         :param pulumi.Input[bool] skip_resource_in_use_check_on_delete: Specifies whether to allow deleting agent while it is in use.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
@@ -123,6 +127,9 @@ class AgentArgs:
     @property
     @pulumi.getter(name="agentCollaboration")
     def agent_collaboration(self) -> Optional[pulumi.Input['AgentCollaboration']]:
+        """
+        The agent's collaboration settings.
+        """
         return pulumi.get(self, "agent_collaboration")
 
     @agent_collaboration.setter
@@ -180,6 +187,9 @@ class AgentArgs:
     @property
     @pulumi.getter(name="customOrchestration")
     def custom_orchestration(self) -> Optional[pulumi.Input['AgentCustomOrchestrationArgs']]:
+        """
+        Contains custom orchestration configurations for the agent.
+        """
         return pulumi.get(self, "custom_orchestration")
 
     @custom_orchestration.setter
@@ -273,6 +283,9 @@ class AgentArgs:
     @property
     @pulumi.getter(name="memoryConfiguration")
     def memory_configuration(self) -> Optional[pulumi.Input['AgentMemoryConfigurationArgs']]:
+        """
+        Contains memory configuration for the agent.
+        """
         return pulumi.get(self, "memory_configuration")
 
     @memory_configuration.setter
@@ -282,6 +295,9 @@ class AgentArgs:
     @property
     @pulumi.getter(name="orchestrationType")
     def orchestration_type(self) -> Optional[pulumi.Input['AgentOrchestrationType']]:
+        """
+        Specifies the orchestration strategy for the agent.
+        """
         return pulumi.get(self, "orchestration_type")
 
     @orchestration_type.setter
@@ -375,10 +391,12 @@ class Agent(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentActionGroupArgs', 'AgentActionGroupArgsDict']]]] action_groups: List of ActionGroups
+        :param pulumi.Input['AgentCollaboration'] agent_collaboration: The agent's collaboration settings.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentCollaboratorArgs', 'AgentCollaboratorArgsDict']]]] agent_collaborators: List of Agent Collaborators
         :param pulumi.Input[str] agent_name: Name for a resource.
         :param pulumi.Input[str] agent_resource_role_arn: ARN of a IAM role.
         :param pulumi.Input[bool] auto_prepare: Specifies whether to automatically prepare after creating or updating the agent.
+        :param pulumi.Input[Union['AgentCustomOrchestrationArgs', 'AgentCustomOrchestrationArgsDict']] custom_orchestration: Contains custom orchestration configurations for the agent.
         :param pulumi.Input[str] customer_encryption_key_arn: A KMS key ARN
         :param pulumi.Input[str] description: Description of the Resource.
         :param pulumi.Input[str] foundation_model: The foundation model used for orchestration by the agent.
@@ -386,6 +404,8 @@ class Agent(pulumi.CustomResource):
         :param pulumi.Input[float] idle_session_ttl_in_seconds: Max Session Time.
         :param pulumi.Input[str] instruction: Instruction for the agent.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentKnowledgeBaseArgs', 'AgentKnowledgeBaseArgsDict']]]] knowledge_bases: List of Agent Knowledge Bases
+        :param pulumi.Input[Union['AgentMemoryConfigurationArgs', 'AgentMemoryConfigurationArgsDict']] memory_configuration: Contains memory configuration for the agent.
+        :param pulumi.Input['AgentOrchestrationType'] orchestration_type: Specifies the orchestration strategy for the agent.
         :param pulumi.Input[Union['AgentPromptOverrideConfigurationArgs', 'AgentPromptOverrideConfigurationArgsDict']] prompt_override_configuration: Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
         :param pulumi.Input[bool] skip_resource_in_use_check_on_delete: Specifies whether to allow deleting agent while it is in use.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
@@ -551,6 +571,9 @@ class Agent(pulumi.CustomResource):
     @property
     @pulumi.getter(name="agentCollaboration")
     def agent_collaboration(self) -> pulumi.Output[Optional['AgentCollaboration']]:
+        """
+        The agent's collaboration settings.
+        """
         return pulumi.get(self, "agent_collaboration")
 
     @property
@@ -628,6 +651,9 @@ class Agent(pulumi.CustomResource):
     @property
     @pulumi.getter(name="customOrchestration")
     def custom_orchestration(self) -> pulumi.Output[Optional['outputs.AgentCustomOrchestration']]:
+        """
+        Contains custom orchestration configurations for the agent.
+        """
         return pulumi.get(self, "custom_orchestration")
 
     @property
@@ -697,11 +723,17 @@ class Agent(pulumi.CustomResource):
     @property
     @pulumi.getter(name="memoryConfiguration")
     def memory_configuration(self) -> pulumi.Output[Optional['outputs.AgentMemoryConfiguration']]:
+        """
+        Contains memory configuration for the agent.
+        """
         return pulumi.get(self, "memory_configuration")
 
     @property
     @pulumi.getter(name="orchestrationType")
     def orchestration_type(self) -> pulumi.Output[Optional['AgentOrchestrationType']]:
+        """
+        Specifies the orchestration strategy for the agent.
+        """
         return pulumi.get(self, "orchestration_type")
 
     @property

@@ -62,6 +62,7 @@ export class Channel extends pulumi.CustomResource {
      * <p>The list of ingest endpoints.</p>
      */
     public /*out*/ readonly ingestEndpoints!: pulumi.Output<outputs.mediapackagev2.ChannelIngestEndpoint[]>;
+    public readonly inputSwitchConfiguration!: pulumi.Output<outputs.mediapackagev2.ChannelInputSwitchConfiguration | undefined>;
     /**
      * The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
      *
@@ -75,6 +76,7 @@ export class Channel extends pulumi.CustomResource {
      * <p>The date and time the channel was modified.</p>
      */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    public readonly outputHeaderConfiguration!: pulumi.Output<outputs.mediapackagev2.ChannelOutputHeaderConfiguration | undefined>;
     /**
      * The tags associated with the channel.
      */
@@ -97,7 +99,9 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["channelGroupName"] = args ? args.channelGroupName : undefined;
             resourceInputs["channelName"] = args ? args.channelName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["inputSwitchConfiguration"] = args ? args.inputSwitchConfiguration : undefined;
             resourceInputs["inputType"] = args ? args.inputType : undefined;
+            resourceInputs["outputHeaderConfiguration"] = args ? args.outputHeaderConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -112,8 +116,10 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["ingestEndpointUrls"] = undefined /*out*/;
             resourceInputs["ingestEndpoints"] = undefined /*out*/;
+            resourceInputs["inputSwitchConfiguration"] = undefined /*out*/;
             resourceInputs["inputType"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
+            resourceInputs["outputHeaderConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -139,6 +145,7 @@ export interface ChannelArgs {
      * <p>Enter any descriptive text that helps you to identify the channel.</p>
      */
     description?: pulumi.Input<string>;
+    inputSwitchConfiguration?: pulumi.Input<inputs.mediapackagev2.ChannelInputSwitchConfigurationArgs>;
     /**
      * The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
      *
@@ -148,6 +155,7 @@ export interface ChannelArgs {
      * - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
      */
     inputType?: pulumi.Input<enums.mediapackagev2.ChannelInputType>;
+    outputHeaderConfiguration?: pulumi.Input<inputs.mediapackagev2.ChannelOutputHeaderConfigurationArgs>;
     /**
      * The tags associated with the channel.
      */
