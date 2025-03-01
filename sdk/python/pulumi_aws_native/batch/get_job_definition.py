@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetJobDefinitionResult:
-    def __init__(__self__, container_properties=None, ecs_properties=None, eks_properties=None, node_properties=None, parameters=None, platform_capabilities=None, propagate_tags=None, retry_strategy=None, scheduling_priority=None, tags=None, timeout=None, type=None):
+    def __init__(__self__, consumable_resource_properties=None, container_properties=None, ecs_properties=None, eks_properties=None, node_properties=None, parameters=None, platform_capabilities=None, propagate_tags=None, retry_strategy=None, scheduling_priority=None, tags=None, timeout=None, type=None):
+        if consumable_resource_properties and not isinstance(consumable_resource_properties, dict):
+            raise TypeError("Expected argument 'consumable_resource_properties' to be a dict")
+        pulumi.set(__self__, "consumable_resource_properties", consumable_resource_properties)
         if container_properties and not isinstance(container_properties, dict):
             raise TypeError("Expected argument 'container_properties' to be a dict")
         pulumi.set(__self__, "container_properties", container_properties)
@@ -61,6 +64,14 @@ class GetJobDefinitionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="consumableResourceProperties")
+    def consumable_resource_properties(self) -> Optional['outputs.JobDefinitionConsumableResourceProperties']:
+        """
+        Contains a list of consumable resources required by the job.
+        """
+        return pulumi.get(self, "consumable_resource_properties")
 
     @property
     @pulumi.getter(name="containerProperties")
@@ -172,6 +183,7 @@ class AwaitableGetJobDefinitionResult(GetJobDefinitionResult):
         if False:
             yield self
         return GetJobDefinitionResult(
+            consumable_resource_properties=self.consumable_resource_properties,
             container_properties=self.container_properties,
             ecs_properties=self.ecs_properties,
             eks_properties=self.eks_properties,
@@ -200,6 +212,7 @@ def get_job_definition(job_definition_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:batch:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult).value
 
     return AwaitableGetJobDefinitionResult(
+        consumable_resource_properties=pulumi.get(__ret__, 'consumable_resource_properties'),
         container_properties=pulumi.get(__ret__, 'container_properties'),
         ecs_properties=pulumi.get(__ret__, 'ecs_properties'),
         eks_properties=pulumi.get(__ret__, 'eks_properties'),
@@ -225,6 +238,7 @@ def get_job_definition_output(job_definition_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:batch:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult)
     return __ret__.apply(lambda __response__: GetJobDefinitionResult(
+        consumable_resource_properties=pulumi.get(__response__, 'consumable_resource_properties'),
         container_properties=pulumi.get(__response__, 'container_properties'),
         ecs_properties=pulumi.get(__response__, 'ecs_properties'),
         eks_properties=pulumi.get(__response__, 'eks_properties'),

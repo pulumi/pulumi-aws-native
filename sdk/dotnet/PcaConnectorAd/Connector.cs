@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.PcaConnectorAd
 {
     /// <summary>
-    /// Definition of AWS::PCAConnectorAD::Connector Resource Type
+    /// Represents a Connector that connects AWS PrivateCA and your directory
     /// </summary>
     [AwsNativeResourceType("aws-native:pcaconnectorad:Connector")]
     public partial class Connector : global::Pulumi.CustomResource

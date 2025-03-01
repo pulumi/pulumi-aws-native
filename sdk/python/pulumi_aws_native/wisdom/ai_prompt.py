@@ -34,7 +34,7 @@ class AiPromptArgs:
         """
         The set of arguments for constructing a AiPrompt resource.
         :param pulumi.Input['AiPromptAiPromptApiFormat'] api_format: The API format used for this AI Prompt.
-        :param pulumi.Input[str] model_id: The identifier of the model used for this AI Prompt. Model Ids supported are: `CLAUDE_3_HAIKU_20240307_V1` .
+        :param pulumi.Input[str] model_id: The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
         :param pulumi.Input['AiPromptAiPromptTemplateConfigurationArgs'] template_configuration: The configuration of the prompt template for this AI Prompt.
         :param pulumi.Input['AiPromptAiPromptTemplateType'] template_type: The type of the prompt template for this AI Prompt.
         :param pulumi.Input['AiPromptAiPromptType'] type: The type of this AI Prompt.
@@ -73,7 +73,7 @@ class AiPromptArgs:
     @pulumi.getter(name="modelId")
     def model_id(self) -> pulumi.Input[str]:
         """
-        The identifier of the model used for this AI Prompt. Model Ids supported are: `CLAUDE_3_HAIKU_20240307_V1` .
+        The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
         """
         return pulumi.get(self, "model_id")
 
@@ -189,7 +189,7 @@ class AiPrompt(pulumi.CustomResource):
         :param pulumi.Input['AiPromptAiPromptApiFormat'] api_format: The API format used for this AI Prompt.
         :param pulumi.Input[str] assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
         :param pulumi.Input[str] description: The description of the AI Prompt.
-        :param pulumi.Input[str] model_id: The identifier of the model used for this AI Prompt. Model Ids supported are: `CLAUDE_3_HAIKU_20240307_V1` .
+        :param pulumi.Input[str] model_id: The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
         :param pulumi.Input[str] name: The name of the AI Prompt
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags used to organize, track, or control access for this resource.
         :param pulumi.Input[Union['AiPromptAiPromptTemplateConfigurationArgs', 'AiPromptAiPromptTemplateConfigurationArgsDict']] template_configuration: The configuration of the prompt template for this AI Prompt.
@@ -352,7 +352,7 @@ class AiPrompt(pulumi.CustomResource):
     @pulumi.getter(name="modelId")
     def model_id(self) -> pulumi.Output[str]:
         """
-        The identifier of the model used for this AI Prompt. Model Ids supported are: `CLAUDE_3_HAIKU_20240307_V1` .
+        The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
         """
         return pulumi.get(self, "model_id")
 

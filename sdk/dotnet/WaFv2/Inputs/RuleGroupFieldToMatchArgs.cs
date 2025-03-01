@@ -62,6 +62,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         [Input("ja3Fingerprint")]
         public Input<Inputs.RuleGroupJa3FingerprintArgs>? Ja3Fingerprint { get; set; }
 
+        [Input("ja4Fingerprint")]
+        public Input<Inputs.RuleGroupJa4FingerprintArgs>? Ja4Fingerprint { get; set; }
+
         /// <summary>
         /// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
         /// 

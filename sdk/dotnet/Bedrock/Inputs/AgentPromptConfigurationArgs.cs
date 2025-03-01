@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("basePromptTemplate")]
         public Input<string>? BasePromptTemplate { get; set; }
 
+        /// <summary>
+        /// The agent's foundation model.
+        /// </summary>
         [Input("foundationModel")]
         public Input<string>? FoundationModel { get; set; }
 

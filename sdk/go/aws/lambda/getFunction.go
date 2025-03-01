@@ -58,7 +58,13 @@ type LookupFunctionResult struct {
 	Handler *string `pulumi:"handler"`
 	// Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
 	ImageConfig *FunctionImageConfig `pulumi:"imageConfig"`
-	// The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption). When [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, LAM also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, LAM also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the ECRlong (ECR). If you don't provide a customer managed key, LAM uses a default service key.
+	// The ARN of the KMSlong (KMS) customer managed key that's used to encrypt the following resources:
+	//   +  The function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption).
+	//   +  The function's [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) snapshots.
+	//   +  When used with ``SourceKMSKeyArn``, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see [Specifying a customer managed key for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption).
+	//   +  The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see [Function lifecycle](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle).
+	//
+	//  If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) or an [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
 	Layers []string `pulumi:"layers"`
@@ -66,8 +72,6 @@ type LookupFunctionResult struct {
 	LoggingConfig *FunctionLoggingConfig `pulumi:"loggingConfig"`
 	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
 	MemorySize *int `pulumi:"memorySize"`
-	// The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
-	PackageType *FunctionPackageType `pulumi:"packageType"`
 	// The status of your function's recursive loop detection configuration.
 	//  When this value is set to ``Allow``and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
 	//  When this value is set to ``Terminate`` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
@@ -179,7 +183,17 @@ func (o LookupFunctionResultOutput) ImageConfig() FunctionImageConfigPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionImageConfig { return v.ImageConfig }).(FunctionImageConfigPtrOutput)
 }
 
-// The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption). When [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, LAM also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, LAM also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the ECRlong (ECR). If you don't provide a customer managed key, LAM uses a default service key.
+// The ARN of the KMSlong (KMS) customer managed key that's used to encrypt the following resources:
+//
+//   - The function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption).
+//
+//   - The function's [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) snapshots.
+//
+//   - When used with “SourceKMSKeyArn“, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see [Specifying a customer managed key for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption).
+//
+//   - The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see [Function lifecycle](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle).
+//
+//     If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) or an [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
 func (o LookupFunctionResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -197,11 +211,6 @@ func (o LookupFunctionResultOutput) LoggingConfig() FunctionLoggingConfigPtrOutp
 // The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
 func (o LookupFunctionResultOutput) MemorySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *int { return v.MemorySize }).(pulumi.IntPtrOutput)
-}
-
-// The type of deployment package. Set to “Image“ for container image and set “Zip“ for .zip file archive.
-func (o LookupFunctionResultOutput) PackageType() FunctionPackageTypePtrOutput {
-	return o.ApplyT(func(v LookupFunctionResult) *FunctionPackageType { return v.PackageType }).(FunctionPackageTypePtrOutput)
 }
 
 // The status of your function's recursive loop detection configuration.

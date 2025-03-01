@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Chatbot
         public Output<string> ActionName { get; private set; } = null!;
 
         /// <summary>
-        /// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+        /// The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
         /// </summary>
         [Output("aliasName")]
         public Output<string?> AliasName { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.AwsNative.Chatbot
         public Input<string>? ActionName { get; set; }
 
         /// <summary>
-        /// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+        /// The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
         /// </summary>
         [Input("aliasName")]
         public Input<string>? AliasName { get; set; }

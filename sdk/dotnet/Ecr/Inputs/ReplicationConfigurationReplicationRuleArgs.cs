@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Ecr.Inputs
 {
 
     /// <summary>
-    /// An array of objects representing the details of a replication destination.
+    /// An array of objects representing the replication destinations and repository filters for a replication configuration.
     /// </summary>
     public sealed class ReplicationConfigurationReplicationRuleArgs : global::Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Ecr.Inputs
         private InputList<Inputs.ReplicationConfigurationReplicationDestinationArgs>? _destinations;
 
         /// <summary>
-        /// An array of objects representing the details of a replication destination.
+        /// An array of objects representing the destination for a replication rule.
         /// </summary>
         public InputList<Inputs.ReplicationConfigurationReplicationDestinationArgs> Destinations
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Ecr.Inputs
         private InputList<Inputs.ReplicationConfigurationRepositoryFilterArgs>? _repositoryFilters;
 
         /// <summary>
-        /// An array of objects representing the details of a repository filter.
+        /// An array of objects representing the filters for a replication rule. Specifying a repository filter for a replication rule provides a method for controlling which repositories in a private registry are replicated.
         /// </summary>
         public InputList<Inputs.ReplicationConfigurationRepositoryFilterArgs> RepositoryFilters
         {

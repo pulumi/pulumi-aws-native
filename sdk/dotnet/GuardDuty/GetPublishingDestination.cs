@@ -75,6 +75,9 @@ namespace Pulumi.AwsNative.GuardDuty
     [OutputType]
     public sealed class GetPublishingDestinationResult
     {
+        /// <summary>
+        /// Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
+        /// </summary>
         public readonly Outputs.PublishingDestinationCfnDestinationProperties? DestinationProperties;
         /// <summary>
         /// The type of resource for the publishing destination. Currently only Amazon S3 buckets are supported.
@@ -92,6 +95,9 @@ namespace Pulumi.AwsNative.GuardDuty
         /// The status of the publishing destination.
         /// </summary>
         public readonly string? Status;
+        /// <summary>
+        /// Describes a tag.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
