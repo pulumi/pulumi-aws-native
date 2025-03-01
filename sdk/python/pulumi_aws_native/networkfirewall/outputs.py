@@ -1629,7 +1629,7 @@ class RuleGroupRulesSource(dict):
                These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn't have a separate action setting.
                
                > You can't use the `priority` keyword if the `RuleOrder` option in `StatefulRuleOptions` is set to `STRICT_ORDER` .
-        :param Sequence['RuleGroupStatefulRule'] stateful_rules: An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
+        :param Sequence['RuleGroupStatefulRule'] stateful_rules: An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-7.0.3/rules/intro.html) .
         :param 'RuleGroupStatelessRulesAndCustomActions' stateless_rules_and_custom_actions: Stateless inspection criteria to be used in a stateless rule group.
         """
         if rules_source_list is not None:
@@ -1665,7 +1665,7 @@ class RuleGroupRulesSource(dict):
     @pulumi.getter(name="statefulRules")
     def stateful_rules(self) -> Optional[Sequence['outputs.RuleGroupStatefulRule']]:
         """
-        An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
+        An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-7.0.3/rules/intro.html) .
         """
         return pulumi.get(self, "stateful_rules")
 

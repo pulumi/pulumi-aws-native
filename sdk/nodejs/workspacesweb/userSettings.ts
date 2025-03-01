@@ -85,6 +85,7 @@ export class UserSettings extends pulumi.CustomResource {
      * The tags to add to the user settings resource. A tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly toolbarConfiguration!: pulumi.Output<outputs.workspacesweb.UserSettingsToolbarConfiguration | undefined>;
     /**
      * Specifies whether the user can upload files from the local device to the streaming session.
      */
@@ -131,6 +132,7 @@ export class UserSettings extends pulumi.CustomResource {
             resourceInputs["pasteAllowed"] = args ? args.pasteAllowed : undefined;
             resourceInputs["printAllowed"] = args ? args.printAllowed : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["toolbarConfiguration"] = args ? args.toolbarConfiguration : undefined;
             resourceInputs["uploadAllowed"] = args ? args.uploadAllowed : undefined;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["userSettingsArn"] = undefined /*out*/;
@@ -147,6 +149,7 @@ export class UserSettings extends pulumi.CustomResource {
             resourceInputs["pasteAllowed"] = undefined /*out*/;
             resourceInputs["printAllowed"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["toolbarConfiguration"] = undefined /*out*/;
             resourceInputs["uploadAllowed"] = undefined /*out*/;
             resourceInputs["userSettingsArn"] = undefined /*out*/;
         }
@@ -203,6 +206,7 @@ export interface UserSettingsArgs {
      * The tags to add to the user settings resource. A tag is a key-value pair.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    toolbarConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsToolbarConfigurationArgs>;
     /**
      * Specifies whether the user can upload files from the local device to the streaming session.
      */

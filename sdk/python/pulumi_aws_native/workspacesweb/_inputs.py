@@ -30,6 +30,8 @@ __all__ = [
     'UserSettingsCookieSpecificationArgsDict',
     'UserSettingsCookieSynchronizationConfigurationArgs',
     'UserSettingsCookieSynchronizationConfigurationArgsDict',
+    'UserSettingsToolbarConfigurationArgs',
+    'UserSettingsToolbarConfigurationArgsDict',
 ]
 
 MYPY = False
@@ -568,5 +570,67 @@ class UserSettingsCookieSynchronizationConfigurationArgs:
     @blocklist.setter
     def blocklist(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgs']]]]):
         pulumi.set(self, "blocklist", value)
+
+
+if not MYPY:
+    class UserSettingsToolbarConfigurationArgsDict(TypedDict):
+        hidden_toolbar_items: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSettingsToolbarItem']]]]
+        max_display_resolution: NotRequired[pulumi.Input['UserSettingsMaxDisplayResolution']]
+        toolbar_type: NotRequired[pulumi.Input['UserSettingsToolbarType']]
+        visual_mode: NotRequired[pulumi.Input['UserSettingsVisualMode']]
+elif False:
+    UserSettingsToolbarConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserSettingsToolbarConfigurationArgs:
+    def __init__(__self__, *,
+                 hidden_toolbar_items: Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsToolbarItem']]]] = None,
+                 max_display_resolution: Optional[pulumi.Input['UserSettingsMaxDisplayResolution']] = None,
+                 toolbar_type: Optional[pulumi.Input['UserSettingsToolbarType']] = None,
+                 visual_mode: Optional[pulumi.Input['UserSettingsVisualMode']] = None):
+        if hidden_toolbar_items is not None:
+            pulumi.set(__self__, "hidden_toolbar_items", hidden_toolbar_items)
+        if max_display_resolution is not None:
+            pulumi.set(__self__, "max_display_resolution", max_display_resolution)
+        if toolbar_type is not None:
+            pulumi.set(__self__, "toolbar_type", toolbar_type)
+        if visual_mode is not None:
+            pulumi.set(__self__, "visual_mode", visual_mode)
+
+    @property
+    @pulumi.getter(name="hiddenToolbarItems")
+    def hidden_toolbar_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsToolbarItem']]]]:
+        return pulumi.get(self, "hidden_toolbar_items")
+
+    @hidden_toolbar_items.setter
+    def hidden_toolbar_items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsToolbarItem']]]]):
+        pulumi.set(self, "hidden_toolbar_items", value)
+
+    @property
+    @pulumi.getter(name="maxDisplayResolution")
+    def max_display_resolution(self) -> Optional[pulumi.Input['UserSettingsMaxDisplayResolution']]:
+        return pulumi.get(self, "max_display_resolution")
+
+    @max_display_resolution.setter
+    def max_display_resolution(self, value: Optional[pulumi.Input['UserSettingsMaxDisplayResolution']]):
+        pulumi.set(self, "max_display_resolution", value)
+
+    @property
+    @pulumi.getter(name="toolbarType")
+    def toolbar_type(self) -> Optional[pulumi.Input['UserSettingsToolbarType']]:
+        return pulumi.get(self, "toolbar_type")
+
+    @toolbar_type.setter
+    def toolbar_type(self, value: Optional[pulumi.Input['UserSettingsToolbarType']]):
+        pulumi.set(self, "toolbar_type", value)
+
+    @property
+    @pulumi.getter(name="visualMode")
+    def visual_mode(self) -> Optional[pulumi.Input['UserSettingsVisualMode']]:
+        return pulumi.get(self, "visual_mode")
+
+    @visual_mode.setter
+    def visual_mode(self, value: Optional[pulumi.Input['UserSettingsVisualMode']]):
+        pulumi.set(self, "visual_mode", value)
 
 

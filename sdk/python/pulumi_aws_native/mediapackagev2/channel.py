@@ -17,6 +17,7 @@ from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['ChannelArgs', 'Channel']
 
@@ -26,7 +27,9 @@ class ChannelArgs:
                  channel_group_name: pulumi.Input[str],
                  channel_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 input_switch_configuration: Optional[pulumi.Input['ChannelInputSwitchConfigurationArgs']] = None,
                  input_type: Optional[pulumi.Input['ChannelInputType']] = None,
+                 output_header_configuration: Optional[pulumi.Input['ChannelOutputHeaderConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Channel resource.
@@ -46,8 +49,12 @@ class ChannelArgs:
             pulumi.set(__self__, "channel_name", channel_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if input_switch_configuration is not None:
+            pulumi.set(__self__, "input_switch_configuration", input_switch_configuration)
         if input_type is not None:
             pulumi.set(__self__, "input_type", input_type)
+        if output_header_configuration is not None:
+            pulumi.set(__self__, "output_header_configuration", output_header_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -88,6 +95,15 @@ class ChannelArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="inputSwitchConfiguration")
+    def input_switch_configuration(self) -> Optional[pulumi.Input['ChannelInputSwitchConfigurationArgs']]:
+        return pulumi.get(self, "input_switch_configuration")
+
+    @input_switch_configuration.setter
+    def input_switch_configuration(self, value: Optional[pulumi.Input['ChannelInputSwitchConfigurationArgs']]):
+        pulumi.set(self, "input_switch_configuration", value)
+
+    @property
     @pulumi.getter(name="inputType")
     def input_type(self) -> Optional[pulumi.Input['ChannelInputType']]:
         """
@@ -103,6 +119,15 @@ class ChannelArgs:
     @input_type.setter
     def input_type(self, value: Optional[pulumi.Input['ChannelInputType']]):
         pulumi.set(self, "input_type", value)
+
+    @property
+    @pulumi.getter(name="outputHeaderConfiguration")
+    def output_header_configuration(self) -> Optional[pulumi.Input['ChannelOutputHeaderConfigurationArgs']]:
+        return pulumi.get(self, "output_header_configuration")
+
+    @output_header_configuration.setter
+    def output_header_configuration(self, value: Optional[pulumi.Input['ChannelOutputHeaderConfigurationArgs']]):
+        pulumi.set(self, "output_header_configuration", value)
 
     @property
     @pulumi.getter
@@ -125,7 +150,9 @@ class Channel(pulumi.CustomResource):
                  channel_group_name: Optional[pulumi.Input[str]] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 input_switch_configuration: Optional[pulumi.Input[Union['ChannelInputSwitchConfigurationArgs', 'ChannelInputSwitchConfigurationArgsDict']]] = None,
                  input_type: Optional[pulumi.Input['ChannelInputType']] = None,
+                 output_header_configuration: Optional[pulumi.Input[Union['ChannelOutputHeaderConfigurationArgs', 'ChannelOutputHeaderConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -171,7 +198,9 @@ class Channel(pulumi.CustomResource):
                  channel_group_name: Optional[pulumi.Input[str]] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 input_switch_configuration: Optional[pulumi.Input[Union['ChannelInputSwitchConfigurationArgs', 'ChannelInputSwitchConfigurationArgsDict']]] = None,
                  input_type: Optional[pulumi.Input['ChannelInputType']] = None,
+                 output_header_configuration: Optional[pulumi.Input[Union['ChannelOutputHeaderConfigurationArgs', 'ChannelOutputHeaderConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -187,7 +216,9 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["channel_group_name"] = channel_group_name
             __props__.__dict__["channel_name"] = channel_name
             __props__.__dict__["description"] = description
+            __props__.__dict__["input_switch_configuration"] = input_switch_configuration
             __props__.__dict__["input_type"] = input_type
+            __props__.__dict__["output_header_configuration"] = output_header_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
@@ -225,8 +256,10 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["ingest_endpoint_urls"] = None
         __props__.__dict__["ingest_endpoints"] = None
+        __props__.__dict__["input_switch_configuration"] = None
         __props__.__dict__["input_type"] = None
         __props__.__dict__["modified_at"] = None
+        __props__.__dict__["output_header_configuration"] = None
         __props__.__dict__["tags"] = None
         return Channel(resource_name, opts=opts, __props__=__props__)
 
@@ -284,6 +317,11 @@ class Channel(pulumi.CustomResource):
         return pulumi.get(self, "ingest_endpoints")
 
     @property
+    @pulumi.getter(name="inputSwitchConfiguration")
+    def input_switch_configuration(self) -> pulumi.Output[Optional['outputs.ChannelInputSwitchConfiguration']]:
+        return pulumi.get(self, "input_switch_configuration")
+
+    @property
     @pulumi.getter(name="inputType")
     def input_type(self) -> pulumi.Output[Optional['ChannelInputType']]:
         """
@@ -303,6 +341,11 @@ class Channel(pulumi.CustomResource):
         <p>The date and time the channel was modified.</p>
         """
         return pulumi.get(self, "modified_at")
+
+    @property
+    @pulumi.getter(name="outputHeaderConfiguration")
+    def output_header_configuration(self) -> pulumi.Output[Optional['outputs.ChannelOutputHeaderConfiguration']]:
+        return pulumi.get(self, "output_header_configuration")
 
     @property
     @pulumi.getter

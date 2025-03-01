@@ -111,6 +111,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// The tags to add to the user settings resource. A tag is a key-value pair.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly Outputs.UserSettingsToolbarConfiguration? ToolbarConfiguration;
         /// <summary>
         /// Specifies whether the user can upload files from the local device to the streaming session.
         /// </summary>
@@ -146,6 +147,8 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
+            Outputs.UserSettingsToolbarConfiguration? toolbarConfiguration,
+
             Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? uploadAllowed,
 
             string? userSettingsArn)
@@ -162,6 +165,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
             PasteAllowed = pasteAllowed;
             PrintAllowed = printAllowed;
             Tags = tags;
+            ToolbarConfiguration = toolbarConfiguration;
             UploadAllowed = uploadAllowed;
             UserSettingsArn = userSettingsArn;
         }

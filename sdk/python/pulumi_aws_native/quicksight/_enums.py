@@ -25,6 +25,7 @@ __all__ = [
     'AnalysisCrossDatasetTypes',
     'AnalysisCustomContentImageScalingConfiguration',
     'AnalysisCustomContentType',
+    'AnalysisDashboardBehavior',
     'AnalysisDataLabelContent',
     'AnalysisDataLabelOverlap',
     'AnalysisDataLabelPosition',
@@ -552,6 +553,11 @@ class AnalysisCustomContentType(str, Enum):
     OTHER_EMBEDDED_CONTENT = "OTHER_EMBEDDED_CONTENT"
 
 
+class AnalysisDashboardBehavior(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 class AnalysisDataLabelContent(str, Enum):
     VALUE = "VALUE"
     PERCENT = "PERCENT"
@@ -796,6 +802,8 @@ class AnalysisNumberScale(str, Enum):
     MILLIONS = "MILLIONS"
     BILLIONS = "BILLIONS"
     TRILLIONS = "TRILLIONS"
+    LAKHS = "LAKHS"
+    CRORES = "CRORES"
 
 
 class AnalysisNumericEqualityMatchOperator(str, Enum):
@@ -1580,6 +1588,8 @@ class DashboardNumberScale(str, Enum):
     MILLIONS = "MILLIONS"
     BILLIONS = "BILLIONS"
     TRILLIONS = "TRILLIONS"
+    LAKHS = "LAKHS"
+    CRORES = "CRORES"
 
 
 class DashboardNumericEqualityMatchOperator(str, Enum):
