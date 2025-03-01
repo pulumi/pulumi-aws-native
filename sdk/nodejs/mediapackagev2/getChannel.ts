@@ -42,10 +42,12 @@ export interface GetChannelResult {
      * <p>The list of ingest endpoints.</p>
      */
     readonly ingestEndpoints?: outputs.mediapackagev2.ChannelIngestEndpoint[];
+    readonly inputSwitchConfiguration?: outputs.mediapackagev2.ChannelInputSwitchConfiguration;
     /**
      * <p>The date and time the channel was modified.</p>
      */
     readonly modifiedAt?: string;
+    readonly outputHeaderConfiguration?: outputs.mediapackagev2.ChannelOutputHeaderConfiguration;
     /**
      * The tags associated with the channel.
      */
