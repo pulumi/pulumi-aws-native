@@ -71,6 +71,16 @@
       "description" : "The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.",
       "pattern" : "^arn:aws[^:]*:iam::\\d{12}:(role|role/service-role)/[\\w+=,.@-]*$"
     },
+    "ServiceRole" : {
+      "type" : "string",
+      "description" : "The service role of the domain that is created.",
+      "pattern" : "^arn:aws[^:]*:iam::\\d{12}:(role|role/service-role)/[\\w+=,.@-]*$"
+    },
+    "DomainVersion" : {
+      "type" : "string",
+      "description" : "The version of the domain.",
+      "enum" : [ "V1", "V2" ]
+    },
     "Id" : {
       "type" : "string",
       "description" : "The id of the Amazon DataZone domain.",
@@ -120,7 +130,7 @@
   },
   "required" : [ "DomainExecutionRole", "Name" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/Id", "/properties/LastUpdatedAt", "/properties/ManagedAccountId", "/properties/PortalUrl", "/properties/Status" ],
-  "createOnlyProperties" : [ "/properties/KmsKeyIdentifier" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyIdentifier", "/properties/DomainVersion" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "additionalIdentifiers" : [ [ "/properties/Name" ] ],
   "tagging" : {
@@ -133,13 +143,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "datazone:CreateDomain", "datazone:UpdateDomain", "datazone:GetDomain", "datazone:TagResource", "sso:CreateManagedApplicationInstance", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration", "sso:ListInstances", "iam:PassRole" ]
+      "permissions" : [ "datazone:CreateDomain", "datazone:UpdateDomain", "datazone:GetDomain", "datazone:TagResource", "sso:CreateManagedApplicationInstance", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration", "sso:ListInstances", "sso:PutApplicationAccessScope", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "datazone:GetDomain" ]
     },
     "update" : {
-      "permissions" : [ "datazone:UpdateDomain", "datazone:GetDomain", "datazone:TagResource", "datazone:UntagResource", "sso:CreateManagedApplicationInstance", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration", "sso:ListInstances", "iam:PassRole" ]
+      "permissions" : [ "datazone:UpdateDomain", "datazone:GetDomain", "datazone:TagResource", "datazone:UntagResource", "sso:CreateManagedApplicationInstance", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration", "sso:ListInstances", "sso:PutApplicationAccessScope", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "datazone:DeleteDomain", "datazone:GetDomain", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration", "sso:ListInstances" ]

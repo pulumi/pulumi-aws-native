@@ -6493,19 +6493,19 @@
     "properties": {
       "credentialArn": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry."
+        "description": "The ARN of the Secrets Manager secret associated with the pull through cache rule."
       },
       "ecrRepositoryPrefix": {
         "type": "string",
-        "description": "The ECRRepositoryPrefix is a custom alias for upstream registry url."
+        "description": "The Amazon ECR repository prefix associated with the pull through cache rule."
       },
       "upstreamRegistry": {
         "type": "string",
-        "description": "The name of the upstream registry."
+        "description": "The name of the upstream source registry associated with the pull through cache rule."
       },
       "upstreamRegistryUrl": {
         "type": "string",
-        "description": "The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached"
+        "description": "The upstream registry URL associated with the pull through cache rule."
       }
     }
   },
@@ -6540,15 +6540,15 @@
         "items": {
           "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateAppliedForItem"
         },
-        "description": "A list of enumerable Strings representing the repository creation scenarios that the template will apply towards."
+        "description": "A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION"
       },
       "customRoleArn": {
         "type": "string",
-        "description": "The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring."
+        "description": "The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template."
       },
       "description": {
         "type": "string",
-        "description": "The description of the template."
+        "description": "The description associated with the repository creation template."
       },
       "encryptionConfiguration": {
         "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateEncryptionConfiguration",
@@ -6556,26 +6556,26 @@
       },
       "imageTagMutability": {
         "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateImageTagMutability",
-        "description": "The image tag mutability setting for the repository."
+        "description": "The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten."
       },
       "lifecyclePolicy": {
         "type": "string",
-        "description": "The JSON lifecycle policy text to apply to the repository. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html"
+        "description": "The lifecycle policy to use for repositories created using the template."
       },
       "prefix": {
         "type": "string",
-        "description": "The prefix use to match the repository name and apply the template."
+        "description": "The repository namespace prefix associated with the repository creation template."
       },
       "repositoryPolicy": {
         "type": "string",
-        "description": "The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html"
+        "description": "he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions."
       },
       "resourceTags": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateTag"
         },
-        "description": "An array of key-value pairs to apply to this resource."
+        "description": "The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters."
       }
     }
   },
@@ -7889,7 +7889,8 @@
     "cfTypeName": "AWS::GuardDuty::PublishingDestination",
     "properties": {
       "destinationProperties": {
-        "$ref": "#/types/aws-native:guardduty:PublishingDestinationCfnDestinationProperties"
+        "$ref": "#/types/aws-native:guardduty:PublishingDestinationCfnDestinationProperties",
+        "description": "Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings."
       },
       "destinationType": {
         "type": "string",
@@ -7903,7 +7904,8 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
-        }
+        },
+        "description": "Describes a tag."
       }
     }
   },
@@ -14313,6 +14315,10 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags to add to the user settings resource. A tag is a key-value pair."
+      },
+      "toolbarConfiguration": {
+        "$ref": "#/types/aws-native:workspacesweb:UserSettingsToolbarConfiguration",
+        "description": "The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences."
       },
       "uploadAllowed": {
         "$ref": "#/types/aws-native:workspacesweb:UserSettingsEnabledType",
