@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
         /// </summary>
         public readonly Outputs.WebAclJa3Fingerprint? Ja3Fingerprint;
+        public readonly Outputs.WebAclJa4Fingerprint? Ja4Fingerprint;
         /// <summary>
         /// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
         /// 
@@ -101,6 +102,8 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
 
             Outputs.WebAclJa3Fingerprint? ja3Fingerprint,
 
+            Outputs.WebAclJa4Fingerprint? ja4Fingerprint,
+
             Outputs.WebAclJsonBody? jsonBody,
 
             object? method,
@@ -118,6 +121,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
             Cookies = cookies;
             Headers = headers;
             Ja3Fingerprint = ja3Fingerprint;
+            Ja4Fingerprint = ja4Fingerprint;
             JsonBody = jsonBody;
             Method = method;
             QueryString = queryString;

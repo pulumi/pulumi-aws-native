@@ -211,7 +211,6 @@ import * as neptune from "./neptune";
 import * as neptunegraph from "./neptunegraph";
 import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
-import * as nimblestudio from "./nimblestudio";
 import * as oam from "./oam";
 import * as omics from "./omics";
 import * as opensearchserverless from "./opensearchserverless";
@@ -436,7 +435,6 @@ export {
     neptunegraph,
     networkfirewall,
     networkmanager,
-    nimblestudio,
     oam,
     omics,
     opensearchserverless,

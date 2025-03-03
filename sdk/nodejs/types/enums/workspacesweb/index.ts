@@ -60,3 +60,40 @@ export const UserSettingsEnabledType = {
 } as const;
 
 export type UserSettingsEnabledType = (typeof UserSettingsEnabledType)[keyof typeof UserSettingsEnabledType];
+
+export const UserSettingsMaxDisplayResolution = {
+    Size4096x2160: "size4096X2160",
+    Size3840x2160: "size3840X2160",
+    Size3440x1440: "size3440X1440",
+    Size2560x1440: "size2560X1440",
+    Size1920x1080: "size1920X1080",
+    Size1280x720: "size1280X720",
+    Size1024x768: "size1024X768",
+    Size800x600: "size800X600",
+} as const;
+
+export type UserSettingsMaxDisplayResolution = (typeof UserSettingsMaxDisplayResolution)[keyof typeof UserSettingsMaxDisplayResolution];
+
+export const UserSettingsToolbarItem = {
+    Windows: "Windows",
+    DualMonitor: "DualMonitor",
+    FullScreen: "FullScreen",
+    Webcam: "Webcam",
+    Microphone: "Microphone",
+} as const;
+
+export type UserSettingsToolbarItem = (typeof UserSettingsToolbarItem)[keyof typeof UserSettingsToolbarItem];
+
+export const UserSettingsToolbarType = {
+    Floating: "Floating",
+    Docked: "Docked",
+} as const;
+
+export type UserSettingsToolbarType = (typeof UserSettingsToolbarType)[keyof typeof UserSettingsToolbarType];
+
+export const UserSettingsVisualMode = {
+    Dark: "Dark",
+    Light: "Light",
+} as const;
+
+export type UserSettingsVisualMode = (typeof UserSettingsVisualMode)[keyof typeof UserSettingsVisualMode];

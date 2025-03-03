@@ -33,6 +33,18 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("inferenceConfiguration")]
         public Input<Inputs.PromptInferenceConfigurationPropertiesArgs>? InferenceConfiguration { get; set; }
 
+        [Input("metadata")]
+        private InputList<Inputs.PromptMetadataEntryArgs>? _metadata;
+
+        /// <summary>
+        /// An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+        /// </summary>
+        public InputList<Inputs.PromptMetadataEntryArgs> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputList<Inputs.PromptMetadataEntryArgs>());
+            set => _metadata = value;
+        }
+
         /// <summary>
         /// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         /// </summary>

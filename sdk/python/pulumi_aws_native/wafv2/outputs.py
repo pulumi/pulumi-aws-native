@@ -51,6 +51,7 @@ __all__ = [
     'RuleGroupIpSetForwardedIpConfiguration',
     'RuleGroupIpSetReferenceStatement',
     'RuleGroupJa3Fingerprint',
+    'RuleGroupJa4Fingerprint',
     'RuleGroupJsonBody',
     'RuleGroupJsonMatchPattern',
     'RuleGroupLabel',
@@ -65,6 +66,8 @@ __all__ = [
     'RuleGroupRateLimitHeader',
     'RuleGroupRateLimitHttpMethod',
     'RuleGroupRateLimitIp',
+    'RuleGroupRateLimitJa3Fingerprint',
+    'RuleGroupRateLimitJa4Fingerprint',
     'RuleGroupRateLimitLabelNamespace',
     'RuleGroupRateLimitQueryArgument',
     'RuleGroupRateLimitQueryString',
@@ -113,6 +116,7 @@ __all__ = [
     'WebAclIpSetForwardedIpConfiguration',
     'WebAclIpSetReferenceStatement',
     'WebAclJa3Fingerprint',
+    'WebAclJa4Fingerprint',
     'WebAclJsonBody',
     'WebAclJsonMatchPattern',
     'WebAclLabel',
@@ -129,6 +133,8 @@ __all__ = [
     'WebAclRateLimitHeader',
     'WebAclRateLimitHttpMethod',
     'WebAclRateLimitIp',
+    'WebAclRateLimitJa3Fingerprint',
+    'WebAclRateLimitJa4Fingerprint',
     'WebAclRateLimitLabelNamespace',
     'WebAclRateLimitQueryArgument',
     'WebAclRateLimitQueryString',
@@ -1365,6 +1371,8 @@ class RuleGroupFieldToMatch(dict):
             suggest = "all_query_arguments"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -1393,6 +1401,7 @@ class RuleGroupFieldToMatch(dict):
                  cookies: Optional['outputs.RuleGroupCookies'] = None,
                  headers: Optional['outputs.RuleGroupHeaders'] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.RuleGroupJa4Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupJsonBody'] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
@@ -1451,6 +1460,8 @@ class RuleGroupFieldToMatch(dict):
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -1520,6 +1531,11 @@ class RuleGroupFieldToMatch(dict):
         Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.RuleGroupJa4Fingerprint']:
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -2133,6 +2149,41 @@ class RuleGroupJa3Fingerprint(dict):
 
 
 @pulumi.output_type
+class RuleGroupJa4Fingerprint(dict):
+    """
+    Includes the JA4 fingerprint of a web request.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: 'RuleGroupJa4FingerprintFallbackBehavior'):
+        """
+        Includes the JA4 fingerprint of a web request.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> 'RuleGroupJa4FingerprintFallbackBehavior':
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
 class RuleGroupJsonBody(dict):
     """
     Inspect the request body as JSON. The request body immediately follows the request headers.
@@ -2616,6 +2667,10 @@ class RuleGroupRateBasedStatementCustomKey(dict):
             suggest = "forwarded_ip"
         elif key == "httpMethod":
             suggest = "http_method"
+        elif key == "ja3Fingerprint":
+            suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "labelNamespace":
             suggest = "label_namespace"
         elif key == "queryArgument":
@@ -2642,6 +2697,8 @@ class RuleGroupRateBasedStatementCustomKey(dict):
                  header: Optional['outputs.RuleGroupRateLimitHeader'] = None,
                  http_method: Optional['outputs.RuleGroupRateLimitHttpMethod'] = None,
                  ip: Optional['outputs.RuleGroupRateLimitIp'] = None,
+                 ja3_fingerprint: Optional['outputs.RuleGroupRateLimitJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.RuleGroupRateLimitJa4Fingerprint'] = None,
                  label_namespace: Optional['outputs.RuleGroupRateLimitLabelNamespace'] = None,
                  query_argument: Optional['outputs.RuleGroupRateLimitQueryArgument'] = None,
                  query_string: Optional['outputs.RuleGroupRateLimitQueryString'] = None,
@@ -2678,6 +2735,10 @@ class RuleGroupRateBasedStatementCustomKey(dict):
             pulumi.set(__self__, "http_method", http_method)
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
+        if ja3_fingerprint is not None:
+            pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if label_namespace is not None:
             pulumi.set(__self__, "label_namespace", label_namespace)
         if query_argument is not None:
@@ -2732,6 +2793,16 @@ class RuleGroupRateBasedStatementCustomKey(dict):
         When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
         """
         return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter(name="ja3Fingerprint")
+    def ja3_fingerprint(self) -> Optional['outputs.RuleGroupRateLimitJa3Fingerprint']:
+        return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRateLimitJa4Fingerprint']:
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="labelNamespace")
@@ -2904,6 +2975,76 @@ class RuleGroupRateLimitIp(dict):
         Specifies the IP address in the web request as an aggregate key for a rate-based rule.
         """
         pass
+
+
+@pulumi.output_type
+class RuleGroupRateLimitJa3Fingerprint(dict):
+    """
+    Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRateLimitJa3Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRateLimitJa3Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRateLimitJa3Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: 'RuleGroupRateLimitJa3FingerprintFallbackBehavior'):
+        """
+        Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> 'RuleGroupRateLimitJa3FingerprintFallbackBehavior':
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class RuleGroupRateLimitJa4Fingerprint(dict):
+    """
+    Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRateLimitJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRateLimitJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRateLimitJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: 'RuleGroupRateLimitJa4FingerprintFallbackBehavior'):
+        """
+        Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> 'RuleGroupRateLimitJa4FingerprintFallbackBehavior':
+        return pulumi.get(self, "fallback_behavior")
 
 
 @pulumi.output_type
@@ -5376,6 +5517,8 @@ class WebAclFieldToMatch(dict):
             suggest = "all_query_arguments"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -5404,6 +5547,7 @@ class WebAclFieldToMatch(dict):
                  cookies: Optional['outputs.WebAclCookies'] = None,
                  headers: Optional['outputs.WebAclHeaders'] = None,
                  ja3_fingerprint: Optional['outputs.WebAclJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclJsonBody'] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
@@ -5462,6 +5606,8 @@ class WebAclFieldToMatch(dict):
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -5531,6 +5677,11 @@ class WebAclFieldToMatch(dict):
         Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclJa4Fingerprint']:
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -6140,6 +6291,41 @@ class WebAclJa3Fingerprint(dict):
         - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
         - `NO_MATCH` - Treat the web request as not matching the rule statement.
         """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclJa4Fingerprint(dict):
+    """
+    Includes the JA4 fingerprint of a web request.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: 'WebAclJa4FingerprintFallbackBehavior'):
+        """
+        Includes the JA4 fingerprint of a web request.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> 'WebAclJa4FingerprintFallbackBehavior':
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -6897,6 +7083,10 @@ class WebAclRateBasedStatementCustomKey(dict):
             suggest = "forwarded_ip"
         elif key == "httpMethod":
             suggest = "http_method"
+        elif key == "ja3Fingerprint":
+            suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "labelNamespace":
             suggest = "label_namespace"
         elif key == "queryArgument":
@@ -6923,6 +7113,8 @@ class WebAclRateBasedStatementCustomKey(dict):
                  header: Optional['outputs.WebAclRateLimitHeader'] = None,
                  http_method: Optional['outputs.WebAclRateLimitHttpMethod'] = None,
                  ip: Optional['outputs.WebAclRateLimitIp'] = None,
+                 ja3_fingerprint: Optional['outputs.WebAclRateLimitJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRateLimitJa4Fingerprint'] = None,
                  label_namespace: Optional['outputs.WebAclRateLimitLabelNamespace'] = None,
                  query_argument: Optional['outputs.WebAclRateLimitQueryArgument'] = None,
                  query_string: Optional['outputs.WebAclRateLimitQueryString'] = None,
@@ -6959,6 +7151,10 @@ class WebAclRateBasedStatementCustomKey(dict):
             pulumi.set(__self__, "http_method", http_method)
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
+        if ja3_fingerprint is not None:
+            pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if label_namespace is not None:
             pulumi.set(__self__, "label_namespace", label_namespace)
         if query_argument is not None:
@@ -7013,6 +7209,16 @@ class WebAclRateBasedStatementCustomKey(dict):
         When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
         """
         return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter(name="ja3Fingerprint")
+    def ja3_fingerprint(self) -> Optional['outputs.WebAclRateLimitJa3Fingerprint']:
+        return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRateLimitJa4Fingerprint']:
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="labelNamespace")
@@ -7185,6 +7391,76 @@ class WebAclRateLimitIp(dict):
         Specifies the IP address in the web request as an aggregate key for a rate-based rule.
         """
         pass
+
+
+@pulumi.output_type
+class WebAclRateLimitJa3Fingerprint(dict):
+    """
+    Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRateLimitJa3Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRateLimitJa3Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRateLimitJa3Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: 'WebAclRateLimitJa3FingerprintFallbackBehavior'):
+        """
+        Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> 'WebAclRateLimitJa3FingerprintFallbackBehavior':
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRateLimitJa4Fingerprint(dict):
+    """
+    Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRateLimitJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRateLimitJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRateLimitJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: 'WebAclRateLimitJa4FingerprintFallbackBehavior'):
+        """
+        Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> 'WebAclRateLimitJa4FingerprintFallbackBehavior':
+        return pulumi.get(self, "fallback_behavior")
 
 
 @pulumi.output_type

@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
+ * The ``AWS::ECR::ReplicationConfiguration`` resource creates or updates the replication configuration for a private registry. The first time a replication configuration is applied to a private registry, a service-linked IAM role is created in your account for the replication process. For more information, see [Using Service-Linked Roles for Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html) in the *Amazon Elastic Container Registry User Guide*.
+ *   When configuring cross-account replication, the destination account must grant the source account permission to replicate. This permission is controlled using a private registry permissions policy. For more information, see ``AWS::ECR::RegistryPolicy``.
  */
 export function getReplicationConfiguration(args: GetReplicationConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -19,14 +20,14 @@ export function getReplicationConfiguration(args: GetReplicationConfigurationArg
 
 export interface GetReplicationConfigurationArgs {
     /**
-     * The RegistryId associated with the aws account.
+     * The account ID of the destination registry.
      */
     registryId: string;
 }
 
 export interface GetReplicationConfigurationResult {
     /**
-     * The RegistryId associated with the aws account.
+     * The account ID of the destination registry.
      */
     readonly registryId?: string;
     /**
@@ -35,7 +36,8 @@ export interface GetReplicationConfigurationResult {
     readonly replicationConfiguration?: outputs.ecr.ReplicationConfiguration;
 }
 /**
- * The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
+ * The ``AWS::ECR::ReplicationConfiguration`` resource creates or updates the replication configuration for a private registry. The first time a replication configuration is applied to a private registry, a service-linked IAM role is created in your account for the replication process. For more information, see [Using Service-Linked Roles for Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html) in the *Amazon Elastic Container Registry User Guide*.
+ *   When configuring cross-account replication, the destination account must grant the source account permission to replicate. This permission is controlled using a private registry permissions policy. For more information, see ``AWS::ECR::RegistryPolicy``.
  */
 export function getReplicationConfigurationOutput(args: GetReplicationConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,7 +48,7 @@ export function getReplicationConfigurationOutput(args: GetReplicationConfigurat
 
 export interface GetReplicationConfigurationOutputArgs {
     /**
-     * The RegistryId associated with the aws account.
+     * The account ID of the destination registry.
      */
     registryId: pulumi.Input<string>;
 }

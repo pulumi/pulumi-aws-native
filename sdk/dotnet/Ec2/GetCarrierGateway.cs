@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Ec2
     public static class GetCarrierGateway
     {
         /// <summary>
-        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource
         /// </summary>
         public static Task<GetCarrierGatewayResult> InvokeAsync(GetCarrierGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCarrierGatewayResult>("aws-native:ec2:getCarrierGateway", args ?? new GetCarrierGatewayArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource
         /// </summary>
         public static Output<GetCarrierGatewayResult> Invoke(GetCarrierGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCarrierGatewayResult>("aws-native:ec2:getCarrierGateway", args ?? new GetCarrierGatewayInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource
         /// </summary>
         public static Output<GetCarrierGatewayResult> Invoke(GetCarrierGatewayInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCarrierGatewayResult>("aws-native:ec2:getCarrierGateway", args ?? new GetCarrierGatewayInvokeArgs(), options.WithDefaults());

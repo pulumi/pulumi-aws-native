@@ -86,7 +86,7 @@ class AwaitableGetCarrierGatewayResult(GetCarrierGatewayResult):
 def get_carrier_gateway(carrier_gateway_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCarrierGatewayResult:
     """
-    An example resource schema demonstrating some basic constructs and validation rules.
+    Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource
 
 
     :param str carrier_gateway_id: The ID of the carrier gateway.
@@ -104,7 +104,7 @@ def get_carrier_gateway(carrier_gateway_id: Optional[str] = None,
 def get_carrier_gateway_output(carrier_gateway_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCarrierGatewayResult]:
     """
-    An example resource schema demonstrating some basic constructs and validation rules.
+    Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource
 
 
     :param str carrier_gateway_id: The ID of the carrier gateway.

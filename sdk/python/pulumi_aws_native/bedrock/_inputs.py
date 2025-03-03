@@ -60,6 +60,62 @@ __all__ = [
     'AgentSessionSummaryConfigurationArgsDict',
     'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs',
     'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict',
+    'DataAutomationProjectAudioExtractionCategoryArgs',
+    'DataAutomationProjectAudioExtractionCategoryArgsDict',
+    'DataAutomationProjectAudioStandardExtractionArgs',
+    'DataAutomationProjectAudioStandardExtractionArgsDict',
+    'DataAutomationProjectAudioStandardGenerativeFieldArgs',
+    'DataAutomationProjectAudioStandardGenerativeFieldArgsDict',
+    'DataAutomationProjectAudioStandardOutputConfigurationArgs',
+    'DataAutomationProjectAudioStandardOutputConfigurationArgsDict',
+    'DataAutomationProjectBlueprintItemArgs',
+    'DataAutomationProjectBlueprintItemArgsDict',
+    'DataAutomationProjectCustomOutputConfigurationArgs',
+    'DataAutomationProjectCustomOutputConfigurationArgsDict',
+    'DataAutomationProjectDocumentBoundingBoxArgs',
+    'DataAutomationProjectDocumentBoundingBoxArgsDict',
+    'DataAutomationProjectDocumentExtractionGranularityArgs',
+    'DataAutomationProjectDocumentExtractionGranularityArgsDict',
+    'DataAutomationProjectDocumentOutputAdditionalFileFormatArgs',
+    'DataAutomationProjectDocumentOutputAdditionalFileFormatArgsDict',
+    'DataAutomationProjectDocumentOutputFormatArgs',
+    'DataAutomationProjectDocumentOutputFormatArgsDict',
+    'DataAutomationProjectDocumentOutputTextFormatArgs',
+    'DataAutomationProjectDocumentOutputTextFormatArgsDict',
+    'DataAutomationProjectDocumentOverrideConfigurationArgs',
+    'DataAutomationProjectDocumentOverrideConfigurationArgsDict',
+    'DataAutomationProjectDocumentStandardExtractionArgs',
+    'DataAutomationProjectDocumentStandardExtractionArgsDict',
+    'DataAutomationProjectDocumentStandardGenerativeFieldArgs',
+    'DataAutomationProjectDocumentStandardGenerativeFieldArgsDict',
+    'DataAutomationProjectDocumentStandardOutputConfigurationArgs',
+    'DataAutomationProjectDocumentStandardOutputConfigurationArgsDict',
+    'DataAutomationProjectImageBoundingBoxArgs',
+    'DataAutomationProjectImageBoundingBoxArgsDict',
+    'DataAutomationProjectImageExtractionCategoryArgs',
+    'DataAutomationProjectImageExtractionCategoryArgsDict',
+    'DataAutomationProjectImageStandardExtractionArgs',
+    'DataAutomationProjectImageStandardExtractionArgsDict',
+    'DataAutomationProjectImageStandardGenerativeFieldArgs',
+    'DataAutomationProjectImageStandardGenerativeFieldArgsDict',
+    'DataAutomationProjectImageStandardOutputConfigurationArgs',
+    'DataAutomationProjectImageStandardOutputConfigurationArgsDict',
+    'DataAutomationProjectOverrideConfigurationArgs',
+    'DataAutomationProjectOverrideConfigurationArgsDict',
+    'DataAutomationProjectSplitterConfigurationArgs',
+    'DataAutomationProjectSplitterConfigurationArgsDict',
+    'DataAutomationProjectStandardOutputConfigurationArgs',
+    'DataAutomationProjectStandardOutputConfigurationArgsDict',
+    'DataAutomationProjectVideoBoundingBoxArgs',
+    'DataAutomationProjectVideoBoundingBoxArgsDict',
+    'DataAutomationProjectVideoExtractionCategoryArgs',
+    'DataAutomationProjectVideoExtractionCategoryArgsDict',
+    'DataAutomationProjectVideoStandardExtractionArgs',
+    'DataAutomationProjectVideoStandardExtractionArgsDict',
+    'DataAutomationProjectVideoStandardGenerativeFieldArgs',
+    'DataAutomationProjectVideoStandardGenerativeFieldArgsDict',
+    'DataAutomationProjectVideoStandardOutputConfigurationArgs',
+    'DataAutomationProjectVideoStandardOutputConfigurationArgsDict',
     'DataSourceBedrockDataAutomationConfigurationArgs',
     'DataSourceBedrockDataAutomationConfigurationArgsDict',
     'DataSourceBedrockFoundationModelConfigurationArgs',
@@ -346,6 +402,8 @@ __all__ = [
     'PromptInputVariableArgsDict',
     'PromptMessageArgs',
     'PromptMessageArgsDict',
+    'PromptMetadataEntryArgs',
+    'PromptMetadataEntryArgsDict',
     'PromptModelInferenceConfigurationArgs',
     'PromptModelInferenceConfigurationArgsDict',
     'PromptSpecificToolChoiceArgs',
@@ -780,6 +838,9 @@ if not MYPY:
         Agent collaborator name
         """
         relay_conversation_history: NotRequired[pulumi.Input['AgentRelayConversationHistory']]
+        """
+        The collaborator's relay conversation history.
+        """
 elif False:
     AgentCollaboratorArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -795,6 +856,7 @@ class AgentCollaboratorArgs:
         :param pulumi.Input['AgentCollaboratorAgentDescriptorPropertiesArgs'] agent_descriptor: Agent descriptor for agent collaborator
         :param pulumi.Input[str] collaboration_instruction: Agent collaborator instruction
         :param pulumi.Input[str] collaborator_name: Agent collaborator name
+        :param pulumi.Input['AgentRelayConversationHistory'] relay_conversation_history: The collaborator's relay conversation history.
         """
         pulumi.set(__self__, "agent_descriptor", agent_descriptor)
         pulumi.set(__self__, "collaboration_instruction", collaboration_instruction)
@@ -841,6 +903,9 @@ class AgentCollaboratorArgs:
     @property
     @pulumi.getter(name="relayConversationHistory")
     def relay_conversation_history(self) -> Optional[pulumi.Input['AgentRelayConversationHistory']]:
+        """
+        The collaborator's relay conversation history.
+        """
         return pulumi.get(self, "relay_conversation_history")
 
     @relay_conversation_history.setter
@@ -854,6 +919,9 @@ if not MYPY:
         Structure for custom orchestration
         """
         executor: NotRequired[pulumi.Input['AgentOrchestrationExecutorArgsDict']]
+        """
+        The structure of the executor invoking the actions in custom orchestration.
+        """
 elif False:
     AgentCustomOrchestrationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -863,6 +931,7 @@ class AgentCustomOrchestrationArgs:
                  executor: Optional[pulumi.Input['AgentOrchestrationExecutorArgs']] = None):
         """
         Structure for custom orchestration
+        :param pulumi.Input['AgentOrchestrationExecutorArgs'] executor: The structure of the executor invoking the actions in custom orchestration.
         """
         if executor is not None:
             pulumi.set(__self__, "executor", executor)
@@ -870,6 +939,9 @@ class AgentCustomOrchestrationArgs:
     @property
     @pulumi.getter
     def executor(self) -> Optional[pulumi.Input['AgentOrchestrationExecutorArgs']]:
+        """
+        The structure of the executor invoking the actions in custom orchestration.
+        """
         return pulumi.get(self, "executor")
 
     @executor.setter
@@ -1259,7 +1331,13 @@ if not MYPY:
         Configuration for memory storage
         """
         enabled_memory_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentMemoryType']]]]
+        """
+        The type of memory that is stored.
+        """
         session_summary_configuration: NotRequired[pulumi.Input['AgentSessionSummaryConfigurationArgsDict']]
+        """
+        Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
+        """
         storage_days: NotRequired[pulumi.Input[float]]
         """
         Maximum number of days to store session details
@@ -1275,6 +1353,8 @@ class AgentMemoryConfigurationArgs:
                  storage_days: Optional[pulumi.Input[float]] = None):
         """
         Configuration for memory storage
+        :param pulumi.Input[Sequence[pulumi.Input['AgentMemoryType']]] enabled_memory_types: The type of memory that is stored.
+        :param pulumi.Input['AgentSessionSummaryConfigurationArgs'] session_summary_configuration: Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
         :param pulumi.Input[float] storage_days: Maximum number of days to store session details
         """
         if enabled_memory_types is not None:
@@ -1287,6 +1367,9 @@ class AgentMemoryConfigurationArgs:
     @property
     @pulumi.getter(name="enabledMemoryTypes")
     def enabled_memory_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentMemoryType']]]]:
+        """
+        The type of memory that is stored.
+        """
         return pulumi.get(self, "enabled_memory_types")
 
     @enabled_memory_types.setter
@@ -1296,6 +1379,9 @@ class AgentMemoryConfigurationArgs:
     @property
     @pulumi.getter(name="sessionSummaryConfiguration")
     def session_summary_configuration(self) -> Optional[pulumi.Input['AgentSessionSummaryConfigurationArgs']]:
+        """
+        Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
+        """
         return pulumi.get(self, "session_summary_configuration")
 
     @session_summary_configuration.setter
@@ -1435,6 +1521,9 @@ if not MYPY:
         Base Prompt Template.
         """
         foundation_model: NotRequired[pulumi.Input[str]]
+        """
+        The agent's foundation model.
+        """
         inference_configuration: NotRequired[pulumi.Input['AgentInferenceConfigurationArgsDict']]
         """
         Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
@@ -1476,6 +1565,7 @@ class AgentPromptConfigurationArgs:
         """
         BasePromptConfiguration per Prompt Type.
         :param pulumi.Input[str] base_prompt_template: Base Prompt Template.
+        :param pulumi.Input[str] foundation_model: The agent's foundation model.
         :param pulumi.Input['AgentInferenceConfigurationArgs'] inference_configuration: Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
         :param pulumi.Input['AgentCreationMode'] parser_mode: Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
         :param pulumi.Input['AgentCreationMode'] prompt_creation_mode: Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
@@ -1517,6 +1607,9 @@ class AgentPromptConfigurationArgs:
     @property
     @pulumi.getter(name="foundationModel")
     def foundation_model(self) -> Optional[pulumi.Input[str]]:
+        """
+        The agent's foundation model.
+        """
         return pulumi.get(self, "foundation_model")
 
     @foundation_model.setter
@@ -1772,6 +1865,923 @@ class ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs:
     @copy_from.setter
     def copy_from(self, value: pulumi.Input[str]):
         pulumi.set(self, "copy_from", value)
+
+
+if not MYPY:
+    class DataAutomationProjectAudioExtractionCategoryArgsDict(TypedDict):
+        state: pulumi.Input['DataAutomationProjectState']
+        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioExtractionCategoryType']]]]
+elif False:
+    DataAutomationProjectAudioExtractionCategoryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectAudioExtractionCategoryArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input['DataAutomationProjectState'],
+                 types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioExtractionCategoryType']]]] = None):
+        pulumi.set(__self__, "state", state)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['DataAutomationProjectState']:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioExtractionCategoryType']]]]:
+        return pulumi.get(self, "types")
+
+    @types.setter
+    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioExtractionCategoryType']]]]):
+        pulumi.set(self, "types", value)
+
+
+if not MYPY:
+    class DataAutomationProjectAudioStandardExtractionArgsDict(TypedDict):
+        category: pulumi.Input['DataAutomationProjectAudioExtractionCategoryArgsDict']
+elif False:
+    DataAutomationProjectAudioStandardExtractionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectAudioStandardExtractionArgs:
+    def __init__(__self__, *,
+                 category: pulumi.Input['DataAutomationProjectAudioExtractionCategoryArgs']):
+        pulumi.set(__self__, "category", category)
+
+    @property
+    @pulumi.getter
+    def category(self) -> pulumi.Input['DataAutomationProjectAudioExtractionCategoryArgs']:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input['DataAutomationProjectAudioExtractionCategoryArgs']):
+        pulumi.set(self, "category", value)
+
+
+if not MYPY:
+    class DataAutomationProjectAudioStandardGenerativeFieldArgsDict(TypedDict):
+        state: pulumi.Input['DataAutomationProjectState']
+        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldType']]]]
+elif False:
+    DataAutomationProjectAudioStandardGenerativeFieldArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectAudioStandardGenerativeFieldArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input['DataAutomationProjectState'],
+                 types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldType']]]] = None):
+        pulumi.set(__self__, "state", state)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['DataAutomationProjectState']:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldType']]]]:
+        return pulumi.get(self, "types")
+
+    @types.setter
+    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldType']]]]):
+        pulumi.set(self, "types", value)
+
+
+if not MYPY:
+    class DataAutomationProjectAudioStandardOutputConfigurationArgsDict(TypedDict):
+        extraction: NotRequired[pulumi.Input['DataAutomationProjectAudioStandardExtractionArgsDict']]
+        generative_field: NotRequired[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldArgsDict']]
+elif False:
+    DataAutomationProjectAudioStandardOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectAudioStandardOutputConfigurationArgs:
+    def __init__(__self__, *,
+                 extraction: Optional[pulumi.Input['DataAutomationProjectAudioStandardExtractionArgs']] = None,
+                 generative_field: Optional[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldArgs']] = None):
+        if extraction is not None:
+            pulumi.set(__self__, "extraction", extraction)
+        if generative_field is not None:
+            pulumi.set(__self__, "generative_field", generative_field)
+
+    @property
+    @pulumi.getter
+    def extraction(self) -> Optional[pulumi.Input['DataAutomationProjectAudioStandardExtractionArgs']]:
+        return pulumi.get(self, "extraction")
+
+    @extraction.setter
+    def extraction(self, value: Optional[pulumi.Input['DataAutomationProjectAudioStandardExtractionArgs']]):
+        pulumi.set(self, "extraction", value)
+
+    @property
+    @pulumi.getter(name="generativeField")
+    def generative_field(self) -> Optional[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldArgs']]:
+        return pulumi.get(self, "generative_field")
+
+    @generative_field.setter
+    def generative_field(self, value: Optional[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldArgs']]):
+        pulumi.set(self, "generative_field", value)
+
+
+if not MYPY:
+    class DataAutomationProjectBlueprintItemArgsDict(TypedDict):
+        blueprint_arn: pulumi.Input[str]
+        """
+        ARN of a Blueprint
+        """
+        blueprint_stage: NotRequired[pulumi.Input['DataAutomationProjectBlueprintStage']]
+        blueprint_version: NotRequired[pulumi.Input[str]]
+        """
+        Blueprint Version
+        """
+elif False:
+    DataAutomationProjectBlueprintItemArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectBlueprintItemArgs:
+    def __init__(__self__, *,
+                 blueprint_arn: pulumi.Input[str],
+                 blueprint_stage: Optional[pulumi.Input['DataAutomationProjectBlueprintStage']] = None,
+                 blueprint_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] blueprint_arn: ARN of a Blueprint
+        :param pulumi.Input[str] blueprint_version: Blueprint Version
+        """
+        pulumi.set(__self__, "blueprint_arn", blueprint_arn)
+        if blueprint_stage is not None:
+            pulumi.set(__self__, "blueprint_stage", blueprint_stage)
+        if blueprint_version is not None:
+            pulumi.set(__self__, "blueprint_version", blueprint_version)
+
+    @property
+    @pulumi.getter(name="blueprintArn")
+    def blueprint_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of a Blueprint
+        """
+        return pulumi.get(self, "blueprint_arn")
+
+    @blueprint_arn.setter
+    def blueprint_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "blueprint_arn", value)
+
+    @property
+    @pulumi.getter(name="blueprintStage")
+    def blueprint_stage(self) -> Optional[pulumi.Input['DataAutomationProjectBlueprintStage']]:
+        return pulumi.get(self, "blueprint_stage")
+
+    @blueprint_stage.setter
+    def blueprint_stage(self, value: Optional[pulumi.Input['DataAutomationProjectBlueprintStage']]):
+        pulumi.set(self, "blueprint_stage", value)
+
+    @property
+    @pulumi.getter(name="blueprintVersion")
+    def blueprint_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Blueprint Version
+        """
+        return pulumi.get(self, "blueprint_version")
+
+    @blueprint_version.setter
+    def blueprint_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blueprint_version", value)
+
+
+if not MYPY:
+    class DataAutomationProjectCustomOutputConfigurationArgsDict(TypedDict):
+        """
+        Custom output configuration
+        """
+        blueprints: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectBlueprintItemArgsDict']]]]
+elif False:
+    DataAutomationProjectCustomOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectCustomOutputConfigurationArgs:
+    def __init__(__self__, *,
+                 blueprints: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectBlueprintItemArgs']]]] = None):
+        """
+        Custom output configuration
+        """
+        if blueprints is not None:
+            pulumi.set(__self__, "blueprints", blueprints)
+
+    @property
+    @pulumi.getter
+    def blueprints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectBlueprintItemArgs']]]]:
+        return pulumi.get(self, "blueprints")
+
+    @blueprints.setter
+    def blueprints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectBlueprintItemArgs']]]]):
+        pulumi.set(self, "blueprints", value)
+
+
+if not MYPY:
+    class DataAutomationProjectDocumentBoundingBoxArgsDict(TypedDict):
+        state: pulumi.Input['DataAutomationProjectState']
+elif False:
+    DataAutomationProjectDocumentBoundingBoxArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectDocumentBoundingBoxArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['DataAutomationProjectState']:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(self, "state", value)
+
+
+if not MYPY:
+    class DataAutomationProjectDocumentExtractionGranularityArgsDict(TypedDict):
+        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentExtractionGranularityType']]]]
+elif False:
+    DataAutomationProjectDocumentExtractionGranularityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectDocumentExtractionGranularityArgs:
+    def __init__(__self__, *,
+                 types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentExtractionGranularityType']]]] = None):
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentExtractionGranularityType']]]]:
+        return pulumi.get(self, "types")
+
+    @types.setter
+    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentExtractionGranularityType']]]]):
+        pulumi.set(self, "types", value)
+
+
+if not MYPY:
+    class DataAutomationProjectDocumentOutputAdditionalFileFormatArgsDict(TypedDict):
+        state: pulumi.Input['DataAutomationProjectState']
+elif False:
+    DataAutomationProjectDocumentOutputAdditionalFileFormatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectDocumentOutputAdditionalFileFormatArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['DataAutomationProjectState']:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(self, "state", value)
+
+
+if not MYPY:
+    class DataAutomationProjectDocumentOutputFormatArgsDict(TypedDict):
+        additional_file_format: pulumi.Input['DataAutomationProjectDocumentOutputAdditionalFileFormatArgsDict']
+        text_format: pulumi.Input['DataAutomationProjectDocumentOutputTextFormatArgsDict']
+elif False:
+    DataAutomationProjectDocumentOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectDocumentOutputFormatArgs:
+    def __init__(__self__, *,
+                 additional_file_format: pulumi.Input['DataAutomationProjectDocumentOutputAdditionalFileFormatArgs'],
+                 text_format: pulumi.Input['DataAutomationProjectDocumentOutputTextFormatArgs']):
+        pulumi.set(__self__, "additional_file_format", additional_file_format)
+        pulumi.set(__self__, "text_format", text_format)
+
+    @property
+    @pulumi.getter(name="additionalFileFormat")
+    def additional_file_format(self) -> pulumi.Input['DataAutomationProjectDocumentOutputAdditionalFileFormatArgs']:
+        return pulumi.get(self, "additional_file_format")
+
+    @additional_file_format.setter
+    def additional_file_format(self, value: pulumi.Input['DataAutomationProjectDocumentOutputAdditionalFileFormatArgs']):
+        pulumi.set(self, "additional_file_format", value)
+
+    @property
+    @pulumi.getter(name="textFormat")
+    def text_format(self) -> pulumi.Input['DataAutomationProjectDocumentOutputTextFormatArgs']:
+        return pulumi.get(self, "text_format")
+
+    @text_format.setter
+    def text_format(self, value: pulumi.Input['DataAutomationProjectDocumentOutputTextFormatArgs']):
+        pulumi.set(self, "text_format", value)
+
+
+if not MYPY:
+    class DataAutomationProjectDocumentOutputTextFormatArgsDict(TypedDict):
+        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentOutputTextFormatType']]]]
+elif False:
+    DataAutomationProjectDocumentOutputTextFormatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectDocumentOutputTextFormatArgs:
+    def __init__(__self__, *,
+                 types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentOutputTextFormatType']]]] = None):
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentOutputTextFormatType']]]]:
+        return pulumi.get(self, "types")
+
+    @types.setter
+    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentOutputTextFormatType']]]]):
+        pulumi.set(self, "types", value)
+
+
+if not MYPY:
+    class DataAutomationProjectDocumentOverrideConfigurationArgsDict(TypedDict):
+        splitter: NotRequired[pulumi.Input['DataAutomationProjectSplitterConfigurationArgsDict']]
+elif False:
+    DataAutomationProjectDocumentOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectDocumentOverrideConfigurationArgs:
+    def __init__(__self__, *,
+                 splitter: Optional[pulumi.Input['DataAutomationProjectSplitterConfigurationArgs']] = None):
+        if splitter is not None:
+            pulumi.set(__self__, "splitter", splitter)
+
+    @property
+    @pulumi.getter
+    def splitter(self) -> Optional[pulumi.Input['DataAutomationProjectSplitterConfigurationArgs']]:
+        return pulumi.get(self, "splitter")
+
+    @splitter.setter
+    def splitter(self, value: Optional[pulumi.Input['DataAutomationProjectSplitterConfigurationArgs']]):
+        pulumi.set(self, "splitter", value)
+
+
+if not MYPY:
+    class DataAutomationProjectDocumentStandardExtractionArgsDict(TypedDict):
+        bounding_box: pulumi.Input['DataAutomationProjectDocumentBoundingBoxArgsDict']
+        granularity: pulumi.Input['DataAutomationProjectDocumentExtractionGranularityArgsDict']
+elif False:
+    DataAutomationProjectDocumentStandardExtractionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectDocumentStandardExtractionArgs:
+    def __init__(__self__, *,
+                 bounding_box: pulumi.Input['DataAutomationProjectDocumentBoundingBoxArgs'],
+                 granularity: pulumi.Input['DataAutomationProjectDocumentExtractionGranularityArgs']):
+        pulumi.set(__self__, "bounding_box", bounding_box)
+        pulumi.set(__self__, "granularity", granularity)
+
+    @property
+    @pulumi.getter(name="boundingBox")
+    def bounding_box(self) -> pulumi.Input['DataAutomationProjectDocumentBoundingBoxArgs']:
+        return pulumi.get(self, "bounding_box")
+
+    @bounding_box.setter
+    def bounding_box(self, value: pulumi.Input['DataAutomationProjectDocumentBoundingBoxArgs']):
+        pulumi.set(self, "bounding_box", value)
+
+    @property
+    @pulumi.getter
+    def granularity(self) -> pulumi.Input['DataAutomationProjectDocumentExtractionGranularityArgs']:
+        return pulumi.get(self, "granularity")
+
+    @granularity.setter
+    def granularity(self, value: pulumi.Input['DataAutomationProjectDocumentExtractionGranularityArgs']):
+        pulumi.set(self, "granularity", value)
+
+
+if not MYPY:
+    class DataAutomationProjectDocumentStandardGenerativeFieldArgsDict(TypedDict):
+        state: pulumi.Input['DataAutomationProjectState']
+elif False:
+    DataAutomationProjectDocumentStandardGenerativeFieldArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectDocumentStandardGenerativeFieldArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['DataAutomationProjectState']:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(self, "state", value)
+
+
+if not MYPY:
+    class DataAutomationProjectDocumentStandardOutputConfigurationArgsDict(TypedDict):
+        extraction: NotRequired[pulumi.Input['DataAutomationProjectDocumentStandardExtractionArgsDict']]
+        generative_field: NotRequired[pulumi.Input['DataAutomationProjectDocumentStandardGenerativeFieldArgsDict']]
+        output_format: NotRequired[pulumi.Input['DataAutomationProjectDocumentOutputFormatArgsDict']]
+elif False:
+    DataAutomationProjectDocumentStandardOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectDocumentStandardOutputConfigurationArgs:
+    def __init__(__self__, *,
+                 extraction: Optional[pulumi.Input['DataAutomationProjectDocumentStandardExtractionArgs']] = None,
+                 generative_field: Optional[pulumi.Input['DataAutomationProjectDocumentStandardGenerativeFieldArgs']] = None,
+                 output_format: Optional[pulumi.Input['DataAutomationProjectDocumentOutputFormatArgs']] = None):
+        if extraction is not None:
+            pulumi.set(__self__, "extraction", extraction)
+        if generative_field is not None:
+            pulumi.set(__self__, "generative_field", generative_field)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+
+    @property
+    @pulumi.getter
+    def extraction(self) -> Optional[pulumi.Input['DataAutomationProjectDocumentStandardExtractionArgs']]:
+        return pulumi.get(self, "extraction")
+
+    @extraction.setter
+    def extraction(self, value: Optional[pulumi.Input['DataAutomationProjectDocumentStandardExtractionArgs']]):
+        pulumi.set(self, "extraction", value)
+
+    @property
+    @pulumi.getter(name="generativeField")
+    def generative_field(self) -> Optional[pulumi.Input['DataAutomationProjectDocumentStandardGenerativeFieldArgs']]:
+        return pulumi.get(self, "generative_field")
+
+    @generative_field.setter
+    def generative_field(self, value: Optional[pulumi.Input['DataAutomationProjectDocumentStandardGenerativeFieldArgs']]):
+        pulumi.set(self, "generative_field", value)
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional[pulumi.Input['DataAutomationProjectDocumentOutputFormatArgs']]:
+        return pulumi.get(self, "output_format")
+
+    @output_format.setter
+    def output_format(self, value: Optional[pulumi.Input['DataAutomationProjectDocumentOutputFormatArgs']]):
+        pulumi.set(self, "output_format", value)
+
+
+if not MYPY:
+    class DataAutomationProjectImageBoundingBoxArgsDict(TypedDict):
+        state: pulumi.Input['DataAutomationProjectState']
+elif False:
+    DataAutomationProjectImageBoundingBoxArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectImageBoundingBoxArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['DataAutomationProjectState']:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(self, "state", value)
+
+
+if not MYPY:
+    class DataAutomationProjectImageExtractionCategoryArgsDict(TypedDict):
+        state: pulumi.Input['DataAutomationProjectState']
+        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageExtractionCategoryType']]]]
+elif False:
+    DataAutomationProjectImageExtractionCategoryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectImageExtractionCategoryArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input['DataAutomationProjectState'],
+                 types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageExtractionCategoryType']]]] = None):
+        pulumi.set(__self__, "state", state)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['DataAutomationProjectState']:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageExtractionCategoryType']]]]:
+        return pulumi.get(self, "types")
+
+    @types.setter
+    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageExtractionCategoryType']]]]):
+        pulumi.set(self, "types", value)
+
+
+if not MYPY:
+    class DataAutomationProjectImageStandardExtractionArgsDict(TypedDict):
+        bounding_box: pulumi.Input['DataAutomationProjectImageBoundingBoxArgsDict']
+        category: pulumi.Input['DataAutomationProjectImageExtractionCategoryArgsDict']
+elif False:
+    DataAutomationProjectImageStandardExtractionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectImageStandardExtractionArgs:
+    def __init__(__self__, *,
+                 bounding_box: pulumi.Input['DataAutomationProjectImageBoundingBoxArgs'],
+                 category: pulumi.Input['DataAutomationProjectImageExtractionCategoryArgs']):
+        pulumi.set(__self__, "bounding_box", bounding_box)
+        pulumi.set(__self__, "category", category)
+
+    @property
+    @pulumi.getter(name="boundingBox")
+    def bounding_box(self) -> pulumi.Input['DataAutomationProjectImageBoundingBoxArgs']:
+        return pulumi.get(self, "bounding_box")
+
+    @bounding_box.setter
+    def bounding_box(self, value: pulumi.Input['DataAutomationProjectImageBoundingBoxArgs']):
+        pulumi.set(self, "bounding_box", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> pulumi.Input['DataAutomationProjectImageExtractionCategoryArgs']:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input['DataAutomationProjectImageExtractionCategoryArgs']):
+        pulumi.set(self, "category", value)
+
+
+if not MYPY:
+    class DataAutomationProjectImageStandardGenerativeFieldArgsDict(TypedDict):
+        state: pulumi.Input['DataAutomationProjectState']
+        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldType']]]]
+elif False:
+    DataAutomationProjectImageStandardGenerativeFieldArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectImageStandardGenerativeFieldArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input['DataAutomationProjectState'],
+                 types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldType']]]] = None):
+        pulumi.set(__self__, "state", state)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['DataAutomationProjectState']:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldType']]]]:
+        return pulumi.get(self, "types")
+
+    @types.setter
+    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldType']]]]):
+        pulumi.set(self, "types", value)
+
+
+if not MYPY:
+    class DataAutomationProjectImageStandardOutputConfigurationArgsDict(TypedDict):
+        extraction: NotRequired[pulumi.Input['DataAutomationProjectImageStandardExtractionArgsDict']]
+        generative_field: NotRequired[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldArgsDict']]
+elif False:
+    DataAutomationProjectImageStandardOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectImageStandardOutputConfigurationArgs:
+    def __init__(__self__, *,
+                 extraction: Optional[pulumi.Input['DataAutomationProjectImageStandardExtractionArgs']] = None,
+                 generative_field: Optional[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldArgs']] = None):
+        if extraction is not None:
+            pulumi.set(__self__, "extraction", extraction)
+        if generative_field is not None:
+            pulumi.set(__self__, "generative_field", generative_field)
+
+    @property
+    @pulumi.getter
+    def extraction(self) -> Optional[pulumi.Input['DataAutomationProjectImageStandardExtractionArgs']]:
+        return pulumi.get(self, "extraction")
+
+    @extraction.setter
+    def extraction(self, value: Optional[pulumi.Input['DataAutomationProjectImageStandardExtractionArgs']]):
+        pulumi.set(self, "extraction", value)
+
+    @property
+    @pulumi.getter(name="generativeField")
+    def generative_field(self) -> Optional[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldArgs']]:
+        return pulumi.get(self, "generative_field")
+
+    @generative_field.setter
+    def generative_field(self, value: Optional[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldArgs']]):
+        pulumi.set(self, "generative_field", value)
+
+
+if not MYPY:
+    class DataAutomationProjectOverrideConfigurationArgsDict(TypedDict):
+        """
+        Override configuration
+        """
+        document: NotRequired[pulumi.Input['DataAutomationProjectDocumentOverrideConfigurationArgsDict']]
+elif False:
+    DataAutomationProjectOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectOverrideConfigurationArgs:
+    def __init__(__self__, *,
+                 document: Optional[pulumi.Input['DataAutomationProjectDocumentOverrideConfigurationArgs']] = None):
+        """
+        Override configuration
+        """
+        if document is not None:
+            pulumi.set(__self__, "document", document)
+
+    @property
+    @pulumi.getter
+    def document(self) -> Optional[pulumi.Input['DataAutomationProjectDocumentOverrideConfigurationArgs']]:
+        return pulumi.get(self, "document")
+
+    @document.setter
+    def document(self, value: Optional[pulumi.Input['DataAutomationProjectDocumentOverrideConfigurationArgs']]):
+        pulumi.set(self, "document", value)
+
+
+if not MYPY:
+    class DataAutomationProjectSplitterConfigurationArgsDict(TypedDict):
+        state: NotRequired[pulumi.Input['DataAutomationProjectState']]
+elif False:
+    DataAutomationProjectSplitterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectSplitterConfigurationArgs:
+    def __init__(__self__, *,
+                 state: Optional[pulumi.Input['DataAutomationProjectState']] = None):
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input['DataAutomationProjectState']]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input['DataAutomationProjectState']]):
+        pulumi.set(self, "state", value)
+
+
+if not MYPY:
+    class DataAutomationProjectStandardOutputConfigurationArgsDict(TypedDict):
+        """
+        Standard output configuration
+        """
+        audio: NotRequired[pulumi.Input['DataAutomationProjectAudioStandardOutputConfigurationArgsDict']]
+        document: NotRequired[pulumi.Input['DataAutomationProjectDocumentStandardOutputConfigurationArgsDict']]
+        image: NotRequired[pulumi.Input['DataAutomationProjectImageStandardOutputConfigurationArgsDict']]
+        video: NotRequired[pulumi.Input['DataAutomationProjectVideoStandardOutputConfigurationArgsDict']]
+elif False:
+    DataAutomationProjectStandardOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectStandardOutputConfigurationArgs:
+    def __init__(__self__, *,
+                 audio: Optional[pulumi.Input['DataAutomationProjectAudioStandardOutputConfigurationArgs']] = None,
+                 document: Optional[pulumi.Input['DataAutomationProjectDocumentStandardOutputConfigurationArgs']] = None,
+                 image: Optional[pulumi.Input['DataAutomationProjectImageStandardOutputConfigurationArgs']] = None,
+                 video: Optional[pulumi.Input['DataAutomationProjectVideoStandardOutputConfigurationArgs']] = None):
+        """
+        Standard output configuration
+        """
+        if audio is not None:
+            pulumi.set(__self__, "audio", audio)
+        if document is not None:
+            pulumi.set(__self__, "document", document)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if video is not None:
+            pulumi.set(__self__, "video", video)
+
+    @property
+    @pulumi.getter
+    def audio(self) -> Optional[pulumi.Input['DataAutomationProjectAudioStandardOutputConfigurationArgs']]:
+        return pulumi.get(self, "audio")
+
+    @audio.setter
+    def audio(self, value: Optional[pulumi.Input['DataAutomationProjectAudioStandardOutputConfigurationArgs']]):
+        pulumi.set(self, "audio", value)
+
+    @property
+    @pulumi.getter
+    def document(self) -> Optional[pulumi.Input['DataAutomationProjectDocumentStandardOutputConfigurationArgs']]:
+        return pulumi.get(self, "document")
+
+    @document.setter
+    def document(self, value: Optional[pulumi.Input['DataAutomationProjectDocumentStandardOutputConfigurationArgs']]):
+        pulumi.set(self, "document", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input['DataAutomationProjectImageStandardOutputConfigurationArgs']]:
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input['DataAutomationProjectImageStandardOutputConfigurationArgs']]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter
+    def video(self) -> Optional[pulumi.Input['DataAutomationProjectVideoStandardOutputConfigurationArgs']]:
+        return pulumi.get(self, "video")
+
+    @video.setter
+    def video(self, value: Optional[pulumi.Input['DataAutomationProjectVideoStandardOutputConfigurationArgs']]):
+        pulumi.set(self, "video", value)
+
+
+if not MYPY:
+    class DataAutomationProjectVideoBoundingBoxArgsDict(TypedDict):
+        state: pulumi.Input['DataAutomationProjectState']
+elif False:
+    DataAutomationProjectVideoBoundingBoxArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectVideoBoundingBoxArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['DataAutomationProjectState']:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(self, "state", value)
+
+
+if not MYPY:
+    class DataAutomationProjectVideoExtractionCategoryArgsDict(TypedDict):
+        state: pulumi.Input['DataAutomationProjectState']
+        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoExtractionCategoryType']]]]
+elif False:
+    DataAutomationProjectVideoExtractionCategoryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectVideoExtractionCategoryArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input['DataAutomationProjectState'],
+                 types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoExtractionCategoryType']]]] = None):
+        pulumi.set(__self__, "state", state)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['DataAutomationProjectState']:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoExtractionCategoryType']]]]:
+        return pulumi.get(self, "types")
+
+    @types.setter
+    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoExtractionCategoryType']]]]):
+        pulumi.set(self, "types", value)
+
+
+if not MYPY:
+    class DataAutomationProjectVideoStandardExtractionArgsDict(TypedDict):
+        bounding_box: pulumi.Input['DataAutomationProjectVideoBoundingBoxArgsDict']
+        category: pulumi.Input['DataAutomationProjectVideoExtractionCategoryArgsDict']
+elif False:
+    DataAutomationProjectVideoStandardExtractionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectVideoStandardExtractionArgs:
+    def __init__(__self__, *,
+                 bounding_box: pulumi.Input['DataAutomationProjectVideoBoundingBoxArgs'],
+                 category: pulumi.Input['DataAutomationProjectVideoExtractionCategoryArgs']):
+        pulumi.set(__self__, "bounding_box", bounding_box)
+        pulumi.set(__self__, "category", category)
+
+    @property
+    @pulumi.getter(name="boundingBox")
+    def bounding_box(self) -> pulumi.Input['DataAutomationProjectVideoBoundingBoxArgs']:
+        return pulumi.get(self, "bounding_box")
+
+    @bounding_box.setter
+    def bounding_box(self, value: pulumi.Input['DataAutomationProjectVideoBoundingBoxArgs']):
+        pulumi.set(self, "bounding_box", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> pulumi.Input['DataAutomationProjectVideoExtractionCategoryArgs']:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input['DataAutomationProjectVideoExtractionCategoryArgs']):
+        pulumi.set(self, "category", value)
+
+
+if not MYPY:
+    class DataAutomationProjectVideoStandardGenerativeFieldArgsDict(TypedDict):
+        state: pulumi.Input['DataAutomationProjectState']
+        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldType']]]]
+elif False:
+    DataAutomationProjectVideoStandardGenerativeFieldArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectVideoStandardGenerativeFieldArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input['DataAutomationProjectState'],
+                 types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldType']]]] = None):
+        pulumi.set(__self__, "state", state)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['DataAutomationProjectState']:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldType']]]]:
+        return pulumi.get(self, "types")
+
+    @types.setter
+    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldType']]]]):
+        pulumi.set(self, "types", value)
+
+
+if not MYPY:
+    class DataAutomationProjectVideoStandardOutputConfigurationArgsDict(TypedDict):
+        extraction: NotRequired[pulumi.Input['DataAutomationProjectVideoStandardExtractionArgsDict']]
+        generative_field: NotRequired[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldArgsDict']]
+elif False:
+    DataAutomationProjectVideoStandardOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectVideoStandardOutputConfigurationArgs:
+    def __init__(__self__, *,
+                 extraction: Optional[pulumi.Input['DataAutomationProjectVideoStandardExtractionArgs']] = None,
+                 generative_field: Optional[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldArgs']] = None):
+        if extraction is not None:
+            pulumi.set(__self__, "extraction", extraction)
+        if generative_field is not None:
+            pulumi.set(__self__, "generative_field", generative_field)
+
+    @property
+    @pulumi.getter
+    def extraction(self) -> Optional[pulumi.Input['DataAutomationProjectVideoStandardExtractionArgs']]:
+        return pulumi.get(self, "extraction")
+
+    @extraction.setter
+    def extraction(self, value: Optional[pulumi.Input['DataAutomationProjectVideoStandardExtractionArgs']]):
+        pulumi.set(self, "extraction", value)
+
+    @property
+    @pulumi.getter(name="generativeField")
+    def generative_field(self) -> Optional[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldArgs']]:
+        return pulumi.get(self, "generative_field")
+
+    @generative_field.setter
+    def generative_field(self, value: Optional[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldArgs']]):
+        pulumi.set(self, "generative_field", value)
 
 
 if not MYPY:
@@ -9448,6 +10458,46 @@ class PromptMessageArgs:
 
 
 if not MYPY:
+    class PromptMetadataEntryArgsDict(TypedDict):
+        """
+        Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+        """
+        key: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    PromptMetadataEntryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptMetadataEntryArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
     class PromptModelInferenceConfigurationArgsDict(TypedDict):
         """
         Prompt model inference configuration
@@ -10158,6 +11208,10 @@ if not MYPY:
         """
         Contains inference configurations for the prompt variant.
         """
+        metadata: NotRequired[pulumi.Input[Sequence[pulumi.Input['PromptMetadataEntryArgsDict']]]]
+        """
+        An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+        """
         model_id: NotRequired[pulumi.Input[str]]
         """
         ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
@@ -10174,6 +11228,7 @@ class PromptVariantArgs:
                  additional_model_request_fields: Optional[pulumi.Input['PromptAdditionalModelRequestFieldsArgs']] = None,
                  gen_ai_resource: Optional[pulumi.Input['PromptGenAiResourcePropertiesArgs']] = None,
                  inference_configuration: Optional[pulumi.Input['PromptInferenceConfigurationPropertiesArgs']] = None,
+                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input['PromptMetadataEntryArgs']]]] = None,
                  model_id: Optional[pulumi.Input[str]] = None):
         """
         Prompt variant
@@ -10183,6 +11238,7 @@ class PromptVariantArgs:
         :param pulumi.Input['PromptAdditionalModelRequestFieldsArgs'] additional_model_request_fields: Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
         :param pulumi.Input['PromptGenAiResourcePropertiesArgs'] gen_ai_resource: Specifies a generative AI resource with which to use the prompt.
         :param pulumi.Input['PromptInferenceConfigurationPropertiesArgs'] inference_configuration: Contains inference configurations for the prompt variant.
+        :param pulumi.Input[Sequence[pulumi.Input['PromptMetadataEntryArgs']]] metadata: An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
         :param pulumi.Input[str] model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         pulumi.set(__self__, "name", name)
@@ -10194,6 +11250,8 @@ class PromptVariantArgs:
             pulumi.set(__self__, "gen_ai_resource", gen_ai_resource)
         if inference_configuration is not None:
             pulumi.set(__self__, "inference_configuration", inference_configuration)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if model_id is not None:
             pulumi.set(__self__, "model_id", model_id)
 
@@ -10268,6 +11326,18 @@ class PromptVariantArgs:
     @inference_configuration.setter
     def inference_configuration(self, value: Optional[pulumi.Input['PromptInferenceConfigurationPropertiesArgs']]):
         pulumi.set(self, "inference_configuration", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PromptMetadataEntryArgs']]]]:
+        """
+        An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PromptMetadataEntryArgs']]]]):
+        pulumi.set(self, "metadata", value)
 
     @property
     @pulumi.getter(name="modelId")

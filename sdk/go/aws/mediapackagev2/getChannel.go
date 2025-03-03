@@ -38,8 +38,12 @@ type LookupChannelResult struct {
 	IngestEndpointUrls []string `pulumi:"ingestEndpointUrls"`
 	// <p>The list of ingest endpoints.</p>
 	IngestEndpoints []ChannelIngestEndpoint `pulumi:"ingestEndpoints"`
+	// The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.
+	InputSwitchConfiguration *ChannelInputSwitchConfiguration `pulumi:"inputSwitchConfiguration"`
 	// <p>The date and time the channel was modified.</p>
 	ModifiedAt *string `pulumi:"modifiedAt"`
+	// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
+	OutputHeaderConfiguration *ChannelOutputHeaderConfiguration `pulumi:"outputHeaderConfiguration"`
 	// The tags associated with the channel.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -100,9 +104,19 @@ func (o LookupChannelResultOutput) IngestEndpoints() ChannelIngestEndpointArrayO
 	return o.ApplyT(func(v LookupChannelResult) []ChannelIngestEndpoint { return v.IngestEndpoints }).(ChannelIngestEndpointArrayOutput)
 }
 
+// The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.
+func (o LookupChannelResultOutput) InputSwitchConfiguration() ChannelInputSwitchConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupChannelResult) *ChannelInputSwitchConfiguration { return v.InputSwitchConfiguration }).(ChannelInputSwitchConfigurationPtrOutput)
+}
+
 // <p>The date and time the channel was modified.</p>
 func (o LookupChannelResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
+func (o LookupChannelResultOutput) OutputHeaderConfiguration() ChannelOutputHeaderConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupChannelResult) *ChannelOutputHeaderConfiguration { return v.OutputHeaderConfiguration }).(ChannelOutputHeaderConfigurationPtrOutput)
 }
 
 // The tags associated with the channel.

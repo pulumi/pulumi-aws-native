@@ -11367,8 +11367,9 @@ type LaunchTemplateData struct {
 	// The monitoring for the instance.
 	Monitoring *LaunchTemplateMonitoring `pulumi:"monitoring"`
 	// The network interfaces for the instance.
-	NetworkInterfaces         []LaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
-	NetworkPerformanceOptions interface{}                      `pulumi:"networkPerformanceOptions"`
+	NetworkInterfaces []LaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
+	// The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) .
+	NetworkPerformanceOptions interface{} `pulumi:"networkPerformanceOptions"`
 	// The placement for the instance.
 	Placement *LaunchTemplatePlacement `pulumi:"placement"`
 	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
@@ -11477,8 +11478,9 @@ type LaunchTemplateDataArgs struct {
 	// The monitoring for the instance.
 	Monitoring LaunchTemplateMonitoringPtrInput `pulumi:"monitoring"`
 	// The network interfaces for the instance.
-	NetworkInterfaces         LaunchTemplateNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
-	NetworkPerformanceOptions pulumi.Input                             `pulumi:"networkPerformanceOptions"`
+	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
+	// The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) .
+	NetworkPerformanceOptions pulumi.Input `pulumi:"networkPerformanceOptions"`
 	// The placement for the instance.
 	Placement LaunchTemplatePlacementPtrInput `pulumi:"placement"`
 	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
@@ -11687,6 +11689,7 @@ func (o LaunchTemplateDataOutput) NetworkInterfaces() LaunchTemplateNetworkInter
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateNetworkInterface { return v.NetworkInterfaces }).(LaunchTemplateNetworkInterfaceArrayOutput)
 }
 
+// The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) .
 func (o LaunchTemplateDataOutput) NetworkPerformanceOptions() pulumi.AnyOutput {
 	return o.ApplyT(func(v LaunchTemplateData) interface{} { return v.NetworkPerformanceOptions }).(pulumi.AnyOutput)
 }
