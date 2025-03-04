@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'As2ConfigPropertiesArgs',
     'As2ConfigPropertiesArgsDict',
+    'CustomDirectoriesPropertiesArgs',
+    'CustomDirectoriesPropertiesArgsDict',
     'ServerEndpointDetailsArgs',
     'ServerEndpointDetailsArgsDict',
     'ServerIdentityProviderDetailsArgs',
@@ -282,6 +284,117 @@ class As2ConfigPropertiesArgs:
     @signing_algorithm.setter
     def signing_algorithm(self, value: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']]):
         pulumi.set(self, "signing_algorithm", value)
+
+
+if not MYPY:
+    class CustomDirectoriesPropertiesArgsDict(TypedDict):
+        """
+        Specifies a separate directory for each type of file to store for an AS2 message.
+        """
+        failed_files_directory: pulumi.Input[str]
+        """
+        Specifies a location to store the failed files for an AS2 message.
+        """
+        mdn_files_directory: pulumi.Input[str]
+        """
+        Specifies a location to store the MDN file for an AS2 message.
+        """
+        payload_files_directory: pulumi.Input[str]
+        """
+        Specifies a location to store the payload file for an AS2 message.
+        """
+        status_files_directory: pulumi.Input[str]
+        """
+        Specifies a location to store the status file for an AS2 message.
+        """
+        temporary_files_directory: pulumi.Input[str]
+        """
+        Specifies a location to store the temporary processing file for an AS2 message.
+        """
+elif False:
+    CustomDirectoriesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomDirectoriesPropertiesArgs:
+    def __init__(__self__, *,
+                 failed_files_directory: pulumi.Input[str],
+                 mdn_files_directory: pulumi.Input[str],
+                 payload_files_directory: pulumi.Input[str],
+                 status_files_directory: pulumi.Input[str],
+                 temporary_files_directory: pulumi.Input[str]):
+        """
+        Specifies a separate directory for each type of file to store for an AS2 message.
+        :param pulumi.Input[str] failed_files_directory: Specifies a location to store the failed files for an AS2 message.
+        :param pulumi.Input[str] mdn_files_directory: Specifies a location to store the MDN file for an AS2 message.
+        :param pulumi.Input[str] payload_files_directory: Specifies a location to store the payload file for an AS2 message.
+        :param pulumi.Input[str] status_files_directory: Specifies a location to store the status file for an AS2 message.
+        :param pulumi.Input[str] temporary_files_directory: Specifies a location to store the temporary processing file for an AS2 message.
+        """
+        pulumi.set(__self__, "failed_files_directory", failed_files_directory)
+        pulumi.set(__self__, "mdn_files_directory", mdn_files_directory)
+        pulumi.set(__self__, "payload_files_directory", payload_files_directory)
+        pulumi.set(__self__, "status_files_directory", status_files_directory)
+        pulumi.set(__self__, "temporary_files_directory", temporary_files_directory)
+
+    @property
+    @pulumi.getter(name="failedFilesDirectory")
+    def failed_files_directory(self) -> pulumi.Input[str]:
+        """
+        Specifies a location to store the failed files for an AS2 message.
+        """
+        return pulumi.get(self, "failed_files_directory")
+
+    @failed_files_directory.setter
+    def failed_files_directory(self, value: pulumi.Input[str]):
+        pulumi.set(self, "failed_files_directory", value)
+
+    @property
+    @pulumi.getter(name="mdnFilesDirectory")
+    def mdn_files_directory(self) -> pulumi.Input[str]:
+        """
+        Specifies a location to store the MDN file for an AS2 message.
+        """
+        return pulumi.get(self, "mdn_files_directory")
+
+    @mdn_files_directory.setter
+    def mdn_files_directory(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mdn_files_directory", value)
+
+    @property
+    @pulumi.getter(name="payloadFilesDirectory")
+    def payload_files_directory(self) -> pulumi.Input[str]:
+        """
+        Specifies a location to store the payload file for an AS2 message.
+        """
+        return pulumi.get(self, "payload_files_directory")
+
+    @payload_files_directory.setter
+    def payload_files_directory(self, value: pulumi.Input[str]):
+        pulumi.set(self, "payload_files_directory", value)
+
+    @property
+    @pulumi.getter(name="statusFilesDirectory")
+    def status_files_directory(self) -> pulumi.Input[str]:
+        """
+        Specifies a location to store the status file for an AS2 message.
+        """
+        return pulumi.get(self, "status_files_directory")
+
+    @status_files_directory.setter
+    def status_files_directory(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status_files_directory", value)
+
+    @property
+    @pulumi.getter(name="temporaryFilesDirectory")
+    def temporary_files_directory(self) -> pulumi.Input[str]:
+        """
+        Specifies a location to store the temporary processing file for an AS2 message.
+        """
+        return pulumi.get(self, "temporary_files_directory")
+
+    @temporary_files_directory.setter
+    def temporary_files_directory(self, value: pulumi.Input[str]):
+        pulumi.set(self, "temporary_files_directory", value)
 
 
 if not MYPY:

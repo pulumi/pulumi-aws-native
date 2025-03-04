@@ -29,6 +29,10 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.PromptVersionPromptInferenceConfigurationProperties? InferenceConfiguration;
         /// <summary>
+        /// An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PromptVersionPromptMetadataEntry> Metadata;
+        /// <summary>
         /// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         /// </summary>
         public readonly string? ModelId;
@@ -53,6 +57,8 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
             Outputs.PromptVersionPromptInferenceConfigurationProperties? inferenceConfiguration,
 
+            ImmutableArray<Outputs.PromptVersionPromptMetadataEntry> metadata,
+
             string? modelId,
 
             string name,
@@ -64,6 +70,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
             AdditionalModelRequestFields = additionalModelRequestFields;
             GenAiResource = genAiResource;
             InferenceConfiguration = inferenceConfiguration;
+            Metadata = metadata;
             ModelId = modelId;
             Name = name;
             TemplateConfiguration = templateConfiguration;

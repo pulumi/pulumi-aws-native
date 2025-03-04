@@ -16,6 +16,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ChannelInputSwitchConfigurationArgs',
+    'ChannelInputSwitchConfigurationArgsDict',
+    'ChannelOutputHeaderConfigurationArgs',
+    'ChannelOutputHeaderConfigurationArgsDict',
     'OriginEndpointDashManifestConfigurationArgs',
     'OriginEndpointDashManifestConfigurationArgsDict',
     'OriginEndpointDashUtcTimingArgs',
@@ -49,6 +53,78 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ChannelInputSwitchConfigurationArgsDict(TypedDict):
+        """
+        <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
+        """
+        mqcs_input_switching: NotRequired[pulumi.Input[bool]]
+        """
+        <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+        """
+elif False:
+    ChannelInputSwitchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ChannelInputSwitchConfigurationArgs:
+    def __init__(__self__, *,
+                 mqcs_input_switching: Optional[pulumi.Input[bool]] = None):
+        """
+        <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
+        :param pulumi.Input[bool] mqcs_input_switching: <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+        """
+        if mqcs_input_switching is not None:
+            pulumi.set(__self__, "mqcs_input_switching", mqcs_input_switching)
+
+    @property
+    @pulumi.getter(name="mqcsInputSwitching")
+    def mqcs_input_switching(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+        """
+        return pulumi.get(self, "mqcs_input_switching")
+
+    @mqcs_input_switching.setter
+    def mqcs_input_switching(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "mqcs_input_switching", value)
+
+
+if not MYPY:
+    class ChannelOutputHeaderConfigurationArgsDict(TypedDict):
+        """
+        <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
+        """
+        publish_mqcs: NotRequired[pulumi.Input[bool]]
+        """
+        <p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+        """
+elif False:
+    ChannelOutputHeaderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ChannelOutputHeaderConfigurationArgs:
+    def __init__(__self__, *,
+                 publish_mqcs: Optional[pulumi.Input[bool]] = None):
+        """
+        <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
+        :param pulumi.Input[bool] publish_mqcs: <p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+        """
+        if publish_mqcs is not None:
+            pulumi.set(__self__, "publish_mqcs", publish_mqcs)
+
+    @property
+    @pulumi.getter(name="publishMqcs")
+    def publish_mqcs(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+        """
+        return pulumi.get(self, "publish_mqcs")
+
+    @publish_mqcs.setter
+    def publish_mqcs(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "publish_mqcs", value)
+
 
 if not MYPY:
     class OriginEndpointDashManifestConfigurationArgsDict(TypedDict):

@@ -215,6 +215,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
             set => _networkInterfaces = value;
         }
 
+        /// <summary>
+        /// The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) .
+        /// </summary>
         [Input("networkPerformanceOptions")]
         public Input<object>? NetworkPerformanceOptions { get; set; }
 

@@ -22,6 +22,9 @@ class ClusterEncryptionInTransitClientBroker(str, Enum):
 
 
 class ClusterEnhancedMonitoring(str, Enum):
+    """
+    Specifies the level of monitoring for the MSK cluster.
+    """
     DEFAULT = "DEFAULT"
     PER_BROKER = "PER_BROKER"
     PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER"
@@ -29,6 +32,9 @@ class ClusterEnhancedMonitoring(str, Enum):
 
 
 class ClusterStorageMode(str, Enum):
+    """
+    This controls storage mode for supported storage tiers.
+    """
     LOCAL = "LOCAL"
     TIERED = "TIERED"
 

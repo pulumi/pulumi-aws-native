@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::PCAConnectorAD::Connector Resource Type
+ * Represents a Connector that connects AWS PrivateCA and your directory
  */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,7 +32,7 @@ export interface GetConnectorResult {
     readonly tags?: {[key: string]: string};
 }
 /**
- * Definition of AWS::PCAConnectorAD::Connector Resource Type
+ * Represents a Connector that connects AWS PrivateCA and your directory
  */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

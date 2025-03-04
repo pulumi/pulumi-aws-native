@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.Ecr.Outputs
 {
 
     /// <summary>
-    /// An array of objects representing the details of a replication destination.
+    /// An array of objects representing the replication destinations and repository filters for a replication configuration.
     /// </summary>
     [OutputType]
     public sealed class ReplicationConfigurationReplicationRule
     {
         /// <summary>
-        /// An array of objects representing the details of a replication destination.
+        /// An array of objects representing the destination for a replication rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.ReplicationConfigurationReplicationDestination> Destinations;
         /// <summary>
-        /// An array of objects representing the details of a repository filter.
+        /// An array of objects representing the filters for a replication rule. Specifying a repository filter for a replication rule provides a method for controlling which repositories in a private registry are replicated.
         /// </summary>
         public readonly ImmutableArray<Outputs.ReplicationConfigurationRepositoryFilter> RepositoryFilters;
 

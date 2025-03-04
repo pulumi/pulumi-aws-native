@@ -71,6 +71,286 @@ func (o ChannelIngestEndpointArrayOutput) Index(i pulumi.IntInput) ChannelIngest
 	}).(ChannelIngestEndpointOutput)
 }
 
+// <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
+type ChannelInputSwitchConfiguration struct {
+	// <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+	MqcsInputSwitching *bool `pulumi:"mqcsInputSwitching"`
+}
+
+// ChannelInputSwitchConfigurationInput is an input type that accepts ChannelInputSwitchConfigurationArgs and ChannelInputSwitchConfigurationOutput values.
+// You can construct a concrete instance of `ChannelInputSwitchConfigurationInput` via:
+//
+//	ChannelInputSwitchConfigurationArgs{...}
+type ChannelInputSwitchConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelInputSwitchConfigurationOutput() ChannelInputSwitchConfigurationOutput
+	ToChannelInputSwitchConfigurationOutputWithContext(context.Context) ChannelInputSwitchConfigurationOutput
+}
+
+// <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
+type ChannelInputSwitchConfigurationArgs struct {
+	// <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+	MqcsInputSwitching pulumi.BoolPtrInput `pulumi:"mqcsInputSwitching"`
+}
+
+func (ChannelInputSwitchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelInputSwitchConfiguration)(nil)).Elem()
+}
+
+func (i ChannelInputSwitchConfigurationArgs) ToChannelInputSwitchConfigurationOutput() ChannelInputSwitchConfigurationOutput {
+	return i.ToChannelInputSwitchConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelInputSwitchConfigurationArgs) ToChannelInputSwitchConfigurationOutputWithContext(ctx context.Context) ChannelInputSwitchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputSwitchConfigurationOutput)
+}
+
+func (i ChannelInputSwitchConfigurationArgs) ToChannelInputSwitchConfigurationPtrOutput() ChannelInputSwitchConfigurationPtrOutput {
+	return i.ToChannelInputSwitchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelInputSwitchConfigurationArgs) ToChannelInputSwitchConfigurationPtrOutputWithContext(ctx context.Context) ChannelInputSwitchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputSwitchConfigurationOutput).ToChannelInputSwitchConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelInputSwitchConfigurationPtrInput is an input type that accepts ChannelInputSwitchConfigurationArgs, ChannelInputSwitchConfigurationPtr and ChannelInputSwitchConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelInputSwitchConfigurationPtrInput` via:
+//
+//	        ChannelInputSwitchConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelInputSwitchConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelInputSwitchConfigurationPtrOutput() ChannelInputSwitchConfigurationPtrOutput
+	ToChannelInputSwitchConfigurationPtrOutputWithContext(context.Context) ChannelInputSwitchConfigurationPtrOutput
+}
+
+type channelInputSwitchConfigurationPtrType ChannelInputSwitchConfigurationArgs
+
+func ChannelInputSwitchConfigurationPtr(v *ChannelInputSwitchConfigurationArgs) ChannelInputSwitchConfigurationPtrInput {
+	return (*channelInputSwitchConfigurationPtrType)(v)
+}
+
+func (*channelInputSwitchConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelInputSwitchConfiguration)(nil)).Elem()
+}
+
+func (i *channelInputSwitchConfigurationPtrType) ToChannelInputSwitchConfigurationPtrOutput() ChannelInputSwitchConfigurationPtrOutput {
+	return i.ToChannelInputSwitchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelInputSwitchConfigurationPtrType) ToChannelInputSwitchConfigurationPtrOutputWithContext(ctx context.Context) ChannelInputSwitchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputSwitchConfigurationPtrOutput)
+}
+
+// <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
+type ChannelInputSwitchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelInputSwitchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelInputSwitchConfiguration)(nil)).Elem()
+}
+
+func (o ChannelInputSwitchConfigurationOutput) ToChannelInputSwitchConfigurationOutput() ChannelInputSwitchConfigurationOutput {
+	return o
+}
+
+func (o ChannelInputSwitchConfigurationOutput) ToChannelInputSwitchConfigurationOutputWithContext(ctx context.Context) ChannelInputSwitchConfigurationOutput {
+	return o
+}
+
+func (o ChannelInputSwitchConfigurationOutput) ToChannelInputSwitchConfigurationPtrOutput() ChannelInputSwitchConfigurationPtrOutput {
+	return o.ToChannelInputSwitchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelInputSwitchConfigurationOutput) ToChannelInputSwitchConfigurationPtrOutputWithContext(ctx context.Context) ChannelInputSwitchConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelInputSwitchConfiguration) *ChannelInputSwitchConfiguration {
+		return &v
+	}).(ChannelInputSwitchConfigurationPtrOutput)
+}
+
+// <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+func (o ChannelInputSwitchConfigurationOutput) MqcsInputSwitching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ChannelInputSwitchConfiguration) *bool { return v.MqcsInputSwitching }).(pulumi.BoolPtrOutput)
+}
+
+type ChannelInputSwitchConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelInputSwitchConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelInputSwitchConfiguration)(nil)).Elem()
+}
+
+func (o ChannelInputSwitchConfigurationPtrOutput) ToChannelInputSwitchConfigurationPtrOutput() ChannelInputSwitchConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelInputSwitchConfigurationPtrOutput) ToChannelInputSwitchConfigurationPtrOutputWithContext(ctx context.Context) ChannelInputSwitchConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelInputSwitchConfigurationPtrOutput) Elem() ChannelInputSwitchConfigurationOutput {
+	return o.ApplyT(func(v *ChannelInputSwitchConfiguration) ChannelInputSwitchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelInputSwitchConfiguration
+		return ret
+	}).(ChannelInputSwitchConfigurationOutput)
+}
+
+// <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+func (o ChannelInputSwitchConfigurationPtrOutput) MqcsInputSwitching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChannelInputSwitchConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MqcsInputSwitching
+	}).(pulumi.BoolPtrOutput)
+}
+
+// <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
+type ChannelOutputHeaderConfiguration struct {
+	// <p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+	PublishMqcs *bool `pulumi:"publishMqcs"`
+}
+
+// ChannelOutputHeaderConfigurationInput is an input type that accepts ChannelOutputHeaderConfigurationArgs and ChannelOutputHeaderConfigurationOutput values.
+// You can construct a concrete instance of `ChannelOutputHeaderConfigurationInput` via:
+//
+//	ChannelOutputHeaderConfigurationArgs{...}
+type ChannelOutputHeaderConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelOutputHeaderConfigurationOutput() ChannelOutputHeaderConfigurationOutput
+	ToChannelOutputHeaderConfigurationOutputWithContext(context.Context) ChannelOutputHeaderConfigurationOutput
+}
+
+// <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
+type ChannelOutputHeaderConfigurationArgs struct {
+	// <p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+	PublishMqcs pulumi.BoolPtrInput `pulumi:"publishMqcs"`
+}
+
+func (ChannelOutputHeaderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelOutputHeaderConfiguration)(nil)).Elem()
+}
+
+func (i ChannelOutputHeaderConfigurationArgs) ToChannelOutputHeaderConfigurationOutput() ChannelOutputHeaderConfigurationOutput {
+	return i.ToChannelOutputHeaderConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelOutputHeaderConfigurationArgs) ToChannelOutputHeaderConfigurationOutputWithContext(ctx context.Context) ChannelOutputHeaderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputHeaderConfigurationOutput)
+}
+
+func (i ChannelOutputHeaderConfigurationArgs) ToChannelOutputHeaderConfigurationPtrOutput() ChannelOutputHeaderConfigurationPtrOutput {
+	return i.ToChannelOutputHeaderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelOutputHeaderConfigurationArgs) ToChannelOutputHeaderConfigurationPtrOutputWithContext(ctx context.Context) ChannelOutputHeaderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputHeaderConfigurationOutput).ToChannelOutputHeaderConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelOutputHeaderConfigurationPtrInput is an input type that accepts ChannelOutputHeaderConfigurationArgs, ChannelOutputHeaderConfigurationPtr and ChannelOutputHeaderConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelOutputHeaderConfigurationPtrInput` via:
+//
+//	        ChannelOutputHeaderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelOutputHeaderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelOutputHeaderConfigurationPtrOutput() ChannelOutputHeaderConfigurationPtrOutput
+	ToChannelOutputHeaderConfigurationPtrOutputWithContext(context.Context) ChannelOutputHeaderConfigurationPtrOutput
+}
+
+type channelOutputHeaderConfigurationPtrType ChannelOutputHeaderConfigurationArgs
+
+func ChannelOutputHeaderConfigurationPtr(v *ChannelOutputHeaderConfigurationArgs) ChannelOutputHeaderConfigurationPtrInput {
+	return (*channelOutputHeaderConfigurationPtrType)(v)
+}
+
+func (*channelOutputHeaderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelOutputHeaderConfiguration)(nil)).Elem()
+}
+
+func (i *channelOutputHeaderConfigurationPtrType) ToChannelOutputHeaderConfigurationPtrOutput() ChannelOutputHeaderConfigurationPtrOutput {
+	return i.ToChannelOutputHeaderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelOutputHeaderConfigurationPtrType) ToChannelOutputHeaderConfigurationPtrOutputWithContext(ctx context.Context) ChannelOutputHeaderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputHeaderConfigurationPtrOutput)
+}
+
+// <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
+type ChannelOutputHeaderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelOutputHeaderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelOutputHeaderConfiguration)(nil)).Elem()
+}
+
+func (o ChannelOutputHeaderConfigurationOutput) ToChannelOutputHeaderConfigurationOutput() ChannelOutputHeaderConfigurationOutput {
+	return o
+}
+
+func (o ChannelOutputHeaderConfigurationOutput) ToChannelOutputHeaderConfigurationOutputWithContext(ctx context.Context) ChannelOutputHeaderConfigurationOutput {
+	return o
+}
+
+func (o ChannelOutputHeaderConfigurationOutput) ToChannelOutputHeaderConfigurationPtrOutput() ChannelOutputHeaderConfigurationPtrOutput {
+	return o.ToChannelOutputHeaderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelOutputHeaderConfigurationOutput) ToChannelOutputHeaderConfigurationPtrOutputWithContext(ctx context.Context) ChannelOutputHeaderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelOutputHeaderConfiguration) *ChannelOutputHeaderConfiguration {
+		return &v
+	}).(ChannelOutputHeaderConfigurationPtrOutput)
+}
+
+// <p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+func (o ChannelOutputHeaderConfigurationOutput) PublishMqcs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ChannelOutputHeaderConfiguration) *bool { return v.PublishMqcs }).(pulumi.BoolPtrOutput)
+}
+
+type ChannelOutputHeaderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelOutputHeaderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelOutputHeaderConfiguration)(nil)).Elem()
+}
+
+func (o ChannelOutputHeaderConfigurationPtrOutput) ToChannelOutputHeaderConfigurationPtrOutput() ChannelOutputHeaderConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelOutputHeaderConfigurationPtrOutput) ToChannelOutputHeaderConfigurationPtrOutputWithContext(ctx context.Context) ChannelOutputHeaderConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelOutputHeaderConfigurationPtrOutput) Elem() ChannelOutputHeaderConfigurationOutput {
+	return o.ApplyT(func(v *ChannelOutputHeaderConfiguration) ChannelOutputHeaderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelOutputHeaderConfiguration
+		return ret
+	}).(ChannelOutputHeaderConfigurationOutput)
+}
+
+// <p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+func (o ChannelOutputHeaderConfigurationPtrOutput) PublishMqcs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChannelOutputHeaderConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PublishMqcs
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ChannelTag struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
@@ -2910,6 +3190,10 @@ type OriginEndpointTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputSwitchConfigurationInput)(nil)).Elem(), ChannelInputSwitchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputSwitchConfigurationPtrInput)(nil)).Elem(), ChannelInputSwitchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputHeaderConfigurationInput)(nil)).Elem(), ChannelOutputHeaderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputHeaderConfigurationPtrInput)(nil)).Elem(), ChannelOutputHeaderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashManifestConfigurationInput)(nil)).Elem(), OriginEndpointDashManifestConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashManifestConfigurationArrayInput)(nil)).Elem(), OriginEndpointDashManifestConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashUtcTimingInput)(nil)).Elem(), OriginEndpointDashUtcTimingArgs{})
@@ -2942,6 +3226,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointStartTagPtrInput)(nil)).Elem(), OriginEndpointStartTagArgs{})
 	pulumi.RegisterOutputType(ChannelIngestEndpointOutput{})
 	pulumi.RegisterOutputType(ChannelIngestEndpointArrayOutput{})
+	pulumi.RegisterOutputType(ChannelInputSwitchConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelInputSwitchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelOutputHeaderConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelOutputHeaderConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashManifestConfigurationOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashManifestConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashUtcTimingOutput{})

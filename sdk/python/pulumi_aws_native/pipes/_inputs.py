@@ -3893,7 +3893,11 @@ if not MYPY:
         """
         timestamp: NotRequired[pulumi.Input[str]]
         """
-        The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+        A [dynamic path parameter](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) to a field in the payload containing the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+
+        The value cannot be a static timestamp as the provided timestamp would be applied to all events delivered by the Pipe, regardless of when they are actually delivered.
+
+        If no dynamic path parameter is provided, the default value is the time the invocation is processed by the Pipe.
         """
 elif False:
     PipeTargetCloudWatchLogsParametersArgsDict: TypeAlias = Mapping[str, Any]
@@ -3905,7 +3909,11 @@ class PipeTargetCloudWatchLogsParametersArgs:
                  timestamp: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] log_stream_name: The name of the log stream.
-        :param pulumi.Input[str] timestamp: The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+        :param pulumi.Input[str] timestamp: A [dynamic path parameter](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) to a field in the payload containing the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+               
+               The value cannot be a static timestamp as the provided timestamp would be applied to all events delivered by the Pipe, regardless of when they are actually delivered.
+               
+               If no dynamic path parameter is provided, the default value is the time the invocation is processed by the Pipe.
         """
         if log_stream_name is not None:
             pulumi.set(__self__, "log_stream_name", log_stream_name)
@@ -3928,7 +3936,11 @@ class PipeTargetCloudWatchLogsParametersArgs:
     @pulumi.getter
     def timestamp(self) -> Optional[pulumi.Input[str]]:
         """
-        The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+        A [dynamic path parameter](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) to a field in the payload containing the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+
+        The value cannot be a static timestamp as the provided timestamp would be applied to all events delivered by the Pipe, regardless of when they are actually delivered.
+
+        If no dynamic path parameter is provided, the default value is the time the invocation is processed by the Pipe.
         """
         return pulumi.get(self, "timestamp")
 

@@ -1680,6 +1680,251 @@ func (o ComputeEnvironmentUpdatePolicyPtrOutput) TerminateJobsOnUpdate() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+type JobDefinitionConsumableResourceProperties struct {
+	// The list of consumable resources required by a job.
+	ConsumableResourceList []JobDefinitionConsumableResourceRequirement `pulumi:"consumableResourceList"`
+}
+
+// JobDefinitionConsumableResourcePropertiesInput is an input type that accepts JobDefinitionConsumableResourcePropertiesArgs and JobDefinitionConsumableResourcePropertiesOutput values.
+// You can construct a concrete instance of `JobDefinitionConsumableResourcePropertiesInput` via:
+//
+//	JobDefinitionConsumableResourcePropertiesArgs{...}
+type JobDefinitionConsumableResourcePropertiesInput interface {
+	pulumi.Input
+
+	ToJobDefinitionConsumableResourcePropertiesOutput() JobDefinitionConsumableResourcePropertiesOutput
+	ToJobDefinitionConsumableResourcePropertiesOutputWithContext(context.Context) JobDefinitionConsumableResourcePropertiesOutput
+}
+
+type JobDefinitionConsumableResourcePropertiesArgs struct {
+	// The list of consumable resources required by a job.
+	ConsumableResourceList JobDefinitionConsumableResourceRequirementArrayInput `pulumi:"consumableResourceList"`
+}
+
+func (JobDefinitionConsumableResourcePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionConsumableResourceProperties)(nil)).Elem()
+}
+
+func (i JobDefinitionConsumableResourcePropertiesArgs) ToJobDefinitionConsumableResourcePropertiesOutput() JobDefinitionConsumableResourcePropertiesOutput {
+	return i.ToJobDefinitionConsumableResourcePropertiesOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionConsumableResourcePropertiesArgs) ToJobDefinitionConsumableResourcePropertiesOutputWithContext(ctx context.Context) JobDefinitionConsumableResourcePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionConsumableResourcePropertiesOutput)
+}
+
+func (i JobDefinitionConsumableResourcePropertiesArgs) ToJobDefinitionConsumableResourcePropertiesPtrOutput() JobDefinitionConsumableResourcePropertiesPtrOutput {
+	return i.ToJobDefinitionConsumableResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionConsumableResourcePropertiesArgs) ToJobDefinitionConsumableResourcePropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionConsumableResourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionConsumableResourcePropertiesOutput).ToJobDefinitionConsumableResourcePropertiesPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionConsumableResourcePropertiesPtrInput is an input type that accepts JobDefinitionConsumableResourcePropertiesArgs, JobDefinitionConsumableResourcePropertiesPtr and JobDefinitionConsumableResourcePropertiesPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionConsumableResourcePropertiesPtrInput` via:
+//
+//	        JobDefinitionConsumableResourcePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionConsumableResourcePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionConsumableResourcePropertiesPtrOutput() JobDefinitionConsumableResourcePropertiesPtrOutput
+	ToJobDefinitionConsumableResourcePropertiesPtrOutputWithContext(context.Context) JobDefinitionConsumableResourcePropertiesPtrOutput
+}
+
+type jobDefinitionConsumableResourcePropertiesPtrType JobDefinitionConsumableResourcePropertiesArgs
+
+func JobDefinitionConsumableResourcePropertiesPtr(v *JobDefinitionConsumableResourcePropertiesArgs) JobDefinitionConsumableResourcePropertiesPtrInput {
+	return (*jobDefinitionConsumableResourcePropertiesPtrType)(v)
+}
+
+func (*jobDefinitionConsumableResourcePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionConsumableResourceProperties)(nil)).Elem()
+}
+
+func (i *jobDefinitionConsumableResourcePropertiesPtrType) ToJobDefinitionConsumableResourcePropertiesPtrOutput() JobDefinitionConsumableResourcePropertiesPtrOutput {
+	return i.ToJobDefinitionConsumableResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionConsumableResourcePropertiesPtrType) ToJobDefinitionConsumableResourcePropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionConsumableResourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionConsumableResourcePropertiesPtrOutput)
+}
+
+type JobDefinitionConsumableResourcePropertiesOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionConsumableResourcePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionConsumableResourceProperties)(nil)).Elem()
+}
+
+func (o JobDefinitionConsumableResourcePropertiesOutput) ToJobDefinitionConsumableResourcePropertiesOutput() JobDefinitionConsumableResourcePropertiesOutput {
+	return o
+}
+
+func (o JobDefinitionConsumableResourcePropertiesOutput) ToJobDefinitionConsumableResourcePropertiesOutputWithContext(ctx context.Context) JobDefinitionConsumableResourcePropertiesOutput {
+	return o
+}
+
+func (o JobDefinitionConsumableResourcePropertiesOutput) ToJobDefinitionConsumableResourcePropertiesPtrOutput() JobDefinitionConsumableResourcePropertiesPtrOutput {
+	return o.ToJobDefinitionConsumableResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionConsumableResourcePropertiesOutput) ToJobDefinitionConsumableResourcePropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionConsumableResourcePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionConsumableResourceProperties) *JobDefinitionConsumableResourceProperties {
+		return &v
+	}).(JobDefinitionConsumableResourcePropertiesPtrOutput)
+}
+
+// The list of consumable resources required by a job.
+func (o JobDefinitionConsumableResourcePropertiesOutput) ConsumableResourceList() JobDefinitionConsumableResourceRequirementArrayOutput {
+	return o.ApplyT(func(v JobDefinitionConsumableResourceProperties) []JobDefinitionConsumableResourceRequirement {
+		return v.ConsumableResourceList
+	}).(JobDefinitionConsumableResourceRequirementArrayOutput)
+}
+
+type JobDefinitionConsumableResourcePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionConsumableResourcePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionConsumableResourceProperties)(nil)).Elem()
+}
+
+func (o JobDefinitionConsumableResourcePropertiesPtrOutput) ToJobDefinitionConsumableResourcePropertiesPtrOutput() JobDefinitionConsumableResourcePropertiesPtrOutput {
+	return o
+}
+
+func (o JobDefinitionConsumableResourcePropertiesPtrOutput) ToJobDefinitionConsumableResourcePropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionConsumableResourcePropertiesPtrOutput {
+	return o
+}
+
+func (o JobDefinitionConsumableResourcePropertiesPtrOutput) Elem() JobDefinitionConsumableResourcePropertiesOutput {
+	return o.ApplyT(func(v *JobDefinitionConsumableResourceProperties) JobDefinitionConsumableResourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionConsumableResourceProperties
+		return ret
+	}).(JobDefinitionConsumableResourcePropertiesOutput)
+}
+
+// The list of consumable resources required by a job.
+func (o JobDefinitionConsumableResourcePropertiesPtrOutput) ConsumableResourceList() JobDefinitionConsumableResourceRequirementArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionConsumableResourceProperties) []JobDefinitionConsumableResourceRequirement {
+		if v == nil {
+			return nil
+		}
+		return v.ConsumableResourceList
+	}).(JobDefinitionConsumableResourceRequirementArrayOutput)
+}
+
+type JobDefinitionConsumableResourceRequirement struct {
+	// The ARN of the consumable resource the job definition should consume.
+	ConsumableResource string `pulumi:"consumableResource"`
+	// The quantity of the consumable resource that is needed.
+	Quantity int `pulumi:"quantity"`
+}
+
+// JobDefinitionConsumableResourceRequirementInput is an input type that accepts JobDefinitionConsumableResourceRequirementArgs and JobDefinitionConsumableResourceRequirementOutput values.
+// You can construct a concrete instance of `JobDefinitionConsumableResourceRequirementInput` via:
+//
+//	JobDefinitionConsumableResourceRequirementArgs{...}
+type JobDefinitionConsumableResourceRequirementInput interface {
+	pulumi.Input
+
+	ToJobDefinitionConsumableResourceRequirementOutput() JobDefinitionConsumableResourceRequirementOutput
+	ToJobDefinitionConsumableResourceRequirementOutputWithContext(context.Context) JobDefinitionConsumableResourceRequirementOutput
+}
+
+type JobDefinitionConsumableResourceRequirementArgs struct {
+	// The ARN of the consumable resource the job definition should consume.
+	ConsumableResource pulumi.StringInput `pulumi:"consumableResource"`
+	// The quantity of the consumable resource that is needed.
+	Quantity pulumi.IntInput `pulumi:"quantity"`
+}
+
+func (JobDefinitionConsumableResourceRequirementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionConsumableResourceRequirement)(nil)).Elem()
+}
+
+func (i JobDefinitionConsumableResourceRequirementArgs) ToJobDefinitionConsumableResourceRequirementOutput() JobDefinitionConsumableResourceRequirementOutput {
+	return i.ToJobDefinitionConsumableResourceRequirementOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionConsumableResourceRequirementArgs) ToJobDefinitionConsumableResourceRequirementOutputWithContext(ctx context.Context) JobDefinitionConsumableResourceRequirementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionConsumableResourceRequirementOutput)
+}
+
+// JobDefinitionConsumableResourceRequirementArrayInput is an input type that accepts JobDefinitionConsumableResourceRequirementArray and JobDefinitionConsumableResourceRequirementArrayOutput values.
+// You can construct a concrete instance of `JobDefinitionConsumableResourceRequirementArrayInput` via:
+//
+//	JobDefinitionConsumableResourceRequirementArray{ JobDefinitionConsumableResourceRequirementArgs{...} }
+type JobDefinitionConsumableResourceRequirementArrayInput interface {
+	pulumi.Input
+
+	ToJobDefinitionConsumableResourceRequirementArrayOutput() JobDefinitionConsumableResourceRequirementArrayOutput
+	ToJobDefinitionConsumableResourceRequirementArrayOutputWithContext(context.Context) JobDefinitionConsumableResourceRequirementArrayOutput
+}
+
+type JobDefinitionConsumableResourceRequirementArray []JobDefinitionConsumableResourceRequirementInput
+
+func (JobDefinitionConsumableResourceRequirementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionConsumableResourceRequirement)(nil)).Elem()
+}
+
+func (i JobDefinitionConsumableResourceRequirementArray) ToJobDefinitionConsumableResourceRequirementArrayOutput() JobDefinitionConsumableResourceRequirementArrayOutput {
+	return i.ToJobDefinitionConsumableResourceRequirementArrayOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionConsumableResourceRequirementArray) ToJobDefinitionConsumableResourceRequirementArrayOutputWithContext(ctx context.Context) JobDefinitionConsumableResourceRequirementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionConsumableResourceRequirementArrayOutput)
+}
+
+type JobDefinitionConsumableResourceRequirementOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionConsumableResourceRequirementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionConsumableResourceRequirement)(nil)).Elem()
+}
+
+func (o JobDefinitionConsumableResourceRequirementOutput) ToJobDefinitionConsumableResourceRequirementOutput() JobDefinitionConsumableResourceRequirementOutput {
+	return o
+}
+
+func (o JobDefinitionConsumableResourceRequirementOutput) ToJobDefinitionConsumableResourceRequirementOutputWithContext(ctx context.Context) JobDefinitionConsumableResourceRequirementOutput {
+	return o
+}
+
+// The ARN of the consumable resource the job definition should consume.
+func (o JobDefinitionConsumableResourceRequirementOutput) ConsumableResource() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionConsumableResourceRequirement) string { return v.ConsumableResource }).(pulumi.StringOutput)
+}
+
+// The quantity of the consumable resource that is needed.
+func (o JobDefinitionConsumableResourceRequirementOutput) Quantity() pulumi.IntOutput {
+	return o.ApplyT(func(v JobDefinitionConsumableResourceRequirement) int { return v.Quantity }).(pulumi.IntOutput)
+}
+
+type JobDefinitionConsumableResourceRequirementArrayOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionConsumableResourceRequirementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionConsumableResourceRequirement)(nil)).Elem()
+}
+
+func (o JobDefinitionConsumableResourceRequirementArrayOutput) ToJobDefinitionConsumableResourceRequirementArrayOutput() JobDefinitionConsumableResourceRequirementArrayOutput {
+	return o
+}
+
+func (o JobDefinitionConsumableResourceRequirementArrayOutput) ToJobDefinitionConsumableResourceRequirementArrayOutputWithContext(ctx context.Context) JobDefinitionConsumableResourceRequirementArrayOutput {
+	return o
+}
+
+func (o JobDefinitionConsumableResourceRequirementArrayOutput) Index(i pulumi.IntInput) JobDefinitionConsumableResourceRequirementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionConsumableResourceRequirement {
+		return vs[0].([]JobDefinitionConsumableResourceRequirement)[vs[1].(int)]
+	}).(JobDefinitionConsumableResourceRequirementOutput)
+}
+
 type JobDefinitionContainerProperties struct {
 	// The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
 	Command []string `pulumi:"command"`
@@ -8352,6 +8597,8 @@ func (o JobDefinitionNodePropertiesPtrOutput) NumNodes() pulumi.IntPtrOutput {
 }
 
 type JobDefinitionNodeRangeProperty struct {
+	// Contains a list of consumable resources required by a job.
+	ConsumableResourceProperties *JobDefinitionConsumableResourceProperties `pulumi:"consumableResourceProperties"`
 	// The container details for the node range.
 	Container *JobDefinitionMultiNodeContainerProperties `pulumi:"container"`
 	// This is an object that represents the properties of the node range for a multi-node parallel job.
@@ -8380,6 +8627,8 @@ type JobDefinitionNodeRangePropertyInput interface {
 }
 
 type JobDefinitionNodeRangePropertyArgs struct {
+	// Contains a list of consumable resources required by a job.
+	ConsumableResourceProperties JobDefinitionConsumableResourcePropertiesPtrInput `pulumi:"consumableResourceProperties"`
 	// The container details for the node range.
 	Container JobDefinitionMultiNodeContainerPropertiesPtrInput `pulumi:"container"`
 	// This is an object that represents the properties of the node range for a multi-node parallel job.
@@ -8445,6 +8694,13 @@ func (o JobDefinitionNodeRangePropertyOutput) ToJobDefinitionNodeRangePropertyOu
 
 func (o JobDefinitionNodeRangePropertyOutput) ToJobDefinitionNodeRangePropertyOutputWithContext(ctx context.Context) JobDefinitionNodeRangePropertyOutput {
 	return o
+}
+
+// Contains a list of consumable resources required by a job.
+func (o JobDefinitionNodeRangePropertyOutput) ConsumableResourceProperties() JobDefinitionConsumableResourcePropertiesPtrOutput {
+	return o.ApplyT(func(v JobDefinitionNodeRangeProperty) *JobDefinitionConsumableResourceProperties {
+		return v.ConsumableResourceProperties
+	}).(JobDefinitionConsumableResourcePropertiesPtrOutput)
 }
 
 // The container details for the node range.
@@ -10703,6 +10959,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentUpdatePolicyInput)(nil)).Elem(), ComputeEnvironmentUpdatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentUpdatePolicyPtrInput)(nil)).Elem(), ComputeEnvironmentUpdatePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionConsumableResourcePropertiesInput)(nil)).Elem(), JobDefinitionConsumableResourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionConsumableResourcePropertiesPtrInput)(nil)).Elem(), JobDefinitionConsumableResourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionConsumableResourceRequirementInput)(nil)).Elem(), JobDefinitionConsumableResourceRequirementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionConsumableResourceRequirementArrayInput)(nil)).Elem(), JobDefinitionConsumableResourceRequirementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionContainerPropertiesInput)(nil)).Elem(), JobDefinitionContainerPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionContainerPropertiesPtrInput)(nil)).Elem(), JobDefinitionContainerPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesInput)(nil)).Elem(), JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs{})
@@ -10813,6 +11073,10 @@ func init() {
 	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentUpdatePolicyOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentUpdatePolicyPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionConsumableResourcePropertiesOutput{})
+	pulumi.RegisterOutputType(JobDefinitionConsumableResourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionConsumableResourceRequirementOutput{})
+	pulumi.RegisterOutputType(JobDefinitionConsumableResourceRequirementArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionContainerPropertiesOutput{})
 	pulumi.RegisterOutputType(JobDefinitionContainerPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput{})

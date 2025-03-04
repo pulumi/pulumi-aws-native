@@ -30,7 +30,13 @@ if not MYPY:
         Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
         """
         instance_arn: pulumi.Input[str]
+        """
+        The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        """
         application_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
+        """
         application_description: NotRequired[pulumi.Input[str]]
         """
         The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
@@ -40,7 +46,13 @@ if not MYPY:
         The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
         """
         group_attribute: NotRequired[pulumi.Input[str]]
+        """
+        The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
+        """
         user_attribute: NotRequired[pulumi.Input[str]]
+        """
+        The user attribute for this IAM Identity Center integration. Defaults to `UserId`
+        """
 elif False:
     SecurityConfigIamIdentityCenterConfigOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -55,8 +67,12 @@ class SecurityConfigIamIdentityCenterConfigOptionsArgs:
                  user_attribute: Optional[pulumi.Input[str]] = None):
         """
         Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
+        :param pulumi.Input[str] instance_arn: The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        :param pulumi.Input[str] application_arn: The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
         :param pulumi.Input[str] application_description: The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
         :param pulumi.Input[str] application_name: The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
+        :param pulumi.Input[str] group_attribute: The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
+        :param pulumi.Input[str] user_attribute: The user attribute for this IAM Identity Center integration. Defaults to `UserId`
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         if application_arn is not None:
@@ -73,6 +89,9 @@ class SecurityConfigIamIdentityCenterConfigOptionsArgs:
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
@@ -82,6 +101,9 @@ class SecurityConfigIamIdentityCenterConfigOptionsArgs:
     @property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
+        """
         return pulumi.get(self, "application_arn")
 
     @application_arn.setter
@@ -115,6 +137,9 @@ class SecurityConfigIamIdentityCenterConfigOptionsArgs:
     @property
     @pulumi.getter(name="groupAttribute")
     def group_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
+        """
         return pulumi.get(self, "group_attribute")
 
     @group_attribute.setter
@@ -124,6 +149,9 @@ class SecurityConfigIamIdentityCenterConfigOptionsArgs:
     @property
     @pulumi.getter(name="userAttribute")
     def user_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user attribute for this IAM Identity Center integration. Defaults to `UserId`
+        """
         return pulumi.get(self, "user_attribute")
 
     @user_attribute.setter

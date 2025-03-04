@@ -3415,8 +3415,6 @@ func (o GatewayGreengrassV2PtrOutput) CoreDeviceThingName() pulumi.StringPtrOutp
 
 // Contains a gateway's platform information.
 type GatewayPlatform struct {
-	// A gateway that runs on AWS IoT Greengrass V1.
-	Greengrass interface{} `pulumi:"greengrass"`
 	// A gateway that runs on AWS IoT Greengrass V2.
 	GreengrassV2 *GatewayGreengrassV2 `pulumi:"greengrassV2"`
 	// A gateway that runs on Siemens Industrial Edge.
@@ -3436,8 +3434,6 @@ type GatewayPlatformInput interface {
 
 // Contains a gateway's platform information.
 type GatewayPlatformArgs struct {
-	// A gateway that runs on AWS IoT Greengrass V1.
-	Greengrass pulumi.Input `pulumi:"greengrass"`
 	// A gateway that runs on AWS IoT Greengrass V2.
 	GreengrassV2 GatewayGreengrassV2PtrInput `pulumi:"greengrassV2"`
 	// A gateway that runs on Siemens Industrial Edge.
@@ -3469,11 +3465,6 @@ func (o GatewayPlatformOutput) ToGatewayPlatformOutput() GatewayPlatformOutput {
 
 func (o GatewayPlatformOutput) ToGatewayPlatformOutputWithContext(ctx context.Context) GatewayPlatformOutput {
 	return o
-}
-
-// A gateway that runs on AWS IoT Greengrass V1.
-func (o GatewayPlatformOutput) Greengrass() pulumi.AnyOutput {
-	return o.ApplyT(func(v GatewayPlatform) interface{} { return v.Greengrass }).(pulumi.AnyOutput)
 }
 
 // A gateway that runs on AWS IoT Greengrass V2.

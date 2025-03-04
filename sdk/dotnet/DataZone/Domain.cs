@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.DataZone
         public Output<string> DomainExecutionRole { get; private set; } = null!;
 
         /// <summary>
+        /// The version of the domain.
+        /// </summary>
+        [Output("domainVersion")]
+        public Output<Pulumi.AwsNative.DataZone.DomainVersion?> DomainVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
         /// </summary>
         [Output("kmsKeyIdentifier")]
@@ -74,6 +80,12 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         [Output("portalUrl")]
         public Output<string> PortalUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// The service role of the domain that is created.
+        /// </summary>
+        [Output("serviceRole")]
+        public Output<string?> ServiceRole { get; private set; } = null!;
 
         /// <summary>
         /// The single-sign on configuration of the Amazon DataZone domain.
@@ -118,6 +130,7 @@ namespace Pulumi.AwsNative.DataZone
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "domainVersion",
                     "kmsKeyIdentifier",
                 },
             };
@@ -155,6 +168,12 @@ namespace Pulumi.AwsNative.DataZone
         public Input<string> DomainExecutionRole { get; set; } = null!;
 
         /// <summary>
+        /// The version of the domain.
+        /// </summary>
+        [Input("domainVersion")]
+        public Input<Pulumi.AwsNative.DataZone.DomainVersion>? DomainVersion { get; set; }
+
+        /// <summary>
         /// The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
         /// </summary>
         [Input("kmsKeyIdentifier")]
@@ -165,6 +184,12 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The service role of the domain that is created.
+        /// </summary>
+        [Input("serviceRole")]
+        public Input<string>? ServiceRole { get; set; }
 
         /// <summary>
         /// The single-sign on configuration of the Amazon DataZone domain.
