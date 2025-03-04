@@ -1,4 +1,18 @@
 {
+  "tagging" : {
+    "permissions" : [ "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ],
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "tagProperty" : "/properties/Tags",
+    "cloudFormationSystemTags" : false
+  },
+  "typeName" : "AWS::QuickSight::Dashboard",
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime", "/properties/LastPublishedTime", "/properties/LastUpdatedTime", "/properties/Version" ],
+  "description" : "Definition of the AWS::QuickSight::Dashboard Resource Type.",
+  "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/DashboardId" ],
+  "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/DashboardId" ],
+  "required" : [ "AwsAccountId", "DashboardId", "Name" ],
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-quicksight",
   "handlers" : {
     "read" : {
@@ -25,13 +39,8 @@
       "permissions" : [ "quicksight:DescribeDashboard", "quicksight:DeleteDashboard" ]
     }
   },
-  "typeName" : "AWS::QuickSight::Dashboard",
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime", "/properties/LastPublishedTime", "/properties/LastUpdatedTime", "/properties/Version" ],
-  "description" : "Definition of the AWS::QuickSight::Dashboard Resource Type.",
   "writeOnlyProperties" : [ "/properties/DashboardPublishOptions", "/properties/Definition", "/properties/LinkSharingConfiguration", "/properties/Parameters", "/properties/SourceEntity", "/properties/ThemeArn", "/properties/VersionDescription", "/properties/ValidationStrategy", "/properties/FolderArns" ],
-  "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/DashboardId" ],
   "additionalProperties" : false,
-  "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/DashboardId" ],
   "definitions" : {
     "PivotTotalOptions" : {
       "additionalProperties" : false,
@@ -111,7 +120,9 @@
         "Tooltip" : {
           "$ref" : "#/definitions/TooltipOptions"
         },
-        "Interactions" : { },
+        "Interactions" : {
+          "$ref" : "#/definitions/VisualInteractionOptions"
+        },
         "WindowOptions" : {
           "$ref" : "#/definitions/GeospatialWindowOptions"
         },
@@ -2250,7 +2261,9 @@
         "VisualPublishOptions" : {
           "$ref" : "#/definitions/DashboardVisualPublishOptions"
         },
-        "VisualMenuOption" : { },
+        "VisualMenuOption" : {
+          "$ref" : "#/definitions/VisualMenuOption"
+        },
         "DataPointTooltipOption" : {
           "$ref" : "#/definitions/DataPointTooltipOption"
         },
@@ -4596,7 +4609,9 @@
         "MapStyle" : {
           "$ref" : "#/definitions/GeospatialMapStyle"
         },
-        "Interactions" : { },
+        "Interactions" : {
+          "$ref" : "#/definitions/VisualInteractionOptions"
+        },
         "MapLayers" : {
           "type" : "array",
           "items" : {
@@ -5724,7 +5739,7 @@
     },
     "NumberScale" : {
       "type" : "string",
-      "enum" : [ "NONE", "AUTO", "THOUSANDS", "MILLIONS", "BILLIONS", "TRILLIONS" ]
+      "enum" : [ "NONE", "AUTO", "THOUSANDS", "MILLIONS", "BILLIONS", "TRILLIONS", "LAKHS", "CRORES" ]
     },
     "BoxPlotSortConfiguration" : {
       "additionalProperties" : false,
@@ -6268,14 +6283,6 @@
           "description" : "<p>The unique identifier associated with a sheet.</p>",
           "type" : "string",
           "maxLength" : 512
-        },
-        "Images" : {
-          "minItems" : 0,
-          "maxItems" : 10,
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/SheetImage"
-          }
         },
         "Name" : {
           "minLength" : 1,
@@ -11623,6 +11630,16 @@
         }
       }
     },
+    "VisualInteractionOptions" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ContextMenuOption" : { },
+        "VisualMenuOption" : {
+          "$ref" : "#/definitions/VisualMenuOption"
+        }
+      }
+    },
     "PivotTableFieldWells" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -11633,7 +11650,6 @@
       }
     }
   },
-  "required" : [ "AwsAccountId", "DashboardId", "Name" ],
   "properties" : {
     "CreatedTime" : {
       "format" : "date-time",

@@ -138,7 +138,7 @@
           "items" : {
             "$ref" : "#/definitions/FlowNode"
           },
-          "maxItems" : 20,
+          "maxItems" : 40,
           "description" : "List of nodes in a flow",
           "insertionOrder" : true
         },
@@ -147,7 +147,7 @@
           "items" : {
             "$ref" : "#/definitions/FlowConnection"
           },
-          "maxItems" : 20,
+          "maxItems" : 100,
           "description" : "List of connections",
           "insertionOrder" : true
         }
@@ -704,7 +704,7 @@
           "items" : {
             "$ref" : "#/definitions/PromptInputVariable"
           },
-          "maxItems" : 5,
+          "maxItems" : 20,
           "minItems" : 0,
           "description" : "List of input variables",
           "insertionOrder" : true
