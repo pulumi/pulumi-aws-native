@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Outputs
     [OutputType]
     public sealed class SecurityConfigIamIdentityCenterConfigOptions
     {
+        /// <summary>
+        /// The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
+        /// </summary>
         public readonly string? ApplicationArn;
         /// <summary>
         /// The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
@@ -25,8 +28,17 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Outputs
         /// The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
         /// </summary>
         public readonly string? ApplicationName;
+        /// <summary>
+        /// The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
+        /// </summary>
         public readonly string? GroupAttribute;
+        /// <summary>
+        /// The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        /// </summary>
         public readonly string InstanceArn;
+        /// <summary>
+        /// The user attribute for this IAM Identity Center integration. Defaults to `UserId`
+        /// </summary>
         public readonly string? UserAttribute;
 
         [OutputConstructor]

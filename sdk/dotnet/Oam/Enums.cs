@@ -22,6 +22,8 @@ namespace Pulumi.AwsNative.Oam
         public static LinkResourceType AwsxRayTrace { get; } = new LinkResourceType("AWS::XRay::Trace");
         public static LinkResourceType AwsApplicationInsightsApplication { get; } = new LinkResourceType("AWS::ApplicationInsights::Application");
         public static LinkResourceType AwsInternetMonitorMonitor { get; } = new LinkResourceType("AWS::InternetMonitor::Monitor");
+        public static LinkResourceType AwsApplicationSignalsService { get; } = new LinkResourceType("AWS::ApplicationSignals::Service");
+        public static LinkResourceType AwsApplicationSignalsServiceLevelObjective { get; } = new LinkResourceType("AWS::ApplicationSignals::ServiceLevelObjective");
 
         public static bool operator ==(LinkResourceType left, LinkResourceType right) => left.Equals(right);
         public static bool operator !=(LinkResourceType left, LinkResourceType right) => !left.Equals(right);

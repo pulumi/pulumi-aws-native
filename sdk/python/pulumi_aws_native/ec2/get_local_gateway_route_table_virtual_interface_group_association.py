@@ -110,7 +110,7 @@ class AwaitableGetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult(G
 def get_local_gateway_route_table_virtual_interface_group_association(local_gateway_route_table_virtual_interface_group_association_id: Optional[str] = None,
                                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult:
     """
-    Describes a local gateway route table virtual interface group association for a local gateway.
+    Resource Type definition for Local Gateway Route Table Virtual Interface Group Association which describes a local gateway route table virtual interface group association for a local gateway.
 
 
     :param str local_gateway_route_table_virtual_interface_group_association_id: The ID of the local gateway route table virtual interface group association.
@@ -130,7 +130,7 @@ def get_local_gateway_route_table_virtual_interface_group_association(local_gate
 def get_local_gateway_route_table_virtual_interface_group_association_output(local_gateway_route_table_virtual_interface_group_association_id: Optional[pulumi.Input[str]] = None,
                                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult]:
     """
-    Describes a local gateway route table virtual interface group association for a local gateway.
+    Resource Type definition for Local Gateway Route Table Virtual Interface Group Association which describes a local gateway route table virtual interface group association for a local gateway.
 
 
     :param str local_gateway_route_table_virtual_interface_group_association_id: The ID of the local gateway route table virtual interface group association.

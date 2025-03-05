@@ -17,12 +17,15 @@ __all__ = [
     'RuleGroupIpSetForwardedIpConfigurationFallbackBehavior',
     'RuleGroupIpSetForwardedIpConfigurationPosition',
     'RuleGroupJa3FingerprintFallbackBehavior',
+    'RuleGroupJa4FingerprintFallbackBehavior',
     'RuleGroupJsonMatchScope',
     'RuleGroupLabelMatchScope',
     'RuleGroupMapMatchScope',
     'RuleGroupOversizeHandling',
     'RuleGroupPositionalConstraint',
     'RuleGroupRateBasedStatementAggregateKeyType',
+    'RuleGroupRateLimitJa3FingerprintFallbackBehavior',
+    'RuleGroupRateLimitJa4FingerprintFallbackBehavior',
     'RuleGroupResponseContentType',
     'RuleGroupScope',
     'RuleGroupSensitivityLevel',
@@ -34,6 +37,7 @@ __all__ = [
     'WebAclIpSetForwardedIpConfigurationFallbackBehavior',
     'WebAclIpSetForwardedIpConfigurationPosition',
     'WebAclJa3FingerprintFallbackBehavior',
+    'WebAclJa4FingerprintFallbackBehavior',
     'WebAclJsonMatchScope',
     'WebAclLabelMatchScope',
     'WebAclManagedRuleGroupConfigPayloadType',
@@ -41,6 +45,8 @@ __all__ = [
     'WebAclOversizeHandling',
     'WebAclPositionalConstraint',
     'WebAclRateBasedStatementAggregateKeyType',
+    'WebAclRateLimitJa3FingerprintFallbackBehavior',
+    'WebAclRateLimitJa4FingerprintFallbackBehavior',
     'WebAclRequestInspectionAcfpPayloadType',
     'WebAclRequestInspectionPayloadType',
     'WebAclResponseContentType',
@@ -179,6 +185,11 @@ class RuleGroupJa3FingerprintFallbackBehavior(str, Enum):
     NO_MATCH = "NO_MATCH"
 
 
+class RuleGroupJa4FingerprintFallbackBehavior(str, Enum):
+    MATCH = "MATCH"
+    NO_MATCH = "NO_MATCH"
+
+
 class RuleGroupJsonMatchScope(str, Enum):
     """
     The parts of the JSON to match against using the MatchPattern.
@@ -249,6 +260,16 @@ class RuleGroupRateBasedStatementAggregateKeyType(str, Enum):
     FORWARDED_IP = "FORWARDED_IP"
     CONSTANT = "CONSTANT"
     CUSTOM_KEYS = "CUSTOM_KEYS"
+
+
+class RuleGroupRateLimitJa3FingerprintFallbackBehavior(str, Enum):
+    MATCH = "MATCH"
+    NO_MATCH = "NO_MATCH"
+
+
+class RuleGroupRateLimitJa4FingerprintFallbackBehavior(str, Enum):
+    MATCH = "MATCH"
+    NO_MATCH = "NO_MATCH"
 
 
 class RuleGroupResponseContentType(str, Enum):
@@ -390,6 +411,11 @@ class WebAclJa3FingerprintFallbackBehavior(str, Enum):
     NO_MATCH = "NO_MATCH"
 
 
+class WebAclJa4FingerprintFallbackBehavior(str, Enum):
+    MATCH = "MATCH"
+    NO_MATCH = "NO_MATCH"
+
+
 class WebAclJsonMatchScope(str, Enum):
     """
     The parts of the JSON to match against using the MatchPattern.
@@ -468,6 +494,16 @@ class WebAclRateBasedStatementAggregateKeyType(str, Enum):
     IP = "IP"
     FORWARDED_IP = "FORWARDED_IP"
     CUSTOM_KEYS = "CUSTOM_KEYS"
+
+
+class WebAclRateLimitJa3FingerprintFallbackBehavior(str, Enum):
+    MATCH = "MATCH"
+    NO_MATCH = "NO_MATCH"
+
+
+class WebAclRateLimitJa4FingerprintFallbackBehavior(str, Enum):
+    MATCH = "MATCH"
+    NO_MATCH = "NO_MATCH"
 
 
 class WebAclRequestInspectionAcfpPayloadType(str, Enum):

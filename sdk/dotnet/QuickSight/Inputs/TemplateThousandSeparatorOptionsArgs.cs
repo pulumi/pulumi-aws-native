@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateThousandSeparatorOptionsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("groupingStyle")]
+        public Input<Pulumi.AwsNative.QuickSight.TemplateDigitGroupingStyle>? GroupingStyle { get; set; }
+
         /// <summary>
         /// Determines the thousands separator symbol.
         /// </summary>

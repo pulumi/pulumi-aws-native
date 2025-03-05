@@ -23,6 +23,8 @@ class BatchScramSecretArgs:
                  secret_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BatchScramSecret resource.
+        :param pulumi.Input[str] cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_arn_list: List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
         """
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         if secret_arn_list is not None:
@@ -31,6 +33,9 @@ class BatchScramSecretArgs:
     @property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+        """
         return pulumi.get(self, "cluster_arn")
 
     @cluster_arn.setter
@@ -40,6 +45,9 @@ class BatchScramSecretArgs:
     @property
     @pulumi.getter(name="secretArnList")
     def secret_arn_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
+        """
         return pulumi.get(self, "secret_arn_list")
 
     @secret_arn_list.setter
@@ -60,6 +68,8 @@ class BatchScramSecret(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_arn_list: List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
         """
         ...
     @overload
@@ -131,10 +141,16 @@ class BatchScramSecret(pulumi.CustomResource):
     @property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+        """
         return pulumi.get(self, "cluster_arn")
 
     @property
     @pulumi.getter(name="secretArnList")
     def secret_arn_list(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
+        """
         return pulumi.get(self, "secret_arn_list")
 

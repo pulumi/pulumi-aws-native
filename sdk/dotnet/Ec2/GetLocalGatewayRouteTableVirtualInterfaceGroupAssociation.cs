@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Ec2
     public static class GetLocalGatewayRouteTableVirtualInterfaceGroupAssociation
     {
         /// <summary>
-        /// Describes a local gateway route table virtual interface group association for a local gateway.
+        /// Resource Type definition for Local Gateway Route Table Virtual Interface Group Association which describes a local gateway route table virtual interface group association for a local gateway.
         /// </summary>
         public static Task<GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult> InvokeAsync(GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult>("aws-native:ec2:getLocalGatewayRouteTableVirtualInterfaceGroupAssociation", args ?? new GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a local gateway route table virtual interface group association for a local gateway.
+        /// Resource Type definition for Local Gateway Route Table Virtual Interface Group Association which describes a local gateway route table virtual interface group association for a local gateway.
         /// </summary>
         public static Output<GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult> Invoke(GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult>("aws-native:ec2:getLocalGatewayRouteTableVirtualInterfaceGroupAssociation", args ?? new GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a local gateway route table virtual interface group association for a local gateway.
+        /// Resource Type definition for Local Gateway Route Table Virtual Interface Group Association which describes a local gateway route table virtual interface group association for a local gateway.
         /// </summary>
         public static Output<GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult> Invoke(GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult>("aws-native:ec2:getLocalGatewayRouteTableVirtualInterfaceGroupAssociation", args ?? new GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationInvokeArgs(), options.WithDefaults());

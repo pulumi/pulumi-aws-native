@@ -42,6 +42,8 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
         /// </summary>
         public readonly Outputs.RuleGroupRateLimitIp? Ip;
+        public readonly Outputs.RuleGroupRateLimitJa3Fingerprint? Ja3Fingerprint;
+        public readonly Outputs.RuleGroupRateLimitJa4Fingerprint? Ja4Fingerprint;
         /// <summary>
         /// Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
         /// 
@@ -75,6 +77,10 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
 
             Outputs.RuleGroupRateLimitIp? ip,
 
+            Outputs.RuleGroupRateLimitJa3Fingerprint? ja3Fingerprint,
+
+            Outputs.RuleGroupRateLimitJa4Fingerprint? ja4Fingerprint,
+
             Outputs.RuleGroupRateLimitLabelNamespace? labelNamespace,
 
             Outputs.RuleGroupRateLimitQueryArgument? queryArgument,
@@ -88,6 +94,8 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
             Header = header;
             HttpMethod = httpMethod;
             Ip = ip;
+            Ja3Fingerprint = ja3Fingerprint;
+            Ja4Fingerprint = ja4Fingerprint;
             LabelNamespace = labelNamespace;
             QueryArgument = queryArgument;
             QueryString = queryString;

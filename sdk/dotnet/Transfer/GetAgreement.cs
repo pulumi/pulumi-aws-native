@@ -92,6 +92,10 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         public readonly string? BaseDirectory;
         /// <summary>
+        /// Specifies a separate directory for each type of file to store for an AS2 message.
+        /// </summary>
+        public readonly Outputs.CustomDirectoriesProperties? CustomDirectories;
+        /// <summary>
         /// A textual description for the agreement.
         /// </summary>
         public readonly string? Description;
@@ -130,6 +134,8 @@ namespace Pulumi.AwsNative.Transfer
 
             string? baseDirectory,
 
+            Outputs.CustomDirectoriesProperties? customDirectories,
+
             string? description,
 
             Pulumi.AwsNative.Transfer.AgreementEnforceMessageSigning? enforceMessageSigning,
@@ -148,6 +154,7 @@ namespace Pulumi.AwsNative.Transfer
             AgreementId = agreementId;
             Arn = arn;
             BaseDirectory = baseDirectory;
+            CustomDirectories = customDirectories;
             Description = description;
             EnforceMessageSigning = enforceMessageSigning;
             LocalProfileId = localProfileId;

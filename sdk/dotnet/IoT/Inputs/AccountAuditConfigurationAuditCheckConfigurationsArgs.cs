@@ -39,11 +39,14 @@ namespace Pulumi.AwsNative.IoT.Inputs
         [Input("conflictingClientIdsCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? ConflictingClientIdsCheck { get; set; }
 
+        [Input("deviceCertificateAgeCheck")]
+        public Input<Inputs.AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs>? DeviceCertificateAgeCheck { get; set; }
+
         /// <summary>
         /// Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
         /// </summary>
         [Input("deviceCertificateExpiringCheck")]
-        public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? DeviceCertificateExpiringCheck { get; set; }
+        public Input<Inputs.AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs>? DeviceCertificateExpiringCheck { get; set; }
 
         /// <summary>
         /// Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.

@@ -33,6 +33,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The forecast configuration of a line chart.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateForecastConfiguration> ForecastConfigurations;
+        public readonly Outputs.TemplateVisualInteractionOptions? Interactions;
         /// <summary>
         /// The legend configuration of a line chart.
         /// </summary>
@@ -103,6 +104,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             ImmutableArray<Outputs.TemplateForecastConfiguration> forecastConfigurations,
 
+            Outputs.TemplateVisualInteractionOptions? interactions,
+
             Outputs.TemplateLegendOptions? legend,
 
             Outputs.TemplateLineSeriesAxisDisplayOptions? primaryYAxisDisplayOptions,
@@ -138,6 +141,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             DefaultSeriesSettings = defaultSeriesSettings;
             FieldWells = fieldWells;
             ForecastConfigurations = forecastConfigurations;
+            Interactions = interactions;
             Legend = legend;
             PrimaryYAxisDisplayOptions = primaryYAxisDisplayOptions;
             PrimaryYAxisLabelOptions = primaryYAxisLabelOptions;

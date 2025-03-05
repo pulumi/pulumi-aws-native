@@ -33,8 +33,8 @@ type CloudWatchAlarmTemplate struct {
 	// A cloudwatch alarm template group's id. AWS provided template groups have ids that start with `aws-`
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
 	// A cloudwatch alarm template group's identifier. Can be either be its id or current name.
-	GroupIdentifier pulumi.StringOutput `pulumi:"groupIdentifier"`
-	Identifier      pulumi.StringOutput `pulumi:"identifier"`
+	GroupIdentifier pulumi.StringPtrOutput `pulumi:"groupIdentifier"`
+	Identifier      pulumi.StringOutput    `pulumi:"identifier"`
 	// The name of the metric associated with the alarm. Must be compatible with targetResourceType.
 	MetricName pulumi.StringOutput `pulumi:"metricName"`
 	// The date and time of latest resource modification.
@@ -66,9 +66,6 @@ func NewCloudWatchAlarmTemplate(ctx *pulumi.Context,
 	}
 	if args.EvaluationPeriods == nil {
 		return nil, errors.New("invalid value for required argument 'EvaluationPeriods'")
-	}
-	if args.GroupIdentifier == nil {
-		return nil, errors.New("invalid value for required argument 'GroupIdentifier'")
 	}
 	if args.MetricName == nil {
 		return nil, errors.New("invalid value for required argument 'MetricName'")
@@ -134,7 +131,7 @@ type cloudWatchAlarmTemplateArgs struct {
 	// The number of periods over which data is compared to the specified threshold.
 	EvaluationPeriods float64 `pulumi:"evaluationPeriods"`
 	// A cloudwatch alarm template group's identifier. Can be either be its id or current name.
-	GroupIdentifier string `pulumi:"groupIdentifier"`
+	GroupIdentifier *string `pulumi:"groupIdentifier"`
 	// The name of the metric associated with the alarm. Must be compatible with targetResourceType.
 	MetricName string `pulumi:"metricName"`
 	// A resource's name. Names must be unique within the scope of a resource type in a specific region.
@@ -163,7 +160,7 @@ type CloudWatchAlarmTemplateArgs struct {
 	// The number of periods over which data is compared to the specified threshold.
 	EvaluationPeriods pulumi.Float64Input
 	// A cloudwatch alarm template group's identifier. Can be either be its id or current name.
-	GroupIdentifier pulumi.StringInput
+	GroupIdentifier pulumi.StringPtrInput
 	// The name of the metric associated with the alarm. Must be compatible with targetResourceType.
 	MetricName pulumi.StringInput
 	// A resource's name. Names must be unique within the scope of a resource type in a specific region.
@@ -261,8 +258,8 @@ func (o CloudWatchAlarmTemplateOutput) GroupId() pulumi.StringOutput {
 }
 
 // A cloudwatch alarm template group's identifier. Can be either be its id or current name.
-func (o CloudWatchAlarmTemplateOutput) GroupIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *CloudWatchAlarmTemplate) pulumi.StringOutput { return v.GroupIdentifier }).(pulumi.StringOutput)
+func (o CloudWatchAlarmTemplateOutput) GroupIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudWatchAlarmTemplate) pulumi.StringPtrOutput { return v.GroupIdentifier }).(pulumi.StringPtrOutput)
 }
 
 func (o CloudWatchAlarmTemplateOutput) Identifier() pulumi.StringOutput {

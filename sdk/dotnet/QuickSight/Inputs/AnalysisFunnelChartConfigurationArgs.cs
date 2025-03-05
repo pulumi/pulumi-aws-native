@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("fieldWells")]
         public Input<Inputs.AnalysisFunnelChartFieldWellsArgs>? FieldWells { get; set; }
 
+        [Input("interactions")]
+        public Input<Inputs.AnalysisVisualInteractionOptionsArgs>? Interactions { get; set; }
+
         /// <summary>
         /// The sort configuration of a `FunnelChartVisual` .
         /// </summary>

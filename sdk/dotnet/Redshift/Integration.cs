@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Redshift
     public partial class Integration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The encryption context for the integration. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+        /// The encryption context for the integration. For more information, see [Encryption context](https://docs.aws.amazon.com/) in the *AWS Key Management Service Developer Guide* .
         /// </summary>
         [Output("additionalEncryptionContext")]
         public Output<ImmutableDictionary<string, string>?> AdditionalEncryptionContext { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.Redshift
         private InputMap<string>? _additionalEncryptionContext;
 
         /// <summary>
-        /// The encryption context for the integration. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+        /// The encryption context for the integration. For more information, see [Encryption context](https://docs.aws.amazon.com/) in the *AWS Key Management Service Developer Guide* .
         /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {

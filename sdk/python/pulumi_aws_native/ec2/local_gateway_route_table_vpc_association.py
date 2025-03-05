@@ -82,7 +82,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Describes an association between a local gateway route table and a VPC.
+        Resource Type definition for Local Gateway Route Table VPC Association which describes an association between a local gateway route table and a VPC.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -97,7 +97,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
                  args: LocalGatewayRouteTableVpcAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Describes an association between a local gateway route table and a VPC.
+        Resource Type definition for Local Gateway Route Table VPC Association which describes an association between a local gateway route table and a VPC.
 
         :param str resource_name: The name of the resource.
         :param LocalGatewayRouteTableVpcAssociationArgs args: The arguments to use to populate this resource's properties.

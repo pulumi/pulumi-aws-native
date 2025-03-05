@@ -23,10 +23,12 @@ func LookupBatchScramSecret(ctx *pulumi.Context, args *LookupBatchScramSecretArg
 }
 
 type LookupBatchScramSecretArgs struct {
+	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 	ClusterArn string `pulumi:"clusterArn"`
 }
 
 type LookupBatchScramSecretResult struct {
+	// List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
 	SecretArnList []string `pulumi:"secretArnList"`
 }
 
@@ -40,6 +42,7 @@ func LookupBatchScramSecretOutput(ctx *pulumi.Context, args LookupBatchScramSecr
 }
 
 type LookupBatchScramSecretOutputArgs struct {
+	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
 }
 
@@ -61,6 +64,7 @@ func (o LookupBatchScramSecretResultOutput) ToLookupBatchScramSecretResultOutput
 	return o
 }
 
+// List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
 func (o LookupBatchScramSecretResultOutput) SecretArnList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupBatchScramSecretResult) []string { return v.SecretArnList }).(pulumi.StringArrayOutput)
 }

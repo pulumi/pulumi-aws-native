@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("fieldWells")]
         public Input<Inputs.TemplateHistogramFieldWellsArgs>? FieldWells { get; set; }
 
+        [Input("interactions")]
+        public Input<Inputs.TemplateVisualInteractionOptionsArgs>? Interactions { get; set; }
+
         /// <summary>
         /// The tooltip configuration of a histogram.
         /// </summary>

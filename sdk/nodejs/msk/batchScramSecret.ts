@@ -34,7 +34,13 @@ export class BatchScramSecret extends pulumi.CustomResource {
         return obj['__pulumiType'] === BatchScramSecret.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+     */
     public readonly clusterArn!: pulumi.Output<string>;
+    /**
+     * List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
+     */
     public readonly secretArnList!: pulumi.Output<string[] | undefined>;
 
     /**
@@ -68,6 +74,12 @@ export class BatchScramSecret extends pulumi.CustomResource {
  * The set of arguments for constructing a BatchScramSecret resource.
  */
 export interface BatchScramSecretArgs {
+    /**
+     * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+     */
     clusterArn: pulumi.Input<string>;
+    /**
+     * List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
+     */
     secretArnList?: pulumi.Input<pulumi.Input<string>[]>;
 }

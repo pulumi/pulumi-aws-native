@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("imageScaling")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisCustomContentImageScalingConfiguration>? ImageScaling { get; set; }
 
+        [Input("interactions")]
+        public Input<Inputs.AnalysisVisualInteractionOptionsArgs>? Interactions { get; set; }
+
         public AnalysisCustomContentConfigurationArgs()
         {
         }

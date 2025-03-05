@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'ConnectorVpcInformationIpAddressType',
     'TemplateApplicationPolicyType',
     'TemplateClientCompatibilityV2',
     'TemplateClientCompatibilityV3',
@@ -16,6 +17,11 @@ __all__ = [
     'TemplatePrivateKeyAlgorithm',
     'TemplateValidityPeriodType',
 ]
+
+
+class ConnectorVpcInformationIpAddressType(str, Enum):
+    IPV4 = "IPV4"
+    DUALSTACK = "DUALSTACK"
 
 
 class TemplateApplicationPolicyType(str, Enum):

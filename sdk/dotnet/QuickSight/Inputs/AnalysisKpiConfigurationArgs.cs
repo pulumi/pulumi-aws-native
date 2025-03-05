@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("fieldWells")]
         public Input<Inputs.AnalysisKpiFieldWellsArgs>? FieldWells { get; set; }
 
+        [Input("interactions")]
+        public Input<Inputs.AnalysisVisualInteractionOptionsArgs>? Interactions { get; set; }
+
         /// <summary>
         /// The options that determine the presentation of a KPI visual.
         /// </summary>

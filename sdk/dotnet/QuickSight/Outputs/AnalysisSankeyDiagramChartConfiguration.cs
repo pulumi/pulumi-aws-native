@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The field well configuration of a sankey diagram.
         /// </summary>
         public readonly Outputs.AnalysisSankeyDiagramFieldWells? FieldWells;
+        public readonly Outputs.AnalysisVisualInteractionOptions? Interactions;
         /// <summary>
         /// The sort configuration of a sankey diagram.
         /// </summary>
@@ -32,10 +33,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.AnalysisSankeyDiagramFieldWells? fieldWells,
 
+            Outputs.AnalysisVisualInteractionOptions? interactions,
+
             Outputs.AnalysisSankeyDiagramSortConfiguration? sortConfiguration)
         {
             DataLabels = dataLabels;
             FieldWells = fieldWells;
+            Interactions = interactions;
             SortConfiguration = sortConfiguration;
         }
     }

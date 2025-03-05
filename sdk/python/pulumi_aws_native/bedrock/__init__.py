@@ -9,6 +9,8 @@ from ._enums import *
 from .agent import *
 from .agent_alias import *
 from .application_inference_profile import *
+from .blueprint import *
+from .data_automation_project import *
 from .data_source import *
 from .flow import *
 from .flow_alias import *
@@ -16,6 +18,8 @@ from .flow_version import *
 from .get_agent import *
 from .get_agent_alias import *
 from .get_application_inference_profile import *
+from .get_blueprint import *
+from .get_data_automation_project import *
 from .get_data_source import *
 from .get_flow import *
 from .get_flow_alias import *

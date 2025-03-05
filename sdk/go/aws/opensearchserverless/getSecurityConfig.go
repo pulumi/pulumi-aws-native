@@ -29,7 +29,8 @@ type LookupSecurityConfigArgs struct {
 
 type LookupSecurityConfigResult struct {
 	// Security config description
-	Description              *string                                       `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// Describes IAM Identity Center options in the form of a key-value map.
 	IamIdentityCenterOptions *SecurityConfigIamIdentityCenterConfigOptions `pulumi:"iamIdentityCenterOptions"`
 	// The identifier of the security config
 	Id *string `pulumi:"id"`
@@ -74,6 +75,7 @@ func (o LookupSecurityConfigResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecurityConfigResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Describes IAM Identity Center options in the form of a key-value map.
 func (o LookupSecurityConfigResultOutput) IamIdentityCenterOptions() SecurityConfigIamIdentityCenterConfigOptionsPtrOutput {
 	return o.ApplyT(func(v LookupSecurityConfigResult) *SecurityConfigIamIdentityCenterConfigOptions {
 		return v.IamIdentityCenterOptions

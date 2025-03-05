@@ -31,7 +31,7 @@ class IntegrationArgs:
         The set of arguments for constructing a Integration resource.
         :param pulumi.Input[str] source_arn: The Amazon Resource Name (ARN) of the database to use as the source for replication
         :param pulumi.Input[str] target_arn: The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: The encryption context for the integration. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: The encryption context for the integration. For more information, see [Encryption context](https://docs.aws.amazon.com/) in the *AWS Key Management Service Developer Guide* .
         :param pulumi.Input[str] integration_name: The name of the integration.
         :param pulumi.Input[str] kms_key_id: An KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, the default AWS owned KMS key is used.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -75,7 +75,7 @@ class IntegrationArgs:
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The encryption context for the integration. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+        The encryption context for the integration. For more information, see [Encryption context](https://docs.aws.amazon.com/) in the *AWS Key Management Service Developer Guide* .
         """
         return pulumi.get(self, "additional_encryption_context")
 
@@ -137,7 +137,7 @@ class Integration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: The encryption context for the integration. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: The encryption context for the integration. For more information, see [Encryption context](https://docs.aws.amazon.com/) in the *AWS Key Management Service Developer Guide* .
         :param pulumi.Input[str] integration_name: The name of the integration.
         :param pulumi.Input[str] kms_key_id: An KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, the default AWS owned KMS key is used.
         :param pulumi.Input[str] source_arn: The Amazon Resource Name (ARN) of the database to use as the source for replication
@@ -233,7 +233,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        The encryption context for the integration. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+        The encryption context for the integration. For more information, see [Encryption context](https://docs.aws.amazon.com/) in the *AWS Key Management Service Developer Guide* .
         """
         return pulumi.get(self, "additional_encryption_context")
 

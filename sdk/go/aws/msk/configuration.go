@@ -16,12 +16,18 @@ import (
 type Configuration struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput                  `pulumi:"arn"`
-	Description       pulumi.StringPtrOutput               `pulumi:"description"`
-	KafkaVersionsList pulumi.StringArrayOutput             `pulumi:"kafkaVersionsList"`
-	LatestRevision    ConfigurationLatestRevisionPtrOutput `pulumi:"latestRevision"`
-	Name              pulumi.StringOutput                  `pulumi:"name"`
-	ServerProperties  pulumi.StringOutput                  `pulumi:"serverProperties"`
+	// The Amazon Resource Name (ARN) of the configuration.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The description of the configuration.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
+	KafkaVersionsList pulumi.StringArrayOutput `pulumi:"kafkaVersionsList"`
+	// Latest revision of the MSK configuration.
+	LatestRevision ConfigurationLatestRevisionPtrOutput `pulumi:"latestRevision"`
+	// The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+	ServerProperties pulumi.StringOutput `pulumi:"serverProperties"`
 }
 
 // NewConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -72,20 +78,30 @@ func (ConfigurationState) ElementType() reflect.Type {
 }
 
 type configurationArgs struct {
-	Description       *string                      `pulumi:"description"`
-	KafkaVersionsList []string                     `pulumi:"kafkaVersionsList"`
-	LatestRevision    *ConfigurationLatestRevision `pulumi:"latestRevision"`
-	Name              *string                      `pulumi:"name"`
-	ServerProperties  string                       `pulumi:"serverProperties"`
+	// The description of the configuration.
+	Description *string `pulumi:"description"`
+	// The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
+	KafkaVersionsList []string `pulumi:"kafkaVersionsList"`
+	// Latest revision of the MSK configuration.
+	LatestRevision *ConfigurationLatestRevision `pulumi:"latestRevision"`
+	// The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
+	Name *string `pulumi:"name"`
+	// Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+	ServerProperties string `pulumi:"serverProperties"`
 }
 
 // The set of arguments for constructing a Configuration resource.
 type ConfigurationArgs struct {
-	Description       pulumi.StringPtrInput
+	// The description of the configuration.
+	Description pulumi.StringPtrInput
+	// The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
 	KafkaVersionsList pulumi.StringArrayInput
-	LatestRevision    ConfigurationLatestRevisionPtrInput
-	Name              pulumi.StringPtrInput
-	ServerProperties  pulumi.StringInput
+	// Latest revision of the MSK configuration.
+	LatestRevision ConfigurationLatestRevisionPtrInput
+	// The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
+	Name pulumi.StringPtrInput
+	// Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+	ServerProperties pulumi.StringInput
 }
 
 func (ConfigurationArgs) ElementType() reflect.Type {
@@ -125,26 +141,32 @@ func (o ConfigurationOutput) ToConfigurationOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the configuration.
 func (o ConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The description of the configuration.
 func (o ConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
 func (o ConfigurationOutput) KafkaVersionsList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringArrayOutput { return v.KafkaVersionsList }).(pulumi.StringArrayOutput)
 }
 
+// Latest revision of the MSK configuration.
 func (o ConfigurationOutput) LatestRevision() ConfigurationLatestRevisionPtrOutput {
 	return o.ApplyT(func(v *Configuration) ConfigurationLatestRevisionPtrOutput { return v.LatestRevision }).(ConfigurationLatestRevisionPtrOutput)
 }
 
+// The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
 func (o ConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
 func (o ConfigurationOutput) ServerProperties() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.ServerProperties }).(pulumi.StringOutput)
 }

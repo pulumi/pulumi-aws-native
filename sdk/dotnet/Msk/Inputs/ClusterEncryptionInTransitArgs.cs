@@ -12,9 +12,23 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterEncryptionInTransitArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates the encryption setting for data in transit between clients and brokers. You must set it to one of the following values.
+        /// 
+        /// - `TLS` : Indicates that client-broker communication is enabled with TLS only.
+        /// - `TLS_PLAINTEXT` : Indicates that client-broker communication is enabled for both TLS-encrypted, as well as plaintext data.
+        /// - `PLAINTEXT` : Indicates that client-broker communication is enabled in plaintext only.
+        /// 
+        /// The default value is `TLS` .
+        /// </summary>
         [Input("clientBroker")]
         public Input<Pulumi.AwsNative.Msk.ClusterEncryptionInTransitClientBroker>? ClientBroker { get; set; }
 
+        /// <summary>
+        /// When set to true, it indicates that data communication among the broker nodes of the cluster is encrypted. When set to false, the communication happens in plaintext.
+        /// 
+        /// The default value is true.
+        /// </summary>
         [Input("inCluster")]
         public Input<bool>? InCluster { get; set; }
 
