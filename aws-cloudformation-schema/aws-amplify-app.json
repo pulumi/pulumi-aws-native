@@ -265,6 +265,14 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/AppId", "/properties/AppName", "/properties/Arn", "/properties/DefaultDomain" ],
   "writeOnlyProperties" : [ "/properties/AccessToken", "/properties/BasicAuthConfig", "/properties/OauthToken", "/properties/AutoBranchCreationConfig" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "amplify:TagResource", "amplify:ListTagsForResource", "amplify:UntagResource" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "amplify:GetApp", "amplify:CreateApp", "amplify:TagResource", "codecommit:GetRepository", "codecommit:PutRepositoryTriggers", "codecommit:GetRepositoryTriggers", "sns:CreateTopic", "sns:Subscribe", "iam:PassRole" ]

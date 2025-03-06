@@ -82,7 +82,7 @@
       "permissions" : [ "iam:DeleteOpenIDConnectProvider" ]
     },
     "list" : {
-      "permissions" : [ "iam:ListOpenIDConnectProvider", "iam:GetOpenIDConnectProvider" ]
+      "permissions" : [ "iam:ListOpenIDConnectProviders", "iam:GetOpenIDConnectProvider" ]
     }
   },
   "tagging" : {
