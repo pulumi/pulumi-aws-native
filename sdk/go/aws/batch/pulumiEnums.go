@@ -10,6 +10,172 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Type of Consumable Resource.
+type ConsumableResourceResourceType string
+
+const (
+	ConsumableResourceResourceTypeReplenishable    = ConsumableResourceResourceType("REPLENISHABLE")
+	ConsumableResourceResourceTypeNonReplenishable = ConsumableResourceResourceType("NON_REPLENISHABLE")
+)
+
+func (ConsumableResourceResourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsumableResourceResourceType)(nil)).Elem()
+}
+
+func (e ConsumableResourceResourceType) ToConsumableResourceResourceTypeOutput() ConsumableResourceResourceTypeOutput {
+	return pulumi.ToOutput(e).(ConsumableResourceResourceTypeOutput)
+}
+
+func (e ConsumableResourceResourceType) ToConsumableResourceResourceTypeOutputWithContext(ctx context.Context) ConsumableResourceResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConsumableResourceResourceTypeOutput)
+}
+
+func (e ConsumableResourceResourceType) ToConsumableResourceResourceTypePtrOutput() ConsumableResourceResourceTypePtrOutput {
+	return e.ToConsumableResourceResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConsumableResourceResourceType) ToConsumableResourceResourceTypePtrOutputWithContext(ctx context.Context) ConsumableResourceResourceTypePtrOutput {
+	return ConsumableResourceResourceType(e).ToConsumableResourceResourceTypeOutputWithContext(ctx).ToConsumableResourceResourceTypePtrOutputWithContext(ctx)
+}
+
+func (e ConsumableResourceResourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConsumableResourceResourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConsumableResourceResourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConsumableResourceResourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConsumableResourceResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (ConsumableResourceResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsumableResourceResourceType)(nil)).Elem()
+}
+
+func (o ConsumableResourceResourceTypeOutput) ToConsumableResourceResourceTypeOutput() ConsumableResourceResourceTypeOutput {
+	return o
+}
+
+func (o ConsumableResourceResourceTypeOutput) ToConsumableResourceResourceTypeOutputWithContext(ctx context.Context) ConsumableResourceResourceTypeOutput {
+	return o
+}
+
+func (o ConsumableResourceResourceTypeOutput) ToConsumableResourceResourceTypePtrOutput() ConsumableResourceResourceTypePtrOutput {
+	return o.ToConsumableResourceResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConsumableResourceResourceTypeOutput) ToConsumableResourceResourceTypePtrOutputWithContext(ctx context.Context) ConsumableResourceResourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConsumableResourceResourceType) *ConsumableResourceResourceType {
+		return &v
+	}).(ConsumableResourceResourceTypePtrOutput)
+}
+
+func (o ConsumableResourceResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConsumableResourceResourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConsumableResourceResourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConsumableResourceResourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConsumableResourceResourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConsumableResourceResourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConsumableResourceResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConsumableResourceResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConsumableResourceResourceType)(nil)).Elem()
+}
+
+func (o ConsumableResourceResourceTypePtrOutput) ToConsumableResourceResourceTypePtrOutput() ConsumableResourceResourceTypePtrOutput {
+	return o
+}
+
+func (o ConsumableResourceResourceTypePtrOutput) ToConsumableResourceResourceTypePtrOutputWithContext(ctx context.Context) ConsumableResourceResourceTypePtrOutput {
+	return o
+}
+
+func (o ConsumableResourceResourceTypePtrOutput) Elem() ConsumableResourceResourceTypeOutput {
+	return o.ApplyT(func(v *ConsumableResourceResourceType) ConsumableResourceResourceType {
+		if v != nil {
+			return *v
+		}
+		var ret ConsumableResourceResourceType
+		return ret
+	}).(ConsumableResourceResourceTypeOutput)
+}
+
+func (o ConsumableResourceResourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConsumableResourceResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConsumableResourceResourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConsumableResourceResourceTypeInput is an input type that accepts values of the ConsumableResourceResourceType enum
+// A concrete instance of `ConsumableResourceResourceTypeInput` can be one of the following:
+//
+//	ConsumableResourceResourceTypeReplenishable
+//	ConsumableResourceResourceTypeNonReplenishable
+type ConsumableResourceResourceTypeInput interface {
+	pulumi.Input
+
+	ToConsumableResourceResourceTypeOutput() ConsumableResourceResourceTypeOutput
+	ToConsumableResourceResourceTypeOutputWithContext(context.Context) ConsumableResourceResourceTypeOutput
+}
+
+var consumableResourceResourceTypePtrType = reflect.TypeOf((**ConsumableResourceResourceType)(nil)).Elem()
+
+type ConsumableResourceResourceTypePtrInput interface {
+	pulumi.Input
+
+	ToConsumableResourceResourceTypePtrOutput() ConsumableResourceResourceTypePtrOutput
+	ToConsumableResourceResourceTypePtrOutputWithContext(context.Context) ConsumableResourceResourceTypePtrOutput
+}
+
+type consumableResourceResourceTypePtr string
+
+func ConsumableResourceResourceTypePtr(v string) ConsumableResourceResourceTypePtrInput {
+	return (*consumableResourceResourceTypePtr)(&v)
+}
+
+func (*consumableResourceResourceTypePtr) ElementType() reflect.Type {
+	return consumableResourceResourceTypePtrType
+}
+
+func (in *consumableResourceResourceTypePtr) ToConsumableResourceResourceTypePtrOutput() ConsumableResourceResourceTypePtrOutput {
+	return pulumi.ToOutput(in).(ConsumableResourceResourceTypePtrOutput)
+}
+
+func (in *consumableResourceResourceTypePtr) ToConsumableResourceResourceTypePtrOutputWithContext(ctx context.Context) ConsumableResourceResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConsumableResourceResourceTypePtrOutput)
+}
+
 // The action to take when a job is at the head of the job queue in the specified state for the specified period of time. The only supported value is `CANCEL` , which will cancel the job.
 type JobQueueJobStateTimeLimitActionAction string
 
@@ -505,12 +671,16 @@ func (in *jobQueueStateEnumPtr) ToJobQueueStateEnumPtrOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsumableResourceResourceTypeInput)(nil)).Elem(), ConsumableResourceResourceType("REPLENISHABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsumableResourceResourceTypePtrInput)(nil)).Elem(), ConsumableResourceResourceType("REPLENISHABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueJobStateTimeLimitActionActionInput)(nil)).Elem(), JobQueueJobStateTimeLimitActionAction("CANCEL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueJobStateTimeLimitActionActionPtrInput)(nil)).Elem(), JobQueueJobStateTimeLimitActionAction("CANCEL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueJobStateTimeLimitActionStateInput)(nil)).Elem(), JobQueueJobStateTimeLimitActionState("RUNNABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueJobStateTimeLimitActionStatePtrInput)(nil)).Elem(), JobQueueJobStateTimeLimitActionState("RUNNABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueStateEnumInput)(nil)).Elem(), JobQueueStateEnum("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueStateEnumPtrInput)(nil)).Elem(), JobQueueStateEnum("DISABLED"))
+	pulumi.RegisterOutputType(ConsumableResourceResourceTypeOutput{})
+	pulumi.RegisterOutputType(ConsumableResourceResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(JobQueueJobStateTimeLimitActionActionOutput{})
 	pulumi.RegisterOutputType(JobQueueJobStateTimeLimitActionActionPtrOutput{})
 	pulumi.RegisterOutputType(JobQueueJobStateTimeLimitActionStateOutput{})

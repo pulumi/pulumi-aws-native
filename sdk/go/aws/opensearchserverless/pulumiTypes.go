@@ -21,16 +21,972 @@ type CollectionTag struct {
 	Value string `pulumi:"value"`
 }
 
+type IndexPropertyMapping struct {
+	// Dimension size for vector fields, defines the number of dimensions in the vector
+	Dimension *int `pulumi:"dimension"`
+	// Whether a field should be indexed
+	Index *bool `pulumi:"index"`
+	// Configuration for k-NN search method
+	Method *IndexPropertyMappingMethodProperties `pulumi:"method"`
+	// Nested fields within an object or nested field type
+	Properties map[string]IndexPropertyMapping `pulumi:"properties"`
+	// The field data type. Must be a valid OpenSearch field type.
+	Type IndexPropertyMappingType `pulumi:"type"`
+	// Default value for the field when not specified in a document
+	Value *string `pulumi:"value"`
+}
+
+// IndexPropertyMappingInput is an input type that accepts IndexPropertyMappingArgs and IndexPropertyMappingOutput values.
+// You can construct a concrete instance of `IndexPropertyMappingInput` via:
+//
+//	IndexPropertyMappingArgs{...}
+type IndexPropertyMappingInput interface {
+	pulumi.Input
+
+	ToIndexPropertyMappingOutput() IndexPropertyMappingOutput
+	ToIndexPropertyMappingOutputWithContext(context.Context) IndexPropertyMappingOutput
+}
+
+type IndexPropertyMappingArgs struct {
+	// Dimension size for vector fields, defines the number of dimensions in the vector
+	Dimension pulumi.IntPtrInput `pulumi:"dimension"`
+	// Whether a field should be indexed
+	Index pulumi.BoolPtrInput `pulumi:"index"`
+	// Configuration for k-NN search method
+	Method IndexPropertyMappingMethodPropertiesPtrInput `pulumi:"method"`
+	// Nested fields within an object or nested field type
+	Properties IndexPropertyMappingMapInput `pulumi:"properties"`
+	// The field data type. Must be a valid OpenSearch field type.
+	Type IndexPropertyMappingTypeInput `pulumi:"type"`
+	// Default value for the field when not specified in a document
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (IndexPropertyMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexPropertyMapping)(nil)).Elem()
+}
+
+func (i IndexPropertyMappingArgs) ToIndexPropertyMappingOutput() IndexPropertyMappingOutput {
+	return i.ToIndexPropertyMappingOutputWithContext(context.Background())
+}
+
+func (i IndexPropertyMappingArgs) ToIndexPropertyMappingOutputWithContext(ctx context.Context) IndexPropertyMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexPropertyMappingOutput)
+}
+
+// IndexPropertyMappingMapInput is an input type that accepts IndexPropertyMappingMap and IndexPropertyMappingMapOutput values.
+// You can construct a concrete instance of `IndexPropertyMappingMapInput` via:
+//
+//	IndexPropertyMappingMap{ "key": IndexPropertyMappingArgs{...} }
+type IndexPropertyMappingMapInput interface {
+	pulumi.Input
+
+	ToIndexPropertyMappingMapOutput() IndexPropertyMappingMapOutput
+	ToIndexPropertyMappingMapOutputWithContext(context.Context) IndexPropertyMappingMapOutput
+}
+
+type IndexPropertyMappingMap map[string]IndexPropertyMappingInput
+
+func (IndexPropertyMappingMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IndexPropertyMapping)(nil)).Elem()
+}
+
+func (i IndexPropertyMappingMap) ToIndexPropertyMappingMapOutput() IndexPropertyMappingMapOutput {
+	return i.ToIndexPropertyMappingMapOutputWithContext(context.Background())
+}
+
+func (i IndexPropertyMappingMap) ToIndexPropertyMappingMapOutputWithContext(ctx context.Context) IndexPropertyMappingMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexPropertyMappingMapOutput)
+}
+
+type IndexPropertyMappingOutput struct{ *pulumi.OutputState }
+
+func (IndexPropertyMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexPropertyMapping)(nil)).Elem()
+}
+
+func (o IndexPropertyMappingOutput) ToIndexPropertyMappingOutput() IndexPropertyMappingOutput {
+	return o
+}
+
+func (o IndexPropertyMappingOutput) ToIndexPropertyMappingOutputWithContext(ctx context.Context) IndexPropertyMappingOutput {
+	return o
+}
+
+// Dimension size for vector fields, defines the number of dimensions in the vector
+func (o IndexPropertyMappingOutput) Dimension() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IndexPropertyMapping) *int { return v.Dimension }).(pulumi.IntPtrOutput)
+}
+
+// Whether a field should be indexed
+func (o IndexPropertyMappingOutput) Index() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IndexPropertyMapping) *bool { return v.Index }).(pulumi.BoolPtrOutput)
+}
+
+// Configuration for k-NN search method
+func (o IndexPropertyMappingOutput) Method() IndexPropertyMappingMethodPropertiesPtrOutput {
+	return o.ApplyT(func(v IndexPropertyMapping) *IndexPropertyMappingMethodProperties { return v.Method }).(IndexPropertyMappingMethodPropertiesPtrOutput)
+}
+
+// Nested fields within an object or nested field type
+func (o IndexPropertyMappingOutput) Properties() IndexPropertyMappingMapOutput {
+	return o.ApplyT(func(v IndexPropertyMapping) map[string]IndexPropertyMapping { return v.Properties }).(IndexPropertyMappingMapOutput)
+}
+
+// The field data type. Must be a valid OpenSearch field type.
+func (o IndexPropertyMappingOutput) Type() IndexPropertyMappingTypeOutput {
+	return o.ApplyT(func(v IndexPropertyMapping) IndexPropertyMappingType { return v.Type }).(IndexPropertyMappingTypeOutput)
+}
+
+// Default value for the field when not specified in a document
+func (o IndexPropertyMappingOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexPropertyMapping) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type IndexPropertyMappingMapOutput struct{ *pulumi.OutputState }
+
+func (IndexPropertyMappingMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IndexPropertyMapping)(nil)).Elem()
+}
+
+func (o IndexPropertyMappingMapOutput) ToIndexPropertyMappingMapOutput() IndexPropertyMappingMapOutput {
+	return o
+}
+
+func (o IndexPropertyMappingMapOutput) ToIndexPropertyMappingMapOutputWithContext(ctx context.Context) IndexPropertyMappingMapOutput {
+	return o
+}
+
+func (o IndexPropertyMappingMapOutput) MapIndex(k pulumi.StringInput) IndexPropertyMappingOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IndexPropertyMapping {
+		return vs[0].(map[string]IndexPropertyMapping)[vs[1].(string)]
+	}).(IndexPropertyMappingOutput)
+}
+
+// Configuration for k-NN search method
+type IndexPropertyMappingMethodProperties struct {
+	// The k-NN search engine to use
+	Engine IndexPropertyMappingMethodPropertiesEngine `pulumi:"engine"`
+	// The algorithm name for k-NN search
+	Name IndexPropertyMappingMethodPropertiesName `pulumi:"name"`
+	// Additional parameters for the k-NN algorithm
+	Parameters *IndexPropertyMappingMethodPropertiesParametersProperties `pulumi:"parameters"`
+	// The distance function used for k-NN search
+	SpaceType *IndexPropertyMappingMethodPropertiesSpaceType `pulumi:"spaceType"`
+}
+
+// IndexPropertyMappingMethodPropertiesInput is an input type that accepts IndexPropertyMappingMethodPropertiesArgs and IndexPropertyMappingMethodPropertiesOutput values.
+// You can construct a concrete instance of `IndexPropertyMappingMethodPropertiesInput` via:
+//
+//	IndexPropertyMappingMethodPropertiesArgs{...}
+type IndexPropertyMappingMethodPropertiesInput interface {
+	pulumi.Input
+
+	ToIndexPropertyMappingMethodPropertiesOutput() IndexPropertyMappingMethodPropertiesOutput
+	ToIndexPropertyMappingMethodPropertiesOutputWithContext(context.Context) IndexPropertyMappingMethodPropertiesOutput
+}
+
+// Configuration for k-NN search method
+type IndexPropertyMappingMethodPropertiesArgs struct {
+	// The k-NN search engine to use
+	Engine IndexPropertyMappingMethodPropertiesEngineInput `pulumi:"engine"`
+	// The algorithm name for k-NN search
+	Name IndexPropertyMappingMethodPropertiesNameInput `pulumi:"name"`
+	// Additional parameters for the k-NN algorithm
+	Parameters IndexPropertyMappingMethodPropertiesParametersPropertiesPtrInput `pulumi:"parameters"`
+	// The distance function used for k-NN search
+	SpaceType IndexPropertyMappingMethodPropertiesSpaceTypePtrInput `pulumi:"spaceType"`
+}
+
+func (IndexPropertyMappingMethodPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexPropertyMappingMethodProperties)(nil)).Elem()
+}
+
+func (i IndexPropertyMappingMethodPropertiesArgs) ToIndexPropertyMappingMethodPropertiesOutput() IndexPropertyMappingMethodPropertiesOutput {
+	return i.ToIndexPropertyMappingMethodPropertiesOutputWithContext(context.Background())
+}
+
+func (i IndexPropertyMappingMethodPropertiesArgs) ToIndexPropertyMappingMethodPropertiesOutputWithContext(ctx context.Context) IndexPropertyMappingMethodPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexPropertyMappingMethodPropertiesOutput)
+}
+
+func (i IndexPropertyMappingMethodPropertiesArgs) ToIndexPropertyMappingMethodPropertiesPtrOutput() IndexPropertyMappingMethodPropertiesPtrOutput {
+	return i.ToIndexPropertyMappingMethodPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i IndexPropertyMappingMethodPropertiesArgs) ToIndexPropertyMappingMethodPropertiesPtrOutputWithContext(ctx context.Context) IndexPropertyMappingMethodPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexPropertyMappingMethodPropertiesOutput).ToIndexPropertyMappingMethodPropertiesPtrOutputWithContext(ctx)
+}
+
+// IndexPropertyMappingMethodPropertiesPtrInput is an input type that accepts IndexPropertyMappingMethodPropertiesArgs, IndexPropertyMappingMethodPropertiesPtr and IndexPropertyMappingMethodPropertiesPtrOutput values.
+// You can construct a concrete instance of `IndexPropertyMappingMethodPropertiesPtrInput` via:
+//
+//	        IndexPropertyMappingMethodPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type IndexPropertyMappingMethodPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToIndexPropertyMappingMethodPropertiesPtrOutput() IndexPropertyMappingMethodPropertiesPtrOutput
+	ToIndexPropertyMappingMethodPropertiesPtrOutputWithContext(context.Context) IndexPropertyMappingMethodPropertiesPtrOutput
+}
+
+type indexPropertyMappingMethodPropertiesPtrType IndexPropertyMappingMethodPropertiesArgs
+
+func IndexPropertyMappingMethodPropertiesPtr(v *IndexPropertyMappingMethodPropertiesArgs) IndexPropertyMappingMethodPropertiesPtrInput {
+	return (*indexPropertyMappingMethodPropertiesPtrType)(v)
+}
+
+func (*indexPropertyMappingMethodPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexPropertyMappingMethodProperties)(nil)).Elem()
+}
+
+func (i *indexPropertyMappingMethodPropertiesPtrType) ToIndexPropertyMappingMethodPropertiesPtrOutput() IndexPropertyMappingMethodPropertiesPtrOutput {
+	return i.ToIndexPropertyMappingMethodPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *indexPropertyMappingMethodPropertiesPtrType) ToIndexPropertyMappingMethodPropertiesPtrOutputWithContext(ctx context.Context) IndexPropertyMappingMethodPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexPropertyMappingMethodPropertiesPtrOutput)
+}
+
+// Configuration for k-NN search method
+type IndexPropertyMappingMethodPropertiesOutput struct{ *pulumi.OutputState }
+
+func (IndexPropertyMappingMethodPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexPropertyMappingMethodProperties)(nil)).Elem()
+}
+
+func (o IndexPropertyMappingMethodPropertiesOutput) ToIndexPropertyMappingMethodPropertiesOutput() IndexPropertyMappingMethodPropertiesOutput {
+	return o
+}
+
+func (o IndexPropertyMappingMethodPropertiesOutput) ToIndexPropertyMappingMethodPropertiesOutputWithContext(ctx context.Context) IndexPropertyMappingMethodPropertiesOutput {
+	return o
+}
+
+func (o IndexPropertyMappingMethodPropertiesOutput) ToIndexPropertyMappingMethodPropertiesPtrOutput() IndexPropertyMappingMethodPropertiesPtrOutput {
+	return o.ToIndexPropertyMappingMethodPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o IndexPropertyMappingMethodPropertiesOutput) ToIndexPropertyMappingMethodPropertiesPtrOutputWithContext(ctx context.Context) IndexPropertyMappingMethodPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexPropertyMappingMethodProperties) *IndexPropertyMappingMethodProperties {
+		return &v
+	}).(IndexPropertyMappingMethodPropertiesPtrOutput)
+}
+
+// The k-NN search engine to use
+func (o IndexPropertyMappingMethodPropertiesOutput) Engine() IndexPropertyMappingMethodPropertiesEngineOutput {
+	return o.ApplyT(func(v IndexPropertyMappingMethodProperties) IndexPropertyMappingMethodPropertiesEngine {
+		return v.Engine
+	}).(IndexPropertyMappingMethodPropertiesEngineOutput)
+}
+
+// The algorithm name for k-NN search
+func (o IndexPropertyMappingMethodPropertiesOutput) Name() IndexPropertyMappingMethodPropertiesNameOutput {
+	return o.ApplyT(func(v IndexPropertyMappingMethodProperties) IndexPropertyMappingMethodPropertiesName { return v.Name }).(IndexPropertyMappingMethodPropertiesNameOutput)
+}
+
+// Additional parameters for the k-NN algorithm
+func (o IndexPropertyMappingMethodPropertiesOutput) Parameters() IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v IndexPropertyMappingMethodProperties) *IndexPropertyMappingMethodPropertiesParametersProperties {
+		return v.Parameters
+	}).(IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput)
+}
+
+// The distance function used for k-NN search
+func (o IndexPropertyMappingMethodPropertiesOutput) SpaceType() IndexPropertyMappingMethodPropertiesSpaceTypePtrOutput {
+	return o.ApplyT(func(v IndexPropertyMappingMethodProperties) *IndexPropertyMappingMethodPropertiesSpaceType {
+		return v.SpaceType
+	}).(IndexPropertyMappingMethodPropertiesSpaceTypePtrOutput)
+}
+
+type IndexPropertyMappingMethodPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IndexPropertyMappingMethodPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexPropertyMappingMethodProperties)(nil)).Elem()
+}
+
+func (o IndexPropertyMappingMethodPropertiesPtrOutput) ToIndexPropertyMappingMethodPropertiesPtrOutput() IndexPropertyMappingMethodPropertiesPtrOutput {
+	return o
+}
+
+func (o IndexPropertyMappingMethodPropertiesPtrOutput) ToIndexPropertyMappingMethodPropertiesPtrOutputWithContext(ctx context.Context) IndexPropertyMappingMethodPropertiesPtrOutput {
+	return o
+}
+
+func (o IndexPropertyMappingMethodPropertiesPtrOutput) Elem() IndexPropertyMappingMethodPropertiesOutput {
+	return o.ApplyT(func(v *IndexPropertyMappingMethodProperties) IndexPropertyMappingMethodProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IndexPropertyMappingMethodProperties
+		return ret
+	}).(IndexPropertyMappingMethodPropertiesOutput)
+}
+
+// The k-NN search engine to use
+func (o IndexPropertyMappingMethodPropertiesPtrOutput) Engine() IndexPropertyMappingMethodPropertiesEnginePtrOutput {
+	return o.ApplyT(func(v *IndexPropertyMappingMethodProperties) *IndexPropertyMappingMethodPropertiesEngine {
+		if v == nil {
+			return nil
+		}
+		return &v.Engine
+	}).(IndexPropertyMappingMethodPropertiesEnginePtrOutput)
+}
+
+// The algorithm name for k-NN search
+func (o IndexPropertyMappingMethodPropertiesPtrOutput) Name() IndexPropertyMappingMethodPropertiesNamePtrOutput {
+	return o.ApplyT(func(v *IndexPropertyMappingMethodProperties) *IndexPropertyMappingMethodPropertiesName {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(IndexPropertyMappingMethodPropertiesNamePtrOutput)
+}
+
+// Additional parameters for the k-NN algorithm
+func (o IndexPropertyMappingMethodPropertiesPtrOutput) Parameters() IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v *IndexPropertyMappingMethodProperties) *IndexPropertyMappingMethodPropertiesParametersProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput)
+}
+
+// The distance function used for k-NN search
+func (o IndexPropertyMappingMethodPropertiesPtrOutput) SpaceType() IndexPropertyMappingMethodPropertiesSpaceTypePtrOutput {
+	return o.ApplyT(func(v *IndexPropertyMappingMethodProperties) *IndexPropertyMappingMethodPropertiesSpaceType {
+		if v == nil {
+			return nil
+		}
+		return v.SpaceType
+	}).(IndexPropertyMappingMethodPropertiesSpaceTypePtrOutput)
+}
+
+// Additional parameters for the k-NN algorithm
+type IndexPropertyMappingMethodPropertiesParametersProperties struct {
+	// The size of the dynamic list used during k-NN graph creation
+	EfConstruction *int `pulumi:"efConstruction"`
+	// Number of neighbors to consider during k-NN search
+	M *int `pulumi:"m"`
+}
+
+// IndexPropertyMappingMethodPropertiesParametersPropertiesInput is an input type that accepts IndexPropertyMappingMethodPropertiesParametersPropertiesArgs and IndexPropertyMappingMethodPropertiesParametersPropertiesOutput values.
+// You can construct a concrete instance of `IndexPropertyMappingMethodPropertiesParametersPropertiesInput` via:
+//
+//	IndexPropertyMappingMethodPropertiesParametersPropertiesArgs{...}
+type IndexPropertyMappingMethodPropertiesParametersPropertiesInput interface {
+	pulumi.Input
+
+	ToIndexPropertyMappingMethodPropertiesParametersPropertiesOutput() IndexPropertyMappingMethodPropertiesParametersPropertiesOutput
+	ToIndexPropertyMappingMethodPropertiesParametersPropertiesOutputWithContext(context.Context) IndexPropertyMappingMethodPropertiesParametersPropertiesOutput
+}
+
+// Additional parameters for the k-NN algorithm
+type IndexPropertyMappingMethodPropertiesParametersPropertiesArgs struct {
+	// The size of the dynamic list used during k-NN graph creation
+	EfConstruction pulumi.IntPtrInput `pulumi:"efConstruction"`
+	// Number of neighbors to consider during k-NN search
+	M pulumi.IntPtrInput `pulumi:"m"`
+}
+
+func (IndexPropertyMappingMethodPropertiesParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexPropertyMappingMethodPropertiesParametersProperties)(nil)).Elem()
+}
+
+func (i IndexPropertyMappingMethodPropertiesParametersPropertiesArgs) ToIndexPropertyMappingMethodPropertiesParametersPropertiesOutput() IndexPropertyMappingMethodPropertiesParametersPropertiesOutput {
+	return i.ToIndexPropertyMappingMethodPropertiesParametersPropertiesOutputWithContext(context.Background())
+}
+
+func (i IndexPropertyMappingMethodPropertiesParametersPropertiesArgs) ToIndexPropertyMappingMethodPropertiesParametersPropertiesOutputWithContext(ctx context.Context) IndexPropertyMappingMethodPropertiesParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexPropertyMappingMethodPropertiesParametersPropertiesOutput)
+}
+
+func (i IndexPropertyMappingMethodPropertiesParametersPropertiesArgs) ToIndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput() IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput {
+	return i.ToIndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i IndexPropertyMappingMethodPropertiesParametersPropertiesArgs) ToIndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutputWithContext(ctx context.Context) IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexPropertyMappingMethodPropertiesParametersPropertiesOutput).ToIndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutputWithContext(ctx)
+}
+
+// IndexPropertyMappingMethodPropertiesParametersPropertiesPtrInput is an input type that accepts IndexPropertyMappingMethodPropertiesParametersPropertiesArgs, IndexPropertyMappingMethodPropertiesParametersPropertiesPtr and IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `IndexPropertyMappingMethodPropertiesParametersPropertiesPtrInput` via:
+//
+//	        IndexPropertyMappingMethodPropertiesParametersPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type IndexPropertyMappingMethodPropertiesParametersPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToIndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput() IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput
+	ToIndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutputWithContext(context.Context) IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput
+}
+
+type indexPropertyMappingMethodPropertiesParametersPropertiesPtrType IndexPropertyMappingMethodPropertiesParametersPropertiesArgs
+
+func IndexPropertyMappingMethodPropertiesParametersPropertiesPtr(v *IndexPropertyMappingMethodPropertiesParametersPropertiesArgs) IndexPropertyMappingMethodPropertiesParametersPropertiesPtrInput {
+	return (*indexPropertyMappingMethodPropertiesParametersPropertiesPtrType)(v)
+}
+
+func (*indexPropertyMappingMethodPropertiesParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexPropertyMappingMethodPropertiesParametersProperties)(nil)).Elem()
+}
+
+func (i *indexPropertyMappingMethodPropertiesParametersPropertiesPtrType) ToIndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput() IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput {
+	return i.ToIndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *indexPropertyMappingMethodPropertiesParametersPropertiesPtrType) ToIndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutputWithContext(ctx context.Context) IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput)
+}
+
+// Additional parameters for the k-NN algorithm
+type IndexPropertyMappingMethodPropertiesParametersPropertiesOutput struct{ *pulumi.OutputState }
+
+func (IndexPropertyMappingMethodPropertiesParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexPropertyMappingMethodPropertiesParametersProperties)(nil)).Elem()
+}
+
+func (o IndexPropertyMappingMethodPropertiesParametersPropertiesOutput) ToIndexPropertyMappingMethodPropertiesParametersPropertiesOutput() IndexPropertyMappingMethodPropertiesParametersPropertiesOutput {
+	return o
+}
+
+func (o IndexPropertyMappingMethodPropertiesParametersPropertiesOutput) ToIndexPropertyMappingMethodPropertiesParametersPropertiesOutputWithContext(ctx context.Context) IndexPropertyMappingMethodPropertiesParametersPropertiesOutput {
+	return o
+}
+
+func (o IndexPropertyMappingMethodPropertiesParametersPropertiesOutput) ToIndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput() IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput {
+	return o.ToIndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o IndexPropertyMappingMethodPropertiesParametersPropertiesOutput) ToIndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutputWithContext(ctx context.Context) IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexPropertyMappingMethodPropertiesParametersProperties) *IndexPropertyMappingMethodPropertiesParametersProperties {
+		return &v
+	}).(IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput)
+}
+
+// The size of the dynamic list used during k-NN graph creation
+func (o IndexPropertyMappingMethodPropertiesParametersPropertiesOutput) EfConstruction() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IndexPropertyMappingMethodPropertiesParametersProperties) *int { return v.EfConstruction }).(pulumi.IntPtrOutput)
+}
+
+// Number of neighbors to consider during k-NN search
+func (o IndexPropertyMappingMethodPropertiesParametersPropertiesOutput) M() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IndexPropertyMappingMethodPropertiesParametersProperties) *int { return v.M }).(pulumi.IntPtrOutput)
+}
+
+type IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexPropertyMappingMethodPropertiesParametersProperties)(nil)).Elem()
+}
+
+func (o IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput) ToIndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput() IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput) ToIndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutputWithContext(ctx context.Context) IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput) Elem() IndexPropertyMappingMethodPropertiesParametersPropertiesOutput {
+	return o.ApplyT(func(v *IndexPropertyMappingMethodPropertiesParametersProperties) IndexPropertyMappingMethodPropertiesParametersProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IndexPropertyMappingMethodPropertiesParametersProperties
+		return ret
+	}).(IndexPropertyMappingMethodPropertiesParametersPropertiesOutput)
+}
+
+// The size of the dynamic list used during k-NN graph creation
+func (o IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput) EfConstruction() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IndexPropertyMappingMethodPropertiesParametersProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EfConstruction
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of neighbors to consider during k-NN search
+func (o IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput) M() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IndexPropertyMappingMethodPropertiesParametersProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.M
+	}).(pulumi.IntPtrOutput)
+}
+
+type IndexSettings struct {
+	Index *IndexSettingsIndexProperties `pulumi:"index"`
+}
+
+// IndexSettingsInput is an input type that accepts IndexSettingsArgs and IndexSettingsOutput values.
+// You can construct a concrete instance of `IndexSettingsInput` via:
+//
+//	IndexSettingsArgs{...}
+type IndexSettingsInput interface {
+	pulumi.Input
+
+	ToIndexSettingsOutput() IndexSettingsOutput
+	ToIndexSettingsOutputWithContext(context.Context) IndexSettingsOutput
+}
+
+type IndexSettingsArgs struct {
+	Index IndexSettingsIndexPropertiesPtrInput `pulumi:"index"`
+}
+
+func (IndexSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexSettings)(nil)).Elem()
+}
+
+func (i IndexSettingsArgs) ToIndexSettingsOutput() IndexSettingsOutput {
+	return i.ToIndexSettingsOutputWithContext(context.Background())
+}
+
+func (i IndexSettingsArgs) ToIndexSettingsOutputWithContext(ctx context.Context) IndexSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexSettingsOutput)
+}
+
+func (i IndexSettingsArgs) ToIndexSettingsPtrOutput() IndexSettingsPtrOutput {
+	return i.ToIndexSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i IndexSettingsArgs) ToIndexSettingsPtrOutputWithContext(ctx context.Context) IndexSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexSettingsOutput).ToIndexSettingsPtrOutputWithContext(ctx)
+}
+
+// IndexSettingsPtrInput is an input type that accepts IndexSettingsArgs, IndexSettingsPtr and IndexSettingsPtrOutput values.
+// You can construct a concrete instance of `IndexSettingsPtrInput` via:
+//
+//	        IndexSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IndexSettingsPtrInput interface {
+	pulumi.Input
+
+	ToIndexSettingsPtrOutput() IndexSettingsPtrOutput
+	ToIndexSettingsPtrOutputWithContext(context.Context) IndexSettingsPtrOutput
+}
+
+type indexSettingsPtrType IndexSettingsArgs
+
+func IndexSettingsPtr(v *IndexSettingsArgs) IndexSettingsPtrInput {
+	return (*indexSettingsPtrType)(v)
+}
+
+func (*indexSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexSettings)(nil)).Elem()
+}
+
+func (i *indexSettingsPtrType) ToIndexSettingsPtrOutput() IndexSettingsPtrOutput {
+	return i.ToIndexSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *indexSettingsPtrType) ToIndexSettingsPtrOutputWithContext(ctx context.Context) IndexSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexSettingsPtrOutput)
+}
+
+type IndexSettingsOutput struct{ *pulumi.OutputState }
+
+func (IndexSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexSettings)(nil)).Elem()
+}
+
+func (o IndexSettingsOutput) ToIndexSettingsOutput() IndexSettingsOutput {
+	return o
+}
+
+func (o IndexSettingsOutput) ToIndexSettingsOutputWithContext(ctx context.Context) IndexSettingsOutput {
+	return o
+}
+
+func (o IndexSettingsOutput) ToIndexSettingsPtrOutput() IndexSettingsPtrOutput {
+	return o.ToIndexSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o IndexSettingsOutput) ToIndexSettingsPtrOutputWithContext(ctx context.Context) IndexSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexSettings) *IndexSettings {
+		return &v
+	}).(IndexSettingsPtrOutput)
+}
+
+func (o IndexSettingsOutput) Index() IndexSettingsIndexPropertiesPtrOutput {
+	return o.ApplyT(func(v IndexSettings) *IndexSettingsIndexProperties { return v.Index }).(IndexSettingsIndexPropertiesPtrOutput)
+}
+
+type IndexSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (IndexSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexSettings)(nil)).Elem()
+}
+
+func (o IndexSettingsPtrOutput) ToIndexSettingsPtrOutput() IndexSettingsPtrOutput {
+	return o
+}
+
+func (o IndexSettingsPtrOutput) ToIndexSettingsPtrOutputWithContext(ctx context.Context) IndexSettingsPtrOutput {
+	return o
+}
+
+func (o IndexSettingsPtrOutput) Elem() IndexSettingsOutput {
+	return o.ApplyT(func(v *IndexSettings) IndexSettings {
+		if v != nil {
+			return *v
+		}
+		var ret IndexSettings
+		return ret
+	}).(IndexSettingsOutput)
+}
+
+func (o IndexSettingsPtrOutput) Index() IndexSettingsIndexPropertiesPtrOutput {
+	return o.ApplyT(func(v *IndexSettings) *IndexSettingsIndexProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Index
+	}).(IndexSettingsIndexPropertiesPtrOutput)
+}
+
+type IndexSettingsIndexProperties struct {
+	// Enable/disable k-nearest neighbor search capability
+	Knn *bool `pulumi:"knn"`
+	// Size of the dynamic list for the nearest neighbors
+	KnnAlgoParamEfSearch *int `pulumi:"knnAlgoParamEfSearch"`
+	// How often to perform refresh operation (e.g. '1s', '5s')
+	RefreshInterval *string `pulumi:"refreshInterval"`
+}
+
+// IndexSettingsIndexPropertiesInput is an input type that accepts IndexSettingsIndexPropertiesArgs and IndexSettingsIndexPropertiesOutput values.
+// You can construct a concrete instance of `IndexSettingsIndexPropertiesInput` via:
+//
+//	IndexSettingsIndexPropertiesArgs{...}
+type IndexSettingsIndexPropertiesInput interface {
+	pulumi.Input
+
+	ToIndexSettingsIndexPropertiesOutput() IndexSettingsIndexPropertiesOutput
+	ToIndexSettingsIndexPropertiesOutputWithContext(context.Context) IndexSettingsIndexPropertiesOutput
+}
+
+type IndexSettingsIndexPropertiesArgs struct {
+	// Enable/disable k-nearest neighbor search capability
+	Knn pulumi.BoolPtrInput `pulumi:"knn"`
+	// Size of the dynamic list for the nearest neighbors
+	KnnAlgoParamEfSearch pulumi.IntPtrInput `pulumi:"knnAlgoParamEfSearch"`
+	// How often to perform refresh operation (e.g. '1s', '5s')
+	RefreshInterval pulumi.StringPtrInput `pulumi:"refreshInterval"`
+}
+
+func (IndexSettingsIndexPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexSettingsIndexProperties)(nil)).Elem()
+}
+
+func (i IndexSettingsIndexPropertiesArgs) ToIndexSettingsIndexPropertiesOutput() IndexSettingsIndexPropertiesOutput {
+	return i.ToIndexSettingsIndexPropertiesOutputWithContext(context.Background())
+}
+
+func (i IndexSettingsIndexPropertiesArgs) ToIndexSettingsIndexPropertiesOutputWithContext(ctx context.Context) IndexSettingsIndexPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexSettingsIndexPropertiesOutput)
+}
+
+func (i IndexSettingsIndexPropertiesArgs) ToIndexSettingsIndexPropertiesPtrOutput() IndexSettingsIndexPropertiesPtrOutput {
+	return i.ToIndexSettingsIndexPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i IndexSettingsIndexPropertiesArgs) ToIndexSettingsIndexPropertiesPtrOutputWithContext(ctx context.Context) IndexSettingsIndexPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexSettingsIndexPropertiesOutput).ToIndexSettingsIndexPropertiesPtrOutputWithContext(ctx)
+}
+
+// IndexSettingsIndexPropertiesPtrInput is an input type that accepts IndexSettingsIndexPropertiesArgs, IndexSettingsIndexPropertiesPtr and IndexSettingsIndexPropertiesPtrOutput values.
+// You can construct a concrete instance of `IndexSettingsIndexPropertiesPtrInput` via:
+//
+//	        IndexSettingsIndexPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type IndexSettingsIndexPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToIndexSettingsIndexPropertiesPtrOutput() IndexSettingsIndexPropertiesPtrOutput
+	ToIndexSettingsIndexPropertiesPtrOutputWithContext(context.Context) IndexSettingsIndexPropertiesPtrOutput
+}
+
+type indexSettingsIndexPropertiesPtrType IndexSettingsIndexPropertiesArgs
+
+func IndexSettingsIndexPropertiesPtr(v *IndexSettingsIndexPropertiesArgs) IndexSettingsIndexPropertiesPtrInput {
+	return (*indexSettingsIndexPropertiesPtrType)(v)
+}
+
+func (*indexSettingsIndexPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexSettingsIndexProperties)(nil)).Elem()
+}
+
+func (i *indexSettingsIndexPropertiesPtrType) ToIndexSettingsIndexPropertiesPtrOutput() IndexSettingsIndexPropertiesPtrOutput {
+	return i.ToIndexSettingsIndexPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *indexSettingsIndexPropertiesPtrType) ToIndexSettingsIndexPropertiesPtrOutputWithContext(ctx context.Context) IndexSettingsIndexPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexSettingsIndexPropertiesPtrOutput)
+}
+
+type IndexSettingsIndexPropertiesOutput struct{ *pulumi.OutputState }
+
+func (IndexSettingsIndexPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexSettingsIndexProperties)(nil)).Elem()
+}
+
+func (o IndexSettingsIndexPropertiesOutput) ToIndexSettingsIndexPropertiesOutput() IndexSettingsIndexPropertiesOutput {
+	return o
+}
+
+func (o IndexSettingsIndexPropertiesOutput) ToIndexSettingsIndexPropertiesOutputWithContext(ctx context.Context) IndexSettingsIndexPropertiesOutput {
+	return o
+}
+
+func (o IndexSettingsIndexPropertiesOutput) ToIndexSettingsIndexPropertiesPtrOutput() IndexSettingsIndexPropertiesPtrOutput {
+	return o.ToIndexSettingsIndexPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o IndexSettingsIndexPropertiesOutput) ToIndexSettingsIndexPropertiesPtrOutputWithContext(ctx context.Context) IndexSettingsIndexPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexSettingsIndexProperties) *IndexSettingsIndexProperties {
+		return &v
+	}).(IndexSettingsIndexPropertiesPtrOutput)
+}
+
+// Enable/disable k-nearest neighbor search capability
+func (o IndexSettingsIndexPropertiesOutput) Knn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IndexSettingsIndexProperties) *bool { return v.Knn }).(pulumi.BoolPtrOutput)
+}
+
+// Size of the dynamic list for the nearest neighbors
+func (o IndexSettingsIndexPropertiesOutput) KnnAlgoParamEfSearch() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IndexSettingsIndexProperties) *int { return v.KnnAlgoParamEfSearch }).(pulumi.IntPtrOutput)
+}
+
+// How often to perform refresh operation (e.g. '1s', '5s')
+func (o IndexSettingsIndexPropertiesOutput) RefreshInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexSettingsIndexProperties) *string { return v.RefreshInterval }).(pulumi.StringPtrOutput)
+}
+
+type IndexSettingsIndexPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IndexSettingsIndexPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexSettingsIndexProperties)(nil)).Elem()
+}
+
+func (o IndexSettingsIndexPropertiesPtrOutput) ToIndexSettingsIndexPropertiesPtrOutput() IndexSettingsIndexPropertiesPtrOutput {
+	return o
+}
+
+func (o IndexSettingsIndexPropertiesPtrOutput) ToIndexSettingsIndexPropertiesPtrOutputWithContext(ctx context.Context) IndexSettingsIndexPropertiesPtrOutput {
+	return o
+}
+
+func (o IndexSettingsIndexPropertiesPtrOutput) Elem() IndexSettingsIndexPropertiesOutput {
+	return o.ApplyT(func(v *IndexSettingsIndexProperties) IndexSettingsIndexProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IndexSettingsIndexProperties
+		return ret
+	}).(IndexSettingsIndexPropertiesOutput)
+}
+
+// Enable/disable k-nearest neighbor search capability
+func (o IndexSettingsIndexPropertiesPtrOutput) Knn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IndexSettingsIndexProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Knn
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Size of the dynamic list for the nearest neighbors
+func (o IndexSettingsIndexPropertiesPtrOutput) KnnAlgoParamEfSearch() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IndexSettingsIndexProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KnnAlgoParamEfSearch
+	}).(pulumi.IntPtrOutput)
+}
+
+// How often to perform refresh operation (e.g. '1s', '5s')
+func (o IndexSettingsIndexPropertiesPtrOutput) RefreshInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IndexSettingsIndexProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshInterval
+	}).(pulumi.StringPtrOutput)
+}
+
+// Index Mappings
+type MappingsProperties struct {
+	// Defines the fields within the mapping, including their types and configurations
+	Properties map[string]IndexPropertyMapping `pulumi:"properties"`
+}
+
+// MappingsPropertiesInput is an input type that accepts MappingsPropertiesArgs and MappingsPropertiesOutput values.
+// You can construct a concrete instance of `MappingsPropertiesInput` via:
+//
+//	MappingsPropertiesArgs{...}
+type MappingsPropertiesInput interface {
+	pulumi.Input
+
+	ToMappingsPropertiesOutput() MappingsPropertiesOutput
+	ToMappingsPropertiesOutputWithContext(context.Context) MappingsPropertiesOutput
+}
+
+// Index Mappings
+type MappingsPropertiesArgs struct {
+	// Defines the fields within the mapping, including their types and configurations
+	Properties IndexPropertyMappingMapInput `pulumi:"properties"`
+}
+
+func (MappingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MappingsProperties)(nil)).Elem()
+}
+
+func (i MappingsPropertiesArgs) ToMappingsPropertiesOutput() MappingsPropertiesOutput {
+	return i.ToMappingsPropertiesOutputWithContext(context.Background())
+}
+
+func (i MappingsPropertiesArgs) ToMappingsPropertiesOutputWithContext(ctx context.Context) MappingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MappingsPropertiesOutput)
+}
+
+func (i MappingsPropertiesArgs) ToMappingsPropertiesPtrOutput() MappingsPropertiesPtrOutput {
+	return i.ToMappingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MappingsPropertiesArgs) ToMappingsPropertiesPtrOutputWithContext(ctx context.Context) MappingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MappingsPropertiesOutput).ToMappingsPropertiesPtrOutputWithContext(ctx)
+}
+
+// MappingsPropertiesPtrInput is an input type that accepts MappingsPropertiesArgs, MappingsPropertiesPtr and MappingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `MappingsPropertiesPtrInput` via:
+//
+//	        MappingsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MappingsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMappingsPropertiesPtrOutput() MappingsPropertiesPtrOutput
+	ToMappingsPropertiesPtrOutputWithContext(context.Context) MappingsPropertiesPtrOutput
+}
+
+type mappingsPropertiesPtrType MappingsPropertiesArgs
+
+func MappingsPropertiesPtr(v *MappingsPropertiesArgs) MappingsPropertiesPtrInput {
+	return (*mappingsPropertiesPtrType)(v)
+}
+
+func (*mappingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MappingsProperties)(nil)).Elem()
+}
+
+func (i *mappingsPropertiesPtrType) ToMappingsPropertiesPtrOutput() MappingsPropertiesPtrOutput {
+	return i.ToMappingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *mappingsPropertiesPtrType) ToMappingsPropertiesPtrOutputWithContext(ctx context.Context) MappingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MappingsPropertiesPtrOutput)
+}
+
+// Index Mappings
+type MappingsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MappingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MappingsProperties)(nil)).Elem()
+}
+
+func (o MappingsPropertiesOutput) ToMappingsPropertiesOutput() MappingsPropertiesOutput {
+	return o
+}
+
+func (o MappingsPropertiesOutput) ToMappingsPropertiesOutputWithContext(ctx context.Context) MappingsPropertiesOutput {
+	return o
+}
+
+func (o MappingsPropertiesOutput) ToMappingsPropertiesPtrOutput() MappingsPropertiesPtrOutput {
+	return o.ToMappingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MappingsPropertiesOutput) ToMappingsPropertiesPtrOutputWithContext(ctx context.Context) MappingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MappingsProperties) *MappingsProperties {
+		return &v
+	}).(MappingsPropertiesPtrOutput)
+}
+
+// Defines the fields within the mapping, including their types and configurations
+func (o MappingsPropertiesOutput) Properties() IndexPropertyMappingMapOutput {
+	return o.ApplyT(func(v MappingsProperties) map[string]IndexPropertyMapping { return v.Properties }).(IndexPropertyMappingMapOutput)
+}
+
+type MappingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MappingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MappingsProperties)(nil)).Elem()
+}
+
+func (o MappingsPropertiesPtrOutput) ToMappingsPropertiesPtrOutput() MappingsPropertiesPtrOutput {
+	return o
+}
+
+func (o MappingsPropertiesPtrOutput) ToMappingsPropertiesPtrOutputWithContext(ctx context.Context) MappingsPropertiesPtrOutput {
+	return o
+}
+
+func (o MappingsPropertiesPtrOutput) Elem() MappingsPropertiesOutput {
+	return o.ApplyT(func(v *MappingsProperties) MappingsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MappingsProperties
+		return ret
+	}).(MappingsPropertiesOutput)
+}
+
+// Defines the fields within the mapping, including their types and configurations
+func (o MappingsPropertiesPtrOutput) Properties() IndexPropertyMappingMapOutput {
+	return o.ApplyT(func(v *MappingsProperties) map[string]IndexPropertyMapping {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(IndexPropertyMappingMapOutput)
+}
+
 // Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
 type SecurityConfigIamIdentityCenterConfigOptions struct {
+	// The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
 	ApplicationArn *string `pulumi:"applicationArn"`
 	// The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
 	ApplicationDescription *string `pulumi:"applicationDescription"`
 	// The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
 	ApplicationName *string `pulumi:"applicationName"`
-	GroupAttribute  *string `pulumi:"groupAttribute"`
-	InstanceArn     string  `pulumi:"instanceArn"`
-	UserAttribute   *string `pulumi:"userAttribute"`
+	// The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
+	GroupAttribute *string `pulumi:"groupAttribute"`
+	// The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+	InstanceArn string `pulumi:"instanceArn"`
+	// The user attribute for this IAM Identity Center integration. Defaults to `UserId`
+	UserAttribute *string `pulumi:"userAttribute"`
 }
 
 // SecurityConfigIamIdentityCenterConfigOptionsInput is an input type that accepts SecurityConfigIamIdentityCenterConfigOptionsArgs and SecurityConfigIamIdentityCenterConfigOptionsOutput values.
@@ -46,14 +1002,18 @@ type SecurityConfigIamIdentityCenterConfigOptionsInput interface {
 
 // Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
 type SecurityConfigIamIdentityCenterConfigOptionsArgs struct {
+	// The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
 	ApplicationArn pulumi.StringPtrInput `pulumi:"applicationArn"`
 	// The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
 	ApplicationDescription pulumi.StringPtrInput `pulumi:"applicationDescription"`
 	// The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
 	ApplicationName pulumi.StringPtrInput `pulumi:"applicationName"`
-	GroupAttribute  pulumi.StringPtrInput `pulumi:"groupAttribute"`
-	InstanceArn     pulumi.StringInput    `pulumi:"instanceArn"`
-	UserAttribute   pulumi.StringPtrInput `pulumi:"userAttribute"`
+	// The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
+	GroupAttribute pulumi.StringPtrInput `pulumi:"groupAttribute"`
+	// The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
+	// The user attribute for this IAM Identity Center integration. Defaults to `UserId`
+	UserAttribute pulumi.StringPtrInput `pulumi:"userAttribute"`
 }
 
 func (SecurityConfigIamIdentityCenterConfigOptionsArgs) ElementType() reflect.Type {
@@ -134,6 +1094,7 @@ func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) ToSecurityConfigIamI
 	}).(SecurityConfigIamIdentityCenterConfigOptionsPtrOutput)
 }
 
+// The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
 func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityConfigIamIdentityCenterConfigOptions) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
 }
@@ -148,14 +1109,17 @@ func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) ApplicationName() pu
 	return o.ApplyT(func(v SecurityConfigIamIdentityCenterConfigOptions) *string { return v.ApplicationName }).(pulumi.StringPtrOutput)
 }
 
+// The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
 func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) GroupAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityConfigIamIdentityCenterConfigOptions) *string { return v.GroupAttribute }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
 func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityConfigIamIdentityCenterConfigOptions) string { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
+// The user attribute for this IAM Identity Center integration. Defaults to `UserId`
 func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) UserAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityConfigIamIdentityCenterConfigOptions) *string { return v.UserAttribute }).(pulumi.StringPtrOutput)
 }
@@ -184,6 +1148,7 @@ func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) Elem() SecurityCo
 	}).(SecurityConfigIamIdentityCenterConfigOptionsOutput)
 }
 
+// The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
 func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityConfigIamIdentityCenterConfigOptions) *string {
 		if v == nil {
@@ -213,6 +1178,7 @@ func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) ApplicationName()
 	}).(pulumi.StringPtrOutput)
 }
 
+// The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
 func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) GroupAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityConfigIamIdentityCenterConfigOptions) *string {
 		if v == nil {
@@ -222,6 +1188,7 @@ func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) GroupAttribute() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
 func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) InstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityConfigIamIdentityCenterConfigOptions) *string {
 		if v == nil {
@@ -231,6 +1198,7 @@ func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) InstanceArn() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// The user attribute for this IAM Identity Center integration. Defaults to `UserId`
 func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) UserAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityConfigIamIdentityCenterConfigOptions) *string {
 		if v == nil {
@@ -457,10 +1425,34 @@ func (o SecurityConfigSamlConfigOptionsPtrOutput) UserAttribute() pulumi.StringP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingInput)(nil)).Elem(), IndexPropertyMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingMapInput)(nil)).Elem(), IndexPropertyMappingMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingMethodPropertiesInput)(nil)).Elem(), IndexPropertyMappingMethodPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingMethodPropertiesPtrInput)(nil)).Elem(), IndexPropertyMappingMethodPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingMethodPropertiesParametersPropertiesInput)(nil)).Elem(), IndexPropertyMappingMethodPropertiesParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingMethodPropertiesParametersPropertiesPtrInput)(nil)).Elem(), IndexPropertyMappingMethodPropertiesParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexSettingsInput)(nil)).Elem(), IndexSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexSettingsPtrInput)(nil)).Elem(), IndexSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexSettingsIndexPropertiesInput)(nil)).Elem(), IndexSettingsIndexPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexSettingsIndexPropertiesPtrInput)(nil)).Elem(), IndexSettingsIndexPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MappingsPropertiesInput)(nil)).Elem(), MappingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MappingsPropertiesPtrInput)(nil)).Elem(), MappingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigIamIdentityCenterConfigOptionsInput)(nil)).Elem(), SecurityConfigIamIdentityCenterConfigOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigIamIdentityCenterConfigOptionsPtrInput)(nil)).Elem(), SecurityConfigIamIdentityCenterConfigOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigSamlConfigOptionsInput)(nil)).Elem(), SecurityConfigSamlConfigOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigSamlConfigOptionsPtrInput)(nil)).Elem(), SecurityConfigSamlConfigOptionsArgs{})
+	pulumi.RegisterOutputType(IndexPropertyMappingOutput{})
+	pulumi.RegisterOutputType(IndexPropertyMappingMapOutput{})
+	pulumi.RegisterOutputType(IndexPropertyMappingMethodPropertiesOutput{})
+	pulumi.RegisterOutputType(IndexPropertyMappingMethodPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IndexPropertyMappingMethodPropertiesParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IndexSettingsOutput{})
+	pulumi.RegisterOutputType(IndexSettingsPtrOutput{})
+	pulumi.RegisterOutputType(IndexSettingsIndexPropertiesOutput{})
+	pulumi.RegisterOutputType(IndexSettingsIndexPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MappingsPropertiesOutput{})
+	pulumi.RegisterOutputType(MappingsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigIamIdentityCenterConfigOptionsOutput{})
 	pulumi.RegisterOutputType(SecurityConfigIamIdentityCenterConfigOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigSamlConfigOptionsOutput{})

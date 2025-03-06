@@ -32,6 +32,51 @@ export const CollectionType = {
  */
 export type CollectionType = (typeof CollectionType)[keyof typeof CollectionType];
 
+export const IndexPropertyMappingMethodPropertiesEngine = {
+    Nmslib: "nmslib",
+    Faiss: "faiss",
+    Lucene: "lucene",
+} as const;
+
+/**
+ * The k-NN search engine to use
+ */
+export type IndexPropertyMappingMethodPropertiesEngine = (typeof IndexPropertyMappingMethodPropertiesEngine)[keyof typeof IndexPropertyMappingMethodPropertiesEngine];
+
+export const IndexPropertyMappingMethodPropertiesName = {
+    Hnsw: "hnsw",
+    Ivf: "ivf",
+} as const;
+
+/**
+ * The algorithm name for k-NN search
+ */
+export type IndexPropertyMappingMethodPropertiesName = (typeof IndexPropertyMappingMethodPropertiesName)[keyof typeof IndexPropertyMappingMethodPropertiesName];
+
+export const IndexPropertyMappingMethodPropertiesSpaceType = {
+    L2: "l2",
+    L1: "l1",
+    Linf: "linf",
+    Cosinesimil: "cosinesimil",
+    Innerproduct: "innerproduct",
+    Hamming: "hamming",
+} as const;
+
+/**
+ * The distance function used for k-NN search
+ */
+export type IndexPropertyMappingMethodPropertiesSpaceType = (typeof IndexPropertyMappingMethodPropertiesSpaceType)[keyof typeof IndexPropertyMappingMethodPropertiesSpaceType];
+
+export const IndexPropertyMappingType = {
+    Text: "text",
+    KnnVector: "knn_vector",
+} as const;
+
+/**
+ * The field data type. Must be a valid OpenSearch field type.
+ */
+export type IndexPropertyMappingType = (typeof IndexPropertyMappingType)[keyof typeof IndexPropertyMappingType];
+
 export const LifecyclePolicyType = {
     Retention: "retention",
 } as const;

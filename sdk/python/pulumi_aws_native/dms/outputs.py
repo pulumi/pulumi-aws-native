@@ -24,6 +24,8 @@ __all__ = [
     'SchemaConversionApplicationAttributesProperties',
     'SettingsProperties',
     'SettingsPropertiesDocDbSettingsProperties',
+    'SettingsPropertiesIbmDb2LuwSettingsProperties',
+    'SettingsPropertiesIbmDb2zOsSettingsProperties',
     'SettingsPropertiesMariaDbSettingsProperties',
     'SettingsPropertiesMicrosoftSqlServerSettingsProperties',
     'SettingsPropertiesMongoDbSettingsProperties',
@@ -490,6 +492,10 @@ class SettingsProperties(dict):
         suggest = None
         if key == "docDbSettings":
             suggest = "doc_db_settings"
+        elif key == "ibmDb2LuwSettings":
+            suggest = "ibm_db2_luw_settings"
+        elif key == "ibmDb2zOsSettings":
+            suggest = "ibm_db2z_os_settings"
         elif key == "mariaDbSettings":
             suggest = "maria_db_settings"
         elif key == "microsoftSqlServerSettings":
@@ -518,6 +524,8 @@ class SettingsProperties(dict):
 
     def __init__(__self__, *,
                  doc_db_settings: Optional['outputs.SettingsPropertiesDocDbSettingsProperties'] = None,
+                 ibm_db2_luw_settings: Optional['outputs.SettingsPropertiesIbmDb2LuwSettingsProperties'] = None,
+                 ibm_db2z_os_settings: Optional['outputs.SettingsPropertiesIbmDb2zOsSettingsProperties'] = None,
                  maria_db_settings: Optional['outputs.SettingsPropertiesMariaDbSettingsProperties'] = None,
                  microsoft_sql_server_settings: Optional['outputs.SettingsPropertiesMicrosoftSqlServerSettingsProperties'] = None,
                  mongo_db_settings: Optional['outputs.SettingsPropertiesMongoDbSettingsProperties'] = None,
@@ -528,6 +536,8 @@ class SettingsProperties(dict):
         """
         The property identifies the exact type of settings for the data provider.
         :param 'SettingsPropertiesDocDbSettingsProperties' doc_db_settings: DocDbSettings property identifier.
+        :param 'SettingsPropertiesIbmDb2LuwSettingsProperties' ibm_db2_luw_settings: IbmDb2LuwSettings property identifier.
+        :param 'SettingsPropertiesIbmDb2zOsSettingsProperties' ibm_db2z_os_settings: IbmDb2zOsSettings property identifier.
         :param 'SettingsPropertiesMariaDbSettingsProperties' maria_db_settings: MariaDbSettings property identifier.
         :param 'SettingsPropertiesMicrosoftSqlServerSettingsProperties' microsoft_sql_server_settings: MicrosoftSqlServerSettings property identifier.
         :param 'SettingsPropertiesMongoDbSettingsProperties' mongo_db_settings: MongoDbSettings property identifier.
@@ -538,6 +548,10 @@ class SettingsProperties(dict):
         """
         if doc_db_settings is not None:
             pulumi.set(__self__, "doc_db_settings", doc_db_settings)
+        if ibm_db2_luw_settings is not None:
+            pulumi.set(__self__, "ibm_db2_luw_settings", ibm_db2_luw_settings)
+        if ibm_db2z_os_settings is not None:
+            pulumi.set(__self__, "ibm_db2z_os_settings", ibm_db2z_os_settings)
         if maria_db_settings is not None:
             pulumi.set(__self__, "maria_db_settings", maria_db_settings)
         if microsoft_sql_server_settings is not None:
@@ -560,6 +574,22 @@ class SettingsProperties(dict):
         DocDbSettings property identifier.
         """
         return pulumi.get(self, "doc_db_settings")
+
+    @property
+    @pulumi.getter(name="ibmDb2LuwSettings")
+    def ibm_db2_luw_settings(self) -> Optional['outputs.SettingsPropertiesIbmDb2LuwSettingsProperties']:
+        """
+        IbmDb2LuwSettings property identifier.
+        """
+        return pulumi.get(self, "ibm_db2_luw_settings")
+
+    @property
+    @pulumi.getter(name="ibmDb2zOsSettings")
+    def ibm_db2z_os_settings(self) -> Optional['outputs.SettingsPropertiesIbmDb2zOsSettingsProperties']:
+        """
+        IbmDb2zOsSettings property identifier.
+        """
+        return pulumi.get(self, "ibm_db2z_os_settings")
 
     @property
     @pulumi.getter(name="mariaDbSettings")
@@ -687,6 +717,146 @@ class SettingsPropertiesDocDbSettingsProperties(dict):
     @pulumi.getter(name="sslMode")
     def ssl_mode(self) -> Optional['DataProviderMongoDbSslModeValue']:
         return pulumi.get(self, "ssl_mode")
+
+
+@pulumi.output_type
+class SettingsPropertiesIbmDb2LuwSettingsProperties(dict):
+    """
+    IbmDb2LuwSettings property identifier.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "sslMode":
+            suggest = "ssl_mode"
+        elif key == "certificateArn":
+            suggest = "certificate_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SettingsPropertiesIbmDb2LuwSettingsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SettingsPropertiesIbmDb2LuwSettingsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SettingsPropertiesIbmDb2LuwSettingsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: str,
+                 port: int,
+                 server_name: str,
+                 ssl_mode: 'DataProviderDb2SslModeValue',
+                 certificate_arn: Optional[str] = None):
+        """
+        IbmDb2LuwSettings property identifier.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_mode", ssl_mode)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> str:
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> 'DataProviderDb2SslModeValue':
+        return pulumi.get(self, "ssl_mode")
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_arn")
+
+
+@pulumi.output_type
+class SettingsPropertiesIbmDb2zOsSettingsProperties(dict):
+    """
+    IbmDb2zOsSettings property identifier.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "sslMode":
+            suggest = "ssl_mode"
+        elif key == "certificateArn":
+            suggest = "certificate_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SettingsPropertiesIbmDb2zOsSettingsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SettingsPropertiesIbmDb2zOsSettingsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SettingsPropertiesIbmDb2zOsSettingsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: str,
+                 port: int,
+                 server_name: str,
+                 ssl_mode: 'DataProviderDb2SslModeValue',
+                 certificate_arn: Optional[str] = None):
+        """
+        IbmDb2zOsSettings property identifier.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_mode", ssl_mode)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> str:
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> 'DataProviderDb2SslModeValue':
+        return pulumi.get(self, "ssl_mode")
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_arn")
 
 
 @pulumi.output_type

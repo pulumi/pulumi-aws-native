@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// An example resource schema demonstrating some basic constructs and validation rules.
+    /// Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:CarrierGateway")]
     public partial class CarrierGateway : global::Pulumi.CustomResource

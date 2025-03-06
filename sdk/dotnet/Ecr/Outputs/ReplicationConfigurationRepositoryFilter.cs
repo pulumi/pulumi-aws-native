@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.Ecr.Outputs
 {
 
     /// <summary>
-    /// An array of objects representing the details of a repository filter.
+    /// The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no filters are added, the contents of all repositories are replicated.
     /// </summary>
     [OutputType]
     public sealed class ReplicationConfigurationRepositoryFilter
     {
         /// <summary>
-        /// The repository filter details. When the `PREFIX_MATCH` filter type is specified, this value is required and should be the repository name prefix to configure replication for.
+        /// The repository filter details. When the ``PREFIX_MATCH`` filter type is specified, this value is required and should be the repository name prefix to configure replication for.
         /// </summary>
         public readonly string Filter;
         /// <summary>
-        /// The repository filter type. The only supported value is `PREFIX_MATCH` , which is a repository name prefix specified with the `filter` parameter.
+        /// The repository filter type. The only supported value is ``PREFIX_MATCH``, which is a repository name prefix specified with the ``filter`` parameter.
         /// </summary>
         public readonly Pulumi.AwsNative.Ecr.ReplicationConfigurationFilterType FilterType;
 

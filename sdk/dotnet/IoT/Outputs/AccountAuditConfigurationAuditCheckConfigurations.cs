@@ -32,10 +32,11 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// Checks if multiple devices connect using the same client ID.
         /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? ConflictingClientIdsCheck;
+        public readonly Outputs.AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration? DeviceCertificateAgeCheck;
         /// <summary>
         /// Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
         /// </summary>
-        public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? DeviceCertificateExpiringCheck;
+        public readonly Outputs.AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration? DeviceCertificateExpiringCheck;
         /// <summary>
         /// Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
         /// </summary>
@@ -91,7 +92,9 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
             Outputs.AccountAuditConfigurationAuditCheckConfiguration? conflictingClientIdsCheck,
 
-            Outputs.AccountAuditConfigurationAuditCheckConfiguration? deviceCertificateExpiringCheck,
+            Outputs.AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration? deviceCertificateAgeCheck,
+
+            Outputs.AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration? deviceCertificateExpiringCheck,
 
             Outputs.AccountAuditConfigurationAuditCheckConfiguration? deviceCertificateKeyQualityCheck,
 
@@ -119,6 +122,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
             CaCertificateExpiringCheck = caCertificateExpiringCheck;
             CaCertificateKeyQualityCheck = caCertificateKeyQualityCheck;
             ConflictingClientIdsCheck = conflictingClientIdsCheck;
+            DeviceCertificateAgeCheck = deviceCertificateAgeCheck;
             DeviceCertificateExpiringCheck = deviceCertificateExpiringCheck;
             DeviceCertificateKeyQualityCheck = deviceCertificateKeyQualityCheck;
             DeviceCertificateSharedCheck = deviceCertificateSharedCheck;

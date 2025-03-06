@@ -23,10 +23,12 @@ func LookupServerlessCluster(ctx *pulumi.Context, args *LookupServerlessClusterA
 }
 
 type LookupServerlessClusterArgs struct {
+	// The Amazon Resource Name (ARN) of the MSK cluster.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupServerlessClusterResult struct {
+	// The Amazon Resource Name (ARN) of the MSK cluster.
 	Arn *string `pulumi:"arn"`
 }
 
@@ -40,6 +42,7 @@ func LookupServerlessClusterOutput(ctx *pulumi.Context, args LookupServerlessClu
 }
 
 type LookupServerlessClusterOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the MSK cluster.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -61,6 +64,7 @@ func (o LookupServerlessClusterResultOutput) ToLookupServerlessClusterResultOutp
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the MSK cluster.
 func (o LookupServerlessClusterResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerlessClusterResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

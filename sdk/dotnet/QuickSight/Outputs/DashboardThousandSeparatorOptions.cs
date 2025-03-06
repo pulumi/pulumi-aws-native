@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardThousandSeparatorOptions
     {
+        public readonly Pulumi.AwsNative.QuickSight.DashboardDigitGroupingStyle? GroupingStyle;
         /// <summary>
         /// Determines the thousands separator symbol.
         /// </summary>
@@ -24,10 +25,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DashboardThousandSeparatorOptions(
+            Pulumi.AwsNative.QuickSight.DashboardDigitGroupingStyle? groupingStyle,
+
             Pulumi.AwsNative.QuickSight.DashboardNumericSeparatorSymbol? symbol,
 
             Pulumi.AwsNative.QuickSight.DashboardVisibility? visibility)
         {
+            GroupingStyle = groupingStyle;
             Symbol = symbol;
             Visibility = visibility;
         }

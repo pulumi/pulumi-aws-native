@@ -64,18 +64,29 @@
   "readOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/Name" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "kinesisvideo:TagResource", "kinesisvideo:UntagResource" ]
+  },
   "handlers" : {
     "create" : {
-      "permissions" : [ "kinesisvideo:CreateSignalingChannel", "kinesisvideo:DescribeSignalingChannel" ]
+      "permissions" : [ "kinesisvideo:CreateSignalingChannel", "kinesisvideo:DescribeSignalingChannel", "kinesisvideo:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "kinesisvideo:DescribeSignalingChannel" ]
+      "permissions" : [ "kinesisvideo:DescribeSignalingChannel", "kinesisvideo:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "kinesisvideo:UpdateSignalingChannel", "kinesisvideo:DescribeSignalingChannel" ]
+      "permissions" : [ "kinesisvideo:UpdateSignalingChannel", "kinesisvideo:DescribeSignalingChannel", "kinesisvideo:TagResource", "kinesisvideo:UntagResource", "kinesisvideo:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "kinesisvideo:DeleteSignalingChannel", "kinesisvideo:DescribeSignalingChannel" ]
+    },
+    "list" : {
+      "permissions" : [ "kinesisvideo:ListSignalingChannels" ]
     }
   }
 }

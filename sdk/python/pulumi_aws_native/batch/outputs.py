@@ -23,6 +23,8 @@ __all__ = [
     'ComputeEnvironmentLaunchTemplateSpecification',
     'ComputeEnvironmentLaunchTemplateSpecificationOverride',
     'ComputeEnvironmentUpdatePolicy',
+    'JobDefinitionConsumableResourceProperties',
+    'JobDefinitionConsumableResourceRequirement',
     'JobDefinitionContainerProperties',
     'JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties',
     'JobDefinitionDevice',
@@ -894,6 +896,87 @@ class ComputeEnvironmentUpdatePolicy(dict):
         Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated. The default value is `false` .
         """
         return pulumi.get(self, "terminate_jobs_on_update")
+
+
+@pulumi.output_type
+class JobDefinitionConsumableResourceProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumableResourceList":
+            suggest = "consumable_resource_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionConsumableResourceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionConsumableResourceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionConsumableResourceProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 consumable_resource_list: Sequence['outputs.JobDefinitionConsumableResourceRequirement']):
+        """
+        :param Sequence['JobDefinitionConsumableResourceRequirement'] consumable_resource_list: The list of consumable resources required by a job.
+        """
+        pulumi.set(__self__, "consumable_resource_list", consumable_resource_list)
+
+    @property
+    @pulumi.getter(name="consumableResourceList")
+    def consumable_resource_list(self) -> Sequence['outputs.JobDefinitionConsumableResourceRequirement']:
+        """
+        The list of consumable resources required by a job.
+        """
+        return pulumi.get(self, "consumable_resource_list")
+
+
+@pulumi.output_type
+class JobDefinitionConsumableResourceRequirement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumableResource":
+            suggest = "consumable_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionConsumableResourceRequirement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionConsumableResourceRequirement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionConsumableResourceRequirement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 consumable_resource: str,
+                 quantity: int):
+        """
+        :param str consumable_resource: The ARN of the consumable resource the job definition should consume.
+        :param int quantity: The quantity of the consumable resource that is needed.
+        """
+        pulumi.set(__self__, "consumable_resource", consumable_resource)
+        pulumi.set(__self__, "quantity", quantity)
+
+    @property
+    @pulumi.getter(name="consumableResource")
+    def consumable_resource(self) -> str:
+        """
+        The ARN of the consumable resource the job definition should consume.
+        """
+        return pulumi.get(self, "consumable_resource")
+
+    @property
+    @pulumi.getter
+    def quantity(self) -> int:
+        """
+        The quantity of the consumable resource that is needed.
+        """
+        return pulumi.get(self, "quantity")
 
 
 @pulumi.output_type
@@ -3833,6 +3916,8 @@ class JobDefinitionNodeRangeProperty(dict):
         suggest = None
         if key == "targetNodes":
             suggest = "target_nodes"
+        elif key == "consumableResourceProperties":
+            suggest = "consumable_resource_properties"
         elif key == "ecsProperties":
             suggest = "ecs_properties"
         elif key == "eksProperties":
@@ -3853,12 +3938,14 @@ class JobDefinitionNodeRangeProperty(dict):
 
     def __init__(__self__, *,
                  target_nodes: str,
+                 consumable_resource_properties: Optional['outputs.JobDefinitionConsumableResourceProperties'] = None,
                  container: Optional['outputs.JobDefinitionMultiNodeContainerProperties'] = None,
                  ecs_properties: Optional['outputs.JobDefinitionMultiNodeEcsProperties'] = None,
                  eks_properties: Optional['outputs.JobDefinitionEksProperties'] = None,
                  instance_types: Optional[Sequence[str]] = None):
         """
         :param str target_nodes: The range of nodes, using node index values. A range of `0:3` indicates nodes with index values of `0` through `3` . If the starting range value is omitted ( `:n` ), then `0` is used to start the range. If the ending range value is omitted ( `n:` ), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes ( `0:n` ). You can nest node ranges (for example, `0:10` and `4:5` ). In this case, the `4:5` range properties override the `0:10` properties.
+        :param 'JobDefinitionConsumableResourceProperties' consumable_resource_properties: Contains a list of consumable resources required by a job.
         :param 'JobDefinitionMultiNodeContainerProperties' container: The container details for the node range.
         :param 'JobDefinitionMultiNodeEcsProperties' ecs_properties: This is an object that represents the properties of the node range for a multi-node parallel job.
         :param 'JobDefinitionEksProperties' eks_properties: This is an object that represents the properties of the node range for a multi-node parallel job.
@@ -3869,6 +3956,8 @@ class JobDefinitionNodeRangeProperty(dict):
                > In addition, this list object is currently limited to one element.
         """
         pulumi.set(__self__, "target_nodes", target_nodes)
+        if consumable_resource_properties is not None:
+            pulumi.set(__self__, "consumable_resource_properties", consumable_resource_properties)
         if container is not None:
             pulumi.set(__self__, "container", container)
         if ecs_properties is not None:
@@ -3885,6 +3974,14 @@ class JobDefinitionNodeRangeProperty(dict):
         The range of nodes, using node index values. A range of `0:3` indicates nodes with index values of `0` through `3` . If the starting range value is omitted ( `:n` ), then `0` is used to start the range. If the ending range value is omitted ( `n:` ), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes ( `0:n` ). You can nest node ranges (for example, `0:10` and `4:5` ). In this case, the `4:5` range properties override the `0:10` properties.
         """
         return pulumi.get(self, "target_nodes")
+
+    @property
+    @pulumi.getter(name="consumableResourceProperties")
+    def consumable_resource_properties(self) -> Optional['outputs.JobDefinitionConsumableResourceProperties']:
+        """
+        Contains a list of consumable resources required by a job.
+        """
+        return pulumi.get(self, "consumable_resource_properties")
 
     @property
     @pulumi.getter

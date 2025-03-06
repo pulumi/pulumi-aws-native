@@ -21,10 +21,12 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The field wells of the visual.
         /// </summary>
         public readonly Outputs.AnalysisScatterPlotFieldWells? FieldWells;
+        public readonly Outputs.AnalysisVisualInteractionOptions? Interactions;
         /// <summary>
         /// The legend display setup of the visual.
         /// </summary>
         public readonly Outputs.AnalysisLegendOptions? Legend;
+        public readonly Outputs.AnalysisScatterPlotSortConfiguration? SortConfiguration;
         /// <summary>
         /// The legend display setup of the visual.
         /// </summary>
@@ -56,7 +58,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.AnalysisScatterPlotFieldWells? fieldWells,
 
+            Outputs.AnalysisVisualInteractionOptions? interactions,
+
             Outputs.AnalysisLegendOptions? legend,
+
+            Outputs.AnalysisScatterPlotSortConfiguration? sortConfiguration,
 
             Outputs.AnalysisTooltipOptions? tooltip,
 
@@ -72,7 +78,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         {
             DataLabels = dataLabels;
             FieldWells = fieldWells;
+            Interactions = interactions;
             Legend = legend;
+            SortConfiguration = sortConfiguration;
             Tooltip = tooltip;
             VisualPalette = visualPalette;
             XAxisDisplayOptions = xAxisDisplayOptions;

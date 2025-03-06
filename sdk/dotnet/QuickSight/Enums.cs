@@ -587,6 +587,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisDashboardBehavior : IEquatable<AnalysisDashboardBehavior>
+    {
+        private readonly string _value;
+
+        private AnalysisDashboardBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisDashboardBehavior Enabled { get; } = new AnalysisDashboardBehavior("ENABLED");
+        public static AnalysisDashboardBehavior Disabled { get; } = new AnalysisDashboardBehavior("DISABLED");
+
+        public static bool operator ==(AnalysisDashboardBehavior left, AnalysisDashboardBehavior right) => left.Equals(right);
+        public static bool operator !=(AnalysisDashboardBehavior left, AnalysisDashboardBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisDashboardBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisDashboardBehavior other && Equals(other);
+        public bool Equals(AnalysisDashboardBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisDataLabelContent : IEquatable<AnalysisDataLabelContent>
     {
         private readonly string _value;
@@ -731,6 +759,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AnalysisDayOfTheWeek other && Equals(other);
         public bool Equals(AnalysisDayOfTheWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AnalysisDigitGroupingStyle : IEquatable<AnalysisDigitGroupingStyle>
+    {
+        private readonly string _value;
+
+        private AnalysisDigitGroupingStyle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisDigitGroupingStyle Default { get; } = new AnalysisDigitGroupingStyle("DEFAULT");
+        public static AnalysisDigitGroupingStyle Lakhs { get; } = new AnalysisDigitGroupingStyle("LAKHS");
+
+        public static bool operator ==(AnalysisDigitGroupingStyle left, AnalysisDigitGroupingStyle right) => left.Equals(right);
+        public static bool operator !=(AnalysisDigitGroupingStyle left, AnalysisDigitGroupingStyle right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisDigitGroupingStyle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisDigitGroupingStyle other && Equals(other);
+        public bool Equals(AnalysisDigitGroupingStyle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1621,6 +1677,8 @@ namespace Pulumi.AwsNative.QuickSight
         public static AnalysisNumberScale Millions { get; } = new AnalysisNumberScale("MILLIONS");
         public static AnalysisNumberScale Billions { get; } = new AnalysisNumberScale("BILLIONS");
         public static AnalysisNumberScale Trillions { get; } = new AnalysisNumberScale("TRILLIONS");
+        public static AnalysisNumberScale Lakhs { get; } = new AnalysisNumberScale("LAKHS");
+        public static AnalysisNumberScale Crores { get; } = new AnalysisNumberScale("CRORES");
 
         public static bool operator ==(AnalysisNumberScale left, AnalysisNumberScale right) => left.Equals(right);
         public static bool operator !=(AnalysisNumberScale left, AnalysisNumberScale right) => !left.Equals(right);
@@ -4467,6 +4525,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DashboardDigitGroupingStyle : IEquatable<DashboardDigitGroupingStyle>
+    {
+        private readonly string _value;
+
+        private DashboardDigitGroupingStyle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardDigitGroupingStyle Default { get; } = new DashboardDigitGroupingStyle("DEFAULT");
+        public static DashboardDigitGroupingStyle Lakhs { get; } = new DashboardDigitGroupingStyle("LAKHS");
+
+        public static bool operator ==(DashboardDigitGroupingStyle left, DashboardDigitGroupingStyle right) => left.Equals(right);
+        public static bool operator !=(DashboardDigitGroupingStyle left, DashboardDigitGroupingStyle right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardDigitGroupingStyle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardDigitGroupingStyle other && Equals(other);
+        public bool Equals(DashboardDigitGroupingStyle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DashboardErrorType : IEquatable<DashboardErrorType>
     {
         private readonly string _value;
@@ -5349,6 +5435,8 @@ namespace Pulumi.AwsNative.QuickSight
         public static DashboardNumberScale Millions { get; } = new DashboardNumberScale("MILLIONS");
         public static DashboardNumberScale Billions { get; } = new DashboardNumberScale("BILLIONS");
         public static DashboardNumberScale Trillions { get; } = new DashboardNumberScale("TRILLIONS");
+        public static DashboardNumberScale Lakhs { get; } = new DashboardNumberScale("LAKHS");
+        public static DashboardNumberScale Crores { get; } = new DashboardNumberScale("CRORES");
 
         public static bool operator ==(DashboardNumberScale left, DashboardNumberScale right) => left.Equals(right);
         public static bool operator !=(DashboardNumberScale left, DashboardNumberScale right) => !left.Equals(right);
@@ -8755,6 +8843,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct TemplateDashboardBehavior : IEquatable<TemplateDashboardBehavior>
+    {
+        private readonly string _value;
+
+        private TemplateDashboardBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateDashboardBehavior Enabled { get; } = new TemplateDashboardBehavior("ENABLED");
+        public static TemplateDashboardBehavior Disabled { get; } = new TemplateDashboardBehavior("DISABLED");
+
+        public static bool operator ==(TemplateDashboardBehavior left, TemplateDashboardBehavior right) => left.Equals(right);
+        public static bool operator !=(TemplateDashboardBehavior left, TemplateDashboardBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateDashboardBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateDashboardBehavior other && Equals(other);
+        public bool Equals(TemplateDashboardBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TemplateDataLabelContent : IEquatable<TemplateDataLabelContent>
     {
         private readonly string _value;
@@ -8899,6 +9015,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateDayOfTheWeek other && Equals(other);
         public bool Equals(TemplateDayOfTheWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateDigitGroupingStyle : IEquatable<TemplateDigitGroupingStyle>
+    {
+        private readonly string _value;
+
+        private TemplateDigitGroupingStyle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateDigitGroupingStyle Default { get; } = new TemplateDigitGroupingStyle("DEFAULT");
+        public static TemplateDigitGroupingStyle Lakhs { get; } = new TemplateDigitGroupingStyle("LAKHS");
+
+        public static bool operator ==(TemplateDigitGroupingStyle left, TemplateDigitGroupingStyle right) => left.Equals(right);
+        public static bool operator !=(TemplateDigitGroupingStyle left, TemplateDigitGroupingStyle right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateDigitGroupingStyle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateDigitGroupingStyle other && Equals(other);
+        public bool Equals(TemplateDigitGroupingStyle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -9667,6 +9811,8 @@ namespace Pulumi.AwsNative.QuickSight
         public static TemplateNumberScale Millions { get; } = new TemplateNumberScale("MILLIONS");
         public static TemplateNumberScale Billions { get; } = new TemplateNumberScale("BILLIONS");
         public static TemplateNumberScale Trillions { get; } = new TemplateNumberScale("TRILLIONS");
+        public static TemplateNumberScale Lakhs { get; } = new TemplateNumberScale("LAKHS");
+        public static TemplateNumberScale Crores { get; } = new TemplateNumberScale("CRORES");
 
         public static bool operator ==(TemplateNumberScale left, TemplateNumberScale right) => left.Equals(right);
         public static bool operator !=(TemplateNumberScale left, TemplateNumberScale right) => !left.Equals(right);

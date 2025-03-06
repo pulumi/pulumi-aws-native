@@ -18,12 +18,24 @@ export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.Invok
 }
 
 export interface GetConfigurationArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the configuration.
+     */
     arn: string;
 }
 
 export interface GetConfigurationResult {
+    /**
+     * The Amazon Resource Name (ARN) of the configuration.
+     */
     readonly arn?: string;
+    /**
+     * The description of the configuration.
+     */
     readonly description?: string;
+    /**
+     * Latest revision of the MSK configuration.
+     */
     readonly latestRevision?: outputs.msk.ConfigurationLatestRevision;
 }
 /**
@@ -37,5 +49,8 @@ export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: 
 }
 
 export interface GetConfigurationOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the configuration.
+     */
     arn: pulumi.Input<string>;
 }

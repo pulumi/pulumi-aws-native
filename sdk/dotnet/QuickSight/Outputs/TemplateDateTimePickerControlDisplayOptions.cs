@@ -13,10 +13,12 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateDateTimePickerControlDisplayOptions
     {
+        public readonly object? DateIconVisibility;
         /// <summary>
         /// Customize how dates are formatted in controls.
         /// </summary>
         public readonly string? DateTimeFormat;
+        public readonly object? HelperTextVisibility;
         /// <summary>
         /// The configuration of info icon label options.
         /// </summary>
@@ -28,13 +30,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private TemplateDateTimePickerControlDisplayOptions(
+            object? dateIconVisibility,
+
             string? dateTimeFormat,
+
+            object? helperTextVisibility,
 
             Outputs.TemplateSheetControlInfoIconLabelOptions? infoIconLabelOptions,
 
             Outputs.TemplateLabelOptions? titleOptions)
         {
+            DateIconVisibility = dateIconVisibility;
             DateTimeFormat = dateTimeFormat;
+            HelperTextVisibility = helperTextVisibility;
             InfoIconLabelOptions = infoIconLabelOptions;
             TitleOptions = titleOptions;
         }

@@ -29,7 +29,8 @@ type LookupVpcConnectionArgs struct {
 
 type LookupVpcConnectionResult struct {
 	// The ARN of the VPC connection.
-	Arn  *string           `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// An arbitrary set of tags (key-value pairs) you specify while creating the VPC connection.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -70,6 +71,7 @@ func (o LookupVpcConnectionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// An arbitrary set of tags (key-value pairs) you specify while creating the VPC connection.
 func (o LookupVpcConnectionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

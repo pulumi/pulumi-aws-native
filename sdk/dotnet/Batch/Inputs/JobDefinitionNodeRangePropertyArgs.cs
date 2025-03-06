@@ -13,6 +13,12 @@ namespace Pulumi.AwsNative.Batch.Inputs
     public sealed class JobDefinitionNodeRangePropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Contains a list of consumable resources required by a job.
+        /// </summary>
+        [Input("consumableResourceProperties")]
+        public Input<Inputs.JobDefinitionConsumableResourcePropertiesArgs>? ConsumableResourceProperties { get; set; }
+
+        /// <summary>
         /// The container details for the node range.
         /// </summary>
         [Input("container")]

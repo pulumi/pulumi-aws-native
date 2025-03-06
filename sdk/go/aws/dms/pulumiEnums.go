@@ -178,6 +178,171 @@ func (in *dataMigrationTypePtr) ToDataMigrationTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(DataMigrationTypePtrOutput)
 }
 
+type DataProviderDb2SslModeValue string
+
+const (
+	DataProviderDb2SslModeValueNone     = DataProviderDb2SslModeValue("none")
+	DataProviderDb2SslModeValueVerifyCa = DataProviderDb2SslModeValue("verify-ca")
+)
+
+func (DataProviderDb2SslModeValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderDb2SslModeValue)(nil)).Elem()
+}
+
+func (e DataProviderDb2SslModeValue) ToDataProviderDb2SslModeValueOutput() DataProviderDb2SslModeValueOutput {
+	return pulumi.ToOutput(e).(DataProviderDb2SslModeValueOutput)
+}
+
+func (e DataProviderDb2SslModeValue) ToDataProviderDb2SslModeValueOutputWithContext(ctx context.Context) DataProviderDb2SslModeValueOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataProviderDb2SslModeValueOutput)
+}
+
+func (e DataProviderDb2SslModeValue) ToDataProviderDb2SslModeValuePtrOutput() DataProviderDb2SslModeValuePtrOutput {
+	return e.ToDataProviderDb2SslModeValuePtrOutputWithContext(context.Background())
+}
+
+func (e DataProviderDb2SslModeValue) ToDataProviderDb2SslModeValuePtrOutputWithContext(ctx context.Context) DataProviderDb2SslModeValuePtrOutput {
+	return DataProviderDb2SslModeValue(e).ToDataProviderDb2SslModeValueOutputWithContext(ctx).ToDataProviderDb2SslModeValuePtrOutputWithContext(ctx)
+}
+
+func (e DataProviderDb2SslModeValue) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataProviderDb2SslModeValue) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataProviderDb2SslModeValue) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataProviderDb2SslModeValue) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataProviderDb2SslModeValueOutput struct{ *pulumi.OutputState }
+
+func (DataProviderDb2SslModeValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderDb2SslModeValue)(nil)).Elem()
+}
+
+func (o DataProviderDb2SslModeValueOutput) ToDataProviderDb2SslModeValueOutput() DataProviderDb2SslModeValueOutput {
+	return o
+}
+
+func (o DataProviderDb2SslModeValueOutput) ToDataProviderDb2SslModeValueOutputWithContext(ctx context.Context) DataProviderDb2SslModeValueOutput {
+	return o
+}
+
+func (o DataProviderDb2SslModeValueOutput) ToDataProviderDb2SslModeValuePtrOutput() DataProviderDb2SslModeValuePtrOutput {
+	return o.ToDataProviderDb2SslModeValuePtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderDb2SslModeValueOutput) ToDataProviderDb2SslModeValuePtrOutputWithContext(ctx context.Context) DataProviderDb2SslModeValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderDb2SslModeValue) *DataProviderDb2SslModeValue {
+		return &v
+	}).(DataProviderDb2SslModeValuePtrOutput)
+}
+
+func (o DataProviderDb2SslModeValueOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataProviderDb2SslModeValueOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataProviderDb2SslModeValue) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataProviderDb2SslModeValueOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderDb2SslModeValueOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataProviderDb2SslModeValue) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataProviderDb2SslModeValuePtrOutput struct{ *pulumi.OutputState }
+
+func (DataProviderDb2SslModeValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderDb2SslModeValue)(nil)).Elem()
+}
+
+func (o DataProviderDb2SslModeValuePtrOutput) ToDataProviderDb2SslModeValuePtrOutput() DataProviderDb2SslModeValuePtrOutput {
+	return o
+}
+
+func (o DataProviderDb2SslModeValuePtrOutput) ToDataProviderDb2SslModeValuePtrOutputWithContext(ctx context.Context) DataProviderDb2SslModeValuePtrOutput {
+	return o
+}
+
+func (o DataProviderDb2SslModeValuePtrOutput) Elem() DataProviderDb2SslModeValueOutput {
+	return o.ApplyT(func(v *DataProviderDb2SslModeValue) DataProviderDb2SslModeValue {
+		if v != nil {
+			return *v
+		}
+		var ret DataProviderDb2SslModeValue
+		return ret
+	}).(DataProviderDb2SslModeValueOutput)
+}
+
+func (o DataProviderDb2SslModeValuePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderDb2SslModeValuePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataProviderDb2SslModeValue) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataProviderDb2SslModeValueInput is an input type that accepts values of the DataProviderDb2SslModeValue enum
+// A concrete instance of `DataProviderDb2SslModeValueInput` can be one of the following:
+//
+//	DataProviderDb2SslModeValueNone
+//	DataProviderDb2SslModeValueVerifyCa
+type DataProviderDb2SslModeValueInput interface {
+	pulumi.Input
+
+	ToDataProviderDb2SslModeValueOutput() DataProviderDb2SslModeValueOutput
+	ToDataProviderDb2SslModeValueOutputWithContext(context.Context) DataProviderDb2SslModeValueOutput
+}
+
+var dataProviderDb2SslModeValuePtrType = reflect.TypeOf((**DataProviderDb2SslModeValue)(nil)).Elem()
+
+type DataProviderDb2SslModeValuePtrInput interface {
+	pulumi.Input
+
+	ToDataProviderDb2SslModeValuePtrOutput() DataProviderDb2SslModeValuePtrOutput
+	ToDataProviderDb2SslModeValuePtrOutputWithContext(context.Context) DataProviderDb2SslModeValuePtrOutput
+}
+
+type dataProviderDb2SslModeValuePtr string
+
+func DataProviderDb2SslModeValuePtr(v string) DataProviderDb2SslModeValuePtrInput {
+	return (*dataProviderDb2SslModeValuePtr)(&v)
+}
+
+func (*dataProviderDb2SslModeValuePtr) ElementType() reflect.Type {
+	return dataProviderDb2SslModeValuePtrType
+}
+
+func (in *dataProviderDb2SslModeValuePtr) ToDataProviderDb2SslModeValuePtrOutput() DataProviderDb2SslModeValuePtrOutput {
+	return pulumi.ToOutput(in).(DataProviderDb2SslModeValuePtrOutput)
+}
+
+func (in *dataProviderDb2SslModeValuePtr) ToDataProviderDb2SslModeValuePtrOutputWithContext(ctx context.Context) DataProviderDb2SslModeValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataProviderDb2SslModeValuePtrOutput)
+}
+
 type DataProviderDmsSslModeValue string
 
 const (
@@ -361,6 +526,8 @@ const (
 	DataProviderEngineMariadb          = DataProviderEngine("mariadb")
 	DataProviderEngineMongodb          = DataProviderEngine("mongodb")
 	DataProviderEngineDocdb            = DataProviderEngine("docdb")
+	DataProviderEngineDb2              = DataProviderEngine("db2")
+	DataProviderEngineDb2Zos           = DataProviderEngine("db2_zos")
 )
 
 func (DataProviderEngine) ElementType() reflect.Type {
@@ -495,6 +662,8 @@ func (o DataProviderEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //	DataProviderEngineMariadb
 //	DataProviderEngineMongodb
 //	DataProviderEngineDocdb
+//	DataProviderEngineDb2
+//	DataProviderEngineDb2Zos
 type DataProviderEngineInput interface {
 	pulumi.Input
 
@@ -1365,6 +1534,8 @@ func (in *replicationConfigReplicationTypePtr) ToReplicationConfigReplicationTyp
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataMigrationTypeInput)(nil)).Elem(), DataMigrationType("full-load"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataMigrationTypePtrInput)(nil)).Elem(), DataMigrationType("full-load"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderDb2SslModeValueInput)(nil)).Elem(), DataProviderDb2SslModeValue("none"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderDb2SslModeValuePtrInput)(nil)).Elem(), DataProviderDb2SslModeValue("none"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderDmsSslModeValueInput)(nil)).Elem(), DataProviderDmsSslModeValue("none"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderDmsSslModeValuePtrInput)(nil)).Elem(), DataProviderDmsSslModeValue("none"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderEngineInput)(nil)).Elem(), DataProviderEngine("aurora"))
@@ -1381,6 +1552,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationTypePtrInput)(nil)).Elem(), ReplicationConfigReplicationType("full-load"))
 	pulumi.RegisterOutputType(DataMigrationTypeOutput{})
 	pulumi.RegisterOutputType(DataMigrationTypePtrOutput{})
+	pulumi.RegisterOutputType(DataProviderDb2SslModeValueOutput{})
+	pulumi.RegisterOutputType(DataProviderDb2SslModeValuePtrOutput{})
 	pulumi.RegisterOutputType(DataProviderDmsSslModeValueOutput{})
 	pulumi.RegisterOutputType(DataProviderDmsSslModeValuePtrOutput{})
 	pulumi.RegisterOutputType(DataProviderEngineOutput{})
