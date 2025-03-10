@@ -316,6 +316,8 @@ if typing.TYPE_CHECKING:
     networkfirewall = __networkfirewall
     import pulumi_aws_native.networkmanager as __networkmanager
     networkmanager = __networkmanager
+    import pulumi_aws_native.nimblestudio as __nimblestudio
+    nimblestudio = __nimblestudio
     import pulumi_aws_native.oam as __oam
     oam = __oam
     import pulumi_aws_native.omics as __omics
@@ -614,6 +616,7 @@ else:
     neptunegraph = _utilities.lazy_import('pulumi_aws_native.neptunegraph')
     networkfirewall = _utilities.lazy_import('pulumi_aws_native.networkfirewall')
     networkmanager = _utilities.lazy_import('pulumi_aws_native.networkmanager')
+    nimblestudio = _utilities.lazy_import('pulumi_aws_native.nimblestudio')
     oam = _utilities.lazy_import('pulumi_aws_native.oam')
     omics = _utilities.lazy_import('pulumi_aws_native.omics')
     opensearchserverless = _utilities.lazy_import('pulumi_aws_native.opensearchserverless')
@@ -2512,6 +2515,17 @@ _utilities.register(
    "aws-native:networkmanager:TransitGatewayRegistration": "TransitGatewayRegistration",
    "aws-native:networkmanager:TransitGatewayRouteTableAttachment": "TransitGatewayRouteTableAttachment",
    "aws-native:networkmanager:VpcAttachment": "VpcAttachment"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "nimblestudio",
+  "fqn": "pulumi_aws_native.nimblestudio",
+  "classes": {
+   "aws-native:nimblestudio:LaunchProfile": "LaunchProfile",
+   "aws-native:nimblestudio:StreamingImage": "StreamingImage",
+   "aws-native:nimblestudio:Studio": "Studio",
+   "aws-native:nimblestudio:StudioComponent": "StudioComponent"
   }
  },
  {
