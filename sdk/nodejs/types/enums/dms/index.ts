@@ -13,6 +13,13 @@ export const DataMigrationType = {
  */
 export type DataMigrationType = (typeof DataMigrationType)[keyof typeof DataMigrationType];
 
+export const DataProviderDb2SslModeValue = {
+    None: "none",
+    VerifyCa: "verify-ca",
+} as const;
+
+export type DataProviderDb2SslModeValue = (typeof DataProviderDb2SslModeValue)[keyof typeof DataProviderDb2SslModeValue];
+
 export const DataProviderDmsSslModeValue = {
     None: "none",
     Require: "require",
@@ -33,6 +40,8 @@ export const DataProviderEngine = {
     Mariadb: "mariadb",
     Mongodb: "mongodb",
     Docdb: "docdb",
+    Db2: "db2",
+    Db2Zos: "db2_zos",
 } as const;
 
 /**

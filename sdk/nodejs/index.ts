@@ -154,6 +154,7 @@ import * as forecast from "./forecast";
 import * as frauddetector from "./frauddetector";
 import * as fsx from "./fsx";
 import * as gamelift from "./gamelift";
+import * as gameliftstreams from "./gameliftstreams";
 import * as globalaccelerator from "./globalaccelerator";
 import * as glue from "./glue";
 import * as grafana from "./grafana";
@@ -211,7 +212,6 @@ import * as neptune from "./neptune";
 import * as neptunegraph from "./neptunegraph";
 import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
-import * as nimblestudio from "./nimblestudio";
 import * as oam from "./oam";
 import * as omics from "./omics";
 import * as opensearchserverless from "./opensearchserverless";
@@ -379,6 +379,7 @@ export {
     frauddetector,
     fsx,
     gamelift,
+    gameliftstreams,
     globalaccelerator,
     glue,
     grafana,
@@ -436,7 +437,6 @@ export {
     neptunegraph,
     networkfirewall,
     networkmanager,
-    nimblestudio,
     oam,
     omics,
     opensearchserverless,

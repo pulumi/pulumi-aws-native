@@ -23,12 +23,16 @@ func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opt
 }
 
 type LookupConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of the configuration.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupConfigurationResult struct {
-	Arn            *string                      `pulumi:"arn"`
-	Description    *string                      `pulumi:"description"`
+	// The Amazon Resource Name (ARN) of the configuration.
+	Arn *string `pulumi:"arn"`
+	// The description of the configuration.
+	Description *string `pulumi:"description"`
+	// Latest revision of the MSK configuration.
 	LatestRevision *ConfigurationLatestRevision `pulumi:"latestRevision"`
 }
 
@@ -42,6 +46,7 @@ func LookupConfigurationOutput(ctx *pulumi.Context, args LookupConfigurationOutp
 }
 
 type LookupConfigurationOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the configuration.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -63,14 +68,17 @@ func (o LookupConfigurationResultOutput) ToLookupConfigurationResultOutputWithCo
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the configuration.
 func (o LookupConfigurationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The description of the configuration.
 func (o LookupConfigurationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Latest revision of the MSK configuration.
 func (o LookupConfigurationResultOutput) LatestRevision() ConfigurationLatestRevisionPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) *ConfigurationLatestRevision { return v.LatestRevision }).(ConfigurationLatestRevisionPtrOutput)
 }

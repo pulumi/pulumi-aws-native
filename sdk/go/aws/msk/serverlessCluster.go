@@ -16,11 +16,15 @@ import (
 type ServerlessCluster struct {
 	pulumi.CustomResourceState
 
-	Arn                  pulumi.StringOutput                         `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the MSK cluster.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Includes all client authentication related information.
 	ClientAuthentication ServerlessClusterClientAuthenticationOutput `pulumi:"clientAuthentication"`
-	ClusterName          pulumi.StringOutput                         `pulumi:"clusterName"`
+	// The name of the cluster.
+	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// A key-value pair to associate with a resource.
-	Tags       pulumi.StringMapOutput                `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// VPC configuration information for the serverless cluster.
 	VpcConfigs ServerlessClusterVpcConfigArrayOutput `pulumi:"vpcConfigs"`
 }
 
@@ -77,19 +81,25 @@ func (ServerlessClusterState) ElementType() reflect.Type {
 }
 
 type serverlessClusterArgs struct {
+	// Includes all client authentication related information.
 	ClientAuthentication ServerlessClusterClientAuthentication `pulumi:"clientAuthentication"`
-	ClusterName          *string                               `pulumi:"clusterName"`
+	// The name of the cluster.
+	ClusterName *string `pulumi:"clusterName"`
 	// A key-value pair to associate with a resource.
-	Tags       map[string]string            `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// VPC configuration information for the serverless cluster.
 	VpcConfigs []ServerlessClusterVpcConfig `pulumi:"vpcConfigs"`
 }
 
 // The set of arguments for constructing a ServerlessCluster resource.
 type ServerlessClusterArgs struct {
+	// Includes all client authentication related information.
 	ClientAuthentication ServerlessClusterClientAuthenticationInput
-	ClusterName          pulumi.StringPtrInput
+	// The name of the cluster.
+	ClusterName pulumi.StringPtrInput
 	// A key-value pair to associate with a resource.
-	Tags       pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// VPC configuration information for the serverless cluster.
 	VpcConfigs ServerlessClusterVpcConfigArrayInput
 }
 
@@ -130,14 +140,17 @@ func (o ServerlessClusterOutput) ToServerlessClusterOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the MSK cluster.
 func (o ServerlessClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Includes all client authentication related information.
 func (o ServerlessClusterOutput) ClientAuthentication() ServerlessClusterClientAuthenticationOutput {
 	return o.ApplyT(func(v *ServerlessCluster) ServerlessClusterClientAuthenticationOutput { return v.ClientAuthentication }).(ServerlessClusterClientAuthenticationOutput)
 }
 
+// The name of the cluster.
 func (o ServerlessClusterOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
@@ -147,6 +160,7 @@ func (o ServerlessClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// VPC configuration information for the serverless cluster.
 func (o ServerlessClusterOutput) VpcConfigs() ServerlessClusterVpcConfigArrayOutput {
 	return o.ApplyT(func(v *ServerlessCluster) ServerlessClusterVpcConfigArrayOutput { return v.VpcConfigs }).(ServerlessClusterVpcConfigArrayOutput)
 }

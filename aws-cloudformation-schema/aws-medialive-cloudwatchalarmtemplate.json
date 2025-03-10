@@ -15,7 +15,7 @@
     "CloudWatchAlarmTemplateTargetResourceType" : {
       "type" : "string",
       "description" : "The resource type this template should dynamically generate cloudwatch metric alarms for.",
-      "enum" : [ "CLOUDFRONT_DISTRIBUTION", "MEDIALIVE_MULTIPLEX", "MEDIALIVE_CHANNEL", "MEDIALIVE_INPUT_DEVICE", "MEDIAPACKAGE_CHANNEL", "MEDIAPACKAGE_ORIGIN_ENDPOINT", "MEDIACONNECT_FLOW", "S3_BUCKET" ]
+      "enum" : [ "CLOUDFRONT_DISTRIBUTION", "MEDIALIVE_MULTIPLEX", "MEDIALIVE_CHANNEL", "MEDIALIVE_INPUT_DEVICE", "MEDIAPACKAGE_CHANNEL", "MEDIAPACKAGE_ORIGIN_ENDPOINT", "MEDIACONNECT_FLOW", "MEDIATAILOR_PLAYBACK_CONFIGURATION", "S3_BUCKET" ]
     },
     "CloudWatchAlarmTemplateTreatMissingData" : {
       "type" : "string",
@@ -136,7 +136,7 @@
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "medialive:CreateTags", "medialive:DeleteTags" ]
   },
-  "required" : [ "ComparisonOperator", "EvaluationPeriods", "GroupIdentifier", "MetricName", "Name", "Period", "Statistic", "TargetResourceType", "Threshold", "TreatMissingData" ],
+  "required" : [ "ComparisonOperator", "EvaluationPeriods", "MetricName", "Name", "Period", "Statistic", "TargetResourceType", "Threshold", "TreatMissingData" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/Id", "/properties/GroupId", "/properties/Identifier", "/properties/ModifiedAt" ],
   "writeOnlyProperties" : [ "/properties/GroupIdentifier" ],
   "createOnlyProperties" : [ "/properties/Tags" ],

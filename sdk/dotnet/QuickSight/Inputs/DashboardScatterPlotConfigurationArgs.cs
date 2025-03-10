@@ -24,11 +24,17 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("fieldWells")]
         public Input<Inputs.DashboardScatterPlotFieldWellsArgs>? FieldWells { get; set; }
 
+        [Input("interactions")]
+        public Input<Inputs.DashboardVisualInteractionOptionsArgs>? Interactions { get; set; }
+
         /// <summary>
         /// The legend display setup of the visual.
         /// </summary>
         [Input("legend")]
         public Input<Inputs.DashboardLegendOptionsArgs>? Legend { get; set; }
+
+        [Input("sortConfiguration")]
+        public Input<Inputs.DashboardScatterPlotSortConfigurationArgs>? SortConfiguration { get; set; }
 
         /// <summary>
         /// The legend display setup of the visual.

@@ -2439,7 +2439,9 @@ func (o PublishingDestinationCfnDestinationPropertiesPtrOutput) KmsKeyArn() pulu
 }
 
 type PublishingDestinationTagItem struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 

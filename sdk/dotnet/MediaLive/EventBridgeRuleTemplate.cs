@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.MediaLive
         /// An eventbridge rule template group's identifier. Can be either be its id or current name.
         /// </summary>
         [Output("groupIdentifier")]
-        public Output<string> GroupIdentifier { get; private set; } = null!;
+        public Output<string?> GroupIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// Placeholder documentation for __string
@@ -160,8 +160,8 @@ namespace Pulumi.AwsNative.MediaLive
         /// <summary>
         /// An eventbridge rule template group's identifier. Can be either be its id or current name.
         /// </summary>
-        [Input("groupIdentifier", required: true)]
-        public Input<string> GroupIdentifier { get; set; } = null!;
+        [Input("groupIdentifier")]
+        public Input<string>? GroupIdentifier { get; set; }
 
         /// <summary>
         /// A resource's name. Names must be unique within the scope of a resource type in a specific region.

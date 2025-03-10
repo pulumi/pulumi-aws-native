@@ -68,7 +68,7 @@ export class EventBridgeRuleTemplate extends pulumi.CustomResource {
     /**
      * An eventbridge rule template group's identifier. Can be either be its id or current name.
      */
-    public readonly groupIdentifier!: pulumi.Output<string>;
+    public readonly groupIdentifier!: pulumi.Output<string | undefined>;
     /**
      * Placeholder documentation for __string
      */
@@ -96,9 +96,6 @@ export class EventBridgeRuleTemplate extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.eventType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventType'");
-            }
-            if ((!args || args.groupIdentifier === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'groupIdentifier'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["eventTargets"] = args ? args.eventTargets : undefined;
@@ -152,7 +149,7 @@ export interface EventBridgeRuleTemplateArgs {
     /**
      * An eventbridge rule template group's identifier. Can be either be its id or current name.
      */
-    groupIdentifier: pulumi.Input<string>;
+    groupIdentifier?: pulumi.Input<string>;
     /**
      * A resource's name. Names must be unique within the scope of a resource type in a specific region.
      */

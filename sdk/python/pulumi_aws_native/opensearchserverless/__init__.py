@@ -10,10 +10,12 @@ from .access_policy import *
 from .collection import *
 from .get_access_policy import *
 from .get_collection import *
+from .get_index import *
 from .get_lifecycle_policy import *
 from .get_security_config import *
 from .get_security_policy import *
 from .get_vpc_endpoint import *
+from .index import *
 from .lifecycle_policy import *
 from .security_config import *
 from .security_policy import *

@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.Msk
     [AwsNativeResourceType("aws-native:msk:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the MSK cluster.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Information about the broker nodes in the cluster.
+        /// </summary>
         [Output("brokerNodeGroupInfo")]
         public Output<Outputs.ClusterBrokerNodeGroupInfo> BrokerNodeGroupInfo { get; private set; } = null!;
 
+        /// <summary>
+        /// Includes all client authentication related information.
+        /// </summary>
         [Output("clientAuthentication")]
         public Output<Outputs.ClusterClientAuthentication?> ClientAuthentication { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the cluster.
+        /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
 
+        /// <summary>
+        /// Represents the configuration that you want MSK to use for the cluster.
+        /// </summary>
         [Output("configurationInfo")]
         public Output<Outputs.ClusterConfigurationInfo?> ConfigurationInfo { get; private set; } = null!;
 
@@ -36,24 +51,45 @@ namespace Pulumi.AwsNative.Msk
         [Output("currentVersion")]
         public Output<string?> CurrentVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// Includes all encryption-related information.
+        /// </summary>
         [Output("encryptionInfo")]
         public Output<Outputs.ClusterEncryptionInfo?> EncryptionInfo { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the level of monitoring for the MSK cluster.
+        /// </summary>
         [Output("enhancedMonitoring")]
         public Output<Pulumi.AwsNative.Msk.ClusterEnhancedMonitoring?> EnhancedMonitoring { get; private set; } = null!;
 
+        /// <summary>
+        /// The version of Apache Kafka. You can use Amazon MSK to create clusters that use [supported Apache Kafka versions](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) .
+        /// </summary>
         [Output("kafkaVersion")]
         public Output<string> KafkaVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// Logging info details for the cluster.
+        /// </summary>
         [Output("loggingInfo")]
         public Output<Outputs.ClusterLoggingInfo?> LoggingInfo { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of broker nodes in the cluster.
+        /// </summary>
         [Output("numberOfBrokerNodes")]
         public Output<int> NumberOfBrokerNodes { get; private set; } = null!;
 
+        /// <summary>
+        /// The settings for open monitoring.
+        /// </summary>
         [Output("openMonitoring")]
         public Output<Outputs.ClusterOpenMonitoring?> OpenMonitoring { get; private set; } = null!;
 
+        /// <summary>
+        /// This controls storage mode for supported storage tiers.
+        /// </summary>
         [Output("storageMode")]
         public Output<Pulumi.AwsNative.Msk.ClusterStorageMode?> StorageMode { get; private set; } = null!;
 
@@ -117,15 +153,27 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Information about the broker nodes in the cluster.
+        /// </summary>
         [Input("brokerNodeGroupInfo", required: true)]
         public Input<Inputs.ClusterBrokerNodeGroupInfoArgs> BrokerNodeGroupInfo { get; set; } = null!;
 
+        /// <summary>
+        /// Includes all client authentication related information.
+        /// </summary>
         [Input("clientAuthentication")]
         public Input<Inputs.ClusterClientAuthenticationArgs>? ClientAuthentication { get; set; }
 
+        /// <summary>
+        /// The name of the cluster.
+        /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
+        /// <summary>
+        /// Represents the configuration that you want MSK to use for the cluster.
+        /// </summary>
         [Input("configurationInfo")]
         public Input<Inputs.ClusterConfigurationInfoArgs>? ConfigurationInfo { get; set; }
 
@@ -135,24 +183,45 @@ namespace Pulumi.AwsNative.Msk
         [Input("currentVersion")]
         public Input<string>? CurrentVersion { get; set; }
 
+        /// <summary>
+        /// Includes all encryption-related information.
+        /// </summary>
         [Input("encryptionInfo")]
         public Input<Inputs.ClusterEncryptionInfoArgs>? EncryptionInfo { get; set; }
 
+        /// <summary>
+        /// Specifies the level of monitoring for the MSK cluster.
+        /// </summary>
         [Input("enhancedMonitoring")]
         public Input<Pulumi.AwsNative.Msk.ClusterEnhancedMonitoring>? EnhancedMonitoring { get; set; }
 
+        /// <summary>
+        /// The version of Apache Kafka. You can use Amazon MSK to create clusters that use [supported Apache Kafka versions](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) .
+        /// </summary>
         [Input("kafkaVersion", required: true)]
         public Input<string> KafkaVersion { get; set; } = null!;
 
+        /// <summary>
+        /// Logging info details for the cluster.
+        /// </summary>
         [Input("loggingInfo")]
         public Input<Inputs.ClusterLoggingInfoArgs>? LoggingInfo { get; set; }
 
+        /// <summary>
+        /// The number of broker nodes in the cluster.
+        /// </summary>
         [Input("numberOfBrokerNodes", required: true)]
         public Input<int> NumberOfBrokerNodes { get; set; } = null!;
 
+        /// <summary>
+        /// The settings for open monitoring.
+        /// </summary>
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringArgs>? OpenMonitoring { get; set; }
 
+        /// <summary>
+        /// This controls storage mode for supported storage tiers.
+        /// </summary>
         [Input("storageMode")]
         public Input<Pulumi.AwsNative.Msk.ClusterStorageMode>? StorageMode { get; set; }
 

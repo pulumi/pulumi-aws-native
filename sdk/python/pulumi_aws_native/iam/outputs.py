@@ -13,10 +13,12 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'GroupPolicy',
     'RolePolicy',
+    'SamlProviderSamlPrivateKey',
     'UserLoginProfile',
     'UserPolicy',
 ]
@@ -131,6 +133,56 @@ class RolePolicy(dict):
         The friendly name (not ARN) identifying the policy.
         """
         return pulumi.get(self, "policy_name")
+
+
+@pulumi.output_type
+class SamlProviderSamlPrivateKey(dict):
+    """
+    The private key metadata for the SAML provider
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyId":
+            suggest = "key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SamlProviderSamlPrivateKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SamlProviderSamlPrivateKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SamlProviderSamlPrivateKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_id: str,
+                 timestamp: str):
+        """
+        The private key metadata for the SAML provider
+        :param str key_id: The unique identifier for the SAML private key.
+        :param str timestamp: The date and time, in <a href=\\"http://www.iso.org/iso/iso8601\\">ISO 8601 date-time </a> format, when the private key was uploaded.
+        """
+        pulumi.set(__self__, "key_id", key_id)
+        pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> str:
+        """
+        The unique identifier for the SAML private key.
+        """
+        return pulumi.get(self, "key_id")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> str:
+        """
+        The date and time, in <a href=\\"http://www.iso.org/iso/iso8601\\">ISO 8601 date-time </a> format, when the private key was uploaded.
+        """
+        return pulumi.get(self, "timestamp")
 
 
 @pulumi.output_type

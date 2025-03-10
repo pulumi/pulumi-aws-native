@@ -346,6 +346,14 @@ func (o AnomalySubscriptionSubscriberArrayOutput) Index(i pulumi.IntInput) Anoma
 	}).(AnomalySubscriptionSubscriberOutput)
 }
 
+// A key-value pair to associate with a resource.
+type CostCategoryResourceTag struct {
+	// The key name for the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyMonitorResourceTagInput)(nil)).Elem(), AnomalyMonitorResourceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyMonitorResourceTagArrayInput)(nil)).Elem(), AnomalyMonitorResourceTagArray{})

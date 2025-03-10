@@ -3482,7 +3482,8 @@ type AnalysisBarChartConfiguration struct {
 	// The options that determine if visual data labels are displayed.
 	DataLabels *AnalysisDataLabelOptions `pulumi:"dataLabels"`
 	// The field wells of the visual.
-	FieldWells *AnalysisBarChartFieldWells `pulumi:"fieldWells"`
+	FieldWells   *AnalysisBarChartFieldWells       `pulumi:"fieldWells"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend *AnalysisLegendOptions `pulumi:"legend"`
 	// The orientation of the bars in a bar chart visual. There are two valid values in this structure:
@@ -3531,7 +3532,8 @@ type AnalysisBarChartConfigurationArgs struct {
 	// The options that determine if visual data labels are displayed.
 	DataLabels AnalysisDataLabelOptionsPtrInput `pulumi:"dataLabels"`
 	// The field wells of the visual.
-	FieldWells AnalysisBarChartFieldWellsPtrInput `pulumi:"fieldWells"`
+	FieldWells   AnalysisBarChartFieldWellsPtrInput       `pulumi:"fieldWells"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend AnalysisLegendOptionsPtrInput `pulumi:"legend"`
 	// The orientation of the bars in a bar chart visual. There are two valid values in this structure:
@@ -3667,6 +3669,10 @@ func (o AnalysisBarChartConfigurationOutput) DataLabels() AnalysisDataLabelOptio
 // The field wells of the visual.
 func (o AnalysisBarChartConfigurationOutput) FieldWells() AnalysisBarChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v AnalysisBarChartConfiguration) *AnalysisBarChartFieldWells { return v.FieldWells }).(AnalysisBarChartFieldWellsPtrOutput)
+}
+
+func (o AnalysisBarChartConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisBarChartConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -3809,6 +3815,15 @@ func (o AnalysisBarChartConfigurationPtrOutput) FieldWells() AnalysisBarChartFie
 		}
 		return v.FieldWells
 	}).(AnalysisBarChartFieldWellsPtrOutput)
+}
+
+func (o AnalysisBarChartConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisBarChartConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -4827,7 +4842,8 @@ type AnalysisBodySectionConfiguration struct {
 	// The configuration of content in a body section.
 	Content AnalysisBodySectionContent `pulumi:"content"`
 	// The configuration of a page break for a section.
-	PageBreakConfiguration *AnalysisSectionPageBreakConfiguration `pulumi:"pageBreakConfiguration"`
+	PageBreakConfiguration *AnalysisSectionPageBreakConfiguration  `pulumi:"pageBreakConfiguration"`
+	RepeatConfiguration    *AnalysisBodySectionRepeatConfiguration `pulumi:"repeatConfiguration"`
 	// The unique identifier of a body section.
 	SectionId string `pulumi:"sectionId"`
 	// The style options of a body section.
@@ -4849,7 +4865,8 @@ type AnalysisBodySectionConfigurationArgs struct {
 	// The configuration of content in a body section.
 	Content AnalysisBodySectionContentInput `pulumi:"content"`
 	// The configuration of a page break for a section.
-	PageBreakConfiguration AnalysisSectionPageBreakConfigurationPtrInput `pulumi:"pageBreakConfiguration"`
+	PageBreakConfiguration AnalysisSectionPageBreakConfigurationPtrInput  `pulumi:"pageBreakConfiguration"`
+	RepeatConfiguration    AnalysisBodySectionRepeatConfigurationPtrInput `pulumi:"repeatConfiguration"`
 	// The unique identifier of a body section.
 	SectionId pulumi.StringInput `pulumi:"sectionId"`
 	// The style options of a body section.
@@ -4917,6 +4934,12 @@ func (o AnalysisBodySectionConfigurationOutput) PageBreakConfiguration() Analysi
 	return o.ApplyT(func(v AnalysisBodySectionConfiguration) *AnalysisSectionPageBreakConfiguration {
 		return v.PageBreakConfiguration
 	}).(AnalysisSectionPageBreakConfigurationPtrOutput)
+}
+
+func (o AnalysisBodySectionConfigurationOutput) RepeatConfiguration() AnalysisBodySectionRepeatConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisBodySectionConfiguration) *AnalysisBodySectionRepeatConfiguration {
+		return v.RepeatConfiguration
+	}).(AnalysisBodySectionRepeatConfigurationPtrOutput)
 }
 
 // The unique identifier of a body section.
@@ -4999,6 +5022,744 @@ func (o AnalysisBodySectionContentOutput) ToAnalysisBodySectionContentOutputWith
 // The layout configuration of a body section.
 func (o AnalysisBodySectionContentOutput) Layout() AnalysisSectionLayoutConfigurationPtrOutput {
 	return o.ApplyT(func(v AnalysisBodySectionContent) *AnalysisSectionLayoutConfiguration { return v.Layout }).(AnalysisSectionLayoutConfigurationPtrOutput)
+}
+
+type AnalysisBodySectionDynamicCategoryDimensionConfiguration struct {
+	Column        AnalysisColumnIdentifier `pulumi:"column"`
+	Limit         *float64                 `pulumi:"limit"`
+	SortByMetrics []AnalysisColumnSort     `pulumi:"sortByMetrics"`
+}
+
+// AnalysisBodySectionDynamicCategoryDimensionConfigurationInput is an input type that accepts AnalysisBodySectionDynamicCategoryDimensionConfigurationArgs and AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisBodySectionDynamicCategoryDimensionConfigurationInput` via:
+//
+//	AnalysisBodySectionDynamicCategoryDimensionConfigurationArgs{...}
+type AnalysisBodySectionDynamicCategoryDimensionConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalysisBodySectionDynamicCategoryDimensionConfigurationOutput() AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput
+	ToAnalysisBodySectionDynamicCategoryDimensionConfigurationOutputWithContext(context.Context) AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput
+}
+
+type AnalysisBodySectionDynamicCategoryDimensionConfigurationArgs struct {
+	Column        AnalysisColumnIdentifierInput `pulumi:"column"`
+	Limit         pulumi.Float64PtrInput        `pulumi:"limit"`
+	SortByMetrics AnalysisColumnSortArrayInput  `pulumi:"sortByMetrics"`
+}
+
+func (AnalysisBodySectionDynamicCategoryDimensionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisBodySectionDynamicCategoryDimensionConfiguration)(nil)).Elem()
+}
+
+func (i AnalysisBodySectionDynamicCategoryDimensionConfigurationArgs) ToAnalysisBodySectionDynamicCategoryDimensionConfigurationOutput() AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput {
+	return i.ToAnalysisBodySectionDynamicCategoryDimensionConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalysisBodySectionDynamicCategoryDimensionConfigurationArgs) ToAnalysisBodySectionDynamicCategoryDimensionConfigurationOutputWithContext(ctx context.Context) AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput)
+}
+
+func (i AnalysisBodySectionDynamicCategoryDimensionConfigurationArgs) ToAnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput() AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput {
+	return i.ToAnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisBodySectionDynamicCategoryDimensionConfigurationArgs) ToAnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutputWithContext(ctx context.Context) AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput).ToAnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrInput is an input type that accepts AnalysisBodySectionDynamicCategoryDimensionConfigurationArgs, AnalysisBodySectionDynamicCategoryDimensionConfigurationPtr and AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrInput` via:
+//
+//	        AnalysisBodySectionDynamicCategoryDimensionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput() AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput
+	ToAnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutputWithContext(context.Context) AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput
+}
+
+type analysisBodySectionDynamicCategoryDimensionConfigurationPtrType AnalysisBodySectionDynamicCategoryDimensionConfigurationArgs
+
+func AnalysisBodySectionDynamicCategoryDimensionConfigurationPtr(v *AnalysisBodySectionDynamicCategoryDimensionConfigurationArgs) AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrInput {
+	return (*analysisBodySectionDynamicCategoryDimensionConfigurationPtrType)(v)
+}
+
+func (*analysisBodySectionDynamicCategoryDimensionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisBodySectionDynamicCategoryDimensionConfiguration)(nil)).Elem()
+}
+
+func (i *analysisBodySectionDynamicCategoryDimensionConfigurationPtrType) ToAnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput() AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput {
+	return i.ToAnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisBodySectionDynamicCategoryDimensionConfigurationPtrType) ToAnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutputWithContext(ctx context.Context) AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput)
+}
+
+type AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisBodySectionDynamicCategoryDimensionConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput) ToAnalysisBodySectionDynamicCategoryDimensionConfigurationOutput() AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput {
+	return o
+}
+
+func (o AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput) ToAnalysisBodySectionDynamicCategoryDimensionConfigurationOutputWithContext(ctx context.Context) AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput {
+	return o
+}
+
+func (o AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput) ToAnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput() AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput {
+	return o.ToAnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput) ToAnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutputWithContext(ctx context.Context) AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisBodySectionDynamicCategoryDimensionConfiguration) *AnalysisBodySectionDynamicCategoryDimensionConfiguration {
+		return &v
+	}).(AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput)
+}
+
+func (o AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput) Column() AnalysisColumnIdentifierOutput {
+	return o.ApplyT(func(v AnalysisBodySectionDynamicCategoryDimensionConfiguration) AnalysisColumnIdentifier {
+		return v.Column
+	}).(AnalysisColumnIdentifierOutput)
+}
+
+func (o AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput) Limit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AnalysisBodySectionDynamicCategoryDimensionConfiguration) *float64 { return v.Limit }).(pulumi.Float64PtrOutput)
+}
+
+func (o AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput) SortByMetrics() AnalysisColumnSortArrayOutput {
+	return o.ApplyT(func(v AnalysisBodySectionDynamicCategoryDimensionConfiguration) []AnalysisColumnSort {
+		return v.SortByMetrics
+	}).(AnalysisColumnSortArrayOutput)
+}
+
+type AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisBodySectionDynamicCategoryDimensionConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput) ToAnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput() AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput) ToAnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutputWithContext(ctx context.Context) AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput) Elem() AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisBodySectionDynamicCategoryDimensionConfiguration) AnalysisBodySectionDynamicCategoryDimensionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisBodySectionDynamicCategoryDimensionConfiguration
+		return ret
+	}).(AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput)
+}
+
+func (o AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput) Column() AnalysisColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v *AnalysisBodySectionDynamicCategoryDimensionConfiguration) *AnalysisColumnIdentifier {
+		if v == nil {
+			return nil
+		}
+		return &v.Column
+	}).(AnalysisColumnIdentifierPtrOutput)
+}
+
+func (o AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput) Limit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AnalysisBodySectionDynamicCategoryDimensionConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Limit
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput) SortByMetrics() AnalysisColumnSortArrayOutput {
+	return o.ApplyT(func(v *AnalysisBodySectionDynamicCategoryDimensionConfiguration) []AnalysisColumnSort {
+		if v == nil {
+			return nil
+		}
+		return v.SortByMetrics
+	}).(AnalysisColumnSortArrayOutput)
+}
+
+type AnalysisBodySectionDynamicNumericDimensionConfiguration struct {
+	Column        AnalysisColumnIdentifier `pulumi:"column"`
+	Limit         *float64                 `pulumi:"limit"`
+	SortByMetrics []AnalysisColumnSort     `pulumi:"sortByMetrics"`
+}
+
+// AnalysisBodySectionDynamicNumericDimensionConfigurationInput is an input type that accepts AnalysisBodySectionDynamicNumericDimensionConfigurationArgs and AnalysisBodySectionDynamicNumericDimensionConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisBodySectionDynamicNumericDimensionConfigurationInput` via:
+//
+//	AnalysisBodySectionDynamicNumericDimensionConfigurationArgs{...}
+type AnalysisBodySectionDynamicNumericDimensionConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalysisBodySectionDynamicNumericDimensionConfigurationOutput() AnalysisBodySectionDynamicNumericDimensionConfigurationOutput
+	ToAnalysisBodySectionDynamicNumericDimensionConfigurationOutputWithContext(context.Context) AnalysisBodySectionDynamicNumericDimensionConfigurationOutput
+}
+
+type AnalysisBodySectionDynamicNumericDimensionConfigurationArgs struct {
+	Column        AnalysisColumnIdentifierInput `pulumi:"column"`
+	Limit         pulumi.Float64PtrInput        `pulumi:"limit"`
+	SortByMetrics AnalysisColumnSortArrayInput  `pulumi:"sortByMetrics"`
+}
+
+func (AnalysisBodySectionDynamicNumericDimensionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisBodySectionDynamicNumericDimensionConfiguration)(nil)).Elem()
+}
+
+func (i AnalysisBodySectionDynamicNumericDimensionConfigurationArgs) ToAnalysisBodySectionDynamicNumericDimensionConfigurationOutput() AnalysisBodySectionDynamicNumericDimensionConfigurationOutput {
+	return i.ToAnalysisBodySectionDynamicNumericDimensionConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalysisBodySectionDynamicNumericDimensionConfigurationArgs) ToAnalysisBodySectionDynamicNumericDimensionConfigurationOutputWithContext(ctx context.Context) AnalysisBodySectionDynamicNumericDimensionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisBodySectionDynamicNumericDimensionConfigurationOutput)
+}
+
+func (i AnalysisBodySectionDynamicNumericDimensionConfigurationArgs) ToAnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput() AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput {
+	return i.ToAnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisBodySectionDynamicNumericDimensionConfigurationArgs) ToAnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutputWithContext(ctx context.Context) AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisBodySectionDynamicNumericDimensionConfigurationOutput).ToAnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnalysisBodySectionDynamicNumericDimensionConfigurationPtrInput is an input type that accepts AnalysisBodySectionDynamicNumericDimensionConfigurationArgs, AnalysisBodySectionDynamicNumericDimensionConfigurationPtr and AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisBodySectionDynamicNumericDimensionConfigurationPtrInput` via:
+//
+//	        AnalysisBodySectionDynamicNumericDimensionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisBodySectionDynamicNumericDimensionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput() AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput
+	ToAnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutputWithContext(context.Context) AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput
+}
+
+type analysisBodySectionDynamicNumericDimensionConfigurationPtrType AnalysisBodySectionDynamicNumericDimensionConfigurationArgs
+
+func AnalysisBodySectionDynamicNumericDimensionConfigurationPtr(v *AnalysisBodySectionDynamicNumericDimensionConfigurationArgs) AnalysisBodySectionDynamicNumericDimensionConfigurationPtrInput {
+	return (*analysisBodySectionDynamicNumericDimensionConfigurationPtrType)(v)
+}
+
+func (*analysisBodySectionDynamicNumericDimensionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisBodySectionDynamicNumericDimensionConfiguration)(nil)).Elem()
+}
+
+func (i *analysisBodySectionDynamicNumericDimensionConfigurationPtrType) ToAnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput() AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput {
+	return i.ToAnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisBodySectionDynamicNumericDimensionConfigurationPtrType) ToAnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutputWithContext(ctx context.Context) AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput)
+}
+
+type AnalysisBodySectionDynamicNumericDimensionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisBodySectionDynamicNumericDimensionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisBodySectionDynamicNumericDimensionConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisBodySectionDynamicNumericDimensionConfigurationOutput) ToAnalysisBodySectionDynamicNumericDimensionConfigurationOutput() AnalysisBodySectionDynamicNumericDimensionConfigurationOutput {
+	return o
+}
+
+func (o AnalysisBodySectionDynamicNumericDimensionConfigurationOutput) ToAnalysisBodySectionDynamicNumericDimensionConfigurationOutputWithContext(ctx context.Context) AnalysisBodySectionDynamicNumericDimensionConfigurationOutput {
+	return o
+}
+
+func (o AnalysisBodySectionDynamicNumericDimensionConfigurationOutput) ToAnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput() AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput {
+	return o.ToAnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisBodySectionDynamicNumericDimensionConfigurationOutput) ToAnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutputWithContext(ctx context.Context) AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisBodySectionDynamicNumericDimensionConfiguration) *AnalysisBodySectionDynamicNumericDimensionConfiguration {
+		return &v
+	}).(AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput)
+}
+
+func (o AnalysisBodySectionDynamicNumericDimensionConfigurationOutput) Column() AnalysisColumnIdentifierOutput {
+	return o.ApplyT(func(v AnalysisBodySectionDynamicNumericDimensionConfiguration) AnalysisColumnIdentifier {
+		return v.Column
+	}).(AnalysisColumnIdentifierOutput)
+}
+
+func (o AnalysisBodySectionDynamicNumericDimensionConfigurationOutput) Limit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AnalysisBodySectionDynamicNumericDimensionConfiguration) *float64 { return v.Limit }).(pulumi.Float64PtrOutput)
+}
+
+func (o AnalysisBodySectionDynamicNumericDimensionConfigurationOutput) SortByMetrics() AnalysisColumnSortArrayOutput {
+	return o.ApplyT(func(v AnalysisBodySectionDynamicNumericDimensionConfiguration) []AnalysisColumnSort {
+		return v.SortByMetrics
+	}).(AnalysisColumnSortArrayOutput)
+}
+
+type AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisBodySectionDynamicNumericDimensionConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput) ToAnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput() AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput) ToAnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutputWithContext(ctx context.Context) AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput) Elem() AnalysisBodySectionDynamicNumericDimensionConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisBodySectionDynamicNumericDimensionConfiguration) AnalysisBodySectionDynamicNumericDimensionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisBodySectionDynamicNumericDimensionConfiguration
+		return ret
+	}).(AnalysisBodySectionDynamicNumericDimensionConfigurationOutput)
+}
+
+func (o AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput) Column() AnalysisColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v *AnalysisBodySectionDynamicNumericDimensionConfiguration) *AnalysisColumnIdentifier {
+		if v == nil {
+			return nil
+		}
+		return &v.Column
+	}).(AnalysisColumnIdentifierPtrOutput)
+}
+
+func (o AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput) Limit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AnalysisBodySectionDynamicNumericDimensionConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Limit
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput) SortByMetrics() AnalysisColumnSortArrayOutput {
+	return o.ApplyT(func(v *AnalysisBodySectionDynamicNumericDimensionConfiguration) []AnalysisColumnSort {
+		if v == nil {
+			return nil
+		}
+		return v.SortByMetrics
+	}).(AnalysisColumnSortArrayOutput)
+}
+
+type AnalysisBodySectionRepeatConfiguration struct {
+	DimensionConfigurations []AnalysisBodySectionRepeatDimensionConfiguration `pulumi:"dimensionConfigurations"`
+	NonRepeatingVisuals     []string                                          `pulumi:"nonRepeatingVisuals"`
+	PageBreakConfiguration  *AnalysisBodySectionRepeatPageBreakConfiguration  `pulumi:"pageBreakConfiguration"`
+}
+
+// AnalysisBodySectionRepeatConfigurationInput is an input type that accepts AnalysisBodySectionRepeatConfigurationArgs and AnalysisBodySectionRepeatConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisBodySectionRepeatConfigurationInput` via:
+//
+//	AnalysisBodySectionRepeatConfigurationArgs{...}
+type AnalysisBodySectionRepeatConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalysisBodySectionRepeatConfigurationOutput() AnalysisBodySectionRepeatConfigurationOutput
+	ToAnalysisBodySectionRepeatConfigurationOutputWithContext(context.Context) AnalysisBodySectionRepeatConfigurationOutput
+}
+
+type AnalysisBodySectionRepeatConfigurationArgs struct {
+	DimensionConfigurations AnalysisBodySectionRepeatDimensionConfigurationArrayInput `pulumi:"dimensionConfigurations"`
+	NonRepeatingVisuals     pulumi.StringArrayInput                                   `pulumi:"nonRepeatingVisuals"`
+	PageBreakConfiguration  AnalysisBodySectionRepeatPageBreakConfigurationPtrInput   `pulumi:"pageBreakConfiguration"`
+}
+
+func (AnalysisBodySectionRepeatConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisBodySectionRepeatConfiguration)(nil)).Elem()
+}
+
+func (i AnalysisBodySectionRepeatConfigurationArgs) ToAnalysisBodySectionRepeatConfigurationOutput() AnalysisBodySectionRepeatConfigurationOutput {
+	return i.ToAnalysisBodySectionRepeatConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalysisBodySectionRepeatConfigurationArgs) ToAnalysisBodySectionRepeatConfigurationOutputWithContext(ctx context.Context) AnalysisBodySectionRepeatConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisBodySectionRepeatConfigurationOutput)
+}
+
+func (i AnalysisBodySectionRepeatConfigurationArgs) ToAnalysisBodySectionRepeatConfigurationPtrOutput() AnalysisBodySectionRepeatConfigurationPtrOutput {
+	return i.ToAnalysisBodySectionRepeatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisBodySectionRepeatConfigurationArgs) ToAnalysisBodySectionRepeatConfigurationPtrOutputWithContext(ctx context.Context) AnalysisBodySectionRepeatConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisBodySectionRepeatConfigurationOutput).ToAnalysisBodySectionRepeatConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnalysisBodySectionRepeatConfigurationPtrInput is an input type that accepts AnalysisBodySectionRepeatConfigurationArgs, AnalysisBodySectionRepeatConfigurationPtr and AnalysisBodySectionRepeatConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisBodySectionRepeatConfigurationPtrInput` via:
+//
+//	        AnalysisBodySectionRepeatConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisBodySectionRepeatConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisBodySectionRepeatConfigurationPtrOutput() AnalysisBodySectionRepeatConfigurationPtrOutput
+	ToAnalysisBodySectionRepeatConfigurationPtrOutputWithContext(context.Context) AnalysisBodySectionRepeatConfigurationPtrOutput
+}
+
+type analysisBodySectionRepeatConfigurationPtrType AnalysisBodySectionRepeatConfigurationArgs
+
+func AnalysisBodySectionRepeatConfigurationPtr(v *AnalysisBodySectionRepeatConfigurationArgs) AnalysisBodySectionRepeatConfigurationPtrInput {
+	return (*analysisBodySectionRepeatConfigurationPtrType)(v)
+}
+
+func (*analysisBodySectionRepeatConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisBodySectionRepeatConfiguration)(nil)).Elem()
+}
+
+func (i *analysisBodySectionRepeatConfigurationPtrType) ToAnalysisBodySectionRepeatConfigurationPtrOutput() AnalysisBodySectionRepeatConfigurationPtrOutput {
+	return i.ToAnalysisBodySectionRepeatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisBodySectionRepeatConfigurationPtrType) ToAnalysisBodySectionRepeatConfigurationPtrOutputWithContext(ctx context.Context) AnalysisBodySectionRepeatConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisBodySectionRepeatConfigurationPtrOutput)
+}
+
+type AnalysisBodySectionRepeatConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisBodySectionRepeatConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisBodySectionRepeatConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisBodySectionRepeatConfigurationOutput) ToAnalysisBodySectionRepeatConfigurationOutput() AnalysisBodySectionRepeatConfigurationOutput {
+	return o
+}
+
+func (o AnalysisBodySectionRepeatConfigurationOutput) ToAnalysisBodySectionRepeatConfigurationOutputWithContext(ctx context.Context) AnalysisBodySectionRepeatConfigurationOutput {
+	return o
+}
+
+func (o AnalysisBodySectionRepeatConfigurationOutput) ToAnalysisBodySectionRepeatConfigurationPtrOutput() AnalysisBodySectionRepeatConfigurationPtrOutput {
+	return o.ToAnalysisBodySectionRepeatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisBodySectionRepeatConfigurationOutput) ToAnalysisBodySectionRepeatConfigurationPtrOutputWithContext(ctx context.Context) AnalysisBodySectionRepeatConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisBodySectionRepeatConfiguration) *AnalysisBodySectionRepeatConfiguration {
+		return &v
+	}).(AnalysisBodySectionRepeatConfigurationPtrOutput)
+}
+
+func (o AnalysisBodySectionRepeatConfigurationOutput) DimensionConfigurations() AnalysisBodySectionRepeatDimensionConfigurationArrayOutput {
+	return o.ApplyT(func(v AnalysisBodySectionRepeatConfiguration) []AnalysisBodySectionRepeatDimensionConfiguration {
+		return v.DimensionConfigurations
+	}).(AnalysisBodySectionRepeatDimensionConfigurationArrayOutput)
+}
+
+func (o AnalysisBodySectionRepeatConfigurationOutput) NonRepeatingVisuals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnalysisBodySectionRepeatConfiguration) []string { return v.NonRepeatingVisuals }).(pulumi.StringArrayOutput)
+}
+
+func (o AnalysisBodySectionRepeatConfigurationOutput) PageBreakConfiguration() AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisBodySectionRepeatConfiguration) *AnalysisBodySectionRepeatPageBreakConfiguration {
+		return v.PageBreakConfiguration
+	}).(AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput)
+}
+
+type AnalysisBodySectionRepeatConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisBodySectionRepeatConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisBodySectionRepeatConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisBodySectionRepeatConfigurationPtrOutput) ToAnalysisBodySectionRepeatConfigurationPtrOutput() AnalysisBodySectionRepeatConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisBodySectionRepeatConfigurationPtrOutput) ToAnalysisBodySectionRepeatConfigurationPtrOutputWithContext(ctx context.Context) AnalysisBodySectionRepeatConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisBodySectionRepeatConfigurationPtrOutput) Elem() AnalysisBodySectionRepeatConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisBodySectionRepeatConfiguration) AnalysisBodySectionRepeatConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisBodySectionRepeatConfiguration
+		return ret
+	}).(AnalysisBodySectionRepeatConfigurationOutput)
+}
+
+func (o AnalysisBodySectionRepeatConfigurationPtrOutput) DimensionConfigurations() AnalysisBodySectionRepeatDimensionConfigurationArrayOutput {
+	return o.ApplyT(func(v *AnalysisBodySectionRepeatConfiguration) []AnalysisBodySectionRepeatDimensionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DimensionConfigurations
+	}).(AnalysisBodySectionRepeatDimensionConfigurationArrayOutput)
+}
+
+func (o AnalysisBodySectionRepeatConfigurationPtrOutput) NonRepeatingVisuals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnalysisBodySectionRepeatConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NonRepeatingVisuals
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AnalysisBodySectionRepeatConfigurationPtrOutput) PageBreakConfiguration() AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisBodySectionRepeatConfiguration) *AnalysisBodySectionRepeatPageBreakConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PageBreakConfiguration
+	}).(AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput)
+}
+
+type AnalysisBodySectionRepeatDimensionConfiguration struct {
+	DynamicCategoryDimensionConfiguration *AnalysisBodySectionDynamicCategoryDimensionConfiguration `pulumi:"dynamicCategoryDimensionConfiguration"`
+	DynamicNumericDimensionConfiguration  *AnalysisBodySectionDynamicNumericDimensionConfiguration  `pulumi:"dynamicNumericDimensionConfiguration"`
+}
+
+// AnalysisBodySectionRepeatDimensionConfigurationInput is an input type that accepts AnalysisBodySectionRepeatDimensionConfigurationArgs and AnalysisBodySectionRepeatDimensionConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisBodySectionRepeatDimensionConfigurationInput` via:
+//
+//	AnalysisBodySectionRepeatDimensionConfigurationArgs{...}
+type AnalysisBodySectionRepeatDimensionConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalysisBodySectionRepeatDimensionConfigurationOutput() AnalysisBodySectionRepeatDimensionConfigurationOutput
+	ToAnalysisBodySectionRepeatDimensionConfigurationOutputWithContext(context.Context) AnalysisBodySectionRepeatDimensionConfigurationOutput
+}
+
+type AnalysisBodySectionRepeatDimensionConfigurationArgs struct {
+	DynamicCategoryDimensionConfiguration AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrInput `pulumi:"dynamicCategoryDimensionConfiguration"`
+	DynamicNumericDimensionConfiguration  AnalysisBodySectionDynamicNumericDimensionConfigurationPtrInput  `pulumi:"dynamicNumericDimensionConfiguration"`
+}
+
+func (AnalysisBodySectionRepeatDimensionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisBodySectionRepeatDimensionConfiguration)(nil)).Elem()
+}
+
+func (i AnalysisBodySectionRepeatDimensionConfigurationArgs) ToAnalysisBodySectionRepeatDimensionConfigurationOutput() AnalysisBodySectionRepeatDimensionConfigurationOutput {
+	return i.ToAnalysisBodySectionRepeatDimensionConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalysisBodySectionRepeatDimensionConfigurationArgs) ToAnalysisBodySectionRepeatDimensionConfigurationOutputWithContext(ctx context.Context) AnalysisBodySectionRepeatDimensionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisBodySectionRepeatDimensionConfigurationOutput)
+}
+
+// AnalysisBodySectionRepeatDimensionConfigurationArrayInput is an input type that accepts AnalysisBodySectionRepeatDimensionConfigurationArray and AnalysisBodySectionRepeatDimensionConfigurationArrayOutput values.
+// You can construct a concrete instance of `AnalysisBodySectionRepeatDimensionConfigurationArrayInput` via:
+//
+//	AnalysisBodySectionRepeatDimensionConfigurationArray{ AnalysisBodySectionRepeatDimensionConfigurationArgs{...} }
+type AnalysisBodySectionRepeatDimensionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAnalysisBodySectionRepeatDimensionConfigurationArrayOutput() AnalysisBodySectionRepeatDimensionConfigurationArrayOutput
+	ToAnalysisBodySectionRepeatDimensionConfigurationArrayOutputWithContext(context.Context) AnalysisBodySectionRepeatDimensionConfigurationArrayOutput
+}
+
+type AnalysisBodySectionRepeatDimensionConfigurationArray []AnalysisBodySectionRepeatDimensionConfigurationInput
+
+func (AnalysisBodySectionRepeatDimensionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisBodySectionRepeatDimensionConfiguration)(nil)).Elem()
+}
+
+func (i AnalysisBodySectionRepeatDimensionConfigurationArray) ToAnalysisBodySectionRepeatDimensionConfigurationArrayOutput() AnalysisBodySectionRepeatDimensionConfigurationArrayOutput {
+	return i.ToAnalysisBodySectionRepeatDimensionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AnalysisBodySectionRepeatDimensionConfigurationArray) ToAnalysisBodySectionRepeatDimensionConfigurationArrayOutputWithContext(ctx context.Context) AnalysisBodySectionRepeatDimensionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisBodySectionRepeatDimensionConfigurationArrayOutput)
+}
+
+type AnalysisBodySectionRepeatDimensionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisBodySectionRepeatDimensionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisBodySectionRepeatDimensionConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisBodySectionRepeatDimensionConfigurationOutput) ToAnalysisBodySectionRepeatDimensionConfigurationOutput() AnalysisBodySectionRepeatDimensionConfigurationOutput {
+	return o
+}
+
+func (o AnalysisBodySectionRepeatDimensionConfigurationOutput) ToAnalysisBodySectionRepeatDimensionConfigurationOutputWithContext(ctx context.Context) AnalysisBodySectionRepeatDimensionConfigurationOutput {
+	return o
+}
+
+func (o AnalysisBodySectionRepeatDimensionConfigurationOutput) DynamicCategoryDimensionConfiguration() AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisBodySectionRepeatDimensionConfiguration) *AnalysisBodySectionDynamicCategoryDimensionConfiguration {
+		return v.DynamicCategoryDimensionConfiguration
+	}).(AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput)
+}
+
+func (o AnalysisBodySectionRepeatDimensionConfigurationOutput) DynamicNumericDimensionConfiguration() AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisBodySectionRepeatDimensionConfiguration) *AnalysisBodySectionDynamicNumericDimensionConfiguration {
+		return v.DynamicNumericDimensionConfiguration
+	}).(AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput)
+}
+
+type AnalysisBodySectionRepeatDimensionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalysisBodySectionRepeatDimensionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisBodySectionRepeatDimensionConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisBodySectionRepeatDimensionConfigurationArrayOutput) ToAnalysisBodySectionRepeatDimensionConfigurationArrayOutput() AnalysisBodySectionRepeatDimensionConfigurationArrayOutput {
+	return o
+}
+
+func (o AnalysisBodySectionRepeatDimensionConfigurationArrayOutput) ToAnalysisBodySectionRepeatDimensionConfigurationArrayOutputWithContext(ctx context.Context) AnalysisBodySectionRepeatDimensionConfigurationArrayOutput {
+	return o
+}
+
+func (o AnalysisBodySectionRepeatDimensionConfigurationArrayOutput) Index(i pulumi.IntInput) AnalysisBodySectionRepeatDimensionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisBodySectionRepeatDimensionConfiguration {
+		return vs[0].([]AnalysisBodySectionRepeatDimensionConfiguration)[vs[1].(int)]
+	}).(AnalysisBodySectionRepeatDimensionConfigurationOutput)
+}
+
+type AnalysisBodySectionRepeatPageBreakConfiguration struct {
+	After *AnalysisSectionAfterPageBreak `pulumi:"after"`
+}
+
+// AnalysisBodySectionRepeatPageBreakConfigurationInput is an input type that accepts AnalysisBodySectionRepeatPageBreakConfigurationArgs and AnalysisBodySectionRepeatPageBreakConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisBodySectionRepeatPageBreakConfigurationInput` via:
+//
+//	AnalysisBodySectionRepeatPageBreakConfigurationArgs{...}
+type AnalysisBodySectionRepeatPageBreakConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalysisBodySectionRepeatPageBreakConfigurationOutput() AnalysisBodySectionRepeatPageBreakConfigurationOutput
+	ToAnalysisBodySectionRepeatPageBreakConfigurationOutputWithContext(context.Context) AnalysisBodySectionRepeatPageBreakConfigurationOutput
+}
+
+type AnalysisBodySectionRepeatPageBreakConfigurationArgs struct {
+	After AnalysisSectionAfterPageBreakPtrInput `pulumi:"after"`
+}
+
+func (AnalysisBodySectionRepeatPageBreakConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisBodySectionRepeatPageBreakConfiguration)(nil)).Elem()
+}
+
+func (i AnalysisBodySectionRepeatPageBreakConfigurationArgs) ToAnalysisBodySectionRepeatPageBreakConfigurationOutput() AnalysisBodySectionRepeatPageBreakConfigurationOutput {
+	return i.ToAnalysisBodySectionRepeatPageBreakConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalysisBodySectionRepeatPageBreakConfigurationArgs) ToAnalysisBodySectionRepeatPageBreakConfigurationOutputWithContext(ctx context.Context) AnalysisBodySectionRepeatPageBreakConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisBodySectionRepeatPageBreakConfigurationOutput)
+}
+
+func (i AnalysisBodySectionRepeatPageBreakConfigurationArgs) ToAnalysisBodySectionRepeatPageBreakConfigurationPtrOutput() AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput {
+	return i.ToAnalysisBodySectionRepeatPageBreakConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisBodySectionRepeatPageBreakConfigurationArgs) ToAnalysisBodySectionRepeatPageBreakConfigurationPtrOutputWithContext(ctx context.Context) AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisBodySectionRepeatPageBreakConfigurationOutput).ToAnalysisBodySectionRepeatPageBreakConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnalysisBodySectionRepeatPageBreakConfigurationPtrInput is an input type that accepts AnalysisBodySectionRepeatPageBreakConfigurationArgs, AnalysisBodySectionRepeatPageBreakConfigurationPtr and AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisBodySectionRepeatPageBreakConfigurationPtrInput` via:
+//
+//	        AnalysisBodySectionRepeatPageBreakConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisBodySectionRepeatPageBreakConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisBodySectionRepeatPageBreakConfigurationPtrOutput() AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput
+	ToAnalysisBodySectionRepeatPageBreakConfigurationPtrOutputWithContext(context.Context) AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput
+}
+
+type analysisBodySectionRepeatPageBreakConfigurationPtrType AnalysisBodySectionRepeatPageBreakConfigurationArgs
+
+func AnalysisBodySectionRepeatPageBreakConfigurationPtr(v *AnalysisBodySectionRepeatPageBreakConfigurationArgs) AnalysisBodySectionRepeatPageBreakConfigurationPtrInput {
+	return (*analysisBodySectionRepeatPageBreakConfigurationPtrType)(v)
+}
+
+func (*analysisBodySectionRepeatPageBreakConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisBodySectionRepeatPageBreakConfiguration)(nil)).Elem()
+}
+
+func (i *analysisBodySectionRepeatPageBreakConfigurationPtrType) ToAnalysisBodySectionRepeatPageBreakConfigurationPtrOutput() AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput {
+	return i.ToAnalysisBodySectionRepeatPageBreakConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisBodySectionRepeatPageBreakConfigurationPtrType) ToAnalysisBodySectionRepeatPageBreakConfigurationPtrOutputWithContext(ctx context.Context) AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput)
+}
+
+type AnalysisBodySectionRepeatPageBreakConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisBodySectionRepeatPageBreakConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisBodySectionRepeatPageBreakConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisBodySectionRepeatPageBreakConfigurationOutput) ToAnalysisBodySectionRepeatPageBreakConfigurationOutput() AnalysisBodySectionRepeatPageBreakConfigurationOutput {
+	return o
+}
+
+func (o AnalysisBodySectionRepeatPageBreakConfigurationOutput) ToAnalysisBodySectionRepeatPageBreakConfigurationOutputWithContext(ctx context.Context) AnalysisBodySectionRepeatPageBreakConfigurationOutput {
+	return o
+}
+
+func (o AnalysisBodySectionRepeatPageBreakConfigurationOutput) ToAnalysisBodySectionRepeatPageBreakConfigurationPtrOutput() AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput {
+	return o.ToAnalysisBodySectionRepeatPageBreakConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisBodySectionRepeatPageBreakConfigurationOutput) ToAnalysisBodySectionRepeatPageBreakConfigurationPtrOutputWithContext(ctx context.Context) AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisBodySectionRepeatPageBreakConfiguration) *AnalysisBodySectionRepeatPageBreakConfiguration {
+		return &v
+	}).(AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput)
+}
+
+func (o AnalysisBodySectionRepeatPageBreakConfigurationOutput) After() AnalysisSectionAfterPageBreakPtrOutput {
+	return o.ApplyT(func(v AnalysisBodySectionRepeatPageBreakConfiguration) *AnalysisSectionAfterPageBreak { return v.After }).(AnalysisSectionAfterPageBreakPtrOutput)
+}
+
+type AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisBodySectionRepeatPageBreakConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput) ToAnalysisBodySectionRepeatPageBreakConfigurationPtrOutput() AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput) ToAnalysisBodySectionRepeatPageBreakConfigurationPtrOutputWithContext(ctx context.Context) AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput) Elem() AnalysisBodySectionRepeatPageBreakConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisBodySectionRepeatPageBreakConfiguration) AnalysisBodySectionRepeatPageBreakConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisBodySectionRepeatPageBreakConfiguration
+		return ret
+	}).(AnalysisBodySectionRepeatPageBreakConfigurationOutput)
+}
+
+func (o AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput) After() AnalysisSectionAfterPageBreakPtrOutput {
+	return o.ApplyT(func(v *AnalysisBodySectionRepeatPageBreakConfiguration) *AnalysisSectionAfterPageBreak {
+		if v == nil {
+			return nil
+		}
+		return v.After
+	}).(AnalysisSectionAfterPageBreakPtrOutput)
 }
 
 type AnalysisBoxPlotAggregatedFieldWells struct {
@@ -5165,8 +5926,9 @@ type AnalysisBoxPlotChartConfiguration struct {
 	// The label options (label text, label visibility and sort Icon visibility) of a box plot category.
 	CategoryLabelOptions *AnalysisChartAxisLabelOptions `pulumi:"categoryLabelOptions"`
 	// The field wells of the visual.
-	FieldWells *AnalysisBoxPlotFieldWells `pulumi:"fieldWells"`
-	Legend     *AnalysisLegendOptions     `pulumi:"legend"`
+	FieldWells   *AnalysisBoxPlotFieldWells        `pulumi:"fieldWells"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
+	Legend       *AnalysisLegendOptions            `pulumi:"legend"`
 	// The label display options (grid line, range, scale, axis step) of a box plot category.
 	PrimaryYAxisDisplayOptions *AnalysisAxisDisplayOptions `pulumi:"primaryYAxisDisplayOptions"`
 	// The label options (label text, label visibility and sort icon visibility) of a box plot value.
@@ -5200,8 +5962,9 @@ type AnalysisBoxPlotChartConfigurationArgs struct {
 	// The label options (label text, label visibility and sort Icon visibility) of a box plot category.
 	CategoryLabelOptions AnalysisChartAxisLabelOptionsPtrInput `pulumi:"categoryLabelOptions"`
 	// The field wells of the visual.
-	FieldWells AnalysisBoxPlotFieldWellsPtrInput `pulumi:"fieldWells"`
-	Legend     AnalysisLegendOptionsPtrInput     `pulumi:"legend"`
+	FieldWells   AnalysisBoxPlotFieldWellsPtrInput        `pulumi:"fieldWells"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
+	Legend       AnalysisLegendOptionsPtrInput            `pulumi:"legend"`
 	// The label display options (grid line, range, scale, axis step) of a box plot category.
 	PrimaryYAxisDisplayOptions AnalysisAxisDisplayOptionsPtrInput `pulumi:"primaryYAxisDisplayOptions"`
 	// The label options (label text, label visibility and sort icon visibility) of a box plot value.
@@ -5315,6 +6078,10 @@ func (o AnalysisBoxPlotChartConfigurationOutput) FieldWells() AnalysisBoxPlotFie
 	return o.ApplyT(func(v AnalysisBoxPlotChartConfiguration) *AnalysisBoxPlotFieldWells { return v.FieldWells }).(AnalysisBoxPlotFieldWellsPtrOutput)
 }
 
+func (o AnalysisBoxPlotChartConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisBoxPlotChartConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
+}
+
 func (o AnalysisBoxPlotChartConfigurationOutput) Legend() AnalysisLegendOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisBoxPlotChartConfiguration) *AnalysisLegendOptions { return v.Legend }).(AnalysisLegendOptionsPtrOutput)
 }
@@ -5417,6 +6184,15 @@ func (o AnalysisBoxPlotChartConfigurationPtrOutput) FieldWells() AnalysisBoxPlot
 		}
 		return v.FieldWells
 	}).(AnalysisBoxPlotFieldWellsPtrOutput)
+}
+
+func (o AnalysisBoxPlotChartConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisBoxPlotChartConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 func (o AnalysisBoxPlotChartConfigurationPtrOutput) Legend() AnalysisLegendOptionsPtrOutput {
@@ -9249,6 +10025,31 @@ func (i *analysisColumnSortPtrType) ToAnalysisColumnSortPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisColumnSortPtrOutput)
 }
 
+// AnalysisColumnSortArrayInput is an input type that accepts AnalysisColumnSortArray and AnalysisColumnSortArrayOutput values.
+// You can construct a concrete instance of `AnalysisColumnSortArrayInput` via:
+//
+//	AnalysisColumnSortArray{ AnalysisColumnSortArgs{...} }
+type AnalysisColumnSortArrayInput interface {
+	pulumi.Input
+
+	ToAnalysisColumnSortArrayOutput() AnalysisColumnSortArrayOutput
+	ToAnalysisColumnSortArrayOutputWithContext(context.Context) AnalysisColumnSortArrayOutput
+}
+
+type AnalysisColumnSortArray []AnalysisColumnSortInput
+
+func (AnalysisColumnSortArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisColumnSort)(nil)).Elem()
+}
+
+func (i AnalysisColumnSortArray) ToAnalysisColumnSortArrayOutput() AnalysisColumnSortArrayOutput {
+	return i.ToAnalysisColumnSortArrayOutputWithContext(context.Background())
+}
+
+func (i AnalysisColumnSortArray) ToAnalysisColumnSortArrayOutputWithContext(ctx context.Context) AnalysisColumnSortArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisColumnSortArrayOutput)
+}
+
 type AnalysisColumnSortOutput struct{ *pulumi.OutputState }
 
 func (AnalysisColumnSortOutput) ElementType() reflect.Type {
@@ -9338,6 +10139,26 @@ func (o AnalysisColumnSortPtrOutput) SortBy() AnalysisColumnIdentifierPtrOutput 
 		}
 		return &v.SortBy
 	}).(AnalysisColumnIdentifierPtrOutput)
+}
+
+type AnalysisColumnSortArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalysisColumnSortArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisColumnSort)(nil)).Elem()
+}
+
+func (o AnalysisColumnSortArrayOutput) ToAnalysisColumnSortArrayOutput() AnalysisColumnSortArrayOutput {
+	return o
+}
+
+func (o AnalysisColumnSortArrayOutput) ToAnalysisColumnSortArrayOutputWithContext(ctx context.Context) AnalysisColumnSortArrayOutput {
+	return o
+}
+
+func (o AnalysisColumnSortArrayOutput) Index(i pulumi.IntInput) AnalysisColumnSortOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisColumnSort {
+		return vs[0].([]AnalysisColumnSort)[vs[1].(int)]
+	}).(AnalysisColumnSortOutput)
 }
 
 type AnalysisColumnTooltipItem struct {
@@ -9765,7 +10586,8 @@ type AnalysisComboChartConfiguration struct {
 	// The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
 	ColorLabelOptions *AnalysisChartAxisLabelOptions `pulumi:"colorLabelOptions"`
 	// The field wells of the visual.
-	FieldWells *AnalysisComboChartFieldWells `pulumi:"fieldWells"`
+	FieldWells   *AnalysisComboChartFieldWells     `pulumi:"fieldWells"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend *AnalysisLegendOptions `pulumi:"legend"`
 	// The options that determine if visual data labels are displayed.
@@ -9820,7 +10642,8 @@ type AnalysisComboChartConfigurationArgs struct {
 	// The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
 	ColorLabelOptions AnalysisChartAxisLabelOptionsPtrInput `pulumi:"colorLabelOptions"`
 	// The field wells of the visual.
-	FieldWells AnalysisComboChartFieldWellsPtrInput `pulumi:"fieldWells"`
+	FieldWells   AnalysisComboChartFieldWellsPtrInput     `pulumi:"fieldWells"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend AnalysisLegendOptionsPtrInput `pulumi:"legend"`
 	// The options that determine if visual data labels are displayed.
@@ -9957,6 +10780,10 @@ func (o AnalysisComboChartConfigurationOutput) ColorLabelOptions() AnalysisChart
 // The field wells of the visual.
 func (o AnalysisComboChartConfigurationOutput) FieldWells() AnalysisComboChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v AnalysisComboChartConfiguration) *AnalysisComboChartFieldWells { return v.FieldWells }).(AnalysisComboChartFieldWellsPtrOutput)
+}
+
+func (o AnalysisComboChartConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisComboChartConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -10113,6 +10940,15 @@ func (o AnalysisComboChartConfigurationPtrOutput) FieldWells() AnalysisComboChar
 		}
 		return v.FieldWells
 	}).(AnalysisComboChartFieldWellsPtrOutput)
+}
+
+func (o AnalysisComboChartConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisComboChartConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -12603,6 +13439,139 @@ func (o AnalysisConditionalFormattingSolidColorPtrOutput) Expression() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type AnalysisContextMenuOption struct {
+	AvailabilityStatus *AnalysisDashboardBehavior `pulumi:"availabilityStatus"`
+}
+
+// AnalysisContextMenuOptionInput is an input type that accepts AnalysisContextMenuOptionArgs and AnalysisContextMenuOptionOutput values.
+// You can construct a concrete instance of `AnalysisContextMenuOptionInput` via:
+//
+//	AnalysisContextMenuOptionArgs{...}
+type AnalysisContextMenuOptionInput interface {
+	pulumi.Input
+
+	ToAnalysisContextMenuOptionOutput() AnalysisContextMenuOptionOutput
+	ToAnalysisContextMenuOptionOutputWithContext(context.Context) AnalysisContextMenuOptionOutput
+}
+
+type AnalysisContextMenuOptionArgs struct {
+	AvailabilityStatus AnalysisDashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
+}
+
+func (AnalysisContextMenuOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisContextMenuOption)(nil)).Elem()
+}
+
+func (i AnalysisContextMenuOptionArgs) ToAnalysisContextMenuOptionOutput() AnalysisContextMenuOptionOutput {
+	return i.ToAnalysisContextMenuOptionOutputWithContext(context.Background())
+}
+
+func (i AnalysisContextMenuOptionArgs) ToAnalysisContextMenuOptionOutputWithContext(ctx context.Context) AnalysisContextMenuOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisContextMenuOptionOutput)
+}
+
+func (i AnalysisContextMenuOptionArgs) ToAnalysisContextMenuOptionPtrOutput() AnalysisContextMenuOptionPtrOutput {
+	return i.ToAnalysisContextMenuOptionPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisContextMenuOptionArgs) ToAnalysisContextMenuOptionPtrOutputWithContext(ctx context.Context) AnalysisContextMenuOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisContextMenuOptionOutput).ToAnalysisContextMenuOptionPtrOutputWithContext(ctx)
+}
+
+// AnalysisContextMenuOptionPtrInput is an input type that accepts AnalysisContextMenuOptionArgs, AnalysisContextMenuOptionPtr and AnalysisContextMenuOptionPtrOutput values.
+// You can construct a concrete instance of `AnalysisContextMenuOptionPtrInput` via:
+//
+//	        AnalysisContextMenuOptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisContextMenuOptionPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisContextMenuOptionPtrOutput() AnalysisContextMenuOptionPtrOutput
+	ToAnalysisContextMenuOptionPtrOutputWithContext(context.Context) AnalysisContextMenuOptionPtrOutput
+}
+
+type analysisContextMenuOptionPtrType AnalysisContextMenuOptionArgs
+
+func AnalysisContextMenuOptionPtr(v *AnalysisContextMenuOptionArgs) AnalysisContextMenuOptionPtrInput {
+	return (*analysisContextMenuOptionPtrType)(v)
+}
+
+func (*analysisContextMenuOptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisContextMenuOption)(nil)).Elem()
+}
+
+func (i *analysisContextMenuOptionPtrType) ToAnalysisContextMenuOptionPtrOutput() AnalysisContextMenuOptionPtrOutput {
+	return i.ToAnalysisContextMenuOptionPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisContextMenuOptionPtrType) ToAnalysisContextMenuOptionPtrOutputWithContext(ctx context.Context) AnalysisContextMenuOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisContextMenuOptionPtrOutput)
+}
+
+type AnalysisContextMenuOptionOutput struct{ *pulumi.OutputState }
+
+func (AnalysisContextMenuOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisContextMenuOption)(nil)).Elem()
+}
+
+func (o AnalysisContextMenuOptionOutput) ToAnalysisContextMenuOptionOutput() AnalysisContextMenuOptionOutput {
+	return o
+}
+
+func (o AnalysisContextMenuOptionOutput) ToAnalysisContextMenuOptionOutputWithContext(ctx context.Context) AnalysisContextMenuOptionOutput {
+	return o
+}
+
+func (o AnalysisContextMenuOptionOutput) ToAnalysisContextMenuOptionPtrOutput() AnalysisContextMenuOptionPtrOutput {
+	return o.ToAnalysisContextMenuOptionPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisContextMenuOptionOutput) ToAnalysisContextMenuOptionPtrOutputWithContext(ctx context.Context) AnalysisContextMenuOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisContextMenuOption) *AnalysisContextMenuOption {
+		return &v
+	}).(AnalysisContextMenuOptionPtrOutput)
+}
+
+func (o AnalysisContextMenuOptionOutput) AvailabilityStatus() AnalysisDashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v AnalysisContextMenuOption) *AnalysisDashboardBehavior { return v.AvailabilityStatus }).(AnalysisDashboardBehaviorPtrOutput)
+}
+
+type AnalysisContextMenuOptionPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisContextMenuOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisContextMenuOption)(nil)).Elem()
+}
+
+func (o AnalysisContextMenuOptionPtrOutput) ToAnalysisContextMenuOptionPtrOutput() AnalysisContextMenuOptionPtrOutput {
+	return o
+}
+
+func (o AnalysisContextMenuOptionPtrOutput) ToAnalysisContextMenuOptionPtrOutputWithContext(ctx context.Context) AnalysisContextMenuOptionPtrOutput {
+	return o
+}
+
+func (o AnalysisContextMenuOptionPtrOutput) Elem() AnalysisContextMenuOptionOutput {
+	return o.ApplyT(func(v *AnalysisContextMenuOption) AnalysisContextMenuOption {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisContextMenuOption
+		return ret
+	}).(AnalysisContextMenuOptionOutput)
+}
+
+func (o AnalysisContextMenuOptionPtrOutput) AvailabilityStatus() AnalysisDashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v *AnalysisContextMenuOption) *AnalysisDashboardBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityStatus
+	}).(AnalysisDashboardBehaviorPtrOutput)
+}
+
 type AnalysisContributionAnalysisDefault struct {
 	// The dimensions columns that are used in the contribution analysis, usually a list of `ColumnIdentifiers` .
 	ContributorDimensions []AnalysisColumnIdentifier `pulumi:"contributorDimensions"`
@@ -13727,6 +14696,7 @@ type AnalysisCustomContentConfiguration struct {
 	ContentUrl *string `pulumi:"contentUrl"`
 	// The sizing options for the size of the custom content visual. This structure is required when the `ContentType` of the visual is `'IMAGE'` .
 	ImageScaling *AnalysisCustomContentImageScalingConfiguration `pulumi:"imageScaling"`
+	Interactions *AnalysisVisualInteractionOptions               `pulumi:"interactions"`
 }
 
 // AnalysisCustomContentConfigurationInput is an input type that accepts AnalysisCustomContentConfigurationArgs and AnalysisCustomContentConfigurationOutput values.
@@ -13747,6 +14717,7 @@ type AnalysisCustomContentConfigurationArgs struct {
 	ContentUrl pulumi.StringPtrInput `pulumi:"contentUrl"`
 	// The sizing options for the size of the custom content visual. This structure is required when the `ContentType` of the visual is `'IMAGE'` .
 	ImageScaling AnalysisCustomContentImageScalingConfigurationPtrInput `pulumi:"imageScaling"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput               `pulumi:"interactions"`
 }
 
 func (AnalysisCustomContentConfigurationArgs) ElementType() reflect.Type {
@@ -13843,6 +14814,10 @@ func (o AnalysisCustomContentConfigurationOutput) ImageScaling() AnalysisCustomC
 	}).(AnalysisCustomContentImageScalingConfigurationPtrOutput)
 }
 
+func (o AnalysisCustomContentConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisCustomContentConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
+}
+
 type AnalysisCustomContentConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (AnalysisCustomContentConfigurationPtrOutput) ElementType() reflect.Type {
@@ -13895,6 +14870,15 @@ func (o AnalysisCustomContentConfigurationPtrOutput) ImageScaling() AnalysisCust
 		}
 		return v.ImageScaling
 	}).(AnalysisCustomContentImageScalingConfigurationPtrOutput)
+}
+
+func (o AnalysisCustomContentConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisCustomContentConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 type AnalysisCustomContentVisual struct {
@@ -18469,8 +19453,10 @@ func (o AnalysisDateTimeParameterDeclarationPtrOutput) ValueWhenUnset() Analysis
 }
 
 type AnalysisDateTimePickerControlDisplayOptions struct {
+	DateIconVisibility *AnalysisVisibility `pulumi:"dateIconVisibility"`
 	// Customize how dates are formatted in controls.
-	DateTimeFormat *string `pulumi:"dateTimeFormat"`
+	DateTimeFormat       *string             `pulumi:"dateTimeFormat"`
+	HelperTextVisibility *AnalysisVisibility `pulumi:"helperTextVisibility"`
 	// The configuration of info icon label options.
 	InfoIconLabelOptions *AnalysisSheetControlInfoIconLabelOptions `pulumi:"infoIconLabelOptions"`
 	// The options to configure the title visibility, name, and font size.
@@ -18489,8 +19475,10 @@ type AnalysisDateTimePickerControlDisplayOptionsInput interface {
 }
 
 type AnalysisDateTimePickerControlDisplayOptionsArgs struct {
+	DateIconVisibility AnalysisVisibilityPtrInput `pulumi:"dateIconVisibility"`
 	// Customize how dates are formatted in controls.
-	DateTimeFormat pulumi.StringPtrInput `pulumi:"dateTimeFormat"`
+	DateTimeFormat       pulumi.StringPtrInput      `pulumi:"dateTimeFormat"`
+	HelperTextVisibility AnalysisVisibilityPtrInput `pulumi:"helperTextVisibility"`
 	// The configuration of info icon label options.
 	InfoIconLabelOptions AnalysisSheetControlInfoIconLabelOptionsPtrInput `pulumi:"infoIconLabelOptions"`
 	// The options to configure the title visibility, name, and font size.
@@ -18574,9 +19562,17 @@ func (o AnalysisDateTimePickerControlDisplayOptionsOutput) ToAnalysisDateTimePic
 	}).(AnalysisDateTimePickerControlDisplayOptionsPtrOutput)
 }
 
+func (o AnalysisDateTimePickerControlDisplayOptionsOutput) DateIconVisibility() AnalysisVisibilityPtrOutput {
+	return o.ApplyT(func(v AnalysisDateTimePickerControlDisplayOptions) *AnalysisVisibility { return v.DateIconVisibility }).(AnalysisVisibilityPtrOutput)
+}
+
 // Customize how dates are formatted in controls.
 func (o AnalysisDateTimePickerControlDisplayOptionsOutput) DateTimeFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisDateTimePickerControlDisplayOptions) *string { return v.DateTimeFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisDateTimePickerControlDisplayOptionsOutput) HelperTextVisibility() AnalysisVisibilityPtrOutput {
+	return o.ApplyT(func(v AnalysisDateTimePickerControlDisplayOptions) *AnalysisVisibility { return v.HelperTextVisibility }).(AnalysisVisibilityPtrOutput)
 }
 
 // The configuration of info icon label options.
@@ -18615,6 +19611,15 @@ func (o AnalysisDateTimePickerControlDisplayOptionsPtrOutput) Elem() AnalysisDat
 	}).(AnalysisDateTimePickerControlDisplayOptionsOutput)
 }
 
+func (o AnalysisDateTimePickerControlDisplayOptionsPtrOutput) DateIconVisibility() AnalysisVisibilityPtrOutput {
+	return o.ApplyT(func(v *AnalysisDateTimePickerControlDisplayOptions) *AnalysisVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.DateIconVisibility
+	}).(AnalysisVisibilityPtrOutput)
+}
+
 // Customize how dates are formatted in controls.
 func (o AnalysisDateTimePickerControlDisplayOptionsPtrOutput) DateTimeFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisDateTimePickerControlDisplayOptions) *string {
@@ -18623,6 +19628,15 @@ func (o AnalysisDateTimePickerControlDisplayOptionsPtrOutput) DateTimeFormat() p
 		}
 		return v.DateTimeFormat
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisDateTimePickerControlDisplayOptionsPtrOutput) HelperTextVisibility() AnalysisVisibilityPtrOutput {
+	return o.ApplyT(func(v *AnalysisDateTimePickerControlDisplayOptions) *AnalysisVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.HelperTextVisibility
+	}).(AnalysisVisibilityPtrOutput)
 }
 
 // The configuration of info icon label options.
@@ -25887,7 +26901,8 @@ func (o AnalysisFilledMapConditionalFormattingOptionArrayOutput) Index(i pulumi.
 
 type AnalysisFilledMapConfiguration struct {
 	// The field wells of the visual.
-	FieldWells *AnalysisFilledMapFieldWells `pulumi:"fieldWells"`
+	FieldWells   *AnalysisFilledMapFieldWells      `pulumi:"fieldWells"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend *AnalysisLegendOptions `pulumi:"legend"`
 	// The map style options of the filled map visual.
@@ -25913,7 +26928,8 @@ type AnalysisFilledMapConfigurationInput interface {
 
 type AnalysisFilledMapConfigurationArgs struct {
 	// The field wells of the visual.
-	FieldWells AnalysisFilledMapFieldWellsPtrInput `pulumi:"fieldWells"`
+	FieldWells   AnalysisFilledMapFieldWellsPtrInput      `pulumi:"fieldWells"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend AnalysisLegendOptionsPtrInput `pulumi:"legend"`
 	// The map style options of the filled map visual.
@@ -26008,6 +27024,10 @@ func (o AnalysisFilledMapConfigurationOutput) FieldWells() AnalysisFilledMapFiel
 	return o.ApplyT(func(v AnalysisFilledMapConfiguration) *AnalysisFilledMapFieldWells { return v.FieldWells }).(AnalysisFilledMapFieldWellsPtrOutput)
 }
 
+func (o AnalysisFilledMapConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisFilledMapConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
+}
+
 // The legend display setup of the visual.
 func (o AnalysisFilledMapConfigurationOutput) Legend() AnalysisLegendOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisFilledMapConfiguration) *AnalysisLegendOptions { return v.Legend }).(AnalysisLegendOptionsPtrOutput)
@@ -26065,6 +27085,15 @@ func (o AnalysisFilledMapConfigurationPtrOutput) FieldWells() AnalysisFilledMapF
 		}
 		return v.FieldWells
 	}).(AnalysisFilledMapFieldWellsPtrOutput)
+}
+
+func (o AnalysisFilledMapConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisFilledMapConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -29839,6 +30868,7 @@ type AnalysisFontConfiguration struct {
 	FontColor *string `pulumi:"fontColor"`
 	// Determines the appearance of decorative lines on the text.
 	FontDecoration *AnalysisFontDecoration `pulumi:"fontDecoration"`
+	FontFamily     *string                 `pulumi:"fontFamily"`
 	// The option that determines the text display size.
 	FontSize *AnalysisFontSize `pulumi:"fontSize"`
 	// Determines the text display face that is inherited by the given font family.
@@ -29863,6 +30893,7 @@ type AnalysisFontConfigurationArgs struct {
 	FontColor pulumi.StringPtrInput `pulumi:"fontColor"`
 	// Determines the appearance of decorative lines on the text.
 	FontDecoration AnalysisFontDecorationPtrInput `pulumi:"fontDecoration"`
+	FontFamily     pulumi.StringPtrInput          `pulumi:"fontFamily"`
 	// The option that determines the text display size.
 	FontSize AnalysisFontSizePtrInput `pulumi:"fontSize"`
 	// Determines the text display face that is inherited by the given font family.
@@ -29958,6 +30989,10 @@ func (o AnalysisFontConfigurationOutput) FontDecoration() AnalysisFontDecoration
 	return o.ApplyT(func(v AnalysisFontConfiguration) *AnalysisFontDecoration { return v.FontDecoration }).(AnalysisFontDecorationPtrOutput)
 }
 
+func (o AnalysisFontConfigurationOutput) FontFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisFontConfiguration) *string { return v.FontFamily }).(pulumi.StringPtrOutput)
+}
+
 // The option that determines the text display size.
 func (o AnalysisFontConfigurationOutput) FontSize() AnalysisFontSizePtrOutput {
 	return o.ApplyT(func(v AnalysisFontConfiguration) *AnalysisFontSize { return v.FontSize }).(AnalysisFontSizePtrOutput)
@@ -30015,6 +31050,15 @@ func (o AnalysisFontConfigurationPtrOutput) FontDecoration() AnalysisFontDecorat
 		}
 		return v.FontDecoration
 	}).(AnalysisFontDecorationPtrOutput)
+}
+
+func (o AnalysisFontConfigurationPtrOutput) FontFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisFontConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FontFamily
+	}).(pulumi.StringPtrOutput)
 }
 
 // The option that determines the text display size.
@@ -32365,7 +33409,8 @@ type AnalysisFunnelChartConfiguration struct {
 	// The options that determine the presentation of the data labels.
 	DataLabelOptions *AnalysisFunnelChartDataLabelOptions `pulumi:"dataLabelOptions"`
 	// The field well configuration of a `FunnelChartVisual` .
-	FieldWells *AnalysisFunnelChartFieldWells `pulumi:"fieldWells"`
+	FieldWells   *AnalysisFunnelChartFieldWells    `pulumi:"fieldWells"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 	// The sort configuration of a `FunnelChartVisual` .
 	SortConfiguration *AnalysisFunnelChartSortConfiguration `pulumi:"sortConfiguration"`
 	// The tooltip configuration of a `FunnelChartVisual` .
@@ -32393,7 +33438,8 @@ type AnalysisFunnelChartConfigurationArgs struct {
 	// The options that determine the presentation of the data labels.
 	DataLabelOptions AnalysisFunnelChartDataLabelOptionsPtrInput `pulumi:"dataLabelOptions"`
 	// The field well configuration of a `FunnelChartVisual` .
-	FieldWells AnalysisFunnelChartFieldWellsPtrInput `pulumi:"fieldWells"`
+	FieldWells   AnalysisFunnelChartFieldWellsPtrInput    `pulumi:"fieldWells"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The sort configuration of a `FunnelChartVisual` .
 	SortConfiguration AnalysisFunnelChartSortConfigurationPtrInput `pulumi:"sortConfiguration"`
 	// The tooltip configuration of a `FunnelChartVisual` .
@@ -32498,6 +33544,10 @@ func (o AnalysisFunnelChartConfigurationOutput) FieldWells() AnalysisFunnelChart
 	return o.ApplyT(func(v AnalysisFunnelChartConfiguration) *AnalysisFunnelChartFieldWells { return v.FieldWells }).(AnalysisFunnelChartFieldWellsPtrOutput)
 }
 
+func (o AnalysisFunnelChartConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisFunnelChartConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
+}
+
 // The sort configuration of a `FunnelChartVisual` .
 func (o AnalysisFunnelChartConfigurationOutput) SortConfiguration() AnalysisFunnelChartSortConfigurationPtrOutput {
 	return o.ApplyT(func(v AnalysisFunnelChartConfiguration) *AnalysisFunnelChartSortConfiguration {
@@ -32572,6 +33622,15 @@ func (o AnalysisFunnelChartConfigurationPtrOutput) FieldWells() AnalysisFunnelCh
 		}
 		return v.FieldWells
 	}).(AnalysisFunnelChartFieldWellsPtrOutput)
+}
+
+func (o AnalysisFunnelChartConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisFunnelChartConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The sort configuration of a `FunnelChartVisual` .
@@ -33564,6 +34623,154 @@ func (o AnalysisGaugeChartArcConditionalFormattingPtrOutput) ForegroundColor() A
 	}).(AnalysisConditionalFormattingColorPtrOutput)
 }
 
+type AnalysisGaugeChartColorConfiguration struct {
+	BackgroundColor *string `pulumi:"backgroundColor"`
+	ForegroundColor *string `pulumi:"foregroundColor"`
+}
+
+// AnalysisGaugeChartColorConfigurationInput is an input type that accepts AnalysisGaugeChartColorConfigurationArgs and AnalysisGaugeChartColorConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisGaugeChartColorConfigurationInput` via:
+//
+//	AnalysisGaugeChartColorConfigurationArgs{...}
+type AnalysisGaugeChartColorConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalysisGaugeChartColorConfigurationOutput() AnalysisGaugeChartColorConfigurationOutput
+	ToAnalysisGaugeChartColorConfigurationOutputWithContext(context.Context) AnalysisGaugeChartColorConfigurationOutput
+}
+
+type AnalysisGaugeChartColorConfigurationArgs struct {
+	BackgroundColor pulumi.StringPtrInput `pulumi:"backgroundColor"`
+	ForegroundColor pulumi.StringPtrInput `pulumi:"foregroundColor"`
+}
+
+func (AnalysisGaugeChartColorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisGaugeChartColorConfiguration)(nil)).Elem()
+}
+
+func (i AnalysisGaugeChartColorConfigurationArgs) ToAnalysisGaugeChartColorConfigurationOutput() AnalysisGaugeChartColorConfigurationOutput {
+	return i.ToAnalysisGaugeChartColorConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalysisGaugeChartColorConfigurationArgs) ToAnalysisGaugeChartColorConfigurationOutputWithContext(ctx context.Context) AnalysisGaugeChartColorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisGaugeChartColorConfigurationOutput)
+}
+
+func (i AnalysisGaugeChartColorConfigurationArgs) ToAnalysisGaugeChartColorConfigurationPtrOutput() AnalysisGaugeChartColorConfigurationPtrOutput {
+	return i.ToAnalysisGaugeChartColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisGaugeChartColorConfigurationArgs) ToAnalysisGaugeChartColorConfigurationPtrOutputWithContext(ctx context.Context) AnalysisGaugeChartColorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisGaugeChartColorConfigurationOutput).ToAnalysisGaugeChartColorConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnalysisGaugeChartColorConfigurationPtrInput is an input type that accepts AnalysisGaugeChartColorConfigurationArgs, AnalysisGaugeChartColorConfigurationPtr and AnalysisGaugeChartColorConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisGaugeChartColorConfigurationPtrInput` via:
+//
+//	        AnalysisGaugeChartColorConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisGaugeChartColorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisGaugeChartColorConfigurationPtrOutput() AnalysisGaugeChartColorConfigurationPtrOutput
+	ToAnalysisGaugeChartColorConfigurationPtrOutputWithContext(context.Context) AnalysisGaugeChartColorConfigurationPtrOutput
+}
+
+type analysisGaugeChartColorConfigurationPtrType AnalysisGaugeChartColorConfigurationArgs
+
+func AnalysisGaugeChartColorConfigurationPtr(v *AnalysisGaugeChartColorConfigurationArgs) AnalysisGaugeChartColorConfigurationPtrInput {
+	return (*analysisGaugeChartColorConfigurationPtrType)(v)
+}
+
+func (*analysisGaugeChartColorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisGaugeChartColorConfiguration)(nil)).Elem()
+}
+
+func (i *analysisGaugeChartColorConfigurationPtrType) ToAnalysisGaugeChartColorConfigurationPtrOutput() AnalysisGaugeChartColorConfigurationPtrOutput {
+	return i.ToAnalysisGaugeChartColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisGaugeChartColorConfigurationPtrType) ToAnalysisGaugeChartColorConfigurationPtrOutputWithContext(ctx context.Context) AnalysisGaugeChartColorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisGaugeChartColorConfigurationPtrOutput)
+}
+
+type AnalysisGaugeChartColorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisGaugeChartColorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisGaugeChartColorConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisGaugeChartColorConfigurationOutput) ToAnalysisGaugeChartColorConfigurationOutput() AnalysisGaugeChartColorConfigurationOutput {
+	return o
+}
+
+func (o AnalysisGaugeChartColorConfigurationOutput) ToAnalysisGaugeChartColorConfigurationOutputWithContext(ctx context.Context) AnalysisGaugeChartColorConfigurationOutput {
+	return o
+}
+
+func (o AnalysisGaugeChartColorConfigurationOutput) ToAnalysisGaugeChartColorConfigurationPtrOutput() AnalysisGaugeChartColorConfigurationPtrOutput {
+	return o.ToAnalysisGaugeChartColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisGaugeChartColorConfigurationOutput) ToAnalysisGaugeChartColorConfigurationPtrOutputWithContext(ctx context.Context) AnalysisGaugeChartColorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisGaugeChartColorConfiguration) *AnalysisGaugeChartColorConfiguration {
+		return &v
+	}).(AnalysisGaugeChartColorConfigurationPtrOutput)
+}
+
+func (o AnalysisGaugeChartColorConfigurationOutput) BackgroundColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisGaugeChartColorConfiguration) *string { return v.BackgroundColor }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisGaugeChartColorConfigurationOutput) ForegroundColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisGaugeChartColorConfiguration) *string { return v.ForegroundColor }).(pulumi.StringPtrOutput)
+}
+
+type AnalysisGaugeChartColorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisGaugeChartColorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisGaugeChartColorConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisGaugeChartColorConfigurationPtrOutput) ToAnalysisGaugeChartColorConfigurationPtrOutput() AnalysisGaugeChartColorConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisGaugeChartColorConfigurationPtrOutput) ToAnalysisGaugeChartColorConfigurationPtrOutputWithContext(ctx context.Context) AnalysisGaugeChartColorConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisGaugeChartColorConfigurationPtrOutput) Elem() AnalysisGaugeChartColorConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisGaugeChartColorConfiguration) AnalysisGaugeChartColorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisGaugeChartColorConfiguration
+		return ret
+	}).(AnalysisGaugeChartColorConfigurationOutput)
+}
+
+func (o AnalysisGaugeChartColorConfigurationPtrOutput) BackgroundColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisGaugeChartColorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BackgroundColor
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisGaugeChartColorConfigurationPtrOutput) ForegroundColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisGaugeChartColorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ForegroundColor
+	}).(pulumi.StringPtrOutput)
+}
+
 type AnalysisGaugeChartConditionalFormatting struct {
 	// Conditional formatting options of a `GaugeChartVisual` .
 	ConditionalFormattingOptions []AnalysisGaugeChartConditionalFormattingOption `pulumi:"conditionalFormattingOptions"`
@@ -33814,12 +35021,14 @@ func (o AnalysisGaugeChartConditionalFormattingOptionArrayOutput) Index(i pulumi
 }
 
 type AnalysisGaugeChartConfiguration struct {
+	ColorConfiguration *AnalysisGaugeChartColorConfiguration `pulumi:"colorConfiguration"`
 	// The data label configuration of a `GaugeChartVisual` .
 	DataLabels *AnalysisDataLabelOptions `pulumi:"dataLabels"`
 	// The field well configuration of a `GaugeChartVisual` .
 	FieldWells *AnalysisGaugeChartFieldWells `pulumi:"fieldWells"`
 	// The options that determine the presentation of the `GaugeChartVisual` .
-	GaugeChartOptions *AnalysisGaugeChartOptions `pulumi:"gaugeChartOptions"`
+	GaugeChartOptions *AnalysisGaugeChartOptions        `pulumi:"gaugeChartOptions"`
+	Interactions      *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 	// The tooltip configuration of a `GaugeChartVisual` .
 	TooltipOptions *AnalysisTooltipOptions `pulumi:"tooltipOptions"`
 	// The visual palette configuration of a `GaugeChartVisual` .
@@ -33838,12 +35047,14 @@ type AnalysisGaugeChartConfigurationInput interface {
 }
 
 type AnalysisGaugeChartConfigurationArgs struct {
+	ColorConfiguration AnalysisGaugeChartColorConfigurationPtrInput `pulumi:"colorConfiguration"`
 	// The data label configuration of a `GaugeChartVisual` .
 	DataLabels AnalysisDataLabelOptionsPtrInput `pulumi:"dataLabels"`
 	// The field well configuration of a `GaugeChartVisual` .
 	FieldWells AnalysisGaugeChartFieldWellsPtrInput `pulumi:"fieldWells"`
 	// The options that determine the presentation of the `GaugeChartVisual` .
-	GaugeChartOptions AnalysisGaugeChartOptionsPtrInput `pulumi:"gaugeChartOptions"`
+	GaugeChartOptions AnalysisGaugeChartOptionsPtrInput        `pulumi:"gaugeChartOptions"`
+	Interactions      AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The tooltip configuration of a `GaugeChartVisual` .
 	TooltipOptions AnalysisTooltipOptionsPtrInput `pulumi:"tooltipOptions"`
 	// The visual palette configuration of a `GaugeChartVisual` .
@@ -33927,6 +35138,12 @@ func (o AnalysisGaugeChartConfigurationOutput) ToAnalysisGaugeChartConfiguration
 	}).(AnalysisGaugeChartConfigurationPtrOutput)
 }
 
+func (o AnalysisGaugeChartConfigurationOutput) ColorConfiguration() AnalysisGaugeChartColorConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisGaugeChartConfiguration) *AnalysisGaugeChartColorConfiguration {
+		return v.ColorConfiguration
+	}).(AnalysisGaugeChartColorConfigurationPtrOutput)
+}
+
 // The data label configuration of a `GaugeChartVisual` .
 func (o AnalysisGaugeChartConfigurationOutput) DataLabels() AnalysisDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisGaugeChartConfiguration) *AnalysisDataLabelOptions { return v.DataLabels }).(AnalysisDataLabelOptionsPtrOutput)
@@ -33940,6 +35157,10 @@ func (o AnalysisGaugeChartConfigurationOutput) FieldWells() AnalysisGaugeChartFi
 // The options that determine the presentation of the `GaugeChartVisual` .
 func (o AnalysisGaugeChartConfigurationOutput) GaugeChartOptions() AnalysisGaugeChartOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisGaugeChartConfiguration) *AnalysisGaugeChartOptions { return v.GaugeChartOptions }).(AnalysisGaugeChartOptionsPtrOutput)
+}
+
+func (o AnalysisGaugeChartConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisGaugeChartConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The tooltip configuration of a `GaugeChartVisual` .
@@ -33976,6 +35197,15 @@ func (o AnalysisGaugeChartConfigurationPtrOutput) Elem() AnalysisGaugeChartConfi
 	}).(AnalysisGaugeChartConfigurationOutput)
 }
 
+func (o AnalysisGaugeChartConfigurationPtrOutput) ColorConfiguration() AnalysisGaugeChartColorConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisGaugeChartConfiguration) *AnalysisGaugeChartColorConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ColorConfiguration
+	}).(AnalysisGaugeChartColorConfigurationPtrOutput)
+}
+
 // The data label configuration of a `GaugeChartVisual` .
 func (o AnalysisGaugeChartConfigurationPtrOutput) DataLabels() AnalysisDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *AnalysisGaugeChartConfiguration) *AnalysisDataLabelOptions {
@@ -34004,6 +35234,15 @@ func (o AnalysisGaugeChartConfigurationPtrOutput) GaugeChartOptions() AnalysisGa
 		}
 		return v.GaugeChartOptions
 	}).(AnalysisGaugeChartOptionsPtrOutput)
+}
+
+func (o AnalysisGaugeChartConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisGaugeChartConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The tooltip configuration of a `GaugeChartVisual` .
@@ -37293,8 +38532,8 @@ func (o AnalysisGeospatialLayerJoinDefinitionPtrOutput) ShapeKeyField() pulumi.S
 }
 
 type AnalysisGeospatialLayerMapConfiguration struct {
-	Interactions interface{}            `pulumi:"interactions"`
-	Legend       *AnalysisLegendOptions `pulumi:"legend"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
+	Legend       *AnalysisLegendOptions            `pulumi:"legend"`
 	// The geospatial layers to visualize on the map.
 	MapLayers []AnalysisGeospatialLayerItem `pulumi:"mapLayers"`
 	// The map state properties for the map.
@@ -37315,8 +38554,8 @@ type AnalysisGeospatialLayerMapConfigurationInput interface {
 }
 
 type AnalysisGeospatialLayerMapConfigurationArgs struct {
-	Interactions pulumi.Input                  `pulumi:"interactions"`
-	Legend       AnalysisLegendOptionsPtrInput `pulumi:"legend"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
+	Legend       AnalysisLegendOptionsPtrInput            `pulumi:"legend"`
 	// The geospatial layers to visualize on the map.
 	MapLayers AnalysisGeospatialLayerItemArrayInput `pulumi:"mapLayers"`
 	// The map state properties for the map.
@@ -37402,8 +38641,10 @@ func (o AnalysisGeospatialLayerMapConfigurationOutput) ToAnalysisGeospatialLayer
 	}).(AnalysisGeospatialLayerMapConfigurationPtrOutput)
 }
 
-func (o AnalysisGeospatialLayerMapConfigurationOutput) Interactions() pulumi.AnyOutput {
-	return o.ApplyT(func(v AnalysisGeospatialLayerMapConfiguration) interface{} { return v.Interactions }).(pulumi.AnyOutput)
+func (o AnalysisGeospatialLayerMapConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisGeospatialLayerMapConfiguration) *AnalysisVisualInteractionOptions {
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 func (o AnalysisGeospatialLayerMapConfigurationOutput) Legend() AnalysisLegendOptionsPtrOutput {
@@ -37449,13 +38690,13 @@ func (o AnalysisGeospatialLayerMapConfigurationPtrOutput) Elem() AnalysisGeospat
 	}).(AnalysisGeospatialLayerMapConfigurationOutput)
 }
 
-func (o AnalysisGeospatialLayerMapConfigurationPtrOutput) Interactions() pulumi.AnyOutput {
-	return o.ApplyT(func(v *AnalysisGeospatialLayerMapConfiguration) interface{} {
+func (o AnalysisGeospatialLayerMapConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisGeospatialLayerMapConfiguration) *AnalysisVisualInteractionOptions {
 		if v == nil {
 			return nil
 		}
 		return v.Interactions
-	}).(pulumi.AnyOutput)
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 func (o AnalysisGeospatialLayerMapConfigurationPtrOutput) Legend() AnalysisLegendOptionsPtrOutput {
@@ -38243,7 +39484,7 @@ type AnalysisGeospatialMapConfiguration struct {
 	// The field wells of the visual.
 	FieldWells *AnalysisGeospatialMapFieldWells `pulumi:"fieldWells"`
 	// The general visual interactions setup for a visual.
-	Interactions interface{} `pulumi:"interactions"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend *AnalysisLegendOptions `pulumi:"legend"`
 	// The map style options of the geospatial map.
@@ -38272,7 +39513,7 @@ type AnalysisGeospatialMapConfigurationArgs struct {
 	// The field wells of the visual.
 	FieldWells AnalysisGeospatialMapFieldWellsPtrInput `pulumi:"fieldWells"`
 	// The general visual interactions setup for a visual.
-	Interactions pulumi.Input `pulumi:"interactions"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend AnalysisLegendOptionsPtrInput `pulumi:"legend"`
 	// The map style options of the geospatial map.
@@ -38369,8 +39610,8 @@ func (o AnalysisGeospatialMapConfigurationOutput) FieldWells() AnalysisGeospatia
 }
 
 // The general visual interactions setup for a visual.
-func (o AnalysisGeospatialMapConfigurationOutput) Interactions() pulumi.AnyOutput {
-	return o.ApplyT(func(v AnalysisGeospatialMapConfiguration) interface{} { return v.Interactions }).(pulumi.AnyOutput)
+func (o AnalysisGeospatialMapConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisGeospatialMapConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -38441,13 +39682,13 @@ func (o AnalysisGeospatialMapConfigurationPtrOutput) FieldWells() AnalysisGeospa
 }
 
 // The general visual interactions setup for a visual.
-func (o AnalysisGeospatialMapConfigurationPtrOutput) Interactions() pulumi.AnyOutput {
-	return o.ApplyT(func(v *AnalysisGeospatialMapConfiguration) interface{} {
+func (o AnalysisGeospatialMapConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisGeospatialMapConfiguration) *AnalysisVisualInteractionOptions {
 		if v == nil {
 			return nil
 		}
 		return v.Interactions
-	}).(pulumi.AnyOutput)
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -42555,7 +43796,8 @@ type AnalysisHeatMapConfiguration struct {
 	// The options that determine if visual data labels are displayed.
 	DataLabels *AnalysisDataLabelOptions `pulumi:"dataLabels"`
 	// The field wells of the visual.
-	FieldWells *AnalysisHeatMapFieldWells `pulumi:"fieldWells"`
+	FieldWells   *AnalysisHeatMapFieldWells        `pulumi:"fieldWells"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend *AnalysisLegendOptions `pulumi:"legend"`
 	// The label options of the row that is displayed in a `heat map` .
@@ -42585,7 +43827,8 @@ type AnalysisHeatMapConfigurationArgs struct {
 	// The options that determine if visual data labels are displayed.
 	DataLabels AnalysisDataLabelOptionsPtrInput `pulumi:"dataLabels"`
 	// The field wells of the visual.
-	FieldWells AnalysisHeatMapFieldWellsPtrInput `pulumi:"fieldWells"`
+	FieldWells   AnalysisHeatMapFieldWellsPtrInput        `pulumi:"fieldWells"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend AnalysisLegendOptionsPtrInput `pulumi:"legend"`
 	// The label options of the row that is displayed in a `heat map` .
@@ -42693,6 +43936,10 @@ func (o AnalysisHeatMapConfigurationOutput) FieldWells() AnalysisHeatMapFieldWel
 	return o.ApplyT(func(v AnalysisHeatMapConfiguration) *AnalysisHeatMapFieldWells { return v.FieldWells }).(AnalysisHeatMapFieldWellsPtrOutput)
 }
 
+func (o AnalysisHeatMapConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisHeatMapConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
+}
+
 // The legend display setup of the visual.
 func (o AnalysisHeatMapConfigurationOutput) Legend() AnalysisLegendOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisHeatMapConfiguration) *AnalysisLegendOptions { return v.Legend }).(AnalysisLegendOptionsPtrOutput)
@@ -42775,6 +44022,15 @@ func (o AnalysisHeatMapConfigurationPtrOutput) FieldWells() AnalysisHeatMapField
 		}
 		return v.FieldWells
 	}).(AnalysisHeatMapFieldWellsPtrOutput)
+}
+
+func (o AnalysisHeatMapConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisHeatMapConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -43742,7 +44998,8 @@ type AnalysisHistogramConfiguration struct {
 	// The data label configuration of a histogram.
 	DataLabels *AnalysisDataLabelOptions `pulumi:"dataLabels"`
 	// The field well configuration of a histogram.
-	FieldWells *AnalysisHistogramFieldWells `pulumi:"fieldWells"`
+	FieldWells   *AnalysisHistogramFieldWells      `pulumi:"fieldWells"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 	// The tooltip configuration of a histogram.
 	Tooltip *AnalysisTooltipOptions `pulumi:"tooltip"`
 	// The visual palette configuration of a histogram.
@@ -43772,7 +45029,8 @@ type AnalysisHistogramConfigurationArgs struct {
 	// The data label configuration of a histogram.
 	DataLabels AnalysisDataLabelOptionsPtrInput `pulumi:"dataLabels"`
 	// The field well configuration of a histogram.
-	FieldWells AnalysisHistogramFieldWellsPtrInput `pulumi:"fieldWells"`
+	FieldWells   AnalysisHistogramFieldWellsPtrInput      `pulumi:"fieldWells"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The tooltip configuration of a histogram.
 	Tooltip AnalysisTooltipOptionsPtrInput `pulumi:"tooltip"`
 	// The visual palette configuration of a histogram.
@@ -43877,6 +45135,10 @@ func (o AnalysisHistogramConfigurationOutput) FieldWells() AnalysisHistogramFiel
 	return o.ApplyT(func(v AnalysisHistogramConfiguration) *AnalysisHistogramFieldWells { return v.FieldWells }).(AnalysisHistogramFieldWellsPtrOutput)
 }
 
+func (o AnalysisHistogramConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisHistogramConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
+}
+
 // The tooltip configuration of a histogram.
 func (o AnalysisHistogramConfigurationOutput) Tooltip() AnalysisTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisHistogramConfiguration) *AnalysisTooltipOptions { return v.Tooltip }).(AnalysisTooltipOptionsPtrOutput)
@@ -43954,6 +45216,15 @@ func (o AnalysisHistogramConfigurationPtrOutput) FieldWells() AnalysisHistogramF
 		}
 		return v.FieldWells
 	}).(AnalysisHistogramFieldWellsPtrOutput)
+}
+
+func (o AnalysisHistogramConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisHistogramConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The tooltip configuration of a histogram.
@@ -44780,7 +46051,7 @@ func (o AnalysisImageInteractionOptionsPtrOutput) ImageMenuOption() AnalysisImag
 
 type AnalysisImageMenuOption struct {
 	// The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
-	AvailabilityStatus interface{} `pulumi:"availabilityStatus"`
+	AvailabilityStatus *AnalysisDashboardBehavior `pulumi:"availabilityStatus"`
 }
 
 // AnalysisImageMenuOptionInput is an input type that accepts AnalysisImageMenuOptionArgs and AnalysisImageMenuOptionOutput values.
@@ -44796,7 +46067,7 @@ type AnalysisImageMenuOptionInput interface {
 
 type AnalysisImageMenuOptionArgs struct {
 	// The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
-	AvailabilityStatus pulumi.Input `pulumi:"availabilityStatus"`
+	AvailabilityStatus AnalysisDashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
 }
 
 func (AnalysisImageMenuOptionArgs) ElementType() reflect.Type {
@@ -44877,8 +46148,8 @@ func (o AnalysisImageMenuOptionOutput) ToAnalysisImageMenuOptionPtrOutputWithCon
 }
 
 // The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
-func (o AnalysisImageMenuOptionOutput) AvailabilityStatus() pulumi.AnyOutput {
-	return o.ApplyT(func(v AnalysisImageMenuOption) interface{} { return v.AvailabilityStatus }).(pulumi.AnyOutput)
+func (o AnalysisImageMenuOptionOutput) AvailabilityStatus() AnalysisDashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v AnalysisImageMenuOption) *AnalysisDashboardBehavior { return v.AvailabilityStatus }).(AnalysisDashboardBehaviorPtrOutput)
 }
 
 type AnalysisImageMenuOptionPtrOutput struct{ *pulumi.OutputState }
@@ -44906,13 +46177,13 @@ func (o AnalysisImageMenuOptionPtrOutput) Elem() AnalysisImageMenuOptionOutput {
 }
 
 // The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
-func (o AnalysisImageMenuOptionPtrOutput) AvailabilityStatus() pulumi.AnyOutput {
-	return o.ApplyT(func(v *AnalysisImageMenuOption) interface{} {
+func (o AnalysisImageMenuOptionPtrOutput) AvailabilityStatus() AnalysisDashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v *AnalysisImageMenuOption) *AnalysisDashboardBehavior {
 		if v == nil {
 			return nil
 		}
 		return v.AvailabilityStatus
-	}).(pulumi.AnyOutput)
+	}).(AnalysisDashboardBehaviorPtrOutput)
 }
 
 type AnalysisImageStaticFile struct {
@@ -45212,7 +46483,8 @@ type AnalysisInsightConfiguration struct {
 	// The computations configurations of the insight visual
 	Computations []AnalysisComputation `pulumi:"computations"`
 	// The custom narrative of the insight visual.
-	CustomNarrative *AnalysisCustomNarrativeOptions `pulumi:"customNarrative"`
+	CustomNarrative *AnalysisCustomNarrativeOptions   `pulumi:"customNarrative"`
+	Interactions    *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 }
 
 // AnalysisInsightConfigurationInput is an input type that accepts AnalysisInsightConfigurationArgs and AnalysisInsightConfigurationOutput values.
@@ -45230,7 +46502,8 @@ type AnalysisInsightConfigurationArgs struct {
 	// The computations configurations of the insight visual
 	Computations AnalysisComputationArrayInput `pulumi:"computations"`
 	// The custom narrative of the insight visual.
-	CustomNarrative AnalysisCustomNarrativeOptionsPtrInput `pulumi:"customNarrative"`
+	CustomNarrative AnalysisCustomNarrativeOptionsPtrInput   `pulumi:"customNarrative"`
+	Interactions    AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 }
 
 func (AnalysisInsightConfigurationArgs) ElementType() reflect.Type {
@@ -45320,6 +46593,10 @@ func (o AnalysisInsightConfigurationOutput) CustomNarrative() AnalysisCustomNarr
 	return o.ApplyT(func(v AnalysisInsightConfiguration) *AnalysisCustomNarrativeOptions { return v.CustomNarrative }).(AnalysisCustomNarrativeOptionsPtrOutput)
 }
 
+func (o AnalysisInsightConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisInsightConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
+}
+
 type AnalysisInsightConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (AnalysisInsightConfigurationPtrOutput) ElementType() reflect.Type {
@@ -45362,6 +46639,15 @@ func (o AnalysisInsightConfigurationPtrOutput) CustomNarrative() AnalysisCustomN
 		}
 		return v.CustomNarrative
 	}).(AnalysisCustomNarrativeOptionsPtrOutput)
+}
+
+func (o AnalysisInsightConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisInsightConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 type AnalysisInsightVisual struct {
@@ -47022,7 +48308,8 @@ func (o AnalysisKpiConditionalFormattingOptionArrayOutput) Index(i pulumi.IntInp
 
 type AnalysisKpiConfiguration struct {
 	// The field well configuration of a KPI visual.
-	FieldWells *AnalysisKpiFieldWells `pulumi:"fieldWells"`
+	FieldWells   *AnalysisKpiFieldWells            `pulumi:"fieldWells"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 	// The options that determine the presentation of a KPI visual.
 	KpiOptions *AnalysisKpiOptions `pulumi:"kpiOptions"`
 	// The sort configuration of a KPI visual.
@@ -47042,7 +48329,8 @@ type AnalysisKpiConfigurationInput interface {
 
 type AnalysisKpiConfigurationArgs struct {
 	// The field well configuration of a KPI visual.
-	FieldWells AnalysisKpiFieldWellsPtrInput `pulumi:"fieldWells"`
+	FieldWells   AnalysisKpiFieldWellsPtrInput            `pulumi:"fieldWells"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The options that determine the presentation of a KPI visual.
 	KpiOptions AnalysisKpiOptionsPtrInput `pulumi:"kpiOptions"`
 	// The sort configuration of a KPI visual.
@@ -47131,6 +48419,10 @@ func (o AnalysisKpiConfigurationOutput) FieldWells() AnalysisKpiFieldWellsPtrOut
 	return o.ApplyT(func(v AnalysisKpiConfiguration) *AnalysisKpiFieldWells { return v.FieldWells }).(AnalysisKpiFieldWellsPtrOutput)
 }
 
+func (o AnalysisKpiConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisKpiConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
+}
+
 // The options that determine the presentation of a KPI visual.
 func (o AnalysisKpiConfigurationOutput) KpiOptions() AnalysisKpiOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisKpiConfiguration) *AnalysisKpiOptions { return v.KpiOptions }).(AnalysisKpiOptionsPtrOutput)
@@ -47173,6 +48465,15 @@ func (o AnalysisKpiConfigurationPtrOutput) FieldWells() AnalysisKpiFieldWellsPtr
 		}
 		return v.FieldWells
 	}).(AnalysisKpiFieldWellsPtrOutput)
+}
+
+func (o AnalysisKpiConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisKpiConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The options that determine the presentation of a KPI visual.
@@ -50123,7 +51424,8 @@ type AnalysisLineChartConfiguration struct {
 	// The field well configuration of a line chart.
 	FieldWells *AnalysisLineChartFieldWells `pulumi:"fieldWells"`
 	// The forecast configuration of a line chart.
-	ForecastConfigurations []AnalysisForecastConfiguration `pulumi:"forecastConfigurations"`
+	ForecastConfigurations []AnalysisForecastConfiguration   `pulumi:"forecastConfigurations"`
+	Interactions           *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 	// The legend configuration of a line chart.
 	Legend *AnalysisLegendOptions `pulumi:"legend"`
 	// The series axis configuration of a line chart.
@@ -50176,7 +51478,8 @@ type AnalysisLineChartConfigurationArgs struct {
 	// The field well configuration of a line chart.
 	FieldWells AnalysisLineChartFieldWellsPtrInput `pulumi:"fieldWells"`
 	// The forecast configuration of a line chart.
-	ForecastConfigurations AnalysisForecastConfigurationArrayInput `pulumi:"forecastConfigurations"`
+	ForecastConfigurations AnalysisForecastConfigurationArrayInput  `pulumi:"forecastConfigurations"`
+	Interactions           AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The legend configuration of a line chart.
 	Legend AnalysisLegendOptionsPtrInput `pulumi:"legend"`
 	// The series axis configuration of a line chart.
@@ -50314,6 +51617,10 @@ func (o AnalysisLineChartConfigurationOutput) ForecastConfigurations() AnalysisF
 	return o.ApplyT(func(v AnalysisLineChartConfiguration) []AnalysisForecastConfiguration {
 		return v.ForecastConfigurations
 	}).(AnalysisForecastConfigurationArrayOutput)
+}
+
+func (o AnalysisLineChartConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisLineChartConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The legend configuration of a line chart.
@@ -50470,6 +51777,15 @@ func (o AnalysisLineChartConfigurationPtrOutput) ForecastConfigurations() Analys
 		}
 		return v.ForecastConfigurations
 	}).(AnalysisForecastConfigurationArrayOutput)
+}
+
+func (o AnalysisLineChartConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisLineChartConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The legend configuration of a line chart.
@@ -60930,7 +62246,8 @@ type AnalysisPieChartConfiguration struct {
 	// The options that determine the shape of the chart. This option determines whether the chart is a pie chart or a donut chart.
 	DonutOptions *AnalysisDonutOptions `pulumi:"donutOptions"`
 	// The field wells of the visual.
-	FieldWells *AnalysisPieChartFieldWells `pulumi:"fieldWells"`
+	FieldWells   *AnalysisPieChartFieldWells       `pulumi:"fieldWells"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend *AnalysisLegendOptions `pulumi:"legend"`
 	// The small multiples setup for the visual.
@@ -60966,7 +62283,8 @@ type AnalysisPieChartConfigurationArgs struct {
 	// The options that determine the shape of the chart. This option determines whether the chart is a pie chart or a donut chart.
 	DonutOptions AnalysisDonutOptionsPtrInput `pulumi:"donutOptions"`
 	// The field wells of the visual.
-	FieldWells AnalysisPieChartFieldWellsPtrInput `pulumi:"fieldWells"`
+	FieldWells   AnalysisPieChartFieldWellsPtrInput       `pulumi:"fieldWells"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend AnalysisLegendOptionsPtrInput `pulumi:"legend"`
 	// The small multiples setup for the visual.
@@ -61085,6 +62403,10 @@ func (o AnalysisPieChartConfigurationOutput) FieldWells() AnalysisPieChartFieldW
 	return o.ApplyT(func(v AnalysisPieChartConfiguration) *AnalysisPieChartFieldWells { return v.FieldWells }).(AnalysisPieChartFieldWellsPtrOutput)
 }
 
+func (o AnalysisPieChartConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisPieChartConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
+}
+
 // The legend display setup of the visual.
 func (o AnalysisPieChartConfigurationOutput) Legend() AnalysisLegendOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisPieChartConfiguration) *AnalysisLegendOptions { return v.Legend }).(AnalysisLegendOptionsPtrOutput)
@@ -61187,6 +62509,15 @@ func (o AnalysisPieChartConfigurationPtrOutput) FieldWells() AnalysisPieChartFie
 		}
 		return v.FieldWells
 	}).(AnalysisPieChartFieldWellsPtrOutput)
+}
+
+func (o AnalysisPieChartConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisPieChartConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -62744,7 +64075,8 @@ type AnalysisPivotTableConfiguration struct {
 	// The field options for a pivot table visual.
 	FieldOptions *AnalysisPivotTableFieldOptions `pulumi:"fieldOptions"`
 	// The field wells of the visual.
-	FieldWells *AnalysisPivotTableFieldWells `pulumi:"fieldWells"`
+	FieldWells   *AnalysisPivotTableFieldWells     `pulumi:"fieldWells"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 	// The paginated report options for a pivot table visual.
 	PaginatedReportOptions *AnalysisPivotTablePaginatedReportOptions `pulumi:"paginatedReportOptions"`
 	// The sort configuration for a `PivotTableVisual` .
@@ -62770,7 +64102,8 @@ type AnalysisPivotTableConfigurationArgs struct {
 	// The field options for a pivot table visual.
 	FieldOptions AnalysisPivotTableFieldOptionsPtrInput `pulumi:"fieldOptions"`
 	// The field wells of the visual.
-	FieldWells AnalysisPivotTableFieldWellsPtrInput `pulumi:"fieldWells"`
+	FieldWells   AnalysisPivotTableFieldWellsPtrInput     `pulumi:"fieldWells"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The paginated report options for a pivot table visual.
 	PaginatedReportOptions AnalysisPivotTablePaginatedReportOptionsPtrInput `pulumi:"paginatedReportOptions"`
 	// The sort configuration for a `PivotTableVisual` .
@@ -62868,6 +64201,10 @@ func (o AnalysisPivotTableConfigurationOutput) FieldWells() AnalysisPivotTableFi
 	return o.ApplyT(func(v AnalysisPivotTableConfiguration) *AnalysisPivotTableFieldWells { return v.FieldWells }).(AnalysisPivotTableFieldWellsPtrOutput)
 }
 
+func (o AnalysisPivotTableConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisPivotTableConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
+}
+
 // The paginated report options for a pivot table visual.
 func (o AnalysisPivotTableConfigurationOutput) PaginatedReportOptions() AnalysisPivotTablePaginatedReportOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisPivotTableConfiguration) *AnalysisPivotTablePaginatedReportOptions {
@@ -62934,6 +64271,15 @@ func (o AnalysisPivotTableConfigurationPtrOutput) FieldWells() AnalysisPivotTabl
 		}
 		return v.FieldWells
 	}).(AnalysisPivotTableFieldWellsPtrOutput)
+}
+
+func (o AnalysisPivotTableConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisPivotTableConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The paginated report options for a pivot table visual.
@@ -67392,7 +68738,8 @@ type AnalysisRadarChartConfiguration struct {
 	// The color label options of a radar chart.
 	ColorLabelOptions *AnalysisChartAxisLabelOptions `pulumi:"colorLabelOptions"`
 	// The field well configuration of a `RadarChartVisual` .
-	FieldWells *AnalysisRadarChartFieldWells `pulumi:"fieldWells"`
+	FieldWells   *AnalysisRadarChartFieldWells     `pulumi:"fieldWells"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend *AnalysisLegendOptions `pulumi:"legend"`
 	// The shape of the radar chart.
@@ -67436,7 +68783,8 @@ type AnalysisRadarChartConfigurationArgs struct {
 	// The color label options of a radar chart.
 	ColorLabelOptions AnalysisChartAxisLabelOptionsPtrInput `pulumi:"colorLabelOptions"`
 	// The field well configuration of a `RadarChartVisual` .
-	FieldWells AnalysisRadarChartFieldWellsPtrInput `pulumi:"fieldWells"`
+	FieldWells   AnalysisRadarChartFieldWellsPtrInput     `pulumi:"fieldWells"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend AnalysisLegendOptionsPtrInput `pulumi:"legend"`
 	// The shape of the radar chart.
@@ -67574,6 +68922,10 @@ func (o AnalysisRadarChartConfigurationOutput) ColorLabelOptions() AnalysisChart
 // The field well configuration of a `RadarChartVisual` .
 func (o AnalysisRadarChartConfigurationOutput) FieldWells() AnalysisRadarChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v AnalysisRadarChartConfiguration) *AnalysisRadarChartFieldWells { return v.FieldWells }).(AnalysisRadarChartFieldWellsPtrOutput)
+}
+
+func (o AnalysisRadarChartConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisRadarChartConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -67725,6 +69077,15 @@ func (o AnalysisRadarChartConfigurationPtrOutput) FieldWells() AnalysisRadarChar
 		}
 		return v.FieldWells
 	}).(AnalysisRadarChartFieldWellsPtrOutput)
+}
+
+func (o AnalysisRadarChartConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisRadarChartConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -71322,7 +72683,8 @@ type AnalysisSankeyDiagramChartConfiguration struct {
 	// The data label configuration of a sankey diagram.
 	DataLabels *AnalysisDataLabelOptions `pulumi:"dataLabels"`
 	// The field well configuration of a sankey diagram.
-	FieldWells *AnalysisSankeyDiagramFieldWells `pulumi:"fieldWells"`
+	FieldWells   *AnalysisSankeyDiagramFieldWells  `pulumi:"fieldWells"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 	// The sort configuration of a sankey diagram.
 	SortConfiguration *AnalysisSankeyDiagramSortConfiguration `pulumi:"sortConfiguration"`
 }
@@ -71342,7 +72704,8 @@ type AnalysisSankeyDiagramChartConfigurationArgs struct {
 	// The data label configuration of a sankey diagram.
 	DataLabels AnalysisDataLabelOptionsPtrInput `pulumi:"dataLabels"`
 	// The field well configuration of a sankey diagram.
-	FieldWells AnalysisSankeyDiagramFieldWellsPtrInput `pulumi:"fieldWells"`
+	FieldWells   AnalysisSankeyDiagramFieldWellsPtrInput  `pulumi:"fieldWells"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The sort configuration of a sankey diagram.
 	SortConfiguration AnalysisSankeyDiagramSortConfigurationPtrInput `pulumi:"sortConfiguration"`
 }
@@ -71434,6 +72797,12 @@ func (o AnalysisSankeyDiagramChartConfigurationOutput) FieldWells() AnalysisSank
 	return o.ApplyT(func(v AnalysisSankeyDiagramChartConfiguration) *AnalysisSankeyDiagramFieldWells { return v.FieldWells }).(AnalysisSankeyDiagramFieldWellsPtrOutput)
 }
 
+func (o AnalysisSankeyDiagramChartConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisSankeyDiagramChartConfiguration) *AnalysisVisualInteractionOptions {
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
+}
+
 // The sort configuration of a sankey diagram.
 func (o AnalysisSankeyDiagramChartConfigurationOutput) SortConfiguration() AnalysisSankeyDiagramSortConfigurationPtrOutput {
 	return o.ApplyT(func(v AnalysisSankeyDiagramChartConfiguration) *AnalysisSankeyDiagramSortConfiguration {
@@ -71483,6 +72852,15 @@ func (o AnalysisSankeyDiagramChartConfigurationPtrOutput) FieldWells() AnalysisS
 		}
 		return v.FieldWells
 	}).(AnalysisSankeyDiagramFieldWellsPtrOutput)
+}
+
+func (o AnalysisSankeyDiagramChartConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisSankeyDiagramChartConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The sort configuration of a sankey diagram.
@@ -72282,9 +73660,11 @@ type AnalysisScatterPlotConfiguration struct {
 	// The options that determine if visual data labels are displayed.
 	DataLabels *AnalysisDataLabelOptions `pulumi:"dataLabels"`
 	// The field wells of the visual.
-	FieldWells *AnalysisScatterPlotFieldWells `pulumi:"fieldWells"`
+	FieldWells   *AnalysisScatterPlotFieldWells    `pulumi:"fieldWells"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 	// The legend display setup of the visual.
-	Legend *AnalysisLegendOptions `pulumi:"legend"`
+	Legend            *AnalysisLegendOptions                `pulumi:"legend"`
+	SortConfiguration *AnalysisScatterPlotSortConfiguration `pulumi:"sortConfiguration"`
 	// The legend display setup of the visual.
 	Tooltip *AnalysisTooltipOptions `pulumi:"tooltip"`
 	// The palette (chart color) display setup of the visual.
@@ -72314,9 +73694,11 @@ type AnalysisScatterPlotConfigurationArgs struct {
 	// The options that determine if visual data labels are displayed.
 	DataLabels AnalysisDataLabelOptionsPtrInput `pulumi:"dataLabels"`
 	// The field wells of the visual.
-	FieldWells AnalysisScatterPlotFieldWellsPtrInput `pulumi:"fieldWells"`
+	FieldWells   AnalysisScatterPlotFieldWellsPtrInput    `pulumi:"fieldWells"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The legend display setup of the visual.
-	Legend AnalysisLegendOptionsPtrInput `pulumi:"legend"`
+	Legend            AnalysisLegendOptionsPtrInput                `pulumi:"legend"`
+	SortConfiguration AnalysisScatterPlotSortConfigurationPtrInput `pulumi:"sortConfiguration"`
 	// The legend display setup of the visual.
 	Tooltip AnalysisTooltipOptionsPtrInput `pulumi:"tooltip"`
 	// The palette (chart color) display setup of the visual.
@@ -72418,9 +73800,19 @@ func (o AnalysisScatterPlotConfigurationOutput) FieldWells() AnalysisScatterPlot
 	return o.ApplyT(func(v AnalysisScatterPlotConfiguration) *AnalysisScatterPlotFieldWells { return v.FieldWells }).(AnalysisScatterPlotFieldWellsPtrOutput)
 }
 
+func (o AnalysisScatterPlotConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisScatterPlotConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
+}
+
 // The legend display setup of the visual.
 func (o AnalysisScatterPlotConfigurationOutput) Legend() AnalysisLegendOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisScatterPlotConfiguration) *AnalysisLegendOptions { return v.Legend }).(AnalysisLegendOptionsPtrOutput)
+}
+
+func (o AnalysisScatterPlotConfigurationOutput) SortConfiguration() AnalysisScatterPlotSortConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisScatterPlotConfiguration) *AnalysisScatterPlotSortConfiguration {
+		return v.SortConfiguration
+	}).(AnalysisScatterPlotSortConfigurationPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -72497,6 +73889,15 @@ func (o AnalysisScatterPlotConfigurationPtrOutput) FieldWells() AnalysisScatterP
 	}).(AnalysisScatterPlotFieldWellsPtrOutput)
 }
 
+func (o AnalysisScatterPlotConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisScatterPlotConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
+}
+
 // The legend display setup of the visual.
 func (o AnalysisScatterPlotConfigurationPtrOutput) Legend() AnalysisLegendOptionsPtrOutput {
 	return o.ApplyT(func(v *AnalysisScatterPlotConfiguration) *AnalysisLegendOptions {
@@ -72505,6 +73906,15 @@ func (o AnalysisScatterPlotConfigurationPtrOutput) Legend() AnalysisLegendOption
 		}
 		return v.Legend
 	}).(AnalysisLegendOptionsPtrOutput)
+}
+
+func (o AnalysisScatterPlotConfigurationPtrOutput) SortConfiguration() AnalysisScatterPlotSortConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisScatterPlotConfiguration) *AnalysisScatterPlotSortConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SortConfiguration
+	}).(AnalysisScatterPlotSortConfigurationPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -72725,6 +74135,141 @@ func (o AnalysisScatterPlotFieldWellsPtrOutput) ScatterPlotUnaggregatedFieldWell
 		}
 		return v.ScatterPlotUnaggregatedFieldWells
 	}).(AnalysisScatterPlotUnaggregatedFieldWellsPtrOutput)
+}
+
+type AnalysisScatterPlotSortConfiguration struct {
+	ScatterPlotLimitConfiguration *AnalysisItemsLimitConfiguration `pulumi:"scatterPlotLimitConfiguration"`
+}
+
+// AnalysisScatterPlotSortConfigurationInput is an input type that accepts AnalysisScatterPlotSortConfigurationArgs and AnalysisScatterPlotSortConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisScatterPlotSortConfigurationInput` via:
+//
+//	AnalysisScatterPlotSortConfigurationArgs{...}
+type AnalysisScatterPlotSortConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalysisScatterPlotSortConfigurationOutput() AnalysisScatterPlotSortConfigurationOutput
+	ToAnalysisScatterPlotSortConfigurationOutputWithContext(context.Context) AnalysisScatterPlotSortConfigurationOutput
+}
+
+type AnalysisScatterPlotSortConfigurationArgs struct {
+	ScatterPlotLimitConfiguration AnalysisItemsLimitConfigurationPtrInput `pulumi:"scatterPlotLimitConfiguration"`
+}
+
+func (AnalysisScatterPlotSortConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisScatterPlotSortConfiguration)(nil)).Elem()
+}
+
+func (i AnalysisScatterPlotSortConfigurationArgs) ToAnalysisScatterPlotSortConfigurationOutput() AnalysisScatterPlotSortConfigurationOutput {
+	return i.ToAnalysisScatterPlotSortConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalysisScatterPlotSortConfigurationArgs) ToAnalysisScatterPlotSortConfigurationOutputWithContext(ctx context.Context) AnalysisScatterPlotSortConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisScatterPlotSortConfigurationOutput)
+}
+
+func (i AnalysisScatterPlotSortConfigurationArgs) ToAnalysisScatterPlotSortConfigurationPtrOutput() AnalysisScatterPlotSortConfigurationPtrOutput {
+	return i.ToAnalysisScatterPlotSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisScatterPlotSortConfigurationArgs) ToAnalysisScatterPlotSortConfigurationPtrOutputWithContext(ctx context.Context) AnalysisScatterPlotSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisScatterPlotSortConfigurationOutput).ToAnalysisScatterPlotSortConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnalysisScatterPlotSortConfigurationPtrInput is an input type that accepts AnalysisScatterPlotSortConfigurationArgs, AnalysisScatterPlotSortConfigurationPtr and AnalysisScatterPlotSortConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisScatterPlotSortConfigurationPtrInput` via:
+//
+//	        AnalysisScatterPlotSortConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisScatterPlotSortConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisScatterPlotSortConfigurationPtrOutput() AnalysisScatterPlotSortConfigurationPtrOutput
+	ToAnalysisScatterPlotSortConfigurationPtrOutputWithContext(context.Context) AnalysisScatterPlotSortConfigurationPtrOutput
+}
+
+type analysisScatterPlotSortConfigurationPtrType AnalysisScatterPlotSortConfigurationArgs
+
+func AnalysisScatterPlotSortConfigurationPtr(v *AnalysisScatterPlotSortConfigurationArgs) AnalysisScatterPlotSortConfigurationPtrInput {
+	return (*analysisScatterPlotSortConfigurationPtrType)(v)
+}
+
+func (*analysisScatterPlotSortConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisScatterPlotSortConfiguration)(nil)).Elem()
+}
+
+func (i *analysisScatterPlotSortConfigurationPtrType) ToAnalysisScatterPlotSortConfigurationPtrOutput() AnalysisScatterPlotSortConfigurationPtrOutput {
+	return i.ToAnalysisScatterPlotSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisScatterPlotSortConfigurationPtrType) ToAnalysisScatterPlotSortConfigurationPtrOutputWithContext(ctx context.Context) AnalysisScatterPlotSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisScatterPlotSortConfigurationPtrOutput)
+}
+
+type AnalysisScatterPlotSortConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisScatterPlotSortConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisScatterPlotSortConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisScatterPlotSortConfigurationOutput) ToAnalysisScatterPlotSortConfigurationOutput() AnalysisScatterPlotSortConfigurationOutput {
+	return o
+}
+
+func (o AnalysisScatterPlotSortConfigurationOutput) ToAnalysisScatterPlotSortConfigurationOutputWithContext(ctx context.Context) AnalysisScatterPlotSortConfigurationOutput {
+	return o
+}
+
+func (o AnalysisScatterPlotSortConfigurationOutput) ToAnalysisScatterPlotSortConfigurationPtrOutput() AnalysisScatterPlotSortConfigurationPtrOutput {
+	return o.ToAnalysisScatterPlotSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisScatterPlotSortConfigurationOutput) ToAnalysisScatterPlotSortConfigurationPtrOutputWithContext(ctx context.Context) AnalysisScatterPlotSortConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisScatterPlotSortConfiguration) *AnalysisScatterPlotSortConfiguration {
+		return &v
+	}).(AnalysisScatterPlotSortConfigurationPtrOutput)
+}
+
+func (o AnalysisScatterPlotSortConfigurationOutput) ScatterPlotLimitConfiguration() AnalysisItemsLimitConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisScatterPlotSortConfiguration) *AnalysisItemsLimitConfiguration {
+		return v.ScatterPlotLimitConfiguration
+	}).(AnalysisItemsLimitConfigurationPtrOutput)
+}
+
+type AnalysisScatterPlotSortConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisScatterPlotSortConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisScatterPlotSortConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisScatterPlotSortConfigurationPtrOutput) ToAnalysisScatterPlotSortConfigurationPtrOutput() AnalysisScatterPlotSortConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisScatterPlotSortConfigurationPtrOutput) ToAnalysisScatterPlotSortConfigurationPtrOutputWithContext(ctx context.Context) AnalysisScatterPlotSortConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisScatterPlotSortConfigurationPtrOutput) Elem() AnalysisScatterPlotSortConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisScatterPlotSortConfiguration) AnalysisScatterPlotSortConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisScatterPlotSortConfiguration
+		return ret
+	}).(AnalysisScatterPlotSortConfigurationOutput)
+}
+
+func (o AnalysisScatterPlotSortConfigurationPtrOutput) ScatterPlotLimitConfiguration() AnalysisItemsLimitConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisScatterPlotSortConfiguration) *AnalysisItemsLimitConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ScatterPlotLimitConfiguration
+	}).(AnalysisItemsLimitConfigurationPtrOutput)
 }
 
 type AnalysisScatterPlotUnaggregatedFieldWells struct {
@@ -75101,8 +76646,6 @@ func (o AnalysisShapeConditionalFormatPtrOutput) BackgroundColor() AnalysisCondi
 //	example a chart, pivot table, or narrative insight. Sheets can be associated with other
 //	components, such as controls, filters, and so on.</p>
 type AnalysisSheet struct {
-	// A list of images on a sheet.
-	Images []AnalysisSheetImage `pulumi:"images"`
 	// <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
 	//             console.</p>
 	Name *string `pulumi:"name"`
@@ -75128,8 +76671,6 @@ type AnalysisSheetInput interface {
 //	example a chart, pivot table, or narrative insight. Sheets can be associated with other
 //	components, such as controls, filters, and so on.</p>
 type AnalysisSheetArgs struct {
-	// A list of images on a sheet.
-	Images AnalysisSheetImageArrayInput `pulumi:"images"`
 	// <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
 	//             console.</p>
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -75192,11 +76733,6 @@ func (o AnalysisSheetOutput) ToAnalysisSheetOutput() AnalysisSheetOutput {
 
 func (o AnalysisSheetOutput) ToAnalysisSheetOutputWithContext(ctx context.Context) AnalysisSheetOutput {
 	return o
-}
-
-// A list of images on a sheet.
-func (o AnalysisSheetOutput) Images() AnalysisSheetImageArrayOutput {
-	return o.ApplyT(func(v AnalysisSheet) []AnalysisSheetImage { return v.Images }).(AnalysisSheetImageArrayOutput)
 }
 
 // <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
@@ -76730,7 +78266,8 @@ func (o AnalysisSheetImageTooltipTextPtrOutput) PlainText() pulumi.StringPtrOutp
 
 type AnalysisSheetTextBox struct {
 	// The content that is displayed in the text box.
-	Content *string `pulumi:"content"`
+	Content      *string     `pulumi:"content"`
+	Interactions interface{} `pulumi:"interactions"`
 	// The unique identifier for a text box. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have text boxes that share identifiers.
 	SheetTextBoxId string `pulumi:"sheetTextBoxId"`
 }
@@ -76748,7 +78285,8 @@ type AnalysisSheetTextBoxInput interface {
 
 type AnalysisSheetTextBoxArgs struct {
 	// The content that is displayed in the text box.
-	Content pulumi.StringPtrInput `pulumi:"content"`
+	Content      pulumi.StringPtrInput `pulumi:"content"`
+	Interactions pulumi.Input          `pulumi:"interactions"`
 	// The unique identifier for a text box. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have text boxes that share identifiers.
 	SheetTextBoxId pulumi.StringInput `pulumi:"sheetTextBoxId"`
 }
@@ -76807,6 +78345,10 @@ func (o AnalysisSheetTextBoxOutput) ToAnalysisSheetTextBoxOutputWithContext(ctx 
 // The content that is displayed in the text box.
 func (o AnalysisSheetTextBoxOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisSheetTextBox) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisSheetTextBoxOutput) Interactions() pulumi.AnyOutput {
+	return o.ApplyT(func(v AnalysisSheetTextBox) interface{} { return v.Interactions }).(pulumi.AnyOutput)
 }
 
 // The unique identifier for a text box. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have text boxes that share identifiers.
@@ -81379,7 +82921,8 @@ type AnalysisTableConfiguration struct {
 	// The field options for a table visual.
 	FieldOptions *AnalysisTableFieldOptions `pulumi:"fieldOptions"`
 	// The field wells of the visual.
-	FieldWells *AnalysisTableFieldWells `pulumi:"fieldWells"`
+	FieldWells   *AnalysisTableFieldWells          `pulumi:"fieldWells"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 	// The paginated report options for a table visual.
 	PaginatedReportOptions *AnalysisTablePaginatedReportOptions `pulumi:"paginatedReportOptions"`
 	// The sort configuration for a `TableVisual` .
@@ -81407,7 +82950,8 @@ type AnalysisTableConfigurationArgs struct {
 	// The field options for a table visual.
 	FieldOptions AnalysisTableFieldOptionsPtrInput `pulumi:"fieldOptions"`
 	// The field wells of the visual.
-	FieldWells AnalysisTableFieldWellsPtrInput `pulumi:"fieldWells"`
+	FieldWells   AnalysisTableFieldWellsPtrInput          `pulumi:"fieldWells"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The paginated report options for a table visual.
 	PaginatedReportOptions AnalysisTablePaginatedReportOptionsPtrInput `pulumi:"paginatedReportOptions"`
 	// The sort configuration for a `TableVisual` .
@@ -81507,6 +83051,10 @@ func (o AnalysisTableConfigurationOutput) FieldWells() AnalysisTableFieldWellsPt
 	return o.ApplyT(func(v AnalysisTableConfiguration) *AnalysisTableFieldWells { return v.FieldWells }).(AnalysisTableFieldWellsPtrOutput)
 }
 
+func (o AnalysisTableConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisTableConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
+}
+
 // The paginated report options for a table visual.
 func (o AnalysisTableConfigurationOutput) PaginatedReportOptions() AnalysisTablePaginatedReportOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisTableConfiguration) *AnalysisTablePaginatedReportOptions {
@@ -81578,6 +83126,15 @@ func (o AnalysisTableConfigurationPtrOutput) FieldWells() AnalysisTableFieldWell
 		}
 		return v.FieldWells
 	}).(AnalysisTableFieldWellsPtrOutput)
+}
+
+func (o AnalysisTableConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisTableConfiguration) *AnalysisVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The paginated report options for a table visual.
@@ -84237,1230 +85794,6 @@ func (o AnalysisTableStyleTargetArrayOutput) Index(i pulumi.IntInput) AnalysisTa
 	}).(AnalysisTableStyleTargetOutput)
 }
 
-type AnalysisTableUnaggregatedFieldWells struct {
-	// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
-	Values []AnalysisUnaggregatedField `pulumi:"values"`
-}
-
-// AnalysisTableUnaggregatedFieldWellsInput is an input type that accepts AnalysisTableUnaggregatedFieldWellsArgs and AnalysisTableUnaggregatedFieldWellsOutput values.
-// You can construct a concrete instance of `AnalysisTableUnaggregatedFieldWellsInput` via:
-//
-//	AnalysisTableUnaggregatedFieldWellsArgs{...}
-type AnalysisTableUnaggregatedFieldWellsInput interface {
-	pulumi.Input
-
-	ToAnalysisTableUnaggregatedFieldWellsOutput() AnalysisTableUnaggregatedFieldWellsOutput
-	ToAnalysisTableUnaggregatedFieldWellsOutputWithContext(context.Context) AnalysisTableUnaggregatedFieldWellsOutput
-}
-
-type AnalysisTableUnaggregatedFieldWellsArgs struct {
-	// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
-	Values AnalysisUnaggregatedFieldArrayInput `pulumi:"values"`
-}
-
-func (AnalysisTableUnaggregatedFieldWellsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTableUnaggregatedFieldWells)(nil)).Elem()
-}
-
-func (i AnalysisTableUnaggregatedFieldWellsArgs) ToAnalysisTableUnaggregatedFieldWellsOutput() AnalysisTableUnaggregatedFieldWellsOutput {
-	return i.ToAnalysisTableUnaggregatedFieldWellsOutputWithContext(context.Background())
-}
-
-func (i AnalysisTableUnaggregatedFieldWellsArgs) ToAnalysisTableUnaggregatedFieldWellsOutputWithContext(ctx context.Context) AnalysisTableUnaggregatedFieldWellsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableUnaggregatedFieldWellsOutput)
-}
-
-func (i AnalysisTableUnaggregatedFieldWellsArgs) ToAnalysisTableUnaggregatedFieldWellsPtrOutput() AnalysisTableUnaggregatedFieldWellsPtrOutput {
-	return i.ToAnalysisTableUnaggregatedFieldWellsPtrOutputWithContext(context.Background())
-}
-
-func (i AnalysisTableUnaggregatedFieldWellsArgs) ToAnalysisTableUnaggregatedFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisTableUnaggregatedFieldWellsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableUnaggregatedFieldWellsOutput).ToAnalysisTableUnaggregatedFieldWellsPtrOutputWithContext(ctx)
-}
-
-// AnalysisTableUnaggregatedFieldWellsPtrInput is an input type that accepts AnalysisTableUnaggregatedFieldWellsArgs, AnalysisTableUnaggregatedFieldWellsPtr and AnalysisTableUnaggregatedFieldWellsPtrOutput values.
-// You can construct a concrete instance of `AnalysisTableUnaggregatedFieldWellsPtrInput` via:
-//
-//	        AnalysisTableUnaggregatedFieldWellsArgs{...}
-//
-//	or:
-//
-//	        nil
-type AnalysisTableUnaggregatedFieldWellsPtrInput interface {
-	pulumi.Input
-
-	ToAnalysisTableUnaggregatedFieldWellsPtrOutput() AnalysisTableUnaggregatedFieldWellsPtrOutput
-	ToAnalysisTableUnaggregatedFieldWellsPtrOutputWithContext(context.Context) AnalysisTableUnaggregatedFieldWellsPtrOutput
-}
-
-type analysisTableUnaggregatedFieldWellsPtrType AnalysisTableUnaggregatedFieldWellsArgs
-
-func AnalysisTableUnaggregatedFieldWellsPtr(v *AnalysisTableUnaggregatedFieldWellsArgs) AnalysisTableUnaggregatedFieldWellsPtrInput {
-	return (*analysisTableUnaggregatedFieldWellsPtrType)(v)
-}
-
-func (*analysisTableUnaggregatedFieldWellsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTableUnaggregatedFieldWells)(nil)).Elem()
-}
-
-func (i *analysisTableUnaggregatedFieldWellsPtrType) ToAnalysisTableUnaggregatedFieldWellsPtrOutput() AnalysisTableUnaggregatedFieldWellsPtrOutput {
-	return i.ToAnalysisTableUnaggregatedFieldWellsPtrOutputWithContext(context.Background())
-}
-
-func (i *analysisTableUnaggregatedFieldWellsPtrType) ToAnalysisTableUnaggregatedFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisTableUnaggregatedFieldWellsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableUnaggregatedFieldWellsPtrOutput)
-}
-
-type AnalysisTableUnaggregatedFieldWellsOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTableUnaggregatedFieldWellsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTableUnaggregatedFieldWells)(nil)).Elem()
-}
-
-func (o AnalysisTableUnaggregatedFieldWellsOutput) ToAnalysisTableUnaggregatedFieldWellsOutput() AnalysisTableUnaggregatedFieldWellsOutput {
-	return o
-}
-
-func (o AnalysisTableUnaggregatedFieldWellsOutput) ToAnalysisTableUnaggregatedFieldWellsOutputWithContext(ctx context.Context) AnalysisTableUnaggregatedFieldWellsOutput {
-	return o
-}
-
-func (o AnalysisTableUnaggregatedFieldWellsOutput) ToAnalysisTableUnaggregatedFieldWellsPtrOutput() AnalysisTableUnaggregatedFieldWellsPtrOutput {
-	return o.ToAnalysisTableUnaggregatedFieldWellsPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisTableUnaggregatedFieldWellsOutput) ToAnalysisTableUnaggregatedFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisTableUnaggregatedFieldWellsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTableUnaggregatedFieldWells) *AnalysisTableUnaggregatedFieldWells {
-		return &v
-	}).(AnalysisTableUnaggregatedFieldWellsPtrOutput)
-}
-
-// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
-func (o AnalysisTableUnaggregatedFieldWellsOutput) Values() AnalysisUnaggregatedFieldArrayOutput {
-	return o.ApplyT(func(v AnalysisTableUnaggregatedFieldWells) []AnalysisUnaggregatedField { return v.Values }).(AnalysisUnaggregatedFieldArrayOutput)
-}
-
-type AnalysisTableUnaggregatedFieldWellsPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTableUnaggregatedFieldWellsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTableUnaggregatedFieldWells)(nil)).Elem()
-}
-
-func (o AnalysisTableUnaggregatedFieldWellsPtrOutput) ToAnalysisTableUnaggregatedFieldWellsPtrOutput() AnalysisTableUnaggregatedFieldWellsPtrOutput {
-	return o
-}
-
-func (o AnalysisTableUnaggregatedFieldWellsPtrOutput) ToAnalysisTableUnaggregatedFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisTableUnaggregatedFieldWellsPtrOutput {
-	return o
-}
-
-func (o AnalysisTableUnaggregatedFieldWellsPtrOutput) Elem() AnalysisTableUnaggregatedFieldWellsOutput {
-	return o.ApplyT(func(v *AnalysisTableUnaggregatedFieldWells) AnalysisTableUnaggregatedFieldWells {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisTableUnaggregatedFieldWells
-		return ret
-	}).(AnalysisTableUnaggregatedFieldWellsOutput)
-}
-
-// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
-func (o AnalysisTableUnaggregatedFieldWellsPtrOutput) Values() AnalysisUnaggregatedFieldArrayOutput {
-	return o.ApplyT(func(v *AnalysisTableUnaggregatedFieldWells) []AnalysisUnaggregatedField {
-		if v == nil {
-			return nil
-		}
-		return v.Values
-	}).(AnalysisUnaggregatedFieldArrayOutput)
-}
-
-type AnalysisTableVisual struct {
-	// The list of custom actions that are configured for a visual.
-	Actions []AnalysisVisualCustomAction `pulumi:"actions"`
-	// The configuration settings of the visual.
-	ChartConfiguration *AnalysisTableConfiguration `pulumi:"chartConfiguration"`
-	// The conditional formatting for a `PivotTableVisual` .
-	ConditionalFormatting *AnalysisTableConditionalFormatting `pulumi:"conditionalFormatting"`
-	// The subtitle that is displayed on the visual.
-	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title that is displayed on the visual.
-	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	// The alt text for the visual.
-	VisualContentAltText *string `pulumi:"visualContentAltText"`
-	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
-	VisualId string `pulumi:"visualId"`
-}
-
-// AnalysisTableVisualInput is an input type that accepts AnalysisTableVisualArgs and AnalysisTableVisualOutput values.
-// You can construct a concrete instance of `AnalysisTableVisualInput` via:
-//
-//	AnalysisTableVisualArgs{...}
-type AnalysisTableVisualInput interface {
-	pulumi.Input
-
-	ToAnalysisTableVisualOutput() AnalysisTableVisualOutput
-	ToAnalysisTableVisualOutputWithContext(context.Context) AnalysisTableVisualOutput
-}
-
-type AnalysisTableVisualArgs struct {
-	// The list of custom actions that are configured for a visual.
-	Actions AnalysisVisualCustomActionArrayInput `pulumi:"actions"`
-	// The configuration settings of the visual.
-	ChartConfiguration AnalysisTableConfigurationPtrInput `pulumi:"chartConfiguration"`
-	// The conditional formatting for a `PivotTableVisual` .
-	ConditionalFormatting AnalysisTableConditionalFormattingPtrInput `pulumi:"conditionalFormatting"`
-	// The subtitle that is displayed on the visual.
-	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title that is displayed on the visual.
-	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	// The alt text for the visual.
-	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
-	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
-	VisualId pulumi.StringInput `pulumi:"visualId"`
-}
-
-func (AnalysisTableVisualArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTableVisual)(nil)).Elem()
-}
-
-func (i AnalysisTableVisualArgs) ToAnalysisTableVisualOutput() AnalysisTableVisualOutput {
-	return i.ToAnalysisTableVisualOutputWithContext(context.Background())
-}
-
-func (i AnalysisTableVisualArgs) ToAnalysisTableVisualOutputWithContext(ctx context.Context) AnalysisTableVisualOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableVisualOutput)
-}
-
-func (i AnalysisTableVisualArgs) ToAnalysisTableVisualPtrOutput() AnalysisTableVisualPtrOutput {
-	return i.ToAnalysisTableVisualPtrOutputWithContext(context.Background())
-}
-
-func (i AnalysisTableVisualArgs) ToAnalysisTableVisualPtrOutputWithContext(ctx context.Context) AnalysisTableVisualPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableVisualOutput).ToAnalysisTableVisualPtrOutputWithContext(ctx)
-}
-
-// AnalysisTableVisualPtrInput is an input type that accepts AnalysisTableVisualArgs, AnalysisTableVisualPtr and AnalysisTableVisualPtrOutput values.
-// You can construct a concrete instance of `AnalysisTableVisualPtrInput` via:
-//
-//	        AnalysisTableVisualArgs{...}
-//
-//	or:
-//
-//	        nil
-type AnalysisTableVisualPtrInput interface {
-	pulumi.Input
-
-	ToAnalysisTableVisualPtrOutput() AnalysisTableVisualPtrOutput
-	ToAnalysisTableVisualPtrOutputWithContext(context.Context) AnalysisTableVisualPtrOutput
-}
-
-type analysisTableVisualPtrType AnalysisTableVisualArgs
-
-func AnalysisTableVisualPtr(v *AnalysisTableVisualArgs) AnalysisTableVisualPtrInput {
-	return (*analysisTableVisualPtrType)(v)
-}
-
-func (*analysisTableVisualPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTableVisual)(nil)).Elem()
-}
-
-func (i *analysisTableVisualPtrType) ToAnalysisTableVisualPtrOutput() AnalysisTableVisualPtrOutput {
-	return i.ToAnalysisTableVisualPtrOutputWithContext(context.Background())
-}
-
-func (i *analysisTableVisualPtrType) ToAnalysisTableVisualPtrOutputWithContext(ctx context.Context) AnalysisTableVisualPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableVisualPtrOutput)
-}
-
-type AnalysisTableVisualOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTableVisualOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTableVisual)(nil)).Elem()
-}
-
-func (o AnalysisTableVisualOutput) ToAnalysisTableVisualOutput() AnalysisTableVisualOutput {
-	return o
-}
-
-func (o AnalysisTableVisualOutput) ToAnalysisTableVisualOutputWithContext(ctx context.Context) AnalysisTableVisualOutput {
-	return o
-}
-
-func (o AnalysisTableVisualOutput) ToAnalysisTableVisualPtrOutput() AnalysisTableVisualPtrOutput {
-	return o.ToAnalysisTableVisualPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisTableVisualOutput) ToAnalysisTableVisualPtrOutputWithContext(ctx context.Context) AnalysisTableVisualPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTableVisual) *AnalysisTableVisual {
-		return &v
-	}).(AnalysisTableVisualPtrOutput)
-}
-
-// The list of custom actions that are configured for a visual.
-func (o AnalysisTableVisualOutput) Actions() AnalysisVisualCustomActionArrayOutput {
-	return o.ApplyT(func(v AnalysisTableVisual) []AnalysisVisualCustomAction { return v.Actions }).(AnalysisVisualCustomActionArrayOutput)
-}
-
-// The configuration settings of the visual.
-func (o AnalysisTableVisualOutput) ChartConfiguration() AnalysisTableConfigurationPtrOutput {
-	return o.ApplyT(func(v AnalysisTableVisual) *AnalysisTableConfiguration { return v.ChartConfiguration }).(AnalysisTableConfigurationPtrOutput)
-}
-
-// The conditional formatting for a `PivotTableVisual` .
-func (o AnalysisTableVisualOutput) ConditionalFormatting() AnalysisTableConditionalFormattingPtrOutput {
-	return o.ApplyT(func(v AnalysisTableVisual) *AnalysisTableConditionalFormatting { return v.ConditionalFormatting }).(AnalysisTableConditionalFormattingPtrOutput)
-}
-
-// The subtitle that is displayed on the visual.
-func (o AnalysisTableVisualOutput) Subtitle() AnalysisVisualSubtitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v AnalysisTableVisual) *AnalysisVisualSubtitleLabelOptions { return v.Subtitle }).(AnalysisVisualSubtitleLabelOptionsPtrOutput)
-}
-
-// The title that is displayed on the visual.
-func (o AnalysisTableVisualOutput) Title() AnalysisVisualTitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v AnalysisTableVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
-}
-
-// The alt text for the visual.
-func (o AnalysisTableVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AnalysisTableVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
-}
-
-// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
-func (o AnalysisTableVisualOutput) VisualId() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalysisTableVisual) string { return v.VisualId }).(pulumi.StringOutput)
-}
-
-type AnalysisTableVisualPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTableVisualPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTableVisual)(nil)).Elem()
-}
-
-func (o AnalysisTableVisualPtrOutput) ToAnalysisTableVisualPtrOutput() AnalysisTableVisualPtrOutput {
-	return o
-}
-
-func (o AnalysisTableVisualPtrOutput) ToAnalysisTableVisualPtrOutputWithContext(ctx context.Context) AnalysisTableVisualPtrOutput {
-	return o
-}
-
-func (o AnalysisTableVisualPtrOutput) Elem() AnalysisTableVisualOutput {
-	return o.ApplyT(func(v *AnalysisTableVisual) AnalysisTableVisual {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisTableVisual
-		return ret
-	}).(AnalysisTableVisualOutput)
-}
-
-// The list of custom actions that are configured for a visual.
-func (o AnalysisTableVisualPtrOutput) Actions() AnalysisVisualCustomActionArrayOutput {
-	return o.ApplyT(func(v *AnalysisTableVisual) []AnalysisVisualCustomAction {
-		if v == nil {
-			return nil
-		}
-		return v.Actions
-	}).(AnalysisVisualCustomActionArrayOutput)
-}
-
-// The configuration settings of the visual.
-func (o AnalysisTableVisualPtrOutput) ChartConfiguration() AnalysisTableConfigurationPtrOutput {
-	return o.ApplyT(func(v *AnalysisTableVisual) *AnalysisTableConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ChartConfiguration
-	}).(AnalysisTableConfigurationPtrOutput)
-}
-
-// The conditional formatting for a `PivotTableVisual` .
-func (o AnalysisTableVisualPtrOutput) ConditionalFormatting() AnalysisTableConditionalFormattingPtrOutput {
-	return o.ApplyT(func(v *AnalysisTableVisual) *AnalysisTableConditionalFormatting {
-		if v == nil {
-			return nil
-		}
-		return v.ConditionalFormatting
-	}).(AnalysisTableConditionalFormattingPtrOutput)
-}
-
-// The subtitle that is displayed on the visual.
-func (o AnalysisTableVisualPtrOutput) Subtitle() AnalysisVisualSubtitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *AnalysisTableVisual) *AnalysisVisualSubtitleLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.Subtitle
-	}).(AnalysisVisualSubtitleLabelOptionsPtrOutput)
-}
-
-// The title that is displayed on the visual.
-func (o AnalysisTableVisualPtrOutput) Title() AnalysisVisualTitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *AnalysisTableVisual) *AnalysisVisualTitleLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
-}
-
-// The alt text for the visual.
-func (o AnalysisTableVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnalysisTableVisual) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VisualContentAltText
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
-func (o AnalysisTableVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnalysisTableVisual) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VisualId
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//
-//	resource.</p>
-type AnalysisTag struct {
-	// <p>Tag key.</p>
-	Key string `pulumi:"key"`
-	// <p>Tag value.</p>
-	Value string `pulumi:"value"`
-}
-
-type AnalysisTextAreaControlDisplayOptions struct {
-	// The configuration of info icon label options.
-	InfoIconLabelOptions *AnalysisSheetControlInfoIconLabelOptions `pulumi:"infoIconLabelOptions"`
-	// The configuration of the placeholder options in a text area control.
-	PlaceholderOptions *AnalysisTextControlPlaceholderOptions `pulumi:"placeholderOptions"`
-	// The options to configure the title visibility, name, and font size.
-	TitleOptions *AnalysisLabelOptions `pulumi:"titleOptions"`
-}
-
-// AnalysisTextAreaControlDisplayOptionsInput is an input type that accepts AnalysisTextAreaControlDisplayOptionsArgs and AnalysisTextAreaControlDisplayOptionsOutput values.
-// You can construct a concrete instance of `AnalysisTextAreaControlDisplayOptionsInput` via:
-//
-//	AnalysisTextAreaControlDisplayOptionsArgs{...}
-type AnalysisTextAreaControlDisplayOptionsInput interface {
-	pulumi.Input
-
-	ToAnalysisTextAreaControlDisplayOptionsOutput() AnalysisTextAreaControlDisplayOptionsOutput
-	ToAnalysisTextAreaControlDisplayOptionsOutputWithContext(context.Context) AnalysisTextAreaControlDisplayOptionsOutput
-}
-
-type AnalysisTextAreaControlDisplayOptionsArgs struct {
-	// The configuration of info icon label options.
-	InfoIconLabelOptions AnalysisSheetControlInfoIconLabelOptionsPtrInput `pulumi:"infoIconLabelOptions"`
-	// The configuration of the placeholder options in a text area control.
-	PlaceholderOptions AnalysisTextControlPlaceholderOptionsPtrInput `pulumi:"placeholderOptions"`
-	// The options to configure the title visibility, name, and font size.
-	TitleOptions AnalysisLabelOptionsPtrInput `pulumi:"titleOptions"`
-}
-
-func (AnalysisTextAreaControlDisplayOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTextAreaControlDisplayOptions)(nil)).Elem()
-}
-
-func (i AnalysisTextAreaControlDisplayOptionsArgs) ToAnalysisTextAreaControlDisplayOptionsOutput() AnalysisTextAreaControlDisplayOptionsOutput {
-	return i.ToAnalysisTextAreaControlDisplayOptionsOutputWithContext(context.Background())
-}
-
-func (i AnalysisTextAreaControlDisplayOptionsArgs) ToAnalysisTextAreaControlDisplayOptionsOutputWithContext(ctx context.Context) AnalysisTextAreaControlDisplayOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTextAreaControlDisplayOptionsOutput)
-}
-
-func (i AnalysisTextAreaControlDisplayOptionsArgs) ToAnalysisTextAreaControlDisplayOptionsPtrOutput() AnalysisTextAreaControlDisplayOptionsPtrOutput {
-	return i.ToAnalysisTextAreaControlDisplayOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i AnalysisTextAreaControlDisplayOptionsArgs) ToAnalysisTextAreaControlDisplayOptionsPtrOutputWithContext(ctx context.Context) AnalysisTextAreaControlDisplayOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTextAreaControlDisplayOptionsOutput).ToAnalysisTextAreaControlDisplayOptionsPtrOutputWithContext(ctx)
-}
-
-// AnalysisTextAreaControlDisplayOptionsPtrInput is an input type that accepts AnalysisTextAreaControlDisplayOptionsArgs, AnalysisTextAreaControlDisplayOptionsPtr and AnalysisTextAreaControlDisplayOptionsPtrOutput values.
-// You can construct a concrete instance of `AnalysisTextAreaControlDisplayOptionsPtrInput` via:
-//
-//	        AnalysisTextAreaControlDisplayOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type AnalysisTextAreaControlDisplayOptionsPtrInput interface {
-	pulumi.Input
-
-	ToAnalysisTextAreaControlDisplayOptionsPtrOutput() AnalysisTextAreaControlDisplayOptionsPtrOutput
-	ToAnalysisTextAreaControlDisplayOptionsPtrOutputWithContext(context.Context) AnalysisTextAreaControlDisplayOptionsPtrOutput
-}
-
-type analysisTextAreaControlDisplayOptionsPtrType AnalysisTextAreaControlDisplayOptionsArgs
-
-func AnalysisTextAreaControlDisplayOptionsPtr(v *AnalysisTextAreaControlDisplayOptionsArgs) AnalysisTextAreaControlDisplayOptionsPtrInput {
-	return (*analysisTextAreaControlDisplayOptionsPtrType)(v)
-}
-
-func (*analysisTextAreaControlDisplayOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTextAreaControlDisplayOptions)(nil)).Elem()
-}
-
-func (i *analysisTextAreaControlDisplayOptionsPtrType) ToAnalysisTextAreaControlDisplayOptionsPtrOutput() AnalysisTextAreaControlDisplayOptionsPtrOutput {
-	return i.ToAnalysisTextAreaControlDisplayOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *analysisTextAreaControlDisplayOptionsPtrType) ToAnalysisTextAreaControlDisplayOptionsPtrOutputWithContext(ctx context.Context) AnalysisTextAreaControlDisplayOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTextAreaControlDisplayOptionsPtrOutput)
-}
-
-type AnalysisTextAreaControlDisplayOptionsOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTextAreaControlDisplayOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTextAreaControlDisplayOptions)(nil)).Elem()
-}
-
-func (o AnalysisTextAreaControlDisplayOptionsOutput) ToAnalysisTextAreaControlDisplayOptionsOutput() AnalysisTextAreaControlDisplayOptionsOutput {
-	return o
-}
-
-func (o AnalysisTextAreaControlDisplayOptionsOutput) ToAnalysisTextAreaControlDisplayOptionsOutputWithContext(ctx context.Context) AnalysisTextAreaControlDisplayOptionsOutput {
-	return o
-}
-
-func (o AnalysisTextAreaControlDisplayOptionsOutput) ToAnalysisTextAreaControlDisplayOptionsPtrOutput() AnalysisTextAreaControlDisplayOptionsPtrOutput {
-	return o.ToAnalysisTextAreaControlDisplayOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisTextAreaControlDisplayOptionsOutput) ToAnalysisTextAreaControlDisplayOptionsPtrOutputWithContext(ctx context.Context) AnalysisTextAreaControlDisplayOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTextAreaControlDisplayOptions) *AnalysisTextAreaControlDisplayOptions {
-		return &v
-	}).(AnalysisTextAreaControlDisplayOptionsPtrOutput)
-}
-
-// The configuration of info icon label options.
-func (o AnalysisTextAreaControlDisplayOptionsOutput) InfoIconLabelOptions() AnalysisSheetControlInfoIconLabelOptionsPtrOutput {
-	return o.ApplyT(func(v AnalysisTextAreaControlDisplayOptions) *AnalysisSheetControlInfoIconLabelOptions {
-		return v.InfoIconLabelOptions
-	}).(AnalysisSheetControlInfoIconLabelOptionsPtrOutput)
-}
-
-// The configuration of the placeholder options in a text area control.
-func (o AnalysisTextAreaControlDisplayOptionsOutput) PlaceholderOptions() AnalysisTextControlPlaceholderOptionsPtrOutput {
-	return o.ApplyT(func(v AnalysisTextAreaControlDisplayOptions) *AnalysisTextControlPlaceholderOptions {
-		return v.PlaceholderOptions
-	}).(AnalysisTextControlPlaceholderOptionsPtrOutput)
-}
-
-// The options to configure the title visibility, name, and font size.
-func (o AnalysisTextAreaControlDisplayOptionsOutput) TitleOptions() AnalysisLabelOptionsPtrOutput {
-	return o.ApplyT(func(v AnalysisTextAreaControlDisplayOptions) *AnalysisLabelOptions { return v.TitleOptions }).(AnalysisLabelOptionsPtrOutput)
-}
-
-type AnalysisTextAreaControlDisplayOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTextAreaControlDisplayOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTextAreaControlDisplayOptions)(nil)).Elem()
-}
-
-func (o AnalysisTextAreaControlDisplayOptionsPtrOutput) ToAnalysisTextAreaControlDisplayOptionsPtrOutput() AnalysisTextAreaControlDisplayOptionsPtrOutput {
-	return o
-}
-
-func (o AnalysisTextAreaControlDisplayOptionsPtrOutput) ToAnalysisTextAreaControlDisplayOptionsPtrOutputWithContext(ctx context.Context) AnalysisTextAreaControlDisplayOptionsPtrOutput {
-	return o
-}
-
-func (o AnalysisTextAreaControlDisplayOptionsPtrOutput) Elem() AnalysisTextAreaControlDisplayOptionsOutput {
-	return o.ApplyT(func(v *AnalysisTextAreaControlDisplayOptions) AnalysisTextAreaControlDisplayOptions {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisTextAreaControlDisplayOptions
-		return ret
-	}).(AnalysisTextAreaControlDisplayOptionsOutput)
-}
-
-// The configuration of info icon label options.
-func (o AnalysisTextAreaControlDisplayOptionsPtrOutput) InfoIconLabelOptions() AnalysisSheetControlInfoIconLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *AnalysisTextAreaControlDisplayOptions) *AnalysisSheetControlInfoIconLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.InfoIconLabelOptions
-	}).(AnalysisSheetControlInfoIconLabelOptionsPtrOutput)
-}
-
-// The configuration of the placeholder options in a text area control.
-func (o AnalysisTextAreaControlDisplayOptionsPtrOutput) PlaceholderOptions() AnalysisTextControlPlaceholderOptionsPtrOutput {
-	return o.ApplyT(func(v *AnalysisTextAreaControlDisplayOptions) *AnalysisTextControlPlaceholderOptions {
-		if v == nil {
-			return nil
-		}
-		return v.PlaceholderOptions
-	}).(AnalysisTextControlPlaceholderOptionsPtrOutput)
-}
-
-// The options to configure the title visibility, name, and font size.
-func (o AnalysisTextAreaControlDisplayOptionsPtrOutput) TitleOptions() AnalysisLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *AnalysisTextAreaControlDisplayOptions) *AnalysisLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.TitleOptions
-	}).(AnalysisLabelOptionsPtrOutput)
-}
-
-type AnalysisTextConditionalFormat struct {
-	// The conditional formatting for the text background color.
-	BackgroundColor *AnalysisConditionalFormattingColor `pulumi:"backgroundColor"`
-	// The conditional formatting for the icon.
-	Icon *AnalysisConditionalFormattingIcon `pulumi:"icon"`
-	// The conditional formatting for the text color.
-	TextColor *AnalysisConditionalFormattingColor `pulumi:"textColor"`
-}
-
-// AnalysisTextConditionalFormatInput is an input type that accepts AnalysisTextConditionalFormatArgs and AnalysisTextConditionalFormatOutput values.
-// You can construct a concrete instance of `AnalysisTextConditionalFormatInput` via:
-//
-//	AnalysisTextConditionalFormatArgs{...}
-type AnalysisTextConditionalFormatInput interface {
-	pulumi.Input
-
-	ToAnalysisTextConditionalFormatOutput() AnalysisTextConditionalFormatOutput
-	ToAnalysisTextConditionalFormatOutputWithContext(context.Context) AnalysisTextConditionalFormatOutput
-}
-
-type AnalysisTextConditionalFormatArgs struct {
-	// The conditional formatting for the text background color.
-	BackgroundColor AnalysisConditionalFormattingColorPtrInput `pulumi:"backgroundColor"`
-	// The conditional formatting for the icon.
-	Icon AnalysisConditionalFormattingIconPtrInput `pulumi:"icon"`
-	// The conditional formatting for the text color.
-	TextColor AnalysisConditionalFormattingColorPtrInput `pulumi:"textColor"`
-}
-
-func (AnalysisTextConditionalFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTextConditionalFormat)(nil)).Elem()
-}
-
-func (i AnalysisTextConditionalFormatArgs) ToAnalysisTextConditionalFormatOutput() AnalysisTextConditionalFormatOutput {
-	return i.ToAnalysisTextConditionalFormatOutputWithContext(context.Background())
-}
-
-func (i AnalysisTextConditionalFormatArgs) ToAnalysisTextConditionalFormatOutputWithContext(ctx context.Context) AnalysisTextConditionalFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTextConditionalFormatOutput)
-}
-
-func (i AnalysisTextConditionalFormatArgs) ToAnalysisTextConditionalFormatPtrOutput() AnalysisTextConditionalFormatPtrOutput {
-	return i.ToAnalysisTextConditionalFormatPtrOutputWithContext(context.Background())
-}
-
-func (i AnalysisTextConditionalFormatArgs) ToAnalysisTextConditionalFormatPtrOutputWithContext(ctx context.Context) AnalysisTextConditionalFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTextConditionalFormatOutput).ToAnalysisTextConditionalFormatPtrOutputWithContext(ctx)
-}
-
-// AnalysisTextConditionalFormatPtrInput is an input type that accepts AnalysisTextConditionalFormatArgs, AnalysisTextConditionalFormatPtr and AnalysisTextConditionalFormatPtrOutput values.
-// You can construct a concrete instance of `AnalysisTextConditionalFormatPtrInput` via:
-//
-//	        AnalysisTextConditionalFormatArgs{...}
-//
-//	or:
-//
-//	        nil
-type AnalysisTextConditionalFormatPtrInput interface {
-	pulumi.Input
-
-	ToAnalysisTextConditionalFormatPtrOutput() AnalysisTextConditionalFormatPtrOutput
-	ToAnalysisTextConditionalFormatPtrOutputWithContext(context.Context) AnalysisTextConditionalFormatPtrOutput
-}
-
-type analysisTextConditionalFormatPtrType AnalysisTextConditionalFormatArgs
-
-func AnalysisTextConditionalFormatPtr(v *AnalysisTextConditionalFormatArgs) AnalysisTextConditionalFormatPtrInput {
-	return (*analysisTextConditionalFormatPtrType)(v)
-}
-
-func (*analysisTextConditionalFormatPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTextConditionalFormat)(nil)).Elem()
-}
-
-func (i *analysisTextConditionalFormatPtrType) ToAnalysisTextConditionalFormatPtrOutput() AnalysisTextConditionalFormatPtrOutput {
-	return i.ToAnalysisTextConditionalFormatPtrOutputWithContext(context.Background())
-}
-
-func (i *analysisTextConditionalFormatPtrType) ToAnalysisTextConditionalFormatPtrOutputWithContext(ctx context.Context) AnalysisTextConditionalFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTextConditionalFormatPtrOutput)
-}
-
-type AnalysisTextConditionalFormatOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTextConditionalFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTextConditionalFormat)(nil)).Elem()
-}
-
-func (o AnalysisTextConditionalFormatOutput) ToAnalysisTextConditionalFormatOutput() AnalysisTextConditionalFormatOutput {
-	return o
-}
-
-func (o AnalysisTextConditionalFormatOutput) ToAnalysisTextConditionalFormatOutputWithContext(ctx context.Context) AnalysisTextConditionalFormatOutput {
-	return o
-}
-
-func (o AnalysisTextConditionalFormatOutput) ToAnalysisTextConditionalFormatPtrOutput() AnalysisTextConditionalFormatPtrOutput {
-	return o.ToAnalysisTextConditionalFormatPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisTextConditionalFormatOutput) ToAnalysisTextConditionalFormatPtrOutputWithContext(ctx context.Context) AnalysisTextConditionalFormatPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTextConditionalFormat) *AnalysisTextConditionalFormat {
-		return &v
-	}).(AnalysisTextConditionalFormatPtrOutput)
-}
-
-// The conditional formatting for the text background color.
-func (o AnalysisTextConditionalFormatOutput) BackgroundColor() AnalysisConditionalFormattingColorPtrOutput {
-	return o.ApplyT(func(v AnalysisTextConditionalFormat) *AnalysisConditionalFormattingColor { return v.BackgroundColor }).(AnalysisConditionalFormattingColorPtrOutput)
-}
-
-// The conditional formatting for the icon.
-func (o AnalysisTextConditionalFormatOutput) Icon() AnalysisConditionalFormattingIconPtrOutput {
-	return o.ApplyT(func(v AnalysisTextConditionalFormat) *AnalysisConditionalFormattingIcon { return v.Icon }).(AnalysisConditionalFormattingIconPtrOutput)
-}
-
-// The conditional formatting for the text color.
-func (o AnalysisTextConditionalFormatOutput) TextColor() AnalysisConditionalFormattingColorPtrOutput {
-	return o.ApplyT(func(v AnalysisTextConditionalFormat) *AnalysisConditionalFormattingColor { return v.TextColor }).(AnalysisConditionalFormattingColorPtrOutput)
-}
-
-type AnalysisTextConditionalFormatPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTextConditionalFormatPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTextConditionalFormat)(nil)).Elem()
-}
-
-func (o AnalysisTextConditionalFormatPtrOutput) ToAnalysisTextConditionalFormatPtrOutput() AnalysisTextConditionalFormatPtrOutput {
-	return o
-}
-
-func (o AnalysisTextConditionalFormatPtrOutput) ToAnalysisTextConditionalFormatPtrOutputWithContext(ctx context.Context) AnalysisTextConditionalFormatPtrOutput {
-	return o
-}
-
-func (o AnalysisTextConditionalFormatPtrOutput) Elem() AnalysisTextConditionalFormatOutput {
-	return o.ApplyT(func(v *AnalysisTextConditionalFormat) AnalysisTextConditionalFormat {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisTextConditionalFormat
-		return ret
-	}).(AnalysisTextConditionalFormatOutput)
-}
-
-// The conditional formatting for the text background color.
-func (o AnalysisTextConditionalFormatPtrOutput) BackgroundColor() AnalysisConditionalFormattingColorPtrOutput {
-	return o.ApplyT(func(v *AnalysisTextConditionalFormat) *AnalysisConditionalFormattingColor {
-		if v == nil {
-			return nil
-		}
-		return v.BackgroundColor
-	}).(AnalysisConditionalFormattingColorPtrOutput)
-}
-
-// The conditional formatting for the icon.
-func (o AnalysisTextConditionalFormatPtrOutput) Icon() AnalysisConditionalFormattingIconPtrOutput {
-	return o.ApplyT(func(v *AnalysisTextConditionalFormat) *AnalysisConditionalFormattingIcon {
-		if v == nil {
-			return nil
-		}
-		return v.Icon
-	}).(AnalysisConditionalFormattingIconPtrOutput)
-}
-
-// The conditional formatting for the text color.
-func (o AnalysisTextConditionalFormatPtrOutput) TextColor() AnalysisConditionalFormattingColorPtrOutput {
-	return o.ApplyT(func(v *AnalysisTextConditionalFormat) *AnalysisConditionalFormattingColor {
-		if v == nil {
-			return nil
-		}
-		return v.TextColor
-	}).(AnalysisConditionalFormattingColorPtrOutput)
-}
-
-type AnalysisTextControlPlaceholderOptions struct {
-	// The visibility configuration of the placeholder options in a text control.
-	Visibility *AnalysisVisibility `pulumi:"visibility"`
-}
-
-// AnalysisTextControlPlaceholderOptionsInput is an input type that accepts AnalysisTextControlPlaceholderOptionsArgs and AnalysisTextControlPlaceholderOptionsOutput values.
-// You can construct a concrete instance of `AnalysisTextControlPlaceholderOptionsInput` via:
-//
-//	AnalysisTextControlPlaceholderOptionsArgs{...}
-type AnalysisTextControlPlaceholderOptionsInput interface {
-	pulumi.Input
-
-	ToAnalysisTextControlPlaceholderOptionsOutput() AnalysisTextControlPlaceholderOptionsOutput
-	ToAnalysisTextControlPlaceholderOptionsOutputWithContext(context.Context) AnalysisTextControlPlaceholderOptionsOutput
-}
-
-type AnalysisTextControlPlaceholderOptionsArgs struct {
-	// The visibility configuration of the placeholder options in a text control.
-	Visibility AnalysisVisibilityPtrInput `pulumi:"visibility"`
-}
-
-func (AnalysisTextControlPlaceholderOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTextControlPlaceholderOptions)(nil)).Elem()
-}
-
-func (i AnalysisTextControlPlaceholderOptionsArgs) ToAnalysisTextControlPlaceholderOptionsOutput() AnalysisTextControlPlaceholderOptionsOutput {
-	return i.ToAnalysisTextControlPlaceholderOptionsOutputWithContext(context.Background())
-}
-
-func (i AnalysisTextControlPlaceholderOptionsArgs) ToAnalysisTextControlPlaceholderOptionsOutputWithContext(ctx context.Context) AnalysisTextControlPlaceholderOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTextControlPlaceholderOptionsOutput)
-}
-
-func (i AnalysisTextControlPlaceholderOptionsArgs) ToAnalysisTextControlPlaceholderOptionsPtrOutput() AnalysisTextControlPlaceholderOptionsPtrOutput {
-	return i.ToAnalysisTextControlPlaceholderOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i AnalysisTextControlPlaceholderOptionsArgs) ToAnalysisTextControlPlaceholderOptionsPtrOutputWithContext(ctx context.Context) AnalysisTextControlPlaceholderOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTextControlPlaceholderOptionsOutput).ToAnalysisTextControlPlaceholderOptionsPtrOutputWithContext(ctx)
-}
-
-// AnalysisTextControlPlaceholderOptionsPtrInput is an input type that accepts AnalysisTextControlPlaceholderOptionsArgs, AnalysisTextControlPlaceholderOptionsPtr and AnalysisTextControlPlaceholderOptionsPtrOutput values.
-// You can construct a concrete instance of `AnalysisTextControlPlaceholderOptionsPtrInput` via:
-//
-//	        AnalysisTextControlPlaceholderOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type AnalysisTextControlPlaceholderOptionsPtrInput interface {
-	pulumi.Input
-
-	ToAnalysisTextControlPlaceholderOptionsPtrOutput() AnalysisTextControlPlaceholderOptionsPtrOutput
-	ToAnalysisTextControlPlaceholderOptionsPtrOutputWithContext(context.Context) AnalysisTextControlPlaceholderOptionsPtrOutput
-}
-
-type analysisTextControlPlaceholderOptionsPtrType AnalysisTextControlPlaceholderOptionsArgs
-
-func AnalysisTextControlPlaceholderOptionsPtr(v *AnalysisTextControlPlaceholderOptionsArgs) AnalysisTextControlPlaceholderOptionsPtrInput {
-	return (*analysisTextControlPlaceholderOptionsPtrType)(v)
-}
-
-func (*analysisTextControlPlaceholderOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTextControlPlaceholderOptions)(nil)).Elem()
-}
-
-func (i *analysisTextControlPlaceholderOptionsPtrType) ToAnalysisTextControlPlaceholderOptionsPtrOutput() AnalysisTextControlPlaceholderOptionsPtrOutput {
-	return i.ToAnalysisTextControlPlaceholderOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *analysisTextControlPlaceholderOptionsPtrType) ToAnalysisTextControlPlaceholderOptionsPtrOutputWithContext(ctx context.Context) AnalysisTextControlPlaceholderOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTextControlPlaceholderOptionsPtrOutput)
-}
-
-type AnalysisTextControlPlaceholderOptionsOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTextControlPlaceholderOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTextControlPlaceholderOptions)(nil)).Elem()
-}
-
-func (o AnalysisTextControlPlaceholderOptionsOutput) ToAnalysisTextControlPlaceholderOptionsOutput() AnalysisTextControlPlaceholderOptionsOutput {
-	return o
-}
-
-func (o AnalysisTextControlPlaceholderOptionsOutput) ToAnalysisTextControlPlaceholderOptionsOutputWithContext(ctx context.Context) AnalysisTextControlPlaceholderOptionsOutput {
-	return o
-}
-
-func (o AnalysisTextControlPlaceholderOptionsOutput) ToAnalysisTextControlPlaceholderOptionsPtrOutput() AnalysisTextControlPlaceholderOptionsPtrOutput {
-	return o.ToAnalysisTextControlPlaceholderOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisTextControlPlaceholderOptionsOutput) ToAnalysisTextControlPlaceholderOptionsPtrOutputWithContext(ctx context.Context) AnalysisTextControlPlaceholderOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTextControlPlaceholderOptions) *AnalysisTextControlPlaceholderOptions {
-		return &v
-	}).(AnalysisTextControlPlaceholderOptionsPtrOutput)
-}
-
-// The visibility configuration of the placeholder options in a text control.
-func (o AnalysisTextControlPlaceholderOptionsOutput) Visibility() AnalysisVisibilityPtrOutput {
-	return o.ApplyT(func(v AnalysisTextControlPlaceholderOptions) *AnalysisVisibility { return v.Visibility }).(AnalysisVisibilityPtrOutput)
-}
-
-type AnalysisTextControlPlaceholderOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTextControlPlaceholderOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTextControlPlaceholderOptions)(nil)).Elem()
-}
-
-func (o AnalysisTextControlPlaceholderOptionsPtrOutput) ToAnalysisTextControlPlaceholderOptionsPtrOutput() AnalysisTextControlPlaceholderOptionsPtrOutput {
-	return o
-}
-
-func (o AnalysisTextControlPlaceholderOptionsPtrOutput) ToAnalysisTextControlPlaceholderOptionsPtrOutputWithContext(ctx context.Context) AnalysisTextControlPlaceholderOptionsPtrOutput {
-	return o
-}
-
-func (o AnalysisTextControlPlaceholderOptionsPtrOutput) Elem() AnalysisTextControlPlaceholderOptionsOutput {
-	return o.ApplyT(func(v *AnalysisTextControlPlaceholderOptions) AnalysisTextControlPlaceholderOptions {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisTextControlPlaceholderOptions
-		return ret
-	}).(AnalysisTextControlPlaceholderOptionsOutput)
-}
-
-// The visibility configuration of the placeholder options in a text control.
-func (o AnalysisTextControlPlaceholderOptionsPtrOutput) Visibility() AnalysisVisibilityPtrOutput {
-	return o.ApplyT(func(v *AnalysisTextControlPlaceholderOptions) *AnalysisVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.Visibility
-	}).(AnalysisVisibilityPtrOutput)
-}
-
-type AnalysisTextFieldControlDisplayOptions struct {
-	// The configuration of info icon label options.
-	InfoIconLabelOptions *AnalysisSheetControlInfoIconLabelOptions `pulumi:"infoIconLabelOptions"`
-	// The configuration of the placeholder options in a text field control.
-	PlaceholderOptions *AnalysisTextControlPlaceholderOptions `pulumi:"placeholderOptions"`
-	// The options to configure the title visibility, name, and font size.
-	TitleOptions *AnalysisLabelOptions `pulumi:"titleOptions"`
-}
-
-// AnalysisTextFieldControlDisplayOptionsInput is an input type that accepts AnalysisTextFieldControlDisplayOptionsArgs and AnalysisTextFieldControlDisplayOptionsOutput values.
-// You can construct a concrete instance of `AnalysisTextFieldControlDisplayOptionsInput` via:
-//
-//	AnalysisTextFieldControlDisplayOptionsArgs{...}
-type AnalysisTextFieldControlDisplayOptionsInput interface {
-	pulumi.Input
-
-	ToAnalysisTextFieldControlDisplayOptionsOutput() AnalysisTextFieldControlDisplayOptionsOutput
-	ToAnalysisTextFieldControlDisplayOptionsOutputWithContext(context.Context) AnalysisTextFieldControlDisplayOptionsOutput
-}
-
-type AnalysisTextFieldControlDisplayOptionsArgs struct {
-	// The configuration of info icon label options.
-	InfoIconLabelOptions AnalysisSheetControlInfoIconLabelOptionsPtrInput `pulumi:"infoIconLabelOptions"`
-	// The configuration of the placeholder options in a text field control.
-	PlaceholderOptions AnalysisTextControlPlaceholderOptionsPtrInput `pulumi:"placeholderOptions"`
-	// The options to configure the title visibility, name, and font size.
-	TitleOptions AnalysisLabelOptionsPtrInput `pulumi:"titleOptions"`
-}
-
-func (AnalysisTextFieldControlDisplayOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTextFieldControlDisplayOptions)(nil)).Elem()
-}
-
-func (i AnalysisTextFieldControlDisplayOptionsArgs) ToAnalysisTextFieldControlDisplayOptionsOutput() AnalysisTextFieldControlDisplayOptionsOutput {
-	return i.ToAnalysisTextFieldControlDisplayOptionsOutputWithContext(context.Background())
-}
-
-func (i AnalysisTextFieldControlDisplayOptionsArgs) ToAnalysisTextFieldControlDisplayOptionsOutputWithContext(ctx context.Context) AnalysisTextFieldControlDisplayOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTextFieldControlDisplayOptionsOutput)
-}
-
-func (i AnalysisTextFieldControlDisplayOptionsArgs) ToAnalysisTextFieldControlDisplayOptionsPtrOutput() AnalysisTextFieldControlDisplayOptionsPtrOutput {
-	return i.ToAnalysisTextFieldControlDisplayOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i AnalysisTextFieldControlDisplayOptionsArgs) ToAnalysisTextFieldControlDisplayOptionsPtrOutputWithContext(ctx context.Context) AnalysisTextFieldControlDisplayOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTextFieldControlDisplayOptionsOutput).ToAnalysisTextFieldControlDisplayOptionsPtrOutputWithContext(ctx)
-}
-
-// AnalysisTextFieldControlDisplayOptionsPtrInput is an input type that accepts AnalysisTextFieldControlDisplayOptionsArgs, AnalysisTextFieldControlDisplayOptionsPtr and AnalysisTextFieldControlDisplayOptionsPtrOutput values.
-// You can construct a concrete instance of `AnalysisTextFieldControlDisplayOptionsPtrInput` via:
-//
-//	        AnalysisTextFieldControlDisplayOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type AnalysisTextFieldControlDisplayOptionsPtrInput interface {
-	pulumi.Input
-
-	ToAnalysisTextFieldControlDisplayOptionsPtrOutput() AnalysisTextFieldControlDisplayOptionsPtrOutput
-	ToAnalysisTextFieldControlDisplayOptionsPtrOutputWithContext(context.Context) AnalysisTextFieldControlDisplayOptionsPtrOutput
-}
-
-type analysisTextFieldControlDisplayOptionsPtrType AnalysisTextFieldControlDisplayOptionsArgs
-
-func AnalysisTextFieldControlDisplayOptionsPtr(v *AnalysisTextFieldControlDisplayOptionsArgs) AnalysisTextFieldControlDisplayOptionsPtrInput {
-	return (*analysisTextFieldControlDisplayOptionsPtrType)(v)
-}
-
-func (*analysisTextFieldControlDisplayOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTextFieldControlDisplayOptions)(nil)).Elem()
-}
-
-func (i *analysisTextFieldControlDisplayOptionsPtrType) ToAnalysisTextFieldControlDisplayOptionsPtrOutput() AnalysisTextFieldControlDisplayOptionsPtrOutput {
-	return i.ToAnalysisTextFieldControlDisplayOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *analysisTextFieldControlDisplayOptionsPtrType) ToAnalysisTextFieldControlDisplayOptionsPtrOutputWithContext(ctx context.Context) AnalysisTextFieldControlDisplayOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTextFieldControlDisplayOptionsPtrOutput)
-}
-
-type AnalysisTextFieldControlDisplayOptionsOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTextFieldControlDisplayOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTextFieldControlDisplayOptions)(nil)).Elem()
-}
-
-func (o AnalysisTextFieldControlDisplayOptionsOutput) ToAnalysisTextFieldControlDisplayOptionsOutput() AnalysisTextFieldControlDisplayOptionsOutput {
-	return o
-}
-
-func (o AnalysisTextFieldControlDisplayOptionsOutput) ToAnalysisTextFieldControlDisplayOptionsOutputWithContext(ctx context.Context) AnalysisTextFieldControlDisplayOptionsOutput {
-	return o
-}
-
-func (o AnalysisTextFieldControlDisplayOptionsOutput) ToAnalysisTextFieldControlDisplayOptionsPtrOutput() AnalysisTextFieldControlDisplayOptionsPtrOutput {
-	return o.ToAnalysisTextFieldControlDisplayOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisTextFieldControlDisplayOptionsOutput) ToAnalysisTextFieldControlDisplayOptionsPtrOutputWithContext(ctx context.Context) AnalysisTextFieldControlDisplayOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTextFieldControlDisplayOptions) *AnalysisTextFieldControlDisplayOptions {
-		return &v
-	}).(AnalysisTextFieldControlDisplayOptionsPtrOutput)
-}
-
-// The configuration of info icon label options.
-func (o AnalysisTextFieldControlDisplayOptionsOutput) InfoIconLabelOptions() AnalysisSheetControlInfoIconLabelOptionsPtrOutput {
-	return o.ApplyT(func(v AnalysisTextFieldControlDisplayOptions) *AnalysisSheetControlInfoIconLabelOptions {
-		return v.InfoIconLabelOptions
-	}).(AnalysisSheetControlInfoIconLabelOptionsPtrOutput)
-}
-
-// The configuration of the placeholder options in a text field control.
-func (o AnalysisTextFieldControlDisplayOptionsOutput) PlaceholderOptions() AnalysisTextControlPlaceholderOptionsPtrOutput {
-	return o.ApplyT(func(v AnalysisTextFieldControlDisplayOptions) *AnalysisTextControlPlaceholderOptions {
-		return v.PlaceholderOptions
-	}).(AnalysisTextControlPlaceholderOptionsPtrOutput)
-}
-
-// The options to configure the title visibility, name, and font size.
-func (o AnalysisTextFieldControlDisplayOptionsOutput) TitleOptions() AnalysisLabelOptionsPtrOutput {
-	return o.ApplyT(func(v AnalysisTextFieldControlDisplayOptions) *AnalysisLabelOptions { return v.TitleOptions }).(AnalysisLabelOptionsPtrOutput)
-}
-
-type AnalysisTextFieldControlDisplayOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTextFieldControlDisplayOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTextFieldControlDisplayOptions)(nil)).Elem()
-}
-
-func (o AnalysisTextFieldControlDisplayOptionsPtrOutput) ToAnalysisTextFieldControlDisplayOptionsPtrOutput() AnalysisTextFieldControlDisplayOptionsPtrOutput {
-	return o
-}
-
-func (o AnalysisTextFieldControlDisplayOptionsPtrOutput) ToAnalysisTextFieldControlDisplayOptionsPtrOutputWithContext(ctx context.Context) AnalysisTextFieldControlDisplayOptionsPtrOutput {
-	return o
-}
-
-func (o AnalysisTextFieldControlDisplayOptionsPtrOutput) Elem() AnalysisTextFieldControlDisplayOptionsOutput {
-	return o.ApplyT(func(v *AnalysisTextFieldControlDisplayOptions) AnalysisTextFieldControlDisplayOptions {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisTextFieldControlDisplayOptions
-		return ret
-	}).(AnalysisTextFieldControlDisplayOptionsOutput)
-}
-
-// The configuration of info icon label options.
-func (o AnalysisTextFieldControlDisplayOptionsPtrOutput) InfoIconLabelOptions() AnalysisSheetControlInfoIconLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *AnalysisTextFieldControlDisplayOptions) *AnalysisSheetControlInfoIconLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.InfoIconLabelOptions
-	}).(AnalysisSheetControlInfoIconLabelOptionsPtrOutput)
-}
-
-// The configuration of the placeholder options in a text field control.
-func (o AnalysisTextFieldControlDisplayOptionsPtrOutput) PlaceholderOptions() AnalysisTextControlPlaceholderOptionsPtrOutput {
-	return o.ApplyT(func(v *AnalysisTextFieldControlDisplayOptions) *AnalysisTextControlPlaceholderOptions {
-		if v == nil {
-			return nil
-		}
-		return v.PlaceholderOptions
-	}).(AnalysisTextControlPlaceholderOptionsPtrOutput)
-}
-
-// The options to configure the title visibility, name, and font size.
-func (o AnalysisTextFieldControlDisplayOptionsPtrOutput) TitleOptions() AnalysisLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *AnalysisTextFieldControlDisplayOptions) *AnalysisLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.TitleOptions
-	}).(AnalysisLabelOptionsPtrOutput)
-}
-
-type AnalysisThousandSeparatorOptions struct {
-	// Determines the thousands separator symbol.
-	Symbol *AnalysisNumericSeparatorSymbol `pulumi:"symbol"`
-	// Determines the visibility of the thousands separator.
-	Visibility *AnalysisVisibility `pulumi:"visibility"`
-}
-
-// AnalysisThousandSeparatorOptionsInput is an input type that accepts AnalysisThousandSeparatorOptionsArgs and AnalysisThousandSeparatorOptionsOutput values.
-// You can construct a concrete instance of `AnalysisThousandSeparatorOptionsInput` via:
-//
-//	AnalysisThousandSeparatorOptionsArgs{...}
-type AnalysisThousandSeparatorOptionsInput interface {
-	pulumi.Input
-
-	ToAnalysisThousandSeparatorOptionsOutput() AnalysisThousandSeparatorOptionsOutput
-	ToAnalysisThousandSeparatorOptionsOutputWithContext(context.Context) AnalysisThousandSeparatorOptionsOutput
-}
-
-type AnalysisThousandSeparatorOptionsArgs struct {
-	// Determines the thousands separator symbol.
-	Symbol AnalysisNumericSeparatorSymbolPtrInput `pulumi:"symbol"`
-	// Determines the visibility of the thousands separator.
-	Visibility AnalysisVisibilityPtrInput `pulumi:"visibility"`
-}
-
-func (AnalysisThousandSeparatorOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisThousandSeparatorOptions)(nil)).Elem()
-}
-
-func (i AnalysisThousandSeparatorOptionsArgs) ToAnalysisThousandSeparatorOptionsOutput() AnalysisThousandSeparatorOptionsOutput {
-	return i.ToAnalysisThousandSeparatorOptionsOutputWithContext(context.Background())
-}
-
-func (i AnalysisThousandSeparatorOptionsArgs) ToAnalysisThousandSeparatorOptionsOutputWithContext(ctx context.Context) AnalysisThousandSeparatorOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisThousandSeparatorOptionsOutput)
-}
-
-func (i AnalysisThousandSeparatorOptionsArgs) ToAnalysisThousandSeparatorOptionsPtrOutput() AnalysisThousandSeparatorOptionsPtrOutput {
-	return i.ToAnalysisThousandSeparatorOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i AnalysisThousandSeparatorOptionsArgs) ToAnalysisThousandSeparatorOptionsPtrOutputWithContext(ctx context.Context) AnalysisThousandSeparatorOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisThousandSeparatorOptionsOutput).ToAnalysisThousandSeparatorOptionsPtrOutputWithContext(ctx)
-}
-
-// AnalysisThousandSeparatorOptionsPtrInput is an input type that accepts AnalysisThousandSeparatorOptionsArgs, AnalysisThousandSeparatorOptionsPtr and AnalysisThousandSeparatorOptionsPtrOutput values.
-// You can construct a concrete instance of `AnalysisThousandSeparatorOptionsPtrInput` via:
-//
-//	        AnalysisThousandSeparatorOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type AnalysisThousandSeparatorOptionsPtrInput interface {
-	pulumi.Input
-
-	ToAnalysisThousandSeparatorOptionsPtrOutput() AnalysisThousandSeparatorOptionsPtrOutput
-	ToAnalysisThousandSeparatorOptionsPtrOutputWithContext(context.Context) AnalysisThousandSeparatorOptionsPtrOutput
-}
-
-type analysisThousandSeparatorOptionsPtrType AnalysisThousandSeparatorOptionsArgs
-
-func AnalysisThousandSeparatorOptionsPtr(v *AnalysisThousandSeparatorOptionsArgs) AnalysisThousandSeparatorOptionsPtrInput {
-	return (*analysisThousandSeparatorOptionsPtrType)(v)
-}
-
-func (*analysisThousandSeparatorOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisThousandSeparatorOptions)(nil)).Elem()
-}
-
-func (i *analysisThousandSeparatorOptionsPtrType) ToAnalysisThousandSeparatorOptionsPtrOutput() AnalysisThousandSeparatorOptionsPtrOutput {
-	return i.ToAnalysisThousandSeparatorOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *analysisThousandSeparatorOptionsPtrType) ToAnalysisThousandSeparatorOptionsPtrOutputWithContext(ctx context.Context) AnalysisThousandSeparatorOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisThousandSeparatorOptionsPtrOutput)
-}
-
-type AnalysisThousandSeparatorOptionsOutput struct{ *pulumi.OutputState }
-
-func (AnalysisThousandSeparatorOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisThousandSeparatorOptions)(nil)).Elem()
-}
-
-func (o AnalysisThousandSeparatorOptionsOutput) ToAnalysisThousandSeparatorOptionsOutput() AnalysisThousandSeparatorOptionsOutput {
-	return o
-}
-
-func (o AnalysisThousandSeparatorOptionsOutput) ToAnalysisThousandSeparatorOptionsOutputWithContext(ctx context.Context) AnalysisThousandSeparatorOptionsOutput {
-	return o
-}
-
-func (o AnalysisThousandSeparatorOptionsOutput) ToAnalysisThousandSeparatorOptionsPtrOutput() AnalysisThousandSeparatorOptionsPtrOutput {
-	return o.ToAnalysisThousandSeparatorOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisThousandSeparatorOptionsOutput) ToAnalysisThousandSeparatorOptionsPtrOutputWithContext(ctx context.Context) AnalysisThousandSeparatorOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisThousandSeparatorOptions) *AnalysisThousandSeparatorOptions {
-		return &v
-	}).(AnalysisThousandSeparatorOptionsPtrOutput)
-}
-
-// Determines the thousands separator symbol.
-func (o AnalysisThousandSeparatorOptionsOutput) Symbol() AnalysisNumericSeparatorSymbolPtrOutput {
-	return o.ApplyT(func(v AnalysisThousandSeparatorOptions) *AnalysisNumericSeparatorSymbol { return v.Symbol }).(AnalysisNumericSeparatorSymbolPtrOutput)
-}
-
-// Determines the visibility of the thousands separator.
-func (o AnalysisThousandSeparatorOptionsOutput) Visibility() AnalysisVisibilityPtrOutput {
-	return o.ApplyT(func(v AnalysisThousandSeparatorOptions) *AnalysisVisibility { return v.Visibility }).(AnalysisVisibilityPtrOutput)
-}
-
-type AnalysisThousandSeparatorOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisThousandSeparatorOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisThousandSeparatorOptions)(nil)).Elem()
-}
-
-func (o AnalysisThousandSeparatorOptionsPtrOutput) ToAnalysisThousandSeparatorOptionsPtrOutput() AnalysisThousandSeparatorOptionsPtrOutput {
-	return o
-}
-
-func (o AnalysisThousandSeparatorOptionsPtrOutput) ToAnalysisThousandSeparatorOptionsPtrOutputWithContext(ctx context.Context) AnalysisThousandSeparatorOptionsPtrOutput {
-	return o
-}
-
-func (o AnalysisThousandSeparatorOptionsPtrOutput) Elem() AnalysisThousandSeparatorOptionsOutput {
-	return o.ApplyT(func(v *AnalysisThousandSeparatorOptions) AnalysisThousandSeparatorOptions {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisThousandSeparatorOptions
-		return ret
-	}).(AnalysisThousandSeparatorOptionsOutput)
-}
-
-// Determines the thousands separator symbol.
-func (o AnalysisThousandSeparatorOptionsPtrOutput) Symbol() AnalysisNumericSeparatorSymbolPtrOutput {
-	return o.ApplyT(func(v *AnalysisThousandSeparatorOptions) *AnalysisNumericSeparatorSymbol {
-		if v == nil {
-			return nil
-		}
-		return v.Symbol
-	}).(AnalysisNumericSeparatorSymbolPtrOutput)
-}
-
-// Determines the visibility of the thousands separator.
-func (o AnalysisThousandSeparatorOptionsPtrOutput) Visibility() AnalysisVisibilityPtrOutput {
-	return o.ApplyT(func(v *AnalysisThousandSeparatorOptions) *AnalysisVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.Visibility
-	}).(AnalysisVisibilityPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAggregationFunctionInput)(nil)).Elem(), AnalysisAggregationFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAggregationFunctionPtrInput)(nil)).Elem(), AnalysisAggregationFunctionArgs{})
@@ -85521,6 +85854,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisBodySectionConfigurationInput)(nil)).Elem(), AnalysisBodySectionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisBodySectionConfigurationArrayInput)(nil)).Elem(), AnalysisBodySectionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisBodySectionContentInput)(nil)).Elem(), AnalysisBodySectionContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisBodySectionDynamicCategoryDimensionConfigurationInput)(nil)).Elem(), AnalysisBodySectionDynamicCategoryDimensionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrInput)(nil)).Elem(), AnalysisBodySectionDynamicCategoryDimensionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisBodySectionDynamicNumericDimensionConfigurationInput)(nil)).Elem(), AnalysisBodySectionDynamicNumericDimensionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisBodySectionDynamicNumericDimensionConfigurationPtrInput)(nil)).Elem(), AnalysisBodySectionDynamicNumericDimensionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisBodySectionRepeatConfigurationInput)(nil)).Elem(), AnalysisBodySectionRepeatConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisBodySectionRepeatConfigurationPtrInput)(nil)).Elem(), AnalysisBodySectionRepeatConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisBodySectionRepeatDimensionConfigurationInput)(nil)).Elem(), AnalysisBodySectionRepeatDimensionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisBodySectionRepeatDimensionConfigurationArrayInput)(nil)).Elem(), AnalysisBodySectionRepeatDimensionConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisBodySectionRepeatPageBreakConfigurationInput)(nil)).Elem(), AnalysisBodySectionRepeatPageBreakConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisBodySectionRepeatPageBreakConfigurationPtrInput)(nil)).Elem(), AnalysisBodySectionRepeatPageBreakConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisBoxPlotAggregatedFieldWellsInput)(nil)).Elem(), AnalysisBoxPlotAggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisBoxPlotAggregatedFieldWellsPtrInput)(nil)).Elem(), AnalysisBoxPlotAggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisBoxPlotChartConfigurationInput)(nil)).Elem(), AnalysisBoxPlotChartConfigurationArgs{})
@@ -85574,6 +85917,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColumnIdentifierArrayInput)(nil)).Elem(), AnalysisColumnIdentifierArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColumnSortInput)(nil)).Elem(), AnalysisColumnSortArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColumnSortPtrInput)(nil)).Elem(), AnalysisColumnSortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColumnSortArrayInput)(nil)).Elem(), AnalysisColumnSortArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColumnTooltipItemInput)(nil)).Elem(), AnalysisColumnTooltipItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColumnTooltipItemPtrInput)(nil)).Elem(), AnalysisColumnTooltipItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisComboChartAggregatedFieldWellsInput)(nil)).Elem(), AnalysisComboChartAggregatedFieldWellsArgs{})
@@ -85608,6 +85952,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisConditionalFormattingIconSetPtrInput)(nil)).Elem(), AnalysisConditionalFormattingIconSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisConditionalFormattingSolidColorInput)(nil)).Elem(), AnalysisConditionalFormattingSolidColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisConditionalFormattingSolidColorPtrInput)(nil)).Elem(), AnalysisConditionalFormattingSolidColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisContextMenuOptionInput)(nil)).Elem(), AnalysisContextMenuOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisContextMenuOptionPtrInput)(nil)).Elem(), AnalysisContextMenuOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisContributionAnalysisDefaultInput)(nil)).Elem(), AnalysisContributionAnalysisDefaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisContributionAnalysisDefaultArrayInput)(nil)).Elem(), AnalysisContributionAnalysisDefaultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCurrencyDisplayFormatConfigurationInput)(nil)).Elem(), AnalysisCurrencyDisplayFormatConfigurationArgs{})
@@ -85849,6 +86195,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisFunnelChartVisualPtrInput)(nil)).Elem(), AnalysisFunnelChartVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGaugeChartArcConditionalFormattingInput)(nil)).Elem(), AnalysisGaugeChartArcConditionalFormattingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGaugeChartArcConditionalFormattingPtrInput)(nil)).Elem(), AnalysisGaugeChartArcConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGaugeChartColorConfigurationInput)(nil)).Elem(), AnalysisGaugeChartColorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGaugeChartColorConfigurationPtrInput)(nil)).Elem(), AnalysisGaugeChartColorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGaugeChartConditionalFormattingInput)(nil)).Elem(), AnalysisGaugeChartConditionalFormattingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGaugeChartConditionalFormattingPtrInput)(nil)).Elem(), AnalysisGaugeChartConditionalFormattingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGaugeChartConditionalFormattingOptionInput)(nil)).Elem(), AnalysisGaugeChartConditionalFormattingOptionArgs{})
@@ -86293,6 +86641,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisScatterPlotConfigurationPtrInput)(nil)).Elem(), AnalysisScatterPlotConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisScatterPlotFieldWellsInput)(nil)).Elem(), AnalysisScatterPlotFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisScatterPlotFieldWellsPtrInput)(nil)).Elem(), AnalysisScatterPlotFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisScatterPlotSortConfigurationInput)(nil)).Elem(), AnalysisScatterPlotSortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisScatterPlotSortConfigurationPtrInput)(nil)).Elem(), AnalysisScatterPlotSortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisScatterPlotUnaggregatedFieldWellsInput)(nil)).Elem(), AnalysisScatterPlotUnaggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisScatterPlotUnaggregatedFieldWellsPtrInput)(nil)).Elem(), AnalysisScatterPlotUnaggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisScatterPlotVisualInput)(nil)).Elem(), AnalysisScatterPlotVisualArgs{})
@@ -86440,20 +86790,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableSortConfigurationPtrInput)(nil)).Elem(), AnalysisTableSortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableStyleTargetInput)(nil)).Elem(), AnalysisTableStyleTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableStyleTargetArrayInput)(nil)).Elem(), AnalysisTableStyleTargetArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableUnaggregatedFieldWellsInput)(nil)).Elem(), AnalysisTableUnaggregatedFieldWellsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableUnaggregatedFieldWellsPtrInput)(nil)).Elem(), AnalysisTableUnaggregatedFieldWellsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableVisualInput)(nil)).Elem(), AnalysisTableVisualArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableVisualPtrInput)(nil)).Elem(), AnalysisTableVisualArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTextAreaControlDisplayOptionsInput)(nil)).Elem(), AnalysisTextAreaControlDisplayOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTextAreaControlDisplayOptionsPtrInput)(nil)).Elem(), AnalysisTextAreaControlDisplayOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTextConditionalFormatInput)(nil)).Elem(), AnalysisTextConditionalFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTextConditionalFormatPtrInput)(nil)).Elem(), AnalysisTextConditionalFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTextControlPlaceholderOptionsInput)(nil)).Elem(), AnalysisTextControlPlaceholderOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTextControlPlaceholderOptionsPtrInput)(nil)).Elem(), AnalysisTextControlPlaceholderOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTextFieldControlDisplayOptionsInput)(nil)).Elem(), AnalysisTextFieldControlDisplayOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTextFieldControlDisplayOptionsPtrInput)(nil)).Elem(), AnalysisTextFieldControlDisplayOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisThousandSeparatorOptionsInput)(nil)).Elem(), AnalysisThousandSeparatorOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisThousandSeparatorOptionsPtrInput)(nil)).Elem(), AnalysisThousandSeparatorOptionsArgs{})
 	pulumi.RegisterOutputType(AnalysisAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(AnalysisAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisAggregationSortConfigurationOutput{})
@@ -86513,6 +86849,16 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisBodySectionConfigurationOutput{})
 	pulumi.RegisterOutputType(AnalysisBodySectionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisBodySectionContentOutput{})
+	pulumi.RegisterOutputType(AnalysisBodySectionDynamicCategoryDimensionConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisBodySectionDynamicCategoryDimensionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisBodySectionDynamicNumericDimensionConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisBodySectionDynamicNumericDimensionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisBodySectionRepeatConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisBodySectionRepeatConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisBodySectionRepeatDimensionConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisBodySectionRepeatDimensionConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(AnalysisBodySectionRepeatPageBreakConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisBodySectionRepeatPageBreakConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisBoxPlotAggregatedFieldWellsOutput{})
 	pulumi.RegisterOutputType(AnalysisBoxPlotAggregatedFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisBoxPlotChartConfigurationOutput{})
@@ -86566,6 +86912,7 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisColumnIdentifierArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisColumnSortOutput{})
 	pulumi.RegisterOutputType(AnalysisColumnSortPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisColumnSortArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisColumnTooltipItemOutput{})
 	pulumi.RegisterOutputType(AnalysisColumnTooltipItemPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisComboChartAggregatedFieldWellsOutput{})
@@ -86600,6 +86947,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisConditionalFormattingIconSetPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisConditionalFormattingSolidColorOutput{})
 	pulumi.RegisterOutputType(AnalysisConditionalFormattingSolidColorPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisContextMenuOptionOutput{})
+	pulumi.RegisterOutputType(AnalysisContextMenuOptionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisContributionAnalysisDefaultOutput{})
 	pulumi.RegisterOutputType(AnalysisContributionAnalysisDefaultArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisCurrencyDisplayFormatConfigurationOutput{})
@@ -86841,6 +87190,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisFunnelChartVisualPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisGaugeChartArcConditionalFormattingOutput{})
 	pulumi.RegisterOutputType(AnalysisGaugeChartArcConditionalFormattingPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisGaugeChartColorConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisGaugeChartColorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisGaugeChartConditionalFormattingOutput{})
 	pulumi.RegisterOutputType(AnalysisGaugeChartConditionalFormattingPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisGaugeChartConditionalFormattingOptionOutput{})
@@ -87285,6 +87636,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisScatterPlotConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisScatterPlotFieldWellsOutput{})
 	pulumi.RegisterOutputType(AnalysisScatterPlotFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisScatterPlotSortConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisScatterPlotSortConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisScatterPlotUnaggregatedFieldWellsOutput{})
 	pulumi.RegisterOutputType(AnalysisScatterPlotUnaggregatedFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisScatterPlotVisualOutput{})
@@ -87432,18 +87785,4 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisTableSortConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTableStyleTargetOutput{})
 	pulumi.RegisterOutputType(AnalysisTableStyleTargetArrayOutput{})
-	pulumi.RegisterOutputType(AnalysisTableUnaggregatedFieldWellsOutput{})
-	pulumi.RegisterOutputType(AnalysisTableUnaggregatedFieldWellsPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisTableVisualOutput{})
-	pulumi.RegisterOutputType(AnalysisTableVisualPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisTextAreaControlDisplayOptionsOutput{})
-	pulumi.RegisterOutputType(AnalysisTextAreaControlDisplayOptionsPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisTextConditionalFormatOutput{})
-	pulumi.RegisterOutputType(AnalysisTextConditionalFormatPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisTextControlPlaceholderOptionsOutput{})
-	pulumi.RegisterOutputType(AnalysisTextControlPlaceholderOptionsPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisTextFieldControlDisplayOptionsOutput{})
-	pulumi.RegisterOutputType(AnalysisTextFieldControlDisplayOptionsPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisThousandSeparatorOptionsOutput{})
-	pulumi.RegisterOutputType(AnalysisThousandSeparatorOptionsPtrOutput{})
 }

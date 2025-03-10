@@ -13,12 +13,321 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'IndexPropertyMapping',
+    'IndexPropertyMappingMethodProperties',
+    'IndexPropertyMappingMethodPropertiesParametersProperties',
+    'IndexSettings',
+    'IndexSettingsIndexProperties',
+    'MappingsProperties',
     'SecurityConfigIamIdentityCenterConfigOptions',
     'SecurityConfigSamlConfigOptions',
 ]
+
+@pulumi.output_type
+class IndexPropertyMapping(dict):
+    def __init__(__self__, *,
+                 type: 'IndexPropertyMappingType',
+                 dimension: Optional[int] = None,
+                 index: Optional[bool] = None,
+                 method: Optional['outputs.IndexPropertyMappingMethodProperties'] = None,
+                 properties: Optional[Mapping[str, 'outputs.IndexPropertyMapping']] = None,
+                 value: Optional[str] = None):
+        """
+        :param 'IndexPropertyMappingType' type: The field data type. Must be a valid OpenSearch field type.
+        :param int dimension: Dimension size for vector fields, defines the number of dimensions in the vector
+        :param bool index: Whether a field should be indexed
+        :param 'IndexPropertyMappingMethodProperties' method: Configuration for k-NN search method
+        :param Mapping[str, 'IndexPropertyMapping'] properties: Nested fields within an object or nested field type
+        :param str value: Default value for the field when not specified in a document
+        """
+        pulumi.set(__self__, "type", type)
+        if dimension is not None:
+            pulumi.set(__self__, "dimension", dimension)
+        if index is not None:
+            pulumi.set(__self__, "index", index)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'IndexPropertyMappingType':
+        """
+        The field data type. Must be a valid OpenSearch field type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def dimension(self) -> Optional[int]:
+        """
+        Dimension size for vector fields, defines the number of dimensions in the vector
+        """
+        return pulumi.get(self, "dimension")
+
+    @property
+    @pulumi.getter
+    def index(self) -> Optional[bool]:
+        """
+        Whether a field should be indexed
+        """
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional['outputs.IndexPropertyMappingMethodProperties']:
+        """
+        Configuration for k-NN search method
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, 'outputs.IndexPropertyMapping']]:
+        """
+        Nested fields within an object or nested field type
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Default value for the field when not specified in a document
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IndexPropertyMappingMethodProperties(dict):
+    """
+    Configuration for k-NN search method
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "spaceType":
+            suggest = "space_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexPropertyMappingMethodProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexPropertyMappingMethodProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexPropertyMappingMethodProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 engine: 'IndexPropertyMappingMethodPropertiesEngine',
+                 name: 'IndexPropertyMappingMethodPropertiesName',
+                 parameters: Optional['outputs.IndexPropertyMappingMethodPropertiesParametersProperties'] = None,
+                 space_type: Optional['IndexPropertyMappingMethodPropertiesSpaceType'] = None):
+        """
+        Configuration for k-NN search method
+        :param 'IndexPropertyMappingMethodPropertiesEngine' engine: The k-NN search engine to use
+        :param 'IndexPropertyMappingMethodPropertiesName' name: The algorithm name for k-NN search
+        :param 'IndexPropertyMappingMethodPropertiesParametersProperties' parameters: Additional parameters for the k-NN algorithm
+        :param 'IndexPropertyMappingMethodPropertiesSpaceType' space_type: The distance function used for k-NN search
+        """
+        pulumi.set(__self__, "engine", engine)
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if space_type is not None:
+            pulumi.set(__self__, "space_type", space_type)
+
+    @property
+    @pulumi.getter
+    def engine(self) -> 'IndexPropertyMappingMethodPropertiesEngine':
+        """
+        The k-NN search engine to use
+        """
+        return pulumi.get(self, "engine")
+
+    @property
+    @pulumi.getter
+    def name(self) -> 'IndexPropertyMappingMethodPropertiesName':
+        """
+        The algorithm name for k-NN search
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional['outputs.IndexPropertyMappingMethodPropertiesParametersProperties']:
+        """
+        Additional parameters for the k-NN algorithm
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="spaceType")
+    def space_type(self) -> Optional['IndexPropertyMappingMethodPropertiesSpaceType']:
+        """
+        The distance function used for k-NN search
+        """
+        return pulumi.get(self, "space_type")
+
+
+@pulumi.output_type
+class IndexPropertyMappingMethodPropertiesParametersProperties(dict):
+    """
+    Additional parameters for the k-NN algorithm
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "efConstruction":
+            suggest = "ef_construction"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexPropertyMappingMethodPropertiesParametersProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexPropertyMappingMethodPropertiesParametersProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexPropertyMappingMethodPropertiesParametersProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ef_construction: Optional[int] = None,
+                 m: Optional[int] = None):
+        """
+        Additional parameters for the k-NN algorithm
+        :param int ef_construction: The size of the dynamic list used during k-NN graph creation
+        :param int m: Number of neighbors to consider during k-NN search
+        """
+        if ef_construction is not None:
+            pulumi.set(__self__, "ef_construction", ef_construction)
+        if m is not None:
+            pulumi.set(__self__, "m", m)
+
+    @property
+    @pulumi.getter(name="efConstruction")
+    def ef_construction(self) -> Optional[int]:
+        """
+        The size of the dynamic list used during k-NN graph creation
+        """
+        return pulumi.get(self, "ef_construction")
+
+    @property
+    @pulumi.getter
+    def m(self) -> Optional[int]:
+        """
+        Number of neighbors to consider during k-NN search
+        """
+        return pulumi.get(self, "m")
+
+
+@pulumi.output_type
+class IndexSettings(dict):
+    def __init__(__self__, *,
+                 index: Optional['outputs.IndexSettingsIndexProperties'] = None):
+        if index is not None:
+            pulumi.set(__self__, "index", index)
+
+    @property
+    @pulumi.getter
+    def index(self) -> Optional['outputs.IndexSettingsIndexProperties']:
+        return pulumi.get(self, "index")
+
+
+@pulumi.output_type
+class IndexSettingsIndexProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "knnAlgoParamEfSearch":
+            suggest = "knn_algo_param_ef_search"
+        elif key == "refreshInterval":
+            suggest = "refresh_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexSettingsIndexProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexSettingsIndexProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexSettingsIndexProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 knn: Optional[bool] = None,
+                 knn_algo_param_ef_search: Optional[int] = None,
+                 refresh_interval: Optional[str] = None):
+        """
+        :param bool knn: Enable/disable k-nearest neighbor search capability
+        :param int knn_algo_param_ef_search: Size of the dynamic list for the nearest neighbors
+        :param str refresh_interval: How often to perform refresh operation (e.g. '1s', '5s')
+        """
+        if knn is not None:
+            pulumi.set(__self__, "knn", knn)
+        if knn_algo_param_ef_search is not None:
+            pulumi.set(__self__, "knn_algo_param_ef_search", knn_algo_param_ef_search)
+        if refresh_interval is not None:
+            pulumi.set(__self__, "refresh_interval", refresh_interval)
+
+    @property
+    @pulumi.getter
+    def knn(self) -> Optional[bool]:
+        """
+        Enable/disable k-nearest neighbor search capability
+        """
+        return pulumi.get(self, "knn")
+
+    @property
+    @pulumi.getter(name="knnAlgoParamEfSearch")
+    def knn_algo_param_ef_search(self) -> Optional[int]:
+        """
+        Size of the dynamic list for the nearest neighbors
+        """
+        return pulumi.get(self, "knn_algo_param_ef_search")
+
+    @property
+    @pulumi.getter(name="refreshInterval")
+    def refresh_interval(self) -> Optional[str]:
+        """
+        How often to perform refresh operation (e.g. '1s', '5s')
+        """
+        return pulumi.get(self, "refresh_interval")
+
+
+@pulumi.output_type
+class MappingsProperties(dict):
+    """
+    Index Mappings
+    """
+    def __init__(__self__, *,
+                 properties: Optional[Mapping[str, 'outputs.IndexPropertyMapping']] = None):
+        """
+        Index Mappings
+        :param Mapping[str, 'IndexPropertyMapping'] properties: Defines the fields within the mapping, including their types and configurations
+        """
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, 'outputs.IndexPropertyMapping']]:
+        """
+        Defines the fields within the mapping, including their types and configurations
+        """
+        return pulumi.get(self, "properties")
+
 
 @pulumi.output_type
 class SecurityConfigIamIdentityCenterConfigOptions(dict):
@@ -61,8 +370,12 @@ class SecurityConfigIamIdentityCenterConfigOptions(dict):
                  user_attribute: Optional[str] = None):
         """
         Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
+        :param str instance_arn: The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        :param str application_arn: The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
         :param str application_description: The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
         :param str application_name: The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
+        :param str group_attribute: The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
+        :param str user_attribute: The user attribute for this IAM Identity Center integration. Defaults to `UserId`
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         if application_arn is not None:
@@ -79,11 +392,17 @@ class SecurityConfigIamIdentityCenterConfigOptions(dict):
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> str:
+        """
+        The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        """
         return pulumi.get(self, "instance_arn")
 
     @property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[str]:
+        """
+        The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
+        """
         return pulumi.get(self, "application_arn")
 
     @property
@@ -105,11 +424,17 @@ class SecurityConfigIamIdentityCenterConfigOptions(dict):
     @property
     @pulumi.getter(name="groupAttribute")
     def group_attribute(self) -> Optional[str]:
+        """
+        The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
+        """
         return pulumi.get(self, "group_attribute")
 
     @property
     @pulumi.getter(name="userAttribute")
     def user_attribute(self) -> Optional[str]:
+        """
+        The user attribute for this IAM Identity Center integration. Defaults to `UserId`
+        """
         return pulumi.get(self, "user_attribute")
 
 

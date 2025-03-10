@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _forecastConfigurations = value;
         }
 
+        [Input("interactions")]
+        public Input<Inputs.AnalysisVisualInteractionOptionsArgs>? Interactions { get; set; }
+
         /// <summary>
         /// The legend configuration of a line chart.
         /// </summary>

@@ -26,6 +26,14 @@ __all__ = [
     'AccountAuditConfigurationAuditNotificationTargetConfigurationsArgsDict',
     'AccountAuditConfigurationAuditNotificationTargetArgs',
     'AccountAuditConfigurationAuditNotificationTargetArgsDict',
+    'AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs',
+    'AccountAuditConfigurationCertAgeCheckCustomConfigurationArgsDict',
+    'AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs',
+    'AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgsDict',
+    'AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs',
+    'AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgsDict',
+    'AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs',
+    'AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgsDict',
     'BillingGroupPropertiesPropertiesArgs',
     'BillingGroupPropertiesPropertiesArgsDict',
     'CaCertificateRegistrationConfigArgs',
@@ -250,7 +258,8 @@ if not MYPY:
         """
         Checks if multiple devices connect using the same client ID.
         """
-        device_certificate_expiring_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+        device_certificate_age_check: NotRequired[pulumi.Input['AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgsDict']]
+        device_certificate_expiring_check: NotRequired[pulumi.Input['AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgsDict']]
         """
         Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
         """
@@ -308,7 +317,8 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
                  ca_certificate_expiring_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
                  ca_certificate_key_quality_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
                  conflicting_client_ids_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
-                 device_certificate_expiring_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
+                 device_certificate_age_check: Optional[pulumi.Input['AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs']] = None,
+                 device_certificate_expiring_check: Optional[pulumi.Input['AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs']] = None,
                  device_certificate_key_quality_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
                  device_certificate_shared_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
                  intermediate_ca_revoked_for_active_device_certificates_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
@@ -326,7 +336,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
         :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] ca_certificate_expiring_check: Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
         :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] ca_certificate_key_quality_check: Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
         :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] conflicting_client_ids_check: Checks if multiple devices connect using the same client ID.
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] device_certificate_expiring_check: Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
+        :param pulumi.Input['AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs'] device_certificate_expiring_check: Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
         :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] device_certificate_key_quality_check: Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
         :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] device_certificate_shared_check: Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
         :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] intermediate_ca_revoked_for_active_device_certificates_check: Checks if device certificates are still active despite being revoked by an intermediate CA.
@@ -347,6 +357,8 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
             pulumi.set(__self__, "ca_certificate_key_quality_check", ca_certificate_key_quality_check)
         if conflicting_client_ids_check is not None:
             pulumi.set(__self__, "conflicting_client_ids_check", conflicting_client_ids_check)
+        if device_certificate_age_check is not None:
+            pulumi.set(__self__, "device_certificate_age_check", device_certificate_age_check)
         if device_certificate_expiring_check is not None:
             pulumi.set(__self__, "device_certificate_expiring_check", device_certificate_expiring_check)
         if device_certificate_key_quality_check is not None:
@@ -421,15 +433,24 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
         pulumi.set(self, "conflicting_client_ids_check", value)
 
     @property
+    @pulumi.getter(name="deviceCertificateAgeCheck")
+    def device_certificate_age_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs']]:
+        return pulumi.get(self, "device_certificate_age_check")
+
+    @device_certificate_age_check.setter
+    def device_certificate_age_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs']]):
+        pulumi.set(self, "device_certificate_age_check", value)
+
+    @property
     @pulumi.getter(name="deviceCertificateExpiringCheck")
-    def device_certificate_expiring_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
+    def device_certificate_expiring_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs']]:
         """
         Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
         """
         return pulumi.get(self, "device_certificate_expiring_check")
 
     @device_certificate_expiring_check.setter
-    def device_certificate_expiring_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
+    def device_certificate_expiring_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "device_certificate_expiring_check", value)
 
     @property
@@ -707,6 +728,162 @@ class AccountAuditConfigurationAuditNotificationTargetArgs:
     @target_arn.setter
     def target_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_arn", value)
+
+
+if not MYPY:
+    class AccountAuditConfigurationCertAgeCheckCustomConfigurationArgsDict(TypedDict):
+        """
+        A structure containing the configName and corresponding configValue for configuring audit checks.
+        """
+        cert_age_threshold_in_days: NotRequired[pulumi.Input[str]]
+elif False:
+    AccountAuditConfigurationCertAgeCheckCustomConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs:
+    def __init__(__self__, *,
+                 cert_age_threshold_in_days: Optional[pulumi.Input[str]] = None):
+        """
+        A structure containing the configName and corresponding configValue for configuring audit checks.
+        """
+        if cert_age_threshold_in_days is not None:
+            pulumi.set(__self__, "cert_age_threshold_in_days", cert_age_threshold_in_days)
+
+    @property
+    @pulumi.getter(name="certAgeThresholdInDays")
+    def cert_age_threshold_in_days(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cert_age_threshold_in_days")
+
+    @cert_age_threshold_in_days.setter
+    def cert_age_threshold_in_days(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cert_age_threshold_in_days", value)
+
+
+if not MYPY:
+    class AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgsDict(TypedDict):
+        """
+        A structure containing the configName and corresponding configValue for configuring audit checks.
+        """
+        cert_expiration_threshold_in_days: NotRequired[pulumi.Input[str]]
+elif False:
+    AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs:
+    def __init__(__self__, *,
+                 cert_expiration_threshold_in_days: Optional[pulumi.Input[str]] = None):
+        """
+        A structure containing the configName and corresponding configValue for configuring audit checks.
+        """
+        if cert_expiration_threshold_in_days is not None:
+            pulumi.set(__self__, "cert_expiration_threshold_in_days", cert_expiration_threshold_in_days)
+
+    @property
+    @pulumi.getter(name="certExpirationThresholdInDays")
+    def cert_expiration_threshold_in_days(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cert_expiration_threshold_in_days")
+
+    @cert_expiration_threshold_in_days.setter
+    def cert_expiration_threshold_in_days(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cert_expiration_threshold_in_days", value)
+
+
+if not MYPY:
+    class AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgsDict(TypedDict):
+        """
+        A structure containing the configName and corresponding configValue for configuring DeviceCertAgeCheck.
+        """
+        configuration: NotRequired[pulumi.Input['AccountAuditConfigurationCertAgeCheckCustomConfigurationArgsDict']]
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        True if the check is enabled.
+        """
+elif False:
+    AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs:
+    def __init__(__self__, *,
+                 configuration: Optional[pulumi.Input['AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs']] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        A structure containing the configName and corresponding configValue for configuring DeviceCertAgeCheck.
+        :param pulumi.Input[bool] enabled: True if the check is enabled.
+        """
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input['AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs']]:
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input['AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs']]):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True if the check is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
+    class AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgsDict(TypedDict):
+        """
+        A structure containing the configName and corresponding configValue for configuring DeviceCertExpirationCheck.
+        """
+        configuration: NotRequired[pulumi.Input['AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgsDict']]
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        True if the check is enabled.
+        """
+elif False:
+    AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs:
+    def __init__(__self__, *,
+                 configuration: Optional[pulumi.Input['AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs']] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        A structure containing the configName and corresponding configValue for configuring DeviceCertExpirationCheck.
+        :param pulumi.Input[bool] enabled: True if the check is enabled.
+        """
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input['AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs']]:
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input['AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs']]):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True if the check is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:

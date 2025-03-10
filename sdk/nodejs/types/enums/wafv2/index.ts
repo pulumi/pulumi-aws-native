@@ -153,6 +153,13 @@ export const RuleGroupJa3FingerprintFallbackBehavior = {
  */
 export type RuleGroupJa3FingerprintFallbackBehavior = (typeof RuleGroupJa3FingerprintFallbackBehavior)[keyof typeof RuleGroupJa3FingerprintFallbackBehavior];
 
+export const RuleGroupJa4FingerprintFallbackBehavior = {
+    Match: "MATCH",
+    NoMatch: "NO_MATCH",
+} as const;
+
+export type RuleGroupJa4FingerprintFallbackBehavior = (typeof RuleGroupJa4FingerprintFallbackBehavior)[keyof typeof RuleGroupJa4FingerprintFallbackBehavior];
+
 export const RuleGroupJsonMatchScope = {
     All: "ALL",
     Key: "KEY",
@@ -236,6 +243,20 @@ export const RuleGroupRateBasedStatementAggregateKeyType = {
  * To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
  */
 export type RuleGroupRateBasedStatementAggregateKeyType = (typeof RuleGroupRateBasedStatementAggregateKeyType)[keyof typeof RuleGroupRateBasedStatementAggregateKeyType];
+
+export const RuleGroupRateLimitJa3FingerprintFallbackBehavior = {
+    Match: "MATCH",
+    NoMatch: "NO_MATCH",
+} as const;
+
+export type RuleGroupRateLimitJa3FingerprintFallbackBehavior = (typeof RuleGroupRateLimitJa3FingerprintFallbackBehavior)[keyof typeof RuleGroupRateLimitJa3FingerprintFallbackBehavior];
+
+export const RuleGroupRateLimitJa4FingerprintFallbackBehavior = {
+    Match: "MATCH",
+    NoMatch: "NO_MATCH",
+} as const;
+
+export type RuleGroupRateLimitJa4FingerprintFallbackBehavior = (typeof RuleGroupRateLimitJa4FingerprintFallbackBehavior)[keyof typeof RuleGroupRateLimitJa4FingerprintFallbackBehavior];
 
 export const RuleGroupResponseContentType = {
     TextPlain: "TEXT_PLAIN",
@@ -398,6 +419,13 @@ export const WebAclJa3FingerprintFallbackBehavior = {
  */
 export type WebAclJa3FingerprintFallbackBehavior = (typeof WebAclJa3FingerprintFallbackBehavior)[keyof typeof WebAclJa3FingerprintFallbackBehavior];
 
+export const WebAclJa4FingerprintFallbackBehavior = {
+    Match: "MATCH",
+    NoMatch: "NO_MATCH",
+} as const;
+
+export type WebAclJa4FingerprintFallbackBehavior = (typeof WebAclJa4FingerprintFallbackBehavior)[keyof typeof WebAclJa4FingerprintFallbackBehavior];
+
 export const WebAclJsonMatchScope = {
     All: "ALL",
     Key: "KEY",
@@ -491,6 +519,20 @@ export const WebAclRateBasedStatementAggregateKeyType = {
  * To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
  */
 export type WebAclRateBasedStatementAggregateKeyType = (typeof WebAclRateBasedStatementAggregateKeyType)[keyof typeof WebAclRateBasedStatementAggregateKeyType];
+
+export const WebAclRateLimitJa3FingerprintFallbackBehavior = {
+    Match: "MATCH",
+    NoMatch: "NO_MATCH",
+} as const;
+
+export type WebAclRateLimitJa3FingerprintFallbackBehavior = (typeof WebAclRateLimitJa3FingerprintFallbackBehavior)[keyof typeof WebAclRateLimitJa3FingerprintFallbackBehavior];
+
+export const WebAclRateLimitJa4FingerprintFallbackBehavior = {
+    Match: "MATCH",
+    NoMatch: "NO_MATCH",
+} as const;
+
+export type WebAclRateLimitJa4FingerprintFallbackBehavior = (typeof WebAclRateLimitJa4FingerprintFallbackBehavior)[keyof typeof WebAclRateLimitJa4FingerprintFallbackBehavior];
 
 export const WebAclRequestInspectionAcfpPayloadType = {
     Json: "JSON",

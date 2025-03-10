@@ -41,6 +41,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The field wells of the visual.
         /// </summary>
         public readonly Outputs.TemplateBarChartFieldWells? FieldWells;
+        public readonly Outputs.TemplateVisualInteractionOptions? Interactions;
         /// <summary>
         /// The legend display setup of the visual.
         /// </summary>
@@ -97,6 +98,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateBarChartFieldWells? fieldWells,
 
+            Outputs.TemplateVisualInteractionOptions? interactions,
+
             Outputs.TemplateLegendOptions? legend,
 
             Pulumi.AwsNative.QuickSight.TemplateBarChartOrientation? orientation,
@@ -122,6 +125,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ContributionAnalysisDefaults = contributionAnalysisDefaults;
             DataLabels = dataLabels;
             FieldWells = fieldWells;
+            Interactions = interactions;
             Legend = legend;
             Orientation = orientation;
             ReferenceLines = referenceLines;

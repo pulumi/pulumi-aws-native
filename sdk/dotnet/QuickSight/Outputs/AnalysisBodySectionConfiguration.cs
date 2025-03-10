@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The configuration of a page break for a section.
         /// </summary>
         public readonly Outputs.AnalysisSectionPageBreakConfiguration? PageBreakConfiguration;
+        public readonly Outputs.AnalysisBodySectionRepeatConfiguration? RepeatConfiguration;
         /// <summary>
         /// The unique identifier of a body section.
         /// </summary>
@@ -36,12 +37,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.AnalysisSectionPageBreakConfiguration? pageBreakConfiguration,
 
+            Outputs.AnalysisBodySectionRepeatConfiguration? repeatConfiguration,
+
             string sectionId,
 
             Outputs.AnalysisSectionStyle? style)
         {
             Content = content;
             PageBreakConfiguration = pageBreakConfiguration;
+            RepeatConfiguration = repeatConfiguration;
             SectionId = sectionId;
             Style = style;
         }
