@@ -19,17 +19,17 @@ namespace Pulumi.AwsNative.Eks.Outputs
         /// <summary>
         /// The ID of the launch template.
         /// 
-        /// You must specify either the launch template ID or the launch template name in the request, but not both.
+        /// You must specify either the launch template ID or the launch template name in the request, but not both. After node group creation, you cannot use a different ID.
         /// </summary>
         public readonly string? Id;
         /// <summary>
         /// The name of the launch template.
         /// 
-        /// You must specify either the launch template name or the launch template ID in the request, but not both.
+        /// You must specify either the launch template name or the launch template ID in the request, but not both. After node group creation, you cannot use a different name.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The version number of the launch template to use. If no version is specified, then the template's default version is used.
+        /// The version number of the launch template to use. If no version is specified, then the template's default version is used. You can use a different version for node group updates.
         /// </summary>
         public readonly string? Version;
 

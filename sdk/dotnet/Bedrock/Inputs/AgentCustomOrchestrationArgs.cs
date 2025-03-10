@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class AgentCustomOrchestrationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The structure of the executor invoking the actions in custom orchestration.
+        /// </summary>
         [Input("executor")]
         public Input<Inputs.AgentOrchestrationExecutorArgs>? Executor { get; set; }
 

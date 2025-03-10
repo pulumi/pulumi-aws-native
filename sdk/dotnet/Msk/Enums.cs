@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.Msk
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specifies the level of monitoring for the MSK cluster.
+    /// </summary>
     [EnumType]
     public readonly struct ClusterEnhancedMonitoring : IEquatable<ClusterEnhancedMonitoring>
     {
@@ -66,6 +69,9 @@ namespace Pulumi.AwsNative.Msk
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// This controls storage mode for supported storage tiers.
+    /// </summary>
     [EnumType]
     public readonly struct ClusterStorageMode : IEquatable<ClusterStorageMode>
     {

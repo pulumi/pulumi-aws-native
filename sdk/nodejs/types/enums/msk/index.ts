@@ -17,6 +17,9 @@ export const ClusterEnhancedMonitoring = {
     PerTopicPerPartition: "PER_TOPIC_PER_PARTITION",
 } as const;
 
+/**
+ * Specifies the level of monitoring for the MSK cluster.
+ */
 export type ClusterEnhancedMonitoring = (typeof ClusterEnhancedMonitoring)[keyof typeof ClusterEnhancedMonitoring];
 
 export const ClusterStorageMode = {
@@ -24,6 +27,9 @@ export const ClusterStorageMode = {
     Tiered: "TIERED",
 } as const;
 
+/**
+ * This controls storage mode for supported storage tiers.
+ */
 export type ClusterStorageMode = (typeof ClusterStorageMode)[keyof typeof ClusterStorageMode];
 
 export const ReplicatorReplicationInfoTargetCompressionType = {

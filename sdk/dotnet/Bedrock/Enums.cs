@@ -549,6 +549,422 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Stage of the Blueprint
+    /// </summary>
+    [EnumType]
+    public readonly struct BlueprintStage : IEquatable<BlueprintStage>
+    {
+        private readonly string _value;
+
+        private BlueprintStage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BlueprintStage Development { get; } = new BlueprintStage("DEVELOPMENT");
+        public static BlueprintStage Live { get; } = new BlueprintStage("LIVE");
+
+        public static bool operator ==(BlueprintStage left, BlueprintStage right) => left.Equals(right);
+        public static bool operator !=(BlueprintStage left, BlueprintStage right) => !left.Equals(right);
+
+        public static explicit operator string(BlueprintStage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BlueprintStage other && Equals(other);
+        public bool Equals(BlueprintStage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Modality Type
+    /// </summary>
+    [EnumType]
+    public readonly struct BlueprintType : IEquatable<BlueprintType>
+    {
+        private readonly string _value;
+
+        private BlueprintType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BlueprintType Document { get; } = new BlueprintType("DOCUMENT");
+        public static BlueprintType Image { get; } = new BlueprintType("IMAGE");
+
+        public static bool operator ==(BlueprintType left, BlueprintType right) => left.Equals(right);
+        public static bool operator !=(BlueprintType left, BlueprintType right) => !left.Equals(right);
+
+        public static explicit operator string(BlueprintType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BlueprintType other && Equals(other);
+        public bool Equals(BlueprintType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataAutomationProjectAudioExtractionCategoryType : IEquatable<DataAutomationProjectAudioExtractionCategoryType>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectAudioExtractionCategoryType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectAudioExtractionCategoryType AudioContentModeration { get; } = new DataAutomationProjectAudioExtractionCategoryType("AUDIO_CONTENT_MODERATION");
+        public static DataAutomationProjectAudioExtractionCategoryType Transcript { get; } = new DataAutomationProjectAudioExtractionCategoryType("TRANSCRIPT");
+        public static DataAutomationProjectAudioExtractionCategoryType TopicContentModeration { get; } = new DataAutomationProjectAudioExtractionCategoryType("TOPIC_CONTENT_MODERATION");
+
+        public static bool operator ==(DataAutomationProjectAudioExtractionCategoryType left, DataAutomationProjectAudioExtractionCategoryType right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectAudioExtractionCategoryType left, DataAutomationProjectAudioExtractionCategoryType right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectAudioExtractionCategoryType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectAudioExtractionCategoryType other && Equals(other);
+        public bool Equals(DataAutomationProjectAudioExtractionCategoryType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataAutomationProjectAudioStandardGenerativeFieldType : IEquatable<DataAutomationProjectAudioStandardGenerativeFieldType>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectAudioStandardGenerativeFieldType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectAudioStandardGenerativeFieldType AudioSummary { get; } = new DataAutomationProjectAudioStandardGenerativeFieldType("AUDIO_SUMMARY");
+        public static DataAutomationProjectAudioStandardGenerativeFieldType Iab { get; } = new DataAutomationProjectAudioStandardGenerativeFieldType("IAB");
+        public static DataAutomationProjectAudioStandardGenerativeFieldType TopicSummary { get; } = new DataAutomationProjectAudioStandardGenerativeFieldType("TOPIC_SUMMARY");
+
+        public static bool operator ==(DataAutomationProjectAudioStandardGenerativeFieldType left, DataAutomationProjectAudioStandardGenerativeFieldType right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectAudioStandardGenerativeFieldType left, DataAutomationProjectAudioStandardGenerativeFieldType right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectAudioStandardGenerativeFieldType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectAudioStandardGenerativeFieldType other && Equals(other);
+        public bool Equals(DataAutomationProjectAudioStandardGenerativeFieldType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Stage of the Blueprint
+    /// </summary>
+    [EnumType]
+    public readonly struct DataAutomationProjectBlueprintStage : IEquatable<DataAutomationProjectBlueprintStage>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectBlueprintStage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectBlueprintStage Development { get; } = new DataAutomationProjectBlueprintStage("DEVELOPMENT");
+        public static DataAutomationProjectBlueprintStage Live { get; } = new DataAutomationProjectBlueprintStage("LIVE");
+
+        public static bool operator ==(DataAutomationProjectBlueprintStage left, DataAutomationProjectBlueprintStage right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectBlueprintStage left, DataAutomationProjectBlueprintStage right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectBlueprintStage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectBlueprintStage other && Equals(other);
+        public bool Equals(DataAutomationProjectBlueprintStage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataAutomationProjectDocumentExtractionGranularityType : IEquatable<DataAutomationProjectDocumentExtractionGranularityType>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectDocumentExtractionGranularityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectDocumentExtractionGranularityType Document { get; } = new DataAutomationProjectDocumentExtractionGranularityType("DOCUMENT");
+        public static DataAutomationProjectDocumentExtractionGranularityType Page { get; } = new DataAutomationProjectDocumentExtractionGranularityType("PAGE");
+        public static DataAutomationProjectDocumentExtractionGranularityType Element { get; } = new DataAutomationProjectDocumentExtractionGranularityType("ELEMENT");
+        public static DataAutomationProjectDocumentExtractionGranularityType Word { get; } = new DataAutomationProjectDocumentExtractionGranularityType("WORD");
+        public static DataAutomationProjectDocumentExtractionGranularityType Line { get; } = new DataAutomationProjectDocumentExtractionGranularityType("LINE");
+
+        public static bool operator ==(DataAutomationProjectDocumentExtractionGranularityType left, DataAutomationProjectDocumentExtractionGranularityType right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectDocumentExtractionGranularityType left, DataAutomationProjectDocumentExtractionGranularityType right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectDocumentExtractionGranularityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectDocumentExtractionGranularityType other && Equals(other);
+        public bool Equals(DataAutomationProjectDocumentExtractionGranularityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataAutomationProjectDocumentOutputTextFormatType : IEquatable<DataAutomationProjectDocumentOutputTextFormatType>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectDocumentOutputTextFormatType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectDocumentOutputTextFormatType PlainText { get; } = new DataAutomationProjectDocumentOutputTextFormatType("PLAIN_TEXT");
+        public static DataAutomationProjectDocumentOutputTextFormatType Markdown { get; } = new DataAutomationProjectDocumentOutputTextFormatType("MARKDOWN");
+        public static DataAutomationProjectDocumentOutputTextFormatType Html { get; } = new DataAutomationProjectDocumentOutputTextFormatType("HTML");
+        public static DataAutomationProjectDocumentOutputTextFormatType Csv { get; } = new DataAutomationProjectDocumentOutputTextFormatType("CSV");
+
+        public static bool operator ==(DataAutomationProjectDocumentOutputTextFormatType left, DataAutomationProjectDocumentOutputTextFormatType right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectDocumentOutputTextFormatType left, DataAutomationProjectDocumentOutputTextFormatType right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectDocumentOutputTextFormatType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectDocumentOutputTextFormatType other && Equals(other);
+        public bool Equals(DataAutomationProjectDocumentOutputTextFormatType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataAutomationProjectImageExtractionCategoryType : IEquatable<DataAutomationProjectImageExtractionCategoryType>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectImageExtractionCategoryType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectImageExtractionCategoryType ContentModeration { get; } = new DataAutomationProjectImageExtractionCategoryType("CONTENT_MODERATION");
+        public static DataAutomationProjectImageExtractionCategoryType TextDetection { get; } = new DataAutomationProjectImageExtractionCategoryType("TEXT_DETECTION");
+        public static DataAutomationProjectImageExtractionCategoryType Logos { get; } = new DataAutomationProjectImageExtractionCategoryType("LOGOS");
+
+        public static bool operator ==(DataAutomationProjectImageExtractionCategoryType left, DataAutomationProjectImageExtractionCategoryType right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectImageExtractionCategoryType left, DataAutomationProjectImageExtractionCategoryType right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectImageExtractionCategoryType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectImageExtractionCategoryType other && Equals(other);
+        public bool Equals(DataAutomationProjectImageExtractionCategoryType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataAutomationProjectImageStandardGenerativeFieldType : IEquatable<DataAutomationProjectImageStandardGenerativeFieldType>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectImageStandardGenerativeFieldType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectImageStandardGenerativeFieldType ImageSummary { get; } = new DataAutomationProjectImageStandardGenerativeFieldType("IMAGE_SUMMARY");
+        public static DataAutomationProjectImageStandardGenerativeFieldType Iab { get; } = new DataAutomationProjectImageStandardGenerativeFieldType("IAB");
+
+        public static bool operator ==(DataAutomationProjectImageStandardGenerativeFieldType left, DataAutomationProjectImageStandardGenerativeFieldType right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectImageStandardGenerativeFieldType left, DataAutomationProjectImageStandardGenerativeFieldType right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectImageStandardGenerativeFieldType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectImageStandardGenerativeFieldType other && Equals(other);
+        public bool Equals(DataAutomationProjectImageStandardGenerativeFieldType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Stage of the Project
+    /// </summary>
+    [EnumType]
+    public readonly struct DataAutomationProjectStage : IEquatable<DataAutomationProjectStage>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectStage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectStage Development { get; } = new DataAutomationProjectStage("DEVELOPMENT");
+        public static DataAutomationProjectStage Live { get; } = new DataAutomationProjectStage("LIVE");
+
+        public static bool operator ==(DataAutomationProjectStage left, DataAutomationProjectStage right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectStage left, DataAutomationProjectStage right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectStage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectStage other && Equals(other);
+        public bool Equals(DataAutomationProjectStage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataAutomationProjectState : IEquatable<DataAutomationProjectState>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectState Enabled { get; } = new DataAutomationProjectState("ENABLED");
+        public static DataAutomationProjectState Disabled { get; } = new DataAutomationProjectState("DISABLED");
+
+        public static bool operator ==(DataAutomationProjectState left, DataAutomationProjectState right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectState left, DataAutomationProjectState right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectState other && Equals(other);
+        public bool Equals(DataAutomationProjectState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataAutomationProjectStatus : IEquatable<DataAutomationProjectStatus>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectStatus Completed { get; } = new DataAutomationProjectStatus("COMPLETED");
+        public static DataAutomationProjectStatus InProgress { get; } = new DataAutomationProjectStatus("IN_PROGRESS");
+        public static DataAutomationProjectStatus Failed { get; } = new DataAutomationProjectStatus("FAILED");
+
+        public static bool operator ==(DataAutomationProjectStatus left, DataAutomationProjectStatus right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectStatus left, DataAutomationProjectStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectStatus other && Equals(other);
+        public bool Equals(DataAutomationProjectStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataAutomationProjectVideoExtractionCategoryType : IEquatable<DataAutomationProjectVideoExtractionCategoryType>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectVideoExtractionCategoryType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectVideoExtractionCategoryType ContentModeration { get; } = new DataAutomationProjectVideoExtractionCategoryType("CONTENT_MODERATION");
+        public static DataAutomationProjectVideoExtractionCategoryType TextDetection { get; } = new DataAutomationProjectVideoExtractionCategoryType("TEXT_DETECTION");
+        public static DataAutomationProjectVideoExtractionCategoryType Transcript { get; } = new DataAutomationProjectVideoExtractionCategoryType("TRANSCRIPT");
+        public static DataAutomationProjectVideoExtractionCategoryType Logos { get; } = new DataAutomationProjectVideoExtractionCategoryType("LOGOS");
+
+        public static bool operator ==(DataAutomationProjectVideoExtractionCategoryType left, DataAutomationProjectVideoExtractionCategoryType right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectVideoExtractionCategoryType left, DataAutomationProjectVideoExtractionCategoryType right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectVideoExtractionCategoryType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectVideoExtractionCategoryType other && Equals(other);
+        public bool Equals(DataAutomationProjectVideoExtractionCategoryType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataAutomationProjectVideoStandardGenerativeFieldType : IEquatable<DataAutomationProjectVideoStandardGenerativeFieldType>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectVideoStandardGenerativeFieldType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectVideoStandardGenerativeFieldType VideoSummary { get; } = new DataAutomationProjectVideoStandardGenerativeFieldType("VIDEO_SUMMARY");
+        public static DataAutomationProjectVideoStandardGenerativeFieldType Iab { get; } = new DataAutomationProjectVideoStandardGenerativeFieldType("IAB");
+        public static DataAutomationProjectVideoStandardGenerativeFieldType ChapterSummary { get; } = new DataAutomationProjectVideoStandardGenerativeFieldType("CHAPTER_SUMMARY");
+
+        public static bool operator ==(DataAutomationProjectVideoStandardGenerativeFieldType left, DataAutomationProjectVideoStandardGenerativeFieldType right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectVideoStandardGenerativeFieldType left, DataAutomationProjectVideoStandardGenerativeFieldType right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectVideoStandardGenerativeFieldType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectVideoStandardGenerativeFieldType other && Equals(other);
+        public bool Equals(DataAutomationProjectVideoStandardGenerativeFieldType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Knowledge base can split your source data into chunks. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for NONE, then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
     /// </summary>
     [EnumType]

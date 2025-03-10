@@ -30,6 +30,7 @@ class SecurityConfigArgs:
         """
         The set of arguments for constructing a SecurityConfig resource.
         :param pulumi.Input[str] description: Security config description
+        :param pulumi.Input['SecurityConfigIamIdentityCenterConfigOptionsArgs'] iam_identity_center_options: Describes IAM Identity Center options in the form of a key-value map.
         :param pulumi.Input[str] name: The friendly name of the security config
         :param pulumi.Input['SecurityConfigSamlConfigOptionsArgs'] saml_options: SAML options for the security configuration in the form of a key-value map.
         :param pulumi.Input['SecurityConfigType'] type: The type of security configuration. Currently the only option is `saml` .
@@ -60,6 +61,9 @@ class SecurityConfigArgs:
     @property
     @pulumi.getter(name="iamIdentityCenterOptions")
     def iam_identity_center_options(self) -> Optional[pulumi.Input['SecurityConfigIamIdentityCenterConfigOptionsArgs']]:
+        """
+        Describes IAM Identity Center options in the form of a key-value map.
+        """
         return pulumi.get(self, "iam_identity_center_options")
 
     @iam_identity_center_options.setter
@@ -158,6 +162,7 @@ class SecurityConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Security config description
+        :param pulumi.Input[Union['SecurityConfigIamIdentityCenterConfigOptionsArgs', 'SecurityConfigIamIdentityCenterConfigOptionsArgsDict']] iam_identity_center_options: Describes IAM Identity Center options in the form of a key-value map.
         :param pulumi.Input[str] name: The friendly name of the security config
         :param pulumi.Input[Union['SecurityConfigSamlConfigOptionsArgs', 'SecurityConfigSamlConfigOptionsArgsDict']] saml_options: SAML options for the security configuration in the form of a key-value map.
         :param pulumi.Input['SecurityConfigType'] type: The type of security configuration. Currently the only option is `saml` .
@@ -295,6 +300,9 @@ class SecurityConfig(pulumi.CustomResource):
     @property
     @pulumi.getter(name="iamIdentityCenterOptions")
     def iam_identity_center_options(self) -> pulumi.Output[Optional['outputs.SecurityConfigIamIdentityCenterConfigOptions']]:
+        """
+        Describes IAM Identity Center options in the form of a key-value map.
+        """
         return pulumi.get(self, "iam_identity_center_options")
 
     @property

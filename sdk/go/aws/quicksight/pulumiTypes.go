@@ -37293,8 +37293,8 @@ func (o AnalysisGeospatialLayerJoinDefinitionPtrOutput) ShapeKeyField() pulumi.S
 }
 
 type AnalysisGeospatialLayerMapConfiguration struct {
-	Interactions interface{}            `pulumi:"interactions"`
-	Legend       *AnalysisLegendOptions `pulumi:"legend"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
+	Legend       *AnalysisLegendOptions            `pulumi:"legend"`
 	// The geospatial layers to visualize on the map.
 	MapLayers []AnalysisGeospatialLayerItem `pulumi:"mapLayers"`
 	// The map state properties for the map.
@@ -37315,8 +37315,8 @@ type AnalysisGeospatialLayerMapConfigurationInput interface {
 }
 
 type AnalysisGeospatialLayerMapConfigurationArgs struct {
-	Interactions pulumi.Input                  `pulumi:"interactions"`
-	Legend       AnalysisLegendOptionsPtrInput `pulumi:"legend"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
+	Legend       AnalysisLegendOptionsPtrInput            `pulumi:"legend"`
 	// The geospatial layers to visualize on the map.
 	MapLayers AnalysisGeospatialLayerItemArrayInput `pulumi:"mapLayers"`
 	// The map state properties for the map.
@@ -37402,8 +37402,10 @@ func (o AnalysisGeospatialLayerMapConfigurationOutput) ToAnalysisGeospatialLayer
 	}).(AnalysisGeospatialLayerMapConfigurationPtrOutput)
 }
 
-func (o AnalysisGeospatialLayerMapConfigurationOutput) Interactions() pulumi.AnyOutput {
-	return o.ApplyT(func(v AnalysisGeospatialLayerMapConfiguration) interface{} { return v.Interactions }).(pulumi.AnyOutput)
+func (o AnalysisGeospatialLayerMapConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisGeospatialLayerMapConfiguration) *AnalysisVisualInteractionOptions {
+		return v.Interactions
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 func (o AnalysisGeospatialLayerMapConfigurationOutput) Legend() AnalysisLegendOptionsPtrOutput {
@@ -37449,13 +37451,13 @@ func (o AnalysisGeospatialLayerMapConfigurationPtrOutput) Elem() AnalysisGeospat
 	}).(AnalysisGeospatialLayerMapConfigurationOutput)
 }
 
-func (o AnalysisGeospatialLayerMapConfigurationPtrOutput) Interactions() pulumi.AnyOutput {
-	return o.ApplyT(func(v *AnalysisGeospatialLayerMapConfiguration) interface{} {
+func (o AnalysisGeospatialLayerMapConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisGeospatialLayerMapConfiguration) *AnalysisVisualInteractionOptions {
 		if v == nil {
 			return nil
 		}
 		return v.Interactions
-	}).(pulumi.AnyOutput)
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 func (o AnalysisGeospatialLayerMapConfigurationPtrOutput) Legend() AnalysisLegendOptionsPtrOutput {
@@ -38243,7 +38245,7 @@ type AnalysisGeospatialMapConfiguration struct {
 	// The field wells of the visual.
 	FieldWells *AnalysisGeospatialMapFieldWells `pulumi:"fieldWells"`
 	// The general visual interactions setup for a visual.
-	Interactions interface{} `pulumi:"interactions"`
+	Interactions *AnalysisVisualInteractionOptions `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend *AnalysisLegendOptions `pulumi:"legend"`
 	// The map style options of the geospatial map.
@@ -38272,7 +38274,7 @@ type AnalysisGeospatialMapConfigurationArgs struct {
 	// The field wells of the visual.
 	FieldWells AnalysisGeospatialMapFieldWellsPtrInput `pulumi:"fieldWells"`
 	// The general visual interactions setup for a visual.
-	Interactions pulumi.Input `pulumi:"interactions"`
+	Interactions AnalysisVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend AnalysisLegendOptionsPtrInput `pulumi:"legend"`
 	// The map style options of the geospatial map.
@@ -38369,8 +38371,8 @@ func (o AnalysisGeospatialMapConfigurationOutput) FieldWells() AnalysisGeospatia
 }
 
 // The general visual interactions setup for a visual.
-func (o AnalysisGeospatialMapConfigurationOutput) Interactions() pulumi.AnyOutput {
-	return o.ApplyT(func(v AnalysisGeospatialMapConfiguration) interface{} { return v.Interactions }).(pulumi.AnyOutput)
+func (o AnalysisGeospatialMapConfigurationOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisGeospatialMapConfiguration) *AnalysisVisualInteractionOptions { return v.Interactions }).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -38441,13 +38443,13 @@ func (o AnalysisGeospatialMapConfigurationPtrOutput) FieldWells() AnalysisGeospa
 }
 
 // The general visual interactions setup for a visual.
-func (o AnalysisGeospatialMapConfigurationPtrOutput) Interactions() pulumi.AnyOutput {
-	return o.ApplyT(func(v *AnalysisGeospatialMapConfiguration) interface{} {
+func (o AnalysisGeospatialMapConfigurationPtrOutput) Interactions() AnalysisVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisGeospatialMapConfiguration) *AnalysisVisualInteractionOptions {
 		if v == nil {
 			return nil
 		}
 		return v.Interactions
-	}).(pulumi.AnyOutput)
+	}).(AnalysisVisualInteractionOptionsPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -44780,7 +44782,7 @@ func (o AnalysisImageInteractionOptionsPtrOutput) ImageMenuOption() AnalysisImag
 
 type AnalysisImageMenuOption struct {
 	// The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
-	AvailabilityStatus interface{} `pulumi:"availabilityStatus"`
+	AvailabilityStatus *AnalysisDashboardBehavior `pulumi:"availabilityStatus"`
 }
 
 // AnalysisImageMenuOptionInput is an input type that accepts AnalysisImageMenuOptionArgs and AnalysisImageMenuOptionOutput values.
@@ -44796,7 +44798,7 @@ type AnalysisImageMenuOptionInput interface {
 
 type AnalysisImageMenuOptionArgs struct {
 	// The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
-	AvailabilityStatus pulumi.Input `pulumi:"availabilityStatus"`
+	AvailabilityStatus AnalysisDashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
 }
 
 func (AnalysisImageMenuOptionArgs) ElementType() reflect.Type {
@@ -44877,8 +44879,8 @@ func (o AnalysisImageMenuOptionOutput) ToAnalysisImageMenuOptionPtrOutputWithCon
 }
 
 // The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
-func (o AnalysisImageMenuOptionOutput) AvailabilityStatus() pulumi.AnyOutput {
-	return o.ApplyT(func(v AnalysisImageMenuOption) interface{} { return v.AvailabilityStatus }).(pulumi.AnyOutput)
+func (o AnalysisImageMenuOptionOutput) AvailabilityStatus() AnalysisDashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v AnalysisImageMenuOption) *AnalysisDashboardBehavior { return v.AvailabilityStatus }).(AnalysisDashboardBehaviorPtrOutput)
 }
 
 type AnalysisImageMenuOptionPtrOutput struct{ *pulumi.OutputState }
@@ -44906,13 +44908,13 @@ func (o AnalysisImageMenuOptionPtrOutput) Elem() AnalysisImageMenuOptionOutput {
 }
 
 // The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
-func (o AnalysisImageMenuOptionPtrOutput) AvailabilityStatus() pulumi.AnyOutput {
-	return o.ApplyT(func(v *AnalysisImageMenuOption) interface{} {
+func (o AnalysisImageMenuOptionPtrOutput) AvailabilityStatus() AnalysisDashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v *AnalysisImageMenuOption) *AnalysisDashboardBehavior {
 		if v == nil {
 			return nil
 		}
 		return v.AvailabilityStatus
-	}).(pulumi.AnyOutput)
+	}).(AnalysisDashboardBehaviorPtrOutput)
 }
 
 type AnalysisImageStaticFile struct {
@@ -75101,8 +75103,6 @@ func (o AnalysisShapeConditionalFormatPtrOutput) BackgroundColor() AnalysisCondi
 //	example a chart, pivot table, or narrative insight. Sheets can be associated with other
 //	components, such as controls, filters, and so on.</p>
 type AnalysisSheet struct {
-	// A list of images on a sheet.
-	Images []AnalysisSheetImage `pulumi:"images"`
 	// <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
 	//             console.</p>
 	Name *string `pulumi:"name"`
@@ -75128,8 +75128,6 @@ type AnalysisSheetInput interface {
 //	example a chart, pivot table, or narrative insight. Sheets can be associated with other
 //	components, such as controls, filters, and so on.</p>
 type AnalysisSheetArgs struct {
-	// A list of images on a sheet.
-	Images AnalysisSheetImageArrayInput `pulumi:"images"`
 	// <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
 	//             console.</p>
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -75192,11 +75190,6 @@ func (o AnalysisSheetOutput) ToAnalysisSheetOutput() AnalysisSheetOutput {
 
 func (o AnalysisSheetOutput) ToAnalysisSheetOutputWithContext(ctx context.Context) AnalysisSheetOutput {
 	return o
-}
-
-// A list of images on a sheet.
-func (o AnalysisSheetOutput) Images() AnalysisSheetImageArrayOutput {
-	return o.ApplyT(func(v AnalysisSheet) []AnalysisSheetImage { return v.Images }).(AnalysisSheetImageArrayOutput)
 }
 
 // <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight

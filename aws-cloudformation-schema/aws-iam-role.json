@@ -109,7 +109,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iam:TagRole", "iam:UntagRole", "iam:ListRoleTags" ]
   },
   "handlers" : {
     "create" : {

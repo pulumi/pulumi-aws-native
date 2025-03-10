@@ -1,4 +1,18 @@
 {
+  "tagging" : {
+    "permissions" : [ "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ],
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "tagProperty" : "/properties/Tags",
+    "cloudFormationSystemTags" : false
+  },
+  "typeName" : "AWS::QuickSight::Template",
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime", "/properties/LastUpdatedTime", "/properties/Version" ],
+  "description" : "Definition of the AWS::QuickSight::Template Resource Type.",
+  "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/TemplateId" ],
+  "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/TemplateId" ],
+  "required" : [ "AwsAccountId", "TemplateId" ],
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-quicksight",
   "handlers" : {
     "read" : {
@@ -25,13 +39,8 @@
       "permissions" : [ "quicksight:DescribeTemplate", "quicksight:DeleteTemplate" ]
     }
   },
-  "typeName" : "AWS::QuickSight::Template",
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime", "/properties/LastUpdatedTime", "/properties/Version" ],
-  "description" : "Definition of the AWS::QuickSight::Template Resource Type.",
   "writeOnlyProperties" : [ "/properties/Definition", "/properties/VersionDescription", "/properties/SourceEntity", "/properties/ValidationStrategy" ],
-  "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/TemplateId" ],
   "additionalProperties" : false,
-  "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/TemplateId" ],
   "definitions" : {
     "PivotTotalOptions" : {
       "additionalProperties" : false,
@@ -5319,7 +5328,7 @@
     },
     "NumberScale" : {
       "type" : "string",
-      "enum" : [ "NONE", "AUTO", "THOUSANDS", "MILLIONS", "BILLIONS", "TRILLIONS" ]
+      "enum" : [ "NONE", "AUTO", "THOUSANDS", "MILLIONS", "BILLIONS", "TRILLIONS", "LAKHS", "CRORES" ]
     },
     "BoxPlotSortConfiguration" : {
       "additionalProperties" : false,
@@ -5342,7 +5351,9 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
-        "AvailabilityStatus" : { }
+        "AvailabilityStatus" : {
+          "$ref" : "#/definitions/DashboardBehavior"
+        }
       }
     },
     "CategoryDrillDownFilter" : {
@@ -5377,6 +5388,10 @@
         }
       },
       "required" : [ "Target" ]
+    },
+    "DashboardBehavior" : {
+      "type" : "string",
+      "enum" : [ "ENABLED", "DISABLED" ]
     },
     "GridLayoutScreenCanvasSizeOptions" : {
       "additionalProperties" : false,
@@ -5780,14 +5795,6 @@
           "description" : "<p>The unique identifier associated with a sheet.</p>",
           "type" : "string",
           "maxLength" : 512
-        },
-        "Images" : {
-          "minItems" : 0,
-          "maxItems" : 10,
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/SheetImage"
-          }
         },
         "Name" : {
           "minLength" : 1,
@@ -10929,6 +10936,14 @@
         }
       }
     },
+    "VisualInteractionOptions" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ContextMenuOption" : { },
+        "VisualMenuOption" : { }
+      }
+    },
     "PivotTableFieldWells" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -10939,7 +10954,6 @@
       }
     }
   },
-  "required" : [ "AwsAccountId", "TemplateId" ],
   "properties" : {
     "CreatedTime" : {
       "format" : "date-time",

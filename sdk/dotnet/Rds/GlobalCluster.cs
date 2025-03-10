@@ -46,9 +46,6 @@ namespace Pulumi.AwsNative.Rds
         [Output("globalClusterIdentifier")]
         public Output<string?> GlobalClusterIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// The writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
-        /// </summary>
         [Output("globalEndpoint")]
         public Output<Outputs.GlobalClusterGlobalEndpoint> GlobalEndpoint { get; private set; } = null!;
 

@@ -177,6 +177,7 @@ func (in *clusterEncryptionInTransitClientBrokerPtr) ToClusterEncryptionInTransi
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterEncryptionInTransitClientBrokerPtrOutput)
 }
 
+// Specifies the level of monitoring for the MSK cluster.
 type ClusterEnhancedMonitoring string
 
 const (
@@ -346,6 +347,7 @@ func (in *clusterEnhancedMonitoringPtr) ToClusterEnhancedMonitoringPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterEnhancedMonitoringPtrOutput)
 }
 
+// This controls storage mode for supported storage tiers.
 type ClusterStorageMode string
 
 const (

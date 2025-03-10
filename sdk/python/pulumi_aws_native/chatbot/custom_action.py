@@ -33,7 +33,7 @@ class CustomActionArgs:
         The set of arguments for constructing a CustomAction resource.
         :param pulumi.Input['CustomActionDefinitionArgs'] definition: The definition of the command to run when invoked as an alias or as an action button.
         :param pulumi.Input[str] action_name: The name of the custom action. This name is included in the Amazon Resource Name (ARN).
-        :param pulumi.Input[str] alias_name: The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+        :param pulumi.Input[str] alias_name: The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
         :param pulumi.Input[Sequence[pulumi.Input['CustomActionAttachmentArgs']]] attachments: Defines when this custom action button should be attached to a notification.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the configuration.
         """
@@ -75,7 +75,7 @@ class CustomActionArgs:
     @pulumi.getter(name="aliasName")
     def alias_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+        The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
         """
         return pulumi.get(self, "alias_name")
 
@@ -125,7 +125,7 @@ class CustomAction(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_name: The name of the custom action. This name is included in the Amazon Resource Name (ARN).
-        :param pulumi.Input[str] alias_name: The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+        :param pulumi.Input[str] alias_name: The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
         :param pulumi.Input[Sequence[pulumi.Input[Union['CustomActionAttachmentArgs', 'CustomActionAttachmentArgsDict']]]] attachments: Defines when this custom action button should be attached to a notification.
         :param pulumi.Input[Union['CustomActionDefinitionArgs', 'CustomActionDefinitionArgsDict']] definition: The definition of the command to run when invoked as an alias or as an action button.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the configuration.
@@ -220,7 +220,7 @@ class CustomAction(pulumi.CustomResource):
     @pulumi.getter(name="aliasName")
     def alias_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+        The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
         """
         return pulumi.get(self, "alias_name")
 

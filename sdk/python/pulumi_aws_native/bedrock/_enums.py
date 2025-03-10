@@ -22,6 +22,20 @@ __all__ = [
     'AgentType',
     'ApplicationInferenceProfileInferenceProfileStatus',
     'ApplicationInferenceProfileInferenceProfileType',
+    'BlueprintStage',
+    'BlueprintType',
+    'DataAutomationProjectAudioExtractionCategoryType',
+    'DataAutomationProjectAudioStandardGenerativeFieldType',
+    'DataAutomationProjectBlueprintStage',
+    'DataAutomationProjectDocumentExtractionGranularityType',
+    'DataAutomationProjectDocumentOutputTextFormatType',
+    'DataAutomationProjectImageExtractionCategoryType',
+    'DataAutomationProjectImageStandardGenerativeFieldType',
+    'DataAutomationProjectStage',
+    'DataAutomationProjectState',
+    'DataAutomationProjectStatus',
+    'DataAutomationProjectVideoExtractionCategoryType',
+    'DataAutomationProjectVideoStandardGenerativeFieldType',
     'DataSourceChunkingStrategy',
     'DataSourceConfluenceSourceConfigurationAuthType',
     'DataSourceConfluenceSourceConfigurationHostType',
@@ -222,6 +236,100 @@ class ApplicationInferenceProfileInferenceProfileType(str, Enum):
     """
     APPLICATION = "APPLICATION"
     SYSTEM_DEFINED = "SYSTEM_DEFINED"
+
+
+class BlueprintStage(str, Enum):
+    """
+    Stage of the Blueprint
+    """
+    DEVELOPMENT = "DEVELOPMENT"
+    LIVE = "LIVE"
+
+
+class BlueprintType(str, Enum):
+    """
+    Modality Type
+    """
+    DOCUMENT = "DOCUMENT"
+    IMAGE = "IMAGE"
+
+
+class DataAutomationProjectAudioExtractionCategoryType(str, Enum):
+    AUDIO_CONTENT_MODERATION = "AUDIO_CONTENT_MODERATION"
+    TRANSCRIPT = "TRANSCRIPT"
+    TOPIC_CONTENT_MODERATION = "TOPIC_CONTENT_MODERATION"
+
+
+class DataAutomationProjectAudioStandardGenerativeFieldType(str, Enum):
+    AUDIO_SUMMARY = "AUDIO_SUMMARY"
+    IAB = "IAB"
+    TOPIC_SUMMARY = "TOPIC_SUMMARY"
+
+
+class DataAutomationProjectBlueprintStage(str, Enum):
+    """
+    Stage of the Blueprint
+    """
+    DEVELOPMENT = "DEVELOPMENT"
+    LIVE = "LIVE"
+
+
+class DataAutomationProjectDocumentExtractionGranularityType(str, Enum):
+    DOCUMENT = "DOCUMENT"
+    PAGE = "PAGE"
+    ELEMENT = "ELEMENT"
+    WORD = "WORD"
+    LINE = "LINE"
+
+
+class DataAutomationProjectDocumentOutputTextFormatType(str, Enum):
+    PLAIN_TEXT = "PLAIN_TEXT"
+    MARKDOWN = "MARKDOWN"
+    HTML = "HTML"
+    CSV = "CSV"
+
+
+class DataAutomationProjectImageExtractionCategoryType(str, Enum):
+    CONTENT_MODERATION = "CONTENT_MODERATION"
+    TEXT_DETECTION = "TEXT_DETECTION"
+    LOGOS = "LOGOS"
+
+
+class DataAutomationProjectImageStandardGenerativeFieldType(str, Enum):
+    IMAGE_SUMMARY = "IMAGE_SUMMARY"
+    IAB = "IAB"
+
+
+class DataAutomationProjectStage(str, Enum):
+    """
+    Stage of the Project
+    """
+    DEVELOPMENT = "DEVELOPMENT"
+    LIVE = "LIVE"
+
+
+class DataAutomationProjectState(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class DataAutomationProjectStatus(str, Enum):
+    COMPLETED = "COMPLETED"
+    IN_PROGRESS = "IN_PROGRESS"
+    FAILED = "FAILED"
+
+
+class DataAutomationProjectVideoExtractionCategoryType(str, Enum):
+    CONTENT_MODERATION = "CONTENT_MODERATION"
+    TEXT_DETECTION = "TEXT_DETECTION"
+    TRANSCRIPT = "TRANSCRIPT"
+    LOGOS = "LOGOS"
+
+
+class DataAutomationProjectVideoStandardGenerativeFieldType(str, Enum):
+    VIDEO_SUMMARY = "VIDEO_SUMMARY"
+    IAB = "IAB"
+    CHAPTER_SUMMARY = "CHAPTER_SUMMARY"
 
 
 class DataSourceChunkingStrategy(str, Enum):
