@@ -40,7 +40,8 @@ type UserSettings struct {
 	// Specifies whether the user can print to the local device.
 	PrintAllowed UserSettingsEnabledTypeOutput `pulumi:"printAllowed"`
 	// The tags to add to the user settings resource. A tag is a key-value pair.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags                 aws.TagArrayOutput                        `pulumi:"tags"`
+	ToolbarConfiguration UserSettingsToolbarConfigurationPtrOutput `pulumi:"toolbarConfiguration"`
 	// Specifies whether the user can upload files from the local device to the streaming session.
 	UploadAllowed UserSettingsEnabledTypeOutput `pulumi:"uploadAllowed"`
 	// The ARN of the user settings.
@@ -123,7 +124,8 @@ type userSettingsArgs struct {
 	// Specifies whether the user can print to the local device.
 	PrintAllowed UserSettingsEnabledType `pulumi:"printAllowed"`
 	// The tags to add to the user settings resource. A tag is a key-value pair.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags                 []aws.Tag                         `pulumi:"tags"`
+	ToolbarConfiguration *UserSettingsToolbarConfiguration `pulumi:"toolbarConfiguration"`
 	// Specifies whether the user can upload files from the local device to the streaming session.
 	UploadAllowed UserSettingsEnabledType `pulumi:"uploadAllowed"`
 }
@@ -151,7 +153,8 @@ type UserSettingsArgs struct {
 	// Specifies whether the user can print to the local device.
 	PrintAllowed UserSettingsEnabledTypeInput
 	// The tags to add to the user settings resource. A tag is a key-value pair.
-	Tags aws.TagArrayInput
+	Tags                 aws.TagArrayInput
+	ToolbarConfiguration UserSettingsToolbarConfigurationPtrInput
 	// Specifies whether the user can upload files from the local device to the streaming session.
 	UploadAllowed UserSettingsEnabledTypeInput
 }
@@ -253,6 +256,10 @@ func (o UserSettingsOutput) PrintAllowed() UserSettingsEnabledTypeOutput {
 // The tags to add to the user settings resource. A tag is a key-value pair.
 func (o UserSettingsOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *UserSettings) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o UserSettingsOutput) ToolbarConfiguration() UserSettingsToolbarConfigurationPtrOutput {
+	return o.ApplyT(func(v *UserSettings) UserSettingsToolbarConfigurationPtrOutput { return v.ToolbarConfiguration }).(UserSettingsToolbarConfigurationPtrOutput)
 }
 
 // Specifies whether the user can upload files from the local device to the streaming session.

@@ -38,11 +38,21 @@
         },
         "required" : [ "SelfServiceAIAgentConfiguration" ],
         "additionalProperties" : false
+      }, {
+        "type" : "object",
+        "title" : "SessionSummarizationAIAgentConfiguration",
+        "properties" : {
+          "SessionSummarizationAIAgentConfiguration" : {
+            "$ref" : "#/definitions/SessionSummarizationAIAgentConfiguration"
+          }
+        },
+        "required" : [ "SessionSummarizationAIAgentConfiguration" ],
+        "additionalProperties" : false
       } ]
     },
     "AIAgentType" : {
       "type" : "string",
-      "enum" : [ "MANUAL_SEARCH", "ANSWER_RECOMMENDATION", "SELF_SERVICE" ]
+      "enum" : [ "MANUAL_SEARCH", "ANSWER_RECOMMENDATION", "SELF_SERVICE", "SESSION_SUMMARIZATION" ]
     },
     "SelfServiceAIAgentConfiguration" : {
       "type" : "object",
@@ -92,6 +102,10 @@
           "items" : {
             "$ref" : "#/definitions/AssociationConfiguration"
           }
+        },
+        "Locale" : {
+          "type" : "string",
+          "minLength" : 1
         }
       },
       "additionalProperties" : false
@@ -162,6 +176,24 @@
           "items" : {
             "$ref" : "#/definitions/AssociationConfiguration"
           }
+        },
+        "Locale" : {
+          "type" : "string",
+          "minLength" : 1
+        }
+      },
+      "additionalProperties" : false
+    },
+    "SessionSummarizationAIAgentConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "SessionSummarizationAIPromptId" : {
+          "type" : "string",
+          "pattern" : "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$"
+        },
+        "Locale" : {
+          "type" : "string",
+          "minLength" : 1
         }
       },
       "additionalProperties" : false

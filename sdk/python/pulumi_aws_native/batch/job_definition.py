@@ -22,6 +22,7 @@ __all__ = ['JobDefinitionArgs', 'JobDefinition']
 class JobDefinitionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 consumable_resource_properties: Optional[pulumi.Input['JobDefinitionConsumableResourcePropertiesArgs']] = None,
                  container_properties: Optional[pulumi.Input['JobDefinitionContainerPropertiesArgs']] = None,
                  ecs_properties: Optional[pulumi.Input['JobDefinitionEcsPropertiesArgs']] = None,
                  eks_properties: Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']] = None,
@@ -58,6 +59,8 @@ class JobDefinitionArgs:
         :param pulumi.Input['JobDefinitionJobTimeoutArgs'] timeout: The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
         """
         pulumi.set(__self__, "type", type)
+        if consumable_resource_properties is not None:
+            pulumi.set(__self__, "consumable_resource_properties", consumable_resource_properties)
         if container_properties is not None:
             pulumi.set(__self__, "container_properties", container_properties)
         if ecs_properties is not None:
@@ -99,6 +102,15 @@ class JobDefinitionArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="consumableResourceProperties")
+    def consumable_resource_properties(self) -> Optional[pulumi.Input['JobDefinitionConsumableResourcePropertiesArgs']]:
+        return pulumi.get(self, "consumable_resource_properties")
+
+    @consumable_resource_properties.setter
+    def consumable_resource_properties(self, value: Optional[pulumi.Input['JobDefinitionConsumableResourcePropertiesArgs']]):
+        pulumi.set(self, "consumable_resource_properties", value)
 
     @property
     @pulumi.getter(name="containerProperties")
@@ -252,6 +264,7 @@ class JobDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 consumable_resource_properties: Optional[pulumi.Input[Union['JobDefinitionConsumableResourcePropertiesArgs', 'JobDefinitionConsumableResourcePropertiesArgsDict']]] = None,
                  container_properties: Optional[pulumi.Input[Union['JobDefinitionContainerPropertiesArgs', 'JobDefinitionContainerPropertiesArgsDict']]] = None,
                  ecs_properties: Optional[pulumi.Input[Union['JobDefinitionEcsPropertiesArgs', 'JobDefinitionEcsPropertiesArgsDict']]] = None,
                  eks_properties: Optional[pulumi.Input[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict']]] = None,
@@ -316,6 +329,7 @@ class JobDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 consumable_resource_properties: Optional[pulumi.Input[Union['JobDefinitionConsumableResourcePropertiesArgs', 'JobDefinitionConsumableResourcePropertiesArgsDict']]] = None,
                  container_properties: Optional[pulumi.Input[Union['JobDefinitionContainerPropertiesArgs', 'JobDefinitionContainerPropertiesArgsDict']]] = None,
                  ecs_properties: Optional[pulumi.Input[Union['JobDefinitionEcsPropertiesArgs', 'JobDefinitionEcsPropertiesArgsDict']]] = None,
                  eks_properties: Optional[pulumi.Input[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict']]] = None,
@@ -338,6 +352,7 @@ class JobDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobDefinitionArgs.__new__(JobDefinitionArgs)
 
+            __props__.__dict__["consumable_resource_properties"] = consumable_resource_properties
             __props__.__dict__["container_properties"] = container_properties
             __props__.__dict__["ecs_properties"] = ecs_properties
             __props__.__dict__["eks_properties"] = eks_properties
@@ -377,6 +392,7 @@ class JobDefinition(pulumi.CustomResource):
 
         __props__ = JobDefinitionArgs.__new__(JobDefinitionArgs)
 
+        __props__.__dict__["consumable_resource_properties"] = None
         __props__.__dict__["container_properties"] = None
         __props__.__dict__["ecs_properties"] = None
         __props__.__dict__["eks_properties"] = None
@@ -391,6 +407,11 @@ class JobDefinition(pulumi.CustomResource):
         __props__.__dict__["timeout"] = None
         __props__.__dict__["type"] = None
         return JobDefinition(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="consumableResourceProperties")
+    def consumable_resource_properties(self) -> pulumi.Output[Optional['outputs.JobDefinitionConsumableResourceProperties']]:
+        return pulumi.get(self, "consumable_resource_properties")
 
     @property
     @pulumi.getter(name="containerProperties")

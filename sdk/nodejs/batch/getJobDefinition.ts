@@ -25,6 +25,7 @@ export interface GetJobDefinitionArgs {
 }
 
 export interface GetJobDefinitionResult {
+    readonly consumableResourceProperties?: outputs.batch.JobDefinitionConsumableResourceProperties;
     /**
      * An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
      */
