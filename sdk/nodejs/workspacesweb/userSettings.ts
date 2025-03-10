@@ -86,6 +86,10 @@ export class UserSettings extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
+     * The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
+     */
+    public readonly toolbarConfiguration!: pulumi.Output<outputs.workspacesweb.UserSettingsToolbarConfiguration | undefined>;
+    /**
      * Specifies whether the user can upload files from the local device to the streaming session.
      */
     public readonly uploadAllowed!: pulumi.Output<enums.workspacesweb.UserSettingsEnabledType>;
@@ -131,6 +135,7 @@ export class UserSettings extends pulumi.CustomResource {
             resourceInputs["pasteAllowed"] = args ? args.pasteAllowed : undefined;
             resourceInputs["printAllowed"] = args ? args.printAllowed : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["toolbarConfiguration"] = args ? args.toolbarConfiguration : undefined;
             resourceInputs["uploadAllowed"] = args ? args.uploadAllowed : undefined;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["userSettingsArn"] = undefined /*out*/;
@@ -147,6 +152,7 @@ export class UserSettings extends pulumi.CustomResource {
             resourceInputs["pasteAllowed"] = undefined /*out*/;
             resourceInputs["printAllowed"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["toolbarConfiguration"] = undefined /*out*/;
             resourceInputs["uploadAllowed"] = undefined /*out*/;
             resourceInputs["userSettingsArn"] = undefined /*out*/;
         }
@@ -203,6 +209,10 @@ export interface UserSettingsArgs {
      * The tags to add to the user settings resource. A tag is a key-value pair.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
+     */
+    toolbarConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsToolbarConfigurationArgs>;
     /**
      * Specifies whether the user can upload files from the local device to the streaming session.
      */

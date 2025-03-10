@@ -19,7 +19,11 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         public Input<string>? LogStreamName { get; set; }
 
         /// <summary>
-        /// The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+        /// A [dynamic path parameter](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) to a field in the payload containing the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+        /// 
+        /// The value cannot be a static timestamp as the provided timestamp would be applied to all events delivered by the Pipe, regardless of when they are actually delivered.
+        /// 
+        /// If no dynamic path parameter is provided, the default value is the time the invocation is processed by the Pipe.
         /// </summary>
         [Input("timestamp")]
         public Input<string>? Timestamp { get; set; }

@@ -26,26 +26,34 @@ class DomainArgs:
     def __init__(__self__, *,
                  domain_execution_role: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 domain_version: Optional[pulumi.Input['DomainVersion']] = None,
                  kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 service_role: Optional[pulumi.Input[str]] = None,
                  single_sign_on: Optional[pulumi.Input['DomainSingleSignOnArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[str] domain_execution_role: The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
         :param pulumi.Input[str] description: The description of the Amazon DataZone domain.
+        :param pulumi.Input['DomainVersion'] domain_version: The version of the domain.
         :param pulumi.Input[str] kms_key_identifier: The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
         :param pulumi.Input[str] name: The name of the Amazon DataZone domain.
+        :param pulumi.Input[str] service_role: The service role of the domain that is created.
         :param pulumi.Input['DomainSingleSignOnArgs'] single_sign_on: The single-sign on configuration of the Amazon DataZone domain.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags specified for the Amazon DataZone domain.
         """
         pulumi.set(__self__, "domain_execution_role", domain_execution_role)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if domain_version is not None:
+            pulumi.set(__self__, "domain_version", domain_version)
         if kms_key_identifier is not None:
             pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if service_role is not None:
+            pulumi.set(__self__, "service_role", service_role)
         if single_sign_on is not None:
             pulumi.set(__self__, "single_sign_on", single_sign_on)
         if tags is not None:
@@ -76,6 +84,18 @@ class DomainArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="domainVersion")
+    def domain_version(self) -> Optional[pulumi.Input['DomainVersion']]:
+        """
+        The version of the domain.
+        """
+        return pulumi.get(self, "domain_version")
+
+    @domain_version.setter
+    def domain_version(self, value: Optional[pulumi.Input['DomainVersion']]):
+        pulumi.set(self, "domain_version", value)
+
+    @property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> Optional[pulumi.Input[str]]:
         """
@@ -98,6 +118,18 @@ class DomainArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="serviceRole")
+    def service_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service role of the domain that is created.
+        """
+        return pulumi.get(self, "service_role")
+
+    @service_role.setter
+    def service_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_role", value)
 
     @property
     @pulumi.getter(name="singleSignOn")
@@ -131,8 +163,10 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  domain_execution_role: Optional[pulumi.Input[str]] = None,
+                 domain_version: Optional[pulumi.Input['DomainVersion']] = None,
                  kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 service_role: Optional[pulumi.Input[str]] = None,
                  single_sign_on: Optional[pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -143,8 +177,10 @@ class Domain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Amazon DataZone domain.
         :param pulumi.Input[str] domain_execution_role: The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
+        :param pulumi.Input['DomainVersion'] domain_version: The version of the domain.
         :param pulumi.Input[str] kms_key_identifier: The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
         :param pulumi.Input[str] name: The name of the Amazon DataZone domain.
+        :param pulumi.Input[str] service_role: The service role of the domain that is created.
         :param pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']] single_sign_on: The single-sign on configuration of the Amazon DataZone domain.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags specified for the Amazon DataZone domain.
         """
@@ -174,8 +210,10 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  domain_execution_role: Optional[pulumi.Input[str]] = None,
+                 domain_version: Optional[pulumi.Input['DomainVersion']] = None,
                  kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 service_role: Optional[pulumi.Input[str]] = None,
                  single_sign_on: Optional[pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -191,8 +229,10 @@ class Domain(pulumi.CustomResource):
             if domain_execution_role is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_execution_role'")
             __props__.__dict__["domain_execution_role"] = domain_execution_role
+            __props__.__dict__["domain_version"] = domain_version
             __props__.__dict__["kms_key_identifier"] = kms_key_identifier
             __props__.__dict__["name"] = name
+            __props__.__dict__["service_role"] = service_role
             __props__.__dict__["single_sign_on"] = single_sign_on
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -202,7 +242,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["managed_account_id"] = None
             __props__.__dict__["portal_url"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kmsKeyIdentifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainVersion", "kmsKeyIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Domain, __self__).__init__(
             'aws-native:datazone:Domain',
@@ -231,11 +271,13 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["domain_execution_role"] = None
+        __props__.__dict__["domain_version"] = None
         __props__.__dict__["kms_key_identifier"] = None
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["managed_account_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["portal_url"] = None
+        __props__.__dict__["service_role"] = None
         __props__.__dict__["single_sign_on"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
@@ -282,6 +324,14 @@ class Domain(pulumi.CustomResource):
         return pulumi.get(self, "domain_execution_role")
 
     @property
+    @pulumi.getter(name="domainVersion")
+    def domain_version(self) -> pulumi.Output[Optional['DomainVersion']]:
+        """
+        The version of the domain.
+        """
+        return pulumi.get(self, "domain_version")
+
+    @property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Output[Optional[str]]:
         """
@@ -320,6 +370,14 @@ class Domain(pulumi.CustomResource):
         The URL of the data portal for this Amazon DataZone domain.
         """
         return pulumi.get(self, "portal_url")
+
+    @property
+    @pulumi.getter(name="serviceRole")
+    def service_role(self) -> pulumi.Output[Optional[str]]:
+        """
+        The service role of the domain that is created.
+        """
+        return pulumi.get(self, "service_role")
 
     @property
     @pulumi.getter(name="singleSignOn")

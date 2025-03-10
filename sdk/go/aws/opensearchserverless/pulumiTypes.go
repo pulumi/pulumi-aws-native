@@ -23,14 +23,18 @@ type CollectionTag struct {
 
 // Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
 type SecurityConfigIamIdentityCenterConfigOptions struct {
+	// The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
 	ApplicationArn *string `pulumi:"applicationArn"`
 	// The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
 	ApplicationDescription *string `pulumi:"applicationDescription"`
 	// The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
 	ApplicationName *string `pulumi:"applicationName"`
-	GroupAttribute  *string `pulumi:"groupAttribute"`
-	InstanceArn     string  `pulumi:"instanceArn"`
-	UserAttribute   *string `pulumi:"userAttribute"`
+	// The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
+	GroupAttribute *string `pulumi:"groupAttribute"`
+	// The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+	InstanceArn string `pulumi:"instanceArn"`
+	// The user attribute for this IAM Identity Center integration. Defaults to `UserId`
+	UserAttribute *string `pulumi:"userAttribute"`
 }
 
 // SecurityConfigIamIdentityCenterConfigOptionsInput is an input type that accepts SecurityConfigIamIdentityCenterConfigOptionsArgs and SecurityConfigIamIdentityCenterConfigOptionsOutput values.
@@ -46,14 +50,18 @@ type SecurityConfigIamIdentityCenterConfigOptionsInput interface {
 
 // Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
 type SecurityConfigIamIdentityCenterConfigOptionsArgs struct {
+	// The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
 	ApplicationArn pulumi.StringPtrInput `pulumi:"applicationArn"`
 	// The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
 	ApplicationDescription pulumi.StringPtrInput `pulumi:"applicationDescription"`
 	// The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
 	ApplicationName pulumi.StringPtrInput `pulumi:"applicationName"`
-	GroupAttribute  pulumi.StringPtrInput `pulumi:"groupAttribute"`
-	InstanceArn     pulumi.StringInput    `pulumi:"instanceArn"`
-	UserAttribute   pulumi.StringPtrInput `pulumi:"userAttribute"`
+	// The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
+	GroupAttribute pulumi.StringPtrInput `pulumi:"groupAttribute"`
+	// The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
+	// The user attribute for this IAM Identity Center integration. Defaults to `UserId`
+	UserAttribute pulumi.StringPtrInput `pulumi:"userAttribute"`
 }
 
 func (SecurityConfigIamIdentityCenterConfigOptionsArgs) ElementType() reflect.Type {
@@ -134,6 +142,7 @@ func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) ToSecurityConfigIamI
 	}).(SecurityConfigIamIdentityCenterConfigOptionsPtrOutput)
 }
 
+// The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
 func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityConfigIamIdentityCenterConfigOptions) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
 }
@@ -148,14 +157,17 @@ func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) ApplicationName() pu
 	return o.ApplyT(func(v SecurityConfigIamIdentityCenterConfigOptions) *string { return v.ApplicationName }).(pulumi.StringPtrOutput)
 }
 
+// The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
 func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) GroupAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityConfigIamIdentityCenterConfigOptions) *string { return v.GroupAttribute }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
 func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityConfigIamIdentityCenterConfigOptions) string { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
+// The user attribute for this IAM Identity Center integration. Defaults to `UserId`
 func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) UserAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityConfigIamIdentityCenterConfigOptions) *string { return v.UserAttribute }).(pulumi.StringPtrOutput)
 }
@@ -184,6 +196,7 @@ func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) Elem() SecurityCo
 	}).(SecurityConfigIamIdentityCenterConfigOptionsOutput)
 }
 
+// The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
 func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityConfigIamIdentityCenterConfigOptions) *string {
 		if v == nil {
@@ -213,6 +226,7 @@ func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) ApplicationName()
 	}).(pulumi.StringPtrOutput)
 }
 
+// The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
 func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) GroupAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityConfigIamIdentityCenterConfigOptions) *string {
 		if v == nil {
@@ -222,6 +236,7 @@ func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) GroupAttribute() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
 func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) InstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityConfigIamIdentityCenterConfigOptions) *string {
 		if v == nil {
@@ -231,6 +246,7 @@ func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) InstanceArn() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// The user attribute for this IAM Identity Center integration. Defaults to `UserId`
 func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) UserAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityConfigIamIdentityCenterConfigOptions) *string {
 		if v == nil {

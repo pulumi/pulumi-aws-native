@@ -42,7 +42,7 @@ export class CustomAction extends pulumi.CustomResource {
      */
     public readonly actionName!: pulumi.Output<string>;
     /**
-     * The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+     * The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
      */
     public readonly aliasName!: pulumi.Output<string | undefined>;
     /**
@@ -106,7 +106,7 @@ export interface CustomActionArgs {
      */
     actionName?: pulumi.Input<string>;
     /**
-     * The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+     * The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
      */
     aliasName?: pulumi.Input<string>;
     /**

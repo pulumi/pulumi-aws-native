@@ -580,7 +580,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "mediaconnect:CreateFlow", "iam:PassRole" ]
+      "permissions" : [ "mediaconnect:CreateFlow", "mediaconnect:AddFlowMediaStreams", "mediaconnect:AddFlowSources", "mediaconnect:AddFlowVpcInterfaces", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "mediaconnect:DescribeFlow" ]
@@ -589,7 +589,7 @@
       "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:UpdateFlow", "mediaconnect:UpdateFlowSource", "mediaconnect:UpdateFlowMediaStream", "mediaconnect:AddFlowMediaStreams", "mediaconnect:RemoveFlowMediaStream", "mediaconnect:AddFlowVpcInterfaces", "mediaconnect:RemoveFlowVpcInterface" ]
     },
     "delete" : {
-      "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:DeleteFlow" ]
+      "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:DeleteFlow", "mediaconnect:RemoveFlowMediaStream", "mediaconnect:RemoveFlowOutput", "mediaconnect:RemoveFlowSource", "mediaconnect:RemoveFlowVpcInterface", "mediaconnect:RevokeFlowEntitlement" ]
     },
     "list" : {
       "permissions" : [ "mediaconnect:ListFlows" ]
