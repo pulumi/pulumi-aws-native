@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * AWS::ECR::RepositoryCreationTemplate is used to create repository with configuration from a pre-defined template.
+ * The details of the repository creation template associated with the request.
  */
 export function getRepositoryCreationTemplate(args: GetRepositoryCreationTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryCreationTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -19,26 +19,26 @@ export function getRepositoryCreationTemplate(args: GetRepositoryCreationTemplat
 
 export interface GetRepositoryCreationTemplateArgs {
     /**
-     * The prefix use to match the repository name and apply the template.
+     * The repository namespace prefix associated with the repository creation template.
      */
     prefix: string;
 }
 
 export interface GetRepositoryCreationTemplateResult {
     /**
-     * A list of enumerable Strings representing the repository creation scenarios that the template will apply towards.
+     * A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
      */
     readonly appliedFor?: enums.ecr.RepositoryCreationTemplateAppliedForItem[];
     /**
-     * Create timestamp of the template.
+     * The date and time, in JavaScript date format, when the repository creation template was created.
      */
     readonly createdAt?: string;
     /**
-     * The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+     * The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.
      */
     readonly customRoleArn?: string;
     /**
-     * The description of the template.
+     * The description associated with the repository creation template.
      */
     readonly description?: string;
     /**
@@ -46,28 +46,28 @@ export interface GetRepositoryCreationTemplateResult {
      */
     readonly encryptionConfiguration?: outputs.ecr.RepositoryCreationTemplateEncryptionConfiguration;
     /**
-     * The image tag mutability setting for the repository.
+     * The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
      */
     readonly imageTagMutability?: enums.ecr.RepositoryCreationTemplateImageTagMutability;
     /**
-     * The JSON lifecycle policy text to apply to the repository. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
+     * The lifecycle policy to use for repositories created using the template.
      */
     readonly lifecyclePolicy?: string;
     /**
-     * The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html
+     * he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
      */
     readonly repositoryPolicy?: string;
     /**
-     * An array of key-value pairs to apply to this resource.
+     * The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
      */
     readonly resourceTags?: outputs.ecr.RepositoryCreationTemplateTag[];
     /**
-     * Update timestamp of the template.
+     * The date and time, in JavaScript date format, when the repository creation template was last updated.
      */
     readonly updatedAt?: string;
 }
 /**
- * AWS::ECR::RepositoryCreationTemplate is used to create repository with configuration from a pre-defined template.
+ * The details of the repository creation template associated with the request.
  */
 export function getRepositoryCreationTemplateOutput(args: GetRepositoryCreationTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryCreationTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,7 +78,7 @@ export function getRepositoryCreationTemplateOutput(args: GetRepositoryCreationT
 
 export interface GetRepositoryCreationTemplateOutputArgs {
     /**
-     * The prefix use to match the repository name and apply the template.
+     * The repository namespace prefix associated with the repository creation template.
      */
     prefix: pulumi.Input<string>;
 }

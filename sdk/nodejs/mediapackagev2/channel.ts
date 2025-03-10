@@ -63,6 +63,10 @@ export class Channel extends pulumi.CustomResource {
      */
     public /*out*/ readonly ingestEndpoints!: pulumi.Output<outputs.mediapackagev2.ChannelIngestEndpoint[]>;
     /**
+     * The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.
+     */
+    public readonly inputSwitchConfiguration!: pulumi.Output<outputs.mediapackagev2.ChannelInputSwitchConfiguration | undefined>;
+    /**
      * The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
      *
      * The allowed values are:
@@ -75,6 +79,10 @@ export class Channel extends pulumi.CustomResource {
      * <p>The date and time the channel was modified.</p>
      */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    /**
+     * The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
+     */
+    public readonly outputHeaderConfiguration!: pulumi.Output<outputs.mediapackagev2.ChannelOutputHeaderConfiguration | undefined>;
     /**
      * The tags associated with the channel.
      */
@@ -97,7 +105,9 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["channelGroupName"] = args ? args.channelGroupName : undefined;
             resourceInputs["channelName"] = args ? args.channelName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["inputSwitchConfiguration"] = args ? args.inputSwitchConfiguration : undefined;
             resourceInputs["inputType"] = args ? args.inputType : undefined;
+            resourceInputs["outputHeaderConfiguration"] = args ? args.outputHeaderConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -112,8 +122,10 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["ingestEndpointUrls"] = undefined /*out*/;
             resourceInputs["ingestEndpoints"] = undefined /*out*/;
+            resourceInputs["inputSwitchConfiguration"] = undefined /*out*/;
             resourceInputs["inputType"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
+            resourceInputs["outputHeaderConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -140,6 +152,10 @@ export interface ChannelArgs {
      */
     description?: pulumi.Input<string>;
     /**
+     * The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.
+     */
+    inputSwitchConfiguration?: pulumi.Input<inputs.mediapackagev2.ChannelInputSwitchConfigurationArgs>;
+    /**
      * The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
      *
      * The allowed values are:
@@ -148,6 +164,10 @@ export interface ChannelArgs {
      * - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
      */
     inputType?: pulumi.Input<enums.mediapackagev2.ChannelInputType>;
+    /**
+     * The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
+     */
+    outputHeaderConfiguration?: pulumi.Input<inputs.mediapackagev2.ChannelOutputHeaderConfigurationArgs>;
     /**
      * The tags associated with the channel.
      */

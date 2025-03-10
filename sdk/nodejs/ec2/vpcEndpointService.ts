@@ -62,6 +62,10 @@ export class VpcEndpointService extends pulumi.CustomResource {
      */
     public /*out*/ readonly serviceId!: pulumi.Output<string>;
     /**
+     * Specify which Ip Address types are supported for VPC endpoint service.
+     */
+    public readonly supportedIpAddressTypes!: pulumi.Output<enums.ec2.VpcEndpointServiceIpAddressType[] | undefined>;
+    /**
      * The tags to add to the VPC endpoint service.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -82,6 +86,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
             resourceInputs["gatewayLoadBalancerArns"] = args ? args.gatewayLoadBalancerArns : undefined;
             resourceInputs["networkLoadBalancerArns"] = args ? args.networkLoadBalancerArns : undefined;
             resourceInputs["payerResponsibility"] = args ? args.payerResponsibility : undefined;
+            resourceInputs["supportedIpAddressTypes"] = args ? args.supportedIpAddressTypes : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["serviceId"] = undefined /*out*/;
         } else {
@@ -91,6 +96,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
             resourceInputs["networkLoadBalancerArns"] = undefined /*out*/;
             resourceInputs["payerResponsibility"] = undefined /*out*/;
             resourceInputs["serviceId"] = undefined /*out*/;
+            resourceInputs["supportedIpAddressTypes"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -122,6 +128,10 @@ export interface VpcEndpointServiceArgs {
      * The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
      */
     payerResponsibility?: pulumi.Input<string>;
+    /**
+     * Specify which Ip Address types are supported for VPC endpoint service.
+     */
+    supportedIpAddressTypes?: pulumi.Input<pulumi.Input<enums.ec2.VpcEndpointServiceIpAddressType>[]>;
     /**
      * The tags to add to the VPC endpoint service.
      */

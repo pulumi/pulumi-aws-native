@@ -29,8 +29,10 @@ class PublishingDestinationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PublishingDestination resource.
+        :param pulumi.Input['PublishingDestinationCfnDestinationPropertiesArgs'] destination_properties: Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
         :param pulumi.Input[str] destination_type: The type of resource for the publishing destination. Currently only Amazon S3 buckets are supported.
         :param pulumi.Input[str] detector_id: The ID of the GuardDuty detector associated with the publishing destination.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Describes a tag.
         """
         pulumi.set(__self__, "destination_properties", destination_properties)
         pulumi.set(__self__, "destination_type", destination_type)
@@ -41,6 +43,9 @@ class PublishingDestinationArgs:
     @property
     @pulumi.getter(name="destinationProperties")
     def destination_properties(self) -> pulumi.Input['PublishingDestinationCfnDestinationPropertiesArgs']:
+        """
+        Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
+        """
         return pulumi.get(self, "destination_properties")
 
     @destination_properties.setter
@@ -74,6 +79,9 @@ class PublishingDestinationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Describes a tag.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -96,8 +104,10 @@ class PublishingDestination(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['PublishingDestinationCfnDestinationPropertiesArgs', 'PublishingDestinationCfnDestinationPropertiesArgsDict']] destination_properties: Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
         :param pulumi.Input[str] destination_type: The type of resource for the publishing destination. Currently only Amazon S3 buckets are supported.
         :param pulumi.Input[str] detector_id: The ID of the GuardDuty detector associated with the publishing destination.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Describes a tag.
         """
         ...
     @overload
@@ -193,6 +203,9 @@ class PublishingDestination(pulumi.CustomResource):
     @property
     @pulumi.getter(name="destinationProperties")
     def destination_properties(self) -> pulumi.Output['outputs.PublishingDestinationCfnDestinationProperties']:
+        """
+        Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
+        """
         return pulumi.get(self, "destination_properties")
 
     @property
@@ -230,5 +243,8 @@ class PublishingDestination(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Describes a tag.
+        """
         return pulumi.get(self, "tags")
 

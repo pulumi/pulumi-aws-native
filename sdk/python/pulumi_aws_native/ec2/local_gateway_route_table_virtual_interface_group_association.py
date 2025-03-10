@@ -82,7 +82,7 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociation(pulumi.CustomResour
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Describes a local gateway route table virtual interface group association for a local gateway.
+        Resource Type definition for Local Gateway Route Table Virtual Interface Group Association which describes a local gateway route table virtual interface group association for a local gateway.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -97,7 +97,7 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociation(pulumi.CustomResour
                  args: LocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Describes a local gateway route table virtual interface group association for a local gateway.
+        Resource Type definition for Local Gateway Route Table Virtual Interface Group Association which describes a local gateway route table virtual interface group association for a local gateway.
 
         :param str resource_name: The name of the resource.
         :param LocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs args: The arguments to use to populate this resource's properties.

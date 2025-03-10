@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Ecr.Outputs
 {
 
     /// <summary>
-    /// An array of objects representing the details of a replication destination.
+    /// An array of objects representing the destination for a replication rule.
     /// </summary>
     [OutputType]
     public sealed class ReplicationConfigurationReplicationDestination

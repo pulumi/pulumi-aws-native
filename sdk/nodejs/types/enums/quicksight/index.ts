@@ -161,6 +161,13 @@ export const AnalysisCustomContentType = {
 
 export type AnalysisCustomContentType = (typeof AnalysisCustomContentType)[keyof typeof AnalysisCustomContentType];
 
+export const AnalysisDashboardBehavior = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type AnalysisDashboardBehavior = (typeof AnalysisDashboardBehavior)[keyof typeof AnalysisDashboardBehavior];
+
 export const AnalysisDataLabelContent = {
     Value: "VALUE",
     Percent: "PERCENT",
@@ -207,6 +214,13 @@ export const AnalysisDayOfTheWeek = {
 } as const;
 
 export type AnalysisDayOfTheWeek = (typeof AnalysisDayOfTheWeek)[keyof typeof AnalysisDayOfTheWeek];
+
+export const AnalysisDigitGroupingStyle = {
+    Default: "DEFAULT",
+    Lakhs: "LAKHS",
+} as const;
+
+export type AnalysisDigitGroupingStyle = (typeof AnalysisDigitGroupingStyle)[keyof typeof AnalysisDigitGroupingStyle];
 
 export const AnalysisErrorType = {
     AccessDenied: "ACCESS_DENIED",
@@ -473,6 +487,8 @@ export const AnalysisNumberScale = {
     Millions: "MILLIONS",
     Billions: "BILLIONS",
     Trillions: "TRILLIONS",
+    Lakhs: "LAKHS",
+    Crores: "CRORES",
 } as const;
 
 export type AnalysisNumberScale = (typeof AnalysisNumberScale)[keyof typeof AnalysisNumberScale];
@@ -1248,6 +1264,13 @@ export const DashboardDayOfTheWeek = {
 
 export type DashboardDayOfTheWeek = (typeof DashboardDayOfTheWeek)[keyof typeof DashboardDayOfTheWeek];
 
+export const DashboardDigitGroupingStyle = {
+    Default: "DEFAULT",
+    Lakhs: "LAKHS",
+} as const;
+
+export type DashboardDigitGroupingStyle = (typeof DashboardDigitGroupingStyle)[keyof typeof DashboardDigitGroupingStyle];
+
 export const DashboardErrorType = {
     AccessDenied: "ACCESS_DENIED",
     SourceNotFound: "SOURCE_NOT_FOUND",
@@ -1513,6 +1536,8 @@ export const DashboardNumberScale = {
     Millions: "MILLIONS",
     Billions: "BILLIONS",
     Trillions: "TRILLIONS",
+    Lakhs: "LAKHS",
+    Crores: "CRORES",
 } as const;
 
 export type DashboardNumberScale = (typeof DashboardNumberScale)[keyof typeof DashboardNumberScale];
@@ -2491,6 +2516,13 @@ export const TemplateCustomContentType = {
 
 export type TemplateCustomContentType = (typeof TemplateCustomContentType)[keyof typeof TemplateCustomContentType];
 
+export const TemplateDashboardBehavior = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type TemplateDashboardBehavior = (typeof TemplateDashboardBehavior)[keyof typeof TemplateDashboardBehavior];
+
 export const TemplateDataLabelContent = {
     Value: "VALUE",
     Percent: "PERCENT",
@@ -2537,6 +2569,13 @@ export const TemplateDayOfTheWeek = {
 } as const;
 
 export type TemplateDayOfTheWeek = (typeof TemplateDayOfTheWeek)[keyof typeof TemplateDayOfTheWeek];
+
+export const TemplateDigitGroupingStyle = {
+    Default: "DEFAULT",
+    Lakhs: "LAKHS",
+} as const;
+
+export type TemplateDigitGroupingStyle = (typeof TemplateDigitGroupingStyle)[keyof typeof TemplateDigitGroupingStyle];
 
 export const TemplateErrorType = {
     SourceNotFound: "SOURCE_NOT_FOUND",
@@ -2765,6 +2804,8 @@ export const TemplateNumberScale = {
     Millions: "MILLIONS",
     Billions: "BILLIONS",
     Trillions: "TRILLIONS",
+    Lakhs: "LAKHS",
+    Crores: "CRORES",
 } as const;
 
 export type TemplateNumberScale = (typeof TemplateNumberScale)[keyof typeof TemplateNumberScale];

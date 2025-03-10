@@ -53,6 +53,8 @@ type LookupUserSettingsResult struct {
 	PrintAllowed *UserSettingsEnabledType `pulumi:"printAllowed"`
 	// The tags to add to the user settings resource. A tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
+	ToolbarConfiguration *UserSettingsToolbarConfiguration `pulumi:"toolbarConfiguration"`
 	// Specifies whether the user can upload files from the local device to the streaming session.
 	UploadAllowed *UserSettingsEnabledType `pulumi:"uploadAllowed"`
 	// The ARN of the user settings.
@@ -151,6 +153,11 @@ func (o LookupUserSettingsResultOutput) PrintAllowed() UserSettingsEnabledTypePt
 // The tags to add to the user settings resource. A tag is a key-value pair.
 func (o LookupUserSettingsResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
+func (o LookupUserSettingsResultOutput) ToolbarConfiguration() UserSettingsToolbarConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupUserSettingsResult) *UserSettingsToolbarConfiguration { return v.ToolbarConfiguration }).(UserSettingsToolbarConfigurationPtrOutput)
 }
 
 // Specifies whether the user can upload files from the local device to the streaming session.

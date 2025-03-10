@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 from ._enums import *
 
@@ -25,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetSoftwarePackageVersionResult:
-    def __init__(__self__, attributes=None, description=None, error_reason=None, package_version_arn=None, status=None, tags=None):
+    def __init__(__self__, artifact=None, attributes=None, description=None, error_reason=None, package_version_arn=None, recipe=None, sbom=None, sbom_validation_status=None, status=None, tags=None):
+        if artifact and not isinstance(artifact, dict):
+            raise TypeError("Expected argument 'artifact' to be a dict")
+        pulumi.set(__self__, "artifact", artifact)
         if attributes and not isinstance(attributes, dict):
             raise TypeError("Expected argument 'attributes' to be a dict")
         pulumi.set(__self__, "attributes", attributes)
@@ -38,12 +42,26 @@ class GetSoftwarePackageVersionResult:
         if package_version_arn and not isinstance(package_version_arn, str):
             raise TypeError("Expected argument 'package_version_arn' to be a str")
         pulumi.set(__self__, "package_version_arn", package_version_arn)
+        if recipe and not isinstance(recipe, str):
+            raise TypeError("Expected argument 'recipe' to be a str")
+        pulumi.set(__self__, "recipe", recipe)
+        if sbom and not isinstance(sbom, dict):
+            raise TypeError("Expected argument 'sbom' to be a dict")
+        pulumi.set(__self__, "sbom", sbom)
+        if sbom_validation_status and not isinstance(sbom_validation_status, str):
+            raise TypeError("Expected argument 'sbom_validation_status' to be a str")
+        pulumi.set(__self__, "sbom_validation_status", sbom_validation_status)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def artifact(self) -> Optional['outputs.SoftwarePackageVersionPackageVersionArtifact']:
+        return pulumi.get(self, "artifact")
 
     @property
     @pulumi.getter
@@ -81,6 +99,24 @@ class GetSoftwarePackageVersionResult:
 
     @property
     @pulumi.getter
+    def recipe(self) -> Optional[str]:
+        """
+        The inline json job document associated with a software package version
+        """
+        return pulumi.get(self, "recipe")
+
+    @property
+    @pulumi.getter
+    def sbom(self) -> Optional['outputs.SoftwarePackageVersionSbom']:
+        return pulumi.get(self, "sbom")
+
+    @property
+    @pulumi.getter(name="sbomValidationStatus")
+    def sbom_validation_status(self) -> Optional['SoftwarePackageVersionSbomValidationStatus']:
+        return pulumi.get(self, "sbom_validation_status")
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional['SoftwarePackageVersionPackageVersionStatus']:
         """
         The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
@@ -102,10 +138,14 @@ class AwaitableGetSoftwarePackageVersionResult(GetSoftwarePackageVersionResult):
         if False:
             yield self
         return GetSoftwarePackageVersionResult(
+            artifact=self.artifact,
             attributes=self.attributes,
             description=self.description,
             error_reason=self.error_reason,
             package_version_arn=self.package_version_arn,
+            recipe=self.recipe,
+            sbom=self.sbom,
+            sbom_validation_status=self.sbom_validation_status,
             status=self.status,
             tags=self.tags)
 
@@ -127,10 +167,14 @@ def get_software_package_version(package_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getSoftwarePackageVersion', __args__, opts=opts, typ=GetSoftwarePackageVersionResult).value
 
     return AwaitableGetSoftwarePackageVersionResult(
+        artifact=pulumi.get(__ret__, 'artifact'),
         attributes=pulumi.get(__ret__, 'attributes'),
         description=pulumi.get(__ret__, 'description'),
         error_reason=pulumi.get(__ret__, 'error_reason'),
         package_version_arn=pulumi.get(__ret__, 'package_version_arn'),
+        recipe=pulumi.get(__ret__, 'recipe'),
+        sbom=pulumi.get(__ret__, 'sbom'),
+        sbom_validation_status=pulumi.get(__ret__, 'sbom_validation_status'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_software_package_version_output(package_name: Optional[pulumi.Input[str]] = None,
@@ -149,9 +193,13 @@ def get_software_package_version_output(package_name: Optional[pulumi.Input[str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getSoftwarePackageVersion', __args__, opts=opts, typ=GetSoftwarePackageVersionResult)
     return __ret__.apply(lambda __response__: GetSoftwarePackageVersionResult(
+        artifact=pulumi.get(__response__, 'artifact'),
         attributes=pulumi.get(__response__, 'attributes'),
         description=pulumi.get(__response__, 'description'),
         error_reason=pulumi.get(__response__, 'error_reason'),
         package_version_arn=pulumi.get(__response__, 'package_version_arn'),
+        recipe=pulumi.get(__response__, 'recipe'),
+        sbom=pulumi.get(__response__, 'sbom'),
+        sbom_validation_status=pulumi.get(__response__, 'sbom_validation_status'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

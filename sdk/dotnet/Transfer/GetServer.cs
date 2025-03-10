@@ -171,6 +171,11 @@ namespace Pulumi.AwsNative.Transfer
         /// Specifies the unique system-assigned identifier for a server that you instantiate.
         /// </summary>
         public readonly string? ServerId;
+        /// <summary>
+        /// The condition of the server that was described. A value of `ONLINE` indicates that the server can accept jobs and transfer files. A `State` value of `OFFLINE` means that the server cannot perform file transfer operations.
+        /// 
+        /// The states of `STARTING` and `STOPPING` indicate that the server is in an intermediate state, either not fully able to respond, or not fully offline. The values of `START_FAILED` or `STOP_FAILED` can indicate an error condition.
+        /// </summary>
         public readonly Pulumi.AwsNative.Transfer.ServerState? State;
         /// <summary>
         /// Specifies the log groups to which your server logs are sent.

@@ -26,6 +26,8 @@ class SoftwarePackageArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SoftwarePackage resource.
+        :param pulumi.Input[str] description: A summary of the package being created. This can be used to outline the package's contents or purpose.
+        :param pulumi.Input[str] package_name: The name of the new software package.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if description is not None:
@@ -38,6 +40,9 @@ class SoftwarePackageArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A summary of the package being created. This can be used to outline the package's contents or purpose.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -47,6 +52,9 @@ class SoftwarePackageArgs:
     @property
     @pulumi.getter(name="packageName")
     def package_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the new software package.
+        """
         return pulumi.get(self, "package_name")
 
     @package_name.setter
@@ -80,6 +88,8 @@ class SoftwarePackage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A summary of the package being created. This can be used to outline the package's contents or purpose.
+        :param pulumi.Input[str] package_name: The name of the new software package.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -155,6 +165,9 @@ class SoftwarePackage(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A summary of the package being created. This can be used to outline the package's contents or purpose.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -168,6 +181,9 @@ class SoftwarePackage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="packageName")
     def package_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the new software package.
+        """
         return pulumi.get(self, "package_name")
 
     @property

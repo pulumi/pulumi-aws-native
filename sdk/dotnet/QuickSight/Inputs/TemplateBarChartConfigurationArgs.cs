@@ -61,6 +61,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.TemplateBarChartFieldWellsArgs>? FieldWells { get; set; }
 
         /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        [Input("interactions")]
+        public Input<Inputs.TemplateVisualInteractionOptionsArgs>? Interactions { get; set; }
+
+        /// <summary>
         /// The legend display setup of the visual.
         /// </summary>
         [Input("legend")]

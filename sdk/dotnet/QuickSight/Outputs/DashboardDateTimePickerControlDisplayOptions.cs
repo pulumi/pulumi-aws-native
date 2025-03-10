@@ -14,9 +14,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardDateTimePickerControlDisplayOptions
     {
         /// <summary>
+        /// The date icon visibility of the `DateTimePickerControlDisplayOptions` .
+        /// </summary>
+        public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? DateIconVisibility;
+        /// <summary>
         /// Customize how dates are formatted in controls.
         /// </summary>
         public readonly string? DateTimeFormat;
+        /// <summary>
+        /// The helper text visibility of the `DateTimePickerControlDisplayOptions` .
+        /// </summary>
+        public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? HelperTextVisibility;
         /// <summary>
         /// The configuration of info icon label options.
         /// </summary>
@@ -28,13 +36,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DashboardDateTimePickerControlDisplayOptions(
+            Pulumi.AwsNative.QuickSight.DashboardVisibility? dateIconVisibility,
+
             string? dateTimeFormat,
+
+            Pulumi.AwsNative.QuickSight.DashboardVisibility? helperTextVisibility,
 
             Outputs.DashboardSheetControlInfoIconLabelOptions? infoIconLabelOptions,
 
             Outputs.DashboardLabelOptions? titleOptions)
         {
+            DateIconVisibility = dateIconVisibility;
             DateTimeFormat = dateTimeFormat;
+            HelperTextVisibility = helperTextVisibility;
             InfoIconLabelOptions = infoIconLabelOptions;
             TitleOptions = titleOptions;
         }

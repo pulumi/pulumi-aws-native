@@ -2260,6 +2260,34 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct VpcEndpointServiceIpAddressType : IEquatable<VpcEndpointServiceIpAddressType>
+    {
+        private readonly string _value;
+
+        private VpcEndpointServiceIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEndpointServiceIpAddressType Ipv4 { get; } = new VpcEndpointServiceIpAddressType("ipv4");
+        public static VpcEndpointServiceIpAddressType Ipv6 { get; } = new VpcEndpointServiceIpAddressType("ipv6");
+
+        public static bool operator ==(VpcEndpointServiceIpAddressType left, VpcEndpointServiceIpAddressType right) => left.Equals(right);
+        public static bool operator !=(VpcEndpointServiceIpAddressType left, VpcEndpointServiceIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEndpointServiceIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEndpointServiceIpAddressType other && Equals(other);
+        public bool Equals(VpcEndpointServiceIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The type of endpoint.
     ///  Default: Gateway

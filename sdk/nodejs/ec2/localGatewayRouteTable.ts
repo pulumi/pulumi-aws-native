@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes a route table for a local gateway.
+ * Resource Type definition for Local Gateway Route Table which describes a route table for a local gateway.
  */
 export class LocalGatewayRouteTable extends pulumi.CustomResource {
     /**

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Describes a route for a local gateway route table.
+ * Resource Type definition for Local Gateway Route which describes a route for a local gateway route table.
  */
 export class LocalGatewayRoute extends pulumi.CustomResource {
     /**

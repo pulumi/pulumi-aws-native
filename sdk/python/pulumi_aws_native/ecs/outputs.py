@@ -652,7 +652,9 @@ class ClusterManagedStorageConfiguration(dict):
         """
         The managed storage configuration for the cluster.
         :param str fargate_ephemeral_storage_kms_key_id: Specify the KMSlong key ID for the Fargate ephemeral storage.
+                The key must be a single Region key.
         :param str kms_key_id: Specify a KMSlong key ID to encrypt the managed storage.
+                The key must be a single Region key.
         """
         if fargate_ephemeral_storage_kms_key_id is not None:
             pulumi.set(__self__, "fargate_ephemeral_storage_kms_key_id", fargate_ephemeral_storage_kms_key_id)
@@ -664,6 +666,7 @@ class ClusterManagedStorageConfiguration(dict):
     def fargate_ephemeral_storage_kms_key_id(self) -> Optional[str]:
         """
         Specify the KMSlong key ID for the Fargate ephemeral storage.
+         The key must be a single Region key.
         """
         return pulumi.get(self, "fargate_ephemeral_storage_kms_key_id")
 
@@ -672,6 +675,7 @@ class ClusterManagedStorageConfiguration(dict):
     def kms_key_id(self) -> Optional[str]:
         """
         Specify a KMSlong key ID to encrypt the managed storage.
+         The key must be a single Region key.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -687,7 +691,7 @@ class ClusterServiceConnectDefaults(dict):
         """
         Use this parameter to set a default Service Connect namespace. After you set a default Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as client services in the namespace. This setting only applies to new services that set the ``enabled`` parameter to ``true`` in the ``ServiceConnectConfiguration``. You can set the namespace of each service individually in the ``ServiceConnectConfiguration`` to override this default parameter.
          Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
-        :param str namespace: The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include hyphens (-), tilde (~), greater than (>), less than (<), or slash (/).
+        :param str namespace: The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include greater than (>), less than (<), double quotation marks ("), or slash (/).
                 If you enter an existing namespace name or ARN, then that namespace will be used. Any namespace type is supported. The namespace must be in this account and this AWS Region.
                 If you enter a new name, a CMAPlong namespace will be created. Amazon ECS creates a CMAP namespace with the "API calls" method of instance discovery only. This instance discovery method is the "HTTP" namespace type in the CLIlong. Other types of instance discovery aren't used by Service Connect.
                 If you update the cluster with an empty string ``""`` for the namespace name, the cluster configuration for Service Connect is removed. Note that the namespace will remain in CMAP and must be deleted separately.
@@ -700,7 +704,7 @@ class ClusterServiceConnectDefaults(dict):
     @pulumi.getter
     def namespace(self) -> Optional[str]:
         """
-        The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include hyphens (-), tilde (~), greater than (>), less than (<), or slash (/).
+        The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include greater than (>), less than (<), double quotation marks ("), or slash (/).
          If you enter an existing namespace name or ARN, then that namespace will be used. Any namespace type is supported. The namespace must be in this account and this AWS Region.
          If you enter a new name, a CMAPlong namespace will be created. Amazon ECS creates a CMAP namespace with the "API calls" method of instance discovery only. This instance discovery method is the "HTTP" namespace type in the CLIlong. Other types of instance discovery aren't used by Service Connect.
          If you update the cluster with an empty string ``""`` for the namespace name, the cluster configuration for Service Connect is removed. Note that the namespace will remain in CMAP and must be deleted separately.
@@ -784,7 +788,11 @@ class ServiceAwsVpcConfiguration(dict):
                  subnets: Optional[Sequence[str]] = None):
         """
         An object representing the networking details for a task or service. For example ``awsVpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}``.
-        :param 'ServiceAwsVpcConfigurationAssignPublicIp' assign_public_ip: Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
+        :param 'ServiceAwsVpcConfigurationAssignPublicIp' assign_public_ip: Whether the task's elastic network interface receives a public IP address. 
+                Consider the following when you set this value:
+                 +  When you use ``create-service`` or ``update-service``, the default is ``DISABLED``. 
+                 +  When the service ``deploymentController`` is ``ECS``, the value must be ``DISABLED``. 
+                 +  When you use ``create-service`` or ``update-service``, the default is ``ENABLED``.
         :param Sequence[str] security_groups: The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified.
                  All specified security groups must be from the same VPC.
         :param Sequence[str] subnets: The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified.
@@ -801,7 +809,11 @@ class ServiceAwsVpcConfiguration(dict):
     @pulumi.getter(name="assignPublicIp")
     def assign_public_ip(self) -> Optional['ServiceAwsVpcConfigurationAssignPublicIp']:
         """
-        Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
+        Whether the task's elastic network interface receives a public IP address. 
+         Consider the following when you set this value:
+          +  When you use ``create-service`` or ``update-service``, the default is ``DISABLED``. 
+          +  When the service ``deploymentController`` is ``ECS``, the value must be ``DISABLED``. 
+          +  When you use ``create-service`` or ``update-service``, the default is ``ENABLED``.
         """
         return pulumi.get(self, "assign_public_ip")
 
@@ -2287,6 +2299,13 @@ class ServiceTag(dict):
       +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
       +  Tag keys and values are case-sensitive.
       +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+      
+     In order to tag a service that has the following ARN format, you need to migrate the service to the long ARN. You must use the API, CLI or console to migrate the service ARN. For more information, see [Migrate an short service ARN to a long ARN](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-arn-migration.html) in the *Developer Guide*.
+      ``arn:aws:ecs:region:aws_account_id:service/service-name`` 
+     After the migration is complete, the following are true:
+      +   The service ARN is: ``arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name`` 
+      +  You can use CFN to tag the service as you would a service with a long ARN format.
+      +  When the ``PhysicalResourceId`` in the CFN stack represents a service, the value does not change and will be the short service ARN.
     """
     def __init__(__self__, *,
                  key: Optional[str] = None,
@@ -2301,6 +2320,13 @@ class ServiceTag(dict):
           +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
           +  Tag keys and values are case-sensitive.
           +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+          
+         In order to tag a service that has the following ARN format, you need to migrate the service to the long ARN. You must use the API, CLI or console to migrate the service ARN. For more information, see [Migrate an short service ARN to a long ARN](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-arn-migration.html) in the *Developer Guide*.
+          ``arn:aws:ecs:region:aws_account_id:service/service-name`` 
+         After the migration is complete, the following are true:
+          +   The service ARN is: ``arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name`` 
+          +  You can use CFN to tag the service as you would a service with a long ARN format.
+          +  When the ``PhysicalResourceId`` in the CFN stack represents a service, the value does not change and will be the short service ARN.
         :param str key: One part of a key-value pair that make up a tag. A ``key`` is a general label that acts like a category for more specific tag values.
         :param str value: The optional part of a key-value pair that make up a tag. A ``value`` acts as a descriptor within a tag category (key).
         """
@@ -3943,11 +3969,11 @@ class TaskDefinitionHealthCheck(dict):
                 You don't include the double quotes and brackets when you use the AWS Management Console.
                  ``CMD-SHELL, curl -f http://localhost/ || exit 1`` 
                 An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command.
-        :param int interval: The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
-        :param int retries: The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
-        :param int start_period: The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off.
+        :param int interval: The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds. This value applies only when you specify a ``command``.
+        :param int retries: The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3. This value applies only when you specify a ``command``.
+        :param int start_period: The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off. This value applies only when you specify a ``command``. 
                  If a health check succeeds within the ``startPeriod``, then the container is considered healthy and any subsequent failures count toward the maximum number of retries.
-        :param int timeout: The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5.
+        :param int timeout: The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5. This value applies only when you specify a ``command``.
         """
         if command is not None:
             pulumi.set(__self__, "command", command)
@@ -3977,7 +4003,7 @@ class TaskDefinitionHealthCheck(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         """
-        The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
+        The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds. This value applies only when you specify a ``command``.
         """
         return pulumi.get(self, "interval")
 
@@ -3985,7 +4011,7 @@ class TaskDefinitionHealthCheck(dict):
     @pulumi.getter
     def retries(self) -> Optional[int]:
         """
-        The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
+        The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3. This value applies only when you specify a ``command``.
         """
         return pulumi.get(self, "retries")
 
@@ -3993,7 +4019,7 @@ class TaskDefinitionHealthCheck(dict):
     @pulumi.getter(name="startPeriod")
     def start_period(self) -> Optional[int]:
         """
-        The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off.
+        The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off. This value applies only when you specify a ``command``. 
           If a health check succeeds within the ``startPeriod``, then the container is considered healthy and any subsequent failures count toward the maximum number of retries.
         """
         return pulumi.get(self, "start_period")
@@ -4002,7 +4028,7 @@ class TaskDefinitionHealthCheck(dict):
     @pulumi.getter
     def timeout(self) -> Optional[int]:
         """
-        The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5.
+        The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5. This value applies only when you specify a ``command``.
         """
         return pulumi.get(self, "timeout")
 
@@ -4159,12 +4185,24 @@ class TaskDefinitionInferenceAccelerator(dict):
 class TaskDefinitionKernelCapabilities(dict):
     """
     The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more detailed information about these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
+     The following describes how Docker processes the Linux capabilities specified in the ``add`` and ``drop`` request parameters. For information about the latest behavior, see [Docker Compose: order of cap_drop and cap_add](https://docs.aws.amazon.com/https://forums.docker.com/t/docker-compose-order-of-cap-drop-and-cap-add/97136/1) in the Docker Community Forum.
+      +  When the container is a privleged container, the container capabilities are all of the default Docker capabilities. The capabilities specified in the ``add`` request parameter, and the ``drop`` request parameter are ignored.
+      +  When the ``add`` request parameter is set to ALL, the container capabilities are all of the default Docker capabilities, excluding those specified in the ``drop`` request parameter.
+      +  When the ``drop`` request parameter is set to ALL, the container capabilities are the capabilities specified in the ``add`` request parameter.
+      +  When the ``add`` request parameter and the ``drop`` request parameter are both empty, the capabilities the container capabilities are all of the default Docker capabilities.
+      +  The default is to first drop the capabilities specified in the ``drop`` request parameter, and then add the capabilities specified in the ``add`` request parameter.
     """
     def __init__(__self__, *,
                  add: Optional[Sequence[str]] = None,
                  drop: Optional[Sequence[str]] = None):
         """
         The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more detailed information about these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
+         The following describes how Docker processes the Linux capabilities specified in the ``add`` and ``drop`` request parameters. For information about the latest behavior, see [Docker Compose: order of cap_drop and cap_add](https://docs.aws.amazon.com/https://forums.docker.com/t/docker-compose-order-of-cap-drop-and-cap-add/97136/1) in the Docker Community Forum.
+          +  When the container is a privleged container, the container capabilities are all of the default Docker capabilities. The capabilities specified in the ``add`` request parameter, and the ``drop`` request parameter are ignored.
+          +  When the ``add`` request parameter is set to ALL, the container capabilities are all of the default Docker capabilities, excluding those specified in the ``drop`` request parameter.
+          +  When the ``drop`` request parameter is set to ALL, the container capabilities are the capabilities specified in the ``add`` request parameter.
+          +  When the ``add`` request parameter and the ``drop`` request parameter are both empty, the capabilities the container capabilities are all of the default Docker capabilities.
+          +  The default is to first drop the capabilities specified in the ``drop`` request parameter, and then add the capabilities specified in the ``add`` request parameter.
         :param Sequence[str] add: The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the docker container create command and the ``--cap-add`` option to docker run.
                  Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.
                  Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``

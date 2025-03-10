@@ -26,6 +26,7 @@ class InferenceComponentArgs:
     def __init__(__self__, *,
                  endpoint_name: pulumi.Input[str],
                  specification: pulumi.Input['InferenceComponentSpecificationArgs'],
+                 deployment_config: Optional[pulumi.Input['InferenceComponentDeploymentConfigArgs']] = None,
                  endpoint_arn: Optional[pulumi.Input[str]] = None,
                  inference_component_name: Optional[pulumi.Input[str]] = None,
                  runtime_config: Optional[pulumi.Input['InferenceComponentRuntimeConfigArgs']] = None,
@@ -40,6 +41,8 @@ class InferenceComponentArgs:
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "specification", specification)
+        if deployment_config is not None:
+            pulumi.set(__self__, "deployment_config", deployment_config)
         if endpoint_arn is not None:
             pulumi.set(__self__, "endpoint_arn", endpoint_arn)
         if inference_component_name is not None:
@@ -71,6 +74,15 @@ class InferenceComponentArgs:
     @specification.setter
     def specification(self, value: pulumi.Input['InferenceComponentSpecificationArgs']):
         pulumi.set(self, "specification", value)
+
+    @property
+    @pulumi.getter(name="deploymentConfig")
+    def deployment_config(self) -> Optional[pulumi.Input['InferenceComponentDeploymentConfigArgs']]:
+        return pulumi.get(self, "deployment_config")
+
+    @deployment_config.setter
+    def deployment_config(self, value: Optional[pulumi.Input['InferenceComponentDeploymentConfigArgs']]):
+        pulumi.set(self, "deployment_config", value)
 
     @property
     @pulumi.getter(name="endpointArn")
@@ -132,6 +144,7 @@ class InferenceComponent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deployment_config: Optional[pulumi.Input[Union['InferenceComponentDeploymentConfigArgs', 'InferenceComponentDeploymentConfigArgsDict']]] = None,
                  endpoint_arn: Optional[pulumi.Input[str]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  inference_component_name: Optional[pulumi.Input[str]] = None,
@@ -174,6 +187,7 @@ class InferenceComponent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deployment_config: Optional[pulumi.Input[Union['InferenceComponentDeploymentConfigArgs', 'InferenceComponentDeploymentConfigArgsDict']]] = None,
                  endpoint_arn: Optional[pulumi.Input[str]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  inference_component_name: Optional[pulumi.Input[str]] = None,
@@ -190,6 +204,7 @@ class InferenceComponent(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InferenceComponentArgs.__new__(InferenceComponentArgs)
 
+            __props__.__dict__["deployment_config"] = deployment_config
             __props__.__dict__["endpoint_arn"] = endpoint_arn
             if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")
@@ -229,6 +244,7 @@ class InferenceComponent(pulumi.CustomResource):
         __props__ = InferenceComponentArgs.__new__(InferenceComponentArgs)
 
         __props__.__dict__["creation_time"] = None
+        __props__.__dict__["deployment_config"] = None
         __props__.__dict__["endpoint_arn"] = None
         __props__.__dict__["endpoint_name"] = None
         __props__.__dict__["failure_reason"] = None
@@ -249,6 +265,11 @@ class InferenceComponent(pulumi.CustomResource):
         The time when the inference component was created.
         """
         return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="deploymentConfig")
+    def deployment_config(self) -> pulumi.Output[Optional['outputs.InferenceComponentDeploymentConfig']]:
+        return pulumi.get(self, "deployment_config")
 
     @property
     @pulumi.getter(name="endpointArn")

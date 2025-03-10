@@ -19,7 +19,7 @@ type CustomAction struct {
 
 	// The name of the custom action. This name is included in the Amazon Resource Name (ARN).
 	ActionName pulumi.StringOutput `pulumi:"actionName"`
-	// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+	// The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
 	AliasName pulumi.StringPtrOutput `pulumi:"aliasName"`
 	// Defines when this custom action button should be attached to a notification.
 	Attachments CustomActionAttachmentArrayOutput `pulumi:"attachments"`
@@ -80,7 +80,7 @@ func (CustomActionState) ElementType() reflect.Type {
 type customActionArgs struct {
 	// The name of the custom action. This name is included in the Amazon Resource Name (ARN).
 	ActionName *string `pulumi:"actionName"`
-	// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+	// The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
 	AliasName *string `pulumi:"aliasName"`
 	// Defines when this custom action button should be attached to a notification.
 	Attachments []CustomActionAttachment `pulumi:"attachments"`
@@ -94,7 +94,7 @@ type customActionArgs struct {
 type CustomActionArgs struct {
 	// The name of the custom action. This name is included in the Amazon Resource Name (ARN).
 	ActionName pulumi.StringPtrInput
-	// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+	// The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
 	AliasName pulumi.StringPtrInput
 	// Defines when this custom action button should be attached to a notification.
 	Attachments CustomActionAttachmentArrayInput
@@ -146,7 +146,7 @@ func (o CustomActionOutput) ActionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomAction) pulumi.StringOutput { return v.ActionName }).(pulumi.StringOutput)
 }
 
-// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+// The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
 func (o CustomActionOutput) AliasName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomAction) pulumi.StringPtrOutput { return v.AliasName }).(pulumi.StringPtrOutput)
 }

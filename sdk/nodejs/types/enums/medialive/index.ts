@@ -49,6 +49,7 @@ export const CloudWatchAlarmTemplateTargetResourceType = {
     MediapackageChannel: "MEDIAPACKAGE_CHANNEL",
     MediapackageOriginEndpoint: "MEDIAPACKAGE_ORIGIN_ENDPOINT",
     MediaconnectFlow: "MEDIACONNECT_FLOW",
+    MediatailorPlaybackConfiguration: "MEDIATAILOR_PLAYBACK_CONFIGURATION",
     S3Bucket: "S3_BUCKET",
 } as const;
 

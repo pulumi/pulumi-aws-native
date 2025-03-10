@@ -29,6 +29,9 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
         [Input("intentLabelingGenerationAiPromptId")]
         public Input<string>? IntentLabelingGenerationAiPromptId { get; set; }
 
+        [Input("locale")]
+        public Input<string>? Locale { get; set; }
+
         [Input("queryReformulationAiPromptId")]
         public Input<string>? QueryReformulationAiPromptId { get; set; }
 

@@ -12,19 +12,22 @@ namespace Pulumi.AwsNative.Ecr
     public static class GetReplicationConfiguration
     {
         /// <summary>
-        /// The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
+        /// The ``AWS::ECR::ReplicationConfiguration`` resource creates or updates the replication configuration for a private registry. The first time a replication configuration is applied to a private registry, a service-linked IAM role is created in your account for the replication process. For more information, see [Using Service-Linked Roles for Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html) in the *Amazon Elastic Container Registry User Guide*.
+        ///   When configuring cross-account replication, the destination account must grant the source account permission to replicate. This permission is controlled using a private registry permissions policy. For more information, see ``AWS::ECR::RegistryPolicy``.
         /// </summary>
         public static Task<GetReplicationConfigurationResult> InvokeAsync(GetReplicationConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationConfigurationResult>("aws-native:ecr:getReplicationConfiguration", args ?? new GetReplicationConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
+        /// The ``AWS::ECR::ReplicationConfiguration`` resource creates or updates the replication configuration for a private registry. The first time a replication configuration is applied to a private registry, a service-linked IAM role is created in your account for the replication process. For more information, see [Using Service-Linked Roles for Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html) in the *Amazon Elastic Container Registry User Guide*.
+        ///   When configuring cross-account replication, the destination account must grant the source account permission to replicate. This permission is controlled using a private registry permissions policy. For more information, see ``AWS::ECR::RegistryPolicy``.
         /// </summary>
         public static Output<GetReplicationConfigurationResult> Invoke(GetReplicationConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationConfigurationResult>("aws-native:ecr:getReplicationConfiguration", args ?? new GetReplicationConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
+        /// The ``AWS::ECR::ReplicationConfiguration`` resource creates or updates the replication configuration for a private registry. The first time a replication configuration is applied to a private registry, a service-linked IAM role is created in your account for the replication process. For more information, see [Using Service-Linked Roles for Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html) in the *Amazon Elastic Container Registry User Guide*.
+        ///   When configuring cross-account replication, the destination account must grant the source account permission to replicate. This permission is controlled using a private registry permissions policy. For more information, see ``AWS::ECR::RegistryPolicy``.
         /// </summary>
         public static Output<GetReplicationConfigurationResult> Invoke(GetReplicationConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationConfigurationResult>("aws-native:ecr:getReplicationConfiguration", args ?? new GetReplicationConfigurationInvokeArgs(), options.WithDefaults());
@@ -34,7 +37,7 @@ namespace Pulumi.AwsNative.Ecr
     public sealed class GetReplicationConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The RegistryId associated with the aws account.
+        /// The account ID of the destination registry.
         /// </summary>
         [Input("registryId", required: true)]
         public string RegistryId { get; set; } = null!;
@@ -48,7 +51,7 @@ namespace Pulumi.AwsNative.Ecr
     public sealed class GetReplicationConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The RegistryId associated with the aws account.
+        /// The account ID of the destination registry.
         /// </summary>
         [Input("registryId", required: true)]
         public Input<string> RegistryId { get; set; } = null!;
@@ -64,7 +67,7 @@ namespace Pulumi.AwsNative.Ecr
     public sealed class GetReplicationConfigurationResult
     {
         /// <summary>
-        /// The RegistryId associated with the aws account.
+        /// The account ID of the destination registry.
         /// </summary>
         public readonly string? RegistryId;
         /// <summary>

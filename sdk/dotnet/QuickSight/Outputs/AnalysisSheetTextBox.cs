@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The content that is displayed in the text box.
         /// </summary>
         public readonly string? Content;
+        public readonly object? Interactions;
         /// <summary>
         /// The unique identifier for a text box. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have text boxes that share identifiers.
         /// </summary>
@@ -26,9 +27,12 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private AnalysisSheetTextBox(
             string? content,
 
+            object? interactions,
+
             string sheetTextBoxId)
         {
             Content = content;
+            Interactions = interactions;
             SheetTextBoxId = sheetTextBoxId;
         }
     }

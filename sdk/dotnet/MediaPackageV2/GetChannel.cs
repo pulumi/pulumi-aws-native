@@ -81,9 +81,17 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelIngestEndpoint> IngestEndpoints;
         /// <summary>
+        /// The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.
+        /// </summary>
+        public readonly Outputs.ChannelInputSwitchConfiguration? InputSwitchConfiguration;
+        /// <summary>
         /// &lt;p&gt;The date and time the channel was modified.&lt;/p&gt;
         /// </summary>
         public readonly string? ModifiedAt;
+        /// <summary>
+        /// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
+        /// </summary>
+        public readonly Outputs.ChannelOutputHeaderConfiguration? OutputHeaderConfiguration;
         /// <summary>
         /// The tags associated with the channel.
         /// </summary>
@@ -101,7 +109,11 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
             ImmutableArray<Outputs.ChannelIngestEndpoint> ingestEndpoints,
 
+            Outputs.ChannelInputSwitchConfiguration? inputSwitchConfiguration,
+
             string? modifiedAt,
+
+            Outputs.ChannelOutputHeaderConfiguration? outputHeaderConfiguration,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
@@ -110,7 +122,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
             Description = description;
             IngestEndpointUrls = ingestEndpointUrls;
             IngestEndpoints = ingestEndpoints;
+            InputSwitchConfiguration = inputSwitchConfiguration;
             ModifiedAt = modifiedAt;
+            OutputHeaderConfiguration = outputHeaderConfiguration;
             Tags = tags;
         }
     }

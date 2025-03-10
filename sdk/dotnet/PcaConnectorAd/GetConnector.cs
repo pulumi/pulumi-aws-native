@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.PcaConnectorAd
     public static class GetConnector
     {
         /// <summary>
-        /// Definition of AWS::PCAConnectorAD::Connector Resource Type
+        /// Represents a Connector that connects AWS PrivateCA and your directory
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("aws-native:pcaconnectorad:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::PCAConnectorAD::Connector Resource Type
+        /// Represents a Connector that connects AWS PrivateCA and your directory
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws-native:pcaconnectorad:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::PCAConnectorAD::Connector Resource Type
+        /// Represents a Connector that connects AWS PrivateCA and your directory
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws-native:pcaconnectorad:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());

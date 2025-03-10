@@ -69,7 +69,13 @@ class FunctionArgs:
                 If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param pulumi.Input[str] handler: The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
         :param pulumi.Input['FunctionImageConfigArgs'] image_config: Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
-        :param pulumi.Input[str] kms_key_arn: The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption). When [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, LAM also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, LAM also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the ECRlong (ECR). If you don't provide a customer managed key, LAM uses a default service key.
+        :param pulumi.Input[str] kms_key_arn: The ARN of the KMSlong (KMS) customer managed key that's used to encrypt the following resources:
+                 +  The function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption).
+                 +  The function's [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) snapshots.
+                 +  When used with ``SourceKMSKeyArn``, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see [Specifying a customer managed key for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption).
+                 +  The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see [Function lifecycle](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle).
+                 
+                If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) or an [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
         :param pulumi.Input['FunctionLoggingConfigArgs'] logging_config: The function's Amazon CloudWatch Logs configuration settings.
         :param pulumi.Input[int] memory_size: The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
@@ -293,7 +299,13 @@ class FunctionArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption). When [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, LAM also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, LAM also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the ECRlong (ECR). If you don't provide a customer managed key, LAM uses a default service key.
+        The ARN of the KMSlong (KMS) customer managed key that's used to encrypt the following resources:
+          +  The function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption).
+          +  The function's [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) snapshots.
+          +  When used with ``SourceKMSKeyArn``, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see [Specifying a customer managed key for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption).
+          +  The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see [Function lifecycle](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle).
+          
+         If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) or an [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -725,7 +737,13 @@ class Function(pulumi.CustomResource):
                 If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param pulumi.Input[str] handler: The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
         :param pulumi.Input[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict']] image_config: Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
-        :param pulumi.Input[str] kms_key_arn: The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption). When [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, LAM also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, LAM also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the ECRlong (ECR). If you don't provide a customer managed key, LAM uses a default service key.
+        :param pulumi.Input[str] kms_key_arn: The ARN of the KMSlong (KMS) customer managed key that's used to encrypt the following resources:
+                 +  The function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption).
+                 +  The function's [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) snapshots.
+                 +  When used with ``SourceKMSKeyArn``, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see [Specifying a customer managed key for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption).
+                 +  The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see [Function lifecycle](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle).
+                 
+                If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) or an [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
         :param pulumi.Input[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']] logging_config: The function's Amazon CloudWatch Logs configuration settings.
         :param pulumi.Input[int] memory_size: The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
@@ -1046,7 +1064,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["snap_start_response"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["functionName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["functionName", "packageType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Function, __self__).__init__(
             'aws-native:lambda:Function',
@@ -1205,7 +1223,13 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption). When [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, LAM also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, LAM also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the ECRlong (ECR). If you don't provide a customer managed key, LAM uses a default service key.
+        The ARN of the KMSlong (KMS) customer managed key that's used to encrypt the following resources:
+          +  The function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption).
+          +  The function's [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) snapshots.
+          +  When used with ``SourceKMSKeyArn``, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see [Specifying a customer managed key for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption).
+          +  The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see [Function lifecycle](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle).
+          
+         If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) or an [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
         """
         return pulumi.get(self, "kms_key_arn")
 

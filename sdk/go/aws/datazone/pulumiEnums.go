@@ -866,6 +866,172 @@ func (in *domainUserAssignmentPtr) ToDomainUserAssignmentPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(DomainUserAssignmentPtrOutput)
 }
 
+// The version of the domain.
+type DomainVersion string
+
+const (
+	DomainVersionV1 = DomainVersion("V1")
+	DomainVersionV2 = DomainVersion("V2")
+)
+
+func (DomainVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainVersion)(nil)).Elem()
+}
+
+func (e DomainVersion) ToDomainVersionOutput() DomainVersionOutput {
+	return pulumi.ToOutput(e).(DomainVersionOutput)
+}
+
+func (e DomainVersion) ToDomainVersionOutputWithContext(ctx context.Context) DomainVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainVersionOutput)
+}
+
+func (e DomainVersion) ToDomainVersionPtrOutput() DomainVersionPtrOutput {
+	return e.ToDomainVersionPtrOutputWithContext(context.Background())
+}
+
+func (e DomainVersion) ToDomainVersionPtrOutputWithContext(ctx context.Context) DomainVersionPtrOutput {
+	return DomainVersion(e).ToDomainVersionOutputWithContext(ctx).ToDomainVersionPtrOutputWithContext(ctx)
+}
+
+func (e DomainVersion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainVersionOutput struct{ *pulumi.OutputState }
+
+func (DomainVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainVersion)(nil)).Elem()
+}
+
+func (o DomainVersionOutput) ToDomainVersionOutput() DomainVersionOutput {
+	return o
+}
+
+func (o DomainVersionOutput) ToDomainVersionOutputWithContext(ctx context.Context) DomainVersionOutput {
+	return o
+}
+
+func (o DomainVersionOutput) ToDomainVersionPtrOutput() DomainVersionPtrOutput {
+	return o.ToDomainVersionPtrOutputWithContext(context.Background())
+}
+
+func (o DomainVersionOutput) ToDomainVersionPtrOutputWithContext(ctx context.Context) DomainVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainVersion) *DomainVersion {
+		return &v
+	}).(DomainVersionPtrOutput)
+}
+
+func (o DomainVersionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainVersion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainVersion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainVersion)(nil)).Elem()
+}
+
+func (o DomainVersionPtrOutput) ToDomainVersionPtrOutput() DomainVersionPtrOutput {
+	return o
+}
+
+func (o DomainVersionPtrOutput) ToDomainVersionPtrOutputWithContext(ctx context.Context) DomainVersionPtrOutput {
+	return o
+}
+
+func (o DomainVersionPtrOutput) Elem() DomainVersionOutput {
+	return o.ApplyT(func(v *DomainVersion) DomainVersion {
+		if v != nil {
+			return *v
+		}
+		var ret DomainVersion
+		return ret
+	}).(DomainVersionOutput)
+}
+
+func (o DomainVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainVersion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainVersionInput is an input type that accepts values of the DomainVersion enum
+// A concrete instance of `DomainVersionInput` can be one of the following:
+//
+//	DomainVersionV1
+//	DomainVersionV2
+type DomainVersionInput interface {
+	pulumi.Input
+
+	ToDomainVersionOutput() DomainVersionOutput
+	ToDomainVersionOutputWithContext(context.Context) DomainVersionOutput
+}
+
+var domainVersionPtrType = reflect.TypeOf((**DomainVersion)(nil)).Elem()
+
+type DomainVersionPtrInput interface {
+	pulumi.Input
+
+	ToDomainVersionPtrOutput() DomainVersionPtrOutput
+	ToDomainVersionPtrOutputWithContext(context.Context) DomainVersionPtrOutput
+}
+
+type domainVersionPtr string
+
+func DomainVersionPtr(v string) DomainVersionPtrInput {
+	return (*domainVersionPtr)(&v)
+}
+
+func (*domainVersionPtr) ElementType() reflect.Type {
+	return domainVersionPtrType
+}
+
+func (in *domainVersionPtr) ToDomainVersionPtrOutput() DomainVersionPtrOutput {
+	return pulumi.ToOutput(in).(DomainVersionPtrOutput)
+}
+
+func (in *domainVersionPtr) ToDomainVersionPtrOutputWithContext(ctx context.Context) DomainVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainVersionPtrOutput)
+}
+
 // The status of the Amazon DataZone environment.
 type EnvironmentStatus string
 
@@ -1743,6 +1909,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAuthTypePtrInput)(nil)).Elem(), DomainAuthType("IAM_IDC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserAssignmentInput)(nil)).Elem(), DomainUserAssignment("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserAssignmentPtrInput)(nil)).Elem(), DomainUserAssignment("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainVersionInput)(nil)).Elem(), DomainVersion("V1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainVersionPtrInput)(nil)).Elem(), DomainVersion("V1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupProfileStatusInput)(nil)).Elem(), GroupProfileStatus("ASSIGNED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupProfileStatusPtrInput)(nil)).Elem(), GroupProfileStatus("ASSIGNED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipUserDesignationInput)(nil)).Elem(), ProjectMembershipUserDesignation("PROJECT_OWNER"))
@@ -1763,6 +1931,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainStatusPtrOutput{})
 	pulumi.RegisterOutputType(DomainUserAssignmentOutput{})
 	pulumi.RegisterOutputType(DomainUserAssignmentPtrOutput{})
+	pulumi.RegisterOutputType(DomainVersionOutput{})
+	pulumi.RegisterOutputType(DomainVersionPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentStatusOutput{})
 	pulumi.RegisterOutputType(EnvironmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(GroupProfileStatusOutput{})

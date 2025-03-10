@@ -1219,6 +1219,11 @@ class Server(pulumi.CustomResource):
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output['ServerState']:
+        """
+        The condition of the server that was described. A value of `ONLINE` indicates that the server can accept jobs and transfer files. A `State` value of `OFFLINE` means that the server cannot perform file transfer operations.
+
+        The states of `STARTING` and `STOPPING` indicate that the server is in an intermediate state, either not fully able to respond, or not fully offline. The values of `START_FAILED` or `STOP_FAILED` can indicate an error condition.
+        """
         return pulumi.get(self, "state")
 
     @property

@@ -72,7 +72,7 @@ export class CloudWatchAlarmTemplate extends pulumi.CustomResource {
     /**
      * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
      */
-    public readonly groupIdentifier!: pulumi.Output<string>;
+    public readonly groupIdentifier!: pulumi.Output<string | undefined>;
     public /*out*/ readonly identifier!: pulumi.Output<string>;
     /**
      * The name of the metric associated with the alarm. Must be compatible with targetResourceType.
@@ -124,9 +124,6 @@ export class CloudWatchAlarmTemplate extends pulumi.CustomResource {
             }
             if ((!args || args.evaluationPeriods === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'evaluationPeriods'");
-            }
-            if ((!args || args.groupIdentifier === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'groupIdentifier'");
             }
             if ((!args || args.metricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
@@ -216,7 +213,7 @@ export interface CloudWatchAlarmTemplateArgs {
     /**
      * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
      */
-    groupIdentifier: pulumi.Input<string>;
+    groupIdentifier?: pulumi.Input<string>;
     /**
      * The name of the metric associated with the alarm. Must be compatible with targetResourceType.
      */

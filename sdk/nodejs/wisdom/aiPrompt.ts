@@ -62,7 +62,7 @@ export class AiPrompt extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The identifier of the model used for this AI Prompt. Model Ids supported are: `CLAUDE_3_HAIKU_20240307_V1` .
+     * The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
      */
     public readonly modelId!: pulumi.Output<string>;
     public /*out*/ readonly modifiedTimeSeconds!: pulumi.Output<number>;
@@ -165,7 +165,7 @@ export interface AiPromptArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The identifier of the model used for this AI Prompt. Model Ids supported are: `CLAUDE_3_HAIKU_20240307_V1` .
+     * The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
      */
     modelId: pulumi.Input<string>;
     /**

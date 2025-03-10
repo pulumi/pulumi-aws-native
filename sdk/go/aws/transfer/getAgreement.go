@@ -39,6 +39,8 @@ type LookupAgreementResult struct {
 	Arn *string `pulumi:"arn"`
 	// Specifies the base directory for the agreement.
 	BaseDirectory *string `pulumi:"baseDirectory"`
+	// Specifies a separate directory for each type of file to store for an AS2 message.
+	CustomDirectories *CustomDirectoriesProperties `pulumi:"customDirectories"`
 	// A textual description for the agreement.
 	Description *string `pulumi:"description"`
 	// Specifies whether to enforce an AS2 message is signed for this agreement.
@@ -107,6 +109,11 @@ func (o LookupAgreementResultOutput) Arn() pulumi.StringPtrOutput {
 // Specifies the base directory for the agreement.
 func (o LookupAgreementResultOutput) BaseDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAgreementResult) *string { return v.BaseDirectory }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a separate directory for each type of file to store for an AS2 message.
+func (o LookupAgreementResultOutput) CustomDirectories() CustomDirectoriesPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupAgreementResult) *CustomDirectoriesProperties { return v.CustomDirectories }).(CustomDirectoriesPropertiesPtrOutput)
 }
 
 // A textual description for the agreement.

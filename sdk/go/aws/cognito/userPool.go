@@ -33,7 +33,7 @@ type UserPool struct {
 	DeletionProtection pulumi.StringPtrOutput `pulumi:"deletionProtection"`
 	// The device-remembering configuration for a user pool. Device remembering or device tracking is a "Remember me on this device" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see [Working with user devices in your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html) . A null value indicates that you have deactivated device remembering in your user pool.
 	//
-	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature. For more infor
+	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature. For more information, see [Working with devices](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html) .
 	DeviceConfiguration        UserPoolDeviceConfigurationPtrOutput `pulumi:"deviceConfiguration"`
 	EmailAuthenticationMessage pulumi.StringPtrOutput               `pulumi:"emailAuthenticationMessage"`
 	EmailAuthenticationSubject pulumi.StringPtrOutput               `pulumi:"emailAuthenticationSubject"`
@@ -167,7 +167,7 @@ type userPoolArgs struct {
 	DeletionProtection *string `pulumi:"deletionProtection"`
 	// The device-remembering configuration for a user pool. Device remembering or device tracking is a "Remember me on this device" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see [Working with user devices in your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html) . A null value indicates that you have deactivated device remembering in your user pool.
 	//
-	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature. For more infor
+	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature. For more information, see [Working with devices](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html) .
 	DeviceConfiguration        *UserPoolDeviceConfiguration `pulumi:"deviceConfiguration"`
 	EmailAuthenticationMessage *string                      `pulumi:"emailAuthenticationMessage"`
 	EmailAuthenticationSubject *string                      `pulumi:"emailAuthenticationSubject"`
@@ -257,7 +257,7 @@ type UserPoolArgs struct {
 	DeletionProtection pulumi.StringPtrInput
 	// The device-remembering configuration for a user pool. Device remembering or device tracking is a "Remember me on this device" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see [Working with user devices in your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html) . A null value indicates that you have deactivated device remembering in your user pool.
 	//
-	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature. For more infor
+	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature. For more information, see [Working with devices](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html) .
 	DeviceConfiguration        UserPoolDeviceConfigurationPtrInput
 	EmailAuthenticationMessage pulumi.StringPtrInput
 	EmailAuthenticationSubject pulumi.StringPtrInput
@@ -402,7 +402,7 @@ func (o UserPoolOutput) DeletionProtection() pulumi.StringPtrOutput {
 
 // The device-remembering configuration for a user pool. Device remembering or device tracking is a "Remember me on this device" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see [Working with user devices in your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html) . A null value indicates that you have deactivated device remembering in your user pool.
 //
-// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature. For more infor
+// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature. For more information, see [Working with devices](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html) .
 func (o UserPoolOutput) DeviceConfiguration() UserPoolDeviceConfigurationPtrOutput {
 	return o.ApplyT(func(v *UserPool) UserPoolDeviceConfigurationPtrOutput { return v.DeviceConfiguration }).(UserPoolDeviceConfigurationPtrOutput)
 }

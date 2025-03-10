@@ -1119,6 +1119,39 @@ namespace Pulumi.AwsNative.IoT
     }
 
     /// <summary>
+    /// The validation status of the Sbom file
+    /// </summary>
+    [EnumType]
+    public readonly struct SoftwarePackageVersionSbomValidationStatus : IEquatable<SoftwarePackageVersionSbomValidationStatus>
+    {
+        private readonly string _value;
+
+        private SoftwarePackageVersionSbomValidationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SoftwarePackageVersionSbomValidationStatus InProgress { get; } = new SoftwarePackageVersionSbomValidationStatus("IN_PROGRESS");
+        public static SoftwarePackageVersionSbomValidationStatus Failed { get; } = new SoftwarePackageVersionSbomValidationStatus("FAILED");
+        public static SoftwarePackageVersionSbomValidationStatus Succeeded { get; } = new SoftwarePackageVersionSbomValidationStatus("SUCCEEDED");
+        public static SoftwarePackageVersionSbomValidationStatus Empty { get; } = new SoftwarePackageVersionSbomValidationStatus("");
+
+        public static bool operator ==(SoftwarePackageVersionSbomValidationStatus left, SoftwarePackageVersionSbomValidationStatus right) => left.Equals(right);
+        public static bool operator !=(SoftwarePackageVersionSbomValidationStatus left, SoftwarePackageVersionSbomValidationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SoftwarePackageVersionSbomValidationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SoftwarePackageVersionSbomValidationStatus other && Equals(other);
+        public bool Equals(SoftwarePackageVersionSbomValidationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The attribute associated with the connection details.
     /// </summary>
     [EnumType]

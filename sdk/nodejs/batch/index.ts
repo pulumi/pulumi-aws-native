@@ -10,10 +10,20 @@ export type ComputeEnvironment = import("./computeEnvironment").ComputeEnvironme
 export const ComputeEnvironment: typeof import("./computeEnvironment").ComputeEnvironment = null as any;
 utilities.lazyLoad(exports, ["ComputeEnvironment"], () => require("./computeEnvironment"));
 
+export { ConsumableResourceArgs } from "./consumableResource";
+export type ConsumableResource = import("./consumableResource").ConsumableResource;
+export const ConsumableResource: typeof import("./consumableResource").ConsumableResource = null as any;
+utilities.lazyLoad(exports, ["ConsumableResource"], () => require("./consumableResource"));
+
 export { GetComputeEnvironmentArgs, GetComputeEnvironmentResult, GetComputeEnvironmentOutputArgs } from "./getComputeEnvironment";
 export const getComputeEnvironment: typeof import("./getComputeEnvironment").getComputeEnvironment = null as any;
 export const getComputeEnvironmentOutput: typeof import("./getComputeEnvironment").getComputeEnvironmentOutput = null as any;
 utilities.lazyLoad(exports, ["getComputeEnvironment","getComputeEnvironmentOutput"], () => require("./getComputeEnvironment"));
+
+export { GetConsumableResourceArgs, GetConsumableResourceResult, GetConsumableResourceOutputArgs } from "./getConsumableResource";
+export const getConsumableResource: typeof import("./getConsumableResource").getConsumableResource = null as any;
+export const getConsumableResourceOutput: typeof import("./getConsumableResource").getConsumableResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getConsumableResource","getConsumableResourceOutput"], () => require("./getConsumableResource"));
 
 export { GetJobDefinitionArgs, GetJobDefinitionResult, GetJobDefinitionOutputArgs } from "./getJobDefinition";
 export const getJobDefinition: typeof import("./getJobDefinition").getJobDefinition = null as any;
@@ -55,6 +65,8 @@ const _module = {
         switch (type) {
             case "aws-native:batch:ComputeEnvironment":
                 return new ComputeEnvironment(name, <any>undefined, { urn })
+            case "aws-native:batch:ConsumableResource":
+                return new ConsumableResource(name, <any>undefined, { urn })
             case "aws-native:batch:JobDefinition":
                 return new JobDefinition(name, <any>undefined, { urn })
             case "aws-native:batch:JobQueue":

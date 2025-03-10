@@ -25,6 +25,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.AnalysisFontDecoration>? FontDecoration { get; set; }
 
         /// <summary>
+        /// The font family that you want to use.
+        /// </summary>
+        [Input("fontFamily")]
+        public Input<string>? FontFamily { get; set; }
+
+        /// <summary>
         /// The option that determines the text display size.
         /// </summary>
         [Input("fontSize")]

@@ -37,6 +37,7 @@ __all__ = [
     'ImageVersionJobType',
     'ImageVersionProcessor',
     'ImageVersionVendorGuidance',
+    'InferenceComponentCapacitySizeType',
     'InferenceComponentStatus',
     'InferenceExperimentDesiredState',
     'InferenceExperimentEndpointMetadataEndpointStatus',
@@ -514,6 +515,11 @@ class ImageVersionVendorGuidance(str, Enum):
     STABLE = "STABLE"
     TO_BE_ARCHIVED = "TO_BE_ARCHIVED"
     ARCHIVED = "ARCHIVED"
+
+
+class InferenceComponentCapacitySizeType(str, Enum):
+    COPY_COUNT = "COPY_COUNT"
+    CAPACITY_PERCENT = "CAPACITY_PERCENT"
 
 
 class InferenceComponentStatus(str, Enum):

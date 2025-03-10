@@ -5694,6 +5694,171 @@ func (in *imageVersionVendorGuidancePtr) ToImageVersionVendorGuidancePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(ImageVersionVendorGuidancePtrOutput)
 }
 
+type InferenceComponentCapacitySizeType string
+
+const (
+	InferenceComponentCapacitySizeTypeCopyCount       = InferenceComponentCapacitySizeType("COPY_COUNT")
+	InferenceComponentCapacitySizeTypeCapacityPercent = InferenceComponentCapacitySizeType("CAPACITY_PERCENT")
+)
+
+func (InferenceComponentCapacitySizeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentCapacitySizeType)(nil)).Elem()
+}
+
+func (e InferenceComponentCapacitySizeType) ToInferenceComponentCapacitySizeTypeOutput() InferenceComponentCapacitySizeTypeOutput {
+	return pulumi.ToOutput(e).(InferenceComponentCapacitySizeTypeOutput)
+}
+
+func (e InferenceComponentCapacitySizeType) ToInferenceComponentCapacitySizeTypeOutputWithContext(ctx context.Context) InferenceComponentCapacitySizeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InferenceComponentCapacitySizeTypeOutput)
+}
+
+func (e InferenceComponentCapacitySizeType) ToInferenceComponentCapacitySizeTypePtrOutput() InferenceComponentCapacitySizeTypePtrOutput {
+	return e.ToInferenceComponentCapacitySizeTypePtrOutputWithContext(context.Background())
+}
+
+func (e InferenceComponentCapacitySizeType) ToInferenceComponentCapacitySizeTypePtrOutputWithContext(ctx context.Context) InferenceComponentCapacitySizeTypePtrOutput {
+	return InferenceComponentCapacitySizeType(e).ToInferenceComponentCapacitySizeTypeOutputWithContext(ctx).ToInferenceComponentCapacitySizeTypePtrOutputWithContext(ctx)
+}
+
+func (e InferenceComponentCapacitySizeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InferenceComponentCapacitySizeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InferenceComponentCapacitySizeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InferenceComponentCapacitySizeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InferenceComponentCapacitySizeTypeOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentCapacitySizeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentCapacitySizeType)(nil)).Elem()
+}
+
+func (o InferenceComponentCapacitySizeTypeOutput) ToInferenceComponentCapacitySizeTypeOutput() InferenceComponentCapacitySizeTypeOutput {
+	return o
+}
+
+func (o InferenceComponentCapacitySizeTypeOutput) ToInferenceComponentCapacitySizeTypeOutputWithContext(ctx context.Context) InferenceComponentCapacitySizeTypeOutput {
+	return o
+}
+
+func (o InferenceComponentCapacitySizeTypeOutput) ToInferenceComponentCapacitySizeTypePtrOutput() InferenceComponentCapacitySizeTypePtrOutput {
+	return o.ToInferenceComponentCapacitySizeTypePtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentCapacitySizeTypeOutput) ToInferenceComponentCapacitySizeTypePtrOutputWithContext(ctx context.Context) InferenceComponentCapacitySizeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentCapacitySizeType) *InferenceComponentCapacitySizeType {
+		return &v
+	}).(InferenceComponentCapacitySizeTypePtrOutput)
+}
+
+func (o InferenceComponentCapacitySizeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentCapacitySizeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceComponentCapacitySizeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InferenceComponentCapacitySizeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentCapacitySizeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceComponentCapacitySizeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InferenceComponentCapacitySizeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentCapacitySizeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentCapacitySizeType)(nil)).Elem()
+}
+
+func (o InferenceComponentCapacitySizeTypePtrOutput) ToInferenceComponentCapacitySizeTypePtrOutput() InferenceComponentCapacitySizeTypePtrOutput {
+	return o
+}
+
+func (o InferenceComponentCapacitySizeTypePtrOutput) ToInferenceComponentCapacitySizeTypePtrOutputWithContext(ctx context.Context) InferenceComponentCapacitySizeTypePtrOutput {
+	return o
+}
+
+func (o InferenceComponentCapacitySizeTypePtrOutput) Elem() InferenceComponentCapacitySizeTypeOutput {
+	return o.ApplyT(func(v *InferenceComponentCapacitySizeType) InferenceComponentCapacitySizeType {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentCapacitySizeType
+		return ret
+	}).(InferenceComponentCapacitySizeTypeOutput)
+}
+
+func (o InferenceComponentCapacitySizeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentCapacitySizeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InferenceComponentCapacitySizeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InferenceComponentCapacitySizeTypeInput is an input type that accepts values of the InferenceComponentCapacitySizeType enum
+// A concrete instance of `InferenceComponentCapacitySizeTypeInput` can be one of the following:
+//
+//	InferenceComponentCapacitySizeTypeCopyCount
+//	InferenceComponentCapacitySizeTypeCapacityPercent
+type InferenceComponentCapacitySizeTypeInput interface {
+	pulumi.Input
+
+	ToInferenceComponentCapacitySizeTypeOutput() InferenceComponentCapacitySizeTypeOutput
+	ToInferenceComponentCapacitySizeTypeOutputWithContext(context.Context) InferenceComponentCapacitySizeTypeOutput
+}
+
+var inferenceComponentCapacitySizeTypePtrType = reflect.TypeOf((**InferenceComponentCapacitySizeType)(nil)).Elem()
+
+type InferenceComponentCapacitySizeTypePtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentCapacitySizeTypePtrOutput() InferenceComponentCapacitySizeTypePtrOutput
+	ToInferenceComponentCapacitySizeTypePtrOutputWithContext(context.Context) InferenceComponentCapacitySizeTypePtrOutput
+}
+
+type inferenceComponentCapacitySizeTypePtr string
+
+func InferenceComponentCapacitySizeTypePtr(v string) InferenceComponentCapacitySizeTypePtrInput {
+	return (*inferenceComponentCapacitySizeTypePtr)(&v)
+}
+
+func (*inferenceComponentCapacitySizeTypePtr) ElementType() reflect.Type {
+	return inferenceComponentCapacitySizeTypePtrType
+}
+
+func (in *inferenceComponentCapacitySizeTypePtr) ToInferenceComponentCapacitySizeTypePtrOutput() InferenceComponentCapacitySizeTypePtrOutput {
+	return pulumi.ToOutput(in).(InferenceComponentCapacitySizeTypePtrOutput)
+}
+
+func (in *inferenceComponentCapacitySizeTypePtr) ToInferenceComponentCapacitySizeTypePtrOutputWithContext(ctx context.Context) InferenceComponentCapacitySizeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InferenceComponentCapacitySizeTypePtrOutput)
+}
+
 type InferenceComponentStatus string
 
 const (
@@ -17156,6 +17321,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionProcessorPtrInput)(nil)).Elem(), ImageVersionProcessor("CPU"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionVendorGuidanceInput)(nil)).Elem(), ImageVersionVendorGuidance("NOT_PROVIDED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionVendorGuidancePtrInput)(nil)).Elem(), ImageVersionVendorGuidance("NOT_PROVIDED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentCapacitySizeTypeInput)(nil)).Elem(), InferenceComponentCapacitySizeType("COPY_COUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentCapacitySizeTypePtrInput)(nil)).Elem(), InferenceComponentCapacitySizeType("COPY_COUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentDesiredStateInput)(nil)).Elem(), InferenceExperimentDesiredState("Running"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentDesiredStatePtrInput)(nil)).Elem(), InferenceExperimentDesiredState("Running"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentModelInfrastructureConfigInfrastructureTypeInput)(nil)).Elem(), InferenceExperimentModelInfrastructureConfigInfrastructureType("RealTimeInference"))
@@ -17349,6 +17516,8 @@ func init() {
 	pulumi.RegisterOutputType(ImageVersionProcessorPtrOutput{})
 	pulumi.RegisterOutputType(ImageVersionVendorGuidanceOutput{})
 	pulumi.RegisterOutputType(ImageVersionVendorGuidancePtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentCapacitySizeTypeOutput{})
+	pulumi.RegisterOutputType(InferenceComponentCapacitySizeTypePtrOutput{})
 	pulumi.RegisterOutputType(InferenceComponentStatusOutput{})
 	pulumi.RegisterOutputType(InferenceComponentStatusPtrOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentDesiredStateOutput{})

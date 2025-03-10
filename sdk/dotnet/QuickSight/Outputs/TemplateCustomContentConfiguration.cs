@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The sizing options for the size of the custom content visual. This structure is required when the `ContentType` of the visual is `'IMAGE'` .
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateCustomContentImageScalingConfiguration? ImageScaling;
+        /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        public readonly Outputs.TemplateVisualInteractionOptions? Interactions;
 
         [OutputConstructor]
         private TemplateCustomContentConfiguration(
@@ -32,11 +36,14 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? contentUrl,
 
-            Pulumi.AwsNative.QuickSight.TemplateCustomContentImageScalingConfiguration? imageScaling)
+            Pulumi.AwsNative.QuickSight.TemplateCustomContentImageScalingConfiguration? imageScaling,
+
+            Outputs.TemplateVisualInteractionOptions? interactions)
         {
             ContentType = contentType;
             ContentUrl = contentUrl;
             ImageScaling = imageScaling;
+            Interactions = interactions;
         }
     }
 }

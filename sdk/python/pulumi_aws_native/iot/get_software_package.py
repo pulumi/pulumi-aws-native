@@ -38,6 +38,9 @@ class GetSoftwarePackageResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A summary of the package being created. This can be used to outline the package's contents or purpose.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -72,6 +75,9 @@ def get_software_package(package_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSoftwarePackageResult:
     """
     resource definition
+
+
+    :param str package_name: The name of the new software package.
     """
     __args__ = dict()
     __args__['packageName'] = package_name
@@ -86,6 +92,9 @@ def get_software_package_output(package_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSoftwarePackageResult]:
     """
     resource definition
+
+
+    :param str package_name: The name of the new software package.
     """
     __args__ = dict()
     __args__['packageName'] = package_name

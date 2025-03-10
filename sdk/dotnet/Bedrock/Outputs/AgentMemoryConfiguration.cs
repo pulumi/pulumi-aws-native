@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class AgentMemoryConfiguration
     {
+        /// <summary>
+        /// The type of memory that is stored.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Bedrock.AgentMemoryType> EnabledMemoryTypes;
+        /// <summary>
+        /// Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
+        /// </summary>
         public readonly Outputs.AgentSessionSummaryConfiguration? SessionSummaryConfiguration;
         /// <summary>
         /// Maximum number of days to store session details

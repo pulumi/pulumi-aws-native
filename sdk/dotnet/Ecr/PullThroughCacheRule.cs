@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecr
 {
     /// <summary>
-    /// The AWS::ECR::PullThroughCacheRule resource configures the upstream registry configuration details for an Amazon Elastic Container Registry (Amazon Private ECR) pull-through cache.
+    /// The ``AWS::ECR::PullThroughCacheRule`` resource creates or updates a pull through cache rule. A pull through cache rule provides a way to cache images from an upstream registry in your Amazon ECR private registry.
     /// 
     /// ## Example Usage
     /// ### Example
@@ -56,25 +56,25 @@ namespace Pulumi.AwsNative.Ecr
     public partial class PullThroughCacheRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.
+        /// The ARN of the Secrets Manager secret associated with the pull through cache rule.
         /// </summary>
         [Output("credentialArn")]
         public Output<string?> CredentialArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ECRRepositoryPrefix is a custom alias for upstream registry url.
+        /// The Amazon ECR repository prefix associated with the pull through cache rule.
         /// </summary>
         [Output("ecrRepositoryPrefix")]
         public Output<string?> EcrRepositoryPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the upstream registry.
+        /// The name of the upstream source registry associated with the pull through cache rule.
         /// </summary>
         [Output("upstreamRegistry")]
         public Output<string?> UpstreamRegistry { get; private set; } = null!;
 
         /// <summary>
-        /// The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached
+        /// The upstream registry URL associated with the pull through cache rule.
         /// </summary>
         [Output("upstreamRegistryUrl")]
         public Output<string?> UpstreamRegistryUrl { get; private set; } = null!;
@@ -132,25 +132,25 @@ namespace Pulumi.AwsNative.Ecr
     public sealed class PullThroughCacheRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.
+        /// The ARN of the Secrets Manager secret associated with the pull through cache rule.
         /// </summary>
         [Input("credentialArn")]
         public Input<string>? CredentialArn { get; set; }
 
         /// <summary>
-        /// The ECRRepositoryPrefix is a custom alias for upstream registry url.
+        /// The Amazon ECR repository prefix associated with the pull through cache rule.
         /// </summary>
         [Input("ecrRepositoryPrefix")]
         public Input<string>? EcrRepositoryPrefix { get; set; }
 
         /// <summary>
-        /// The name of the upstream registry.
+        /// The name of the upstream source registry associated with the pull through cache rule.
         /// </summary>
         [Input("upstreamRegistry")]
         public Input<string>? UpstreamRegistry { get; set; }
 
         /// <summary>
-        /// The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached
+        /// The upstream registry URL associated with the pull through cache rule.
         /// </summary>
         [Input("upstreamRegistryUrl")]
         public Input<string>? UpstreamRegistryUrl { get; set; }

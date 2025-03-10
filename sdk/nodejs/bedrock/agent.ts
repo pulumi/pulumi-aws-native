@@ -45,6 +45,9 @@ export class Agent extends pulumi.CustomResource {
      * Arn representation of the Agent.
      */
     public /*out*/ readonly agentArn!: pulumi.Output<string>;
+    /**
+     * The agent's collaboration settings.
+     */
     public readonly agentCollaboration!: pulumi.Output<enums.bedrock.AgentCollaboration | undefined>;
     /**
      * List of Agent Collaborators
@@ -86,6 +89,9 @@ export class Agent extends pulumi.CustomResource {
      * Time Stamp.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Contains custom orchestration configurations for the agent.
+     */
     public readonly customOrchestration!: pulumi.Output<outputs.bedrock.AgentCustomOrchestration | undefined>;
     /**
      * A KMS key ARN
@@ -119,7 +125,13 @@ export class Agent extends pulumi.CustomResource {
      * List of Agent Knowledge Bases
      */
     public readonly knowledgeBases!: pulumi.Output<outputs.bedrock.AgentKnowledgeBase[] | undefined>;
+    /**
+     * Contains memory configuration for the agent.
+     */
     public readonly memoryConfiguration!: pulumi.Output<outputs.bedrock.AgentMemoryConfiguration | undefined>;
+    /**
+     * Specifies the orchestration strategy for the agent.
+     */
     public readonly orchestrationType!: pulumi.Output<enums.bedrock.AgentOrchestrationType | undefined>;
     /**
      * Time Stamp.
@@ -240,6 +252,9 @@ export interface AgentArgs {
      * List of ActionGroups
      */
     actionGroups?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentActionGroupArgs>[]>;
+    /**
+     * The agent's collaboration settings.
+     */
     agentCollaboration?: pulumi.Input<enums.bedrock.AgentCollaboration>;
     /**
      * List of Agent Collaborators
@@ -257,6 +272,9 @@ export interface AgentArgs {
      * Specifies whether to automatically prepare after creating or updating the agent.
      */
     autoPrepare?: pulumi.Input<boolean>;
+    /**
+     * Contains custom orchestration configurations for the agent.
+     */
     customOrchestration?: pulumi.Input<inputs.bedrock.AgentCustomOrchestrationArgs>;
     /**
      * A KMS key ARN
@@ -286,7 +304,13 @@ export interface AgentArgs {
      * List of Agent Knowledge Bases
      */
     knowledgeBases?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentKnowledgeBaseArgs>[]>;
+    /**
+     * Contains memory configuration for the agent.
+     */
     memoryConfiguration?: pulumi.Input<inputs.bedrock.AgentMemoryConfigurationArgs>;
+    /**
+     * Specifies the orchestration strategy for the agent.
+     */
     orchestrationType?: pulumi.Input<enums.bedrock.AgentOrchestrationType>;
     /**
      * Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .

@@ -32,7 +32,7 @@ class ClusterArgs:
                  vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]] instance_groups: The instance groups of the SageMaker HyperPod cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]] instance_groups: The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
         :param pulumi.Input[str] cluster_name: The name of the HyperPod Cluster.
         :param pulumi.Input['ClusterNodeRecovery'] node_recovery: If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
         :param pulumi.Input['ClusterOrchestratorArgs'] orchestrator: The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
@@ -55,7 +55,7 @@ class ClusterArgs:
     @pulumi.getter(name="instanceGroups")
     def instance_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]]:
         """
-        The instance groups of the SageMaker HyperPod cluster.
+        The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
         """
         return pulumi.get(self, "instance_groups")
 
@@ -142,7 +142,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the HyperPod Cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict']]]] instance_groups: The instance groups of the SageMaker HyperPod cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict']]]] instance_groups: The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
         :param pulumi.Input['ClusterNodeRecovery'] node_recovery: If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
         :param pulumi.Input[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict']] orchestrator: The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
@@ -279,7 +279,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="instanceGroups")
     def instance_groups(self) -> pulumi.Output[Sequence['outputs.ClusterInstanceGroup']]:
         """
-        The instance groups of the SageMaker HyperPod cluster.
+        The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
         """
         return pulumi.get(self, "instance_groups")
 

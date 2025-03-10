@@ -14,13 +14,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateFontSize
     {
         /// <summary>
+        /// String based length that is composed of value and unit in px
+        /// </summary>
+        public readonly string? Absolute;
+        /// <summary>
         /// The lexical name for the text size, proportional to its surrounding context.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateRelativeFontSize? Relative;
 
         [OutputConstructor]
-        private TemplateFontSize(Pulumi.AwsNative.QuickSight.TemplateRelativeFontSize? relative)
+        private TemplateFontSize(
+            string? absolute,
+
+            Pulumi.AwsNative.QuickSight.TemplateRelativeFontSize? relative)
         {
+            Absolute = absolute;
             Relative = relative;
         }
     }

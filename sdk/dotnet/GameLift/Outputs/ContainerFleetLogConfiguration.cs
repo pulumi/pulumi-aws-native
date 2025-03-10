@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         /// The type of log collection to use for a fleet.
         /// 
         /// - `CLOUDWATCH` -- (default value) Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
-        /// - `S3` -- Store logs in an Amazon S3 bucket that you define.
+        /// - `S3` -- Store logs in an Amazon S3 bucket that you define. This bucket must reside in the fleet's home AWS Region.
         /// - `NONE` -- Don't collect container logs.
         /// </summary>
         public readonly Pulumi.AwsNative.GameLift.ContainerFleetLogDestination? LogDestination;

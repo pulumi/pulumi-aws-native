@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ConfigurationLatestRevisionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The time when the configuration revision was created.
+        /// </summary>
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }
 
+        /// <summary>
+        /// The description of the configuration revision.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The revision number.
+        /// </summary>
         [Input("revision")]
         public Input<int>? Revision { get; set; }
 

@@ -30,6 +30,7 @@ export interface GetSoftwarePackageVersionArgs {
 }
 
 export interface GetSoftwarePackageVersionResult {
+    readonly artifact?: outputs.iot.SoftwarePackageVersionPackageVersionArtifact;
     /**
      * Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
      *
@@ -48,6 +49,12 @@ export interface GetSoftwarePackageVersionResult {
      * The Amazon Resource Name (ARN) for the package.
      */
     readonly packageVersionArn?: string;
+    /**
+     * The inline json job document associated with a software package version
+     */
+    readonly recipe?: string;
+    readonly sbom?: outputs.iot.SoftwarePackageVersionSbom;
+    readonly sbomValidationStatus?: enums.iot.SoftwarePackageVersionSbomValidationStatus;
     /**
      * The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
      */

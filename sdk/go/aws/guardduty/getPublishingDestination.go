@@ -31,6 +31,7 @@ type LookupPublishingDestinationArgs struct {
 }
 
 type LookupPublishingDestinationResult struct {
+	// Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
 	DestinationProperties *PublishingDestinationCfnDestinationProperties `pulumi:"destinationProperties"`
 	// The type of resource for the publishing destination. Currently only Amazon S3 buckets are supported.
 	DestinationType *string `pulumi:"destinationType"`
@@ -39,8 +40,9 @@ type LookupPublishingDestinationResult struct {
 	// The time, in epoch millisecond format, at which GuardDuty was first unable to publish findings to the destination.
 	PublishingFailureStartTimestamp *string `pulumi:"publishingFailureStartTimestamp"`
 	// The status of the publishing destination.
-	Status *string   `pulumi:"status"`
-	Tags   []aws.Tag `pulumi:"tags"`
+	Status *string `pulumi:"status"`
+	// Describes a tag.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupPublishingDestinationOutput(ctx *pulumi.Context, args LookupPublishingDestinationOutputArgs, opts ...pulumi.InvokeOption) LookupPublishingDestinationResultOutput {
@@ -77,6 +79,7 @@ func (o LookupPublishingDestinationResultOutput) ToLookupPublishingDestinationRe
 	return o
 }
 
+// Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
 func (o LookupPublishingDestinationResultOutput) DestinationProperties() PublishingDestinationCfnDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupPublishingDestinationResult) *PublishingDestinationCfnDestinationProperties {
 		return v.DestinationProperties
@@ -103,6 +106,7 @@ func (o LookupPublishingDestinationResultOutput) Status() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupPublishingDestinationResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// Describes a tag.
 func (o LookupPublishingDestinationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPublishingDestinationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

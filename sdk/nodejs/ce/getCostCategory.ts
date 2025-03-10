@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
+ * Resource Type definition for AWS::CE::CostCategory. Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
  */
 export function getCostCategory(args: GetCostCategoryArgs, opts?: pulumi.InvokeOptions): Promise<GetCostCategoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,9 +49,13 @@ export interface GetCostCategoryResult {
      * Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
      */
     readonly splitChargeRules?: string;
+    /**
+     * Tags to assign to the cost category.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
- * Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
+ * Resource Type definition for AWS::CE::CostCategory. Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
  */
 export function getCostCategoryOutput(args: GetCostCategoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCostCategoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

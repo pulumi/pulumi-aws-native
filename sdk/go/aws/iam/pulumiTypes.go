@@ -266,6 +266,115 @@ type RoleTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The private key metadata for the SAML provider
+type SamlProviderSamlPrivateKey struct {
+	// The unique identifier for the SAML private key.
+	KeyId string `pulumi:"keyId"`
+	// The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time </a> format, when the private key was uploaded.
+	Timestamp string `pulumi:"timestamp"`
+}
+
+// SamlProviderSamlPrivateKeyInput is an input type that accepts SamlProviderSamlPrivateKeyArgs and SamlProviderSamlPrivateKeyOutput values.
+// You can construct a concrete instance of `SamlProviderSamlPrivateKeyInput` via:
+//
+//	SamlProviderSamlPrivateKeyArgs{...}
+type SamlProviderSamlPrivateKeyInput interface {
+	pulumi.Input
+
+	ToSamlProviderSamlPrivateKeyOutput() SamlProviderSamlPrivateKeyOutput
+	ToSamlProviderSamlPrivateKeyOutputWithContext(context.Context) SamlProviderSamlPrivateKeyOutput
+}
+
+// The private key metadata for the SAML provider
+type SamlProviderSamlPrivateKeyArgs struct {
+	// The unique identifier for the SAML private key.
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+	// The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time </a> format, when the private key was uploaded.
+	Timestamp pulumi.StringInput `pulumi:"timestamp"`
+}
+
+func (SamlProviderSamlPrivateKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlProviderSamlPrivateKey)(nil)).Elem()
+}
+
+func (i SamlProviderSamlPrivateKeyArgs) ToSamlProviderSamlPrivateKeyOutput() SamlProviderSamlPrivateKeyOutput {
+	return i.ToSamlProviderSamlPrivateKeyOutputWithContext(context.Background())
+}
+
+func (i SamlProviderSamlPrivateKeyArgs) ToSamlProviderSamlPrivateKeyOutputWithContext(ctx context.Context) SamlProviderSamlPrivateKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlProviderSamlPrivateKeyOutput)
+}
+
+// SamlProviderSamlPrivateKeyArrayInput is an input type that accepts SamlProviderSamlPrivateKeyArray and SamlProviderSamlPrivateKeyArrayOutput values.
+// You can construct a concrete instance of `SamlProviderSamlPrivateKeyArrayInput` via:
+//
+//	SamlProviderSamlPrivateKeyArray{ SamlProviderSamlPrivateKeyArgs{...} }
+type SamlProviderSamlPrivateKeyArrayInput interface {
+	pulumi.Input
+
+	ToSamlProviderSamlPrivateKeyArrayOutput() SamlProviderSamlPrivateKeyArrayOutput
+	ToSamlProviderSamlPrivateKeyArrayOutputWithContext(context.Context) SamlProviderSamlPrivateKeyArrayOutput
+}
+
+type SamlProviderSamlPrivateKeyArray []SamlProviderSamlPrivateKeyInput
+
+func (SamlProviderSamlPrivateKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SamlProviderSamlPrivateKey)(nil)).Elem()
+}
+
+func (i SamlProviderSamlPrivateKeyArray) ToSamlProviderSamlPrivateKeyArrayOutput() SamlProviderSamlPrivateKeyArrayOutput {
+	return i.ToSamlProviderSamlPrivateKeyArrayOutputWithContext(context.Background())
+}
+
+func (i SamlProviderSamlPrivateKeyArray) ToSamlProviderSamlPrivateKeyArrayOutputWithContext(ctx context.Context) SamlProviderSamlPrivateKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlProviderSamlPrivateKeyArrayOutput)
+}
+
+// The private key metadata for the SAML provider
+type SamlProviderSamlPrivateKeyOutput struct{ *pulumi.OutputState }
+
+func (SamlProviderSamlPrivateKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlProviderSamlPrivateKey)(nil)).Elem()
+}
+
+func (o SamlProviderSamlPrivateKeyOutput) ToSamlProviderSamlPrivateKeyOutput() SamlProviderSamlPrivateKeyOutput {
+	return o
+}
+
+func (o SamlProviderSamlPrivateKeyOutput) ToSamlProviderSamlPrivateKeyOutputWithContext(ctx context.Context) SamlProviderSamlPrivateKeyOutput {
+	return o
+}
+
+// The unique identifier for the SAML private key.
+func (o SamlProviderSamlPrivateKeyOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v SamlProviderSamlPrivateKey) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+// The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time </a> format, when the private key was uploaded.
+func (o SamlProviderSamlPrivateKeyOutput) Timestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v SamlProviderSamlPrivateKey) string { return v.Timestamp }).(pulumi.StringOutput)
+}
+
+type SamlProviderSamlPrivateKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (SamlProviderSamlPrivateKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SamlProviderSamlPrivateKey)(nil)).Elem()
+}
+
+func (o SamlProviderSamlPrivateKeyArrayOutput) ToSamlProviderSamlPrivateKeyArrayOutput() SamlProviderSamlPrivateKeyArrayOutput {
+	return o
+}
+
+func (o SamlProviderSamlPrivateKeyArrayOutput) ToSamlProviderSamlPrivateKeyArrayOutputWithContext(ctx context.Context) SamlProviderSamlPrivateKeyArrayOutput {
+	return o
+}
+
+func (o SamlProviderSamlPrivateKeyArrayOutput) Index(i pulumi.IntInput) SamlProviderSamlPrivateKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlProviderSamlPrivateKey {
+		return vs[0].([]SamlProviderSamlPrivateKey)[vs[1].(int)]
+	}).(SamlProviderSamlPrivateKeyOutput)
+}
+
 // A key-value pair to associate with a resource.
 type SamlProviderTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -581,6 +690,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyTypeArrayInput)(nil)).Elem(), GroupPolicyTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RolePolicyTypeInput)(nil)).Elem(), RolePolicyTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RolePolicyTypeArrayInput)(nil)).Elem(), RolePolicyTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlProviderSamlPrivateKeyInput)(nil)).Elem(), SamlProviderSamlPrivateKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlProviderSamlPrivateKeyArrayInput)(nil)).Elem(), SamlProviderSamlPrivateKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserLoginProfileInput)(nil)).Elem(), UserLoginProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserLoginProfilePtrInput)(nil)).Elem(), UserLoginProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPolicyTypeInput)(nil)).Elem(), UserPolicyTypeArgs{})
@@ -589,6 +700,8 @@ func init() {
 	pulumi.RegisterOutputType(GroupPolicyTypeArrayOutput{})
 	pulumi.RegisterOutputType(RolePolicyTypeOutput{})
 	pulumi.RegisterOutputType(RolePolicyTypeArrayOutput{})
+	pulumi.RegisterOutputType(SamlProviderSamlPrivateKeyOutput{})
+	pulumi.RegisterOutputType(SamlProviderSamlPrivateKeyArrayOutput{})
 	pulumi.RegisterOutputType(UserLoginProfileOutput{})
 	pulumi.RegisterOutputType(UserLoginProfilePtrOutput{})
 	pulumi.RegisterOutputType(UserPolicyTypeOutput{})

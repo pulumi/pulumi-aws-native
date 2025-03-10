@@ -11417,6 +11417,216 @@ func (in *vpcEndpointIpAddressTypePtr) ToVpcEndpointIpAddressTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(VpcEndpointIpAddressTypePtrOutput)
 }
 
+type VpcEndpointServiceIpAddressType string
+
+const (
+	VpcEndpointServiceIpAddressTypeIpv4 = VpcEndpointServiceIpAddressType("ipv4")
+	VpcEndpointServiceIpAddressTypeIpv6 = VpcEndpointServiceIpAddressType("ipv6")
+)
+
+func (VpcEndpointServiceIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointServiceIpAddressType)(nil)).Elem()
+}
+
+func (e VpcEndpointServiceIpAddressType) ToVpcEndpointServiceIpAddressTypeOutput() VpcEndpointServiceIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(VpcEndpointServiceIpAddressTypeOutput)
+}
+
+func (e VpcEndpointServiceIpAddressType) ToVpcEndpointServiceIpAddressTypeOutputWithContext(ctx context.Context) VpcEndpointServiceIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcEndpointServiceIpAddressTypeOutput)
+}
+
+func (e VpcEndpointServiceIpAddressType) ToVpcEndpointServiceIpAddressTypePtrOutput() VpcEndpointServiceIpAddressTypePtrOutput {
+	return e.ToVpcEndpointServiceIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e VpcEndpointServiceIpAddressType) ToVpcEndpointServiceIpAddressTypePtrOutputWithContext(ctx context.Context) VpcEndpointServiceIpAddressTypePtrOutput {
+	return VpcEndpointServiceIpAddressType(e).ToVpcEndpointServiceIpAddressTypeOutputWithContext(ctx).ToVpcEndpointServiceIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e VpcEndpointServiceIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEndpointServiceIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEndpointServiceIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEndpointServiceIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcEndpointServiceIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointServiceIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointServiceIpAddressType)(nil)).Elem()
+}
+
+func (o VpcEndpointServiceIpAddressTypeOutput) ToVpcEndpointServiceIpAddressTypeOutput() VpcEndpointServiceIpAddressTypeOutput {
+	return o
+}
+
+func (o VpcEndpointServiceIpAddressTypeOutput) ToVpcEndpointServiceIpAddressTypeOutputWithContext(ctx context.Context) VpcEndpointServiceIpAddressTypeOutput {
+	return o
+}
+
+func (o VpcEndpointServiceIpAddressTypeOutput) ToVpcEndpointServiceIpAddressTypePtrOutput() VpcEndpointServiceIpAddressTypePtrOutput {
+	return o.ToVpcEndpointServiceIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointServiceIpAddressTypeOutput) ToVpcEndpointServiceIpAddressTypePtrOutputWithContext(ctx context.Context) VpcEndpointServiceIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEndpointServiceIpAddressType) *VpcEndpointServiceIpAddressType {
+		return &v
+	}).(VpcEndpointServiceIpAddressTypePtrOutput)
+}
+
+func (o VpcEndpointServiceIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointServiceIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEndpointServiceIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcEndpointServiceIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointServiceIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEndpointServiceIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEndpointServiceIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointServiceIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointServiceIpAddressType)(nil)).Elem()
+}
+
+func (o VpcEndpointServiceIpAddressTypePtrOutput) ToVpcEndpointServiceIpAddressTypePtrOutput() VpcEndpointServiceIpAddressTypePtrOutput {
+	return o
+}
+
+func (o VpcEndpointServiceIpAddressTypePtrOutput) ToVpcEndpointServiceIpAddressTypePtrOutputWithContext(ctx context.Context) VpcEndpointServiceIpAddressTypePtrOutput {
+	return o
+}
+
+func (o VpcEndpointServiceIpAddressTypePtrOutput) Elem() VpcEndpointServiceIpAddressTypeOutput {
+	return o.ApplyT(func(v *VpcEndpointServiceIpAddressType) VpcEndpointServiceIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEndpointServiceIpAddressType
+		return ret
+	}).(VpcEndpointServiceIpAddressTypeOutput)
+}
+
+func (o VpcEndpointServiceIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointServiceIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcEndpointServiceIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcEndpointServiceIpAddressTypeInput is an input type that accepts values of the VpcEndpointServiceIpAddressType enum
+// A concrete instance of `VpcEndpointServiceIpAddressTypeInput` can be one of the following:
+//
+//	VpcEndpointServiceIpAddressTypeIpv4
+//	VpcEndpointServiceIpAddressTypeIpv6
+type VpcEndpointServiceIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToVpcEndpointServiceIpAddressTypeOutput() VpcEndpointServiceIpAddressTypeOutput
+	ToVpcEndpointServiceIpAddressTypeOutputWithContext(context.Context) VpcEndpointServiceIpAddressTypeOutput
+}
+
+var vpcEndpointServiceIpAddressTypePtrType = reflect.TypeOf((**VpcEndpointServiceIpAddressType)(nil)).Elem()
+
+type VpcEndpointServiceIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToVpcEndpointServiceIpAddressTypePtrOutput() VpcEndpointServiceIpAddressTypePtrOutput
+	ToVpcEndpointServiceIpAddressTypePtrOutputWithContext(context.Context) VpcEndpointServiceIpAddressTypePtrOutput
+}
+
+type vpcEndpointServiceIpAddressTypePtr string
+
+func VpcEndpointServiceIpAddressTypePtr(v string) VpcEndpointServiceIpAddressTypePtrInput {
+	return (*vpcEndpointServiceIpAddressTypePtr)(&v)
+}
+
+func (*vpcEndpointServiceIpAddressTypePtr) ElementType() reflect.Type {
+	return vpcEndpointServiceIpAddressTypePtrType
+}
+
+func (in *vpcEndpointServiceIpAddressTypePtr) ToVpcEndpointServiceIpAddressTypePtrOutput() VpcEndpointServiceIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(VpcEndpointServiceIpAddressTypePtrOutput)
+}
+
+func (in *vpcEndpointServiceIpAddressTypePtr) ToVpcEndpointServiceIpAddressTypePtrOutputWithContext(ctx context.Context) VpcEndpointServiceIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcEndpointServiceIpAddressTypePtrOutput)
+}
+
+// VpcEndpointServiceIpAddressTypeArrayInput is an input type that accepts VpcEndpointServiceIpAddressTypeArray and VpcEndpointServiceIpAddressTypeArrayOutput values.
+// You can construct a concrete instance of `VpcEndpointServiceIpAddressTypeArrayInput` via:
+//
+//	VpcEndpointServiceIpAddressTypeArray{ VpcEndpointServiceIpAddressTypeArgs{...} }
+type VpcEndpointServiceIpAddressTypeArrayInput interface {
+	pulumi.Input
+
+	ToVpcEndpointServiceIpAddressTypeArrayOutput() VpcEndpointServiceIpAddressTypeArrayOutput
+	ToVpcEndpointServiceIpAddressTypeArrayOutputWithContext(context.Context) VpcEndpointServiceIpAddressTypeArrayOutput
+}
+
+type VpcEndpointServiceIpAddressTypeArray []VpcEndpointServiceIpAddressType
+
+func (VpcEndpointServiceIpAddressTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcEndpointServiceIpAddressType)(nil)).Elem()
+}
+
+func (i VpcEndpointServiceIpAddressTypeArray) ToVpcEndpointServiceIpAddressTypeArrayOutput() VpcEndpointServiceIpAddressTypeArrayOutput {
+	return i.ToVpcEndpointServiceIpAddressTypeArrayOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointServiceIpAddressTypeArray) ToVpcEndpointServiceIpAddressTypeArrayOutputWithContext(ctx context.Context) VpcEndpointServiceIpAddressTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServiceIpAddressTypeArrayOutput)
+}
+
+type VpcEndpointServiceIpAddressTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointServiceIpAddressTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcEndpointServiceIpAddressType)(nil)).Elem()
+}
+
+func (o VpcEndpointServiceIpAddressTypeArrayOutput) ToVpcEndpointServiceIpAddressTypeArrayOutput() VpcEndpointServiceIpAddressTypeArrayOutput {
+	return o
+}
+
+func (o VpcEndpointServiceIpAddressTypeArrayOutput) ToVpcEndpointServiceIpAddressTypeArrayOutputWithContext(ctx context.Context) VpcEndpointServiceIpAddressTypeArrayOutput {
+	return o
+}
+
+func (o VpcEndpointServiceIpAddressTypeArrayOutput) Index(i pulumi.IntInput) VpcEndpointServiceIpAddressTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcEndpointServiceIpAddressType {
+		return vs[0].([]VpcEndpointServiceIpAddressType)[vs[1].(int)]
+	}).(VpcEndpointServiceIpAddressTypeOutput)
+}
+
 // The type of endpoint.
 //
 //	Default: Gateway
@@ -13077,6 +13287,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrInput)(nil)).Elem(), VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint("OnlyInboundResolver"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointIpAddressTypeInput)(nil)).Elem(), VpcEndpointIpAddressType("ipv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointIpAddressTypePtrInput)(nil)).Elem(), VpcEndpointIpAddressType("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServiceIpAddressTypeInput)(nil)).Elem(), VpcEndpointServiceIpAddressType("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServiceIpAddressTypePtrInput)(nil)).Elem(), VpcEndpointServiceIpAddressType("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServiceIpAddressTypeArrayInput)(nil)).Elem(), VpcEndpointServiceIpAddressTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointTypeInput)(nil)).Elem(), VpcEndpointType("Interface"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointTypePtrInput)(nil)).Elem(), VpcEndpointType("Interface"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat("json"))
@@ -13240,6 +13453,9 @@ func init() {
 	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointIpAddressTypeOutput{})
 	pulumi.RegisterOutputType(VpcEndpointIpAddressTypePtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointServiceIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(VpcEndpointServiceIpAddressTypePtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointServiceIpAddressTypeArrayOutput{})
 	pulumi.RegisterOutputType(VpcEndpointTypeOutput{})
 	pulumi.RegisterOutputType(VpcEndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput{})

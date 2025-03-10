@@ -30,6 +30,9 @@ export interface GetPublishingDestinationArgs {
 }
 
 export interface GetPublishingDestinationResult {
+    /**
+     * Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
+     */
     readonly destinationProperties?: outputs.guardduty.PublishingDestinationCfnDestinationProperties;
     /**
      * The type of resource for the publishing destination. Currently only Amazon S3 buckets are supported.
@@ -47,6 +50,9 @@ export interface GetPublishingDestinationResult {
      * The status of the publishing destination.
      */
     readonly status?: string;
+    /**
+     * Describes a tag.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

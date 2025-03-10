@@ -61,7 +61,7 @@ class AwaitableGetConnectorResult(GetConnectorResult):
 def get_connector(connector_arn: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
-    Definition of AWS::PCAConnectorAD::Connector Resource Type
+    Represents a Connector that connects AWS PrivateCA and your directory
 
 
     :param str connector_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
@@ -77,7 +77,7 @@ def get_connector(connector_arn: Optional[str] = None,
 def get_connector_output(connector_arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
-    Definition of AWS::PCAConnectorAD::Connector Resource Type
+    Represents a Connector that connects AWS PrivateCA and your directory
 
 
     :param str connector_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .

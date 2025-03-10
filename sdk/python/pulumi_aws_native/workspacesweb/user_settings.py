@@ -35,7 +35,8 @@ class UserSettingsArgs:
                  deep_link_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
                  idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 toolbar_configuration: Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']] = None):
         """
         The set of arguments for constructing a UserSettings resource.
         :param pulumi.Input['UserSettingsEnabledType'] copy_allowed: Specifies whether the user can copy text from the streaming session to the local device.
@@ -50,6 +51,7 @@ class UserSettingsArgs:
         :param pulumi.Input[float] disconnect_timeout_in_minutes: The amount of time that a streaming session remains active after users disconnect.
         :param pulumi.Input[float] idle_disconnect_timeout_in_minutes: The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the user settings resource. A tag is a key-value pair.
+        :param pulumi.Input['UserSettingsToolbarConfigurationArgs'] toolbar_configuration: The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
         """
         pulumi.set(__self__, "copy_allowed", copy_allowed)
         pulumi.set(__self__, "download_allowed", download_allowed)
@@ -70,6 +72,8 @@ class UserSettingsArgs:
             pulumi.set(__self__, "idle_disconnect_timeout_in_minutes", idle_disconnect_timeout_in_minutes)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if toolbar_configuration is not None:
+            pulumi.set(__self__, "toolbar_configuration", toolbar_configuration)
 
     @property
     @pulumi.getter(name="copyAllowed")
@@ -215,6 +219,18 @@ class UserSettingsArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="toolbarConfiguration")
+    def toolbar_configuration(self) -> Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']]:
+        """
+        The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
+        """
+        return pulumi.get(self, "toolbar_configuration")
+
+    @toolbar_configuration.setter
+    def toolbar_configuration(self, value: Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']]):
+        pulumi.set(self, "toolbar_configuration", value)
+
 
 class UserSettings(pulumi.CustomResource):
     @overload
@@ -232,6 +248,7 @@ class UserSettings(pulumi.CustomResource):
                  paste_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  print_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 toolbar_configuration: Optional[pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']]] = None,
                  upload_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  __props__=None):
         """
@@ -250,6 +267,7 @@ class UserSettings(pulumi.CustomResource):
         :param pulumi.Input['UserSettingsEnabledType'] paste_allowed: Specifies whether the user can paste text from the local device to the streaming session.
         :param pulumi.Input['UserSettingsEnabledType'] print_allowed: Specifies whether the user can print to the local device.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the user settings resource. A tag is a key-value pair.
+        :param pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']] toolbar_configuration: The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
         :param pulumi.Input['UserSettingsEnabledType'] upload_allowed: Specifies whether the user can upload files from the local device to the streaming session.
         """
         ...
@@ -287,6 +305,7 @@ class UserSettings(pulumi.CustomResource):
                  paste_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  print_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 toolbar_configuration: Optional[pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']]] = None,
                  upload_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -316,6 +335,7 @@ class UserSettings(pulumi.CustomResource):
                 raise TypeError("Missing required property 'print_allowed'")
             __props__.__dict__["print_allowed"] = print_allowed
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["toolbar_configuration"] = toolbar_configuration
             if upload_allowed is None and not opts.urn:
                 raise TypeError("Missing required property 'upload_allowed'")
             __props__.__dict__["upload_allowed"] = upload_allowed
@@ -355,6 +375,7 @@ class UserSettings(pulumi.CustomResource):
         __props__.__dict__["paste_allowed"] = None
         __props__.__dict__["print_allowed"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["toolbar_configuration"] = None
         __props__.__dict__["upload_allowed"] = None
         __props__.__dict__["user_settings_arn"] = None
         return UserSettings(resource_name, opts=opts, __props__=__props__)
@@ -454,6 +475,14 @@ class UserSettings(pulumi.CustomResource):
         The tags to add to the user settings resource. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="toolbarConfiguration")
+    def toolbar_configuration(self) -> pulumi.Output[Optional['outputs.UserSettingsToolbarConfiguration']]:
+        """
+        The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
+        """
+        return pulumi.get(self, "toolbar_configuration")
 
     @property
     @pulumi.getter(name="uploadAllowed")

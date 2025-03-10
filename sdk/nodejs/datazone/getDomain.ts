@@ -62,6 +62,10 @@ export interface GetDomainResult {
      */
     readonly portalUrl?: string;
     /**
+     * The service role of the domain that is created.
+     */
+    readonly serviceRole?: string;
+    /**
      * The single-sign on configuration of the Amazon DataZone domain.
      */
     readonly singleSignOn?: outputs.datazone.DomainSingleSignOn;

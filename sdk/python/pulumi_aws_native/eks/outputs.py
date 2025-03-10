@@ -1247,11 +1247,11 @@ class NodegroupLaunchTemplateSpecification(dict):
         An object representing a launch template specification for AWS EKS Nodegroup.
         :param str id: The ID of the launch template.
                
-               You must specify either the launch template ID or the launch template name in the request, but not both.
+               You must specify either the launch template ID or the launch template name in the request, but not both. After node group creation, you cannot use a different ID.
         :param str name: The name of the launch template.
                
-               You must specify either the launch template name or the launch template ID in the request, but not both.
-        :param str version: The version number of the launch template to use. If no version is specified, then the template's default version is used.
+               You must specify either the launch template name or the launch template ID in the request, but not both. After node group creation, you cannot use a different name.
+        :param str version: The version number of the launch template to use. If no version is specified, then the template's default version is used. You can use a different version for node group updates.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -1266,7 +1266,7 @@ class NodegroupLaunchTemplateSpecification(dict):
         """
         The ID of the launch template.
 
-        You must specify either the launch template ID or the launch template name in the request, but not both.
+        You must specify either the launch template ID or the launch template name in the request, but not both. After node group creation, you cannot use a different ID.
         """
         return pulumi.get(self, "id")
 
@@ -1276,7 +1276,7 @@ class NodegroupLaunchTemplateSpecification(dict):
         """
         The name of the launch template.
 
-        You must specify either the launch template name or the launch template ID in the request, but not both.
+        You must specify either the launch template name or the launch template ID in the request, but not both. After node group creation, you cannot use a different name.
         """
         return pulumi.get(self, "name")
 
@@ -1284,7 +1284,7 @@ class NodegroupLaunchTemplateSpecification(dict):
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        The version number of the launch template to use. If no version is specified, then the template's default version is used.
+        The version number of the launch template to use. If no version is specified, then the template's default version is used. You can use a different version for node group updates.
         """
         return pulumi.get(self, "version")
 

@@ -80,6 +80,14 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+        /// </summary>
+        public readonly string? BaseThemeId;
+        /// <summary>
+        /// The theme configuration, which contains the theme display properties.
+        /// </summary>
+        public readonly Outputs.ThemeConfiguration? Configuration;
+        /// <summary>
         /// &lt;p&gt;The date and time that the theme was created.&lt;/p&gt;
         /// </summary>
         public readonly string? CreatedTime;
@@ -104,10 +112,18 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.ThemeType? Type;
         public readonly Outputs.ThemeVersion? Version;
+        /// <summary>
+        /// A description of the first version of the theme that you're creating. Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
+        /// </summary>
+        public readonly string? VersionDescription;
 
         [OutputConstructor]
         private GetThemeResult(
             string? arn,
+
+            string? baseThemeId,
+
+            Outputs.ThemeConfiguration? configuration,
 
             string? createdTime,
 
@@ -121,9 +137,13 @@ namespace Pulumi.AwsNative.QuickSight
 
             Pulumi.AwsNative.QuickSight.ThemeType? type,
 
-            Outputs.ThemeVersion? version)
+            Outputs.ThemeVersion? version,
+
+            string? versionDescription)
         {
             Arn = arn;
+            BaseThemeId = baseThemeId;
+            Configuration = configuration;
             CreatedTime = createdTime;
             LastUpdatedTime = lastUpdatedTime;
             Name = name;
@@ -131,6 +151,7 @@ namespace Pulumi.AwsNative.QuickSight
             Tags = tags;
             Type = type;
             Version = version;
+            VersionDescription = versionDescription;
         }
     }
 }

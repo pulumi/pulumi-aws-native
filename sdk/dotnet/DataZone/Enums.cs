@@ -204,6 +204,37 @@ namespace Pulumi.AwsNative.DataZone
     }
 
     /// <summary>
+    /// The version of the domain.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainVersion : IEquatable<DomainVersion>
+    {
+        private readonly string _value;
+
+        private DomainVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainVersion V1 { get; } = new DomainVersion("V1");
+        public static DomainVersion V2 { get; } = new DomainVersion("V2");
+
+        public static bool operator ==(DomainVersion left, DomainVersion right) => left.Equals(right);
+        public static bool operator !=(DomainVersion left, DomainVersion right) => !left.Equals(right);
+
+        public static explicit operator string(DomainVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainVersion other && Equals(other);
+        public bool Equals(DomainVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of the Amazon DataZone environment.
     /// </summary>
     [EnumType]

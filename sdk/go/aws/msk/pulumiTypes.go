@@ -177,13 +177,22 @@ func (o ClusterBrokerLogsPtrOutput) S3() ClusterS3PtrOutput {
 }
 
 type ClusterBrokerNodeGroupInfo struct {
-	BrokerAzDistribution *string                  `pulumi:"brokerAzDistribution"`
-	ClientSubnets        []string                 `pulumi:"clientSubnets"`
-	ConnectivityInfo     *ClusterConnectivityInfo `pulumi:"connectivityInfo"`
+	// This parameter is currently not in use.
+	BrokerAzDistribution *string `pulumi:"brokerAzDistribution"`
+	// The list of subnets to connect to in the client virtual private cloud (VPC). Amazon creates elastic network interfaces (ENIs) inside these subnets. Client applications use ENIs to produce and consume data.
+	//
+	// If you use the US West (N. California) Region, specify exactly two subnets. For other Regions where Amazon MSK is available, you can specify either two or three subnets. The subnets that you specify must be in distinct Availability Zones. When you create a cluster, Amazon MSK distributes the broker nodes evenly across the subnets that you specify.
+	//
+	// Client subnets can't occupy the Availability Zone with ID `use1-az3` .
+	ClientSubnets []string `pulumi:"clientSubnets"`
+	// Information about the cluster's connectivity setting.
+	ConnectivityInfo *ClusterConnectivityInfo `pulumi:"connectivityInfo"`
 	// The type of Amazon EC2 instances to use for brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, kafka.m5.24xlarge, and kafka.t3.small.
-	InstanceType   string              `pulumi:"instanceType"`
-	SecurityGroups []string            `pulumi:"securityGroups"`
-	StorageInfo    *ClusterStorageInfo `pulumi:"storageInfo"`
+	InstanceType string `pulumi:"instanceType"`
+	// The security groups to associate with the ENIs in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC. If you specify security groups that were shared with you, you must ensure that you have permissions to them. Specifically, you need the `ec2:DescribeSecurityGroups` permission.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// Contains information about storage volumes attached to Amazon MSK broker nodes.
+	StorageInfo *ClusterStorageInfo `pulumi:"storageInfo"`
 }
 
 // ClusterBrokerNodeGroupInfoInput is an input type that accepts ClusterBrokerNodeGroupInfoArgs and ClusterBrokerNodeGroupInfoOutput values.
@@ -198,13 +207,22 @@ type ClusterBrokerNodeGroupInfoInput interface {
 }
 
 type ClusterBrokerNodeGroupInfoArgs struct {
-	BrokerAzDistribution pulumi.StringPtrInput           `pulumi:"brokerAzDistribution"`
-	ClientSubnets        pulumi.StringArrayInput         `pulumi:"clientSubnets"`
-	ConnectivityInfo     ClusterConnectivityInfoPtrInput `pulumi:"connectivityInfo"`
+	// This parameter is currently not in use.
+	BrokerAzDistribution pulumi.StringPtrInput `pulumi:"brokerAzDistribution"`
+	// The list of subnets to connect to in the client virtual private cloud (VPC). Amazon creates elastic network interfaces (ENIs) inside these subnets. Client applications use ENIs to produce and consume data.
+	//
+	// If you use the US West (N. California) Region, specify exactly two subnets. For other Regions where Amazon MSK is available, you can specify either two or three subnets. The subnets that you specify must be in distinct Availability Zones. When you create a cluster, Amazon MSK distributes the broker nodes evenly across the subnets that you specify.
+	//
+	// Client subnets can't occupy the Availability Zone with ID `use1-az3` .
+	ClientSubnets pulumi.StringArrayInput `pulumi:"clientSubnets"`
+	// Information about the cluster's connectivity setting.
+	ConnectivityInfo ClusterConnectivityInfoPtrInput `pulumi:"connectivityInfo"`
 	// The type of Amazon EC2 instances to use for brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, kafka.m5.24xlarge, and kafka.t3.small.
-	InstanceType   pulumi.StringInput         `pulumi:"instanceType"`
-	SecurityGroups pulumi.StringArrayInput    `pulumi:"securityGroups"`
-	StorageInfo    ClusterStorageInfoPtrInput `pulumi:"storageInfo"`
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The security groups to associate with the ENIs in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC. If you specify security groups that were shared with you, you must ensure that you have permissions to them. Specifically, you need the `ec2:DescribeSecurityGroups` permission.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// Contains information about storage volumes attached to Amazon MSK broker nodes.
+	StorageInfo ClusterStorageInfoPtrInput `pulumi:"storageInfo"`
 }
 
 func (ClusterBrokerNodeGroupInfoArgs) ElementType() reflect.Type {
@@ -233,14 +251,21 @@ func (o ClusterBrokerNodeGroupInfoOutput) ToClusterBrokerNodeGroupInfoOutputWith
 	return o
 }
 
+// This parameter is currently not in use.
 func (o ClusterBrokerNodeGroupInfoOutput) BrokerAzDistribution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *string { return v.BrokerAzDistribution }).(pulumi.StringPtrOutput)
 }
 
+// The list of subnets to connect to in the client virtual private cloud (VPC). Amazon creates elastic network interfaces (ENIs) inside these subnets. Client applications use ENIs to produce and consume data.
+//
+// If you use the US West (N. California) Region, specify exactly two subnets. For other Regions where Amazon MSK is available, you can specify either two or three subnets. The subnets that you specify must be in distinct Availability Zones. When you create a cluster, Amazon MSK distributes the broker nodes evenly across the subnets that you specify.
+//
+// Client subnets can't occupy the Availability Zone with ID `use1-az3` .
 func (o ClusterBrokerNodeGroupInfoOutput) ClientSubnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) []string { return v.ClientSubnets }).(pulumi.StringArrayOutput)
 }
 
+// Information about the cluster's connectivity setting.
 func (o ClusterBrokerNodeGroupInfoOutput) ConnectivityInfo() ClusterConnectivityInfoPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *ClusterConnectivityInfo { return v.ConnectivityInfo }).(ClusterConnectivityInfoPtrOutput)
 }
@@ -250,10 +275,12 @@ func (o ClusterBrokerNodeGroupInfoOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
+// The security groups to associate with the ENIs in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC. If you specify security groups that were shared with you, you must ensure that you have permissions to them. Specifically, you need the `ec2:DescribeSecurityGroups` permission.
 func (o ClusterBrokerNodeGroupInfoOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// Contains information about storage volumes attached to Amazon MSK broker nodes.
 func (o ClusterBrokerNodeGroupInfoOutput) StorageInfo() ClusterStorageInfoPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *ClusterStorageInfo { return v.StorageInfo }).(ClusterStorageInfoPtrOutput)
 }
@@ -282,6 +309,7 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) Elem() ClusterBrokerNodeGroupInfoOu
 	}).(ClusterBrokerNodeGroupInfoOutput)
 }
 
+// This parameter is currently not in use.
 func (o ClusterBrokerNodeGroupInfoPtrOutput) BrokerAzDistribution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *string {
 		if v == nil {
@@ -291,6 +319,11 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) BrokerAzDistribution() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of subnets to connect to in the client virtual private cloud (VPC). Amazon creates elastic network interfaces (ENIs) inside these subnets. Client applications use ENIs to produce and consume data.
+//
+// If you use the US West (N. California) Region, specify exactly two subnets. For other Regions where Amazon MSK is available, you can specify either two or three subnets. The subnets that you specify must be in distinct Availability Zones. When you create a cluster, Amazon MSK distributes the broker nodes evenly across the subnets that you specify.
+//
+// Client subnets can't occupy the Availability Zone with ID `use1-az3` .
 func (o ClusterBrokerNodeGroupInfoPtrOutput) ClientSubnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) []string {
 		if v == nil {
@@ -300,6 +333,7 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) ClientSubnets() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
+// Information about the cluster's connectivity setting.
 func (o ClusterBrokerNodeGroupInfoPtrOutput) ConnectivityInfo() ClusterConnectivityInfoPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *ClusterConnectivityInfo {
 		if v == nil {
@@ -319,6 +353,7 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) InstanceType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The security groups to associate with the ENIs in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC. If you specify security groups that were shared with you, you must ensure that you have permissions to them. Specifically, you need the `ec2:DescribeSecurityGroups` permission.
 func (o ClusterBrokerNodeGroupInfoPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) []string {
 		if v == nil {
@@ -328,6 +363,7 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) SecurityGroups() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
+// Contains information about storage volumes attached to Amazon MSK broker nodes.
 func (o ClusterBrokerNodeGroupInfoPtrOutput) StorageInfo() ClusterStorageInfoPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *ClusterStorageInfo {
 		if v == nil {
@@ -1226,8 +1262,18 @@ func (o ClusterEncryptionAtRestPtrOutput) DataVolumeKmsKeyId() pulumi.StringPtrO
 }
 
 type ClusterEncryptionInTransit struct {
+	// Indicates the encryption setting for data in transit between clients and brokers. You must set it to one of the following values.
+	//
+	// - `TLS` : Indicates that client-broker communication is enabled with TLS only.
+	// - `TLS_PLAINTEXT` : Indicates that client-broker communication is enabled for both TLS-encrypted, as well as plaintext data.
+	// - `PLAINTEXT` : Indicates that client-broker communication is enabled in plaintext only.
+	//
+	// The default value is `TLS` .
 	ClientBroker *ClusterEncryptionInTransitClientBroker `pulumi:"clientBroker"`
-	InCluster    *bool                                   `pulumi:"inCluster"`
+	// When set to true, it indicates that data communication among the broker nodes of the cluster is encrypted. When set to false, the communication happens in plaintext.
+	//
+	// The default value is true.
+	InCluster *bool `pulumi:"inCluster"`
 }
 
 // ClusterEncryptionInTransitInput is an input type that accepts ClusterEncryptionInTransitArgs and ClusterEncryptionInTransitOutput values.
@@ -1242,8 +1288,18 @@ type ClusterEncryptionInTransitInput interface {
 }
 
 type ClusterEncryptionInTransitArgs struct {
+	// Indicates the encryption setting for data in transit between clients and brokers. You must set it to one of the following values.
+	//
+	// - `TLS` : Indicates that client-broker communication is enabled with TLS only.
+	// - `TLS_PLAINTEXT` : Indicates that client-broker communication is enabled for both TLS-encrypted, as well as plaintext data.
+	// - `PLAINTEXT` : Indicates that client-broker communication is enabled in plaintext only.
+	//
+	// The default value is `TLS` .
 	ClientBroker ClusterEncryptionInTransitClientBrokerPtrInput `pulumi:"clientBroker"`
-	InCluster    pulumi.BoolPtrInput                            `pulumi:"inCluster"`
+	// When set to true, it indicates that data communication among the broker nodes of the cluster is encrypted. When set to false, the communication happens in plaintext.
+	//
+	// The default value is true.
+	InCluster pulumi.BoolPtrInput `pulumi:"inCluster"`
 }
 
 func (ClusterEncryptionInTransitArgs) ElementType() reflect.Type {
@@ -1323,10 +1379,20 @@ func (o ClusterEncryptionInTransitOutput) ToClusterEncryptionInTransitPtrOutputW
 	}).(ClusterEncryptionInTransitPtrOutput)
 }
 
+// Indicates the encryption setting for data in transit between clients and brokers. You must set it to one of the following values.
+//
+// - `TLS` : Indicates that client-broker communication is enabled with TLS only.
+// - `TLS_PLAINTEXT` : Indicates that client-broker communication is enabled for both TLS-encrypted, as well as plaintext data.
+// - `PLAINTEXT` : Indicates that client-broker communication is enabled in plaintext only.
+//
+// The default value is `TLS` .
 func (o ClusterEncryptionInTransitOutput) ClientBroker() ClusterEncryptionInTransitClientBrokerPtrOutput {
 	return o.ApplyT(func(v ClusterEncryptionInTransit) *ClusterEncryptionInTransitClientBroker { return v.ClientBroker }).(ClusterEncryptionInTransitClientBrokerPtrOutput)
 }
 
+// When set to true, it indicates that data communication among the broker nodes of the cluster is encrypted. When set to false, the communication happens in plaintext.
+//
+// The default value is true.
 func (o ClusterEncryptionInTransitOutput) InCluster() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterEncryptionInTransit) *bool { return v.InCluster }).(pulumi.BoolPtrOutput)
 }
@@ -1355,6 +1421,13 @@ func (o ClusterEncryptionInTransitPtrOutput) Elem() ClusterEncryptionInTransitOu
 	}).(ClusterEncryptionInTransitOutput)
 }
 
+// Indicates the encryption setting for data in transit between clients and brokers. You must set it to one of the following values.
+//
+// - `TLS` : Indicates that client-broker communication is enabled with TLS only.
+// - `TLS_PLAINTEXT` : Indicates that client-broker communication is enabled for both TLS-encrypted, as well as plaintext data.
+// - `PLAINTEXT` : Indicates that client-broker communication is enabled in plaintext only.
+//
+// The default value is `TLS` .
 func (o ClusterEncryptionInTransitPtrOutput) ClientBroker() ClusterEncryptionInTransitClientBrokerPtrOutput {
 	return o.ApplyT(func(v *ClusterEncryptionInTransit) *ClusterEncryptionInTransitClientBroker {
 		if v == nil {
@@ -1364,6 +1437,9 @@ func (o ClusterEncryptionInTransitPtrOutput) ClientBroker() ClusterEncryptionInT
 	}).(ClusterEncryptionInTransitClientBrokerPtrOutput)
 }
 
+// When set to true, it indicates that data communication among the broker nodes of the cluster is encrypted. When set to false, the communication happens in plaintext.
+//
+// The default value is true.
 func (o ClusterEncryptionInTransitPtrOutput) InCluster() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterEncryptionInTransit) *bool {
 		if v == nil {
@@ -1374,7 +1450,8 @@ func (o ClusterEncryptionInTransitPtrOutput) InCluster() pulumi.BoolPtrOutput {
 }
 
 type ClusterEncryptionInfo struct {
-	EncryptionAtRest    *ClusterEncryptionAtRest    `pulumi:"encryptionAtRest"`
+	EncryptionAtRest *ClusterEncryptionAtRest `pulumi:"encryptionAtRest"`
+	// The details for encryption in transit.
 	EncryptionInTransit *ClusterEncryptionInTransit `pulumi:"encryptionInTransit"`
 }
 
@@ -1390,7 +1467,8 @@ type ClusterEncryptionInfoInput interface {
 }
 
 type ClusterEncryptionInfoArgs struct {
-	EncryptionAtRest    ClusterEncryptionAtRestPtrInput    `pulumi:"encryptionAtRest"`
+	EncryptionAtRest ClusterEncryptionAtRestPtrInput `pulumi:"encryptionAtRest"`
+	// The details for encryption in transit.
 	EncryptionInTransit ClusterEncryptionInTransitPtrInput `pulumi:"encryptionInTransit"`
 }
 
@@ -1475,6 +1553,7 @@ func (o ClusterEncryptionInfoOutput) EncryptionAtRest() ClusterEncryptionAtRestP
 	return o.ApplyT(func(v ClusterEncryptionInfo) *ClusterEncryptionAtRest { return v.EncryptionAtRest }).(ClusterEncryptionAtRestPtrOutput)
 }
 
+// The details for encryption in transit.
 func (o ClusterEncryptionInfoOutput) EncryptionInTransit() ClusterEncryptionInTransitPtrOutput {
 	return o.ApplyT(func(v ClusterEncryptionInfo) *ClusterEncryptionInTransit { return v.EncryptionInTransit }).(ClusterEncryptionInTransitPtrOutput)
 }
@@ -1512,6 +1591,7 @@ func (o ClusterEncryptionInfoPtrOutput) EncryptionAtRest() ClusterEncryptionAtRe
 	}).(ClusterEncryptionAtRestPtrOutput)
 }
 
+// The details for encryption in transit.
 func (o ClusterEncryptionInfoPtrOutput) EncryptionInTransit() ClusterEncryptionInTransitPtrOutput {
 	return o.ApplyT(func(v *ClusterEncryptionInfo) *ClusterEncryptionInTransit {
 		if v == nil {
@@ -4452,9 +4532,12 @@ func (o ClusterVpcConnectivityTlsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type ConfigurationLatestRevision struct {
+	// The time when the configuration revision was created.
 	CreationTime *string `pulumi:"creationTime"`
-	Description  *string `pulumi:"description"`
-	Revision     *int    `pulumi:"revision"`
+	// The description of the configuration revision.
+	Description *string `pulumi:"description"`
+	// The revision number.
+	Revision *int `pulumi:"revision"`
 }
 
 // ConfigurationLatestRevisionInput is an input type that accepts ConfigurationLatestRevisionArgs and ConfigurationLatestRevisionOutput values.
@@ -4469,9 +4552,12 @@ type ConfigurationLatestRevisionInput interface {
 }
 
 type ConfigurationLatestRevisionArgs struct {
+	// The time when the configuration revision was created.
 	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
-	Description  pulumi.StringPtrInput `pulumi:"description"`
-	Revision     pulumi.IntPtrInput    `pulumi:"revision"`
+	// The description of the configuration revision.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The revision number.
+	Revision pulumi.IntPtrInput `pulumi:"revision"`
 }
 
 func (ConfigurationLatestRevisionArgs) ElementType() reflect.Type {
@@ -4551,14 +4637,17 @@ func (o ConfigurationLatestRevisionOutput) ToConfigurationLatestRevisionPtrOutpu
 	}).(ConfigurationLatestRevisionPtrOutput)
 }
 
+// The time when the configuration revision was created.
 func (o ConfigurationLatestRevisionOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationLatestRevision) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// The description of the configuration revision.
 func (o ConfigurationLatestRevisionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationLatestRevision) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The revision number.
 func (o ConfigurationLatestRevisionOutput) Revision() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConfigurationLatestRevision) *int { return v.Revision }).(pulumi.IntPtrOutput)
 }
@@ -4587,6 +4676,7 @@ func (o ConfigurationLatestRevisionPtrOutput) Elem() ConfigurationLatestRevision
 	}).(ConfigurationLatestRevisionOutput)
 }
 
+// The time when the configuration revision was created.
 func (o ConfigurationLatestRevisionPtrOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationLatestRevision) *string {
 		if v == nil {
@@ -4596,6 +4686,7 @@ func (o ConfigurationLatestRevisionPtrOutput) CreationTime() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The description of the configuration revision.
 func (o ConfigurationLatestRevisionPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationLatestRevision) *string {
 		if v == nil {
@@ -4605,6 +4696,7 @@ func (o ConfigurationLatestRevisionPtrOutput) Description() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The revision number.
 func (o ConfigurationLatestRevisionPtrOutput) Revision() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ConfigurationLatestRevision) *int {
 		if v == nil {

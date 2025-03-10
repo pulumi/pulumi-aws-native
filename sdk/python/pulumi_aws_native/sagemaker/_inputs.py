@@ -160,12 +160,22 @@ __all__ = [
     'FeatureGroupThroughputConfigArgsDict',
     'FeatureGroupTtlDurationArgs',
     'FeatureGroupTtlDurationArgsDict',
+    'InferenceComponentAlarmArgs',
+    'InferenceComponentAlarmArgsDict',
+    'InferenceComponentAutoRollbackConfigurationArgs',
+    'InferenceComponentAutoRollbackConfigurationArgsDict',
+    'InferenceComponentCapacitySizeArgs',
+    'InferenceComponentCapacitySizeArgsDict',
     'InferenceComponentComputeResourceRequirementsArgs',
     'InferenceComponentComputeResourceRequirementsArgsDict',
     'InferenceComponentContainerSpecificationArgs',
     'InferenceComponentContainerSpecificationArgsDict',
     'InferenceComponentDeployedImageArgs',
     'InferenceComponentDeployedImageArgsDict',
+    'InferenceComponentDeploymentConfigArgs',
+    'InferenceComponentDeploymentConfigArgsDict',
+    'InferenceComponentRollingUpdatePolicyArgs',
+    'InferenceComponentRollingUpdatePolicyArgsDict',
     'InferenceComponentRuntimeConfigArgs',
     'InferenceComponentRuntimeConfigArgsDict',
     'InferenceComponentSpecificationArgs',
@@ -5541,6 +5551,90 @@ class FeatureGroupTtlDurationArgs:
 
 
 if not MYPY:
+    class InferenceComponentAlarmArgsDict(TypedDict):
+        alarm_name: pulumi.Input[str]
+elif False:
+    InferenceComponentAlarmArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InferenceComponentAlarmArgs:
+    def __init__(__self__, *,
+                 alarm_name: pulumi.Input[str]):
+        pulumi.set(__self__, "alarm_name", alarm_name)
+
+    @property
+    @pulumi.getter(name="alarmName")
+    def alarm_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "alarm_name")
+
+    @alarm_name.setter
+    def alarm_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "alarm_name", value)
+
+
+if not MYPY:
+    class InferenceComponentAutoRollbackConfigurationArgsDict(TypedDict):
+        alarms: pulumi.Input[Sequence[pulumi.Input['InferenceComponentAlarmArgsDict']]]
+elif False:
+    InferenceComponentAutoRollbackConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InferenceComponentAutoRollbackConfigurationArgs:
+    def __init__(__self__, *,
+                 alarms: pulumi.Input[Sequence[pulumi.Input['InferenceComponentAlarmArgs']]]):
+        pulumi.set(__self__, "alarms", alarms)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> pulumi.Input[Sequence[pulumi.Input['InferenceComponentAlarmArgs']]]:
+        return pulumi.get(self, "alarms")
+
+    @alarms.setter
+    def alarms(self, value: pulumi.Input[Sequence[pulumi.Input['InferenceComponentAlarmArgs']]]):
+        pulumi.set(self, "alarms", value)
+
+
+if not MYPY:
+    class InferenceComponentCapacitySizeArgsDict(TypedDict):
+        """
+        Capacity size configuration for the inference component
+        """
+        type: pulumi.Input['InferenceComponentCapacitySizeType']
+        value: pulumi.Input[int]
+elif False:
+    InferenceComponentCapacitySizeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InferenceComponentCapacitySizeArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['InferenceComponentCapacitySizeType'],
+                 value: pulumi.Input[int]):
+        """
+        Capacity size configuration for the inference component
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['InferenceComponentCapacitySizeType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['InferenceComponentCapacitySizeType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
     class InferenceComponentComputeResourceRequirementsArgsDict(TypedDict):
         max_memory_required_in_mb: NotRequired[pulumi.Input[int]]
         """
@@ -5787,6 +5881,116 @@ class InferenceComponentDeployedImageArgs:
     @specified_image.setter
     def specified_image(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "specified_image", value)
+
+
+if not MYPY:
+    class InferenceComponentDeploymentConfigArgsDict(TypedDict):
+        """
+        The deployment config for the inference component
+        """
+        auto_rollback_configuration: NotRequired[pulumi.Input['InferenceComponentAutoRollbackConfigurationArgsDict']]
+        rolling_update_policy: NotRequired[pulumi.Input['InferenceComponentRollingUpdatePolicyArgsDict']]
+elif False:
+    InferenceComponentDeploymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InferenceComponentDeploymentConfigArgs:
+    def __init__(__self__, *,
+                 auto_rollback_configuration: Optional[pulumi.Input['InferenceComponentAutoRollbackConfigurationArgs']] = None,
+                 rolling_update_policy: Optional[pulumi.Input['InferenceComponentRollingUpdatePolicyArgs']] = None):
+        """
+        The deployment config for the inference component
+        """
+        if auto_rollback_configuration is not None:
+            pulumi.set(__self__, "auto_rollback_configuration", auto_rollback_configuration)
+        if rolling_update_policy is not None:
+            pulumi.set(__self__, "rolling_update_policy", rolling_update_policy)
+
+    @property
+    @pulumi.getter(name="autoRollbackConfiguration")
+    def auto_rollback_configuration(self) -> Optional[pulumi.Input['InferenceComponentAutoRollbackConfigurationArgs']]:
+        return pulumi.get(self, "auto_rollback_configuration")
+
+    @auto_rollback_configuration.setter
+    def auto_rollback_configuration(self, value: Optional[pulumi.Input['InferenceComponentAutoRollbackConfigurationArgs']]):
+        pulumi.set(self, "auto_rollback_configuration", value)
+
+    @property
+    @pulumi.getter(name="rollingUpdatePolicy")
+    def rolling_update_policy(self) -> Optional[pulumi.Input['InferenceComponentRollingUpdatePolicyArgs']]:
+        return pulumi.get(self, "rolling_update_policy")
+
+    @rolling_update_policy.setter
+    def rolling_update_policy(self, value: Optional[pulumi.Input['InferenceComponentRollingUpdatePolicyArgs']]):
+        pulumi.set(self, "rolling_update_policy", value)
+
+
+if not MYPY:
+    class InferenceComponentRollingUpdatePolicyArgsDict(TypedDict):
+        """
+        The rolling update policy for the inference component
+        """
+        maximum_batch_size: NotRequired[pulumi.Input['InferenceComponentCapacitySizeArgsDict']]
+        maximum_execution_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        rollback_maximum_batch_size: NotRequired[pulumi.Input['InferenceComponentCapacitySizeArgsDict']]
+        wait_interval_in_seconds: NotRequired[pulumi.Input[int]]
+elif False:
+    InferenceComponentRollingUpdatePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InferenceComponentRollingUpdatePolicyArgs:
+    def __init__(__self__, *,
+                 maximum_batch_size: Optional[pulumi.Input['InferenceComponentCapacitySizeArgs']] = None,
+                 maximum_execution_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 rollback_maximum_batch_size: Optional[pulumi.Input['InferenceComponentCapacitySizeArgs']] = None,
+                 wait_interval_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        The rolling update policy for the inference component
+        """
+        if maximum_batch_size is not None:
+            pulumi.set(__self__, "maximum_batch_size", maximum_batch_size)
+        if maximum_execution_timeout_in_seconds is not None:
+            pulumi.set(__self__, "maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
+        if rollback_maximum_batch_size is not None:
+            pulumi.set(__self__, "rollback_maximum_batch_size", rollback_maximum_batch_size)
+        if wait_interval_in_seconds is not None:
+            pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
+
+    @property
+    @pulumi.getter(name="maximumBatchSize")
+    def maximum_batch_size(self) -> Optional[pulumi.Input['InferenceComponentCapacitySizeArgs']]:
+        return pulumi.get(self, "maximum_batch_size")
+
+    @maximum_batch_size.setter
+    def maximum_batch_size(self, value: Optional[pulumi.Input['InferenceComponentCapacitySizeArgs']]):
+        pulumi.set(self, "maximum_batch_size", value)
+
+    @property
+    @pulumi.getter(name="maximumExecutionTimeoutInSeconds")
+    def maximum_execution_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "maximum_execution_timeout_in_seconds")
+
+    @maximum_execution_timeout_in_seconds.setter
+    def maximum_execution_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_execution_timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="rollbackMaximumBatchSize")
+    def rollback_maximum_batch_size(self) -> Optional[pulumi.Input['InferenceComponentCapacitySizeArgs']]:
+        return pulumi.get(self, "rollback_maximum_batch_size")
+
+    @rollback_maximum_batch_size.setter
+    def rollback_maximum_batch_size(self, value: Optional[pulumi.Input['InferenceComponentCapacitySizeArgs']]):
+        pulumi.set(self, "rollback_maximum_batch_size", value)
+
+    @property
+    @pulumi.getter(name="waitIntervalInSeconds")
+    def wait_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "wait_interval_in_seconds")
+
+    @wait_interval_in_seconds.setter
+    def wait_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "wait_interval_in_seconds", value)
 
 
 if not MYPY:

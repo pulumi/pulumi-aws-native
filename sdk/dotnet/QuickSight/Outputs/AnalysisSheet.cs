@@ -21,10 +21,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisSheet
     {
         /// <summary>
-        /// A list of images on a sheet.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.AnalysisSheetImage> Images;
-        /// <summary>
         /// &lt;p&gt;The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
         ///             console.&lt;/p&gt;
         /// </summary>
@@ -36,13 +32,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private AnalysisSheet(
-            ImmutableArray<Outputs.AnalysisSheetImage> images,
-
             string? name,
 
             string? sheetId)
         {
-            Images = images;
             Name = name;
             SheetId = sheetId;
         }

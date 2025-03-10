@@ -25,6 +25,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.TemplateTableFieldWellsArgs>? FieldWells { get; set; }
 
         /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        [Input("interactions")]
+        public Input<Inputs.TemplateVisualInteractionOptionsArgs>? Interactions { get; set; }
+
+        /// <summary>
         /// The paginated report options for a table visual.
         /// </summary>
         [Input("paginatedReportOptions")]

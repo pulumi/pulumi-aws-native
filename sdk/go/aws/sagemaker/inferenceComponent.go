@@ -18,7 +18,8 @@ type InferenceComponent struct {
 	pulumi.CustomResourceState
 
 	// The time when the inference component was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	CreationTime     pulumi.StringOutput                         `pulumi:"creationTime"`
+	DeploymentConfig InferenceComponentDeploymentConfigPtrOutput `pulumi:"deploymentConfig"`
 	// The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
 	EndpointArn pulumi.StringPtrOutput `pulumi:"endpointArn"`
 	// The name of the endpoint that hosts the inference component.
@@ -85,6 +86,7 @@ func (InferenceComponentState) ElementType() reflect.Type {
 }
 
 type inferenceComponentArgs struct {
+	DeploymentConfig *InferenceComponentDeploymentConfig `pulumi:"deploymentConfig"`
 	// The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
 	EndpointArn *string `pulumi:"endpointArn"`
 	// The name of the endpoint that hosts the inference component.
@@ -100,6 +102,7 @@ type inferenceComponentArgs struct {
 
 // The set of arguments for constructing a InferenceComponent resource.
 type InferenceComponentArgs struct {
+	DeploymentConfig InferenceComponentDeploymentConfigPtrInput
 	// The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
 	EndpointArn pulumi.StringPtrInput
 	// The name of the endpoint that hosts the inference component.
@@ -153,6 +156,10 @@ func (o InferenceComponentOutput) ToInferenceComponentOutputWithContext(ctx cont
 // The time when the inference component was created.
 func (o InferenceComponentOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceComponent) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+func (o InferenceComponentOutput) DeploymentConfig() InferenceComponentDeploymentConfigPtrOutput {
+	return o.ApplyT(func(v *InferenceComponent) InferenceComponentDeploymentConfigPtrOutput { return v.DeploymentConfig }).(InferenceComponentDeploymentConfigPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.

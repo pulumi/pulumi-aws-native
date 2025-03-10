@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class AgentCustomOrchestration
     {
+        /// <summary>
+        /// The structure of the executor invoking the actions in custom orchestration.
+        /// </summary>
         public readonly Outputs.AgentOrchestrationExecutor? Executor;
 
         [OutputConstructor]

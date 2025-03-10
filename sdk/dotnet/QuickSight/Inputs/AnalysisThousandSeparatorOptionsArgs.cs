@@ -13,6 +13,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class AnalysisThousandSeparatorOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Determines the way numbers are styled to accommodate different readability standards. The `DEFAULT` value uses the standard international grouping system and groups numbers by the thousands. The `LAKHS` value uses the Indian numbering system and groups numbers by lakhs and crores.
+        /// </summary>
+        [Input("groupingStyle")]
+        public Input<Pulumi.AwsNative.QuickSight.AnalysisDigitGroupingStyle>? GroupingStyle { get; set; }
+
+        /// <summary>
         /// Determines the thousands separator symbol.
         /// </summary>
         [Input("symbol")]

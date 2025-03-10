@@ -37,11 +37,29 @@ export class Configuration extends pulumi.CustomResource {
         return obj['__pulumiType'] === Configuration.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the configuration.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The description of the configuration.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
+     */
     public readonly kafkaVersionsList!: pulumi.Output<string[] | undefined>;
+    /**
+     * Latest revision of the MSK configuration.
+     */
     public readonly latestRevision!: pulumi.Output<outputs.msk.ConfigurationLatestRevision | undefined>;
+    /**
+     * The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+     */
     public readonly serverProperties!: pulumi.Output<string>;
 
     /**
@@ -83,9 +101,24 @@ export class Configuration extends pulumi.CustomResource {
  * The set of arguments for constructing a Configuration resource.
  */
 export interface ConfigurationArgs {
+    /**
+     * The description of the configuration.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
+     */
     kafkaVersionsList?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Latest revision of the MSK configuration.
+     */
     latestRevision?: pulumi.Input<inputs.msk.ConfigurationLatestRevisionArgs>;
+    /**
+     * The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+     */
     serverProperties: pulumi.Input<string>;
 }

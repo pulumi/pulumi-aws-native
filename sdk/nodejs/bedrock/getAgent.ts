@@ -33,6 +33,9 @@ export interface GetAgentResult {
      * Arn representation of the Agent.
      */
     readonly agentArn?: string;
+    /**
+     * The agent's collaboration settings.
+     */
     readonly agentCollaboration?: enums.bedrock.AgentCollaboration;
     /**
      * List of Agent Collaborators
@@ -70,6 +73,9 @@ export interface GetAgentResult {
      * Time Stamp.
      */
     readonly createdAt?: string;
+    /**
+     * Contains custom orchestration configurations for the agent.
+     */
     readonly customOrchestration?: outputs.bedrock.AgentCustomOrchestration;
     /**
      * A KMS key ARN
@@ -103,7 +109,13 @@ export interface GetAgentResult {
      * List of Agent Knowledge Bases
      */
     readonly knowledgeBases?: outputs.bedrock.AgentKnowledgeBase[];
+    /**
+     * Contains memory configuration for the agent.
+     */
     readonly memoryConfiguration?: outputs.bedrock.AgentMemoryConfiguration;
+    /**
+     * Specifies the orchestration strategy for the agent.
+     */
     readonly orchestrationType?: enums.bedrock.AgentOrchestrationType;
     /**
      * Time Stamp.

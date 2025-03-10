@@ -6063,6 +6063,9 @@ if not MYPY:
         The network interfaces for the instance.
         """
         network_performance_options: NotRequired[Any]
+        """
+        The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) .
+        """
         placement: NotRequired[pulumi.Input['LaunchTemplatePlacementArgsDict']]
         """
         The placement for the instance.
@@ -6186,6 +6189,7 @@ class LaunchTemplateDataArgs:
         :param pulumi.Input['LaunchTemplateMetadataOptionsArgs'] metadata_options: The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
         :param pulumi.Input['LaunchTemplateMonitoringArgs'] monitoring: The monitoring for the instance.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]] network_interfaces: The network interfaces for the instance.
+        :param Any network_performance_options: The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) .
         :param pulumi.Input['LaunchTemplatePlacementArgs'] placement: The placement for the instance.
         :param pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs'] private_dns_name_options: The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
         :param pulumi.Input[str] ram_disk_id: The ID of the RAM disk.
@@ -6580,6 +6584,9 @@ class LaunchTemplateDataArgs:
     @property
     @pulumi.getter(name="networkPerformanceOptions")
     def network_performance_options(self) -> Optional[Any]:
+        """
+        The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) .
+        """
         return pulumi.get(self, "network_performance_options")
 
     @network_performance_options.setter

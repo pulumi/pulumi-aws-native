@@ -66,7 +66,7 @@ class CarrierGateway(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        An example resource schema demonstrating some basic constructs and validation rules.
+        Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -80,7 +80,7 @@ class CarrierGateway(pulumi.CustomResource):
                  args: CarrierGatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An example resource schema demonstrating some basic constructs and validation rules.
+        Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource
 
         :param str resource_name: The name of the resource.
         :param CarrierGatewayArgs args: The arguments to use to populate this resource's properties.

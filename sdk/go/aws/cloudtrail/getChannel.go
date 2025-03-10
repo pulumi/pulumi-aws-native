@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,6 +35,8 @@ type LookupChannelResult struct {
 	Destinations []ChannelDestination `pulumi:"destinations"`
 	// The name of the channel.
 	Name *string `pulumi:"name"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts ...pulumi.InvokeOption) LookupChannelResultOutput {
@@ -81,6 +84,11 @@ func (o LookupChannelResultOutput) Destinations() ChannelDestinationArrayOutput 
 // The name of the channel.
 func (o LookupChannelResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupChannelResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupChannelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.GuardDuty
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
+        /// </summary>
         [Output("destinationProperties")]
         public Output<Outputs.PublishingDestinationCfnDestinationProperties> DestinationProperties { get; private set; } = null!;
 
@@ -48,6 +51,9 @@ namespace Pulumi.AwsNative.GuardDuty
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes a tag.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -100,6 +106,9 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class PublishingDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
+        /// </summary>
         [Input("destinationProperties", required: true)]
         public Input<Inputs.PublishingDestinationCfnDestinationPropertiesArgs> DestinationProperties { get; set; } = null!;
 
@@ -117,6 +126,10 @@ namespace Pulumi.AwsNative.GuardDuty
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Describes a tag.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

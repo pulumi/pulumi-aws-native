@@ -8,11 +8,12 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
+// Resource Type definition for AWS::CE::CostCategory. Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
 type CostCategory struct {
 	pulumi.CustomResourceState
 
@@ -30,6 +31,8 @@ type CostCategory struct {
 	Rules pulumi.StringOutput `pulumi:"rules"`
 	// Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
 	SplitChargeRules pulumi.StringPtrOutput `pulumi:"splitChargeRules"`
+	// Tags to assign to the cost category.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewCostCategory registers a new resource with the given unique name, arguments, and options.
@@ -92,6 +95,8 @@ type costCategoryArgs struct {
 	Rules string `pulumi:"rules"`
 	// Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
 	SplitChargeRules *string `pulumi:"splitChargeRules"`
+	// Tags to assign to the cost category.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CostCategory resource.
@@ -106,6 +111,8 @@ type CostCategoryArgs struct {
 	Rules pulumi.StringInput
 	// Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
 	SplitChargeRules pulumi.StringPtrInput
+	// Tags to assign to the cost category.
+	Tags aws.TagArrayInput
 }
 
 func (CostCategoryArgs) ElementType() reflect.Type {
@@ -178,6 +185,11 @@ func (o CostCategoryOutput) Rules() pulumi.StringOutput {
 // Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
 func (o CostCategoryOutput) SplitChargeRules() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CostCategory) pulumi.StringPtrOutput { return v.SplitChargeRules }).(pulumi.StringPtrOutput)
+}
+
+// Tags to assign to the cost category.
+func (o CostCategoryOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CostCategory) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

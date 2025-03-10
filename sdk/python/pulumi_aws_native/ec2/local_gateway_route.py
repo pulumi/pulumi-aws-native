@@ -99,7 +99,7 @@ class LocalGatewayRoute(pulumi.CustomResource):
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Describes a route for a local gateway route table.
+        Resource Type definition for Local Gateway Route which describes a route for a local gateway route table.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,7 +115,7 @@ class LocalGatewayRoute(pulumi.CustomResource):
                  args: Optional[LocalGatewayRouteArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Describes a route for a local gateway route table.
+        Resource Type definition for Local Gateway Route which describes a route for a local gateway route table.
 
         :param str resource_name: The name of the resource.
         :param LocalGatewayRouteArgs args: The arguments to use to populate this resource's properties.

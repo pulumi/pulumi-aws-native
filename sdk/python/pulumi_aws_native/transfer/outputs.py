@@ -18,6 +18,7 @@ from ._enums import *
 
 __all__ = [
     'As2ConfigProperties',
+    'CustomDirectoriesProperties',
     'ServerEndpointDetails',
     'ServerIdentityProviderDetails',
     'ServerProtocolDetails',
@@ -205,6 +206,97 @@ class As2ConfigProperties(dict):
         Signing algorithm for this AS2 connector configuration.
         """
         return pulumi.get(self, "signing_algorithm")
+
+
+@pulumi.output_type
+class CustomDirectoriesProperties(dict):
+    """
+    Specifies a separate directory for each type of file to store for an AS2 message.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failedFilesDirectory":
+            suggest = "failed_files_directory"
+        elif key == "mdnFilesDirectory":
+            suggest = "mdn_files_directory"
+        elif key == "payloadFilesDirectory":
+            suggest = "payload_files_directory"
+        elif key == "statusFilesDirectory":
+            suggest = "status_files_directory"
+        elif key == "temporaryFilesDirectory":
+            suggest = "temporary_files_directory"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomDirectoriesProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomDirectoriesProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomDirectoriesProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failed_files_directory: str,
+                 mdn_files_directory: str,
+                 payload_files_directory: str,
+                 status_files_directory: str,
+                 temporary_files_directory: str):
+        """
+        Specifies a separate directory for each type of file to store for an AS2 message.
+        :param str failed_files_directory: Specifies a location to store the failed files for an AS2 message.
+        :param str mdn_files_directory: Specifies a location to store the MDN file for an AS2 message.
+        :param str payload_files_directory: Specifies a location to store the payload file for an AS2 message.
+        :param str status_files_directory: Specifies a location to store the status file for an AS2 message.
+        :param str temporary_files_directory: Specifies a location to store the temporary processing file for an AS2 message.
+        """
+        pulumi.set(__self__, "failed_files_directory", failed_files_directory)
+        pulumi.set(__self__, "mdn_files_directory", mdn_files_directory)
+        pulumi.set(__self__, "payload_files_directory", payload_files_directory)
+        pulumi.set(__self__, "status_files_directory", status_files_directory)
+        pulumi.set(__self__, "temporary_files_directory", temporary_files_directory)
+
+    @property
+    @pulumi.getter(name="failedFilesDirectory")
+    def failed_files_directory(self) -> str:
+        """
+        Specifies a location to store the failed files for an AS2 message.
+        """
+        return pulumi.get(self, "failed_files_directory")
+
+    @property
+    @pulumi.getter(name="mdnFilesDirectory")
+    def mdn_files_directory(self) -> str:
+        """
+        Specifies a location to store the MDN file for an AS2 message.
+        """
+        return pulumi.get(self, "mdn_files_directory")
+
+    @property
+    @pulumi.getter(name="payloadFilesDirectory")
+    def payload_files_directory(self) -> str:
+        """
+        Specifies a location to store the payload file for an AS2 message.
+        """
+        return pulumi.get(self, "payload_files_directory")
+
+    @property
+    @pulumi.getter(name="statusFilesDirectory")
+    def status_files_directory(self) -> str:
+        """
+        Specifies a location to store the status file for an AS2 message.
+        """
+        return pulumi.get(self, "status_files_directory")
+
+    @property
+    @pulumi.getter(name="temporaryFilesDirectory")
+    def temporary_files_directory(self) -> str:
+        """
+        Specifies a location to store the temporary processing file for an AS2 message.
+        """
+        return pulumi.get(self, "temporary_files_directory")
 
 
 @pulumi.output_type

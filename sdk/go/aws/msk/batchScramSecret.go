@@ -16,7 +16,9 @@ import (
 type BatchScramSecret struct {
 	pulumi.CustomResourceState
 
-	ClusterArn    pulumi.StringOutput      `pulumi:"clusterArn"`
+	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+	ClusterArn pulumi.StringOutput `pulumi:"clusterArn"`
+	// List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
 	SecretArnList pulumi.StringArrayOutput `pulumi:"secretArnList"`
 }
 
@@ -67,13 +69,17 @@ func (BatchScramSecretState) ElementType() reflect.Type {
 }
 
 type batchScramSecretArgs struct {
-	ClusterArn    string   `pulumi:"clusterArn"`
+	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+	ClusterArn string `pulumi:"clusterArn"`
+	// List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
 	SecretArnList []string `pulumi:"secretArnList"`
 }
 
 // The set of arguments for constructing a BatchScramSecret resource.
 type BatchScramSecretArgs struct {
-	ClusterArn    pulumi.StringInput
+	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+	ClusterArn pulumi.StringInput
+	// List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
 	SecretArnList pulumi.StringArrayInput
 }
 
@@ -114,10 +120,12 @@ func (o BatchScramSecretOutput) ToBatchScramSecretOutputWithContext(ctx context.
 	return o
 }
 
+// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 func (o BatchScramSecretOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BatchScramSecret) pulumi.StringOutput { return v.ClusterArn }).(pulumi.StringOutput)
 }
 
+// List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
 func (o BatchScramSecretOutput) SecretArnList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BatchScramSecret) pulumi.StringArrayOutput { return v.SecretArnList }).(pulumi.StringArrayOutput)
 }

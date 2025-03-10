@@ -31,6 +31,9 @@ class GetBatchScramSecretResult:
     @property
     @pulumi.getter(name="secretArnList")
     def secret_arn_list(self) -> Optional[Sequence[str]]:
+        """
+        List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
+        """
         return pulumi.get(self, "secret_arn_list")
 
 
@@ -47,6 +50,9 @@ def get_batch_scram_secret(cluster_arn: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBatchScramSecretResult:
     """
     Resource Type definition for AWS::MSK::BatchScramSecret
+
+
+    :param str cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
@@ -59,6 +65,9 @@ def get_batch_scram_secret_output(cluster_arn: Optional[pulumi.Input[str]] = Non
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBatchScramSecretResult]:
     """
     Resource Type definition for AWS::MSK::BatchScramSecret
+
+
+    :param str cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn

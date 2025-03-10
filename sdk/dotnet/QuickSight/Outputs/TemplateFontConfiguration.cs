@@ -22,6 +22,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateFontDecoration? FontDecoration;
         /// <summary>
+        /// The font family that you want to use.
+        /// </summary>
+        public readonly string? FontFamily;
+        /// <summary>
         /// The option that determines the text display size.
         /// </summary>
         public readonly Outputs.TemplateFontSize? FontSize;
@@ -40,6 +44,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.TemplateFontDecoration? fontDecoration,
 
+            string? fontFamily,
+
             Outputs.TemplateFontSize? fontSize,
 
             Pulumi.AwsNative.QuickSight.TemplateFontStyle? fontStyle,
@@ -48,6 +54,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         {
             FontColor = fontColor;
             FontDecoration = fontDecoration;
+            FontFamily = fontFamily;
             FontSize = fontSize;
             FontStyle = fontStyle;
             FontWeight = fontWeight;
