@@ -20,6 +20,7 @@ __all__ = [
     'AiAgentAiAgentConfiguration0Properties',
     'AiAgentAiAgentConfiguration1Properties',
     'AiAgentAiAgentConfiguration2Properties',
+    'AiAgentAiAgentConfiguration3Properties',
     'AiAgentAnswerRecommendationAiAgentConfiguration',
     'AiAgentAssociationConfiguration',
     'AiAgentAssociationConfigurationDataProperties',
@@ -28,6 +29,7 @@ __all__ = [
     'AiAgentOrCondition0Properties',
     'AiAgentOrCondition1Properties',
     'AiAgentSelfServiceAiAgentConfiguration',
+    'AiAgentSessionSummarizationAiAgentConfiguration',
     'AiAgentTagCondition',
     'AiAgentTagFilter0Properties',
     'AiAgentTagFilter1Properties',
@@ -169,6 +171,35 @@ class AiAgentAiAgentConfiguration2Properties(dict):
 
 
 @pulumi.output_type
+class AiAgentAiAgentConfiguration3Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sessionSummarizationAiAgentConfiguration":
+            suggest = "session_summarization_ai_agent_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentAiAgentConfiguration3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentAiAgentConfiguration3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentAiAgentConfiguration3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 session_summarization_ai_agent_configuration: 'outputs.AiAgentSessionSummarizationAiAgentConfiguration'):
+        pulumi.set(__self__, "session_summarization_ai_agent_configuration", session_summarization_ai_agent_configuration)
+
+    @property
+    @pulumi.getter(name="sessionSummarizationAiAgentConfiguration")
+    def session_summarization_ai_agent_configuration(self) -> 'outputs.AiAgentSessionSummarizationAiAgentConfiguration':
+        return pulumi.get(self, "session_summarization_ai_agent_configuration")
+
+
+@pulumi.output_type
 class AiAgentAnswerRecommendationAiAgentConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -200,6 +231,7 @@ class AiAgentAnswerRecommendationAiAgentConfiguration(dict):
                  answer_generation_ai_prompt_id: Optional[str] = None,
                  association_configurations: Optional[Sequence['outputs.AiAgentAssociationConfiguration']] = None,
                  intent_labeling_generation_ai_prompt_id: Optional[str] = None,
+                 locale: Optional[str] = None,
                  query_reformulation_ai_prompt_id: Optional[str] = None):
         if answer_generation_ai_guardrail_id is not None:
             pulumi.set(__self__, "answer_generation_ai_guardrail_id", answer_generation_ai_guardrail_id)
@@ -209,6 +241,8 @@ class AiAgentAnswerRecommendationAiAgentConfiguration(dict):
             pulumi.set(__self__, "association_configurations", association_configurations)
         if intent_labeling_generation_ai_prompt_id is not None:
             pulumi.set(__self__, "intent_labeling_generation_ai_prompt_id", intent_labeling_generation_ai_prompt_id)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
         if query_reformulation_ai_prompt_id is not None:
             pulumi.set(__self__, "query_reformulation_ai_prompt_id", query_reformulation_ai_prompt_id)
 
@@ -231,6 +265,11 @@ class AiAgentAnswerRecommendationAiAgentConfiguration(dict):
     @pulumi.getter(name="intentLabelingGenerationAiPromptId")
     def intent_labeling_generation_ai_prompt_id(self) -> Optional[str]:
         return pulumi.get(self, "intent_labeling_generation_ai_prompt_id")
+
+    @property
+    @pulumi.getter
+    def locale(self) -> Optional[str]:
+        return pulumi.get(self, "locale")
 
     @property
     @pulumi.getter(name="queryReformulationAiPromptId")
@@ -393,13 +432,16 @@ class AiAgentManualSearchAiAgentConfiguration(dict):
     def __init__(__self__, *,
                  answer_generation_ai_guardrail_id: Optional[str] = None,
                  answer_generation_ai_prompt_id: Optional[str] = None,
-                 association_configurations: Optional[Sequence['outputs.AiAgentAssociationConfiguration']] = None):
+                 association_configurations: Optional[Sequence['outputs.AiAgentAssociationConfiguration']] = None,
+                 locale: Optional[str] = None):
         if answer_generation_ai_guardrail_id is not None:
             pulumi.set(__self__, "answer_generation_ai_guardrail_id", answer_generation_ai_guardrail_id)
         if answer_generation_ai_prompt_id is not None:
             pulumi.set(__self__, "answer_generation_ai_prompt_id", answer_generation_ai_prompt_id)
         if association_configurations is not None:
             pulumi.set(__self__, "association_configurations", association_configurations)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
 
     @property
     @pulumi.getter(name="answerGenerationAiGuardrailId")
@@ -415,6 +457,11 @@ class AiAgentManualSearchAiAgentConfiguration(dict):
     @pulumi.getter(name="associationConfigurations")
     def association_configurations(self) -> Optional[Sequence['outputs.AiAgentAssociationConfiguration']]:
         return pulumi.get(self, "association_configurations")
+
+    @property
+    @pulumi.getter
+    def locale(self) -> Optional[str]:
+        return pulumi.get(self, "locale")
 
 
 @pulumi.output_type
@@ -533,6 +580,44 @@ class AiAgentSelfServiceAiAgentConfiguration(dict):
     @pulumi.getter(name="selfServicePreProcessingAiPromptId")
     def self_service_pre_processing_ai_prompt_id(self) -> Optional[str]:
         return pulumi.get(self, "self_service_pre_processing_ai_prompt_id")
+
+
+@pulumi.output_type
+class AiAgentSessionSummarizationAiAgentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sessionSummarizationAiPromptId":
+            suggest = "session_summarization_ai_prompt_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentSessionSummarizationAiAgentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentSessionSummarizationAiAgentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentSessionSummarizationAiAgentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 locale: Optional[str] = None,
+                 session_summarization_ai_prompt_id: Optional[str] = None):
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
+        if session_summarization_ai_prompt_id is not None:
+            pulumi.set(__self__, "session_summarization_ai_prompt_id", session_summarization_ai_prompt_id)
+
+    @property
+    @pulumi.getter
+    def locale(self) -> Optional[str]:
+        return pulumi.get(self, "locale")
+
+    @property
+    @pulumi.getter(name="sessionSummarizationAiPromptId")
+    def session_summarization_ai_prompt_id(self) -> Optional[str]:
+        return pulumi.get(self, "session_summarization_ai_prompt_id")
 
 
 @pulumi.output_type

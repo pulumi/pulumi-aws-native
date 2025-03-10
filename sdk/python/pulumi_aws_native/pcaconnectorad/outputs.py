@@ -62,6 +62,8 @@ class ConnectorVpcInformation(dict):
         suggest = None
         if key == "securityGroupIds":
             suggest = "security_group_ids"
+        elif key == "ipAddressType":
+            suggest = "ip_address_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConnectorVpcInformation. Access the value via the '{suggest}' property getter instead.")
@@ -75,11 +77,14 @@ class ConnectorVpcInformation(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 security_group_ids: Sequence[str]):
+                 security_group_ids: Sequence[str],
+                 ip_address_type: Optional['ConnectorVpcInformationIpAddressType'] = None):
         """
         :param Sequence[str] security_group_ids: The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -88,6 +93,11 @@ class ConnectorVpcInformation(dict):
         The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
         """
         return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional['ConnectorVpcInformationIpAddressType']:
+        return pulumi.get(self, "ip_address_type")
 
 
 @pulumi.output_type

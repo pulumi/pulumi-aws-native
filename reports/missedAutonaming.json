@@ -7889,7 +7889,8 @@
     "cfTypeName": "AWS::GuardDuty::PublishingDestination",
     "properties": {
       "destinationProperties": {
-        "$ref": "#/types/aws-native:guardduty:PublishingDestinationCfnDestinationProperties"
+        "$ref": "#/types/aws-native:guardduty:PublishingDestinationCfnDestinationProperties",
+        "description": "Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings."
       },
       "destinationType": {
         "type": "string",
@@ -7903,7 +7904,8 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
-        }
+        },
+        "description": "Describes a tag."
       }
     }
   },
@@ -14313,6 +14315,10 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags to add to the user settings resource. A tag is a key-value pair."
+      },
+      "toolbarConfiguration": {
+        "$ref": "#/types/aws-native:workspacesweb:UserSettingsToolbarConfiguration",
+        "description": "The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences."
       },
       "uploadAllowed": {
         "$ref": "#/types/aws-native:workspacesweb:UserSettingsEnabledType",
