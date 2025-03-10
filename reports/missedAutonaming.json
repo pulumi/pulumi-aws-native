@@ -14314,6 +14314,9 @@
         },
         "description": "The tags to add to the user settings resource. A tag is a key-value pair."
       },
+      "toolbarConfiguration": {
+        "$ref": "#/types/aws-native:workspacesweb:UserSettingsToolbarConfiguration"
+      },
       "uploadAllowed": {
         "$ref": "#/types/aws-native:workspacesweb:UserSettingsEnabledType",
         "description": "Specifies whether the user can upload files from the local device to the streaming session."
