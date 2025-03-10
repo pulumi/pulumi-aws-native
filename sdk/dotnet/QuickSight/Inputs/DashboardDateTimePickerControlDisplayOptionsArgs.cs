@@ -12,11 +12,17 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardDateTimePickerControlDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("dateIconVisibility")]
+        public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? DateIconVisibility { get; set; }
+
         /// <summary>
         /// Customize how dates are formatted in controls.
         /// </summary>
         [Input("dateTimeFormat")]
         public Input<string>? DateTimeFormat { get; set; }
+
+        [Input("helperTextVisibility")]
+        public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? HelperTextVisibility { get; set; }
 
         /// <summary>
         /// The configuration of info icon label options.

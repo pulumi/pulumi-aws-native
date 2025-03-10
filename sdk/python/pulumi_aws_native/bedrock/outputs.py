@@ -41,6 +41,34 @@ __all__ = [
     'AgentSessionSummaryConfiguration',
     'ApplicationInferenceProfileInferenceProfileModel',
     'ApplicationInferenceProfileInferenceProfileModelSourceProperties',
+    'DataAutomationProjectAudioExtractionCategory',
+    'DataAutomationProjectAudioStandardExtraction',
+    'DataAutomationProjectAudioStandardGenerativeField',
+    'DataAutomationProjectAudioStandardOutputConfiguration',
+    'DataAutomationProjectBlueprintItem',
+    'DataAutomationProjectCustomOutputConfiguration',
+    'DataAutomationProjectDocumentBoundingBox',
+    'DataAutomationProjectDocumentExtractionGranularity',
+    'DataAutomationProjectDocumentOutputAdditionalFileFormat',
+    'DataAutomationProjectDocumentOutputFormat',
+    'DataAutomationProjectDocumentOutputTextFormat',
+    'DataAutomationProjectDocumentOverrideConfiguration',
+    'DataAutomationProjectDocumentStandardExtraction',
+    'DataAutomationProjectDocumentStandardGenerativeField',
+    'DataAutomationProjectDocumentStandardOutputConfiguration',
+    'DataAutomationProjectImageBoundingBox',
+    'DataAutomationProjectImageExtractionCategory',
+    'DataAutomationProjectImageStandardExtraction',
+    'DataAutomationProjectImageStandardGenerativeField',
+    'DataAutomationProjectImageStandardOutputConfiguration',
+    'DataAutomationProjectOverrideConfiguration',
+    'DataAutomationProjectSplitterConfiguration',
+    'DataAutomationProjectStandardOutputConfiguration',
+    'DataAutomationProjectVideoBoundingBox',
+    'DataAutomationProjectVideoExtractionCategory',
+    'DataAutomationProjectVideoStandardExtraction',
+    'DataAutomationProjectVideoStandardGenerativeField',
+    'DataAutomationProjectVideoStandardOutputConfiguration',
     'DataSourceBedrockDataAutomationConfiguration',
     'DataSourceBedrockFoundationModelConfiguration',
     'DataSourceChunkingConfiguration',
@@ -233,6 +261,7 @@ __all__ = [
     'PromptInferenceConfigurationProperties',
     'PromptInputVariable',
     'PromptMessage',
+    'PromptMetadataEntry',
     'PromptModelInferenceConfiguration',
     'PromptSpecificToolChoice',
     'PromptSystemContentBlock0Properties',
@@ -262,6 +291,7 @@ __all__ = [
     'PromptVersionPromptGenAiResourceProperties',
     'PromptVersionPromptInferenceConfigurationProperties',
     'PromptVersionPromptInputVariable',
+    'PromptVersionPromptMetadataEntry',
     'PromptVersionPromptModelInferenceConfiguration',
     'PromptVersionPromptTemplateConfiguration0Properties',
     'PromptVersionPromptTemplateConfiguration1Properties',
@@ -678,6 +708,7 @@ class AgentCollaborator(dict):
         :param 'AgentCollaboratorAgentDescriptorProperties' agent_descriptor: Agent descriptor for agent collaborator
         :param str collaboration_instruction: Agent collaborator instruction
         :param str collaborator_name: Agent collaborator name
+        :param 'AgentRelayConversationHistory' relay_conversation_history: The collaborator's relay conversation history.
         """
         pulumi.set(__self__, "agent_descriptor", agent_descriptor)
         pulumi.set(__self__, "collaboration_instruction", collaboration_instruction)
@@ -712,6 +743,9 @@ class AgentCollaborator(dict):
     @property
     @pulumi.getter(name="relayConversationHistory")
     def relay_conversation_history(self) -> Optional['AgentRelayConversationHistory']:
+        """
+        The collaborator's relay conversation history.
+        """
         return pulumi.get(self, "relay_conversation_history")
 
 
@@ -764,6 +798,7 @@ class AgentCustomOrchestration(dict):
                  executor: Optional['outputs.AgentOrchestrationExecutor'] = None):
         """
         Structure for custom orchestration
+        :param 'AgentOrchestrationExecutor' executor: The structure of the executor invoking the actions in custom orchestration.
         """
         if executor is not None:
             pulumi.set(__self__, "executor", executor)
@@ -771,6 +806,9 @@ class AgentCustomOrchestration(dict):
     @property
     @pulumi.getter
     def executor(self) -> Optional['outputs.AgentOrchestrationExecutor']:
+        """
+        The structure of the executor invoking the actions in custom orchestration.
+        """
         return pulumi.get(self, "executor")
 
 
@@ -1115,6 +1153,8 @@ class AgentMemoryConfiguration(dict):
                  storage_days: Optional[float] = None):
         """
         Configuration for memory storage
+        :param Sequence['AgentMemoryType'] enabled_memory_types: The type of memory that is stored.
+        :param 'AgentSessionSummaryConfiguration' session_summary_configuration: Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
         :param float storage_days: Maximum number of days to store session details
         """
         if enabled_memory_types is not None:
@@ -1127,11 +1167,17 @@ class AgentMemoryConfiguration(dict):
     @property
     @pulumi.getter(name="enabledMemoryTypes")
     def enabled_memory_types(self) -> Optional[Sequence['AgentMemoryType']]:
+        """
+        The type of memory that is stored.
+        """
         return pulumi.get(self, "enabled_memory_types")
 
     @property
     @pulumi.getter(name="sessionSummaryConfiguration")
     def session_summary_configuration(self) -> Optional['outputs.AgentSessionSummaryConfiguration']:
+        """
+        Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
+        """
         return pulumi.get(self, "session_summary_configuration")
 
     @property
@@ -1273,6 +1319,7 @@ class AgentPromptConfiguration(dict):
         """
         BasePromptConfiguration per Prompt Type.
         :param str base_prompt_template: Base Prompt Template.
+        :param str foundation_model: The agent's foundation model.
         :param 'AgentInferenceConfiguration' inference_configuration: Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
         :param 'AgentCreationMode' parser_mode: Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
         :param 'AgentCreationMode' prompt_creation_mode: Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
@@ -1310,6 +1357,9 @@ class AgentPromptConfiguration(dict):
     @property
     @pulumi.getter(name="foundationModel")
     def foundation_model(self) -> Optional[str]:
+        """
+        The agent's foundation model.
+        """
         return pulumi.get(self, "foundation_model")
 
     @property
@@ -1584,6 +1634,698 @@ class ApplicationInferenceProfileInferenceProfileModelSourceProperties(dict):
         can either be a foundation model or predefined inference profile ARN.
         """
         return pulumi.get(self, "copy_from")
+
+
+@pulumi.output_type
+class DataAutomationProjectAudioExtractionCategory(dict):
+    def __init__(__self__, *,
+                 state: 'DataAutomationProjectState',
+                 types: Optional[Sequence['DataAutomationProjectAudioExtractionCategoryType']] = None):
+        pulumi.set(__self__, "state", state)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def state(self) -> 'DataAutomationProjectState':
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[Sequence['DataAutomationProjectAudioExtractionCategoryType']]:
+        return pulumi.get(self, "types")
+
+
+@pulumi.output_type
+class DataAutomationProjectAudioStandardExtraction(dict):
+    def __init__(__self__, *,
+                 category: 'outputs.DataAutomationProjectAudioExtractionCategory'):
+        pulumi.set(__self__, "category", category)
+
+    @property
+    @pulumi.getter
+    def category(self) -> 'outputs.DataAutomationProjectAudioExtractionCategory':
+        return pulumi.get(self, "category")
+
+
+@pulumi.output_type
+class DataAutomationProjectAudioStandardGenerativeField(dict):
+    def __init__(__self__, *,
+                 state: 'DataAutomationProjectState',
+                 types: Optional[Sequence['DataAutomationProjectAudioStandardGenerativeFieldType']] = None):
+        pulumi.set(__self__, "state", state)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def state(self) -> 'DataAutomationProjectState':
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[Sequence['DataAutomationProjectAudioStandardGenerativeFieldType']]:
+        return pulumi.get(self, "types")
+
+
+@pulumi.output_type
+class DataAutomationProjectAudioStandardOutputConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "generativeField":
+            suggest = "generative_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationProjectAudioStandardOutputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationProjectAudioStandardOutputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationProjectAudioStandardOutputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 extraction: Optional['outputs.DataAutomationProjectAudioStandardExtraction'] = None,
+                 generative_field: Optional['outputs.DataAutomationProjectAudioStandardGenerativeField'] = None):
+        if extraction is not None:
+            pulumi.set(__self__, "extraction", extraction)
+        if generative_field is not None:
+            pulumi.set(__self__, "generative_field", generative_field)
+
+    @property
+    @pulumi.getter
+    def extraction(self) -> Optional['outputs.DataAutomationProjectAudioStandardExtraction']:
+        return pulumi.get(self, "extraction")
+
+    @property
+    @pulumi.getter(name="generativeField")
+    def generative_field(self) -> Optional['outputs.DataAutomationProjectAudioStandardGenerativeField']:
+        return pulumi.get(self, "generative_field")
+
+
+@pulumi.output_type
+class DataAutomationProjectBlueprintItem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blueprintArn":
+            suggest = "blueprint_arn"
+        elif key == "blueprintStage":
+            suggest = "blueprint_stage"
+        elif key == "blueprintVersion":
+            suggest = "blueprint_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationProjectBlueprintItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationProjectBlueprintItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationProjectBlueprintItem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 blueprint_arn: str,
+                 blueprint_stage: Optional['DataAutomationProjectBlueprintStage'] = None,
+                 blueprint_version: Optional[str] = None):
+        """
+        :param str blueprint_arn: ARN of a Blueprint
+        :param str blueprint_version: Blueprint Version
+        """
+        pulumi.set(__self__, "blueprint_arn", blueprint_arn)
+        if blueprint_stage is not None:
+            pulumi.set(__self__, "blueprint_stage", blueprint_stage)
+        if blueprint_version is not None:
+            pulumi.set(__self__, "blueprint_version", blueprint_version)
+
+    @property
+    @pulumi.getter(name="blueprintArn")
+    def blueprint_arn(self) -> str:
+        """
+        ARN of a Blueprint
+        """
+        return pulumi.get(self, "blueprint_arn")
+
+    @property
+    @pulumi.getter(name="blueprintStage")
+    def blueprint_stage(self) -> Optional['DataAutomationProjectBlueprintStage']:
+        return pulumi.get(self, "blueprint_stage")
+
+    @property
+    @pulumi.getter(name="blueprintVersion")
+    def blueprint_version(self) -> Optional[str]:
+        """
+        Blueprint Version
+        """
+        return pulumi.get(self, "blueprint_version")
+
+
+@pulumi.output_type
+class DataAutomationProjectCustomOutputConfiguration(dict):
+    """
+    Custom output configuration
+    """
+    def __init__(__self__, *,
+                 blueprints: Optional[Sequence['outputs.DataAutomationProjectBlueprintItem']] = None):
+        """
+        Custom output configuration
+        """
+        if blueprints is not None:
+            pulumi.set(__self__, "blueprints", blueprints)
+
+    @property
+    @pulumi.getter
+    def blueprints(self) -> Optional[Sequence['outputs.DataAutomationProjectBlueprintItem']]:
+        return pulumi.get(self, "blueprints")
+
+
+@pulumi.output_type
+class DataAutomationProjectDocumentBoundingBox(dict):
+    def __init__(__self__, *,
+                 state: 'DataAutomationProjectState'):
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> 'DataAutomationProjectState':
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class DataAutomationProjectDocumentExtractionGranularity(dict):
+    def __init__(__self__, *,
+                 types: Optional[Sequence['DataAutomationProjectDocumentExtractionGranularityType']] = None):
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[Sequence['DataAutomationProjectDocumentExtractionGranularityType']]:
+        return pulumi.get(self, "types")
+
+
+@pulumi.output_type
+class DataAutomationProjectDocumentOutputAdditionalFileFormat(dict):
+    def __init__(__self__, *,
+                 state: 'DataAutomationProjectState'):
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> 'DataAutomationProjectState':
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class DataAutomationProjectDocumentOutputFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalFileFormat":
+            suggest = "additional_file_format"
+        elif key == "textFormat":
+            suggest = "text_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationProjectDocumentOutputFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationProjectDocumentOutputFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationProjectDocumentOutputFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_file_format: 'outputs.DataAutomationProjectDocumentOutputAdditionalFileFormat',
+                 text_format: 'outputs.DataAutomationProjectDocumentOutputTextFormat'):
+        pulumi.set(__self__, "additional_file_format", additional_file_format)
+        pulumi.set(__self__, "text_format", text_format)
+
+    @property
+    @pulumi.getter(name="additionalFileFormat")
+    def additional_file_format(self) -> 'outputs.DataAutomationProjectDocumentOutputAdditionalFileFormat':
+        return pulumi.get(self, "additional_file_format")
+
+    @property
+    @pulumi.getter(name="textFormat")
+    def text_format(self) -> 'outputs.DataAutomationProjectDocumentOutputTextFormat':
+        return pulumi.get(self, "text_format")
+
+
+@pulumi.output_type
+class DataAutomationProjectDocumentOutputTextFormat(dict):
+    def __init__(__self__, *,
+                 types: Optional[Sequence['DataAutomationProjectDocumentOutputTextFormatType']] = None):
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[Sequence['DataAutomationProjectDocumentOutputTextFormatType']]:
+        return pulumi.get(self, "types")
+
+
+@pulumi.output_type
+class DataAutomationProjectDocumentOverrideConfiguration(dict):
+    def __init__(__self__, *,
+                 splitter: Optional['outputs.DataAutomationProjectSplitterConfiguration'] = None):
+        if splitter is not None:
+            pulumi.set(__self__, "splitter", splitter)
+
+    @property
+    @pulumi.getter
+    def splitter(self) -> Optional['outputs.DataAutomationProjectSplitterConfiguration']:
+        return pulumi.get(self, "splitter")
+
+
+@pulumi.output_type
+class DataAutomationProjectDocumentStandardExtraction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "boundingBox":
+            suggest = "bounding_box"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationProjectDocumentStandardExtraction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationProjectDocumentStandardExtraction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationProjectDocumentStandardExtraction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bounding_box: 'outputs.DataAutomationProjectDocumentBoundingBox',
+                 granularity: 'outputs.DataAutomationProjectDocumentExtractionGranularity'):
+        pulumi.set(__self__, "bounding_box", bounding_box)
+        pulumi.set(__self__, "granularity", granularity)
+
+    @property
+    @pulumi.getter(name="boundingBox")
+    def bounding_box(self) -> 'outputs.DataAutomationProjectDocumentBoundingBox':
+        return pulumi.get(self, "bounding_box")
+
+    @property
+    @pulumi.getter
+    def granularity(self) -> 'outputs.DataAutomationProjectDocumentExtractionGranularity':
+        return pulumi.get(self, "granularity")
+
+
+@pulumi.output_type
+class DataAutomationProjectDocumentStandardGenerativeField(dict):
+    def __init__(__self__, *,
+                 state: 'DataAutomationProjectState'):
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> 'DataAutomationProjectState':
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class DataAutomationProjectDocumentStandardOutputConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "generativeField":
+            suggest = "generative_field"
+        elif key == "outputFormat":
+            suggest = "output_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationProjectDocumentStandardOutputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationProjectDocumentStandardOutputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationProjectDocumentStandardOutputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 extraction: Optional['outputs.DataAutomationProjectDocumentStandardExtraction'] = None,
+                 generative_field: Optional['outputs.DataAutomationProjectDocumentStandardGenerativeField'] = None,
+                 output_format: Optional['outputs.DataAutomationProjectDocumentOutputFormat'] = None):
+        if extraction is not None:
+            pulumi.set(__self__, "extraction", extraction)
+        if generative_field is not None:
+            pulumi.set(__self__, "generative_field", generative_field)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+
+    @property
+    @pulumi.getter
+    def extraction(self) -> Optional['outputs.DataAutomationProjectDocumentStandardExtraction']:
+        return pulumi.get(self, "extraction")
+
+    @property
+    @pulumi.getter(name="generativeField")
+    def generative_field(self) -> Optional['outputs.DataAutomationProjectDocumentStandardGenerativeField']:
+        return pulumi.get(self, "generative_field")
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional['outputs.DataAutomationProjectDocumentOutputFormat']:
+        return pulumi.get(self, "output_format")
+
+
+@pulumi.output_type
+class DataAutomationProjectImageBoundingBox(dict):
+    def __init__(__self__, *,
+                 state: 'DataAutomationProjectState'):
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> 'DataAutomationProjectState':
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class DataAutomationProjectImageExtractionCategory(dict):
+    def __init__(__self__, *,
+                 state: 'DataAutomationProjectState',
+                 types: Optional[Sequence['DataAutomationProjectImageExtractionCategoryType']] = None):
+        pulumi.set(__self__, "state", state)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def state(self) -> 'DataAutomationProjectState':
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[Sequence['DataAutomationProjectImageExtractionCategoryType']]:
+        return pulumi.get(self, "types")
+
+
+@pulumi.output_type
+class DataAutomationProjectImageStandardExtraction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "boundingBox":
+            suggest = "bounding_box"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationProjectImageStandardExtraction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationProjectImageStandardExtraction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationProjectImageStandardExtraction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bounding_box: 'outputs.DataAutomationProjectImageBoundingBox',
+                 category: 'outputs.DataAutomationProjectImageExtractionCategory'):
+        pulumi.set(__self__, "bounding_box", bounding_box)
+        pulumi.set(__self__, "category", category)
+
+    @property
+    @pulumi.getter(name="boundingBox")
+    def bounding_box(self) -> 'outputs.DataAutomationProjectImageBoundingBox':
+        return pulumi.get(self, "bounding_box")
+
+    @property
+    @pulumi.getter
+    def category(self) -> 'outputs.DataAutomationProjectImageExtractionCategory':
+        return pulumi.get(self, "category")
+
+
+@pulumi.output_type
+class DataAutomationProjectImageStandardGenerativeField(dict):
+    def __init__(__self__, *,
+                 state: 'DataAutomationProjectState',
+                 types: Optional[Sequence['DataAutomationProjectImageStandardGenerativeFieldType']] = None):
+        pulumi.set(__self__, "state", state)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def state(self) -> 'DataAutomationProjectState':
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[Sequence['DataAutomationProjectImageStandardGenerativeFieldType']]:
+        return pulumi.get(self, "types")
+
+
+@pulumi.output_type
+class DataAutomationProjectImageStandardOutputConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "generativeField":
+            suggest = "generative_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationProjectImageStandardOutputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationProjectImageStandardOutputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationProjectImageStandardOutputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 extraction: Optional['outputs.DataAutomationProjectImageStandardExtraction'] = None,
+                 generative_field: Optional['outputs.DataAutomationProjectImageStandardGenerativeField'] = None):
+        if extraction is not None:
+            pulumi.set(__self__, "extraction", extraction)
+        if generative_field is not None:
+            pulumi.set(__self__, "generative_field", generative_field)
+
+    @property
+    @pulumi.getter
+    def extraction(self) -> Optional['outputs.DataAutomationProjectImageStandardExtraction']:
+        return pulumi.get(self, "extraction")
+
+    @property
+    @pulumi.getter(name="generativeField")
+    def generative_field(self) -> Optional['outputs.DataAutomationProjectImageStandardGenerativeField']:
+        return pulumi.get(self, "generative_field")
+
+
+@pulumi.output_type
+class DataAutomationProjectOverrideConfiguration(dict):
+    """
+    Override configuration
+    """
+    def __init__(__self__, *,
+                 document: Optional['outputs.DataAutomationProjectDocumentOverrideConfiguration'] = None):
+        """
+        Override configuration
+        """
+        if document is not None:
+            pulumi.set(__self__, "document", document)
+
+    @property
+    @pulumi.getter
+    def document(self) -> Optional['outputs.DataAutomationProjectDocumentOverrideConfiguration']:
+        return pulumi.get(self, "document")
+
+
+@pulumi.output_type
+class DataAutomationProjectSplitterConfiguration(dict):
+    def __init__(__self__, *,
+                 state: Optional['DataAutomationProjectState'] = None):
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional['DataAutomationProjectState']:
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class DataAutomationProjectStandardOutputConfiguration(dict):
+    """
+    Standard output configuration
+    """
+    def __init__(__self__, *,
+                 audio: Optional['outputs.DataAutomationProjectAudioStandardOutputConfiguration'] = None,
+                 document: Optional['outputs.DataAutomationProjectDocumentStandardOutputConfiguration'] = None,
+                 image: Optional['outputs.DataAutomationProjectImageStandardOutputConfiguration'] = None,
+                 video: Optional['outputs.DataAutomationProjectVideoStandardOutputConfiguration'] = None):
+        """
+        Standard output configuration
+        """
+        if audio is not None:
+            pulumi.set(__self__, "audio", audio)
+        if document is not None:
+            pulumi.set(__self__, "document", document)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if video is not None:
+            pulumi.set(__self__, "video", video)
+
+    @property
+    @pulumi.getter
+    def audio(self) -> Optional['outputs.DataAutomationProjectAudioStandardOutputConfiguration']:
+        return pulumi.get(self, "audio")
+
+    @property
+    @pulumi.getter
+    def document(self) -> Optional['outputs.DataAutomationProjectDocumentStandardOutputConfiguration']:
+        return pulumi.get(self, "document")
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional['outputs.DataAutomationProjectImageStandardOutputConfiguration']:
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter
+    def video(self) -> Optional['outputs.DataAutomationProjectVideoStandardOutputConfiguration']:
+        return pulumi.get(self, "video")
+
+
+@pulumi.output_type
+class DataAutomationProjectVideoBoundingBox(dict):
+    def __init__(__self__, *,
+                 state: 'DataAutomationProjectState'):
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> 'DataAutomationProjectState':
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class DataAutomationProjectVideoExtractionCategory(dict):
+    def __init__(__self__, *,
+                 state: 'DataAutomationProjectState',
+                 types: Optional[Sequence['DataAutomationProjectVideoExtractionCategoryType']] = None):
+        pulumi.set(__self__, "state", state)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def state(self) -> 'DataAutomationProjectState':
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[Sequence['DataAutomationProjectVideoExtractionCategoryType']]:
+        return pulumi.get(self, "types")
+
+
+@pulumi.output_type
+class DataAutomationProjectVideoStandardExtraction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "boundingBox":
+            suggest = "bounding_box"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationProjectVideoStandardExtraction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationProjectVideoStandardExtraction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationProjectVideoStandardExtraction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bounding_box: 'outputs.DataAutomationProjectVideoBoundingBox',
+                 category: 'outputs.DataAutomationProjectVideoExtractionCategory'):
+        pulumi.set(__self__, "bounding_box", bounding_box)
+        pulumi.set(__self__, "category", category)
+
+    @property
+    @pulumi.getter(name="boundingBox")
+    def bounding_box(self) -> 'outputs.DataAutomationProjectVideoBoundingBox':
+        return pulumi.get(self, "bounding_box")
+
+    @property
+    @pulumi.getter
+    def category(self) -> 'outputs.DataAutomationProjectVideoExtractionCategory':
+        return pulumi.get(self, "category")
+
+
+@pulumi.output_type
+class DataAutomationProjectVideoStandardGenerativeField(dict):
+    def __init__(__self__, *,
+                 state: 'DataAutomationProjectState',
+                 types: Optional[Sequence['DataAutomationProjectVideoStandardGenerativeFieldType']] = None):
+        pulumi.set(__self__, "state", state)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def state(self) -> 'DataAutomationProjectState':
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[Sequence['DataAutomationProjectVideoStandardGenerativeFieldType']]:
+        return pulumi.get(self, "types")
+
+
+@pulumi.output_type
+class DataAutomationProjectVideoStandardOutputConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "generativeField":
+            suggest = "generative_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationProjectVideoStandardOutputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationProjectVideoStandardOutputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationProjectVideoStandardOutputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 extraction: Optional['outputs.DataAutomationProjectVideoStandardExtraction'] = None,
+                 generative_field: Optional['outputs.DataAutomationProjectVideoStandardGenerativeField'] = None):
+        if extraction is not None:
+            pulumi.set(__self__, "extraction", extraction)
+        if generative_field is not None:
+            pulumi.set(__self__, "generative_field", generative_field)
+
+    @property
+    @pulumi.getter
+    def extraction(self) -> Optional['outputs.DataAutomationProjectVideoStandardExtraction']:
+        return pulumi.get(self, "extraction")
+
+    @property
+    @pulumi.getter(name="generativeField")
+    def generative_field(self) -> Optional['outputs.DataAutomationProjectVideoStandardGenerativeField']:
+        return pulumi.get(self, "generative_field")
 
 
 @pulumi.output_type
@@ -9609,6 +10351,31 @@ class PromptMessage(dict):
 
 
 @pulumi.output_type
+class PromptMetadataEntry(dict):
+    """
+    Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class PromptModelInferenceConfiguration(dict):
     """
     Prompt model inference configuration
@@ -10202,6 +10969,7 @@ class PromptVariant(dict):
                  additional_model_request_fields: Optional['outputs.PromptAdditionalModelRequestFields'] = None,
                  gen_ai_resource: Optional['outputs.PromptGenAiResourceProperties'] = None,
                  inference_configuration: Optional['outputs.PromptInferenceConfigurationProperties'] = None,
+                 metadata: Optional[Sequence['outputs.PromptMetadataEntry']] = None,
                  model_id: Optional[str] = None):
         """
         Prompt variant
@@ -10211,6 +10979,7 @@ class PromptVariant(dict):
         :param 'PromptAdditionalModelRequestFields' additional_model_request_fields: Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
         :param 'PromptGenAiResourceProperties' gen_ai_resource: Specifies a generative AI resource with which to use the prompt.
         :param 'PromptInferenceConfigurationProperties' inference_configuration: Contains inference configurations for the prompt variant.
+        :param Sequence['PromptMetadataEntry'] metadata: An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
         :param str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         pulumi.set(__self__, "name", name)
@@ -10222,6 +10991,8 @@ class PromptVariant(dict):
             pulumi.set(__self__, "gen_ai_resource", gen_ai_resource)
         if inference_configuration is not None:
             pulumi.set(__self__, "inference_configuration", inference_configuration)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if model_id is not None:
             pulumi.set(__self__, "model_id", model_id)
 
@@ -10272,6 +11043,14 @@ class PromptVariant(dict):
         Contains inference configurations for the prompt variant.
         """
         return pulumi.get(self, "inference_configuration")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Sequence['outputs.PromptMetadataEntry']]:
+        """
+        An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+        """
+        return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter(name="modelId")
@@ -10594,6 +11373,31 @@ class PromptVersionPromptInputVariable(dict):
 
 
 @pulumi.output_type
+class PromptVersionPromptMetadataEntry(dict):
+    """
+    Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class PromptVersionPromptModelInferenceConfiguration(dict):
     """
     Prompt model inference configuration
@@ -10748,6 +11552,7 @@ class PromptVersionPromptVariant(dict):
                  additional_model_request_fields: Optional['outputs.PromptVersionAdditionalModelRequestFields'] = None,
                  gen_ai_resource: Optional['outputs.PromptVersionPromptGenAiResourceProperties'] = None,
                  inference_configuration: Optional['outputs.PromptVersionPromptInferenceConfigurationProperties'] = None,
+                 metadata: Optional[Sequence['outputs.PromptVersionPromptMetadataEntry']] = None,
                  model_id: Optional[str] = None):
         """
         Prompt variant
@@ -10757,6 +11562,7 @@ class PromptVersionPromptVariant(dict):
         :param 'PromptVersionAdditionalModelRequestFields' additional_model_request_fields: Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
         :param 'PromptVersionPromptGenAiResourceProperties' gen_ai_resource: Specifies a generative AI resource with which to use the prompt.
         :param 'PromptVersionPromptInferenceConfigurationProperties' inference_configuration: Contains inference configurations for the prompt variant.
+        :param Sequence['PromptVersionPromptMetadataEntry'] metadata: An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
         :param str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         pulumi.set(__self__, "name", name)
@@ -10768,6 +11574,8 @@ class PromptVersionPromptVariant(dict):
             pulumi.set(__self__, "gen_ai_resource", gen_ai_resource)
         if inference_configuration is not None:
             pulumi.set(__self__, "inference_configuration", inference_configuration)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if model_id is not None:
             pulumi.set(__self__, "model_id", model_id)
 
@@ -10818,6 +11626,14 @@ class PromptVersionPromptVariant(dict):
         Contains inference configurations for the prompt variant.
         """
         return pulumi.get(self, "inference_configuration")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Sequence['outputs.PromptVersionPromptMetadataEntry']]:
+        """
+        An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+        """
+        return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter(name="modelId")

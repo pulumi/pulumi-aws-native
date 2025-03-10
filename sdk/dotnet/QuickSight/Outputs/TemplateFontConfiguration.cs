@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// Determines the appearance of decorative lines on the text.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateFontDecoration? FontDecoration;
+        public readonly string? FontFamily;
         /// <summary>
         /// The option that determines the text display size.
         /// </summary>
@@ -40,6 +41,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.TemplateFontDecoration? fontDecoration,
 
+            string? fontFamily,
+
             Outputs.TemplateFontSize? fontSize,
 
             Pulumi.AwsNative.QuickSight.TemplateFontStyle? fontStyle,
@@ -48,6 +51,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         {
             FontColor = fontColor;
             FontDecoration = fontDecoration;
+            FontFamily = fontFamily;
             FontSize = fontSize;
             FontStyle = fontStyle;
             FontWeight = fontWeight;

@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateThousandSeparatorOptions
     {
+        public readonly Pulumi.AwsNative.QuickSight.TemplateDigitGroupingStyle? GroupingStyle;
         /// <summary>
         /// Determines the thousands separator symbol.
         /// </summary>
@@ -24,10 +25,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private TemplateThousandSeparatorOptions(
+            Pulumi.AwsNative.QuickSight.TemplateDigitGroupingStyle? groupingStyle,
+
             Pulumi.AwsNative.QuickSight.TemplateNumericSeparatorSymbol? symbol,
 
             object? visibility)
         {
+            GroupingStyle = groupingStyle;
             Symbol = symbol;
             Visibility = visibility;
         }

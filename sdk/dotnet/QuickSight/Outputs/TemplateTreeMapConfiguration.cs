@@ -33,6 +33,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The label options (label text, label visibility) of the groups that are displayed in a tree map.
         /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? GroupLabelOptions;
+        public readonly Outputs.TemplateVisualInteractionOptions? Interactions;
         /// <summary>
         /// The legend display setup of the visual.
         /// </summary>
@@ -62,6 +63,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateChartAxisLabelOptions? groupLabelOptions,
 
+            Outputs.TemplateVisualInteractionOptions? interactions,
+
             Outputs.TemplateLegendOptions? legend,
 
             Outputs.TemplateChartAxisLabelOptions? sizeLabelOptions,
@@ -75,6 +78,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             DataLabels = dataLabels;
             FieldWells = fieldWells;
             GroupLabelOptions = groupLabelOptions;
+            Interactions = interactions;
             Legend = legend;
             SizeLabelOptions = sizeLabelOptions;
             SortConfiguration = sortConfiguration;

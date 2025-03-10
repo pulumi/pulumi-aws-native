@@ -29,6 +29,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The field wells of the visual.
         /// </summary>
         public readonly Outputs.DashboardHeatMapFieldWells? FieldWells;
+        public readonly Outputs.DashboardVisualInteractionOptions? Interactions;
         /// <summary>
         /// The legend display setup of the visual.
         /// </summary>
@@ -56,6 +57,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardHeatMapFieldWells? fieldWells,
 
+            Outputs.DashboardVisualInteractionOptions? interactions,
+
             Outputs.DashboardLegendOptions? legend,
 
             Outputs.DashboardChartAxisLabelOptions? rowLabelOptions,
@@ -68,6 +71,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ColumnLabelOptions = columnLabelOptions;
             DataLabels = dataLabels;
             FieldWells = fieldWells;
+            Interactions = interactions;
             Legend = legend;
             RowLabelOptions = rowLabelOptions;
             SortConfiguration = sortConfiguration;

@@ -15,3 +15,5 @@ class LinkResourceType(str, Enum):
     AWSX_RAY_TRACE = "AWS::XRay::Trace"
     AWS_APPLICATION_INSIGHTS_APPLICATION = "AWS::ApplicationInsights::Application"
     AWS_INTERNET_MONITOR_MONITOR = "AWS::InternetMonitor::Monitor"
+    AWS_APPLICATION_SIGNALS_SERVICE = "AWS::ApplicationSignals::Service"
+    AWS_APPLICATION_SIGNALS_SERVICE_LEVEL_OBJECTIVE = "AWS::ApplicationSignals::ServiceLevelObjective"

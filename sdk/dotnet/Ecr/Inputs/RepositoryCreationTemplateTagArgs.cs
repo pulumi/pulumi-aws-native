@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.Ecr.Inputs
 {
 
     /// <summary>
-    /// An array of key-value pairs to apply to this resource.
+    /// The metadata to apply to a resource to help you categorize and organize them. Each tag consists of a key and a value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
     /// </summary>
     public sealed class RepositoryCreationTemplateTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        /// One part of a key-value pair that make up a tag. A ``key`` is a general label that acts like a category for more specific tag values.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        /// A ``value`` acts as a descriptor within a tag category (key).
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

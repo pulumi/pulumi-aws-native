@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Ce
     public static class GetCostCategory
     {
         /// <summary>
-        /// Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
+        /// Resource Type definition for AWS::CE::CostCategory. Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
         /// </summary>
         public static Task<GetCostCategoryResult> InvokeAsync(GetCostCategoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCostCategoryResult>("aws-native:ce:getCostCategory", args ?? new GetCostCategoryArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
+        /// Resource Type definition for AWS::CE::CostCategory. Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
         /// </summary>
         public static Output<GetCostCategoryResult> Invoke(GetCostCategoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCostCategoryResult>("aws-native:ce:getCostCategory", args ?? new GetCostCategoryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
+        /// Resource Type definition for AWS::CE::CostCategory. Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
         /// </summary>
         public static Output<GetCostCategoryResult> Invoke(GetCostCategoryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCostCategoryResult>("aws-native:ce:getCostCategory", args ?? new GetCostCategoryInvokeArgs(), options.WithDefaults());
@@ -87,6 +87,10 @@ namespace Pulumi.AwsNative.Ce
         /// Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
         /// </summary>
         public readonly string? SplitChargeRules;
+        /// <summary>
+        /// Tags to assign to the cost category.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCostCategoryResult(
@@ -100,7 +104,9 @@ namespace Pulumi.AwsNative.Ce
 
             string? rules,
 
-            string? splitChargeRules)
+            string? splitChargeRules,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             DefaultValue = defaultValue;
@@ -108,6 +114,7 @@ namespace Pulumi.AwsNative.Ce
             RuleVersion = ruleVersion;
             Rules = rules;
             SplitChargeRules = splitChargeRules;
+            Tags = tags;
         }
     }
 }

@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("groupLabelOptions")]
         public Input<Inputs.DashboardChartAxisLabelOptionsArgs>? GroupLabelOptions { get; set; }
 
+        [Input("interactions")]
+        public Input<Inputs.DashboardVisualInteractionOptionsArgs>? Interactions { get; set; }
+
         /// <summary>
         /// The legend display setup of the visual.
         /// </summary>

@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("pageBreakConfiguration")]
         public Input<Inputs.AnalysisSectionPageBreakConfigurationArgs>? PageBreakConfiguration { get; set; }
 
+        [Input("repeatConfiguration")]
+        public Input<Inputs.AnalysisBodySectionRepeatConfigurationArgs>? RepeatConfiguration { get; set; }
+
         /// <summary>
         /// The unique identifier of a body section.
         /// </summary>

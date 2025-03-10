@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Base Prompt Template.
         /// </summary>
         public readonly string? BasePromptTemplate;
+        /// <summary>
+        /// The agent's foundation model.
+        /// </summary>
         public readonly string? FoundationModel;
         /// <summary>
         /// Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .

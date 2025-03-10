@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class GetBatchScramSecretArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+        /// </summary>
         [Input("clusterArn", required: true)]
         public string ClusterArn { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class GetBatchScramSecretInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+        /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
 
@@ -57,6 +63,9 @@ namespace Pulumi.AwsNative.Msk
     [OutputType]
     public sealed class GetBatchScramSecretResult
     {
+        /// <summary>
+        /// List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
+        /// </summary>
         public readonly ImmutableArray<string> SecretArnList;
 
         [OutputConstructor]

@@ -86,7 +86,7 @@ def get_local_gateway_route(destination_cidr_block: Optional[str] = None,
                             local_gateway_route_table_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayRouteResult:
     """
-    Describes a route for a local gateway route table.
+    Resource Type definition for Local Gateway Route which describes a route for a local gateway route table.
 
 
     :param str destination_cidr_block: The CIDR block used for destination matches.
@@ -107,7 +107,7 @@ def get_local_gateway_route_output(destination_cidr_block: Optional[pulumi.Input
                                    local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayRouteResult]:
     """
-    Describes a route for a local gateway route table.
+    Resource Type definition for Local Gateway Route which describes a route for a local gateway route table.
 
 
     :param str destination_cidr_block: The CIDR block used for destination matches.

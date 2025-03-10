@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The field well configuration of a KPI visual.
         /// </summary>
         public readonly Outputs.TemplateKpiFieldWells? FieldWells;
+        public readonly Outputs.TemplateVisualInteractionOptions? Interactions;
         /// <summary>
         /// The options that determine the presentation of a KPI visual.
         /// </summary>
@@ -30,11 +31,14 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private TemplateKpiConfiguration(
             Outputs.TemplateKpiFieldWells? fieldWells,
 
+            Outputs.TemplateVisualInteractionOptions? interactions,
+
             Outputs.TemplateKpiOptions? kpiOptions,
 
             Outputs.TemplateKpiSortConfiguration? sortConfiguration)
         {
             FieldWells = fieldWells;
+            Interactions = interactions;
             KpiOptions = kpiOptions;
             SortConfiguration = sortConfiguration;
         }

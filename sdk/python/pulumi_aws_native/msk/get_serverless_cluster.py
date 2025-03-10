@@ -31,6 +31,9 @@ class GetServerlessClusterResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the MSK cluster.
+        """
         return pulumi.get(self, "arn")
 
 
@@ -47,6 +50,9 @@ def get_serverless_cluster(arn: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerlessClusterResult:
     """
     Resource Type definition for AWS::MSK::ServerlessCluster
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the MSK cluster.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -59,6 +65,9 @@ def get_serverless_cluster_output(arn: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessClusterResult]:
     """
     Resource Type definition for AWS::MSK::ServerlessCluster
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the MSK cluster.
     """
     __args__ = dict()
     __args__['arn'] = arn

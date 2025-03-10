@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateGaugeChartConfiguration
     {
+        public readonly Outputs.TemplateGaugeChartColorConfiguration? ColorConfiguration;
         /// <summary>
         /// The data label configuration of a `GaugeChartVisual` .
         /// </summary>
@@ -25,6 +26,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The options that determine the presentation of the `GaugeChartVisual` .
         /// </summary>
         public readonly Outputs.TemplateGaugeChartOptions? GaugeChartOptions;
+        public readonly Outputs.TemplateVisualInteractionOptions? Interactions;
         /// <summary>
         /// The tooltip configuration of a `GaugeChartVisual` .
         /// </summary>
@@ -36,19 +38,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private TemplateGaugeChartConfiguration(
+            Outputs.TemplateGaugeChartColorConfiguration? colorConfiguration,
+
             Outputs.TemplateDataLabelOptions? dataLabels,
 
             Outputs.TemplateGaugeChartFieldWells? fieldWells,
 
             Outputs.TemplateGaugeChartOptions? gaugeChartOptions,
 
+            Outputs.TemplateVisualInteractionOptions? interactions,
+
             Outputs.TemplateTooltipOptions? tooltipOptions,
 
             Outputs.TemplateVisualPalette? visualPalette)
         {
+            ColorConfiguration = colorConfiguration;
             DataLabels = dataLabels;
             FieldWells = fieldWells;
             GaugeChartOptions = gaugeChartOptions;
+            Interactions = interactions;
             TooltipOptions = tooltipOptions;
             VisualPalette = visualPalette;
         }

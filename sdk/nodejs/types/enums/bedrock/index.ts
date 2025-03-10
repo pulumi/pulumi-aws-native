@@ -186,6 +186,128 @@ export const ApplicationInferenceProfileInferenceProfileType = {
  */
 export type ApplicationInferenceProfileInferenceProfileType = (typeof ApplicationInferenceProfileInferenceProfileType)[keyof typeof ApplicationInferenceProfileInferenceProfileType];
 
+export const BlueprintStage = {
+    Development: "DEVELOPMENT",
+    Live: "LIVE",
+} as const;
+
+/**
+ * Stage of the Blueprint
+ */
+export type BlueprintStage = (typeof BlueprintStage)[keyof typeof BlueprintStage];
+
+export const BlueprintType = {
+    Document: "DOCUMENT",
+    Image: "IMAGE",
+} as const;
+
+/**
+ * Modality Type
+ */
+export type BlueprintType = (typeof BlueprintType)[keyof typeof BlueprintType];
+
+export const DataAutomationProjectAudioExtractionCategoryType = {
+    AudioContentModeration: "AUDIO_CONTENT_MODERATION",
+    Transcript: "TRANSCRIPT",
+    TopicContentModeration: "TOPIC_CONTENT_MODERATION",
+} as const;
+
+export type DataAutomationProjectAudioExtractionCategoryType = (typeof DataAutomationProjectAudioExtractionCategoryType)[keyof typeof DataAutomationProjectAudioExtractionCategoryType];
+
+export const DataAutomationProjectAudioStandardGenerativeFieldType = {
+    AudioSummary: "AUDIO_SUMMARY",
+    Iab: "IAB",
+    TopicSummary: "TOPIC_SUMMARY",
+} as const;
+
+export type DataAutomationProjectAudioStandardGenerativeFieldType = (typeof DataAutomationProjectAudioStandardGenerativeFieldType)[keyof typeof DataAutomationProjectAudioStandardGenerativeFieldType];
+
+export const DataAutomationProjectBlueprintStage = {
+    Development: "DEVELOPMENT",
+    Live: "LIVE",
+} as const;
+
+/**
+ * Stage of the Blueprint
+ */
+export type DataAutomationProjectBlueprintStage = (typeof DataAutomationProjectBlueprintStage)[keyof typeof DataAutomationProjectBlueprintStage];
+
+export const DataAutomationProjectDocumentExtractionGranularityType = {
+    Document: "DOCUMENT",
+    Page: "PAGE",
+    Element: "ELEMENT",
+    Word: "WORD",
+    Line: "LINE",
+} as const;
+
+export type DataAutomationProjectDocumentExtractionGranularityType = (typeof DataAutomationProjectDocumentExtractionGranularityType)[keyof typeof DataAutomationProjectDocumentExtractionGranularityType];
+
+export const DataAutomationProjectDocumentOutputTextFormatType = {
+    PlainText: "PLAIN_TEXT",
+    Markdown: "MARKDOWN",
+    Html: "HTML",
+    Csv: "CSV",
+} as const;
+
+export type DataAutomationProjectDocumentOutputTextFormatType = (typeof DataAutomationProjectDocumentOutputTextFormatType)[keyof typeof DataAutomationProjectDocumentOutputTextFormatType];
+
+export const DataAutomationProjectImageExtractionCategoryType = {
+    ContentModeration: "CONTENT_MODERATION",
+    TextDetection: "TEXT_DETECTION",
+    Logos: "LOGOS",
+} as const;
+
+export type DataAutomationProjectImageExtractionCategoryType = (typeof DataAutomationProjectImageExtractionCategoryType)[keyof typeof DataAutomationProjectImageExtractionCategoryType];
+
+export const DataAutomationProjectImageStandardGenerativeFieldType = {
+    ImageSummary: "IMAGE_SUMMARY",
+    Iab: "IAB",
+} as const;
+
+export type DataAutomationProjectImageStandardGenerativeFieldType = (typeof DataAutomationProjectImageStandardGenerativeFieldType)[keyof typeof DataAutomationProjectImageStandardGenerativeFieldType];
+
+export const DataAutomationProjectStage = {
+    Development: "DEVELOPMENT",
+    Live: "LIVE",
+} as const;
+
+/**
+ * Stage of the Project
+ */
+export type DataAutomationProjectStage = (typeof DataAutomationProjectStage)[keyof typeof DataAutomationProjectStage];
+
+export const DataAutomationProjectState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type DataAutomationProjectState = (typeof DataAutomationProjectState)[keyof typeof DataAutomationProjectState];
+
+export const DataAutomationProjectStatus = {
+    Completed: "COMPLETED",
+    InProgress: "IN_PROGRESS",
+    Failed: "FAILED",
+} as const;
+
+export type DataAutomationProjectStatus = (typeof DataAutomationProjectStatus)[keyof typeof DataAutomationProjectStatus];
+
+export const DataAutomationProjectVideoExtractionCategoryType = {
+    ContentModeration: "CONTENT_MODERATION",
+    TextDetection: "TEXT_DETECTION",
+    Transcript: "TRANSCRIPT",
+    Logos: "LOGOS",
+} as const;
+
+export type DataAutomationProjectVideoExtractionCategoryType = (typeof DataAutomationProjectVideoExtractionCategoryType)[keyof typeof DataAutomationProjectVideoExtractionCategoryType];
+
+export const DataAutomationProjectVideoStandardGenerativeFieldType = {
+    VideoSummary: "VIDEO_SUMMARY",
+    Iab: "IAB",
+    ChapterSummary: "CHAPTER_SUMMARY",
+} as const;
+
+export type DataAutomationProjectVideoStandardGenerativeFieldType = (typeof DataAutomationProjectVideoStandardGenerativeFieldType)[keyof typeof DataAutomationProjectVideoStandardGenerativeFieldType];
+
 export const DataSourceChunkingStrategy = {
     FixedSize: "FIXED_SIZE",
     None: "NONE",

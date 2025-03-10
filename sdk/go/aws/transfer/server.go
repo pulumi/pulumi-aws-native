@@ -387,8 +387,11 @@ type Server struct {
 	// Specifies the name of the security policy for the server.
 	SecurityPolicyName pulumi.StringPtrOutput `pulumi:"securityPolicyName"`
 	// Specifies the unique system-assigned identifier for a server that you instantiate.
-	ServerId pulumi.StringOutput   `pulumi:"serverId"`
-	State    ServerStateEnumOutput `pulumi:"state"`
+	ServerId pulumi.StringOutput `pulumi:"serverId"`
+	// The condition of the server that was described. A value of `ONLINE` indicates that the server can accept jobs and transfer files. A `State` value of `OFFLINE` means that the server cannot perform file transfer operations.
+	//
+	// The states of `STARTING` and `STOPPING` indicate that the server is in an intermediate state, either not fully able to respond, or not fully offline. The values of `START_FAILED` or `STOP_FAILED` can indicate an error condition.
+	State ServerStateEnumOutput `pulumi:"state"`
 	// Specifies the log groups to which your server logs are sent.
 	//
 	// To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:
@@ -839,6 +842,9 @@ func (o ServerOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.ServerId }).(pulumi.StringOutput)
 }
 
+// The condition of the server that was described. A value of `ONLINE` indicates that the server can accept jobs and transfer files. A `State` value of `OFFLINE` means that the server cannot perform file transfer operations.
+//
+// The states of `STARTING` and `STOPPING` indicate that the server is in an intermediate state, either not fully able to respond, or not fully offline. The values of `START_FAILED` or `STOP_FAILED` can indicate an error condition.
 func (o ServerOutput) State() ServerStateEnumOutput {
 	return o.ApplyT(func(v *Server) ServerStateEnumOutput { return v.State }).(ServerStateEnumOutput)
 }

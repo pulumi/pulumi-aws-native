@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("fieldWells")]
         public Input<Inputs.DashboardTableFieldWellsArgs>? FieldWells { get; set; }
 
+        [Input("interactions")]
+        public Input<Inputs.DashboardVisualInteractionOptionsArgs>? Interactions { get; set; }
+
         /// <summary>
         /// The paginated report options for a table visual.
         /// </summary>

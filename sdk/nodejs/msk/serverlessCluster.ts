@@ -37,13 +37,25 @@ export class ServerlessCluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServerlessCluster.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the MSK cluster.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Includes all client authentication related information.
+     */
     public readonly clientAuthentication!: pulumi.Output<outputs.msk.ServerlessClusterClientAuthentication>;
+    /**
+     * The name of the cluster.
+     */
     public readonly clusterName!: pulumi.Output<string>;
     /**
      * A key-value pair to associate with a resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * VPC configuration information for the serverless cluster.
+     */
     public readonly vpcConfigs!: pulumi.Output<outputs.msk.ServerlessClusterVpcConfig[]>;
 
     /**
@@ -86,11 +98,20 @@ export class ServerlessCluster extends pulumi.CustomResource {
  * The set of arguments for constructing a ServerlessCluster resource.
  */
 export interface ServerlessClusterArgs {
+    /**
+     * Includes all client authentication related information.
+     */
     clientAuthentication: pulumi.Input<inputs.msk.ServerlessClusterClientAuthenticationArgs>;
+    /**
+     * The name of the cluster.
+     */
     clusterName?: pulumi.Input<string>;
     /**
      * A key-value pair to associate with a resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * VPC configuration information for the serverless cluster.
+     */
     vpcConfigs: pulumi.Input<pulumi.Input<inputs.msk.ServerlessClusterVpcConfigArgs>[]>;
 }

@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 from ._enums import *
 
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAgreementResult:
-    def __init__(__self__, access_role=None, agreement_id=None, arn=None, base_directory=None, description=None, enforce_message_signing=None, local_profile_id=None, partner_profile_id=None, preserve_filename=None, status=None, tags=None):
+    def __init__(__self__, access_role=None, agreement_id=None, arn=None, base_directory=None, custom_directories=None, description=None, enforce_message_signing=None, local_profile_id=None, partner_profile_id=None, preserve_filename=None, status=None, tags=None):
         if access_role and not isinstance(access_role, str):
             raise TypeError("Expected argument 'access_role' to be a str")
         pulumi.set(__self__, "access_role", access_role)
@@ -38,6 +39,9 @@ class GetAgreementResult:
         if base_directory and not isinstance(base_directory, str):
             raise TypeError("Expected argument 'base_directory' to be a str")
         pulumi.set(__self__, "base_directory", base_directory)
+        if custom_directories and not isinstance(custom_directories, dict):
+            raise TypeError("Expected argument 'custom_directories' to be a dict")
+        pulumi.set(__self__, "custom_directories", custom_directories)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -91,6 +95,14 @@ class GetAgreementResult:
         Specifies the base directory for the agreement.
         """
         return pulumi.get(self, "base_directory")
+
+    @property
+    @pulumi.getter(name="customDirectories")
+    def custom_directories(self) -> Optional['outputs.CustomDirectoriesProperties']:
+        """
+        Specifies a separate directory for each type of file to store for an AS2 message.
+        """
+        return pulumi.get(self, "custom_directories")
 
     @property
     @pulumi.getter
@@ -159,6 +171,7 @@ class AwaitableGetAgreementResult(GetAgreementResult):
             agreement_id=self.agreement_id,
             arn=self.arn,
             base_directory=self.base_directory,
+            custom_directories=self.custom_directories,
             description=self.description,
             enforce_message_signing=self.enforce_message_signing,
             local_profile_id=self.local_profile_id,
@@ -189,6 +202,7 @@ def get_agreement(agreement_id: Optional[str] = None,
         agreement_id=pulumi.get(__ret__, 'agreement_id'),
         arn=pulumi.get(__ret__, 'arn'),
         base_directory=pulumi.get(__ret__, 'base_directory'),
+        custom_directories=pulumi.get(__ret__, 'custom_directories'),
         description=pulumi.get(__ret__, 'description'),
         enforce_message_signing=pulumi.get(__ret__, 'enforce_message_signing'),
         local_profile_id=pulumi.get(__ret__, 'local_profile_id'),
@@ -216,6 +230,7 @@ def get_agreement_output(agreement_id: Optional[pulumi.Input[str]] = None,
         agreement_id=pulumi.get(__response__, 'agreement_id'),
         arn=pulumi.get(__response__, 'arn'),
         base_directory=pulumi.get(__response__, 'base_directory'),
+        custom_directories=pulumi.get(__response__, 'custom_directories'),
         description=pulumi.get(__response__, 'description'),
         enforce_message_signing=pulumi.get(__response__, 'enforce_message_signing'),
         local_profile_id=pulumi.get(__response__, 'local_profile_id'),

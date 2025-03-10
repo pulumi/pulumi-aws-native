@@ -114,12 +114,15 @@ AWS::Backup::RestoreTestingPlan
 AWS::Backup::RestoreTestingSelection
 AWS::BackupGateway::Hypervisor
 AWS::Batch::ComputeEnvironment
+AWS::Batch::ConsumableResource
 AWS::Batch::JobDefinition
 AWS::Batch::JobQueue
 AWS::Batch::SchedulingPolicy
 AWS::Bedrock::Agent
 AWS::Bedrock::AgentAlias
 AWS::Bedrock::ApplicationInferenceProfile
+AWS::Bedrock::Blueprint
+AWS::Bedrock::DataAutomationProject
 AWS::Bedrock::DataSource
 AWS::Bedrock::Flow
 AWS::Bedrock::FlowAlias

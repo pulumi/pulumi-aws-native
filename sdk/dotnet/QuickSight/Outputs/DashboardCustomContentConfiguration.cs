@@ -25,6 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The sizing options for the size of the custom content visual. This structure is required when the `ContentType` of the visual is `'IMAGE'` .
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardCustomContentImageScalingConfiguration? ImageScaling;
+        public readonly Outputs.DashboardVisualInteractionOptions? Interactions;
 
         [OutputConstructor]
         private DashboardCustomContentConfiguration(
@@ -32,11 +33,14 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? contentUrl,
 
-            Pulumi.AwsNative.QuickSight.DashboardCustomContentImageScalingConfiguration? imageScaling)
+            Pulumi.AwsNative.QuickSight.DashboardCustomContentImageScalingConfiguration? imageScaling,
+
+            Outputs.DashboardVisualInteractionOptions? interactions)
         {
             ContentType = contentType;
             ContentUrl = contentUrl;
             ImageScaling = imageScaling;
+            Interactions = interactions;
         }
     }
 }

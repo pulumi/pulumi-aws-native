@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Ecr.Inputs
 {
 
     /// <summary>
-    /// An array of objects representing the details of a replication destination.
+    /// An array of objects representing the destination for a replication rule.
     /// </summary>
     public sealed class ReplicationConfigurationReplicationDestinationArgs : global::Pulumi.ResourceArgs
     {

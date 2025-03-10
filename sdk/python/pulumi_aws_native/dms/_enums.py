@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'DataMigrationType',
+    'DataProviderDb2SslModeValue',
     'DataProviderDmsSslModeValue',
     'DataProviderEngine',
     'DataProviderMongoDbAuthMechanism',
@@ -23,6 +24,11 @@ class DataMigrationType(str, Enum):
     FULL_LOAD = "full-load"
     CDC = "cdc"
     FULL_LOAD_AND_CDC = "full-load-and-cdc"
+
+
+class DataProviderDb2SslModeValue(str, Enum):
+    NONE = "none"
+    VERIFY_CA = "verify-ca"
 
 
 class DataProviderDmsSslModeValue(str, Enum):
@@ -46,6 +52,8 @@ class DataProviderEngine(str, Enum):
     MARIADB = "mariadb"
     MONGODB = "mongodb"
     DOCDB = "docdb"
+    DB2 = "db2"
+    DB2_ZOS = "db2_zos"
 
 
 class DataProviderMongoDbAuthMechanism(str, Enum):

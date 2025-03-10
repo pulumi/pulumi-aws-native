@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// Describes a route table for a local gateway.
+    /// Resource Type definition for Local Gateway Route Table which describes a route table for a local gateway.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:LocalGatewayRouteTable")]
     public partial class LocalGatewayRouteTable : global::Pulumi.CustomResource
