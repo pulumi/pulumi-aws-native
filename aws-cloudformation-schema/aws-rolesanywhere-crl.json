@@ -60,7 +60,7 @@
   "primaryIdentifier" : [ "/properties/CrlId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "rolesanywhere:ImportCrl", "rolesanywhere:TagResource", "rolesanywhere:ListTagsForResource" ]
+      "permissions" : [ "rolesanywhere:ImportCrl", "rolesanywhere:TagResource" ]
     },
     "read" : {
       "permissions" : [ "rolesanywhere:GetCrl", "rolesanywhere:ListTagsForResource" ]
