@@ -37,9 +37,11 @@ type LookupChannelResult struct {
 	Description        *string  `pulumi:"description"`
 	IngestEndpointUrls []string `pulumi:"ingestEndpointUrls"`
 	// <p>The list of ingest endpoints.</p>
-	IngestEndpoints []ChannelIngestEndpoint `pulumi:"ingestEndpoints"`
+	IngestEndpoints          []ChannelIngestEndpoint          `pulumi:"ingestEndpoints"`
+	InputSwitchConfiguration *ChannelInputSwitchConfiguration `pulumi:"inputSwitchConfiguration"`
 	// <p>The date and time the channel was modified.</p>
-	ModifiedAt *string `pulumi:"modifiedAt"`
+	ModifiedAt                *string                           `pulumi:"modifiedAt"`
+	OutputHeaderConfiguration *ChannelOutputHeaderConfiguration `pulumi:"outputHeaderConfiguration"`
 	// The tags associated with the channel.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -100,9 +102,17 @@ func (o LookupChannelResultOutput) IngestEndpoints() ChannelIngestEndpointArrayO
 	return o.ApplyT(func(v LookupChannelResult) []ChannelIngestEndpoint { return v.IngestEndpoints }).(ChannelIngestEndpointArrayOutput)
 }
 
+func (o LookupChannelResultOutput) InputSwitchConfiguration() ChannelInputSwitchConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupChannelResult) *ChannelInputSwitchConfiguration { return v.InputSwitchConfiguration }).(ChannelInputSwitchConfigurationPtrOutput)
+}
+
 // <p>The date and time the channel was modified.</p>
 func (o LookupChannelResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupChannelResultOutput) OutputHeaderConfiguration() ChannelOutputHeaderConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupChannelResult) *ChannelOutputHeaderConfiguration { return v.OutputHeaderConfiguration }).(ChannelOutputHeaderConfigurationPtrOutput)
 }
 
 // The tags associated with the channel.

@@ -29,7 +29,8 @@ type Channel struct {
 	Description        pulumi.StringPtrOutput   `pulumi:"description"`
 	IngestEndpointUrls pulumi.StringArrayOutput `pulumi:"ingestEndpointUrls"`
 	// <p>The list of ingest endpoints.</p>
-	IngestEndpoints ChannelIngestEndpointArrayOutput `pulumi:"ingestEndpoints"`
+	IngestEndpoints          ChannelIngestEndpointArrayOutput         `pulumi:"ingestEndpoints"`
+	InputSwitchConfiguration ChannelInputSwitchConfigurationPtrOutput `pulumi:"inputSwitchConfiguration"`
 	// The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
 	//
 	// The allowed values are:
@@ -38,7 +39,8 @@ type Channel struct {
 	// - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
 	InputType ChannelInputTypePtrOutput `pulumi:"inputType"`
 	// <p>The date and time the channel was modified.</p>
-	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
+	ModifiedAt                pulumi.StringOutput                       `pulumi:"modifiedAt"`
+	OutputHeaderConfiguration ChannelOutputHeaderConfigurationPtrOutput `pulumi:"outputHeaderConfiguration"`
 	// The tags associated with the channel.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -97,14 +99,16 @@ type channelArgs struct {
 	// The name of the channel.
 	ChannelName *string `pulumi:"channelName"`
 	// <p>Enter any descriptive text that helps you to identify the channel.</p>
-	Description *string `pulumi:"description"`
+	Description              *string                          `pulumi:"description"`
+	InputSwitchConfiguration *ChannelInputSwitchConfiguration `pulumi:"inputSwitchConfiguration"`
 	// The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
 	//
 	// The allowed values are:
 	//
 	// - `HLS` - The HLS streaming specification (which defines M3U8 manifests and TS segments).
 	// - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
-	InputType *ChannelInputType `pulumi:"inputType"`
+	InputType                 *ChannelInputType                 `pulumi:"inputType"`
+	OutputHeaderConfiguration *ChannelOutputHeaderConfiguration `pulumi:"outputHeaderConfiguration"`
 	// The tags associated with the channel.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -116,14 +120,16 @@ type ChannelArgs struct {
 	// The name of the channel.
 	ChannelName pulumi.StringPtrInput
 	// <p>Enter any descriptive text that helps you to identify the channel.</p>
-	Description pulumi.StringPtrInput
+	Description              pulumi.StringPtrInput
+	InputSwitchConfiguration ChannelInputSwitchConfigurationPtrInput
 	// The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
 	//
 	// The allowed values are:
 	//
 	// - `HLS` - The HLS streaming specification (which defines M3U8 manifests and TS segments).
 	// - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
-	InputType ChannelInputTypePtrInput
+	InputType                 ChannelInputTypePtrInput
+	OutputHeaderConfiguration ChannelOutputHeaderConfigurationPtrInput
 	// The tags associated with the channel.
 	Tags aws.TagArrayInput
 }
@@ -199,6 +205,10 @@ func (o ChannelOutput) IngestEndpoints() ChannelIngestEndpointArrayOutput {
 	return o.ApplyT(func(v *Channel) ChannelIngestEndpointArrayOutput { return v.IngestEndpoints }).(ChannelIngestEndpointArrayOutput)
 }
 
+func (o ChannelOutput) InputSwitchConfiguration() ChannelInputSwitchConfigurationPtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelInputSwitchConfigurationPtrOutput { return v.InputSwitchConfiguration }).(ChannelInputSwitchConfigurationPtrOutput)
+}
+
 // The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
 //
 // The allowed values are:
@@ -212,6 +222,10 @@ func (o ChannelOutput) InputType() ChannelInputTypePtrOutput {
 // <p>The date and time the channel was modified.</p>
 func (o ChannelOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
+}
+
+func (o ChannelOutput) OutputHeaderConfiguration() ChannelOutputHeaderConfigurationPtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelOutputHeaderConfigurationPtrOutput { return v.OutputHeaderConfiguration }).(ChannelOutputHeaderConfigurationPtrOutput)
 }
 
 // The tags associated with the channel.
