@@ -109,7 +109,7 @@
       "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:RevokeFlowEntitlement" ]
     },
     "list" : {
-      "permissions" : [ "mediaconnect:DescribeFlow" ]
+      "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:ListFlows" ]
     }
   }
 }

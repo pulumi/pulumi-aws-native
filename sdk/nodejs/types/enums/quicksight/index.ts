@@ -161,6 +161,13 @@ export const AnalysisCustomContentType = {
 
 export type AnalysisCustomContentType = (typeof AnalysisCustomContentType)[keyof typeof AnalysisCustomContentType];
 
+export const AnalysisDashboardBehavior = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type AnalysisDashboardBehavior = (typeof AnalysisDashboardBehavior)[keyof typeof AnalysisDashboardBehavior];
+
 export const AnalysisDataLabelContent = {
     Value: "VALUE",
     Percent: "PERCENT",
@@ -473,6 +480,8 @@ export const AnalysisNumberScale = {
     Millions: "MILLIONS",
     Billions: "BILLIONS",
     Trillions: "TRILLIONS",
+    Lakhs: "LAKHS",
+    Crores: "CRORES",
 } as const;
 
 export type AnalysisNumberScale = (typeof AnalysisNumberScale)[keyof typeof AnalysisNumberScale];
@@ -1513,6 +1522,8 @@ export const DashboardNumberScale = {
     Millions: "MILLIONS",
     Billions: "BILLIONS",
     Trillions: "TRILLIONS",
+    Lakhs: "LAKHS",
+    Crores: "CRORES",
 } as const;
 
 export type DashboardNumberScale = (typeof DashboardNumberScale)[keyof typeof DashboardNumberScale];
@@ -2491,6 +2502,13 @@ export const TemplateCustomContentType = {
 
 export type TemplateCustomContentType = (typeof TemplateCustomContentType)[keyof typeof TemplateCustomContentType];
 
+export const TemplateDashboardBehavior = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type TemplateDashboardBehavior = (typeof TemplateDashboardBehavior)[keyof typeof TemplateDashboardBehavior];
+
 export const TemplateDataLabelContent = {
     Value: "VALUE",
     Percent: "PERCENT",
@@ -2765,6 +2783,8 @@ export const TemplateNumberScale = {
     Millions: "MILLIONS",
     Billions: "BILLIONS",
     Trillions: "TRILLIONS",
+    Lakhs: "LAKHS",
+    Crores: "CRORES",
 } as const;
 
 export type TemplateNumberScale = (typeof TemplateNumberScale)[keyof typeof TemplateNumberScale];

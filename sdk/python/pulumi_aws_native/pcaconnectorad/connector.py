@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ConnectorArgs', 'Connector']
@@ -98,7 +99,7 @@ class Connector(pulumi.CustomResource):
                  vpc_information: Optional[pulumi.Input[Union['ConnectorVpcInformationArgs', 'ConnectorVpcInformationArgsDict']]] = None,
                  __props__=None):
         """
-        Definition of AWS::PCAConnectorAD::Connector Resource Type
+        Represents a Connector that connects AWS PrivateCA and your directory
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,7 +115,7 @@ class Connector(pulumi.CustomResource):
                  args: ConnectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::PCAConnectorAD::Connector Resource Type
+        Represents a Connector that connects AWS PrivateCA and your directory
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.
