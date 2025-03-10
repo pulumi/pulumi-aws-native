@@ -315,7 +315,13 @@ func readDeprecatedResourceTypes(outdir string) []string {
 	if err != nil {
 		panic(err)
 	}
-	return strings.Split(strings.Trim(string(bytes), "\n"), "\n")
+	types := strings.Split(strings.Trim(string(bytes), "\n"), "\n")
+	fileNames := []string{}
+	for _, typ := range types {
+		name := strings.ReplaceAll(typ, "::", "-")
+		fileNames = append(fileNames, fmt.Sprintf("%s.json", strings.ToLower(name)))
+	}
+	return fileNames
 }
 
 func readAutonamingOverlay(file string) (map[string]AutoNamingOverlay, error) {
