@@ -112,6 +112,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
+        /// The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
+        /// </summary>
+        public readonly Outputs.UserSettingsToolbarConfiguration? ToolbarConfiguration;
+        /// <summary>
         /// Specifies whether the user can upload files from the local device to the streaming session.
         /// </summary>
         public readonly Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? UploadAllowed;
@@ -146,6 +150,8 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
+            Outputs.UserSettingsToolbarConfiguration? toolbarConfiguration,
+
             Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? uploadAllowed,
 
             string? userSettingsArn)
@@ -162,6 +168,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
             PasteAllowed = pasteAllowed;
             PrintAllowed = printAllowed;
             Tags = tags;
+            ToolbarConfiguration = toolbarConfiguration;
             UploadAllowed = uploadAllowed;
             UserSettingsArn = userSettingsArn;
         }

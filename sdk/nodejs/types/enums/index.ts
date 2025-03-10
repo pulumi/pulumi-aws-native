@@ -75,6 +75,7 @@ import * as groundstation from "./groundstation";
 import * as guardduty from "./guardduty";
 import * as healthimaging from "./healthimaging";
 import * as healthlake from "./healthlake";
+import * as iam from "./iam";
 import * as imagebuilder from "./imagebuilder";
 import * as inspectorv2 from "./inspectorv2";
 import * as internetmonitor from "./internetmonitor";
@@ -250,6 +251,7 @@ export {
     guardduty,
     healthimaging,
     healthlake,
+    iam,
     imagebuilder,
     inspectorv2,
     internetmonitor,

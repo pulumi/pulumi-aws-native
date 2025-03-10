@@ -30,7 +30,7 @@ class ThingTypeArgs:
                  thing_type_properties: Optional[pulumi.Input['ThingTypePropertiesPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ThingType resource.
-        :param pulumi.Input[bool] deprecate_thing_type: Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
+        :param pulumi.Input[bool] deprecate_thing_type: Deprecates a thing type. You can not associate new things with deprecated thing type.
                
                Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -50,7 +50,7 @@ class ThingTypeArgs:
     @pulumi.getter(name="deprecateThingType")
     def deprecate_thing_type(self) -> Optional[pulumi.Input[bool]]:
         """
-        Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
+        Deprecates a thing type. You can not associate new things with deprecated thing type.
 
         Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
         """
@@ -112,7 +112,7 @@ class ThingType(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] deprecate_thing_type: Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
+        :param pulumi.Input[bool] deprecate_thing_type: Deprecates a thing type. You can not associate new things with deprecated thing type.
                
                Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
@@ -214,7 +214,7 @@ class ThingType(pulumi.CustomResource):
     @pulumi.getter(name="deprecateThingType")
     def deprecate_thing_type(self) -> pulumi.Output[Optional[bool]]:
         """
-        Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
+        Deprecates a thing type. You can not associate new things with deprecated thing type.
 
         Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
         """

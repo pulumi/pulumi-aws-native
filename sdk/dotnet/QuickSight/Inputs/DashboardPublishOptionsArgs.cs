@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// The menu options of a visual in a dashboard.
         /// </summary>
         [Input("visualMenuOption")]
-        public Input<object>? VisualMenuOption { get; set; }
+        public Input<Inputs.DashboardVisualMenuOptionArgs>? VisualMenuOption { get; set; }
 
         /// <summary>
         /// The visual publish options of a visual in a dashboard.

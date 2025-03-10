@@ -13,6 +13,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateGaugeChartConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The color configuration of a `GaugeChartVisual` .
+        /// </summary>
+        [Input("colorConfiguration")]
+        public Input<Inputs.TemplateGaugeChartColorConfigurationArgs>? ColorConfiguration { get; set; }
+
+        /// <summary>
         /// The data label configuration of a `GaugeChartVisual` .
         /// </summary>
         [Input("dataLabels")]
@@ -29,6 +35,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// </summary>
         [Input("gaugeChartOptions")]
         public Input<Inputs.TemplateGaugeChartOptionsArgs>? GaugeChartOptions { get; set; }
+
+        /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        [Input("interactions")]
+        public Input<Inputs.TemplateVisualInteractionOptionsArgs>? Interactions { get; set; }
 
         /// <summary>
         /// The tooltip configuration of a `GaugeChartVisual` .

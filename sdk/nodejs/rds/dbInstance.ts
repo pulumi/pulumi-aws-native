@@ -112,6 +112,12 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly allowMajorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies whether changes to the DB instance and any pending modifications are applied immediately, regardless of the ``PreferredMaintenanceWindow`` setting. If set to ``false``, changes are applied during the next maintenance window. Until RDS applies the changes, the DB instance remains in a drift state. As a result, the configuration doesn't fully reflect the requested modifications and temporarily diverges from the intended state.
+     *  In addition to the settings described in [Modifying a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html), this property also determines whether the DB instance reboots when a static parameter is modified in the associated DB parameter group.
+     *  Default: ``true``
+     */
+    public readonly applyImmediately!: pulumi.Output<boolean | undefined>;
+    /**
      * The IAMlong (IAM) roles associated with the DB instance. 
      *   *Amazon Aurora* 
      *  Not applicable. The associated roles are managed by the DB cluster.
@@ -788,7 +794,7 @@ export class DbInstance extends pulumi.CustomResource {
      *  If you specify ``io1``, ``io2``, or ``gp3``, you must also include a value for the ``Iops`` parameter.
      *  This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.
      *  Valid Values: ``gp2 | gp3 | io1 | io2 | standard`` 
-     *  Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp2``.
+     *  Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp3``.
      */
     public readonly storageType!: pulumi.Output<string | undefined>;
     /**
@@ -840,6 +846,7 @@ export class DbInstance extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["allocatedStorage"] = args ? args.allocatedStorage : undefined;
             resourceInputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
+            resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
             resourceInputs["associatedRoles"] = args ? args.associatedRoles : undefined;
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["automaticBackupReplicationKmsKeyId"] = args ? args.automaticBackupReplicationKmsKeyId : undefined;
@@ -923,6 +930,7 @@ export class DbInstance extends pulumi.CustomResource {
         } else {
             resourceInputs["allocatedStorage"] = undefined /*out*/;
             resourceInputs["allowMajorVersionUpgrade"] = undefined /*out*/;
+            resourceInputs["applyImmediately"] = undefined /*out*/;
             resourceInputs["associatedRoles"] = undefined /*out*/;
             resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["automaticBackupReplicationKmsKeyId"] = undefined /*out*/;
@@ -1069,6 +1077,12 @@ export interface DbInstanceArgs {
      *  Constraints: Major version upgrades must be allowed when specifying a value for the ``EngineVersion`` parameter that is a different major version than the DB instance's current version.
      */
     allowMajorVersionUpgrade?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether changes to the DB instance and any pending modifications are applied immediately, regardless of the ``PreferredMaintenanceWindow`` setting. If set to ``false``, changes are applied during the next maintenance window. Until RDS applies the changes, the DB instance remains in a drift state. As a result, the configuration doesn't fully reflect the requested modifications and temporarily diverges from the intended state.
+     *  In addition to the settings described in [Modifying a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html), this property also determines whether the DB instance reboots when a static parameter is modified in the associated DB parameter group.
+     *  Default: ``true``
+     */
+    applyImmediately?: pulumi.Input<boolean>;
     /**
      * The IAMlong (IAM) roles associated with the DB instance. 
      *   *Amazon Aurora* 
@@ -1734,7 +1748,7 @@ export interface DbInstanceArgs {
      *  If you specify ``io1``, ``io2``, or ``gp3``, you must also include a value for the ``Iops`` parameter.
      *  This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.
      *  Valid Values: ``gp2 | gp3 | io1 | io2 | standard`` 
-     *  Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp2``.
+     *  Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp3``.
      */
     storageType?: pulumi.Input<string>;
     /**

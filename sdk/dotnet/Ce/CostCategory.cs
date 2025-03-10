@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ce
 {
     /// <summary>
-    /// Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
+    /// Resource Type definition for AWS::CE::CostCategory. Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
     /// </summary>
     [AwsNativeResourceType("aws-native:ce:CostCategory")]
     public partial class CostCategory : global::Pulumi.CustomResource
@@ -56,6 +56,12 @@ namespace Pulumi.AwsNative.Ce
         /// </summary>
         [Output("splitChargeRules")]
         public Output<string?> SplitChargeRules { get; private set; } = null!;
+
+        /// <summary>
+        /// Tags to assign to the cost category.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -135,6 +141,18 @@ namespace Pulumi.AwsNative.Ce
         /// </summary>
         [Input("splitChargeRules")]
         public Input<string>? SplitChargeRules { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Tags to assign to the cost category.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public CostCategoryArgs()
         {

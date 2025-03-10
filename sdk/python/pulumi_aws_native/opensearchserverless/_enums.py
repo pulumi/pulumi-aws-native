@@ -8,6 +8,10 @@ __all__ = [
     'AccessPolicyType',
     'CollectionStandbyReplicas',
     'CollectionType',
+    'IndexPropertyMappingMethodPropertiesEngine',
+    'IndexPropertyMappingMethodPropertiesName',
+    'IndexPropertyMappingMethodPropertiesSpaceType',
+    'IndexPropertyMappingType',
     'LifecyclePolicyType',
     'SecurityConfigType',
     'SecurityPolicyType',
@@ -36,6 +40,43 @@ class CollectionType(str, Enum):
     SEARCH = "SEARCH"
     TIMESERIES = "TIMESERIES"
     VECTORSEARCH = "VECTORSEARCH"
+
+
+class IndexPropertyMappingMethodPropertiesEngine(str, Enum):
+    """
+    The k-NN search engine to use
+    """
+    NMSLIB = "nmslib"
+    FAISS = "faiss"
+    LUCENE = "lucene"
+
+
+class IndexPropertyMappingMethodPropertiesName(str, Enum):
+    """
+    The algorithm name for k-NN search
+    """
+    HNSW = "hnsw"
+    IVF = "ivf"
+
+
+class IndexPropertyMappingMethodPropertiesSpaceType(str, Enum):
+    """
+    The distance function used for k-NN search
+    """
+    L2 = "l2"
+    L1 = "l1"
+    LINF = "linf"
+    COSINESIMIL = "cosinesimil"
+    INNERPRODUCT = "innerproduct"
+    HAMMING = "hamming"
+
+
+class IndexPropertyMappingType(str, Enum):
+    """
+    The field data type. Must be a valid OpenSearch field type.
+    """
+    TEXT = "text"
+    KNN_VECTOR = "knn_vector"
 
 
 class LifecyclePolicyType(str, Enum):

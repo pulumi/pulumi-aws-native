@@ -24,10 +24,12 @@ func LookupSoftwarePackage(ctx *pulumi.Context, args *LookupSoftwarePackageArgs,
 }
 
 type LookupSoftwarePackageArgs struct {
+	// The name of the new software package.
 	PackageName string `pulumi:"packageName"`
 }
 
 type LookupSoftwarePackageResult struct {
+	// A summary of the package being created. This can be used to outline the package's contents or purpose.
 	Description *string `pulumi:"description"`
 	// The Amazon Resource Name (ARN) for the package.
 	PackageArn *string `pulumi:"packageArn"`
@@ -45,6 +47,7 @@ func LookupSoftwarePackageOutput(ctx *pulumi.Context, args LookupSoftwarePackage
 }
 
 type LookupSoftwarePackageOutputArgs struct {
+	// The name of the new software package.
 	PackageName pulumi.StringInput `pulumi:"packageName"`
 }
 
@@ -66,6 +69,7 @@ func (o LookupSoftwarePackageResultOutput) ToLookupSoftwarePackageResultOutputWi
 	return o
 }
 
+// A summary of the package being created. This can be used to outline the package's contents or purpose.
 func (o LookupSoftwarePackageResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSoftwarePackageResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

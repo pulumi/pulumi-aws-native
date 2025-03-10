@@ -28,6 +28,10 @@ __all__ = [
     'SchemaConversionApplicationAttributesPropertiesArgsDict',
     'SettingsPropertiesDocDbSettingsPropertiesArgs',
     'SettingsPropertiesDocDbSettingsPropertiesArgsDict',
+    'SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs',
+    'SettingsPropertiesIbmDb2LuwSettingsPropertiesArgsDict',
+    'SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs',
+    'SettingsPropertiesIbmDb2zOsSettingsPropertiesArgsDict',
     'SettingsPropertiesMariaDbSettingsPropertiesArgs',
     'SettingsPropertiesMariaDbSettingsPropertiesArgsDict',
     'SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs',
@@ -661,6 +665,160 @@ class SettingsPropertiesDocDbSettingsPropertiesArgs:
 
 
 if not MYPY:
+    class SettingsPropertiesIbmDb2LuwSettingsPropertiesArgsDict(TypedDict):
+        """
+        IbmDb2LuwSettings property identifier.
+        """
+        database_name: pulumi.Input[str]
+        port: pulumi.Input[int]
+        server_name: pulumi.Input[str]
+        ssl_mode: pulumi.Input['DataProviderDb2SslModeValue']
+        certificate_arn: NotRequired[pulumi.Input[str]]
+elif False:
+    SettingsPropertiesIbmDb2LuwSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 server_name: pulumi.Input[str],
+                 ssl_mode: pulumi.Input['DataProviderDb2SslModeValue'],
+                 certificate_arn: Optional[pulumi.Input[str]] = None):
+        """
+        IbmDb2LuwSettings property identifier.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_mode", ssl_mode)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> pulumi.Input['DataProviderDb2SslModeValue']:
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: pulumi.Input['DataProviderDb2SslModeValue']):
+        pulumi.set(self, "ssl_mode", value)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+
+if not MYPY:
+    class SettingsPropertiesIbmDb2zOsSettingsPropertiesArgsDict(TypedDict):
+        """
+        IbmDb2zOsSettings property identifier.
+        """
+        database_name: pulumi.Input[str]
+        port: pulumi.Input[int]
+        server_name: pulumi.Input[str]
+        ssl_mode: pulumi.Input['DataProviderDb2SslModeValue']
+        certificate_arn: NotRequired[pulumi.Input[str]]
+elif False:
+    SettingsPropertiesIbmDb2zOsSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 server_name: pulumi.Input[str],
+                 ssl_mode: pulumi.Input['DataProviderDb2SslModeValue'],
+                 certificate_arn: Optional[pulumi.Input[str]] = None):
+        """
+        IbmDb2zOsSettings property identifier.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_mode", ssl_mode)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> pulumi.Input['DataProviderDb2SslModeValue']:
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: pulumi.Input['DataProviderDb2SslModeValue']):
+        pulumi.set(self, "ssl_mode", value)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+
+if not MYPY:
     class SettingsPropertiesMariaDbSettingsPropertiesArgsDict(TypedDict):
         """
         MariaDbSettings property identifier.
@@ -1265,6 +1423,14 @@ if not MYPY:
         """
         DocDbSettings property identifier.
         """
+        ibm_db2_luw_settings: NotRequired[pulumi.Input['SettingsPropertiesIbmDb2LuwSettingsPropertiesArgsDict']]
+        """
+        IbmDb2LuwSettings property identifier.
+        """
+        ibm_db2z_os_settings: NotRequired[pulumi.Input['SettingsPropertiesIbmDb2zOsSettingsPropertiesArgsDict']]
+        """
+        IbmDb2zOsSettings property identifier.
+        """
         maria_db_settings: NotRequired[pulumi.Input['SettingsPropertiesMariaDbSettingsPropertiesArgsDict']]
         """
         MariaDbSettings property identifier.
@@ -1300,6 +1466,8 @@ elif False:
 class SettingsPropertiesArgs:
     def __init__(__self__, *,
                  doc_db_settings: Optional[pulumi.Input['SettingsPropertiesDocDbSettingsPropertiesArgs']] = None,
+                 ibm_db2_luw_settings: Optional[pulumi.Input['SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs']] = None,
+                 ibm_db2z_os_settings: Optional[pulumi.Input['SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs']] = None,
                  maria_db_settings: Optional[pulumi.Input['SettingsPropertiesMariaDbSettingsPropertiesArgs']] = None,
                  microsoft_sql_server_settings: Optional[pulumi.Input['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs']] = None,
                  mongo_db_settings: Optional[pulumi.Input['SettingsPropertiesMongoDbSettingsPropertiesArgs']] = None,
@@ -1310,6 +1478,8 @@ class SettingsPropertiesArgs:
         """
         The property identifies the exact type of settings for the data provider.
         :param pulumi.Input['SettingsPropertiesDocDbSettingsPropertiesArgs'] doc_db_settings: DocDbSettings property identifier.
+        :param pulumi.Input['SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs'] ibm_db2_luw_settings: IbmDb2LuwSettings property identifier.
+        :param pulumi.Input['SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs'] ibm_db2z_os_settings: IbmDb2zOsSettings property identifier.
         :param pulumi.Input['SettingsPropertiesMariaDbSettingsPropertiesArgs'] maria_db_settings: MariaDbSettings property identifier.
         :param pulumi.Input['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs'] microsoft_sql_server_settings: MicrosoftSqlServerSettings property identifier.
         :param pulumi.Input['SettingsPropertiesMongoDbSettingsPropertiesArgs'] mongo_db_settings: MongoDbSettings property identifier.
@@ -1320,6 +1490,10 @@ class SettingsPropertiesArgs:
         """
         if doc_db_settings is not None:
             pulumi.set(__self__, "doc_db_settings", doc_db_settings)
+        if ibm_db2_luw_settings is not None:
+            pulumi.set(__self__, "ibm_db2_luw_settings", ibm_db2_luw_settings)
+        if ibm_db2z_os_settings is not None:
+            pulumi.set(__self__, "ibm_db2z_os_settings", ibm_db2z_os_settings)
         if maria_db_settings is not None:
             pulumi.set(__self__, "maria_db_settings", maria_db_settings)
         if microsoft_sql_server_settings is not None:
@@ -1346,6 +1520,30 @@ class SettingsPropertiesArgs:
     @doc_db_settings.setter
     def doc_db_settings(self, value: Optional[pulumi.Input['SettingsPropertiesDocDbSettingsPropertiesArgs']]):
         pulumi.set(self, "doc_db_settings", value)
+
+    @property
+    @pulumi.getter(name="ibmDb2LuwSettings")
+    def ibm_db2_luw_settings(self) -> Optional[pulumi.Input['SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs']]:
+        """
+        IbmDb2LuwSettings property identifier.
+        """
+        return pulumi.get(self, "ibm_db2_luw_settings")
+
+    @ibm_db2_luw_settings.setter
+    def ibm_db2_luw_settings(self, value: Optional[pulumi.Input['SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs']]):
+        pulumi.set(self, "ibm_db2_luw_settings", value)
+
+    @property
+    @pulumi.getter(name="ibmDb2zOsSettings")
+    def ibm_db2z_os_settings(self) -> Optional[pulumi.Input['SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs']]:
+        """
+        IbmDb2zOsSettings property identifier.
+        """
+        return pulumi.get(self, "ibm_db2z_os_settings")
+
+    @ibm_db2z_os_settings.setter
+    def ibm_db2z_os_settings(self, value: Optional[pulumi.Input['SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs']]):
+        pulumi.set(self, "ibm_db2z_os_settings", value)
 
     @property
     @pulumi.getter(name="mariaDbSettings")

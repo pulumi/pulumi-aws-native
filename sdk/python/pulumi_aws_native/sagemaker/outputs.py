@@ -89,9 +89,14 @@ __all__ = [
     'FeatureGroupS3StorageConfig',
     'FeatureGroupThroughputConfig',
     'FeatureGroupTtlDuration',
+    'InferenceComponentAlarm',
+    'InferenceComponentAutoRollbackConfiguration',
+    'InferenceComponentCapacitySize',
     'InferenceComponentComputeResourceRequirements',
     'InferenceComponentContainerSpecification',
     'InferenceComponentDeployedImage',
+    'InferenceComponentDeploymentConfig',
+    'InferenceComponentRollingUpdatePolicy',
     'InferenceComponentRuntimeConfig',
     'InferenceComponentSpecification',
     'InferenceComponentStartupParameters',
@@ -4603,6 +4608,72 @@ class FeatureGroupTtlDuration(dict):
 
 
 @pulumi.output_type
+class InferenceComponentAlarm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmName":
+            suggest = "alarm_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceComponentAlarm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceComponentAlarm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceComponentAlarm.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarm_name: str):
+        pulumi.set(__self__, "alarm_name", alarm_name)
+
+    @property
+    @pulumi.getter(name="alarmName")
+    def alarm_name(self) -> str:
+        return pulumi.get(self, "alarm_name")
+
+
+@pulumi.output_type
+class InferenceComponentAutoRollbackConfiguration(dict):
+    def __init__(__self__, *,
+                 alarms: Sequence['outputs.InferenceComponentAlarm']):
+        pulumi.set(__self__, "alarms", alarms)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Sequence['outputs.InferenceComponentAlarm']:
+        return pulumi.get(self, "alarms")
+
+
+@pulumi.output_type
+class InferenceComponentCapacitySize(dict):
+    """
+    Capacity size configuration for the inference component
+    """
+    def __init__(__self__, *,
+                 type: 'InferenceComponentCapacitySizeType',
+                 value: int):
+        """
+        Capacity size configuration for the inference component
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'InferenceComponentCapacitySizeType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class InferenceComponentComputeResourceRequirements(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4812,6 +4883,118 @@ class InferenceComponentDeployedImage(dict):
         The image path you specified when you created the model.
         """
         return pulumi.get(self, "specified_image")
+
+
+@pulumi.output_type
+class InferenceComponentDeploymentConfig(dict):
+    """
+    The deployment config for the inference component
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRollbackConfiguration":
+            suggest = "auto_rollback_configuration"
+        elif key == "rollingUpdatePolicy":
+            suggest = "rolling_update_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceComponentDeploymentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceComponentDeploymentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceComponentDeploymentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_rollback_configuration: Optional['outputs.InferenceComponentAutoRollbackConfiguration'] = None,
+                 rolling_update_policy: Optional['outputs.InferenceComponentRollingUpdatePolicy'] = None):
+        """
+        The deployment config for the inference component
+        """
+        if auto_rollback_configuration is not None:
+            pulumi.set(__self__, "auto_rollback_configuration", auto_rollback_configuration)
+        if rolling_update_policy is not None:
+            pulumi.set(__self__, "rolling_update_policy", rolling_update_policy)
+
+    @property
+    @pulumi.getter(name="autoRollbackConfiguration")
+    def auto_rollback_configuration(self) -> Optional['outputs.InferenceComponentAutoRollbackConfiguration']:
+        return pulumi.get(self, "auto_rollback_configuration")
+
+    @property
+    @pulumi.getter(name="rollingUpdatePolicy")
+    def rolling_update_policy(self) -> Optional['outputs.InferenceComponentRollingUpdatePolicy']:
+        return pulumi.get(self, "rolling_update_policy")
+
+
+@pulumi.output_type
+class InferenceComponentRollingUpdatePolicy(dict):
+    """
+    The rolling update policy for the inference component
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumBatchSize":
+            suggest = "maximum_batch_size"
+        elif key == "maximumExecutionTimeoutInSeconds":
+            suggest = "maximum_execution_timeout_in_seconds"
+        elif key == "rollbackMaximumBatchSize":
+            suggest = "rollback_maximum_batch_size"
+        elif key == "waitIntervalInSeconds":
+            suggest = "wait_interval_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceComponentRollingUpdatePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceComponentRollingUpdatePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceComponentRollingUpdatePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_batch_size: Optional['outputs.InferenceComponentCapacitySize'] = None,
+                 maximum_execution_timeout_in_seconds: Optional[int] = None,
+                 rollback_maximum_batch_size: Optional['outputs.InferenceComponentCapacitySize'] = None,
+                 wait_interval_in_seconds: Optional[int] = None):
+        """
+        The rolling update policy for the inference component
+        """
+        if maximum_batch_size is not None:
+            pulumi.set(__self__, "maximum_batch_size", maximum_batch_size)
+        if maximum_execution_timeout_in_seconds is not None:
+            pulumi.set(__self__, "maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
+        if rollback_maximum_batch_size is not None:
+            pulumi.set(__self__, "rollback_maximum_batch_size", rollback_maximum_batch_size)
+        if wait_interval_in_seconds is not None:
+            pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
+
+    @property
+    @pulumi.getter(name="maximumBatchSize")
+    def maximum_batch_size(self) -> Optional['outputs.InferenceComponentCapacitySize']:
+        return pulumi.get(self, "maximum_batch_size")
+
+    @property
+    @pulumi.getter(name="maximumExecutionTimeoutInSeconds")
+    def maximum_execution_timeout_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "maximum_execution_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="rollbackMaximumBatchSize")
+    def rollback_maximum_batch_size(self) -> Optional['outputs.InferenceComponentCapacitySize']:
+        return pulumi.get(self, "rollback_maximum_batch_size")
+
+    @property
+    @pulumi.getter(name="waitIntervalInSeconds")
+    def wait_interval_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "wait_interval_in_seconds")
 
 
 @pulumi.output_type

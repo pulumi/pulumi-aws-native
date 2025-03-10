@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Wisdom
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the model used for this AI Prompt. Model Ids supported are: `CLAUDE_3_HAIKU_20240307_V1` .
+        /// The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
         /// </summary>
         [Output("modelId")]
         public Output<string> ModelId { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.AwsNative.Wisdom
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The identifier of the model used for this AI Prompt. Model Ids supported are: `CLAUDE_3_HAIKU_20240307_V1` .
+        /// The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
         /// </summary>
         [Input("modelId", required: true)]
         public Input<string> ModelId { get; set; } = null!;

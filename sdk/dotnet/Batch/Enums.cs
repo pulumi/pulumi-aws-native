@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AwsNative.Batch
 {
     /// <summary>
+    /// Type of Consumable Resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConsumableResourceResourceType : IEquatable<ConsumableResourceResourceType>
+    {
+        private readonly string _value;
+
+        private ConsumableResourceResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConsumableResourceResourceType Replenishable { get; } = new ConsumableResourceResourceType("REPLENISHABLE");
+        public static ConsumableResourceResourceType NonReplenishable { get; } = new ConsumableResourceResourceType("NON_REPLENISHABLE");
+
+        public static bool operator ==(ConsumableResourceResourceType left, ConsumableResourceResourceType right) => left.Equals(right);
+        public static bool operator !=(ConsumableResourceResourceType left, ConsumableResourceResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(ConsumableResourceResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConsumableResourceResourceType other && Equals(other);
+        public bool Equals(ConsumableResourceResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The action to take when a job is at the head of the job queue in the specified state for the specified period of time. The only supported value is `CANCEL` , which will cancel the job.
     /// </summary>
     [EnumType]

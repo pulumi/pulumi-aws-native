@@ -136,6 +136,9 @@ export const VirtualMfaDevice: typeof import("./virtualMfaDevice").VirtualMfaDev
 utilities.lazyLoad(exports, ["VirtualMfaDevice"], () => require("./virtualMfaDevice"));
 
 
+// Export enums:
+export * from "../types/enums/iam";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

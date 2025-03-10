@@ -15,10 +15,16 @@ export function getBatchScramSecret(args: GetBatchScramSecretArgs, opts?: pulumi
 }
 
 export interface GetBatchScramSecretArgs {
+    /**
+     * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+     */
     clusterArn: string;
 }
 
 export interface GetBatchScramSecretResult {
+    /**
+     * List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
+     */
     readonly secretArnList?: string[];
 }
 /**
@@ -32,5 +38,8 @@ export function getBatchScramSecretOutput(args: GetBatchScramSecretOutputArgs, o
 }
 
 export interface GetBatchScramSecretOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+     */
     clusterArn: pulumi.Input<string>;
 }

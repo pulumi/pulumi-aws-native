@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes a local gateway route table virtual interface group association for a local gateway.
+ * Resource Type definition for Local Gateway Route Table Virtual Interface Group Association which describes a local gateway route table virtual interface group association for a local gateway.
  */
 export class LocalGatewayRouteTableVirtualInterfaceGroupAssociation extends pulumi.CustomResource {
     /**

@@ -146,7 +146,16 @@ class ClusterBrokerNodeGroupInfo(dict):
                  security_groups: Optional[Sequence[str]] = None,
                  storage_info: Optional['outputs.ClusterStorageInfo'] = None):
         """
+        :param Sequence[str] client_subnets: The list of subnets to connect to in the client virtual private cloud (VPC). Amazon creates elastic network interfaces (ENIs) inside these subnets. Client applications use ENIs to produce and consume data.
+               
+               If you use the US West (N. California) Region, specify exactly two subnets. For other Regions where Amazon MSK is available, you can specify either two or three subnets. The subnets that you specify must be in distinct Availability Zones. When you create a cluster, Amazon MSK distributes the broker nodes evenly across the subnets that you specify.
+               
+               Client subnets can't occupy the Availability Zone with ID `use1-az3` .
         :param str instance_type: The type of Amazon EC2 instances to use for brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, kafka.m5.24xlarge, and kafka.t3.small.
+        :param str broker_az_distribution: This parameter is currently not in use.
+        :param 'ClusterConnectivityInfo' connectivity_info: Information about the cluster's connectivity setting.
+        :param Sequence[str] security_groups: The security groups to associate with the ENIs in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC. If you specify security groups that were shared with you, you must ensure that you have permissions to them. Specifically, you need the `ec2:DescribeSecurityGroups` permission.
+        :param 'ClusterStorageInfo' storage_info: Contains information about storage volumes attached to Amazon MSK broker nodes.
         """
         pulumi.set(__self__, "client_subnets", client_subnets)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -162,6 +171,13 @@ class ClusterBrokerNodeGroupInfo(dict):
     @property
     @pulumi.getter(name="clientSubnets")
     def client_subnets(self) -> Sequence[str]:
+        """
+        The list of subnets to connect to in the client virtual private cloud (VPC). Amazon creates elastic network interfaces (ENIs) inside these subnets. Client applications use ENIs to produce and consume data.
+
+        If you use the US West (N. California) Region, specify exactly two subnets. For other Regions where Amazon MSK is available, you can specify either two or three subnets. The subnets that you specify must be in distinct Availability Zones. When you create a cluster, Amazon MSK distributes the broker nodes evenly across the subnets that you specify.
+
+        Client subnets can't occupy the Availability Zone with ID `use1-az3` .
+        """
         return pulumi.get(self, "client_subnets")
 
     @property
@@ -175,21 +191,33 @@ class ClusterBrokerNodeGroupInfo(dict):
     @property
     @pulumi.getter(name="brokerAzDistribution")
     def broker_az_distribution(self) -> Optional[str]:
+        """
+        This parameter is currently not in use.
+        """
         return pulumi.get(self, "broker_az_distribution")
 
     @property
     @pulumi.getter(name="connectivityInfo")
     def connectivity_info(self) -> Optional['outputs.ClusterConnectivityInfo']:
+        """
+        Information about the cluster's connectivity setting.
+        """
         return pulumi.get(self, "connectivity_info")
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
+        """
+        The security groups to associate with the ENIs in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC. If you specify security groups that were shared with you, you must ensure that you have permissions to them. Specifically, you need the `ec2:DescribeSecurityGroups` permission.
+        """
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter(name="storageInfo")
     def storage_info(self) -> Optional['outputs.ClusterStorageInfo']:
+        """
+        Contains information about storage volumes attached to Amazon MSK broker nodes.
+        """
         return pulumi.get(self, "storage_info")
 
 
@@ -411,6 +439,18 @@ class ClusterEncryptionInTransit(dict):
     def __init__(__self__, *,
                  client_broker: Optional['ClusterEncryptionInTransitClientBroker'] = None,
                  in_cluster: Optional[bool] = None):
+        """
+        :param 'ClusterEncryptionInTransitClientBroker' client_broker: Indicates the encryption setting for data in transit between clients and brokers. You must set it to one of the following values.
+               
+               - `TLS` : Indicates that client-broker communication is enabled with TLS only.
+               - `TLS_PLAINTEXT` : Indicates that client-broker communication is enabled for both TLS-encrypted, as well as plaintext data.
+               - `PLAINTEXT` : Indicates that client-broker communication is enabled in plaintext only.
+               
+               The default value is `TLS` .
+        :param bool in_cluster: When set to true, it indicates that data communication among the broker nodes of the cluster is encrypted. When set to false, the communication happens in plaintext.
+               
+               The default value is true.
+        """
         if client_broker is not None:
             pulumi.set(__self__, "client_broker", client_broker)
         if in_cluster is not None:
@@ -419,11 +459,25 @@ class ClusterEncryptionInTransit(dict):
     @property
     @pulumi.getter(name="clientBroker")
     def client_broker(self) -> Optional['ClusterEncryptionInTransitClientBroker']:
+        """
+        Indicates the encryption setting for data in transit between clients and brokers. You must set it to one of the following values.
+
+        - `TLS` : Indicates that client-broker communication is enabled with TLS only.
+        - `TLS_PLAINTEXT` : Indicates that client-broker communication is enabled for both TLS-encrypted, as well as plaintext data.
+        - `PLAINTEXT` : Indicates that client-broker communication is enabled in plaintext only.
+
+        The default value is `TLS` .
+        """
         return pulumi.get(self, "client_broker")
 
     @property
     @pulumi.getter(name="inCluster")
     def in_cluster(self) -> Optional[bool]:
+        """
+        When set to true, it indicates that data communication among the broker nodes of the cluster is encrypted. When set to false, the communication happens in plaintext.
+
+        The default value is true.
+        """
         return pulumi.get(self, "in_cluster")
 
 
@@ -451,6 +505,9 @@ class ClusterEncryptionInfo(dict):
     def __init__(__self__, *,
                  encryption_at_rest: Optional['outputs.ClusterEncryptionAtRest'] = None,
                  encryption_in_transit: Optional['outputs.ClusterEncryptionInTransit'] = None):
+        """
+        :param 'ClusterEncryptionInTransit' encryption_in_transit: The details for encryption in transit.
+        """
         if encryption_at_rest is not None:
             pulumi.set(__self__, "encryption_at_rest", encryption_at_rest)
         if encryption_in_transit is not None:
@@ -464,6 +521,9 @@ class ClusterEncryptionInfo(dict):
     @property
     @pulumi.getter(name="encryptionInTransit")
     def encryption_in_transit(self) -> Optional['outputs.ClusterEncryptionInTransit']:
+        """
+        The details for encryption in transit.
+        """
         return pulumi.get(self, "encryption_in_transit")
 
 
@@ -978,6 +1038,11 @@ class ConfigurationLatestRevision(dict):
                  creation_time: Optional[str] = None,
                  description: Optional[str] = None,
                  revision: Optional[int] = None):
+        """
+        :param str creation_time: The time when the configuration revision was created.
+        :param str description: The description of the configuration revision.
+        :param int revision: The revision number.
+        """
         if creation_time is not None:
             pulumi.set(__self__, "creation_time", creation_time)
         if description is not None:
@@ -988,16 +1053,25 @@ class ConfigurationLatestRevision(dict):
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[str]:
+        """
+        The time when the configuration revision was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the configuration revision.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def revision(self) -> Optional[int]:
+        """
+        The revision number.
+        """
         return pulumi.get(self, "revision")
 
 

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes a route table for a local gateway.
+ * Resource Type definition for Local Gateway Route Table which describes a route table for a local gateway.
  */
 export function getLocalGatewayRouteTable(args: GetLocalGatewayRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,7 +51,7 @@ export interface GetLocalGatewayRouteTableResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Describes a route table for a local gateway.
+ * Resource Type definition for Local Gateway Route Table which describes a route table for a local gateway.
  */
 export function getLocalGatewayRouteTableOutput(args: GetLocalGatewayRouteTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalGatewayRouteTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

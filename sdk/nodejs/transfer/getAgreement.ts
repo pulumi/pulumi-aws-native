@@ -47,6 +47,10 @@ export interface GetAgreementResult {
      */
     readonly baseDirectory?: string;
     /**
+     * Specifies a separate directory for each type of file to store for an AS2 message.
+     */
+    readonly customDirectories?: outputs.transfer.CustomDirectoriesProperties;
+    /**
      * A textual description for the agreement.
      */
     readonly description?: string;

@@ -38,6 +38,10 @@ export class JobDefinition extends pulumi.CustomResource {
     }
 
     /**
+     * Contains a list of consumable resources required by the job.
+     */
+    public readonly consumableResourceProperties!: pulumi.Output<outputs.batch.JobDefinitionConsumableResourceProperties | undefined>;
+    /**
      * An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
      */
     public readonly containerProperties!: pulumi.Output<outputs.batch.JobDefinitionContainerProperties | undefined>;
@@ -111,6 +115,7 @@ export class JobDefinition extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            resourceInputs["consumableResourceProperties"] = args ? args.consumableResourceProperties : undefined;
             resourceInputs["containerProperties"] = args ? args.containerProperties : undefined;
             resourceInputs["ecsProperties"] = args ? args.ecsProperties : undefined;
             resourceInputs["eksProperties"] = args ? args.eksProperties : undefined;
@@ -125,6 +130,7 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
         } else {
+            resourceInputs["consumableResourceProperties"] = undefined /*out*/;
             resourceInputs["containerProperties"] = undefined /*out*/;
             resourceInputs["ecsProperties"] = undefined /*out*/;
             resourceInputs["eksProperties"] = undefined /*out*/;
@@ -150,6 +156,10 @@ export class JobDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a JobDefinition resource.
  */
 export interface JobDefinitionArgs {
+    /**
+     * Contains a list of consumable resources required by the job.
+     */
+    consumableResourceProperties?: pulumi.Input<inputs.batch.JobDefinitionConsumableResourcePropertiesArgs>;
     /**
      * An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
      */

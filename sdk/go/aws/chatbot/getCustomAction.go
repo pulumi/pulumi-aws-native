@@ -29,7 +29,7 @@ type LookupCustomActionArgs struct {
 }
 
 type LookupCustomActionResult struct {
-	// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+	// The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
 	AliasName *string `pulumi:"aliasName"`
 	// Defines when this custom action button should be attached to a notification.
 	Attachments []CustomActionAttachment `pulumi:"attachments"`
@@ -73,7 +73,7 @@ func (o LookupCustomActionResultOutput) ToLookupCustomActionResultOutputWithCont
 	return o
 }
 
-// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+// The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
 func (o LookupCustomActionResultOutput) AliasName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCustomActionResult) *string { return v.AliasName }).(pulumi.StringPtrOutput)
 }

@@ -354,6 +354,222 @@ type ConnectorTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Specifies a separate directory for each type of file to store for an AS2 message.
+type CustomDirectoriesProperties struct {
+	// Specifies a location to store the failed files for an AS2 message.
+	FailedFilesDirectory string `pulumi:"failedFilesDirectory"`
+	// Specifies a location to store the MDN file for an AS2 message.
+	MdnFilesDirectory string `pulumi:"mdnFilesDirectory"`
+	// Specifies a location to store the payload file for an AS2 message.
+	PayloadFilesDirectory string `pulumi:"payloadFilesDirectory"`
+	// Specifies a location to store the status file for an AS2 message.
+	StatusFilesDirectory string `pulumi:"statusFilesDirectory"`
+	// Specifies a location to store the temporary processing file for an AS2 message.
+	TemporaryFilesDirectory string `pulumi:"temporaryFilesDirectory"`
+}
+
+// CustomDirectoriesPropertiesInput is an input type that accepts CustomDirectoriesPropertiesArgs and CustomDirectoriesPropertiesOutput values.
+// You can construct a concrete instance of `CustomDirectoriesPropertiesInput` via:
+//
+//	CustomDirectoriesPropertiesArgs{...}
+type CustomDirectoriesPropertiesInput interface {
+	pulumi.Input
+
+	ToCustomDirectoriesPropertiesOutput() CustomDirectoriesPropertiesOutput
+	ToCustomDirectoriesPropertiesOutputWithContext(context.Context) CustomDirectoriesPropertiesOutput
+}
+
+// Specifies a separate directory for each type of file to store for an AS2 message.
+type CustomDirectoriesPropertiesArgs struct {
+	// Specifies a location to store the failed files for an AS2 message.
+	FailedFilesDirectory pulumi.StringInput `pulumi:"failedFilesDirectory"`
+	// Specifies a location to store the MDN file for an AS2 message.
+	MdnFilesDirectory pulumi.StringInput `pulumi:"mdnFilesDirectory"`
+	// Specifies a location to store the payload file for an AS2 message.
+	PayloadFilesDirectory pulumi.StringInput `pulumi:"payloadFilesDirectory"`
+	// Specifies a location to store the status file for an AS2 message.
+	StatusFilesDirectory pulumi.StringInput `pulumi:"statusFilesDirectory"`
+	// Specifies a location to store the temporary processing file for an AS2 message.
+	TemporaryFilesDirectory pulumi.StringInput `pulumi:"temporaryFilesDirectory"`
+}
+
+func (CustomDirectoriesPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDirectoriesProperties)(nil)).Elem()
+}
+
+func (i CustomDirectoriesPropertiesArgs) ToCustomDirectoriesPropertiesOutput() CustomDirectoriesPropertiesOutput {
+	return i.ToCustomDirectoriesPropertiesOutputWithContext(context.Background())
+}
+
+func (i CustomDirectoriesPropertiesArgs) ToCustomDirectoriesPropertiesOutputWithContext(ctx context.Context) CustomDirectoriesPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDirectoriesPropertiesOutput)
+}
+
+func (i CustomDirectoriesPropertiesArgs) ToCustomDirectoriesPropertiesPtrOutput() CustomDirectoriesPropertiesPtrOutput {
+	return i.ToCustomDirectoriesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CustomDirectoriesPropertiesArgs) ToCustomDirectoriesPropertiesPtrOutputWithContext(ctx context.Context) CustomDirectoriesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDirectoriesPropertiesOutput).ToCustomDirectoriesPropertiesPtrOutputWithContext(ctx)
+}
+
+// CustomDirectoriesPropertiesPtrInput is an input type that accepts CustomDirectoriesPropertiesArgs, CustomDirectoriesPropertiesPtr and CustomDirectoriesPropertiesPtrOutput values.
+// You can construct a concrete instance of `CustomDirectoriesPropertiesPtrInput` via:
+//
+//	        CustomDirectoriesPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomDirectoriesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCustomDirectoriesPropertiesPtrOutput() CustomDirectoriesPropertiesPtrOutput
+	ToCustomDirectoriesPropertiesPtrOutputWithContext(context.Context) CustomDirectoriesPropertiesPtrOutput
+}
+
+type customDirectoriesPropertiesPtrType CustomDirectoriesPropertiesArgs
+
+func CustomDirectoriesPropertiesPtr(v *CustomDirectoriesPropertiesArgs) CustomDirectoriesPropertiesPtrInput {
+	return (*customDirectoriesPropertiesPtrType)(v)
+}
+
+func (*customDirectoriesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomDirectoriesProperties)(nil)).Elem()
+}
+
+func (i *customDirectoriesPropertiesPtrType) ToCustomDirectoriesPropertiesPtrOutput() CustomDirectoriesPropertiesPtrOutput {
+	return i.ToCustomDirectoriesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *customDirectoriesPropertiesPtrType) ToCustomDirectoriesPropertiesPtrOutputWithContext(ctx context.Context) CustomDirectoriesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDirectoriesPropertiesPtrOutput)
+}
+
+// Specifies a separate directory for each type of file to store for an AS2 message.
+type CustomDirectoriesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CustomDirectoriesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDirectoriesProperties)(nil)).Elem()
+}
+
+func (o CustomDirectoriesPropertiesOutput) ToCustomDirectoriesPropertiesOutput() CustomDirectoriesPropertiesOutput {
+	return o
+}
+
+func (o CustomDirectoriesPropertiesOutput) ToCustomDirectoriesPropertiesOutputWithContext(ctx context.Context) CustomDirectoriesPropertiesOutput {
+	return o
+}
+
+func (o CustomDirectoriesPropertiesOutput) ToCustomDirectoriesPropertiesPtrOutput() CustomDirectoriesPropertiesPtrOutput {
+	return o.ToCustomDirectoriesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CustomDirectoriesPropertiesOutput) ToCustomDirectoriesPropertiesPtrOutputWithContext(ctx context.Context) CustomDirectoriesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDirectoriesProperties) *CustomDirectoriesProperties {
+		return &v
+	}).(CustomDirectoriesPropertiesPtrOutput)
+}
+
+// Specifies a location to store the failed files for an AS2 message.
+func (o CustomDirectoriesPropertiesOutput) FailedFilesDirectory() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDirectoriesProperties) string { return v.FailedFilesDirectory }).(pulumi.StringOutput)
+}
+
+// Specifies a location to store the MDN file for an AS2 message.
+func (o CustomDirectoriesPropertiesOutput) MdnFilesDirectory() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDirectoriesProperties) string { return v.MdnFilesDirectory }).(pulumi.StringOutput)
+}
+
+// Specifies a location to store the payload file for an AS2 message.
+func (o CustomDirectoriesPropertiesOutput) PayloadFilesDirectory() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDirectoriesProperties) string { return v.PayloadFilesDirectory }).(pulumi.StringOutput)
+}
+
+// Specifies a location to store the status file for an AS2 message.
+func (o CustomDirectoriesPropertiesOutput) StatusFilesDirectory() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDirectoriesProperties) string { return v.StatusFilesDirectory }).(pulumi.StringOutput)
+}
+
+// Specifies a location to store the temporary processing file for an AS2 message.
+func (o CustomDirectoriesPropertiesOutput) TemporaryFilesDirectory() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDirectoriesProperties) string { return v.TemporaryFilesDirectory }).(pulumi.StringOutput)
+}
+
+type CustomDirectoriesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomDirectoriesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomDirectoriesProperties)(nil)).Elem()
+}
+
+func (o CustomDirectoriesPropertiesPtrOutput) ToCustomDirectoriesPropertiesPtrOutput() CustomDirectoriesPropertiesPtrOutput {
+	return o
+}
+
+func (o CustomDirectoriesPropertiesPtrOutput) ToCustomDirectoriesPropertiesPtrOutputWithContext(ctx context.Context) CustomDirectoriesPropertiesPtrOutput {
+	return o
+}
+
+func (o CustomDirectoriesPropertiesPtrOutput) Elem() CustomDirectoriesPropertiesOutput {
+	return o.ApplyT(func(v *CustomDirectoriesProperties) CustomDirectoriesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CustomDirectoriesProperties
+		return ret
+	}).(CustomDirectoriesPropertiesOutput)
+}
+
+// Specifies a location to store the failed files for an AS2 message.
+func (o CustomDirectoriesPropertiesPtrOutput) FailedFilesDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDirectoriesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FailedFilesDirectory
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a location to store the MDN file for an AS2 message.
+func (o CustomDirectoriesPropertiesPtrOutput) MdnFilesDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDirectoriesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MdnFilesDirectory
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a location to store the payload file for an AS2 message.
+func (o CustomDirectoriesPropertiesPtrOutput) PayloadFilesDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDirectoriesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PayloadFilesDirectory
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a location to store the status file for an AS2 message.
+func (o CustomDirectoriesPropertiesPtrOutput) StatusFilesDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDirectoriesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StatusFilesDirectory
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a location to store the temporary processing file for an AS2 message.
+func (o CustomDirectoriesPropertiesPtrOutput) TemporaryFilesDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDirectoriesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TemporaryFilesDirectory
+	}).(pulumi.StringPtrOutput)
+}
+
 // Creates a key-value pair for a specific resource.
 type ProfileTag struct {
 	// The name assigned to the tag that you create.
@@ -4369,6 +4585,8 @@ type WorkflowTag struct {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*As2ConfigPropertiesInput)(nil)).Elem(), As2ConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*As2ConfigPropertiesPtrInput)(nil)).Elem(), As2ConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDirectoriesPropertiesInput)(nil)).Elem(), CustomDirectoriesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDirectoriesPropertiesPtrInput)(nil)).Elem(), CustomDirectoriesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsPtrInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityProviderDetailsInput)(nil)).Elem(), ServerIdentityProviderDetailsArgs{})
@@ -4416,6 +4634,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTagStepDetailsPropertiesPtrInput)(nil)).Elem(), WorkflowStepTagStepDetailsPropertiesArgs{})
 	pulumi.RegisterOutputType(As2ConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(As2ConfigPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CustomDirectoriesPropertiesOutput{})
+	pulumi.RegisterOutputType(CustomDirectoriesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServerIdentityProviderDetailsOutput{})

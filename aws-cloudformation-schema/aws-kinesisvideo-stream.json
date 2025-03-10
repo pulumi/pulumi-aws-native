@@ -80,18 +80,29 @@
   "readOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/Name" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "kinesisvideo:TagStream", "kinesisvideo:UntagStream" ]
+  },
   "handlers" : {
     "create" : {
-      "permissions" : [ "kinesisvideo:DescribeStream", "kinesisvideo:CreateStream" ]
+      "permissions" : [ "kinesisvideo:DescribeStream", "kinesisvideo:CreateStream", "kinesisvideo:TagStream" ]
     },
     "read" : {
-      "permissions" : [ "kinesisvideo:DescribeStream" ]
+      "permissions" : [ "kinesisvideo:DescribeStream", "kinesisvideo:ListTagsForStream" ]
     },
     "update" : {
-      "permissions" : [ "kinesisvideo:DescribeStream", "kinesisvideo:UpdateStream", "kinesisvideo:UpdateDataRetention" ]
+      "permissions" : [ "kinesisvideo:DescribeStream", "kinesisvideo:UpdateStream", "kinesisvideo:UpdateDataRetention", "kinesisvideo:TagStream", "kinesisvideo:UntagStream", "kinesisvideo:ListTagsForStream" ]
     },
     "delete" : {
       "permissions" : [ "kinesisvideo:DescribeStream", "kinesisvideo:DeleteStream" ]
+    },
+    "list" : {
+      "permissions" : [ "kinesisvideo:ListStreams" ]
     }
   }
 }

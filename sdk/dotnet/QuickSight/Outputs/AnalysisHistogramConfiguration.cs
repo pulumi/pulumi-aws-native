@@ -26,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.AnalysisHistogramFieldWells? FieldWells;
         /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        public readonly Outputs.AnalysisVisualInteractionOptions? Interactions;
+        /// <summary>
         /// The tooltip configuration of a histogram.
         /// </summary>
         public readonly Outputs.AnalysisTooltipOptions? Tooltip;
@@ -54,6 +58,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.AnalysisHistogramFieldWells? fieldWells,
 
+            Outputs.AnalysisVisualInteractionOptions? interactions,
+
             Outputs.AnalysisTooltipOptions? tooltip,
 
             Outputs.AnalysisVisualPalette? visualPalette,
@@ -67,6 +73,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             BinOptions = binOptions;
             DataLabels = dataLabels;
             FieldWells = fieldWells;
+            Interactions = interactions;
             Tooltip = tooltip;
             VisualPalette = visualPalette;
             XAxisDisplayOptions = xAxisDisplayOptions;

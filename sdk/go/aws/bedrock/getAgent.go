@@ -31,7 +31,8 @@ type LookupAgentResult struct {
 	// List of ActionGroups
 	ActionGroups []AgentActionGroup `pulumi:"actionGroups"`
 	// Arn representation of the Agent.
-	AgentArn           *string             `pulumi:"agentArn"`
+	AgentArn *string `pulumi:"agentArn"`
+	// The agent's collaboration settings.
 	AgentCollaboration *AgentCollaboration `pulumi:"agentCollaboration"`
 	// List of Agent Collaborators
 	AgentCollaborators []AgentCollaborator `pulumi:"agentCollaborators"`
@@ -54,7 +55,8 @@ type LookupAgentResult struct {
 	// Draft Agent Version.
 	AgentVersion *string `pulumi:"agentVersion"`
 	// Time Stamp.
-	CreatedAt           *string                   `pulumi:"createdAt"`
+	CreatedAt *string `pulumi:"createdAt"`
+	// Contains custom orchestration configurations for the agent.
 	CustomOrchestration *AgentCustomOrchestration `pulumi:"customOrchestration"`
 	// A KMS key ARN
 	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`
@@ -71,9 +73,11 @@ type LookupAgentResult struct {
 	// Instruction for the agent.
 	Instruction *string `pulumi:"instruction"`
 	// List of Agent Knowledge Bases
-	KnowledgeBases      []AgentKnowledgeBase      `pulumi:"knowledgeBases"`
+	KnowledgeBases []AgentKnowledgeBase `pulumi:"knowledgeBases"`
+	// Contains memory configuration for the agent.
 	MemoryConfiguration *AgentMemoryConfiguration `pulumi:"memoryConfiguration"`
-	OrchestrationType   *AgentOrchestrationType   `pulumi:"orchestrationType"`
+	// Specifies the orchestration strategy for the agent.
+	OrchestrationType *AgentOrchestrationType `pulumi:"orchestrationType"`
 	// Time Stamp.
 	PreparedAt *string `pulumi:"preparedAt"`
 	// Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
@@ -136,6 +140,7 @@ func (o LookupAgentResultOutput) AgentArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *string { return v.AgentArn }).(pulumi.StringPtrOutput)
 }
 
+// The agent's collaboration settings.
 func (o LookupAgentResultOutput) AgentCollaboration() AgentCollaborationPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *AgentCollaboration { return v.AgentCollaboration }).(AgentCollaborationPtrOutput)
 }
@@ -183,6 +188,7 @@ func (o LookupAgentResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// Contains custom orchestration configurations for the agent.
 func (o LookupAgentResultOutput) CustomOrchestration() AgentCustomOrchestrationPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *AgentCustomOrchestration { return v.CustomOrchestration }).(AgentCustomOrchestrationPtrOutput)
 }
@@ -227,10 +233,12 @@ func (o LookupAgentResultOutput) KnowledgeBases() AgentKnowledgeBaseArrayOutput 
 	return o.ApplyT(func(v LookupAgentResult) []AgentKnowledgeBase { return v.KnowledgeBases }).(AgentKnowledgeBaseArrayOutput)
 }
 
+// Contains memory configuration for the agent.
 func (o LookupAgentResultOutput) MemoryConfiguration() AgentMemoryConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *AgentMemoryConfiguration { return v.MemoryConfiguration }).(AgentMemoryConfigurationPtrOutput)
 }
 
+// Specifies the orchestration strategy for the agent.
 func (o LookupAgentResultOutput) OrchestrationType() AgentOrchestrationTypePtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *AgentOrchestrationType { return v.OrchestrationType }).(AgentOrchestrationTypePtrOutput)
 }

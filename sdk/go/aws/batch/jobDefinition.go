@@ -16,6 +16,8 @@ import (
 type JobDefinition struct {
 	pulumi.CustomResourceState
 
+	// Contains a list of consumable resources required by the job.
+	ConsumableResourceProperties JobDefinitionConsumableResourcePropertiesPtrOutput `pulumi:"consumableResourceProperties"`
 	// An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
 	ContainerProperties JobDefinitionContainerPropertiesPtrOutput `pulumi:"containerProperties"`
 	// An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
@@ -98,6 +100,8 @@ func (JobDefinitionState) ElementType() reflect.Type {
 }
 
 type jobDefinitionArgs struct {
+	// Contains a list of consumable resources required by the job.
+	ConsumableResourceProperties *JobDefinitionConsumableResourceProperties `pulumi:"consumableResourceProperties"`
 	// An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
 	ContainerProperties *JobDefinitionContainerProperties `pulumi:"containerProperties"`
 	// An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
@@ -135,6 +139,8 @@ type jobDefinitionArgs struct {
 
 // The set of arguments for constructing a JobDefinition resource.
 type JobDefinitionArgs struct {
+	// Contains a list of consumable resources required by the job.
+	ConsumableResourceProperties JobDefinitionConsumableResourcePropertiesPtrInput
 	// An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
 	ContainerProperties JobDefinitionContainerPropertiesPtrInput
 	// An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
@@ -205,6 +211,13 @@ func (o JobDefinitionOutput) ToJobDefinitionOutput() JobDefinitionOutput {
 
 func (o JobDefinitionOutput) ToJobDefinitionOutputWithContext(ctx context.Context) JobDefinitionOutput {
 	return o
+}
+
+// Contains a list of consumable resources required by the job.
+func (o JobDefinitionOutput) ConsumableResourceProperties() JobDefinitionConsumableResourcePropertiesPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) JobDefinitionConsumableResourcePropertiesPtrOutput {
+		return v.ConsumableResourceProperties
+	}).(JobDefinitionConsumableResourcePropertiesPtrOutput)
 }
 
 // An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .

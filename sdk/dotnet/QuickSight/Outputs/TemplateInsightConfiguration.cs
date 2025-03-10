@@ -21,15 +21,22 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The custom narrative of the insight visual.
         /// </summary>
         public readonly Outputs.TemplateCustomNarrativeOptions? CustomNarrative;
+        /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        public readonly Outputs.TemplateVisualInteractionOptions? Interactions;
 
         [OutputConstructor]
         private TemplateInsightConfiguration(
             ImmutableArray<Outputs.TemplateComputation> computations,
 
-            Outputs.TemplateCustomNarrativeOptions? customNarrative)
+            Outputs.TemplateCustomNarrativeOptions? customNarrative,
+
+            Outputs.TemplateVisualInteractionOptions? interactions)
         {
             Computations = computations;
             CustomNarrative = customNarrative;
+            Interactions = interactions;
         }
     }
 }

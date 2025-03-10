@@ -75,6 +75,10 @@ namespace Pulumi.AwsNative.CloudTrail
         /// The name of the channel.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetChannelResult(
@@ -82,11 +86,14 @@ namespace Pulumi.AwsNative.CloudTrail
 
             ImmutableArray<Outputs.ChannelDestination> destinations,
 
-            string? name)
+            string? name,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ChannelArn = channelArn;
             Destinations = destinations;
             Name = name;
+            Tags = tags;
         }
     }
 }

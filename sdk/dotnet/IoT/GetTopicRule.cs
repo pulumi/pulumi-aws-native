@@ -35,8 +35,6 @@ namespace Pulumi.AwsNative.IoT
     {
         /// <summary>
         /// The name of the rule.
-        /// 
-        /// *Pattern* : `^[a-zA-Z0-9_]+$`
         /// </summary>
         [Input("ruleName", required: true)]
         public string RuleName { get; set; } = null!;
@@ -51,8 +49,6 @@ namespace Pulumi.AwsNative.IoT
     {
         /// <summary>
         /// The name of the rule.
-        /// 
-        /// *Pattern* : `^[a-zA-Z0-9_]+$`
         /// </summary>
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;

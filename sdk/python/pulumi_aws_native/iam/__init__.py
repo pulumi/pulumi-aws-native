@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .get_group import *
 from .get_group_policy import *
 from .get_instance_profile import *

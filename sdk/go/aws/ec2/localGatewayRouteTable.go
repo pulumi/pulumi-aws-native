@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a route table for a local gateway.
+// Resource Type definition for Local Gateway Route Table which describes a route table for a local gateway.
 type LocalGatewayRouteTable struct {
 	pulumi.CustomResourceState
 

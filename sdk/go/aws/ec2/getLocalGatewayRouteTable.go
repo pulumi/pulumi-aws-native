@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a route table for a local gateway.
+// Resource Type definition for Local Gateway Route Table which describes a route table for a local gateway.
 func LookupLocalGatewayRouteTable(ctx *pulumi.Context, args *LookupLocalGatewayRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupLocalGatewayRouteTableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalGatewayRouteTableResult

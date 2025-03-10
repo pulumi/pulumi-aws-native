@@ -43,9 +43,17 @@ export interface GetChannelResult {
      */
     readonly ingestEndpoints?: outputs.mediapackagev2.ChannelIngestEndpoint[];
     /**
+     * The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.
+     */
+    readonly inputSwitchConfiguration?: outputs.mediapackagev2.ChannelInputSwitchConfiguration;
+    /**
      * <p>The date and time the channel was modified.</p>
      */
     readonly modifiedAt?: string;
+    /**
+     * The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
+     */
+    readonly outputHeaderConfiguration?: outputs.mediapackagev2.ChannelOutputHeaderConfiguration;
     /**
      * The tags associated with the channel.
      */

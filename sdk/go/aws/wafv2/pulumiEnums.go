@@ -2039,6 +2039,177 @@ func (in *ruleGroupJa3FingerprintFallbackBehaviorPtr) ToRuleGroupJa3FingerprintF
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupJa3FingerprintFallbackBehaviorPtrOutput)
 }
 
+// The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+type RuleGroupJa4FingerprintFallbackBehavior string
+
+const (
+	RuleGroupJa4FingerprintFallbackBehaviorMatch   = RuleGroupJa4FingerprintFallbackBehavior("MATCH")
+	RuleGroupJa4FingerprintFallbackBehaviorNoMatch = RuleGroupJa4FingerprintFallbackBehavior("NO_MATCH")
+)
+
+func (RuleGroupJa4FingerprintFallbackBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupJa4FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (e RuleGroupJa4FingerprintFallbackBehavior) ToRuleGroupJa4FingerprintFallbackBehaviorOutput() RuleGroupJa4FingerprintFallbackBehaviorOutput {
+	return pulumi.ToOutput(e).(RuleGroupJa4FingerprintFallbackBehaviorOutput)
+}
+
+func (e RuleGroupJa4FingerprintFallbackBehavior) ToRuleGroupJa4FingerprintFallbackBehaviorOutputWithContext(ctx context.Context) RuleGroupJa4FingerprintFallbackBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupJa4FingerprintFallbackBehaviorOutput)
+}
+
+func (e RuleGroupJa4FingerprintFallbackBehavior) ToRuleGroupJa4FingerprintFallbackBehaviorPtrOutput() RuleGroupJa4FingerprintFallbackBehaviorPtrOutput {
+	return e.ToRuleGroupJa4FingerprintFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupJa4FingerprintFallbackBehavior) ToRuleGroupJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupJa4FingerprintFallbackBehaviorPtrOutput {
+	return RuleGroupJa4FingerprintFallbackBehavior(e).ToRuleGroupJa4FingerprintFallbackBehaviorOutputWithContext(ctx).ToRuleGroupJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e RuleGroupJa4FingerprintFallbackBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupJa4FingerprintFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupJa4FingerprintFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupJa4FingerprintFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleGroupJa4FingerprintFallbackBehaviorOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupJa4FingerprintFallbackBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupJa4FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (o RuleGroupJa4FingerprintFallbackBehaviorOutput) ToRuleGroupJa4FingerprintFallbackBehaviorOutput() RuleGroupJa4FingerprintFallbackBehaviorOutput {
+	return o
+}
+
+func (o RuleGroupJa4FingerprintFallbackBehaviorOutput) ToRuleGroupJa4FingerprintFallbackBehaviorOutputWithContext(ctx context.Context) RuleGroupJa4FingerprintFallbackBehaviorOutput {
+	return o
+}
+
+func (o RuleGroupJa4FingerprintFallbackBehaviorOutput) ToRuleGroupJa4FingerprintFallbackBehaviorPtrOutput() RuleGroupJa4FingerprintFallbackBehaviorPtrOutput {
+	return o.ToRuleGroupJa4FingerprintFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupJa4FingerprintFallbackBehaviorOutput) ToRuleGroupJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupJa4FingerprintFallbackBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupJa4FingerprintFallbackBehavior) *RuleGroupJa4FingerprintFallbackBehavior {
+		return &v
+	}).(RuleGroupJa4FingerprintFallbackBehaviorPtrOutput)
+}
+
+func (o RuleGroupJa4FingerprintFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleGroupJa4FingerprintFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupJa4FingerprintFallbackBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleGroupJa4FingerprintFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupJa4FingerprintFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupJa4FingerprintFallbackBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupJa4FingerprintFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupJa4FingerprintFallbackBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupJa4FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (o RuleGroupJa4FingerprintFallbackBehaviorPtrOutput) ToRuleGroupJa4FingerprintFallbackBehaviorPtrOutput() RuleGroupJa4FingerprintFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o RuleGroupJa4FingerprintFallbackBehaviorPtrOutput) ToRuleGroupJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupJa4FingerprintFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o RuleGroupJa4FingerprintFallbackBehaviorPtrOutput) Elem() RuleGroupJa4FingerprintFallbackBehaviorOutput {
+	return o.ApplyT(func(v *RuleGroupJa4FingerprintFallbackBehavior) RuleGroupJa4FingerprintFallbackBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupJa4FingerprintFallbackBehavior
+		return ret
+	}).(RuleGroupJa4FingerprintFallbackBehaviorOutput)
+}
+
+func (o RuleGroupJa4FingerprintFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupJa4FingerprintFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupJa4FingerprintFallbackBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleGroupJa4FingerprintFallbackBehaviorInput is an input type that accepts values of the RuleGroupJa4FingerprintFallbackBehavior enum
+// A concrete instance of `RuleGroupJa4FingerprintFallbackBehaviorInput` can be one of the following:
+//
+//	RuleGroupJa4FingerprintFallbackBehaviorMatch
+//	RuleGroupJa4FingerprintFallbackBehaviorNoMatch
+type RuleGroupJa4FingerprintFallbackBehaviorInput interface {
+	pulumi.Input
+
+	ToRuleGroupJa4FingerprintFallbackBehaviorOutput() RuleGroupJa4FingerprintFallbackBehaviorOutput
+	ToRuleGroupJa4FingerprintFallbackBehaviorOutputWithContext(context.Context) RuleGroupJa4FingerprintFallbackBehaviorOutput
+}
+
+var ruleGroupJa4FingerprintFallbackBehaviorPtrType = reflect.TypeOf((**RuleGroupJa4FingerprintFallbackBehavior)(nil)).Elem()
+
+type RuleGroupJa4FingerprintFallbackBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupJa4FingerprintFallbackBehaviorPtrOutput() RuleGroupJa4FingerprintFallbackBehaviorPtrOutput
+	ToRuleGroupJa4FingerprintFallbackBehaviorPtrOutputWithContext(context.Context) RuleGroupJa4FingerprintFallbackBehaviorPtrOutput
+}
+
+type ruleGroupJa4FingerprintFallbackBehaviorPtr string
+
+func RuleGroupJa4FingerprintFallbackBehaviorPtr(v string) RuleGroupJa4FingerprintFallbackBehaviorPtrInput {
+	return (*ruleGroupJa4FingerprintFallbackBehaviorPtr)(&v)
+}
+
+func (*ruleGroupJa4FingerprintFallbackBehaviorPtr) ElementType() reflect.Type {
+	return ruleGroupJa4FingerprintFallbackBehaviorPtrType
+}
+
+func (in *ruleGroupJa4FingerprintFallbackBehaviorPtr) ToRuleGroupJa4FingerprintFallbackBehaviorPtrOutput() RuleGroupJa4FingerprintFallbackBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupJa4FingerprintFallbackBehaviorPtrOutput)
+}
+
+func (in *ruleGroupJa4FingerprintFallbackBehaviorPtr) ToRuleGroupJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupJa4FingerprintFallbackBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupJa4FingerprintFallbackBehaviorPtrOutput)
+}
+
 // The parts of the JSON to match against using the MatchPattern.
 type RuleGroupJsonMatchScope string
 
@@ -3067,6 +3238,348 @@ func (in *ruleGroupRateBasedStatementAggregateKeyTypePtr) ToRuleGroupRateBasedSt
 
 func (in *ruleGroupRateBasedStatementAggregateKeyTypePtr) ToRuleGroupRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementAggregateKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupRateBasedStatementAggregateKeyTypePtrOutput)
+}
+
+// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+type RuleGroupRateLimitJa3FingerprintFallbackBehavior string
+
+const (
+	RuleGroupRateLimitJa3FingerprintFallbackBehaviorMatch   = RuleGroupRateLimitJa3FingerprintFallbackBehavior("MATCH")
+	RuleGroupRateLimitJa3FingerprintFallbackBehaviorNoMatch = RuleGroupRateLimitJa3FingerprintFallbackBehavior("NO_MATCH")
+)
+
+func (RuleGroupRateLimitJa3FingerprintFallbackBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitJa3FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (e RuleGroupRateLimitJa3FingerprintFallbackBehavior) ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput() RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput {
+	return pulumi.ToOutput(e).(RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput)
+}
+
+func (e RuleGroupRateLimitJa3FingerprintFallbackBehavior) ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorOutputWithContext(ctx context.Context) RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput)
+}
+
+func (e RuleGroupRateLimitJa3FingerprintFallbackBehavior) ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput() RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return e.ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupRateLimitJa3FingerprintFallbackBehavior) ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return RuleGroupRateLimitJa3FingerprintFallbackBehavior(e).ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorOutputWithContext(ctx).ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e RuleGroupRateLimitJa3FingerprintFallbackBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupRateLimitJa3FingerprintFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupRateLimitJa3FingerprintFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupRateLimitJa3FingerprintFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitJa3FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput) ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput() RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput) ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorOutputWithContext(ctx context.Context) RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput) ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput() RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return o.ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput) ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRateLimitJa3FingerprintFallbackBehavior) *RuleGroupRateLimitJa3FingerprintFallbackBehavior {
+		return &v
+	}).(RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput)
+}
+
+func (o RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupRateLimitJa3FingerprintFallbackBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupRateLimitJa3FingerprintFallbackBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitJa3FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput) ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput() RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput) ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput) Elem() RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitJa3FingerprintFallbackBehavior) RuleGroupRateLimitJa3FingerprintFallbackBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRateLimitJa3FingerprintFallbackBehavior
+		return ret
+	}).(RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput)
+}
+
+func (o RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupRateLimitJa3FingerprintFallbackBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleGroupRateLimitJa3FingerprintFallbackBehaviorInput is an input type that accepts values of the RuleGroupRateLimitJa3FingerprintFallbackBehavior enum
+// A concrete instance of `RuleGroupRateLimitJa3FingerprintFallbackBehaviorInput` can be one of the following:
+//
+//	RuleGroupRateLimitJa3FingerprintFallbackBehaviorMatch
+//	RuleGroupRateLimitJa3FingerprintFallbackBehaviorNoMatch
+type RuleGroupRateLimitJa3FingerprintFallbackBehaviorInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput() RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput
+	ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorOutputWithContext(context.Context) RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput
+}
+
+var ruleGroupRateLimitJa3FingerprintFallbackBehaviorPtrType = reflect.TypeOf((**RuleGroupRateLimitJa3FingerprintFallbackBehavior)(nil)).Elem()
+
+type RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput() RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput
+	ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutputWithContext(context.Context) RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput
+}
+
+type ruleGroupRateLimitJa3FingerprintFallbackBehaviorPtr string
+
+func RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtr(v string) RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrInput {
+	return (*ruleGroupRateLimitJa3FingerprintFallbackBehaviorPtr)(&v)
+}
+
+func (*ruleGroupRateLimitJa3FingerprintFallbackBehaviorPtr) ElementType() reflect.Type {
+	return ruleGroupRateLimitJa3FingerprintFallbackBehaviorPtrType
+}
+
+func (in *ruleGroupRateLimitJa3FingerprintFallbackBehaviorPtr) ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput() RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput)
+}
+
+func (in *ruleGroupRateLimitJa3FingerprintFallbackBehaviorPtr) ToRuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput)
+}
+
+// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+type RuleGroupRateLimitJa4FingerprintFallbackBehavior string
+
+const (
+	RuleGroupRateLimitJa4FingerprintFallbackBehaviorMatch   = RuleGroupRateLimitJa4FingerprintFallbackBehavior("MATCH")
+	RuleGroupRateLimitJa4FingerprintFallbackBehaviorNoMatch = RuleGroupRateLimitJa4FingerprintFallbackBehavior("NO_MATCH")
+)
+
+func (RuleGroupRateLimitJa4FingerprintFallbackBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitJa4FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (e RuleGroupRateLimitJa4FingerprintFallbackBehavior) ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput() RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput {
+	return pulumi.ToOutput(e).(RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput)
+}
+
+func (e RuleGroupRateLimitJa4FingerprintFallbackBehavior) ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorOutputWithContext(ctx context.Context) RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput)
+}
+
+func (e RuleGroupRateLimitJa4FingerprintFallbackBehavior) ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput() RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return e.ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupRateLimitJa4FingerprintFallbackBehavior) ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return RuleGroupRateLimitJa4FingerprintFallbackBehavior(e).ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorOutputWithContext(ctx).ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e RuleGroupRateLimitJa4FingerprintFallbackBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupRateLimitJa4FingerprintFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupRateLimitJa4FingerprintFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupRateLimitJa4FingerprintFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitJa4FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput) ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput() RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput) ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorOutputWithContext(ctx context.Context) RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput) ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput() RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return o.ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput) ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRateLimitJa4FingerprintFallbackBehavior) *RuleGroupRateLimitJa4FingerprintFallbackBehavior {
+		return &v
+	}).(RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput)
+}
+
+func (o RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupRateLimitJa4FingerprintFallbackBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupRateLimitJa4FingerprintFallbackBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitJa4FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput) ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput() RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput) ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput) Elem() RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitJa4FingerprintFallbackBehavior) RuleGroupRateLimitJa4FingerprintFallbackBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRateLimitJa4FingerprintFallbackBehavior
+		return ret
+	}).(RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput)
+}
+
+func (o RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupRateLimitJa4FingerprintFallbackBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleGroupRateLimitJa4FingerprintFallbackBehaviorInput is an input type that accepts values of the RuleGroupRateLimitJa4FingerprintFallbackBehavior enum
+// A concrete instance of `RuleGroupRateLimitJa4FingerprintFallbackBehaviorInput` can be one of the following:
+//
+//	RuleGroupRateLimitJa4FingerprintFallbackBehaviorMatch
+//	RuleGroupRateLimitJa4FingerprintFallbackBehaviorNoMatch
+type RuleGroupRateLimitJa4FingerprintFallbackBehaviorInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput() RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput
+	ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorOutputWithContext(context.Context) RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput
+}
+
+var ruleGroupRateLimitJa4FingerprintFallbackBehaviorPtrType = reflect.TypeOf((**RuleGroupRateLimitJa4FingerprintFallbackBehavior)(nil)).Elem()
+
+type RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput() RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput
+	ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutputWithContext(context.Context) RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput
+}
+
+type ruleGroupRateLimitJa4FingerprintFallbackBehaviorPtr string
+
+func RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtr(v string) RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrInput {
+	return (*ruleGroupRateLimitJa4FingerprintFallbackBehaviorPtr)(&v)
+}
+
+func (*ruleGroupRateLimitJa4FingerprintFallbackBehaviorPtr) ElementType() reflect.Type {
+	return ruleGroupRateLimitJa4FingerprintFallbackBehaviorPtrType
+}
+
+func (in *ruleGroupRateLimitJa4FingerprintFallbackBehaviorPtr) ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput() RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput)
+}
+
+func (in *ruleGroupRateLimitJa4FingerprintFallbackBehaviorPtr) ToRuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput)
 }
 
 // Valid values are TEXT_PLAIN, TEXT_HTML, and APPLICATION_JSON.
@@ -4972,6 +5485,177 @@ func (in *webAclJa3FingerprintFallbackBehaviorPtr) ToWebAclJa3FingerprintFallbac
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclJa3FingerprintFallbackBehaviorPtrOutput)
 }
 
+// The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+type WebAclJa4FingerprintFallbackBehavior string
+
+const (
+	WebAclJa4FingerprintFallbackBehaviorMatch   = WebAclJa4FingerprintFallbackBehavior("MATCH")
+	WebAclJa4FingerprintFallbackBehaviorNoMatch = WebAclJa4FingerprintFallbackBehavior("NO_MATCH")
+)
+
+func (WebAclJa4FingerprintFallbackBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclJa4FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (e WebAclJa4FingerprintFallbackBehavior) ToWebAclJa4FingerprintFallbackBehaviorOutput() WebAclJa4FingerprintFallbackBehaviorOutput {
+	return pulumi.ToOutput(e).(WebAclJa4FingerprintFallbackBehaviorOutput)
+}
+
+func (e WebAclJa4FingerprintFallbackBehavior) ToWebAclJa4FingerprintFallbackBehaviorOutputWithContext(ctx context.Context) WebAclJa4FingerprintFallbackBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclJa4FingerprintFallbackBehaviorOutput)
+}
+
+func (e WebAclJa4FingerprintFallbackBehavior) ToWebAclJa4FingerprintFallbackBehaviorPtrOutput() WebAclJa4FingerprintFallbackBehaviorPtrOutput {
+	return e.ToWebAclJa4FingerprintFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclJa4FingerprintFallbackBehavior) ToWebAclJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclJa4FingerprintFallbackBehaviorPtrOutput {
+	return WebAclJa4FingerprintFallbackBehavior(e).ToWebAclJa4FingerprintFallbackBehaviorOutputWithContext(ctx).ToWebAclJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e WebAclJa4FingerprintFallbackBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclJa4FingerprintFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclJa4FingerprintFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclJa4FingerprintFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAclJa4FingerprintFallbackBehaviorOutput struct{ *pulumi.OutputState }
+
+func (WebAclJa4FingerprintFallbackBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclJa4FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (o WebAclJa4FingerprintFallbackBehaviorOutput) ToWebAclJa4FingerprintFallbackBehaviorOutput() WebAclJa4FingerprintFallbackBehaviorOutput {
+	return o
+}
+
+func (o WebAclJa4FingerprintFallbackBehaviorOutput) ToWebAclJa4FingerprintFallbackBehaviorOutputWithContext(ctx context.Context) WebAclJa4FingerprintFallbackBehaviorOutput {
+	return o
+}
+
+func (o WebAclJa4FingerprintFallbackBehaviorOutput) ToWebAclJa4FingerprintFallbackBehaviorPtrOutput() WebAclJa4FingerprintFallbackBehaviorPtrOutput {
+	return o.ToWebAclJa4FingerprintFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclJa4FingerprintFallbackBehaviorOutput) ToWebAclJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclJa4FingerprintFallbackBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclJa4FingerprintFallbackBehavior) *WebAclJa4FingerprintFallbackBehavior {
+		return &v
+	}).(WebAclJa4FingerprintFallbackBehaviorPtrOutput)
+}
+
+func (o WebAclJa4FingerprintFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAclJa4FingerprintFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclJa4FingerprintFallbackBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclJa4FingerprintFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclJa4FingerprintFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclJa4FingerprintFallbackBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclJa4FingerprintFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclJa4FingerprintFallbackBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclJa4FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (o WebAclJa4FingerprintFallbackBehaviorPtrOutput) ToWebAclJa4FingerprintFallbackBehaviorPtrOutput() WebAclJa4FingerprintFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o WebAclJa4FingerprintFallbackBehaviorPtrOutput) ToWebAclJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclJa4FingerprintFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o WebAclJa4FingerprintFallbackBehaviorPtrOutput) Elem() WebAclJa4FingerprintFallbackBehaviorOutput {
+	return o.ApplyT(func(v *WebAclJa4FingerprintFallbackBehavior) WebAclJa4FingerprintFallbackBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclJa4FingerprintFallbackBehavior
+		return ret
+	}).(WebAclJa4FingerprintFallbackBehaviorOutput)
+}
+
+func (o WebAclJa4FingerprintFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclJa4FingerprintFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclJa4FingerprintFallbackBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAclJa4FingerprintFallbackBehaviorInput is an input type that accepts values of the WebAclJa4FingerprintFallbackBehavior enum
+// A concrete instance of `WebAclJa4FingerprintFallbackBehaviorInput` can be one of the following:
+//
+//	WebAclJa4FingerprintFallbackBehaviorMatch
+//	WebAclJa4FingerprintFallbackBehaviorNoMatch
+type WebAclJa4FingerprintFallbackBehaviorInput interface {
+	pulumi.Input
+
+	ToWebAclJa4FingerprintFallbackBehaviorOutput() WebAclJa4FingerprintFallbackBehaviorOutput
+	ToWebAclJa4FingerprintFallbackBehaviorOutputWithContext(context.Context) WebAclJa4FingerprintFallbackBehaviorOutput
+}
+
+var webAclJa4FingerprintFallbackBehaviorPtrType = reflect.TypeOf((**WebAclJa4FingerprintFallbackBehavior)(nil)).Elem()
+
+type WebAclJa4FingerprintFallbackBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToWebAclJa4FingerprintFallbackBehaviorPtrOutput() WebAclJa4FingerprintFallbackBehaviorPtrOutput
+	ToWebAclJa4FingerprintFallbackBehaviorPtrOutputWithContext(context.Context) WebAclJa4FingerprintFallbackBehaviorPtrOutput
+}
+
+type webAclJa4FingerprintFallbackBehaviorPtr string
+
+func WebAclJa4FingerprintFallbackBehaviorPtr(v string) WebAclJa4FingerprintFallbackBehaviorPtrInput {
+	return (*webAclJa4FingerprintFallbackBehaviorPtr)(&v)
+}
+
+func (*webAclJa4FingerprintFallbackBehaviorPtr) ElementType() reflect.Type {
+	return webAclJa4FingerprintFallbackBehaviorPtrType
+}
+
+func (in *webAclJa4FingerprintFallbackBehaviorPtr) ToWebAclJa4FingerprintFallbackBehaviorPtrOutput() WebAclJa4FingerprintFallbackBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(WebAclJa4FingerprintFallbackBehaviorPtrOutput)
+}
+
+func (in *webAclJa4FingerprintFallbackBehaviorPtr) ToWebAclJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclJa4FingerprintFallbackBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclJa4FingerprintFallbackBehaviorPtrOutput)
+}
+
 // The parts of the JSON to match against using the MatchPattern.
 type WebAclJsonMatchScope string
 
@@ -6166,6 +6850,348 @@ func (in *webAclRateBasedStatementAggregateKeyTypePtr) ToWebAclRateBasedStatemen
 
 func (in *webAclRateBasedStatementAggregateKeyTypePtr) ToWebAclRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx context.Context) WebAclRateBasedStatementAggregateKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclRateBasedStatementAggregateKeyTypePtrOutput)
+}
+
+// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+type WebAclRateLimitJa3FingerprintFallbackBehavior string
+
+const (
+	WebAclRateLimitJa3FingerprintFallbackBehaviorMatch   = WebAclRateLimitJa3FingerprintFallbackBehavior("MATCH")
+	WebAclRateLimitJa3FingerprintFallbackBehaviorNoMatch = WebAclRateLimitJa3FingerprintFallbackBehavior("NO_MATCH")
+)
+
+func (WebAclRateLimitJa3FingerprintFallbackBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRateLimitJa3FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (e WebAclRateLimitJa3FingerprintFallbackBehavior) ToWebAclRateLimitJa3FingerprintFallbackBehaviorOutput() WebAclRateLimitJa3FingerprintFallbackBehaviorOutput {
+	return pulumi.ToOutput(e).(WebAclRateLimitJa3FingerprintFallbackBehaviorOutput)
+}
+
+func (e WebAclRateLimitJa3FingerprintFallbackBehavior) ToWebAclRateLimitJa3FingerprintFallbackBehaviorOutputWithContext(ctx context.Context) WebAclRateLimitJa3FingerprintFallbackBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclRateLimitJa3FingerprintFallbackBehaviorOutput)
+}
+
+func (e WebAclRateLimitJa3FingerprintFallbackBehavior) ToWebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput() WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return e.ToWebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclRateLimitJa3FingerprintFallbackBehavior) ToWebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return WebAclRateLimitJa3FingerprintFallbackBehavior(e).ToWebAclRateLimitJa3FingerprintFallbackBehaviorOutputWithContext(ctx).ToWebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e WebAclRateLimitJa3FingerprintFallbackBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclRateLimitJa3FingerprintFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclRateLimitJa3FingerprintFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclRateLimitJa3FingerprintFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAclRateLimitJa3FingerprintFallbackBehaviorOutput struct{ *pulumi.OutputState }
+
+func (WebAclRateLimitJa3FingerprintFallbackBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRateLimitJa3FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (o WebAclRateLimitJa3FingerprintFallbackBehaviorOutput) ToWebAclRateLimitJa3FingerprintFallbackBehaviorOutput() WebAclRateLimitJa3FingerprintFallbackBehaviorOutput {
+	return o
+}
+
+func (o WebAclRateLimitJa3FingerprintFallbackBehaviorOutput) ToWebAclRateLimitJa3FingerprintFallbackBehaviorOutputWithContext(ctx context.Context) WebAclRateLimitJa3FingerprintFallbackBehaviorOutput {
+	return o
+}
+
+func (o WebAclRateLimitJa3FingerprintFallbackBehaviorOutput) ToWebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput() WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return o.ToWebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRateLimitJa3FingerprintFallbackBehaviorOutput) ToWebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRateLimitJa3FingerprintFallbackBehavior) *WebAclRateLimitJa3FingerprintFallbackBehavior {
+		return &v
+	}).(WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput)
+}
+
+func (o WebAclRateLimitJa3FingerprintFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAclRateLimitJa3FingerprintFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclRateLimitJa3FingerprintFallbackBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclRateLimitJa3FingerprintFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRateLimitJa3FingerprintFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclRateLimitJa3FingerprintFallbackBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRateLimitJa3FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (o WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput) ToWebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput() WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput) ToWebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput) Elem() WebAclRateLimitJa3FingerprintFallbackBehaviorOutput {
+	return o.ApplyT(func(v *WebAclRateLimitJa3FingerprintFallbackBehavior) WebAclRateLimitJa3FingerprintFallbackBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRateLimitJa3FingerprintFallbackBehavior
+		return ret
+	}).(WebAclRateLimitJa3FingerprintFallbackBehaviorOutput)
+}
+
+func (o WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclRateLimitJa3FingerprintFallbackBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAclRateLimitJa3FingerprintFallbackBehaviorInput is an input type that accepts values of the WebAclRateLimitJa3FingerprintFallbackBehavior enum
+// A concrete instance of `WebAclRateLimitJa3FingerprintFallbackBehaviorInput` can be one of the following:
+//
+//	WebAclRateLimitJa3FingerprintFallbackBehaviorMatch
+//	WebAclRateLimitJa3FingerprintFallbackBehaviorNoMatch
+type WebAclRateLimitJa3FingerprintFallbackBehaviorInput interface {
+	pulumi.Input
+
+	ToWebAclRateLimitJa3FingerprintFallbackBehaviorOutput() WebAclRateLimitJa3FingerprintFallbackBehaviorOutput
+	ToWebAclRateLimitJa3FingerprintFallbackBehaviorOutputWithContext(context.Context) WebAclRateLimitJa3FingerprintFallbackBehaviorOutput
+}
+
+var webAclRateLimitJa3FingerprintFallbackBehaviorPtrType = reflect.TypeOf((**WebAclRateLimitJa3FingerprintFallbackBehavior)(nil)).Elem()
+
+type WebAclRateLimitJa3FingerprintFallbackBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput() WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput
+	ToWebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutputWithContext(context.Context) WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput
+}
+
+type webAclRateLimitJa3FingerprintFallbackBehaviorPtr string
+
+func WebAclRateLimitJa3FingerprintFallbackBehaviorPtr(v string) WebAclRateLimitJa3FingerprintFallbackBehaviorPtrInput {
+	return (*webAclRateLimitJa3FingerprintFallbackBehaviorPtr)(&v)
+}
+
+func (*webAclRateLimitJa3FingerprintFallbackBehaviorPtr) ElementType() reflect.Type {
+	return webAclRateLimitJa3FingerprintFallbackBehaviorPtrType
+}
+
+func (in *webAclRateLimitJa3FingerprintFallbackBehaviorPtr) ToWebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput() WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput)
+}
+
+func (in *webAclRateLimitJa3FingerprintFallbackBehaviorPtr) ToWebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput)
+}
+
+// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+type WebAclRateLimitJa4FingerprintFallbackBehavior string
+
+const (
+	WebAclRateLimitJa4FingerprintFallbackBehaviorMatch   = WebAclRateLimitJa4FingerprintFallbackBehavior("MATCH")
+	WebAclRateLimitJa4FingerprintFallbackBehaviorNoMatch = WebAclRateLimitJa4FingerprintFallbackBehavior("NO_MATCH")
+)
+
+func (WebAclRateLimitJa4FingerprintFallbackBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRateLimitJa4FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (e WebAclRateLimitJa4FingerprintFallbackBehavior) ToWebAclRateLimitJa4FingerprintFallbackBehaviorOutput() WebAclRateLimitJa4FingerprintFallbackBehaviorOutput {
+	return pulumi.ToOutput(e).(WebAclRateLimitJa4FingerprintFallbackBehaviorOutput)
+}
+
+func (e WebAclRateLimitJa4FingerprintFallbackBehavior) ToWebAclRateLimitJa4FingerprintFallbackBehaviorOutputWithContext(ctx context.Context) WebAclRateLimitJa4FingerprintFallbackBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclRateLimitJa4FingerprintFallbackBehaviorOutput)
+}
+
+func (e WebAclRateLimitJa4FingerprintFallbackBehavior) ToWebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput() WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return e.ToWebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclRateLimitJa4FingerprintFallbackBehavior) ToWebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return WebAclRateLimitJa4FingerprintFallbackBehavior(e).ToWebAclRateLimitJa4FingerprintFallbackBehaviorOutputWithContext(ctx).ToWebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e WebAclRateLimitJa4FingerprintFallbackBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclRateLimitJa4FingerprintFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclRateLimitJa4FingerprintFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclRateLimitJa4FingerprintFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAclRateLimitJa4FingerprintFallbackBehaviorOutput struct{ *pulumi.OutputState }
+
+func (WebAclRateLimitJa4FingerprintFallbackBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRateLimitJa4FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (o WebAclRateLimitJa4FingerprintFallbackBehaviorOutput) ToWebAclRateLimitJa4FingerprintFallbackBehaviorOutput() WebAclRateLimitJa4FingerprintFallbackBehaviorOutput {
+	return o
+}
+
+func (o WebAclRateLimitJa4FingerprintFallbackBehaviorOutput) ToWebAclRateLimitJa4FingerprintFallbackBehaviorOutputWithContext(ctx context.Context) WebAclRateLimitJa4FingerprintFallbackBehaviorOutput {
+	return o
+}
+
+func (o WebAclRateLimitJa4FingerprintFallbackBehaviorOutput) ToWebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput() WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return o.ToWebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRateLimitJa4FingerprintFallbackBehaviorOutput) ToWebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRateLimitJa4FingerprintFallbackBehavior) *WebAclRateLimitJa4FingerprintFallbackBehavior {
+		return &v
+	}).(WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput)
+}
+
+func (o WebAclRateLimitJa4FingerprintFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAclRateLimitJa4FingerprintFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclRateLimitJa4FingerprintFallbackBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclRateLimitJa4FingerprintFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRateLimitJa4FingerprintFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclRateLimitJa4FingerprintFallbackBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRateLimitJa4FingerprintFallbackBehavior)(nil)).Elem()
+}
+
+func (o WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput) ToWebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput() WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput) ToWebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput) Elem() WebAclRateLimitJa4FingerprintFallbackBehaviorOutput {
+	return o.ApplyT(func(v *WebAclRateLimitJa4FingerprintFallbackBehavior) WebAclRateLimitJa4FingerprintFallbackBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRateLimitJa4FingerprintFallbackBehavior
+		return ret
+	}).(WebAclRateLimitJa4FingerprintFallbackBehaviorOutput)
+}
+
+func (o WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclRateLimitJa4FingerprintFallbackBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAclRateLimitJa4FingerprintFallbackBehaviorInput is an input type that accepts values of the WebAclRateLimitJa4FingerprintFallbackBehavior enum
+// A concrete instance of `WebAclRateLimitJa4FingerprintFallbackBehaviorInput` can be one of the following:
+//
+//	WebAclRateLimitJa4FingerprintFallbackBehaviorMatch
+//	WebAclRateLimitJa4FingerprintFallbackBehaviorNoMatch
+type WebAclRateLimitJa4FingerprintFallbackBehaviorInput interface {
+	pulumi.Input
+
+	ToWebAclRateLimitJa4FingerprintFallbackBehaviorOutput() WebAclRateLimitJa4FingerprintFallbackBehaviorOutput
+	ToWebAclRateLimitJa4FingerprintFallbackBehaviorOutputWithContext(context.Context) WebAclRateLimitJa4FingerprintFallbackBehaviorOutput
+}
+
+var webAclRateLimitJa4FingerprintFallbackBehaviorPtrType = reflect.TypeOf((**WebAclRateLimitJa4FingerprintFallbackBehavior)(nil)).Elem()
+
+type WebAclRateLimitJa4FingerprintFallbackBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput() WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput
+	ToWebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutputWithContext(context.Context) WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput
+}
+
+type webAclRateLimitJa4FingerprintFallbackBehaviorPtr string
+
+func WebAclRateLimitJa4FingerprintFallbackBehaviorPtr(v string) WebAclRateLimitJa4FingerprintFallbackBehaviorPtrInput {
+	return (*webAclRateLimitJa4FingerprintFallbackBehaviorPtr)(&v)
+}
+
+func (*webAclRateLimitJa4FingerprintFallbackBehaviorPtr) ElementType() reflect.Type {
+	return webAclRateLimitJa4FingerprintFallbackBehaviorPtrType
+}
+
+func (in *webAclRateLimitJa4FingerprintFallbackBehaviorPtr) ToWebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput() WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput)
+}
+
+func (in *webAclRateLimitJa4FingerprintFallbackBehaviorPtr) ToWebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput)
 }
 
 // The payload type for your account creation endpoint, either JSON or form encoded.
@@ -7572,6 +8598,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIpSetForwardedIpConfigurationPositionPtrInput)(nil)).Elem(), RuleGroupIpSetForwardedIpConfigurationPosition("FIRST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJa3FingerprintFallbackBehaviorInput)(nil)).Elem(), RuleGroupJa3FingerprintFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJa3FingerprintFallbackBehaviorPtrInput)(nil)).Elem(), RuleGroupJa3FingerprintFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJa4FingerprintFallbackBehaviorInput)(nil)).Elem(), RuleGroupJa4FingerprintFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJa4FingerprintFallbackBehaviorPtrInput)(nil)).Elem(), RuleGroupJa4FingerprintFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJsonMatchScopeInput)(nil)).Elem(), RuleGroupJsonMatchScope("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJsonMatchScopePtrInput)(nil)).Elem(), RuleGroupJsonMatchScope("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupLabelMatchScopeInput)(nil)).Elem(), RuleGroupLabelMatchScope("LABEL"))
@@ -7584,6 +8612,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPositionalConstraintPtrInput)(nil)).Elem(), RuleGroupPositionalConstraint("EXACTLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementAggregateKeyTypeInput)(nil)).Elem(), RuleGroupRateBasedStatementAggregateKeyType("IP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementAggregateKeyTypePtrInput)(nil)).Elem(), RuleGroupRateBasedStatementAggregateKeyType("IP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitJa3FingerprintFallbackBehaviorInput)(nil)).Elem(), RuleGroupRateLimitJa3FingerprintFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrInput)(nil)).Elem(), RuleGroupRateLimitJa3FingerprintFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitJa4FingerprintFallbackBehaviorInput)(nil)).Elem(), RuleGroupRateLimitJa4FingerprintFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrInput)(nil)).Elem(), RuleGroupRateLimitJa4FingerprintFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupResponseContentTypeInput)(nil)).Elem(), RuleGroupResponseContentType("TEXT_PLAIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupResponseContentTypePtrInput)(nil)).Elem(), RuleGroupResponseContentType("TEXT_PLAIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupScopeInput)(nil)).Elem(), RuleGroupScope("CLOUDFRONT"))
@@ -7606,6 +8638,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclIpSetForwardedIpConfigurationPositionPtrInput)(nil)).Elem(), WebAclIpSetForwardedIpConfigurationPosition("FIRST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJa3FingerprintFallbackBehaviorInput)(nil)).Elem(), WebAclJa3FingerprintFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJa3FingerprintFallbackBehaviorPtrInput)(nil)).Elem(), WebAclJa3FingerprintFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJa4FingerprintFallbackBehaviorInput)(nil)).Elem(), WebAclJa4FingerprintFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJa4FingerprintFallbackBehaviorPtrInput)(nil)).Elem(), WebAclJa4FingerprintFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJsonMatchScopeInput)(nil)).Elem(), WebAclJsonMatchScope("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJsonMatchScopePtrInput)(nil)).Elem(), WebAclJsonMatchScope("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclLabelMatchScopeInput)(nil)).Elem(), WebAclLabelMatchScope("LABEL"))
@@ -7620,6 +8654,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPositionalConstraintPtrInput)(nil)).Elem(), WebAclPositionalConstraint("EXACTLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateBasedStatementAggregateKeyTypeInput)(nil)).Elem(), WebAclRateBasedStatementAggregateKeyType("CONSTANT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateBasedStatementAggregateKeyTypePtrInput)(nil)).Elem(), WebAclRateBasedStatementAggregateKeyType("CONSTANT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitJa3FingerprintFallbackBehaviorInput)(nil)).Elem(), WebAclRateLimitJa3FingerprintFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitJa3FingerprintFallbackBehaviorPtrInput)(nil)).Elem(), WebAclRateLimitJa3FingerprintFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitJa4FingerprintFallbackBehaviorInput)(nil)).Elem(), WebAclRateLimitJa4FingerprintFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitJa4FingerprintFallbackBehaviorPtrInput)(nil)).Elem(), WebAclRateLimitJa4FingerprintFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRequestInspectionAcfpPayloadTypeInput)(nil)).Elem(), WebAclRequestInspectionAcfpPayloadType("JSON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRequestInspectionAcfpPayloadTypePtrInput)(nil)).Elem(), WebAclRequestInspectionAcfpPayloadType("JSON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRequestInspectionPayloadTypeInput)(nil)).Elem(), WebAclRequestInspectionPayloadType("JSON"))
@@ -7660,6 +8698,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupJa3FingerprintFallbackBehaviorOutput{})
 	pulumi.RegisterOutputType(RuleGroupJa3FingerprintFallbackBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupJa4FingerprintFallbackBehaviorOutput{})
+	pulumi.RegisterOutputType(RuleGroupJa4FingerprintFallbackBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupJsonMatchScopeOutput{})
 	pulumi.RegisterOutputType(RuleGroupJsonMatchScopePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupLabelMatchScopeOutput{})
@@ -7672,6 +8712,10 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupPositionalConstraintPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateBasedStatementAggregateKeyTypeOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateBasedStatementAggregateKeyTypePtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupResponseContentTypeOutput{})
 	pulumi.RegisterOutputType(RuleGroupResponseContentTypePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupScopeOutput{})
@@ -7694,6 +8738,8 @@ func init() {
 	pulumi.RegisterOutputType(WebAclIpSetForwardedIpConfigurationPositionPtrOutput{})
 	pulumi.RegisterOutputType(WebAclJa3FingerprintFallbackBehaviorOutput{})
 	pulumi.RegisterOutputType(WebAclJa3FingerprintFallbackBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(WebAclJa4FingerprintFallbackBehaviorOutput{})
+	pulumi.RegisterOutputType(WebAclJa4FingerprintFallbackBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(WebAclJsonMatchScopeOutput{})
 	pulumi.RegisterOutputType(WebAclJsonMatchScopePtrOutput{})
 	pulumi.RegisterOutputType(WebAclLabelMatchScopeOutput{})
@@ -7708,6 +8754,10 @@ func init() {
 	pulumi.RegisterOutputType(WebAclPositionalConstraintPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRateBasedStatementAggregateKeyTypeOutput{})
 	pulumi.RegisterOutputType(WebAclRateBasedStatementAggregateKeyTypePtrOutput{})
+	pulumi.RegisterOutputType(WebAclRateLimitJa3FingerprintFallbackBehaviorOutput{})
+	pulumi.RegisterOutputType(WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRateLimitJa4FingerprintFallbackBehaviorOutput{})
+	pulumi.RegisterOutputType(WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRequestInspectionAcfpPayloadTypeOutput{})
 	pulumi.RegisterOutputType(WebAclRequestInspectionAcfpPayloadTypePtrOutput{})
 	pulumi.RegisterOutputType(WebAclRequestInspectionPayloadTypeOutput{})

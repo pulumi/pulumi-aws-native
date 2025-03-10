@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.Msk
     [AwsNativeResourceType("aws-native:msk:ServerlessCluster")]
     public partial class ServerlessCluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the MSK cluster.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Includes all client authentication related information.
+        /// </summary>
         [Output("clientAuthentication")]
         public Output<Outputs.ServerlessClusterClientAuthentication> ClientAuthentication { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the cluster.
+        /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
 
@@ -30,6 +39,9 @@ namespace Pulumi.AwsNative.Msk
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// VPC configuration information for the serverless cluster.
+        /// </summary>
         [Output("vpcConfigs")]
         public Output<ImmutableArray<Outputs.ServerlessClusterVpcConfig>> VpcConfigs { get; private set; } = null!;
 
@@ -85,9 +97,15 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class ServerlessClusterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Includes all client authentication related information.
+        /// </summary>
         [Input("clientAuthentication", required: true)]
         public Input<Inputs.ServerlessClusterClientAuthenticationArgs> ClientAuthentication { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the cluster.
+        /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
@@ -105,6 +123,10 @@ namespace Pulumi.AwsNative.Msk
 
         [Input("vpcConfigs", required: true)]
         private InputList<Inputs.ServerlessClusterVpcConfigArgs>? _vpcConfigs;
+
+        /// <summary>
+        /// VPC configuration information for the serverless cluster.
+        /// </summary>
         public InputList<Inputs.ServerlessClusterVpcConfigArgs> VpcConfigs
         {
             get => _vpcConfigs ?? (_vpcConfigs = new InputList<Inputs.ServerlessClusterVpcConfigArgs>());

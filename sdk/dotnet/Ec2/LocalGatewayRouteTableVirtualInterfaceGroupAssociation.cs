@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// Describes a local gateway route table virtual interface group association for a local gateway.
+    /// Resource Type definition for Local Gateway Route Table Virtual Interface Group Association which describes a local gateway route table virtual interface group association for a local gateway.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:LocalGatewayRouteTableVirtualInterfaceGroupAssociation")]
     public partial class LocalGatewayRouteTableVirtualInterfaceGroupAssociation : global::Pulumi.CustomResource

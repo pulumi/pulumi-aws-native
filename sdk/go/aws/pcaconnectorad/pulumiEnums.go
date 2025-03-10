@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ConnectorVpcInformationIpAddressType string
+
+const (
+	ConnectorVpcInformationIpAddressTypeIpv4      = ConnectorVpcInformationIpAddressType("IPV4")
+	ConnectorVpcInformationIpAddressTypeDualstack = ConnectorVpcInformationIpAddressType("DUALSTACK")
+)
+
+func (ConnectorVpcInformationIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorVpcInformationIpAddressType)(nil)).Elem()
+}
+
+func (e ConnectorVpcInformationIpAddressType) ToConnectorVpcInformationIpAddressTypeOutput() ConnectorVpcInformationIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(ConnectorVpcInformationIpAddressTypeOutput)
+}
+
+func (e ConnectorVpcInformationIpAddressType) ToConnectorVpcInformationIpAddressTypeOutputWithContext(ctx context.Context) ConnectorVpcInformationIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectorVpcInformationIpAddressTypeOutput)
+}
+
+func (e ConnectorVpcInformationIpAddressType) ToConnectorVpcInformationIpAddressTypePtrOutput() ConnectorVpcInformationIpAddressTypePtrOutput {
+	return e.ToConnectorVpcInformationIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorVpcInformationIpAddressType) ToConnectorVpcInformationIpAddressTypePtrOutputWithContext(ctx context.Context) ConnectorVpcInformationIpAddressTypePtrOutput {
+	return ConnectorVpcInformationIpAddressType(e).ToConnectorVpcInformationIpAddressTypeOutputWithContext(ctx).ToConnectorVpcInformationIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectorVpcInformationIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorVpcInformationIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorVpcInformationIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorVpcInformationIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectorVpcInformationIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectorVpcInformationIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorVpcInformationIpAddressType)(nil)).Elem()
+}
+
+func (o ConnectorVpcInformationIpAddressTypeOutput) ToConnectorVpcInformationIpAddressTypeOutput() ConnectorVpcInformationIpAddressTypeOutput {
+	return o
+}
+
+func (o ConnectorVpcInformationIpAddressTypeOutput) ToConnectorVpcInformationIpAddressTypeOutputWithContext(ctx context.Context) ConnectorVpcInformationIpAddressTypeOutput {
+	return o
+}
+
+func (o ConnectorVpcInformationIpAddressTypeOutput) ToConnectorVpcInformationIpAddressTypePtrOutput() ConnectorVpcInformationIpAddressTypePtrOutput {
+	return o.ToConnectorVpcInformationIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorVpcInformationIpAddressTypeOutput) ToConnectorVpcInformationIpAddressTypePtrOutputWithContext(ctx context.Context) ConnectorVpcInformationIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorVpcInformationIpAddressType) *ConnectorVpcInformationIpAddressType {
+		return &v
+	}).(ConnectorVpcInformationIpAddressTypePtrOutput)
+}
+
+func (o ConnectorVpcInformationIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectorVpcInformationIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorVpcInformationIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectorVpcInformationIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorVpcInformationIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorVpcInformationIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorVpcInformationIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorVpcInformationIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorVpcInformationIpAddressType)(nil)).Elem()
+}
+
+func (o ConnectorVpcInformationIpAddressTypePtrOutput) ToConnectorVpcInformationIpAddressTypePtrOutput() ConnectorVpcInformationIpAddressTypePtrOutput {
+	return o
+}
+
+func (o ConnectorVpcInformationIpAddressTypePtrOutput) ToConnectorVpcInformationIpAddressTypePtrOutputWithContext(ctx context.Context) ConnectorVpcInformationIpAddressTypePtrOutput {
+	return o
+}
+
+func (o ConnectorVpcInformationIpAddressTypePtrOutput) Elem() ConnectorVpcInformationIpAddressTypeOutput {
+	return o.ApplyT(func(v *ConnectorVpcInformationIpAddressType) ConnectorVpcInformationIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorVpcInformationIpAddressType
+		return ret
+	}).(ConnectorVpcInformationIpAddressTypeOutput)
+}
+
+func (o ConnectorVpcInformationIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorVpcInformationIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorVpcInformationIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectorVpcInformationIpAddressTypeInput is an input type that accepts values of the ConnectorVpcInformationIpAddressType enum
+// A concrete instance of `ConnectorVpcInformationIpAddressTypeInput` can be one of the following:
+//
+//	ConnectorVpcInformationIpAddressTypeIpv4
+//	ConnectorVpcInformationIpAddressTypeDualstack
+type ConnectorVpcInformationIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToConnectorVpcInformationIpAddressTypeOutput() ConnectorVpcInformationIpAddressTypeOutput
+	ToConnectorVpcInformationIpAddressTypeOutputWithContext(context.Context) ConnectorVpcInformationIpAddressTypeOutput
+}
+
+var connectorVpcInformationIpAddressTypePtrType = reflect.TypeOf((**ConnectorVpcInformationIpAddressType)(nil)).Elem()
+
+type ConnectorVpcInformationIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectorVpcInformationIpAddressTypePtrOutput() ConnectorVpcInformationIpAddressTypePtrOutput
+	ToConnectorVpcInformationIpAddressTypePtrOutputWithContext(context.Context) ConnectorVpcInformationIpAddressTypePtrOutput
+}
+
+type connectorVpcInformationIpAddressTypePtr string
+
+func ConnectorVpcInformationIpAddressTypePtr(v string) ConnectorVpcInformationIpAddressTypePtrInput {
+	return (*connectorVpcInformationIpAddressTypePtr)(&v)
+}
+
+func (*connectorVpcInformationIpAddressTypePtr) ElementType() reflect.Type {
+	return connectorVpcInformationIpAddressTypePtrType
+}
+
+func (in *connectorVpcInformationIpAddressTypePtr) ToConnectorVpcInformationIpAddressTypePtrOutput() ConnectorVpcInformationIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectorVpcInformationIpAddressTypePtrOutput)
+}
+
+func (in *connectorVpcInformationIpAddressTypePtr) ToConnectorVpcInformationIpAddressTypePtrOutputWithContext(ctx context.Context) ConnectorVpcInformationIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectorVpcInformationIpAddressTypePtrOutput)
+}
+
 type TemplateApplicationPolicyType string
 
 const (
@@ -1817,6 +1982,8 @@ func (in *templateValidityPeriodTypePtr) ToTemplateValidityPeriodTypePtrOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorVpcInformationIpAddressTypeInput)(nil)).Elem(), ConnectorVpcInformationIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorVpcInformationIpAddressTypePtrInput)(nil)).Elem(), ConnectorVpcInformationIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateApplicationPolicyTypeInput)(nil)).Elem(), TemplateApplicationPolicyType("ALL_APPLICATION_POLICIES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateApplicationPolicyTypePtrInput)(nil)).Elem(), TemplateApplicationPolicyType("ALL_APPLICATION_POLICIES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateClientCompatibilityV2Input)(nil)).Elem(), TemplateClientCompatibilityV2("WINDOWS_SERVER_2003"))
@@ -1837,6 +2004,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePrivateKeyAlgorithmPtrInput)(nil)).Elem(), TemplatePrivateKeyAlgorithm("RSA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateValidityPeriodTypeInput)(nil)).Elem(), TemplateValidityPeriodType("HOURS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateValidityPeriodTypePtrInput)(nil)).Elem(), TemplateValidityPeriodType("HOURS"))
+	pulumi.RegisterOutputType(ConnectorVpcInformationIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(ConnectorVpcInformationIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateApplicationPolicyTypeOutput{})
 	pulumi.RegisterOutputType(TemplateApplicationPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateClientCompatibilityV2Output{})

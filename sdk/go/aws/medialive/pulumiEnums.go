@@ -451,14 +451,15 @@ func (in *cloudWatchAlarmTemplateStatisticPtr) ToCloudWatchAlarmTemplateStatisti
 type CloudWatchAlarmTemplateTargetResourceType string
 
 const (
-	CloudWatchAlarmTemplateTargetResourceTypeCloudfrontDistribution     = CloudWatchAlarmTemplateTargetResourceType("CLOUDFRONT_DISTRIBUTION")
-	CloudWatchAlarmTemplateTargetResourceTypeMedialiveMultiplex         = CloudWatchAlarmTemplateTargetResourceType("MEDIALIVE_MULTIPLEX")
-	CloudWatchAlarmTemplateTargetResourceTypeMedialiveChannel           = CloudWatchAlarmTemplateTargetResourceType("MEDIALIVE_CHANNEL")
-	CloudWatchAlarmTemplateTargetResourceTypeMedialiveInputDevice       = CloudWatchAlarmTemplateTargetResourceType("MEDIALIVE_INPUT_DEVICE")
-	CloudWatchAlarmTemplateTargetResourceTypeMediapackageChannel        = CloudWatchAlarmTemplateTargetResourceType("MEDIAPACKAGE_CHANNEL")
-	CloudWatchAlarmTemplateTargetResourceTypeMediapackageOriginEndpoint = CloudWatchAlarmTemplateTargetResourceType("MEDIAPACKAGE_ORIGIN_ENDPOINT")
-	CloudWatchAlarmTemplateTargetResourceTypeMediaconnectFlow           = CloudWatchAlarmTemplateTargetResourceType("MEDIACONNECT_FLOW")
-	CloudWatchAlarmTemplateTargetResourceTypeS3Bucket                   = CloudWatchAlarmTemplateTargetResourceType("S3_BUCKET")
+	CloudWatchAlarmTemplateTargetResourceTypeCloudfrontDistribution           = CloudWatchAlarmTemplateTargetResourceType("CLOUDFRONT_DISTRIBUTION")
+	CloudWatchAlarmTemplateTargetResourceTypeMedialiveMultiplex               = CloudWatchAlarmTemplateTargetResourceType("MEDIALIVE_MULTIPLEX")
+	CloudWatchAlarmTemplateTargetResourceTypeMedialiveChannel                 = CloudWatchAlarmTemplateTargetResourceType("MEDIALIVE_CHANNEL")
+	CloudWatchAlarmTemplateTargetResourceTypeMedialiveInputDevice             = CloudWatchAlarmTemplateTargetResourceType("MEDIALIVE_INPUT_DEVICE")
+	CloudWatchAlarmTemplateTargetResourceTypeMediapackageChannel              = CloudWatchAlarmTemplateTargetResourceType("MEDIAPACKAGE_CHANNEL")
+	CloudWatchAlarmTemplateTargetResourceTypeMediapackageOriginEndpoint       = CloudWatchAlarmTemplateTargetResourceType("MEDIAPACKAGE_ORIGIN_ENDPOINT")
+	CloudWatchAlarmTemplateTargetResourceTypeMediaconnectFlow                 = CloudWatchAlarmTemplateTargetResourceType("MEDIACONNECT_FLOW")
+	CloudWatchAlarmTemplateTargetResourceTypeMediatailorPlaybackConfiguration = CloudWatchAlarmTemplateTargetResourceType("MEDIATAILOR_PLAYBACK_CONFIGURATION")
+	CloudWatchAlarmTemplateTargetResourceTypeS3Bucket                         = CloudWatchAlarmTemplateTargetResourceType("S3_BUCKET")
 )
 
 func (CloudWatchAlarmTemplateTargetResourceType) ElementType() reflect.Type {
@@ -590,6 +591,7 @@ func (o CloudWatchAlarmTemplateTargetResourceTypePtrOutput) ToStringPtrOutputWit
 //	CloudWatchAlarmTemplateTargetResourceTypeMediapackageChannel
 //	CloudWatchAlarmTemplateTargetResourceTypeMediapackageOriginEndpoint
 //	CloudWatchAlarmTemplateTargetResourceTypeMediaconnectFlow
+//	CloudWatchAlarmTemplateTargetResourceTypeMediatailorPlaybackConfiguration
 //	CloudWatchAlarmTemplateTargetResourceTypeS3Bucket
 type CloudWatchAlarmTemplateTargetResourceTypeInput interface {
 	pulumi.Input

@@ -22,6 +22,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.TemplateWordCloudFieldWells? FieldWells;
         /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        public readonly Outputs.TemplateVisualInteractionOptions? Interactions;
+        /// <summary>
         /// The sort configuration of a word cloud visual.
         /// </summary>
         public readonly Outputs.TemplateWordCloudSortConfiguration? SortConfiguration;
@@ -36,12 +40,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateWordCloudFieldWells? fieldWells,
 
+            Outputs.TemplateVisualInteractionOptions? interactions,
+
             Outputs.TemplateWordCloudSortConfiguration? sortConfiguration,
 
             Outputs.TemplateWordCloudOptions? wordCloudOptions)
         {
             CategoryLabelOptions = categoryLabelOptions;
             FieldWells = fieldWells;
+            Interactions = interactions;
             SortConfiguration = sortConfiguration;
             WordCloudOptions = wordCloudOptions;
         }

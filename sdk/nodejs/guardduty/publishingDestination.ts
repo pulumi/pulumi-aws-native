@@ -41,6 +41,9 @@ export class PublishingDestination extends pulumi.CustomResource {
      * The ID of the publishing destination.
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
+     */
     public readonly destinationProperties!: pulumi.Output<outputs.guardduty.PublishingDestinationCfnDestinationProperties>;
     /**
      * The type of resource for the publishing destination. Currently only Amazon S3 buckets are supported.
@@ -58,6 +61,9 @@ export class PublishingDestination extends pulumi.CustomResource {
      * The status of the publishing destination.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Describes a tag.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -107,6 +113,9 @@ export class PublishingDestination extends pulumi.CustomResource {
  * The set of arguments for constructing a PublishingDestination resource.
  */
 export interface PublishingDestinationArgs {
+    /**
+     * Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
+     */
     destinationProperties: pulumi.Input<inputs.guardduty.PublishingDestinationCfnDestinationPropertiesArgs>;
     /**
      * The type of resource for the publishing destination. Currently only Amazon S3 buckets are supported.
@@ -116,5 +125,8 @@ export interface PublishingDestinationArgs {
      * The ID of the GuardDuty detector associated with the publishing destination.
      */
     detectorId: pulumi.Input<string>;
+    /**
+     * Describes a tag.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

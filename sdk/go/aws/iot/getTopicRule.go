@@ -25,8 +25,6 @@ func LookupTopicRule(ctx *pulumi.Context, args *LookupTopicRuleArgs, opts ...pul
 
 type LookupTopicRuleArgs struct {
 	// The name of the rule.
-	//
-	// *Pattern* : `^[a-zA-Z0-9_]+$`
 	RuleName string `pulumi:"ruleName"`
 }
 
@@ -56,8 +54,6 @@ func LookupTopicRuleOutput(ctx *pulumi.Context, args LookupTopicRuleOutputArgs, 
 
 type LookupTopicRuleOutputArgs struct {
 	// The name of the rule.
-	//
-	// *Pattern* : `^[a-zA-Z0-9_]+$`
 	RuleName pulumi.StringInput `pulumi:"ruleName"`
 }
 

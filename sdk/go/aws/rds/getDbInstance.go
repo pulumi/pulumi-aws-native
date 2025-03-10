@@ -428,7 +428,7 @@ type LookupDbInstanceResult struct {
 	//  If you specify ``io1``, ``io2``, or ``gp3``, you must also include a value for the ``Iops`` parameter.
 	//  This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.
 	//  Valid Values: ``gp2 | gp3 | io1 | io2 | standard``
-	//  Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp2``.
+	//  Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp3``.
 	StorageType *string `pulumi:"storageType"`
 	// Tags to assign to the DB instance.
 	Tags             []aws.Tag `pulumi:"tags"`
@@ -1058,7 +1058,7 @@ func (o LookupDbInstanceResultOutput) StorageThroughput() pulumi.IntPtrOutput {
 //	If you specify ``io1``, ``io2``, or ``gp3``, you must also include a value for the ``Iops`` parameter.
 //	This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.
 //	Valid Values: ``gp2 | gp3 | io1 | io2 | standard``
-//	Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp2``.
+//	Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp3``.
 func (o LookupDbInstanceResultOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }

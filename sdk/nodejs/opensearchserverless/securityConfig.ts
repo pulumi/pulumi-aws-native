@@ -85,6 +85,9 @@ export class SecurityConfig extends pulumi.CustomResource {
      * Security config description
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Describes IAM Identity Center options in the form of a key-value map.
+     */
     public readonly iamIdentityCenterOptions!: pulumi.Output<outputs.opensearchserverless.SecurityConfigIamIdentityCenterConfigOptions | undefined>;
     /**
      * The friendly name of the security config
@@ -139,6 +142,9 @@ export interface SecurityConfigArgs {
      * Security config description
      */
     description?: pulumi.Input<string>;
+    /**
+     * Describes IAM Identity Center options in the form of a key-value map.
+     */
     iamIdentityCenterOptions?: pulumi.Input<inputs.opensearchserverless.SecurityConfigIamIdentityCenterConfigOptionsArgs>;
     /**
      * The friendly name of the security config

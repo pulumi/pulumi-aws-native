@@ -33,6 +33,10 @@ type LookupThemeArgs struct {
 type LookupThemeResult struct {
 	// <p>The Amazon Resource Name (ARN) of the theme.</p>
 	Arn *string `pulumi:"arn"`
+	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+	BaseThemeId *string `pulumi:"baseThemeId"`
+	// The theme configuration, which contains the theme display properties.
+	Configuration *ThemeConfiguration `pulumi:"configuration"`
 	// <p>The date and time that the theme was created.</p>
 	CreatedTime *string `pulumi:"createdTime"`
 	// <p>The date and time that the theme was last updated.</p>
@@ -46,6 +50,8 @@ type LookupThemeResult struct {
 	// Theme type.
 	Type    *ThemeType    `pulumi:"type"`
 	Version *ThemeVersion `pulumi:"version"`
+	// A description of the first version of the theme that you're creating. Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
+	VersionDescription *string `pulumi:"versionDescription"`
 }
 
 func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...pulumi.InvokeOption) LookupThemeResultOutput {
@@ -87,6 +93,16 @@ func (o LookupThemeResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+func (o LookupThemeResultOutput) BaseThemeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupThemeResult) *string { return v.BaseThemeId }).(pulumi.StringPtrOutput)
+}
+
+// The theme configuration, which contains the theme display properties.
+func (o LookupThemeResultOutput) Configuration() ThemeConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupThemeResult) *ThemeConfiguration { return v.Configuration }).(ThemeConfigurationPtrOutput)
+}
+
 // <p>The date and time that the theme was created.</p>
 func (o LookupThemeResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
@@ -119,6 +135,11 @@ func (o LookupThemeResultOutput) Type() ThemeTypePtrOutput {
 
 func (o LookupThemeResultOutput) Version() ThemeVersionPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *ThemeVersion { return v.Version }).(ThemeVersionPtrOutput)
+}
+
+// A description of the first version of the theme that you're creating. Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
+func (o LookupThemeResultOutput) VersionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupThemeResult) *string { return v.VersionDescription }).(pulumi.StringPtrOutput)
 }
 
 func init() {

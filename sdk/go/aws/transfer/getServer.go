@@ -108,8 +108,11 @@ type LookupServerResult struct {
 	// Specifies the name of the security policy for the server.
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
 	// Specifies the unique system-assigned identifier for a server that you instantiate.
-	ServerId *string          `pulumi:"serverId"`
-	State    *ServerStateEnum `pulumi:"state"`
+	ServerId *string `pulumi:"serverId"`
+	// The condition of the server that was described. A value of `ONLINE` indicates that the server can accept jobs and transfer files. A `State` value of `OFFLINE` means that the server cannot perform file transfer operations.
+	//
+	// The states of `STARTING` and `STOPPING` indicate that the server is in an intermediate state, either not fully able to respond, or not fully offline. The values of `START_FAILED` or `STOP_FAILED` can indicate an error condition.
+	State *ServerStateEnum `pulumi:"state"`
 	// Specifies the log groups to which your server logs are sent.
 	//
 	// To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:
@@ -284,6 +287,9 @@ func (o LookupServerResultOutput) ServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.ServerId }).(pulumi.StringPtrOutput)
 }
 
+// The condition of the server that was described. A value of `ONLINE` indicates that the server can accept jobs and transfer files. A `State` value of `OFFLINE` means that the server cannot perform file transfer operations.
+//
+// The states of `STARTING` and `STOPPING` indicate that the server is in an intermediate state, either not fully able to respond, or not fully offline. The values of `START_FAILED` or `STOP_FAILED` can indicate an error condition.
 func (o LookupServerResultOutput) State() ServerStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *ServerStateEnum { return v.State }).(ServerStateEnumPtrOutput)
 }

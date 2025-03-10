@@ -23,23 +23,35 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 }
 
 type LookupClusterArgs struct {
+	// The Amazon Resource Name (ARN) of the MSK cluster.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupClusterResult struct {
-	Arn                  *string                      `pulumi:"arn"`
-	BrokerNodeGroupInfo  *ClusterBrokerNodeGroupInfo  `pulumi:"brokerNodeGroupInfo"`
+	// The Amazon Resource Name (ARN) of the MSK cluster.
+	Arn *string `pulumi:"arn"`
+	// Information about the broker nodes in the cluster.
+	BrokerNodeGroupInfo *ClusterBrokerNodeGroupInfo `pulumi:"brokerNodeGroupInfo"`
+	// Includes all client authentication related information.
 	ClientAuthentication *ClusterClientAuthentication `pulumi:"clientAuthentication"`
-	ConfigurationInfo    *ClusterConfigurationInfo    `pulumi:"configurationInfo"`
+	// Represents the configuration that you want MSK to use for the cluster.
+	ConfigurationInfo *ClusterConfigurationInfo `pulumi:"configurationInfo"`
 	// The current version of the MSK cluster
-	CurrentVersion      *string                    `pulumi:"currentVersion"`
-	EncryptionInfo      *ClusterEncryptionInfo     `pulumi:"encryptionInfo"`
-	EnhancedMonitoring  *ClusterEnhancedMonitoring `pulumi:"enhancedMonitoring"`
-	KafkaVersion        *string                    `pulumi:"kafkaVersion"`
-	LoggingInfo         *ClusterLoggingInfo        `pulumi:"loggingInfo"`
-	NumberOfBrokerNodes *int                       `pulumi:"numberOfBrokerNodes"`
-	OpenMonitoring      *ClusterOpenMonitoring     `pulumi:"openMonitoring"`
-	StorageMode         *ClusterStorageMode        `pulumi:"storageMode"`
+	CurrentVersion *string `pulumi:"currentVersion"`
+	// Includes all encryption-related information.
+	EncryptionInfo *ClusterEncryptionInfo `pulumi:"encryptionInfo"`
+	// Specifies the level of monitoring for the MSK cluster.
+	EnhancedMonitoring *ClusterEnhancedMonitoring `pulumi:"enhancedMonitoring"`
+	// The version of Apache Kafka. You can use Amazon MSK to create clusters that use [supported Apache Kafka versions](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) .
+	KafkaVersion *string `pulumi:"kafkaVersion"`
+	// Logging info details for the cluster.
+	LoggingInfo *ClusterLoggingInfo `pulumi:"loggingInfo"`
+	// The number of broker nodes in the cluster.
+	NumberOfBrokerNodes *int `pulumi:"numberOfBrokerNodes"`
+	// The settings for open monitoring.
+	OpenMonitoring *ClusterOpenMonitoring `pulumi:"openMonitoring"`
+	// This controls storage mode for supported storage tiers.
+	StorageMode *ClusterStorageMode `pulumi:"storageMode"`
 	// A key-value pair to associate with a resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -54,6 +66,7 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 }
 
 type LookupClusterOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the MSK cluster.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -75,18 +88,22 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the MSK cluster.
 func (o LookupClusterResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Information about the broker nodes in the cluster.
 func (o LookupClusterResultOutput) BrokerNodeGroupInfo() ClusterBrokerNodeGroupInfoPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterBrokerNodeGroupInfo { return v.BrokerNodeGroupInfo }).(ClusterBrokerNodeGroupInfoPtrOutput)
 }
 
+// Includes all client authentication related information.
 func (o LookupClusterResultOutput) ClientAuthentication() ClusterClientAuthenticationPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterClientAuthentication { return v.ClientAuthentication }).(ClusterClientAuthenticationPtrOutput)
 }
 
+// Represents the configuration that you want MSK to use for the cluster.
 func (o LookupClusterResultOutput) ConfigurationInfo() ClusterConfigurationInfoPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterConfigurationInfo { return v.ConfigurationInfo }).(ClusterConfigurationInfoPtrOutput)
 }
@@ -96,30 +113,37 @@ func (o LookupClusterResultOutput) CurrentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.CurrentVersion }).(pulumi.StringPtrOutput)
 }
 
+// Includes all encryption-related information.
 func (o LookupClusterResultOutput) EncryptionInfo() ClusterEncryptionInfoPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterEncryptionInfo { return v.EncryptionInfo }).(ClusterEncryptionInfoPtrOutput)
 }
 
+// Specifies the level of monitoring for the MSK cluster.
 func (o LookupClusterResultOutput) EnhancedMonitoring() ClusterEnhancedMonitoringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterEnhancedMonitoring { return v.EnhancedMonitoring }).(ClusterEnhancedMonitoringPtrOutput)
 }
 
+// The version of Apache Kafka. You can use Amazon MSK to create clusters that use [supported Apache Kafka versions](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) .
 func (o LookupClusterResultOutput) KafkaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.KafkaVersion }).(pulumi.StringPtrOutput)
 }
 
+// Logging info details for the cluster.
 func (o LookupClusterResultOutput) LoggingInfo() ClusterLoggingInfoPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterLoggingInfo { return v.LoggingInfo }).(ClusterLoggingInfoPtrOutput)
 }
 
+// The number of broker nodes in the cluster.
 func (o LookupClusterResultOutput) NumberOfBrokerNodes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *int { return v.NumberOfBrokerNodes }).(pulumi.IntPtrOutput)
 }
 
+// The settings for open monitoring.
 func (o LookupClusterResultOutput) OpenMonitoring() ClusterOpenMonitoringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterOpenMonitoring { return v.OpenMonitoring }).(ClusterOpenMonitoringPtrOutput)
 }
 
+// This controls storage mode for supported storage tiers.
 func (o LookupClusterResultOutput) StorageMode() ClusterStorageModePtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterStorageMode { return v.StorageMode }).(ClusterStorageModePtrOutput)
 }

@@ -26,6 +26,7 @@ class DbInstanceArgs:
     def __init__(__self__, *,
                  allocated_storage: Optional[pulumi.Input[str]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 apply_immediately: Optional[pulumi.Input[bool]] = None,
                  associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceRoleArgs']]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  automatic_backup_replication_kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -153,6 +154,9 @@ class DbInstanceArgs:
                  +  Web and Express editions: Must be an integer from 20 to 1024.
         :param pulumi.Input[bool] allow_major_version_upgrade: A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
                 Constraints: Major version upgrades must be allowed when specifying a value for the ``EngineVersion`` parameter that is a different major version than the DB instance's current version.
+        :param pulumi.Input[bool] apply_immediately: Specifies whether changes to the DB instance and any pending modifications are applied immediately, regardless of the ``PreferredMaintenanceWindow`` setting. If set to ``false``, changes are applied during the next maintenance window. Until RDS applies the changes, the DB instance remains in a drift state. As a result, the configuration doesn't fully reflect the requested modifications and temporarily diverges from the intended state.
+                In addition to the settings described in [Modifying a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html), this property also determines whether the DB instance reboots when a static parameter is modified in the associated DB parameter group.
+                Default: ``true``
         :param pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceRoleArgs']]] associated_roles: The IAMlong (IAM) roles associated with the DB instance. 
                  *Amazon Aurora* 
                 Not applicable. The associated roles are managed by the DB cluster.
@@ -610,7 +614,7 @@ class DbInstanceArgs:
                 If you specify ``io1``, ``io2``, or ``gp3``, you must also include a value for the ``Iops`` parameter.
                 This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.
                 Valid Values: ``gp2 | gp3 | io1 | io2 | standard`` 
-                Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp2``.
+                Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp3``.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags to assign to the DB instance.
         :param pulumi.Input[str] timezone: The time zone of the DB instance. The time zone parameter is currently supported only by [RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-time-zone) and [RDS for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone).
         :param pulumi.Input[bool] use_default_processor_features: Specifies whether the DB instance class of the DB instance uses its default processor features.
@@ -634,6 +638,8 @@ class DbInstanceArgs:
             pulumi.set(__self__, "allocated_storage", allocated_storage)
         if allow_major_version_upgrade is not None:
             pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
+        if apply_immediately is not None:
+            pulumi.set(__self__, "apply_immediately", apply_immediately)
         if associated_roles is not None:
             pulumi.set(__self__, "associated_roles", associated_roles)
         if auto_minor_version_upgrade is not None:
@@ -858,6 +864,20 @@ class DbInstanceArgs:
     @allow_major_version_upgrade.setter
     def allow_major_version_upgrade(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_major_version_upgrade", value)
+
+    @property
+    @pulumi.getter(name="applyImmediately")
+    def apply_immediately(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether changes to the DB instance and any pending modifications are applied immediately, regardless of the ``PreferredMaintenanceWindow`` setting. If set to ``false``, changes are applied during the next maintenance window. Until RDS applies the changes, the DB instance remains in a drift state. As a result, the configuration doesn't fully reflect the requested modifications and temporarily diverges from the intended state.
+         In addition to the settings described in [Modifying a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html), this property also determines whether the DB instance reboots when a static parameter is modified in the associated DB parameter group.
+         Default: ``true``
+        """
+        return pulumi.get(self, "apply_immediately")
+
+    @apply_immediately.setter
+    def apply_immediately(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "apply_immediately", value)
 
     @property
     @pulumi.getter(name="associatedRoles")
@@ -2079,7 +2099,7 @@ class DbInstanceArgs:
          If you specify ``io1``, ``io2``, or ``gp3``, you must also include a value for the ``Iops`` parameter.
          This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.
          Valid Values: ``gp2 | gp3 | io1 | io2 | standard`` 
-         Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp2``.
+         Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp3``.
         """
         return pulumi.get(self, "storage_type")
 
@@ -2186,6 +2206,7 @@ class DbInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocated_storage: Optional[pulumi.Input[str]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 apply_immediately: Optional[pulumi.Input[bool]] = None,
                  associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceDbInstanceRoleArgs', 'DbInstanceDbInstanceRoleArgsDict']]]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  automatic_backup_replication_kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -2337,6 +2358,9 @@ class DbInstance(pulumi.CustomResource):
                  +  Web and Express editions: Must be an integer from 20 to 1024.
         :param pulumi.Input[bool] allow_major_version_upgrade: A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
                 Constraints: Major version upgrades must be allowed when specifying a value for the ``EngineVersion`` parameter that is a different major version than the DB instance's current version.
+        :param pulumi.Input[bool] apply_immediately: Specifies whether changes to the DB instance and any pending modifications are applied immediately, regardless of the ``PreferredMaintenanceWindow`` setting. If set to ``false``, changes are applied during the next maintenance window. Until RDS applies the changes, the DB instance remains in a drift state. As a result, the configuration doesn't fully reflect the requested modifications and temporarily diverges from the intended state.
+                In addition to the settings described in [Modifying a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html), this property also determines whether the DB instance reboots when a static parameter is modified in the associated DB parameter group.
+                Default: ``true``
         :param pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceDbInstanceRoleArgs', 'DbInstanceDbInstanceRoleArgsDict']]]] associated_roles: The IAMlong (IAM) roles associated with the DB instance. 
                  *Amazon Aurora* 
                 Not applicable. The associated roles are managed by the DB cluster.
@@ -2794,7 +2818,7 @@ class DbInstance(pulumi.CustomResource):
                 If you specify ``io1``, ``io2``, or ``gp3``, you must also include a value for the ``Iops`` parameter.
                 This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.
                 Valid Values: ``gp2 | gp3 | io1 | io2 | standard`` 
-                Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp2``.
+                Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp3``.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the DB instance.
         :param pulumi.Input[str] timezone: The time zone of the DB instance. The time zone parameter is currently supported only by [RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-time-zone) and [RDS for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone).
         :param pulumi.Input[bool] use_default_processor_features: Specifies whether the DB instance class of the DB instance uses its default processor features.
@@ -2860,6 +2884,7 @@ class DbInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocated_storage: Optional[pulumi.Input[str]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 apply_immediately: Optional[pulumi.Input[bool]] = None,
                  associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceDbInstanceRoleArgs', 'DbInstanceDbInstanceRoleArgsDict']]]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  automatic_backup_replication_kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -2948,6 +2973,7 @@ class DbInstance(pulumi.CustomResource):
 
             __props__.__dict__["allocated_storage"] = allocated_storage
             __props__.__dict__["allow_major_version_upgrade"] = allow_major_version_upgrade
+            __props__.__dict__["apply_immediately"] = apply_immediately
             __props__.__dict__["associated_roles"] = associated_roles
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["automatic_backup_replication_kms_key_id"] = automatic_backup_replication_kms_key_id
@@ -3054,6 +3080,7 @@ class DbInstance(pulumi.CustomResource):
 
         __props__.__dict__["allocated_storage"] = None
         __props__.__dict__["allow_major_version_upgrade"] = None
+        __props__.__dict__["apply_immediately"] = None
         __props__.__dict__["associated_roles"] = None
         __props__.__dict__["auto_minor_version_upgrade"] = None
         __props__.__dict__["automatic_backup_replication_kms_key_id"] = None
@@ -3197,6 +3224,16 @@ class DbInstance(pulumi.CustomResource):
          Constraints: Major version upgrades must be allowed when specifying a value for the ``EngineVersion`` parameter that is a different major version than the DB instance's current version.
         """
         return pulumi.get(self, "allow_major_version_upgrade")
+
+    @property
+    @pulumi.getter(name="applyImmediately")
+    def apply_immediately(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether changes to the DB instance and any pending modifications are applied immediately, regardless of the ``PreferredMaintenanceWindow`` setting. If set to ``false``, changes are applied during the next maintenance window. Until RDS applies the changes, the DB instance remains in a drift state. As a result, the configuration doesn't fully reflect the requested modifications and temporarily diverges from the intended state.
+         In addition to the settings described in [Modifying a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html), this property also determines whether the DB instance reboots when a static parameter is modified in the associated DB parameter group.
+         Default: ``true``
+        """
+        return pulumi.get(self, "apply_immediately")
 
     @property
     @pulumi.getter(name="associatedRoles")
@@ -4166,7 +4203,7 @@ class DbInstance(pulumi.CustomResource):
          If you specify ``io1``, ``io2``, or ``gp3``, you must also include a value for the ``Iops`` parameter.
          This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.
          Valid Values: ``gp2 | gp3 | io1 | io2 | standard`` 
-         Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp2``.
+         Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp3``.
         """
         return pulumi.get(self, "storage_type")
 

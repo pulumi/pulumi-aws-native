@@ -58,7 +58,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly failureMessage!: pulumi.Output<string>;
     /**
-     * The instance groups of the SageMaker HyperPod cluster.
+     * The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
      */
     public readonly instanceGroups!: pulumi.Output<outputs.sagemaker.ClusterInstanceGroup[]>;
     /**
@@ -130,7 +130,7 @@ export interface ClusterArgs {
      */
     clusterName?: pulumi.Input<string>;
     /**
-     * The instance groups of the SageMaker HyperPod cluster.
+     * The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
      */
     instanceGroups: pulumi.Input<pulumi.Input<inputs.sagemaker.ClusterInstanceGroupArgs>[]>;
     /**

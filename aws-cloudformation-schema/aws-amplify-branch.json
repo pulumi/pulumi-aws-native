@@ -151,6 +151,14 @@
   "createOnlyProperties" : [ "/properties/AppId", "/properties/BranchName" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "writeOnlyProperties" : [ "/properties/BasicAuthConfig" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "amplify:TagResource", "amplify:ListTagsForResource", "amplify:UntagResource" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "amplify:GetBranch", "amplify:CreateBranch", "amplify:TagResource", "codecommit:GetRepository", "codecommit:PutRepositoryTriggers", "codecommit:GetRepositoryTriggers", "s3:GetObject", "s3:GetObjectAcl", "s3:PutObject", "s3:PutObjectAcl", "sns:CreateTopic", "sns:Subscribe", "iam:PassRole" ]

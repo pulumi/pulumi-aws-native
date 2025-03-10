@@ -7,11 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
+// Resource Type definition for AWS::CE::CostCategory. Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
 func LookupCostCategory(ctx *pulumi.Context, args *LookupCostCategoryArgs, opts ...pulumi.InvokeOption) (*LookupCostCategoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCostCategoryResult
@@ -40,6 +41,8 @@ type LookupCostCategoryResult struct {
 	Rules *string `pulumi:"rules"`
 	// Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
 	SplitChargeRules *string `pulumi:"splitChargeRules"`
+	// Tags to assign to the cost category.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCostCategoryOutput(ctx *pulumi.Context, args LookupCostCategoryOutputArgs, opts ...pulumi.InvokeOption) LookupCostCategoryResultOutput {
@@ -102,6 +105,11 @@ func (o LookupCostCategoryResultOutput) Rules() pulumi.StringPtrOutput {
 // Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
 func (o LookupCostCategoryResultOutput) SplitChargeRules() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCostCategoryResult) *string { return v.SplitChargeRules }).(pulumi.StringPtrOutput)
+}
+
+// Tags to assign to the cost category.
+func (o LookupCostCategoryResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCostCategoryResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Ecr
     public static class GetRepositoryCreationTemplate
     {
         /// <summary>
-        /// AWS::ECR::RepositoryCreationTemplate is used to create repository with configuration from a pre-defined template.
+        /// The details of the repository creation template associated with the request.
         /// </summary>
         public static Task<GetRepositoryCreationTemplateResult> InvokeAsync(GetRepositoryCreationTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryCreationTemplateResult>("aws-native:ecr:getRepositoryCreationTemplate", args ?? new GetRepositoryCreationTemplateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AWS::ECR::RepositoryCreationTemplate is used to create repository with configuration from a pre-defined template.
+        /// The details of the repository creation template associated with the request.
         /// </summary>
         public static Output<GetRepositoryCreationTemplateResult> Invoke(GetRepositoryCreationTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryCreationTemplateResult>("aws-native:ecr:getRepositoryCreationTemplate", args ?? new GetRepositoryCreationTemplateInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AWS::ECR::RepositoryCreationTemplate is used to create repository with configuration from a pre-defined template.
+        /// The details of the repository creation template associated with the request.
         /// </summary>
         public static Output<GetRepositoryCreationTemplateResult> Invoke(GetRepositoryCreationTemplateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryCreationTemplateResult>("aws-native:ecr:getRepositoryCreationTemplate", args ?? new GetRepositoryCreationTemplateInvokeArgs(), options.WithDefaults());
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Ecr
     public sealed class GetRepositoryCreationTemplateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The prefix use to match the repository name and apply the template.
+        /// The repository namespace prefix associated with the repository creation template.
         /// </summary>
         [Input("prefix", required: true)]
         public string Prefix { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.Ecr
     public sealed class GetRepositoryCreationTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The prefix use to match the repository name and apply the template.
+        /// The repository namespace prefix associated with the repository creation template.
         /// </summary>
         [Input("prefix", required: true)]
         public Input<string> Prefix { get; set; } = null!;
@@ -64,19 +64,19 @@ namespace Pulumi.AwsNative.Ecr
     public sealed class GetRepositoryCreationTemplateResult
     {
         /// <summary>
-        /// A list of enumerable Strings representing the repository creation scenarios that the template will apply towards.
+        /// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Ecr.RepositoryCreationTemplateAppliedForItem> AppliedFor;
         /// <summary>
-        /// Create timestamp of the template.
+        /// The date and time, in JavaScript date format, when the repository creation template was created.
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
-        /// The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+        /// The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.
         /// </summary>
         public readonly string? CustomRoleArn;
         /// <summary>
-        /// The description of the template.
+        /// The description associated with the repository creation template.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -84,23 +84,23 @@ namespace Pulumi.AwsNative.Ecr
         /// </summary>
         public readonly Outputs.RepositoryCreationTemplateEncryptionConfiguration? EncryptionConfiguration;
         /// <summary>
-        /// The image tag mutability setting for the repository.
+        /// The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
         /// </summary>
         public readonly Pulumi.AwsNative.Ecr.RepositoryCreationTemplateImageTagMutability? ImageTagMutability;
         /// <summary>
-        /// The JSON lifecycle policy text to apply to the repository. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
+        /// The lifecycle policy to use for repositories created using the template.
         /// </summary>
         public readonly string? LifecyclePolicy;
         /// <summary>
-        /// The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html
+        /// he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
         /// </summary>
         public readonly string? RepositoryPolicy;
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
         /// </summary>
         public readonly ImmutableArray<Outputs.RepositoryCreationTemplateTag> ResourceTags;
         /// <summary>
-        /// Update timestamp of the template.
+        /// The date and time, in JavaScript date format, when the repository creation template was last updated.
         /// </summary>
         public readonly string? UpdatedAt;
 

@@ -39,6 +39,7 @@ __all__ = [
     'SecurityProfileMetricDimensionOperator',
     'SecurityProfileStatisticalThresholdStatistic',
     'SoftwarePackageVersionPackageVersionStatus',
+    'SoftwarePackageVersionSbomValidationStatus',
     'ThingTypePropagatingAttributeConnectionAttribute',
     'TopicRuleCannedAccessControlList',
     'TopicRuleDestinationStatus',
@@ -372,6 +373,16 @@ class SoftwarePackageVersionPackageVersionStatus(str, Enum):
     DRAFT = "DRAFT"
     PUBLISHED = "PUBLISHED"
     DEPRECATED = "DEPRECATED"
+
+
+class SoftwarePackageVersionSbomValidationStatus(str, Enum):
+    """
+    The validation status of the Sbom file
+    """
+    IN_PROGRESS = "IN_PROGRESS"
+    FAILED = "FAILED"
+    SUCCEEDED = "SUCCEEDED"
+    EMPTY = ""
 
 
 class ThingTypePropagatingAttributeConnectionAttribute(str, Enum):

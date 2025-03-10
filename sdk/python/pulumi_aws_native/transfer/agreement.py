@@ -13,9 +13,11 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['AgreementArgs', 'Agreement']
 
@@ -23,10 +25,11 @@ __all__ = ['AgreementArgs', 'Agreement']
 class AgreementArgs:
     def __init__(__self__, *,
                  access_role: pulumi.Input[str],
-                 base_directory: pulumi.Input[str],
                  local_profile_id: pulumi.Input[str],
                  partner_profile_id: pulumi.Input[str],
                  server_id: pulumi.Input[str],
+                 base_directory: Optional[pulumi.Input[str]] = None,
+                 custom_directories: Optional[pulumi.Input['CustomDirectoriesPropertiesArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enforce_message_signing: Optional[pulumi.Input['AgreementEnforceMessageSigning']] = None,
                  preserve_filename: Optional[pulumi.Input['AgreementPreserveFilename']] = None,
@@ -35,10 +38,11 @@ class AgreementArgs:
         """
         The set of arguments for constructing a Agreement resource.
         :param pulumi.Input[str] access_role: Specifies the access role for the agreement.
-        :param pulumi.Input[str] base_directory: Specifies the base directory for the agreement.
         :param pulumi.Input[str] local_profile_id: A unique identifier for the local profile.
         :param pulumi.Input[str] partner_profile_id: A unique identifier for the partner profile.
         :param pulumi.Input[str] server_id: A unique identifier for the server.
+        :param pulumi.Input[str] base_directory: Specifies the base directory for the agreement.
+        :param pulumi.Input['CustomDirectoriesPropertiesArgs'] custom_directories: Specifies a separate directory for each type of file to store for an AS2 message.
         :param pulumi.Input[str] description: A textual description for the agreement.
         :param pulumi.Input['AgreementEnforceMessageSigning'] enforce_message_signing: Specifies whether to enforce an AS2 message is signed for this agreement.
         :param pulumi.Input['AgreementPreserveFilename'] preserve_filename: Specifies whether to preserve the filename received for this agreement.
@@ -46,10 +50,13 @@ class AgreementArgs:
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
         """
         pulumi.set(__self__, "access_role", access_role)
-        pulumi.set(__self__, "base_directory", base_directory)
         pulumi.set(__self__, "local_profile_id", local_profile_id)
         pulumi.set(__self__, "partner_profile_id", partner_profile_id)
         pulumi.set(__self__, "server_id", server_id)
+        if base_directory is not None:
+            pulumi.set(__self__, "base_directory", base_directory)
+        if custom_directories is not None:
+            pulumi.set(__self__, "custom_directories", custom_directories)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enforce_message_signing is not None:
@@ -72,18 +79,6 @@ class AgreementArgs:
     @access_role.setter
     def access_role(self, value: pulumi.Input[str]):
         pulumi.set(self, "access_role", value)
-
-    @property
-    @pulumi.getter(name="baseDirectory")
-    def base_directory(self) -> pulumi.Input[str]:
-        """
-        Specifies the base directory for the agreement.
-        """
-        return pulumi.get(self, "base_directory")
-
-    @base_directory.setter
-    def base_directory(self, value: pulumi.Input[str]):
-        pulumi.set(self, "base_directory", value)
 
     @property
     @pulumi.getter(name="localProfileId")
@@ -120,6 +115,30 @@ class AgreementArgs:
     @server_id.setter
     def server_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "server_id", value)
+
+    @property
+    @pulumi.getter(name="baseDirectory")
+    def base_directory(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the base directory for the agreement.
+        """
+        return pulumi.get(self, "base_directory")
+
+    @base_directory.setter
+    def base_directory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "base_directory", value)
+
+    @property
+    @pulumi.getter(name="customDirectories")
+    def custom_directories(self) -> Optional[pulumi.Input['CustomDirectoriesPropertiesArgs']]:
+        """
+        Specifies a separate directory for each type of file to store for an AS2 message.
+        """
+        return pulumi.get(self, "custom_directories")
+
+    @custom_directories.setter
+    def custom_directories(self, value: Optional[pulumi.Input['CustomDirectoriesPropertiesArgs']]):
+        pulumi.set(self, "custom_directories", value)
 
     @property
     @pulumi.getter
@@ -189,6 +208,7 @@ class Agreement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_role: Optional[pulumi.Input[str]] = None,
                  base_directory: Optional[pulumi.Input[str]] = None,
+                 custom_directories: Optional[pulumi.Input[Union['CustomDirectoriesPropertiesArgs', 'CustomDirectoriesPropertiesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enforce_message_signing: Optional[pulumi.Input['AgreementEnforceMessageSigning']] = None,
                  local_profile_id: Optional[pulumi.Input[str]] = None,
@@ -205,6 +225,7 @@ class Agreement(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_role: Specifies the access role for the agreement.
         :param pulumi.Input[str] base_directory: Specifies the base directory for the agreement.
+        :param pulumi.Input[Union['CustomDirectoriesPropertiesArgs', 'CustomDirectoriesPropertiesArgsDict']] custom_directories: Specifies a separate directory for each type of file to store for an AS2 message.
         :param pulumi.Input[str] description: A textual description for the agreement.
         :param pulumi.Input['AgreementEnforceMessageSigning'] enforce_message_signing: Specifies whether to enforce an AS2 message is signed for this agreement.
         :param pulumi.Input[str] local_profile_id: A unique identifier for the local profile.
@@ -240,6 +261,7 @@ class Agreement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_role: Optional[pulumi.Input[str]] = None,
                  base_directory: Optional[pulumi.Input[str]] = None,
+                 custom_directories: Optional[pulumi.Input[Union['CustomDirectoriesPropertiesArgs', 'CustomDirectoriesPropertiesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enforce_message_signing: Optional[pulumi.Input['AgreementEnforceMessageSigning']] = None,
                  local_profile_id: Optional[pulumi.Input[str]] = None,
@@ -260,9 +282,8 @@ class Agreement(pulumi.CustomResource):
             if access_role is None and not opts.urn:
                 raise TypeError("Missing required property 'access_role'")
             __props__.__dict__["access_role"] = access_role
-            if base_directory is None and not opts.urn:
-                raise TypeError("Missing required property 'base_directory'")
             __props__.__dict__["base_directory"] = base_directory
+            __props__.__dict__["custom_directories"] = custom_directories
             __props__.__dict__["description"] = description
             __props__.__dict__["enforce_message_signing"] = enforce_message_signing
             if local_profile_id is None and not opts.urn:
@@ -307,6 +328,7 @@ class Agreement(pulumi.CustomResource):
         __props__.__dict__["agreement_id"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["base_directory"] = None
+        __props__.__dict__["custom_directories"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["enforce_message_signing"] = None
         __props__.__dict__["local_profile_id"] = None
@@ -343,11 +365,19 @@ class Agreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="baseDirectory")
-    def base_directory(self) -> pulumi.Output[str]:
+    def base_directory(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the base directory for the agreement.
         """
         return pulumi.get(self, "base_directory")
+
+    @property
+    @pulumi.getter(name="customDirectories")
+    def custom_directories(self) -> pulumi.Output[Optional['outputs.CustomDirectoriesProperties']]:
+        """
+        Specifies a separate directory for each type of file to store for an AS2 message.
+        """
+        return pulumi.get(self, "custom_directories")
 
     @property
     @pulumi.getter

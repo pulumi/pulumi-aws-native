@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
     [OutputType]
     public sealed class PortalTypeEntry
     {
+        /// <summary>
+        /// The array of tools associated with the specified portal type. The possible values are `ASSISTANT` and `DASHBOARD` .
+        /// </summary>
         public readonly ImmutableArray<string> PortalTools;
 
         [OutputConstructor]

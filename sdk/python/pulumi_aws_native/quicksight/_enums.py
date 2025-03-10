@@ -25,11 +25,13 @@ __all__ = [
     'AnalysisCrossDatasetTypes',
     'AnalysisCustomContentImageScalingConfiguration',
     'AnalysisCustomContentType',
+    'AnalysisDashboardBehavior',
     'AnalysisDataLabelContent',
     'AnalysisDataLabelOverlap',
     'AnalysisDataLabelPosition',
     'AnalysisDateAggregationFunction',
     'AnalysisDayOfTheWeek',
+    'AnalysisDigitGroupingStyle',
     'AnalysisErrorType',
     'AnalysisFilterNullOption',
     'AnalysisFilterVisualScope',
@@ -158,6 +160,7 @@ __all__ = [
     'DashboardDataLabelPosition',
     'DashboardDateAggregationFunction',
     'DashboardDayOfTheWeek',
+    'DashboardDigitGroupingStyle',
     'DashboardErrorType',
     'DashboardFilterNullOption',
     'DashboardFilterVisualScope',
@@ -303,11 +306,13 @@ __all__ = [
     'TemplateCrossDatasetTypes',
     'TemplateCustomContentImageScalingConfiguration',
     'TemplateCustomContentType',
+    'TemplateDashboardBehavior',
     'TemplateDataLabelContent',
     'TemplateDataLabelOverlap',
     'TemplateDataLabelPosition',
     'TemplateDateAggregationFunction',
     'TemplateDayOfTheWeek',
+    'TemplateDigitGroupingStyle',
     'TemplateErrorType',
     'TemplateFilterNullOption',
     'TemplateFilterVisualScope',
@@ -552,6 +557,11 @@ class AnalysisCustomContentType(str, Enum):
     OTHER_EMBEDDED_CONTENT = "OTHER_EMBEDDED_CONTENT"
 
 
+class AnalysisDashboardBehavior(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 class AnalysisDataLabelContent(str, Enum):
     VALUE = "VALUE"
     PERCENT = "PERCENT"
@@ -587,6 +597,11 @@ class AnalysisDayOfTheWeek(str, Enum):
     THURSDAY = "THURSDAY"
     FRIDAY = "FRIDAY"
     SATURDAY = "SATURDAY"
+
+
+class AnalysisDigitGroupingStyle(str, Enum):
+    DEFAULT = "DEFAULT"
+    LAKHS = "LAKHS"
 
 
 class AnalysisErrorType(str, Enum):
@@ -796,6 +811,8 @@ class AnalysisNumberScale(str, Enum):
     MILLIONS = "MILLIONS"
     BILLIONS = "BILLIONS"
     TRILLIONS = "TRILLIONS"
+    LAKHS = "LAKHS"
+    CRORES = "CRORES"
 
 
 class AnalysisNumericEqualityMatchOperator(str, Enum):
@@ -1373,6 +1390,11 @@ class DashboardDayOfTheWeek(str, Enum):
     SATURDAY = "SATURDAY"
 
 
+class DashboardDigitGroupingStyle(str, Enum):
+    DEFAULT = "DEFAULT"
+    LAKHS = "LAKHS"
+
+
 class DashboardErrorType(str, Enum):
     ACCESS_DENIED = "ACCESS_DENIED"
     SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND"
@@ -1580,6 +1602,8 @@ class DashboardNumberScale(str, Enum):
     MILLIONS = "MILLIONS"
     BILLIONS = "BILLIONS"
     TRILLIONS = "TRILLIONS"
+    LAKHS = "LAKHS"
+    CRORES = "CRORES"
 
 
 class DashboardNumericEqualityMatchOperator(str, Enum):
@@ -2326,6 +2350,11 @@ class TemplateCustomContentType(str, Enum):
     OTHER_EMBEDDED_CONTENT = "OTHER_EMBEDDED_CONTENT"
 
 
+class TemplateDashboardBehavior(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 class TemplateDataLabelContent(str, Enum):
     VALUE = "VALUE"
     PERCENT = "PERCENT"
@@ -2361,6 +2390,11 @@ class TemplateDayOfTheWeek(str, Enum):
     THURSDAY = "THURSDAY"
     FRIDAY = "FRIDAY"
     SATURDAY = "SATURDAY"
+
+
+class TemplateDigitGroupingStyle(str, Enum):
+    DEFAULT = "DEFAULT"
+    LAKHS = "LAKHS"
 
 
 class TemplateErrorType(str, Enum):
@@ -2540,6 +2574,8 @@ class TemplateNumberScale(str, Enum):
     MILLIONS = "MILLIONS"
     BILLIONS = "BILLIONS"
     TRILLIONS = "TRILLIONS"
+    LAKHS = "LAKHS"
+    CRORES = "CRORES"
 
 
 class TemplateNumericEqualityMatchOperator(str, Enum):

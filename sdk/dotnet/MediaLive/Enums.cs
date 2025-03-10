@@ -129,6 +129,7 @@ namespace Pulumi.AwsNative.MediaLive
         public static CloudWatchAlarmTemplateTargetResourceType MediapackageChannel { get; } = new CloudWatchAlarmTemplateTargetResourceType("MEDIAPACKAGE_CHANNEL");
         public static CloudWatchAlarmTemplateTargetResourceType MediapackageOriginEndpoint { get; } = new CloudWatchAlarmTemplateTargetResourceType("MEDIAPACKAGE_ORIGIN_ENDPOINT");
         public static CloudWatchAlarmTemplateTargetResourceType MediaconnectFlow { get; } = new CloudWatchAlarmTemplateTargetResourceType("MEDIACONNECT_FLOW");
+        public static CloudWatchAlarmTemplateTargetResourceType MediatailorPlaybackConfiguration { get; } = new CloudWatchAlarmTemplateTargetResourceType("MEDIATAILOR_PLAYBACK_CONFIGURATION");
         public static CloudWatchAlarmTemplateTargetResourceType S3Bucket { get; } = new CloudWatchAlarmTemplateTargetResourceType("S3_BUCKET");
 
         public static bool operator ==(CloudWatchAlarmTemplateTargetResourceType left, CloudWatchAlarmTemplateTargetResourceType right) => left.Equals(right);

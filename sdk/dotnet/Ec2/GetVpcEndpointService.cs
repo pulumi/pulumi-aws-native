@@ -84,6 +84,10 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? ServiceId;
         /// <summary>
+        /// Specify which Ip Address types are supported for VPC endpoint service.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Ec2.VpcEndpointServiceIpAddressType> SupportedIpAddressTypes;
+        /// <summary>
         /// The tags to add to the VPC endpoint service.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -100,6 +104,8 @@ namespace Pulumi.AwsNative.Ec2
 
             string? serviceId,
 
+            ImmutableArray<Pulumi.AwsNative.Ec2.VpcEndpointServiceIpAddressType> supportedIpAddressTypes,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AcceptanceRequired = acceptanceRequired;
@@ -107,6 +113,7 @@ namespace Pulumi.AwsNative.Ec2
             NetworkLoadBalancerArns = networkLoadBalancerArns;
             PayerResponsibility = payerResponsibility;
             ServiceId = serviceId;
+            SupportedIpAddressTypes = supportedIpAddressTypes;
             Tags = tags;
         }
     }

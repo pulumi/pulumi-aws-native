@@ -11,6 +11,7 @@ __all__ = [
     'DomainAuthType',
     'DomainStatus',
     'DomainUserAssignment',
+    'DomainVersion',
     'EnvironmentStatus',
     'GroupProfileStatus',
     'ProjectMembershipUserDesignation',
@@ -76,6 +77,14 @@ class DomainUserAssignment(str, Enum):
     """
     AUTOMATIC = "AUTOMATIC"
     MANUAL = "MANUAL"
+
+
+class DomainVersion(str, Enum):
+    """
+    The version of the domain.
+    """
+    V1 = "V1"
+    V2 = "V2"
 
 
 class EnvironmentStatus(str, Enum):

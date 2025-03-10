@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("agentArn")]
         public Output<string> AgentArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The agent's collaboration settings.
+        /// </summary>
         [Output("agentCollaboration")]
         public Output<Pulumi.AwsNative.Bedrock.AgentCollaboration?> AgentCollaboration { get; private set; } = null!;
 
@@ -86,6 +89,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains custom orchestration configurations for the agent.
+        /// </summary>
         [Output("customOrchestration")]
         public Output<Outputs.AgentCustomOrchestration?> CustomOrchestration { get; private set; } = null!;
 
@@ -137,9 +143,15 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("knowledgeBases")]
         public Output<ImmutableArray<Outputs.AgentKnowledgeBase>> KnowledgeBases { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains memory configuration for the agent.
+        /// </summary>
         [Output("memoryConfiguration")]
         public Output<Outputs.AgentMemoryConfiguration?> MemoryConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the orchestration strategy for the agent.
+        /// </summary>
         [Output("orchestrationType")]
         public Output<Pulumi.AwsNative.Bedrock.AgentOrchestrationType?> OrchestrationType { get; private set; } = null!;
 
@@ -248,6 +260,9 @@ namespace Pulumi.AwsNative.Bedrock
             set => _actionGroups = value;
         }
 
+        /// <summary>
+        /// The agent's collaboration settings.
+        /// </summary>
         [Input("agentCollaboration")]
         public Input<Pulumi.AwsNative.Bedrock.AgentCollaboration>? AgentCollaboration { get; set; }
 
@@ -281,6 +296,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Input("autoPrepare")]
         public Input<bool>? AutoPrepare { get; set; }
 
+        /// <summary>
+        /// Contains custom orchestration configurations for the agent.
+        /// </summary>
         [Input("customOrchestration")]
         public Input<Inputs.AgentCustomOrchestrationArgs>? CustomOrchestration { get; set; }
 
@@ -332,9 +350,15 @@ namespace Pulumi.AwsNative.Bedrock
             set => _knowledgeBases = value;
         }
 
+        /// <summary>
+        /// Contains memory configuration for the agent.
+        /// </summary>
         [Input("memoryConfiguration")]
         public Input<Inputs.AgentMemoryConfigurationArgs>? MemoryConfiguration { get; set; }
 
+        /// <summary>
+        /// Specifies the orchestration strategy for the agent.
+        /// </summary>
         [Input("orchestrationType")]
         public Input<Pulumi.AwsNative.Bedrock.AgentOrchestrationType>? OrchestrationType { get; set; }
 

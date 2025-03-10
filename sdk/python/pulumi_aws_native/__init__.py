@@ -200,6 +200,8 @@ if typing.TYPE_CHECKING:
     fsx = __fsx
     import pulumi_aws_native.gamelift as __gamelift
     gamelift = __gamelift
+    import pulumi_aws_native.gameliftstreams as __gameliftstreams
+    gameliftstreams = __gameliftstreams
     import pulumi_aws_native.globalaccelerator as __globalaccelerator
     globalaccelerator = __globalaccelerator
     import pulumi_aws_native.glue as __glue
@@ -314,8 +316,6 @@ if typing.TYPE_CHECKING:
     networkfirewall = __networkfirewall
     import pulumi_aws_native.networkmanager as __networkmanager
     networkmanager = __networkmanager
-    import pulumi_aws_native.nimblestudio as __nimblestudio
-    nimblestudio = __nimblestudio
     import pulumi_aws_native.oam as __oam
     oam = __oam
     import pulumi_aws_native.omics as __omics
@@ -556,6 +556,7 @@ else:
     frauddetector = _utilities.lazy_import('pulumi_aws_native.frauddetector')
     fsx = _utilities.lazy_import('pulumi_aws_native.fsx')
     gamelift = _utilities.lazy_import('pulumi_aws_native.gamelift')
+    gameliftstreams = _utilities.lazy_import('pulumi_aws_native.gameliftstreams')
     globalaccelerator = _utilities.lazy_import('pulumi_aws_native.globalaccelerator')
     glue = _utilities.lazy_import('pulumi_aws_native.glue')
     grafana = _utilities.lazy_import('pulumi_aws_native.grafana')
@@ -613,7 +614,6 @@ else:
     neptunegraph = _utilities.lazy_import('pulumi_aws_native.neptunegraph')
     networkfirewall = _utilities.lazy_import('pulumi_aws_native.networkfirewall')
     networkmanager = _utilities.lazy_import('pulumi_aws_native.networkmanager')
-    nimblestudio = _utilities.lazy_import('pulumi_aws_native.nimblestudio')
     oam = _utilities.lazy_import('pulumi_aws_native.oam')
     omics = _utilities.lazy_import('pulumi_aws_native.omics')
     opensearchserverless = _utilities.lazy_import('pulumi_aws_native.opensearchserverless')
@@ -982,6 +982,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.batch",
   "classes": {
    "aws-native:batch:ComputeEnvironment": "ComputeEnvironment",
+   "aws-native:batch:ConsumableResource": "ConsumableResource",
    "aws-native:batch:JobDefinition": "JobDefinition",
    "aws-native:batch:JobQueue": "JobQueue",
    "aws-native:batch:SchedulingPolicy": "SchedulingPolicy"
@@ -995,6 +996,8 @@ _utilities.register(
    "aws-native:bedrock:Agent": "Agent",
    "aws-native:bedrock:AgentAlias": "AgentAlias",
    "aws-native:bedrock:ApplicationInferenceProfile": "ApplicationInferenceProfile",
+   "aws-native:bedrock:Blueprint": "Blueprint",
+   "aws-native:bedrock:DataAutomationProject": "DataAutomationProject",
    "aws-native:bedrock:DataSource": "DataSource",
    "aws-native:bedrock:Flow": "Flow",
    "aws-native:bedrock:FlowAlias": "FlowAlias",
@@ -1817,6 +1820,15 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "gameliftstreams",
+  "fqn": "pulumi_aws_native.gameliftstreams",
+  "classes": {
+   "aws-native:gameliftstreams:Application": "Application",
+   "aws-native:gameliftstreams:StreamGroup": "StreamGroup"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "globalaccelerator",
   "fqn": "pulumi_aws_native.globalaccelerator",
   "classes": {
@@ -2504,17 +2516,6 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
-  "mod": "nimblestudio",
-  "fqn": "pulumi_aws_native.nimblestudio",
-  "classes": {
-   "aws-native:nimblestudio:LaunchProfile": "LaunchProfile",
-   "aws-native:nimblestudio:StreamingImage": "StreamingImage",
-   "aws-native:nimblestudio:Studio": "Studio",
-   "aws-native:nimblestudio:StudioComponent": "StudioComponent"
-  }
- },
- {
-  "pkg": "aws-native",
   "mod": "oam",
   "fqn": "pulumi_aws_native.oam",
   "classes": {
@@ -2542,6 +2543,7 @@ _utilities.register(
   "classes": {
    "aws-native:opensearchserverless:AccessPolicy": "AccessPolicy",
    "aws-native:opensearchserverless:Collection": "Collection",
+   "aws-native:opensearchserverless:Index": "Index",
    "aws-native:opensearchserverless:LifecyclePolicy": "LifecyclePolicy",
    "aws-native:opensearchserverless:SecurityConfig": "SecurityConfig",
    "aws-native:opensearchserverless:SecurityPolicy": "SecurityPolicy",
@@ -3372,7 +3374,8 @@ _utilities.register(
   "classes": {
    "aws-native:xray:Group": "Group",
    "aws-native:xray:ResourcePolicy": "ResourcePolicy",
-   "aws-native:xray:SamplingRule": "SamplingRule"
+   "aws-native:xray:SamplingRule": "SamplingRule",
+   "aws-native:xray:TransactionSearchConfig": "TransactionSearchConfig"
   }
  }
 ]

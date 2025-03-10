@@ -31,13 +31,13 @@ __all__ = [
 @pulumi.output_type
 class ReplicationConfiguration(dict):
     """
-    An object representing the replication configuration for a registry.
+    The replication configuration for a registry.
     """
     def __init__(__self__, *,
                  rules: Sequence['outputs.ReplicationConfigurationReplicationRule']):
         """
-        An object representing the replication configuration for a registry.
-        :param Sequence['ReplicationConfigurationReplicationRule'] rules: An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
+        The replication configuration for a registry.
+        :param Sequence['ReplicationConfigurationReplicationRule'] rules: An array of objects representing the replication destinations and repository filters for a replication configuration.
         """
         pulumi.set(__self__, "rules", rules)
 
@@ -45,7 +45,7 @@ class ReplicationConfiguration(dict):
     @pulumi.getter
     def rules(self) -> Sequence['outputs.ReplicationConfigurationReplicationRule']:
         """
-        An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
+        An array of objects representing the replication destinations and repository filters for a replication configuration.
         """
         return pulumi.get(self, "rules")
 
@@ -53,7 +53,7 @@ class ReplicationConfiguration(dict):
 @pulumi.output_type
 class ReplicationConfigurationReplicationDestination(dict):
     """
-    An array of objects representing the details of a replication destination.
+    An array of objects representing the destination for a replication rule.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -76,7 +76,7 @@ class ReplicationConfigurationReplicationDestination(dict):
                  region: str,
                  registry_id: str):
         """
-        An array of objects representing the details of a replication destination.
+        An array of objects representing the destination for a replication rule.
         :param str region: The Region to replicate to.
         :param str registry_id: The AWS account ID of the Amazon ECR private registry to replicate to. When configuring cross-Region replication within your own registry, specify your own account ID.
         """
@@ -103,7 +103,7 @@ class ReplicationConfigurationReplicationDestination(dict):
 @pulumi.output_type
 class ReplicationConfigurationReplicationRule(dict):
     """
-    An array of objects representing the details of a replication destination.
+    An array of objects representing the replication destinations and repository filters for a replication configuration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -126,9 +126,9 @@ class ReplicationConfigurationReplicationRule(dict):
                  destinations: Sequence['outputs.ReplicationConfigurationReplicationDestination'],
                  repository_filters: Optional[Sequence['outputs.ReplicationConfigurationRepositoryFilter']] = None):
         """
-        An array of objects representing the details of a replication destination.
-        :param Sequence['ReplicationConfigurationReplicationDestination'] destinations: An array of objects representing the details of a replication destination.
-        :param Sequence['ReplicationConfigurationRepositoryFilter'] repository_filters: An array of objects representing the details of a repository filter.
+        An array of objects representing the replication destinations and repository filters for a replication configuration.
+        :param Sequence['ReplicationConfigurationReplicationDestination'] destinations: An array of objects representing the destination for a replication rule.
+        :param Sequence['ReplicationConfigurationRepositoryFilter'] repository_filters: An array of objects representing the filters for a replication rule. Specifying a repository filter for a replication rule provides a method for controlling which repositories in a private registry are replicated.
         """
         pulumi.set(__self__, "destinations", destinations)
         if repository_filters is not None:
@@ -138,7 +138,7 @@ class ReplicationConfigurationReplicationRule(dict):
     @pulumi.getter
     def destinations(self) -> Sequence['outputs.ReplicationConfigurationReplicationDestination']:
         """
-        An array of objects representing the details of a replication destination.
+        An array of objects representing the destination for a replication rule.
         """
         return pulumi.get(self, "destinations")
 
@@ -146,7 +146,7 @@ class ReplicationConfigurationReplicationRule(dict):
     @pulumi.getter(name="repositoryFilters")
     def repository_filters(self) -> Optional[Sequence['outputs.ReplicationConfigurationRepositoryFilter']]:
         """
-        An array of objects representing the details of a repository filter.
+        An array of objects representing the filters for a replication rule. Specifying a repository filter for a replication rule provides a method for controlling which repositories in a private registry are replicated.
         """
         return pulumi.get(self, "repository_filters")
 
@@ -154,7 +154,7 @@ class ReplicationConfigurationReplicationRule(dict):
 @pulumi.output_type
 class ReplicationConfigurationRepositoryFilter(dict):
     """
-    An array of objects representing the details of a repository filter.
+    The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no filters are added, the contents of all repositories are replicated.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -177,9 +177,9 @@ class ReplicationConfigurationRepositoryFilter(dict):
                  filter: str,
                  filter_type: 'ReplicationConfigurationFilterType'):
         """
-        An array of objects representing the details of a repository filter.
-        :param str filter: The repository filter details. When the `PREFIX_MATCH` filter type is specified, this value is required and should be the repository name prefix to configure replication for.
-        :param 'ReplicationConfigurationFilterType' filter_type: The repository filter type. The only supported value is `PREFIX_MATCH` , which is a repository name prefix specified with the `filter` parameter.
+        The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no filters are added, the contents of all repositories are replicated.
+        :param str filter: The repository filter details. When the ``PREFIX_MATCH`` filter type is specified, this value is required and should be the repository name prefix to configure replication for.
+        :param 'ReplicationConfigurationFilterType' filter_type: The repository filter type. The only supported value is ``PREFIX_MATCH``, which is a repository name prefix specified with the ``filter`` parameter.
         """
         pulumi.set(__self__, "filter", filter)
         pulumi.set(__self__, "filter_type", filter_type)
@@ -188,7 +188,7 @@ class ReplicationConfigurationRepositoryFilter(dict):
     @pulumi.getter
     def filter(self) -> str:
         """
-        The repository filter details. When the `PREFIX_MATCH` filter type is specified, this value is required and should be the repository name prefix to configure replication for.
+        The repository filter details. When the ``PREFIX_MATCH`` filter type is specified, this value is required and should be the repository name prefix to configure replication for.
         """
         return pulumi.get(self, "filter")
 
@@ -196,7 +196,7 @@ class ReplicationConfigurationRepositoryFilter(dict):
     @pulumi.getter(name="filterType")
     def filter_type(self) -> 'ReplicationConfigurationFilterType':
         """
-        The repository filter type. The only supported value is `PREFIX_MATCH` , which is a repository name prefix specified with the `filter` parameter.
+        The repository filter type. The only supported value is ``PREFIX_MATCH``, which is a repository name prefix specified with the ``filter`` parameter.
         """
         return pulumi.get(self, "filter_type")
 
@@ -204,9 +204,9 @@ class ReplicationConfigurationRepositoryFilter(dict):
 @pulumi.output_type
 class RepositoryCreationTemplateEncryptionConfiguration(dict):
     """
-    The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest. By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
-
-    For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
+    The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+     By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES256 encryption algorithm. This does not require any action on your part.
+     For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -231,19 +231,15 @@ class RepositoryCreationTemplateEncryptionConfiguration(dict):
                  encryption_type: 'RepositoryCreationTemplateEncryptionType',
                  kms_key: Optional[str] = None):
         """
-        The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest. By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
-
-        For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
+        The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+         By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES256 encryption algorithm. This does not require any action on your part.
+         For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
         :param 'RepositoryCreationTemplateEncryptionType' encryption_type: The encryption type to use.
-               
-               If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created.
-               
-               If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS KMS Management Service key stored in AWS KMS . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you've already created.
-               
-               If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
-               
-               For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide* .
-        :param str kms_key: If you use the `KMS` encryption type, specify the AWS KMS key to use for encryption. The alias, key ID, or full ARN of the AWS KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed AWS KMS key for Amazon ECR will be used.
+                If you use the ``KMS`` encryption type, the contents of the repository will be encrypted using server-side encryption with KMSlong key stored in KMS. When you use KMS to encrypt your data, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you already created.
+                If you use the ``KMS_DSSE`` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the KMS Management Service key stored in KMS. Similar to the ``KMS`` encryption type, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you've already created. 
+                If you use the ``AES256`` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
+                For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
+        :param str kms_key: If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
         """
         pulumi.set(__self__, "encryption_type", encryption_type)
         if kms_key is not None:
@@ -254,14 +250,10 @@ class RepositoryCreationTemplateEncryptionConfiguration(dict):
     def encryption_type(self) -> 'RepositoryCreationTemplateEncryptionType':
         """
         The encryption type to use.
-
-        If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created.
-
-        If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS KMS Management Service key stored in AWS KMS . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you've already created.
-
-        If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
-
-        For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide* .
+         If you use the ``KMS`` encryption type, the contents of the repository will be encrypted using server-side encryption with KMSlong key stored in KMS. When you use KMS to encrypt your data, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you already created.
+         If you use the ``KMS_DSSE`` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the KMS Management Service key stored in KMS. Similar to the ``KMS`` encryption type, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you've already created. 
+         If you use the ``AES256`` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
+         For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
         """
         return pulumi.get(self, "encryption_type")
 
@@ -269,7 +261,7 @@ class RepositoryCreationTemplateEncryptionConfiguration(dict):
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[str]:
         """
-        If you use the `KMS` encryption type, specify the AWS KMS key to use for encryption. The alias, key ID, or full ARN of the AWS KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed AWS KMS key for Amazon ECR will be used.
+        If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
         """
         return pulumi.get(self, "kms_key")
 
@@ -277,15 +269,15 @@ class RepositoryCreationTemplateEncryptionConfiguration(dict):
 @pulumi.output_type
 class RepositoryCreationTemplateTag(dict):
     """
-    An array of key-value pairs to apply to this resource.
+    The metadata to apply to a resource to help you categorize and organize them. Each tag consists of a key and a value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
     """
     def __init__(__self__, *,
                  key: str,
                  value: str):
         """
-        An array of key-value pairs to apply to this resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        The metadata to apply to a resource to help you categorize and organize them. Each tag consists of a key and a value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+        :param str key: One part of a key-value pair that make up a tag. A ``key`` is a general label that acts like a category for more specific tag values.
+        :param str value: A ``value`` acts as a descriptor within a tag category (key).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -294,7 +286,7 @@ class RepositoryCreationTemplateTag(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        One part of a key-value pair that make up a tag. A ``key`` is a general label that acts like a category for more specific tag values.
         """
         return pulumi.get(self, "key")
 
@@ -302,7 +294,7 @@ class RepositoryCreationTemplateTag(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        A ``value`` acts as a descriptor within a tag category (key).
         """
         return pulumi.get(self, "value")
 
@@ -311,7 +303,7 @@ class RepositoryCreationTemplateTag(dict):
 class RepositoryEncryptionConfiguration(dict):
     """
     The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
-     By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+     By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES256 encryption algorithm. This does not require any action on your part.
      For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
     """
     @staticmethod
@@ -338,7 +330,7 @@ class RepositoryEncryptionConfiguration(dict):
                  kms_key: Optional[str] = None):
         """
         The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
-         By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+         By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES256 encryption algorithm. This does not require any action on your part.
          For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
         :param 'RepositoryEncryptionType' encryption_type: The encryption type to use.
                

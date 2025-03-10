@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AWS::ECR::RepositoryCreationTemplate is used to create repository with configuration from a pre-defined template.
+// The details of the repository creation template associated with the request.
 func LookupRepositoryCreationTemplate(ctx *pulumi.Context, args *LookupRepositoryCreationTemplateArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryCreationTemplateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRepositoryCreationTemplateResult
@@ -23,30 +23,30 @@ func LookupRepositoryCreationTemplate(ctx *pulumi.Context, args *LookupRepositor
 }
 
 type LookupRepositoryCreationTemplateArgs struct {
-	// The prefix use to match the repository name and apply the template.
+	// The repository namespace prefix associated with the repository creation template.
 	Prefix string `pulumi:"prefix"`
 }
 
 type LookupRepositoryCreationTemplateResult struct {
-	// A list of enumerable Strings representing the repository creation scenarios that the template will apply towards.
+	// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
 	AppliedFor []RepositoryCreationTemplateAppliedForItem `pulumi:"appliedFor"`
-	// Create timestamp of the template.
+	// The date and time, in JavaScript date format, when the repository creation template was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+	// The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.
 	CustomRoleArn *string `pulumi:"customRoleArn"`
-	// The description of the template.
+	// The description associated with the repository creation template.
 	Description *string `pulumi:"description"`
 	// The encryption configuration associated with the repository creation template.
 	EncryptionConfiguration *RepositoryCreationTemplateEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// The image tag mutability setting for the repository.
+	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability *RepositoryCreationTemplateImageTagMutability `pulumi:"imageTagMutability"`
-	// The JSON lifecycle policy text to apply to the repository. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
+	// The lifecycle policy to use for repositories created using the template.
 	LifecyclePolicy *string `pulumi:"lifecyclePolicy"`
-	// The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html
+	// he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
 	RepositoryPolicy *string `pulumi:"repositoryPolicy"`
-	// An array of key-value pairs to apply to this resource.
+	// The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 	ResourceTags []RepositoryCreationTemplateTag `pulumi:"resourceTags"`
-	// Update timestamp of the template.
+	// The date and time, in JavaScript date format, when the repository creation template was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
@@ -60,7 +60,7 @@ func LookupRepositoryCreationTemplateOutput(ctx *pulumi.Context, args LookupRepo
 }
 
 type LookupRepositoryCreationTemplateOutputArgs struct {
-	// The prefix use to match the repository name and apply the template.
+	// The repository namespace prefix associated with the repository creation template.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
 }
 
@@ -82,24 +82,24 @@ func (o LookupRepositoryCreationTemplateResultOutput) ToLookupRepositoryCreation
 	return o
 }
 
-// A list of enumerable Strings representing the repository creation scenarios that the template will apply towards.
+// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
 func (o LookupRepositoryCreationTemplateResultOutput) AppliedFor() RepositoryCreationTemplateAppliedForItemArrayOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) []RepositoryCreationTemplateAppliedForItem {
 		return v.AppliedFor
 	}).(RepositoryCreationTemplateAppliedForItemArrayOutput)
 }
 
-// Create timestamp of the template.
+// The date and time, in JavaScript date format, when the repository creation template was created.
 func (o LookupRepositoryCreationTemplateResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+// The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.
 func (o LookupRepositoryCreationTemplateResultOutput) CustomRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) *string { return v.CustomRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The description of the template.
+// The description associated with the repository creation template.
 func (o LookupRepositoryCreationTemplateResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -111,29 +111,29 @@ func (o LookupRepositoryCreationTemplateResultOutput) EncryptionConfiguration() 
 	}).(RepositoryCreationTemplateEncryptionConfigurationPtrOutput)
 }
 
-// The image tag mutability setting for the repository.
+// The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 func (o LookupRepositoryCreationTemplateResultOutput) ImageTagMutability() RepositoryCreationTemplateImageTagMutabilityPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) *RepositoryCreationTemplateImageTagMutability {
 		return v.ImageTagMutability
 	}).(RepositoryCreationTemplateImageTagMutabilityPtrOutput)
 }
 
-// The JSON lifecycle policy text to apply to the repository. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
+// The lifecycle policy to use for repositories created using the template.
 func (o LookupRepositoryCreationTemplateResultOutput) LifecyclePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) *string { return v.LifecyclePolicy }).(pulumi.StringPtrOutput)
 }
 
-// The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html
+// he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
 func (o LookupRepositoryCreationTemplateResultOutput) RepositoryPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) *string { return v.RepositoryPolicy }).(pulumi.StringPtrOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
+// The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 func (o LookupRepositoryCreationTemplateResultOutput) ResourceTags() RepositoryCreationTemplateTagArrayOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) []RepositoryCreationTemplateTag { return v.ResourceTags }).(RepositoryCreationTemplateTagArrayOutput)
 }
 
-// Update timestamp of the template.
+// The date and time, in JavaScript date format, when the repository creation template was last updated.
 func (o LookupRepositoryCreationTemplateResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }

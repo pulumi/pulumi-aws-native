@@ -83,6 +83,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes IAM Identity Center options in the form of a key-value map.
+        /// </summary>
         [Output("iamIdentityCenterOptions")]
         public Output<Outputs.SecurityConfigIamIdentityCenterConfigOptions?> IamIdentityCenterOptions { get; private set; } = null!;
 
@@ -161,6 +164,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Describes IAM Identity Center options in the form of a key-value map.
+        /// </summary>
         [Input("iamIdentityCenterOptions")]
         public Input<Inputs.SecurityConfigIamIdentityCenterConfigOptionsArgs>? IamIdentityCenterOptions { get; set; }
 

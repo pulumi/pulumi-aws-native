@@ -114,12 +114,15 @@ AWS::Backup::RestoreTestingPlan
 AWS::Backup::RestoreTestingSelection
 AWS::BackupGateway::Hypervisor
 AWS::Batch::ComputeEnvironment
+AWS::Batch::ConsumableResource
 AWS::Batch::JobDefinition
 AWS::Batch::JobQueue
 AWS::Batch::SchedulingPolicy
 AWS::Bedrock::Agent
 AWS::Bedrock::AgentAlias
 AWS::Bedrock::ApplicationInferenceProfile
+AWS::Bedrock::Blueprint
+AWS::Bedrock::DataAutomationProject
 AWS::Bedrock::DataSource
 AWS::Bedrock::Flow
 AWS::Bedrock::FlowAlias
@@ -505,6 +508,8 @@ AWS::GameLift::Location
 AWS::GameLift::MatchmakingConfiguration
 AWS::GameLift::MatchmakingRuleSet
 AWS::GameLift::Script
+AWS::GameLiftStreams::Application
+AWS::GameLiftStreams::StreamGroup
 AWS::GlobalAccelerator::Accelerator
 AWS::GlobalAccelerator::CrossAccountAttachment
 AWS::GlobalAccelerator::EndpointGroup
@@ -800,6 +805,7 @@ AWS::Omics::VariantStore
 AWS::Omics::Workflow
 AWS::OpenSearchServerless::AccessPolicy
 AWS::OpenSearchServerless::Collection
+AWS::OpenSearchServerless::Index
 AWS::OpenSearchServerless::LifecyclePolicy
 AWS::OpenSearchServerless::SecurityConfig
 AWS::OpenSearchServerless::SecurityPolicy
@@ -1127,6 +1133,7 @@ AWS::WorkSpacesWeb::UserSettings
 AWS::XRay::Group
 AWS::XRay::ResourcePolicy
 AWS::XRay::SamplingRule
+AWS::XRay::TransactionSearchConfig
 AWSQS::EKS::Cluster
 AWSQS::Kubernetes::Get
 AWSQS::Kubernetes::Helm

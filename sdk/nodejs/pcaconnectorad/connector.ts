@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::PCAConnectorAD::Connector Resource Type
+ * Represents a Connector that connects AWS PrivateCA and your directory
  */
 export class Connector extends pulumi.CustomResource {
     /**

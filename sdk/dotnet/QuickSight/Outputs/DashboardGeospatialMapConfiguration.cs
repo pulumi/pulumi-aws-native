@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The general visual interactions setup for a visual.
         /// </summary>
-        public readonly object? Interactions;
+        public readonly Outputs.DashboardVisualInteractionOptions? Interactions;
         /// <summary>
         /// The legend display setup of the visual.
         /// </summary>
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private DashboardGeospatialMapConfiguration(
             Outputs.DashboardGeospatialMapFieldWells? fieldWells,
 
-            object? interactions,
+            Outputs.DashboardVisualInteractionOptions? interactions,
 
             Outputs.DashboardLegendOptions? legend,
 

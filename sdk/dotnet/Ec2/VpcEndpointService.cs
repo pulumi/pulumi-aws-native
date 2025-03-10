@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> ServiceId { get; private set; } = null!;
 
         /// <summary>
+        /// Specify which Ip Address types are supported for VPC endpoint service.
+        /// </summary>
+        [Output("supportedIpAddressTypes")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Ec2.VpcEndpointServiceIpAddressType>> SupportedIpAddressTypes { get; private set; } = null!;
+
+        /// <summary>
         /// The tags to add to the VPC endpoint service.
         /// </summary>
         [Output("tags")]
@@ -143,6 +149,18 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("payerResponsibility")]
         public Input<string>? PayerResponsibility { get; set; }
+
+        [Input("supportedIpAddressTypes")]
+        private InputList<Pulumi.AwsNative.Ec2.VpcEndpointServiceIpAddressType>? _supportedIpAddressTypes;
+
+        /// <summary>
+        /// Specify which Ip Address types are supported for VPC endpoint service.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Ec2.VpcEndpointServiceIpAddressType> SupportedIpAddressTypes
+        {
+            get => _supportedIpAddressTypes ?? (_supportedIpAddressTypes = new InputList<Pulumi.AwsNative.Ec2.VpcEndpointServiceIpAddressType>());
+            set => _supportedIpAddressTypes = value;
+        }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

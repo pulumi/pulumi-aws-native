@@ -15,12 +15,18 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class AgentPromptConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalModelRequestFields")]
+        public Input<Inputs.AgentAdditionalModelRequestFieldsArgs>? AdditionalModelRequestFields { get; set; }
+
         /// <summary>
         /// Base Prompt Template.
         /// </summary>
         [Input("basePromptTemplate")]
         public Input<string>? BasePromptTemplate { get; set; }
 
+        /// <summary>
+        /// The agent's foundation model.
+        /// </summary>
         [Input("foundationModel")]
         public Input<string>? FoundationModel { get; set; }
 

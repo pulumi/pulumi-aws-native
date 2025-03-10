@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Agent collaborator name
         /// </summary>
         public readonly string CollaboratorName;
+        /// <summary>
+        /// The collaborator's relay conversation history.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.AgentRelayConversationHistory? RelayConversationHistory;
 
         [OutputConstructor]

@@ -33,15 +33,15 @@ class RepositoryCreationTemplateArgs:
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateTagArgs']]]] = None):
         """
         The set of arguments for constructing a RepositoryCreationTemplate resource.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]] applied_for: A list of enumerable Strings representing the repository creation scenarios that the template will apply towards.
-        :param pulumi.Input[str] prefix: The prefix use to match the repository name and apply the template.
-        :param pulumi.Input[str] custom_role_arn: The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
-        :param pulumi.Input[str] description: The description of the template.
+        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]] applied_for: A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
+        :param pulumi.Input[str] prefix: The repository namespace prefix associated with the repository creation template.
+        :param pulumi.Input[str] custom_role_arn: The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.
+        :param pulumi.Input[str] description: The description associated with the repository creation template.
         :param pulumi.Input['RepositoryCreationTemplateEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration associated with the repository creation template.
-        :param pulumi.Input['RepositoryCreationTemplateImageTagMutability'] image_tag_mutability: The image tag mutability setting for the repository.
-        :param pulumi.Input[str] lifecycle_policy: The JSON lifecycle policy text to apply to the repository. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
-        :param pulumi.Input[str] repository_policy: The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateTagArgs']]] resource_tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input['RepositoryCreationTemplateImageTagMutability'] image_tag_mutability: The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+        :param pulumi.Input[str] lifecycle_policy: The lifecycle policy to use for repositories created using the template.
+        :param pulumi.Input[str] repository_policy: he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
+        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateTagArgs']]] resource_tags: The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
         """
         pulumi.set(__self__, "applied_for", applied_for)
         pulumi.set(__self__, "prefix", prefix)
@@ -64,7 +64,7 @@ class RepositoryCreationTemplateArgs:
     @pulumi.getter(name="appliedFor")
     def applied_for(self) -> pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]]:
         """
-        A list of enumerable Strings representing the repository creation scenarios that the template will apply towards.
+        A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
         """
         return pulumi.get(self, "applied_for")
 
@@ -76,7 +76,7 @@ class RepositoryCreationTemplateArgs:
     @pulumi.getter
     def prefix(self) -> pulumi.Input[str]:
         """
-        The prefix use to match the repository name and apply the template.
+        The repository namespace prefix associated with the repository creation template.
         """
         return pulumi.get(self, "prefix")
 
@@ -88,7 +88,7 @@ class RepositoryCreationTemplateArgs:
     @pulumi.getter(name="customRoleArn")
     def custom_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+        The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.
         """
         return pulumi.get(self, "custom_role_arn")
 
@@ -100,7 +100,7 @@ class RepositoryCreationTemplateArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the template.
+        The description associated with the repository creation template.
         """
         return pulumi.get(self, "description")
 
@@ -124,7 +124,7 @@ class RepositoryCreationTemplateArgs:
     @pulumi.getter(name="imageTagMutability")
     def image_tag_mutability(self) -> Optional[pulumi.Input['RepositoryCreationTemplateImageTagMutability']]:
         """
-        The image tag mutability setting for the repository.
+        The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
         """
         return pulumi.get(self, "image_tag_mutability")
 
@@ -136,7 +136,7 @@ class RepositoryCreationTemplateArgs:
     @pulumi.getter(name="lifecyclePolicy")
     def lifecycle_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The JSON lifecycle policy text to apply to the repository. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
+        The lifecycle policy to use for repositories created using the template.
         """
         return pulumi.get(self, "lifecycle_policy")
 
@@ -148,7 +148,7 @@ class RepositoryCreationTemplateArgs:
     @pulumi.getter(name="repositoryPolicy")
     def repository_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html
+        he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
         """
         return pulumi.get(self, "repository_policy")
 
@@ -160,7 +160,7 @@ class RepositoryCreationTemplateArgs:
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateTagArgs']]]]:
         """
-        An array of key-value pairs to apply to this resource.
+        The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
         """
         return pulumi.get(self, "resource_tags")
 
@@ -185,19 +185,19 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateTagArgs', 'RepositoryCreationTemplateTagArgsDict']]]]] = None,
                  __props__=None):
         """
-        AWS::ECR::RepositoryCreationTemplate is used to create repository with configuration from a pre-defined template.
+        The details of the repository creation template associated with the request.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]] applied_for: A list of enumerable Strings representing the repository creation scenarios that the template will apply towards.
-        :param pulumi.Input[str] custom_role_arn: The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
-        :param pulumi.Input[str] description: The description of the template.
+        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]] applied_for: A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
+        :param pulumi.Input[str] custom_role_arn: The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.
+        :param pulumi.Input[str] description: The description associated with the repository creation template.
         :param pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']] encryption_configuration: The encryption configuration associated with the repository creation template.
-        :param pulumi.Input['RepositoryCreationTemplateImageTagMutability'] image_tag_mutability: The image tag mutability setting for the repository.
-        :param pulumi.Input[str] lifecycle_policy: The JSON lifecycle policy text to apply to the repository. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
-        :param pulumi.Input[str] prefix: The prefix use to match the repository name and apply the template.
-        :param pulumi.Input[str] repository_policy: The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateTagArgs', 'RepositoryCreationTemplateTagArgsDict']]]] resource_tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input['RepositoryCreationTemplateImageTagMutability'] image_tag_mutability: The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+        :param pulumi.Input[str] lifecycle_policy: The lifecycle policy to use for repositories created using the template.
+        :param pulumi.Input[str] prefix: The repository namespace prefix associated with the repository creation template.
+        :param pulumi.Input[str] repository_policy: he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateTagArgs', 'RepositoryCreationTemplateTagArgsDict']]]] resource_tags: The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
         """
         ...
     @overload
@@ -206,7 +206,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
                  args: RepositoryCreationTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        AWS::ECR::RepositoryCreationTemplate is used to create repository with configuration from a pre-defined template.
+        The details of the repository creation template associated with the request.
 
         :param str resource_name: The name of the resource.
         :param RepositoryCreationTemplateArgs args: The arguments to use to populate this resource's properties.
@@ -297,7 +297,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     @pulumi.getter(name="appliedFor")
     def applied_for(self) -> pulumi.Output[Sequence['RepositoryCreationTemplateAppliedForItem']]:
         """
-        A list of enumerable Strings representing the repository creation scenarios that the template will apply towards.
+        A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
         """
         return pulumi.get(self, "applied_for")
 
@@ -305,7 +305,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
         """
-        Create timestamp of the template.
+        The date and time, in JavaScript date format, when the repository creation template was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -313,7 +313,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     @pulumi.getter(name="customRoleArn")
     def custom_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+        The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.
         """
         return pulumi.get(self, "custom_role_arn")
 
@@ -321,7 +321,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the template.
+        The description associated with the repository creation template.
         """
         return pulumi.get(self, "description")
 
@@ -337,7 +337,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     @pulumi.getter(name="imageTagMutability")
     def image_tag_mutability(self) -> pulumi.Output[Optional['RepositoryCreationTemplateImageTagMutability']]:
         """
-        The image tag mutability setting for the repository.
+        The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
         """
         return pulumi.get(self, "image_tag_mutability")
 
@@ -345,7 +345,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     @pulumi.getter(name="lifecyclePolicy")
     def lifecycle_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        The JSON lifecycle policy text to apply to the repository. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
+        The lifecycle policy to use for repositories created using the template.
         """
         return pulumi.get(self, "lifecycle_policy")
 
@@ -353,7 +353,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     @pulumi.getter
     def prefix(self) -> pulumi.Output[str]:
         """
-        The prefix use to match the repository name and apply the template.
+        The repository namespace prefix associated with the repository creation template.
         """
         return pulumi.get(self, "prefix")
 
@@ -361,7 +361,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     @pulumi.getter(name="repositoryPolicy")
     def repository_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html
+        he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
         """
         return pulumi.get(self, "repository_policy")
 
@@ -369,7 +369,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryCreationTemplateTag']]]:
         """
-        An array of key-value pairs to apply to this resource.
+        The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
         """
         return pulumi.get(self, "resource_tags")
 
@@ -377,7 +377,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
         """
-        Update timestamp of the template.
+        The date and time, in JavaScript date format, when the repository creation template was last updated.
         """
         return pulumi.get(self, "updated_at")
 

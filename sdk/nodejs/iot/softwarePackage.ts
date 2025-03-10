@@ -37,11 +37,17 @@ export class SoftwarePackage extends pulumi.CustomResource {
         return obj['__pulumiType'] === SoftwarePackage.__pulumiType;
     }
 
+    /**
+     * A summary of the package being created. This can be used to outline the package's contents or purpose.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the package.
      */
     public /*out*/ readonly packageArn!: pulumi.Output<string>;
+    /**
+     * The name of the new software package.
+     */
     public readonly packageName!: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -80,7 +86,13 @@ export class SoftwarePackage extends pulumi.CustomResource {
  * The set of arguments for constructing a SoftwarePackage resource.
  */
 export interface SoftwarePackageArgs {
+    /**
+     * A summary of the package being created. This can be used to outline the package's contents or purpose.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the new software package.
+     */
     packageName?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.

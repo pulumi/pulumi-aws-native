@@ -13,11 +13,13 @@ import (
 type LinkResourceType string
 
 const (
-	LinkResourceTypeAwsCloudWatchMetric               = LinkResourceType("AWS::CloudWatch::Metric")
-	LinkResourceTypeAwsLogsLogGroup                   = LinkResourceType("AWS::Logs::LogGroup")
-	LinkResourceTypeAwsxRayTrace                      = LinkResourceType("AWS::XRay::Trace")
-	LinkResourceTypeAwsApplicationInsightsApplication = LinkResourceType("AWS::ApplicationInsights::Application")
-	LinkResourceTypeAwsInternetMonitorMonitor         = LinkResourceType("AWS::InternetMonitor::Monitor")
+	LinkResourceTypeAwsCloudWatchMetric                        = LinkResourceType("AWS::CloudWatch::Metric")
+	LinkResourceTypeAwsLogsLogGroup                            = LinkResourceType("AWS::Logs::LogGroup")
+	LinkResourceTypeAwsxRayTrace                               = LinkResourceType("AWS::XRay::Trace")
+	LinkResourceTypeAwsApplicationInsightsApplication          = LinkResourceType("AWS::ApplicationInsights::Application")
+	LinkResourceTypeAwsInternetMonitorMonitor                  = LinkResourceType("AWS::InternetMonitor::Monitor")
+	LinkResourceTypeAwsApplicationSignalsService               = LinkResourceType("AWS::ApplicationSignals::Service")
+	LinkResourceTypeAwsApplicationSignalsServiceLevelObjective = LinkResourceType("AWS::ApplicationSignals::ServiceLevelObjective")
 )
 
 func (LinkResourceType) ElementType() reflect.Type {
@@ -147,6 +149,8 @@ func (o LinkResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 //	LinkResourceTypeAwsxRayTrace
 //	LinkResourceTypeAwsApplicationInsightsApplication
 //	LinkResourceTypeAwsInternetMonitorMonitor
+//	LinkResourceTypeAwsApplicationSignalsService
+//	LinkResourceTypeAwsApplicationSignalsServiceLevelObjective
 type LinkResourceTypeInput interface {
 	pulumi.Input
 

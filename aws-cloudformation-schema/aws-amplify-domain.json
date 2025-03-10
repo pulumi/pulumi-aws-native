@@ -125,10 +125,10 @@
   "writeOnlyProperties" : [ "/properties/CertificateSettings" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "amplify:CreateDomainAssociation", "route53:ListHostedZones", "route53:ChangeResourceRecordSets", "iam:PassRole", "amplify:TagResource" ]
+      "permissions" : [ "amplify:GetDomainAssociation", "amplify:CreateDomainAssociation", "route53:ListHostedZones", "route53:ChangeResourceRecordSets", "iam:PassRole", "amplify:TagResource" ]
     },
     "delete" : {
-      "permissions" : [ "amplify:DeleteDomainAssociation", "iam:PassRole", "amplify:DeleteDomainAssociation" ]
+      "permissions" : [ "amplify:GetDomainAssociation", "amplify:DeleteDomainAssociation", "route53:ListHostedZones", "iam:PassRole" ]
     },
     "list" : {
       "permissions" : [ "amplify:ListDomainAssociations", "iam:PassRole", "amplify:ListTagsForResource" ]
@@ -137,7 +137,7 @@
       "permissions" : [ "amplify:GetDomainAssociation", "route53:ListHostedZones", "iam:PassRole", "amplify:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "amplify:UpdateDomainAssociation", "route53:ListHostedZones", "route53:ChangeResourceRecordSets", "iam:PassRole", "amplify:ListTagsForResource", "amplify:TagResource", "amplify:UntagResource" ]
+      "permissions" : [ "amplify:GetDomainAssociation", "amplify:UpdateDomainAssociation", "route53:ListHostedZones", "route53:ChangeResourceRecordSets", "iam:PassRole", "amplify:ListTagsForResource", "amplify:TagResource", "amplify:UntagResource" ]
     }
   }
 }

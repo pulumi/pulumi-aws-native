@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
+ * Resource Type definition for AWS::CE::CostCategory. Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
  */
 export class CostCategory extends pulumi.CustomResource {
     /**
@@ -65,6 +65,10 @@ export class CostCategory extends pulumi.CustomResource {
      * Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
      */
     public readonly splitChargeRules!: pulumi.Output<string | undefined>;
+    /**
+     * Tags to assign to the cost category.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CostCategory resource with the given unique name, arguments, and options.
@@ -88,6 +92,7 @@ export class CostCategory extends pulumi.CustomResource {
             resourceInputs["ruleVersion"] = args ? args.ruleVersion : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["splitChargeRules"] = args ? args.splitChargeRules : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["effectiveStart"] = undefined /*out*/;
         } else {
@@ -98,6 +103,7 @@ export class CostCategory extends pulumi.CustomResource {
             resourceInputs["ruleVersion"] = undefined /*out*/;
             resourceInputs["rules"] = undefined /*out*/;
             resourceInputs["splitChargeRules"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["name"] };
@@ -130,4 +136,8 @@ export interface CostCategoryArgs {
      * Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
      */
     splitChargeRules?: pulumi.Input<string>;
+    /**
+     * Tags to assign to the cost category.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -34,6 +34,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? GroupLabelOptions;
         /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        public readonly Outputs.TemplateVisualInteractionOptions? Interactions;
+        /// <summary>
         /// The legend display setup of the visual.
         /// </summary>
         public readonly Outputs.TemplateLegendOptions? Legend;
@@ -62,6 +66,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateChartAxisLabelOptions? groupLabelOptions,
 
+            Outputs.TemplateVisualInteractionOptions? interactions,
+
             Outputs.TemplateLegendOptions? legend,
 
             Outputs.TemplateChartAxisLabelOptions? sizeLabelOptions,
@@ -75,6 +81,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             DataLabels = dataLabels;
             FieldWells = fieldWells;
             GroupLabelOptions = groupLabelOptions;
+            Interactions = interactions;
             Legend = legend;
             SizeLabelOptions = sizeLabelOptions;
             SortConfiguration = sortConfiguration;

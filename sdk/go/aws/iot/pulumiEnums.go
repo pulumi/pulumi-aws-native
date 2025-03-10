@@ -5591,6 +5591,99 @@ func (o SoftwarePackageVersionPackageVersionStatusPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The validation status of the Sbom file
+type SoftwarePackageVersionSbomValidationStatus string
+
+const (
+	SoftwarePackageVersionSbomValidationStatusInProgress = SoftwarePackageVersionSbomValidationStatus("IN_PROGRESS")
+	SoftwarePackageVersionSbomValidationStatusFailed     = SoftwarePackageVersionSbomValidationStatus("FAILED")
+	SoftwarePackageVersionSbomValidationStatusSucceeded  = SoftwarePackageVersionSbomValidationStatus("SUCCEEDED")
+	SoftwarePackageVersionSbomValidationStatusEmpty      = SoftwarePackageVersionSbomValidationStatus("")
+)
+
+type SoftwarePackageVersionSbomValidationStatusOutput struct{ *pulumi.OutputState }
+
+func (SoftwarePackageVersionSbomValidationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwarePackageVersionSbomValidationStatus)(nil)).Elem()
+}
+
+func (o SoftwarePackageVersionSbomValidationStatusOutput) ToSoftwarePackageVersionSbomValidationStatusOutput() SoftwarePackageVersionSbomValidationStatusOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionSbomValidationStatusOutput) ToSoftwarePackageVersionSbomValidationStatusOutputWithContext(ctx context.Context) SoftwarePackageVersionSbomValidationStatusOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionSbomValidationStatusOutput) ToSoftwarePackageVersionSbomValidationStatusPtrOutput() SoftwarePackageVersionSbomValidationStatusPtrOutput {
+	return o.ToSoftwarePackageVersionSbomValidationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o SoftwarePackageVersionSbomValidationStatusOutput) ToSoftwarePackageVersionSbomValidationStatusPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionSbomValidationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwarePackageVersionSbomValidationStatus) *SoftwarePackageVersionSbomValidationStatus {
+		return &v
+	}).(SoftwarePackageVersionSbomValidationStatusPtrOutput)
+}
+
+func (o SoftwarePackageVersionSbomValidationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SoftwarePackageVersionSbomValidationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SoftwarePackageVersionSbomValidationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SoftwarePackageVersionSbomValidationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SoftwarePackageVersionSbomValidationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SoftwarePackageVersionSbomValidationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SoftwarePackageVersionSbomValidationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (SoftwarePackageVersionSbomValidationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwarePackageVersionSbomValidationStatus)(nil)).Elem()
+}
+
+func (o SoftwarePackageVersionSbomValidationStatusPtrOutput) ToSoftwarePackageVersionSbomValidationStatusPtrOutput() SoftwarePackageVersionSbomValidationStatusPtrOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionSbomValidationStatusPtrOutput) ToSoftwarePackageVersionSbomValidationStatusPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionSbomValidationStatusPtrOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionSbomValidationStatusPtrOutput) Elem() SoftwarePackageVersionSbomValidationStatusOutput {
+	return o.ApplyT(func(v *SoftwarePackageVersionSbomValidationStatus) SoftwarePackageVersionSbomValidationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret SoftwarePackageVersionSbomValidationStatus
+		return ret
+	}).(SoftwarePackageVersionSbomValidationStatusOutput)
+}
+
+func (o SoftwarePackageVersionSbomValidationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SoftwarePackageVersionSbomValidationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SoftwarePackageVersionSbomValidationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The attribute associated with the connection details.
 type ThingTypePropagatingAttributeConnectionAttribute string
 
@@ -6240,6 +6333,8 @@ func init() {
 	pulumi.RegisterOutputType(SecurityProfileStatisticalThresholdStatisticPtrOutput{})
 	pulumi.RegisterOutputType(SoftwarePackageVersionPackageVersionStatusOutput{})
 	pulumi.RegisterOutputType(SoftwarePackageVersionPackageVersionStatusPtrOutput{})
+	pulumi.RegisterOutputType(SoftwarePackageVersionSbomValidationStatusOutput{})
+	pulumi.RegisterOutputType(SoftwarePackageVersionSbomValidationStatusPtrOutput{})
 	pulumi.RegisterOutputType(ThingTypePropagatingAttributeConnectionAttributeOutput{})
 	pulumi.RegisterOutputType(ThingTypePropagatingAttributeConnectionAttributePtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleCannedAccessControlListOutput{})

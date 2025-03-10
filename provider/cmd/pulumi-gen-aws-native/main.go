@@ -16,6 +16,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"slices"
 	"sort"
 	"strings"
 
@@ -89,12 +90,25 @@ func main() {
 	flag.StringVar(&version, "version", "", "the provider version to record in the generated code")
 	flag.StringVar(&schemaFolder, "schema-folder", "", "The folder containing the CloudFormation schema files")
 	flag.StringVar(&docsUrl, "docs-url", "", "The URL to download the CloudFormation docs")
-	flag.StringVar(&metadataFolder, "metadata-folder", "", "The folder containing metadata files needed for schema generation")
+	flag.StringVar(
+		&metadataFolder,
+		"metadata-folder",
+		"",
+		"The folder containing metadata files needed for schema generation",
+	)
 	flag.Var(&jsonSchemaUrls, "schema-urls", "A comma delimited list of CloudFormation schema urls")
 
 	flag.Parse()
 	operation = flag.Arg(0)
-	fmt.Printf("%s: version: %s, schema-folder: %s, docs-url: %s, schema-urls: %s, metadata-folder: %s\n", operation, version, schemaFolder, docsUrl, jsonSchemaUrls, metadataFolder)
+	fmt.Printf(
+		"%s: version: %s, schema-folder: %s, docs-url: %s, schema-urls: %s, metadata-folder: %s\n",
+		operation,
+		version,
+		schemaFolder,
+		docsUrl,
+		jsonSchemaUrls,
+		metadataFolder,
+	)
 	if version == "" && operation == "" && (jsonSchemaUrls == nil && docsUrl == "") {
 		flag.Usage()
 		return
@@ -132,14 +146,16 @@ func main() {
 		if err := writeSupportedResourceTypes(genDir); err != nil {
 			fatalf("error writing supported resource types: %v", err)
 		}
-		if err := downloadCloudFormationSchemas(jsonSchemaUrls, filepath.Join(".", schemaFolder)); err != nil {
+		if err := downloadCloudFormationSchemas(jsonSchemaUrls, filepath.Join(".", schemaFolder), genDir); err != nil {
 			fatalf("error downloading CloudFormation schemas: %v", err)
 		}
 
 	case "schema":
 		supportedTypes := readSupportedResourceTypes(genDir)
 		jsonSchemas := readJsonSchemas(schemaFolder, autoNameOverlay)
-		docsTypes, err := schema.ReadCloudFormationDocsFile(filepath.Join(".", "aws-cloudformation-docs", "CloudFormationDocumentation.json"))
+		docsTypes, err := schema.ReadCloudFormationDocsFile(
+			filepath.Join(".", "aws-cloudformation-docs", "CloudFormationDocumentation.json"),
+		)
 		if err != nil {
 			fatalf("error reading CloudFormation docs file: %v", err)
 		}
@@ -158,7 +174,15 @@ func main() {
 			fatalf("error reading %q", refDBFile)
 		}
 
-		packageSpec, meta, reports, err := schema.GatherPackage(supportedTypes, jsonSchemas, false, &semanticsDocument, docsTypes, regions, refDB)
+		packageSpec, meta, reports, err := schema.GatherPackage(
+			supportedTypes,
+			jsonSchemas,
+			false,
+			&semanticsDocument,
+			docsTypes,
+			regions,
+			refDB,
+		)
 		if err != nil {
 			fatalf("error generating schema: %v", err)
 		}
@@ -285,6 +309,15 @@ func readSupportedResourceTypes(outDir string) []string {
 	return strings.Split(strings.Trim(string(bytes), "\n"), "\n")
 }
 
+func readDeprecatedResourceTypes(outdir string) []string {
+	path := filepath.Join(outdir, deprecatedResourcesFile)
+	bytes, err := os.ReadFile(path)
+	if err != nil {
+		panic(err)
+	}
+	return strings.Split(strings.Trim(string(bytes), "\n"), "\n")
+}
+
 func readAutonamingOverlay(file string) (map[string]AutoNamingOverlay, error) {
 	bytes, err := os.ReadFile(file)
 	if err != nil {
@@ -350,13 +383,28 @@ func writeSupportedResourceTypes(outDir string) error {
 	return emitFile(outDir, supportedResourcesFile, []byte(supportedContent))
 }
 
-func cleanDir(dir string, perm os.FileMode) error {
-	err := os.RemoveAll(dir)
-	if err != nil {
-		return err
+func cleanDir(dir string, perm os.FileMode, exclude ...string) error {
+	if exclude == nil {
+		err := os.RemoveAll(dir)
+		if err != nil {
+			return err
+		}
+		return os.MkdirAll(dir, perm)
 	}
-
-	return os.MkdirAll(dir, perm)
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		return nil
+	}
+	for _, entry := range entries {
+		if slices.Contains(exclude, entry.Name()) {
+			continue
+		}
+		err := os.RemoveAll(filepath.Join(dir, entry.Name()))
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 func downloadCloudFormationDocs(url, outDir string) error {
@@ -382,9 +430,9 @@ func downloadCloudFormationDocs(url, outDir string) error {
 	return nil
 }
 
-func downloadCloudFormationSchemas(urls []string, outDir string) error {
+func downloadCloudFormationSchemas(urls []string, outDir string, genDir string) error {
 	// start with an empty directory
-	err := cleanDir(outDir, 0755)
+	err := cleanDir(outDir, 0755, readDeprecatedResourceTypes(genDir)...)
 	if err != nil {
 		return err
 	}

@@ -31,7 +31,7 @@ type EventBridgeRuleTemplate struct {
 	// An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
 	// An eventbridge rule template group's identifier. Can be either be its id or current name.
-	GroupIdentifier pulumi.StringOutput `pulumi:"groupIdentifier"`
+	GroupIdentifier pulumi.StringPtrOutput `pulumi:"groupIdentifier"`
 	// Placeholder documentation for __string
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// Placeholder documentation for __timestampIso8601
@@ -50,9 +50,6 @@ func NewEventBridgeRuleTemplate(ctx *pulumi.Context,
 
 	if args.EventType == nil {
 		return nil, errors.New("invalid value for required argument 'EventType'")
-	}
-	if args.GroupIdentifier == nil {
-		return nil, errors.New("invalid value for required argument 'GroupIdentifier'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"tags.*",
@@ -98,7 +95,7 @@ type eventBridgeRuleTemplateArgs struct {
 	// The type of event to match with the rule.
 	EventType EventBridgeRuleTemplateEventType `pulumi:"eventType"`
 	// An eventbridge rule template group's identifier. Can be either be its id or current name.
-	GroupIdentifier string `pulumi:"groupIdentifier"`
+	GroupIdentifier *string `pulumi:"groupIdentifier"`
 	// A resource's name. Names must be unique within the scope of a resource type in a specific region.
 	Name *string           `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
@@ -113,7 +110,7 @@ type EventBridgeRuleTemplateArgs struct {
 	// The type of event to match with the rule.
 	EventType EventBridgeRuleTemplateEventTypeInput
 	// An eventbridge rule template group's identifier. Can be either be its id or current name.
-	GroupIdentifier pulumi.StringInput
+	GroupIdentifier pulumi.StringPtrInput
 	// A resource's name. Names must be unique within the scope of a resource type in a specific region.
 	Name pulumi.StringPtrInput
 	Tags pulumi.StringMapInput
@@ -192,8 +189,8 @@ func (o EventBridgeRuleTemplateOutput) GroupId() pulumi.StringOutput {
 }
 
 // An eventbridge rule template group's identifier. Can be either be its id or current name.
-func (o EventBridgeRuleTemplateOutput) GroupIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventBridgeRuleTemplate) pulumi.StringOutput { return v.GroupIdentifier }).(pulumi.StringOutput)
+func (o EventBridgeRuleTemplateOutput) GroupIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventBridgeRuleTemplate) pulumi.StringPtrOutput { return v.GroupIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // Placeholder documentation for __string

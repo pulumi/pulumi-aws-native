@@ -15,10 +15,16 @@ export function getServerlessCluster(args: GetServerlessClusterArgs, opts?: pulu
 }
 
 export interface GetServerlessClusterArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the MSK cluster.
+     */
     arn: string;
 }
 
 export interface GetServerlessClusterResult {
+    /**
+     * The Amazon Resource Name (ARN) of the MSK cluster.
+     */
     readonly arn?: string;
 }
 /**
@@ -32,5 +38,8 @@ export function getServerlessClusterOutput(args: GetServerlessClusterOutputArgs,
 }
 
 export interface GetServerlessClusterOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the MSK cluster.
+     */
     arn: pulumi.Input<string>;
 }

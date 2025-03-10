@@ -216,7 +216,10 @@ func GatherPackage(
 					},
 					"endpoints": {
 						Description: "Configuration block for customizing service endpoints.",
-						TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderEndpoint"}},
+						TypeSpec: pschema.TypeSpec{
+							Type:  "array",
+							Items: &pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderEndpoint"},
+						},
 					},
 					"forbiddenAccountIds": {
 						Description: "List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.",
@@ -303,7 +306,10 @@ func GatherPackage(
 				},
 				"endpoints": {
 					Description: "Configuration block for customizing service endpoints.",
-					TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderEndpoint"}},
+					TypeSpec: pschema.TypeSpec{
+						Type:  "array",
+						Items: &pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderEndpoint"},
+					},
 				},
 				"forbiddenAccountIds": {
 					Description: "List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.",
@@ -673,19 +679,32 @@ type cfSchemaContext struct {
 	docs             *Docs
 }
 
-func (ctx *cfSchemaContext) markCreateOnlyProperties(createOnlyProperties codegen.StringSet, resource *pschema.ResourceSpec) error {
+func (ctx *cfSchemaContext) markCreateOnlyProperties(
+	createOnlyProperties codegen.StringSet,
+	resource *pschema.ResourceSpec,
+) error {
 	errs := []error{}
 	for _, propPath := range createOnlyProperties.SortedValues() {
 		// each path in createOnlyProperties is delimited with "/"
 		path := strings.Split(propPath, "/")
 		prop, ok := resource.Properties[path[0]]
 		if !ok {
-			errs = append(errs, errors.Errorf("Could not mark createOnlyProperty %s in %s as replaceOnChanges: property not found on Resource", propPath, ctx.cfTypeName))
+			errs = append(
+				errs,
+				errors.Errorf(
+					"Could not mark createOnlyProperty %s in %s as replaceOnChanges: property not found on Resource",
+					propPath,
+					ctx.cfTypeName,
+				),
+			)
 			continue
 		}
 		err := ctx.markCreateOnlyProperty(path[1:], &prop)
 		if err != nil {
-			errs = append(errs, errors.Wrapf(err, "Could not mark createOnlyProperty %s in %s as replaceOnChanges", propPath, ctx.cfTypeName))
+			errs = append(
+				errs,
+				errors.Wrapf(err, "Could not mark createOnlyProperty %s in %s as replaceOnChanges", propPath, ctx.cfTypeName),
+			)
 		}
 		resource.Properties[path[0]] = prop
 	}
@@ -713,7 +732,8 @@ func (ctx *cfSchemaContext) markCreateOnlyProperty(propPath []string, property *
 	}
 
 	// Next try looking at it as an array of objects
-	if property.Items != nil && len(property.Items.Ref) != 0 && !strings.HasPrefix(property.Items.Ref, "#/types/aws-native:index") {
+	if property.Items != nil && len(property.Items.Ref) != 0 &&
+		!strings.HasPrefix(property.Items.Ref, "#/types/aws-native:index") {
 		typeRef := property.Items.Ref
 		if len(typeRef) == 0 {
 			return errors.Errorf("Property does not reference an array: %v", property)
@@ -908,7 +928,12 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 
 	}
 
-	autoNamingSpec := autonaming.CreateAutoNamingSpec(inputProperties, resourceTypeName, ctx.resourceSpec.Properties, ctx.semantics.Resources[ctx.resourceToken])
+	autoNamingSpec := autonaming.CreateAutoNamingSpec(
+		inputProperties,
+		resourceTypeName,
+		ctx.resourceSpec.Properties,
+		ctx.semantics.Resources[ctx.resourceToken],
+	)
 	// If a field can be auto-named, its no longer required.
 	if autoNamingSpec != nil {
 		delete(requiredInputs, autoNamingSpec.SdkName)
@@ -922,7 +947,10 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 	ctx.updateDesc(ctx.cfTypeName, "", ctx.resourceSpec)
 	var deprecationMessage string
 	if !ctx.isSupported {
-		deprecationMessage = fmt.Sprintf("%s is not yet supported by AWS Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.", resourceTypeName)
+		deprecationMessage = fmt.Sprintf(
+			"%s is not yet supported by AWS Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.",
+			resourceTypeName,
+		)
 	}
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
@@ -974,7 +1002,10 @@ func addUntypedPropDocs(propertySpec *pschema.PropertySpec, cfTypeName string) {
 		if propertySpec.Description != "" {
 			propertySpec.Description += "\n\n"
 		}
-		propertySpec.Description += fmt.Sprintf("Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `%s` for more information about the expected schema for this property.", cfTypeName)
+		propertySpec.Description += fmt.Sprintf(
+			"Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `%s` for more information about the expected schema for this property.",
+			cfTypeName,
+		)
 	}
 }
 
@@ -994,7 +1025,10 @@ func (ctx *cfSchemaContext) reportMissingDocs(desc, propName string) {
 	}
 }
 
-func (ctx *cfSchemaContext) propertySpec(propName, resourceTypeName string, spec *jsschema.Schema) (*pschema.PropertySpec, error) {
+func (ctx *cfSchemaContext) propertySpec(
+	propName, resourceTypeName string,
+	spec *jsschema.Schema,
+) (*pschema.PropertySpec, error) {
 	typeSpec, err := ctx.propertyTypeSpec(naming.LowerAcronyms(propName), spec)
 	if err != nil {
 		return nil, err
@@ -1142,7 +1176,10 @@ func (ctx *cfSchemaContext) augmentDocumentation(referenceName, propName string,
 }
 
 // propertyTypeSpec converts a JSON type definition to a Pulumi type definition.
-func (ctx *cfSchemaContext) propertyTypeSpec(parentName string, propSchema *jsschema.Schema) (*pschema.TypeSpec, error) {
+func (ctx *cfSchemaContext) propertyTypeSpec(
+	parentName string,
+	propSchema *jsschema.Schema,
+) (*pschema.TypeSpec, error) {
 	propSchema = NormaliseTypes(propSchema)
 
 	// References to other type definitions.
@@ -1401,7 +1438,10 @@ func parseJsonType(t jsschema.PrimitiveType) pschema.TypeSpec {
 	}
 }
 
-func (ctx *cfSchemaContext) genProperties(parentName string, typeSchema *jsschema.Schema) (map[string]pschema.PropertySpec, codegen.StringSet, map[string]string, error) {
+func (ctx *cfSchemaContext) genProperties(
+	parentName string,
+	typeSchema *jsschema.Schema,
+) (map[string]pschema.PropertySpec, codegen.StringSet, map[string]string, error) {
 	specs := map[string]pschema.PropertySpec{}
 	requiredSpecs := codegen.NewStringSet()
 	irreversibleNames := map[string]string{}
@@ -1484,7 +1524,7 @@ func (ctx *cfSchemaContext) genEnumType(enumName string, propSchema *jsschema.Sc
 
 		// Special case for `ChannelPreset` enum in the `AWS::IVS::Channel` resource. The enum has an empty string value which
 		// gets returned by the service in certain default cases (for channel types (BASIC and STANDARD)).
-		if typName == "ChannelPreset" && str == "" {
+		if (typName == "ChannelPreset" || typName == "SoftwarePackageVersionSbomValidationStatus") && str == "" {
 			str = "Empty"
 		}
 
