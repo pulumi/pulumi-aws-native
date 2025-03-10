@@ -20,6 +20,7 @@ import (
 	"strings"
 
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	"slices"
 
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
@@ -132,7 +133,7 @@ func main() {
 		if err := writeSupportedResourceTypes(genDir); err != nil {
 			fatalf("error writing supported resource types: %v", err)
 		}
-		if err := downloadCloudFormationSchemas(jsonSchemaUrls, filepath.Join(".", schemaFolder)); err != nil {
+		if err := downloadCloudFormationSchemas(jsonSchemaUrls, filepath.Join(".", schemaFolder), genDir); err != nil {
 			fatalf("error downloading CloudFormation schemas: %v", err)
 		}
 
@@ -285,6 +286,21 @@ func readSupportedResourceTypes(outDir string) []string {
 	return strings.Split(strings.Trim(string(bytes), "\n"), "\n")
 }
 
+func readDeprecatedResourceTypes(outdir string) []string {
+	path := filepath.Join(outdir, deprecatedResourcesFile)
+	bytes, err := os.ReadFile(path)
+	if err != nil {
+		panic(err)
+	}
+	types := strings.Split(strings.Trim(string(bytes), "\n"), "\n")
+	fileNames := []string{}
+	for _, typ := range types {
+		name := strings.ReplaceAll(typ, "::", "-")
+		fileNames = append(fileNames, fmt.Sprintf("%s.json", strings.ToLower(name)))
+	}
+	return fileNames
+}
+
 func readAutonamingOverlay(file string) (map[string]AutoNamingOverlay, error) {
 	bytes, err := os.ReadFile(file)
 	if err != nil {
@@ -350,13 +366,29 @@ func writeSupportedResourceTypes(outDir string) error {
 	return emitFile(outDir, supportedResourcesFile, []byte(supportedContent))
 }
 
-func cleanDir(dir string, perm os.FileMode) error {
-	err := os.RemoveAll(dir)
+func cleanDir(dir string, perm os.FileMode, keep ...string) error {
+	if keep == nil {
+		err := os.RemoveAll(dir)
+		if err != nil {
+			return err
+		}
+
+		return os.MkdirAll(dir, perm)
+	}
+	entries, err := os.ReadDir(dir)
 	if err != nil {
 		return err
 	}
-
-	return os.MkdirAll(dir, perm)
+	for _, entry := range entries {
+		if slices.Contains(keep, entry.Name()) {
+			continue
+		}
+		err := os.RemoveAll(filepath.Join(dir, entry.Name()))
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 func downloadCloudFormationDocs(url, outDir string) error {
@@ -382,9 +414,9 @@ func downloadCloudFormationDocs(url, outDir string) error {
 	return nil
 }
 
-func downloadCloudFormationSchemas(urls []string, outDir string) error {
+func downloadCloudFormationSchemas(urls []string, outDir string, genDir string) error {
 	// start with an empty directory
-	err := cleanDir(outDir, 0755)
+	err := cleanDir(outDir, 0755, readDeprecatedResourceTypes(genDir)...)
 	if err != nil {
 		return err
 	}
