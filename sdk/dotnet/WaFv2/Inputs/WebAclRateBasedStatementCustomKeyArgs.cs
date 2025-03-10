@@ -51,6 +51,12 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         [Input("ip")]
         public Input<Inputs.WebAclRateLimitIpArgs>? Ip { get; set; }
 
+        [Input("ja3Fingerprint")]
+        public Input<Inputs.WebAclRateLimitJa3FingerprintArgs>? Ja3Fingerprint { get; set; }
+
+        [Input("ja4Fingerprint")]
+        public Input<Inputs.WebAclRateLimitJa4FingerprintArgs>? Ja4Fingerprint { get; set; }
+
         /// <summary>
         /// Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
         /// 

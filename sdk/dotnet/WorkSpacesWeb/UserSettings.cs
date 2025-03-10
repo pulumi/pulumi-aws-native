@@ -88,6 +88,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
+        /// </summary>
+        [Output("toolbarConfiguration")]
+        public Output<Outputs.UserSettingsToolbarConfiguration?> ToolbarConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether the user can upload files from the local device to the streaming session.
         /// </summary>
         [Output("uploadAllowed")]
@@ -221,6 +227,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
+        /// </summary>
+        [Input("toolbarConfiguration")]
+        public Input<Inputs.UserSettingsToolbarConfigurationArgs>? ToolbarConfiguration { get; set; }
 
         /// <summary>
         /// Specifies whether the user can upload files from the local device to the streaming session.

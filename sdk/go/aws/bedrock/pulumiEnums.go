@@ -2597,6 +2597,2478 @@ func (o ApplicationInferenceProfileInferenceProfileTypePtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Stage of the Blueprint
+type BlueprintStage string
+
+const (
+	BlueprintStageDevelopment = BlueprintStage("DEVELOPMENT")
+	BlueprintStageLive        = BlueprintStage("LIVE")
+)
+
+type BlueprintStageOutput struct{ *pulumi.OutputState }
+
+func (BlueprintStageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlueprintStage)(nil)).Elem()
+}
+
+func (o BlueprintStageOutput) ToBlueprintStageOutput() BlueprintStageOutput {
+	return o
+}
+
+func (o BlueprintStageOutput) ToBlueprintStageOutputWithContext(ctx context.Context) BlueprintStageOutput {
+	return o
+}
+
+func (o BlueprintStageOutput) ToBlueprintStagePtrOutput() BlueprintStagePtrOutput {
+	return o.ToBlueprintStagePtrOutputWithContext(context.Background())
+}
+
+func (o BlueprintStageOutput) ToBlueprintStagePtrOutputWithContext(ctx context.Context) BlueprintStagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlueprintStage) *BlueprintStage {
+		return &v
+	}).(BlueprintStagePtrOutput)
+}
+
+func (o BlueprintStageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BlueprintStageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BlueprintStage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BlueprintStageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BlueprintStageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BlueprintStage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BlueprintStagePtrOutput struct{ *pulumi.OutputState }
+
+func (BlueprintStagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlueprintStage)(nil)).Elem()
+}
+
+func (o BlueprintStagePtrOutput) ToBlueprintStagePtrOutput() BlueprintStagePtrOutput {
+	return o
+}
+
+func (o BlueprintStagePtrOutput) ToBlueprintStagePtrOutputWithContext(ctx context.Context) BlueprintStagePtrOutput {
+	return o
+}
+
+func (o BlueprintStagePtrOutput) Elem() BlueprintStageOutput {
+	return o.ApplyT(func(v *BlueprintStage) BlueprintStage {
+		if v != nil {
+			return *v
+		}
+		var ret BlueprintStage
+		return ret
+	}).(BlueprintStageOutput)
+}
+
+func (o BlueprintStagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BlueprintStagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BlueprintStage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Modality Type
+type BlueprintType string
+
+const (
+	BlueprintTypeDocument = BlueprintType("DOCUMENT")
+	BlueprintTypeImage    = BlueprintType("IMAGE")
+)
+
+func (BlueprintType) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlueprintType)(nil)).Elem()
+}
+
+func (e BlueprintType) ToBlueprintTypeOutput() BlueprintTypeOutput {
+	return pulumi.ToOutput(e).(BlueprintTypeOutput)
+}
+
+func (e BlueprintType) ToBlueprintTypeOutputWithContext(ctx context.Context) BlueprintTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BlueprintTypeOutput)
+}
+
+func (e BlueprintType) ToBlueprintTypePtrOutput() BlueprintTypePtrOutput {
+	return e.ToBlueprintTypePtrOutputWithContext(context.Background())
+}
+
+func (e BlueprintType) ToBlueprintTypePtrOutputWithContext(ctx context.Context) BlueprintTypePtrOutput {
+	return BlueprintType(e).ToBlueprintTypeOutputWithContext(ctx).ToBlueprintTypePtrOutputWithContext(ctx)
+}
+
+func (e BlueprintType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BlueprintType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BlueprintType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BlueprintType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BlueprintTypeOutput struct{ *pulumi.OutputState }
+
+func (BlueprintTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlueprintType)(nil)).Elem()
+}
+
+func (o BlueprintTypeOutput) ToBlueprintTypeOutput() BlueprintTypeOutput {
+	return o
+}
+
+func (o BlueprintTypeOutput) ToBlueprintTypeOutputWithContext(ctx context.Context) BlueprintTypeOutput {
+	return o
+}
+
+func (o BlueprintTypeOutput) ToBlueprintTypePtrOutput() BlueprintTypePtrOutput {
+	return o.ToBlueprintTypePtrOutputWithContext(context.Background())
+}
+
+func (o BlueprintTypeOutput) ToBlueprintTypePtrOutputWithContext(ctx context.Context) BlueprintTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlueprintType) *BlueprintType {
+		return &v
+	}).(BlueprintTypePtrOutput)
+}
+
+func (o BlueprintTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BlueprintTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BlueprintType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BlueprintTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BlueprintTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BlueprintType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BlueprintTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BlueprintTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlueprintType)(nil)).Elem()
+}
+
+func (o BlueprintTypePtrOutput) ToBlueprintTypePtrOutput() BlueprintTypePtrOutput {
+	return o
+}
+
+func (o BlueprintTypePtrOutput) ToBlueprintTypePtrOutputWithContext(ctx context.Context) BlueprintTypePtrOutput {
+	return o
+}
+
+func (o BlueprintTypePtrOutput) Elem() BlueprintTypeOutput {
+	return o.ApplyT(func(v *BlueprintType) BlueprintType {
+		if v != nil {
+			return *v
+		}
+		var ret BlueprintType
+		return ret
+	}).(BlueprintTypeOutput)
+}
+
+func (o BlueprintTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BlueprintTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BlueprintType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BlueprintTypeInput is an input type that accepts values of the BlueprintType enum
+// A concrete instance of `BlueprintTypeInput` can be one of the following:
+//
+//	BlueprintTypeDocument
+//	BlueprintTypeImage
+type BlueprintTypeInput interface {
+	pulumi.Input
+
+	ToBlueprintTypeOutput() BlueprintTypeOutput
+	ToBlueprintTypeOutputWithContext(context.Context) BlueprintTypeOutput
+}
+
+var blueprintTypePtrType = reflect.TypeOf((**BlueprintType)(nil)).Elem()
+
+type BlueprintTypePtrInput interface {
+	pulumi.Input
+
+	ToBlueprintTypePtrOutput() BlueprintTypePtrOutput
+	ToBlueprintTypePtrOutputWithContext(context.Context) BlueprintTypePtrOutput
+}
+
+type blueprintTypePtr string
+
+func BlueprintTypePtr(v string) BlueprintTypePtrInput {
+	return (*blueprintTypePtr)(&v)
+}
+
+func (*blueprintTypePtr) ElementType() reflect.Type {
+	return blueprintTypePtrType
+}
+
+func (in *blueprintTypePtr) ToBlueprintTypePtrOutput() BlueprintTypePtrOutput {
+	return pulumi.ToOutput(in).(BlueprintTypePtrOutput)
+}
+
+func (in *blueprintTypePtr) ToBlueprintTypePtrOutputWithContext(ctx context.Context) BlueprintTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BlueprintTypePtrOutput)
+}
+
+type DataAutomationProjectAudioExtractionCategoryType string
+
+const (
+	DataAutomationProjectAudioExtractionCategoryTypeAudioContentModeration = DataAutomationProjectAudioExtractionCategoryType("AUDIO_CONTENT_MODERATION")
+	DataAutomationProjectAudioExtractionCategoryTypeTranscript             = DataAutomationProjectAudioExtractionCategoryType("TRANSCRIPT")
+	DataAutomationProjectAudioExtractionCategoryTypeTopicContentModeration = DataAutomationProjectAudioExtractionCategoryType("TOPIC_CONTENT_MODERATION")
+)
+
+func (DataAutomationProjectAudioExtractionCategoryType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryType)(nil)).Elem()
+}
+
+func (e DataAutomationProjectAudioExtractionCategoryType) ToDataAutomationProjectAudioExtractionCategoryTypeOutput() DataAutomationProjectAudioExtractionCategoryTypeOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectAudioExtractionCategoryTypeOutput)
+}
+
+func (e DataAutomationProjectAudioExtractionCategoryType) ToDataAutomationProjectAudioExtractionCategoryTypeOutputWithContext(ctx context.Context) DataAutomationProjectAudioExtractionCategoryTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectAudioExtractionCategoryTypeOutput)
+}
+
+func (e DataAutomationProjectAudioExtractionCategoryType) ToDataAutomationProjectAudioExtractionCategoryTypePtrOutput() DataAutomationProjectAudioExtractionCategoryTypePtrOutput {
+	return e.ToDataAutomationProjectAudioExtractionCategoryTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectAudioExtractionCategoryType) ToDataAutomationProjectAudioExtractionCategoryTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioExtractionCategoryTypePtrOutput {
+	return DataAutomationProjectAudioExtractionCategoryType(e).ToDataAutomationProjectAudioExtractionCategoryTypeOutputWithContext(ctx).ToDataAutomationProjectAudioExtractionCategoryTypePtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectAudioExtractionCategoryType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectAudioExtractionCategoryType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectAudioExtractionCategoryType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectAudioExtractionCategoryType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectAudioExtractionCategoryTypeOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectAudioExtractionCategoryTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeOutput) ToDataAutomationProjectAudioExtractionCategoryTypeOutput() DataAutomationProjectAudioExtractionCategoryTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeOutput) ToDataAutomationProjectAudioExtractionCategoryTypeOutputWithContext(ctx context.Context) DataAutomationProjectAudioExtractionCategoryTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeOutput) ToDataAutomationProjectAudioExtractionCategoryTypePtrOutput() DataAutomationProjectAudioExtractionCategoryTypePtrOutput {
+	return o.ToDataAutomationProjectAudioExtractionCategoryTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeOutput) ToDataAutomationProjectAudioExtractionCategoryTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioExtractionCategoryTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectAudioExtractionCategoryType) *DataAutomationProjectAudioExtractionCategoryType {
+		return &v
+	}).(DataAutomationProjectAudioExtractionCategoryTypePtrOutput)
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectAudioExtractionCategoryType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectAudioExtractionCategoryType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectAudioExtractionCategoryTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectAudioExtractionCategoryTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectAudioExtractionCategoryType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypePtrOutput) ToDataAutomationProjectAudioExtractionCategoryTypePtrOutput() DataAutomationProjectAudioExtractionCategoryTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypePtrOutput) ToDataAutomationProjectAudioExtractionCategoryTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioExtractionCategoryTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypePtrOutput) Elem() DataAutomationProjectAudioExtractionCategoryTypeOutput {
+	return o.ApplyT(func(v *DataAutomationProjectAudioExtractionCategoryType) DataAutomationProjectAudioExtractionCategoryType {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectAudioExtractionCategoryType
+		return ret
+	}).(DataAutomationProjectAudioExtractionCategoryTypeOutput)
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectAudioExtractionCategoryType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectAudioExtractionCategoryTypeInput is an input type that accepts values of the DataAutomationProjectAudioExtractionCategoryType enum
+// A concrete instance of `DataAutomationProjectAudioExtractionCategoryTypeInput` can be one of the following:
+//
+//	DataAutomationProjectAudioExtractionCategoryTypeAudioContentModeration
+//	DataAutomationProjectAudioExtractionCategoryTypeTranscript
+//	DataAutomationProjectAudioExtractionCategoryTypeTopicContentModeration
+type DataAutomationProjectAudioExtractionCategoryTypeInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectAudioExtractionCategoryTypeOutput() DataAutomationProjectAudioExtractionCategoryTypeOutput
+	ToDataAutomationProjectAudioExtractionCategoryTypeOutputWithContext(context.Context) DataAutomationProjectAudioExtractionCategoryTypeOutput
+}
+
+var dataAutomationProjectAudioExtractionCategoryTypePtrType = reflect.TypeOf((**DataAutomationProjectAudioExtractionCategoryType)(nil)).Elem()
+
+type DataAutomationProjectAudioExtractionCategoryTypePtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectAudioExtractionCategoryTypePtrOutput() DataAutomationProjectAudioExtractionCategoryTypePtrOutput
+	ToDataAutomationProjectAudioExtractionCategoryTypePtrOutputWithContext(context.Context) DataAutomationProjectAudioExtractionCategoryTypePtrOutput
+}
+
+type dataAutomationProjectAudioExtractionCategoryTypePtr string
+
+func DataAutomationProjectAudioExtractionCategoryTypePtr(v string) DataAutomationProjectAudioExtractionCategoryTypePtrInput {
+	return (*dataAutomationProjectAudioExtractionCategoryTypePtr)(&v)
+}
+
+func (*dataAutomationProjectAudioExtractionCategoryTypePtr) ElementType() reflect.Type {
+	return dataAutomationProjectAudioExtractionCategoryTypePtrType
+}
+
+func (in *dataAutomationProjectAudioExtractionCategoryTypePtr) ToDataAutomationProjectAudioExtractionCategoryTypePtrOutput() DataAutomationProjectAudioExtractionCategoryTypePtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectAudioExtractionCategoryTypePtrOutput)
+}
+
+func (in *dataAutomationProjectAudioExtractionCategoryTypePtr) ToDataAutomationProjectAudioExtractionCategoryTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioExtractionCategoryTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectAudioExtractionCategoryTypePtrOutput)
+}
+
+// DataAutomationProjectAudioExtractionCategoryTypeArrayInput is an input type that accepts DataAutomationProjectAudioExtractionCategoryTypeArray and DataAutomationProjectAudioExtractionCategoryTypeArrayOutput values.
+// You can construct a concrete instance of `DataAutomationProjectAudioExtractionCategoryTypeArrayInput` via:
+//
+//	DataAutomationProjectAudioExtractionCategoryTypeArray{ DataAutomationProjectAudioExtractionCategoryTypeArgs{...} }
+type DataAutomationProjectAudioExtractionCategoryTypeArrayInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectAudioExtractionCategoryTypeArrayOutput() DataAutomationProjectAudioExtractionCategoryTypeArrayOutput
+	ToDataAutomationProjectAudioExtractionCategoryTypeArrayOutputWithContext(context.Context) DataAutomationProjectAudioExtractionCategoryTypeArrayOutput
+}
+
+type DataAutomationProjectAudioExtractionCategoryTypeArray []DataAutomationProjectAudioExtractionCategoryType
+
+func (DataAutomationProjectAudioExtractionCategoryTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectAudioExtractionCategoryType)(nil)).Elem()
+}
+
+func (i DataAutomationProjectAudioExtractionCategoryTypeArray) ToDataAutomationProjectAudioExtractionCategoryTypeArrayOutput() DataAutomationProjectAudioExtractionCategoryTypeArrayOutput {
+	return i.ToDataAutomationProjectAudioExtractionCategoryTypeArrayOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectAudioExtractionCategoryTypeArray) ToDataAutomationProjectAudioExtractionCategoryTypeArrayOutputWithContext(ctx context.Context) DataAutomationProjectAudioExtractionCategoryTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectAudioExtractionCategoryTypeArrayOutput)
+}
+
+type DataAutomationProjectAudioExtractionCategoryTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectAudioExtractionCategoryTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectAudioExtractionCategoryType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeArrayOutput) ToDataAutomationProjectAudioExtractionCategoryTypeArrayOutput() DataAutomationProjectAudioExtractionCategoryTypeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeArrayOutput) ToDataAutomationProjectAudioExtractionCategoryTypeArrayOutputWithContext(ctx context.Context) DataAutomationProjectAudioExtractionCategoryTypeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeArrayOutput) Index(i pulumi.IntInput) DataAutomationProjectAudioExtractionCategoryTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataAutomationProjectAudioExtractionCategoryType {
+		return vs[0].([]DataAutomationProjectAudioExtractionCategoryType)[vs[1].(int)]
+	}).(DataAutomationProjectAudioExtractionCategoryTypeOutput)
+}
+
+type DataAutomationProjectAudioStandardGenerativeFieldType string
+
+const (
+	DataAutomationProjectAudioStandardGenerativeFieldTypeAudioSummary = DataAutomationProjectAudioStandardGenerativeFieldType("AUDIO_SUMMARY")
+	DataAutomationProjectAudioStandardGenerativeFieldTypeIab          = DataAutomationProjectAudioStandardGenerativeFieldType("IAB")
+	DataAutomationProjectAudioStandardGenerativeFieldTypeTopicSummary = DataAutomationProjectAudioStandardGenerativeFieldType("TOPIC_SUMMARY")
+)
+
+func (DataAutomationProjectAudioStandardGenerativeFieldType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectAudioStandardGenerativeFieldType)(nil)).Elem()
+}
+
+func (e DataAutomationProjectAudioStandardGenerativeFieldType) ToDataAutomationProjectAudioStandardGenerativeFieldTypeOutput() DataAutomationProjectAudioStandardGenerativeFieldTypeOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectAudioStandardGenerativeFieldTypeOutput)
+}
+
+func (e DataAutomationProjectAudioStandardGenerativeFieldType) ToDataAutomationProjectAudioStandardGenerativeFieldTypeOutputWithContext(ctx context.Context) DataAutomationProjectAudioStandardGenerativeFieldTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectAudioStandardGenerativeFieldTypeOutput)
+}
+
+func (e DataAutomationProjectAudioStandardGenerativeFieldType) ToDataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput() DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput {
+	return e.ToDataAutomationProjectAudioStandardGenerativeFieldTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectAudioStandardGenerativeFieldType) ToDataAutomationProjectAudioStandardGenerativeFieldTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput {
+	return DataAutomationProjectAudioStandardGenerativeFieldType(e).ToDataAutomationProjectAudioStandardGenerativeFieldTypeOutputWithContext(ctx).ToDataAutomationProjectAudioStandardGenerativeFieldTypePtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectAudioStandardGenerativeFieldType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectAudioStandardGenerativeFieldType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectAudioStandardGenerativeFieldType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectAudioStandardGenerativeFieldType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectAudioStandardGenerativeFieldTypeOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectAudioStandardGenerativeFieldTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectAudioStandardGenerativeFieldType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectAudioStandardGenerativeFieldTypeOutput) ToDataAutomationProjectAudioStandardGenerativeFieldTypeOutput() DataAutomationProjectAudioStandardGenerativeFieldTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioStandardGenerativeFieldTypeOutput) ToDataAutomationProjectAudioStandardGenerativeFieldTypeOutputWithContext(ctx context.Context) DataAutomationProjectAudioStandardGenerativeFieldTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioStandardGenerativeFieldTypeOutput) ToDataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput() DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput {
+	return o.ToDataAutomationProjectAudioStandardGenerativeFieldTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectAudioStandardGenerativeFieldTypeOutput) ToDataAutomationProjectAudioStandardGenerativeFieldTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectAudioStandardGenerativeFieldType) *DataAutomationProjectAudioStandardGenerativeFieldType {
+		return &v
+	}).(DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput)
+}
+
+func (o DataAutomationProjectAudioStandardGenerativeFieldTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectAudioStandardGenerativeFieldTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectAudioStandardGenerativeFieldType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectAudioStandardGenerativeFieldTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectAudioStandardGenerativeFieldTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectAudioStandardGenerativeFieldType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectAudioStandardGenerativeFieldType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput) ToDataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput() DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput) ToDataAutomationProjectAudioStandardGenerativeFieldTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput) Elem() DataAutomationProjectAudioStandardGenerativeFieldTypeOutput {
+	return o.ApplyT(func(v *DataAutomationProjectAudioStandardGenerativeFieldType) DataAutomationProjectAudioStandardGenerativeFieldType {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectAudioStandardGenerativeFieldType
+		return ret
+	}).(DataAutomationProjectAudioStandardGenerativeFieldTypeOutput)
+}
+
+func (o DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectAudioStandardGenerativeFieldType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectAudioStandardGenerativeFieldTypeInput is an input type that accepts values of the DataAutomationProjectAudioStandardGenerativeFieldType enum
+// A concrete instance of `DataAutomationProjectAudioStandardGenerativeFieldTypeInput` can be one of the following:
+//
+//	DataAutomationProjectAudioStandardGenerativeFieldTypeAudioSummary
+//	DataAutomationProjectAudioStandardGenerativeFieldTypeIab
+//	DataAutomationProjectAudioStandardGenerativeFieldTypeTopicSummary
+type DataAutomationProjectAudioStandardGenerativeFieldTypeInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectAudioStandardGenerativeFieldTypeOutput() DataAutomationProjectAudioStandardGenerativeFieldTypeOutput
+	ToDataAutomationProjectAudioStandardGenerativeFieldTypeOutputWithContext(context.Context) DataAutomationProjectAudioStandardGenerativeFieldTypeOutput
+}
+
+var dataAutomationProjectAudioStandardGenerativeFieldTypePtrType = reflect.TypeOf((**DataAutomationProjectAudioStandardGenerativeFieldType)(nil)).Elem()
+
+type DataAutomationProjectAudioStandardGenerativeFieldTypePtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput() DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput
+	ToDataAutomationProjectAudioStandardGenerativeFieldTypePtrOutputWithContext(context.Context) DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput
+}
+
+type dataAutomationProjectAudioStandardGenerativeFieldTypePtr string
+
+func DataAutomationProjectAudioStandardGenerativeFieldTypePtr(v string) DataAutomationProjectAudioStandardGenerativeFieldTypePtrInput {
+	return (*dataAutomationProjectAudioStandardGenerativeFieldTypePtr)(&v)
+}
+
+func (*dataAutomationProjectAudioStandardGenerativeFieldTypePtr) ElementType() reflect.Type {
+	return dataAutomationProjectAudioStandardGenerativeFieldTypePtrType
+}
+
+func (in *dataAutomationProjectAudioStandardGenerativeFieldTypePtr) ToDataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput() DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput)
+}
+
+func (in *dataAutomationProjectAudioStandardGenerativeFieldTypePtr) ToDataAutomationProjectAudioStandardGenerativeFieldTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput)
+}
+
+// DataAutomationProjectAudioStandardGenerativeFieldTypeArrayInput is an input type that accepts DataAutomationProjectAudioStandardGenerativeFieldTypeArray and DataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput values.
+// You can construct a concrete instance of `DataAutomationProjectAudioStandardGenerativeFieldTypeArrayInput` via:
+//
+//	DataAutomationProjectAudioStandardGenerativeFieldTypeArray{ DataAutomationProjectAudioStandardGenerativeFieldTypeArgs{...} }
+type DataAutomationProjectAudioStandardGenerativeFieldTypeArrayInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput() DataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput
+	ToDataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutputWithContext(context.Context) DataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput
+}
+
+type DataAutomationProjectAudioStandardGenerativeFieldTypeArray []DataAutomationProjectAudioStandardGenerativeFieldType
+
+func (DataAutomationProjectAudioStandardGenerativeFieldTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectAudioStandardGenerativeFieldType)(nil)).Elem()
+}
+
+func (i DataAutomationProjectAudioStandardGenerativeFieldTypeArray) ToDataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput() DataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput {
+	return i.ToDataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectAudioStandardGenerativeFieldTypeArray) ToDataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutputWithContext(ctx context.Context) DataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput)
+}
+
+type DataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectAudioStandardGenerativeFieldType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput) ToDataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput() DataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput) ToDataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutputWithContext(ctx context.Context) DataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput) Index(i pulumi.IntInput) DataAutomationProjectAudioStandardGenerativeFieldTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataAutomationProjectAudioStandardGenerativeFieldType {
+		return vs[0].([]DataAutomationProjectAudioStandardGenerativeFieldType)[vs[1].(int)]
+	}).(DataAutomationProjectAudioStandardGenerativeFieldTypeOutput)
+}
+
+// Stage of the Blueprint
+type DataAutomationProjectBlueprintStage string
+
+const (
+	DataAutomationProjectBlueprintStageDevelopment = DataAutomationProjectBlueprintStage("DEVELOPMENT")
+	DataAutomationProjectBlueprintStageLive        = DataAutomationProjectBlueprintStage("LIVE")
+)
+
+func (DataAutomationProjectBlueprintStage) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectBlueprintStage)(nil)).Elem()
+}
+
+func (e DataAutomationProjectBlueprintStage) ToDataAutomationProjectBlueprintStageOutput() DataAutomationProjectBlueprintStageOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectBlueprintStageOutput)
+}
+
+func (e DataAutomationProjectBlueprintStage) ToDataAutomationProjectBlueprintStageOutputWithContext(ctx context.Context) DataAutomationProjectBlueprintStageOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectBlueprintStageOutput)
+}
+
+func (e DataAutomationProjectBlueprintStage) ToDataAutomationProjectBlueprintStagePtrOutput() DataAutomationProjectBlueprintStagePtrOutput {
+	return e.ToDataAutomationProjectBlueprintStagePtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectBlueprintStage) ToDataAutomationProjectBlueprintStagePtrOutputWithContext(ctx context.Context) DataAutomationProjectBlueprintStagePtrOutput {
+	return DataAutomationProjectBlueprintStage(e).ToDataAutomationProjectBlueprintStageOutputWithContext(ctx).ToDataAutomationProjectBlueprintStagePtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectBlueprintStage) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectBlueprintStage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectBlueprintStage) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectBlueprintStage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectBlueprintStageOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectBlueprintStageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectBlueprintStage)(nil)).Elem()
+}
+
+func (o DataAutomationProjectBlueprintStageOutput) ToDataAutomationProjectBlueprintStageOutput() DataAutomationProjectBlueprintStageOutput {
+	return o
+}
+
+func (o DataAutomationProjectBlueprintStageOutput) ToDataAutomationProjectBlueprintStageOutputWithContext(ctx context.Context) DataAutomationProjectBlueprintStageOutput {
+	return o
+}
+
+func (o DataAutomationProjectBlueprintStageOutput) ToDataAutomationProjectBlueprintStagePtrOutput() DataAutomationProjectBlueprintStagePtrOutput {
+	return o.ToDataAutomationProjectBlueprintStagePtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectBlueprintStageOutput) ToDataAutomationProjectBlueprintStagePtrOutputWithContext(ctx context.Context) DataAutomationProjectBlueprintStagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectBlueprintStage) *DataAutomationProjectBlueprintStage {
+		return &v
+	}).(DataAutomationProjectBlueprintStagePtrOutput)
+}
+
+func (o DataAutomationProjectBlueprintStageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectBlueprintStageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectBlueprintStage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectBlueprintStageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectBlueprintStageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectBlueprintStage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectBlueprintStagePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectBlueprintStagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectBlueprintStage)(nil)).Elem()
+}
+
+func (o DataAutomationProjectBlueprintStagePtrOutput) ToDataAutomationProjectBlueprintStagePtrOutput() DataAutomationProjectBlueprintStagePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectBlueprintStagePtrOutput) ToDataAutomationProjectBlueprintStagePtrOutputWithContext(ctx context.Context) DataAutomationProjectBlueprintStagePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectBlueprintStagePtrOutput) Elem() DataAutomationProjectBlueprintStageOutput {
+	return o.ApplyT(func(v *DataAutomationProjectBlueprintStage) DataAutomationProjectBlueprintStage {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectBlueprintStage
+		return ret
+	}).(DataAutomationProjectBlueprintStageOutput)
+}
+
+func (o DataAutomationProjectBlueprintStagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectBlueprintStagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectBlueprintStage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectBlueprintStageInput is an input type that accepts values of the DataAutomationProjectBlueprintStage enum
+// A concrete instance of `DataAutomationProjectBlueprintStageInput` can be one of the following:
+//
+//	DataAutomationProjectBlueprintStageDevelopment
+//	DataAutomationProjectBlueprintStageLive
+type DataAutomationProjectBlueprintStageInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectBlueprintStageOutput() DataAutomationProjectBlueprintStageOutput
+	ToDataAutomationProjectBlueprintStageOutputWithContext(context.Context) DataAutomationProjectBlueprintStageOutput
+}
+
+var dataAutomationProjectBlueprintStagePtrType = reflect.TypeOf((**DataAutomationProjectBlueprintStage)(nil)).Elem()
+
+type DataAutomationProjectBlueprintStagePtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectBlueprintStagePtrOutput() DataAutomationProjectBlueprintStagePtrOutput
+	ToDataAutomationProjectBlueprintStagePtrOutputWithContext(context.Context) DataAutomationProjectBlueprintStagePtrOutput
+}
+
+type dataAutomationProjectBlueprintStagePtr string
+
+func DataAutomationProjectBlueprintStagePtr(v string) DataAutomationProjectBlueprintStagePtrInput {
+	return (*dataAutomationProjectBlueprintStagePtr)(&v)
+}
+
+func (*dataAutomationProjectBlueprintStagePtr) ElementType() reflect.Type {
+	return dataAutomationProjectBlueprintStagePtrType
+}
+
+func (in *dataAutomationProjectBlueprintStagePtr) ToDataAutomationProjectBlueprintStagePtrOutput() DataAutomationProjectBlueprintStagePtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectBlueprintStagePtrOutput)
+}
+
+func (in *dataAutomationProjectBlueprintStagePtr) ToDataAutomationProjectBlueprintStagePtrOutputWithContext(ctx context.Context) DataAutomationProjectBlueprintStagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectBlueprintStagePtrOutput)
+}
+
+type DataAutomationProjectDocumentExtractionGranularityType string
+
+const (
+	DataAutomationProjectDocumentExtractionGranularityTypeDocument = DataAutomationProjectDocumentExtractionGranularityType("DOCUMENT")
+	DataAutomationProjectDocumentExtractionGranularityTypePage     = DataAutomationProjectDocumentExtractionGranularityType("PAGE")
+	DataAutomationProjectDocumentExtractionGranularityTypeElement  = DataAutomationProjectDocumentExtractionGranularityType("ELEMENT")
+	DataAutomationProjectDocumentExtractionGranularityTypeWord     = DataAutomationProjectDocumentExtractionGranularityType("WORD")
+	DataAutomationProjectDocumentExtractionGranularityTypeLine     = DataAutomationProjectDocumentExtractionGranularityType("LINE")
+)
+
+func (DataAutomationProjectDocumentExtractionGranularityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectDocumentExtractionGranularityType)(nil)).Elem()
+}
+
+func (e DataAutomationProjectDocumentExtractionGranularityType) ToDataAutomationProjectDocumentExtractionGranularityTypeOutput() DataAutomationProjectDocumentExtractionGranularityTypeOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectDocumentExtractionGranularityTypeOutput)
+}
+
+func (e DataAutomationProjectDocumentExtractionGranularityType) ToDataAutomationProjectDocumentExtractionGranularityTypeOutputWithContext(ctx context.Context) DataAutomationProjectDocumentExtractionGranularityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectDocumentExtractionGranularityTypeOutput)
+}
+
+func (e DataAutomationProjectDocumentExtractionGranularityType) ToDataAutomationProjectDocumentExtractionGranularityTypePtrOutput() DataAutomationProjectDocumentExtractionGranularityTypePtrOutput {
+	return e.ToDataAutomationProjectDocumentExtractionGranularityTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectDocumentExtractionGranularityType) ToDataAutomationProjectDocumentExtractionGranularityTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectDocumentExtractionGranularityTypePtrOutput {
+	return DataAutomationProjectDocumentExtractionGranularityType(e).ToDataAutomationProjectDocumentExtractionGranularityTypeOutputWithContext(ctx).ToDataAutomationProjectDocumentExtractionGranularityTypePtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectDocumentExtractionGranularityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectDocumentExtractionGranularityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectDocumentExtractionGranularityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectDocumentExtractionGranularityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectDocumentExtractionGranularityTypeOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectDocumentExtractionGranularityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectDocumentExtractionGranularityType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectDocumentExtractionGranularityTypeOutput) ToDataAutomationProjectDocumentExtractionGranularityTypeOutput() DataAutomationProjectDocumentExtractionGranularityTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectDocumentExtractionGranularityTypeOutput) ToDataAutomationProjectDocumentExtractionGranularityTypeOutputWithContext(ctx context.Context) DataAutomationProjectDocumentExtractionGranularityTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectDocumentExtractionGranularityTypeOutput) ToDataAutomationProjectDocumentExtractionGranularityTypePtrOutput() DataAutomationProjectDocumentExtractionGranularityTypePtrOutput {
+	return o.ToDataAutomationProjectDocumentExtractionGranularityTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectDocumentExtractionGranularityTypeOutput) ToDataAutomationProjectDocumentExtractionGranularityTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectDocumentExtractionGranularityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectDocumentExtractionGranularityType) *DataAutomationProjectDocumentExtractionGranularityType {
+		return &v
+	}).(DataAutomationProjectDocumentExtractionGranularityTypePtrOutput)
+}
+
+func (o DataAutomationProjectDocumentExtractionGranularityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectDocumentExtractionGranularityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectDocumentExtractionGranularityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectDocumentExtractionGranularityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectDocumentExtractionGranularityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectDocumentExtractionGranularityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectDocumentExtractionGranularityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectDocumentExtractionGranularityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectDocumentExtractionGranularityType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectDocumentExtractionGranularityTypePtrOutput) ToDataAutomationProjectDocumentExtractionGranularityTypePtrOutput() DataAutomationProjectDocumentExtractionGranularityTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectDocumentExtractionGranularityTypePtrOutput) ToDataAutomationProjectDocumentExtractionGranularityTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectDocumentExtractionGranularityTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectDocumentExtractionGranularityTypePtrOutput) Elem() DataAutomationProjectDocumentExtractionGranularityTypeOutput {
+	return o.ApplyT(func(v *DataAutomationProjectDocumentExtractionGranularityType) DataAutomationProjectDocumentExtractionGranularityType {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectDocumentExtractionGranularityType
+		return ret
+	}).(DataAutomationProjectDocumentExtractionGranularityTypeOutput)
+}
+
+func (o DataAutomationProjectDocumentExtractionGranularityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectDocumentExtractionGranularityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectDocumentExtractionGranularityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectDocumentExtractionGranularityTypeInput is an input type that accepts values of the DataAutomationProjectDocumentExtractionGranularityType enum
+// A concrete instance of `DataAutomationProjectDocumentExtractionGranularityTypeInput` can be one of the following:
+//
+//	DataAutomationProjectDocumentExtractionGranularityTypeDocument
+//	DataAutomationProjectDocumentExtractionGranularityTypePage
+//	DataAutomationProjectDocumentExtractionGranularityTypeElement
+//	DataAutomationProjectDocumentExtractionGranularityTypeWord
+//	DataAutomationProjectDocumentExtractionGranularityTypeLine
+type DataAutomationProjectDocumentExtractionGranularityTypeInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectDocumentExtractionGranularityTypeOutput() DataAutomationProjectDocumentExtractionGranularityTypeOutput
+	ToDataAutomationProjectDocumentExtractionGranularityTypeOutputWithContext(context.Context) DataAutomationProjectDocumentExtractionGranularityTypeOutput
+}
+
+var dataAutomationProjectDocumentExtractionGranularityTypePtrType = reflect.TypeOf((**DataAutomationProjectDocumentExtractionGranularityType)(nil)).Elem()
+
+type DataAutomationProjectDocumentExtractionGranularityTypePtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectDocumentExtractionGranularityTypePtrOutput() DataAutomationProjectDocumentExtractionGranularityTypePtrOutput
+	ToDataAutomationProjectDocumentExtractionGranularityTypePtrOutputWithContext(context.Context) DataAutomationProjectDocumentExtractionGranularityTypePtrOutput
+}
+
+type dataAutomationProjectDocumentExtractionGranularityTypePtr string
+
+func DataAutomationProjectDocumentExtractionGranularityTypePtr(v string) DataAutomationProjectDocumentExtractionGranularityTypePtrInput {
+	return (*dataAutomationProjectDocumentExtractionGranularityTypePtr)(&v)
+}
+
+func (*dataAutomationProjectDocumentExtractionGranularityTypePtr) ElementType() reflect.Type {
+	return dataAutomationProjectDocumentExtractionGranularityTypePtrType
+}
+
+func (in *dataAutomationProjectDocumentExtractionGranularityTypePtr) ToDataAutomationProjectDocumentExtractionGranularityTypePtrOutput() DataAutomationProjectDocumentExtractionGranularityTypePtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectDocumentExtractionGranularityTypePtrOutput)
+}
+
+func (in *dataAutomationProjectDocumentExtractionGranularityTypePtr) ToDataAutomationProjectDocumentExtractionGranularityTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectDocumentExtractionGranularityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectDocumentExtractionGranularityTypePtrOutput)
+}
+
+// DataAutomationProjectDocumentExtractionGranularityTypeArrayInput is an input type that accepts DataAutomationProjectDocumentExtractionGranularityTypeArray and DataAutomationProjectDocumentExtractionGranularityTypeArrayOutput values.
+// You can construct a concrete instance of `DataAutomationProjectDocumentExtractionGranularityTypeArrayInput` via:
+//
+//	DataAutomationProjectDocumentExtractionGranularityTypeArray{ DataAutomationProjectDocumentExtractionGranularityTypeArgs{...} }
+type DataAutomationProjectDocumentExtractionGranularityTypeArrayInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectDocumentExtractionGranularityTypeArrayOutput() DataAutomationProjectDocumentExtractionGranularityTypeArrayOutput
+	ToDataAutomationProjectDocumentExtractionGranularityTypeArrayOutputWithContext(context.Context) DataAutomationProjectDocumentExtractionGranularityTypeArrayOutput
+}
+
+type DataAutomationProjectDocumentExtractionGranularityTypeArray []DataAutomationProjectDocumentExtractionGranularityType
+
+func (DataAutomationProjectDocumentExtractionGranularityTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectDocumentExtractionGranularityType)(nil)).Elem()
+}
+
+func (i DataAutomationProjectDocumentExtractionGranularityTypeArray) ToDataAutomationProjectDocumentExtractionGranularityTypeArrayOutput() DataAutomationProjectDocumentExtractionGranularityTypeArrayOutput {
+	return i.ToDataAutomationProjectDocumentExtractionGranularityTypeArrayOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectDocumentExtractionGranularityTypeArray) ToDataAutomationProjectDocumentExtractionGranularityTypeArrayOutputWithContext(ctx context.Context) DataAutomationProjectDocumentExtractionGranularityTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectDocumentExtractionGranularityTypeArrayOutput)
+}
+
+type DataAutomationProjectDocumentExtractionGranularityTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectDocumentExtractionGranularityTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectDocumentExtractionGranularityType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectDocumentExtractionGranularityTypeArrayOutput) ToDataAutomationProjectDocumentExtractionGranularityTypeArrayOutput() DataAutomationProjectDocumentExtractionGranularityTypeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectDocumentExtractionGranularityTypeArrayOutput) ToDataAutomationProjectDocumentExtractionGranularityTypeArrayOutputWithContext(ctx context.Context) DataAutomationProjectDocumentExtractionGranularityTypeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectDocumentExtractionGranularityTypeArrayOutput) Index(i pulumi.IntInput) DataAutomationProjectDocumentExtractionGranularityTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataAutomationProjectDocumentExtractionGranularityType {
+		return vs[0].([]DataAutomationProjectDocumentExtractionGranularityType)[vs[1].(int)]
+	}).(DataAutomationProjectDocumentExtractionGranularityTypeOutput)
+}
+
+type DataAutomationProjectDocumentOutputTextFormatType string
+
+const (
+	DataAutomationProjectDocumentOutputTextFormatTypePlainText = DataAutomationProjectDocumentOutputTextFormatType("PLAIN_TEXT")
+	DataAutomationProjectDocumentOutputTextFormatTypeMarkdown  = DataAutomationProjectDocumentOutputTextFormatType("MARKDOWN")
+	DataAutomationProjectDocumentOutputTextFormatTypeHtml      = DataAutomationProjectDocumentOutputTextFormatType("HTML")
+	DataAutomationProjectDocumentOutputTextFormatTypeCsv       = DataAutomationProjectDocumentOutputTextFormatType("CSV")
+)
+
+func (DataAutomationProjectDocumentOutputTextFormatType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectDocumentOutputTextFormatType)(nil)).Elem()
+}
+
+func (e DataAutomationProjectDocumentOutputTextFormatType) ToDataAutomationProjectDocumentOutputTextFormatTypeOutput() DataAutomationProjectDocumentOutputTextFormatTypeOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectDocumentOutputTextFormatTypeOutput)
+}
+
+func (e DataAutomationProjectDocumentOutputTextFormatType) ToDataAutomationProjectDocumentOutputTextFormatTypeOutputWithContext(ctx context.Context) DataAutomationProjectDocumentOutputTextFormatTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectDocumentOutputTextFormatTypeOutput)
+}
+
+func (e DataAutomationProjectDocumentOutputTextFormatType) ToDataAutomationProjectDocumentOutputTextFormatTypePtrOutput() DataAutomationProjectDocumentOutputTextFormatTypePtrOutput {
+	return e.ToDataAutomationProjectDocumentOutputTextFormatTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectDocumentOutputTextFormatType) ToDataAutomationProjectDocumentOutputTextFormatTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectDocumentOutputTextFormatTypePtrOutput {
+	return DataAutomationProjectDocumentOutputTextFormatType(e).ToDataAutomationProjectDocumentOutputTextFormatTypeOutputWithContext(ctx).ToDataAutomationProjectDocumentOutputTextFormatTypePtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectDocumentOutputTextFormatType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectDocumentOutputTextFormatType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectDocumentOutputTextFormatType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectDocumentOutputTextFormatType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectDocumentOutputTextFormatTypeOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectDocumentOutputTextFormatTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectDocumentOutputTextFormatType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectDocumentOutputTextFormatTypeOutput) ToDataAutomationProjectDocumentOutputTextFormatTypeOutput() DataAutomationProjectDocumentOutputTextFormatTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectDocumentOutputTextFormatTypeOutput) ToDataAutomationProjectDocumentOutputTextFormatTypeOutputWithContext(ctx context.Context) DataAutomationProjectDocumentOutputTextFormatTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectDocumentOutputTextFormatTypeOutput) ToDataAutomationProjectDocumentOutputTextFormatTypePtrOutput() DataAutomationProjectDocumentOutputTextFormatTypePtrOutput {
+	return o.ToDataAutomationProjectDocumentOutputTextFormatTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectDocumentOutputTextFormatTypeOutput) ToDataAutomationProjectDocumentOutputTextFormatTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectDocumentOutputTextFormatTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectDocumentOutputTextFormatType) *DataAutomationProjectDocumentOutputTextFormatType {
+		return &v
+	}).(DataAutomationProjectDocumentOutputTextFormatTypePtrOutput)
+}
+
+func (o DataAutomationProjectDocumentOutputTextFormatTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectDocumentOutputTextFormatTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectDocumentOutputTextFormatType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectDocumentOutputTextFormatTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectDocumentOutputTextFormatTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectDocumentOutputTextFormatType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectDocumentOutputTextFormatTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectDocumentOutputTextFormatTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectDocumentOutputTextFormatType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectDocumentOutputTextFormatTypePtrOutput) ToDataAutomationProjectDocumentOutputTextFormatTypePtrOutput() DataAutomationProjectDocumentOutputTextFormatTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectDocumentOutputTextFormatTypePtrOutput) ToDataAutomationProjectDocumentOutputTextFormatTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectDocumentOutputTextFormatTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectDocumentOutputTextFormatTypePtrOutput) Elem() DataAutomationProjectDocumentOutputTextFormatTypeOutput {
+	return o.ApplyT(func(v *DataAutomationProjectDocumentOutputTextFormatType) DataAutomationProjectDocumentOutputTextFormatType {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectDocumentOutputTextFormatType
+		return ret
+	}).(DataAutomationProjectDocumentOutputTextFormatTypeOutput)
+}
+
+func (o DataAutomationProjectDocumentOutputTextFormatTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectDocumentOutputTextFormatTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectDocumentOutputTextFormatType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectDocumentOutputTextFormatTypeInput is an input type that accepts values of the DataAutomationProjectDocumentOutputTextFormatType enum
+// A concrete instance of `DataAutomationProjectDocumentOutputTextFormatTypeInput` can be one of the following:
+//
+//	DataAutomationProjectDocumentOutputTextFormatTypePlainText
+//	DataAutomationProjectDocumentOutputTextFormatTypeMarkdown
+//	DataAutomationProjectDocumentOutputTextFormatTypeHtml
+//	DataAutomationProjectDocumentOutputTextFormatTypeCsv
+type DataAutomationProjectDocumentOutputTextFormatTypeInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectDocumentOutputTextFormatTypeOutput() DataAutomationProjectDocumentOutputTextFormatTypeOutput
+	ToDataAutomationProjectDocumentOutputTextFormatTypeOutputWithContext(context.Context) DataAutomationProjectDocumentOutputTextFormatTypeOutput
+}
+
+var dataAutomationProjectDocumentOutputTextFormatTypePtrType = reflect.TypeOf((**DataAutomationProjectDocumentOutputTextFormatType)(nil)).Elem()
+
+type DataAutomationProjectDocumentOutputTextFormatTypePtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectDocumentOutputTextFormatTypePtrOutput() DataAutomationProjectDocumentOutputTextFormatTypePtrOutput
+	ToDataAutomationProjectDocumentOutputTextFormatTypePtrOutputWithContext(context.Context) DataAutomationProjectDocumentOutputTextFormatTypePtrOutput
+}
+
+type dataAutomationProjectDocumentOutputTextFormatTypePtr string
+
+func DataAutomationProjectDocumentOutputTextFormatTypePtr(v string) DataAutomationProjectDocumentOutputTextFormatTypePtrInput {
+	return (*dataAutomationProjectDocumentOutputTextFormatTypePtr)(&v)
+}
+
+func (*dataAutomationProjectDocumentOutputTextFormatTypePtr) ElementType() reflect.Type {
+	return dataAutomationProjectDocumentOutputTextFormatTypePtrType
+}
+
+func (in *dataAutomationProjectDocumentOutputTextFormatTypePtr) ToDataAutomationProjectDocumentOutputTextFormatTypePtrOutput() DataAutomationProjectDocumentOutputTextFormatTypePtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectDocumentOutputTextFormatTypePtrOutput)
+}
+
+func (in *dataAutomationProjectDocumentOutputTextFormatTypePtr) ToDataAutomationProjectDocumentOutputTextFormatTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectDocumentOutputTextFormatTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectDocumentOutputTextFormatTypePtrOutput)
+}
+
+// DataAutomationProjectDocumentOutputTextFormatTypeArrayInput is an input type that accepts DataAutomationProjectDocumentOutputTextFormatTypeArray and DataAutomationProjectDocumentOutputTextFormatTypeArrayOutput values.
+// You can construct a concrete instance of `DataAutomationProjectDocumentOutputTextFormatTypeArrayInput` via:
+//
+//	DataAutomationProjectDocumentOutputTextFormatTypeArray{ DataAutomationProjectDocumentOutputTextFormatTypeArgs{...} }
+type DataAutomationProjectDocumentOutputTextFormatTypeArrayInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectDocumentOutputTextFormatTypeArrayOutput() DataAutomationProjectDocumentOutputTextFormatTypeArrayOutput
+	ToDataAutomationProjectDocumentOutputTextFormatTypeArrayOutputWithContext(context.Context) DataAutomationProjectDocumentOutputTextFormatTypeArrayOutput
+}
+
+type DataAutomationProjectDocumentOutputTextFormatTypeArray []DataAutomationProjectDocumentOutputTextFormatType
+
+func (DataAutomationProjectDocumentOutputTextFormatTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectDocumentOutputTextFormatType)(nil)).Elem()
+}
+
+func (i DataAutomationProjectDocumentOutputTextFormatTypeArray) ToDataAutomationProjectDocumentOutputTextFormatTypeArrayOutput() DataAutomationProjectDocumentOutputTextFormatTypeArrayOutput {
+	return i.ToDataAutomationProjectDocumentOutputTextFormatTypeArrayOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectDocumentOutputTextFormatTypeArray) ToDataAutomationProjectDocumentOutputTextFormatTypeArrayOutputWithContext(ctx context.Context) DataAutomationProjectDocumentOutputTextFormatTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectDocumentOutputTextFormatTypeArrayOutput)
+}
+
+type DataAutomationProjectDocumentOutputTextFormatTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectDocumentOutputTextFormatTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectDocumentOutputTextFormatType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectDocumentOutputTextFormatTypeArrayOutput) ToDataAutomationProjectDocumentOutputTextFormatTypeArrayOutput() DataAutomationProjectDocumentOutputTextFormatTypeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectDocumentOutputTextFormatTypeArrayOutput) ToDataAutomationProjectDocumentOutputTextFormatTypeArrayOutputWithContext(ctx context.Context) DataAutomationProjectDocumentOutputTextFormatTypeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectDocumentOutputTextFormatTypeArrayOutput) Index(i pulumi.IntInput) DataAutomationProjectDocumentOutputTextFormatTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataAutomationProjectDocumentOutputTextFormatType {
+		return vs[0].([]DataAutomationProjectDocumentOutputTextFormatType)[vs[1].(int)]
+	}).(DataAutomationProjectDocumentOutputTextFormatTypeOutput)
+}
+
+type DataAutomationProjectImageExtractionCategoryType string
+
+const (
+	DataAutomationProjectImageExtractionCategoryTypeContentModeration = DataAutomationProjectImageExtractionCategoryType("CONTENT_MODERATION")
+	DataAutomationProjectImageExtractionCategoryTypeTextDetection     = DataAutomationProjectImageExtractionCategoryType("TEXT_DETECTION")
+	DataAutomationProjectImageExtractionCategoryTypeLogos             = DataAutomationProjectImageExtractionCategoryType("LOGOS")
+)
+
+func (DataAutomationProjectImageExtractionCategoryType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectImageExtractionCategoryType)(nil)).Elem()
+}
+
+func (e DataAutomationProjectImageExtractionCategoryType) ToDataAutomationProjectImageExtractionCategoryTypeOutput() DataAutomationProjectImageExtractionCategoryTypeOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectImageExtractionCategoryTypeOutput)
+}
+
+func (e DataAutomationProjectImageExtractionCategoryType) ToDataAutomationProjectImageExtractionCategoryTypeOutputWithContext(ctx context.Context) DataAutomationProjectImageExtractionCategoryTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectImageExtractionCategoryTypeOutput)
+}
+
+func (e DataAutomationProjectImageExtractionCategoryType) ToDataAutomationProjectImageExtractionCategoryTypePtrOutput() DataAutomationProjectImageExtractionCategoryTypePtrOutput {
+	return e.ToDataAutomationProjectImageExtractionCategoryTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectImageExtractionCategoryType) ToDataAutomationProjectImageExtractionCategoryTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectImageExtractionCategoryTypePtrOutput {
+	return DataAutomationProjectImageExtractionCategoryType(e).ToDataAutomationProjectImageExtractionCategoryTypeOutputWithContext(ctx).ToDataAutomationProjectImageExtractionCategoryTypePtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectImageExtractionCategoryType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectImageExtractionCategoryType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectImageExtractionCategoryType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectImageExtractionCategoryType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectImageExtractionCategoryTypeOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectImageExtractionCategoryTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectImageExtractionCategoryType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectImageExtractionCategoryTypeOutput) ToDataAutomationProjectImageExtractionCategoryTypeOutput() DataAutomationProjectImageExtractionCategoryTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectImageExtractionCategoryTypeOutput) ToDataAutomationProjectImageExtractionCategoryTypeOutputWithContext(ctx context.Context) DataAutomationProjectImageExtractionCategoryTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectImageExtractionCategoryTypeOutput) ToDataAutomationProjectImageExtractionCategoryTypePtrOutput() DataAutomationProjectImageExtractionCategoryTypePtrOutput {
+	return o.ToDataAutomationProjectImageExtractionCategoryTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectImageExtractionCategoryTypeOutput) ToDataAutomationProjectImageExtractionCategoryTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectImageExtractionCategoryTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectImageExtractionCategoryType) *DataAutomationProjectImageExtractionCategoryType {
+		return &v
+	}).(DataAutomationProjectImageExtractionCategoryTypePtrOutput)
+}
+
+func (o DataAutomationProjectImageExtractionCategoryTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectImageExtractionCategoryTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectImageExtractionCategoryType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectImageExtractionCategoryTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectImageExtractionCategoryTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectImageExtractionCategoryType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectImageExtractionCategoryTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectImageExtractionCategoryTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectImageExtractionCategoryType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectImageExtractionCategoryTypePtrOutput) ToDataAutomationProjectImageExtractionCategoryTypePtrOutput() DataAutomationProjectImageExtractionCategoryTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectImageExtractionCategoryTypePtrOutput) ToDataAutomationProjectImageExtractionCategoryTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectImageExtractionCategoryTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectImageExtractionCategoryTypePtrOutput) Elem() DataAutomationProjectImageExtractionCategoryTypeOutput {
+	return o.ApplyT(func(v *DataAutomationProjectImageExtractionCategoryType) DataAutomationProjectImageExtractionCategoryType {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectImageExtractionCategoryType
+		return ret
+	}).(DataAutomationProjectImageExtractionCategoryTypeOutput)
+}
+
+func (o DataAutomationProjectImageExtractionCategoryTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectImageExtractionCategoryTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectImageExtractionCategoryType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectImageExtractionCategoryTypeInput is an input type that accepts values of the DataAutomationProjectImageExtractionCategoryType enum
+// A concrete instance of `DataAutomationProjectImageExtractionCategoryTypeInput` can be one of the following:
+//
+//	DataAutomationProjectImageExtractionCategoryTypeContentModeration
+//	DataAutomationProjectImageExtractionCategoryTypeTextDetection
+//	DataAutomationProjectImageExtractionCategoryTypeLogos
+type DataAutomationProjectImageExtractionCategoryTypeInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectImageExtractionCategoryTypeOutput() DataAutomationProjectImageExtractionCategoryTypeOutput
+	ToDataAutomationProjectImageExtractionCategoryTypeOutputWithContext(context.Context) DataAutomationProjectImageExtractionCategoryTypeOutput
+}
+
+var dataAutomationProjectImageExtractionCategoryTypePtrType = reflect.TypeOf((**DataAutomationProjectImageExtractionCategoryType)(nil)).Elem()
+
+type DataAutomationProjectImageExtractionCategoryTypePtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectImageExtractionCategoryTypePtrOutput() DataAutomationProjectImageExtractionCategoryTypePtrOutput
+	ToDataAutomationProjectImageExtractionCategoryTypePtrOutputWithContext(context.Context) DataAutomationProjectImageExtractionCategoryTypePtrOutput
+}
+
+type dataAutomationProjectImageExtractionCategoryTypePtr string
+
+func DataAutomationProjectImageExtractionCategoryTypePtr(v string) DataAutomationProjectImageExtractionCategoryTypePtrInput {
+	return (*dataAutomationProjectImageExtractionCategoryTypePtr)(&v)
+}
+
+func (*dataAutomationProjectImageExtractionCategoryTypePtr) ElementType() reflect.Type {
+	return dataAutomationProjectImageExtractionCategoryTypePtrType
+}
+
+func (in *dataAutomationProjectImageExtractionCategoryTypePtr) ToDataAutomationProjectImageExtractionCategoryTypePtrOutput() DataAutomationProjectImageExtractionCategoryTypePtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectImageExtractionCategoryTypePtrOutput)
+}
+
+func (in *dataAutomationProjectImageExtractionCategoryTypePtr) ToDataAutomationProjectImageExtractionCategoryTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectImageExtractionCategoryTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectImageExtractionCategoryTypePtrOutput)
+}
+
+// DataAutomationProjectImageExtractionCategoryTypeArrayInput is an input type that accepts DataAutomationProjectImageExtractionCategoryTypeArray and DataAutomationProjectImageExtractionCategoryTypeArrayOutput values.
+// You can construct a concrete instance of `DataAutomationProjectImageExtractionCategoryTypeArrayInput` via:
+//
+//	DataAutomationProjectImageExtractionCategoryTypeArray{ DataAutomationProjectImageExtractionCategoryTypeArgs{...} }
+type DataAutomationProjectImageExtractionCategoryTypeArrayInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectImageExtractionCategoryTypeArrayOutput() DataAutomationProjectImageExtractionCategoryTypeArrayOutput
+	ToDataAutomationProjectImageExtractionCategoryTypeArrayOutputWithContext(context.Context) DataAutomationProjectImageExtractionCategoryTypeArrayOutput
+}
+
+type DataAutomationProjectImageExtractionCategoryTypeArray []DataAutomationProjectImageExtractionCategoryType
+
+func (DataAutomationProjectImageExtractionCategoryTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectImageExtractionCategoryType)(nil)).Elem()
+}
+
+func (i DataAutomationProjectImageExtractionCategoryTypeArray) ToDataAutomationProjectImageExtractionCategoryTypeArrayOutput() DataAutomationProjectImageExtractionCategoryTypeArrayOutput {
+	return i.ToDataAutomationProjectImageExtractionCategoryTypeArrayOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectImageExtractionCategoryTypeArray) ToDataAutomationProjectImageExtractionCategoryTypeArrayOutputWithContext(ctx context.Context) DataAutomationProjectImageExtractionCategoryTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectImageExtractionCategoryTypeArrayOutput)
+}
+
+type DataAutomationProjectImageExtractionCategoryTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectImageExtractionCategoryTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectImageExtractionCategoryType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectImageExtractionCategoryTypeArrayOutput) ToDataAutomationProjectImageExtractionCategoryTypeArrayOutput() DataAutomationProjectImageExtractionCategoryTypeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectImageExtractionCategoryTypeArrayOutput) ToDataAutomationProjectImageExtractionCategoryTypeArrayOutputWithContext(ctx context.Context) DataAutomationProjectImageExtractionCategoryTypeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectImageExtractionCategoryTypeArrayOutput) Index(i pulumi.IntInput) DataAutomationProjectImageExtractionCategoryTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataAutomationProjectImageExtractionCategoryType {
+		return vs[0].([]DataAutomationProjectImageExtractionCategoryType)[vs[1].(int)]
+	}).(DataAutomationProjectImageExtractionCategoryTypeOutput)
+}
+
+type DataAutomationProjectImageStandardGenerativeFieldType string
+
+const (
+	DataAutomationProjectImageStandardGenerativeFieldTypeImageSummary = DataAutomationProjectImageStandardGenerativeFieldType("IMAGE_SUMMARY")
+	DataAutomationProjectImageStandardGenerativeFieldTypeIab          = DataAutomationProjectImageStandardGenerativeFieldType("IAB")
+)
+
+func (DataAutomationProjectImageStandardGenerativeFieldType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectImageStandardGenerativeFieldType)(nil)).Elem()
+}
+
+func (e DataAutomationProjectImageStandardGenerativeFieldType) ToDataAutomationProjectImageStandardGenerativeFieldTypeOutput() DataAutomationProjectImageStandardGenerativeFieldTypeOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectImageStandardGenerativeFieldTypeOutput)
+}
+
+func (e DataAutomationProjectImageStandardGenerativeFieldType) ToDataAutomationProjectImageStandardGenerativeFieldTypeOutputWithContext(ctx context.Context) DataAutomationProjectImageStandardGenerativeFieldTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectImageStandardGenerativeFieldTypeOutput)
+}
+
+func (e DataAutomationProjectImageStandardGenerativeFieldType) ToDataAutomationProjectImageStandardGenerativeFieldTypePtrOutput() DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput {
+	return e.ToDataAutomationProjectImageStandardGenerativeFieldTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectImageStandardGenerativeFieldType) ToDataAutomationProjectImageStandardGenerativeFieldTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput {
+	return DataAutomationProjectImageStandardGenerativeFieldType(e).ToDataAutomationProjectImageStandardGenerativeFieldTypeOutputWithContext(ctx).ToDataAutomationProjectImageStandardGenerativeFieldTypePtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectImageStandardGenerativeFieldType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectImageStandardGenerativeFieldType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectImageStandardGenerativeFieldType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectImageStandardGenerativeFieldType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectImageStandardGenerativeFieldTypeOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectImageStandardGenerativeFieldTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectImageStandardGenerativeFieldType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectImageStandardGenerativeFieldTypeOutput) ToDataAutomationProjectImageStandardGenerativeFieldTypeOutput() DataAutomationProjectImageStandardGenerativeFieldTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectImageStandardGenerativeFieldTypeOutput) ToDataAutomationProjectImageStandardGenerativeFieldTypeOutputWithContext(ctx context.Context) DataAutomationProjectImageStandardGenerativeFieldTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectImageStandardGenerativeFieldTypeOutput) ToDataAutomationProjectImageStandardGenerativeFieldTypePtrOutput() DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput {
+	return o.ToDataAutomationProjectImageStandardGenerativeFieldTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectImageStandardGenerativeFieldTypeOutput) ToDataAutomationProjectImageStandardGenerativeFieldTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectImageStandardGenerativeFieldType) *DataAutomationProjectImageStandardGenerativeFieldType {
+		return &v
+	}).(DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput)
+}
+
+func (o DataAutomationProjectImageStandardGenerativeFieldTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectImageStandardGenerativeFieldTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectImageStandardGenerativeFieldType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectImageStandardGenerativeFieldTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectImageStandardGenerativeFieldTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectImageStandardGenerativeFieldType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectImageStandardGenerativeFieldType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput) ToDataAutomationProjectImageStandardGenerativeFieldTypePtrOutput() DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput) ToDataAutomationProjectImageStandardGenerativeFieldTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput) Elem() DataAutomationProjectImageStandardGenerativeFieldTypeOutput {
+	return o.ApplyT(func(v *DataAutomationProjectImageStandardGenerativeFieldType) DataAutomationProjectImageStandardGenerativeFieldType {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectImageStandardGenerativeFieldType
+		return ret
+	}).(DataAutomationProjectImageStandardGenerativeFieldTypeOutput)
+}
+
+func (o DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectImageStandardGenerativeFieldType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectImageStandardGenerativeFieldTypeInput is an input type that accepts values of the DataAutomationProjectImageStandardGenerativeFieldType enum
+// A concrete instance of `DataAutomationProjectImageStandardGenerativeFieldTypeInput` can be one of the following:
+//
+//	DataAutomationProjectImageStandardGenerativeFieldTypeImageSummary
+//	DataAutomationProjectImageStandardGenerativeFieldTypeIab
+type DataAutomationProjectImageStandardGenerativeFieldTypeInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectImageStandardGenerativeFieldTypeOutput() DataAutomationProjectImageStandardGenerativeFieldTypeOutput
+	ToDataAutomationProjectImageStandardGenerativeFieldTypeOutputWithContext(context.Context) DataAutomationProjectImageStandardGenerativeFieldTypeOutput
+}
+
+var dataAutomationProjectImageStandardGenerativeFieldTypePtrType = reflect.TypeOf((**DataAutomationProjectImageStandardGenerativeFieldType)(nil)).Elem()
+
+type DataAutomationProjectImageStandardGenerativeFieldTypePtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectImageStandardGenerativeFieldTypePtrOutput() DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput
+	ToDataAutomationProjectImageStandardGenerativeFieldTypePtrOutputWithContext(context.Context) DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput
+}
+
+type dataAutomationProjectImageStandardGenerativeFieldTypePtr string
+
+func DataAutomationProjectImageStandardGenerativeFieldTypePtr(v string) DataAutomationProjectImageStandardGenerativeFieldTypePtrInput {
+	return (*dataAutomationProjectImageStandardGenerativeFieldTypePtr)(&v)
+}
+
+func (*dataAutomationProjectImageStandardGenerativeFieldTypePtr) ElementType() reflect.Type {
+	return dataAutomationProjectImageStandardGenerativeFieldTypePtrType
+}
+
+func (in *dataAutomationProjectImageStandardGenerativeFieldTypePtr) ToDataAutomationProjectImageStandardGenerativeFieldTypePtrOutput() DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput)
+}
+
+func (in *dataAutomationProjectImageStandardGenerativeFieldTypePtr) ToDataAutomationProjectImageStandardGenerativeFieldTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput)
+}
+
+// DataAutomationProjectImageStandardGenerativeFieldTypeArrayInput is an input type that accepts DataAutomationProjectImageStandardGenerativeFieldTypeArray and DataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput values.
+// You can construct a concrete instance of `DataAutomationProjectImageStandardGenerativeFieldTypeArrayInput` via:
+//
+//	DataAutomationProjectImageStandardGenerativeFieldTypeArray{ DataAutomationProjectImageStandardGenerativeFieldTypeArgs{...} }
+type DataAutomationProjectImageStandardGenerativeFieldTypeArrayInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput() DataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput
+	ToDataAutomationProjectImageStandardGenerativeFieldTypeArrayOutputWithContext(context.Context) DataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput
+}
+
+type DataAutomationProjectImageStandardGenerativeFieldTypeArray []DataAutomationProjectImageStandardGenerativeFieldType
+
+func (DataAutomationProjectImageStandardGenerativeFieldTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectImageStandardGenerativeFieldType)(nil)).Elem()
+}
+
+func (i DataAutomationProjectImageStandardGenerativeFieldTypeArray) ToDataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput() DataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput {
+	return i.ToDataAutomationProjectImageStandardGenerativeFieldTypeArrayOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectImageStandardGenerativeFieldTypeArray) ToDataAutomationProjectImageStandardGenerativeFieldTypeArrayOutputWithContext(ctx context.Context) DataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput)
+}
+
+type DataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectImageStandardGenerativeFieldType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput) ToDataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput() DataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput) ToDataAutomationProjectImageStandardGenerativeFieldTypeArrayOutputWithContext(ctx context.Context) DataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput) Index(i pulumi.IntInput) DataAutomationProjectImageStandardGenerativeFieldTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataAutomationProjectImageStandardGenerativeFieldType {
+		return vs[0].([]DataAutomationProjectImageStandardGenerativeFieldType)[vs[1].(int)]
+	}).(DataAutomationProjectImageStandardGenerativeFieldTypeOutput)
+}
+
+// Stage of the Project
+type DataAutomationProjectStage string
+
+const (
+	DataAutomationProjectStageDevelopment = DataAutomationProjectStage("DEVELOPMENT")
+	DataAutomationProjectStageLive        = DataAutomationProjectStage("LIVE")
+)
+
+type DataAutomationProjectStageOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectStageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectStage)(nil)).Elem()
+}
+
+func (o DataAutomationProjectStageOutput) ToDataAutomationProjectStageOutput() DataAutomationProjectStageOutput {
+	return o
+}
+
+func (o DataAutomationProjectStageOutput) ToDataAutomationProjectStageOutputWithContext(ctx context.Context) DataAutomationProjectStageOutput {
+	return o
+}
+
+func (o DataAutomationProjectStageOutput) ToDataAutomationProjectStagePtrOutput() DataAutomationProjectStagePtrOutput {
+	return o.ToDataAutomationProjectStagePtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectStageOutput) ToDataAutomationProjectStagePtrOutputWithContext(ctx context.Context) DataAutomationProjectStagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectStage) *DataAutomationProjectStage {
+		return &v
+	}).(DataAutomationProjectStagePtrOutput)
+}
+
+func (o DataAutomationProjectStageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectStageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectStage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectStageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectStageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectStage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectStagePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectStagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectStage)(nil)).Elem()
+}
+
+func (o DataAutomationProjectStagePtrOutput) ToDataAutomationProjectStagePtrOutput() DataAutomationProjectStagePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectStagePtrOutput) ToDataAutomationProjectStagePtrOutputWithContext(ctx context.Context) DataAutomationProjectStagePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectStagePtrOutput) Elem() DataAutomationProjectStageOutput {
+	return o.ApplyT(func(v *DataAutomationProjectStage) DataAutomationProjectStage {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectStage
+		return ret
+	}).(DataAutomationProjectStageOutput)
+}
+
+func (o DataAutomationProjectStagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectStagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectStage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectStateEnum string
+
+const (
+	DataAutomationProjectStateEnumEnabled  = DataAutomationProjectStateEnum("ENABLED")
+	DataAutomationProjectStateEnumDisabled = DataAutomationProjectStateEnum("DISABLED")
+)
+
+func (DataAutomationProjectStateEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectStateEnum)(nil)).Elem()
+}
+
+func (e DataAutomationProjectStateEnum) ToDataAutomationProjectStateEnumOutput() DataAutomationProjectStateEnumOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectStateEnumOutput)
+}
+
+func (e DataAutomationProjectStateEnum) ToDataAutomationProjectStateEnumOutputWithContext(ctx context.Context) DataAutomationProjectStateEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectStateEnumOutput)
+}
+
+func (e DataAutomationProjectStateEnum) ToDataAutomationProjectStateEnumPtrOutput() DataAutomationProjectStateEnumPtrOutput {
+	return e.ToDataAutomationProjectStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectStateEnum) ToDataAutomationProjectStateEnumPtrOutputWithContext(ctx context.Context) DataAutomationProjectStateEnumPtrOutput {
+	return DataAutomationProjectStateEnum(e).ToDataAutomationProjectStateEnumOutputWithContext(ctx).ToDataAutomationProjectStateEnumPtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectStateEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectStateEnumOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectStateEnum)(nil)).Elem()
+}
+
+func (o DataAutomationProjectStateEnumOutput) ToDataAutomationProjectStateEnumOutput() DataAutomationProjectStateEnumOutput {
+	return o
+}
+
+func (o DataAutomationProjectStateEnumOutput) ToDataAutomationProjectStateEnumOutputWithContext(ctx context.Context) DataAutomationProjectStateEnumOutput {
+	return o
+}
+
+func (o DataAutomationProjectStateEnumOutput) ToDataAutomationProjectStateEnumPtrOutput() DataAutomationProjectStateEnumPtrOutput {
+	return o.ToDataAutomationProjectStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectStateEnumOutput) ToDataAutomationProjectStateEnumPtrOutputWithContext(ctx context.Context) DataAutomationProjectStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectStateEnum) *DataAutomationProjectStateEnum {
+		return &v
+	}).(DataAutomationProjectStateEnumPtrOutput)
+}
+
+func (o DataAutomationProjectStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectStateEnum)(nil)).Elem()
+}
+
+func (o DataAutomationProjectStateEnumPtrOutput) ToDataAutomationProjectStateEnumPtrOutput() DataAutomationProjectStateEnumPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectStateEnumPtrOutput) ToDataAutomationProjectStateEnumPtrOutputWithContext(ctx context.Context) DataAutomationProjectStateEnumPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectStateEnumPtrOutput) Elem() DataAutomationProjectStateEnumOutput {
+	return o.ApplyT(func(v *DataAutomationProjectStateEnum) DataAutomationProjectStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectStateEnum
+		return ret
+	}).(DataAutomationProjectStateEnumOutput)
+}
+
+func (o DataAutomationProjectStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectStateEnumInput is an input type that accepts values of the DataAutomationProjectStateEnum enum
+// A concrete instance of `DataAutomationProjectStateEnumInput` can be one of the following:
+//
+//	DataAutomationProjectStateEnumEnabled
+//	DataAutomationProjectStateEnumDisabled
+type DataAutomationProjectStateEnumInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectStateEnumOutput() DataAutomationProjectStateEnumOutput
+	ToDataAutomationProjectStateEnumOutputWithContext(context.Context) DataAutomationProjectStateEnumOutput
+}
+
+var dataAutomationProjectStateEnumPtrType = reflect.TypeOf((**DataAutomationProjectStateEnum)(nil)).Elem()
+
+type DataAutomationProjectStateEnumPtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectStateEnumPtrOutput() DataAutomationProjectStateEnumPtrOutput
+	ToDataAutomationProjectStateEnumPtrOutputWithContext(context.Context) DataAutomationProjectStateEnumPtrOutput
+}
+
+type dataAutomationProjectStateEnumPtr string
+
+func DataAutomationProjectStateEnumPtr(v string) DataAutomationProjectStateEnumPtrInput {
+	return (*dataAutomationProjectStateEnumPtr)(&v)
+}
+
+func (*dataAutomationProjectStateEnumPtr) ElementType() reflect.Type {
+	return dataAutomationProjectStateEnumPtrType
+}
+
+func (in *dataAutomationProjectStateEnumPtr) ToDataAutomationProjectStateEnumPtrOutput() DataAutomationProjectStateEnumPtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectStateEnumPtrOutput)
+}
+
+func (in *dataAutomationProjectStateEnumPtr) ToDataAutomationProjectStateEnumPtrOutputWithContext(ctx context.Context) DataAutomationProjectStateEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectStateEnumPtrOutput)
+}
+
+type DataAutomationProjectStatus string
+
+const (
+	DataAutomationProjectStatusCompleted  = DataAutomationProjectStatus("COMPLETED")
+	DataAutomationProjectStatusInProgress = DataAutomationProjectStatus("IN_PROGRESS")
+	DataAutomationProjectStatusFailed     = DataAutomationProjectStatus("FAILED")
+)
+
+type DataAutomationProjectStatusOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectStatus)(nil)).Elem()
+}
+
+func (o DataAutomationProjectStatusOutput) ToDataAutomationProjectStatusOutput() DataAutomationProjectStatusOutput {
+	return o
+}
+
+func (o DataAutomationProjectStatusOutput) ToDataAutomationProjectStatusOutputWithContext(ctx context.Context) DataAutomationProjectStatusOutput {
+	return o
+}
+
+func (o DataAutomationProjectStatusOutput) ToDataAutomationProjectStatusPtrOutput() DataAutomationProjectStatusPtrOutput {
+	return o.ToDataAutomationProjectStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectStatusOutput) ToDataAutomationProjectStatusPtrOutputWithContext(ctx context.Context) DataAutomationProjectStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectStatus) *DataAutomationProjectStatus {
+		return &v
+	}).(DataAutomationProjectStatusPtrOutput)
+}
+
+func (o DataAutomationProjectStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectStatus)(nil)).Elem()
+}
+
+func (o DataAutomationProjectStatusPtrOutput) ToDataAutomationProjectStatusPtrOutput() DataAutomationProjectStatusPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectStatusPtrOutput) ToDataAutomationProjectStatusPtrOutputWithContext(ctx context.Context) DataAutomationProjectStatusPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectStatusPtrOutput) Elem() DataAutomationProjectStatusOutput {
+	return o.ApplyT(func(v *DataAutomationProjectStatus) DataAutomationProjectStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectStatus
+		return ret
+	}).(DataAutomationProjectStatusOutput)
+}
+
+func (o DataAutomationProjectStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectVideoExtractionCategoryType string
+
+const (
+	DataAutomationProjectVideoExtractionCategoryTypeContentModeration = DataAutomationProjectVideoExtractionCategoryType("CONTENT_MODERATION")
+	DataAutomationProjectVideoExtractionCategoryTypeTextDetection     = DataAutomationProjectVideoExtractionCategoryType("TEXT_DETECTION")
+	DataAutomationProjectVideoExtractionCategoryTypeTranscript        = DataAutomationProjectVideoExtractionCategoryType("TRANSCRIPT")
+	DataAutomationProjectVideoExtractionCategoryTypeLogos             = DataAutomationProjectVideoExtractionCategoryType("LOGOS")
+)
+
+func (DataAutomationProjectVideoExtractionCategoryType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectVideoExtractionCategoryType)(nil)).Elem()
+}
+
+func (e DataAutomationProjectVideoExtractionCategoryType) ToDataAutomationProjectVideoExtractionCategoryTypeOutput() DataAutomationProjectVideoExtractionCategoryTypeOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectVideoExtractionCategoryTypeOutput)
+}
+
+func (e DataAutomationProjectVideoExtractionCategoryType) ToDataAutomationProjectVideoExtractionCategoryTypeOutputWithContext(ctx context.Context) DataAutomationProjectVideoExtractionCategoryTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectVideoExtractionCategoryTypeOutput)
+}
+
+func (e DataAutomationProjectVideoExtractionCategoryType) ToDataAutomationProjectVideoExtractionCategoryTypePtrOutput() DataAutomationProjectVideoExtractionCategoryTypePtrOutput {
+	return e.ToDataAutomationProjectVideoExtractionCategoryTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectVideoExtractionCategoryType) ToDataAutomationProjectVideoExtractionCategoryTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectVideoExtractionCategoryTypePtrOutput {
+	return DataAutomationProjectVideoExtractionCategoryType(e).ToDataAutomationProjectVideoExtractionCategoryTypeOutputWithContext(ctx).ToDataAutomationProjectVideoExtractionCategoryTypePtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectVideoExtractionCategoryType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectVideoExtractionCategoryType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectVideoExtractionCategoryType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectVideoExtractionCategoryType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectVideoExtractionCategoryTypeOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectVideoExtractionCategoryTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectVideoExtractionCategoryType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectVideoExtractionCategoryTypeOutput) ToDataAutomationProjectVideoExtractionCategoryTypeOutput() DataAutomationProjectVideoExtractionCategoryTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectVideoExtractionCategoryTypeOutput) ToDataAutomationProjectVideoExtractionCategoryTypeOutputWithContext(ctx context.Context) DataAutomationProjectVideoExtractionCategoryTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectVideoExtractionCategoryTypeOutput) ToDataAutomationProjectVideoExtractionCategoryTypePtrOutput() DataAutomationProjectVideoExtractionCategoryTypePtrOutput {
+	return o.ToDataAutomationProjectVideoExtractionCategoryTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectVideoExtractionCategoryTypeOutput) ToDataAutomationProjectVideoExtractionCategoryTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectVideoExtractionCategoryTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectVideoExtractionCategoryType) *DataAutomationProjectVideoExtractionCategoryType {
+		return &v
+	}).(DataAutomationProjectVideoExtractionCategoryTypePtrOutput)
+}
+
+func (o DataAutomationProjectVideoExtractionCategoryTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectVideoExtractionCategoryTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectVideoExtractionCategoryType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectVideoExtractionCategoryTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectVideoExtractionCategoryTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectVideoExtractionCategoryType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectVideoExtractionCategoryTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectVideoExtractionCategoryTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectVideoExtractionCategoryType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectVideoExtractionCategoryTypePtrOutput) ToDataAutomationProjectVideoExtractionCategoryTypePtrOutput() DataAutomationProjectVideoExtractionCategoryTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectVideoExtractionCategoryTypePtrOutput) ToDataAutomationProjectVideoExtractionCategoryTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectVideoExtractionCategoryTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectVideoExtractionCategoryTypePtrOutput) Elem() DataAutomationProjectVideoExtractionCategoryTypeOutput {
+	return o.ApplyT(func(v *DataAutomationProjectVideoExtractionCategoryType) DataAutomationProjectVideoExtractionCategoryType {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectVideoExtractionCategoryType
+		return ret
+	}).(DataAutomationProjectVideoExtractionCategoryTypeOutput)
+}
+
+func (o DataAutomationProjectVideoExtractionCategoryTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectVideoExtractionCategoryTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectVideoExtractionCategoryType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectVideoExtractionCategoryTypeInput is an input type that accepts values of the DataAutomationProjectVideoExtractionCategoryType enum
+// A concrete instance of `DataAutomationProjectVideoExtractionCategoryTypeInput` can be one of the following:
+//
+//	DataAutomationProjectVideoExtractionCategoryTypeContentModeration
+//	DataAutomationProjectVideoExtractionCategoryTypeTextDetection
+//	DataAutomationProjectVideoExtractionCategoryTypeTranscript
+//	DataAutomationProjectVideoExtractionCategoryTypeLogos
+type DataAutomationProjectVideoExtractionCategoryTypeInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectVideoExtractionCategoryTypeOutput() DataAutomationProjectVideoExtractionCategoryTypeOutput
+	ToDataAutomationProjectVideoExtractionCategoryTypeOutputWithContext(context.Context) DataAutomationProjectVideoExtractionCategoryTypeOutput
+}
+
+var dataAutomationProjectVideoExtractionCategoryTypePtrType = reflect.TypeOf((**DataAutomationProjectVideoExtractionCategoryType)(nil)).Elem()
+
+type DataAutomationProjectVideoExtractionCategoryTypePtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectVideoExtractionCategoryTypePtrOutput() DataAutomationProjectVideoExtractionCategoryTypePtrOutput
+	ToDataAutomationProjectVideoExtractionCategoryTypePtrOutputWithContext(context.Context) DataAutomationProjectVideoExtractionCategoryTypePtrOutput
+}
+
+type dataAutomationProjectVideoExtractionCategoryTypePtr string
+
+func DataAutomationProjectVideoExtractionCategoryTypePtr(v string) DataAutomationProjectVideoExtractionCategoryTypePtrInput {
+	return (*dataAutomationProjectVideoExtractionCategoryTypePtr)(&v)
+}
+
+func (*dataAutomationProjectVideoExtractionCategoryTypePtr) ElementType() reflect.Type {
+	return dataAutomationProjectVideoExtractionCategoryTypePtrType
+}
+
+func (in *dataAutomationProjectVideoExtractionCategoryTypePtr) ToDataAutomationProjectVideoExtractionCategoryTypePtrOutput() DataAutomationProjectVideoExtractionCategoryTypePtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectVideoExtractionCategoryTypePtrOutput)
+}
+
+func (in *dataAutomationProjectVideoExtractionCategoryTypePtr) ToDataAutomationProjectVideoExtractionCategoryTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectVideoExtractionCategoryTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectVideoExtractionCategoryTypePtrOutput)
+}
+
+// DataAutomationProjectVideoExtractionCategoryTypeArrayInput is an input type that accepts DataAutomationProjectVideoExtractionCategoryTypeArray and DataAutomationProjectVideoExtractionCategoryTypeArrayOutput values.
+// You can construct a concrete instance of `DataAutomationProjectVideoExtractionCategoryTypeArrayInput` via:
+//
+//	DataAutomationProjectVideoExtractionCategoryTypeArray{ DataAutomationProjectVideoExtractionCategoryTypeArgs{...} }
+type DataAutomationProjectVideoExtractionCategoryTypeArrayInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectVideoExtractionCategoryTypeArrayOutput() DataAutomationProjectVideoExtractionCategoryTypeArrayOutput
+	ToDataAutomationProjectVideoExtractionCategoryTypeArrayOutputWithContext(context.Context) DataAutomationProjectVideoExtractionCategoryTypeArrayOutput
+}
+
+type DataAutomationProjectVideoExtractionCategoryTypeArray []DataAutomationProjectVideoExtractionCategoryType
+
+func (DataAutomationProjectVideoExtractionCategoryTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectVideoExtractionCategoryType)(nil)).Elem()
+}
+
+func (i DataAutomationProjectVideoExtractionCategoryTypeArray) ToDataAutomationProjectVideoExtractionCategoryTypeArrayOutput() DataAutomationProjectVideoExtractionCategoryTypeArrayOutput {
+	return i.ToDataAutomationProjectVideoExtractionCategoryTypeArrayOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectVideoExtractionCategoryTypeArray) ToDataAutomationProjectVideoExtractionCategoryTypeArrayOutputWithContext(ctx context.Context) DataAutomationProjectVideoExtractionCategoryTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectVideoExtractionCategoryTypeArrayOutput)
+}
+
+type DataAutomationProjectVideoExtractionCategoryTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectVideoExtractionCategoryTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectVideoExtractionCategoryType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectVideoExtractionCategoryTypeArrayOutput) ToDataAutomationProjectVideoExtractionCategoryTypeArrayOutput() DataAutomationProjectVideoExtractionCategoryTypeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectVideoExtractionCategoryTypeArrayOutput) ToDataAutomationProjectVideoExtractionCategoryTypeArrayOutputWithContext(ctx context.Context) DataAutomationProjectVideoExtractionCategoryTypeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectVideoExtractionCategoryTypeArrayOutput) Index(i pulumi.IntInput) DataAutomationProjectVideoExtractionCategoryTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataAutomationProjectVideoExtractionCategoryType {
+		return vs[0].([]DataAutomationProjectVideoExtractionCategoryType)[vs[1].(int)]
+	}).(DataAutomationProjectVideoExtractionCategoryTypeOutput)
+}
+
+type DataAutomationProjectVideoStandardGenerativeFieldType string
+
+const (
+	DataAutomationProjectVideoStandardGenerativeFieldTypeVideoSummary   = DataAutomationProjectVideoStandardGenerativeFieldType("VIDEO_SUMMARY")
+	DataAutomationProjectVideoStandardGenerativeFieldTypeIab            = DataAutomationProjectVideoStandardGenerativeFieldType("IAB")
+	DataAutomationProjectVideoStandardGenerativeFieldTypeChapterSummary = DataAutomationProjectVideoStandardGenerativeFieldType("CHAPTER_SUMMARY")
+)
+
+func (DataAutomationProjectVideoStandardGenerativeFieldType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectVideoStandardGenerativeFieldType)(nil)).Elem()
+}
+
+func (e DataAutomationProjectVideoStandardGenerativeFieldType) ToDataAutomationProjectVideoStandardGenerativeFieldTypeOutput() DataAutomationProjectVideoStandardGenerativeFieldTypeOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectVideoStandardGenerativeFieldTypeOutput)
+}
+
+func (e DataAutomationProjectVideoStandardGenerativeFieldType) ToDataAutomationProjectVideoStandardGenerativeFieldTypeOutputWithContext(ctx context.Context) DataAutomationProjectVideoStandardGenerativeFieldTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectVideoStandardGenerativeFieldTypeOutput)
+}
+
+func (e DataAutomationProjectVideoStandardGenerativeFieldType) ToDataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput() DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput {
+	return e.ToDataAutomationProjectVideoStandardGenerativeFieldTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectVideoStandardGenerativeFieldType) ToDataAutomationProjectVideoStandardGenerativeFieldTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput {
+	return DataAutomationProjectVideoStandardGenerativeFieldType(e).ToDataAutomationProjectVideoStandardGenerativeFieldTypeOutputWithContext(ctx).ToDataAutomationProjectVideoStandardGenerativeFieldTypePtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectVideoStandardGenerativeFieldType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectVideoStandardGenerativeFieldType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectVideoStandardGenerativeFieldType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectVideoStandardGenerativeFieldType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectVideoStandardGenerativeFieldTypeOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectVideoStandardGenerativeFieldTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectVideoStandardGenerativeFieldType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectVideoStandardGenerativeFieldTypeOutput) ToDataAutomationProjectVideoStandardGenerativeFieldTypeOutput() DataAutomationProjectVideoStandardGenerativeFieldTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectVideoStandardGenerativeFieldTypeOutput) ToDataAutomationProjectVideoStandardGenerativeFieldTypeOutputWithContext(ctx context.Context) DataAutomationProjectVideoStandardGenerativeFieldTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectVideoStandardGenerativeFieldTypeOutput) ToDataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput() DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput {
+	return o.ToDataAutomationProjectVideoStandardGenerativeFieldTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectVideoStandardGenerativeFieldTypeOutput) ToDataAutomationProjectVideoStandardGenerativeFieldTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectVideoStandardGenerativeFieldType) *DataAutomationProjectVideoStandardGenerativeFieldType {
+		return &v
+	}).(DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput)
+}
+
+func (o DataAutomationProjectVideoStandardGenerativeFieldTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectVideoStandardGenerativeFieldTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectVideoStandardGenerativeFieldType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectVideoStandardGenerativeFieldTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectVideoStandardGenerativeFieldTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectVideoStandardGenerativeFieldType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectVideoStandardGenerativeFieldType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput) ToDataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput() DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput) ToDataAutomationProjectVideoStandardGenerativeFieldTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput) Elem() DataAutomationProjectVideoStandardGenerativeFieldTypeOutput {
+	return o.ApplyT(func(v *DataAutomationProjectVideoStandardGenerativeFieldType) DataAutomationProjectVideoStandardGenerativeFieldType {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectVideoStandardGenerativeFieldType
+		return ret
+	}).(DataAutomationProjectVideoStandardGenerativeFieldTypeOutput)
+}
+
+func (o DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectVideoStandardGenerativeFieldType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectVideoStandardGenerativeFieldTypeInput is an input type that accepts values of the DataAutomationProjectVideoStandardGenerativeFieldType enum
+// A concrete instance of `DataAutomationProjectVideoStandardGenerativeFieldTypeInput` can be one of the following:
+//
+//	DataAutomationProjectVideoStandardGenerativeFieldTypeVideoSummary
+//	DataAutomationProjectVideoStandardGenerativeFieldTypeIab
+//	DataAutomationProjectVideoStandardGenerativeFieldTypeChapterSummary
+type DataAutomationProjectVideoStandardGenerativeFieldTypeInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectVideoStandardGenerativeFieldTypeOutput() DataAutomationProjectVideoStandardGenerativeFieldTypeOutput
+	ToDataAutomationProjectVideoStandardGenerativeFieldTypeOutputWithContext(context.Context) DataAutomationProjectVideoStandardGenerativeFieldTypeOutput
+}
+
+var dataAutomationProjectVideoStandardGenerativeFieldTypePtrType = reflect.TypeOf((**DataAutomationProjectVideoStandardGenerativeFieldType)(nil)).Elem()
+
+type DataAutomationProjectVideoStandardGenerativeFieldTypePtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput() DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput
+	ToDataAutomationProjectVideoStandardGenerativeFieldTypePtrOutputWithContext(context.Context) DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput
+}
+
+type dataAutomationProjectVideoStandardGenerativeFieldTypePtr string
+
+func DataAutomationProjectVideoStandardGenerativeFieldTypePtr(v string) DataAutomationProjectVideoStandardGenerativeFieldTypePtrInput {
+	return (*dataAutomationProjectVideoStandardGenerativeFieldTypePtr)(&v)
+}
+
+func (*dataAutomationProjectVideoStandardGenerativeFieldTypePtr) ElementType() reflect.Type {
+	return dataAutomationProjectVideoStandardGenerativeFieldTypePtrType
+}
+
+func (in *dataAutomationProjectVideoStandardGenerativeFieldTypePtr) ToDataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput() DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput)
+}
+
+func (in *dataAutomationProjectVideoStandardGenerativeFieldTypePtr) ToDataAutomationProjectVideoStandardGenerativeFieldTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput)
+}
+
+// DataAutomationProjectVideoStandardGenerativeFieldTypeArrayInput is an input type that accepts DataAutomationProjectVideoStandardGenerativeFieldTypeArray and DataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutput values.
+// You can construct a concrete instance of `DataAutomationProjectVideoStandardGenerativeFieldTypeArrayInput` via:
+//
+//	DataAutomationProjectVideoStandardGenerativeFieldTypeArray{ DataAutomationProjectVideoStandardGenerativeFieldTypeArgs{...} }
+type DataAutomationProjectVideoStandardGenerativeFieldTypeArrayInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutput() DataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutput
+	ToDataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutputWithContext(context.Context) DataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutput
+}
+
+type DataAutomationProjectVideoStandardGenerativeFieldTypeArray []DataAutomationProjectVideoStandardGenerativeFieldType
+
+func (DataAutomationProjectVideoStandardGenerativeFieldTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectVideoStandardGenerativeFieldType)(nil)).Elem()
+}
+
+func (i DataAutomationProjectVideoStandardGenerativeFieldTypeArray) ToDataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutput() DataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutput {
+	return i.ToDataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectVideoStandardGenerativeFieldTypeArray) ToDataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutputWithContext(ctx context.Context) DataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutput)
+}
+
+type DataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectVideoStandardGenerativeFieldType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutput) ToDataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutput() DataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutput) ToDataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutputWithContext(ctx context.Context) DataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutput) Index(i pulumi.IntInput) DataAutomationProjectVideoStandardGenerativeFieldTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataAutomationProjectVideoStandardGenerativeFieldType {
+		return vs[0].([]DataAutomationProjectVideoStandardGenerativeFieldType)[vs[1].(int)]
+	}).(DataAutomationProjectVideoStandardGenerativeFieldTypeOutput)
+}
+
 // Knowledge base can split your source data into chunks. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for NONE, then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
 type DataSourceChunkingStrategy string
 
@@ -9975,6 +12447,36 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentRequireConfirmationPtrInput)(nil)).Elem(), AgentRequireConfirmation("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentTypeInput)(nil)).Elem(), AgentType("string"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentTypePtrInput)(nil)).Elem(), AgentType("string"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BlueprintTypeInput)(nil)).Elem(), BlueprintType("DOCUMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BlueprintTypePtrInput)(nil)).Elem(), BlueprintType("DOCUMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryTypeInput)(nil)).Elem(), DataAutomationProjectAudioExtractionCategoryType("AUDIO_CONTENT_MODERATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryTypePtrInput)(nil)).Elem(), DataAutomationProjectAudioExtractionCategoryType("AUDIO_CONTENT_MODERATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryTypeArrayInput)(nil)).Elem(), DataAutomationProjectAudioExtractionCategoryTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioStandardGenerativeFieldTypeInput)(nil)).Elem(), DataAutomationProjectAudioStandardGenerativeFieldType("AUDIO_SUMMARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioStandardGenerativeFieldTypePtrInput)(nil)).Elem(), DataAutomationProjectAudioStandardGenerativeFieldType("AUDIO_SUMMARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioStandardGenerativeFieldTypeArrayInput)(nil)).Elem(), DataAutomationProjectAudioStandardGenerativeFieldTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectBlueprintStageInput)(nil)).Elem(), DataAutomationProjectBlueprintStage("DEVELOPMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectBlueprintStagePtrInput)(nil)).Elem(), DataAutomationProjectBlueprintStage("DEVELOPMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectDocumentExtractionGranularityTypeInput)(nil)).Elem(), DataAutomationProjectDocumentExtractionGranularityType("DOCUMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectDocumentExtractionGranularityTypePtrInput)(nil)).Elem(), DataAutomationProjectDocumentExtractionGranularityType("DOCUMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectDocumentExtractionGranularityTypeArrayInput)(nil)).Elem(), DataAutomationProjectDocumentExtractionGranularityTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectDocumentOutputTextFormatTypeInput)(nil)).Elem(), DataAutomationProjectDocumentOutputTextFormatType("PLAIN_TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectDocumentOutputTextFormatTypePtrInput)(nil)).Elem(), DataAutomationProjectDocumentOutputTextFormatType("PLAIN_TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectDocumentOutputTextFormatTypeArrayInput)(nil)).Elem(), DataAutomationProjectDocumentOutputTextFormatTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageExtractionCategoryTypeInput)(nil)).Elem(), DataAutomationProjectImageExtractionCategoryType("CONTENT_MODERATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageExtractionCategoryTypePtrInput)(nil)).Elem(), DataAutomationProjectImageExtractionCategoryType("CONTENT_MODERATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageExtractionCategoryTypeArrayInput)(nil)).Elem(), DataAutomationProjectImageExtractionCategoryTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageStandardGenerativeFieldTypeInput)(nil)).Elem(), DataAutomationProjectImageStandardGenerativeFieldType("IMAGE_SUMMARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageStandardGenerativeFieldTypePtrInput)(nil)).Elem(), DataAutomationProjectImageStandardGenerativeFieldType("IMAGE_SUMMARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageStandardGenerativeFieldTypeArrayInput)(nil)).Elem(), DataAutomationProjectImageStandardGenerativeFieldTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectStateEnumInput)(nil)).Elem(), DataAutomationProjectStateEnum("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectStateEnumPtrInput)(nil)).Elem(), DataAutomationProjectStateEnum("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoExtractionCategoryTypeInput)(nil)).Elem(), DataAutomationProjectVideoExtractionCategoryType("CONTENT_MODERATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoExtractionCategoryTypePtrInput)(nil)).Elem(), DataAutomationProjectVideoExtractionCategoryType("CONTENT_MODERATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoExtractionCategoryTypeArrayInput)(nil)).Elem(), DataAutomationProjectVideoExtractionCategoryTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoStandardGenerativeFieldTypeInput)(nil)).Elem(), DataAutomationProjectVideoStandardGenerativeFieldType("VIDEO_SUMMARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoStandardGenerativeFieldTypePtrInput)(nil)).Elem(), DataAutomationProjectVideoStandardGenerativeFieldType("VIDEO_SUMMARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoStandardGenerativeFieldTypeArrayInput)(nil)).Elem(), DataAutomationProjectVideoStandardGenerativeFieldTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceChunkingStrategyInput)(nil)).Elem(), DataSourceChunkingStrategy("FIXED_SIZE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceChunkingStrategyPtrInput)(nil)).Elem(), DataSourceChunkingStrategy("FIXED_SIZE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceSourceConfigurationAuthTypeInput)(nil)).Elem(), DataSourceConfluenceSourceConfigurationAuthType("BASIC"))
@@ -10084,6 +12586,42 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileStatusPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileTypePtrOutput{})
+	pulumi.RegisterOutputType(BlueprintStageOutput{})
+	pulumi.RegisterOutputType(BlueprintStagePtrOutput{})
+	pulumi.RegisterOutputType(BlueprintTypeOutput{})
+	pulumi.RegisterOutputType(BlueprintTypePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryTypeOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryTypePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryTypeArrayOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectAudioStandardGenerativeFieldTypeOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectBlueprintStageOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectBlueprintStagePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectDocumentExtractionGranularityTypeOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectDocumentExtractionGranularityTypePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectDocumentExtractionGranularityTypeArrayOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectDocumentOutputTextFormatTypeOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectDocumentOutputTextFormatTypePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectDocumentOutputTextFormatTypeArrayOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectImageExtractionCategoryTypeOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectImageExtractionCategoryTypePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectImageExtractionCategoryTypeArrayOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectImageStandardGenerativeFieldTypeOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectStageOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectStagePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectStateEnumOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectStatusOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectStatusPtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectVideoExtractionCategoryTypeOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectVideoExtractionCategoryTypePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectVideoExtractionCategoryTypeArrayOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectVideoStandardGenerativeFieldTypeOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectVideoStandardGenerativeFieldTypePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectVideoStandardGenerativeFieldTypeArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceChunkingStrategyOutput{})
 	pulumi.RegisterOutputType(DataSourceChunkingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceSourceConfigurationAuthTypeOutput{})

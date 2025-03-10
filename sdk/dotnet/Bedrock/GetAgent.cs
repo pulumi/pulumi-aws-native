@@ -71,6 +71,9 @@ namespace Pulumi.AwsNative.Bedrock
         /// Arn representation of the Agent.
         /// </summary>
         public readonly string? AgentArn;
+        /// <summary>
+        /// The agent's collaboration settings.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.AgentCollaboration? AgentCollaboration;
         /// <summary>
         /// List of Agent Collaborators
@@ -108,6 +111,9 @@ namespace Pulumi.AwsNative.Bedrock
         /// Time Stamp.
         /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// Contains custom orchestration configurations for the agent.
+        /// </summary>
         public readonly Outputs.AgentCustomOrchestration? CustomOrchestration;
         /// <summary>
         /// A KMS key ARN
@@ -141,7 +147,13 @@ namespace Pulumi.AwsNative.Bedrock
         /// List of Agent Knowledge Bases
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentKnowledgeBase> KnowledgeBases;
+        /// <summary>
+        /// Contains memory configuration for the agent.
+        /// </summary>
         public readonly Outputs.AgentMemoryConfiguration? MemoryConfiguration;
+        /// <summary>
+        /// Specifies the orchestration strategy for the agent.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.AgentOrchestrationType? OrchestrationType;
         /// <summary>
         /// Time Stamp.

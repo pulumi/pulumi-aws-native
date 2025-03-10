@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Ecr.Outputs
 {
 
     /// <summary>
-    /// An object representing the replication configuration for a registry.
+    /// The replication configuration for a registry.
     /// </summary>
     [OutputType]
     public sealed class ReplicationConfiguration
     {
         /// <summary>
-        /// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
+        /// An array of objects representing the replication destinations and repository filters for a replication configuration.
         /// </summary>
         public readonly ImmutableArray<Outputs.ReplicationConfigurationReplicationRule> Rules;
 
