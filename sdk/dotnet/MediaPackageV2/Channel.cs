@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("ingestEndpoints")]
         public Output<ImmutableArray<Outputs.ChannelIngestEndpoint>> IngestEndpoints { get; private set; } = null!;
 
+        [Output("inputSwitchConfiguration")]
+        public Output<Outputs.ChannelInputSwitchConfiguration?> InputSwitchConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
         /// 
@@ -70,6 +73,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
+
+        [Output("outputHeaderConfiguration")]
+        public Output<Outputs.ChannelOutputHeaderConfiguration?> OutputHeaderConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The tags associated with the channel.
@@ -146,6 +152,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("inputSwitchConfiguration")]
+        public Input<Inputs.ChannelInputSwitchConfigurationArgs>? InputSwitchConfiguration { get; set; }
+
         /// <summary>
         /// The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
         /// 
@@ -156,6 +165,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         [Input("inputType")]
         public Input<Pulumi.AwsNative.MediaPackageV2.ChannelInputType>? InputType { get; set; }
+
+        [Input("outputHeaderConfiguration")]
+        public Input<Inputs.ChannelOutputHeaderConfigurationArgs>? OutputHeaderConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

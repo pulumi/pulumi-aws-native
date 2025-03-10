@@ -29,6 +29,9 @@ export interface GetSecurityConfigResult {
      * Security config description
      */
     readonly description?: string;
+    /**
+     * Describes IAM Identity Center options in the form of a key-value map.
+     */
     readonly iamIdentityCenterOptions?: outputs.opensearchserverless.SecurityConfigIamIdentityCenterConfigOptions;
     /**
      * The identifier of the security config
