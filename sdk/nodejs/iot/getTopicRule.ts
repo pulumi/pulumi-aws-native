@@ -20,8 +20,6 @@ export function getTopicRule(args: GetTopicRuleArgs, opts?: pulumi.InvokeOptions
 export interface GetTopicRuleArgs {
     /**
      * The name of the rule.
-     *
-     * *Pattern* : `^[a-zA-Z0-9_]+$`
      */
     ruleName: string;
 }
@@ -59,8 +57,6 @@ export function getTopicRuleOutput(args: GetTopicRuleOutputArgs, opts?: pulumi.I
 export interface GetTopicRuleOutputArgs {
     /**
      * The name of the rule.
-     *
-     * *Pattern* : `^[a-zA-Z0-9_]+$`
      */
     ruleName: pulumi.Input<string>;
 }

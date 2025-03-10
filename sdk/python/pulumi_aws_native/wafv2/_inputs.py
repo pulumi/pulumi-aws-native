@@ -84,6 +84,8 @@ __all__ = [
     'RuleGroupIpSetReferenceStatementArgsDict',
     'RuleGroupJa3FingerprintArgs',
     'RuleGroupJa3FingerprintArgsDict',
+    'RuleGroupJa4FingerprintArgs',
+    'RuleGroupJa4FingerprintArgsDict',
     'RuleGroupJsonBodyArgs',
     'RuleGroupJsonBodyArgsDict',
     'RuleGroupJsonMatchPatternArgs',
@@ -112,6 +114,10 @@ __all__ = [
     'RuleGroupRateLimitHttpMethodArgsDict',
     'RuleGroupRateLimitIpArgs',
     'RuleGroupRateLimitIpArgsDict',
+    'RuleGroupRateLimitJa3FingerprintArgs',
+    'RuleGroupRateLimitJa3FingerprintArgsDict',
+    'RuleGroupRateLimitJa4FingerprintArgs',
+    'RuleGroupRateLimitJa4FingerprintArgsDict',
     'RuleGroupRateLimitLabelNamespaceArgs',
     'RuleGroupRateLimitLabelNamespaceArgsDict',
     'RuleGroupRateLimitQueryArgumentArgs',
@@ -208,6 +214,8 @@ __all__ = [
     'WebAclIpSetReferenceStatementArgsDict',
     'WebAclJa3FingerprintArgs',
     'WebAclJa3FingerprintArgsDict',
+    'WebAclJa4FingerprintArgs',
+    'WebAclJa4FingerprintArgsDict',
     'WebAclJsonBodyArgs',
     'WebAclJsonBodyArgsDict',
     'WebAclJsonMatchPatternArgs',
@@ -240,6 +248,10 @@ __all__ = [
     'WebAclRateLimitHttpMethodArgsDict',
     'WebAclRateLimitIpArgs',
     'WebAclRateLimitIpArgsDict',
+    'WebAclRateLimitJa3FingerprintArgs',
+    'WebAclRateLimitJa3FingerprintArgsDict',
+    'WebAclRateLimitJa4FingerprintArgs',
+    'WebAclRateLimitJa4FingerprintArgsDict',
     'WebAclRateLimitLabelNamespaceArgs',
     'WebAclRateLimitLabelNamespaceArgsDict',
     'WebAclRateLimitQueryArgumentArgs',
@@ -1793,6 +1805,16 @@ if not MYPY:
 
         Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
         """
+        ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupJa4FingerprintArgsDict']]
+        """
+        Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+
+        > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+
+        You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+
+        Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+        """
         json_body: NotRequired[pulumi.Input['RuleGroupJsonBodyArgsDict']]
         """
         Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
@@ -1839,6 +1861,7 @@ class RuleGroupFieldToMatchArgs:
                  cookies: Optional[pulumi.Input['RuleGroupCookiesArgs']] = None,
                  headers: Optional[pulumi.Input['RuleGroupHeadersArgs']] = None,
                  ja3_fingerprint: Optional[pulumi.Input['RuleGroupJa3FingerprintArgs']] = None,
+                 ja4_fingerprint: Optional[pulumi.Input['RuleGroupJa4FingerprintArgs']] = None,
                  json_body: Optional[pulumi.Input['RuleGroupJsonBodyArgs']] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
@@ -1869,6 +1892,13 @@ class RuleGroupFieldToMatchArgs:
                You can obtain the JA3 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
                
                Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+        :param pulumi.Input['RuleGroupJa4FingerprintArgs'] ja4_fingerprint: Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+               
+               > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+               
+               You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+               
+               Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
         :param pulumi.Input['RuleGroupJsonBodyArgs'] json_body: Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
                
                AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
@@ -1897,6 +1927,8 @@ class RuleGroupFieldToMatchArgs:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -1986,6 +2018,24 @@ class RuleGroupFieldToMatchArgs:
     @ja3_fingerprint.setter
     def ja3_fingerprint(self, value: Optional[pulumi.Input['RuleGroupJa3FingerprintArgs']]):
         pulumi.set(self, "ja3_fingerprint", value)
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional[pulumi.Input['RuleGroupJa4FingerprintArgs']]:
+        """
+        Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+
+        > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+
+        You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+
+        Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
+
+    @ja4_fingerprint.setter
+    def ja4_fingerprint(self, value: Optional[pulumi.Input['RuleGroupJa4FingerprintArgs']]):
+        pulumi.set(self, "ja4_fingerprint", value)
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -2656,6 +2706,56 @@ class RuleGroupJa3FingerprintArgs:
 
 
 if not MYPY:
+    class RuleGroupJa4FingerprintArgsDict(TypedDict):
+        """
+        Includes the JA4 fingerprint of a web request.
+        """
+        fallback_behavior: pulumi.Input['RuleGroupJa4FingerprintFallbackBehavior']
+        """
+        The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+
+        You can specify the following fallback behaviors:
+
+        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+elif False:
+    RuleGroupJa4FingerprintArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupJa4FingerprintArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: pulumi.Input['RuleGroupJa4FingerprintFallbackBehavior']):
+        """
+        Includes the JA4 fingerprint of a web request.
+        :param pulumi.Input['RuleGroupJa4FingerprintFallbackBehavior'] fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+               
+               You can specify the following fallback behaviors:
+               
+               - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+               - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> pulumi.Input['RuleGroupJa4FingerprintFallbackBehavior']:
+        """
+        The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+
+        You can specify the following fallback behaviors:
+
+        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: pulumi.Input['RuleGroupJa4FingerprintFallbackBehavior']):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class RuleGroupJsonBodyArgsDict(TypedDict):
         """
         Inspect the request body as JSON. The request body immediately follows the request headers.
@@ -3119,6 +3219,14 @@ if not MYPY:
 
         When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
         """
+        ja3_fingerprint: NotRequired[pulumi.Input['RuleGroupRateLimitJa3FingerprintArgsDict']]
+        """
+        Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+        """
+        ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupRateLimitJa4FingerprintArgsDict']]
+        """
+        Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
+        """
         label_namespace: NotRequired[pulumi.Input['RuleGroupRateLimitLabelNamespaceArgsDict']]
         """
         Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
@@ -3150,6 +3258,8 @@ class RuleGroupRateBasedStatementCustomKeyArgs:
                  header: Optional[pulumi.Input['RuleGroupRateLimitHeaderArgs']] = None,
                  http_method: Optional[pulumi.Input['RuleGroupRateLimitHttpMethodArgs']] = None,
                  ip: Optional[pulumi.Input['RuleGroupRateLimitIpArgs']] = None,
+                 ja3_fingerprint: Optional[pulumi.Input['RuleGroupRateLimitJa3FingerprintArgs']] = None,
+                 ja4_fingerprint: Optional[pulumi.Input['RuleGroupRateLimitJa4FingerprintArgs']] = None,
                  label_namespace: Optional[pulumi.Input['RuleGroupRateLimitLabelNamespaceArgs']] = None,
                  query_argument: Optional[pulumi.Input['RuleGroupRateLimitQueryArgumentArgs']] = None,
                  query_string: Optional[pulumi.Input['RuleGroupRateLimitQueryStringArgs']] = None,
@@ -3167,6 +3277,8 @@ class RuleGroupRateBasedStatementCustomKeyArgs:
         :param pulumi.Input['RuleGroupRateLimitIpArgs'] ip: Use the request's originating IP address as an aggregate key. Each distinct IP address contributes to the aggregation instance.
                
                When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
+        :param pulumi.Input['RuleGroupRateLimitJa3FingerprintArgs'] ja3_fingerprint: Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+        :param pulumi.Input['RuleGroupRateLimitJa4FingerprintArgs'] ja4_fingerprint: Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
         :param pulumi.Input['RuleGroupRateLimitLabelNamespaceArgs'] label_namespace: Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
                
                This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
@@ -3186,6 +3298,10 @@ class RuleGroupRateBasedStatementCustomKeyArgs:
             pulumi.set(__self__, "http_method", http_method)
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
+        if ja3_fingerprint is not None:
+            pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if label_namespace is not None:
             pulumi.set(__self__, "label_namespace", label_namespace)
         if query_argument is not None:
@@ -3260,6 +3376,30 @@ class RuleGroupRateBasedStatementCustomKeyArgs:
     @ip.setter
     def ip(self, value: Optional[pulumi.Input['RuleGroupRateLimitIpArgs']]):
         pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter(name="ja3Fingerprint")
+    def ja3_fingerprint(self) -> Optional[pulumi.Input['RuleGroupRateLimitJa3FingerprintArgs']]:
+        """
+        Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+        """
+        return pulumi.get(self, "ja3_fingerprint")
+
+    @ja3_fingerprint.setter
+    def ja3_fingerprint(self, value: Optional[pulumi.Input['RuleGroupRateLimitJa3FingerprintArgs']]):
+        pulumi.set(self, "ja3_fingerprint", value)
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional[pulumi.Input['RuleGroupRateLimitJa4FingerprintArgs']]:
+        """
+        Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
+
+    @ja4_fingerprint.setter
+    def ja4_fingerprint(self, value: Optional[pulumi.Input['RuleGroupRateLimitJa4FingerprintArgs']]):
+        pulumi.set(self, "ja4_fingerprint", value)
 
     @property
     @pulumi.getter(name="labelNamespace")
@@ -3700,6 +3840,106 @@ class RuleGroupRateLimitIpArgs:
         Specifies the IP address in the web request as an aggregate key for a rate-based rule.
         """
         pass
+
+
+if not MYPY:
+    class RuleGroupRateLimitJa3FingerprintArgsDict(TypedDict):
+        """
+        Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+        """
+        fallback_behavior: pulumi.Input['RuleGroupRateLimitJa3FingerprintFallbackBehavior']
+        """
+        The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+
+        You can specify the following fallback behaviors:
+
+        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+elif False:
+    RuleGroupRateLimitJa3FingerprintArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRateLimitJa3FingerprintArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: pulumi.Input['RuleGroupRateLimitJa3FingerprintFallbackBehavior']):
+        """
+        Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+        :param pulumi.Input['RuleGroupRateLimitJa3FingerprintFallbackBehavior'] fallback_behavior: The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+               
+               You can specify the following fallback behaviors:
+               
+               - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+               - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> pulumi.Input['RuleGroupRateLimitJa3FingerprintFallbackBehavior']:
+        """
+        The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+
+        You can specify the following fallback behaviors:
+
+        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: pulumi.Input['RuleGroupRateLimitJa3FingerprintFallbackBehavior']):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
+    class RuleGroupRateLimitJa4FingerprintArgsDict(TypedDict):
+        """
+        Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+        """
+        fallback_behavior: pulumi.Input['RuleGroupRateLimitJa4FingerprintFallbackBehavior']
+        """
+        The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+
+        You can specify the following fallback behaviors:
+
+        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+elif False:
+    RuleGroupRateLimitJa4FingerprintArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRateLimitJa4FingerprintArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: pulumi.Input['RuleGroupRateLimitJa4FingerprintFallbackBehavior']):
+        """
+        Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+        :param pulumi.Input['RuleGroupRateLimitJa4FingerprintFallbackBehavior'] fallback_behavior: The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+               
+               You can specify the following fallback behaviors:
+               
+               - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+               - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> pulumi.Input['RuleGroupRateLimitJa4FingerprintFallbackBehavior']:
+        """
+        The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+
+        You can specify the following fallback behaviors:
+
+        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: pulumi.Input['RuleGroupRateLimitJa4FingerprintFallbackBehavior']):
+        pulumi.set(self, "fallback_behavior", value)
 
 
 if not MYPY:
@@ -6837,6 +7077,16 @@ if not MYPY:
 
         Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
         """
+        ja4_fingerprint: NotRequired[pulumi.Input['WebAclJa4FingerprintArgsDict']]
+        """
+        Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+
+        > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+
+        You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+
+        Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+        """
         json_body: NotRequired[pulumi.Input['WebAclJsonBodyArgsDict']]
         """
         Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
@@ -6883,6 +7133,7 @@ class WebAclFieldToMatchArgs:
                  cookies: Optional[pulumi.Input['WebAclCookiesArgs']] = None,
                  headers: Optional[pulumi.Input['WebAclHeadersArgs']] = None,
                  ja3_fingerprint: Optional[pulumi.Input['WebAclJa3FingerprintArgs']] = None,
+                 ja4_fingerprint: Optional[pulumi.Input['WebAclJa4FingerprintArgs']] = None,
                  json_body: Optional[pulumi.Input['WebAclJsonBodyArgs']] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
@@ -6913,6 +7164,13 @@ class WebAclFieldToMatchArgs:
                You can obtain the JA3 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
                
                Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+        :param pulumi.Input['WebAclJa4FingerprintArgs'] ja4_fingerprint: Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+               
+               > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+               
+               You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+               
+               Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
         :param pulumi.Input['WebAclJsonBodyArgs'] json_body: Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
                
                AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
@@ -6941,6 +7199,8 @@ class WebAclFieldToMatchArgs:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -7030,6 +7290,24 @@ class WebAclFieldToMatchArgs:
     @ja3_fingerprint.setter
     def ja3_fingerprint(self, value: Optional[pulumi.Input['WebAclJa3FingerprintArgs']]):
         pulumi.set(self, "ja3_fingerprint", value)
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional[pulumi.Input['WebAclJa4FingerprintArgs']]:
+        """
+        Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+
+        > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+
+        You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+
+        Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
+
+    @ja4_fingerprint.setter
+    def ja4_fingerprint(self, value: Optional[pulumi.Input['WebAclJa4FingerprintArgs']]):
+        pulumi.set(self, "ja4_fingerprint", value)
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -7696,6 +7974,56 @@ class WebAclJa3FingerprintArgs:
 
     @fallback_behavior.setter
     def fallback_behavior(self, value: pulumi.Input['WebAclJa3FingerprintFallbackBehavior']):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
+    class WebAclJa4FingerprintArgsDict(TypedDict):
+        """
+        Includes the JA4 fingerprint of a web request.
+        """
+        fallback_behavior: pulumi.Input['WebAclJa4FingerprintFallbackBehavior']
+        """
+        The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+
+        You can specify the following fallback behaviors:
+
+        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+elif False:
+    WebAclJa4FingerprintArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclJa4FingerprintArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: pulumi.Input['WebAclJa4FingerprintFallbackBehavior']):
+        """
+        Includes the JA4 fingerprint of a web request.
+        :param pulumi.Input['WebAclJa4FingerprintFallbackBehavior'] fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+               
+               You can specify the following fallback behaviors:
+               
+               - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+               - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> pulumi.Input['WebAclJa4FingerprintFallbackBehavior']:
+        """
+        The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+
+        You can specify the following fallback behaviors:
+
+        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: pulumi.Input['WebAclJa4FingerprintFallbackBehavior']):
         pulumi.set(self, "fallback_behavior", value)
 
 
@@ -8517,6 +8845,14 @@ if not MYPY:
 
         When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
         """
+        ja3_fingerprint: NotRequired[pulumi.Input['WebAclRateLimitJa3FingerprintArgsDict']]
+        """
+        Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+        """
+        ja4_fingerprint: NotRequired[pulumi.Input['WebAclRateLimitJa4FingerprintArgsDict']]
+        """
+        Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
+        """
         label_namespace: NotRequired[pulumi.Input['WebAclRateLimitLabelNamespaceArgsDict']]
         """
         Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
@@ -8548,6 +8884,8 @@ class WebAclRateBasedStatementCustomKeyArgs:
                  header: Optional[pulumi.Input['WebAclRateLimitHeaderArgs']] = None,
                  http_method: Optional[pulumi.Input['WebAclRateLimitHttpMethodArgs']] = None,
                  ip: Optional[pulumi.Input['WebAclRateLimitIpArgs']] = None,
+                 ja3_fingerprint: Optional[pulumi.Input['WebAclRateLimitJa3FingerprintArgs']] = None,
+                 ja4_fingerprint: Optional[pulumi.Input['WebAclRateLimitJa4FingerprintArgs']] = None,
                  label_namespace: Optional[pulumi.Input['WebAclRateLimitLabelNamespaceArgs']] = None,
                  query_argument: Optional[pulumi.Input['WebAclRateLimitQueryArgumentArgs']] = None,
                  query_string: Optional[pulumi.Input['WebAclRateLimitQueryStringArgs']] = None,
@@ -8565,6 +8903,8 @@ class WebAclRateBasedStatementCustomKeyArgs:
         :param pulumi.Input['WebAclRateLimitIpArgs'] ip: Use the request's originating IP address as an aggregate key. Each distinct IP address contributes to the aggregation instance.
                
                When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
+        :param pulumi.Input['WebAclRateLimitJa3FingerprintArgs'] ja3_fingerprint: Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+        :param pulumi.Input['WebAclRateLimitJa4FingerprintArgs'] ja4_fingerprint: Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
         :param pulumi.Input['WebAclRateLimitLabelNamespaceArgs'] label_namespace: Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
                
                This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
@@ -8584,6 +8924,10 @@ class WebAclRateBasedStatementCustomKeyArgs:
             pulumi.set(__self__, "http_method", http_method)
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
+        if ja3_fingerprint is not None:
+            pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if label_namespace is not None:
             pulumi.set(__self__, "label_namespace", label_namespace)
         if query_argument is not None:
@@ -8658,6 +9002,30 @@ class WebAclRateBasedStatementCustomKeyArgs:
     @ip.setter
     def ip(self, value: Optional[pulumi.Input['WebAclRateLimitIpArgs']]):
         pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter(name="ja3Fingerprint")
+    def ja3_fingerprint(self) -> Optional[pulumi.Input['WebAclRateLimitJa3FingerprintArgs']]:
+        """
+        Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+        """
+        return pulumi.get(self, "ja3_fingerprint")
+
+    @ja3_fingerprint.setter
+    def ja3_fingerprint(self, value: Optional[pulumi.Input['WebAclRateLimitJa3FingerprintArgs']]):
+        pulumi.set(self, "ja3_fingerprint", value)
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional[pulumi.Input['WebAclRateLimitJa4FingerprintArgs']]:
+        """
+        Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
+
+    @ja4_fingerprint.setter
+    def ja4_fingerprint(self, value: Optional[pulumi.Input['WebAclRateLimitJa4FingerprintArgs']]):
+        pulumi.set(self, "ja4_fingerprint", value)
 
     @property
     @pulumi.getter(name="labelNamespace")
@@ -9098,6 +9466,106 @@ class WebAclRateLimitIpArgs:
         Specifies the IP address in the web request as an aggregate key for a rate-based rule.
         """
         pass
+
+
+if not MYPY:
+    class WebAclRateLimitJa3FingerprintArgsDict(TypedDict):
+        """
+        Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+        """
+        fallback_behavior: pulumi.Input['WebAclRateLimitJa3FingerprintFallbackBehavior']
+        """
+        The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+
+        You can specify the following fallback behaviors:
+
+        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+elif False:
+    WebAclRateLimitJa3FingerprintArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRateLimitJa3FingerprintArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: pulumi.Input['WebAclRateLimitJa3FingerprintFallbackBehavior']):
+        """
+        Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+        :param pulumi.Input['WebAclRateLimitJa3FingerprintFallbackBehavior'] fallback_behavior: The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+               
+               You can specify the following fallback behaviors:
+               
+               - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+               - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> pulumi.Input['WebAclRateLimitJa3FingerprintFallbackBehavior']:
+        """
+        The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+
+        You can specify the following fallback behaviors:
+
+        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: pulumi.Input['WebAclRateLimitJa3FingerprintFallbackBehavior']):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
+    class WebAclRateLimitJa4FingerprintArgsDict(TypedDict):
+        """
+        Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+        """
+        fallback_behavior: pulumi.Input['WebAclRateLimitJa4FingerprintFallbackBehavior']
+        """
+        The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+
+        You can specify the following fallback behaviors:
+
+        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+elif False:
+    WebAclRateLimitJa4FingerprintArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRateLimitJa4FingerprintArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: pulumi.Input['WebAclRateLimitJa4FingerprintFallbackBehavior']):
+        """
+        Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+        :param pulumi.Input['WebAclRateLimitJa4FingerprintFallbackBehavior'] fallback_behavior: The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+               
+               You can specify the following fallback behaviors:
+               
+               - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+               - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> pulumi.Input['WebAclRateLimitJa4FingerprintFallbackBehavior']:
+        """
+        The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+
+        You can specify the following fallback behaviors:
+
+        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: pulumi.Input['WebAclRateLimitJa4FingerprintFallbackBehavior']):
+        pulumi.set(self, "fallback_behavior", value)
 
 
 if not MYPY:

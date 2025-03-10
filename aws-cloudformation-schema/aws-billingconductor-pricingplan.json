@@ -76,7 +76,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "billingconductor:ListTagsForResource", "billingconductor:TagResource", "billingconductor:UntagResource" ]
   },
   "required" : [ "Name" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Size", "/properties/CreationTime", "/properties/LastModifiedTime" ],

@@ -71,6 +71,7 @@ __all__ = [
     'VpcEndpointDnsOptionsSpecificationDnsRecordIpType',
     'VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint',
     'VpcEndpointIpAddressType',
+    'VpcEndpointServiceIpAddressType',
     'VpcEndpointType',
     'VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat',
     'VpnConnectionIkeVersionsRequestListValueValue',
@@ -816,6 +817,11 @@ class VpcEndpointIpAddressType(str, Enum):
     IPV6 = "ipv6"
     DUALSTACK = "dualstack"
     NOT_SPECIFIED = "not-specified"
+
+
+class VpcEndpointServiceIpAddressType(str, Enum):
+    IPV4 = "ipv4"
+    IPV6 = "ipv6"
 
 
 class VpcEndpointType(str, Enum):

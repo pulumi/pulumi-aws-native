@@ -22,6 +22,10 @@ __all__ = [
     'AccountAuditConfigurationAuditCheckConfigurations',
     'AccountAuditConfigurationAuditNotificationTarget',
     'AccountAuditConfigurationAuditNotificationTargetConfigurations',
+    'AccountAuditConfigurationCertAgeCheckCustomConfiguration',
+    'AccountAuditConfigurationCertExpirationCheckCustomConfiguration',
+    'AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration',
+    'AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration',
     'BillingGroupPropertiesProperties',
     'CaCertificateRegistrationConfig',
     'CommandParameter',
@@ -58,6 +62,9 @@ __all__ = [
     'SecurityProfileMetricToRetain',
     'SecurityProfileMetricValue',
     'SecurityProfileStatisticalThreshold',
+    'SoftwarePackageVersionPackageVersionArtifact',
+    'SoftwarePackageVersionS3Location',
+    'SoftwarePackageVersionSbom',
     'ThingAttributePayload',
     'ThingGroupAttributePayload',
     'ThingGroupPropertiesProperties',
@@ -185,6 +192,8 @@ class AccountAuditConfigurationAuditCheckConfigurations(dict):
             suggest = "ca_certificate_key_quality_check"
         elif key == "conflictingClientIdsCheck":
             suggest = "conflicting_client_ids_check"
+        elif key == "deviceCertificateAgeCheck":
+            suggest = "device_certificate_age_check"
         elif key == "deviceCertificateExpiringCheck":
             suggest = "device_certificate_expiring_check"
         elif key == "deviceCertificateKeyQualityCheck":
@@ -226,7 +235,8 @@ class AccountAuditConfigurationAuditCheckConfigurations(dict):
                  ca_certificate_expiring_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
                  ca_certificate_key_quality_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
                  conflicting_client_ids_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
-                 device_certificate_expiring_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+                 device_certificate_age_check: Optional['outputs.AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration'] = None,
+                 device_certificate_expiring_check: Optional['outputs.AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration'] = None,
                  device_certificate_key_quality_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
                  device_certificate_shared_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
                  intermediate_ca_revoked_for_active_device_certificates_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
@@ -244,7 +254,8 @@ class AccountAuditConfigurationAuditCheckConfigurations(dict):
         :param 'AccountAuditConfigurationAuditCheckConfiguration' ca_certificate_expiring_check: Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
         :param 'AccountAuditConfigurationAuditCheckConfiguration' ca_certificate_key_quality_check: Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
         :param 'AccountAuditConfigurationAuditCheckConfiguration' conflicting_client_ids_check: Checks if multiple devices connect using the same client ID.
-        :param 'AccountAuditConfigurationAuditCheckConfiguration' device_certificate_expiring_check: Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
+        :param 'AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration' device_certificate_age_check: Checks when a device certificate has been active for a number of days greater than or equal to the number you specify.
+        :param 'AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration' device_certificate_expiring_check: Checks if a device certificate is expiring. By default, this check applies to device certificates expiring within 30 days or that have expired. You can modify this threshold by configuring the DeviceCertExpirationAuditCheckConfiguration.
         :param 'AccountAuditConfigurationAuditCheckConfiguration' device_certificate_key_quality_check: Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
         :param 'AccountAuditConfigurationAuditCheckConfiguration' device_certificate_shared_check: Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
         :param 'AccountAuditConfigurationAuditCheckConfiguration' intermediate_ca_revoked_for_active_device_certificates_check: Checks if device certificates are still active despite being revoked by an intermediate CA.
@@ -265,6 +276,8 @@ class AccountAuditConfigurationAuditCheckConfigurations(dict):
             pulumi.set(__self__, "ca_certificate_key_quality_check", ca_certificate_key_quality_check)
         if conflicting_client_ids_check is not None:
             pulumi.set(__self__, "conflicting_client_ids_check", conflicting_client_ids_check)
+        if device_certificate_age_check is not None:
+            pulumi.set(__self__, "device_certificate_age_check", device_certificate_age_check)
         if device_certificate_expiring_check is not None:
             pulumi.set(__self__, "device_certificate_expiring_check", device_certificate_expiring_check)
         if device_certificate_key_quality_check is not None:
@@ -323,10 +336,18 @@ class AccountAuditConfigurationAuditCheckConfigurations(dict):
         return pulumi.get(self, "conflicting_client_ids_check")
 
     @property
-    @pulumi.getter(name="deviceCertificateExpiringCheck")
-    def device_certificate_expiring_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+    @pulumi.getter(name="deviceCertificateAgeCheck")
+    def device_certificate_age_check(self) -> Optional['outputs.AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration']:
         """
-        Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
+        Checks when a device certificate has been active for a number of days greater than or equal to the number you specify.
+        """
+        return pulumi.get(self, "device_certificate_age_check")
+
+    @property
+    @pulumi.getter(name="deviceCertificateExpiringCheck")
+    def device_certificate_expiring_check(self) -> Optional['outputs.AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration']:
+        """
+        Checks if a device certificate is expiring. By default, this check applies to device certificates expiring within 30 days or that have expired. You can modify this threshold by configuring the DeviceCertExpirationAuditCheckConfiguration.
         """
         return pulumi.get(self, "device_certificate_expiring_check")
 
@@ -502,6 +523,156 @@ class AccountAuditConfigurationAuditNotificationTargetConfigurations(dict):
         The `Sns` notification target.
         """
         return pulumi.get(self, "sns")
+
+
+@pulumi.output_type
+class AccountAuditConfigurationCertAgeCheckCustomConfiguration(dict):
+    """
+    A structure containing the configName and corresponding configValue for configuring audit checks.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certAgeThresholdInDays":
+            suggest = "cert_age_threshold_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountAuditConfigurationCertAgeCheckCustomConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountAuditConfigurationCertAgeCheckCustomConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountAuditConfigurationCertAgeCheckCustomConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cert_age_threshold_in_days: Optional[str] = None):
+        """
+        A structure containing the configName and corresponding configValue for configuring audit checks.
+        :param str cert_age_threshold_in_days: The number of days that defines when a device certificate is considered to have aged. The check will report a finding if a certificate has been active for a number of days greater than or equal to this threshold value.
+        """
+        if cert_age_threshold_in_days is not None:
+            pulumi.set(__self__, "cert_age_threshold_in_days", cert_age_threshold_in_days)
+
+    @property
+    @pulumi.getter(name="certAgeThresholdInDays")
+    def cert_age_threshold_in_days(self) -> Optional[str]:
+        """
+        The number of days that defines when a device certificate is considered to have aged. The check will report a finding if a certificate has been active for a number of days greater than or equal to this threshold value.
+        """
+        return pulumi.get(self, "cert_age_threshold_in_days")
+
+
+@pulumi.output_type
+class AccountAuditConfigurationCertExpirationCheckCustomConfiguration(dict):
+    """
+    A structure containing the configName and corresponding configValue for configuring audit checks.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certExpirationThresholdInDays":
+            suggest = "cert_expiration_threshold_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountAuditConfigurationCertExpirationCheckCustomConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountAuditConfigurationCertExpirationCheckCustomConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountAuditConfigurationCertExpirationCheckCustomConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cert_expiration_threshold_in_days: Optional[str] = None):
+        """
+        A structure containing the configName and corresponding configValue for configuring audit checks.
+        :param str cert_expiration_threshold_in_days: The number of days before expiration that defines when a device certificate is considered to be approaching expiration. The check will report a finding if a certificate will expire within this number of days.
+        """
+        if cert_expiration_threshold_in_days is not None:
+            pulumi.set(__self__, "cert_expiration_threshold_in_days", cert_expiration_threshold_in_days)
+
+    @property
+    @pulumi.getter(name="certExpirationThresholdInDays")
+    def cert_expiration_threshold_in_days(self) -> Optional[str]:
+        """
+        The number of days before expiration that defines when a device certificate is considered to be approaching expiration. The check will report a finding if a certificate will expire within this number of days.
+        """
+        return pulumi.get(self, "cert_expiration_threshold_in_days")
+
+
+@pulumi.output_type
+class AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration(dict):
+    """
+    A structure containing the configName and corresponding configValue for configuring DeviceCertAgeCheck.
+    """
+    def __init__(__self__, *,
+                 configuration: Optional['outputs.AccountAuditConfigurationCertAgeCheckCustomConfiguration'] = None,
+                 enabled: Optional[bool] = None):
+        """
+        A structure containing the configName and corresponding configValue for configuring DeviceCertAgeCheck.
+        :param 'AccountAuditConfigurationCertAgeCheckCustomConfiguration' configuration: Configuration settings for the device certificate age check, including the threshold in days for certificate age. This configuration is of type `CertAgeCheckCustomConfiguration` .
+        :param bool enabled: True if the check is enabled.
+        """
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional['outputs.AccountAuditConfigurationCertAgeCheckCustomConfiguration']:
+        """
+        Configuration settings for the device certificate age check, including the threshold in days for certificate age. This configuration is of type `CertAgeCheckCustomConfiguration` .
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        True if the check is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration(dict):
+    """
+    A structure containing the configName and corresponding configValue for configuring DeviceCertExpirationCheck.
+    """
+    def __init__(__self__, *,
+                 configuration: Optional['outputs.AccountAuditConfigurationCertExpirationCheckCustomConfiguration'] = None,
+                 enabled: Optional[bool] = None):
+        """
+        A structure containing the configName and corresponding configValue for configuring DeviceCertExpirationCheck.
+        :param 'AccountAuditConfigurationCertExpirationCheckCustomConfiguration' configuration: Configuration settings for the device certificate expiration check, including the threshold in days before expiration. This configuration is of type `CertExpirationCheckCustomConfiguration`
+        :param bool enabled: True if the check is enabled.
+        """
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional['outputs.AccountAuditConfigurationCertExpirationCheckCustomConfiguration']:
+        """
+        Configuration settings for the device certificate expiration check, including the threshold in days before expiration. This configuration is of type `CertExpirationCheckCustomConfiguration`
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        True if the check is enabled.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -2473,6 +2644,120 @@ class SecurityProfileStatisticalThreshold(dict):
         The percentile which resolves to a threshold value by which compliance with a behavior is determined
         """
         return pulumi.get(self, "statistic")
+
+
+@pulumi.output_type
+class SoftwarePackageVersionPackageVersionArtifact(dict):
+    """
+    The artifact location of the package version
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Location":
+            suggest = "s3_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SoftwarePackageVersionPackageVersionArtifact. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SoftwarePackageVersionPackageVersionArtifact.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SoftwarePackageVersionPackageVersionArtifact.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_location: 'outputs.SoftwarePackageVersionS3Location'):
+        """
+        The artifact location of the package version
+        """
+        pulumi.set(__self__, "s3_location", s3_location)
+
+    @property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> 'outputs.SoftwarePackageVersionS3Location':
+        return pulumi.get(self, "s3_location")
+
+
+@pulumi.output_type
+class SoftwarePackageVersionS3Location(dict):
+    """
+    The Amazon S3 location
+    """
+    def __init__(__self__, *,
+                 bucket: str,
+                 key: str,
+                 version: str):
+        """
+        The Amazon S3 location
+        :param str bucket: The S3 bucket
+        :param str key: The S3 key
+        :param str version: The S3 version
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        """
+        The S3 bucket
+        """
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The S3 key
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The S3 version
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class SoftwarePackageVersionSbom(dict):
+    """
+    The sbom zip archive location of the package version
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Location":
+            suggest = "s3_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SoftwarePackageVersionSbom. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SoftwarePackageVersionSbom.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SoftwarePackageVersionSbom.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_location: 'outputs.SoftwarePackageVersionS3Location'):
+        """
+        The sbom zip archive location of the package version
+        """
+        pulumi.set(__self__, "s3_location", s3_location)
+
+    @property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> 'outputs.SoftwarePackageVersionS3Location':
+        return pulumi.get(self, "s3_location")
 
 
 @pulumi.output_type

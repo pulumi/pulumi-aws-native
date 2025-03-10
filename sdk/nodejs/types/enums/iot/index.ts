@@ -399,6 +399,18 @@ export const SoftwarePackageVersionPackageVersionStatus = {
 
 export type SoftwarePackageVersionPackageVersionStatus = (typeof SoftwarePackageVersionPackageVersionStatus)[keyof typeof SoftwarePackageVersionPackageVersionStatus];
 
+export const SoftwarePackageVersionSbomValidationStatus = {
+    InProgress: "IN_PROGRESS",
+    Failed: "FAILED",
+    Succeeded: "SUCCEEDED",
+    Empty: "",
+} as const;
+
+/**
+ * The validation status of the Sbom file
+ */
+export type SoftwarePackageVersionSbomValidationStatus = (typeof SoftwarePackageVersionSbomValidationStatus)[keyof typeof SoftwarePackageVersionSbomValidationStatus];
+
 export const ThingTypePropagatingAttributeConnectionAttribute = {
     IotClientId: "iot:ClientId",
     IotThingThingName: "iot:Thing.ThingName",

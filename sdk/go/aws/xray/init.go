@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ResourcePolicy{}
 	case "aws-native:xray:SamplingRule":
 		r = &SamplingRule{}
+	case "aws-native:xray:TransactionSearchConfig":
+		r = &TransactionSearchConfig{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

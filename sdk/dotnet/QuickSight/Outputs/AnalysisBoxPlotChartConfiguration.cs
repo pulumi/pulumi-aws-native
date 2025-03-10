@@ -29,6 +29,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The field wells of the visual.
         /// </summary>
         public readonly Outputs.AnalysisBoxPlotFieldWells? FieldWells;
+        /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        public readonly Outputs.AnalysisVisualInteractionOptions? Interactions;
         public readonly Outputs.AnalysisLegendOptions? Legend;
         /// <summary>
         /// The label display options (grid line, range, scale, axis step) of a box plot category.
@@ -65,6 +69,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.AnalysisBoxPlotFieldWells? fieldWells,
 
+            Outputs.AnalysisVisualInteractionOptions? interactions,
+
             Outputs.AnalysisLegendOptions? legend,
 
             Outputs.AnalysisAxisDisplayOptions? primaryYAxisDisplayOptions,
@@ -83,6 +89,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             CategoryAxis = categoryAxis;
             CategoryLabelOptions = categoryLabelOptions;
             FieldWells = fieldWells;
+            Interactions = interactions;
             Legend = legend;
             PrimaryYAxisDisplayOptions = primaryYAxisDisplayOptions;
             PrimaryYAxisLabelOptions = primaryYAxisLabelOptions;

@@ -94,6 +94,14 @@ namespace Pulumi.AwsNative.Rds
         public Output<bool?> AllowMajorVersionUpgrade { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether changes to the DB instance and any pending modifications are applied immediately, regardless of the ``PreferredMaintenanceWindow`` setting. If set to ``false``, changes are applied during the next maintenance window. Until RDS applies the changes, the DB instance remains in a drift state. As a result, the configuration doesn't fully reflect the requested modifications and temporarily diverges from the intended state.
+        ///  In addition to the settings described in [Modifying a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html), this property also determines whether the DB instance reboots when a static parameter is modified in the associated DB parameter group.
+        ///  Default: ``true``
+        /// </summary>
+        [Output("applyImmediately")]
+        public Output<bool?> ApplyImmediately { get; private set; } = null!;
+
+        /// <summary>
         /// The IAMlong (IAM) roles associated with the DB instance. 
         ///   *Amazon Aurora* 
         ///  Not applicable. The associated roles are managed by the DB cluster.
@@ -914,7 +922,7 @@ namespace Pulumi.AwsNative.Rds
         ///  If you specify ``io1``, ``io2``, or ``gp3``, you must also include a value for the ``Iops`` parameter.
         ///  This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.
         ///  Valid Values: ``gp2 | gp3 | io1 | io2 | standard`` 
-        ///  Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp2``.
+        ///  Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp3``.
         /// </summary>
         [Output("storageType")]
         public Output<string?> StorageType { get; private set; } = null!;
@@ -1086,6 +1094,14 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("allowMajorVersionUpgrade")]
         public Input<bool>? AllowMajorVersionUpgrade { get; set; }
+
+        /// <summary>
+        /// Specifies whether changes to the DB instance and any pending modifications are applied immediately, regardless of the ``PreferredMaintenanceWindow`` setting. If set to ``false``, changes are applied during the next maintenance window. Until RDS applies the changes, the DB instance remains in a drift state. As a result, the configuration doesn't fully reflect the requested modifications and temporarily diverges from the intended state.
+        ///  In addition to the settings described in [Modifying a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html), this property also determines whether the DB instance reboots when a static parameter is modified in the associated DB parameter group.
+        ///  Default: ``true``
+        /// </summary>
+        [Input("applyImmediately")]
+        public Input<bool>? ApplyImmediately { get; set; }
 
         [Input("associatedRoles")]
         private InputList<Inputs.DbInstanceDbInstanceRoleArgs>? _associatedRoles;
@@ -1920,7 +1936,7 @@ namespace Pulumi.AwsNative.Rds
         ///  If you specify ``io1``, ``io2``, or ``gp3``, you must also include a value for the ``Iops`` parameter.
         ///  This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.
         ///  Valid Values: ``gp2 | gp3 | io1 | io2 | standard`` 
-        ///  Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp2``.
+        ///  Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp3``.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }

@@ -200,7 +200,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "billingconductor:ListTagsForResource", "billingconductor:TagResource", "billingconductor:UntagResource" ]
   },
   "required" : [ "Name", "BillingGroupArn" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreationTime", "/properties/LastModifiedTime", "/properties/AssociationSize", "/properties/CurrencyCode", "/properties/ProductCode" ],

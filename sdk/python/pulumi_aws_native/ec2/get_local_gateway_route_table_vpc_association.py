@@ -86,7 +86,7 @@ class AwaitableGetLocalGatewayRouteTableVpcAssociationResult(GetLocalGatewayRout
 def get_local_gateway_route_table_vpc_association(local_gateway_route_table_vpc_association_id: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayRouteTableVpcAssociationResult:
     """
-    Describes an association between a local gateway route table and a VPC.
+    Resource Type definition for Local Gateway Route Table VPC Association which describes an association between a local gateway route table and a VPC.
 
 
     :param str local_gateway_route_table_vpc_association_id: The ID of the association.
@@ -104,7 +104,7 @@ def get_local_gateway_route_table_vpc_association(local_gateway_route_table_vpc_
 def get_local_gateway_route_table_vpc_association_output(local_gateway_route_table_vpc_association_id: Optional[pulumi.Input[str]] = None,
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayRouteTableVpcAssociationResult]:
     """
-    Describes an association between a local gateway route table and a VPC.
+    Resource Type definition for Local Gateway Route Table VPC Association which describes an association between a local gateway route table and a VPC.
 
 
     :param str local_gateway_route_table_vpc_association_id: The ID of the association.

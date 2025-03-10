@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = ['CostCategoryArgs', 'CostCategory']
@@ -24,7 +26,8 @@ class CostCategoryArgs:
                  rules: pulumi.Input[str],
                  default_value: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 split_charge_rules: Optional[pulumi.Input[str]] = None):
+                 split_charge_rules: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CostCategory resource.
         :param pulumi.Input['CostCategoryRuleVersion'] rule_version: The rule schema version in this particular Cost Category.
@@ -32,6 +35,7 @@ class CostCategoryArgs:
         :param pulumi.Input[str] default_value: The default value for the cost category
         :param pulumi.Input[str] name: The unique name of the Cost Category.
         :param pulumi.Input[str] split_charge_rules: Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags to assign to the cost category.
         """
         pulumi.set(__self__, "rule_version", rule_version)
         pulumi.set(__self__, "rules", rules)
@@ -41,6 +45,8 @@ class CostCategoryArgs:
             pulumi.set(__self__, "name", name)
         if split_charge_rules is not None:
             pulumi.set(__self__, "split_charge_rules", split_charge_rules)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="ruleVersion")
@@ -102,6 +108,18 @@ class CostCategoryArgs:
     def split_charge_rules(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "split_charge_rules", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Tags to assign to the cost category.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class CostCategory(pulumi.CustomResource):
     @overload
@@ -113,9 +131,10 @@ class CostCategory(pulumi.CustomResource):
                  rule_version: Optional[pulumi.Input['CostCategoryRuleVersion']] = None,
                  rules: Optional[pulumi.Input[str]] = None,
                  split_charge_rules: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
+        Resource Type definition for AWS::CE::CostCategory. Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,6 +143,7 @@ class CostCategory(pulumi.CustomResource):
         :param pulumi.Input['CostCategoryRuleVersion'] rule_version: The rule schema version in this particular Cost Category.
         :param pulumi.Input[str] rules: JSON array format of Expression in Billing and Cost Management API
         :param pulumi.Input[str] split_charge_rules: Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the cost category.
         """
         ...
     @overload
@@ -132,7 +152,7 @@ class CostCategory(pulumi.CustomResource):
                  args: CostCategoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
+        Resource Type definition for AWS::CE::CostCategory. Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
 
         :param str resource_name: The name of the resource.
         :param CostCategoryArgs args: The arguments to use to populate this resource's properties.
@@ -154,6 +174,7 @@ class CostCategory(pulumi.CustomResource):
                  rule_version: Optional[pulumi.Input['CostCategoryRuleVersion']] = None,
                  rules: Optional[pulumi.Input[str]] = None,
                  split_charge_rules: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -172,6 +193,7 @@ class CostCategory(pulumi.CustomResource):
                 raise TypeError("Missing required property 'rules'")
             __props__.__dict__["rules"] = rules
             __props__.__dict__["split_charge_rules"] = split_charge_rules
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["effective_start"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
@@ -205,6 +227,7 @@ class CostCategory(pulumi.CustomResource):
         __props__.__dict__["rule_version"] = None
         __props__.__dict__["rules"] = None
         __props__.__dict__["split_charge_rules"] = None
+        __props__.__dict__["tags"] = None
         return CostCategory(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -262,4 +285,12 @@ class CostCategory(pulumi.CustomResource):
         Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
         """
         return pulumi.get(self, "split_charge_rules")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Tags to assign to the cost category.
+        """
+        return pulumi.get(self, "tags")
 

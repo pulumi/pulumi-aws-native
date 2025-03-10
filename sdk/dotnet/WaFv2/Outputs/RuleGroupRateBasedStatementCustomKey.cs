@@ -43,6 +43,14 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRateLimitIp? Ip;
         /// <summary>
+        /// Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+        /// </summary>
+        public readonly Outputs.RuleGroupRateLimitJa3Fingerprint? Ja3Fingerprint;
+        /// <summary>
+        /// Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
+        /// </summary>
+        public readonly Outputs.RuleGroupRateLimitJa4Fingerprint? Ja4Fingerprint;
+        /// <summary>
         /// Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
         /// 
         /// This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
@@ -75,6 +83,10 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
 
             Outputs.RuleGroupRateLimitIp? ip,
 
+            Outputs.RuleGroupRateLimitJa3Fingerprint? ja3Fingerprint,
+
+            Outputs.RuleGroupRateLimitJa4Fingerprint? ja4Fingerprint,
+
             Outputs.RuleGroupRateLimitLabelNamespace? labelNamespace,
 
             Outputs.RuleGroupRateLimitQueryArgument? queryArgument,
@@ -88,6 +100,8 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
             Header = header;
             HttpMethod = httpMethod;
             Ip = ip;
+            Ja3Fingerprint = ja3Fingerprint;
+            Ja4Fingerprint = ja4Fingerprint;
             LabelNamespace = labelNamespace;
             QueryArgument = queryArgument;
             QueryString = queryString;

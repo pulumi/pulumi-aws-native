@@ -37,6 +37,7 @@ export class SoftwarePackageVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === SoftwarePackageVersion.__pulumiType;
     }
 
+    public readonly artifact!: pulumi.Output<outputs.iot.SoftwarePackageVersionPackageVersionArtifact | undefined>;
     /**
      * Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
      *
@@ -59,6 +60,12 @@ export class SoftwarePackageVersion extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) for the package.
      */
     public /*out*/ readonly packageVersionArn!: pulumi.Output<string>;
+    /**
+     * The inline json job document associated with a software package version
+     */
+    public readonly recipe!: pulumi.Output<string | undefined>;
+    public readonly sbom!: pulumi.Output<outputs.iot.SoftwarePackageVersionSbom | undefined>;
+    public /*out*/ readonly sbomValidationStatus!: pulumi.Output<enums.iot.SoftwarePackageVersionSbomValidationStatus>;
     /**
      * The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
      */
@@ -86,20 +93,28 @@ export class SoftwarePackageVersion extends pulumi.CustomResource {
             if ((!args || args.packageName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'packageName'");
             }
+            resourceInputs["artifact"] = args ? args.artifact : undefined;
             resourceInputs["attributes"] = args ? args.attributes : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["packageName"] = args ? args.packageName : undefined;
+            resourceInputs["recipe"] = args ? args.recipe : undefined;
+            resourceInputs["sbom"] = args ? args.sbom : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["versionName"] = args ? args.versionName : undefined;
             resourceInputs["errorReason"] = undefined /*out*/;
             resourceInputs["packageVersionArn"] = undefined /*out*/;
+            resourceInputs["sbomValidationStatus"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
+            resourceInputs["artifact"] = undefined /*out*/;
             resourceInputs["attributes"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["errorReason"] = undefined /*out*/;
             resourceInputs["packageName"] = undefined /*out*/;
             resourceInputs["packageVersionArn"] = undefined /*out*/;
+            resourceInputs["recipe"] = undefined /*out*/;
+            resourceInputs["sbom"] = undefined /*out*/;
+            resourceInputs["sbomValidationStatus"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["versionName"] = undefined /*out*/;
@@ -115,6 +130,7 @@ export class SoftwarePackageVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a SoftwarePackageVersion resource.
  */
 export interface SoftwarePackageVersionArgs {
+    artifact?: pulumi.Input<inputs.iot.SoftwarePackageVersionPackageVersionArtifactArgs>;
     /**
      * Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
      *
@@ -129,6 +145,11 @@ export interface SoftwarePackageVersionArgs {
      * The name of the associated software package.
      */
     packageName: pulumi.Input<string>;
+    /**
+     * The inline json job document associated with a software package version
+     */
+    recipe?: pulumi.Input<string>;
+    sbom?: pulumi.Input<inputs.iot.SoftwarePackageVersionSbomArgs>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

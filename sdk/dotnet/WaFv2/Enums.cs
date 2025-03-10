@@ -411,6 +411,42 @@ namespace Pulumi.AwsNative.WaFv2
     }
 
     /// <summary>
+    /// The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+    /// 
+    /// You can specify the following fallback behaviors:
+    /// 
+    /// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    /// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleGroupJa4FingerprintFallbackBehavior : IEquatable<RuleGroupJa4FingerprintFallbackBehavior>
+    {
+        private readonly string _value;
+
+        private RuleGroupJa4FingerprintFallbackBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleGroupJa4FingerprintFallbackBehavior Match { get; } = new RuleGroupJa4FingerprintFallbackBehavior("MATCH");
+        public static RuleGroupJa4FingerprintFallbackBehavior NoMatch { get; } = new RuleGroupJa4FingerprintFallbackBehavior("NO_MATCH");
+
+        public static bool operator ==(RuleGroupJa4FingerprintFallbackBehavior left, RuleGroupJa4FingerprintFallbackBehavior right) => left.Equals(right);
+        public static bool operator !=(RuleGroupJa4FingerprintFallbackBehavior left, RuleGroupJa4FingerprintFallbackBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(RuleGroupJa4FingerprintFallbackBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleGroupJa4FingerprintFallbackBehavior other && Equals(other);
+        public bool Equals(RuleGroupJa4FingerprintFallbackBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The parts of the JSON to match against using the MatchPattern.
     /// </summary>
     [EnumType]
@@ -613,6 +649,78 @@ namespace Pulumi.AwsNative.WaFv2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RuleGroupRateBasedStatementAggregateKeyType other && Equals(other);
         public bool Equals(RuleGroupRateBasedStatementAggregateKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+    /// 
+    /// You can specify the following fallback behaviors:
+    /// 
+    /// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    /// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleGroupRateLimitJa3FingerprintFallbackBehavior : IEquatable<RuleGroupRateLimitJa3FingerprintFallbackBehavior>
+    {
+        private readonly string _value;
+
+        private RuleGroupRateLimitJa3FingerprintFallbackBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleGroupRateLimitJa3FingerprintFallbackBehavior Match { get; } = new RuleGroupRateLimitJa3FingerprintFallbackBehavior("MATCH");
+        public static RuleGroupRateLimitJa3FingerprintFallbackBehavior NoMatch { get; } = new RuleGroupRateLimitJa3FingerprintFallbackBehavior("NO_MATCH");
+
+        public static bool operator ==(RuleGroupRateLimitJa3FingerprintFallbackBehavior left, RuleGroupRateLimitJa3FingerprintFallbackBehavior right) => left.Equals(right);
+        public static bool operator !=(RuleGroupRateLimitJa3FingerprintFallbackBehavior left, RuleGroupRateLimitJa3FingerprintFallbackBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(RuleGroupRateLimitJa3FingerprintFallbackBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleGroupRateLimitJa3FingerprintFallbackBehavior other && Equals(other);
+        public bool Equals(RuleGroupRateLimitJa3FingerprintFallbackBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+    /// 
+    /// You can specify the following fallback behaviors:
+    /// 
+    /// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    /// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleGroupRateLimitJa4FingerprintFallbackBehavior : IEquatable<RuleGroupRateLimitJa4FingerprintFallbackBehavior>
+    {
+        private readonly string _value;
+
+        private RuleGroupRateLimitJa4FingerprintFallbackBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleGroupRateLimitJa4FingerprintFallbackBehavior Match { get; } = new RuleGroupRateLimitJa4FingerprintFallbackBehavior("MATCH");
+        public static RuleGroupRateLimitJa4FingerprintFallbackBehavior NoMatch { get; } = new RuleGroupRateLimitJa4FingerprintFallbackBehavior("NO_MATCH");
+
+        public static bool operator ==(RuleGroupRateLimitJa4FingerprintFallbackBehavior left, RuleGroupRateLimitJa4FingerprintFallbackBehavior right) => left.Equals(right);
+        public static bool operator !=(RuleGroupRateLimitJa4FingerprintFallbackBehavior left, RuleGroupRateLimitJa4FingerprintFallbackBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(RuleGroupRateLimitJa4FingerprintFallbackBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleGroupRateLimitJa4FingerprintFallbackBehavior other && Equals(other);
+        public bool Equals(RuleGroupRateLimitJa4FingerprintFallbackBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1013,6 +1121,42 @@ namespace Pulumi.AwsNative.WaFv2
     }
 
     /// <summary>
+    /// The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+    /// 
+    /// You can specify the following fallback behaviors:
+    /// 
+    /// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    /// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebAclJa4FingerprintFallbackBehavior : IEquatable<WebAclJa4FingerprintFallbackBehavior>
+    {
+        private readonly string _value;
+
+        private WebAclJa4FingerprintFallbackBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclJa4FingerprintFallbackBehavior Match { get; } = new WebAclJa4FingerprintFallbackBehavior("MATCH");
+        public static WebAclJa4FingerprintFallbackBehavior NoMatch { get; } = new WebAclJa4FingerprintFallbackBehavior("NO_MATCH");
+
+        public static bool operator ==(WebAclJa4FingerprintFallbackBehavior left, WebAclJa4FingerprintFallbackBehavior right) => left.Equals(right);
+        public static bool operator !=(WebAclJa4FingerprintFallbackBehavior left, WebAclJa4FingerprintFallbackBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclJa4FingerprintFallbackBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclJa4FingerprintFallbackBehavior other && Equals(other);
+        public bool Equals(WebAclJa4FingerprintFallbackBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The parts of the JSON to match against using the MatchPattern.
     /// </summary>
     [EnumType]
@@ -1246,6 +1390,78 @@ namespace Pulumi.AwsNative.WaFv2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WebAclRateBasedStatementAggregateKeyType other && Equals(other);
         public bool Equals(WebAclRateBasedStatementAggregateKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+    /// 
+    /// You can specify the following fallback behaviors:
+    /// 
+    /// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    /// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebAclRateLimitJa3FingerprintFallbackBehavior : IEquatable<WebAclRateLimitJa3FingerprintFallbackBehavior>
+    {
+        private readonly string _value;
+
+        private WebAclRateLimitJa3FingerprintFallbackBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclRateLimitJa3FingerprintFallbackBehavior Match { get; } = new WebAclRateLimitJa3FingerprintFallbackBehavior("MATCH");
+        public static WebAclRateLimitJa3FingerprintFallbackBehavior NoMatch { get; } = new WebAclRateLimitJa3FingerprintFallbackBehavior("NO_MATCH");
+
+        public static bool operator ==(WebAclRateLimitJa3FingerprintFallbackBehavior left, WebAclRateLimitJa3FingerprintFallbackBehavior right) => left.Equals(right);
+        public static bool operator !=(WebAclRateLimitJa3FingerprintFallbackBehavior left, WebAclRateLimitJa3FingerprintFallbackBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclRateLimitJa3FingerprintFallbackBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclRateLimitJa3FingerprintFallbackBehavior other && Equals(other);
+        public bool Equals(WebAclRateLimitJa3FingerprintFallbackBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+    /// 
+    /// You can specify the following fallback behaviors:
+    /// 
+    /// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    /// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebAclRateLimitJa4FingerprintFallbackBehavior : IEquatable<WebAclRateLimitJa4FingerprintFallbackBehavior>
+    {
+        private readonly string _value;
+
+        private WebAclRateLimitJa4FingerprintFallbackBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclRateLimitJa4FingerprintFallbackBehavior Match { get; } = new WebAclRateLimitJa4FingerprintFallbackBehavior("MATCH");
+        public static WebAclRateLimitJa4FingerprintFallbackBehavior NoMatch { get; } = new WebAclRateLimitJa4FingerprintFallbackBehavior("NO_MATCH");
+
+        public static bool operator ==(WebAclRateLimitJa4FingerprintFallbackBehavior left, WebAclRateLimitJa4FingerprintFallbackBehavior right) => left.Equals(right);
+        public static bool operator !=(WebAclRateLimitJa4FingerprintFallbackBehavior left, WebAclRateLimitJa4FingerprintFallbackBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclRateLimitJa4FingerprintFallbackBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclRateLimitJa4FingerprintFallbackBehavior other && Equals(other);
+        public bool Equals(WebAclRateLimitJa4FingerprintFallbackBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

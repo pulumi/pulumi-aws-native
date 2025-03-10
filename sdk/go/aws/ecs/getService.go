@@ -39,7 +39,7 @@ type LookupServiceResult struct {
 	AvailabilityZoneRebalancing *ServiceAvailabilityZoneRebalancing `pulumi:"availabilityZoneRebalancing"`
 	// The capacity provider strategy to use for the service.
 	//  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-	//  A capacity provider strategy may contain a maximum of 6 capacity providers.
+	//  A capacity provider strategy can contain a maximum of 20 capacity providers.
 	//   To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
 	CapacityProviderStrategy []ServiceCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
 	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
@@ -143,7 +143,7 @@ func (o LookupServiceResultOutput) AvailabilityZoneRebalancing() ServiceAvailabi
 // The capacity provider strategy to use for the service.
 //
 //	If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-//	A capacity provider strategy may contain a maximum of 6 capacity providers.
+//	A capacity provider strategy can contain a maximum of 20 capacity providers.
 //	 To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
 func (o LookupServiceResultOutput) CapacityProviderStrategy() ServiceCapacityProviderStrategyItemArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []ServiceCapacityProviderStrategyItem { return v.CapacityProviderStrategy }).(ServiceCapacityProviderStrategyItemArrayOutput)

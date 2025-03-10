@@ -55,7 +55,7 @@ class ServiceArgs:
                 For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyItemArgs']]] capacity_provider_strategy: The capacity provider strategy to use for the service.
                 If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-                A capacity provider strategy may contain a maximum of 6 capacity providers.
+                A capacity provider strategy can contain a maximum of 20 capacity providers.
                  To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
         :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
         :param pulumi.Input['ServiceDeploymentConfigurationArgs'] deployment_configuration: Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
@@ -181,7 +181,7 @@ class ServiceArgs:
         """
         The capacity provider strategy to use for the service.
          If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-         A capacity provider strategy may contain a maximum of 6 capacity providers.
+         A capacity provider strategy can contain a maximum of 20 capacity providers.
           To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
         """
         return pulumi.get(self, "capacity_provider_strategy")
@@ -539,7 +539,7 @@ class Service(pulumi.CustomResource):
                 For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyItemArgs', 'ServiceCapacityProviderStrategyItemArgsDict']]]] capacity_provider_strategy: The capacity provider strategy to use for the service.
                 If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-                A capacity provider strategy may contain a maximum of 6 capacity providers.
+                A capacity provider strategy can contain a maximum of 20 capacity providers.
                  To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
         :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
         :param pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']] deployment_configuration: Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
@@ -750,7 +750,7 @@ class Service(pulumi.CustomResource):
         """
         The capacity provider strategy to use for the service.
          If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-         A capacity provider strategy may contain a maximum of 6 capacity providers.
+         A capacity provider strategy can contain a maximum of 20 capacity providers.
           To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
         """
         return pulumi.get(self, "capacity_provider_strategy")

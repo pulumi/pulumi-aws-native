@@ -124,7 +124,7 @@
   "readOnlyProperties" : [ "/properties/LocationArn", "/properties/LocationUri" ],
   "writeOnlyProperties" : [ "/properties/SecretKey", "/properties/BucketName", "/properties/ServerHostname", "/properties/Subdirectory" ],
   "primaryIdentifier" : [ "/properties/LocationArn" ],
-  "createOnlyProperties" : [ "/properties/BucketName", "/properties/ServerHostname" ],
+  "createOnlyProperties" : [ "/properties/BucketName" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "datasync:CreateLocationObjectStorage", "datasync:DescribeLocationObjectStorage", "datasync:ListTagsForResource", "datasync:TagResource" ]

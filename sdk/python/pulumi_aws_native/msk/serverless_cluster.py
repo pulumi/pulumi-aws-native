@@ -27,6 +27,9 @@ class ServerlessClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ServerlessCluster resource.
+        :param pulumi.Input['ServerlessClusterClientAuthenticationArgs'] client_authentication: Includes all client authentication related information.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]] vpc_configs: VPC configuration information for the serverless cluster.
+        :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         pulumi.set(__self__, "client_authentication", client_authentication)
@@ -39,6 +42,9 @@ class ServerlessClusterArgs:
     @property
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> pulumi.Input['ServerlessClusterClientAuthenticationArgs']:
+        """
+        Includes all client authentication related information.
+        """
         return pulumi.get(self, "client_authentication")
 
     @client_authentication.setter
@@ -48,6 +54,9 @@ class ServerlessClusterArgs:
     @property
     @pulumi.getter(name="vpcConfigs")
     def vpc_configs(self) -> pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]]:
+        """
+        VPC configuration information for the serverless cluster.
+        """
         return pulumi.get(self, "vpc_configs")
 
     @vpc_configs.setter
@@ -57,6 +66,9 @@ class ServerlessClusterArgs:
     @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the cluster.
+        """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
@@ -91,7 +103,10 @@ class ServerlessCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']] client_authentication: Includes all client authentication related information.
+        :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict']]]] vpc_configs: VPC configuration information for the serverless cluster.
         """
         ...
     @overload
@@ -173,16 +188,25 @@ class ServerlessCluster(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the MSK cluster.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> pulumi.Output['outputs.ServerlessClusterClientAuthentication']:
+        """
+        Includes all client authentication related information.
+        """
         return pulumi.get(self, "client_authentication")
 
     @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[str]:
+        """
+        The name of the cluster.
+        """
         return pulumi.get(self, "cluster_name")
 
     @property
@@ -196,5 +220,8 @@ class ServerlessCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vpcConfigs")
     def vpc_configs(self) -> pulumi.Output[Sequence['outputs.ServerlessClusterVpcConfig']]:
+        """
+        VPC configuration information for the serverless cluster.
+        """
         return pulumi.get(self, "vpc_configs")
 

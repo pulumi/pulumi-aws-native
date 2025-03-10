@@ -869,6 +869,13 @@ export const VpcEndpointIpAddressType = {
  */
 export type VpcEndpointIpAddressType = (typeof VpcEndpointIpAddressType)[keyof typeof VpcEndpointIpAddressType];
 
+export const VpcEndpointServiceIpAddressType = {
+    Ipv4: "ipv4",
+    Ipv6: "ipv6",
+} as const;
+
+export type VpcEndpointServiceIpAddressType = (typeof VpcEndpointServiceIpAddressType)[keyof typeof VpcEndpointServiceIpAddressType];
+
 export const VpcEndpointType = {
     Interface: "Interface",
     Gateway: "Gateway",

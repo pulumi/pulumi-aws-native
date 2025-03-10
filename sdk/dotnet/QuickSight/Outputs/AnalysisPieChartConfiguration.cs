@@ -34,6 +34,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.AnalysisPieChartFieldWells? FieldWells;
         /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        public readonly Outputs.AnalysisVisualInteractionOptions? Interactions;
+        /// <summary>
         /// The legend display setup of the visual.
         /// </summary>
         public readonly Outputs.AnalysisLegendOptions? Legend;
@@ -70,6 +74,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.AnalysisPieChartFieldWells? fieldWells,
 
+            Outputs.AnalysisVisualInteractionOptions? interactions,
+
             Outputs.AnalysisLegendOptions? legend,
 
             Outputs.AnalysisSmallMultiplesOptions? smallMultiplesOptions,
@@ -87,6 +93,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             DataLabels = dataLabels;
             DonutOptions = donutOptions;
             FieldWells = fieldWells;
+            Interactions = interactions;
             Legend = legend;
             SmallMultiplesOptions = smallMultiplesOptions;
             SortConfiguration = sortConfiguration;

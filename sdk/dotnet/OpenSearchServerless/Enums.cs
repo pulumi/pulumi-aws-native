@@ -101,6 +101,135 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     }
 
     /// <summary>
+    /// The k-NN search engine to use
+    /// </summary>
+    [EnumType]
+    public readonly struct IndexPropertyMappingMethodPropertiesEngine : IEquatable<IndexPropertyMappingMethodPropertiesEngine>
+    {
+        private readonly string _value;
+
+        private IndexPropertyMappingMethodPropertiesEngine(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IndexPropertyMappingMethodPropertiesEngine Nmslib { get; } = new IndexPropertyMappingMethodPropertiesEngine("nmslib");
+        public static IndexPropertyMappingMethodPropertiesEngine Faiss { get; } = new IndexPropertyMappingMethodPropertiesEngine("faiss");
+        public static IndexPropertyMappingMethodPropertiesEngine Lucene { get; } = new IndexPropertyMappingMethodPropertiesEngine("lucene");
+
+        public static bool operator ==(IndexPropertyMappingMethodPropertiesEngine left, IndexPropertyMappingMethodPropertiesEngine right) => left.Equals(right);
+        public static bool operator !=(IndexPropertyMappingMethodPropertiesEngine left, IndexPropertyMappingMethodPropertiesEngine right) => !left.Equals(right);
+
+        public static explicit operator string(IndexPropertyMappingMethodPropertiesEngine value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IndexPropertyMappingMethodPropertiesEngine other && Equals(other);
+        public bool Equals(IndexPropertyMappingMethodPropertiesEngine other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The algorithm name for k-NN search
+    /// </summary>
+    [EnumType]
+    public readonly struct IndexPropertyMappingMethodPropertiesName : IEquatable<IndexPropertyMappingMethodPropertiesName>
+    {
+        private readonly string _value;
+
+        private IndexPropertyMappingMethodPropertiesName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IndexPropertyMappingMethodPropertiesName Hnsw { get; } = new IndexPropertyMappingMethodPropertiesName("hnsw");
+        public static IndexPropertyMappingMethodPropertiesName Ivf { get; } = new IndexPropertyMappingMethodPropertiesName("ivf");
+
+        public static bool operator ==(IndexPropertyMappingMethodPropertiesName left, IndexPropertyMappingMethodPropertiesName right) => left.Equals(right);
+        public static bool operator !=(IndexPropertyMappingMethodPropertiesName left, IndexPropertyMappingMethodPropertiesName right) => !left.Equals(right);
+
+        public static explicit operator string(IndexPropertyMappingMethodPropertiesName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IndexPropertyMappingMethodPropertiesName other && Equals(other);
+        public bool Equals(IndexPropertyMappingMethodPropertiesName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The distance function used for k-NN search
+    /// </summary>
+    [EnumType]
+    public readonly struct IndexPropertyMappingMethodPropertiesSpaceType : IEquatable<IndexPropertyMappingMethodPropertiesSpaceType>
+    {
+        private readonly string _value;
+
+        private IndexPropertyMappingMethodPropertiesSpaceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IndexPropertyMappingMethodPropertiesSpaceType L2 { get; } = new IndexPropertyMappingMethodPropertiesSpaceType("l2");
+        public static IndexPropertyMappingMethodPropertiesSpaceType L1 { get; } = new IndexPropertyMappingMethodPropertiesSpaceType("l1");
+        public static IndexPropertyMappingMethodPropertiesSpaceType Linf { get; } = new IndexPropertyMappingMethodPropertiesSpaceType("linf");
+        public static IndexPropertyMappingMethodPropertiesSpaceType Cosinesimil { get; } = new IndexPropertyMappingMethodPropertiesSpaceType("cosinesimil");
+        public static IndexPropertyMappingMethodPropertiesSpaceType Innerproduct { get; } = new IndexPropertyMappingMethodPropertiesSpaceType("innerproduct");
+        public static IndexPropertyMappingMethodPropertiesSpaceType Hamming { get; } = new IndexPropertyMappingMethodPropertiesSpaceType("hamming");
+
+        public static bool operator ==(IndexPropertyMappingMethodPropertiesSpaceType left, IndexPropertyMappingMethodPropertiesSpaceType right) => left.Equals(right);
+        public static bool operator !=(IndexPropertyMappingMethodPropertiesSpaceType left, IndexPropertyMappingMethodPropertiesSpaceType right) => !left.Equals(right);
+
+        public static explicit operator string(IndexPropertyMappingMethodPropertiesSpaceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IndexPropertyMappingMethodPropertiesSpaceType other && Equals(other);
+        public bool Equals(IndexPropertyMappingMethodPropertiesSpaceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The field data type. Must be a valid OpenSearch field type.
+    /// </summary>
+    [EnumType]
+    public readonly struct IndexPropertyMappingType : IEquatable<IndexPropertyMappingType>
+    {
+        private readonly string _value;
+
+        private IndexPropertyMappingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IndexPropertyMappingType Text { get; } = new IndexPropertyMappingType("text");
+        public static IndexPropertyMappingType KnnVector { get; } = new IndexPropertyMappingType("knn_vector");
+
+        public static bool operator ==(IndexPropertyMappingType left, IndexPropertyMappingType right) => left.Equals(right);
+        public static bool operator !=(IndexPropertyMappingType left, IndexPropertyMappingType right) => !left.Equals(right);
+
+        public static explicit operator string(IndexPropertyMappingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IndexPropertyMappingType other && Equals(other);
+        public bool Equals(IndexPropertyMappingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of lifecycle policy
     /// </summary>
     [EnumType]

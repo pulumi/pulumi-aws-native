@@ -32,20 +32,20 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Command;
         /// <summary>
-        /// The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
+        /// The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds. This value applies only when you specify a ``command``.
         /// </summary>
         public readonly int? Interval;
         /// <summary>
-        /// The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
+        /// The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3. This value applies only when you specify a ``command``.
         /// </summary>
         public readonly int? Retries;
         /// <summary>
-        /// The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off.
+        /// The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off. This value applies only when you specify a ``command``. 
         ///   If a health check succeeds within the ``startPeriod``, then the container is considered healthy and any subsequent failures count toward the maximum number of retries.
         /// </summary>
         public readonly int? StartPeriod;
         /// <summary>
-        /// The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5.
+        /// The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5. This value applies only when you specify a ``command``.
         /// </summary>
         public readonly int? Timeout;
 

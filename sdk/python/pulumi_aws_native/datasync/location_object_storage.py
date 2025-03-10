@@ -307,7 +307,7 @@ class LocationObjectStorage(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["location_arn"] = None
             __props__.__dict__["location_uri"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucketName", "serverHostname"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucketName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LocationObjectStorage, __self__).__init__(
             'aws-native:datasync:LocationObjectStorage',

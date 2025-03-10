@@ -3650,6 +3650,14 @@ type RuleGroupFieldToMatch struct {
 	//
 	// Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
 	Ja3Fingerprint *RuleGroupJa3Fingerprint `pulumi:"ja3Fingerprint"`
+	// Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+	//
+	// > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` .
+	//
+	// You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+	//
+	// Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+	Ja4Fingerprint *RuleGroupJa4Fingerprint `pulumi:"ja4Fingerprint"`
 	// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
 	// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
@@ -3715,6 +3723,14 @@ type RuleGroupFieldToMatchArgs struct {
 	//
 	// Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
 	Ja3Fingerprint RuleGroupJa3FingerprintPtrInput `pulumi:"ja3Fingerprint"`
+	// Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+	//
+	// > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` .
+	//
+	// You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+	//
+	// Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+	Ja4Fingerprint RuleGroupJa4FingerprintPtrInput `pulumi:"ja4Fingerprint"`
 	// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
 	// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
@@ -3860,6 +3876,17 @@ func (o RuleGroupFieldToMatchOutput) Ja3Fingerprint() RuleGroupJa3FingerprintPtr
 	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupJa3Fingerprint { return v.Ja3Fingerprint }).(RuleGroupJa3FingerprintPtrOutput)
 }
 
+// Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+//
+// > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` .
+//
+// You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+//
+// Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+func (o RuleGroupFieldToMatchOutput) Ja4Fingerprint() RuleGroupJa4FingerprintPtrOutput {
+	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupJa4Fingerprint { return v.Ja4Fingerprint }).(RuleGroupJa4FingerprintPtrOutput)
+}
+
 // Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 //
 // AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
@@ -3992,6 +4019,22 @@ func (o RuleGroupFieldToMatchPtrOutput) Ja3Fingerprint() RuleGroupJa3Fingerprint
 		}
 		return v.Ja3Fingerprint
 	}).(RuleGroupJa3FingerprintPtrOutput)
+}
+
+// Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+//
+// > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` .
+//
+// You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+//
+// Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+func (o RuleGroupFieldToMatchPtrOutput) Ja4Fingerprint() RuleGroupJa4FingerprintPtrOutput {
+	return o.ApplyT(func(v *RuleGroupFieldToMatch) *RuleGroupJa4Fingerprint {
+		if v == nil {
+			return nil
+		}
+		return v.Ja4Fingerprint
+	}).(RuleGroupJa4FingerprintPtrOutput)
 }
 
 // Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
@@ -5829,6 +5872,166 @@ func (o RuleGroupJa3FingerprintPtrOutput) FallbackBehavior() RuleGroupJa3Fingerp
 	}).(RuleGroupJa3FingerprintFallbackBehaviorPtrOutput)
 }
 
+// Includes the JA4 fingerprint of a web request.
+type RuleGroupJa4Fingerprint struct {
+	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+	//
+	// You can specify the following fallback behaviors:
+	//
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	FallbackBehavior RuleGroupJa4FingerprintFallbackBehavior `pulumi:"fallbackBehavior"`
+}
+
+// RuleGroupJa4FingerprintInput is an input type that accepts RuleGroupJa4FingerprintArgs and RuleGroupJa4FingerprintOutput values.
+// You can construct a concrete instance of `RuleGroupJa4FingerprintInput` via:
+//
+//	RuleGroupJa4FingerprintArgs{...}
+type RuleGroupJa4FingerprintInput interface {
+	pulumi.Input
+
+	ToRuleGroupJa4FingerprintOutput() RuleGroupJa4FingerprintOutput
+	ToRuleGroupJa4FingerprintOutputWithContext(context.Context) RuleGroupJa4FingerprintOutput
+}
+
+// Includes the JA4 fingerprint of a web request.
+type RuleGroupJa4FingerprintArgs struct {
+	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+	//
+	// You can specify the following fallback behaviors:
+	//
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	FallbackBehavior RuleGroupJa4FingerprintFallbackBehaviorInput `pulumi:"fallbackBehavior"`
+}
+
+func (RuleGroupJa4FingerprintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupJa4Fingerprint)(nil)).Elem()
+}
+
+func (i RuleGroupJa4FingerprintArgs) ToRuleGroupJa4FingerprintOutput() RuleGroupJa4FingerprintOutput {
+	return i.ToRuleGroupJa4FingerprintOutputWithContext(context.Background())
+}
+
+func (i RuleGroupJa4FingerprintArgs) ToRuleGroupJa4FingerprintOutputWithContext(ctx context.Context) RuleGroupJa4FingerprintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupJa4FingerprintOutput)
+}
+
+func (i RuleGroupJa4FingerprintArgs) ToRuleGroupJa4FingerprintPtrOutput() RuleGroupJa4FingerprintPtrOutput {
+	return i.ToRuleGroupJa4FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupJa4FingerprintArgs) ToRuleGroupJa4FingerprintPtrOutputWithContext(ctx context.Context) RuleGroupJa4FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupJa4FingerprintOutput).ToRuleGroupJa4FingerprintPtrOutputWithContext(ctx)
+}
+
+// RuleGroupJa4FingerprintPtrInput is an input type that accepts RuleGroupJa4FingerprintArgs, RuleGroupJa4FingerprintPtr and RuleGroupJa4FingerprintPtrOutput values.
+// You can construct a concrete instance of `RuleGroupJa4FingerprintPtrInput` via:
+//
+//	        RuleGroupJa4FingerprintArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupJa4FingerprintPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupJa4FingerprintPtrOutput() RuleGroupJa4FingerprintPtrOutput
+	ToRuleGroupJa4FingerprintPtrOutputWithContext(context.Context) RuleGroupJa4FingerprintPtrOutput
+}
+
+type ruleGroupJa4FingerprintPtrType RuleGroupJa4FingerprintArgs
+
+func RuleGroupJa4FingerprintPtr(v *RuleGroupJa4FingerprintArgs) RuleGroupJa4FingerprintPtrInput {
+	return (*ruleGroupJa4FingerprintPtrType)(v)
+}
+
+func (*ruleGroupJa4FingerprintPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupJa4Fingerprint)(nil)).Elem()
+}
+
+func (i *ruleGroupJa4FingerprintPtrType) ToRuleGroupJa4FingerprintPtrOutput() RuleGroupJa4FingerprintPtrOutput {
+	return i.ToRuleGroupJa4FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupJa4FingerprintPtrType) ToRuleGroupJa4FingerprintPtrOutputWithContext(ctx context.Context) RuleGroupJa4FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupJa4FingerprintPtrOutput)
+}
+
+// Includes the JA4 fingerprint of a web request.
+type RuleGroupJa4FingerprintOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupJa4FingerprintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupJa4Fingerprint)(nil)).Elem()
+}
+
+func (o RuleGroupJa4FingerprintOutput) ToRuleGroupJa4FingerprintOutput() RuleGroupJa4FingerprintOutput {
+	return o
+}
+
+func (o RuleGroupJa4FingerprintOutput) ToRuleGroupJa4FingerprintOutputWithContext(ctx context.Context) RuleGroupJa4FingerprintOutput {
+	return o
+}
+
+func (o RuleGroupJa4FingerprintOutput) ToRuleGroupJa4FingerprintPtrOutput() RuleGroupJa4FingerprintPtrOutput {
+	return o.ToRuleGroupJa4FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupJa4FingerprintOutput) ToRuleGroupJa4FingerprintPtrOutputWithContext(ctx context.Context) RuleGroupJa4FingerprintPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupJa4Fingerprint) *RuleGroupJa4Fingerprint {
+		return &v
+	}).(RuleGroupJa4FingerprintPtrOutput)
+}
+
+// The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+func (o RuleGroupJa4FingerprintOutput) FallbackBehavior() RuleGroupJa4FingerprintFallbackBehaviorOutput {
+	return o.ApplyT(func(v RuleGroupJa4Fingerprint) RuleGroupJa4FingerprintFallbackBehavior { return v.FallbackBehavior }).(RuleGroupJa4FingerprintFallbackBehaviorOutput)
+}
+
+type RuleGroupJa4FingerprintPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupJa4FingerprintPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupJa4Fingerprint)(nil)).Elem()
+}
+
+func (o RuleGroupJa4FingerprintPtrOutput) ToRuleGroupJa4FingerprintPtrOutput() RuleGroupJa4FingerprintPtrOutput {
+	return o
+}
+
+func (o RuleGroupJa4FingerprintPtrOutput) ToRuleGroupJa4FingerprintPtrOutputWithContext(ctx context.Context) RuleGroupJa4FingerprintPtrOutput {
+	return o
+}
+
+func (o RuleGroupJa4FingerprintPtrOutput) Elem() RuleGroupJa4FingerprintOutput {
+	return o.ApplyT(func(v *RuleGroupJa4Fingerprint) RuleGroupJa4Fingerprint {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupJa4Fingerprint
+		return ret
+	}).(RuleGroupJa4FingerprintOutput)
+}
+
+// The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+func (o RuleGroupJa4FingerprintPtrOutput) FallbackBehavior() RuleGroupJa4FingerprintFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v *RuleGroupJa4Fingerprint) *RuleGroupJa4FingerprintFallbackBehavior {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackBehavior
+	}).(RuleGroupJa4FingerprintFallbackBehaviorPtrOutput)
+}
+
 // Inspect the request body as JSON. The request body immediately follows the request headers.
 type RuleGroupJsonBody struct {
 	// What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
@@ -7333,6 +7536,10 @@ type RuleGroupRateBasedStatementCustomKey struct {
 	//
 	// When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
 	Ip *RuleGroupRateLimitIp `pulumi:"ip"`
+	// Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+	Ja3Fingerprint *RuleGroupRateLimitJa3Fingerprint `pulumi:"ja3Fingerprint"`
+	// Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
+	Ja4Fingerprint *RuleGroupRateLimitJa4Fingerprint `pulumi:"ja4Fingerprint"`
 	// Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
 	//
 	// This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
@@ -7376,6 +7583,10 @@ type RuleGroupRateBasedStatementCustomKeyArgs struct {
 	//
 	// When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
 	Ip RuleGroupRateLimitIpPtrInput `pulumi:"ip"`
+	// Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+	Ja3Fingerprint RuleGroupRateLimitJa3FingerprintPtrInput `pulumi:"ja3Fingerprint"`
+	// Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
+	Ja4Fingerprint RuleGroupRateLimitJa4FingerprintPtrInput `pulumi:"ja4Fingerprint"`
 	// Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
 	//
 	// This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
@@ -7471,6 +7682,20 @@ func (o RuleGroupRateBasedStatementCustomKeyOutput) HttpMethod() RuleGroupRateLi
 // When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
 func (o RuleGroupRateBasedStatementCustomKeyOutput) Ip() RuleGroupRateLimitIpPtrOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitIp { return v.Ip }).(RuleGroupRateLimitIpPtrOutput)
+}
+
+// Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+func (o RuleGroupRateBasedStatementCustomKeyOutput) Ja3Fingerprint() RuleGroupRateLimitJa3FingerprintPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitJa3Fingerprint {
+		return v.Ja3Fingerprint
+	}).(RuleGroupRateLimitJa3FingerprintPtrOutput)
+}
+
+// Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
+func (o RuleGroupRateBasedStatementCustomKeyOutput) Ja4Fingerprint() RuleGroupRateLimitJa4FingerprintPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitJa4Fingerprint {
+		return v.Ja4Fingerprint
+	}).(RuleGroupRateLimitJa4FingerprintPtrOutput)
 }
 
 // Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
@@ -8198,6 +8423,330 @@ func (o RuleGroupRateLimitIpPtrOutput) Elem() RuleGroupRateLimitIpOutput {
 		var ret RuleGroupRateLimitIp
 		return ret
 	}).(RuleGroupRateLimitIpOutput)
+}
+
+// Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitJa3Fingerprint struct {
+	// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+	//
+	// You can specify the following fallback behaviors:
+	//
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	FallbackBehavior RuleGroupRateLimitJa3FingerprintFallbackBehavior `pulumi:"fallbackBehavior"`
+}
+
+// RuleGroupRateLimitJa3FingerprintInput is an input type that accepts RuleGroupRateLimitJa3FingerprintArgs and RuleGroupRateLimitJa3FingerprintOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitJa3FingerprintInput` via:
+//
+//	RuleGroupRateLimitJa3FingerprintArgs{...}
+type RuleGroupRateLimitJa3FingerprintInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitJa3FingerprintOutput() RuleGroupRateLimitJa3FingerprintOutput
+	ToRuleGroupRateLimitJa3FingerprintOutputWithContext(context.Context) RuleGroupRateLimitJa3FingerprintOutput
+}
+
+// Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitJa3FingerprintArgs struct {
+	// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+	//
+	// You can specify the following fallback behaviors:
+	//
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	FallbackBehavior RuleGroupRateLimitJa3FingerprintFallbackBehaviorInput `pulumi:"fallbackBehavior"`
+}
+
+func (RuleGroupRateLimitJa3FingerprintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitJa3Fingerprint)(nil)).Elem()
+}
+
+func (i RuleGroupRateLimitJa3FingerprintArgs) ToRuleGroupRateLimitJa3FingerprintOutput() RuleGroupRateLimitJa3FingerprintOutput {
+	return i.ToRuleGroupRateLimitJa3FingerprintOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitJa3FingerprintArgs) ToRuleGroupRateLimitJa3FingerprintOutputWithContext(ctx context.Context) RuleGroupRateLimitJa3FingerprintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitJa3FingerprintOutput)
+}
+
+func (i RuleGroupRateLimitJa3FingerprintArgs) ToRuleGroupRateLimitJa3FingerprintPtrOutput() RuleGroupRateLimitJa3FingerprintPtrOutput {
+	return i.ToRuleGroupRateLimitJa3FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitJa3FingerprintArgs) ToRuleGroupRateLimitJa3FingerprintPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitJa3FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitJa3FingerprintOutput).ToRuleGroupRateLimitJa3FingerprintPtrOutputWithContext(ctx)
+}
+
+// RuleGroupRateLimitJa3FingerprintPtrInput is an input type that accepts RuleGroupRateLimitJa3FingerprintArgs, RuleGroupRateLimitJa3FingerprintPtr and RuleGroupRateLimitJa3FingerprintPtrOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitJa3FingerprintPtrInput` via:
+//
+//	        RuleGroupRateLimitJa3FingerprintArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupRateLimitJa3FingerprintPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitJa3FingerprintPtrOutput() RuleGroupRateLimitJa3FingerprintPtrOutput
+	ToRuleGroupRateLimitJa3FingerprintPtrOutputWithContext(context.Context) RuleGroupRateLimitJa3FingerprintPtrOutput
+}
+
+type ruleGroupRateLimitJa3FingerprintPtrType RuleGroupRateLimitJa3FingerprintArgs
+
+func RuleGroupRateLimitJa3FingerprintPtr(v *RuleGroupRateLimitJa3FingerprintArgs) RuleGroupRateLimitJa3FingerprintPtrInput {
+	return (*ruleGroupRateLimitJa3FingerprintPtrType)(v)
+}
+
+func (*ruleGroupRateLimitJa3FingerprintPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitJa3Fingerprint)(nil)).Elem()
+}
+
+func (i *ruleGroupRateLimitJa3FingerprintPtrType) ToRuleGroupRateLimitJa3FingerprintPtrOutput() RuleGroupRateLimitJa3FingerprintPtrOutput {
+	return i.ToRuleGroupRateLimitJa3FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRateLimitJa3FingerprintPtrType) ToRuleGroupRateLimitJa3FingerprintPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitJa3FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitJa3FingerprintPtrOutput)
+}
+
+// Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitJa3FingerprintOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitJa3FingerprintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitJa3Fingerprint)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitJa3FingerprintOutput) ToRuleGroupRateLimitJa3FingerprintOutput() RuleGroupRateLimitJa3FingerprintOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitJa3FingerprintOutput) ToRuleGroupRateLimitJa3FingerprintOutputWithContext(ctx context.Context) RuleGroupRateLimitJa3FingerprintOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitJa3FingerprintOutput) ToRuleGroupRateLimitJa3FingerprintPtrOutput() RuleGroupRateLimitJa3FingerprintPtrOutput {
+	return o.ToRuleGroupRateLimitJa3FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitJa3FingerprintOutput) ToRuleGroupRateLimitJa3FingerprintPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitJa3FingerprintPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRateLimitJa3Fingerprint) *RuleGroupRateLimitJa3Fingerprint {
+		return &v
+	}).(RuleGroupRateLimitJa3FingerprintPtrOutput)
+}
+
+// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+func (o RuleGroupRateLimitJa3FingerprintOutput) FallbackBehavior() RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput {
+	return o.ApplyT(func(v RuleGroupRateLimitJa3Fingerprint) RuleGroupRateLimitJa3FingerprintFallbackBehavior {
+		return v.FallbackBehavior
+	}).(RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput)
+}
+
+type RuleGroupRateLimitJa3FingerprintPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitJa3FingerprintPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitJa3Fingerprint)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitJa3FingerprintPtrOutput) ToRuleGroupRateLimitJa3FingerprintPtrOutput() RuleGroupRateLimitJa3FingerprintPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitJa3FingerprintPtrOutput) ToRuleGroupRateLimitJa3FingerprintPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitJa3FingerprintPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitJa3FingerprintPtrOutput) Elem() RuleGroupRateLimitJa3FingerprintOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitJa3Fingerprint) RuleGroupRateLimitJa3Fingerprint {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRateLimitJa3Fingerprint
+		return ret
+	}).(RuleGroupRateLimitJa3FingerprintOutput)
+}
+
+// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+func (o RuleGroupRateLimitJa3FingerprintPtrOutput) FallbackBehavior() RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitJa3Fingerprint) *RuleGroupRateLimitJa3FingerprintFallbackBehavior {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackBehavior
+	}).(RuleGroupRateLimitJa3FingerprintFallbackBehaviorPtrOutput)
+}
+
+// Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitJa4Fingerprint struct {
+	// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+	//
+	// You can specify the following fallback behaviors:
+	//
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	FallbackBehavior RuleGroupRateLimitJa4FingerprintFallbackBehavior `pulumi:"fallbackBehavior"`
+}
+
+// RuleGroupRateLimitJa4FingerprintInput is an input type that accepts RuleGroupRateLimitJa4FingerprintArgs and RuleGroupRateLimitJa4FingerprintOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitJa4FingerprintInput` via:
+//
+//	RuleGroupRateLimitJa4FingerprintArgs{...}
+type RuleGroupRateLimitJa4FingerprintInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitJa4FingerprintOutput() RuleGroupRateLimitJa4FingerprintOutput
+	ToRuleGroupRateLimitJa4FingerprintOutputWithContext(context.Context) RuleGroupRateLimitJa4FingerprintOutput
+}
+
+// Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitJa4FingerprintArgs struct {
+	// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+	//
+	// You can specify the following fallback behaviors:
+	//
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	FallbackBehavior RuleGroupRateLimitJa4FingerprintFallbackBehaviorInput `pulumi:"fallbackBehavior"`
+}
+
+func (RuleGroupRateLimitJa4FingerprintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitJa4Fingerprint)(nil)).Elem()
+}
+
+func (i RuleGroupRateLimitJa4FingerprintArgs) ToRuleGroupRateLimitJa4FingerprintOutput() RuleGroupRateLimitJa4FingerprintOutput {
+	return i.ToRuleGroupRateLimitJa4FingerprintOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitJa4FingerprintArgs) ToRuleGroupRateLimitJa4FingerprintOutputWithContext(ctx context.Context) RuleGroupRateLimitJa4FingerprintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitJa4FingerprintOutput)
+}
+
+func (i RuleGroupRateLimitJa4FingerprintArgs) ToRuleGroupRateLimitJa4FingerprintPtrOutput() RuleGroupRateLimitJa4FingerprintPtrOutput {
+	return i.ToRuleGroupRateLimitJa4FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitJa4FingerprintArgs) ToRuleGroupRateLimitJa4FingerprintPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitJa4FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitJa4FingerprintOutput).ToRuleGroupRateLimitJa4FingerprintPtrOutputWithContext(ctx)
+}
+
+// RuleGroupRateLimitJa4FingerprintPtrInput is an input type that accepts RuleGroupRateLimitJa4FingerprintArgs, RuleGroupRateLimitJa4FingerprintPtr and RuleGroupRateLimitJa4FingerprintPtrOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitJa4FingerprintPtrInput` via:
+//
+//	        RuleGroupRateLimitJa4FingerprintArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupRateLimitJa4FingerprintPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitJa4FingerprintPtrOutput() RuleGroupRateLimitJa4FingerprintPtrOutput
+	ToRuleGroupRateLimitJa4FingerprintPtrOutputWithContext(context.Context) RuleGroupRateLimitJa4FingerprintPtrOutput
+}
+
+type ruleGroupRateLimitJa4FingerprintPtrType RuleGroupRateLimitJa4FingerprintArgs
+
+func RuleGroupRateLimitJa4FingerprintPtr(v *RuleGroupRateLimitJa4FingerprintArgs) RuleGroupRateLimitJa4FingerprintPtrInput {
+	return (*ruleGroupRateLimitJa4FingerprintPtrType)(v)
+}
+
+func (*ruleGroupRateLimitJa4FingerprintPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitJa4Fingerprint)(nil)).Elem()
+}
+
+func (i *ruleGroupRateLimitJa4FingerprintPtrType) ToRuleGroupRateLimitJa4FingerprintPtrOutput() RuleGroupRateLimitJa4FingerprintPtrOutput {
+	return i.ToRuleGroupRateLimitJa4FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRateLimitJa4FingerprintPtrType) ToRuleGroupRateLimitJa4FingerprintPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitJa4FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitJa4FingerprintPtrOutput)
+}
+
+// Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitJa4FingerprintOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitJa4FingerprintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitJa4Fingerprint)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitJa4FingerprintOutput) ToRuleGroupRateLimitJa4FingerprintOutput() RuleGroupRateLimitJa4FingerprintOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitJa4FingerprintOutput) ToRuleGroupRateLimitJa4FingerprintOutputWithContext(ctx context.Context) RuleGroupRateLimitJa4FingerprintOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitJa4FingerprintOutput) ToRuleGroupRateLimitJa4FingerprintPtrOutput() RuleGroupRateLimitJa4FingerprintPtrOutput {
+	return o.ToRuleGroupRateLimitJa4FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitJa4FingerprintOutput) ToRuleGroupRateLimitJa4FingerprintPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitJa4FingerprintPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRateLimitJa4Fingerprint) *RuleGroupRateLimitJa4Fingerprint {
+		return &v
+	}).(RuleGroupRateLimitJa4FingerprintPtrOutput)
+}
+
+// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+func (o RuleGroupRateLimitJa4FingerprintOutput) FallbackBehavior() RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput {
+	return o.ApplyT(func(v RuleGroupRateLimitJa4Fingerprint) RuleGroupRateLimitJa4FingerprintFallbackBehavior {
+		return v.FallbackBehavior
+	}).(RuleGroupRateLimitJa4FingerprintFallbackBehaviorOutput)
+}
+
+type RuleGroupRateLimitJa4FingerprintPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitJa4FingerprintPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitJa4Fingerprint)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitJa4FingerprintPtrOutput) ToRuleGroupRateLimitJa4FingerprintPtrOutput() RuleGroupRateLimitJa4FingerprintPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitJa4FingerprintPtrOutput) ToRuleGroupRateLimitJa4FingerprintPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitJa4FingerprintPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitJa4FingerprintPtrOutput) Elem() RuleGroupRateLimitJa4FingerprintOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitJa4Fingerprint) RuleGroupRateLimitJa4Fingerprint {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRateLimitJa4Fingerprint
+		return ret
+	}).(RuleGroupRateLimitJa4FingerprintOutput)
+}
+
+// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+func (o RuleGroupRateLimitJa4FingerprintPtrOutput) FallbackBehavior() RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitJa4Fingerprint) *RuleGroupRateLimitJa4FingerprintFallbackBehavior {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackBehavior
+	}).(RuleGroupRateLimitJa4FingerprintFallbackBehaviorPtrOutput)
 }
 
 // Specifies a label namespace to use as an aggregate key for a rate-based rule.
@@ -15000,6 +15549,14 @@ type WebAclFieldToMatch struct {
 	//
 	// Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
 	Ja3Fingerprint *WebAclJa3Fingerprint `pulumi:"ja3Fingerprint"`
+	// Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+	//
+	// > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` .
+	//
+	// You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+	//
+	// Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+	Ja4Fingerprint *WebAclJa4Fingerprint `pulumi:"ja4Fingerprint"`
 	// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
 	// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
@@ -15065,6 +15622,14 @@ type WebAclFieldToMatchArgs struct {
 	//
 	// Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
 	Ja3Fingerprint WebAclJa3FingerprintPtrInput `pulumi:"ja3Fingerprint"`
+	// Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+	//
+	// > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` .
+	//
+	// You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+	//
+	// Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+	Ja4Fingerprint WebAclJa4FingerprintPtrInput `pulumi:"ja4Fingerprint"`
 	// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
 	// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
@@ -15210,6 +15775,17 @@ func (o WebAclFieldToMatchOutput) Ja3Fingerprint() WebAclJa3FingerprintPtrOutput
 	return o.ApplyT(func(v WebAclFieldToMatch) *WebAclJa3Fingerprint { return v.Ja3Fingerprint }).(WebAclJa3FingerprintPtrOutput)
 }
 
+// Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+//
+// > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` .
+//
+// You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+//
+// Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+func (o WebAclFieldToMatchOutput) Ja4Fingerprint() WebAclJa4FingerprintPtrOutput {
+	return o.ApplyT(func(v WebAclFieldToMatch) *WebAclJa4Fingerprint { return v.Ja4Fingerprint }).(WebAclJa4FingerprintPtrOutput)
+}
+
 // Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 //
 // AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
@@ -15342,6 +15918,22 @@ func (o WebAclFieldToMatchPtrOutput) Ja3Fingerprint() WebAclJa3FingerprintPtrOut
 		}
 		return v.Ja3Fingerprint
 	}).(WebAclJa3FingerprintPtrOutput)
+}
+
+// Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+//
+// > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` .
+//
+// You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+//
+// Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+func (o WebAclFieldToMatchPtrOutput) Ja4Fingerprint() WebAclJa4FingerprintPtrOutput {
+	return o.ApplyT(func(v *WebAclFieldToMatch) *WebAclJa4Fingerprint {
+		if v == nil {
+			return nil
+		}
+		return v.Ja4Fingerprint
+	}).(WebAclJa4FingerprintPtrOutput)
 }
 
 // Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
@@ -17177,6 +17769,166 @@ func (o WebAclJa3FingerprintPtrOutput) FallbackBehavior() WebAclJa3FingerprintFa
 		}
 		return &v.FallbackBehavior
 	}).(WebAclJa3FingerprintFallbackBehaviorPtrOutput)
+}
+
+// Includes the JA4 fingerprint of a web request.
+type WebAclJa4Fingerprint struct {
+	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+	//
+	// You can specify the following fallback behaviors:
+	//
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	FallbackBehavior WebAclJa4FingerprintFallbackBehavior `pulumi:"fallbackBehavior"`
+}
+
+// WebAclJa4FingerprintInput is an input type that accepts WebAclJa4FingerprintArgs and WebAclJa4FingerprintOutput values.
+// You can construct a concrete instance of `WebAclJa4FingerprintInput` via:
+//
+//	WebAclJa4FingerprintArgs{...}
+type WebAclJa4FingerprintInput interface {
+	pulumi.Input
+
+	ToWebAclJa4FingerprintOutput() WebAclJa4FingerprintOutput
+	ToWebAclJa4FingerprintOutputWithContext(context.Context) WebAclJa4FingerprintOutput
+}
+
+// Includes the JA4 fingerprint of a web request.
+type WebAclJa4FingerprintArgs struct {
+	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+	//
+	// You can specify the following fallback behaviors:
+	//
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	FallbackBehavior WebAclJa4FingerprintFallbackBehaviorInput `pulumi:"fallbackBehavior"`
+}
+
+func (WebAclJa4FingerprintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclJa4Fingerprint)(nil)).Elem()
+}
+
+func (i WebAclJa4FingerprintArgs) ToWebAclJa4FingerprintOutput() WebAclJa4FingerprintOutput {
+	return i.ToWebAclJa4FingerprintOutputWithContext(context.Background())
+}
+
+func (i WebAclJa4FingerprintArgs) ToWebAclJa4FingerprintOutputWithContext(ctx context.Context) WebAclJa4FingerprintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclJa4FingerprintOutput)
+}
+
+func (i WebAclJa4FingerprintArgs) ToWebAclJa4FingerprintPtrOutput() WebAclJa4FingerprintPtrOutput {
+	return i.ToWebAclJa4FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclJa4FingerprintArgs) ToWebAclJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclJa4FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclJa4FingerprintOutput).ToWebAclJa4FingerprintPtrOutputWithContext(ctx)
+}
+
+// WebAclJa4FingerprintPtrInput is an input type that accepts WebAclJa4FingerprintArgs, WebAclJa4FingerprintPtr and WebAclJa4FingerprintPtrOutput values.
+// You can construct a concrete instance of `WebAclJa4FingerprintPtrInput` via:
+//
+//	        WebAclJa4FingerprintArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclJa4FingerprintPtrInput interface {
+	pulumi.Input
+
+	ToWebAclJa4FingerprintPtrOutput() WebAclJa4FingerprintPtrOutput
+	ToWebAclJa4FingerprintPtrOutputWithContext(context.Context) WebAclJa4FingerprintPtrOutput
+}
+
+type webAclJa4FingerprintPtrType WebAclJa4FingerprintArgs
+
+func WebAclJa4FingerprintPtr(v *WebAclJa4FingerprintArgs) WebAclJa4FingerprintPtrInput {
+	return (*webAclJa4FingerprintPtrType)(v)
+}
+
+func (*webAclJa4FingerprintPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclJa4Fingerprint)(nil)).Elem()
+}
+
+func (i *webAclJa4FingerprintPtrType) ToWebAclJa4FingerprintPtrOutput() WebAclJa4FingerprintPtrOutput {
+	return i.ToWebAclJa4FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclJa4FingerprintPtrType) ToWebAclJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclJa4FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclJa4FingerprintPtrOutput)
+}
+
+// Includes the JA4 fingerprint of a web request.
+type WebAclJa4FingerprintOutput struct{ *pulumi.OutputState }
+
+func (WebAclJa4FingerprintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclJa4Fingerprint)(nil)).Elem()
+}
+
+func (o WebAclJa4FingerprintOutput) ToWebAclJa4FingerprintOutput() WebAclJa4FingerprintOutput {
+	return o
+}
+
+func (o WebAclJa4FingerprintOutput) ToWebAclJa4FingerprintOutputWithContext(ctx context.Context) WebAclJa4FingerprintOutput {
+	return o
+}
+
+func (o WebAclJa4FingerprintOutput) ToWebAclJa4FingerprintPtrOutput() WebAclJa4FingerprintPtrOutput {
+	return o.ToWebAclJa4FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclJa4FingerprintOutput) ToWebAclJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclJa4FingerprintPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclJa4Fingerprint) *WebAclJa4Fingerprint {
+		return &v
+	}).(WebAclJa4FingerprintPtrOutput)
+}
+
+// The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+func (o WebAclJa4FingerprintOutput) FallbackBehavior() WebAclJa4FingerprintFallbackBehaviorOutput {
+	return o.ApplyT(func(v WebAclJa4Fingerprint) WebAclJa4FingerprintFallbackBehavior { return v.FallbackBehavior }).(WebAclJa4FingerprintFallbackBehaviorOutput)
+}
+
+type WebAclJa4FingerprintPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclJa4FingerprintPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclJa4Fingerprint)(nil)).Elem()
+}
+
+func (o WebAclJa4FingerprintPtrOutput) ToWebAclJa4FingerprintPtrOutput() WebAclJa4FingerprintPtrOutput {
+	return o
+}
+
+func (o WebAclJa4FingerprintPtrOutput) ToWebAclJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclJa4FingerprintPtrOutput {
+	return o
+}
+
+func (o WebAclJa4FingerprintPtrOutput) Elem() WebAclJa4FingerprintOutput {
+	return o.ApplyT(func(v *WebAclJa4Fingerprint) WebAclJa4Fingerprint {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclJa4Fingerprint
+		return ret
+	}).(WebAclJa4FingerprintOutput)
+}
+
+// The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+func (o WebAclJa4FingerprintPtrOutput) FallbackBehavior() WebAclJa4FingerprintFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v *WebAclJa4Fingerprint) *WebAclJa4FingerprintFallbackBehavior {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackBehavior
+	}).(WebAclJa4FingerprintFallbackBehaviorPtrOutput)
 }
 
 // Inspect the request body as JSON. The request body immediately follows the request headers.
@@ -19182,6 +19934,10 @@ type WebAclRateBasedStatementCustomKey struct {
 	//
 	// When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
 	Ip *WebAclRateLimitIp `pulumi:"ip"`
+	// Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+	Ja3Fingerprint *WebAclRateLimitJa3Fingerprint `pulumi:"ja3Fingerprint"`
+	// Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
+	Ja4Fingerprint *WebAclRateLimitJa4Fingerprint `pulumi:"ja4Fingerprint"`
 	// Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
 	//
 	// This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
@@ -19225,6 +19981,10 @@ type WebAclRateBasedStatementCustomKeyArgs struct {
 	//
 	// When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
 	Ip WebAclRateLimitIpPtrInput `pulumi:"ip"`
+	// Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+	Ja3Fingerprint WebAclRateLimitJa3FingerprintPtrInput `pulumi:"ja3Fingerprint"`
+	// Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
+	Ja4Fingerprint WebAclRateLimitJa4FingerprintPtrInput `pulumi:"ja4Fingerprint"`
 	// Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
 	//
 	// This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
@@ -19320,6 +20080,16 @@ func (o WebAclRateBasedStatementCustomKeyOutput) HttpMethod() WebAclRateLimitHtt
 // When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
 func (o WebAclRateBasedStatementCustomKeyOutput) Ip() WebAclRateLimitIpPtrOutput {
 	return o.ApplyT(func(v WebAclRateBasedStatementCustomKey) *WebAclRateLimitIp { return v.Ip }).(WebAclRateLimitIpPtrOutput)
+}
+
+// Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+func (o WebAclRateBasedStatementCustomKeyOutput) Ja3Fingerprint() WebAclRateLimitJa3FingerprintPtrOutput {
+	return o.ApplyT(func(v WebAclRateBasedStatementCustomKey) *WebAclRateLimitJa3Fingerprint { return v.Ja3Fingerprint }).(WebAclRateLimitJa3FingerprintPtrOutput)
+}
+
+// Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
+func (o WebAclRateBasedStatementCustomKeyOutput) Ja4Fingerprint() WebAclRateLimitJa4FingerprintPtrOutput {
+	return o.ApplyT(func(v WebAclRateBasedStatementCustomKey) *WebAclRateLimitJa4Fingerprint { return v.Ja4Fingerprint }).(WebAclRateLimitJa4FingerprintPtrOutput)
 }
 
 // Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
@@ -20045,6 +20815,330 @@ func (o WebAclRateLimitIpPtrOutput) Elem() WebAclRateLimitIpOutput {
 		var ret WebAclRateLimitIp
 		return ret
 	}).(WebAclRateLimitIpOutput)
+}
+
+// Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+type WebAclRateLimitJa3Fingerprint struct {
+	// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+	//
+	// You can specify the following fallback behaviors:
+	//
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	FallbackBehavior WebAclRateLimitJa3FingerprintFallbackBehavior `pulumi:"fallbackBehavior"`
+}
+
+// WebAclRateLimitJa3FingerprintInput is an input type that accepts WebAclRateLimitJa3FingerprintArgs and WebAclRateLimitJa3FingerprintOutput values.
+// You can construct a concrete instance of `WebAclRateLimitJa3FingerprintInput` via:
+//
+//	WebAclRateLimitJa3FingerprintArgs{...}
+type WebAclRateLimitJa3FingerprintInput interface {
+	pulumi.Input
+
+	ToWebAclRateLimitJa3FingerprintOutput() WebAclRateLimitJa3FingerprintOutput
+	ToWebAclRateLimitJa3FingerprintOutputWithContext(context.Context) WebAclRateLimitJa3FingerprintOutput
+}
+
+// Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+type WebAclRateLimitJa3FingerprintArgs struct {
+	// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+	//
+	// You can specify the following fallback behaviors:
+	//
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	FallbackBehavior WebAclRateLimitJa3FingerprintFallbackBehaviorInput `pulumi:"fallbackBehavior"`
+}
+
+func (WebAclRateLimitJa3FingerprintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRateLimitJa3Fingerprint)(nil)).Elem()
+}
+
+func (i WebAclRateLimitJa3FingerprintArgs) ToWebAclRateLimitJa3FingerprintOutput() WebAclRateLimitJa3FingerprintOutput {
+	return i.ToWebAclRateLimitJa3FingerprintOutputWithContext(context.Background())
+}
+
+func (i WebAclRateLimitJa3FingerprintArgs) ToWebAclRateLimitJa3FingerprintOutputWithContext(ctx context.Context) WebAclRateLimitJa3FingerprintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRateLimitJa3FingerprintOutput)
+}
+
+func (i WebAclRateLimitJa3FingerprintArgs) ToWebAclRateLimitJa3FingerprintPtrOutput() WebAclRateLimitJa3FingerprintPtrOutput {
+	return i.ToWebAclRateLimitJa3FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRateLimitJa3FingerprintArgs) ToWebAclRateLimitJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRateLimitJa3FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRateLimitJa3FingerprintOutput).ToWebAclRateLimitJa3FingerprintPtrOutputWithContext(ctx)
+}
+
+// WebAclRateLimitJa3FingerprintPtrInput is an input type that accepts WebAclRateLimitJa3FingerprintArgs, WebAclRateLimitJa3FingerprintPtr and WebAclRateLimitJa3FingerprintPtrOutput values.
+// You can construct a concrete instance of `WebAclRateLimitJa3FingerprintPtrInput` via:
+//
+//	        WebAclRateLimitJa3FingerprintArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRateLimitJa3FingerprintPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRateLimitJa3FingerprintPtrOutput() WebAclRateLimitJa3FingerprintPtrOutput
+	ToWebAclRateLimitJa3FingerprintPtrOutputWithContext(context.Context) WebAclRateLimitJa3FingerprintPtrOutput
+}
+
+type webAclRateLimitJa3FingerprintPtrType WebAclRateLimitJa3FingerprintArgs
+
+func WebAclRateLimitJa3FingerprintPtr(v *WebAclRateLimitJa3FingerprintArgs) WebAclRateLimitJa3FingerprintPtrInput {
+	return (*webAclRateLimitJa3FingerprintPtrType)(v)
+}
+
+func (*webAclRateLimitJa3FingerprintPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRateLimitJa3Fingerprint)(nil)).Elem()
+}
+
+func (i *webAclRateLimitJa3FingerprintPtrType) ToWebAclRateLimitJa3FingerprintPtrOutput() WebAclRateLimitJa3FingerprintPtrOutput {
+	return i.ToWebAclRateLimitJa3FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRateLimitJa3FingerprintPtrType) ToWebAclRateLimitJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRateLimitJa3FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRateLimitJa3FingerprintPtrOutput)
+}
+
+// Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+type WebAclRateLimitJa3FingerprintOutput struct{ *pulumi.OutputState }
+
+func (WebAclRateLimitJa3FingerprintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRateLimitJa3Fingerprint)(nil)).Elem()
+}
+
+func (o WebAclRateLimitJa3FingerprintOutput) ToWebAclRateLimitJa3FingerprintOutput() WebAclRateLimitJa3FingerprintOutput {
+	return o
+}
+
+func (o WebAclRateLimitJa3FingerprintOutput) ToWebAclRateLimitJa3FingerprintOutputWithContext(ctx context.Context) WebAclRateLimitJa3FingerprintOutput {
+	return o
+}
+
+func (o WebAclRateLimitJa3FingerprintOutput) ToWebAclRateLimitJa3FingerprintPtrOutput() WebAclRateLimitJa3FingerprintPtrOutput {
+	return o.ToWebAclRateLimitJa3FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRateLimitJa3FingerprintOutput) ToWebAclRateLimitJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRateLimitJa3FingerprintPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRateLimitJa3Fingerprint) *WebAclRateLimitJa3Fingerprint {
+		return &v
+	}).(WebAclRateLimitJa3FingerprintPtrOutput)
+}
+
+// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+func (o WebAclRateLimitJa3FingerprintOutput) FallbackBehavior() WebAclRateLimitJa3FingerprintFallbackBehaviorOutput {
+	return o.ApplyT(func(v WebAclRateLimitJa3Fingerprint) WebAclRateLimitJa3FingerprintFallbackBehavior {
+		return v.FallbackBehavior
+	}).(WebAclRateLimitJa3FingerprintFallbackBehaviorOutput)
+}
+
+type WebAclRateLimitJa3FingerprintPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRateLimitJa3FingerprintPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRateLimitJa3Fingerprint)(nil)).Elem()
+}
+
+func (o WebAclRateLimitJa3FingerprintPtrOutput) ToWebAclRateLimitJa3FingerprintPtrOutput() WebAclRateLimitJa3FingerprintPtrOutput {
+	return o
+}
+
+func (o WebAclRateLimitJa3FingerprintPtrOutput) ToWebAclRateLimitJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRateLimitJa3FingerprintPtrOutput {
+	return o
+}
+
+func (o WebAclRateLimitJa3FingerprintPtrOutput) Elem() WebAclRateLimitJa3FingerprintOutput {
+	return o.ApplyT(func(v *WebAclRateLimitJa3Fingerprint) WebAclRateLimitJa3Fingerprint {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRateLimitJa3Fingerprint
+		return ret
+	}).(WebAclRateLimitJa3FingerprintOutput)
+}
+
+// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+func (o WebAclRateLimitJa3FingerprintPtrOutput) FallbackBehavior() WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v *WebAclRateLimitJa3Fingerprint) *WebAclRateLimitJa3FingerprintFallbackBehavior {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackBehavior
+	}).(WebAclRateLimitJa3FingerprintFallbackBehaviorPtrOutput)
+}
+
+// Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+type WebAclRateLimitJa4Fingerprint struct {
+	// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+	//
+	// You can specify the following fallback behaviors:
+	//
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	FallbackBehavior WebAclRateLimitJa4FingerprintFallbackBehavior `pulumi:"fallbackBehavior"`
+}
+
+// WebAclRateLimitJa4FingerprintInput is an input type that accepts WebAclRateLimitJa4FingerprintArgs and WebAclRateLimitJa4FingerprintOutput values.
+// You can construct a concrete instance of `WebAclRateLimitJa4FingerprintInput` via:
+//
+//	WebAclRateLimitJa4FingerprintArgs{...}
+type WebAclRateLimitJa4FingerprintInput interface {
+	pulumi.Input
+
+	ToWebAclRateLimitJa4FingerprintOutput() WebAclRateLimitJa4FingerprintOutput
+	ToWebAclRateLimitJa4FingerprintOutputWithContext(context.Context) WebAclRateLimitJa4FingerprintOutput
+}
+
+// Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+type WebAclRateLimitJa4FingerprintArgs struct {
+	// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+	//
+	// You can specify the following fallback behaviors:
+	//
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	FallbackBehavior WebAclRateLimitJa4FingerprintFallbackBehaviorInput `pulumi:"fallbackBehavior"`
+}
+
+func (WebAclRateLimitJa4FingerprintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRateLimitJa4Fingerprint)(nil)).Elem()
+}
+
+func (i WebAclRateLimitJa4FingerprintArgs) ToWebAclRateLimitJa4FingerprintOutput() WebAclRateLimitJa4FingerprintOutput {
+	return i.ToWebAclRateLimitJa4FingerprintOutputWithContext(context.Background())
+}
+
+func (i WebAclRateLimitJa4FingerprintArgs) ToWebAclRateLimitJa4FingerprintOutputWithContext(ctx context.Context) WebAclRateLimitJa4FingerprintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRateLimitJa4FingerprintOutput)
+}
+
+func (i WebAclRateLimitJa4FingerprintArgs) ToWebAclRateLimitJa4FingerprintPtrOutput() WebAclRateLimitJa4FingerprintPtrOutput {
+	return i.ToWebAclRateLimitJa4FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRateLimitJa4FingerprintArgs) ToWebAclRateLimitJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRateLimitJa4FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRateLimitJa4FingerprintOutput).ToWebAclRateLimitJa4FingerprintPtrOutputWithContext(ctx)
+}
+
+// WebAclRateLimitJa4FingerprintPtrInput is an input type that accepts WebAclRateLimitJa4FingerprintArgs, WebAclRateLimitJa4FingerprintPtr and WebAclRateLimitJa4FingerprintPtrOutput values.
+// You can construct a concrete instance of `WebAclRateLimitJa4FingerprintPtrInput` via:
+//
+//	        WebAclRateLimitJa4FingerprintArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRateLimitJa4FingerprintPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRateLimitJa4FingerprintPtrOutput() WebAclRateLimitJa4FingerprintPtrOutput
+	ToWebAclRateLimitJa4FingerprintPtrOutputWithContext(context.Context) WebAclRateLimitJa4FingerprintPtrOutput
+}
+
+type webAclRateLimitJa4FingerprintPtrType WebAclRateLimitJa4FingerprintArgs
+
+func WebAclRateLimitJa4FingerprintPtr(v *WebAclRateLimitJa4FingerprintArgs) WebAclRateLimitJa4FingerprintPtrInput {
+	return (*webAclRateLimitJa4FingerprintPtrType)(v)
+}
+
+func (*webAclRateLimitJa4FingerprintPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRateLimitJa4Fingerprint)(nil)).Elem()
+}
+
+func (i *webAclRateLimitJa4FingerprintPtrType) ToWebAclRateLimitJa4FingerprintPtrOutput() WebAclRateLimitJa4FingerprintPtrOutput {
+	return i.ToWebAclRateLimitJa4FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRateLimitJa4FingerprintPtrType) ToWebAclRateLimitJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRateLimitJa4FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRateLimitJa4FingerprintPtrOutput)
+}
+
+// Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+type WebAclRateLimitJa4FingerprintOutput struct{ *pulumi.OutputState }
+
+func (WebAclRateLimitJa4FingerprintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRateLimitJa4Fingerprint)(nil)).Elem()
+}
+
+func (o WebAclRateLimitJa4FingerprintOutput) ToWebAclRateLimitJa4FingerprintOutput() WebAclRateLimitJa4FingerprintOutput {
+	return o
+}
+
+func (o WebAclRateLimitJa4FingerprintOutput) ToWebAclRateLimitJa4FingerprintOutputWithContext(ctx context.Context) WebAclRateLimitJa4FingerprintOutput {
+	return o
+}
+
+func (o WebAclRateLimitJa4FingerprintOutput) ToWebAclRateLimitJa4FingerprintPtrOutput() WebAclRateLimitJa4FingerprintPtrOutput {
+	return o.ToWebAclRateLimitJa4FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRateLimitJa4FingerprintOutput) ToWebAclRateLimitJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRateLimitJa4FingerprintPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRateLimitJa4Fingerprint) *WebAclRateLimitJa4Fingerprint {
+		return &v
+	}).(WebAclRateLimitJa4FingerprintPtrOutput)
+}
+
+// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+func (o WebAclRateLimitJa4FingerprintOutput) FallbackBehavior() WebAclRateLimitJa4FingerprintFallbackBehaviorOutput {
+	return o.ApplyT(func(v WebAclRateLimitJa4Fingerprint) WebAclRateLimitJa4FingerprintFallbackBehavior {
+		return v.FallbackBehavior
+	}).(WebAclRateLimitJa4FingerprintFallbackBehaviorOutput)
+}
+
+type WebAclRateLimitJa4FingerprintPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRateLimitJa4FingerprintPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRateLimitJa4Fingerprint)(nil)).Elem()
+}
+
+func (o WebAclRateLimitJa4FingerprintPtrOutput) ToWebAclRateLimitJa4FingerprintPtrOutput() WebAclRateLimitJa4FingerprintPtrOutput {
+	return o
+}
+
+func (o WebAclRateLimitJa4FingerprintPtrOutput) ToWebAclRateLimitJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRateLimitJa4FingerprintPtrOutput {
+	return o
+}
+
+func (o WebAclRateLimitJa4FingerprintPtrOutput) Elem() WebAclRateLimitJa4FingerprintOutput {
+	return o.ApplyT(func(v *WebAclRateLimitJa4Fingerprint) WebAclRateLimitJa4Fingerprint {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRateLimitJa4Fingerprint
+		return ret
+	}).(WebAclRateLimitJa4FingerprintOutput)
+}
+
+// The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+func (o WebAclRateLimitJa4FingerprintPtrOutput) FallbackBehavior() WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v *WebAclRateLimitJa4Fingerprint) *WebAclRateLimitJa4FingerprintFallbackBehavior {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackBehavior
+	}).(WebAclRateLimitJa4FingerprintFallbackBehaviorPtrOutput)
 }
 
 // Specifies a label namespace to use as an aggregate key for a rate-based rule.
@@ -25129,6 +26223,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIpSetReferenceStatementPtrInput)(nil)).Elem(), RuleGroupIpSetReferenceStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJa3FingerprintInput)(nil)).Elem(), RuleGroupJa3FingerprintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJa3FingerprintPtrInput)(nil)).Elem(), RuleGroupJa3FingerprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJa4FingerprintInput)(nil)).Elem(), RuleGroupJa4FingerprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJa4FingerprintPtrInput)(nil)).Elem(), RuleGroupJa4FingerprintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJsonBodyInput)(nil)).Elem(), RuleGroupJsonBodyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJsonBodyPtrInput)(nil)).Elem(), RuleGroupJsonBodyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJsonMatchPatternInput)(nil)).Elem(), RuleGroupJsonMatchPatternArgs{})
@@ -25157,6 +26253,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitHttpMethodPtrInput)(nil)).Elem(), RuleGroupRateLimitHttpMethodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitIpInput)(nil)).Elem(), RuleGroupRateLimitIpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitIpPtrInput)(nil)).Elem(), RuleGroupRateLimitIpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitJa3FingerprintInput)(nil)).Elem(), RuleGroupRateLimitJa3FingerprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitJa3FingerprintPtrInput)(nil)).Elem(), RuleGroupRateLimitJa3FingerprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitJa4FingerprintInput)(nil)).Elem(), RuleGroupRateLimitJa4FingerprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitJa4FingerprintPtrInput)(nil)).Elem(), RuleGroupRateLimitJa4FingerprintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitLabelNamespaceInput)(nil)).Elem(), RuleGroupRateLimitLabelNamespaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitLabelNamespacePtrInput)(nil)).Elem(), RuleGroupRateLimitLabelNamespaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitQueryArgumentInput)(nil)).Elem(), RuleGroupRateLimitQueryArgumentArgs{})
@@ -25253,6 +26353,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclIpSetReferenceStatementPtrInput)(nil)).Elem(), WebAclIpSetReferenceStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJa3FingerprintInput)(nil)).Elem(), WebAclJa3FingerprintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJa3FingerprintPtrInput)(nil)).Elem(), WebAclJa3FingerprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJa4FingerprintInput)(nil)).Elem(), WebAclJa4FingerprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJa4FingerprintPtrInput)(nil)).Elem(), WebAclJa4FingerprintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJsonBodyInput)(nil)).Elem(), WebAclJsonBodyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJsonBodyPtrInput)(nil)).Elem(), WebAclJsonBodyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJsonMatchPatternInput)(nil)).Elem(), WebAclJsonMatchPatternArgs{})
@@ -25285,6 +26387,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitHttpMethodPtrInput)(nil)).Elem(), WebAclRateLimitHttpMethodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitIpInput)(nil)).Elem(), WebAclRateLimitIpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitIpPtrInput)(nil)).Elem(), WebAclRateLimitIpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitJa3FingerprintInput)(nil)).Elem(), WebAclRateLimitJa3FingerprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitJa3FingerprintPtrInput)(nil)).Elem(), WebAclRateLimitJa3FingerprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitJa4FingerprintInput)(nil)).Elem(), WebAclRateLimitJa4FingerprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitJa4FingerprintPtrInput)(nil)).Elem(), WebAclRateLimitJa4FingerprintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitLabelNamespaceInput)(nil)).Elem(), WebAclRateLimitLabelNamespaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitLabelNamespacePtrInput)(nil)).Elem(), WebAclRateLimitLabelNamespaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitQueryArgumentInput)(nil)).Elem(), WebAclRateLimitQueryArgumentArgs{})
@@ -25401,6 +26507,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupIpSetReferenceStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupJa3FingerprintOutput{})
 	pulumi.RegisterOutputType(RuleGroupJa3FingerprintPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupJa4FingerprintOutput{})
+	pulumi.RegisterOutputType(RuleGroupJa4FingerprintPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupJsonBodyOutput{})
 	pulumi.RegisterOutputType(RuleGroupJsonBodyPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupJsonMatchPatternOutput{})
@@ -25429,6 +26537,10 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupRateLimitHttpMethodPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateLimitIpOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateLimitIpPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitJa3FingerprintOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitJa3FingerprintPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitJa4FingerprintOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitJa4FingerprintPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateLimitLabelNamespaceOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateLimitLabelNamespacePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateLimitQueryArgumentOutput{})
@@ -25527,6 +26639,8 @@ func init() {
 	pulumi.RegisterOutputType(WebAclIpSetReferenceStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebAclJa3FingerprintOutput{})
 	pulumi.RegisterOutputType(WebAclJa3FingerprintPtrOutput{})
+	pulumi.RegisterOutputType(WebAclJa4FingerprintOutput{})
+	pulumi.RegisterOutputType(WebAclJa4FingerprintPtrOutput{})
 	pulumi.RegisterOutputType(WebAclJsonBodyOutput{})
 	pulumi.RegisterOutputType(WebAclJsonBodyPtrOutput{})
 	pulumi.RegisterOutputType(WebAclJsonMatchPatternOutput{})
@@ -25559,6 +26673,10 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRateLimitHttpMethodPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRateLimitIpOutput{})
 	pulumi.RegisterOutputType(WebAclRateLimitIpPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRateLimitJa3FingerprintOutput{})
+	pulumi.RegisterOutputType(WebAclRateLimitJa3FingerprintPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRateLimitJa4FingerprintOutput{})
+	pulumi.RegisterOutputType(WebAclRateLimitJa4FingerprintPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRateLimitLabelNamespaceOutput{})
 	pulumi.RegisterOutputType(WebAclRateLimitLabelNamespacePtrOutput{})
 	pulumi.RegisterOutputType(WebAclRateLimitQueryArgumentOutput{})

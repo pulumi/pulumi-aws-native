@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         private InputList<string>? _locationOrder;
 
         /// <summary>
-        /// The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` . Locations can include AWS Region codes (such as `us-west-2` ), local zones, and custom locations (for Anywhere fleets). Each location must be listed only once. For details, see [Amazon GameLift service locations.](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html)
+        /// The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` . Locations can include AWS Region codes (such as `us-west-2` ), local zones, and custom locations (for Anywhere fleets). Each location must be listed only once. For details, see [Amazon GameLift Servers service locations.](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html)
         /// </summary>
         public InputList<string> LocationOrder
         {
@@ -30,10 +30,10 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         /// <summary>
         /// A custom sequence to use when prioritizing where to place new game sessions. Each priority type is listed once.
         /// 
-        /// - `LATENCY` -- Amazon GameLift prioritizes locations where the average player latency is lowest. Player latency data is provided in each game session placement request.
-        /// - `COST` -- Amazon GameLift prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) of each destination in the queue.
-        /// - `DESTINATION` -- Amazon GameLift prioritizes based on the list order of destinations in the queue configuration.
-        /// - `LOCATION` -- Amazon GameLift prioritizes based on the provided order of locations, as defined in `LocationOrder` .
+        /// - `LATENCY` -- Amazon GameLift Servers prioritizes locations where the average player latency is lowest. Player latency data is provided in each game session placement request.
+        /// - `COST` -- Amazon GameLift Servers prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) of each destination in the queue.
+        /// - `DESTINATION` -- Amazon GameLift Servers prioritizes based on the list order of destinations in the queue configuration.
+        /// - `LOCATION` -- Amazon GameLift Servers prioritizes based on the provided order of locations, as defined in `LocationOrder` .
         /// </summary>
         public InputList<Pulumi.AwsNative.GameLift.GameSessionQueuePriorityOrderItem> PriorityOrder
         {

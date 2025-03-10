@@ -200,6 +200,8 @@ if typing.TYPE_CHECKING:
     fsx = __fsx
     import pulumi_aws_native.gamelift as __gamelift
     gamelift = __gamelift
+    import pulumi_aws_native.gameliftstreams as __gameliftstreams
+    gameliftstreams = __gameliftstreams
     import pulumi_aws_native.globalaccelerator as __globalaccelerator
     globalaccelerator = __globalaccelerator
     import pulumi_aws_native.glue as __glue
@@ -556,6 +558,7 @@ else:
     frauddetector = _utilities.lazy_import('pulumi_aws_native.frauddetector')
     fsx = _utilities.lazy_import('pulumi_aws_native.fsx')
     gamelift = _utilities.lazy_import('pulumi_aws_native.gamelift')
+    gameliftstreams = _utilities.lazy_import('pulumi_aws_native.gameliftstreams')
     globalaccelerator = _utilities.lazy_import('pulumi_aws_native.globalaccelerator')
     glue = _utilities.lazy_import('pulumi_aws_native.glue')
     grafana = _utilities.lazy_import('pulumi_aws_native.grafana')
@@ -982,6 +985,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.batch",
   "classes": {
    "aws-native:batch:ComputeEnvironment": "ComputeEnvironment",
+   "aws-native:batch:ConsumableResource": "ConsumableResource",
    "aws-native:batch:JobDefinition": "JobDefinition",
    "aws-native:batch:JobQueue": "JobQueue",
    "aws-native:batch:SchedulingPolicy": "SchedulingPolicy"
@@ -995,6 +999,8 @@ _utilities.register(
    "aws-native:bedrock:Agent": "Agent",
    "aws-native:bedrock:AgentAlias": "AgentAlias",
    "aws-native:bedrock:ApplicationInferenceProfile": "ApplicationInferenceProfile",
+   "aws-native:bedrock:Blueprint": "Blueprint",
+   "aws-native:bedrock:DataAutomationProject": "DataAutomationProject",
    "aws-native:bedrock:DataSource": "DataSource",
    "aws-native:bedrock:Flow": "Flow",
    "aws-native:bedrock:FlowAlias": "FlowAlias",
@@ -1817,6 +1823,15 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "gameliftstreams",
+  "fqn": "pulumi_aws_native.gameliftstreams",
+  "classes": {
+   "aws-native:gameliftstreams:Application": "Application",
+   "aws-native:gameliftstreams:StreamGroup": "StreamGroup"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "globalaccelerator",
   "fqn": "pulumi_aws_native.globalaccelerator",
   "classes": {
@@ -2542,6 +2557,7 @@ _utilities.register(
   "classes": {
    "aws-native:opensearchserverless:AccessPolicy": "AccessPolicy",
    "aws-native:opensearchserverless:Collection": "Collection",
+   "aws-native:opensearchserverless:Index": "Index",
    "aws-native:opensearchserverless:LifecyclePolicy": "LifecyclePolicy",
    "aws-native:opensearchserverless:SecurityConfig": "SecurityConfig",
    "aws-native:opensearchserverless:SecurityPolicy": "SecurityPolicy",
@@ -3372,7 +3388,8 @@ _utilities.register(
   "classes": {
    "aws-native:xray:Group": "Group",
    "aws-native:xray:ResourcePolicy": "ResourcePolicy",
-   "aws-native:xray:SamplingRule": "SamplingRule"
+   "aws-native:xray:SamplingRule": "SamplingRule",
+   "aws-native:xray:TransactionSearchConfig": "TransactionSearchConfig"
   }
  }
 ]

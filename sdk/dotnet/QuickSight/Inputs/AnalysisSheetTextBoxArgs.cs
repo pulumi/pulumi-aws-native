@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("content")]
         public Input<string>? Content { get; set; }
 
+        [Input("interactions")]
+        public Input<object>? Interactions { get; set; }
+
         /// <summary>
         /// The unique identifier for a text box. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have text boxes that share identifiers.
         /// </summary>

@@ -13,9 +13,11 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['SoftwarePackageVersionArgs', 'SoftwarePackageVersion']
 
@@ -23,8 +25,11 @@ __all__ = ['SoftwarePackageVersionArgs', 'SoftwarePackageVersion']
 class SoftwarePackageVersionArgs:
     def __init__(__self__, *,
                  package_name: pulumi.Input[str],
+                 artifact: Optional[pulumi.Input['SoftwarePackageVersionPackageVersionArtifactArgs']] = None,
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 recipe: Optional[pulumi.Input[str]] = None,
+                 sbom: Optional[pulumi.Input['SoftwarePackageVersionSbomArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  version_name: Optional[pulumi.Input[str]] = None):
         """
@@ -34,14 +39,21 @@ class SoftwarePackageVersionArgs:
                
                The combined size of all the attributes on a package version is limited to 3KB.
         :param pulumi.Input[str] description: A summary of the package version being created. This can be used to outline the package's contents or purpose.
+        :param pulumi.Input[str] recipe: The inline json job document associated with a software package version
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] version_name: The name of the new package version.
         """
         pulumi.set(__self__, "package_name", package_name)
+        if artifact is not None:
+            pulumi.set(__self__, "artifact", artifact)
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if recipe is not None:
+            pulumi.set(__self__, "recipe", recipe)
+        if sbom is not None:
+            pulumi.set(__self__, "sbom", sbom)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version_name is not None:
@@ -58,6 +70,15 @@ class SoftwarePackageVersionArgs:
     @package_name.setter
     def package_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "package_name", value)
+
+    @property
+    @pulumi.getter
+    def artifact(self) -> Optional[pulumi.Input['SoftwarePackageVersionPackageVersionArtifactArgs']]:
+        return pulumi.get(self, "artifact")
+
+    @artifact.setter
+    def artifact(self, value: Optional[pulumi.Input['SoftwarePackageVersionPackageVersionArtifactArgs']]):
+        pulumi.set(self, "artifact", value)
 
     @property
     @pulumi.getter
@@ -84,6 +105,27 @@ class SoftwarePackageVersionArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def recipe(self) -> Optional[pulumi.Input[str]]:
+        """
+        The inline json job document associated with a software package version
+        """
+        return pulumi.get(self, "recipe")
+
+    @recipe.setter
+    def recipe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recipe", value)
+
+    @property
+    @pulumi.getter
+    def sbom(self) -> Optional[pulumi.Input['SoftwarePackageVersionSbomArgs']]:
+        return pulumi.get(self, "sbom")
+
+    @sbom.setter
+    def sbom(self, value: Optional[pulumi.Input['SoftwarePackageVersionSbomArgs']]):
+        pulumi.set(self, "sbom", value)
 
     @property
     @pulumi.getter
@@ -115,9 +157,12 @@ class SoftwarePackageVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 artifact: Optional[pulumi.Input[Union['SoftwarePackageVersionPackageVersionArtifactArgs', 'SoftwarePackageVersionPackageVersionArtifactArgsDict']]] = None,
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
+                 recipe: Optional[pulumi.Input[str]] = None,
+                 sbom: Optional[pulumi.Input[Union['SoftwarePackageVersionSbomArgs', 'SoftwarePackageVersionSbomArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -131,6 +176,7 @@ class SoftwarePackageVersion(pulumi.CustomResource):
                The combined size of all the attributes on a package version is limited to 3KB.
         :param pulumi.Input[str] description: A summary of the package version being created. This can be used to outline the package's contents or purpose.
         :param pulumi.Input[str] package_name: The name of the associated software package.
+        :param pulumi.Input[str] recipe: The inline json job document associated with a software package version
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] version_name: The name of the new package version.
         """
@@ -158,9 +204,12 @@ class SoftwarePackageVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 artifact: Optional[pulumi.Input[Union['SoftwarePackageVersionPackageVersionArtifactArgs', 'SoftwarePackageVersionPackageVersionArtifactArgsDict']]] = None,
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
+                 recipe: Optional[pulumi.Input[str]] = None,
+                 sbom: Optional[pulumi.Input[Union['SoftwarePackageVersionSbomArgs', 'SoftwarePackageVersionSbomArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -172,15 +221,19 @@ class SoftwarePackageVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SoftwarePackageVersionArgs.__new__(SoftwarePackageVersionArgs)
 
+            __props__.__dict__["artifact"] = artifact
             __props__.__dict__["attributes"] = attributes
             __props__.__dict__["description"] = description
             if package_name is None and not opts.urn:
                 raise TypeError("Missing required property 'package_name'")
             __props__.__dict__["package_name"] = package_name
+            __props__.__dict__["recipe"] = recipe
+            __props__.__dict__["sbom"] = sbom
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version_name"] = version_name
             __props__.__dict__["error_reason"] = None
             __props__.__dict__["package_version_arn"] = None
+            __props__.__dict__["sbom_validation_status"] = None
             __props__.__dict__["status"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["packageName", "versionName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -206,15 +259,24 @@ class SoftwarePackageVersion(pulumi.CustomResource):
 
         __props__ = SoftwarePackageVersionArgs.__new__(SoftwarePackageVersionArgs)
 
+        __props__.__dict__["artifact"] = None
         __props__.__dict__["attributes"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["error_reason"] = None
         __props__.__dict__["package_name"] = None
         __props__.__dict__["package_version_arn"] = None
+        __props__.__dict__["recipe"] = None
+        __props__.__dict__["sbom"] = None
+        __props__.__dict__["sbom_validation_status"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["version_name"] = None
         return SoftwarePackageVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def artifact(self) -> pulumi.Output[Optional['outputs.SoftwarePackageVersionPackageVersionArtifact']]:
+        return pulumi.get(self, "artifact")
 
     @property
     @pulumi.getter
@@ -257,6 +319,24 @@ class SoftwarePackageVersion(pulumi.CustomResource):
         The Amazon Resource Name (ARN) for the package.
         """
         return pulumi.get(self, "package_version_arn")
+
+    @property
+    @pulumi.getter
+    def recipe(self) -> pulumi.Output[Optional[str]]:
+        """
+        The inline json job document associated with a software package version
+        """
+        return pulumi.get(self, "recipe")
+
+    @property
+    @pulumi.getter
+    def sbom(self) -> pulumi.Output[Optional['outputs.SoftwarePackageVersionSbom']]:
+        return pulumi.get(self, "sbom")
+
+    @property
+    @pulumi.getter(name="sbomValidationStatus")
+    def sbom_validation_status(self) -> pulumi.Output['SoftwarePackageVersionSbomValidationStatus']:
+        return pulumi.get(self, "sbom_validation_status")
 
     @property
     @pulumi.getter

@@ -86,8 +86,6 @@ def get_topic_rule(rule_name: Optional[str] = None,
 
 
     :param str rule_name: The name of the rule.
-           
-           *Pattern* : `^[a-zA-Z0-9_]+$`
     """
     __args__ = dict()
     __args__['ruleName'] = rule_name
@@ -105,8 +103,6 @@ def get_topic_rule_output(rule_name: Optional[pulumi.Input[str]] = None,
 
 
     :param str rule_name: The name of the rule.
-           
-           *Pattern* : `^[a-zA-Z0-9_]+$`
     """
     __args__ = dict()
     __args__['ruleName'] = rule_name

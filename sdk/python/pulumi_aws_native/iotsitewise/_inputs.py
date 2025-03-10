@@ -1927,10 +1927,6 @@ if not MYPY:
         """
         Contains a gateway's platform information.
         """
-        greengrass: NotRequired[Any]
-        """
-        A gateway that runs on AWS IoT Greengrass V1.
-        """
         greengrass_v2: NotRequired[pulumi.Input['GatewayGreengrassV2ArgsDict']]
         """
         A gateway that runs on AWS IoT Greengrass V2.
@@ -1945,33 +1941,17 @@ elif False:
 @pulumi.input_type
 class GatewayPlatformArgs:
     def __init__(__self__, *,
-                 greengrass: Optional[Any] = None,
                  greengrass_v2: Optional[pulumi.Input['GatewayGreengrassV2Args']] = None,
                  siemens_ie: Optional[pulumi.Input['GatewaySiemensIeArgs']] = None):
         """
         Contains a gateway's platform information.
-        :param Any greengrass: A gateway that runs on AWS IoT Greengrass V1.
         :param pulumi.Input['GatewayGreengrassV2Args'] greengrass_v2: A gateway that runs on AWS IoT Greengrass V2.
         :param pulumi.Input['GatewaySiemensIeArgs'] siemens_ie: A gateway that runs on Siemens Industrial Edge.
         """
-        if greengrass is not None:
-            pulumi.set(__self__, "greengrass", greengrass)
         if greengrass_v2 is not None:
             pulumi.set(__self__, "greengrass_v2", greengrass_v2)
         if siemens_ie is not None:
             pulumi.set(__self__, "siemens_ie", siemens_ie)
-
-    @property
-    @pulumi.getter
-    def greengrass(self) -> Optional[Any]:
-        """
-        A gateway that runs on AWS IoT Greengrass V1.
-        """
-        return pulumi.get(self, "greengrass")
-
-    @greengrass.setter
-    def greengrass(self, value: Optional[Any]):
-        pulumi.set(self, "greengrass", value)
 
     @property
     @pulumi.getter(name="greengrassV2")
@@ -2039,6 +2019,9 @@ if not MYPY:
         Container associated a certain PortalType.
         """
         portal_tools: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The array of tools associated with the specified portal type. The possible values are `ASSISTANT` and `DASHBOARD` .
+        """
 elif False:
     PortalTypeEntryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2048,12 +2031,16 @@ class PortalTypeEntryArgs:
                  portal_tools: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Container associated a certain PortalType.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] portal_tools: The array of tools associated with the specified portal type. The possible values are `ASSISTANT` and `DASHBOARD` .
         """
         pulumi.set(__self__, "portal_tools", portal_tools)
 
     @property
     @pulumi.getter(name="portalTools")
     def portal_tools(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The array of tools associated with the specified portal type. The possible values are `ASSISTANT` and `DASHBOARD` .
+        """
         return pulumi.get(self, "portal_tools")
 
     @portal_tools.setter

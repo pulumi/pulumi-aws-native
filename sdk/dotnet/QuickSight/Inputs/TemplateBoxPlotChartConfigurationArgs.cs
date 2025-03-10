@@ -36,6 +36,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("fieldWells")]
         public Input<Inputs.TemplateBoxPlotFieldWellsArgs>? FieldWells { get; set; }
 
+        /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        [Input("interactions")]
+        public Input<Inputs.TemplateVisualInteractionOptionsArgs>? Interactions { get; set; }
+
         [Input("legend")]
         public Input<Inputs.TemplateLegendOptionsArgs>? Legend { get; set; }
 

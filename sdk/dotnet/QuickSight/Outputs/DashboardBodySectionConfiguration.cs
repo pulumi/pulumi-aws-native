@@ -22,6 +22,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardSectionPageBreakConfiguration? PageBreakConfiguration;
         /// <summary>
+        /// Describes the configurations that are required to declare a section as repeating.
+        /// </summary>
+        public readonly Outputs.DashboardBodySectionRepeatConfiguration? RepeatConfiguration;
+        /// <summary>
         /// The unique identifier of a body section.
         /// </summary>
         public readonly string SectionId;
@@ -36,12 +40,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardSectionPageBreakConfiguration? pageBreakConfiguration,
 
+            Outputs.DashboardBodySectionRepeatConfiguration? repeatConfiguration,
+
             string sectionId,
 
             Outputs.DashboardSectionStyle? style)
         {
             Content = content;
             PageBreakConfiguration = pageBreakConfiguration;
+            RepeatConfiguration = repeatConfiguration;
             SectionId = sectionId;
             Style = style;
         }

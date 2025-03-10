@@ -30,6 +30,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("customNarrative")]
         public Input<Inputs.AnalysisCustomNarrativeOptionsArgs>? CustomNarrative { get; set; }
 
+        /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        [Input("interactions")]
+        public Input<Inputs.AnalysisVisualInteractionOptionsArgs>? Interactions { get; set; }
+
         public AnalysisInsightConfigurationArgs()
         {
         }

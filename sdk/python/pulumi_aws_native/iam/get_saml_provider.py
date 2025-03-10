@@ -13,7 +13,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetSamlProviderResult',
@@ -24,13 +26,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetSamlProviderResult:
-    def __init__(__self__, arn=None, saml_metadata_document=None, tags=None):
+    def __init__(__self__, arn=None, assertion_encryption_mode=None, private_key_list=None, saml_metadata_document=None, saml_provider_uuid=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if assertion_encryption_mode and not isinstance(assertion_encryption_mode, str):
+            raise TypeError("Expected argument 'assertion_encryption_mode' to be a str")
+        pulumi.set(__self__, "assertion_encryption_mode", assertion_encryption_mode)
+        if private_key_list and not isinstance(private_key_list, list):
+            raise TypeError("Expected argument 'private_key_list' to be a list")
+        pulumi.set(__self__, "private_key_list", private_key_list)
         if saml_metadata_document and not isinstance(saml_metadata_document, str):
             raise TypeError("Expected argument 'saml_metadata_document' to be a str")
         pulumi.set(__self__, "saml_metadata_document", saml_metadata_document)
+        if saml_provider_uuid and not isinstance(saml_provider_uuid, str):
+            raise TypeError("Expected argument 'saml_provider_uuid' to be a str")
+        pulumi.set(__self__, "saml_provider_uuid", saml_provider_uuid)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -44,6 +55,22 @@ class GetSamlProviderResult:
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter(name="assertionEncryptionMode")
+    def assertion_encryption_mode(self) -> Optional['SamlProviderAssertionEncryptionMode']:
+        """
+        The encryption setting for the SAML provider
+        """
+        return pulumi.get(self, "assertion_encryption_mode")
+
+    @property
+    @pulumi.getter(name="privateKeyList")
+    def private_key_list(self) -> Optional[Sequence['outputs.SamlProviderSamlPrivateKey']]:
+        """
+        The private key metadata for the SAML provider.
+        """
+        return pulumi.get(self, "private_key_list")
+
+    @property
     @pulumi.getter(name="samlMetadataDocument")
     def saml_metadata_document(self) -> Optional[str]:
         """
@@ -52,6 +79,14 @@ class GetSamlProviderResult:
         For more information, see [About SAML 2.0-based federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html) in the *IAM User Guide*
         """
         return pulumi.get(self, "saml_metadata_document")
+
+    @property
+    @pulumi.getter(name="samlProviderUuid")
+    def saml_provider_uuid(self) -> Optional[str]:
+        """
+        The unique identifier assigned to the SAML provider
+        """
+        return pulumi.get(self, "saml_provider_uuid")
 
     @property
     @pulumi.getter
@@ -71,7 +106,10 @@ class AwaitableGetSamlProviderResult(GetSamlProviderResult):
             yield self
         return GetSamlProviderResult(
             arn=self.arn,
+            assertion_encryption_mode=self.assertion_encryption_mode,
+            private_key_list=self.private_key_list,
             saml_metadata_document=self.saml_metadata_document,
+            saml_provider_uuid=self.saml_provider_uuid,
             tags=self.tags)
 
 
@@ -90,7 +128,10 @@ def get_saml_provider(arn: Optional[str] = None,
 
     return AwaitableGetSamlProviderResult(
         arn=pulumi.get(__ret__, 'arn'),
+        assertion_encryption_mode=pulumi.get(__ret__, 'assertion_encryption_mode'),
+        private_key_list=pulumi.get(__ret__, 'private_key_list'),
         saml_metadata_document=pulumi.get(__ret__, 'saml_metadata_document'),
+        saml_provider_uuid=pulumi.get(__ret__, 'saml_provider_uuid'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_saml_provider_output(arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSamlProviderResult]:
@@ -106,5 +147,8 @@ def get_saml_provider_output(arn: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getSamlProvider', __args__, opts=opts, typ=GetSamlProviderResult)
     return __ret__.apply(lambda __response__: GetSamlProviderResult(
         arn=pulumi.get(__response__, 'arn'),
+        assertion_encryption_mode=pulumi.get(__response__, 'assertion_encryption_mode'),
+        private_key_list=pulumi.get(__response__, 'private_key_list'),
         saml_metadata_document=pulumi.get(__response__, 'saml_metadata_document'),
+        saml_provider_uuid=pulumi.get(__response__, 'saml_provider_uuid'),
         tags=pulumi.get(__response__, 'tags')))

@@ -1289,8 +1289,10 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3KeyPrefix() pulumi.Str
 // The managed storage configuration for the cluster.
 type ClusterManagedStorageConfiguration struct {
 	// Specify the KMSlong key ID for the Fargate ephemeral storage.
+	//  The key must be a single Region key.
 	FargateEphemeralStorageKmsKeyId *string `pulumi:"fargateEphemeralStorageKmsKeyId"`
 	// Specify a KMSlong key ID to encrypt the managed storage.
+	//  The key must be a single Region key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -1308,8 +1310,10 @@ type ClusterManagedStorageConfigurationInput interface {
 // The managed storage configuration for the cluster.
 type ClusterManagedStorageConfigurationArgs struct {
 	// Specify the KMSlong key ID for the Fargate ephemeral storage.
+	//  The key must be a single Region key.
 	FargateEphemeralStorageKmsKeyId pulumi.StringPtrInput `pulumi:"fargateEphemeralStorageKmsKeyId"`
 	// Specify a KMSlong key ID to encrypt the managed storage.
+	//  The key must be a single Region key.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -1392,11 +1396,15 @@ func (o ClusterManagedStorageConfigurationOutput) ToClusterManagedStorageConfigu
 }
 
 // Specify the KMSlong key ID for the Fargate ephemeral storage.
+//
+//	The key must be a single Region key.
 func (o ClusterManagedStorageConfigurationOutput) FargateEphemeralStorageKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterManagedStorageConfiguration) *string { return v.FargateEphemeralStorageKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Specify a KMSlong key ID to encrypt the managed storage.
+//
+//	The key must be a single Region key.
 func (o ClusterManagedStorageConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterManagedStorageConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -1426,6 +1434,8 @@ func (o ClusterManagedStorageConfigurationPtrOutput) Elem() ClusterManagedStorag
 }
 
 // Specify the KMSlong key ID for the Fargate ephemeral storage.
+//
+//	The key must be a single Region key.
 func (o ClusterManagedStorageConfigurationPtrOutput) FargateEphemeralStorageKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterManagedStorageConfiguration) *string {
 		if v == nil {
@@ -1436,6 +1446,8 @@ func (o ClusterManagedStorageConfigurationPtrOutput) FargateEphemeralStorageKmsK
 }
 
 // Specify a KMSlong key ID to encrypt the managed storage.
+//
+//	The key must be a single Region key.
 func (o ClusterManagedStorageConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterManagedStorageConfiguration) *string {
 		if v == nil {
@@ -1449,7 +1461,7 @@ func (o ClusterManagedStorageConfigurationPtrOutput) KmsKeyId() pulumi.StringPtr
 //
 //	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ClusterServiceConnectDefaults struct {
-	// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include hyphens (-), tilde (~), greater than (>), less than (<), or slash (/).
+	// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include greater than (>), less than (<), double quotation marks ("), or slash (/).
 	//  If you enter an existing namespace name or ARN, then that namespace will be used. Any namespace type is supported. The namespace must be in this account and this AWS Region.
 	//  If you enter a new name, a CMAPlong namespace will be created. Amazon ECS creates a CMAP namespace with the "API calls" method of instance discovery only. This instance discovery method is the "HTTP" namespace type in the CLIlong. Other types of instance discovery aren't used by Service Connect.
 	//  If you update the cluster with an empty string ``""`` for the namespace name, the cluster configuration for Service Connect is removed. Note that the namespace will remain in CMAP and must be deleted separately.
@@ -1472,7 +1484,7 @@ type ClusterServiceConnectDefaultsInput interface {
 //
 //	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ClusterServiceConnectDefaultsArgs struct {
-	// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include hyphens (-), tilde (~), greater than (>), less than (<), or slash (/).
+	// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include greater than (>), less than (<), double quotation marks ("), or slash (/).
 	//  If you enter an existing namespace name or ARN, then that namespace will be used. Any namespace type is supported. The namespace must be in this account and this AWS Region.
 	//  If you enter a new name, a CMAPlong namespace will be created. Amazon ECS creates a CMAP namespace with the "API calls" method of instance discovery only. This instance discovery method is the "HTTP" namespace type in the CLIlong. Other types of instance discovery aren't used by Service Connect.
 	//  If you update the cluster with an empty string ``""`` for the namespace name, the cluster configuration for Service Connect is removed. Note that the namespace will remain in CMAP and must be deleted separately.
@@ -1560,7 +1572,7 @@ func (o ClusterServiceConnectDefaultsOutput) ToClusterServiceConnectDefaultsPtrO
 	}).(ClusterServiceConnectDefaultsPtrOutput)
 }
 
-// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include hyphens (-), tilde (~), greater than (>), less than (<), or slash (/).
+// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include greater than (>), less than (<), double quotation marks ("), or slash (/).
 //
 //	If you enter an existing namespace name or ARN, then that namespace will be used. Any namespace type is supported. The namespace must be in this account and this AWS Region.
 //	If you enter a new name, a CMAPlong namespace will be created. Amazon ECS creates a CMAP namespace with the "API calls" method of instance discovery only. This instance discovery method is the "HTTP" namespace type in the CLIlong. Other types of instance discovery aren't used by Service Connect.
@@ -1594,7 +1606,7 @@ func (o ClusterServiceConnectDefaultsPtrOutput) Elem() ClusterServiceConnectDefa
 	}).(ClusterServiceConnectDefaultsOutput)
 }
 
-// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include hyphens (-), tilde (~), greater than (>), less than (<), or slash (/).
+// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include greater than (>), less than (<), double quotation marks ("), or slash (/).
 //
 //	If you enter an existing namespace name or ARN, then that namespace will be used. Any namespace type is supported. The namespace must be in this account and this AWS Region.
 //	If you enter a new name, a CMAPlong namespace will be created. Amazon ECS creates a CMAP namespace with the "API calls" method of instance discovery only. This instance discovery method is the "HTTP" namespace type in the CLIlong. Other types of instance discovery aren't used by Service Connect.
@@ -1756,7 +1768,11 @@ type ClusterTag struct {
 
 // An object representing the networking details for a task or service. For example “awsVpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}“.
 type ServiceAwsVpcConfiguration struct {
-	// Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
+	// Whether the task's elastic network interface receives a public IP address.
+	//  Consider the following when you set this value:
+	//   +  When you use ``create-service`` or ``update-service``, the default is ``DISABLED``.
+	//   +  When the service ``deploymentController`` is ``ECS``, the value must be ``DISABLED``.
+	//   +  When you use ``create-service`` or ``update-service``, the default is ``ENABLED``.
 	AssignPublicIp *ServiceAwsVpcConfigurationAssignPublicIp `pulumi:"assignPublicIp"`
 	// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified.
 	//   All specified security groups must be from the same VPC.
@@ -1779,7 +1795,11 @@ type ServiceAwsVpcConfigurationInput interface {
 
 // An object representing the networking details for a task or service. For example “awsVpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}“.
 type ServiceAwsVpcConfigurationArgs struct {
-	// Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
+	// Whether the task's elastic network interface receives a public IP address.
+	//  Consider the following when you set this value:
+	//   +  When you use ``create-service`` or ``update-service``, the default is ``DISABLED``.
+	//   +  When the service ``deploymentController`` is ``ECS``, the value must be ``DISABLED``.
+	//   +  When you use ``create-service`` or ``update-service``, the default is ``ENABLED``.
 	AssignPublicIp ServiceAwsVpcConfigurationAssignPublicIpPtrInput `pulumi:"assignPublicIp"`
 	// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified.
 	//   All specified security groups must be from the same VPC.
@@ -1867,7 +1887,12 @@ func (o ServiceAwsVpcConfigurationOutput) ToServiceAwsVpcConfigurationPtrOutputW
 	}).(ServiceAwsVpcConfigurationPtrOutput)
 }
 
-// Whether the task's elastic network interface receives a public IP address. The default value is “ENABLED“.
+// Whether the task's elastic network interface receives a public IP address.
+//
+//	Consider the following when you set this value:
+//	 +  When you use ``create-service`` or ``update-service``, the default is ``DISABLED``.
+//	 +  When the service ``deploymentController`` is ``ECS``, the value must be ``DISABLED``.
+//	 +  When you use ``create-service`` or ``update-service``, the default is ``ENABLED``.
 func (o ServiceAwsVpcConfigurationOutput) AssignPublicIp() ServiceAwsVpcConfigurationAssignPublicIpPtrOutput {
 	return o.ApplyT(func(v ServiceAwsVpcConfiguration) *ServiceAwsVpcConfigurationAssignPublicIp { return v.AssignPublicIp }).(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput)
 }
@@ -1910,7 +1935,12 @@ func (o ServiceAwsVpcConfigurationPtrOutput) Elem() ServiceAwsVpcConfigurationOu
 	}).(ServiceAwsVpcConfigurationOutput)
 }
 
-// Whether the task's elastic network interface receives a public IP address. The default value is “ENABLED“.
+// Whether the task's elastic network interface receives a public IP address.
+//
+//	Consider the following when you set this value:
+//	 +  When you use ``create-service`` or ``update-service``, the default is ``DISABLED``.
+//	 +  When the service ``deploymentController`` is ``ECS``, the value must be ``DISABLED``.
+//	 +  When you use ``create-service`` or ``update-service``, the default is ``ENABLED``.
 func (o ServiceAwsVpcConfigurationPtrOutput) AssignPublicIp() ServiceAwsVpcConfigurationAssignPublicIpPtrOutput {
 	return o.ApplyT(func(v *ServiceAwsVpcConfiguration) *ServiceAwsVpcConfigurationAssignPublicIp {
 		if v == nil {
@@ -5354,6 +5384,13 @@ func (o ServiceSecretArrayOutput) Index(i pulumi.IntInput) ServiceSecretOutput {
 //	 +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
 //	 +  Tag keys and values are case-sensitive.
 //	 +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+//
+//	In order to tag a service that has the following ARN format, you need to migrate the service to the long ARN. You must use the API, CLI or console to migrate the service ARN. For more information, see [Migrate an short service ARN to a long ARN](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-arn-migration.html) in the *Developer Guide*.
+//	 ``arn:aws:ecs:region:aws_account_id:service/service-name``
+//	After the migration is complete, the following are true:
+//	 +   The service ARN is: ``arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name``
+//	 +  You can use CFN to tag the service as you would a service with a long ARN format.
+//	 +  When the ``PhysicalResourceId`` in the CFN stack represents a service, the value does not change and will be the short service ARN.
 type ServiceTag struct {
 	// One part of a key-value pair that make up a tag. A ``key`` is a general label that acts like a category for more specific tag values.
 	Key *string `pulumi:"key"`
@@ -5382,6 +5419,13 @@ type ServiceTagInput interface {
 //	 +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
 //	 +  Tag keys and values are case-sensitive.
 //	 +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+//
+//	In order to tag a service that has the following ARN format, you need to migrate the service to the long ARN. You must use the API, CLI or console to migrate the service ARN. For more information, see [Migrate an short service ARN to a long ARN](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-arn-migration.html) in the *Developer Guide*.
+//	 ``arn:aws:ecs:region:aws_account_id:service/service-name``
+//	After the migration is complete, the following are true:
+//	 +   The service ARN is: ``arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name``
+//	 +  You can use CFN to tag the service as you would a service with a long ARN format.
+//	 +  When the ``PhysicalResourceId`` in the CFN stack represents a service, the value does not change and will be the short service ARN.
 type ServiceTagArgs struct {
 	// One part of a key-value pair that make up a tag. A ``key`` is a general label that acts like a category for more specific tag values.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -5436,6 +5480,13 @@ func (i ServiceTagArray) ToServiceTagArrayOutputWithContext(ctx context.Context)
 //	 +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
 //	 +  Tag keys and values are case-sensitive.
 //	 +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+//
+//	In order to tag a service that has the following ARN format, you need to migrate the service to the long ARN. You must use the API, CLI or console to migrate the service ARN. For more information, see [Migrate an short service ARN to a long ARN](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-arn-migration.html) in the *Developer Guide*.
+//	 ``arn:aws:ecs:region:aws_account_id:service/service-name``
+//	After the migration is complete, the following are true:
+//	 +   The service ARN is: ``arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name``
+//	 +  You can use CFN to tag the service as you would a service with a long ARN format.
+//	 +  When the ``PhysicalResourceId`` in the CFN stack represents a service, the value does not change and will be the short service ARN.
 type ServiceTagOutput struct{ *pulumi.OutputState }
 
 func (ServiceTagOutput) ElementType() reflect.Type {
@@ -8343,14 +8394,14 @@ type TaskDefinitionHealthCheck struct {
 	//   ``CMD-SHELL, curl -f http://localhost/ || exit 1``
 	//  An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command.
 	Command []string `pulumi:"command"`
-	// The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
+	// The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds. This value applies only when you specify a ``command``.
 	Interval *int `pulumi:"interval"`
-	// The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
+	// The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3. This value applies only when you specify a ``command``.
 	Retries *int `pulumi:"retries"`
-	// The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off.
+	// The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off. This value applies only when you specify a ``command``.
 	//   If a health check succeeds within the ``startPeriod``, then the container is considered healthy and any subsequent failures count toward the maximum number of retries.
 	StartPeriod *int `pulumi:"startPeriod"`
-	// The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5.
+	// The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5. This value applies only when you specify a ``command``.
 	Timeout *int `pulumi:"timeout"`
 }
 
@@ -8381,14 +8432,14 @@ type TaskDefinitionHealthCheckArgs struct {
 	//   ``CMD-SHELL, curl -f http://localhost/ || exit 1``
 	//  An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command.
 	Command pulumi.StringArrayInput `pulumi:"command"`
-	// The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
+	// The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds. This value applies only when you specify a ``command``.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
+	// The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3. This value applies only when you specify a ``command``.
 	Retries pulumi.IntPtrInput `pulumi:"retries"`
-	// The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off.
+	// The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off. This value applies only when you specify a ``command``.
 	//   If a health check succeeds within the ``startPeriod``, then the container is considered healthy and any subsequent failures count toward the maximum number of retries.
 	StartPeriod pulumi.IntPtrInput `pulumi:"startPeriod"`
-	// The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5.
+	// The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5. This value applies only when you specify a ``command``.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
 
@@ -8488,24 +8539,24 @@ func (o TaskDefinitionHealthCheckOutput) Command() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionHealthCheck) []string { return v.Command }).(pulumi.StringArrayOutput)
 }
 
-// The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
+// The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds. This value applies only when you specify a “command“.
 func (o TaskDefinitionHealthCheckOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionHealthCheck) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
+// The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3. This value applies only when you specify a “command“.
 func (o TaskDefinitionHealthCheckOutput) Retries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionHealthCheck) *int { return v.Retries }).(pulumi.IntPtrOutput)
 }
 
-// The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the “startPeriod“ is off.
+// The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the “startPeriod“ is off. This value applies only when you specify a “command“.
 //
 //	If a health check succeeds within the ``startPeriod``, then the container is considered healthy and any subsequent failures count toward the maximum number of retries.
 func (o TaskDefinitionHealthCheckOutput) StartPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionHealthCheck) *int { return v.StartPeriod }).(pulumi.IntPtrOutput)
 }
 
-// The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5.
+// The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5. This value applies only when you specify a “command“.
 func (o TaskDefinitionHealthCheckOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionHealthCheck) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
@@ -8550,7 +8601,7 @@ func (o TaskDefinitionHealthCheckPtrOutput) Command() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
+// The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds. This value applies only when you specify a “command“.
 func (o TaskDefinitionHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionHealthCheck) *int {
 		if v == nil {
@@ -8560,7 +8611,7 @@ func (o TaskDefinitionHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
+// The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3. This value applies only when you specify a “command“.
 func (o TaskDefinitionHealthCheckPtrOutput) Retries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionHealthCheck) *int {
 		if v == nil {
@@ -8570,7 +8621,7 @@ func (o TaskDefinitionHealthCheckPtrOutput) Retries() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the “startPeriod“ is off.
+// The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the “startPeriod“ is off. This value applies only when you specify a “command“.
 //
 //	If a health check succeeds within the ``startPeriod``, then the container is considered healthy and any subsequent failures count toward the maximum number of retries.
 func (o TaskDefinitionHealthCheckPtrOutput) StartPeriod() pulumi.IntPtrOutput {
@@ -8582,7 +8633,7 @@ func (o TaskDefinitionHealthCheckPtrOutput) StartPeriod() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5.
+// The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5. This value applies only when you specify a “command“.
 func (o TaskDefinitionHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionHealthCheck) *int {
 		if v == nil {
@@ -8957,6 +9008,13 @@ func (o TaskDefinitionInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) 
 }
 
 // The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more detailed information about these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
+//
+//	The following describes how Docker processes the Linux capabilities specified in the ``add`` and ``drop`` request parameters. For information about the latest behavior, see [Docker Compose: order of cap_drop and cap_add](https://docs.aws.amazon.com/https://forums.docker.com/t/docker-compose-order-of-cap-drop-and-cap-add/97136/1) in the Docker Community Forum.
+//	 +  When the container is a privleged container, the container capabilities are all of the default Docker capabilities. The capabilities specified in the ``add`` request parameter, and the ``drop`` request parameter are ignored.
+//	 +  When the ``add`` request parameter is set to ALL, the container capabilities are all of the default Docker capabilities, excluding those specified in the ``drop`` request parameter.
+//	 +  When the ``drop`` request parameter is set to ALL, the container capabilities are the capabilities specified in the ``add`` request parameter.
+//	 +  When the ``add`` request parameter and the ``drop`` request parameter are both empty, the capabilities the container capabilities are all of the default Docker capabilities.
+//	 +  The default is to first drop the capabilities specified in the ``drop`` request parameter, and then add the capabilities specified in the ``add`` request parameter.
 type TaskDefinitionKernelCapabilities struct {
 	// The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the docker container create command and the ``--cap-add`` option to docker run.
 	//   Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.
@@ -8979,6 +9037,13 @@ type TaskDefinitionKernelCapabilitiesInput interface {
 }
 
 // The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more detailed information about these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
+//
+//	The following describes how Docker processes the Linux capabilities specified in the ``add`` and ``drop`` request parameters. For information about the latest behavior, see [Docker Compose: order of cap_drop and cap_add](https://docs.aws.amazon.com/https://forums.docker.com/t/docker-compose-order-of-cap-drop-and-cap-add/97136/1) in the Docker Community Forum.
+//	 +  When the container is a privleged container, the container capabilities are all of the default Docker capabilities. The capabilities specified in the ``add`` request parameter, and the ``drop`` request parameter are ignored.
+//	 +  When the ``add`` request parameter is set to ALL, the container capabilities are all of the default Docker capabilities, excluding those specified in the ``drop`` request parameter.
+//	 +  When the ``drop`` request parameter is set to ALL, the container capabilities are the capabilities specified in the ``add`` request parameter.
+//	 +  When the ``add`` request parameter and the ``drop`` request parameter are both empty, the capabilities the container capabilities are all of the default Docker capabilities.
+//	 +  The default is to first drop the capabilities specified in the ``drop`` request parameter, and then add the capabilities specified in the ``add`` request parameter.
 type TaskDefinitionKernelCapabilitiesArgs struct {
 	// The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the docker container create command and the ``--cap-add`` option to docker run.
 	//   Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.
@@ -9043,6 +9108,13 @@ func (i *taskDefinitionKernelCapabilitiesPtrType) ToTaskDefinitionKernelCapabili
 }
 
 // The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more detailed information about these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
+//
+//	The following describes how Docker processes the Linux capabilities specified in the ``add`` and ``drop`` request parameters. For information about the latest behavior, see [Docker Compose: order of cap_drop and cap_add](https://docs.aws.amazon.com/https://forums.docker.com/t/docker-compose-order-of-cap-drop-and-cap-add/97136/1) in the Docker Community Forum.
+//	 +  When the container is a privleged container, the container capabilities are all of the default Docker capabilities. The capabilities specified in the ``add`` request parameter, and the ``drop`` request parameter are ignored.
+//	 +  When the ``add`` request parameter is set to ALL, the container capabilities are all of the default Docker capabilities, excluding those specified in the ``drop`` request parameter.
+//	 +  When the ``drop`` request parameter is set to ALL, the container capabilities are the capabilities specified in the ``add`` request parameter.
+//	 +  When the ``add`` request parameter and the ``drop`` request parameter are both empty, the capabilities the container capabilities are all of the default Docker capabilities.
+//	 +  The default is to first drop the capabilities specified in the ``drop`` request parameter, and then add the capabilities specified in the ``add`` request parameter.
 type TaskDefinitionKernelCapabilitiesOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionKernelCapabilitiesOutput) ElementType() reflect.Type {

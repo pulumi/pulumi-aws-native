@@ -49,6 +49,9 @@ class GetSecurityConfigResult:
     @property
     @pulumi.getter(name="iamIdentityCenterOptions")
     def iam_identity_center_options(self) -> Optional['outputs.SecurityConfigIamIdentityCenterConfigOptions']:
+        """
+        Describes IAM Identity Center options in the form of a key-value map.
+        """
         return pulumi.get(self, "iam_identity_center_options")
 
     @property

@@ -18,6 +18,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardFilledMapFieldWells? FieldWells;
         /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        public readonly Outputs.DashboardVisualInteractionOptions? Interactions;
+        /// <summary>
         /// The legend display setup of the visual.
         /// </summary>
         public readonly Outputs.DashboardLegendOptions? Legend;
@@ -42,6 +46,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private DashboardFilledMapConfiguration(
             Outputs.DashboardFilledMapFieldWells? fieldWells,
 
+            Outputs.DashboardVisualInteractionOptions? interactions,
+
             Outputs.DashboardLegendOptions? legend,
 
             Outputs.DashboardGeospatialMapStyleOptions? mapStyleOptions,
@@ -53,6 +59,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Outputs.DashboardGeospatialWindowOptions? windowOptions)
         {
             FieldWells = fieldWells;
+            Interactions = interactions;
             Legend = legend;
             MapStyleOptions = mapStyleOptions;
             SortConfiguration = sortConfiguration;

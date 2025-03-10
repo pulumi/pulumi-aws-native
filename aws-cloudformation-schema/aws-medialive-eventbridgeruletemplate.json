@@ -108,7 +108,7 @@
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "medialive:CreateTags", "medialive:DeleteTags" ]
   },
-  "required" : [ "EventType", "GroupIdentifier", "Name" ],
+  "required" : [ "EventType", "Name" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/GroupId", "/properties/Id", "/properties/Identifier", "/properties/ModifiedAt" ],
   "writeOnlyProperties" : [ "/properties/GroupIdentifier" ],
   "createOnlyProperties" : [ "/properties/Tags" ],

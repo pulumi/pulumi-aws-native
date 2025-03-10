@@ -38,7 +38,7 @@ export const RepositoryCreationTemplateImageTagMutability = {
 } as const;
 
 /**
- * The image tag mutability setting for the repository.
+ * The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
  */
 export type RepositoryCreationTemplateImageTagMutability = (typeof RepositoryCreationTemplateImageTagMutability)[keyof typeof RepositoryCreationTemplateImageTagMutability];
 

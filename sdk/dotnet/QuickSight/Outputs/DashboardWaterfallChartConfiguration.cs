@@ -34,6 +34,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardWaterfallChartFieldWells? FieldWells;
         /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        public readonly Outputs.DashboardVisualInteractionOptions? Interactions;
+        /// <summary>
         /// The legend configuration of a waterfall visual.
         /// </summary>
         public readonly Outputs.DashboardLegendOptions? Legend;
@@ -70,6 +74,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardWaterfallChartFieldWells? fieldWells,
 
+            Outputs.DashboardVisualInteractionOptions? interactions,
+
             Outputs.DashboardLegendOptions? legend,
 
             Outputs.DashboardAxisDisplayOptions? primaryYAxisDisplayOptions,
@@ -87,6 +93,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ColorConfiguration = colorConfiguration;
             DataLabels = dataLabels;
             FieldWells = fieldWells;
+            Interactions = interactions;
             Legend = legend;
             PrimaryYAxisDisplayOptions = primaryYAxisDisplayOptions;
             PrimaryYAxisLabelOptions = primaryYAxisLabelOptions;

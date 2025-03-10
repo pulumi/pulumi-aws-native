@@ -41,6 +41,7 @@ export class InferenceComponent extends pulumi.CustomResource {
      * The time when the inference component was created.
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public readonly deploymentConfig!: pulumi.Output<outputs.sagemaker.InferenceComponentDeploymentConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
      */
@@ -91,6 +92,7 @@ export class InferenceComponent extends pulumi.CustomResource {
             if ((!args || args.specification === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'specification'");
             }
+            resourceInputs["deploymentConfig"] = args ? args.deploymentConfig : undefined;
             resourceInputs["endpointArn"] = args ? args.endpointArn : undefined;
             resourceInputs["endpointName"] = args ? args.endpointName : undefined;
             resourceInputs["inferenceComponentName"] = args ? args.inferenceComponentName : undefined;
@@ -105,6 +107,7 @@ export class InferenceComponent extends pulumi.CustomResource {
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["deploymentConfig"] = undefined /*out*/;
             resourceInputs["endpointArn"] = undefined /*out*/;
             resourceInputs["endpointName"] = undefined /*out*/;
             resourceInputs["failureReason"] = undefined /*out*/;
@@ -126,6 +129,7 @@ export class InferenceComponent extends pulumi.CustomResource {
  * The set of arguments for constructing a InferenceComponent resource.
  */
 export interface InferenceComponentArgs {
+    deploymentConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentDeploymentConfigArgs>;
     /**
      * The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
      */

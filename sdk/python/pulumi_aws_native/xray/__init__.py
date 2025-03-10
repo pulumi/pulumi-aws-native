@@ -8,8 +8,10 @@ import typing
 from .get_group import *
 from .get_resource_policy import *
 from .get_sampling_rule import *
+from .get_transaction_search_config import *
 from .group import *
 from .resource_policy import *
 from .sampling_rule import *
+from .transaction_search_config import *
 from ._inputs import *
 from . import outputs

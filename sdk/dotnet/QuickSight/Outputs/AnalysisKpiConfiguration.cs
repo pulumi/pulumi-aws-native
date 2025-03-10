@@ -18,6 +18,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.AnalysisKpiFieldWells? FieldWells;
         /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        public readonly Outputs.AnalysisVisualInteractionOptions? Interactions;
+        /// <summary>
         /// The options that determine the presentation of a KPI visual.
         /// </summary>
         public readonly Outputs.AnalysisKpiOptions? KpiOptions;
@@ -30,11 +34,14 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private AnalysisKpiConfiguration(
             Outputs.AnalysisKpiFieldWells? fieldWells,
 
+            Outputs.AnalysisVisualInteractionOptions? interactions,
+
             Outputs.AnalysisKpiOptions? kpiOptions,
 
             Outputs.AnalysisKpiSortConfiguration? sortConfiguration)
         {
             FieldWells = fieldWells;
+            Interactions = interactions;
             KpiOptions = kpiOptions;
             SortConfiguration = sortConfiguration;
         }

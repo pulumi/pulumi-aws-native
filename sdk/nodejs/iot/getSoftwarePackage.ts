@@ -18,10 +18,16 @@ export function getSoftwarePackage(args: GetSoftwarePackageArgs, opts?: pulumi.I
 }
 
 export interface GetSoftwarePackageArgs {
+    /**
+     * The name of the new software package.
+     */
     packageName: string;
 }
 
 export interface GetSoftwarePackageResult {
+    /**
+     * A summary of the package being created. This can be used to outline the package's contents or purpose.
+     */
     readonly description?: string;
     /**
      * The Amazon Resource Name (ARN) for the package.
@@ -43,5 +49,8 @@ export function getSoftwarePackageOutput(args: GetSoftwarePackageOutputArgs, opt
 }
 
 export interface GetSoftwarePackageOutputArgs {
+    /**
+     * The name of the new software package.
+     */
     packageName: pulumi.Input<string>;
 }

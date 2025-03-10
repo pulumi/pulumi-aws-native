@@ -40,6 +40,34 @@ namespace Pulumi.AwsNative.Dms
     }
 
     [EnumType]
+    public readonly struct DataProviderDb2SslModeValue : IEquatable<DataProviderDb2SslModeValue>
+    {
+        private readonly string _value;
+
+        private DataProviderDb2SslModeValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataProviderDb2SslModeValue None { get; } = new DataProviderDb2SslModeValue("none");
+        public static DataProviderDb2SslModeValue VerifyCa { get; } = new DataProviderDb2SslModeValue("verify-ca");
+
+        public static bool operator ==(DataProviderDb2SslModeValue left, DataProviderDb2SslModeValue right) => left.Equals(right);
+        public static bool operator !=(DataProviderDb2SslModeValue left, DataProviderDb2SslModeValue right) => !left.Equals(right);
+
+        public static explicit operator string(DataProviderDb2SslModeValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataProviderDb2SslModeValue other && Equals(other);
+        public bool Equals(DataProviderDb2SslModeValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DataProviderDmsSslModeValue : IEquatable<DataProviderDmsSslModeValue>
     {
         private readonly string _value;
@@ -92,6 +120,8 @@ namespace Pulumi.AwsNative.Dms
         public static DataProviderEngine Mariadb { get; } = new DataProviderEngine("mariadb");
         public static DataProviderEngine Mongodb { get; } = new DataProviderEngine("mongodb");
         public static DataProviderEngine Docdb { get; } = new DataProviderEngine("docdb");
+        public static DataProviderEngine Db2 { get; } = new DataProviderEngine("db2");
+        public static DataProviderEngine Db2Zos { get; } = new DataProviderEngine("db2_zos");
 
         public static bool operator ==(DataProviderEngine left, DataProviderEngine right) => left.Equals(right);
         public static bool operator !=(DataProviderEngine left, DataProviderEngine right) => !left.Equals(right);

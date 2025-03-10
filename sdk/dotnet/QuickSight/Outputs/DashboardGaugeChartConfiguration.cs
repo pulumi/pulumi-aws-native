@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardGaugeChartConfiguration
     {
         /// <summary>
+        /// The color configuration of a `GaugeChartVisual` .
+        /// </summary>
+        public readonly Outputs.DashboardGaugeChartColorConfiguration? ColorConfiguration;
+        /// <summary>
         /// The data label configuration of a `GaugeChartVisual` .
         /// </summary>
         public readonly Outputs.DashboardDataLabelOptions? DataLabels;
@@ -26,6 +30,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardGaugeChartOptions? GaugeChartOptions;
         /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        public readonly Outputs.DashboardVisualInteractionOptions? Interactions;
+        /// <summary>
         /// The tooltip configuration of a `GaugeChartVisual` .
         /// </summary>
         public readonly Outputs.DashboardTooltipOptions? TooltipOptions;
@@ -36,19 +44,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DashboardGaugeChartConfiguration(
+            Outputs.DashboardGaugeChartColorConfiguration? colorConfiguration,
+
             Outputs.DashboardDataLabelOptions? dataLabels,
 
             Outputs.DashboardGaugeChartFieldWells? fieldWells,
 
             Outputs.DashboardGaugeChartOptions? gaugeChartOptions,
 
+            Outputs.DashboardVisualInteractionOptions? interactions,
+
             Outputs.DashboardTooltipOptions? tooltipOptions,
 
             Outputs.DashboardVisualPalette? visualPalette)
         {
+            ColorConfiguration = colorConfiguration;
             DataLabels = dataLabels;
             FieldWells = fieldWells;
             GaugeChartOptions = gaugeChartOptions;
+            Interactions = interactions;
             TooltipOptions = tooltipOptions;
             VisualPalette = visualPalette;
         }

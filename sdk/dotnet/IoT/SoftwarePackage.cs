@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:SoftwarePackage")]
     public partial class SoftwarePackage : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A summary of the package being created. This can be used to outline the package's contents or purpose.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -24,6 +27,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("packageArn")]
         public Output<string> PackageArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the new software package.
+        /// </summary>
         [Output("packageName")]
         public Output<string?> PackageName { get; private set; } = null!;
 
@@ -82,9 +88,15 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class SoftwarePackageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A summary of the package being created. This can be used to outline the package's contents or purpose.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the new software package.
+        /// </summary>
         [Input("packageName")]
         public Input<string>? PackageName { get; set; }
 

@@ -53,7 +53,7 @@ class ContainerFleetArgs:
         :param pulumi.Input['ContainerFleetConnectionPortRangeArgs'] instance_connection_port_range: The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerFleetIpPermissionArgs']]] instance_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         :param pulumi.Input[str] instance_type: The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
-        :param pulumi.Input['ContainerFleetLogConfigurationArgs'] log_configuration: The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+        :param pulumi.Input['ContainerFleetLogConfigurationArgs'] log_configuration: The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
                
                - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
                - `S3` -- Store logs in an Amazon S3 bucket that you define.
@@ -231,7 +231,7 @@ class ContainerFleetArgs:
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional[pulumi.Input['ContainerFleetLogConfigurationArgs']]:
         """
-        The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+        The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
 
         - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
         - `S3` -- Store logs in an Amazon S3 bucket that you define.
@@ -342,7 +342,7 @@ class ContainerFleet(pulumi.CustomResource):
         :param pulumi.Input[Union['ContainerFleetConnectionPortRangeArgs', 'ContainerFleetConnectionPortRangeArgsDict']] instance_connection_port_range: The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerFleetIpPermissionArgs', 'ContainerFleetIpPermissionArgsDict']]]] instance_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         :param pulumi.Input[str] instance_type: The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
-        :param pulumi.Input[Union['ContainerFleetLogConfigurationArgs', 'ContainerFleetLogConfigurationArgsDict']] log_configuration: The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+        :param pulumi.Input[Union['ContainerFleetLogConfigurationArgs', 'ContainerFleetLogConfigurationArgsDict']] log_configuration: The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
                
                - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
                - `S3` -- Store logs in an Amazon S3 bucket that you define.
@@ -607,7 +607,7 @@ class ContainerFleet(pulumi.CustomResource):
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> pulumi.Output[Optional['outputs.ContainerFleetLogConfiguration']]:
         """
-        The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+        The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
 
         - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
         - `S3` -- Store logs in an Amazon S3 bucket that you define.

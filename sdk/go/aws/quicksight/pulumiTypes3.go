@@ -13,6 +13,5078 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateMaximumLabelType struct {
+	// The visibility of the maximum label.
+	Visibility interface{} `pulumi:"visibility"`
+}
+
+// TemplateMaximumLabelTypeInput is an input type that accepts TemplateMaximumLabelTypeArgs and TemplateMaximumLabelTypeOutput values.
+// You can construct a concrete instance of `TemplateMaximumLabelTypeInput` via:
+//
+//	TemplateMaximumLabelTypeArgs{...}
+type TemplateMaximumLabelTypeInput interface {
+	pulumi.Input
+
+	ToTemplateMaximumLabelTypeOutput() TemplateMaximumLabelTypeOutput
+	ToTemplateMaximumLabelTypeOutputWithContext(context.Context) TemplateMaximumLabelTypeOutput
+}
+
+type TemplateMaximumLabelTypeArgs struct {
+	// The visibility of the maximum label.
+	Visibility pulumi.Input `pulumi:"visibility"`
+}
+
+func (TemplateMaximumLabelTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateMaximumLabelType)(nil)).Elem()
+}
+
+func (i TemplateMaximumLabelTypeArgs) ToTemplateMaximumLabelTypeOutput() TemplateMaximumLabelTypeOutput {
+	return i.ToTemplateMaximumLabelTypeOutputWithContext(context.Background())
+}
+
+func (i TemplateMaximumLabelTypeArgs) ToTemplateMaximumLabelTypeOutputWithContext(ctx context.Context) TemplateMaximumLabelTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMaximumLabelTypeOutput)
+}
+
+func (i TemplateMaximumLabelTypeArgs) ToTemplateMaximumLabelTypePtrOutput() TemplateMaximumLabelTypePtrOutput {
+	return i.ToTemplateMaximumLabelTypePtrOutputWithContext(context.Background())
+}
+
+func (i TemplateMaximumLabelTypeArgs) ToTemplateMaximumLabelTypePtrOutputWithContext(ctx context.Context) TemplateMaximumLabelTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMaximumLabelTypeOutput).ToTemplateMaximumLabelTypePtrOutputWithContext(ctx)
+}
+
+// TemplateMaximumLabelTypePtrInput is an input type that accepts TemplateMaximumLabelTypeArgs, TemplateMaximumLabelTypePtr and TemplateMaximumLabelTypePtrOutput values.
+// You can construct a concrete instance of `TemplateMaximumLabelTypePtrInput` via:
+//
+//	        TemplateMaximumLabelTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateMaximumLabelTypePtrInput interface {
+	pulumi.Input
+
+	ToTemplateMaximumLabelTypePtrOutput() TemplateMaximumLabelTypePtrOutput
+	ToTemplateMaximumLabelTypePtrOutputWithContext(context.Context) TemplateMaximumLabelTypePtrOutput
+}
+
+type templateMaximumLabelTypePtrType TemplateMaximumLabelTypeArgs
+
+func TemplateMaximumLabelTypePtr(v *TemplateMaximumLabelTypeArgs) TemplateMaximumLabelTypePtrInput {
+	return (*templateMaximumLabelTypePtrType)(v)
+}
+
+func (*templateMaximumLabelTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateMaximumLabelType)(nil)).Elem()
+}
+
+func (i *templateMaximumLabelTypePtrType) ToTemplateMaximumLabelTypePtrOutput() TemplateMaximumLabelTypePtrOutput {
+	return i.ToTemplateMaximumLabelTypePtrOutputWithContext(context.Background())
+}
+
+func (i *templateMaximumLabelTypePtrType) ToTemplateMaximumLabelTypePtrOutputWithContext(ctx context.Context) TemplateMaximumLabelTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMaximumLabelTypePtrOutput)
+}
+
+type TemplateMaximumLabelTypeOutput struct{ *pulumi.OutputState }
+
+func (TemplateMaximumLabelTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateMaximumLabelType)(nil)).Elem()
+}
+
+func (o TemplateMaximumLabelTypeOutput) ToTemplateMaximumLabelTypeOutput() TemplateMaximumLabelTypeOutput {
+	return o
+}
+
+func (o TemplateMaximumLabelTypeOutput) ToTemplateMaximumLabelTypeOutputWithContext(ctx context.Context) TemplateMaximumLabelTypeOutput {
+	return o
+}
+
+func (o TemplateMaximumLabelTypeOutput) ToTemplateMaximumLabelTypePtrOutput() TemplateMaximumLabelTypePtrOutput {
+	return o.ToTemplateMaximumLabelTypePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateMaximumLabelTypeOutput) ToTemplateMaximumLabelTypePtrOutputWithContext(ctx context.Context) TemplateMaximumLabelTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateMaximumLabelType) *TemplateMaximumLabelType {
+		return &v
+	}).(TemplateMaximumLabelTypePtrOutput)
+}
+
+// The visibility of the maximum label.
+func (o TemplateMaximumLabelTypeOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateMaximumLabelType) interface{} { return v.Visibility }).(pulumi.AnyOutput)
+}
+
+type TemplateMaximumLabelTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateMaximumLabelTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateMaximumLabelType)(nil)).Elem()
+}
+
+func (o TemplateMaximumLabelTypePtrOutput) ToTemplateMaximumLabelTypePtrOutput() TemplateMaximumLabelTypePtrOutput {
+	return o
+}
+
+func (o TemplateMaximumLabelTypePtrOutput) ToTemplateMaximumLabelTypePtrOutputWithContext(ctx context.Context) TemplateMaximumLabelTypePtrOutput {
+	return o
+}
+
+func (o TemplateMaximumLabelTypePtrOutput) Elem() TemplateMaximumLabelTypeOutput {
+	return o.ApplyT(func(v *TemplateMaximumLabelType) TemplateMaximumLabelType {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateMaximumLabelType
+		return ret
+	}).(TemplateMaximumLabelTypeOutput)
+}
+
+// The visibility of the maximum label.
+func (o TemplateMaximumLabelTypePtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateMaximumLabelType) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Visibility
+	}).(pulumi.AnyOutput)
+}
+
+type TemplateMaximumMinimumComputation struct {
+	// The ID for a computation.
+	ComputationId string `pulumi:"computationId"`
+	// The name of a computation.
+	Name *string `pulumi:"name"`
+	// The time field that is used in a computation.
+	Time *TemplateDimensionField `pulumi:"time"`
+	// The type of computation. Choose one of the following options:
+	//
+	// - MAXIMUM: A maximum computation.
+	// - MINIMUM: A minimum computation.
+	Type TemplateMaximumMinimumComputationType `pulumi:"type"`
+	// The value field that is used in a computation.
+	Value *TemplateMeasureField `pulumi:"value"`
+}
+
+// TemplateMaximumMinimumComputationInput is an input type that accepts TemplateMaximumMinimumComputationArgs and TemplateMaximumMinimumComputationOutput values.
+// You can construct a concrete instance of `TemplateMaximumMinimumComputationInput` via:
+//
+//	TemplateMaximumMinimumComputationArgs{...}
+type TemplateMaximumMinimumComputationInput interface {
+	pulumi.Input
+
+	ToTemplateMaximumMinimumComputationOutput() TemplateMaximumMinimumComputationOutput
+	ToTemplateMaximumMinimumComputationOutputWithContext(context.Context) TemplateMaximumMinimumComputationOutput
+}
+
+type TemplateMaximumMinimumComputationArgs struct {
+	// The ID for a computation.
+	ComputationId pulumi.StringInput `pulumi:"computationId"`
+	// The name of a computation.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The time field that is used in a computation.
+	Time TemplateDimensionFieldPtrInput `pulumi:"time"`
+	// The type of computation. Choose one of the following options:
+	//
+	// - MAXIMUM: A maximum computation.
+	// - MINIMUM: A minimum computation.
+	Type TemplateMaximumMinimumComputationTypeInput `pulumi:"type"`
+	// The value field that is used in a computation.
+	Value TemplateMeasureFieldPtrInput `pulumi:"value"`
+}
+
+func (TemplateMaximumMinimumComputationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateMaximumMinimumComputation)(nil)).Elem()
+}
+
+func (i TemplateMaximumMinimumComputationArgs) ToTemplateMaximumMinimumComputationOutput() TemplateMaximumMinimumComputationOutput {
+	return i.ToTemplateMaximumMinimumComputationOutputWithContext(context.Background())
+}
+
+func (i TemplateMaximumMinimumComputationArgs) ToTemplateMaximumMinimumComputationOutputWithContext(ctx context.Context) TemplateMaximumMinimumComputationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMaximumMinimumComputationOutput)
+}
+
+func (i TemplateMaximumMinimumComputationArgs) ToTemplateMaximumMinimumComputationPtrOutput() TemplateMaximumMinimumComputationPtrOutput {
+	return i.ToTemplateMaximumMinimumComputationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateMaximumMinimumComputationArgs) ToTemplateMaximumMinimumComputationPtrOutputWithContext(ctx context.Context) TemplateMaximumMinimumComputationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMaximumMinimumComputationOutput).ToTemplateMaximumMinimumComputationPtrOutputWithContext(ctx)
+}
+
+// TemplateMaximumMinimumComputationPtrInput is an input type that accepts TemplateMaximumMinimumComputationArgs, TemplateMaximumMinimumComputationPtr and TemplateMaximumMinimumComputationPtrOutput values.
+// You can construct a concrete instance of `TemplateMaximumMinimumComputationPtrInput` via:
+//
+//	        TemplateMaximumMinimumComputationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateMaximumMinimumComputationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateMaximumMinimumComputationPtrOutput() TemplateMaximumMinimumComputationPtrOutput
+	ToTemplateMaximumMinimumComputationPtrOutputWithContext(context.Context) TemplateMaximumMinimumComputationPtrOutput
+}
+
+type templateMaximumMinimumComputationPtrType TemplateMaximumMinimumComputationArgs
+
+func TemplateMaximumMinimumComputationPtr(v *TemplateMaximumMinimumComputationArgs) TemplateMaximumMinimumComputationPtrInput {
+	return (*templateMaximumMinimumComputationPtrType)(v)
+}
+
+func (*templateMaximumMinimumComputationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateMaximumMinimumComputation)(nil)).Elem()
+}
+
+func (i *templateMaximumMinimumComputationPtrType) ToTemplateMaximumMinimumComputationPtrOutput() TemplateMaximumMinimumComputationPtrOutput {
+	return i.ToTemplateMaximumMinimumComputationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateMaximumMinimumComputationPtrType) ToTemplateMaximumMinimumComputationPtrOutputWithContext(ctx context.Context) TemplateMaximumMinimumComputationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMaximumMinimumComputationPtrOutput)
+}
+
+type TemplateMaximumMinimumComputationOutput struct{ *pulumi.OutputState }
+
+func (TemplateMaximumMinimumComputationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateMaximumMinimumComputation)(nil)).Elem()
+}
+
+func (o TemplateMaximumMinimumComputationOutput) ToTemplateMaximumMinimumComputationOutput() TemplateMaximumMinimumComputationOutput {
+	return o
+}
+
+func (o TemplateMaximumMinimumComputationOutput) ToTemplateMaximumMinimumComputationOutputWithContext(ctx context.Context) TemplateMaximumMinimumComputationOutput {
+	return o
+}
+
+func (o TemplateMaximumMinimumComputationOutput) ToTemplateMaximumMinimumComputationPtrOutput() TemplateMaximumMinimumComputationPtrOutput {
+	return o.ToTemplateMaximumMinimumComputationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateMaximumMinimumComputationOutput) ToTemplateMaximumMinimumComputationPtrOutputWithContext(ctx context.Context) TemplateMaximumMinimumComputationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateMaximumMinimumComputation) *TemplateMaximumMinimumComputation {
+		return &v
+	}).(TemplateMaximumMinimumComputationPtrOutput)
+}
+
+// The ID for a computation.
+func (o TemplateMaximumMinimumComputationOutput) ComputationId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateMaximumMinimumComputation) string { return v.ComputationId }).(pulumi.StringOutput)
+}
+
+// The name of a computation.
+func (o TemplateMaximumMinimumComputationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateMaximumMinimumComputation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The time field that is used in a computation.
+func (o TemplateMaximumMinimumComputationOutput) Time() TemplateDimensionFieldPtrOutput {
+	return o.ApplyT(func(v TemplateMaximumMinimumComputation) *TemplateDimensionField { return v.Time }).(TemplateDimensionFieldPtrOutput)
+}
+
+// The type of computation. Choose one of the following options:
+//
+// - MAXIMUM: A maximum computation.
+// - MINIMUM: A minimum computation.
+func (o TemplateMaximumMinimumComputationOutput) Type() TemplateMaximumMinimumComputationTypeOutput {
+	return o.ApplyT(func(v TemplateMaximumMinimumComputation) TemplateMaximumMinimumComputationType { return v.Type }).(TemplateMaximumMinimumComputationTypeOutput)
+}
+
+// The value field that is used in a computation.
+func (o TemplateMaximumMinimumComputationOutput) Value() TemplateMeasureFieldPtrOutput {
+	return o.ApplyT(func(v TemplateMaximumMinimumComputation) *TemplateMeasureField { return v.Value }).(TemplateMeasureFieldPtrOutput)
+}
+
+type TemplateMaximumMinimumComputationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateMaximumMinimumComputationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateMaximumMinimumComputation)(nil)).Elem()
+}
+
+func (o TemplateMaximumMinimumComputationPtrOutput) ToTemplateMaximumMinimumComputationPtrOutput() TemplateMaximumMinimumComputationPtrOutput {
+	return o
+}
+
+func (o TemplateMaximumMinimumComputationPtrOutput) ToTemplateMaximumMinimumComputationPtrOutputWithContext(ctx context.Context) TemplateMaximumMinimumComputationPtrOutput {
+	return o
+}
+
+func (o TemplateMaximumMinimumComputationPtrOutput) Elem() TemplateMaximumMinimumComputationOutput {
+	return o.ApplyT(func(v *TemplateMaximumMinimumComputation) TemplateMaximumMinimumComputation {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateMaximumMinimumComputation
+		return ret
+	}).(TemplateMaximumMinimumComputationOutput)
+}
+
+// The ID for a computation.
+func (o TemplateMaximumMinimumComputationPtrOutput) ComputationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateMaximumMinimumComputation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ComputationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of a computation.
+func (o TemplateMaximumMinimumComputationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateMaximumMinimumComputation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time field that is used in a computation.
+func (o TemplateMaximumMinimumComputationPtrOutput) Time() TemplateDimensionFieldPtrOutput {
+	return o.ApplyT(func(v *TemplateMaximumMinimumComputation) *TemplateDimensionField {
+		if v == nil {
+			return nil
+		}
+		return v.Time
+	}).(TemplateDimensionFieldPtrOutput)
+}
+
+// The type of computation. Choose one of the following options:
+//
+// - MAXIMUM: A maximum computation.
+// - MINIMUM: A minimum computation.
+func (o TemplateMaximumMinimumComputationPtrOutput) Type() TemplateMaximumMinimumComputationTypePtrOutput {
+	return o.ApplyT(func(v *TemplateMaximumMinimumComputation) *TemplateMaximumMinimumComputationType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(TemplateMaximumMinimumComputationTypePtrOutput)
+}
+
+// The value field that is used in a computation.
+func (o TemplateMaximumMinimumComputationPtrOutput) Value() TemplateMeasureFieldPtrOutput {
+	return o.ApplyT(func(v *TemplateMaximumMinimumComputation) *TemplateMeasureField {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(TemplateMeasureFieldPtrOutput)
+}
+
+type TemplateMeasureField struct {
+	// The calculated measure field only used in pivot tables.
+	CalculatedMeasureField *TemplateCalculatedMeasureField `pulumi:"calculatedMeasureField"`
+	// The measure type field with categorical type columns.
+	CategoricalMeasureField *TemplateCategoricalMeasureField `pulumi:"categoricalMeasureField"`
+	// The measure type field with date type columns.
+	DateMeasureField *TemplateDateMeasureField `pulumi:"dateMeasureField"`
+	// The measure type field with numerical type columns.
+	NumericalMeasureField *TemplateNumericalMeasureField `pulumi:"numericalMeasureField"`
+}
+
+// TemplateMeasureFieldInput is an input type that accepts TemplateMeasureFieldArgs and TemplateMeasureFieldOutput values.
+// You can construct a concrete instance of `TemplateMeasureFieldInput` via:
+//
+//	TemplateMeasureFieldArgs{...}
+type TemplateMeasureFieldInput interface {
+	pulumi.Input
+
+	ToTemplateMeasureFieldOutput() TemplateMeasureFieldOutput
+	ToTemplateMeasureFieldOutputWithContext(context.Context) TemplateMeasureFieldOutput
+}
+
+type TemplateMeasureFieldArgs struct {
+	// The calculated measure field only used in pivot tables.
+	CalculatedMeasureField TemplateCalculatedMeasureFieldPtrInput `pulumi:"calculatedMeasureField"`
+	// The measure type field with categorical type columns.
+	CategoricalMeasureField TemplateCategoricalMeasureFieldPtrInput `pulumi:"categoricalMeasureField"`
+	// The measure type field with date type columns.
+	DateMeasureField TemplateDateMeasureFieldPtrInput `pulumi:"dateMeasureField"`
+	// The measure type field with numerical type columns.
+	NumericalMeasureField TemplateNumericalMeasureFieldPtrInput `pulumi:"numericalMeasureField"`
+}
+
+func (TemplateMeasureFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateMeasureField)(nil)).Elem()
+}
+
+func (i TemplateMeasureFieldArgs) ToTemplateMeasureFieldOutput() TemplateMeasureFieldOutput {
+	return i.ToTemplateMeasureFieldOutputWithContext(context.Background())
+}
+
+func (i TemplateMeasureFieldArgs) ToTemplateMeasureFieldOutputWithContext(ctx context.Context) TemplateMeasureFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMeasureFieldOutput)
+}
+
+func (i TemplateMeasureFieldArgs) ToTemplateMeasureFieldPtrOutput() TemplateMeasureFieldPtrOutput {
+	return i.ToTemplateMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateMeasureFieldArgs) ToTemplateMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateMeasureFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMeasureFieldOutput).ToTemplateMeasureFieldPtrOutputWithContext(ctx)
+}
+
+// TemplateMeasureFieldPtrInput is an input type that accepts TemplateMeasureFieldArgs, TemplateMeasureFieldPtr and TemplateMeasureFieldPtrOutput values.
+// You can construct a concrete instance of `TemplateMeasureFieldPtrInput` via:
+//
+//	        TemplateMeasureFieldArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateMeasureFieldPtrInput interface {
+	pulumi.Input
+
+	ToTemplateMeasureFieldPtrOutput() TemplateMeasureFieldPtrOutput
+	ToTemplateMeasureFieldPtrOutputWithContext(context.Context) TemplateMeasureFieldPtrOutput
+}
+
+type templateMeasureFieldPtrType TemplateMeasureFieldArgs
+
+func TemplateMeasureFieldPtr(v *TemplateMeasureFieldArgs) TemplateMeasureFieldPtrInput {
+	return (*templateMeasureFieldPtrType)(v)
+}
+
+func (*templateMeasureFieldPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateMeasureField)(nil)).Elem()
+}
+
+func (i *templateMeasureFieldPtrType) ToTemplateMeasureFieldPtrOutput() TemplateMeasureFieldPtrOutput {
+	return i.ToTemplateMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (i *templateMeasureFieldPtrType) ToTemplateMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateMeasureFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMeasureFieldPtrOutput)
+}
+
+// TemplateMeasureFieldArrayInput is an input type that accepts TemplateMeasureFieldArray and TemplateMeasureFieldArrayOutput values.
+// You can construct a concrete instance of `TemplateMeasureFieldArrayInput` via:
+//
+//	TemplateMeasureFieldArray{ TemplateMeasureFieldArgs{...} }
+type TemplateMeasureFieldArrayInput interface {
+	pulumi.Input
+
+	ToTemplateMeasureFieldArrayOutput() TemplateMeasureFieldArrayOutput
+	ToTemplateMeasureFieldArrayOutputWithContext(context.Context) TemplateMeasureFieldArrayOutput
+}
+
+type TemplateMeasureFieldArray []TemplateMeasureFieldInput
+
+func (TemplateMeasureFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateMeasureField)(nil)).Elem()
+}
+
+func (i TemplateMeasureFieldArray) ToTemplateMeasureFieldArrayOutput() TemplateMeasureFieldArrayOutput {
+	return i.ToTemplateMeasureFieldArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateMeasureFieldArray) ToTemplateMeasureFieldArrayOutputWithContext(ctx context.Context) TemplateMeasureFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMeasureFieldArrayOutput)
+}
+
+type TemplateMeasureFieldOutput struct{ *pulumi.OutputState }
+
+func (TemplateMeasureFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateMeasureField)(nil)).Elem()
+}
+
+func (o TemplateMeasureFieldOutput) ToTemplateMeasureFieldOutput() TemplateMeasureFieldOutput {
+	return o
+}
+
+func (o TemplateMeasureFieldOutput) ToTemplateMeasureFieldOutputWithContext(ctx context.Context) TemplateMeasureFieldOutput {
+	return o
+}
+
+func (o TemplateMeasureFieldOutput) ToTemplateMeasureFieldPtrOutput() TemplateMeasureFieldPtrOutput {
+	return o.ToTemplateMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateMeasureFieldOutput) ToTemplateMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateMeasureFieldPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateMeasureField) *TemplateMeasureField {
+		return &v
+	}).(TemplateMeasureFieldPtrOutput)
+}
+
+// The calculated measure field only used in pivot tables.
+func (o TemplateMeasureFieldOutput) CalculatedMeasureField() TemplateCalculatedMeasureFieldPtrOutput {
+	return o.ApplyT(func(v TemplateMeasureField) *TemplateCalculatedMeasureField { return v.CalculatedMeasureField }).(TemplateCalculatedMeasureFieldPtrOutput)
+}
+
+// The measure type field with categorical type columns.
+func (o TemplateMeasureFieldOutput) CategoricalMeasureField() TemplateCategoricalMeasureFieldPtrOutput {
+	return o.ApplyT(func(v TemplateMeasureField) *TemplateCategoricalMeasureField { return v.CategoricalMeasureField }).(TemplateCategoricalMeasureFieldPtrOutput)
+}
+
+// The measure type field with date type columns.
+func (o TemplateMeasureFieldOutput) DateMeasureField() TemplateDateMeasureFieldPtrOutput {
+	return o.ApplyT(func(v TemplateMeasureField) *TemplateDateMeasureField { return v.DateMeasureField }).(TemplateDateMeasureFieldPtrOutput)
+}
+
+// The measure type field with numerical type columns.
+func (o TemplateMeasureFieldOutput) NumericalMeasureField() TemplateNumericalMeasureFieldPtrOutput {
+	return o.ApplyT(func(v TemplateMeasureField) *TemplateNumericalMeasureField { return v.NumericalMeasureField }).(TemplateNumericalMeasureFieldPtrOutput)
+}
+
+type TemplateMeasureFieldPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateMeasureFieldPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateMeasureField)(nil)).Elem()
+}
+
+func (o TemplateMeasureFieldPtrOutput) ToTemplateMeasureFieldPtrOutput() TemplateMeasureFieldPtrOutput {
+	return o
+}
+
+func (o TemplateMeasureFieldPtrOutput) ToTemplateMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateMeasureFieldPtrOutput {
+	return o
+}
+
+func (o TemplateMeasureFieldPtrOutput) Elem() TemplateMeasureFieldOutput {
+	return o.ApplyT(func(v *TemplateMeasureField) TemplateMeasureField {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateMeasureField
+		return ret
+	}).(TemplateMeasureFieldOutput)
+}
+
+// The calculated measure field only used in pivot tables.
+func (o TemplateMeasureFieldPtrOutput) CalculatedMeasureField() TemplateCalculatedMeasureFieldPtrOutput {
+	return o.ApplyT(func(v *TemplateMeasureField) *TemplateCalculatedMeasureField {
+		if v == nil {
+			return nil
+		}
+		return v.CalculatedMeasureField
+	}).(TemplateCalculatedMeasureFieldPtrOutput)
+}
+
+// The measure type field with categorical type columns.
+func (o TemplateMeasureFieldPtrOutput) CategoricalMeasureField() TemplateCategoricalMeasureFieldPtrOutput {
+	return o.ApplyT(func(v *TemplateMeasureField) *TemplateCategoricalMeasureField {
+		if v == nil {
+			return nil
+		}
+		return v.CategoricalMeasureField
+	}).(TemplateCategoricalMeasureFieldPtrOutput)
+}
+
+// The measure type field with date type columns.
+func (o TemplateMeasureFieldPtrOutput) DateMeasureField() TemplateDateMeasureFieldPtrOutput {
+	return o.ApplyT(func(v *TemplateMeasureField) *TemplateDateMeasureField {
+		if v == nil {
+			return nil
+		}
+		return v.DateMeasureField
+	}).(TemplateDateMeasureFieldPtrOutput)
+}
+
+// The measure type field with numerical type columns.
+func (o TemplateMeasureFieldPtrOutput) NumericalMeasureField() TemplateNumericalMeasureFieldPtrOutput {
+	return o.ApplyT(func(v *TemplateMeasureField) *TemplateNumericalMeasureField {
+		if v == nil {
+			return nil
+		}
+		return v.NumericalMeasureField
+	}).(TemplateNumericalMeasureFieldPtrOutput)
+}
+
+type TemplateMeasureFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateMeasureFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateMeasureField)(nil)).Elem()
+}
+
+func (o TemplateMeasureFieldArrayOutput) ToTemplateMeasureFieldArrayOutput() TemplateMeasureFieldArrayOutput {
+	return o
+}
+
+func (o TemplateMeasureFieldArrayOutput) ToTemplateMeasureFieldArrayOutputWithContext(ctx context.Context) TemplateMeasureFieldArrayOutput {
+	return o
+}
+
+func (o TemplateMeasureFieldArrayOutput) Index(i pulumi.IntInput) TemplateMeasureFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateMeasureField {
+		return vs[0].([]TemplateMeasureField)[vs[1].(int)]
+	}).(TemplateMeasureFieldOutput)
+}
+
+type TemplateMetricComparisonComputation struct {
+	// The ID for a computation.
+	ComputationId string `pulumi:"computationId"`
+	// The field that is used in a metric comparison from value setup.
+	FromValue *TemplateMeasureField `pulumi:"fromValue"`
+	// The name of a computation.
+	Name *string `pulumi:"name"`
+	// The field that is used in a metric comparison to value setup.
+	TargetValue *TemplateMeasureField `pulumi:"targetValue"`
+	// The time field that is used in a computation.
+	Time *TemplateDimensionField `pulumi:"time"`
+}
+
+// TemplateMetricComparisonComputationInput is an input type that accepts TemplateMetricComparisonComputationArgs and TemplateMetricComparisonComputationOutput values.
+// You can construct a concrete instance of `TemplateMetricComparisonComputationInput` via:
+//
+//	TemplateMetricComparisonComputationArgs{...}
+type TemplateMetricComparisonComputationInput interface {
+	pulumi.Input
+
+	ToTemplateMetricComparisonComputationOutput() TemplateMetricComparisonComputationOutput
+	ToTemplateMetricComparisonComputationOutputWithContext(context.Context) TemplateMetricComparisonComputationOutput
+}
+
+type TemplateMetricComparisonComputationArgs struct {
+	// The ID for a computation.
+	ComputationId pulumi.StringInput `pulumi:"computationId"`
+	// The field that is used in a metric comparison from value setup.
+	FromValue TemplateMeasureFieldPtrInput `pulumi:"fromValue"`
+	// The name of a computation.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The field that is used in a metric comparison to value setup.
+	TargetValue TemplateMeasureFieldPtrInput `pulumi:"targetValue"`
+	// The time field that is used in a computation.
+	Time TemplateDimensionFieldPtrInput `pulumi:"time"`
+}
+
+func (TemplateMetricComparisonComputationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateMetricComparisonComputation)(nil)).Elem()
+}
+
+func (i TemplateMetricComparisonComputationArgs) ToTemplateMetricComparisonComputationOutput() TemplateMetricComparisonComputationOutput {
+	return i.ToTemplateMetricComparisonComputationOutputWithContext(context.Background())
+}
+
+func (i TemplateMetricComparisonComputationArgs) ToTemplateMetricComparisonComputationOutputWithContext(ctx context.Context) TemplateMetricComparisonComputationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMetricComparisonComputationOutput)
+}
+
+func (i TemplateMetricComparisonComputationArgs) ToTemplateMetricComparisonComputationPtrOutput() TemplateMetricComparisonComputationPtrOutput {
+	return i.ToTemplateMetricComparisonComputationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateMetricComparisonComputationArgs) ToTemplateMetricComparisonComputationPtrOutputWithContext(ctx context.Context) TemplateMetricComparisonComputationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMetricComparisonComputationOutput).ToTemplateMetricComparisonComputationPtrOutputWithContext(ctx)
+}
+
+// TemplateMetricComparisonComputationPtrInput is an input type that accepts TemplateMetricComparisonComputationArgs, TemplateMetricComparisonComputationPtr and TemplateMetricComparisonComputationPtrOutput values.
+// You can construct a concrete instance of `TemplateMetricComparisonComputationPtrInput` via:
+//
+//	        TemplateMetricComparisonComputationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateMetricComparisonComputationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateMetricComparisonComputationPtrOutput() TemplateMetricComparisonComputationPtrOutput
+	ToTemplateMetricComparisonComputationPtrOutputWithContext(context.Context) TemplateMetricComparisonComputationPtrOutput
+}
+
+type templateMetricComparisonComputationPtrType TemplateMetricComparisonComputationArgs
+
+func TemplateMetricComparisonComputationPtr(v *TemplateMetricComparisonComputationArgs) TemplateMetricComparisonComputationPtrInput {
+	return (*templateMetricComparisonComputationPtrType)(v)
+}
+
+func (*templateMetricComparisonComputationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateMetricComparisonComputation)(nil)).Elem()
+}
+
+func (i *templateMetricComparisonComputationPtrType) ToTemplateMetricComparisonComputationPtrOutput() TemplateMetricComparisonComputationPtrOutput {
+	return i.ToTemplateMetricComparisonComputationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateMetricComparisonComputationPtrType) ToTemplateMetricComparisonComputationPtrOutputWithContext(ctx context.Context) TemplateMetricComparisonComputationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMetricComparisonComputationPtrOutput)
+}
+
+type TemplateMetricComparisonComputationOutput struct{ *pulumi.OutputState }
+
+func (TemplateMetricComparisonComputationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateMetricComparisonComputation)(nil)).Elem()
+}
+
+func (o TemplateMetricComparisonComputationOutput) ToTemplateMetricComparisonComputationOutput() TemplateMetricComparisonComputationOutput {
+	return o
+}
+
+func (o TemplateMetricComparisonComputationOutput) ToTemplateMetricComparisonComputationOutputWithContext(ctx context.Context) TemplateMetricComparisonComputationOutput {
+	return o
+}
+
+func (o TemplateMetricComparisonComputationOutput) ToTemplateMetricComparisonComputationPtrOutput() TemplateMetricComparisonComputationPtrOutput {
+	return o.ToTemplateMetricComparisonComputationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateMetricComparisonComputationOutput) ToTemplateMetricComparisonComputationPtrOutputWithContext(ctx context.Context) TemplateMetricComparisonComputationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateMetricComparisonComputation) *TemplateMetricComparisonComputation {
+		return &v
+	}).(TemplateMetricComparisonComputationPtrOutput)
+}
+
+// The ID for a computation.
+func (o TemplateMetricComparisonComputationOutput) ComputationId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateMetricComparisonComputation) string { return v.ComputationId }).(pulumi.StringOutput)
+}
+
+// The field that is used in a metric comparison from value setup.
+func (o TemplateMetricComparisonComputationOutput) FromValue() TemplateMeasureFieldPtrOutput {
+	return o.ApplyT(func(v TemplateMetricComparisonComputation) *TemplateMeasureField { return v.FromValue }).(TemplateMeasureFieldPtrOutput)
+}
+
+// The name of a computation.
+func (o TemplateMetricComparisonComputationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateMetricComparisonComputation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The field that is used in a metric comparison to value setup.
+func (o TemplateMetricComparisonComputationOutput) TargetValue() TemplateMeasureFieldPtrOutput {
+	return o.ApplyT(func(v TemplateMetricComparisonComputation) *TemplateMeasureField { return v.TargetValue }).(TemplateMeasureFieldPtrOutput)
+}
+
+// The time field that is used in a computation.
+func (o TemplateMetricComparisonComputationOutput) Time() TemplateDimensionFieldPtrOutput {
+	return o.ApplyT(func(v TemplateMetricComparisonComputation) *TemplateDimensionField { return v.Time }).(TemplateDimensionFieldPtrOutput)
+}
+
+type TemplateMetricComparisonComputationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateMetricComparisonComputationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateMetricComparisonComputation)(nil)).Elem()
+}
+
+func (o TemplateMetricComparisonComputationPtrOutput) ToTemplateMetricComparisonComputationPtrOutput() TemplateMetricComparisonComputationPtrOutput {
+	return o
+}
+
+func (o TemplateMetricComparisonComputationPtrOutput) ToTemplateMetricComparisonComputationPtrOutputWithContext(ctx context.Context) TemplateMetricComparisonComputationPtrOutput {
+	return o
+}
+
+func (o TemplateMetricComparisonComputationPtrOutput) Elem() TemplateMetricComparisonComputationOutput {
+	return o.ApplyT(func(v *TemplateMetricComparisonComputation) TemplateMetricComparisonComputation {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateMetricComparisonComputation
+		return ret
+	}).(TemplateMetricComparisonComputationOutput)
+}
+
+// The ID for a computation.
+func (o TemplateMetricComparisonComputationPtrOutput) ComputationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateMetricComparisonComputation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ComputationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The field that is used in a metric comparison from value setup.
+func (o TemplateMetricComparisonComputationPtrOutput) FromValue() TemplateMeasureFieldPtrOutput {
+	return o.ApplyT(func(v *TemplateMetricComparisonComputation) *TemplateMeasureField {
+		if v == nil {
+			return nil
+		}
+		return v.FromValue
+	}).(TemplateMeasureFieldPtrOutput)
+}
+
+// The name of a computation.
+func (o TemplateMetricComparisonComputationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateMetricComparisonComputation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The field that is used in a metric comparison to value setup.
+func (o TemplateMetricComparisonComputationPtrOutput) TargetValue() TemplateMeasureFieldPtrOutput {
+	return o.ApplyT(func(v *TemplateMetricComparisonComputation) *TemplateMeasureField {
+		if v == nil {
+			return nil
+		}
+		return v.TargetValue
+	}).(TemplateMeasureFieldPtrOutput)
+}
+
+// The time field that is used in a computation.
+func (o TemplateMetricComparisonComputationPtrOutput) Time() TemplateDimensionFieldPtrOutput {
+	return o.ApplyT(func(v *TemplateMetricComparisonComputation) *TemplateDimensionField {
+		if v == nil {
+			return nil
+		}
+		return v.Time
+	}).(TemplateDimensionFieldPtrOutput)
+}
+
+type TemplateMinimumLabelType struct {
+	// The visibility of the minimum label.
+	Visibility interface{} `pulumi:"visibility"`
+}
+
+// TemplateMinimumLabelTypeInput is an input type that accepts TemplateMinimumLabelTypeArgs and TemplateMinimumLabelTypeOutput values.
+// You can construct a concrete instance of `TemplateMinimumLabelTypeInput` via:
+//
+//	TemplateMinimumLabelTypeArgs{...}
+type TemplateMinimumLabelTypeInput interface {
+	pulumi.Input
+
+	ToTemplateMinimumLabelTypeOutput() TemplateMinimumLabelTypeOutput
+	ToTemplateMinimumLabelTypeOutputWithContext(context.Context) TemplateMinimumLabelTypeOutput
+}
+
+type TemplateMinimumLabelTypeArgs struct {
+	// The visibility of the minimum label.
+	Visibility pulumi.Input `pulumi:"visibility"`
+}
+
+func (TemplateMinimumLabelTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateMinimumLabelType)(nil)).Elem()
+}
+
+func (i TemplateMinimumLabelTypeArgs) ToTemplateMinimumLabelTypeOutput() TemplateMinimumLabelTypeOutput {
+	return i.ToTemplateMinimumLabelTypeOutputWithContext(context.Background())
+}
+
+func (i TemplateMinimumLabelTypeArgs) ToTemplateMinimumLabelTypeOutputWithContext(ctx context.Context) TemplateMinimumLabelTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMinimumLabelTypeOutput)
+}
+
+func (i TemplateMinimumLabelTypeArgs) ToTemplateMinimumLabelTypePtrOutput() TemplateMinimumLabelTypePtrOutput {
+	return i.ToTemplateMinimumLabelTypePtrOutputWithContext(context.Background())
+}
+
+func (i TemplateMinimumLabelTypeArgs) ToTemplateMinimumLabelTypePtrOutputWithContext(ctx context.Context) TemplateMinimumLabelTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMinimumLabelTypeOutput).ToTemplateMinimumLabelTypePtrOutputWithContext(ctx)
+}
+
+// TemplateMinimumLabelTypePtrInput is an input type that accepts TemplateMinimumLabelTypeArgs, TemplateMinimumLabelTypePtr and TemplateMinimumLabelTypePtrOutput values.
+// You can construct a concrete instance of `TemplateMinimumLabelTypePtrInput` via:
+//
+//	        TemplateMinimumLabelTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateMinimumLabelTypePtrInput interface {
+	pulumi.Input
+
+	ToTemplateMinimumLabelTypePtrOutput() TemplateMinimumLabelTypePtrOutput
+	ToTemplateMinimumLabelTypePtrOutputWithContext(context.Context) TemplateMinimumLabelTypePtrOutput
+}
+
+type templateMinimumLabelTypePtrType TemplateMinimumLabelTypeArgs
+
+func TemplateMinimumLabelTypePtr(v *TemplateMinimumLabelTypeArgs) TemplateMinimumLabelTypePtrInput {
+	return (*templateMinimumLabelTypePtrType)(v)
+}
+
+func (*templateMinimumLabelTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateMinimumLabelType)(nil)).Elem()
+}
+
+func (i *templateMinimumLabelTypePtrType) ToTemplateMinimumLabelTypePtrOutput() TemplateMinimumLabelTypePtrOutput {
+	return i.ToTemplateMinimumLabelTypePtrOutputWithContext(context.Background())
+}
+
+func (i *templateMinimumLabelTypePtrType) ToTemplateMinimumLabelTypePtrOutputWithContext(ctx context.Context) TemplateMinimumLabelTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMinimumLabelTypePtrOutput)
+}
+
+type TemplateMinimumLabelTypeOutput struct{ *pulumi.OutputState }
+
+func (TemplateMinimumLabelTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateMinimumLabelType)(nil)).Elem()
+}
+
+func (o TemplateMinimumLabelTypeOutput) ToTemplateMinimumLabelTypeOutput() TemplateMinimumLabelTypeOutput {
+	return o
+}
+
+func (o TemplateMinimumLabelTypeOutput) ToTemplateMinimumLabelTypeOutputWithContext(ctx context.Context) TemplateMinimumLabelTypeOutput {
+	return o
+}
+
+func (o TemplateMinimumLabelTypeOutput) ToTemplateMinimumLabelTypePtrOutput() TemplateMinimumLabelTypePtrOutput {
+	return o.ToTemplateMinimumLabelTypePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateMinimumLabelTypeOutput) ToTemplateMinimumLabelTypePtrOutputWithContext(ctx context.Context) TemplateMinimumLabelTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateMinimumLabelType) *TemplateMinimumLabelType {
+		return &v
+	}).(TemplateMinimumLabelTypePtrOutput)
+}
+
+// The visibility of the minimum label.
+func (o TemplateMinimumLabelTypeOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateMinimumLabelType) interface{} { return v.Visibility }).(pulumi.AnyOutput)
+}
+
+type TemplateMinimumLabelTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateMinimumLabelTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateMinimumLabelType)(nil)).Elem()
+}
+
+func (o TemplateMinimumLabelTypePtrOutput) ToTemplateMinimumLabelTypePtrOutput() TemplateMinimumLabelTypePtrOutput {
+	return o
+}
+
+func (o TemplateMinimumLabelTypePtrOutput) ToTemplateMinimumLabelTypePtrOutputWithContext(ctx context.Context) TemplateMinimumLabelTypePtrOutput {
+	return o
+}
+
+func (o TemplateMinimumLabelTypePtrOutput) Elem() TemplateMinimumLabelTypeOutput {
+	return o.ApplyT(func(v *TemplateMinimumLabelType) TemplateMinimumLabelType {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateMinimumLabelType
+		return ret
+	}).(TemplateMinimumLabelTypeOutput)
+}
+
+// The visibility of the minimum label.
+func (o TemplateMinimumLabelTypePtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateMinimumLabelType) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Visibility
+	}).(pulumi.AnyOutput)
+}
+
+type TemplateMissingDataConfiguration struct {
+	// The treatment option that determines how missing data should be rendered. Choose from the following options:
+	//
+	// - `INTERPOLATE` : Interpolate missing values between the prior and the next known value.
+	// - `SHOW_AS_ZERO` : Show missing values as the value `0` .
+	// - `SHOW_AS_BLANK` : Display a blank space when rendering missing data.
+	TreatmentOption *TemplateMissingDataTreatmentOption `pulumi:"treatmentOption"`
+}
+
+// TemplateMissingDataConfigurationInput is an input type that accepts TemplateMissingDataConfigurationArgs and TemplateMissingDataConfigurationOutput values.
+// You can construct a concrete instance of `TemplateMissingDataConfigurationInput` via:
+//
+//	TemplateMissingDataConfigurationArgs{...}
+type TemplateMissingDataConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateMissingDataConfigurationOutput() TemplateMissingDataConfigurationOutput
+	ToTemplateMissingDataConfigurationOutputWithContext(context.Context) TemplateMissingDataConfigurationOutput
+}
+
+type TemplateMissingDataConfigurationArgs struct {
+	// The treatment option that determines how missing data should be rendered. Choose from the following options:
+	//
+	// - `INTERPOLATE` : Interpolate missing values between the prior and the next known value.
+	// - `SHOW_AS_ZERO` : Show missing values as the value `0` .
+	// - `SHOW_AS_BLANK` : Display a blank space when rendering missing data.
+	TreatmentOption TemplateMissingDataTreatmentOptionPtrInput `pulumi:"treatmentOption"`
+}
+
+func (TemplateMissingDataConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateMissingDataConfiguration)(nil)).Elem()
+}
+
+func (i TemplateMissingDataConfigurationArgs) ToTemplateMissingDataConfigurationOutput() TemplateMissingDataConfigurationOutput {
+	return i.ToTemplateMissingDataConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateMissingDataConfigurationArgs) ToTemplateMissingDataConfigurationOutputWithContext(ctx context.Context) TemplateMissingDataConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMissingDataConfigurationOutput)
+}
+
+// TemplateMissingDataConfigurationArrayInput is an input type that accepts TemplateMissingDataConfigurationArray and TemplateMissingDataConfigurationArrayOutput values.
+// You can construct a concrete instance of `TemplateMissingDataConfigurationArrayInput` via:
+//
+//	TemplateMissingDataConfigurationArray{ TemplateMissingDataConfigurationArgs{...} }
+type TemplateMissingDataConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToTemplateMissingDataConfigurationArrayOutput() TemplateMissingDataConfigurationArrayOutput
+	ToTemplateMissingDataConfigurationArrayOutputWithContext(context.Context) TemplateMissingDataConfigurationArrayOutput
+}
+
+type TemplateMissingDataConfigurationArray []TemplateMissingDataConfigurationInput
+
+func (TemplateMissingDataConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateMissingDataConfiguration)(nil)).Elem()
+}
+
+func (i TemplateMissingDataConfigurationArray) ToTemplateMissingDataConfigurationArrayOutput() TemplateMissingDataConfigurationArrayOutput {
+	return i.ToTemplateMissingDataConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateMissingDataConfigurationArray) ToTemplateMissingDataConfigurationArrayOutputWithContext(ctx context.Context) TemplateMissingDataConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMissingDataConfigurationArrayOutput)
+}
+
+type TemplateMissingDataConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateMissingDataConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateMissingDataConfiguration)(nil)).Elem()
+}
+
+func (o TemplateMissingDataConfigurationOutput) ToTemplateMissingDataConfigurationOutput() TemplateMissingDataConfigurationOutput {
+	return o
+}
+
+func (o TemplateMissingDataConfigurationOutput) ToTemplateMissingDataConfigurationOutputWithContext(ctx context.Context) TemplateMissingDataConfigurationOutput {
+	return o
+}
+
+// The treatment option that determines how missing data should be rendered. Choose from the following options:
+//
+// - `INTERPOLATE` : Interpolate missing values between the prior and the next known value.
+// - `SHOW_AS_ZERO` : Show missing values as the value `0` .
+// - `SHOW_AS_BLANK` : Display a blank space when rendering missing data.
+func (o TemplateMissingDataConfigurationOutput) TreatmentOption() TemplateMissingDataTreatmentOptionPtrOutput {
+	return o.ApplyT(func(v TemplateMissingDataConfiguration) *TemplateMissingDataTreatmentOption { return v.TreatmentOption }).(TemplateMissingDataTreatmentOptionPtrOutput)
+}
+
+type TemplateMissingDataConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateMissingDataConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateMissingDataConfiguration)(nil)).Elem()
+}
+
+func (o TemplateMissingDataConfigurationArrayOutput) ToTemplateMissingDataConfigurationArrayOutput() TemplateMissingDataConfigurationArrayOutput {
+	return o
+}
+
+func (o TemplateMissingDataConfigurationArrayOutput) ToTemplateMissingDataConfigurationArrayOutputWithContext(ctx context.Context) TemplateMissingDataConfigurationArrayOutput {
+	return o
+}
+
+func (o TemplateMissingDataConfigurationArrayOutput) Index(i pulumi.IntInput) TemplateMissingDataConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateMissingDataConfiguration {
+		return vs[0].([]TemplateMissingDataConfiguration)[vs[1].(int)]
+	}).(TemplateMissingDataConfigurationOutput)
+}
+
+type TemplateNegativeValueConfiguration struct {
+	// Determines the display mode of the negative value configuration.
+	DisplayMode TemplateNegativeValueDisplayMode `pulumi:"displayMode"`
+}
+
+// TemplateNegativeValueConfigurationInput is an input type that accepts TemplateNegativeValueConfigurationArgs and TemplateNegativeValueConfigurationOutput values.
+// You can construct a concrete instance of `TemplateNegativeValueConfigurationInput` via:
+//
+//	TemplateNegativeValueConfigurationArgs{...}
+type TemplateNegativeValueConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateNegativeValueConfigurationOutput() TemplateNegativeValueConfigurationOutput
+	ToTemplateNegativeValueConfigurationOutputWithContext(context.Context) TemplateNegativeValueConfigurationOutput
+}
+
+type TemplateNegativeValueConfigurationArgs struct {
+	// Determines the display mode of the negative value configuration.
+	DisplayMode TemplateNegativeValueDisplayModeInput `pulumi:"displayMode"`
+}
+
+func (TemplateNegativeValueConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNegativeValueConfiguration)(nil)).Elem()
+}
+
+func (i TemplateNegativeValueConfigurationArgs) ToTemplateNegativeValueConfigurationOutput() TemplateNegativeValueConfigurationOutput {
+	return i.ToTemplateNegativeValueConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateNegativeValueConfigurationArgs) ToTemplateNegativeValueConfigurationOutputWithContext(ctx context.Context) TemplateNegativeValueConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNegativeValueConfigurationOutput)
+}
+
+func (i TemplateNegativeValueConfigurationArgs) ToTemplateNegativeValueConfigurationPtrOutput() TemplateNegativeValueConfigurationPtrOutput {
+	return i.ToTemplateNegativeValueConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateNegativeValueConfigurationArgs) ToTemplateNegativeValueConfigurationPtrOutputWithContext(ctx context.Context) TemplateNegativeValueConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNegativeValueConfigurationOutput).ToTemplateNegativeValueConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateNegativeValueConfigurationPtrInput is an input type that accepts TemplateNegativeValueConfigurationArgs, TemplateNegativeValueConfigurationPtr and TemplateNegativeValueConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateNegativeValueConfigurationPtrInput` via:
+//
+//	        TemplateNegativeValueConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateNegativeValueConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateNegativeValueConfigurationPtrOutput() TemplateNegativeValueConfigurationPtrOutput
+	ToTemplateNegativeValueConfigurationPtrOutputWithContext(context.Context) TemplateNegativeValueConfigurationPtrOutput
+}
+
+type templateNegativeValueConfigurationPtrType TemplateNegativeValueConfigurationArgs
+
+func TemplateNegativeValueConfigurationPtr(v *TemplateNegativeValueConfigurationArgs) TemplateNegativeValueConfigurationPtrInput {
+	return (*templateNegativeValueConfigurationPtrType)(v)
+}
+
+func (*templateNegativeValueConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNegativeValueConfiguration)(nil)).Elem()
+}
+
+func (i *templateNegativeValueConfigurationPtrType) ToTemplateNegativeValueConfigurationPtrOutput() TemplateNegativeValueConfigurationPtrOutput {
+	return i.ToTemplateNegativeValueConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateNegativeValueConfigurationPtrType) ToTemplateNegativeValueConfigurationPtrOutputWithContext(ctx context.Context) TemplateNegativeValueConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNegativeValueConfigurationPtrOutput)
+}
+
+type TemplateNegativeValueConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateNegativeValueConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNegativeValueConfiguration)(nil)).Elem()
+}
+
+func (o TemplateNegativeValueConfigurationOutput) ToTemplateNegativeValueConfigurationOutput() TemplateNegativeValueConfigurationOutput {
+	return o
+}
+
+func (o TemplateNegativeValueConfigurationOutput) ToTemplateNegativeValueConfigurationOutputWithContext(ctx context.Context) TemplateNegativeValueConfigurationOutput {
+	return o
+}
+
+func (o TemplateNegativeValueConfigurationOutput) ToTemplateNegativeValueConfigurationPtrOutput() TemplateNegativeValueConfigurationPtrOutput {
+	return o.ToTemplateNegativeValueConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateNegativeValueConfigurationOutput) ToTemplateNegativeValueConfigurationPtrOutputWithContext(ctx context.Context) TemplateNegativeValueConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateNegativeValueConfiguration) *TemplateNegativeValueConfiguration {
+		return &v
+	}).(TemplateNegativeValueConfigurationPtrOutput)
+}
+
+// Determines the display mode of the negative value configuration.
+func (o TemplateNegativeValueConfigurationOutput) DisplayMode() TemplateNegativeValueDisplayModeOutput {
+	return o.ApplyT(func(v TemplateNegativeValueConfiguration) TemplateNegativeValueDisplayMode { return v.DisplayMode }).(TemplateNegativeValueDisplayModeOutput)
+}
+
+type TemplateNegativeValueConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateNegativeValueConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNegativeValueConfiguration)(nil)).Elem()
+}
+
+func (o TemplateNegativeValueConfigurationPtrOutput) ToTemplateNegativeValueConfigurationPtrOutput() TemplateNegativeValueConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateNegativeValueConfigurationPtrOutput) ToTemplateNegativeValueConfigurationPtrOutputWithContext(ctx context.Context) TemplateNegativeValueConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateNegativeValueConfigurationPtrOutput) Elem() TemplateNegativeValueConfigurationOutput {
+	return o.ApplyT(func(v *TemplateNegativeValueConfiguration) TemplateNegativeValueConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateNegativeValueConfiguration
+		return ret
+	}).(TemplateNegativeValueConfigurationOutput)
+}
+
+// Determines the display mode of the negative value configuration.
+func (o TemplateNegativeValueConfigurationPtrOutput) DisplayMode() TemplateNegativeValueDisplayModePtrOutput {
+	return o.ApplyT(func(v *TemplateNegativeValueConfiguration) *TemplateNegativeValueDisplayMode {
+		if v == nil {
+			return nil
+		}
+		return &v.DisplayMode
+	}).(TemplateNegativeValueDisplayModePtrOutput)
+}
+
+type TemplateNestedFilter struct {
+	// The column that the filter is applied to.
+	Column TemplateColumnIdentifier `pulumi:"column"`
+	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	FilterId string `pulumi:"filterId"`
+	// A boolean condition to include or exclude the subset that is defined by the values of the nested inner filter.
+	IncludeInnerSet bool `pulumi:"includeInnerSet"`
+	// The `InnerFilter` defines the subset of data to be used with the `NestedFilter` .
+	InnerFilter TemplateInnerFilter `pulumi:"innerFilter"`
+}
+
+// TemplateNestedFilterInput is an input type that accepts TemplateNestedFilterArgs and TemplateNestedFilterOutput values.
+// You can construct a concrete instance of `TemplateNestedFilterInput` via:
+//
+//	TemplateNestedFilterArgs{...}
+type TemplateNestedFilterInput interface {
+	pulumi.Input
+
+	ToTemplateNestedFilterOutput() TemplateNestedFilterOutput
+	ToTemplateNestedFilterOutputWithContext(context.Context) TemplateNestedFilterOutput
+}
+
+type TemplateNestedFilterArgs struct {
+	// The column that the filter is applied to.
+	Column TemplateColumnIdentifierInput `pulumi:"column"`
+	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	FilterId pulumi.StringInput `pulumi:"filterId"`
+	// A boolean condition to include or exclude the subset that is defined by the values of the nested inner filter.
+	IncludeInnerSet pulumi.BoolInput `pulumi:"includeInnerSet"`
+	// The `InnerFilter` defines the subset of data to be used with the `NestedFilter` .
+	InnerFilter TemplateInnerFilterInput `pulumi:"innerFilter"`
+}
+
+func (TemplateNestedFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNestedFilter)(nil)).Elem()
+}
+
+func (i TemplateNestedFilterArgs) ToTemplateNestedFilterOutput() TemplateNestedFilterOutput {
+	return i.ToTemplateNestedFilterOutputWithContext(context.Background())
+}
+
+func (i TemplateNestedFilterArgs) ToTemplateNestedFilterOutputWithContext(ctx context.Context) TemplateNestedFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNestedFilterOutput)
+}
+
+func (i TemplateNestedFilterArgs) ToTemplateNestedFilterPtrOutput() TemplateNestedFilterPtrOutput {
+	return i.ToTemplateNestedFilterPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateNestedFilterArgs) ToTemplateNestedFilterPtrOutputWithContext(ctx context.Context) TemplateNestedFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNestedFilterOutput).ToTemplateNestedFilterPtrOutputWithContext(ctx)
+}
+
+// TemplateNestedFilterPtrInput is an input type that accepts TemplateNestedFilterArgs, TemplateNestedFilterPtr and TemplateNestedFilterPtrOutput values.
+// You can construct a concrete instance of `TemplateNestedFilterPtrInput` via:
+//
+//	        TemplateNestedFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateNestedFilterPtrInput interface {
+	pulumi.Input
+
+	ToTemplateNestedFilterPtrOutput() TemplateNestedFilterPtrOutput
+	ToTemplateNestedFilterPtrOutputWithContext(context.Context) TemplateNestedFilterPtrOutput
+}
+
+type templateNestedFilterPtrType TemplateNestedFilterArgs
+
+func TemplateNestedFilterPtr(v *TemplateNestedFilterArgs) TemplateNestedFilterPtrInput {
+	return (*templateNestedFilterPtrType)(v)
+}
+
+func (*templateNestedFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNestedFilter)(nil)).Elem()
+}
+
+func (i *templateNestedFilterPtrType) ToTemplateNestedFilterPtrOutput() TemplateNestedFilterPtrOutput {
+	return i.ToTemplateNestedFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *templateNestedFilterPtrType) ToTemplateNestedFilterPtrOutputWithContext(ctx context.Context) TemplateNestedFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNestedFilterPtrOutput)
+}
+
+type TemplateNestedFilterOutput struct{ *pulumi.OutputState }
+
+func (TemplateNestedFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNestedFilter)(nil)).Elem()
+}
+
+func (o TemplateNestedFilterOutput) ToTemplateNestedFilterOutput() TemplateNestedFilterOutput {
+	return o
+}
+
+func (o TemplateNestedFilterOutput) ToTemplateNestedFilterOutputWithContext(ctx context.Context) TemplateNestedFilterOutput {
+	return o
+}
+
+func (o TemplateNestedFilterOutput) ToTemplateNestedFilterPtrOutput() TemplateNestedFilterPtrOutput {
+	return o.ToTemplateNestedFilterPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateNestedFilterOutput) ToTemplateNestedFilterPtrOutputWithContext(ctx context.Context) TemplateNestedFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateNestedFilter) *TemplateNestedFilter {
+		return &v
+	}).(TemplateNestedFilterPtrOutput)
+}
+
+// The column that the filter is applied to.
+func (o TemplateNestedFilterOutput) Column() TemplateColumnIdentifierOutput {
+	return o.ApplyT(func(v TemplateNestedFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
+}
+
+// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+func (o TemplateNestedFilterOutput) FilterId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateNestedFilter) string { return v.FilterId }).(pulumi.StringOutput)
+}
+
+// A boolean condition to include or exclude the subset that is defined by the values of the nested inner filter.
+func (o TemplateNestedFilterOutput) IncludeInnerSet() pulumi.BoolOutput {
+	return o.ApplyT(func(v TemplateNestedFilter) bool { return v.IncludeInnerSet }).(pulumi.BoolOutput)
+}
+
+// The `InnerFilter` defines the subset of data to be used with the `NestedFilter` .
+func (o TemplateNestedFilterOutput) InnerFilter() TemplateInnerFilterOutput {
+	return o.ApplyT(func(v TemplateNestedFilter) TemplateInnerFilter { return v.InnerFilter }).(TemplateInnerFilterOutput)
+}
+
+type TemplateNestedFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateNestedFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNestedFilter)(nil)).Elem()
+}
+
+func (o TemplateNestedFilterPtrOutput) ToTemplateNestedFilterPtrOutput() TemplateNestedFilterPtrOutput {
+	return o
+}
+
+func (o TemplateNestedFilterPtrOutput) ToTemplateNestedFilterPtrOutputWithContext(ctx context.Context) TemplateNestedFilterPtrOutput {
+	return o
+}
+
+func (o TemplateNestedFilterPtrOutput) Elem() TemplateNestedFilterOutput {
+	return o.ApplyT(func(v *TemplateNestedFilter) TemplateNestedFilter {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateNestedFilter
+		return ret
+	}).(TemplateNestedFilterOutput)
+}
+
+// The column that the filter is applied to.
+func (o TemplateNestedFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v *TemplateNestedFilter) *TemplateColumnIdentifier {
+		if v == nil {
+			return nil
+		}
+		return &v.Column
+	}).(TemplateColumnIdentifierPtrOutput)
+}
+
+// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+func (o TemplateNestedFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateNestedFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FilterId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A boolean condition to include or exclude the subset that is defined by the values of the nested inner filter.
+func (o TemplateNestedFilterPtrOutput) IncludeInnerSet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateNestedFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IncludeInnerSet
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The `InnerFilter` defines the subset of data to be used with the `NestedFilter` .
+func (o TemplateNestedFilterPtrOutput) InnerFilter() TemplateInnerFilterPtrOutput {
+	return o.ApplyT(func(v *TemplateNestedFilter) *TemplateInnerFilter {
+		if v == nil {
+			return nil
+		}
+		return &v.InnerFilter
+	}).(TemplateInnerFilterPtrOutput)
+}
+
+type TemplateNullValueFormatConfiguration struct {
+	// Determines the null string of null values.
+	NullString string `pulumi:"nullString"`
+}
+
+// TemplateNullValueFormatConfigurationInput is an input type that accepts TemplateNullValueFormatConfigurationArgs and TemplateNullValueFormatConfigurationOutput values.
+// You can construct a concrete instance of `TemplateNullValueFormatConfigurationInput` via:
+//
+//	TemplateNullValueFormatConfigurationArgs{...}
+type TemplateNullValueFormatConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateNullValueFormatConfigurationOutput() TemplateNullValueFormatConfigurationOutput
+	ToTemplateNullValueFormatConfigurationOutputWithContext(context.Context) TemplateNullValueFormatConfigurationOutput
+}
+
+type TemplateNullValueFormatConfigurationArgs struct {
+	// Determines the null string of null values.
+	NullString pulumi.StringInput `pulumi:"nullString"`
+}
+
+func (TemplateNullValueFormatConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNullValueFormatConfiguration)(nil)).Elem()
+}
+
+func (i TemplateNullValueFormatConfigurationArgs) ToTemplateNullValueFormatConfigurationOutput() TemplateNullValueFormatConfigurationOutput {
+	return i.ToTemplateNullValueFormatConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateNullValueFormatConfigurationArgs) ToTemplateNullValueFormatConfigurationOutputWithContext(ctx context.Context) TemplateNullValueFormatConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNullValueFormatConfigurationOutput)
+}
+
+func (i TemplateNullValueFormatConfigurationArgs) ToTemplateNullValueFormatConfigurationPtrOutput() TemplateNullValueFormatConfigurationPtrOutput {
+	return i.ToTemplateNullValueFormatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateNullValueFormatConfigurationArgs) ToTemplateNullValueFormatConfigurationPtrOutputWithContext(ctx context.Context) TemplateNullValueFormatConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNullValueFormatConfigurationOutput).ToTemplateNullValueFormatConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateNullValueFormatConfigurationPtrInput is an input type that accepts TemplateNullValueFormatConfigurationArgs, TemplateNullValueFormatConfigurationPtr and TemplateNullValueFormatConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateNullValueFormatConfigurationPtrInput` via:
+//
+//	        TemplateNullValueFormatConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateNullValueFormatConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateNullValueFormatConfigurationPtrOutput() TemplateNullValueFormatConfigurationPtrOutput
+	ToTemplateNullValueFormatConfigurationPtrOutputWithContext(context.Context) TemplateNullValueFormatConfigurationPtrOutput
+}
+
+type templateNullValueFormatConfigurationPtrType TemplateNullValueFormatConfigurationArgs
+
+func TemplateNullValueFormatConfigurationPtr(v *TemplateNullValueFormatConfigurationArgs) TemplateNullValueFormatConfigurationPtrInput {
+	return (*templateNullValueFormatConfigurationPtrType)(v)
+}
+
+func (*templateNullValueFormatConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNullValueFormatConfiguration)(nil)).Elem()
+}
+
+func (i *templateNullValueFormatConfigurationPtrType) ToTemplateNullValueFormatConfigurationPtrOutput() TemplateNullValueFormatConfigurationPtrOutput {
+	return i.ToTemplateNullValueFormatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateNullValueFormatConfigurationPtrType) ToTemplateNullValueFormatConfigurationPtrOutputWithContext(ctx context.Context) TemplateNullValueFormatConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNullValueFormatConfigurationPtrOutput)
+}
+
+type TemplateNullValueFormatConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateNullValueFormatConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNullValueFormatConfiguration)(nil)).Elem()
+}
+
+func (o TemplateNullValueFormatConfigurationOutput) ToTemplateNullValueFormatConfigurationOutput() TemplateNullValueFormatConfigurationOutput {
+	return o
+}
+
+func (o TemplateNullValueFormatConfigurationOutput) ToTemplateNullValueFormatConfigurationOutputWithContext(ctx context.Context) TemplateNullValueFormatConfigurationOutput {
+	return o
+}
+
+func (o TemplateNullValueFormatConfigurationOutput) ToTemplateNullValueFormatConfigurationPtrOutput() TemplateNullValueFormatConfigurationPtrOutput {
+	return o.ToTemplateNullValueFormatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateNullValueFormatConfigurationOutput) ToTemplateNullValueFormatConfigurationPtrOutputWithContext(ctx context.Context) TemplateNullValueFormatConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateNullValueFormatConfiguration) *TemplateNullValueFormatConfiguration {
+		return &v
+	}).(TemplateNullValueFormatConfigurationPtrOutput)
+}
+
+// Determines the null string of null values.
+func (o TemplateNullValueFormatConfigurationOutput) NullString() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateNullValueFormatConfiguration) string { return v.NullString }).(pulumi.StringOutput)
+}
+
+type TemplateNullValueFormatConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateNullValueFormatConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNullValueFormatConfiguration)(nil)).Elem()
+}
+
+func (o TemplateNullValueFormatConfigurationPtrOutput) ToTemplateNullValueFormatConfigurationPtrOutput() TemplateNullValueFormatConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateNullValueFormatConfigurationPtrOutput) ToTemplateNullValueFormatConfigurationPtrOutputWithContext(ctx context.Context) TemplateNullValueFormatConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateNullValueFormatConfigurationPtrOutput) Elem() TemplateNullValueFormatConfigurationOutput {
+	return o.ApplyT(func(v *TemplateNullValueFormatConfiguration) TemplateNullValueFormatConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateNullValueFormatConfiguration
+		return ret
+	}).(TemplateNullValueFormatConfigurationOutput)
+}
+
+// Determines the null string of null values.
+func (o TemplateNullValueFormatConfigurationPtrOutput) NullString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateNullValueFormatConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NullString
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateNumberDisplayFormatConfiguration struct {
+	// The option that determines the decimal places configuration.
+	DecimalPlacesConfiguration *TemplateDecimalPlacesConfiguration `pulumi:"decimalPlacesConfiguration"`
+	// The options that determine the negative value configuration.
+	NegativeValueConfiguration *TemplateNegativeValueConfiguration `pulumi:"negativeValueConfiguration"`
+	// The options that determine the null value format configuration.
+	NullValueFormatConfiguration *TemplateNullValueFormatConfiguration `pulumi:"nullValueFormatConfiguration"`
+	// Determines the number scale value of the number format.
+	NumberScale *TemplateNumberScale `pulumi:"numberScale"`
+	// Determines the prefix value of the number format.
+	Prefix *string `pulumi:"prefix"`
+	// The options that determine the numeric separator configuration.
+	SeparatorConfiguration *TemplateNumericSeparatorConfiguration `pulumi:"separatorConfiguration"`
+	// Determines the suffix value of the number format.
+	Suffix *string `pulumi:"suffix"`
+}
+
+// TemplateNumberDisplayFormatConfigurationInput is an input type that accepts TemplateNumberDisplayFormatConfigurationArgs and TemplateNumberDisplayFormatConfigurationOutput values.
+// You can construct a concrete instance of `TemplateNumberDisplayFormatConfigurationInput` via:
+//
+//	TemplateNumberDisplayFormatConfigurationArgs{...}
+type TemplateNumberDisplayFormatConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateNumberDisplayFormatConfigurationOutput() TemplateNumberDisplayFormatConfigurationOutput
+	ToTemplateNumberDisplayFormatConfigurationOutputWithContext(context.Context) TemplateNumberDisplayFormatConfigurationOutput
+}
+
+type TemplateNumberDisplayFormatConfigurationArgs struct {
+	// The option that determines the decimal places configuration.
+	DecimalPlacesConfiguration TemplateDecimalPlacesConfigurationPtrInput `pulumi:"decimalPlacesConfiguration"`
+	// The options that determine the negative value configuration.
+	NegativeValueConfiguration TemplateNegativeValueConfigurationPtrInput `pulumi:"negativeValueConfiguration"`
+	// The options that determine the null value format configuration.
+	NullValueFormatConfiguration TemplateNullValueFormatConfigurationPtrInput `pulumi:"nullValueFormatConfiguration"`
+	// Determines the number scale value of the number format.
+	NumberScale TemplateNumberScalePtrInput `pulumi:"numberScale"`
+	// Determines the prefix value of the number format.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// The options that determine the numeric separator configuration.
+	SeparatorConfiguration TemplateNumericSeparatorConfigurationPtrInput `pulumi:"separatorConfiguration"`
+	// Determines the suffix value of the number format.
+	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
+}
+
+func (TemplateNumberDisplayFormatConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumberDisplayFormatConfiguration)(nil)).Elem()
+}
+
+func (i TemplateNumberDisplayFormatConfigurationArgs) ToTemplateNumberDisplayFormatConfigurationOutput() TemplateNumberDisplayFormatConfigurationOutput {
+	return i.ToTemplateNumberDisplayFormatConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateNumberDisplayFormatConfigurationArgs) ToTemplateNumberDisplayFormatConfigurationOutputWithContext(ctx context.Context) TemplateNumberDisplayFormatConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumberDisplayFormatConfigurationOutput)
+}
+
+func (i TemplateNumberDisplayFormatConfigurationArgs) ToTemplateNumberDisplayFormatConfigurationPtrOutput() TemplateNumberDisplayFormatConfigurationPtrOutput {
+	return i.ToTemplateNumberDisplayFormatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateNumberDisplayFormatConfigurationArgs) ToTemplateNumberDisplayFormatConfigurationPtrOutputWithContext(ctx context.Context) TemplateNumberDisplayFormatConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumberDisplayFormatConfigurationOutput).ToTemplateNumberDisplayFormatConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateNumberDisplayFormatConfigurationPtrInput is an input type that accepts TemplateNumberDisplayFormatConfigurationArgs, TemplateNumberDisplayFormatConfigurationPtr and TemplateNumberDisplayFormatConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateNumberDisplayFormatConfigurationPtrInput` via:
+//
+//	        TemplateNumberDisplayFormatConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateNumberDisplayFormatConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateNumberDisplayFormatConfigurationPtrOutput() TemplateNumberDisplayFormatConfigurationPtrOutput
+	ToTemplateNumberDisplayFormatConfigurationPtrOutputWithContext(context.Context) TemplateNumberDisplayFormatConfigurationPtrOutput
+}
+
+type templateNumberDisplayFormatConfigurationPtrType TemplateNumberDisplayFormatConfigurationArgs
+
+func TemplateNumberDisplayFormatConfigurationPtr(v *TemplateNumberDisplayFormatConfigurationArgs) TemplateNumberDisplayFormatConfigurationPtrInput {
+	return (*templateNumberDisplayFormatConfigurationPtrType)(v)
+}
+
+func (*templateNumberDisplayFormatConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumberDisplayFormatConfiguration)(nil)).Elem()
+}
+
+func (i *templateNumberDisplayFormatConfigurationPtrType) ToTemplateNumberDisplayFormatConfigurationPtrOutput() TemplateNumberDisplayFormatConfigurationPtrOutput {
+	return i.ToTemplateNumberDisplayFormatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateNumberDisplayFormatConfigurationPtrType) ToTemplateNumberDisplayFormatConfigurationPtrOutputWithContext(ctx context.Context) TemplateNumberDisplayFormatConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumberDisplayFormatConfigurationPtrOutput)
+}
+
+type TemplateNumberDisplayFormatConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumberDisplayFormatConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumberDisplayFormatConfiguration)(nil)).Elem()
+}
+
+func (o TemplateNumberDisplayFormatConfigurationOutput) ToTemplateNumberDisplayFormatConfigurationOutput() TemplateNumberDisplayFormatConfigurationOutput {
+	return o
+}
+
+func (o TemplateNumberDisplayFormatConfigurationOutput) ToTemplateNumberDisplayFormatConfigurationOutputWithContext(ctx context.Context) TemplateNumberDisplayFormatConfigurationOutput {
+	return o
+}
+
+func (o TemplateNumberDisplayFormatConfigurationOutput) ToTemplateNumberDisplayFormatConfigurationPtrOutput() TemplateNumberDisplayFormatConfigurationPtrOutput {
+	return o.ToTemplateNumberDisplayFormatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateNumberDisplayFormatConfigurationOutput) ToTemplateNumberDisplayFormatConfigurationPtrOutputWithContext(ctx context.Context) TemplateNumberDisplayFormatConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateNumberDisplayFormatConfiguration) *TemplateNumberDisplayFormatConfiguration {
+		return &v
+	}).(TemplateNumberDisplayFormatConfigurationPtrOutput)
+}
+
+// The option that determines the decimal places configuration.
+func (o TemplateNumberDisplayFormatConfigurationOutput) DecimalPlacesConfiguration() TemplateDecimalPlacesConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateNumberDisplayFormatConfiguration) *TemplateDecimalPlacesConfiguration {
+		return v.DecimalPlacesConfiguration
+	}).(TemplateDecimalPlacesConfigurationPtrOutput)
+}
+
+// The options that determine the negative value configuration.
+func (o TemplateNumberDisplayFormatConfigurationOutput) NegativeValueConfiguration() TemplateNegativeValueConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateNumberDisplayFormatConfiguration) *TemplateNegativeValueConfiguration {
+		return v.NegativeValueConfiguration
+	}).(TemplateNegativeValueConfigurationPtrOutput)
+}
+
+// The options that determine the null value format configuration.
+func (o TemplateNumberDisplayFormatConfigurationOutput) NullValueFormatConfiguration() TemplateNullValueFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateNumberDisplayFormatConfiguration) *TemplateNullValueFormatConfiguration {
+		return v.NullValueFormatConfiguration
+	}).(TemplateNullValueFormatConfigurationPtrOutput)
+}
+
+// Determines the number scale value of the number format.
+func (o TemplateNumberDisplayFormatConfigurationOutput) NumberScale() TemplateNumberScalePtrOutput {
+	return o.ApplyT(func(v TemplateNumberDisplayFormatConfiguration) *TemplateNumberScale { return v.NumberScale }).(TemplateNumberScalePtrOutput)
+}
+
+// Determines the prefix value of the number format.
+func (o TemplateNumberDisplayFormatConfigurationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateNumberDisplayFormatConfiguration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// The options that determine the numeric separator configuration.
+func (o TemplateNumberDisplayFormatConfigurationOutput) SeparatorConfiguration() TemplateNumericSeparatorConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateNumberDisplayFormatConfiguration) *TemplateNumericSeparatorConfiguration {
+		return v.SeparatorConfiguration
+	}).(TemplateNumericSeparatorConfigurationPtrOutput)
+}
+
+// Determines the suffix value of the number format.
+func (o TemplateNumberDisplayFormatConfigurationOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateNumberDisplayFormatConfiguration) *string { return v.Suffix }).(pulumi.StringPtrOutput)
+}
+
+type TemplateNumberDisplayFormatConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumberDisplayFormatConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumberDisplayFormatConfiguration)(nil)).Elem()
+}
+
+func (o TemplateNumberDisplayFormatConfigurationPtrOutput) ToTemplateNumberDisplayFormatConfigurationPtrOutput() TemplateNumberDisplayFormatConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateNumberDisplayFormatConfigurationPtrOutput) ToTemplateNumberDisplayFormatConfigurationPtrOutputWithContext(ctx context.Context) TemplateNumberDisplayFormatConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateNumberDisplayFormatConfigurationPtrOutput) Elem() TemplateNumberDisplayFormatConfigurationOutput {
+	return o.ApplyT(func(v *TemplateNumberDisplayFormatConfiguration) TemplateNumberDisplayFormatConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateNumberDisplayFormatConfiguration
+		return ret
+	}).(TemplateNumberDisplayFormatConfigurationOutput)
+}
+
+// The option that determines the decimal places configuration.
+func (o TemplateNumberDisplayFormatConfigurationPtrOutput) DecimalPlacesConfiguration() TemplateDecimalPlacesConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateNumberDisplayFormatConfiguration) *TemplateDecimalPlacesConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DecimalPlacesConfiguration
+	}).(TemplateDecimalPlacesConfigurationPtrOutput)
+}
+
+// The options that determine the negative value configuration.
+func (o TemplateNumberDisplayFormatConfigurationPtrOutput) NegativeValueConfiguration() TemplateNegativeValueConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateNumberDisplayFormatConfiguration) *TemplateNegativeValueConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.NegativeValueConfiguration
+	}).(TemplateNegativeValueConfigurationPtrOutput)
+}
+
+// The options that determine the null value format configuration.
+func (o TemplateNumberDisplayFormatConfigurationPtrOutput) NullValueFormatConfiguration() TemplateNullValueFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateNumberDisplayFormatConfiguration) *TemplateNullValueFormatConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.NullValueFormatConfiguration
+	}).(TemplateNullValueFormatConfigurationPtrOutput)
+}
+
+// Determines the number scale value of the number format.
+func (o TemplateNumberDisplayFormatConfigurationPtrOutput) NumberScale() TemplateNumberScalePtrOutput {
+	return o.ApplyT(func(v *TemplateNumberDisplayFormatConfiguration) *TemplateNumberScale {
+		if v == nil {
+			return nil
+		}
+		return v.NumberScale
+	}).(TemplateNumberScalePtrOutput)
+}
+
+// Determines the prefix value of the number format.
+func (o TemplateNumberDisplayFormatConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateNumberDisplayFormatConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The options that determine the numeric separator configuration.
+func (o TemplateNumberDisplayFormatConfigurationPtrOutput) SeparatorConfiguration() TemplateNumericSeparatorConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateNumberDisplayFormatConfiguration) *TemplateNumericSeparatorConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SeparatorConfiguration
+	}).(TemplateNumericSeparatorConfigurationPtrOutput)
+}
+
+// Determines the suffix value of the number format.
+func (o TemplateNumberDisplayFormatConfigurationPtrOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateNumberDisplayFormatConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Suffix
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateNumberFormatConfiguration struct {
+	// The options that determine the numeric format configuration.
+	FormatConfiguration *TemplateNumericFormatConfiguration `pulumi:"formatConfiguration"`
+}
+
+// TemplateNumberFormatConfigurationInput is an input type that accepts TemplateNumberFormatConfigurationArgs and TemplateNumberFormatConfigurationOutput values.
+// You can construct a concrete instance of `TemplateNumberFormatConfigurationInput` via:
+//
+//	TemplateNumberFormatConfigurationArgs{...}
+type TemplateNumberFormatConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateNumberFormatConfigurationOutput() TemplateNumberFormatConfigurationOutput
+	ToTemplateNumberFormatConfigurationOutputWithContext(context.Context) TemplateNumberFormatConfigurationOutput
+}
+
+type TemplateNumberFormatConfigurationArgs struct {
+	// The options that determine the numeric format configuration.
+	FormatConfiguration TemplateNumericFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
+}
+
+func (TemplateNumberFormatConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumberFormatConfiguration)(nil)).Elem()
+}
+
+func (i TemplateNumberFormatConfigurationArgs) ToTemplateNumberFormatConfigurationOutput() TemplateNumberFormatConfigurationOutput {
+	return i.ToTemplateNumberFormatConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateNumberFormatConfigurationArgs) ToTemplateNumberFormatConfigurationOutputWithContext(ctx context.Context) TemplateNumberFormatConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumberFormatConfigurationOutput)
+}
+
+func (i TemplateNumberFormatConfigurationArgs) ToTemplateNumberFormatConfigurationPtrOutput() TemplateNumberFormatConfigurationPtrOutput {
+	return i.ToTemplateNumberFormatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateNumberFormatConfigurationArgs) ToTemplateNumberFormatConfigurationPtrOutputWithContext(ctx context.Context) TemplateNumberFormatConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumberFormatConfigurationOutput).ToTemplateNumberFormatConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateNumberFormatConfigurationPtrInput is an input type that accepts TemplateNumberFormatConfigurationArgs, TemplateNumberFormatConfigurationPtr and TemplateNumberFormatConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateNumberFormatConfigurationPtrInput` via:
+//
+//	        TemplateNumberFormatConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateNumberFormatConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateNumberFormatConfigurationPtrOutput() TemplateNumberFormatConfigurationPtrOutput
+	ToTemplateNumberFormatConfigurationPtrOutputWithContext(context.Context) TemplateNumberFormatConfigurationPtrOutput
+}
+
+type templateNumberFormatConfigurationPtrType TemplateNumberFormatConfigurationArgs
+
+func TemplateNumberFormatConfigurationPtr(v *TemplateNumberFormatConfigurationArgs) TemplateNumberFormatConfigurationPtrInput {
+	return (*templateNumberFormatConfigurationPtrType)(v)
+}
+
+func (*templateNumberFormatConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumberFormatConfiguration)(nil)).Elem()
+}
+
+func (i *templateNumberFormatConfigurationPtrType) ToTemplateNumberFormatConfigurationPtrOutput() TemplateNumberFormatConfigurationPtrOutput {
+	return i.ToTemplateNumberFormatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateNumberFormatConfigurationPtrType) ToTemplateNumberFormatConfigurationPtrOutputWithContext(ctx context.Context) TemplateNumberFormatConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumberFormatConfigurationPtrOutput)
+}
+
+type TemplateNumberFormatConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumberFormatConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumberFormatConfiguration)(nil)).Elem()
+}
+
+func (o TemplateNumberFormatConfigurationOutput) ToTemplateNumberFormatConfigurationOutput() TemplateNumberFormatConfigurationOutput {
+	return o
+}
+
+func (o TemplateNumberFormatConfigurationOutput) ToTemplateNumberFormatConfigurationOutputWithContext(ctx context.Context) TemplateNumberFormatConfigurationOutput {
+	return o
+}
+
+func (o TemplateNumberFormatConfigurationOutput) ToTemplateNumberFormatConfigurationPtrOutput() TemplateNumberFormatConfigurationPtrOutput {
+	return o.ToTemplateNumberFormatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateNumberFormatConfigurationOutput) ToTemplateNumberFormatConfigurationPtrOutputWithContext(ctx context.Context) TemplateNumberFormatConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateNumberFormatConfiguration) *TemplateNumberFormatConfiguration {
+		return &v
+	}).(TemplateNumberFormatConfigurationPtrOutput)
+}
+
+// The options that determine the numeric format configuration.
+func (o TemplateNumberFormatConfigurationOutput) FormatConfiguration() TemplateNumericFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateNumberFormatConfiguration) *TemplateNumericFormatConfiguration {
+		return v.FormatConfiguration
+	}).(TemplateNumericFormatConfigurationPtrOutput)
+}
+
+type TemplateNumberFormatConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumberFormatConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumberFormatConfiguration)(nil)).Elem()
+}
+
+func (o TemplateNumberFormatConfigurationPtrOutput) ToTemplateNumberFormatConfigurationPtrOutput() TemplateNumberFormatConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateNumberFormatConfigurationPtrOutput) ToTemplateNumberFormatConfigurationPtrOutputWithContext(ctx context.Context) TemplateNumberFormatConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateNumberFormatConfigurationPtrOutput) Elem() TemplateNumberFormatConfigurationOutput {
+	return o.ApplyT(func(v *TemplateNumberFormatConfiguration) TemplateNumberFormatConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateNumberFormatConfiguration
+		return ret
+	}).(TemplateNumberFormatConfigurationOutput)
+}
+
+// The options that determine the numeric format configuration.
+func (o TemplateNumberFormatConfigurationPtrOutput) FormatConfiguration() TemplateNumericFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateNumberFormatConfiguration) *TemplateNumericFormatConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FormatConfiguration
+	}).(TemplateNumericFormatConfigurationPtrOutput)
+}
+
+type TemplateNumericAxisOptions struct {
+	// The range setup of a numeric axis.
+	Range *TemplateAxisDisplayRange `pulumi:"range"`
+	// The scale setup of a numeric axis.
+	Scale *TemplateAxisScale `pulumi:"scale"`
+}
+
+// TemplateNumericAxisOptionsInput is an input type that accepts TemplateNumericAxisOptionsArgs and TemplateNumericAxisOptionsOutput values.
+// You can construct a concrete instance of `TemplateNumericAxisOptionsInput` via:
+//
+//	TemplateNumericAxisOptionsArgs{...}
+type TemplateNumericAxisOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateNumericAxisOptionsOutput() TemplateNumericAxisOptionsOutput
+	ToTemplateNumericAxisOptionsOutputWithContext(context.Context) TemplateNumericAxisOptionsOutput
+}
+
+type TemplateNumericAxisOptionsArgs struct {
+	// The range setup of a numeric axis.
+	Range TemplateAxisDisplayRangePtrInput `pulumi:"range"`
+	// The scale setup of a numeric axis.
+	Scale TemplateAxisScalePtrInput `pulumi:"scale"`
+}
+
+func (TemplateNumericAxisOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericAxisOptions)(nil)).Elem()
+}
+
+func (i TemplateNumericAxisOptionsArgs) ToTemplateNumericAxisOptionsOutput() TemplateNumericAxisOptionsOutput {
+	return i.ToTemplateNumericAxisOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericAxisOptionsArgs) ToTemplateNumericAxisOptionsOutputWithContext(ctx context.Context) TemplateNumericAxisOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericAxisOptionsOutput)
+}
+
+func (i TemplateNumericAxisOptionsArgs) ToTemplateNumericAxisOptionsPtrOutput() TemplateNumericAxisOptionsPtrOutput {
+	return i.ToTemplateNumericAxisOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericAxisOptionsArgs) ToTemplateNumericAxisOptionsPtrOutputWithContext(ctx context.Context) TemplateNumericAxisOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericAxisOptionsOutput).ToTemplateNumericAxisOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateNumericAxisOptionsPtrInput is an input type that accepts TemplateNumericAxisOptionsArgs, TemplateNumericAxisOptionsPtr and TemplateNumericAxisOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateNumericAxisOptionsPtrInput` via:
+//
+//	        TemplateNumericAxisOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateNumericAxisOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateNumericAxisOptionsPtrOutput() TemplateNumericAxisOptionsPtrOutput
+	ToTemplateNumericAxisOptionsPtrOutputWithContext(context.Context) TemplateNumericAxisOptionsPtrOutput
+}
+
+type templateNumericAxisOptionsPtrType TemplateNumericAxisOptionsArgs
+
+func TemplateNumericAxisOptionsPtr(v *TemplateNumericAxisOptionsArgs) TemplateNumericAxisOptionsPtrInput {
+	return (*templateNumericAxisOptionsPtrType)(v)
+}
+
+func (*templateNumericAxisOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericAxisOptions)(nil)).Elem()
+}
+
+func (i *templateNumericAxisOptionsPtrType) ToTemplateNumericAxisOptionsPtrOutput() TemplateNumericAxisOptionsPtrOutput {
+	return i.ToTemplateNumericAxisOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateNumericAxisOptionsPtrType) ToTemplateNumericAxisOptionsPtrOutputWithContext(ctx context.Context) TemplateNumericAxisOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericAxisOptionsPtrOutput)
+}
+
+type TemplateNumericAxisOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericAxisOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericAxisOptions)(nil)).Elem()
+}
+
+func (o TemplateNumericAxisOptionsOutput) ToTemplateNumericAxisOptionsOutput() TemplateNumericAxisOptionsOutput {
+	return o
+}
+
+func (o TemplateNumericAxisOptionsOutput) ToTemplateNumericAxisOptionsOutputWithContext(ctx context.Context) TemplateNumericAxisOptionsOutput {
+	return o
+}
+
+func (o TemplateNumericAxisOptionsOutput) ToTemplateNumericAxisOptionsPtrOutput() TemplateNumericAxisOptionsPtrOutput {
+	return o.ToTemplateNumericAxisOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateNumericAxisOptionsOutput) ToTemplateNumericAxisOptionsPtrOutputWithContext(ctx context.Context) TemplateNumericAxisOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateNumericAxisOptions) *TemplateNumericAxisOptions {
+		return &v
+	}).(TemplateNumericAxisOptionsPtrOutput)
+}
+
+// The range setup of a numeric axis.
+func (o TemplateNumericAxisOptionsOutput) Range() TemplateAxisDisplayRangePtrOutput {
+	return o.ApplyT(func(v TemplateNumericAxisOptions) *TemplateAxisDisplayRange { return v.Range }).(TemplateAxisDisplayRangePtrOutput)
+}
+
+// The scale setup of a numeric axis.
+func (o TemplateNumericAxisOptionsOutput) Scale() TemplateAxisScalePtrOutput {
+	return o.ApplyT(func(v TemplateNumericAxisOptions) *TemplateAxisScale { return v.Scale }).(TemplateAxisScalePtrOutput)
+}
+
+type TemplateNumericAxisOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericAxisOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericAxisOptions)(nil)).Elem()
+}
+
+func (o TemplateNumericAxisOptionsPtrOutput) ToTemplateNumericAxisOptionsPtrOutput() TemplateNumericAxisOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateNumericAxisOptionsPtrOutput) ToTemplateNumericAxisOptionsPtrOutputWithContext(ctx context.Context) TemplateNumericAxisOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateNumericAxisOptionsPtrOutput) Elem() TemplateNumericAxisOptionsOutput {
+	return o.ApplyT(func(v *TemplateNumericAxisOptions) TemplateNumericAxisOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateNumericAxisOptions
+		return ret
+	}).(TemplateNumericAxisOptionsOutput)
+}
+
+// The range setup of a numeric axis.
+func (o TemplateNumericAxisOptionsPtrOutput) Range() TemplateAxisDisplayRangePtrOutput {
+	return o.ApplyT(func(v *TemplateNumericAxisOptions) *TemplateAxisDisplayRange {
+		if v == nil {
+			return nil
+		}
+		return v.Range
+	}).(TemplateAxisDisplayRangePtrOutput)
+}
+
+// The scale setup of a numeric axis.
+func (o TemplateNumericAxisOptionsPtrOutput) Scale() TemplateAxisScalePtrOutput {
+	return o.ApplyT(func(v *TemplateNumericAxisOptions) *TemplateAxisScale {
+		if v == nil {
+			return nil
+		}
+		return v.Scale
+	}).(TemplateAxisScalePtrOutput)
+}
+
+type TemplateNumericEqualityDrillDownFilter struct {
+	// The column that the filter is applied to.
+	Column TemplateColumnIdentifier `pulumi:"column"`
+	// The value of the double input numeric drill down filter.
+	Value float64 `pulumi:"value"`
+}
+
+// TemplateNumericEqualityDrillDownFilterInput is an input type that accepts TemplateNumericEqualityDrillDownFilterArgs and TemplateNumericEqualityDrillDownFilterOutput values.
+// You can construct a concrete instance of `TemplateNumericEqualityDrillDownFilterInput` via:
+//
+//	TemplateNumericEqualityDrillDownFilterArgs{...}
+type TemplateNumericEqualityDrillDownFilterInput interface {
+	pulumi.Input
+
+	ToTemplateNumericEqualityDrillDownFilterOutput() TemplateNumericEqualityDrillDownFilterOutput
+	ToTemplateNumericEqualityDrillDownFilterOutputWithContext(context.Context) TemplateNumericEqualityDrillDownFilterOutput
+}
+
+type TemplateNumericEqualityDrillDownFilterArgs struct {
+	// The column that the filter is applied to.
+	Column TemplateColumnIdentifierInput `pulumi:"column"`
+	// The value of the double input numeric drill down filter.
+	Value pulumi.Float64Input `pulumi:"value"`
+}
+
+func (TemplateNumericEqualityDrillDownFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericEqualityDrillDownFilter)(nil)).Elem()
+}
+
+func (i TemplateNumericEqualityDrillDownFilterArgs) ToTemplateNumericEqualityDrillDownFilterOutput() TemplateNumericEqualityDrillDownFilterOutput {
+	return i.ToTemplateNumericEqualityDrillDownFilterOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericEqualityDrillDownFilterArgs) ToTemplateNumericEqualityDrillDownFilterOutputWithContext(ctx context.Context) TemplateNumericEqualityDrillDownFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericEqualityDrillDownFilterOutput)
+}
+
+func (i TemplateNumericEqualityDrillDownFilterArgs) ToTemplateNumericEqualityDrillDownFilterPtrOutput() TemplateNumericEqualityDrillDownFilterPtrOutput {
+	return i.ToTemplateNumericEqualityDrillDownFilterPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericEqualityDrillDownFilterArgs) ToTemplateNumericEqualityDrillDownFilterPtrOutputWithContext(ctx context.Context) TemplateNumericEqualityDrillDownFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericEqualityDrillDownFilterOutput).ToTemplateNumericEqualityDrillDownFilterPtrOutputWithContext(ctx)
+}
+
+// TemplateNumericEqualityDrillDownFilterPtrInput is an input type that accepts TemplateNumericEqualityDrillDownFilterArgs, TemplateNumericEqualityDrillDownFilterPtr and TemplateNumericEqualityDrillDownFilterPtrOutput values.
+// You can construct a concrete instance of `TemplateNumericEqualityDrillDownFilterPtrInput` via:
+//
+//	        TemplateNumericEqualityDrillDownFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateNumericEqualityDrillDownFilterPtrInput interface {
+	pulumi.Input
+
+	ToTemplateNumericEqualityDrillDownFilterPtrOutput() TemplateNumericEqualityDrillDownFilterPtrOutput
+	ToTemplateNumericEqualityDrillDownFilterPtrOutputWithContext(context.Context) TemplateNumericEqualityDrillDownFilterPtrOutput
+}
+
+type templateNumericEqualityDrillDownFilterPtrType TemplateNumericEqualityDrillDownFilterArgs
+
+func TemplateNumericEqualityDrillDownFilterPtr(v *TemplateNumericEqualityDrillDownFilterArgs) TemplateNumericEqualityDrillDownFilterPtrInput {
+	return (*templateNumericEqualityDrillDownFilterPtrType)(v)
+}
+
+func (*templateNumericEqualityDrillDownFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericEqualityDrillDownFilter)(nil)).Elem()
+}
+
+func (i *templateNumericEqualityDrillDownFilterPtrType) ToTemplateNumericEqualityDrillDownFilterPtrOutput() TemplateNumericEqualityDrillDownFilterPtrOutput {
+	return i.ToTemplateNumericEqualityDrillDownFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *templateNumericEqualityDrillDownFilterPtrType) ToTemplateNumericEqualityDrillDownFilterPtrOutputWithContext(ctx context.Context) TemplateNumericEqualityDrillDownFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericEqualityDrillDownFilterPtrOutput)
+}
+
+type TemplateNumericEqualityDrillDownFilterOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericEqualityDrillDownFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericEqualityDrillDownFilter)(nil)).Elem()
+}
+
+func (o TemplateNumericEqualityDrillDownFilterOutput) ToTemplateNumericEqualityDrillDownFilterOutput() TemplateNumericEqualityDrillDownFilterOutput {
+	return o
+}
+
+func (o TemplateNumericEqualityDrillDownFilterOutput) ToTemplateNumericEqualityDrillDownFilterOutputWithContext(ctx context.Context) TemplateNumericEqualityDrillDownFilterOutput {
+	return o
+}
+
+func (o TemplateNumericEqualityDrillDownFilterOutput) ToTemplateNumericEqualityDrillDownFilterPtrOutput() TemplateNumericEqualityDrillDownFilterPtrOutput {
+	return o.ToTemplateNumericEqualityDrillDownFilterPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateNumericEqualityDrillDownFilterOutput) ToTemplateNumericEqualityDrillDownFilterPtrOutputWithContext(ctx context.Context) TemplateNumericEqualityDrillDownFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateNumericEqualityDrillDownFilter) *TemplateNumericEqualityDrillDownFilter {
+		return &v
+	}).(TemplateNumericEqualityDrillDownFilterPtrOutput)
+}
+
+// The column that the filter is applied to.
+func (o TemplateNumericEqualityDrillDownFilterOutput) Column() TemplateColumnIdentifierOutput {
+	return o.ApplyT(func(v TemplateNumericEqualityDrillDownFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
+}
+
+// The value of the double input numeric drill down filter.
+func (o TemplateNumericEqualityDrillDownFilterOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v TemplateNumericEqualityDrillDownFilter) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type TemplateNumericEqualityDrillDownFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericEqualityDrillDownFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericEqualityDrillDownFilter)(nil)).Elem()
+}
+
+func (o TemplateNumericEqualityDrillDownFilterPtrOutput) ToTemplateNumericEqualityDrillDownFilterPtrOutput() TemplateNumericEqualityDrillDownFilterPtrOutput {
+	return o
+}
+
+func (o TemplateNumericEqualityDrillDownFilterPtrOutput) ToTemplateNumericEqualityDrillDownFilterPtrOutputWithContext(ctx context.Context) TemplateNumericEqualityDrillDownFilterPtrOutput {
+	return o
+}
+
+func (o TemplateNumericEqualityDrillDownFilterPtrOutput) Elem() TemplateNumericEqualityDrillDownFilterOutput {
+	return o.ApplyT(func(v *TemplateNumericEqualityDrillDownFilter) TemplateNumericEqualityDrillDownFilter {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateNumericEqualityDrillDownFilter
+		return ret
+	}).(TemplateNumericEqualityDrillDownFilterOutput)
+}
+
+// The column that the filter is applied to.
+func (o TemplateNumericEqualityDrillDownFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericEqualityDrillDownFilter) *TemplateColumnIdentifier {
+		if v == nil {
+			return nil
+		}
+		return &v.Column
+	}).(TemplateColumnIdentifierPtrOutput)
+}
+
+// The value of the double input numeric drill down filter.
+func (o TemplateNumericEqualityDrillDownFilterPtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateNumericEqualityDrillDownFilter) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+type TemplateNumericEqualityFilter struct {
+	// The aggregation function of the filter.
+	AggregationFunction *TemplateAggregationFunction `pulumi:"aggregationFunction"`
+	// The column that the filter is applied to.
+	Column TemplateColumnIdentifier `pulumi:"column"`
+	// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+	DefaultFilterControlConfiguration *TemplateDefaultFilterControlConfiguration `pulumi:"defaultFilterControlConfiguration"`
+	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	FilterId string `pulumi:"filterId"`
+	// The match operator that is used to determine if a filter should be applied.
+	MatchOperator TemplateNumericEqualityMatchOperator `pulumi:"matchOperator"`
+	// This option determines how null values should be treated when filtering data.
+	//
+	// - `ALL_VALUES` : Include null values in filtered results.
+	// - `NULLS_ONLY` : Only include null values in filtered results.
+	// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+	NullOption TemplateFilterNullOption `pulumi:"nullOption"`
+	// The parameter whose value should be used for the filter value.
+	ParameterName *string `pulumi:"parameterName"`
+	// Select all of the values. Null is not the assigned value of select all.
+	//
+	// - `FILTER_ALL_VALUES`
+	SelectAllOptions *TemplateNumericFilterSelectAllOptions `pulumi:"selectAllOptions"`
+	// The input value.
+	Value *float64 `pulumi:"value"`
+}
+
+// TemplateNumericEqualityFilterInput is an input type that accepts TemplateNumericEqualityFilterArgs and TemplateNumericEqualityFilterOutput values.
+// You can construct a concrete instance of `TemplateNumericEqualityFilterInput` via:
+//
+//	TemplateNumericEqualityFilterArgs{...}
+type TemplateNumericEqualityFilterInput interface {
+	pulumi.Input
+
+	ToTemplateNumericEqualityFilterOutput() TemplateNumericEqualityFilterOutput
+	ToTemplateNumericEqualityFilterOutputWithContext(context.Context) TemplateNumericEqualityFilterOutput
+}
+
+type TemplateNumericEqualityFilterArgs struct {
+	// The aggregation function of the filter.
+	AggregationFunction TemplateAggregationFunctionPtrInput `pulumi:"aggregationFunction"`
+	// The column that the filter is applied to.
+	Column TemplateColumnIdentifierInput `pulumi:"column"`
+	// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+	DefaultFilterControlConfiguration TemplateDefaultFilterControlConfigurationPtrInput `pulumi:"defaultFilterControlConfiguration"`
+	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	FilterId pulumi.StringInput `pulumi:"filterId"`
+	// The match operator that is used to determine if a filter should be applied.
+	MatchOperator TemplateNumericEqualityMatchOperatorInput `pulumi:"matchOperator"`
+	// This option determines how null values should be treated when filtering data.
+	//
+	// - `ALL_VALUES` : Include null values in filtered results.
+	// - `NULLS_ONLY` : Only include null values in filtered results.
+	// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+	NullOption TemplateFilterNullOptionInput `pulumi:"nullOption"`
+	// The parameter whose value should be used for the filter value.
+	ParameterName pulumi.StringPtrInput `pulumi:"parameterName"`
+	// Select all of the values. Null is not the assigned value of select all.
+	//
+	// - `FILTER_ALL_VALUES`
+	SelectAllOptions TemplateNumericFilterSelectAllOptionsPtrInput `pulumi:"selectAllOptions"`
+	// The input value.
+	Value pulumi.Float64PtrInput `pulumi:"value"`
+}
+
+func (TemplateNumericEqualityFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericEqualityFilter)(nil)).Elem()
+}
+
+func (i TemplateNumericEqualityFilterArgs) ToTemplateNumericEqualityFilterOutput() TemplateNumericEqualityFilterOutput {
+	return i.ToTemplateNumericEqualityFilterOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericEqualityFilterArgs) ToTemplateNumericEqualityFilterOutputWithContext(ctx context.Context) TemplateNumericEqualityFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericEqualityFilterOutput)
+}
+
+func (i TemplateNumericEqualityFilterArgs) ToTemplateNumericEqualityFilterPtrOutput() TemplateNumericEqualityFilterPtrOutput {
+	return i.ToTemplateNumericEqualityFilterPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericEqualityFilterArgs) ToTemplateNumericEqualityFilterPtrOutputWithContext(ctx context.Context) TemplateNumericEqualityFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericEqualityFilterOutput).ToTemplateNumericEqualityFilterPtrOutputWithContext(ctx)
+}
+
+// TemplateNumericEqualityFilterPtrInput is an input type that accepts TemplateNumericEqualityFilterArgs, TemplateNumericEqualityFilterPtr and TemplateNumericEqualityFilterPtrOutput values.
+// You can construct a concrete instance of `TemplateNumericEqualityFilterPtrInput` via:
+//
+//	        TemplateNumericEqualityFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateNumericEqualityFilterPtrInput interface {
+	pulumi.Input
+
+	ToTemplateNumericEqualityFilterPtrOutput() TemplateNumericEqualityFilterPtrOutput
+	ToTemplateNumericEqualityFilterPtrOutputWithContext(context.Context) TemplateNumericEqualityFilterPtrOutput
+}
+
+type templateNumericEqualityFilterPtrType TemplateNumericEqualityFilterArgs
+
+func TemplateNumericEqualityFilterPtr(v *TemplateNumericEqualityFilterArgs) TemplateNumericEqualityFilterPtrInput {
+	return (*templateNumericEqualityFilterPtrType)(v)
+}
+
+func (*templateNumericEqualityFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericEqualityFilter)(nil)).Elem()
+}
+
+func (i *templateNumericEqualityFilterPtrType) ToTemplateNumericEqualityFilterPtrOutput() TemplateNumericEqualityFilterPtrOutput {
+	return i.ToTemplateNumericEqualityFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *templateNumericEqualityFilterPtrType) ToTemplateNumericEqualityFilterPtrOutputWithContext(ctx context.Context) TemplateNumericEqualityFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericEqualityFilterPtrOutput)
+}
+
+type TemplateNumericEqualityFilterOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericEqualityFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericEqualityFilter)(nil)).Elem()
+}
+
+func (o TemplateNumericEqualityFilterOutput) ToTemplateNumericEqualityFilterOutput() TemplateNumericEqualityFilterOutput {
+	return o
+}
+
+func (o TemplateNumericEqualityFilterOutput) ToTemplateNumericEqualityFilterOutputWithContext(ctx context.Context) TemplateNumericEqualityFilterOutput {
+	return o
+}
+
+func (o TemplateNumericEqualityFilterOutput) ToTemplateNumericEqualityFilterPtrOutput() TemplateNumericEqualityFilterPtrOutput {
+	return o.ToTemplateNumericEqualityFilterPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateNumericEqualityFilterOutput) ToTemplateNumericEqualityFilterPtrOutputWithContext(ctx context.Context) TemplateNumericEqualityFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateNumericEqualityFilter) *TemplateNumericEqualityFilter {
+		return &v
+	}).(TemplateNumericEqualityFilterPtrOutput)
+}
+
+// The aggregation function of the filter.
+func (o TemplateNumericEqualityFilterOutput) AggregationFunction() TemplateAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v TemplateNumericEqualityFilter) *TemplateAggregationFunction { return v.AggregationFunction }).(TemplateAggregationFunctionPtrOutput)
+}
+
+// The column that the filter is applied to.
+func (o TemplateNumericEqualityFilterOutput) Column() TemplateColumnIdentifierOutput {
+	return o.ApplyT(func(v TemplateNumericEqualityFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
+}
+
+// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+func (o TemplateNumericEqualityFilterOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateNumericEqualityFilter) *TemplateDefaultFilterControlConfiguration {
+		return v.DefaultFilterControlConfiguration
+	}).(TemplateDefaultFilterControlConfigurationPtrOutput)
+}
+
+// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+func (o TemplateNumericEqualityFilterOutput) FilterId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateNumericEqualityFilter) string { return v.FilterId }).(pulumi.StringOutput)
+}
+
+// The match operator that is used to determine if a filter should be applied.
+func (o TemplateNumericEqualityFilterOutput) MatchOperator() TemplateNumericEqualityMatchOperatorOutput {
+	return o.ApplyT(func(v TemplateNumericEqualityFilter) TemplateNumericEqualityMatchOperator { return v.MatchOperator }).(TemplateNumericEqualityMatchOperatorOutput)
+}
+
+// This option determines how null values should be treated when filtering data.
+//
+// - `ALL_VALUES` : Include null values in filtered results.
+// - `NULLS_ONLY` : Only include null values in filtered results.
+// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+func (o TemplateNumericEqualityFilterOutput) NullOption() TemplateFilterNullOptionOutput {
+	return o.ApplyT(func(v TemplateNumericEqualityFilter) TemplateFilterNullOption { return v.NullOption }).(TemplateFilterNullOptionOutput)
+}
+
+// The parameter whose value should be used for the filter value.
+func (o TemplateNumericEqualityFilterOutput) ParameterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateNumericEqualityFilter) *string { return v.ParameterName }).(pulumi.StringPtrOutput)
+}
+
+// Select all of the values. Null is not the assigned value of select all.
+//
+// - `FILTER_ALL_VALUES`
+func (o TemplateNumericEqualityFilterOutput) SelectAllOptions() TemplateNumericFilterSelectAllOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateNumericEqualityFilter) *TemplateNumericFilterSelectAllOptions {
+		return v.SelectAllOptions
+	}).(TemplateNumericFilterSelectAllOptionsPtrOutput)
+}
+
+// The input value.
+func (o TemplateNumericEqualityFilterOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TemplateNumericEqualityFilter) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
+}
+
+type TemplateNumericEqualityFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericEqualityFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericEqualityFilter)(nil)).Elem()
+}
+
+func (o TemplateNumericEqualityFilterPtrOutput) ToTemplateNumericEqualityFilterPtrOutput() TemplateNumericEqualityFilterPtrOutput {
+	return o
+}
+
+func (o TemplateNumericEqualityFilterPtrOutput) ToTemplateNumericEqualityFilterPtrOutputWithContext(ctx context.Context) TemplateNumericEqualityFilterPtrOutput {
+	return o
+}
+
+func (o TemplateNumericEqualityFilterPtrOutput) Elem() TemplateNumericEqualityFilterOutput {
+	return o.ApplyT(func(v *TemplateNumericEqualityFilter) TemplateNumericEqualityFilter {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateNumericEqualityFilter
+		return ret
+	}).(TemplateNumericEqualityFilterOutput)
+}
+
+// The aggregation function of the filter.
+func (o TemplateNumericEqualityFilterPtrOutput) AggregationFunction() TemplateAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericEqualityFilter) *TemplateAggregationFunction {
+		if v == nil {
+			return nil
+		}
+		return v.AggregationFunction
+	}).(TemplateAggregationFunctionPtrOutput)
+}
+
+// The column that the filter is applied to.
+func (o TemplateNumericEqualityFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericEqualityFilter) *TemplateColumnIdentifier {
+		if v == nil {
+			return nil
+		}
+		return &v.Column
+	}).(TemplateColumnIdentifierPtrOutput)
+}
+
+// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+func (o TemplateNumericEqualityFilterPtrOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericEqualityFilter) *TemplateDefaultFilterControlConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultFilterControlConfiguration
+	}).(TemplateDefaultFilterControlConfigurationPtrOutput)
+}
+
+// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+func (o TemplateNumericEqualityFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericEqualityFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FilterId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The match operator that is used to determine if a filter should be applied.
+func (o TemplateNumericEqualityFilterPtrOutput) MatchOperator() TemplateNumericEqualityMatchOperatorPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericEqualityFilter) *TemplateNumericEqualityMatchOperator {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchOperator
+	}).(TemplateNumericEqualityMatchOperatorPtrOutput)
+}
+
+// This option determines how null values should be treated when filtering data.
+//
+// - `ALL_VALUES` : Include null values in filtered results.
+// - `NULLS_ONLY` : Only include null values in filtered results.
+// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+func (o TemplateNumericEqualityFilterPtrOutput) NullOption() TemplateFilterNullOptionPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericEqualityFilter) *TemplateFilterNullOption {
+		if v == nil {
+			return nil
+		}
+		return &v.NullOption
+	}).(TemplateFilterNullOptionPtrOutput)
+}
+
+// The parameter whose value should be used for the filter value.
+func (o TemplateNumericEqualityFilterPtrOutput) ParameterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericEqualityFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ParameterName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Select all of the values. Null is not the assigned value of select all.
+//
+// - `FILTER_ALL_VALUES`
+func (o TemplateNumericEqualityFilterPtrOutput) SelectAllOptions() TemplateNumericFilterSelectAllOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericEqualityFilter) *TemplateNumericFilterSelectAllOptions {
+		if v == nil {
+			return nil
+		}
+		return v.SelectAllOptions
+	}).(TemplateNumericFilterSelectAllOptionsPtrOutput)
+}
+
+// The input value.
+func (o TemplateNumericEqualityFilterPtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateNumericEqualityFilter) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+type TemplateNumericFormatConfiguration struct {
+	// The options that determine the currency display format configuration.
+	CurrencyDisplayFormatConfiguration *TemplateCurrencyDisplayFormatConfiguration `pulumi:"currencyDisplayFormatConfiguration"`
+	// The options that determine the number display format configuration.
+	NumberDisplayFormatConfiguration *TemplateNumberDisplayFormatConfiguration `pulumi:"numberDisplayFormatConfiguration"`
+	// The options that determine the percentage display format configuration.
+	PercentageDisplayFormatConfiguration *TemplatePercentageDisplayFormatConfiguration `pulumi:"percentageDisplayFormatConfiguration"`
+}
+
+// TemplateNumericFormatConfigurationInput is an input type that accepts TemplateNumericFormatConfigurationArgs and TemplateNumericFormatConfigurationOutput values.
+// You can construct a concrete instance of `TemplateNumericFormatConfigurationInput` via:
+//
+//	TemplateNumericFormatConfigurationArgs{...}
+type TemplateNumericFormatConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateNumericFormatConfigurationOutput() TemplateNumericFormatConfigurationOutput
+	ToTemplateNumericFormatConfigurationOutputWithContext(context.Context) TemplateNumericFormatConfigurationOutput
+}
+
+type TemplateNumericFormatConfigurationArgs struct {
+	// The options that determine the currency display format configuration.
+	CurrencyDisplayFormatConfiguration TemplateCurrencyDisplayFormatConfigurationPtrInput `pulumi:"currencyDisplayFormatConfiguration"`
+	// The options that determine the number display format configuration.
+	NumberDisplayFormatConfiguration TemplateNumberDisplayFormatConfigurationPtrInput `pulumi:"numberDisplayFormatConfiguration"`
+	// The options that determine the percentage display format configuration.
+	PercentageDisplayFormatConfiguration TemplatePercentageDisplayFormatConfigurationPtrInput `pulumi:"percentageDisplayFormatConfiguration"`
+}
+
+func (TemplateNumericFormatConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericFormatConfiguration)(nil)).Elem()
+}
+
+func (i TemplateNumericFormatConfigurationArgs) ToTemplateNumericFormatConfigurationOutput() TemplateNumericFormatConfigurationOutput {
+	return i.ToTemplateNumericFormatConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericFormatConfigurationArgs) ToTemplateNumericFormatConfigurationOutputWithContext(ctx context.Context) TemplateNumericFormatConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericFormatConfigurationOutput)
+}
+
+func (i TemplateNumericFormatConfigurationArgs) ToTemplateNumericFormatConfigurationPtrOutput() TemplateNumericFormatConfigurationPtrOutput {
+	return i.ToTemplateNumericFormatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericFormatConfigurationArgs) ToTemplateNumericFormatConfigurationPtrOutputWithContext(ctx context.Context) TemplateNumericFormatConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericFormatConfigurationOutput).ToTemplateNumericFormatConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateNumericFormatConfigurationPtrInput is an input type that accepts TemplateNumericFormatConfigurationArgs, TemplateNumericFormatConfigurationPtr and TemplateNumericFormatConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateNumericFormatConfigurationPtrInput` via:
+//
+//	        TemplateNumericFormatConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateNumericFormatConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateNumericFormatConfigurationPtrOutput() TemplateNumericFormatConfigurationPtrOutput
+	ToTemplateNumericFormatConfigurationPtrOutputWithContext(context.Context) TemplateNumericFormatConfigurationPtrOutput
+}
+
+type templateNumericFormatConfigurationPtrType TemplateNumericFormatConfigurationArgs
+
+func TemplateNumericFormatConfigurationPtr(v *TemplateNumericFormatConfigurationArgs) TemplateNumericFormatConfigurationPtrInput {
+	return (*templateNumericFormatConfigurationPtrType)(v)
+}
+
+func (*templateNumericFormatConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericFormatConfiguration)(nil)).Elem()
+}
+
+func (i *templateNumericFormatConfigurationPtrType) ToTemplateNumericFormatConfigurationPtrOutput() TemplateNumericFormatConfigurationPtrOutput {
+	return i.ToTemplateNumericFormatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateNumericFormatConfigurationPtrType) ToTemplateNumericFormatConfigurationPtrOutputWithContext(ctx context.Context) TemplateNumericFormatConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericFormatConfigurationPtrOutput)
+}
+
+type TemplateNumericFormatConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericFormatConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericFormatConfiguration)(nil)).Elem()
+}
+
+func (o TemplateNumericFormatConfigurationOutput) ToTemplateNumericFormatConfigurationOutput() TemplateNumericFormatConfigurationOutput {
+	return o
+}
+
+func (o TemplateNumericFormatConfigurationOutput) ToTemplateNumericFormatConfigurationOutputWithContext(ctx context.Context) TemplateNumericFormatConfigurationOutput {
+	return o
+}
+
+func (o TemplateNumericFormatConfigurationOutput) ToTemplateNumericFormatConfigurationPtrOutput() TemplateNumericFormatConfigurationPtrOutput {
+	return o.ToTemplateNumericFormatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateNumericFormatConfigurationOutput) ToTemplateNumericFormatConfigurationPtrOutputWithContext(ctx context.Context) TemplateNumericFormatConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateNumericFormatConfiguration) *TemplateNumericFormatConfiguration {
+		return &v
+	}).(TemplateNumericFormatConfigurationPtrOutput)
+}
+
+// The options that determine the currency display format configuration.
+func (o TemplateNumericFormatConfigurationOutput) CurrencyDisplayFormatConfiguration() TemplateCurrencyDisplayFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateNumericFormatConfiguration) *TemplateCurrencyDisplayFormatConfiguration {
+		return v.CurrencyDisplayFormatConfiguration
+	}).(TemplateCurrencyDisplayFormatConfigurationPtrOutput)
+}
+
+// The options that determine the number display format configuration.
+func (o TemplateNumericFormatConfigurationOutput) NumberDisplayFormatConfiguration() TemplateNumberDisplayFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateNumericFormatConfiguration) *TemplateNumberDisplayFormatConfiguration {
+		return v.NumberDisplayFormatConfiguration
+	}).(TemplateNumberDisplayFormatConfigurationPtrOutput)
+}
+
+// The options that determine the percentage display format configuration.
+func (o TemplateNumericFormatConfigurationOutput) PercentageDisplayFormatConfiguration() TemplatePercentageDisplayFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateNumericFormatConfiguration) *TemplatePercentageDisplayFormatConfiguration {
+		return v.PercentageDisplayFormatConfiguration
+	}).(TemplatePercentageDisplayFormatConfigurationPtrOutput)
+}
+
+type TemplateNumericFormatConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericFormatConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericFormatConfiguration)(nil)).Elem()
+}
+
+func (o TemplateNumericFormatConfigurationPtrOutput) ToTemplateNumericFormatConfigurationPtrOutput() TemplateNumericFormatConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateNumericFormatConfigurationPtrOutput) ToTemplateNumericFormatConfigurationPtrOutputWithContext(ctx context.Context) TemplateNumericFormatConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateNumericFormatConfigurationPtrOutput) Elem() TemplateNumericFormatConfigurationOutput {
+	return o.ApplyT(func(v *TemplateNumericFormatConfiguration) TemplateNumericFormatConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateNumericFormatConfiguration
+		return ret
+	}).(TemplateNumericFormatConfigurationOutput)
+}
+
+// The options that determine the currency display format configuration.
+func (o TemplateNumericFormatConfigurationPtrOutput) CurrencyDisplayFormatConfiguration() TemplateCurrencyDisplayFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericFormatConfiguration) *TemplateCurrencyDisplayFormatConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CurrencyDisplayFormatConfiguration
+	}).(TemplateCurrencyDisplayFormatConfigurationPtrOutput)
+}
+
+// The options that determine the number display format configuration.
+func (o TemplateNumericFormatConfigurationPtrOutput) NumberDisplayFormatConfiguration() TemplateNumberDisplayFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericFormatConfiguration) *TemplateNumberDisplayFormatConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.NumberDisplayFormatConfiguration
+	}).(TemplateNumberDisplayFormatConfigurationPtrOutput)
+}
+
+// The options that determine the percentage display format configuration.
+func (o TemplateNumericFormatConfigurationPtrOutput) PercentageDisplayFormatConfiguration() TemplatePercentageDisplayFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericFormatConfiguration) *TemplatePercentageDisplayFormatConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PercentageDisplayFormatConfiguration
+	}).(TemplatePercentageDisplayFormatConfigurationPtrOutput)
+}
+
+type TemplateNumericRangeFilter struct {
+	// The aggregation function of the filter.
+	AggregationFunction *TemplateAggregationFunction `pulumi:"aggregationFunction"`
+	// The column that the filter is applied to.
+	Column TemplateColumnIdentifier `pulumi:"column"`
+	// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+	DefaultFilterControlConfiguration *TemplateDefaultFilterControlConfiguration `pulumi:"defaultFilterControlConfiguration"`
+	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	FilterId string `pulumi:"filterId"`
+	// Determines whether the maximum value in the filter value range should be included in the filtered results.
+	IncludeMaximum *bool `pulumi:"includeMaximum"`
+	// Determines whether the minimum value in the filter value range should be included in the filtered results.
+	IncludeMinimum *bool `pulumi:"includeMinimum"`
+	// This option determines how null values should be treated when filtering data.
+	//
+	// - `ALL_VALUES` : Include null values in filtered results.
+	// - `NULLS_ONLY` : Only include null values in filtered results.
+	// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+	NullOption TemplateFilterNullOption `pulumi:"nullOption"`
+	// The maximum value for the filter value range.
+	RangeMaximum *TemplateNumericRangeFilterValue `pulumi:"rangeMaximum"`
+	// The minimum value for the filter value range.
+	RangeMinimum *TemplateNumericRangeFilterValue `pulumi:"rangeMinimum"`
+	// Select all of the values. Null is not the assigned value of select all.
+	//
+	// - `FILTER_ALL_VALUES`
+	SelectAllOptions *TemplateNumericFilterSelectAllOptions `pulumi:"selectAllOptions"`
+}
+
+// TemplateNumericRangeFilterInput is an input type that accepts TemplateNumericRangeFilterArgs and TemplateNumericRangeFilterOutput values.
+// You can construct a concrete instance of `TemplateNumericRangeFilterInput` via:
+//
+//	TemplateNumericRangeFilterArgs{...}
+type TemplateNumericRangeFilterInput interface {
+	pulumi.Input
+
+	ToTemplateNumericRangeFilterOutput() TemplateNumericRangeFilterOutput
+	ToTemplateNumericRangeFilterOutputWithContext(context.Context) TemplateNumericRangeFilterOutput
+}
+
+type TemplateNumericRangeFilterArgs struct {
+	// The aggregation function of the filter.
+	AggregationFunction TemplateAggregationFunctionPtrInput `pulumi:"aggregationFunction"`
+	// The column that the filter is applied to.
+	Column TemplateColumnIdentifierInput `pulumi:"column"`
+	// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+	DefaultFilterControlConfiguration TemplateDefaultFilterControlConfigurationPtrInput `pulumi:"defaultFilterControlConfiguration"`
+	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	FilterId pulumi.StringInput `pulumi:"filterId"`
+	// Determines whether the maximum value in the filter value range should be included in the filtered results.
+	IncludeMaximum pulumi.BoolPtrInput `pulumi:"includeMaximum"`
+	// Determines whether the minimum value in the filter value range should be included in the filtered results.
+	IncludeMinimum pulumi.BoolPtrInput `pulumi:"includeMinimum"`
+	// This option determines how null values should be treated when filtering data.
+	//
+	// - `ALL_VALUES` : Include null values in filtered results.
+	// - `NULLS_ONLY` : Only include null values in filtered results.
+	// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+	NullOption TemplateFilterNullOptionInput `pulumi:"nullOption"`
+	// The maximum value for the filter value range.
+	RangeMaximum TemplateNumericRangeFilterValuePtrInput `pulumi:"rangeMaximum"`
+	// The minimum value for the filter value range.
+	RangeMinimum TemplateNumericRangeFilterValuePtrInput `pulumi:"rangeMinimum"`
+	// Select all of the values. Null is not the assigned value of select all.
+	//
+	// - `FILTER_ALL_VALUES`
+	SelectAllOptions TemplateNumericFilterSelectAllOptionsPtrInput `pulumi:"selectAllOptions"`
+}
+
+func (TemplateNumericRangeFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericRangeFilter)(nil)).Elem()
+}
+
+func (i TemplateNumericRangeFilterArgs) ToTemplateNumericRangeFilterOutput() TemplateNumericRangeFilterOutput {
+	return i.ToTemplateNumericRangeFilterOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericRangeFilterArgs) ToTemplateNumericRangeFilterOutputWithContext(ctx context.Context) TemplateNumericRangeFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericRangeFilterOutput)
+}
+
+func (i TemplateNumericRangeFilterArgs) ToTemplateNumericRangeFilterPtrOutput() TemplateNumericRangeFilterPtrOutput {
+	return i.ToTemplateNumericRangeFilterPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericRangeFilterArgs) ToTemplateNumericRangeFilterPtrOutputWithContext(ctx context.Context) TemplateNumericRangeFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericRangeFilterOutput).ToTemplateNumericRangeFilterPtrOutputWithContext(ctx)
+}
+
+// TemplateNumericRangeFilterPtrInput is an input type that accepts TemplateNumericRangeFilterArgs, TemplateNumericRangeFilterPtr and TemplateNumericRangeFilterPtrOutput values.
+// You can construct a concrete instance of `TemplateNumericRangeFilterPtrInput` via:
+//
+//	        TemplateNumericRangeFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateNumericRangeFilterPtrInput interface {
+	pulumi.Input
+
+	ToTemplateNumericRangeFilterPtrOutput() TemplateNumericRangeFilterPtrOutput
+	ToTemplateNumericRangeFilterPtrOutputWithContext(context.Context) TemplateNumericRangeFilterPtrOutput
+}
+
+type templateNumericRangeFilterPtrType TemplateNumericRangeFilterArgs
+
+func TemplateNumericRangeFilterPtr(v *TemplateNumericRangeFilterArgs) TemplateNumericRangeFilterPtrInput {
+	return (*templateNumericRangeFilterPtrType)(v)
+}
+
+func (*templateNumericRangeFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericRangeFilter)(nil)).Elem()
+}
+
+func (i *templateNumericRangeFilterPtrType) ToTemplateNumericRangeFilterPtrOutput() TemplateNumericRangeFilterPtrOutput {
+	return i.ToTemplateNumericRangeFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *templateNumericRangeFilterPtrType) ToTemplateNumericRangeFilterPtrOutputWithContext(ctx context.Context) TemplateNumericRangeFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericRangeFilterPtrOutput)
+}
+
+type TemplateNumericRangeFilterOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericRangeFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericRangeFilter)(nil)).Elem()
+}
+
+func (o TemplateNumericRangeFilterOutput) ToTemplateNumericRangeFilterOutput() TemplateNumericRangeFilterOutput {
+	return o
+}
+
+func (o TemplateNumericRangeFilterOutput) ToTemplateNumericRangeFilterOutputWithContext(ctx context.Context) TemplateNumericRangeFilterOutput {
+	return o
+}
+
+func (o TemplateNumericRangeFilterOutput) ToTemplateNumericRangeFilterPtrOutput() TemplateNumericRangeFilterPtrOutput {
+	return o.ToTemplateNumericRangeFilterPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateNumericRangeFilterOutput) ToTemplateNumericRangeFilterPtrOutputWithContext(ctx context.Context) TemplateNumericRangeFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateNumericRangeFilter) *TemplateNumericRangeFilter {
+		return &v
+	}).(TemplateNumericRangeFilterPtrOutput)
+}
+
+// The aggregation function of the filter.
+func (o TemplateNumericRangeFilterOutput) AggregationFunction() TemplateAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v TemplateNumericRangeFilter) *TemplateAggregationFunction { return v.AggregationFunction }).(TemplateAggregationFunctionPtrOutput)
+}
+
+// The column that the filter is applied to.
+func (o TemplateNumericRangeFilterOutput) Column() TemplateColumnIdentifierOutput {
+	return o.ApplyT(func(v TemplateNumericRangeFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
+}
+
+// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+func (o TemplateNumericRangeFilterOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateNumericRangeFilter) *TemplateDefaultFilterControlConfiguration {
+		return v.DefaultFilterControlConfiguration
+	}).(TemplateDefaultFilterControlConfigurationPtrOutput)
+}
+
+// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+func (o TemplateNumericRangeFilterOutput) FilterId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateNumericRangeFilter) string { return v.FilterId }).(pulumi.StringOutput)
+}
+
+// Determines whether the maximum value in the filter value range should be included in the filtered results.
+func (o TemplateNumericRangeFilterOutput) IncludeMaximum() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TemplateNumericRangeFilter) *bool { return v.IncludeMaximum }).(pulumi.BoolPtrOutput)
+}
+
+// Determines whether the minimum value in the filter value range should be included in the filtered results.
+func (o TemplateNumericRangeFilterOutput) IncludeMinimum() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TemplateNumericRangeFilter) *bool { return v.IncludeMinimum }).(pulumi.BoolPtrOutput)
+}
+
+// This option determines how null values should be treated when filtering data.
+//
+// - `ALL_VALUES` : Include null values in filtered results.
+// - `NULLS_ONLY` : Only include null values in filtered results.
+// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+func (o TemplateNumericRangeFilterOutput) NullOption() TemplateFilterNullOptionOutput {
+	return o.ApplyT(func(v TemplateNumericRangeFilter) TemplateFilterNullOption { return v.NullOption }).(TemplateFilterNullOptionOutput)
+}
+
+// The maximum value for the filter value range.
+func (o TemplateNumericRangeFilterOutput) RangeMaximum() TemplateNumericRangeFilterValuePtrOutput {
+	return o.ApplyT(func(v TemplateNumericRangeFilter) *TemplateNumericRangeFilterValue { return v.RangeMaximum }).(TemplateNumericRangeFilterValuePtrOutput)
+}
+
+// The minimum value for the filter value range.
+func (o TemplateNumericRangeFilterOutput) RangeMinimum() TemplateNumericRangeFilterValuePtrOutput {
+	return o.ApplyT(func(v TemplateNumericRangeFilter) *TemplateNumericRangeFilterValue { return v.RangeMinimum }).(TemplateNumericRangeFilterValuePtrOutput)
+}
+
+// Select all of the values. Null is not the assigned value of select all.
+//
+// - `FILTER_ALL_VALUES`
+func (o TemplateNumericRangeFilterOutput) SelectAllOptions() TemplateNumericFilterSelectAllOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateNumericRangeFilter) *TemplateNumericFilterSelectAllOptions { return v.SelectAllOptions }).(TemplateNumericFilterSelectAllOptionsPtrOutput)
+}
+
+type TemplateNumericRangeFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericRangeFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericRangeFilter)(nil)).Elem()
+}
+
+func (o TemplateNumericRangeFilterPtrOutput) ToTemplateNumericRangeFilterPtrOutput() TemplateNumericRangeFilterPtrOutput {
+	return o
+}
+
+func (o TemplateNumericRangeFilterPtrOutput) ToTemplateNumericRangeFilterPtrOutputWithContext(ctx context.Context) TemplateNumericRangeFilterPtrOutput {
+	return o
+}
+
+func (o TemplateNumericRangeFilterPtrOutput) Elem() TemplateNumericRangeFilterOutput {
+	return o.ApplyT(func(v *TemplateNumericRangeFilter) TemplateNumericRangeFilter {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateNumericRangeFilter
+		return ret
+	}).(TemplateNumericRangeFilterOutput)
+}
+
+// The aggregation function of the filter.
+func (o TemplateNumericRangeFilterPtrOutput) AggregationFunction() TemplateAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericRangeFilter) *TemplateAggregationFunction {
+		if v == nil {
+			return nil
+		}
+		return v.AggregationFunction
+	}).(TemplateAggregationFunctionPtrOutput)
+}
+
+// The column that the filter is applied to.
+func (o TemplateNumericRangeFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericRangeFilter) *TemplateColumnIdentifier {
+		if v == nil {
+			return nil
+		}
+		return &v.Column
+	}).(TemplateColumnIdentifierPtrOutput)
+}
+
+// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+func (o TemplateNumericRangeFilterPtrOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericRangeFilter) *TemplateDefaultFilterControlConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultFilterControlConfiguration
+	}).(TemplateDefaultFilterControlConfigurationPtrOutput)
+}
+
+// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+func (o TemplateNumericRangeFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericRangeFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FilterId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether the maximum value in the filter value range should be included in the filtered results.
+func (o TemplateNumericRangeFilterPtrOutput) IncludeMaximum() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericRangeFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeMaximum
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Determines whether the minimum value in the filter value range should be included in the filtered results.
+func (o TemplateNumericRangeFilterPtrOutput) IncludeMinimum() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericRangeFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeMinimum
+	}).(pulumi.BoolPtrOutput)
+}
+
+// This option determines how null values should be treated when filtering data.
+//
+// - `ALL_VALUES` : Include null values in filtered results.
+// - `NULLS_ONLY` : Only include null values in filtered results.
+// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+func (o TemplateNumericRangeFilterPtrOutput) NullOption() TemplateFilterNullOptionPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericRangeFilter) *TemplateFilterNullOption {
+		if v == nil {
+			return nil
+		}
+		return &v.NullOption
+	}).(TemplateFilterNullOptionPtrOutput)
+}
+
+// The maximum value for the filter value range.
+func (o TemplateNumericRangeFilterPtrOutput) RangeMaximum() TemplateNumericRangeFilterValuePtrOutput {
+	return o.ApplyT(func(v *TemplateNumericRangeFilter) *TemplateNumericRangeFilterValue {
+		if v == nil {
+			return nil
+		}
+		return v.RangeMaximum
+	}).(TemplateNumericRangeFilterValuePtrOutput)
+}
+
+// The minimum value for the filter value range.
+func (o TemplateNumericRangeFilterPtrOutput) RangeMinimum() TemplateNumericRangeFilterValuePtrOutput {
+	return o.ApplyT(func(v *TemplateNumericRangeFilter) *TemplateNumericRangeFilterValue {
+		if v == nil {
+			return nil
+		}
+		return v.RangeMinimum
+	}).(TemplateNumericRangeFilterValuePtrOutput)
+}
+
+// Select all of the values. Null is not the assigned value of select all.
+//
+// - `FILTER_ALL_VALUES`
+func (o TemplateNumericRangeFilterPtrOutput) SelectAllOptions() TemplateNumericFilterSelectAllOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericRangeFilter) *TemplateNumericFilterSelectAllOptions {
+		if v == nil {
+			return nil
+		}
+		return v.SelectAllOptions
+	}).(TemplateNumericFilterSelectAllOptionsPtrOutput)
+}
+
+type TemplateNumericRangeFilterValue struct {
+	// The parameter that is used in the numeric range.
+	Parameter *string `pulumi:"parameter"`
+	// The static value of the numeric range filter.
+	StaticValue *float64 `pulumi:"staticValue"`
+}
+
+// TemplateNumericRangeFilterValueInput is an input type that accepts TemplateNumericRangeFilterValueArgs and TemplateNumericRangeFilterValueOutput values.
+// You can construct a concrete instance of `TemplateNumericRangeFilterValueInput` via:
+//
+//	TemplateNumericRangeFilterValueArgs{...}
+type TemplateNumericRangeFilterValueInput interface {
+	pulumi.Input
+
+	ToTemplateNumericRangeFilterValueOutput() TemplateNumericRangeFilterValueOutput
+	ToTemplateNumericRangeFilterValueOutputWithContext(context.Context) TemplateNumericRangeFilterValueOutput
+}
+
+type TemplateNumericRangeFilterValueArgs struct {
+	// The parameter that is used in the numeric range.
+	Parameter pulumi.StringPtrInput `pulumi:"parameter"`
+	// The static value of the numeric range filter.
+	StaticValue pulumi.Float64PtrInput `pulumi:"staticValue"`
+}
+
+func (TemplateNumericRangeFilterValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericRangeFilterValue)(nil)).Elem()
+}
+
+func (i TemplateNumericRangeFilterValueArgs) ToTemplateNumericRangeFilterValueOutput() TemplateNumericRangeFilterValueOutput {
+	return i.ToTemplateNumericRangeFilterValueOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericRangeFilterValueArgs) ToTemplateNumericRangeFilterValueOutputWithContext(ctx context.Context) TemplateNumericRangeFilterValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericRangeFilterValueOutput)
+}
+
+func (i TemplateNumericRangeFilterValueArgs) ToTemplateNumericRangeFilterValuePtrOutput() TemplateNumericRangeFilterValuePtrOutput {
+	return i.ToTemplateNumericRangeFilterValuePtrOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericRangeFilterValueArgs) ToTemplateNumericRangeFilterValuePtrOutputWithContext(ctx context.Context) TemplateNumericRangeFilterValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericRangeFilterValueOutput).ToTemplateNumericRangeFilterValuePtrOutputWithContext(ctx)
+}
+
+// TemplateNumericRangeFilterValuePtrInput is an input type that accepts TemplateNumericRangeFilterValueArgs, TemplateNumericRangeFilterValuePtr and TemplateNumericRangeFilterValuePtrOutput values.
+// You can construct a concrete instance of `TemplateNumericRangeFilterValuePtrInput` via:
+//
+//	        TemplateNumericRangeFilterValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateNumericRangeFilterValuePtrInput interface {
+	pulumi.Input
+
+	ToTemplateNumericRangeFilterValuePtrOutput() TemplateNumericRangeFilterValuePtrOutput
+	ToTemplateNumericRangeFilterValuePtrOutputWithContext(context.Context) TemplateNumericRangeFilterValuePtrOutput
+}
+
+type templateNumericRangeFilterValuePtrType TemplateNumericRangeFilterValueArgs
+
+func TemplateNumericRangeFilterValuePtr(v *TemplateNumericRangeFilterValueArgs) TemplateNumericRangeFilterValuePtrInput {
+	return (*templateNumericRangeFilterValuePtrType)(v)
+}
+
+func (*templateNumericRangeFilterValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericRangeFilterValue)(nil)).Elem()
+}
+
+func (i *templateNumericRangeFilterValuePtrType) ToTemplateNumericRangeFilterValuePtrOutput() TemplateNumericRangeFilterValuePtrOutput {
+	return i.ToTemplateNumericRangeFilterValuePtrOutputWithContext(context.Background())
+}
+
+func (i *templateNumericRangeFilterValuePtrType) ToTemplateNumericRangeFilterValuePtrOutputWithContext(ctx context.Context) TemplateNumericRangeFilterValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericRangeFilterValuePtrOutput)
+}
+
+type TemplateNumericRangeFilterValueOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericRangeFilterValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericRangeFilterValue)(nil)).Elem()
+}
+
+func (o TemplateNumericRangeFilterValueOutput) ToTemplateNumericRangeFilterValueOutput() TemplateNumericRangeFilterValueOutput {
+	return o
+}
+
+func (o TemplateNumericRangeFilterValueOutput) ToTemplateNumericRangeFilterValueOutputWithContext(ctx context.Context) TemplateNumericRangeFilterValueOutput {
+	return o
+}
+
+func (o TemplateNumericRangeFilterValueOutput) ToTemplateNumericRangeFilterValuePtrOutput() TemplateNumericRangeFilterValuePtrOutput {
+	return o.ToTemplateNumericRangeFilterValuePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateNumericRangeFilterValueOutput) ToTemplateNumericRangeFilterValuePtrOutputWithContext(ctx context.Context) TemplateNumericRangeFilterValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateNumericRangeFilterValue) *TemplateNumericRangeFilterValue {
+		return &v
+	}).(TemplateNumericRangeFilterValuePtrOutput)
+}
+
+// The parameter that is used in the numeric range.
+func (o TemplateNumericRangeFilterValueOutput) Parameter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateNumericRangeFilterValue) *string { return v.Parameter }).(pulumi.StringPtrOutput)
+}
+
+// The static value of the numeric range filter.
+func (o TemplateNumericRangeFilterValueOutput) StaticValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TemplateNumericRangeFilterValue) *float64 { return v.StaticValue }).(pulumi.Float64PtrOutput)
+}
+
+type TemplateNumericRangeFilterValuePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericRangeFilterValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericRangeFilterValue)(nil)).Elem()
+}
+
+func (o TemplateNumericRangeFilterValuePtrOutput) ToTemplateNumericRangeFilterValuePtrOutput() TemplateNumericRangeFilterValuePtrOutput {
+	return o
+}
+
+func (o TemplateNumericRangeFilterValuePtrOutput) ToTemplateNumericRangeFilterValuePtrOutputWithContext(ctx context.Context) TemplateNumericRangeFilterValuePtrOutput {
+	return o
+}
+
+func (o TemplateNumericRangeFilterValuePtrOutput) Elem() TemplateNumericRangeFilterValueOutput {
+	return o.ApplyT(func(v *TemplateNumericRangeFilterValue) TemplateNumericRangeFilterValue {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateNumericRangeFilterValue
+		return ret
+	}).(TemplateNumericRangeFilterValueOutput)
+}
+
+// The parameter that is used in the numeric range.
+func (o TemplateNumericRangeFilterValuePtrOutput) Parameter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericRangeFilterValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameter
+	}).(pulumi.StringPtrOutput)
+}
+
+// The static value of the numeric range filter.
+func (o TemplateNumericRangeFilterValuePtrOutput) StaticValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateNumericRangeFilterValue) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.StaticValue
+	}).(pulumi.Float64PtrOutput)
+}
+
+type TemplateNumericSeparatorConfiguration struct {
+	// Determines the decimal separator.
+	DecimalSeparator *TemplateNumericSeparatorSymbol `pulumi:"decimalSeparator"`
+	// The options that determine the thousands separator configuration.
+	ThousandsSeparator *TemplateThousandSeparatorOptions `pulumi:"thousandsSeparator"`
+}
+
+// TemplateNumericSeparatorConfigurationInput is an input type that accepts TemplateNumericSeparatorConfigurationArgs and TemplateNumericSeparatorConfigurationOutput values.
+// You can construct a concrete instance of `TemplateNumericSeparatorConfigurationInput` via:
+//
+//	TemplateNumericSeparatorConfigurationArgs{...}
+type TemplateNumericSeparatorConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateNumericSeparatorConfigurationOutput() TemplateNumericSeparatorConfigurationOutput
+	ToTemplateNumericSeparatorConfigurationOutputWithContext(context.Context) TemplateNumericSeparatorConfigurationOutput
+}
+
+type TemplateNumericSeparatorConfigurationArgs struct {
+	// Determines the decimal separator.
+	DecimalSeparator TemplateNumericSeparatorSymbolPtrInput `pulumi:"decimalSeparator"`
+	// The options that determine the thousands separator configuration.
+	ThousandsSeparator TemplateThousandSeparatorOptionsPtrInput `pulumi:"thousandsSeparator"`
+}
+
+func (TemplateNumericSeparatorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericSeparatorConfiguration)(nil)).Elem()
+}
+
+func (i TemplateNumericSeparatorConfigurationArgs) ToTemplateNumericSeparatorConfigurationOutput() TemplateNumericSeparatorConfigurationOutput {
+	return i.ToTemplateNumericSeparatorConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericSeparatorConfigurationArgs) ToTemplateNumericSeparatorConfigurationOutputWithContext(ctx context.Context) TemplateNumericSeparatorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericSeparatorConfigurationOutput)
+}
+
+func (i TemplateNumericSeparatorConfigurationArgs) ToTemplateNumericSeparatorConfigurationPtrOutput() TemplateNumericSeparatorConfigurationPtrOutput {
+	return i.ToTemplateNumericSeparatorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericSeparatorConfigurationArgs) ToTemplateNumericSeparatorConfigurationPtrOutputWithContext(ctx context.Context) TemplateNumericSeparatorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericSeparatorConfigurationOutput).ToTemplateNumericSeparatorConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateNumericSeparatorConfigurationPtrInput is an input type that accepts TemplateNumericSeparatorConfigurationArgs, TemplateNumericSeparatorConfigurationPtr and TemplateNumericSeparatorConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateNumericSeparatorConfigurationPtrInput` via:
+//
+//	        TemplateNumericSeparatorConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateNumericSeparatorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateNumericSeparatorConfigurationPtrOutput() TemplateNumericSeparatorConfigurationPtrOutput
+	ToTemplateNumericSeparatorConfigurationPtrOutputWithContext(context.Context) TemplateNumericSeparatorConfigurationPtrOutput
+}
+
+type templateNumericSeparatorConfigurationPtrType TemplateNumericSeparatorConfigurationArgs
+
+func TemplateNumericSeparatorConfigurationPtr(v *TemplateNumericSeparatorConfigurationArgs) TemplateNumericSeparatorConfigurationPtrInput {
+	return (*templateNumericSeparatorConfigurationPtrType)(v)
+}
+
+func (*templateNumericSeparatorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericSeparatorConfiguration)(nil)).Elem()
+}
+
+func (i *templateNumericSeparatorConfigurationPtrType) ToTemplateNumericSeparatorConfigurationPtrOutput() TemplateNumericSeparatorConfigurationPtrOutput {
+	return i.ToTemplateNumericSeparatorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateNumericSeparatorConfigurationPtrType) ToTemplateNumericSeparatorConfigurationPtrOutputWithContext(ctx context.Context) TemplateNumericSeparatorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericSeparatorConfigurationPtrOutput)
+}
+
+type TemplateNumericSeparatorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericSeparatorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericSeparatorConfiguration)(nil)).Elem()
+}
+
+func (o TemplateNumericSeparatorConfigurationOutput) ToTemplateNumericSeparatorConfigurationOutput() TemplateNumericSeparatorConfigurationOutput {
+	return o
+}
+
+func (o TemplateNumericSeparatorConfigurationOutput) ToTemplateNumericSeparatorConfigurationOutputWithContext(ctx context.Context) TemplateNumericSeparatorConfigurationOutput {
+	return o
+}
+
+func (o TemplateNumericSeparatorConfigurationOutput) ToTemplateNumericSeparatorConfigurationPtrOutput() TemplateNumericSeparatorConfigurationPtrOutput {
+	return o.ToTemplateNumericSeparatorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateNumericSeparatorConfigurationOutput) ToTemplateNumericSeparatorConfigurationPtrOutputWithContext(ctx context.Context) TemplateNumericSeparatorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateNumericSeparatorConfiguration) *TemplateNumericSeparatorConfiguration {
+		return &v
+	}).(TemplateNumericSeparatorConfigurationPtrOutput)
+}
+
+// Determines the decimal separator.
+func (o TemplateNumericSeparatorConfigurationOutput) DecimalSeparator() TemplateNumericSeparatorSymbolPtrOutput {
+	return o.ApplyT(func(v TemplateNumericSeparatorConfiguration) *TemplateNumericSeparatorSymbol {
+		return v.DecimalSeparator
+	}).(TemplateNumericSeparatorSymbolPtrOutput)
+}
+
+// The options that determine the thousands separator configuration.
+func (o TemplateNumericSeparatorConfigurationOutput) ThousandsSeparator() TemplateThousandSeparatorOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateNumericSeparatorConfiguration) *TemplateThousandSeparatorOptions {
+		return v.ThousandsSeparator
+	}).(TemplateThousandSeparatorOptionsPtrOutput)
+}
+
+type TemplateNumericSeparatorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericSeparatorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericSeparatorConfiguration)(nil)).Elem()
+}
+
+func (o TemplateNumericSeparatorConfigurationPtrOutput) ToTemplateNumericSeparatorConfigurationPtrOutput() TemplateNumericSeparatorConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateNumericSeparatorConfigurationPtrOutput) ToTemplateNumericSeparatorConfigurationPtrOutputWithContext(ctx context.Context) TemplateNumericSeparatorConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateNumericSeparatorConfigurationPtrOutput) Elem() TemplateNumericSeparatorConfigurationOutput {
+	return o.ApplyT(func(v *TemplateNumericSeparatorConfiguration) TemplateNumericSeparatorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateNumericSeparatorConfiguration
+		return ret
+	}).(TemplateNumericSeparatorConfigurationOutput)
+}
+
+// Determines the decimal separator.
+func (o TemplateNumericSeparatorConfigurationPtrOutput) DecimalSeparator() TemplateNumericSeparatorSymbolPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericSeparatorConfiguration) *TemplateNumericSeparatorSymbol {
+		if v == nil {
+			return nil
+		}
+		return v.DecimalSeparator
+	}).(TemplateNumericSeparatorSymbolPtrOutput)
+}
+
+// The options that determine the thousands separator configuration.
+func (o TemplateNumericSeparatorConfigurationPtrOutput) ThousandsSeparator() TemplateThousandSeparatorOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericSeparatorConfiguration) *TemplateThousandSeparatorOptions {
+		if v == nil {
+			return nil
+		}
+		return v.ThousandsSeparator
+	}).(TemplateThousandSeparatorOptionsPtrOutput)
+}
+
+type TemplateNumericalAggregationFunction struct {
+	// An aggregation based on the percentile of values in a dimension or measure.
+	PercentileAggregation *TemplatePercentileAggregation `pulumi:"percentileAggregation"`
+	// Built-in aggregation functions for numerical values.
+	//
+	// - `SUM` : The sum of a dimension or measure.
+	// - `AVERAGE` : The average of a dimension or measure.
+	// - `MIN` : The minimum value of a dimension or measure.
+	// - `MAX` : The maximum value of a dimension or measure.
+	// - `COUNT` : The count of a dimension or measure.
+	// - `DISTINCT_COUNT` : The count of distinct values in a dimension or measure.
+	// - `VAR` : The variance of a dimension or measure.
+	// - `VARP` : The partitioned variance of a dimension or measure.
+	// - `STDEV` : The standard deviation of a dimension or measure.
+	// - `STDEVP` : The partitioned standard deviation of a dimension or measure.
+	// - `MEDIAN` : The median value of a dimension or measure.
+	SimpleNumericalAggregation *TemplateSimpleNumericalAggregationFunction `pulumi:"simpleNumericalAggregation"`
+}
+
+// TemplateNumericalAggregationFunctionInput is an input type that accepts TemplateNumericalAggregationFunctionArgs and TemplateNumericalAggregationFunctionOutput values.
+// You can construct a concrete instance of `TemplateNumericalAggregationFunctionInput` via:
+//
+//	TemplateNumericalAggregationFunctionArgs{...}
+type TemplateNumericalAggregationFunctionInput interface {
+	pulumi.Input
+
+	ToTemplateNumericalAggregationFunctionOutput() TemplateNumericalAggregationFunctionOutput
+	ToTemplateNumericalAggregationFunctionOutputWithContext(context.Context) TemplateNumericalAggregationFunctionOutput
+}
+
+type TemplateNumericalAggregationFunctionArgs struct {
+	// An aggregation based on the percentile of values in a dimension or measure.
+	PercentileAggregation TemplatePercentileAggregationPtrInput `pulumi:"percentileAggregation"`
+	// Built-in aggregation functions for numerical values.
+	//
+	// - `SUM` : The sum of a dimension or measure.
+	// - `AVERAGE` : The average of a dimension or measure.
+	// - `MIN` : The minimum value of a dimension or measure.
+	// - `MAX` : The maximum value of a dimension or measure.
+	// - `COUNT` : The count of a dimension or measure.
+	// - `DISTINCT_COUNT` : The count of distinct values in a dimension or measure.
+	// - `VAR` : The variance of a dimension or measure.
+	// - `VARP` : The partitioned variance of a dimension or measure.
+	// - `STDEV` : The standard deviation of a dimension or measure.
+	// - `STDEVP` : The partitioned standard deviation of a dimension or measure.
+	// - `MEDIAN` : The median value of a dimension or measure.
+	SimpleNumericalAggregation TemplateSimpleNumericalAggregationFunctionPtrInput `pulumi:"simpleNumericalAggregation"`
+}
+
+func (TemplateNumericalAggregationFunctionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericalAggregationFunction)(nil)).Elem()
+}
+
+func (i TemplateNumericalAggregationFunctionArgs) ToTemplateNumericalAggregationFunctionOutput() TemplateNumericalAggregationFunctionOutput {
+	return i.ToTemplateNumericalAggregationFunctionOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericalAggregationFunctionArgs) ToTemplateNumericalAggregationFunctionOutputWithContext(ctx context.Context) TemplateNumericalAggregationFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericalAggregationFunctionOutput)
+}
+
+func (i TemplateNumericalAggregationFunctionArgs) ToTemplateNumericalAggregationFunctionPtrOutput() TemplateNumericalAggregationFunctionPtrOutput {
+	return i.ToTemplateNumericalAggregationFunctionPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericalAggregationFunctionArgs) ToTemplateNumericalAggregationFunctionPtrOutputWithContext(ctx context.Context) TemplateNumericalAggregationFunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericalAggregationFunctionOutput).ToTemplateNumericalAggregationFunctionPtrOutputWithContext(ctx)
+}
+
+// TemplateNumericalAggregationFunctionPtrInput is an input type that accepts TemplateNumericalAggregationFunctionArgs, TemplateNumericalAggregationFunctionPtr and TemplateNumericalAggregationFunctionPtrOutput values.
+// You can construct a concrete instance of `TemplateNumericalAggregationFunctionPtrInput` via:
+//
+//	        TemplateNumericalAggregationFunctionArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateNumericalAggregationFunctionPtrInput interface {
+	pulumi.Input
+
+	ToTemplateNumericalAggregationFunctionPtrOutput() TemplateNumericalAggregationFunctionPtrOutput
+	ToTemplateNumericalAggregationFunctionPtrOutputWithContext(context.Context) TemplateNumericalAggregationFunctionPtrOutput
+}
+
+type templateNumericalAggregationFunctionPtrType TemplateNumericalAggregationFunctionArgs
+
+func TemplateNumericalAggregationFunctionPtr(v *TemplateNumericalAggregationFunctionArgs) TemplateNumericalAggregationFunctionPtrInput {
+	return (*templateNumericalAggregationFunctionPtrType)(v)
+}
+
+func (*templateNumericalAggregationFunctionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericalAggregationFunction)(nil)).Elem()
+}
+
+func (i *templateNumericalAggregationFunctionPtrType) ToTemplateNumericalAggregationFunctionPtrOutput() TemplateNumericalAggregationFunctionPtrOutput {
+	return i.ToTemplateNumericalAggregationFunctionPtrOutputWithContext(context.Background())
+}
+
+func (i *templateNumericalAggregationFunctionPtrType) ToTemplateNumericalAggregationFunctionPtrOutputWithContext(ctx context.Context) TemplateNumericalAggregationFunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericalAggregationFunctionPtrOutput)
+}
+
+type TemplateNumericalAggregationFunctionOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericalAggregationFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericalAggregationFunction)(nil)).Elem()
+}
+
+func (o TemplateNumericalAggregationFunctionOutput) ToTemplateNumericalAggregationFunctionOutput() TemplateNumericalAggregationFunctionOutput {
+	return o
+}
+
+func (o TemplateNumericalAggregationFunctionOutput) ToTemplateNumericalAggregationFunctionOutputWithContext(ctx context.Context) TemplateNumericalAggregationFunctionOutput {
+	return o
+}
+
+func (o TemplateNumericalAggregationFunctionOutput) ToTemplateNumericalAggregationFunctionPtrOutput() TemplateNumericalAggregationFunctionPtrOutput {
+	return o.ToTemplateNumericalAggregationFunctionPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateNumericalAggregationFunctionOutput) ToTemplateNumericalAggregationFunctionPtrOutputWithContext(ctx context.Context) TemplateNumericalAggregationFunctionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateNumericalAggregationFunction) *TemplateNumericalAggregationFunction {
+		return &v
+	}).(TemplateNumericalAggregationFunctionPtrOutput)
+}
+
+// An aggregation based on the percentile of values in a dimension or measure.
+func (o TemplateNumericalAggregationFunctionOutput) PercentileAggregation() TemplatePercentileAggregationPtrOutput {
+	return o.ApplyT(func(v TemplateNumericalAggregationFunction) *TemplatePercentileAggregation {
+		return v.PercentileAggregation
+	}).(TemplatePercentileAggregationPtrOutput)
+}
+
+// Built-in aggregation functions for numerical values.
+//
+// - `SUM` : The sum of a dimension or measure.
+// - `AVERAGE` : The average of a dimension or measure.
+// - `MIN` : The minimum value of a dimension or measure.
+// - `MAX` : The maximum value of a dimension or measure.
+// - `COUNT` : The count of a dimension or measure.
+// - `DISTINCT_COUNT` : The count of distinct values in a dimension or measure.
+// - `VAR` : The variance of a dimension or measure.
+// - `VARP` : The partitioned variance of a dimension or measure.
+// - `STDEV` : The standard deviation of a dimension or measure.
+// - `STDEVP` : The partitioned standard deviation of a dimension or measure.
+// - `MEDIAN` : The median value of a dimension or measure.
+func (o TemplateNumericalAggregationFunctionOutput) SimpleNumericalAggregation() TemplateSimpleNumericalAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v TemplateNumericalAggregationFunction) *TemplateSimpleNumericalAggregationFunction {
+		return v.SimpleNumericalAggregation
+	}).(TemplateSimpleNumericalAggregationFunctionPtrOutput)
+}
+
+type TemplateNumericalAggregationFunctionPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericalAggregationFunctionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericalAggregationFunction)(nil)).Elem()
+}
+
+func (o TemplateNumericalAggregationFunctionPtrOutput) ToTemplateNumericalAggregationFunctionPtrOutput() TemplateNumericalAggregationFunctionPtrOutput {
+	return o
+}
+
+func (o TemplateNumericalAggregationFunctionPtrOutput) ToTemplateNumericalAggregationFunctionPtrOutputWithContext(ctx context.Context) TemplateNumericalAggregationFunctionPtrOutput {
+	return o
+}
+
+func (o TemplateNumericalAggregationFunctionPtrOutput) Elem() TemplateNumericalAggregationFunctionOutput {
+	return o.ApplyT(func(v *TemplateNumericalAggregationFunction) TemplateNumericalAggregationFunction {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateNumericalAggregationFunction
+		return ret
+	}).(TemplateNumericalAggregationFunctionOutput)
+}
+
+// An aggregation based on the percentile of values in a dimension or measure.
+func (o TemplateNumericalAggregationFunctionPtrOutput) PercentileAggregation() TemplatePercentileAggregationPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericalAggregationFunction) *TemplatePercentileAggregation {
+		if v == nil {
+			return nil
+		}
+		return v.PercentileAggregation
+	}).(TemplatePercentileAggregationPtrOutput)
+}
+
+// Built-in aggregation functions for numerical values.
+//
+// - `SUM` : The sum of a dimension or measure.
+// - `AVERAGE` : The average of a dimension or measure.
+// - `MIN` : The minimum value of a dimension or measure.
+// - `MAX` : The maximum value of a dimension or measure.
+// - `COUNT` : The count of a dimension or measure.
+// - `DISTINCT_COUNT` : The count of distinct values in a dimension or measure.
+// - `VAR` : The variance of a dimension or measure.
+// - `VARP` : The partitioned variance of a dimension or measure.
+// - `STDEV` : The standard deviation of a dimension or measure.
+// - `STDEVP` : The partitioned standard deviation of a dimension or measure.
+// - `MEDIAN` : The median value of a dimension or measure.
+func (o TemplateNumericalAggregationFunctionPtrOutput) SimpleNumericalAggregation() TemplateSimpleNumericalAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericalAggregationFunction) *TemplateSimpleNumericalAggregationFunction {
+		if v == nil {
+			return nil
+		}
+		return v.SimpleNumericalAggregation
+	}).(TemplateSimpleNumericalAggregationFunctionPtrOutput)
+}
+
+type TemplateNumericalDimensionField struct {
+	// The column that is used in the `NumericalDimensionField` .
+	Column TemplateColumnIdentifier `pulumi:"column"`
+	// The custom field ID.
+	FieldId string `pulumi:"fieldId"`
+	// The format configuration of the field.
+	FormatConfiguration *TemplateNumberFormatConfiguration `pulumi:"formatConfiguration"`
+	// The custom hierarchy ID.
+	HierarchyId *string `pulumi:"hierarchyId"`
+}
+
+// TemplateNumericalDimensionFieldInput is an input type that accepts TemplateNumericalDimensionFieldArgs and TemplateNumericalDimensionFieldOutput values.
+// You can construct a concrete instance of `TemplateNumericalDimensionFieldInput` via:
+//
+//	TemplateNumericalDimensionFieldArgs{...}
+type TemplateNumericalDimensionFieldInput interface {
+	pulumi.Input
+
+	ToTemplateNumericalDimensionFieldOutput() TemplateNumericalDimensionFieldOutput
+	ToTemplateNumericalDimensionFieldOutputWithContext(context.Context) TemplateNumericalDimensionFieldOutput
+}
+
+type TemplateNumericalDimensionFieldArgs struct {
+	// The column that is used in the `NumericalDimensionField` .
+	Column TemplateColumnIdentifierInput `pulumi:"column"`
+	// The custom field ID.
+	FieldId pulumi.StringInput `pulumi:"fieldId"`
+	// The format configuration of the field.
+	FormatConfiguration TemplateNumberFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
+	// The custom hierarchy ID.
+	HierarchyId pulumi.StringPtrInput `pulumi:"hierarchyId"`
+}
+
+func (TemplateNumericalDimensionFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericalDimensionField)(nil)).Elem()
+}
+
+func (i TemplateNumericalDimensionFieldArgs) ToTemplateNumericalDimensionFieldOutput() TemplateNumericalDimensionFieldOutput {
+	return i.ToTemplateNumericalDimensionFieldOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericalDimensionFieldArgs) ToTemplateNumericalDimensionFieldOutputWithContext(ctx context.Context) TemplateNumericalDimensionFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericalDimensionFieldOutput)
+}
+
+func (i TemplateNumericalDimensionFieldArgs) ToTemplateNumericalDimensionFieldPtrOutput() TemplateNumericalDimensionFieldPtrOutput {
+	return i.ToTemplateNumericalDimensionFieldPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericalDimensionFieldArgs) ToTemplateNumericalDimensionFieldPtrOutputWithContext(ctx context.Context) TemplateNumericalDimensionFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericalDimensionFieldOutput).ToTemplateNumericalDimensionFieldPtrOutputWithContext(ctx)
+}
+
+// TemplateNumericalDimensionFieldPtrInput is an input type that accepts TemplateNumericalDimensionFieldArgs, TemplateNumericalDimensionFieldPtr and TemplateNumericalDimensionFieldPtrOutput values.
+// You can construct a concrete instance of `TemplateNumericalDimensionFieldPtrInput` via:
+//
+//	        TemplateNumericalDimensionFieldArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateNumericalDimensionFieldPtrInput interface {
+	pulumi.Input
+
+	ToTemplateNumericalDimensionFieldPtrOutput() TemplateNumericalDimensionFieldPtrOutput
+	ToTemplateNumericalDimensionFieldPtrOutputWithContext(context.Context) TemplateNumericalDimensionFieldPtrOutput
+}
+
+type templateNumericalDimensionFieldPtrType TemplateNumericalDimensionFieldArgs
+
+func TemplateNumericalDimensionFieldPtr(v *TemplateNumericalDimensionFieldArgs) TemplateNumericalDimensionFieldPtrInput {
+	return (*templateNumericalDimensionFieldPtrType)(v)
+}
+
+func (*templateNumericalDimensionFieldPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericalDimensionField)(nil)).Elem()
+}
+
+func (i *templateNumericalDimensionFieldPtrType) ToTemplateNumericalDimensionFieldPtrOutput() TemplateNumericalDimensionFieldPtrOutput {
+	return i.ToTemplateNumericalDimensionFieldPtrOutputWithContext(context.Background())
+}
+
+func (i *templateNumericalDimensionFieldPtrType) ToTemplateNumericalDimensionFieldPtrOutputWithContext(ctx context.Context) TemplateNumericalDimensionFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericalDimensionFieldPtrOutput)
+}
+
+type TemplateNumericalDimensionFieldOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericalDimensionFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericalDimensionField)(nil)).Elem()
+}
+
+func (o TemplateNumericalDimensionFieldOutput) ToTemplateNumericalDimensionFieldOutput() TemplateNumericalDimensionFieldOutput {
+	return o
+}
+
+func (o TemplateNumericalDimensionFieldOutput) ToTemplateNumericalDimensionFieldOutputWithContext(ctx context.Context) TemplateNumericalDimensionFieldOutput {
+	return o
+}
+
+func (o TemplateNumericalDimensionFieldOutput) ToTemplateNumericalDimensionFieldPtrOutput() TemplateNumericalDimensionFieldPtrOutput {
+	return o.ToTemplateNumericalDimensionFieldPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateNumericalDimensionFieldOutput) ToTemplateNumericalDimensionFieldPtrOutputWithContext(ctx context.Context) TemplateNumericalDimensionFieldPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateNumericalDimensionField) *TemplateNumericalDimensionField {
+		return &v
+	}).(TemplateNumericalDimensionFieldPtrOutput)
+}
+
+// The column that is used in the `NumericalDimensionField` .
+func (o TemplateNumericalDimensionFieldOutput) Column() TemplateColumnIdentifierOutput {
+	return o.ApplyT(func(v TemplateNumericalDimensionField) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
+}
+
+// The custom field ID.
+func (o TemplateNumericalDimensionFieldOutput) FieldId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateNumericalDimensionField) string { return v.FieldId }).(pulumi.StringOutput)
+}
+
+// The format configuration of the field.
+func (o TemplateNumericalDimensionFieldOutput) FormatConfiguration() TemplateNumberFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateNumericalDimensionField) *TemplateNumberFormatConfiguration {
+		return v.FormatConfiguration
+	}).(TemplateNumberFormatConfigurationPtrOutput)
+}
+
+// The custom hierarchy ID.
+func (o TemplateNumericalDimensionFieldOutput) HierarchyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateNumericalDimensionField) *string { return v.HierarchyId }).(pulumi.StringPtrOutput)
+}
+
+type TemplateNumericalDimensionFieldPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericalDimensionFieldPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericalDimensionField)(nil)).Elem()
+}
+
+func (o TemplateNumericalDimensionFieldPtrOutput) ToTemplateNumericalDimensionFieldPtrOutput() TemplateNumericalDimensionFieldPtrOutput {
+	return o
+}
+
+func (o TemplateNumericalDimensionFieldPtrOutput) ToTemplateNumericalDimensionFieldPtrOutputWithContext(ctx context.Context) TemplateNumericalDimensionFieldPtrOutput {
+	return o
+}
+
+func (o TemplateNumericalDimensionFieldPtrOutput) Elem() TemplateNumericalDimensionFieldOutput {
+	return o.ApplyT(func(v *TemplateNumericalDimensionField) TemplateNumericalDimensionField {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateNumericalDimensionField
+		return ret
+	}).(TemplateNumericalDimensionFieldOutput)
+}
+
+// The column that is used in the `NumericalDimensionField` .
+func (o TemplateNumericalDimensionFieldPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericalDimensionField) *TemplateColumnIdentifier {
+		if v == nil {
+			return nil
+		}
+		return &v.Column
+	}).(TemplateColumnIdentifierPtrOutput)
+}
+
+// The custom field ID.
+func (o TemplateNumericalDimensionFieldPtrOutput) FieldId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericalDimensionField) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FieldId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The format configuration of the field.
+func (o TemplateNumericalDimensionFieldPtrOutput) FormatConfiguration() TemplateNumberFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericalDimensionField) *TemplateNumberFormatConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FormatConfiguration
+	}).(TemplateNumberFormatConfigurationPtrOutput)
+}
+
+// The custom hierarchy ID.
+func (o TemplateNumericalDimensionFieldPtrOutput) HierarchyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericalDimensionField) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HierarchyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateNumericalMeasureField struct {
+	// The aggregation function of the measure field.
+	AggregationFunction *TemplateNumericalAggregationFunction `pulumi:"aggregationFunction"`
+	// The column that is used in the `NumericalMeasureField` .
+	Column TemplateColumnIdentifier `pulumi:"column"`
+	// The custom field ID.
+	FieldId string `pulumi:"fieldId"`
+	// The format configuration of the field.
+	FormatConfiguration *TemplateNumberFormatConfiguration `pulumi:"formatConfiguration"`
+}
+
+// TemplateNumericalMeasureFieldInput is an input type that accepts TemplateNumericalMeasureFieldArgs and TemplateNumericalMeasureFieldOutput values.
+// You can construct a concrete instance of `TemplateNumericalMeasureFieldInput` via:
+//
+//	TemplateNumericalMeasureFieldArgs{...}
+type TemplateNumericalMeasureFieldInput interface {
+	pulumi.Input
+
+	ToTemplateNumericalMeasureFieldOutput() TemplateNumericalMeasureFieldOutput
+	ToTemplateNumericalMeasureFieldOutputWithContext(context.Context) TemplateNumericalMeasureFieldOutput
+}
+
+type TemplateNumericalMeasureFieldArgs struct {
+	// The aggregation function of the measure field.
+	AggregationFunction TemplateNumericalAggregationFunctionPtrInput `pulumi:"aggregationFunction"`
+	// The column that is used in the `NumericalMeasureField` .
+	Column TemplateColumnIdentifierInput `pulumi:"column"`
+	// The custom field ID.
+	FieldId pulumi.StringInput `pulumi:"fieldId"`
+	// The format configuration of the field.
+	FormatConfiguration TemplateNumberFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
+}
+
+func (TemplateNumericalMeasureFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericalMeasureField)(nil)).Elem()
+}
+
+func (i TemplateNumericalMeasureFieldArgs) ToTemplateNumericalMeasureFieldOutput() TemplateNumericalMeasureFieldOutput {
+	return i.ToTemplateNumericalMeasureFieldOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericalMeasureFieldArgs) ToTemplateNumericalMeasureFieldOutputWithContext(ctx context.Context) TemplateNumericalMeasureFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericalMeasureFieldOutput)
+}
+
+func (i TemplateNumericalMeasureFieldArgs) ToTemplateNumericalMeasureFieldPtrOutput() TemplateNumericalMeasureFieldPtrOutput {
+	return i.ToTemplateNumericalMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateNumericalMeasureFieldArgs) ToTemplateNumericalMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateNumericalMeasureFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericalMeasureFieldOutput).ToTemplateNumericalMeasureFieldPtrOutputWithContext(ctx)
+}
+
+// TemplateNumericalMeasureFieldPtrInput is an input type that accepts TemplateNumericalMeasureFieldArgs, TemplateNumericalMeasureFieldPtr and TemplateNumericalMeasureFieldPtrOutput values.
+// You can construct a concrete instance of `TemplateNumericalMeasureFieldPtrInput` via:
+//
+//	        TemplateNumericalMeasureFieldArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateNumericalMeasureFieldPtrInput interface {
+	pulumi.Input
+
+	ToTemplateNumericalMeasureFieldPtrOutput() TemplateNumericalMeasureFieldPtrOutput
+	ToTemplateNumericalMeasureFieldPtrOutputWithContext(context.Context) TemplateNumericalMeasureFieldPtrOutput
+}
+
+type templateNumericalMeasureFieldPtrType TemplateNumericalMeasureFieldArgs
+
+func TemplateNumericalMeasureFieldPtr(v *TemplateNumericalMeasureFieldArgs) TemplateNumericalMeasureFieldPtrInput {
+	return (*templateNumericalMeasureFieldPtrType)(v)
+}
+
+func (*templateNumericalMeasureFieldPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericalMeasureField)(nil)).Elem()
+}
+
+func (i *templateNumericalMeasureFieldPtrType) ToTemplateNumericalMeasureFieldPtrOutput() TemplateNumericalMeasureFieldPtrOutput {
+	return i.ToTemplateNumericalMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (i *templateNumericalMeasureFieldPtrType) ToTemplateNumericalMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateNumericalMeasureFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateNumericalMeasureFieldPtrOutput)
+}
+
+type TemplateNumericalMeasureFieldOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericalMeasureFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateNumericalMeasureField)(nil)).Elem()
+}
+
+func (o TemplateNumericalMeasureFieldOutput) ToTemplateNumericalMeasureFieldOutput() TemplateNumericalMeasureFieldOutput {
+	return o
+}
+
+func (o TemplateNumericalMeasureFieldOutput) ToTemplateNumericalMeasureFieldOutputWithContext(ctx context.Context) TemplateNumericalMeasureFieldOutput {
+	return o
+}
+
+func (o TemplateNumericalMeasureFieldOutput) ToTemplateNumericalMeasureFieldPtrOutput() TemplateNumericalMeasureFieldPtrOutput {
+	return o.ToTemplateNumericalMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateNumericalMeasureFieldOutput) ToTemplateNumericalMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateNumericalMeasureFieldPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateNumericalMeasureField) *TemplateNumericalMeasureField {
+		return &v
+	}).(TemplateNumericalMeasureFieldPtrOutput)
+}
+
+// The aggregation function of the measure field.
+func (o TemplateNumericalMeasureFieldOutput) AggregationFunction() TemplateNumericalAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v TemplateNumericalMeasureField) *TemplateNumericalAggregationFunction {
+		return v.AggregationFunction
+	}).(TemplateNumericalAggregationFunctionPtrOutput)
+}
+
+// The column that is used in the `NumericalMeasureField` .
+func (o TemplateNumericalMeasureFieldOutput) Column() TemplateColumnIdentifierOutput {
+	return o.ApplyT(func(v TemplateNumericalMeasureField) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
+}
+
+// The custom field ID.
+func (o TemplateNumericalMeasureFieldOutput) FieldId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateNumericalMeasureField) string { return v.FieldId }).(pulumi.StringOutput)
+}
+
+// The format configuration of the field.
+func (o TemplateNumericalMeasureFieldOutput) FormatConfiguration() TemplateNumberFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateNumericalMeasureField) *TemplateNumberFormatConfiguration { return v.FormatConfiguration }).(TemplateNumberFormatConfigurationPtrOutput)
+}
+
+type TemplateNumericalMeasureFieldPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateNumericalMeasureFieldPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateNumericalMeasureField)(nil)).Elem()
+}
+
+func (o TemplateNumericalMeasureFieldPtrOutput) ToTemplateNumericalMeasureFieldPtrOutput() TemplateNumericalMeasureFieldPtrOutput {
+	return o
+}
+
+func (o TemplateNumericalMeasureFieldPtrOutput) ToTemplateNumericalMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateNumericalMeasureFieldPtrOutput {
+	return o
+}
+
+func (o TemplateNumericalMeasureFieldPtrOutput) Elem() TemplateNumericalMeasureFieldOutput {
+	return o.ApplyT(func(v *TemplateNumericalMeasureField) TemplateNumericalMeasureField {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateNumericalMeasureField
+		return ret
+	}).(TemplateNumericalMeasureFieldOutput)
+}
+
+// The aggregation function of the measure field.
+func (o TemplateNumericalMeasureFieldPtrOutput) AggregationFunction() TemplateNumericalAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericalMeasureField) *TemplateNumericalAggregationFunction {
+		if v == nil {
+			return nil
+		}
+		return v.AggregationFunction
+	}).(TemplateNumericalAggregationFunctionPtrOutput)
+}
+
+// The column that is used in the `NumericalMeasureField` .
+func (o TemplateNumericalMeasureFieldPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericalMeasureField) *TemplateColumnIdentifier {
+		if v == nil {
+			return nil
+		}
+		return &v.Column
+	}).(TemplateColumnIdentifierPtrOutput)
+}
+
+// The custom field ID.
+func (o TemplateNumericalMeasureFieldPtrOutput) FieldId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericalMeasureField) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FieldId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The format configuration of the field.
+func (o TemplateNumericalMeasureFieldPtrOutput) FormatConfiguration() TemplateNumberFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateNumericalMeasureField) *TemplateNumberFormatConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FormatConfiguration
+	}).(TemplateNumberFormatConfigurationPtrOutput)
+}
+
+type TemplatePaginationConfiguration struct {
+	// Indicates the page number.
+	PageNumber float64 `pulumi:"pageNumber"`
+	// Indicates how many items render in one page.
+	PageSize float64 `pulumi:"pageSize"`
+}
+
+// TemplatePaginationConfigurationInput is an input type that accepts TemplatePaginationConfigurationArgs and TemplatePaginationConfigurationOutput values.
+// You can construct a concrete instance of `TemplatePaginationConfigurationInput` via:
+//
+//	TemplatePaginationConfigurationArgs{...}
+type TemplatePaginationConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplatePaginationConfigurationOutput() TemplatePaginationConfigurationOutput
+	ToTemplatePaginationConfigurationOutputWithContext(context.Context) TemplatePaginationConfigurationOutput
+}
+
+type TemplatePaginationConfigurationArgs struct {
+	// Indicates the page number.
+	PageNumber pulumi.Float64Input `pulumi:"pageNumber"`
+	// Indicates how many items render in one page.
+	PageSize pulumi.Float64Input `pulumi:"pageSize"`
+}
+
+func (TemplatePaginationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplatePaginationConfiguration)(nil)).Elem()
+}
+
+func (i TemplatePaginationConfigurationArgs) ToTemplatePaginationConfigurationOutput() TemplatePaginationConfigurationOutput {
+	return i.ToTemplatePaginationConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplatePaginationConfigurationArgs) ToTemplatePaginationConfigurationOutputWithContext(ctx context.Context) TemplatePaginationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplatePaginationConfigurationOutput)
+}
+
+func (i TemplatePaginationConfigurationArgs) ToTemplatePaginationConfigurationPtrOutput() TemplatePaginationConfigurationPtrOutput {
+	return i.ToTemplatePaginationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplatePaginationConfigurationArgs) ToTemplatePaginationConfigurationPtrOutputWithContext(ctx context.Context) TemplatePaginationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplatePaginationConfigurationOutput).ToTemplatePaginationConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplatePaginationConfigurationPtrInput is an input type that accepts TemplatePaginationConfigurationArgs, TemplatePaginationConfigurationPtr and TemplatePaginationConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplatePaginationConfigurationPtrInput` via:
+//
+//	        TemplatePaginationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplatePaginationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplatePaginationConfigurationPtrOutput() TemplatePaginationConfigurationPtrOutput
+	ToTemplatePaginationConfigurationPtrOutputWithContext(context.Context) TemplatePaginationConfigurationPtrOutput
+}
+
+type templatePaginationConfigurationPtrType TemplatePaginationConfigurationArgs
+
+func TemplatePaginationConfigurationPtr(v *TemplatePaginationConfigurationArgs) TemplatePaginationConfigurationPtrInput {
+	return (*templatePaginationConfigurationPtrType)(v)
+}
+
+func (*templatePaginationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplatePaginationConfiguration)(nil)).Elem()
+}
+
+func (i *templatePaginationConfigurationPtrType) ToTemplatePaginationConfigurationPtrOutput() TemplatePaginationConfigurationPtrOutput {
+	return i.ToTemplatePaginationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templatePaginationConfigurationPtrType) ToTemplatePaginationConfigurationPtrOutputWithContext(ctx context.Context) TemplatePaginationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplatePaginationConfigurationPtrOutput)
+}
+
+type TemplatePaginationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplatePaginationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplatePaginationConfiguration)(nil)).Elem()
+}
+
+func (o TemplatePaginationConfigurationOutput) ToTemplatePaginationConfigurationOutput() TemplatePaginationConfigurationOutput {
+	return o
+}
+
+func (o TemplatePaginationConfigurationOutput) ToTemplatePaginationConfigurationOutputWithContext(ctx context.Context) TemplatePaginationConfigurationOutput {
+	return o
+}
+
+func (o TemplatePaginationConfigurationOutput) ToTemplatePaginationConfigurationPtrOutput() TemplatePaginationConfigurationPtrOutput {
+	return o.ToTemplatePaginationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplatePaginationConfigurationOutput) ToTemplatePaginationConfigurationPtrOutputWithContext(ctx context.Context) TemplatePaginationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplatePaginationConfiguration) *TemplatePaginationConfiguration {
+		return &v
+	}).(TemplatePaginationConfigurationPtrOutput)
+}
+
+// Indicates the page number.
+func (o TemplatePaginationConfigurationOutput) PageNumber() pulumi.Float64Output {
+	return o.ApplyT(func(v TemplatePaginationConfiguration) float64 { return v.PageNumber }).(pulumi.Float64Output)
+}
+
+// Indicates how many items render in one page.
+func (o TemplatePaginationConfigurationOutput) PageSize() pulumi.Float64Output {
+	return o.ApplyT(func(v TemplatePaginationConfiguration) float64 { return v.PageSize }).(pulumi.Float64Output)
+}
+
+type TemplatePaginationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplatePaginationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplatePaginationConfiguration)(nil)).Elem()
+}
+
+func (o TemplatePaginationConfigurationPtrOutput) ToTemplatePaginationConfigurationPtrOutput() TemplatePaginationConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplatePaginationConfigurationPtrOutput) ToTemplatePaginationConfigurationPtrOutputWithContext(ctx context.Context) TemplatePaginationConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplatePaginationConfigurationPtrOutput) Elem() TemplatePaginationConfigurationOutput {
+	return o.ApplyT(func(v *TemplatePaginationConfiguration) TemplatePaginationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplatePaginationConfiguration
+		return ret
+	}).(TemplatePaginationConfigurationOutput)
+}
+
+// Indicates the page number.
+func (o TemplatePaginationConfigurationPtrOutput) PageNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplatePaginationConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.PageNumber
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Indicates how many items render in one page.
+func (o TemplatePaginationConfigurationPtrOutput) PageSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplatePaginationConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.PageSize
+	}).(pulumi.Float64PtrOutput)
+}
+
+type TemplatePanelConfiguration struct {
+	// Sets the background color for each panel.
+	BackgroundColor *string `pulumi:"backgroundColor"`
+	// Determines whether or not a background for each small multiples panel is rendered.
+	BackgroundVisibility interface{} `pulumi:"backgroundVisibility"`
+	// Sets the line color of panel borders.
+	BorderColor *string `pulumi:"borderColor"`
+	// Sets the line style of panel borders.
+	BorderStyle *TemplatePanelBorderStyle `pulumi:"borderStyle"`
+	// String based length that is composed of value and unit in px
+	BorderThickness *string `pulumi:"borderThickness"`
+	// Determines whether or not each panel displays a border.
+	BorderVisibility interface{} `pulumi:"borderVisibility"`
+	// String based length that is composed of value and unit in px
+	GutterSpacing *string `pulumi:"gutterSpacing"`
+	// Determines whether or not negative space between sibling panels is rendered.
+	GutterVisibility interface{} `pulumi:"gutterVisibility"`
+	// Configures the title display within each small multiples panel.
+	Title *TemplatePanelTitleOptions `pulumi:"title"`
+}
+
+// TemplatePanelConfigurationInput is an input type that accepts TemplatePanelConfigurationArgs and TemplatePanelConfigurationOutput values.
+// You can construct a concrete instance of `TemplatePanelConfigurationInput` via:
+//
+//	TemplatePanelConfigurationArgs{...}
+type TemplatePanelConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplatePanelConfigurationOutput() TemplatePanelConfigurationOutput
+	ToTemplatePanelConfigurationOutputWithContext(context.Context) TemplatePanelConfigurationOutput
+}
+
+type TemplatePanelConfigurationArgs struct {
+	// Sets the background color for each panel.
+	BackgroundColor pulumi.StringPtrInput `pulumi:"backgroundColor"`
+	// Determines whether or not a background for each small multiples panel is rendered.
+	BackgroundVisibility pulumi.Input `pulumi:"backgroundVisibility"`
+	// Sets the line color of panel borders.
+	BorderColor pulumi.StringPtrInput `pulumi:"borderColor"`
+	// Sets the line style of panel borders.
+	BorderStyle TemplatePanelBorderStylePtrInput `pulumi:"borderStyle"`
+	// String based length that is composed of value and unit in px
+	BorderThickness pulumi.StringPtrInput `pulumi:"borderThickness"`
+	// Determines whether or not each panel displays a border.
+	BorderVisibility pulumi.Input `pulumi:"borderVisibility"`
+	// String based length that is composed of value and unit in px
+	GutterSpacing pulumi.StringPtrInput `pulumi:"gutterSpacing"`
+	// Determines whether or not negative space between sibling panels is rendered.
+	GutterVisibility pulumi.Input `pulumi:"gutterVisibility"`
+	// Configures the title display within each small multiples panel.
+	Title TemplatePanelTitleOptionsPtrInput `pulumi:"title"`
+}
+
+func (TemplatePanelConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplatePanelConfiguration)(nil)).Elem()
+}
+
+func (i TemplatePanelConfigurationArgs) ToTemplatePanelConfigurationOutput() TemplatePanelConfigurationOutput {
+	return i.ToTemplatePanelConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplatePanelConfigurationArgs) ToTemplatePanelConfigurationOutputWithContext(ctx context.Context) TemplatePanelConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplatePanelConfigurationOutput)
+}
+
+func (i TemplatePanelConfigurationArgs) ToTemplatePanelConfigurationPtrOutput() TemplatePanelConfigurationPtrOutput {
+	return i.ToTemplatePanelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplatePanelConfigurationArgs) ToTemplatePanelConfigurationPtrOutputWithContext(ctx context.Context) TemplatePanelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplatePanelConfigurationOutput).ToTemplatePanelConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplatePanelConfigurationPtrInput is an input type that accepts TemplatePanelConfigurationArgs, TemplatePanelConfigurationPtr and TemplatePanelConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplatePanelConfigurationPtrInput` via:
+//
+//	        TemplatePanelConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplatePanelConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplatePanelConfigurationPtrOutput() TemplatePanelConfigurationPtrOutput
+	ToTemplatePanelConfigurationPtrOutputWithContext(context.Context) TemplatePanelConfigurationPtrOutput
+}
+
+type templatePanelConfigurationPtrType TemplatePanelConfigurationArgs
+
+func TemplatePanelConfigurationPtr(v *TemplatePanelConfigurationArgs) TemplatePanelConfigurationPtrInput {
+	return (*templatePanelConfigurationPtrType)(v)
+}
+
+func (*templatePanelConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplatePanelConfiguration)(nil)).Elem()
+}
+
+func (i *templatePanelConfigurationPtrType) ToTemplatePanelConfigurationPtrOutput() TemplatePanelConfigurationPtrOutput {
+	return i.ToTemplatePanelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templatePanelConfigurationPtrType) ToTemplatePanelConfigurationPtrOutputWithContext(ctx context.Context) TemplatePanelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplatePanelConfigurationPtrOutput)
+}
+
+type TemplatePanelConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplatePanelConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplatePanelConfiguration)(nil)).Elem()
+}
+
+func (o TemplatePanelConfigurationOutput) ToTemplatePanelConfigurationOutput() TemplatePanelConfigurationOutput {
+	return o
+}
+
+func (o TemplatePanelConfigurationOutput) ToTemplatePanelConfigurationOutputWithContext(ctx context.Context) TemplatePanelConfigurationOutput {
+	return o
+}
+
+func (o TemplatePanelConfigurationOutput) ToTemplatePanelConfigurationPtrOutput() TemplatePanelConfigurationPtrOutput {
+	return o.ToTemplatePanelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplatePanelConfigurationOutput) ToTemplatePanelConfigurationPtrOutputWithContext(ctx context.Context) TemplatePanelConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplatePanelConfiguration) *TemplatePanelConfiguration {
+		return &v
+	}).(TemplatePanelConfigurationPtrOutput)
+}
+
+// Sets the background color for each panel.
+func (o TemplatePanelConfigurationOutput) BackgroundColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplatePanelConfiguration) *string { return v.BackgroundColor }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether or not a background for each small multiples panel is rendered.
+func (o TemplatePanelConfigurationOutput) BackgroundVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplatePanelConfiguration) interface{} { return v.BackgroundVisibility }).(pulumi.AnyOutput)
+}
+
+// Sets the line color of panel borders.
+func (o TemplatePanelConfigurationOutput) BorderColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplatePanelConfiguration) *string { return v.BorderColor }).(pulumi.StringPtrOutput)
+}
+
+// Sets the line style of panel borders.
+func (o TemplatePanelConfigurationOutput) BorderStyle() TemplatePanelBorderStylePtrOutput {
+	return o.ApplyT(func(v TemplatePanelConfiguration) *TemplatePanelBorderStyle { return v.BorderStyle }).(TemplatePanelBorderStylePtrOutput)
+}
+
+// String based length that is composed of value and unit in px
+func (o TemplatePanelConfigurationOutput) BorderThickness() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplatePanelConfiguration) *string { return v.BorderThickness }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether or not each panel displays a border.
+func (o TemplatePanelConfigurationOutput) BorderVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplatePanelConfiguration) interface{} { return v.BorderVisibility }).(pulumi.AnyOutput)
+}
+
+// String based length that is composed of value and unit in px
+func (o TemplatePanelConfigurationOutput) GutterSpacing() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplatePanelConfiguration) *string { return v.GutterSpacing }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether or not negative space between sibling panels is rendered.
+func (o TemplatePanelConfigurationOutput) GutterVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplatePanelConfiguration) interface{} { return v.GutterVisibility }).(pulumi.AnyOutput)
+}
+
+// Configures the title display within each small multiples panel.
+func (o TemplatePanelConfigurationOutput) Title() TemplatePanelTitleOptionsPtrOutput {
+	return o.ApplyT(func(v TemplatePanelConfiguration) *TemplatePanelTitleOptions { return v.Title }).(TemplatePanelTitleOptionsPtrOutput)
+}
+
+type TemplatePanelConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplatePanelConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplatePanelConfiguration)(nil)).Elem()
+}
+
+func (o TemplatePanelConfigurationPtrOutput) ToTemplatePanelConfigurationPtrOutput() TemplatePanelConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplatePanelConfigurationPtrOutput) ToTemplatePanelConfigurationPtrOutputWithContext(ctx context.Context) TemplatePanelConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplatePanelConfigurationPtrOutput) Elem() TemplatePanelConfigurationOutput {
+	return o.ApplyT(func(v *TemplatePanelConfiguration) TemplatePanelConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplatePanelConfiguration
+		return ret
+	}).(TemplatePanelConfigurationOutput)
+}
+
+// Sets the background color for each panel.
+func (o TemplatePanelConfigurationPtrOutput) BackgroundColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplatePanelConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BackgroundColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether or not a background for each small multiples panel is rendered.
+func (o TemplatePanelConfigurationPtrOutput) BackgroundVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplatePanelConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.BackgroundVisibility
+	}).(pulumi.AnyOutput)
+}
+
+// Sets the line color of panel borders.
+func (o TemplatePanelConfigurationPtrOutput) BorderColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplatePanelConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BorderColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets the line style of panel borders.
+func (o TemplatePanelConfigurationPtrOutput) BorderStyle() TemplatePanelBorderStylePtrOutput {
+	return o.ApplyT(func(v *TemplatePanelConfiguration) *TemplatePanelBorderStyle {
+		if v == nil {
+			return nil
+		}
+		return v.BorderStyle
+	}).(TemplatePanelBorderStylePtrOutput)
+}
+
+// String based length that is composed of value and unit in px
+func (o TemplatePanelConfigurationPtrOutput) BorderThickness() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplatePanelConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BorderThickness
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether or not each panel displays a border.
+func (o TemplatePanelConfigurationPtrOutput) BorderVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplatePanelConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.BorderVisibility
+	}).(pulumi.AnyOutput)
+}
+
+// String based length that is composed of value and unit in px
+func (o TemplatePanelConfigurationPtrOutput) GutterSpacing() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplatePanelConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GutterSpacing
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether or not negative space between sibling panels is rendered.
+func (o TemplatePanelConfigurationPtrOutput) GutterVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplatePanelConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.GutterVisibility
+	}).(pulumi.AnyOutput)
+}
+
+// Configures the title display within each small multiples panel.
+func (o TemplatePanelConfigurationPtrOutput) Title() TemplatePanelTitleOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplatePanelConfiguration) *TemplatePanelTitleOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(TemplatePanelTitleOptionsPtrOutput)
+}
+
+type TemplatePanelTitleOptions struct {
+	FontConfiguration *TemplateFontConfiguration `pulumi:"fontConfiguration"`
+	// Sets the horizontal text alignment of the title within each panel.
+	HorizontalTextAlignment *TemplateHorizontalTextAlignment `pulumi:"horizontalTextAlignment"`
+	// Determines whether or not panel titles are displayed.
+	Visibility interface{} `pulumi:"visibility"`
+}
+
+// TemplatePanelTitleOptionsInput is an input type that accepts TemplatePanelTitleOptionsArgs and TemplatePanelTitleOptionsOutput values.
+// You can construct a concrete instance of `TemplatePanelTitleOptionsInput` via:
+//
+//	TemplatePanelTitleOptionsArgs{...}
+type TemplatePanelTitleOptionsInput interface {
+	pulumi.Input
+
+	ToTemplatePanelTitleOptionsOutput() TemplatePanelTitleOptionsOutput
+	ToTemplatePanelTitleOptionsOutputWithContext(context.Context) TemplatePanelTitleOptionsOutput
+}
+
+type TemplatePanelTitleOptionsArgs struct {
+	FontConfiguration TemplateFontConfigurationPtrInput `pulumi:"fontConfiguration"`
+	// Sets the horizontal text alignment of the title within each panel.
+	HorizontalTextAlignment TemplateHorizontalTextAlignmentPtrInput `pulumi:"horizontalTextAlignment"`
+	// Determines whether or not panel titles are displayed.
+	Visibility pulumi.Input `pulumi:"visibility"`
+}
+
+func (TemplatePanelTitleOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplatePanelTitleOptions)(nil)).Elem()
+}
+
+func (i TemplatePanelTitleOptionsArgs) ToTemplatePanelTitleOptionsOutput() TemplatePanelTitleOptionsOutput {
+	return i.ToTemplatePanelTitleOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplatePanelTitleOptionsArgs) ToTemplatePanelTitleOptionsOutputWithContext(ctx context.Context) TemplatePanelTitleOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplatePanelTitleOptionsOutput)
+}
+
+func (i TemplatePanelTitleOptionsArgs) ToTemplatePanelTitleOptionsPtrOutput() TemplatePanelTitleOptionsPtrOutput {
+	return i.ToTemplatePanelTitleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplatePanelTitleOptionsArgs) ToTemplatePanelTitleOptionsPtrOutputWithContext(ctx context.Context) TemplatePanelTitleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplatePanelTitleOptionsOutput).ToTemplatePanelTitleOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplatePanelTitleOptionsPtrInput is an input type that accepts TemplatePanelTitleOptionsArgs, TemplatePanelTitleOptionsPtr and TemplatePanelTitleOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplatePanelTitleOptionsPtrInput` via:
+//
+//	        TemplatePanelTitleOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplatePanelTitleOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplatePanelTitleOptionsPtrOutput() TemplatePanelTitleOptionsPtrOutput
+	ToTemplatePanelTitleOptionsPtrOutputWithContext(context.Context) TemplatePanelTitleOptionsPtrOutput
+}
+
+type templatePanelTitleOptionsPtrType TemplatePanelTitleOptionsArgs
+
+func TemplatePanelTitleOptionsPtr(v *TemplatePanelTitleOptionsArgs) TemplatePanelTitleOptionsPtrInput {
+	return (*templatePanelTitleOptionsPtrType)(v)
+}
+
+func (*templatePanelTitleOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplatePanelTitleOptions)(nil)).Elem()
+}
+
+func (i *templatePanelTitleOptionsPtrType) ToTemplatePanelTitleOptionsPtrOutput() TemplatePanelTitleOptionsPtrOutput {
+	return i.ToTemplatePanelTitleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templatePanelTitleOptionsPtrType) ToTemplatePanelTitleOptionsPtrOutputWithContext(ctx context.Context) TemplatePanelTitleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplatePanelTitleOptionsPtrOutput)
+}
+
+type TemplatePanelTitleOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplatePanelTitleOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplatePanelTitleOptions)(nil)).Elem()
+}
+
+func (o TemplatePanelTitleOptionsOutput) ToTemplatePanelTitleOptionsOutput() TemplatePanelTitleOptionsOutput {
+	return o
+}
+
+func (o TemplatePanelTitleOptionsOutput) ToTemplatePanelTitleOptionsOutputWithContext(ctx context.Context) TemplatePanelTitleOptionsOutput {
+	return o
+}
+
+func (o TemplatePanelTitleOptionsOutput) ToTemplatePanelTitleOptionsPtrOutput() TemplatePanelTitleOptionsPtrOutput {
+	return o.ToTemplatePanelTitleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplatePanelTitleOptionsOutput) ToTemplatePanelTitleOptionsPtrOutputWithContext(ctx context.Context) TemplatePanelTitleOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplatePanelTitleOptions) *TemplatePanelTitleOptions {
+		return &v
+	}).(TemplatePanelTitleOptionsPtrOutput)
+}
+
+func (o TemplatePanelTitleOptionsOutput) FontConfiguration() TemplateFontConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplatePanelTitleOptions) *TemplateFontConfiguration { return v.FontConfiguration }).(TemplateFontConfigurationPtrOutput)
+}
+
+// Sets the horizontal text alignment of the title within each panel.
+func (o TemplatePanelTitleOptionsOutput) HorizontalTextAlignment() TemplateHorizontalTextAlignmentPtrOutput {
+	return o.ApplyT(func(v TemplatePanelTitleOptions) *TemplateHorizontalTextAlignment { return v.HorizontalTextAlignment }).(TemplateHorizontalTextAlignmentPtrOutput)
+}
+
+// Determines whether or not panel titles are displayed.
+func (o TemplatePanelTitleOptionsOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplatePanelTitleOptions) interface{} { return v.Visibility }).(pulumi.AnyOutput)
+}
+
+type TemplatePanelTitleOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplatePanelTitleOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplatePanelTitleOptions)(nil)).Elem()
+}
+
+func (o TemplatePanelTitleOptionsPtrOutput) ToTemplatePanelTitleOptionsPtrOutput() TemplatePanelTitleOptionsPtrOutput {
+	return o
+}
+
+func (o TemplatePanelTitleOptionsPtrOutput) ToTemplatePanelTitleOptionsPtrOutputWithContext(ctx context.Context) TemplatePanelTitleOptionsPtrOutput {
+	return o
+}
+
+func (o TemplatePanelTitleOptionsPtrOutput) Elem() TemplatePanelTitleOptionsOutput {
+	return o.ApplyT(func(v *TemplatePanelTitleOptions) TemplatePanelTitleOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplatePanelTitleOptions
+		return ret
+	}).(TemplatePanelTitleOptionsOutput)
+}
+
+func (o TemplatePanelTitleOptionsPtrOutput) FontConfiguration() TemplateFontConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplatePanelTitleOptions) *TemplateFontConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FontConfiguration
+	}).(TemplateFontConfigurationPtrOutput)
+}
+
+// Sets the horizontal text alignment of the title within each panel.
+func (o TemplatePanelTitleOptionsPtrOutput) HorizontalTextAlignment() TemplateHorizontalTextAlignmentPtrOutput {
+	return o.ApplyT(func(v *TemplatePanelTitleOptions) *TemplateHorizontalTextAlignment {
+		if v == nil {
+			return nil
+		}
+		return v.HorizontalTextAlignment
+	}).(TemplateHorizontalTextAlignmentPtrOutput)
+}
+
+// Determines whether or not panel titles are displayed.
+func (o TemplatePanelTitleOptionsPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplatePanelTitleOptions) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Visibility
+	}).(pulumi.AnyOutput)
+}
+
+type TemplateParameterControl struct {
+	// A control from a date parameter that specifies date and time.
+	DateTimePicker *TemplateParameterDateTimePickerControl `pulumi:"dateTimePicker"`
+	// A control to display a dropdown list with buttons that are used to select a single value.
+	Dropdown *TemplateParameterDropDownControl `pulumi:"dropdown"`
+	// A control to display a list with buttons or boxes that are used to select either a single value or multiple values.
+	List *TemplateParameterListControl `pulumi:"list"`
+	// A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.
+	Slider *TemplateParameterSliderControl `pulumi:"slider"`
+	// A control to display a text box that is used to enter multiple entries.
+	TextArea *TemplateParameterTextAreaControl `pulumi:"textArea"`
+	// A control to display a text box that is used to enter a single entry.
+	TextField *TemplateParameterTextFieldControl `pulumi:"textField"`
+}
+
+// TemplateParameterControlInput is an input type that accepts TemplateParameterControlArgs and TemplateParameterControlOutput values.
+// You can construct a concrete instance of `TemplateParameterControlInput` via:
+//
+//	TemplateParameterControlArgs{...}
+type TemplateParameterControlInput interface {
+	pulumi.Input
+
+	ToTemplateParameterControlOutput() TemplateParameterControlOutput
+	ToTemplateParameterControlOutputWithContext(context.Context) TemplateParameterControlOutput
+}
+
+type TemplateParameterControlArgs struct {
+	// A control from a date parameter that specifies date and time.
+	DateTimePicker TemplateParameterDateTimePickerControlPtrInput `pulumi:"dateTimePicker"`
+	// A control to display a dropdown list with buttons that are used to select a single value.
+	Dropdown TemplateParameterDropDownControlPtrInput `pulumi:"dropdown"`
+	// A control to display a list with buttons or boxes that are used to select either a single value or multiple values.
+	List TemplateParameterListControlPtrInput `pulumi:"list"`
+	// A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.
+	Slider TemplateParameterSliderControlPtrInput `pulumi:"slider"`
+	// A control to display a text box that is used to enter multiple entries.
+	TextArea TemplateParameterTextAreaControlPtrInput `pulumi:"textArea"`
+	// A control to display a text box that is used to enter a single entry.
+	TextField TemplateParameterTextFieldControlPtrInput `pulumi:"textField"`
+}
+
+func (TemplateParameterControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateParameterControl)(nil)).Elem()
+}
+
+func (i TemplateParameterControlArgs) ToTemplateParameterControlOutput() TemplateParameterControlOutput {
+	return i.ToTemplateParameterControlOutputWithContext(context.Background())
+}
+
+func (i TemplateParameterControlArgs) ToTemplateParameterControlOutputWithContext(ctx context.Context) TemplateParameterControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterControlOutput)
+}
+
+// TemplateParameterControlArrayInput is an input type that accepts TemplateParameterControlArray and TemplateParameterControlArrayOutput values.
+// You can construct a concrete instance of `TemplateParameterControlArrayInput` via:
+//
+//	TemplateParameterControlArray{ TemplateParameterControlArgs{...} }
+type TemplateParameterControlArrayInput interface {
+	pulumi.Input
+
+	ToTemplateParameterControlArrayOutput() TemplateParameterControlArrayOutput
+	ToTemplateParameterControlArrayOutputWithContext(context.Context) TemplateParameterControlArrayOutput
+}
+
+type TemplateParameterControlArray []TemplateParameterControlInput
+
+func (TemplateParameterControlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateParameterControl)(nil)).Elem()
+}
+
+func (i TemplateParameterControlArray) ToTemplateParameterControlArrayOutput() TemplateParameterControlArrayOutput {
+	return i.ToTemplateParameterControlArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateParameterControlArray) ToTemplateParameterControlArrayOutputWithContext(ctx context.Context) TemplateParameterControlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterControlArrayOutput)
+}
+
+type TemplateParameterControlOutput struct{ *pulumi.OutputState }
+
+func (TemplateParameterControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateParameterControl)(nil)).Elem()
+}
+
+func (o TemplateParameterControlOutput) ToTemplateParameterControlOutput() TemplateParameterControlOutput {
+	return o
+}
+
+func (o TemplateParameterControlOutput) ToTemplateParameterControlOutputWithContext(ctx context.Context) TemplateParameterControlOutput {
+	return o
+}
+
+// A control from a date parameter that specifies date and time.
+func (o TemplateParameterControlOutput) DateTimePicker() TemplateParameterDateTimePickerControlPtrOutput {
+	return o.ApplyT(func(v TemplateParameterControl) *TemplateParameterDateTimePickerControl { return v.DateTimePicker }).(TemplateParameterDateTimePickerControlPtrOutput)
+}
+
+// A control to display a dropdown list with buttons that are used to select a single value.
+func (o TemplateParameterControlOutput) Dropdown() TemplateParameterDropDownControlPtrOutput {
+	return o.ApplyT(func(v TemplateParameterControl) *TemplateParameterDropDownControl { return v.Dropdown }).(TemplateParameterDropDownControlPtrOutput)
+}
+
+// A control to display a list with buttons or boxes that are used to select either a single value or multiple values.
+func (o TemplateParameterControlOutput) List() TemplateParameterListControlPtrOutput {
+	return o.ApplyT(func(v TemplateParameterControl) *TemplateParameterListControl { return v.List }).(TemplateParameterListControlPtrOutput)
+}
+
+// A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.
+func (o TemplateParameterControlOutput) Slider() TemplateParameterSliderControlPtrOutput {
+	return o.ApplyT(func(v TemplateParameterControl) *TemplateParameterSliderControl { return v.Slider }).(TemplateParameterSliderControlPtrOutput)
+}
+
+// A control to display a text box that is used to enter multiple entries.
+func (o TemplateParameterControlOutput) TextArea() TemplateParameterTextAreaControlPtrOutput {
+	return o.ApplyT(func(v TemplateParameterControl) *TemplateParameterTextAreaControl { return v.TextArea }).(TemplateParameterTextAreaControlPtrOutput)
+}
+
+// A control to display a text box that is used to enter a single entry.
+func (o TemplateParameterControlOutput) TextField() TemplateParameterTextFieldControlPtrOutput {
+	return o.ApplyT(func(v TemplateParameterControl) *TemplateParameterTextFieldControl { return v.TextField }).(TemplateParameterTextFieldControlPtrOutput)
+}
+
+type TemplateParameterControlArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateParameterControlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateParameterControl)(nil)).Elem()
+}
+
+func (o TemplateParameterControlArrayOutput) ToTemplateParameterControlArrayOutput() TemplateParameterControlArrayOutput {
+	return o
+}
+
+func (o TemplateParameterControlArrayOutput) ToTemplateParameterControlArrayOutputWithContext(ctx context.Context) TemplateParameterControlArrayOutput {
+	return o
+}
+
+func (o TemplateParameterControlArrayOutput) Index(i pulumi.IntInput) TemplateParameterControlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateParameterControl {
+		return vs[0].([]TemplateParameterControl)[vs[1].(int)]
+	}).(TemplateParameterControlOutput)
+}
+
+type TemplateParameterDateTimePickerControl struct {
+	// The display options of a control.
+	DisplayOptions *TemplateDateTimePickerControlDisplayOptions `pulumi:"displayOptions"`
+	// The ID of the `ParameterDateTimePickerControl` .
+	ParameterControlId string `pulumi:"parameterControlId"`
+	// The name of the `ParameterDateTimePickerControl` .
+	SourceParameterName string `pulumi:"sourceParameterName"`
+	// The title of the `ParameterDateTimePickerControl` .
+	Title string `pulumi:"title"`
+}
+
+// TemplateParameterDateTimePickerControlInput is an input type that accepts TemplateParameterDateTimePickerControlArgs and TemplateParameterDateTimePickerControlOutput values.
+// You can construct a concrete instance of `TemplateParameterDateTimePickerControlInput` via:
+//
+//	TemplateParameterDateTimePickerControlArgs{...}
+type TemplateParameterDateTimePickerControlInput interface {
+	pulumi.Input
+
+	ToTemplateParameterDateTimePickerControlOutput() TemplateParameterDateTimePickerControlOutput
+	ToTemplateParameterDateTimePickerControlOutputWithContext(context.Context) TemplateParameterDateTimePickerControlOutput
+}
+
+type TemplateParameterDateTimePickerControlArgs struct {
+	// The display options of a control.
+	DisplayOptions TemplateDateTimePickerControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
+	// The ID of the `ParameterDateTimePickerControl` .
+	ParameterControlId pulumi.StringInput `pulumi:"parameterControlId"`
+	// The name of the `ParameterDateTimePickerControl` .
+	SourceParameterName pulumi.StringInput `pulumi:"sourceParameterName"`
+	// The title of the `ParameterDateTimePickerControl` .
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (TemplateParameterDateTimePickerControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateParameterDateTimePickerControl)(nil)).Elem()
+}
+
+func (i TemplateParameterDateTimePickerControlArgs) ToTemplateParameterDateTimePickerControlOutput() TemplateParameterDateTimePickerControlOutput {
+	return i.ToTemplateParameterDateTimePickerControlOutputWithContext(context.Background())
+}
+
+func (i TemplateParameterDateTimePickerControlArgs) ToTemplateParameterDateTimePickerControlOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDateTimePickerControlOutput)
+}
+
+func (i TemplateParameterDateTimePickerControlArgs) ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput {
+	return i.ToTemplateParameterDateTimePickerControlPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateParameterDateTimePickerControlArgs) ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDateTimePickerControlOutput).ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx)
+}
+
+// TemplateParameterDateTimePickerControlPtrInput is an input type that accepts TemplateParameterDateTimePickerControlArgs, TemplateParameterDateTimePickerControlPtr and TemplateParameterDateTimePickerControlPtrOutput values.
+// You can construct a concrete instance of `TemplateParameterDateTimePickerControlPtrInput` via:
+//
+//	        TemplateParameterDateTimePickerControlArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateParameterDateTimePickerControlPtrInput interface {
+	pulumi.Input
+
+	ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput
+	ToTemplateParameterDateTimePickerControlPtrOutputWithContext(context.Context) TemplateParameterDateTimePickerControlPtrOutput
+}
+
+type templateParameterDateTimePickerControlPtrType TemplateParameterDateTimePickerControlArgs
+
+func TemplateParameterDateTimePickerControlPtr(v *TemplateParameterDateTimePickerControlArgs) TemplateParameterDateTimePickerControlPtrInput {
+	return (*templateParameterDateTimePickerControlPtrType)(v)
+}
+
+func (*templateParameterDateTimePickerControlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateParameterDateTimePickerControl)(nil)).Elem()
+}
+
+func (i *templateParameterDateTimePickerControlPtrType) ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput {
+	return i.ToTemplateParameterDateTimePickerControlPtrOutputWithContext(context.Background())
+}
+
+func (i *templateParameterDateTimePickerControlPtrType) ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDateTimePickerControlPtrOutput)
+}
+
+type TemplateParameterDateTimePickerControlOutput struct{ *pulumi.OutputState }
+
+func (TemplateParameterDateTimePickerControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateParameterDateTimePickerControl)(nil)).Elem()
+}
+
+func (o TemplateParameterDateTimePickerControlOutput) ToTemplateParameterDateTimePickerControlOutput() TemplateParameterDateTimePickerControlOutput {
+	return o
+}
+
+func (o TemplateParameterDateTimePickerControlOutput) ToTemplateParameterDateTimePickerControlOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlOutput {
+	return o
+}
+
+func (o TemplateParameterDateTimePickerControlOutput) ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput {
+	return o.ToTemplateParameterDateTimePickerControlPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateParameterDateTimePickerControlOutput) ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateParameterDateTimePickerControl) *TemplateParameterDateTimePickerControl {
+		return &v
+	}).(TemplateParameterDateTimePickerControlPtrOutput)
+}
+
+// The display options of a control.
+func (o TemplateParameterDateTimePickerControlOutput) DisplayOptions() TemplateDateTimePickerControlDisplayOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateParameterDateTimePickerControl) *TemplateDateTimePickerControlDisplayOptions {
+		return v.DisplayOptions
+	}).(TemplateDateTimePickerControlDisplayOptionsPtrOutput)
+}
+
+// The ID of the `ParameterDateTimePickerControl` .
+func (o TemplateParameterDateTimePickerControlOutput) ParameterControlId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateParameterDateTimePickerControl) string { return v.ParameterControlId }).(pulumi.StringOutput)
+}
+
+// The name of the `ParameterDateTimePickerControl` .
+func (o TemplateParameterDateTimePickerControlOutput) SourceParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateParameterDateTimePickerControl) string { return v.SourceParameterName }).(pulumi.StringOutput)
+}
+
+// The title of the `ParameterDateTimePickerControl` .
+func (o TemplateParameterDateTimePickerControlOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateParameterDateTimePickerControl) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type TemplateParameterDateTimePickerControlPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateParameterDateTimePickerControlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateParameterDateTimePickerControl)(nil)).Elem()
+}
+
+func (o TemplateParameterDateTimePickerControlPtrOutput) ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput {
+	return o
+}
+
+func (o TemplateParameterDateTimePickerControlPtrOutput) ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlPtrOutput {
+	return o
+}
+
+func (o TemplateParameterDateTimePickerControlPtrOutput) Elem() TemplateParameterDateTimePickerControlOutput {
+	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) TemplateParameterDateTimePickerControl {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateParameterDateTimePickerControl
+		return ret
+	}).(TemplateParameterDateTimePickerControlOutput)
+}
+
+// The display options of a control.
+func (o TemplateParameterDateTimePickerControlPtrOutput) DisplayOptions() TemplateDateTimePickerControlDisplayOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) *TemplateDateTimePickerControlDisplayOptions {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayOptions
+	}).(TemplateDateTimePickerControlDisplayOptionsPtrOutput)
+}
+
+// The ID of the `ParameterDateTimePickerControl` .
+func (o TemplateParameterDateTimePickerControlPtrOutput) ParameterControlId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ParameterControlId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the `ParameterDateTimePickerControl` .
+func (o TemplateParameterDateTimePickerControlPtrOutput) SourceParameterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceParameterName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the `ParameterDateTimePickerControl` .
+func (o TemplateParameterDateTimePickerControlPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateParameterDeclaration struct {
+	// A parameter declaration for the `DateTime` data type.
+	DateTimeParameterDeclaration *TemplateDateTimeParameterDeclaration `pulumi:"dateTimeParameterDeclaration"`
+	// A parameter declaration for the `Decimal` data type.
+	DecimalParameterDeclaration *TemplateDecimalParameterDeclaration `pulumi:"decimalParameterDeclaration"`
+	// A parameter declaration for the `Integer` data type.
+	IntegerParameterDeclaration *TemplateIntegerParameterDeclaration `pulumi:"integerParameterDeclaration"`
+	// A parameter declaration for the `String` data type.
+	StringParameterDeclaration *TemplateStringParameterDeclaration `pulumi:"stringParameterDeclaration"`
+}
+
+// TemplateParameterDeclarationInput is an input type that accepts TemplateParameterDeclarationArgs and TemplateParameterDeclarationOutput values.
+// You can construct a concrete instance of `TemplateParameterDeclarationInput` via:
+//
+//	TemplateParameterDeclarationArgs{...}
+type TemplateParameterDeclarationInput interface {
+	pulumi.Input
+
+	ToTemplateParameterDeclarationOutput() TemplateParameterDeclarationOutput
+	ToTemplateParameterDeclarationOutputWithContext(context.Context) TemplateParameterDeclarationOutput
+}
+
+type TemplateParameterDeclarationArgs struct {
+	// A parameter declaration for the `DateTime` data type.
+	DateTimeParameterDeclaration TemplateDateTimeParameterDeclarationPtrInput `pulumi:"dateTimeParameterDeclaration"`
+	// A parameter declaration for the `Decimal` data type.
+	DecimalParameterDeclaration TemplateDecimalParameterDeclarationPtrInput `pulumi:"decimalParameterDeclaration"`
+	// A parameter declaration for the `Integer` data type.
+	IntegerParameterDeclaration TemplateIntegerParameterDeclarationPtrInput `pulumi:"integerParameterDeclaration"`
+	// A parameter declaration for the `String` data type.
+	StringParameterDeclaration TemplateStringParameterDeclarationPtrInput `pulumi:"stringParameterDeclaration"`
+}
+
+func (TemplateParameterDeclarationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateParameterDeclaration)(nil)).Elem()
+}
+
+func (i TemplateParameterDeclarationArgs) ToTemplateParameterDeclarationOutput() TemplateParameterDeclarationOutput {
+	return i.ToTemplateParameterDeclarationOutputWithContext(context.Background())
+}
+
+func (i TemplateParameterDeclarationArgs) ToTemplateParameterDeclarationOutputWithContext(ctx context.Context) TemplateParameterDeclarationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDeclarationOutput)
+}
+
+// TemplateParameterDeclarationArrayInput is an input type that accepts TemplateParameterDeclarationArray and TemplateParameterDeclarationArrayOutput values.
+// You can construct a concrete instance of `TemplateParameterDeclarationArrayInput` via:
+//
+//	TemplateParameterDeclarationArray{ TemplateParameterDeclarationArgs{...} }
+type TemplateParameterDeclarationArrayInput interface {
+	pulumi.Input
+
+	ToTemplateParameterDeclarationArrayOutput() TemplateParameterDeclarationArrayOutput
+	ToTemplateParameterDeclarationArrayOutputWithContext(context.Context) TemplateParameterDeclarationArrayOutput
+}
+
+type TemplateParameterDeclarationArray []TemplateParameterDeclarationInput
+
+func (TemplateParameterDeclarationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateParameterDeclaration)(nil)).Elem()
+}
+
+func (i TemplateParameterDeclarationArray) ToTemplateParameterDeclarationArrayOutput() TemplateParameterDeclarationArrayOutput {
+	return i.ToTemplateParameterDeclarationArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateParameterDeclarationArray) ToTemplateParameterDeclarationArrayOutputWithContext(ctx context.Context) TemplateParameterDeclarationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDeclarationArrayOutput)
+}
+
+type TemplateParameterDeclarationOutput struct{ *pulumi.OutputState }
+
+func (TemplateParameterDeclarationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateParameterDeclaration)(nil)).Elem()
+}
+
+func (o TemplateParameterDeclarationOutput) ToTemplateParameterDeclarationOutput() TemplateParameterDeclarationOutput {
+	return o
+}
+
+func (o TemplateParameterDeclarationOutput) ToTemplateParameterDeclarationOutputWithContext(ctx context.Context) TemplateParameterDeclarationOutput {
+	return o
+}
+
+// A parameter declaration for the `DateTime` data type.
+func (o TemplateParameterDeclarationOutput) DateTimeParameterDeclaration() TemplateDateTimeParameterDeclarationPtrOutput {
+	return o.ApplyT(func(v TemplateParameterDeclaration) *TemplateDateTimeParameterDeclaration {
+		return v.DateTimeParameterDeclaration
+	}).(TemplateDateTimeParameterDeclarationPtrOutput)
+}
+
+// A parameter declaration for the `Decimal` data type.
+func (o TemplateParameterDeclarationOutput) DecimalParameterDeclaration() TemplateDecimalParameterDeclarationPtrOutput {
+	return o.ApplyT(func(v TemplateParameterDeclaration) *TemplateDecimalParameterDeclaration {
+		return v.DecimalParameterDeclaration
+	}).(TemplateDecimalParameterDeclarationPtrOutput)
+}
+
+// A parameter declaration for the `Integer` data type.
+func (o TemplateParameterDeclarationOutput) IntegerParameterDeclaration() TemplateIntegerParameterDeclarationPtrOutput {
+	return o.ApplyT(func(v TemplateParameterDeclaration) *TemplateIntegerParameterDeclaration {
+		return v.IntegerParameterDeclaration
+	}).(TemplateIntegerParameterDeclarationPtrOutput)
+}
+
+// A parameter declaration for the `String` data type.
+func (o TemplateParameterDeclarationOutput) StringParameterDeclaration() TemplateStringParameterDeclarationPtrOutput {
+	return o.ApplyT(func(v TemplateParameterDeclaration) *TemplateStringParameterDeclaration {
+		return v.StringParameterDeclaration
+	}).(TemplateStringParameterDeclarationPtrOutput)
+}
+
+type TemplateParameterDeclarationArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateParameterDeclarationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateParameterDeclaration)(nil)).Elem()
+}
+
+func (o TemplateParameterDeclarationArrayOutput) ToTemplateParameterDeclarationArrayOutput() TemplateParameterDeclarationArrayOutput {
+	return o
+}
+
+func (o TemplateParameterDeclarationArrayOutput) ToTemplateParameterDeclarationArrayOutputWithContext(ctx context.Context) TemplateParameterDeclarationArrayOutput {
+	return o
+}
+
+func (o TemplateParameterDeclarationArrayOutput) Index(i pulumi.IntInput) TemplateParameterDeclarationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateParameterDeclaration {
+		return vs[0].([]TemplateParameterDeclaration)[vs[1].(int)]
+	}).(TemplateParameterDeclarationOutput)
+}
+
 type TemplateParameterDropDownControl struct {
 	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
 	CascadingControlConfiguration *TemplateCascadingControlConfiguration `pulumi:"cascadingControlConfiguration"`
@@ -2496,6 +7568,8 @@ type TemplatePieChartConfiguration struct {
 	DonutOptions *TemplateDonutOptions `pulumi:"donutOptions"`
 	// The field wells of the visual.
 	FieldWells *TemplatePieChartFieldWells `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions *TemplateVisualInteractionOptions `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend *TemplateLegendOptions `pulumi:"legend"`
 	// The small multiples setup for the visual.
@@ -2532,6 +7606,8 @@ type TemplatePieChartConfigurationArgs struct {
 	DonutOptions TemplateDonutOptionsPtrInput `pulumi:"donutOptions"`
 	// The field wells of the visual.
 	FieldWells TemplatePieChartFieldWellsPtrInput `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions TemplateVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
 	// The small multiples setup for the visual.
@@ -2650,6 +7726,11 @@ func (o TemplatePieChartConfigurationOutput) FieldWells() TemplatePieChartFieldW
 	return o.ApplyT(func(v TemplatePieChartConfiguration) *TemplatePieChartFieldWells { return v.FieldWells }).(TemplatePieChartFieldWellsPtrOutput)
 }
 
+// The general visual interactions setup for a visual.
+func (o TemplatePieChartConfigurationOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v TemplatePieChartConfiguration) *TemplateVisualInteractionOptions { return v.Interactions }).(TemplateVisualInteractionOptionsPtrOutput)
+}
+
 // The legend display setup of the visual.
 func (o TemplatePieChartConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePieChartConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
@@ -2752,6 +7833,16 @@ func (o TemplatePieChartConfigurationPtrOutput) FieldWells() TemplatePieChartFie
 		}
 		return v.FieldWells
 	}).(TemplatePieChartFieldWellsPtrOutput)
+}
+
+// The general visual interactions setup for a visual.
+func (o TemplatePieChartConfigurationPtrOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplatePieChartConfiguration) *TemplateVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(TemplateVisualInteractionOptionsPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -4310,6 +9401,8 @@ type TemplatePivotTableConfiguration struct {
 	FieldOptions *TemplatePivotTableFieldOptions `pulumi:"fieldOptions"`
 	// The field wells of the visual.
 	FieldWells *TemplatePivotTableFieldWells `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions *TemplateVisualInteractionOptions `pulumi:"interactions"`
 	// The paginated report options for a pivot table visual.
 	PaginatedReportOptions *TemplatePivotTablePaginatedReportOptions `pulumi:"paginatedReportOptions"`
 	// The sort configuration for a `PivotTableVisual` .
@@ -4336,6 +9429,8 @@ type TemplatePivotTableConfigurationArgs struct {
 	FieldOptions TemplatePivotTableFieldOptionsPtrInput `pulumi:"fieldOptions"`
 	// The field wells of the visual.
 	FieldWells TemplatePivotTableFieldWellsPtrInput `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions TemplateVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The paginated report options for a pivot table visual.
 	PaginatedReportOptions TemplatePivotTablePaginatedReportOptionsPtrInput `pulumi:"paginatedReportOptions"`
 	// The sort configuration for a `PivotTableVisual` .
@@ -4433,6 +9528,11 @@ func (o TemplatePivotTableConfigurationOutput) FieldWells() TemplatePivotTableFi
 	return o.ApplyT(func(v TemplatePivotTableConfiguration) *TemplatePivotTableFieldWells { return v.FieldWells }).(TemplatePivotTableFieldWellsPtrOutput)
 }
 
+// The general visual interactions setup for a visual.
+func (o TemplatePivotTableConfigurationOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v TemplatePivotTableConfiguration) *TemplateVisualInteractionOptions { return v.Interactions }).(TemplateVisualInteractionOptionsPtrOutput)
+}
+
 // The paginated report options for a pivot table visual.
 func (o TemplatePivotTableConfigurationOutput) PaginatedReportOptions() TemplatePivotTablePaginatedReportOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableConfiguration) *TemplatePivotTablePaginatedReportOptions {
@@ -4499,6 +9599,16 @@ func (o TemplatePivotTableConfigurationPtrOutput) FieldWells() TemplatePivotTabl
 		}
 		return v.FieldWells
 	}).(TemplatePivotTableFieldWellsPtrOutput)
+}
+
+// The general visual interactions setup for a visual.
+func (o TemplatePivotTableConfigurationPtrOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplatePivotTableConfiguration) *TemplateVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(TemplateVisualInteractionOptionsPtrOutput)
 }
 
 // The paginated report options for a pivot table visual.
@@ -8954,6 +14064,8 @@ type TemplateRadarChartConfiguration struct {
 	ColorLabelOptions *TemplateChartAxisLabelOptions `pulumi:"colorLabelOptions"`
 	// The field well configuration of a `RadarChartVisual` .
 	FieldWells *TemplateRadarChartFieldWells `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions *TemplateVisualInteractionOptions `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend *TemplateLegendOptions `pulumi:"legend"`
 	// The shape of the radar chart.
@@ -8998,6 +14110,8 @@ type TemplateRadarChartConfigurationArgs struct {
 	ColorLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"colorLabelOptions"`
 	// The field well configuration of a `RadarChartVisual` .
 	FieldWells TemplateRadarChartFieldWellsPtrInput `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions TemplateVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
 	// The shape of the radar chart.
@@ -9135,6 +14249,11 @@ func (o TemplateRadarChartConfigurationOutput) ColorLabelOptions() TemplateChart
 // The field well configuration of a `RadarChartVisual` .
 func (o TemplateRadarChartConfigurationOutput) FieldWells() TemplateRadarChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateRadarChartConfiguration) *TemplateRadarChartFieldWells { return v.FieldWells }).(TemplateRadarChartFieldWellsPtrOutput)
+}
+
+// The general visual interactions setup for a visual.
+func (o TemplateRadarChartConfigurationOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateRadarChartConfiguration) *TemplateVisualInteractionOptions { return v.Interactions }).(TemplateVisualInteractionOptionsPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -9286,6 +14405,16 @@ func (o TemplateRadarChartConfigurationPtrOutput) FieldWells() TemplateRadarChar
 		}
 		return v.FieldWells
 	}).(TemplateRadarChartFieldWellsPtrOutput)
+}
+
+// The general visual interactions setup for a visual.
+func (o TemplateRadarChartConfigurationPtrOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateRadarChartConfiguration) *TemplateVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(TemplateVisualInteractionOptionsPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -12884,6 +18013,8 @@ type TemplateSankeyDiagramChartConfiguration struct {
 	DataLabels *TemplateDataLabelOptions `pulumi:"dataLabels"`
 	// The field well configuration of a sankey diagram.
 	FieldWells *TemplateSankeyDiagramFieldWells `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions *TemplateVisualInteractionOptions `pulumi:"interactions"`
 	// The sort configuration of a sankey diagram.
 	SortConfiguration *TemplateSankeyDiagramSortConfiguration `pulumi:"sortConfiguration"`
 }
@@ -12904,6 +18035,8 @@ type TemplateSankeyDiagramChartConfigurationArgs struct {
 	DataLabels TemplateDataLabelOptionsPtrInput `pulumi:"dataLabels"`
 	// The field well configuration of a sankey diagram.
 	FieldWells TemplateSankeyDiagramFieldWellsPtrInput `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions TemplateVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The sort configuration of a sankey diagram.
 	SortConfiguration TemplateSankeyDiagramSortConfigurationPtrInput `pulumi:"sortConfiguration"`
 }
@@ -12995,6 +18128,13 @@ func (o TemplateSankeyDiagramChartConfigurationOutput) FieldWells() TemplateSank
 	return o.ApplyT(func(v TemplateSankeyDiagramChartConfiguration) *TemplateSankeyDiagramFieldWells { return v.FieldWells }).(TemplateSankeyDiagramFieldWellsPtrOutput)
 }
 
+// The general visual interactions setup for a visual.
+func (o TemplateSankeyDiagramChartConfigurationOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateSankeyDiagramChartConfiguration) *TemplateVisualInteractionOptions {
+		return v.Interactions
+	}).(TemplateVisualInteractionOptionsPtrOutput)
+}
+
 // The sort configuration of a sankey diagram.
 func (o TemplateSankeyDiagramChartConfigurationOutput) SortConfiguration() TemplateSankeyDiagramSortConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateSankeyDiagramChartConfiguration) *TemplateSankeyDiagramSortConfiguration {
@@ -13044,6 +18184,16 @@ func (o TemplateSankeyDiagramChartConfigurationPtrOutput) FieldWells() TemplateS
 		}
 		return v.FieldWells
 	}).(TemplateSankeyDiagramFieldWellsPtrOutput)
+}
+
+// The general visual interactions setup for a visual.
+func (o TemplateSankeyDiagramChartConfigurationPtrOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateSankeyDiagramChartConfiguration) *TemplateVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(TemplateVisualInteractionOptionsPtrOutput)
 }
 
 // The sort configuration of a sankey diagram.
@@ -13844,8 +18994,12 @@ type TemplateScatterPlotConfiguration struct {
 	DataLabels *TemplateDataLabelOptions `pulumi:"dataLabels"`
 	// The field wells of the visual.
 	FieldWells *TemplateScatterPlotFieldWells `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions *TemplateVisualInteractionOptions `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend *TemplateLegendOptions `pulumi:"legend"`
+	// The sort configuration of a scatter plot.
+	SortConfiguration *TemplateScatterPlotSortConfiguration `pulumi:"sortConfiguration"`
 	// The legend display setup of the visual.
 	Tooltip *TemplateTooltipOptions `pulumi:"tooltip"`
 	// The palette (chart color) display setup of the visual.
@@ -13876,8 +19030,12 @@ type TemplateScatterPlotConfigurationArgs struct {
 	DataLabels TemplateDataLabelOptionsPtrInput `pulumi:"dataLabels"`
 	// The field wells of the visual.
 	FieldWells TemplateScatterPlotFieldWellsPtrInput `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions TemplateVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
+	// The sort configuration of a scatter plot.
+	SortConfiguration TemplateScatterPlotSortConfigurationPtrInput `pulumi:"sortConfiguration"`
 	// The legend display setup of the visual.
 	Tooltip TemplateTooltipOptionsPtrInput `pulumi:"tooltip"`
 	// The palette (chart color) display setup of the visual.
@@ -13979,9 +19137,21 @@ func (o TemplateScatterPlotConfigurationOutput) FieldWells() TemplateScatterPlot
 	return o.ApplyT(func(v TemplateScatterPlotConfiguration) *TemplateScatterPlotFieldWells { return v.FieldWells }).(TemplateScatterPlotFieldWellsPtrOutput)
 }
 
+// The general visual interactions setup for a visual.
+func (o TemplateScatterPlotConfigurationOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateScatterPlotConfiguration) *TemplateVisualInteractionOptions { return v.Interactions }).(TemplateVisualInteractionOptionsPtrOutput)
+}
+
 // The legend display setup of the visual.
 func (o TemplateScatterPlotConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateScatterPlotConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
+}
+
+// The sort configuration of a scatter plot.
+func (o TemplateScatterPlotConfigurationOutput) SortConfiguration() TemplateScatterPlotSortConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateScatterPlotConfiguration) *TemplateScatterPlotSortConfiguration {
+		return v.SortConfiguration
+	}).(TemplateScatterPlotSortConfigurationPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -14058,6 +19228,16 @@ func (o TemplateScatterPlotConfigurationPtrOutput) FieldWells() TemplateScatterP
 	}).(TemplateScatterPlotFieldWellsPtrOutput)
 }
 
+// The general visual interactions setup for a visual.
+func (o TemplateScatterPlotConfigurationPtrOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateScatterPlotConfiguration) *TemplateVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(TemplateVisualInteractionOptionsPtrOutput)
+}
+
 // The legend display setup of the visual.
 func (o TemplateScatterPlotConfigurationPtrOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateScatterPlotConfiguration) *TemplateLegendOptions {
@@ -14066,6 +19246,16 @@ func (o TemplateScatterPlotConfigurationPtrOutput) Legend() TemplateLegendOption
 		}
 		return v.Legend
 	}).(TemplateLegendOptionsPtrOutput)
+}
+
+// The sort configuration of a scatter plot.
+func (o TemplateScatterPlotConfigurationPtrOutput) SortConfiguration() TemplateScatterPlotSortConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateScatterPlotConfiguration) *TemplateScatterPlotSortConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SortConfiguration
+	}).(TemplateScatterPlotSortConfigurationPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -14286,6 +19476,141 @@ func (o TemplateScatterPlotFieldWellsPtrOutput) ScatterPlotUnaggregatedFieldWell
 		}
 		return v.ScatterPlotUnaggregatedFieldWells
 	}).(TemplateScatterPlotUnaggregatedFieldWellsPtrOutput)
+}
+
+type TemplateScatterPlotSortConfiguration struct {
+	ScatterPlotLimitConfiguration *TemplateItemsLimitConfiguration `pulumi:"scatterPlotLimitConfiguration"`
+}
+
+// TemplateScatterPlotSortConfigurationInput is an input type that accepts TemplateScatterPlotSortConfigurationArgs and TemplateScatterPlotSortConfigurationOutput values.
+// You can construct a concrete instance of `TemplateScatterPlotSortConfigurationInput` via:
+//
+//	TemplateScatterPlotSortConfigurationArgs{...}
+type TemplateScatterPlotSortConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateScatterPlotSortConfigurationOutput() TemplateScatterPlotSortConfigurationOutput
+	ToTemplateScatterPlotSortConfigurationOutputWithContext(context.Context) TemplateScatterPlotSortConfigurationOutput
+}
+
+type TemplateScatterPlotSortConfigurationArgs struct {
+	ScatterPlotLimitConfiguration TemplateItemsLimitConfigurationPtrInput `pulumi:"scatterPlotLimitConfiguration"`
+}
+
+func (TemplateScatterPlotSortConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateScatterPlotSortConfiguration)(nil)).Elem()
+}
+
+func (i TemplateScatterPlotSortConfigurationArgs) ToTemplateScatterPlotSortConfigurationOutput() TemplateScatterPlotSortConfigurationOutput {
+	return i.ToTemplateScatterPlotSortConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateScatterPlotSortConfigurationArgs) ToTemplateScatterPlotSortConfigurationOutputWithContext(ctx context.Context) TemplateScatterPlotSortConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateScatterPlotSortConfigurationOutput)
+}
+
+func (i TemplateScatterPlotSortConfigurationArgs) ToTemplateScatterPlotSortConfigurationPtrOutput() TemplateScatterPlotSortConfigurationPtrOutput {
+	return i.ToTemplateScatterPlotSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateScatterPlotSortConfigurationArgs) ToTemplateScatterPlotSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateScatterPlotSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateScatterPlotSortConfigurationOutput).ToTemplateScatterPlotSortConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateScatterPlotSortConfigurationPtrInput is an input type that accepts TemplateScatterPlotSortConfigurationArgs, TemplateScatterPlotSortConfigurationPtr and TemplateScatterPlotSortConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateScatterPlotSortConfigurationPtrInput` via:
+//
+//	        TemplateScatterPlotSortConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateScatterPlotSortConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateScatterPlotSortConfigurationPtrOutput() TemplateScatterPlotSortConfigurationPtrOutput
+	ToTemplateScatterPlotSortConfigurationPtrOutputWithContext(context.Context) TemplateScatterPlotSortConfigurationPtrOutput
+}
+
+type templateScatterPlotSortConfigurationPtrType TemplateScatterPlotSortConfigurationArgs
+
+func TemplateScatterPlotSortConfigurationPtr(v *TemplateScatterPlotSortConfigurationArgs) TemplateScatterPlotSortConfigurationPtrInput {
+	return (*templateScatterPlotSortConfigurationPtrType)(v)
+}
+
+func (*templateScatterPlotSortConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateScatterPlotSortConfiguration)(nil)).Elem()
+}
+
+func (i *templateScatterPlotSortConfigurationPtrType) ToTemplateScatterPlotSortConfigurationPtrOutput() TemplateScatterPlotSortConfigurationPtrOutput {
+	return i.ToTemplateScatterPlotSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateScatterPlotSortConfigurationPtrType) ToTemplateScatterPlotSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateScatterPlotSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateScatterPlotSortConfigurationPtrOutput)
+}
+
+type TemplateScatterPlotSortConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateScatterPlotSortConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateScatterPlotSortConfiguration)(nil)).Elem()
+}
+
+func (o TemplateScatterPlotSortConfigurationOutput) ToTemplateScatterPlotSortConfigurationOutput() TemplateScatterPlotSortConfigurationOutput {
+	return o
+}
+
+func (o TemplateScatterPlotSortConfigurationOutput) ToTemplateScatterPlotSortConfigurationOutputWithContext(ctx context.Context) TemplateScatterPlotSortConfigurationOutput {
+	return o
+}
+
+func (o TemplateScatterPlotSortConfigurationOutput) ToTemplateScatterPlotSortConfigurationPtrOutput() TemplateScatterPlotSortConfigurationPtrOutput {
+	return o.ToTemplateScatterPlotSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateScatterPlotSortConfigurationOutput) ToTemplateScatterPlotSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateScatterPlotSortConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateScatterPlotSortConfiguration) *TemplateScatterPlotSortConfiguration {
+		return &v
+	}).(TemplateScatterPlotSortConfigurationPtrOutput)
+}
+
+func (o TemplateScatterPlotSortConfigurationOutput) ScatterPlotLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateScatterPlotSortConfiguration) *TemplateItemsLimitConfiguration {
+		return v.ScatterPlotLimitConfiguration
+	}).(TemplateItemsLimitConfigurationPtrOutput)
+}
+
+type TemplateScatterPlotSortConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateScatterPlotSortConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateScatterPlotSortConfiguration)(nil)).Elem()
+}
+
+func (o TemplateScatterPlotSortConfigurationPtrOutput) ToTemplateScatterPlotSortConfigurationPtrOutput() TemplateScatterPlotSortConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateScatterPlotSortConfigurationPtrOutput) ToTemplateScatterPlotSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateScatterPlotSortConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateScatterPlotSortConfigurationPtrOutput) Elem() TemplateScatterPlotSortConfigurationOutput {
+	return o.ApplyT(func(v *TemplateScatterPlotSortConfiguration) TemplateScatterPlotSortConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateScatterPlotSortConfiguration
+		return ret
+	}).(TemplateScatterPlotSortConfigurationOutput)
+}
+
+func (o TemplateScatterPlotSortConfigurationPtrOutput) ScatterPlotLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateScatterPlotSortConfiguration) *TemplateItemsLimitConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ScatterPlotLimitConfiguration
+	}).(TemplateItemsLimitConfigurationPtrOutput)
 }
 
 type TemplateScatterPlotUnaggregatedFieldWells struct {
@@ -16662,8 +21987,6 @@ func (o TemplateShapeConditionalFormatPtrOutput) BackgroundColor() TemplateCondi
 //	example a chart, pivot table, or narrative insight. Sheets can be associated with other
 //	components, such as controls, filters, and so on.</p>
 type TemplateSheet struct {
-	// A list of images on a sheet.
-	Images []TemplateSheetImage `pulumi:"images"`
 	// <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
 	//             console.</p>
 	Name *string `pulumi:"name"`
@@ -16689,11 +22012,6 @@ func (o TemplateSheetOutput) ToTemplateSheetOutput() TemplateSheetOutput {
 
 func (o TemplateSheetOutput) ToTemplateSheetOutputWithContext(ctx context.Context) TemplateSheetOutput {
 	return o
-}
-
-// A list of images on a sheet.
-func (o TemplateSheetOutput) Images() TemplateSheetImageArrayOutput {
-	return o.ApplyT(func(v TemplateSheet) []TemplateSheetImage { return v.Images }).(TemplateSheetImageArrayOutput)
 }
 
 // <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
@@ -18227,7 +23545,8 @@ func (o TemplateSheetImageTooltipTextPtrOutput) PlainText() pulumi.StringPtrOutp
 
 type TemplateSheetTextBox struct {
 	// The content that is displayed in the text box.
-	Content *string `pulumi:"content"`
+	Content      *string     `pulumi:"content"`
+	Interactions interface{} `pulumi:"interactions"`
 	// The unique identifier for a text box. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have text boxes that share identifiers.
 	SheetTextBoxId string `pulumi:"sheetTextBoxId"`
 }
@@ -18245,7 +23564,8 @@ type TemplateSheetTextBoxInput interface {
 
 type TemplateSheetTextBoxArgs struct {
 	// The content that is displayed in the text box.
-	Content pulumi.StringPtrInput `pulumi:"content"`
+	Content      pulumi.StringPtrInput `pulumi:"content"`
+	Interactions pulumi.Input          `pulumi:"interactions"`
 	// The unique identifier for a text box. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have text boxes that share identifiers.
 	SheetTextBoxId pulumi.StringInput `pulumi:"sheetTextBoxId"`
 }
@@ -18304,6 +23624,10 @@ func (o TemplateSheetTextBoxOutput) ToTemplateSheetTextBoxOutputWithContext(ctx 
 // The content that is displayed in the text box.
 func (o TemplateSheetTextBoxOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateSheetTextBox) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateSheetTextBoxOutput) Interactions() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateSheetTextBox) interface{} { return v.Interactions }).(pulumi.AnyOutput)
 }
 
 // The unique identifier for a text box. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have text boxes that share identifiers.
@@ -22203,6 +27527,8 @@ type TemplateTableConfiguration struct {
 	FieldOptions *TemplateTableFieldOptions `pulumi:"fieldOptions"`
 	// The field wells of the visual.
 	FieldWells *TemplateTableFieldWells `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions *TemplateVisualInteractionOptions `pulumi:"interactions"`
 	// The paginated report options for a table visual.
 	PaginatedReportOptions *TemplateTablePaginatedReportOptions `pulumi:"paginatedReportOptions"`
 	// The sort configuration for a `TableVisual` .
@@ -22231,6 +27557,8 @@ type TemplateTableConfigurationArgs struct {
 	FieldOptions TemplateTableFieldOptionsPtrInput `pulumi:"fieldOptions"`
 	// The field wells of the visual.
 	FieldWells TemplateTableFieldWellsPtrInput `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions TemplateVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The paginated report options for a table visual.
 	PaginatedReportOptions TemplateTablePaginatedReportOptionsPtrInput `pulumi:"paginatedReportOptions"`
 	// The sort configuration for a `TableVisual` .
@@ -22330,6 +27658,11 @@ func (o TemplateTableConfigurationOutput) FieldWells() TemplateTableFieldWellsPt
 	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateTableFieldWells { return v.FieldWells }).(TemplateTableFieldWellsPtrOutput)
 }
 
+// The general visual interactions setup for a visual.
+func (o TemplateTableConfigurationOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateVisualInteractionOptions { return v.Interactions }).(TemplateVisualInteractionOptionsPtrOutput)
+}
+
 // The paginated report options for a table visual.
 func (o TemplateTableConfigurationOutput) PaginatedReportOptions() TemplateTablePaginatedReportOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateTablePaginatedReportOptions {
@@ -22401,6 +27734,16 @@ func (o TemplateTableConfigurationPtrOutput) FieldWells() TemplateTableFieldWell
 		}
 		return v.FieldWells
 	}).(TemplateTableFieldWellsPtrOutput)
+}
+
+// The general visual interactions setup for a visual.
+func (o TemplateTableConfigurationPtrOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableConfiguration) *TemplateVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(TemplateVisualInteractionOptionsPtrOutput)
 }
 
 // The paginated report options for a table visual.
@@ -26127,6 +31470,8 @@ func (o TemplateTextFieldControlDisplayOptionsPtrOutput) TitleOptions() Template
 }
 
 type TemplateThousandSeparatorOptions struct {
+	// Determines the way numbers are styled to accommodate different readability standards. The `DEFAULT` value uses the standard international grouping system and groups numbers by the thousands. The `LAKHS` value uses the Indian numbering system and groups numbers by lakhs and crores.
+	GroupingStyle *TemplateDigitGroupingStyle `pulumi:"groupingStyle"`
 	// Determines the thousands separator symbol.
 	Symbol *TemplateNumericSeparatorSymbol `pulumi:"symbol"`
 	// Determines the visibility of the thousands separator.
@@ -26145,6 +31490,8 @@ type TemplateThousandSeparatorOptionsInput interface {
 }
 
 type TemplateThousandSeparatorOptionsArgs struct {
+	// Determines the way numbers are styled to accommodate different readability standards. The `DEFAULT` value uses the standard international grouping system and groups numbers by the thousands. The `LAKHS` value uses the Indian numbering system and groups numbers by lakhs and crores.
+	GroupingStyle TemplateDigitGroupingStylePtrInput `pulumi:"groupingStyle"`
 	// Determines the thousands separator symbol.
 	Symbol TemplateNumericSeparatorSymbolPtrInput `pulumi:"symbol"`
 	// Determines the visibility of the thousands separator.
@@ -26228,6 +31575,11 @@ func (o TemplateThousandSeparatorOptionsOutput) ToTemplateThousandSeparatorOptio
 	}).(TemplateThousandSeparatorOptionsPtrOutput)
 }
 
+// Determines the way numbers are styled to accommodate different readability standards. The `DEFAULT` value uses the standard international grouping system and groups numbers by the thousands. The `LAKHS` value uses the Indian numbering system and groups numbers by lakhs and crores.
+func (o TemplateThousandSeparatorOptionsOutput) GroupingStyle() TemplateDigitGroupingStylePtrOutput {
+	return o.ApplyT(func(v TemplateThousandSeparatorOptions) *TemplateDigitGroupingStyle { return v.GroupingStyle }).(TemplateDigitGroupingStylePtrOutput)
+}
+
 // Determines the thousands separator symbol.
 func (o TemplateThousandSeparatorOptionsOutput) Symbol() TemplateNumericSeparatorSymbolPtrOutput {
 	return o.ApplyT(func(v TemplateThousandSeparatorOptions) *TemplateNumericSeparatorSymbol { return v.Symbol }).(TemplateNumericSeparatorSymbolPtrOutput)
@@ -26260,6 +31612,16 @@ func (o TemplateThousandSeparatorOptionsPtrOutput) Elem() TemplateThousandSepara
 		var ret TemplateThousandSeparatorOptions
 		return ret
 	}).(TemplateThousandSeparatorOptionsOutput)
+}
+
+// Determines the way numbers are styled to accommodate different readability standards. The `DEFAULT` value uses the standard international grouping system and groups numbers by the thousands. The `LAKHS` value uses the Indian numbering system and groups numbers by lakhs and crores.
+func (o TemplateThousandSeparatorOptionsPtrOutput) GroupingStyle() TemplateDigitGroupingStylePtrOutput {
+	return o.ApplyT(func(v *TemplateThousandSeparatorOptions) *TemplateDigitGroupingStyle {
+		if v == nil {
+			return nil
+		}
+		return v.GroupingStyle
+	}).(TemplateDigitGroupingStylePtrOutput)
 }
 
 // Determines the thousands separator symbol.
@@ -29329,6 +34691,8 @@ type TemplateTreeMapConfiguration struct {
 	FieldWells *TemplateTreeMapFieldWells `pulumi:"fieldWells"`
 	// The label options (label text, label visibility) of the groups that are displayed in a tree map.
 	GroupLabelOptions *TemplateChartAxisLabelOptions `pulumi:"groupLabelOptions"`
+	// The general visual interactions setup for a visual.
+	Interactions *TemplateVisualInteractionOptions `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend *TemplateLegendOptions `pulumi:"legend"`
 	// The label options (label text, label visibility) of the sizes that are displayed in a tree map.
@@ -29361,6 +34725,8 @@ type TemplateTreeMapConfigurationArgs struct {
 	FieldWells TemplateTreeMapFieldWellsPtrInput `pulumi:"fieldWells"`
 	// The label options (label text, label visibility) of the groups that are displayed in a tree map.
 	GroupLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"groupLabelOptions"`
+	// The general visual interactions setup for a visual.
+	Interactions TemplateVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
 	// The label options (label text, label visibility) of the sizes that are displayed in a tree map.
@@ -29473,6 +34839,11 @@ func (o TemplateTreeMapConfigurationOutput) GroupLabelOptions() TemplateChartAxi
 	return o.ApplyT(func(v TemplateTreeMapConfiguration) *TemplateChartAxisLabelOptions { return v.GroupLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
+// The general visual interactions setup for a visual.
+func (o TemplateTreeMapConfigurationOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTreeMapConfiguration) *TemplateVisualInteractionOptions { return v.Interactions }).(TemplateVisualInteractionOptionsPtrOutput)
+}
+
 // The legend display setup of the visual.
 func (o TemplateTreeMapConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTreeMapConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
@@ -29565,6 +34936,16 @@ func (o TemplateTreeMapConfigurationPtrOutput) GroupLabelOptions() TemplateChart
 		}
 		return v.GroupLabelOptions
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
+}
+
+// The general visual interactions setup for a visual.
+func (o TemplateTreeMapConfigurationPtrOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTreeMapConfiguration) *TemplateVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(TemplateVisualInteractionOptionsPtrOutput)
 }
 
 // The legend display setup of the visual.
@@ -32117,6 +37498,299 @@ func (o TemplateVisualCustomActionOperationArrayOutput) Index(i pulumi.IntInput)
 	}).(TemplateVisualCustomActionOperationOutput)
 }
 
+type TemplateVisualInteractionOptions struct {
+	// The context menu options for a visual.
+	ContextMenuOption *TemplateContextMenuOption `pulumi:"contextMenuOption"`
+	// The on-visual menu options for a visual.
+	VisualMenuOption *TemplateVisualMenuOption `pulumi:"visualMenuOption"`
+}
+
+// TemplateVisualInteractionOptionsInput is an input type that accepts TemplateVisualInteractionOptionsArgs and TemplateVisualInteractionOptionsOutput values.
+// You can construct a concrete instance of `TemplateVisualInteractionOptionsInput` via:
+//
+//	TemplateVisualInteractionOptionsArgs{...}
+type TemplateVisualInteractionOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateVisualInteractionOptionsOutput() TemplateVisualInteractionOptionsOutput
+	ToTemplateVisualInteractionOptionsOutputWithContext(context.Context) TemplateVisualInteractionOptionsOutput
+}
+
+type TemplateVisualInteractionOptionsArgs struct {
+	// The context menu options for a visual.
+	ContextMenuOption TemplateContextMenuOptionPtrInput `pulumi:"contextMenuOption"`
+	// The on-visual menu options for a visual.
+	VisualMenuOption TemplateVisualMenuOptionPtrInput `pulumi:"visualMenuOption"`
+}
+
+func (TemplateVisualInteractionOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateVisualInteractionOptions)(nil)).Elem()
+}
+
+func (i TemplateVisualInteractionOptionsArgs) ToTemplateVisualInteractionOptionsOutput() TemplateVisualInteractionOptionsOutput {
+	return i.ToTemplateVisualInteractionOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateVisualInteractionOptionsArgs) ToTemplateVisualInteractionOptionsOutputWithContext(ctx context.Context) TemplateVisualInteractionOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVisualInteractionOptionsOutput)
+}
+
+func (i TemplateVisualInteractionOptionsArgs) ToTemplateVisualInteractionOptionsPtrOutput() TemplateVisualInteractionOptionsPtrOutput {
+	return i.ToTemplateVisualInteractionOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateVisualInteractionOptionsArgs) ToTemplateVisualInteractionOptionsPtrOutputWithContext(ctx context.Context) TemplateVisualInteractionOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVisualInteractionOptionsOutput).ToTemplateVisualInteractionOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateVisualInteractionOptionsPtrInput is an input type that accepts TemplateVisualInteractionOptionsArgs, TemplateVisualInteractionOptionsPtr and TemplateVisualInteractionOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateVisualInteractionOptionsPtrInput` via:
+//
+//	        TemplateVisualInteractionOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateVisualInteractionOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateVisualInteractionOptionsPtrOutput() TemplateVisualInteractionOptionsPtrOutput
+	ToTemplateVisualInteractionOptionsPtrOutputWithContext(context.Context) TemplateVisualInteractionOptionsPtrOutput
+}
+
+type templateVisualInteractionOptionsPtrType TemplateVisualInteractionOptionsArgs
+
+func TemplateVisualInteractionOptionsPtr(v *TemplateVisualInteractionOptionsArgs) TemplateVisualInteractionOptionsPtrInput {
+	return (*templateVisualInteractionOptionsPtrType)(v)
+}
+
+func (*templateVisualInteractionOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateVisualInteractionOptions)(nil)).Elem()
+}
+
+func (i *templateVisualInteractionOptionsPtrType) ToTemplateVisualInteractionOptionsPtrOutput() TemplateVisualInteractionOptionsPtrOutput {
+	return i.ToTemplateVisualInteractionOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateVisualInteractionOptionsPtrType) ToTemplateVisualInteractionOptionsPtrOutputWithContext(ctx context.Context) TemplateVisualInteractionOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVisualInteractionOptionsPtrOutput)
+}
+
+type TemplateVisualInteractionOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateVisualInteractionOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateVisualInteractionOptions)(nil)).Elem()
+}
+
+func (o TemplateVisualInteractionOptionsOutput) ToTemplateVisualInteractionOptionsOutput() TemplateVisualInteractionOptionsOutput {
+	return o
+}
+
+func (o TemplateVisualInteractionOptionsOutput) ToTemplateVisualInteractionOptionsOutputWithContext(ctx context.Context) TemplateVisualInteractionOptionsOutput {
+	return o
+}
+
+func (o TemplateVisualInteractionOptionsOutput) ToTemplateVisualInteractionOptionsPtrOutput() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ToTemplateVisualInteractionOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateVisualInteractionOptionsOutput) ToTemplateVisualInteractionOptionsPtrOutputWithContext(ctx context.Context) TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateVisualInteractionOptions) *TemplateVisualInteractionOptions {
+		return &v
+	}).(TemplateVisualInteractionOptionsPtrOutput)
+}
+
+// The context menu options for a visual.
+func (o TemplateVisualInteractionOptionsOutput) ContextMenuOption() TemplateContextMenuOptionPtrOutput {
+	return o.ApplyT(func(v TemplateVisualInteractionOptions) *TemplateContextMenuOption { return v.ContextMenuOption }).(TemplateContextMenuOptionPtrOutput)
+}
+
+// The on-visual menu options for a visual.
+func (o TemplateVisualInteractionOptionsOutput) VisualMenuOption() TemplateVisualMenuOptionPtrOutput {
+	return o.ApplyT(func(v TemplateVisualInteractionOptions) *TemplateVisualMenuOption { return v.VisualMenuOption }).(TemplateVisualMenuOptionPtrOutput)
+}
+
+type TemplateVisualInteractionOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateVisualInteractionOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateVisualInteractionOptions)(nil)).Elem()
+}
+
+func (o TemplateVisualInteractionOptionsPtrOutput) ToTemplateVisualInteractionOptionsPtrOutput() TemplateVisualInteractionOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateVisualInteractionOptionsPtrOutput) ToTemplateVisualInteractionOptionsPtrOutputWithContext(ctx context.Context) TemplateVisualInteractionOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateVisualInteractionOptionsPtrOutput) Elem() TemplateVisualInteractionOptionsOutput {
+	return o.ApplyT(func(v *TemplateVisualInteractionOptions) TemplateVisualInteractionOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateVisualInteractionOptions
+		return ret
+	}).(TemplateVisualInteractionOptionsOutput)
+}
+
+// The context menu options for a visual.
+func (o TemplateVisualInteractionOptionsPtrOutput) ContextMenuOption() TemplateContextMenuOptionPtrOutput {
+	return o.ApplyT(func(v *TemplateVisualInteractionOptions) *TemplateContextMenuOption {
+		if v == nil {
+			return nil
+		}
+		return v.ContextMenuOption
+	}).(TemplateContextMenuOptionPtrOutput)
+}
+
+// The on-visual menu options for a visual.
+func (o TemplateVisualInteractionOptionsPtrOutput) VisualMenuOption() TemplateVisualMenuOptionPtrOutput {
+	return o.ApplyT(func(v *TemplateVisualInteractionOptions) *TemplateVisualMenuOption {
+		if v == nil {
+			return nil
+		}
+		return v.VisualMenuOption
+	}).(TemplateVisualMenuOptionPtrOutput)
+}
+
+type TemplateVisualMenuOption struct {
+	// The availaiblity status of a visual's menu options.
+	AvailabilityStatus *TemplateDashboardBehavior `pulumi:"availabilityStatus"`
+}
+
+// TemplateVisualMenuOptionInput is an input type that accepts TemplateVisualMenuOptionArgs and TemplateVisualMenuOptionOutput values.
+// You can construct a concrete instance of `TemplateVisualMenuOptionInput` via:
+//
+//	TemplateVisualMenuOptionArgs{...}
+type TemplateVisualMenuOptionInput interface {
+	pulumi.Input
+
+	ToTemplateVisualMenuOptionOutput() TemplateVisualMenuOptionOutput
+	ToTemplateVisualMenuOptionOutputWithContext(context.Context) TemplateVisualMenuOptionOutput
+}
+
+type TemplateVisualMenuOptionArgs struct {
+	// The availaiblity status of a visual's menu options.
+	AvailabilityStatus TemplateDashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
+}
+
+func (TemplateVisualMenuOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateVisualMenuOption)(nil)).Elem()
+}
+
+func (i TemplateVisualMenuOptionArgs) ToTemplateVisualMenuOptionOutput() TemplateVisualMenuOptionOutput {
+	return i.ToTemplateVisualMenuOptionOutputWithContext(context.Background())
+}
+
+func (i TemplateVisualMenuOptionArgs) ToTemplateVisualMenuOptionOutputWithContext(ctx context.Context) TemplateVisualMenuOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVisualMenuOptionOutput)
+}
+
+func (i TemplateVisualMenuOptionArgs) ToTemplateVisualMenuOptionPtrOutput() TemplateVisualMenuOptionPtrOutput {
+	return i.ToTemplateVisualMenuOptionPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateVisualMenuOptionArgs) ToTemplateVisualMenuOptionPtrOutputWithContext(ctx context.Context) TemplateVisualMenuOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVisualMenuOptionOutput).ToTemplateVisualMenuOptionPtrOutputWithContext(ctx)
+}
+
+// TemplateVisualMenuOptionPtrInput is an input type that accepts TemplateVisualMenuOptionArgs, TemplateVisualMenuOptionPtr and TemplateVisualMenuOptionPtrOutput values.
+// You can construct a concrete instance of `TemplateVisualMenuOptionPtrInput` via:
+//
+//	        TemplateVisualMenuOptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateVisualMenuOptionPtrInput interface {
+	pulumi.Input
+
+	ToTemplateVisualMenuOptionPtrOutput() TemplateVisualMenuOptionPtrOutput
+	ToTemplateVisualMenuOptionPtrOutputWithContext(context.Context) TemplateVisualMenuOptionPtrOutput
+}
+
+type templateVisualMenuOptionPtrType TemplateVisualMenuOptionArgs
+
+func TemplateVisualMenuOptionPtr(v *TemplateVisualMenuOptionArgs) TemplateVisualMenuOptionPtrInput {
+	return (*templateVisualMenuOptionPtrType)(v)
+}
+
+func (*templateVisualMenuOptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateVisualMenuOption)(nil)).Elem()
+}
+
+func (i *templateVisualMenuOptionPtrType) ToTemplateVisualMenuOptionPtrOutput() TemplateVisualMenuOptionPtrOutput {
+	return i.ToTemplateVisualMenuOptionPtrOutputWithContext(context.Background())
+}
+
+func (i *templateVisualMenuOptionPtrType) ToTemplateVisualMenuOptionPtrOutputWithContext(ctx context.Context) TemplateVisualMenuOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVisualMenuOptionPtrOutput)
+}
+
+type TemplateVisualMenuOptionOutput struct{ *pulumi.OutputState }
+
+func (TemplateVisualMenuOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateVisualMenuOption)(nil)).Elem()
+}
+
+func (o TemplateVisualMenuOptionOutput) ToTemplateVisualMenuOptionOutput() TemplateVisualMenuOptionOutput {
+	return o
+}
+
+func (o TemplateVisualMenuOptionOutput) ToTemplateVisualMenuOptionOutputWithContext(ctx context.Context) TemplateVisualMenuOptionOutput {
+	return o
+}
+
+func (o TemplateVisualMenuOptionOutput) ToTemplateVisualMenuOptionPtrOutput() TemplateVisualMenuOptionPtrOutput {
+	return o.ToTemplateVisualMenuOptionPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateVisualMenuOptionOutput) ToTemplateVisualMenuOptionPtrOutputWithContext(ctx context.Context) TemplateVisualMenuOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateVisualMenuOption) *TemplateVisualMenuOption {
+		return &v
+	}).(TemplateVisualMenuOptionPtrOutput)
+}
+
+// The availaiblity status of a visual's menu options.
+func (o TemplateVisualMenuOptionOutput) AvailabilityStatus() TemplateDashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v TemplateVisualMenuOption) *TemplateDashboardBehavior { return v.AvailabilityStatus }).(TemplateDashboardBehaviorPtrOutput)
+}
+
+type TemplateVisualMenuOptionPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateVisualMenuOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateVisualMenuOption)(nil)).Elem()
+}
+
+func (o TemplateVisualMenuOptionPtrOutput) ToTemplateVisualMenuOptionPtrOutput() TemplateVisualMenuOptionPtrOutput {
+	return o
+}
+
+func (o TemplateVisualMenuOptionPtrOutput) ToTemplateVisualMenuOptionPtrOutputWithContext(ctx context.Context) TemplateVisualMenuOptionPtrOutput {
+	return o
+}
+
+func (o TemplateVisualMenuOptionPtrOutput) Elem() TemplateVisualMenuOptionOutput {
+	return o.ApplyT(func(v *TemplateVisualMenuOption) TemplateVisualMenuOption {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateVisualMenuOption
+		return ret
+	}).(TemplateVisualMenuOptionOutput)
+}
+
+// The availaiblity status of a visual's menu options.
+func (o TemplateVisualMenuOptionPtrOutput) AvailabilityStatus() TemplateDashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v *TemplateVisualMenuOption) *TemplateDashboardBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityStatus
+	}).(TemplateDashboardBehaviorPtrOutput)
+}
+
 type TemplateVisualPalette struct {
 	// The chart color options for the visual palette.
 	ChartColor *string `pulumi:"chartColor"`
@@ -32910,6 +38584,8 @@ type TemplateWaterfallChartConfiguration struct {
 	DataLabels *TemplateDataLabelOptions `pulumi:"dataLabels"`
 	// The field well configuration of a waterfall visual.
 	FieldWells *TemplateWaterfallChartFieldWells `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions *TemplateVisualInteractionOptions `pulumi:"interactions"`
 	// The legend configuration of a waterfall visual.
 	Legend *TemplateLegendOptions `pulumi:"legend"`
 	// The options that determine the presentation of the y-axis.
@@ -32946,6 +38622,8 @@ type TemplateWaterfallChartConfigurationArgs struct {
 	DataLabels TemplateDataLabelOptionsPtrInput `pulumi:"dataLabels"`
 	// The field well configuration of a waterfall visual.
 	FieldWells TemplateWaterfallChartFieldWellsPtrInput `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions TemplateVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The legend configuration of a waterfall visual.
 	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
 	// The options that determine the presentation of the y-axis.
@@ -33068,6 +38746,11 @@ func (o TemplateWaterfallChartConfigurationOutput) FieldWells() TemplateWaterfal
 	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateWaterfallChartFieldWells { return v.FieldWells }).(TemplateWaterfallChartFieldWellsPtrOutput)
 }
 
+// The general visual interactions setup for a visual.
+func (o TemplateWaterfallChartConfigurationOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateVisualInteractionOptions { return v.Interactions }).(TemplateVisualInteractionOptionsPtrOutput)
+}
+
 // The legend configuration of a waterfall visual.
 func (o TemplateWaterfallChartConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
@@ -33178,6 +38861,16 @@ func (o TemplateWaterfallChartConfigurationPtrOutput) FieldWells() TemplateWater
 		}
 		return v.FieldWells
 	}).(TemplateWaterfallChartFieldWellsPtrOutput)
+}
+
+// The general visual interactions setup for a visual.
+func (o TemplateWaterfallChartConfigurationPtrOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(TemplateVisualInteractionOptionsPtrOutput)
 }
 
 // The legend configuration of a waterfall visual.
@@ -34592,6 +40285,8 @@ type TemplateWordCloudChartConfiguration struct {
 	CategoryLabelOptions *TemplateChartAxisLabelOptions `pulumi:"categoryLabelOptions"`
 	// The field wells of the visual.
 	FieldWells *TemplateWordCloudFieldWells `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions *TemplateVisualInteractionOptions `pulumi:"interactions"`
 	// The sort configuration of a word cloud visual.
 	SortConfiguration *TemplateWordCloudSortConfiguration `pulumi:"sortConfiguration"`
 	// The options for a word cloud visual.
@@ -34614,6 +40309,8 @@ type TemplateWordCloudChartConfigurationArgs struct {
 	CategoryLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"categoryLabelOptions"`
 	// The field wells of the visual.
 	FieldWells TemplateWordCloudFieldWellsPtrInput `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions TemplateVisualInteractionOptionsPtrInput `pulumi:"interactions"`
 	// The sort configuration of a word cloud visual.
 	SortConfiguration TemplateWordCloudSortConfigurationPtrInput `pulumi:"sortConfiguration"`
 	// The options for a word cloud visual.
@@ -34709,6 +40406,11 @@ func (o TemplateWordCloudChartConfigurationOutput) FieldWells() TemplateWordClou
 	return o.ApplyT(func(v TemplateWordCloudChartConfiguration) *TemplateWordCloudFieldWells { return v.FieldWells }).(TemplateWordCloudFieldWellsPtrOutput)
 }
 
+// The general visual interactions setup for a visual.
+func (o TemplateWordCloudChartConfigurationOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateWordCloudChartConfiguration) *TemplateVisualInteractionOptions { return v.Interactions }).(TemplateVisualInteractionOptionsPtrOutput)
+}
+
 // The sort configuration of a word cloud visual.
 func (o TemplateWordCloudChartConfigurationOutput) SortConfiguration() TemplateWordCloudSortConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateWordCloudChartConfiguration) *TemplateWordCloudSortConfiguration {
@@ -34763,6 +40465,16 @@ func (o TemplateWordCloudChartConfigurationPtrOutput) FieldWells() TemplateWordC
 		}
 		return v.FieldWells
 	}).(TemplateWordCloudFieldWellsPtrOutput)
+}
+
+// The general visual interactions setup for a visual.
+func (o TemplateWordCloudChartConfigurationPtrOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateWordCloudChartConfiguration) *TemplateVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(TemplateVisualInteractionOptionsPtrOutput)
 }
 
 // The sort configuration of a word cloud visual.
@@ -42707,6 +48419,61 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMaximumLabelTypeInput)(nil)).Elem(), TemplateMaximumLabelTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMaximumLabelTypePtrInput)(nil)).Elem(), TemplateMaximumLabelTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMaximumMinimumComputationInput)(nil)).Elem(), TemplateMaximumMinimumComputationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMaximumMinimumComputationPtrInput)(nil)).Elem(), TemplateMaximumMinimumComputationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMeasureFieldInput)(nil)).Elem(), TemplateMeasureFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMeasureFieldPtrInput)(nil)).Elem(), TemplateMeasureFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMeasureFieldArrayInput)(nil)).Elem(), TemplateMeasureFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMetricComparisonComputationInput)(nil)).Elem(), TemplateMetricComparisonComputationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMetricComparisonComputationPtrInput)(nil)).Elem(), TemplateMetricComparisonComputationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMinimumLabelTypeInput)(nil)).Elem(), TemplateMinimumLabelTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMinimumLabelTypePtrInput)(nil)).Elem(), TemplateMinimumLabelTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMissingDataConfigurationInput)(nil)).Elem(), TemplateMissingDataConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMissingDataConfigurationArrayInput)(nil)).Elem(), TemplateMissingDataConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNegativeValueConfigurationInput)(nil)).Elem(), TemplateNegativeValueConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNegativeValueConfigurationPtrInput)(nil)).Elem(), TemplateNegativeValueConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNestedFilterInput)(nil)).Elem(), TemplateNestedFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNestedFilterPtrInput)(nil)).Elem(), TemplateNestedFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNullValueFormatConfigurationInput)(nil)).Elem(), TemplateNullValueFormatConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNullValueFormatConfigurationPtrInput)(nil)).Elem(), TemplateNullValueFormatConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumberDisplayFormatConfigurationInput)(nil)).Elem(), TemplateNumberDisplayFormatConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumberDisplayFormatConfigurationPtrInput)(nil)).Elem(), TemplateNumberDisplayFormatConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumberFormatConfigurationInput)(nil)).Elem(), TemplateNumberFormatConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumberFormatConfigurationPtrInput)(nil)).Elem(), TemplateNumberFormatConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericAxisOptionsInput)(nil)).Elem(), TemplateNumericAxisOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericAxisOptionsPtrInput)(nil)).Elem(), TemplateNumericAxisOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericEqualityDrillDownFilterInput)(nil)).Elem(), TemplateNumericEqualityDrillDownFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericEqualityDrillDownFilterPtrInput)(nil)).Elem(), TemplateNumericEqualityDrillDownFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericEqualityFilterInput)(nil)).Elem(), TemplateNumericEqualityFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericEqualityFilterPtrInput)(nil)).Elem(), TemplateNumericEqualityFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericFormatConfigurationInput)(nil)).Elem(), TemplateNumericFormatConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericFormatConfigurationPtrInput)(nil)).Elem(), TemplateNumericFormatConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericRangeFilterInput)(nil)).Elem(), TemplateNumericRangeFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericRangeFilterPtrInput)(nil)).Elem(), TemplateNumericRangeFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericRangeFilterValueInput)(nil)).Elem(), TemplateNumericRangeFilterValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericRangeFilterValuePtrInput)(nil)).Elem(), TemplateNumericRangeFilterValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericSeparatorConfigurationInput)(nil)).Elem(), TemplateNumericSeparatorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericSeparatorConfigurationPtrInput)(nil)).Elem(), TemplateNumericSeparatorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericalAggregationFunctionInput)(nil)).Elem(), TemplateNumericalAggregationFunctionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericalAggregationFunctionPtrInput)(nil)).Elem(), TemplateNumericalAggregationFunctionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericalDimensionFieldInput)(nil)).Elem(), TemplateNumericalDimensionFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericalDimensionFieldPtrInput)(nil)).Elem(), TemplateNumericalDimensionFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericalMeasureFieldInput)(nil)).Elem(), TemplateNumericalMeasureFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateNumericalMeasureFieldPtrInput)(nil)).Elem(), TemplateNumericalMeasureFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePaginationConfigurationInput)(nil)).Elem(), TemplatePaginationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePaginationConfigurationPtrInput)(nil)).Elem(), TemplatePaginationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePanelConfigurationInput)(nil)).Elem(), TemplatePanelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePanelConfigurationPtrInput)(nil)).Elem(), TemplatePanelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePanelTitleOptionsInput)(nil)).Elem(), TemplatePanelTitleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePanelTitleOptionsPtrInput)(nil)).Elem(), TemplatePanelTitleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterControlInput)(nil)).Elem(), TemplateParameterControlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterControlArrayInput)(nil)).Elem(), TemplateParameterControlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDateTimePickerControlInput)(nil)).Elem(), TemplateParameterDateTimePickerControlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDateTimePickerControlPtrInput)(nil)).Elem(), TemplateParameterDateTimePickerControlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDeclarationInput)(nil)).Elem(), TemplateParameterDeclarationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDeclarationArrayInput)(nil)).Elem(), TemplateParameterDeclarationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDropDownControlInput)(nil)).Elem(), TemplateParameterDropDownControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDropDownControlPtrInput)(nil)).Elem(), TemplateParameterDropDownControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterListControlInput)(nil)).Elem(), TemplateParameterListControlArgs{})
@@ -42863,6 +48630,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateScatterPlotConfigurationPtrInput)(nil)).Elem(), TemplateScatterPlotConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateScatterPlotFieldWellsInput)(nil)).Elem(), TemplateScatterPlotFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateScatterPlotFieldWellsPtrInput)(nil)).Elem(), TemplateScatterPlotFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateScatterPlotSortConfigurationInput)(nil)).Elem(), TemplateScatterPlotSortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateScatterPlotSortConfigurationPtrInput)(nil)).Elem(), TemplateScatterPlotSortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateScatterPlotUnaggregatedFieldWellsInput)(nil)).Elem(), TemplateScatterPlotUnaggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateScatterPlotUnaggregatedFieldWellsPtrInput)(nil)).Elem(), TemplateScatterPlotUnaggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateScatterPlotVisualInput)(nil)).Elem(), TemplateScatterPlotVisualArgs{})
@@ -43067,6 +48836,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualCustomActionArrayInput)(nil)).Elem(), TemplateVisualCustomActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualCustomActionOperationInput)(nil)).Elem(), TemplateVisualCustomActionOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualCustomActionOperationArrayInput)(nil)).Elem(), TemplateVisualCustomActionOperationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualInteractionOptionsInput)(nil)).Elem(), TemplateVisualInteractionOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualInteractionOptionsPtrInput)(nil)).Elem(), TemplateVisualInteractionOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualMenuOptionInput)(nil)).Elem(), TemplateVisualMenuOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualMenuOptionPtrInput)(nil)).Elem(), TemplateVisualMenuOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualPaletteInput)(nil)).Elem(), TemplateVisualPaletteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualPalettePtrInput)(nil)).Elem(), TemplateVisualPaletteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualSubtitleLabelOptionsInput)(nil)).Elem(), TemplateVisualSubtitleLabelOptionsArgs{})
@@ -43182,6 +48955,61 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateMaximumLabelTypeOutput{})
+	pulumi.RegisterOutputType(TemplateMaximumLabelTypePtrOutput{})
+	pulumi.RegisterOutputType(TemplateMaximumMinimumComputationOutput{})
+	pulumi.RegisterOutputType(TemplateMaximumMinimumComputationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateMeasureFieldOutput{})
+	pulumi.RegisterOutputType(TemplateMeasureFieldPtrOutput{})
+	pulumi.RegisterOutputType(TemplateMeasureFieldArrayOutput{})
+	pulumi.RegisterOutputType(TemplateMetricComparisonComputationOutput{})
+	pulumi.RegisterOutputType(TemplateMetricComparisonComputationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateMinimumLabelTypeOutput{})
+	pulumi.RegisterOutputType(TemplateMinimumLabelTypePtrOutput{})
+	pulumi.RegisterOutputType(TemplateMissingDataConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateMissingDataConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(TemplateNegativeValueConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateNegativeValueConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateNestedFilterOutput{})
+	pulumi.RegisterOutputType(TemplateNestedFilterPtrOutput{})
+	pulumi.RegisterOutputType(TemplateNullValueFormatConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateNullValueFormatConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateNumberDisplayFormatConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateNumberDisplayFormatConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateNumberFormatConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateNumberFormatConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateNumericAxisOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateNumericAxisOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateNumericEqualityDrillDownFilterOutput{})
+	pulumi.RegisterOutputType(TemplateNumericEqualityDrillDownFilterPtrOutput{})
+	pulumi.RegisterOutputType(TemplateNumericEqualityFilterOutput{})
+	pulumi.RegisterOutputType(TemplateNumericEqualityFilterPtrOutput{})
+	pulumi.RegisterOutputType(TemplateNumericFormatConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateNumericFormatConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateNumericRangeFilterOutput{})
+	pulumi.RegisterOutputType(TemplateNumericRangeFilterPtrOutput{})
+	pulumi.RegisterOutputType(TemplateNumericRangeFilterValueOutput{})
+	pulumi.RegisterOutputType(TemplateNumericRangeFilterValuePtrOutput{})
+	pulumi.RegisterOutputType(TemplateNumericSeparatorConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateNumericSeparatorConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateNumericalAggregationFunctionOutput{})
+	pulumi.RegisterOutputType(TemplateNumericalAggregationFunctionPtrOutput{})
+	pulumi.RegisterOutputType(TemplateNumericalDimensionFieldOutput{})
+	pulumi.RegisterOutputType(TemplateNumericalDimensionFieldPtrOutput{})
+	pulumi.RegisterOutputType(TemplateNumericalMeasureFieldOutput{})
+	pulumi.RegisterOutputType(TemplateNumericalMeasureFieldPtrOutput{})
+	pulumi.RegisterOutputType(TemplatePaginationConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplatePaginationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplatePanelConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplatePanelConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplatePanelTitleOptionsOutput{})
+	pulumi.RegisterOutputType(TemplatePanelTitleOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateParameterControlOutput{})
+	pulumi.RegisterOutputType(TemplateParameterControlArrayOutput{})
+	pulumi.RegisterOutputType(TemplateParameterDateTimePickerControlOutput{})
+	pulumi.RegisterOutputType(TemplateParameterDateTimePickerControlPtrOutput{})
+	pulumi.RegisterOutputType(TemplateParameterDeclarationOutput{})
+	pulumi.RegisterOutputType(TemplateParameterDeclarationArrayOutput{})
 	pulumi.RegisterOutputType(TemplateParameterDropDownControlOutput{})
 	pulumi.RegisterOutputType(TemplateParameterDropDownControlPtrOutput{})
 	pulumi.RegisterOutputType(TemplateParameterListControlOutput{})
@@ -43338,6 +49166,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateScatterPlotConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateScatterPlotFieldWellsOutput{})
 	pulumi.RegisterOutputType(TemplateScatterPlotFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateScatterPlotSortConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateScatterPlotSortConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateScatterPlotUnaggregatedFieldWellsOutput{})
 	pulumi.RegisterOutputType(TemplateScatterPlotUnaggregatedFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateScatterPlotVisualOutput{})
@@ -43546,6 +49376,10 @@ func init() {
 	pulumi.RegisterOutputType(TemplateVisualCustomActionArrayOutput{})
 	pulumi.RegisterOutputType(TemplateVisualCustomActionOperationOutput{})
 	pulumi.RegisterOutputType(TemplateVisualCustomActionOperationArrayOutput{})
+	pulumi.RegisterOutputType(TemplateVisualInteractionOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateVisualInteractionOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateVisualMenuOptionOutput{})
+	pulumi.RegisterOutputType(TemplateVisualMenuOptionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateVisualPaletteOutput{})
 	pulumi.RegisterOutputType(TemplateVisualPalettePtrOutput{})
 	pulumi.RegisterOutputType(TemplateVisualSubtitleLabelOptionsOutput{})

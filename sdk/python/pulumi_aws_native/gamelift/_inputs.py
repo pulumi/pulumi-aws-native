@@ -620,7 +620,7 @@ if not MYPY:
         """
         location: pulumi.Input[str]
         """
-        An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
+        An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
         """
         location_capacity: NotRequired[pulumi.Input['ContainerFleetLocationCapacityArgsDict']]
         stopped_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerFleetStoppedActionsItem']]]]
@@ -635,7 +635,7 @@ class ContainerFleetLocationConfigurationArgs:
                  stopped_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerFleetStoppedActionsItem']]]] = None):
         """
         A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
-        :param pulumi.Input[str] location: An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
+        :param pulumi.Input[str] location: An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
         """
         pulumi.set(__self__, "location", location)
         if location_capacity is not None:
@@ -647,7 +647,7 @@ class ContainerFleetLocationConfigurationArgs:
     @pulumi.getter
     def location(self) -> pulumi.Input[str]:
         """
-        An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
+        An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
         """
         return pulumi.get(self, "location")
 
@@ -684,7 +684,7 @@ if not MYPY:
         The type of log collection to use for a fleet.
 
         - `CLOUDWATCH` -- (default value) Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
-        - `S3` -- Store logs in an Amazon S3 bucket that you define.
+        - `S3` -- Store logs in an Amazon S3 bucket that you define. This bucket must reside in the fleet's home AWS Region.
         - `NONE` -- Don't collect container logs.
         """
         s3_bucket_name: NotRequired[pulumi.Input[str]]
@@ -704,7 +704,7 @@ class ContainerFleetLogConfigurationArgs:
         :param pulumi.Input['ContainerFleetLogDestination'] log_destination: The type of log collection to use for a fleet.
                
                - `CLOUDWATCH` -- (default value) Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
-               - `S3` -- Store logs in an Amazon S3 bucket that you define.
+               - `S3` -- Store logs in an Amazon S3 bucket that you define. This bucket must reside in the fleet's home AWS Region.
                - `NONE` -- Don't collect container logs.
         :param pulumi.Input[str] s3_bucket_name: The name of the S3 bucket to pull logs from if S3 is the LogDestination
         """
@@ -720,7 +720,7 @@ class ContainerFleetLogConfigurationArgs:
         The type of log collection to use for a fleet.
 
         - `CLOUDWATCH` -- (default value) Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
-        - `S3` -- Store logs in an Amazon S3 bucket that you define.
+        - `S3` -- Store logs in an Amazon S3 bucket that you define. This bucket must reside in the fleet's home AWS Region.
         - `NONE` -- Don't collect container logs.
         """
         return pulumi.get(self, "log_destination")
@@ -2041,7 +2041,7 @@ if not MYPY:
         """
         location: pulumi.Input[str]
         """
-        An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
+        An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
         """
         location_capacity: NotRequired[pulumi.Input['FleetLocationCapacityArgsDict']]
         """
@@ -2059,7 +2059,7 @@ class FleetLocationConfigurationArgs:
                  location_capacity: Optional[pulumi.Input['FleetLocationCapacityArgs']] = None):
         """
         A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
-        :param pulumi.Input[str] location: An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
+        :param pulumi.Input[str] location: An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
         :param pulumi.Input['FleetLocationCapacityArgs'] location_capacity: Current resource capacity settings for managed EC2 fleets and managed container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
                
                *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
@@ -2072,7 +2072,7 @@ class FleetLocationConfigurationArgs:
     @pulumi.getter
     def location(self) -> pulumi.Input[str]:
         """
-        An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
+        An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
         """
         return pulumi.get(self, "location")
 
@@ -2625,7 +2625,7 @@ if not MYPY:
         """
         estimated_instance_warmup: NotRequired[pulumi.Input[float]]
         """
-        Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
+        Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift Servers FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
         """
 elif False:
     GameServerGroupAutoScalingPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -2638,7 +2638,7 @@ class GameServerGroupAutoScalingPolicyArgs:
         """
         Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         :param pulumi.Input['GameServerGroupTargetTrackingConfigurationArgs'] target_tracking_configuration: Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `PercentUtilizedGameServers` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
-        :param pulumi.Input[float] estimated_instance_warmup: Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
+        :param pulumi.Input[float] estimated_instance_warmup: Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift Servers FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
         """
         pulumi.set(__self__, "target_tracking_configuration", target_tracking_configuration)
         if estimated_instance_warmup is not None:
@@ -2660,7 +2660,7 @@ class GameServerGroupAutoScalingPolicyArgs:
     @pulumi.getter(name="estimatedInstanceWarmup")
     def estimated_instance_warmup(self) -> Optional[pulumi.Input[float]]:
         """
-        Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
+        Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift Servers FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
         """
         return pulumi.get(self, "estimated_instance_warmup")
 
@@ -2949,16 +2949,16 @@ if not MYPY:
     class GameSessionQueuePriorityConfigurationArgsDict(TypedDict):
         location_order: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` . Locations can include AWS Region codes (such as `us-west-2` ), local zones, and custom locations (for Anywhere fleets). Each location must be listed only once. For details, see [Amazon GameLift service locations.](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html)
+        The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` . Locations can include AWS Region codes (such as `us-west-2` ), local zones, and custom locations (for Anywhere fleets). Each location must be listed only once. For details, see [Amazon GameLift Servers service locations.](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html)
         """
         priority_order: NotRequired[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePriorityOrderItem']]]]
         """
         A custom sequence to use when prioritizing where to place new game sessions. Each priority type is listed once.
 
-        - `LATENCY` -- Amazon GameLift prioritizes locations where the average player latency is lowest. Player latency data is provided in each game session placement request.
-        - `COST` -- Amazon GameLift prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) of each destination in the queue.
-        - `DESTINATION` -- Amazon GameLift prioritizes based on the list order of destinations in the queue configuration.
-        - `LOCATION` -- Amazon GameLift prioritizes based on the provided order of locations, as defined in `LocationOrder` .
+        - `LATENCY` -- Amazon GameLift Servers prioritizes locations where the average player latency is lowest. Player latency data is provided in each game session placement request.
+        - `COST` -- Amazon GameLift Servers prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) of each destination in the queue.
+        - `DESTINATION` -- Amazon GameLift Servers prioritizes based on the list order of destinations in the queue configuration.
+        - `LOCATION` -- Amazon GameLift Servers prioritizes based on the provided order of locations, as defined in `LocationOrder` .
         """
 elif False:
     GameSessionQueuePriorityConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -2969,13 +2969,13 @@ class GameSessionQueuePriorityConfigurationArgs:
                  location_order: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  priority_order: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePriorityOrderItem']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] location_order: The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` . Locations can include AWS Region codes (such as `us-west-2` ), local zones, and custom locations (for Anywhere fleets). Each location must be listed only once. For details, see [Amazon GameLift service locations.](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] location_order: The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` . Locations can include AWS Region codes (such as `us-west-2` ), local zones, and custom locations (for Anywhere fleets). Each location must be listed only once. For details, see [Amazon GameLift Servers service locations.](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html)
         :param pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePriorityOrderItem']]] priority_order: A custom sequence to use when prioritizing where to place new game sessions. Each priority type is listed once.
                
-               - `LATENCY` -- Amazon GameLift prioritizes locations where the average player latency is lowest. Player latency data is provided in each game session placement request.
-               - `COST` -- Amazon GameLift prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) of each destination in the queue.
-               - `DESTINATION` -- Amazon GameLift prioritizes based on the list order of destinations in the queue configuration.
-               - `LOCATION` -- Amazon GameLift prioritizes based on the provided order of locations, as defined in `LocationOrder` .
+               - `LATENCY` -- Amazon GameLift Servers prioritizes locations where the average player latency is lowest. Player latency data is provided in each game session placement request.
+               - `COST` -- Amazon GameLift Servers prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) of each destination in the queue.
+               - `DESTINATION` -- Amazon GameLift Servers prioritizes based on the list order of destinations in the queue configuration.
+               - `LOCATION` -- Amazon GameLift Servers prioritizes based on the provided order of locations, as defined in `LocationOrder` .
         """
         if location_order is not None:
             pulumi.set(__self__, "location_order", location_order)
@@ -2986,7 +2986,7 @@ class GameSessionQueuePriorityConfigurationArgs:
     @pulumi.getter(name="locationOrder")
     def location_order(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` . Locations can include AWS Region codes (such as `us-west-2` ), local zones, and custom locations (for Anywhere fleets). Each location must be listed only once. For details, see [Amazon GameLift service locations.](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html)
+        The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` . Locations can include AWS Region codes (such as `us-west-2` ), local zones, and custom locations (for Anywhere fleets). Each location must be listed only once. For details, see [Amazon GameLift Servers service locations.](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html)
         """
         return pulumi.get(self, "location_order")
 
@@ -3000,10 +3000,10 @@ class GameSessionQueuePriorityConfigurationArgs:
         """
         A custom sequence to use when prioritizing where to place new game sessions. Each priority type is listed once.
 
-        - `LATENCY` -- Amazon GameLift prioritizes locations where the average player latency is lowest. Player latency data is provided in each game session placement request.
-        - `COST` -- Amazon GameLift prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) of each destination in the queue.
-        - `DESTINATION` -- Amazon GameLift prioritizes based on the list order of destinations in the queue configuration.
-        - `LOCATION` -- Amazon GameLift prioritizes based on the provided order of locations, as defined in `LocationOrder` .
+        - `LATENCY` -- Amazon GameLift Servers prioritizes locations where the average player latency is lowest. Player latency data is provided in each game session placement request.
+        - `COST` -- Amazon GameLift Servers prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) of each destination in the queue.
+        - `DESTINATION` -- Amazon GameLift Servers prioritizes based on the list order of destinations in the queue configuration.
+        - `LOCATION` -- Amazon GameLift Servers prioritizes based on the provided order of locations, as defined in `LocationOrder` .
         """
         return pulumi.get(self, "priority_order")
 

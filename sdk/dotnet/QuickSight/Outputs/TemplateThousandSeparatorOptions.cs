@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateThousandSeparatorOptions
     {
         /// <summary>
+        /// Determines the way numbers are styled to accommodate different readability standards. The `DEFAULT` value uses the standard international grouping system and groups numbers by the thousands. The `LAKHS` value uses the Indian numbering system and groups numbers by lakhs and crores.
+        /// </summary>
+        public readonly Pulumi.AwsNative.QuickSight.TemplateDigitGroupingStyle? GroupingStyle;
+        /// <summary>
         /// Determines the thousands separator symbol.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateNumericSeparatorSymbol? Symbol;
@@ -24,10 +28,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private TemplateThousandSeparatorOptions(
+            Pulumi.AwsNative.QuickSight.TemplateDigitGroupingStyle? groupingStyle,
+
             Pulumi.AwsNative.QuickSight.TemplateNumericSeparatorSymbol? symbol,
 
             object? visibility)
         {
+            GroupingStyle = groupingStyle;
             Symbol = symbol;
             Visibility = visibility;
         }

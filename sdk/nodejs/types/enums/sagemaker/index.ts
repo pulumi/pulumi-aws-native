@@ -473,6 +473,13 @@ export const ImageVersionVendorGuidance = {
  */
 export type ImageVersionVendorGuidance = (typeof ImageVersionVendorGuidance)[keyof typeof ImageVersionVendorGuidance];
 
+export const InferenceComponentCapacitySizeType = {
+    CopyCount: "COPY_COUNT",
+    CapacityPercent: "CAPACITY_PERCENT",
+} as const;
+
+export type InferenceComponentCapacitySizeType = (typeof InferenceComponentCapacitySizeType)[keyof typeof InferenceComponentCapacitySizeType];
+
 export const InferenceComponentStatus = {
     InService: "InService",
     Creating: "Creating",

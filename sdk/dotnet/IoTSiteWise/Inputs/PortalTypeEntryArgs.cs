@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     {
         [Input("portalTools", required: true)]
         private InputList<string>? _portalTools;
+
+        /// <summary>
+        /// The array of tools associated with the specified portal type. The possible values are `ASSISTANT` and `DASHBOARD` .
+        /// </summary>
         public InputList<string> PortalTools
         {
             get => _portalTools ?? (_portalTools = new InputList<string>());

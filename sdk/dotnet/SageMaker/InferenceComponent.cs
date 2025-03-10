@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        [Output("deploymentConfig")]
+        public Output<Outputs.InferenceComponentDeploymentConfig?> DeploymentConfig { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
         /// </summary>
@@ -120,6 +123,9 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class InferenceComponentArgs : global::Pulumi.ResourceArgs
     {
+        [Input("deploymentConfig")]
+        public Input<Inputs.InferenceComponentDeploymentConfigArgs>? DeploymentConfig { get; set; }
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
         /// </summary>

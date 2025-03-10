@@ -16,9 +16,11 @@ import (
 type SoftwarePackage struct {
 	pulumi.CustomResourceState
 
+	// A summary of the package being created. This can be used to outline the package's contents or purpose.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Amazon Resource Name (ARN) for the package.
-	PackageArn  pulumi.StringOutput    `pulumi:"packageArn"`
+	PackageArn pulumi.StringOutput `pulumi:"packageArn"`
+	// The name of the new software package.
 	PackageName pulumi.StringPtrOutput `pulumi:"packageName"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -68,7 +70,9 @@ func (SoftwarePackageState) ElementType() reflect.Type {
 }
 
 type softwarePackageArgs struct {
+	// A summary of the package being created. This can be used to outline the package's contents or purpose.
 	Description *string `pulumi:"description"`
+	// The name of the new software package.
 	PackageName *string `pulumi:"packageName"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -76,7 +80,9 @@ type softwarePackageArgs struct {
 
 // The set of arguments for constructing a SoftwarePackage resource.
 type SoftwarePackageArgs struct {
+	// A summary of the package being created. This can be used to outline the package's contents or purpose.
 	Description pulumi.StringPtrInput
+	// The name of the new software package.
 	PackageName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -119,6 +125,7 @@ func (o SoftwarePackageOutput) ToSoftwarePackageOutputWithContext(ctx context.Co
 	return o
 }
 
+// A summary of the package being created. This can be used to outline the package's contents or purpose.
 func (o SoftwarePackageOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SoftwarePackage) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -128,6 +135,7 @@ func (o SoftwarePackageOutput) PackageArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SoftwarePackage) pulumi.StringOutput { return v.PackageArn }).(pulumi.StringOutput)
 }
 
+// The name of the new software package.
 func (o SoftwarePackageOutput) PackageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SoftwarePackage) pulumi.StringPtrOutput { return v.PackageName }).(pulumi.StringPtrOutput)
 }

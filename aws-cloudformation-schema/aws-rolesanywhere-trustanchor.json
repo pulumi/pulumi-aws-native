@@ -136,7 +136,7 @@
   "primaryIdentifier" : [ "/properties/TrustAnchorId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:CreateServiceLinkedRole", "rolesanywhere:CreateTrustAnchor", "rolesanywhere:TagResource", "rolesanywhere:ListTagsForResource" ]
+      "permissions" : [ "iam:CreateServiceLinkedRole", "rolesanywhere:CreateTrustAnchor", "rolesanywhere:TagResource" ]
     },
     "read" : {
       "permissions" : [ "rolesanywhere:GetTrustAnchor", "rolesanywhere:ListTagsForResource" ]

@@ -88,7 +88,7 @@ type LookupStackResult struct {
 	//
 	// > If you use the `Ref` function to pass a parameter value to a nested stack, comma-delimited list parameters must be of type `String` . In other words, you can't pass values that are of type `CommaDelimitedList` to nested stacks.
 	//
-	// Conditional. Required if the nested stack requires input parameters.
+	// Required if the nested stack requires input parameters.
 	//
 	// Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -246,7 +246,7 @@ func (o LookupStackResultOutput) Outputs() StackOutputTypeArrayOutput {
 //
 // > If you use the `Ref` function to pass a parameter value to a nested stack, comma-delimited list parameters must be of type `String` . In other words, you can't pass values that are of type `CommaDelimitedList` to nested stacks.
 //
-// Conditional. Required if the nested stack requires input parameters.
+// Required if the nested stack requires input parameters.
 //
 // Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
 func (o LookupStackResultOutput) Parameters() pulumi.StringMapOutput {

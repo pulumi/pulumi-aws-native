@@ -144,7 +144,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["bucketName", "serverHostname"] };
+        const replaceOnChanges = { replaceOnChanges: ["bucketName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LocationObjectStorage.__pulumiType, name, resourceInputs, opts);
     }

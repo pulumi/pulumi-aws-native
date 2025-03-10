@@ -25,6 +25,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.AnalysisWordCloudFieldWellsArgs>? FieldWells { get; set; }
 
         /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        [Input("interactions")]
+        public Input<Inputs.AnalysisVisualInteractionOptionsArgs>? Interactions { get; set; }
+
+        /// <summary>
         /// The sort configuration of a word cloud visual.
         /// </summary>
         [Input("sortConfiguration")]

@@ -52,6 +52,9 @@
           "type" : "string",
           "maxLength" : 100,
           "minLength" : 1
+        },
+        "SignalValueType" : {
+          "$ref" : "#/definitions/SignalValueType"
         }
       },
       "required" : [ "Factor", "IsBigEndian", "IsSigned", "Length", "MessageId", "Offset", "StartBit" ],
@@ -161,6 +164,12 @@
         },
         "BitMaskLength" : {
           "type" : [ "integer", "string" ]
+        },
+        "IsSigned" : {
+          "type" : [ "boolean", "string" ]
+        },
+        "SignalValueType" : {
+          "$ref" : "#/definitions/SignalValueType"
         }
       },
       "required" : [ "ByteLength", "Offset", "Pid", "PidResponseLength", "Scaling", "ServiceMode", "StartByte" ],
@@ -213,6 +222,10 @@
       },
       "required" : [ "FullyQualifiedName", "InterfaceId", "Type", "ObdSignal" ],
       "additionalProperties" : false
+    },
+    "SignalValueType" : {
+      "type" : "string",
+      "enum" : [ "INTEGER", "FLOATING_POINT" ]
     },
     "Tag" : {
       "type" : "object",

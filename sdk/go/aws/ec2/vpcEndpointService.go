@@ -28,6 +28,8 @@ type VpcEndpointService struct {
 	PayerResponsibility pulumi.StringPtrOutput `pulumi:"payerResponsibility"`
 	// The ID of the endpoint service.
 	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
+	// Specify which Ip Address types are supported for VPC endpoint service.
+	SupportedIpAddressTypes VpcEndpointServiceIpAddressTypeArrayOutput `pulumi:"supportedIpAddressTypes"`
 	// The tags to add to the VPC endpoint service.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -82,6 +84,8 @@ type vpcEndpointServiceArgs struct {
 	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
 	// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
 	PayerResponsibility *string `pulumi:"payerResponsibility"`
+	// Specify which Ip Address types are supported for VPC endpoint service.
+	SupportedIpAddressTypes []VpcEndpointServiceIpAddressType `pulumi:"supportedIpAddressTypes"`
 	// The tags to add to the VPC endpoint service.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -98,6 +102,8 @@ type VpcEndpointServiceArgs struct {
 	NetworkLoadBalancerArns pulumi.StringArrayInput
 	// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
 	PayerResponsibility pulumi.StringPtrInput
+	// Specify which Ip Address types are supported for VPC endpoint service.
+	SupportedIpAddressTypes VpcEndpointServiceIpAddressTypeArrayInput
 	// The tags to add to the VPC endpoint service.
 	Tags aws.TagArrayInput
 }
@@ -167,6 +173,13 @@ func (o VpcEndpointServiceOutput) PayerResponsibility() pulumi.StringPtrOutput {
 // The ID of the endpoint service.
 func (o VpcEndpointServiceOutput) ServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringOutput { return v.ServiceId }).(pulumi.StringOutput)
+}
+
+// Specify which Ip Address types are supported for VPC endpoint service.
+func (o VpcEndpointServiceOutput) SupportedIpAddressTypes() VpcEndpointServiceIpAddressTypeArrayOutput {
+	return o.ApplyT(func(v *VpcEndpointService) VpcEndpointServiceIpAddressTypeArrayOutput {
+		return v.SupportedIpAddressTypes
+	}).(VpcEndpointServiceIpAddressTypeArrayOutput)
 }
 
 // The tags to add to the VPC endpoint service.

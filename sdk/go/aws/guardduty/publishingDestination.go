@@ -18,7 +18,8 @@ type PublishingDestination struct {
 	pulumi.CustomResourceState
 
 	// The ID of the publishing destination.
-	AwsId                 pulumi.StringOutput                                 `pulumi:"awsId"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
 	DestinationProperties PublishingDestinationCfnDestinationPropertiesOutput `pulumi:"destinationProperties"`
 	// The type of resource for the publishing destination. Currently only Amazon S3 buckets are supported.
 	DestinationType pulumi.StringOutput `pulumi:"destinationType"`
@@ -28,7 +29,8 @@ type PublishingDestination struct {
 	PublishingFailureStartTimestamp pulumi.StringOutput `pulumi:"publishingFailureStartTimestamp"`
 	// The status of the publishing destination.
 	Status pulumi.StringOutput `pulumi:"status"`
-	Tags   aws.TagArrayOutput  `pulumi:"tags"`
+	// Describes a tag.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewPublishingDestination registers a new resource with the given unique name, arguments, and options.
@@ -84,22 +86,26 @@ func (PublishingDestinationState) ElementType() reflect.Type {
 }
 
 type publishingDestinationArgs struct {
+	// Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
 	DestinationProperties PublishingDestinationCfnDestinationProperties `pulumi:"destinationProperties"`
 	// The type of resource for the publishing destination. Currently only Amazon S3 buckets are supported.
 	DestinationType string `pulumi:"destinationType"`
 	// The ID of the GuardDuty detector associated with the publishing destination.
-	DetectorId string    `pulumi:"detectorId"`
-	Tags       []aws.Tag `pulumi:"tags"`
+	DetectorId string `pulumi:"detectorId"`
+	// Describes a tag.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PublishingDestination resource.
 type PublishingDestinationArgs struct {
+	// Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
 	DestinationProperties PublishingDestinationCfnDestinationPropertiesInput
 	// The type of resource for the publishing destination. Currently only Amazon S3 buckets are supported.
 	DestinationType pulumi.StringInput
 	// The ID of the GuardDuty detector associated with the publishing destination.
 	DetectorId pulumi.StringInput
-	Tags       aws.TagArrayInput
+	// Describes a tag.
+	Tags aws.TagArrayInput
 }
 
 func (PublishingDestinationArgs) ElementType() reflect.Type {
@@ -144,6 +150,7 @@ func (o PublishingDestinationOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublishingDestination) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
 func (o PublishingDestinationOutput) DestinationProperties() PublishingDestinationCfnDestinationPropertiesOutput {
 	return o.ApplyT(func(v *PublishingDestination) PublishingDestinationCfnDestinationPropertiesOutput {
 		return v.DestinationProperties
@@ -170,6 +177,7 @@ func (o PublishingDestinationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublishingDestination) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// Describes a tag.
 func (o PublishingDestinationOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *PublishingDestination) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
