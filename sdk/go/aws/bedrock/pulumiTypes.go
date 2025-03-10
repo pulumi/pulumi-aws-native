@@ -901,7 +901,8 @@ type AgentCollaborator struct {
 	// Agent collaborator instruction
 	CollaborationInstruction string `pulumi:"collaborationInstruction"`
 	// Agent collaborator name
-	CollaboratorName         string                         `pulumi:"collaboratorName"`
+	CollaboratorName string `pulumi:"collaboratorName"`
+	// The collaborator's relay conversation history.
 	RelayConversationHistory *AgentRelayConversationHistory `pulumi:"relayConversationHistory"`
 }
 
@@ -923,7 +924,8 @@ type AgentCollaboratorArgs struct {
 	// Agent collaborator instruction
 	CollaborationInstruction pulumi.StringInput `pulumi:"collaborationInstruction"`
 	// Agent collaborator name
-	CollaboratorName         pulumi.StringInput                    `pulumi:"collaboratorName"`
+	CollaboratorName pulumi.StringInput `pulumi:"collaboratorName"`
+	// The collaborator's relay conversation history.
 	RelayConversationHistory AgentRelayConversationHistoryPtrInput `pulumi:"relayConversationHistory"`
 }
 
@@ -994,6 +996,7 @@ func (o AgentCollaboratorOutput) CollaboratorName() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentCollaborator) string { return v.CollaboratorName }).(pulumi.StringOutput)
 }
 
+// The collaborator's relay conversation history.
 func (o AgentCollaboratorOutput) RelayConversationHistory() AgentRelayConversationHistoryPtrOutput {
 	return o.ApplyT(func(v AgentCollaborator) *AgentRelayConversationHistory { return v.RelayConversationHistory }).(AgentRelayConversationHistoryPtrOutput)
 }
@@ -1075,6 +1078,7 @@ func (o AgentCollaboratorAgentDescriptorPropertiesOutput) AliasArn() pulumi.Stri
 
 // Structure for custom orchestration
 type AgentCustomOrchestration struct {
+	// The structure of the executor invoking the actions in custom orchestration.
 	Executor *AgentOrchestrationExecutor `pulumi:"executor"`
 }
 
@@ -1091,6 +1095,7 @@ type AgentCustomOrchestrationInput interface {
 
 // Structure for custom orchestration
 type AgentCustomOrchestrationArgs struct {
+	// The structure of the executor invoking the actions in custom orchestration.
 	Executor AgentOrchestrationExecutorPtrInput `pulumi:"executor"`
 }
 
@@ -1172,6 +1177,7 @@ func (o AgentCustomOrchestrationOutput) ToAgentCustomOrchestrationPtrOutputWithC
 	}).(AgentCustomOrchestrationPtrOutput)
 }
 
+// The structure of the executor invoking the actions in custom orchestration.
 func (o AgentCustomOrchestrationOutput) Executor() AgentOrchestrationExecutorPtrOutput {
 	return o.ApplyT(func(v AgentCustomOrchestration) *AgentOrchestrationExecutor { return v.Executor }).(AgentOrchestrationExecutorPtrOutput)
 }
@@ -1200,6 +1206,7 @@ func (o AgentCustomOrchestrationPtrOutput) Elem() AgentCustomOrchestrationOutput
 	}).(AgentCustomOrchestrationOutput)
 }
 
+// The structure of the executor invoking the actions in custom orchestration.
 func (o AgentCustomOrchestrationPtrOutput) Executor() AgentOrchestrationExecutorPtrOutput {
 	return o.ApplyT(func(v *AgentCustomOrchestration) *AgentOrchestrationExecutor {
 		if v == nil {
@@ -1971,7 +1978,9 @@ func (o AgentKnowledgeBaseArrayOutput) Index(i pulumi.IntInput) AgentKnowledgeBa
 
 // Configuration for memory storage
 type AgentMemoryConfiguration struct {
-	EnabledMemoryTypes          []AgentMemoryType                 `pulumi:"enabledMemoryTypes"`
+	// The type of memory that is stored.
+	EnabledMemoryTypes []AgentMemoryType `pulumi:"enabledMemoryTypes"`
+	// Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
 	SessionSummaryConfiguration *AgentSessionSummaryConfiguration `pulumi:"sessionSummaryConfiguration"`
 	// Maximum number of days to store session details
 	StorageDays *float64 `pulumi:"storageDays"`
@@ -1990,7 +1999,9 @@ type AgentMemoryConfigurationInput interface {
 
 // Configuration for memory storage
 type AgentMemoryConfigurationArgs struct {
-	EnabledMemoryTypes          AgentMemoryTypeArrayInput                `pulumi:"enabledMemoryTypes"`
+	// The type of memory that is stored.
+	EnabledMemoryTypes AgentMemoryTypeArrayInput `pulumi:"enabledMemoryTypes"`
+	// Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
 	SessionSummaryConfiguration AgentSessionSummaryConfigurationPtrInput `pulumi:"sessionSummaryConfiguration"`
 	// Maximum number of days to store session details
 	StorageDays pulumi.Float64PtrInput `pulumi:"storageDays"`
@@ -2074,10 +2085,12 @@ func (o AgentMemoryConfigurationOutput) ToAgentMemoryConfigurationPtrOutputWithC
 	}).(AgentMemoryConfigurationPtrOutput)
 }
 
+// The type of memory that is stored.
 func (o AgentMemoryConfigurationOutput) EnabledMemoryTypes() AgentMemoryTypeArrayOutput {
 	return o.ApplyT(func(v AgentMemoryConfiguration) []AgentMemoryType { return v.EnabledMemoryTypes }).(AgentMemoryTypeArrayOutput)
 }
 
+// Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
 func (o AgentMemoryConfigurationOutput) SessionSummaryConfiguration() AgentSessionSummaryConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentMemoryConfiguration) *AgentSessionSummaryConfiguration {
 		return v.SessionSummaryConfiguration
@@ -2113,6 +2126,7 @@ func (o AgentMemoryConfigurationPtrOutput) Elem() AgentMemoryConfigurationOutput
 	}).(AgentMemoryConfigurationOutput)
 }
 
+// The type of memory that is stored.
 func (o AgentMemoryConfigurationPtrOutput) EnabledMemoryTypes() AgentMemoryTypeArrayOutput {
 	return o.ApplyT(func(v *AgentMemoryConfiguration) []AgentMemoryType {
 		if v == nil {
@@ -2122,6 +2136,7 @@ func (o AgentMemoryConfigurationPtrOutput) EnabledMemoryTypes() AgentMemoryTypeA
 	}).(AgentMemoryTypeArrayOutput)
 }
 
+// Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
 func (o AgentMemoryConfigurationPtrOutput) SessionSummaryConfiguration() AgentSessionSummaryConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentMemoryConfiguration) *AgentSessionSummaryConfiguration {
 		if v == nil {
@@ -2403,7 +2418,8 @@ func (o AgentParameterDetailMapOutput) MapIndex(k pulumi.StringInput) AgentParam
 type AgentPromptConfiguration struct {
 	// Base Prompt Template.
 	BasePromptTemplate *string `pulumi:"basePromptTemplate"`
-	FoundationModel    *string `pulumi:"foundationModel"`
+	// The agent's foundation model.
+	FoundationModel *string `pulumi:"foundationModel"`
 	// Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
 	InferenceConfiguration *AgentInferenceConfiguration `pulumi:"inferenceConfiguration"`
 	// Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
@@ -2436,7 +2452,8 @@ type AgentPromptConfigurationInput interface {
 type AgentPromptConfigurationArgs struct {
 	// Base Prompt Template.
 	BasePromptTemplate pulumi.StringPtrInput `pulumi:"basePromptTemplate"`
-	FoundationModel    pulumi.StringPtrInput `pulumi:"foundationModel"`
+	// The agent's foundation model.
+	FoundationModel pulumi.StringPtrInput `pulumi:"foundationModel"`
 	// Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
 	InferenceConfiguration AgentInferenceConfigurationPtrInput `pulumi:"inferenceConfiguration"`
 	// Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
@@ -2511,6 +2528,7 @@ func (o AgentPromptConfigurationOutput) BasePromptTemplate() pulumi.StringPtrOut
 	return o.ApplyT(func(v AgentPromptConfiguration) *string { return v.BasePromptTemplate }).(pulumi.StringPtrOutput)
 }
 
+// The agent's foundation model.
 func (o AgentPromptConfigurationOutput) FoundationModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentPromptConfiguration) *string { return v.FoundationModel }).(pulumi.StringPtrOutput)
 }
@@ -27368,6 +27386,109 @@ func (o PromptMessageArrayOutput) Index(i pulumi.IntInput) PromptMessageOutput {
 	}).(PromptMessageOutput)
 }
 
+// Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+type PromptMetadataEntry struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// PromptMetadataEntryInput is an input type that accepts PromptMetadataEntryArgs and PromptMetadataEntryOutput values.
+// You can construct a concrete instance of `PromptMetadataEntryInput` via:
+//
+//	PromptMetadataEntryArgs{...}
+type PromptMetadataEntryInput interface {
+	pulumi.Input
+
+	ToPromptMetadataEntryOutput() PromptMetadataEntryOutput
+	ToPromptMetadataEntryOutputWithContext(context.Context) PromptMetadataEntryOutput
+}
+
+// Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+type PromptMetadataEntryArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PromptMetadataEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptMetadataEntry)(nil)).Elem()
+}
+
+func (i PromptMetadataEntryArgs) ToPromptMetadataEntryOutput() PromptMetadataEntryOutput {
+	return i.ToPromptMetadataEntryOutputWithContext(context.Background())
+}
+
+func (i PromptMetadataEntryArgs) ToPromptMetadataEntryOutputWithContext(ctx context.Context) PromptMetadataEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PromptMetadataEntryOutput)
+}
+
+// PromptMetadataEntryArrayInput is an input type that accepts PromptMetadataEntryArray and PromptMetadataEntryArrayOutput values.
+// You can construct a concrete instance of `PromptMetadataEntryArrayInput` via:
+//
+//	PromptMetadataEntryArray{ PromptMetadataEntryArgs{...} }
+type PromptMetadataEntryArrayInput interface {
+	pulumi.Input
+
+	ToPromptMetadataEntryArrayOutput() PromptMetadataEntryArrayOutput
+	ToPromptMetadataEntryArrayOutputWithContext(context.Context) PromptMetadataEntryArrayOutput
+}
+
+type PromptMetadataEntryArray []PromptMetadataEntryInput
+
+func (PromptMetadataEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PromptMetadataEntry)(nil)).Elem()
+}
+
+func (i PromptMetadataEntryArray) ToPromptMetadataEntryArrayOutput() PromptMetadataEntryArrayOutput {
+	return i.ToPromptMetadataEntryArrayOutputWithContext(context.Background())
+}
+
+func (i PromptMetadataEntryArray) ToPromptMetadataEntryArrayOutputWithContext(ctx context.Context) PromptMetadataEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PromptMetadataEntryArrayOutput)
+}
+
+// Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+type PromptMetadataEntryOutput struct{ *pulumi.OutputState }
+
+func (PromptMetadataEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptMetadataEntry)(nil)).Elem()
+}
+
+func (o PromptMetadataEntryOutput) ToPromptMetadataEntryOutput() PromptMetadataEntryOutput {
+	return o
+}
+
+func (o PromptMetadataEntryOutput) ToPromptMetadataEntryOutputWithContext(ctx context.Context) PromptMetadataEntryOutput {
+	return o
+}
+
+func (o PromptMetadataEntryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PromptMetadataEntry) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o PromptMetadataEntryOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PromptMetadataEntry) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PromptMetadataEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (PromptMetadataEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PromptMetadataEntry)(nil)).Elem()
+}
+
+func (o PromptMetadataEntryArrayOutput) ToPromptMetadataEntryArrayOutput() PromptMetadataEntryArrayOutput {
+	return o
+}
+
+func (o PromptMetadataEntryArrayOutput) ToPromptMetadataEntryArrayOutputWithContext(ctx context.Context) PromptMetadataEntryArrayOutput {
+	return o
+}
+
+func (o PromptMetadataEntryArrayOutput) Index(i pulumi.IntInput) PromptMetadataEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PromptMetadataEntry {
+		return vs[0].([]PromptMetadataEntry)[vs[1].(int)]
+	}).(PromptMetadataEntryOutput)
+}
+
 // Prompt model inference configuration
 type PromptModelInferenceConfiguration struct {
 	// Maximum length of output
@@ -28969,6 +29090,8 @@ type PromptVariant struct {
 	GenAiResource *PromptGenAiResourceProperties `pulumi:"genAiResource"`
 	// Contains inference configurations for the prompt variant.
 	InferenceConfiguration *PromptInferenceConfigurationProperties `pulumi:"inferenceConfiguration"`
+	// An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+	Metadata []PromptMetadataEntry `pulumi:"metadata"`
 	// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 	ModelId *string `pulumi:"modelId"`
 	// Name for a variant.
@@ -28998,6 +29121,8 @@ type PromptVariantArgs struct {
 	GenAiResource PromptGenAiResourcePropertiesPtrInput `pulumi:"genAiResource"`
 	// Contains inference configurations for the prompt variant.
 	InferenceConfiguration PromptInferenceConfigurationPropertiesPtrInput `pulumi:"inferenceConfiguration"`
+	// An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+	Metadata PromptMetadataEntryArrayInput `pulumi:"metadata"`
 	// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 	ModelId pulumi.StringPtrInput `pulumi:"modelId"`
 	// Name for a variant.
@@ -29073,6 +29198,11 @@ func (o PromptVariantOutput) GenAiResource() PromptGenAiResourcePropertiesPtrOut
 // Contains inference configurations for the prompt variant.
 func (o PromptVariantOutput) InferenceConfiguration() PromptInferenceConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v PromptVariant) *PromptInferenceConfigurationProperties { return v.InferenceConfiguration }).(PromptInferenceConfigurationPropertiesPtrOutput)
+}
+
+// An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+func (o PromptVariantOutput) Metadata() PromptMetadataEntryArrayOutput {
+	return o.ApplyT(func(v PromptVariant) []PromptMetadataEntry { return v.Metadata }).(PromptMetadataEntryArrayOutput)
 }
 
 // ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
@@ -29683,6 +29813,55 @@ func (o PromptVersionPromptInputVariableArrayOutput) Index(i pulumi.IntInput) Pr
 	}).(PromptVersionPromptInputVariableOutput)
 }
 
+// Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+type PromptVersionPromptMetadataEntry struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+type PromptVersionPromptMetadataEntryOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionPromptMetadataEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionPromptMetadataEntry)(nil)).Elem()
+}
+
+func (o PromptVersionPromptMetadataEntryOutput) ToPromptVersionPromptMetadataEntryOutput() PromptVersionPromptMetadataEntryOutput {
+	return o
+}
+
+func (o PromptVersionPromptMetadataEntryOutput) ToPromptVersionPromptMetadataEntryOutputWithContext(ctx context.Context) PromptVersionPromptMetadataEntryOutput {
+	return o
+}
+
+func (o PromptVersionPromptMetadataEntryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PromptVersionPromptMetadataEntry) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o PromptVersionPromptMetadataEntryOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PromptVersionPromptMetadataEntry) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PromptVersionPromptMetadataEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionPromptMetadataEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PromptVersionPromptMetadataEntry)(nil)).Elem()
+}
+
+func (o PromptVersionPromptMetadataEntryArrayOutput) ToPromptVersionPromptMetadataEntryArrayOutput() PromptVersionPromptMetadataEntryArrayOutput {
+	return o
+}
+
+func (o PromptVersionPromptMetadataEntryArrayOutput) ToPromptVersionPromptMetadataEntryArrayOutputWithContext(ctx context.Context) PromptVersionPromptMetadataEntryArrayOutput {
+	return o
+}
+
+func (o PromptVersionPromptMetadataEntryArrayOutput) Index(i pulumi.IntInput) PromptVersionPromptMetadataEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PromptVersionPromptMetadataEntry {
+		return vs[0].([]PromptVersionPromptMetadataEntry)[vs[1].(int)]
+	}).(PromptVersionPromptMetadataEntryOutput)
+}
+
 // Prompt model inference configuration
 type PromptVersionPromptModelInferenceConfiguration struct {
 	// Maximum length of output
@@ -29854,6 +30033,8 @@ type PromptVersionPromptVariant struct {
 	GenAiResource *PromptVersionPromptGenAiResourceProperties `pulumi:"genAiResource"`
 	// Contains inference configurations for the prompt variant.
 	InferenceConfiguration *PromptVersionPromptInferenceConfigurationProperties `pulumi:"inferenceConfiguration"`
+	// An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+	Metadata []PromptVersionPromptMetadataEntry `pulumi:"metadata"`
 	// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 	ModelId *string `pulumi:"modelId"`
 	// Name for a variant.
@@ -29896,6 +30077,11 @@ func (o PromptVersionPromptVariantOutput) InferenceConfiguration() PromptVersion
 	return o.ApplyT(func(v PromptVersionPromptVariant) *PromptVersionPromptInferenceConfigurationProperties {
 		return v.InferenceConfiguration
 	}).(PromptVersionPromptInferenceConfigurationPropertiesPtrOutput)
+}
+
+// An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+func (o PromptVersionPromptVariantOutput) Metadata() PromptVersionPromptMetadataEntryArrayOutput {
+	return o.ApplyT(func(v PromptVersionPromptVariant) []PromptVersionPromptMetadataEntry { return v.Metadata }).(PromptVersionPromptMetadataEntryArrayOutput)
 }
 
 // ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
@@ -30771,6 +30957,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptInputVariableArrayInput)(nil)).Elem(), PromptInputVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptMessageInput)(nil)).Elem(), PromptMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptMessageArrayInput)(nil)).Elem(), PromptMessageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptMetadataEntryInput)(nil)).Elem(), PromptMetadataEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptMetadataEntryArrayInput)(nil)).Elem(), PromptMetadataEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptModelInferenceConfigurationInput)(nil)).Elem(), PromptModelInferenceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptModelInferenceConfigurationPtrInput)(nil)).Elem(), PromptModelInferenceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptSpecificToolChoiceInput)(nil)).Elem(), PromptSpecificToolChoiceArgs{})
@@ -31222,6 +31410,8 @@ func init() {
 	pulumi.RegisterOutputType(PromptInputVariableArrayOutput{})
 	pulumi.RegisterOutputType(PromptMessageOutput{})
 	pulumi.RegisterOutputType(PromptMessageArrayOutput{})
+	pulumi.RegisterOutputType(PromptMetadataEntryOutput{})
+	pulumi.RegisterOutputType(PromptMetadataEntryArrayOutput{})
 	pulumi.RegisterOutputType(PromptModelInferenceConfigurationOutput{})
 	pulumi.RegisterOutputType(PromptModelInferenceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PromptSpecificToolChoiceOutput{})
@@ -31268,6 +31458,8 @@ func init() {
 	pulumi.RegisterOutputType(PromptVersionPromptInferenceConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptInputVariableOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptInputVariableArrayOutput{})
+	pulumi.RegisterOutputType(PromptVersionPromptMetadataEntryOutput{})
+	pulumi.RegisterOutputType(PromptVersionPromptMetadataEntryArrayOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptModelInferenceConfigurationOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptModelInferenceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptTemplateConfiguration0PropertiesOutput{})

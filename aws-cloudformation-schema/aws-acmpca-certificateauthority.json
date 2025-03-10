@@ -395,12 +395,12 @@
   "additionalProperties" : false,
   "required" : [ "Type", "KeyAlgorithm", "SigningAlgorithm", "Subject" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CertificateSigningRequest" ],
-  "writeOnlyProperties" : [ "/properties/Subject", "/properties/Subject", "/properties/CsrExtensions", "/properties/RevocationConfiguration", "/properties/KeyStorageSecurityStandard" ],
+  "writeOnlyProperties" : [ "/properties/Subject", "/properties/CsrExtensions", "/properties/RevocationConfiguration", "/properties/KeyStorageSecurityStandard" ],
   "createOnlyProperties" : [ "/properties/Type", "/properties/KeyAlgorithm", "/properties/SigningAlgorithm", "/properties/Subject", "/properties/CsrExtensions", "/properties/KeyStorageSecurityStandard", "/properties/UsageMode" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "acm-pca:CreateCertificateAuthority", "acm-pca:DescribeCertificateAuthority", "acm-pca:GetCertificateAuthorityCsr" ]
+      "permissions" : [ "acm-pca:CreateCertificateAuthority", "acm-pca:DescribeCertificateAuthority", "acm-pca:GetCertificateAuthorityCsr", "acm-pca:TagCertificateAuthority" ]
     },
     "read" : {
       "permissions" : [ "acm-pca:DescribeCertificateAuthority", "acm-pca:GetCertificateAuthorityCsr", "acm-pca:ListTags" ]

@@ -1056,6 +1056,202 @@ type UserSettingsTag struct {
 	Value string `pulumi:"value"`
 }
 
+type UserSettingsToolbarConfiguration struct {
+	// The list of toolbar items to be hidden.
+	HiddenToolbarItems []UserSettingsToolbarItem `pulumi:"hiddenToolbarItems"`
+	// The maximum display resolution that is allowed for the session.
+	MaxDisplayResolution *UserSettingsMaxDisplayResolution `pulumi:"maxDisplayResolution"`
+	// The type of toolbar displayed during the session.
+	ToolbarType *UserSettingsToolbarType `pulumi:"toolbarType"`
+	// The visual mode of the toolbar.
+	VisualMode *UserSettingsVisualMode `pulumi:"visualMode"`
+}
+
+// UserSettingsToolbarConfigurationInput is an input type that accepts UserSettingsToolbarConfigurationArgs and UserSettingsToolbarConfigurationOutput values.
+// You can construct a concrete instance of `UserSettingsToolbarConfigurationInput` via:
+//
+//	UserSettingsToolbarConfigurationArgs{...}
+type UserSettingsToolbarConfigurationInput interface {
+	pulumi.Input
+
+	ToUserSettingsToolbarConfigurationOutput() UserSettingsToolbarConfigurationOutput
+	ToUserSettingsToolbarConfigurationOutputWithContext(context.Context) UserSettingsToolbarConfigurationOutput
+}
+
+type UserSettingsToolbarConfigurationArgs struct {
+	// The list of toolbar items to be hidden.
+	HiddenToolbarItems UserSettingsToolbarItemArrayInput `pulumi:"hiddenToolbarItems"`
+	// The maximum display resolution that is allowed for the session.
+	MaxDisplayResolution UserSettingsMaxDisplayResolutionPtrInput `pulumi:"maxDisplayResolution"`
+	// The type of toolbar displayed during the session.
+	ToolbarType UserSettingsToolbarTypePtrInput `pulumi:"toolbarType"`
+	// The visual mode of the toolbar.
+	VisualMode UserSettingsVisualModePtrInput `pulumi:"visualMode"`
+}
+
+func (UserSettingsToolbarConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsToolbarConfiguration)(nil)).Elem()
+}
+
+func (i UserSettingsToolbarConfigurationArgs) ToUserSettingsToolbarConfigurationOutput() UserSettingsToolbarConfigurationOutput {
+	return i.ToUserSettingsToolbarConfigurationOutputWithContext(context.Background())
+}
+
+func (i UserSettingsToolbarConfigurationArgs) ToUserSettingsToolbarConfigurationOutputWithContext(ctx context.Context) UserSettingsToolbarConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsToolbarConfigurationOutput)
+}
+
+func (i UserSettingsToolbarConfigurationArgs) ToUserSettingsToolbarConfigurationPtrOutput() UserSettingsToolbarConfigurationPtrOutput {
+	return i.ToUserSettingsToolbarConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i UserSettingsToolbarConfigurationArgs) ToUserSettingsToolbarConfigurationPtrOutputWithContext(ctx context.Context) UserSettingsToolbarConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsToolbarConfigurationOutput).ToUserSettingsToolbarConfigurationPtrOutputWithContext(ctx)
+}
+
+// UserSettingsToolbarConfigurationPtrInput is an input type that accepts UserSettingsToolbarConfigurationArgs, UserSettingsToolbarConfigurationPtr and UserSettingsToolbarConfigurationPtrOutput values.
+// You can construct a concrete instance of `UserSettingsToolbarConfigurationPtrInput` via:
+//
+//	        UserSettingsToolbarConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserSettingsToolbarConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToUserSettingsToolbarConfigurationPtrOutput() UserSettingsToolbarConfigurationPtrOutput
+	ToUserSettingsToolbarConfigurationPtrOutputWithContext(context.Context) UserSettingsToolbarConfigurationPtrOutput
+}
+
+type userSettingsToolbarConfigurationPtrType UserSettingsToolbarConfigurationArgs
+
+func UserSettingsToolbarConfigurationPtr(v *UserSettingsToolbarConfigurationArgs) UserSettingsToolbarConfigurationPtrInput {
+	return (*userSettingsToolbarConfigurationPtrType)(v)
+}
+
+func (*userSettingsToolbarConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSettingsToolbarConfiguration)(nil)).Elem()
+}
+
+func (i *userSettingsToolbarConfigurationPtrType) ToUserSettingsToolbarConfigurationPtrOutput() UserSettingsToolbarConfigurationPtrOutput {
+	return i.ToUserSettingsToolbarConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *userSettingsToolbarConfigurationPtrType) ToUserSettingsToolbarConfigurationPtrOutputWithContext(ctx context.Context) UserSettingsToolbarConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsToolbarConfigurationPtrOutput)
+}
+
+type UserSettingsToolbarConfigurationOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsToolbarConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsToolbarConfiguration)(nil)).Elem()
+}
+
+func (o UserSettingsToolbarConfigurationOutput) ToUserSettingsToolbarConfigurationOutput() UserSettingsToolbarConfigurationOutput {
+	return o
+}
+
+func (o UserSettingsToolbarConfigurationOutput) ToUserSettingsToolbarConfigurationOutputWithContext(ctx context.Context) UserSettingsToolbarConfigurationOutput {
+	return o
+}
+
+func (o UserSettingsToolbarConfigurationOutput) ToUserSettingsToolbarConfigurationPtrOutput() UserSettingsToolbarConfigurationPtrOutput {
+	return o.ToUserSettingsToolbarConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsToolbarConfigurationOutput) ToUserSettingsToolbarConfigurationPtrOutputWithContext(ctx context.Context) UserSettingsToolbarConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSettingsToolbarConfiguration) *UserSettingsToolbarConfiguration {
+		return &v
+	}).(UserSettingsToolbarConfigurationPtrOutput)
+}
+
+// The list of toolbar items to be hidden.
+func (o UserSettingsToolbarConfigurationOutput) HiddenToolbarItems() UserSettingsToolbarItemArrayOutput {
+	return o.ApplyT(func(v UserSettingsToolbarConfiguration) []UserSettingsToolbarItem { return v.HiddenToolbarItems }).(UserSettingsToolbarItemArrayOutput)
+}
+
+// The maximum display resolution that is allowed for the session.
+func (o UserSettingsToolbarConfigurationOutput) MaxDisplayResolution() UserSettingsMaxDisplayResolutionPtrOutput {
+	return o.ApplyT(func(v UserSettingsToolbarConfiguration) *UserSettingsMaxDisplayResolution {
+		return v.MaxDisplayResolution
+	}).(UserSettingsMaxDisplayResolutionPtrOutput)
+}
+
+// The type of toolbar displayed during the session.
+func (o UserSettingsToolbarConfigurationOutput) ToolbarType() UserSettingsToolbarTypePtrOutput {
+	return o.ApplyT(func(v UserSettingsToolbarConfiguration) *UserSettingsToolbarType { return v.ToolbarType }).(UserSettingsToolbarTypePtrOutput)
+}
+
+// The visual mode of the toolbar.
+func (o UserSettingsToolbarConfigurationOutput) VisualMode() UserSettingsVisualModePtrOutput {
+	return o.ApplyT(func(v UserSettingsToolbarConfiguration) *UserSettingsVisualMode { return v.VisualMode }).(UserSettingsVisualModePtrOutput)
+}
+
+type UserSettingsToolbarConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsToolbarConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSettingsToolbarConfiguration)(nil)).Elem()
+}
+
+func (o UserSettingsToolbarConfigurationPtrOutput) ToUserSettingsToolbarConfigurationPtrOutput() UserSettingsToolbarConfigurationPtrOutput {
+	return o
+}
+
+func (o UserSettingsToolbarConfigurationPtrOutput) ToUserSettingsToolbarConfigurationPtrOutputWithContext(ctx context.Context) UserSettingsToolbarConfigurationPtrOutput {
+	return o
+}
+
+func (o UserSettingsToolbarConfigurationPtrOutput) Elem() UserSettingsToolbarConfigurationOutput {
+	return o.ApplyT(func(v *UserSettingsToolbarConfiguration) UserSettingsToolbarConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserSettingsToolbarConfiguration
+		return ret
+	}).(UserSettingsToolbarConfigurationOutput)
+}
+
+// The list of toolbar items to be hidden.
+func (o UserSettingsToolbarConfigurationPtrOutput) HiddenToolbarItems() UserSettingsToolbarItemArrayOutput {
+	return o.ApplyT(func(v *UserSettingsToolbarConfiguration) []UserSettingsToolbarItem {
+		if v == nil {
+			return nil
+		}
+		return v.HiddenToolbarItems
+	}).(UserSettingsToolbarItemArrayOutput)
+}
+
+// The maximum display resolution that is allowed for the session.
+func (o UserSettingsToolbarConfigurationPtrOutput) MaxDisplayResolution() UserSettingsMaxDisplayResolutionPtrOutput {
+	return o.ApplyT(func(v *UserSettingsToolbarConfiguration) *UserSettingsMaxDisplayResolution {
+		if v == nil {
+			return nil
+		}
+		return v.MaxDisplayResolution
+	}).(UserSettingsMaxDisplayResolutionPtrOutput)
+}
+
+// The type of toolbar displayed during the session.
+func (o UserSettingsToolbarConfigurationPtrOutput) ToolbarType() UserSettingsToolbarTypePtrOutput {
+	return o.ApplyT(func(v *UserSettingsToolbarConfiguration) *UserSettingsToolbarType {
+		if v == nil {
+			return nil
+		}
+		return v.ToolbarType
+	}).(UserSettingsToolbarTypePtrOutput)
+}
+
+// The visual mode of the toolbar.
+func (o UserSettingsToolbarConfigurationPtrOutput) VisualMode() UserSettingsVisualModePtrOutput {
+	return o.ApplyT(func(v *UserSettingsToolbarConfiguration) *UserSettingsVisualMode {
+		if v == nil {
+			return nil
+		}
+		return v.VisualMode
+	}).(UserSettingsVisualModePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsCustomPatternInput)(nil)).Elem(), DataProtectionSettingsCustomPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsCustomPatternPtrInput)(nil)).Elem(), DataProtectionSettingsCustomPatternArgs{})
@@ -1070,6 +1266,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSpecificationArrayInput)(nil)).Elem(), UserSettingsCookieSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSynchronizationConfigurationInput)(nil)).Elem(), UserSettingsCookieSynchronizationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSynchronizationConfigurationPtrInput)(nil)).Elem(), UserSettingsCookieSynchronizationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsToolbarConfigurationInput)(nil)).Elem(), UserSettingsToolbarConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsToolbarConfigurationPtrInput)(nil)).Elem(), UserSettingsToolbarConfigurationArgs{})
 	pulumi.RegisterOutputType(DataProtectionSettingsCustomPatternOutput{})
 	pulumi.RegisterOutputType(DataProtectionSettingsCustomPatternPtrOutput{})
 	pulumi.RegisterOutputType(DataProtectionSettingsInlineRedactionConfigurationOutput{})
@@ -1083,4 +1281,6 @@ func init() {
 	pulumi.RegisterOutputType(UserSettingsCookieSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(UserSettingsCookieSynchronizationConfigurationOutput{})
 	pulumi.RegisterOutputType(UserSettingsCookieSynchronizationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(UserSettingsToolbarConfigurationOutput{})
+	pulumi.RegisterOutputType(UserSettingsToolbarConfigurationPtrOutput{})
 }

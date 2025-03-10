@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource
  */
 export class CarrierGateway extends pulumi.CustomResource {
     /**

@@ -26,6 +26,9 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
             set => _associationConfigurations = value;
         }
 
+        [Input("locale")]
+        public Input<string>? Locale { get; set; }
+
         public AiAgentManualSearchAiAgentConfigurationArgs()
         {
         }

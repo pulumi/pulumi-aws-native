@@ -184,7 +184,7 @@
       "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:RemoveFlowSource" ]
     },
     "list" : {
-      "permissions" : [ "mediaconnect:DescribeFlow" ]
+      "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:ListFlows" ]
     }
   }
 }
