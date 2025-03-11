@@ -1483,6 +1483,7 @@ func (ctx *cfSchemaContext) genEnumType(enumName string, propSchema *jsschema.Sc
 		}
 
 		// Special case for when there is an enum which has an empty string value
+		// TODO[pulumi/aws-native#2121]
 		if (typName == "ChannelPreset" || typName == "SoftwarePackageVersionSbomValidationStatus") && str == "" {
 			str = "Empty"
 		}
