@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the MSK cluster.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the MSK cluster.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -57,20 +63,53 @@ namespace Pulumi.AwsNative.Msk
     [OutputType]
     public sealed class GetClusterResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the MSK cluster.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Information about the broker nodes in the cluster.
+        /// </summary>
         public readonly Outputs.ClusterBrokerNodeGroupInfo? BrokerNodeGroupInfo;
+        /// <summary>
+        /// Includes all client authentication related information.
+        /// </summary>
         public readonly Outputs.ClusterClientAuthentication? ClientAuthentication;
+        /// <summary>
+        /// Represents the configuration that you want MSK to use for the cluster.
+        /// </summary>
         public readonly Outputs.ClusterConfigurationInfo? ConfigurationInfo;
         /// <summary>
         /// The current version of the MSK cluster
         /// </summary>
         public readonly string? CurrentVersion;
+        /// <summary>
+        /// Includes all encryption-related information.
+        /// </summary>
         public readonly Outputs.ClusterEncryptionInfo? EncryptionInfo;
+        /// <summary>
+        /// Specifies the level of monitoring for the MSK cluster.
+        /// </summary>
         public readonly Pulumi.AwsNative.Msk.ClusterEnhancedMonitoring? EnhancedMonitoring;
+        /// <summary>
+        /// The version of Apache Kafka. You can use Amazon MSK to create clusters that use [supported Apache Kafka versions](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) .
+        /// </summary>
         public readonly string? KafkaVersion;
+        /// <summary>
+        /// Logging info details for the cluster.
+        /// </summary>
         public readonly Outputs.ClusterLoggingInfo? LoggingInfo;
+        /// <summary>
+        /// The number of broker nodes in the cluster.
+        /// </summary>
         public readonly int? NumberOfBrokerNodes;
+        /// <summary>
+        /// The settings for open monitoring.
+        /// </summary>
         public readonly Outputs.ClusterOpenMonitoring? OpenMonitoring;
+        /// <summary>
+        /// This controls storage mode for supported storage tiers.
+        /// </summary>
         public readonly Pulumi.AwsNative.Msk.ClusterStorageMode? StorageMode;
         /// <summary>
         /// A key-value pair to associate with a resource.

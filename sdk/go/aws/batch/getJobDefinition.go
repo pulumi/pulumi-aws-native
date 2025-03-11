@@ -28,6 +28,8 @@ type LookupJobDefinitionArgs struct {
 }
 
 type LookupJobDefinitionResult struct {
+	// Contains a list of consumable resources required by the job.
+	ConsumableResourceProperties *JobDefinitionConsumableResourceProperties `pulumi:"consumableResourceProperties"`
 	// An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
 	ContainerProperties *JobDefinitionContainerProperties `pulumi:"containerProperties"`
 	// An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
@@ -91,6 +93,13 @@ func (o LookupJobDefinitionResultOutput) ToLookupJobDefinitionResultOutput() Loo
 
 func (o LookupJobDefinitionResultOutput) ToLookupJobDefinitionResultOutputWithContext(ctx context.Context) LookupJobDefinitionResultOutput {
 	return o
+}
+
+// Contains a list of consumable resources required by the job.
+func (o LookupJobDefinitionResultOutput) ConsumableResourceProperties() JobDefinitionConsumableResourcePropertiesPtrOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionConsumableResourceProperties {
+		return v.ConsumableResourceProperties
+	}).(JobDefinitionConsumableResourcePropertiesPtrOutput)
 }
 
 // An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .

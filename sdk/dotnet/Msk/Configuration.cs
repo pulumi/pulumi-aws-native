@@ -15,21 +15,39 @@ namespace Pulumi.AwsNative.Msk
     [AwsNativeResourceType("aws-native:msk:Configuration")]
     public partial class Configuration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the configuration.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the configuration.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
+        /// </summary>
         [Output("kafkaVersionsList")]
         public Output<ImmutableArray<string>> KafkaVersionsList { get; private set; } = null!;
 
+        /// <summary>
+        /// Latest revision of the MSK configuration.
+        /// </summary>
         [Output("latestRevision")]
         public Output<Outputs.ConfigurationLatestRevision?> LatestRevision { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+        /// </summary>
         [Output("serverProperties")]
         public Output<string> ServerProperties { get; private set; } = null!;
 
@@ -83,23 +101,39 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the configuration.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("kafkaVersionsList")]
         private InputList<string>? _kafkaVersionsList;
+
+        /// <summary>
+        /// The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
+        /// </summary>
         public InputList<string> KafkaVersionsList
         {
             get => _kafkaVersionsList ?? (_kafkaVersionsList = new InputList<string>());
             set => _kafkaVersionsList = value;
         }
 
+        /// <summary>
+        /// Latest revision of the MSK configuration.
+        /// </summary>
         [Input("latestRevision")]
         public Input<Inputs.ConfigurationLatestRevisionArgs>? LatestRevision { get; set; }
 
+        /// <summary>
+        /// The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+        /// </summary>
         [Input("serverProperties", required: true)]
         public Input<string> ServerProperties { get; set; } = null!;
 

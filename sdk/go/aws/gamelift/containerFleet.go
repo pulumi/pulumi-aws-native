@@ -47,7 +47,7 @@ type ContainerFleet struct {
 	// The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
 	InstanceType pulumi.StringPtrOutput                         `pulumi:"instanceType"`
 	Locations    ContainerFleetLocationConfigurationArrayOutput `pulumi:"locations"`
-	// The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+	// The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
 	//
 	// - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
 	// - `S3` -- Store logs in an Amazon S3 bucket that you define.
@@ -141,7 +141,7 @@ type containerFleetArgs struct {
 	// The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
 	InstanceType *string                               `pulumi:"instanceType"`
 	Locations    []ContainerFleetLocationConfiguration `pulumi:"locations"`
-	// The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+	// The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
 	//
 	// - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
 	// - `S3` -- Store logs in an Amazon S3 bucket that you define.
@@ -182,7 +182,7 @@ type ContainerFleetArgs struct {
 	// The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
 	InstanceType pulumi.StringPtrInput
 	Locations    ContainerFleetLocationConfigurationArrayInput
-	// The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+	// The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
 	//
 	// - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
 	// - `S3` -- Store logs in an Amazon S3 bucket that you define.
@@ -321,7 +321,7 @@ func (o ContainerFleetOutput) Locations() ContainerFleetLocationConfigurationArr
 	return o.ApplyT(func(v *ContainerFleet) ContainerFleetLocationConfigurationArrayOutput { return v.Locations }).(ContainerFleetLocationConfigurationArrayOutput)
 }
 
-// The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+// The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
 //
 // - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
 // - `S3` -- Store logs in an Amazon S3 bucket that you define.

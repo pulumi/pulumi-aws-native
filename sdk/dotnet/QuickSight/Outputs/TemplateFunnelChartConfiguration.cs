@@ -26,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.TemplateFunnelChartFieldWells? FieldWells;
         /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        public readonly Outputs.TemplateVisualInteractionOptions? Interactions;
+        /// <summary>
         /// The sort configuration of a `FunnelChartVisual` .
         /// </summary>
         public readonly Outputs.TemplateFunnelChartSortConfiguration? SortConfiguration;
@@ -50,6 +54,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateFunnelChartFieldWells? fieldWells,
 
+            Outputs.TemplateVisualInteractionOptions? interactions,
+
             Outputs.TemplateFunnelChartSortConfiguration? sortConfiguration,
 
             Outputs.TemplateTooltipOptions? tooltip,
@@ -61,6 +67,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             CategoryLabelOptions = categoryLabelOptions;
             DataLabelOptions = dataLabelOptions;
             FieldWells = fieldWells;
+            Interactions = interactions;
             SortConfiguration = sortConfiguration;
             Tooltip = tooltip;
             ValueLabelOptions = valueLabelOptions;

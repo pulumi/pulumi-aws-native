@@ -17,6 +17,7 @@ import (
 type SoftwarePackageVersion struct {
 	pulumi.CustomResourceState
 
+	Artifact SoftwarePackageVersionPackageVersionArtifactPtrOutput `pulumi:"artifact"`
 	// Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
 	//
 	// The combined size of all the attributes on a package version is limited to 3KB.
@@ -29,6 +30,10 @@ type SoftwarePackageVersion struct {
 	PackageName pulumi.StringOutput `pulumi:"packageName"`
 	// The Amazon Resource Name (ARN) for the package.
 	PackageVersionArn pulumi.StringOutput `pulumi:"packageVersionArn"`
+	// The inline json job document associated with a software package version
+	Recipe               pulumi.StringPtrOutput                           `pulumi:"recipe"`
+	Sbom                 SoftwarePackageVersionSbomPtrOutput              `pulumi:"sbom"`
+	SbomValidationStatus SoftwarePackageVersionSbomValidationStatusOutput `pulumi:"sbomValidationStatus"`
 	// The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
 	Status SoftwarePackageVersionPackageVersionStatusOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
@@ -85,6 +90,7 @@ func (SoftwarePackageVersionState) ElementType() reflect.Type {
 }
 
 type softwarePackageVersionArgs struct {
+	Artifact *SoftwarePackageVersionPackageVersionArtifact `pulumi:"artifact"`
 	// Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
 	//
 	// The combined size of all the attributes on a package version is limited to 3KB.
@@ -93,6 +99,9 @@ type softwarePackageVersionArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the associated software package.
 	PackageName string `pulumi:"packageName"`
+	// The inline json job document associated with a software package version
+	Recipe *string                     `pulumi:"recipe"`
+	Sbom   *SoftwarePackageVersionSbom `pulumi:"sbom"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the new package version.
@@ -101,6 +110,7 @@ type softwarePackageVersionArgs struct {
 
 // The set of arguments for constructing a SoftwarePackageVersion resource.
 type SoftwarePackageVersionArgs struct {
+	Artifact SoftwarePackageVersionPackageVersionArtifactPtrInput
 	// Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
 	//
 	// The combined size of all the attributes on a package version is limited to 3KB.
@@ -109,6 +119,9 @@ type SoftwarePackageVersionArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the associated software package.
 	PackageName pulumi.StringInput
+	// The inline json job document associated with a software package version
+	Recipe pulumi.StringPtrInput
+	Sbom   SoftwarePackageVersionSbomPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 	// The name of the new package version.
@@ -152,6 +165,12 @@ func (o SoftwarePackageVersionOutput) ToSoftwarePackageVersionOutputWithContext(
 	return o
 }
 
+func (o SoftwarePackageVersionOutput) Artifact() SoftwarePackageVersionPackageVersionArtifactPtrOutput {
+	return o.ApplyT(func(v *SoftwarePackageVersion) SoftwarePackageVersionPackageVersionArtifactPtrOutput {
+		return v.Artifact
+	}).(SoftwarePackageVersionPackageVersionArtifactPtrOutput)
+}
+
 // Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
 //
 // The combined size of all the attributes on a package version is limited to 3KB.
@@ -177,6 +196,21 @@ func (o SoftwarePackageVersionOutput) PackageName() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) for the package.
 func (o SoftwarePackageVersionOutput) PackageVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SoftwarePackageVersion) pulumi.StringOutput { return v.PackageVersionArn }).(pulumi.StringOutput)
+}
+
+// The inline json job document associated with a software package version
+func (o SoftwarePackageVersionOutput) Recipe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwarePackageVersion) pulumi.StringPtrOutput { return v.Recipe }).(pulumi.StringPtrOutput)
+}
+
+func (o SoftwarePackageVersionOutput) Sbom() SoftwarePackageVersionSbomPtrOutput {
+	return o.ApplyT(func(v *SoftwarePackageVersion) SoftwarePackageVersionSbomPtrOutput { return v.Sbom }).(SoftwarePackageVersionSbomPtrOutput)
+}
+
+func (o SoftwarePackageVersionOutput) SbomValidationStatus() SoftwarePackageVersionSbomValidationStatusOutput {
+	return o.ApplyT(func(v *SoftwarePackageVersion) SoftwarePackageVersionSbomValidationStatusOutput {
+		return v.SbomValidationStatus
+	}).(SoftwarePackageVersionSbomValidationStatusOutput)
 }
 
 // The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .

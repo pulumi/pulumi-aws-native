@@ -21,6 +21,14 @@ namespace Pulumi.AwsNative.Dms.Outputs
         /// </summary>
         public readonly Outputs.SettingsPropertiesDocDbSettingsProperties? DocDbSettings;
         /// <summary>
+        /// IbmDb2LuwSettings property identifier.
+        /// </summary>
+        public readonly Outputs.SettingsPropertiesIbmDb2LuwSettingsProperties? IbmDb2LuwSettings;
+        /// <summary>
+        /// IbmDb2zOsSettings property identifier.
+        /// </summary>
+        public readonly Outputs.SettingsPropertiesIbmDb2zOsSettingsProperties? IbmDb2zOsSettings;
+        /// <summary>
         /// MariaDbSettings property identifier.
         /// </summary>
         public readonly Outputs.SettingsPropertiesMariaDbSettingsProperties? MariaDbSettings;
@@ -53,6 +61,10 @@ namespace Pulumi.AwsNative.Dms.Outputs
         private SettingsProperties(
             Outputs.SettingsPropertiesDocDbSettingsProperties? docDbSettings,
 
+            Outputs.SettingsPropertiesIbmDb2LuwSettingsProperties? ibmDb2LuwSettings,
+
+            Outputs.SettingsPropertiesIbmDb2zOsSettingsProperties? ibmDb2zOsSettings,
+
             Outputs.SettingsPropertiesMariaDbSettingsProperties? mariaDbSettings,
 
             Outputs.SettingsPropertiesMicrosoftSqlServerSettingsProperties? microsoftSqlServerSettings,
@@ -68,6 +80,8 @@ namespace Pulumi.AwsNative.Dms.Outputs
             Outputs.SettingsPropertiesRedshiftSettingsProperties? redshiftSettings)
         {
             DocDbSettings = docDbSettings;
+            IbmDb2LuwSettings = ibmDb2LuwSettings;
+            IbmDb2zOsSettings = ibmDb2zOsSettings;
             MariaDbSettings = mariaDbSettings;
             MicrosoftSqlServerSettings = microsoftSqlServerSettings;
             MongoDbSettings = mongoDbSettings;

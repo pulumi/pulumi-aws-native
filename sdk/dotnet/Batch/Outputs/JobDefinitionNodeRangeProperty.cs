@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Batch.Outputs
     public sealed class JobDefinitionNodeRangeProperty
     {
         /// <summary>
+        /// Contains a list of consumable resources required by a job.
+        /// </summary>
+        public readonly Outputs.JobDefinitionConsumableResourceProperties? ConsumableResourceProperties;
+        /// <summary>
         /// The container details for the node range.
         /// </summary>
         public readonly Outputs.JobDefinitionMultiNodeContainerProperties? Container;
@@ -40,6 +44,8 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
         [OutputConstructor]
         private JobDefinitionNodeRangeProperty(
+            Outputs.JobDefinitionConsumableResourceProperties? consumableResourceProperties,
+
             Outputs.JobDefinitionMultiNodeContainerProperties? container,
 
             Outputs.JobDefinitionMultiNodeEcsProperties? ecsProperties,
@@ -50,6 +56,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             string targetNodes)
         {
+            ConsumableResourceProperties = consumableResourceProperties;
             Container = container;
             EcsProperties = ecsProperties;
             EksProperties = eksProperties;

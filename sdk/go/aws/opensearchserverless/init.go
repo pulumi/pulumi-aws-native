@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccessPolicy{}
 	case "aws-native:opensearchserverless:Collection":
 		r = &Collection{}
+	case "aws-native:opensearchserverless:Index":
+		r = &Index{}
 	case "aws-native:opensearchserverless:LifecyclePolicy":
 		r = &LifecyclePolicy{}
 	case "aws-native:opensearchserverless:SecurityConfig":

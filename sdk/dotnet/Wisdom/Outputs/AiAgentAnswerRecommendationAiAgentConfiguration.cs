@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
         public readonly string? AnswerGenerationAiPromptId;
         public readonly ImmutableArray<Outputs.AiAgentAssociationConfiguration> AssociationConfigurations;
         public readonly string? IntentLabelingGenerationAiPromptId;
+        public readonly string? Locale;
         public readonly string? QueryReformulationAiPromptId;
 
         [OutputConstructor]
@@ -29,12 +30,15 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
 
             string? intentLabelingGenerationAiPromptId,
 
+            string? locale,
+
             string? queryReformulationAiPromptId)
         {
             AnswerGenerationAiGuardrailId = answerGenerationAiGuardrailId;
             AnswerGenerationAiPromptId = answerGenerationAiPromptId;
             AssociationConfigurations = associationConfigurations;
             IntentLabelingGenerationAiPromptId = intentLabelingGenerationAiPromptId;
+            Locale = locale;
             QueryReformulationAiPromptId = queryReformulationAiPromptId;
         }
     }

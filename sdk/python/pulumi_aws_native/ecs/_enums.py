@@ -86,7 +86,11 @@ class ServiceAvailabilityZoneRebalancing(str, Enum):
 
 class ServiceAwsVpcConfigurationAssignPublicIp(str, Enum):
     """
-    Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
+    Whether the task's elastic network interface receives a public IP address. 
+     Consider the following when you set this value:
+      +  When you use ``create-service`` or ``update-service``, the default is ``DISABLED``. 
+      +  When the service ``deploymentController`` is ``ECS``, the value must be ``DISABLED``. 
+      +  When you use ``create-service`` or ``update-service``, the default is ``ENABLED``.
     """
     DISABLED = "DISABLED"
     ENABLED = "ENABLED"

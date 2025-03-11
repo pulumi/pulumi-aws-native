@@ -138,6 +138,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// The network interfaces for the instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.LaunchTemplateNetworkInterface> NetworkInterfaces;
+        /// <summary>
+        /// The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) .
+        /// </summary>
         public readonly object? NetworkPerformanceOptions;
         /// <summary>
         /// The placement for the instance.

@@ -72,6 +72,16 @@ export const DomainUserAssignment = {
  */
 export type DomainUserAssignment = (typeof DomainUserAssignment)[keyof typeof DomainUserAssignment];
 
+export const DomainVersion = {
+    V1: "V1",
+    V2: "V2",
+} as const;
+
+/**
+ * The version of the domain.
+ */
+export type DomainVersion = (typeof DomainVersion)[keyof typeof DomainVersion];
+
 export const EnvironmentStatus = {
     Active: "ACTIVE",
     Creating: "CREATING",

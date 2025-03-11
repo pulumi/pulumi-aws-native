@@ -23,25 +23,26 @@ __all__ = ['EventBridgeRuleTemplateArgs', 'EventBridgeRuleTemplate']
 class EventBridgeRuleTemplateArgs:
     def __init__(__self__, *,
                  event_type: pulumi.Input['EventBridgeRuleTemplateEventType'],
-                 group_identifier: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  event_targets: Optional[pulumi.Input[Sequence[pulumi.Input['EventBridgeRuleTemplateTargetArgs']]]] = None,
+                 group_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EventBridgeRuleTemplate resource.
         :param pulumi.Input['EventBridgeRuleTemplateEventType'] event_type: The type of event to match with the rule.
-        :param pulumi.Input[str] group_identifier: An eventbridge rule template group's identifier. Can be either be its id or current name.
         :param pulumi.Input[str] description: A resource's optional description.
         :param pulumi.Input[Sequence[pulumi.Input['EventBridgeRuleTemplateTargetArgs']]] event_targets: Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
+        :param pulumi.Input[str] group_identifier: An eventbridge rule template group's identifier. Can be either be its id or current name.
         :param pulumi.Input[str] name: A resource's name. Names must be unique within the scope of a resource type in a specific region.
         """
         pulumi.set(__self__, "event_type", event_type)
-        pulumi.set(__self__, "group_identifier", group_identifier)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if event_targets is not None:
             pulumi.set(__self__, "event_targets", event_targets)
+        if group_identifier is not None:
+            pulumi.set(__self__, "group_identifier", group_identifier)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -58,18 +59,6 @@ class EventBridgeRuleTemplateArgs:
     @event_type.setter
     def event_type(self, value: pulumi.Input['EventBridgeRuleTemplateEventType']):
         pulumi.set(self, "event_type", value)
-
-    @property
-    @pulumi.getter(name="groupIdentifier")
-    def group_identifier(self) -> pulumi.Input[str]:
-        """
-        An eventbridge rule template group's identifier. Can be either be its id or current name.
-        """
-        return pulumi.get(self, "group_identifier")
-
-    @group_identifier.setter
-    def group_identifier(self, value: pulumi.Input[str]):
-        pulumi.set(self, "group_identifier", value)
 
     @property
     @pulumi.getter
@@ -94,6 +83,18 @@ class EventBridgeRuleTemplateArgs:
     @event_targets.setter
     def event_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventBridgeRuleTemplateTargetArgs']]]]):
         pulumi.set(self, "event_targets", value)
+
+    @property
+    @pulumi.getter(name="groupIdentifier")
+    def group_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        An eventbridge rule template group's identifier. Can be either be its id or current name.
+        """
+        return pulumi.get(self, "group_identifier")
+
+    @group_identifier.setter
+    def group_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_identifier", value)
 
     @property
     @pulumi.getter
@@ -184,8 +185,6 @@ class EventBridgeRuleTemplate(pulumi.CustomResource):
             if event_type is None and not opts.urn:
                 raise TypeError("Missing required property 'event_type'")
             __props__.__dict__["event_type"] = event_type
-            if group_identifier is None and not opts.urn:
-                raise TypeError("Missing required property 'group_identifier'")
             __props__.__dict__["group_identifier"] = group_identifier
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
@@ -291,7 +290,7 @@ class EventBridgeRuleTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupIdentifier")
-    def group_identifier(self) -> pulumi.Output[str]:
+    def group_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         An eventbridge rule template group's identifier. Can be either be its id or current name.
         """

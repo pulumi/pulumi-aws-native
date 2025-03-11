@@ -16,7 +16,11 @@ namespace Pulumi.AwsNative.Ecs.Inputs
     public sealed class ServiceAwsVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
+        /// Whether the task's elastic network interface receives a public IP address. 
+        ///  Consider the following when you set this value:
+        ///   +  When you use ``create-service`` or ``update-service``, the default is ``DISABLED``. 
+        ///   +  When the service ``deploymentController`` is ``ECS``, the value must be ``DISABLED``. 
+        ///   +  When you use ``create-service`` or ``update-service``, the default is ``ENABLED``.
         /// </summary>
         [Input("assignPublicIp")]
         public Input<Pulumi.AwsNative.Ecs.ServiceAwsVpcConfigurationAssignPublicIp>? AssignPublicIp { get; set; }

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a local gateway route table virtual interface group association for a local gateway.
+// Resource Type definition for Local Gateway Route Table Virtual Interface Group Association which describes a local gateway route table virtual interface group association for a local gateway.
 func LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociation(ctx *pulumi.Context, args *LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs, opts ...pulumi.InvokeOption) (*LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult

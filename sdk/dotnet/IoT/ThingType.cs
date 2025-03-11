@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
+        /// Deprecates a thing type. You can not associate new things with deprecated thing type.
         /// 
         /// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
         /// </summary>
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.IoT
     public sealed class ThingTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
+        /// Deprecates a thing type. You can not associate new things with deprecated thing type.
         /// 
         /// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
         /// </summary>

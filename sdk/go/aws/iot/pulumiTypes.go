@@ -303,8 +303,10 @@ type AccountAuditConfigurationAuditCheckConfigurations struct {
 	CaCertificateKeyQualityCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"caCertificateKeyQualityCheck"`
 	// Checks if multiple devices connect using the same client ID.
 	ConflictingClientIdsCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"conflictingClientIdsCheck"`
-	// Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
-	DeviceCertificateExpiringCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateExpiringCheck"`
+	// Checks when a device certificate has been active for a number of days greater than or equal to the number you specify.
+	DeviceCertificateAgeCheck *AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration `pulumi:"deviceCertificateAgeCheck"`
+	// Checks if a device certificate is expiring. By default, this check applies to device certificates expiring within 30 days or that have expired. You can modify this threshold by configuring the DeviceCertExpirationAuditCheckConfiguration.
+	DeviceCertificateExpiringCheck *AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration `pulumi:"deviceCertificateExpiringCheck"`
 	// Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
 	DeviceCertificateKeyQualityCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateKeyQualityCheck"`
 	// Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
@@ -350,8 +352,10 @@ type AccountAuditConfigurationAuditCheckConfigurationsArgs struct {
 	CaCertificateKeyQualityCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"caCertificateKeyQualityCheck"`
 	// Checks if multiple devices connect using the same client ID.
 	ConflictingClientIdsCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"conflictingClientIdsCheck"`
-	// Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
-	DeviceCertificateExpiringCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateExpiringCheck"`
+	// Checks when a device certificate has been active for a number of days greater than or equal to the number you specify.
+	DeviceCertificateAgeCheck AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateAgeCheck"`
+	// Checks if a device certificate is expiring. By default, this check applies to device certificates expiring within 30 days or that have expired. You can modify this threshold by configuring the DeviceCertExpirationAuditCheckConfiguration.
+	DeviceCertificateExpiringCheck AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateExpiringCheck"`
 	// Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
 	DeviceCertificateKeyQualityCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateKeyQualityCheck"`
 	// Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
@@ -431,11 +435,18 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) ConflictingClie
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
-func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) DeviceCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
-	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+// Checks when a device certificate has been active for a number of days greater than or equal to the number you specify.
+func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) DeviceCertificateAgeCheck() AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration {
+		return v.DeviceCertificateAgeCheck
+	}).(AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput)
+}
+
+// Checks if a device certificate is expiring. By default, this check applies to device certificates expiring within 30 days or that have expired. You can modify this threshold by configuring the DeviceCertExpirationAuditCheckConfiguration.
+func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) DeviceCertificateExpiringCheck() AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration {
 		return v.DeviceCertificateExpiringCheck
-	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+	}).(AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput)
 }
 
 // Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
@@ -579,14 +590,24 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) ConflictingC
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
-	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+// Checks when a device certificate has been active for a number of days greater than or equal to the number you specify.
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateAgeCheck() AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceCertificateAgeCheck
+	}).(AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput)
+}
+
+// Checks if a device certificate is expiring. By default, this check applies to device certificates expiring within 30 days or that have expired. You can modify this threshold by configuring the DeviceCertExpirationAuditCheckConfiguration.
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateExpiringCheck() AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.DeviceCertificateExpiringCheck
-	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+	}).(AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput)
 }
 
 // Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
@@ -1014,6 +1035,612 @@ func (o AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput)
 		}
 		return v.Sns
 	}).(AccountAuditConfigurationAuditNotificationTargetPtrOutput)
+}
+
+// A structure containing the configName and corresponding configValue for configuring audit checks.
+type AccountAuditConfigurationCertAgeCheckCustomConfiguration struct {
+	// The number of days that defines when a device certificate is considered to have aged. The check will report a finding if a certificate has been active for a number of days greater than or equal to this threshold value.
+	CertAgeThresholdInDays *string `pulumi:"certAgeThresholdInDays"`
+}
+
+// AccountAuditConfigurationCertAgeCheckCustomConfigurationInput is an input type that accepts AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs and AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput values.
+// You can construct a concrete instance of `AccountAuditConfigurationCertAgeCheckCustomConfigurationInput` via:
+//
+//	AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs{...}
+type AccountAuditConfigurationCertAgeCheckCustomConfigurationInput interface {
+	pulumi.Input
+
+	ToAccountAuditConfigurationCertAgeCheckCustomConfigurationOutput() AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput
+	ToAccountAuditConfigurationCertAgeCheckCustomConfigurationOutputWithContext(context.Context) AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput
+}
+
+// A structure containing the configName and corresponding configValue for configuring audit checks.
+type AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs struct {
+	// The number of days that defines when a device certificate is considered to have aged. The check will report a finding if a certificate has been active for a number of days greater than or equal to this threshold value.
+	CertAgeThresholdInDays pulumi.StringPtrInput `pulumi:"certAgeThresholdInDays"`
+}
+
+func (AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountAuditConfigurationCertAgeCheckCustomConfiguration)(nil)).Elem()
+}
+
+func (i AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs) ToAccountAuditConfigurationCertAgeCheckCustomConfigurationOutput() AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput {
+	return i.ToAccountAuditConfigurationCertAgeCheckCustomConfigurationOutputWithContext(context.Background())
+}
+
+func (i AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs) ToAccountAuditConfigurationCertAgeCheckCustomConfigurationOutputWithContext(ctx context.Context) AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput)
+}
+
+func (i AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs) ToAccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput() AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput {
+	return i.ToAccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs) ToAccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput).ToAccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutputWithContext(ctx)
+}
+
+// AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrInput is an input type that accepts AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs, AccountAuditConfigurationCertAgeCheckCustomConfigurationPtr and AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput values.
+// You can construct a concrete instance of `AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrInput` via:
+//
+//	        AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput() AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput
+	ToAccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutputWithContext(context.Context) AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput
+}
+
+type accountAuditConfigurationCertAgeCheckCustomConfigurationPtrType AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs
+
+func AccountAuditConfigurationCertAgeCheckCustomConfigurationPtr(v *AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs) AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrInput {
+	return (*accountAuditConfigurationCertAgeCheckCustomConfigurationPtrType)(v)
+}
+
+func (*accountAuditConfigurationCertAgeCheckCustomConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAuditConfigurationCertAgeCheckCustomConfiguration)(nil)).Elem()
+}
+
+func (i *accountAuditConfigurationCertAgeCheckCustomConfigurationPtrType) ToAccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput() AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput {
+	return i.ToAccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *accountAuditConfigurationCertAgeCheckCustomConfigurationPtrType) ToAccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput)
+}
+
+// A structure containing the configName and corresponding configValue for configuring audit checks.
+type AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountAuditConfigurationCertAgeCheckCustomConfiguration)(nil)).Elem()
+}
+
+func (o AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput) ToAccountAuditConfigurationCertAgeCheckCustomConfigurationOutput() AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput) ToAccountAuditConfigurationCertAgeCheckCustomConfigurationOutputWithContext(ctx context.Context) AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput) ToAccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput() AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput {
+	return o.ToAccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput) ToAccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountAuditConfigurationCertAgeCheckCustomConfiguration) *AccountAuditConfigurationCertAgeCheckCustomConfiguration {
+		return &v
+	}).(AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput)
+}
+
+// The number of days that defines when a device certificate is considered to have aged. The check will report a finding if a certificate has been active for a number of days greater than or equal to this threshold value.
+func (o AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput) CertAgeThresholdInDays() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountAuditConfigurationCertAgeCheckCustomConfiguration) *string {
+		return v.CertAgeThresholdInDays
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAuditConfigurationCertAgeCheckCustomConfiguration)(nil)).Elem()
+}
+
+func (o AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput) ToAccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput() AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput) ToAccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput) Elem() AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationCertAgeCheckCustomConfiguration) AccountAuditConfigurationCertAgeCheckCustomConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AccountAuditConfigurationCertAgeCheckCustomConfiguration
+		return ret
+	}).(AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput)
+}
+
+// The number of days that defines when a device certificate is considered to have aged. The check will report a finding if a certificate has been active for a number of days greater than or equal to this threshold value.
+func (o AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput) CertAgeThresholdInDays() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationCertAgeCheckCustomConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertAgeThresholdInDays
+	}).(pulumi.StringPtrOutput)
+}
+
+// A structure containing the configName and corresponding configValue for configuring audit checks.
+type AccountAuditConfigurationCertExpirationCheckCustomConfiguration struct {
+	// The number of days before expiration that defines when a device certificate is considered to be approaching expiration. The check will report a finding if a certificate will expire within this number of days.
+	CertExpirationThresholdInDays *string `pulumi:"certExpirationThresholdInDays"`
+}
+
+// AccountAuditConfigurationCertExpirationCheckCustomConfigurationInput is an input type that accepts AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs and AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput values.
+// You can construct a concrete instance of `AccountAuditConfigurationCertExpirationCheckCustomConfigurationInput` via:
+//
+//	AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs{...}
+type AccountAuditConfigurationCertExpirationCheckCustomConfigurationInput interface {
+	pulumi.Input
+
+	ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput() AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput
+	ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationOutputWithContext(context.Context) AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput
+}
+
+// A structure containing the configName and corresponding configValue for configuring audit checks.
+type AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs struct {
+	// The number of days before expiration that defines when a device certificate is considered to be approaching expiration. The check will report a finding if a certificate will expire within this number of days.
+	CertExpirationThresholdInDays pulumi.StringPtrInput `pulumi:"certExpirationThresholdInDays"`
+}
+
+func (AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountAuditConfigurationCertExpirationCheckCustomConfiguration)(nil)).Elem()
+}
+
+func (i AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs) ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput() AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput {
+	return i.ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationOutputWithContext(context.Background())
+}
+
+func (i AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs) ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationOutputWithContext(ctx context.Context) AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput)
+}
+
+func (i AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs) ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput() AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput {
+	return i.ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs) ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput).ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutputWithContext(ctx)
+}
+
+// AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrInput is an input type that accepts AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs, AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtr and AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput values.
+// You can construct a concrete instance of `AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrInput` via:
+//
+//	        AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput() AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput
+	ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutputWithContext(context.Context) AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput
+}
+
+type accountAuditConfigurationCertExpirationCheckCustomConfigurationPtrType AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs
+
+func AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtr(v *AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs) AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrInput {
+	return (*accountAuditConfigurationCertExpirationCheckCustomConfigurationPtrType)(v)
+}
+
+func (*accountAuditConfigurationCertExpirationCheckCustomConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAuditConfigurationCertExpirationCheckCustomConfiguration)(nil)).Elem()
+}
+
+func (i *accountAuditConfigurationCertExpirationCheckCustomConfigurationPtrType) ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput() AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput {
+	return i.ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *accountAuditConfigurationCertExpirationCheckCustomConfigurationPtrType) ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput)
+}
+
+// A structure containing the configName and corresponding configValue for configuring audit checks.
+type AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountAuditConfigurationCertExpirationCheckCustomConfiguration)(nil)).Elem()
+}
+
+func (o AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput) ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput() AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput) ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationOutputWithContext(ctx context.Context) AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput) ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput() AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput {
+	return o.ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput) ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountAuditConfigurationCertExpirationCheckCustomConfiguration) *AccountAuditConfigurationCertExpirationCheckCustomConfiguration {
+		return &v
+	}).(AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput)
+}
+
+// The number of days before expiration that defines when a device certificate is considered to be approaching expiration. The check will report a finding if a certificate will expire within this number of days.
+func (o AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput) CertExpirationThresholdInDays() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountAuditConfigurationCertExpirationCheckCustomConfiguration) *string {
+		return v.CertExpirationThresholdInDays
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAuditConfigurationCertExpirationCheckCustomConfiguration)(nil)).Elem()
+}
+
+func (o AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput) ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput() AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput) ToAccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput) Elem() AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationCertExpirationCheckCustomConfiguration) AccountAuditConfigurationCertExpirationCheckCustomConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AccountAuditConfigurationCertExpirationCheckCustomConfiguration
+		return ret
+	}).(AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput)
+}
+
+// The number of days before expiration that defines when a device certificate is considered to be approaching expiration. The check will report a finding if a certificate will expire within this number of days.
+func (o AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput) CertExpirationThresholdInDays() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationCertExpirationCheckCustomConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertExpirationThresholdInDays
+	}).(pulumi.StringPtrOutput)
+}
+
+// A structure containing the configName and corresponding configValue for configuring DeviceCertAgeCheck.
+type AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration struct {
+	// Configuration settings for the device certificate age check, including the threshold in days for certificate age. This configuration is of type `CertAgeCheckCustomConfiguration` .
+	Configuration *AccountAuditConfigurationCertAgeCheckCustomConfiguration `pulumi:"configuration"`
+	// True if the check is enabled.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationInput is an input type that accepts AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs and AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput values.
+// You can construct a concrete instance of `AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationInput` via:
+//
+//	AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs{...}
+type AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationInput interface {
+	pulumi.Input
+
+	ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput() AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput
+	ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutputWithContext(context.Context) AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput
+}
+
+// A structure containing the configName and corresponding configValue for configuring DeviceCertAgeCheck.
+type AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs struct {
+	// Configuration settings for the device certificate age check, including the threshold in days for certificate age. This configuration is of type `CertAgeCheckCustomConfiguration` .
+	Configuration AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrInput `pulumi:"configuration"`
+	// True if the check is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration)(nil)).Elem()
+}
+
+func (i AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs) ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput() AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput {
+	return i.ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutputWithContext(context.Background())
+}
+
+func (i AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs) ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutputWithContext(ctx context.Context) AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput)
+}
+
+func (i AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs) ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput() AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput {
+	return i.ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs) ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput).ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutputWithContext(ctx)
+}
+
+// AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrInput is an input type that accepts AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs, AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtr and AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput values.
+// You can construct a concrete instance of `AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrInput` via:
+//
+//	        AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput() AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput
+	ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutputWithContext(context.Context) AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput
+}
+
+type accountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrType AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs
+
+func AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtr(v *AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs) AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrInput {
+	return (*accountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrType)(v)
+}
+
+func (*accountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration)(nil)).Elem()
+}
+
+func (i *accountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrType) ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput() AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput {
+	return i.ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *accountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrType) ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput)
+}
+
+// A structure containing the configName and corresponding configValue for configuring DeviceCertAgeCheck.
+type AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration)(nil)).Elem()
+}
+
+func (o AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput) ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput() AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput) ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutputWithContext(ctx context.Context) AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput) ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput() AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput {
+	return o.ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput) ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration) *AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration {
+		return &v
+	}).(AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput)
+}
+
+// Configuration settings for the device certificate age check, including the threshold in days for certificate age. This configuration is of type `CertAgeCheckCustomConfiguration` .
+func (o AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput) Configuration() AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput {
+	return o.ApplyT(func(v AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration) *AccountAuditConfigurationCertAgeCheckCustomConfiguration {
+		return v.Configuration
+	}).(AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput)
+}
+
+// True if the check is enabled.
+func (o AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration)(nil)).Elem()
+}
+
+func (o AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput) ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput() AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput) ToAccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput) Elem() AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration) AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration
+		return ret
+	}).(AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput)
+}
+
+// Configuration settings for the device certificate age check, including the threshold in days for certificate age. This configuration is of type `CertAgeCheckCustomConfiguration` .
+func (o AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput) Configuration() AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration) *AccountAuditConfigurationCertAgeCheckCustomConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Configuration
+	}).(AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput)
+}
+
+// True if the check is enabled.
+func (o AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A structure containing the configName and corresponding configValue for configuring DeviceCertExpirationCheck.
+type AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration struct {
+	// Configuration settings for the device certificate expiration check, including the threshold in days before expiration. This configuration is of type `CertExpirationCheckCustomConfiguration`
+	Configuration *AccountAuditConfigurationCertExpirationCheckCustomConfiguration `pulumi:"configuration"`
+	// True if the check is enabled.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationInput is an input type that accepts AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs and AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput values.
+// You can construct a concrete instance of `AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationInput` via:
+//
+//	AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs{...}
+type AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationInput interface {
+	pulumi.Input
+
+	ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput() AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput
+	ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutputWithContext(context.Context) AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput
+}
+
+// A structure containing the configName and corresponding configValue for configuring DeviceCertExpirationCheck.
+type AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs struct {
+	// Configuration settings for the device certificate expiration check, including the threshold in days before expiration. This configuration is of type `CertExpirationCheckCustomConfiguration`
+	Configuration AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrInput `pulumi:"configuration"`
+	// True if the check is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration)(nil)).Elem()
+}
+
+func (i AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs) ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput() AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput {
+	return i.ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutputWithContext(context.Background())
+}
+
+func (i AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs) ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutputWithContext(ctx context.Context) AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput)
+}
+
+func (i AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs) ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput() AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput {
+	return i.ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs) ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput).ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutputWithContext(ctx)
+}
+
+// AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrInput is an input type that accepts AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs, AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtr and AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput values.
+// You can construct a concrete instance of `AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrInput` via:
+//
+//	        AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput() AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput
+	ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutputWithContext(context.Context) AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput
+}
+
+type accountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrType AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs
+
+func AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtr(v *AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs) AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrInput {
+	return (*accountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrType)(v)
+}
+
+func (*accountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration)(nil)).Elem()
+}
+
+func (i *accountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrType) ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput() AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput {
+	return i.ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *accountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrType) ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput)
+}
+
+// A structure containing the configName and corresponding configValue for configuring DeviceCertExpirationCheck.
+type AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration)(nil)).Elem()
+}
+
+func (o AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput) ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput() AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput) ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutputWithContext(ctx context.Context) AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput) ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput() AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput {
+	return o.ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput) ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration) *AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration {
+		return &v
+	}).(AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput)
+}
+
+// Configuration settings for the device certificate expiration check, including the threshold in days before expiration. This configuration is of type `CertExpirationCheckCustomConfiguration`
+func (o AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput) Configuration() AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput {
+	return o.ApplyT(func(v AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration) *AccountAuditConfigurationCertExpirationCheckCustomConfiguration {
+		return v.Configuration
+	}).(AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput)
+}
+
+// True if the check is enabled.
+func (o AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration)(nil)).Elem()
+}
+
+func (o AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput) ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput() AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput) ToAccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput {
+	return o
+}
+
+func (o AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput) Elem() AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration) AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration
+		return ret
+	}).(AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput)
+}
+
+// Configuration settings for the device certificate expiration check, including the threshold in days before expiration. This configuration is of type `CertExpirationCheckCustomConfiguration`
+func (o AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput) Configuration() AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration) *AccountAuditConfigurationCertExpirationCheckCustomConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Configuration
+	}).(AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput)
+}
+
+// True if the check is enabled.
+func (o AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type AuthorizerTag struct {
@@ -6630,6 +7257,458 @@ type SoftwarePackageTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
+}
+
+// The artifact location of the package version
+type SoftwarePackageVersionPackageVersionArtifact struct {
+	S3Location SoftwarePackageVersionS3Location `pulumi:"s3Location"`
+}
+
+// SoftwarePackageVersionPackageVersionArtifactInput is an input type that accepts SoftwarePackageVersionPackageVersionArtifactArgs and SoftwarePackageVersionPackageVersionArtifactOutput values.
+// You can construct a concrete instance of `SoftwarePackageVersionPackageVersionArtifactInput` via:
+//
+//	SoftwarePackageVersionPackageVersionArtifactArgs{...}
+type SoftwarePackageVersionPackageVersionArtifactInput interface {
+	pulumi.Input
+
+	ToSoftwarePackageVersionPackageVersionArtifactOutput() SoftwarePackageVersionPackageVersionArtifactOutput
+	ToSoftwarePackageVersionPackageVersionArtifactOutputWithContext(context.Context) SoftwarePackageVersionPackageVersionArtifactOutput
+}
+
+// The artifact location of the package version
+type SoftwarePackageVersionPackageVersionArtifactArgs struct {
+	S3Location SoftwarePackageVersionS3LocationInput `pulumi:"s3Location"`
+}
+
+func (SoftwarePackageVersionPackageVersionArtifactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwarePackageVersionPackageVersionArtifact)(nil)).Elem()
+}
+
+func (i SoftwarePackageVersionPackageVersionArtifactArgs) ToSoftwarePackageVersionPackageVersionArtifactOutput() SoftwarePackageVersionPackageVersionArtifactOutput {
+	return i.ToSoftwarePackageVersionPackageVersionArtifactOutputWithContext(context.Background())
+}
+
+func (i SoftwarePackageVersionPackageVersionArtifactArgs) ToSoftwarePackageVersionPackageVersionArtifactOutputWithContext(ctx context.Context) SoftwarePackageVersionPackageVersionArtifactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionPackageVersionArtifactOutput)
+}
+
+func (i SoftwarePackageVersionPackageVersionArtifactArgs) ToSoftwarePackageVersionPackageVersionArtifactPtrOutput() SoftwarePackageVersionPackageVersionArtifactPtrOutput {
+	return i.ToSoftwarePackageVersionPackageVersionArtifactPtrOutputWithContext(context.Background())
+}
+
+func (i SoftwarePackageVersionPackageVersionArtifactArgs) ToSoftwarePackageVersionPackageVersionArtifactPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionPackageVersionArtifactPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionPackageVersionArtifactOutput).ToSoftwarePackageVersionPackageVersionArtifactPtrOutputWithContext(ctx)
+}
+
+// SoftwarePackageVersionPackageVersionArtifactPtrInput is an input type that accepts SoftwarePackageVersionPackageVersionArtifactArgs, SoftwarePackageVersionPackageVersionArtifactPtr and SoftwarePackageVersionPackageVersionArtifactPtrOutput values.
+// You can construct a concrete instance of `SoftwarePackageVersionPackageVersionArtifactPtrInput` via:
+//
+//	        SoftwarePackageVersionPackageVersionArtifactArgs{...}
+//
+//	or:
+//
+//	        nil
+type SoftwarePackageVersionPackageVersionArtifactPtrInput interface {
+	pulumi.Input
+
+	ToSoftwarePackageVersionPackageVersionArtifactPtrOutput() SoftwarePackageVersionPackageVersionArtifactPtrOutput
+	ToSoftwarePackageVersionPackageVersionArtifactPtrOutputWithContext(context.Context) SoftwarePackageVersionPackageVersionArtifactPtrOutput
+}
+
+type softwarePackageVersionPackageVersionArtifactPtrType SoftwarePackageVersionPackageVersionArtifactArgs
+
+func SoftwarePackageVersionPackageVersionArtifactPtr(v *SoftwarePackageVersionPackageVersionArtifactArgs) SoftwarePackageVersionPackageVersionArtifactPtrInput {
+	return (*softwarePackageVersionPackageVersionArtifactPtrType)(v)
+}
+
+func (*softwarePackageVersionPackageVersionArtifactPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwarePackageVersionPackageVersionArtifact)(nil)).Elem()
+}
+
+func (i *softwarePackageVersionPackageVersionArtifactPtrType) ToSoftwarePackageVersionPackageVersionArtifactPtrOutput() SoftwarePackageVersionPackageVersionArtifactPtrOutput {
+	return i.ToSoftwarePackageVersionPackageVersionArtifactPtrOutputWithContext(context.Background())
+}
+
+func (i *softwarePackageVersionPackageVersionArtifactPtrType) ToSoftwarePackageVersionPackageVersionArtifactPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionPackageVersionArtifactPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionPackageVersionArtifactPtrOutput)
+}
+
+// The artifact location of the package version
+type SoftwarePackageVersionPackageVersionArtifactOutput struct{ *pulumi.OutputState }
+
+func (SoftwarePackageVersionPackageVersionArtifactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwarePackageVersionPackageVersionArtifact)(nil)).Elem()
+}
+
+func (o SoftwarePackageVersionPackageVersionArtifactOutput) ToSoftwarePackageVersionPackageVersionArtifactOutput() SoftwarePackageVersionPackageVersionArtifactOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionPackageVersionArtifactOutput) ToSoftwarePackageVersionPackageVersionArtifactOutputWithContext(ctx context.Context) SoftwarePackageVersionPackageVersionArtifactOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionPackageVersionArtifactOutput) ToSoftwarePackageVersionPackageVersionArtifactPtrOutput() SoftwarePackageVersionPackageVersionArtifactPtrOutput {
+	return o.ToSoftwarePackageVersionPackageVersionArtifactPtrOutputWithContext(context.Background())
+}
+
+func (o SoftwarePackageVersionPackageVersionArtifactOutput) ToSoftwarePackageVersionPackageVersionArtifactPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionPackageVersionArtifactPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwarePackageVersionPackageVersionArtifact) *SoftwarePackageVersionPackageVersionArtifact {
+		return &v
+	}).(SoftwarePackageVersionPackageVersionArtifactPtrOutput)
+}
+
+func (o SoftwarePackageVersionPackageVersionArtifactOutput) S3Location() SoftwarePackageVersionS3LocationOutput {
+	return o.ApplyT(func(v SoftwarePackageVersionPackageVersionArtifact) SoftwarePackageVersionS3Location {
+		return v.S3Location
+	}).(SoftwarePackageVersionS3LocationOutput)
+}
+
+type SoftwarePackageVersionPackageVersionArtifactPtrOutput struct{ *pulumi.OutputState }
+
+func (SoftwarePackageVersionPackageVersionArtifactPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwarePackageVersionPackageVersionArtifact)(nil)).Elem()
+}
+
+func (o SoftwarePackageVersionPackageVersionArtifactPtrOutput) ToSoftwarePackageVersionPackageVersionArtifactPtrOutput() SoftwarePackageVersionPackageVersionArtifactPtrOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionPackageVersionArtifactPtrOutput) ToSoftwarePackageVersionPackageVersionArtifactPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionPackageVersionArtifactPtrOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionPackageVersionArtifactPtrOutput) Elem() SoftwarePackageVersionPackageVersionArtifactOutput {
+	return o.ApplyT(func(v *SoftwarePackageVersionPackageVersionArtifact) SoftwarePackageVersionPackageVersionArtifact {
+		if v != nil {
+			return *v
+		}
+		var ret SoftwarePackageVersionPackageVersionArtifact
+		return ret
+	}).(SoftwarePackageVersionPackageVersionArtifactOutput)
+}
+
+func (o SoftwarePackageVersionPackageVersionArtifactPtrOutput) S3Location() SoftwarePackageVersionS3LocationPtrOutput {
+	return o.ApplyT(func(v *SoftwarePackageVersionPackageVersionArtifact) *SoftwarePackageVersionS3Location {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Location
+	}).(SoftwarePackageVersionS3LocationPtrOutput)
+}
+
+// The Amazon S3 location
+type SoftwarePackageVersionS3Location struct {
+	// The S3 bucket
+	Bucket string `pulumi:"bucket"`
+	// The S3 key
+	Key string `pulumi:"key"`
+	// The S3 version
+	Version string `pulumi:"version"`
+}
+
+// SoftwarePackageVersionS3LocationInput is an input type that accepts SoftwarePackageVersionS3LocationArgs and SoftwarePackageVersionS3LocationOutput values.
+// You can construct a concrete instance of `SoftwarePackageVersionS3LocationInput` via:
+//
+//	SoftwarePackageVersionS3LocationArgs{...}
+type SoftwarePackageVersionS3LocationInput interface {
+	pulumi.Input
+
+	ToSoftwarePackageVersionS3LocationOutput() SoftwarePackageVersionS3LocationOutput
+	ToSoftwarePackageVersionS3LocationOutputWithContext(context.Context) SoftwarePackageVersionS3LocationOutput
+}
+
+// The Amazon S3 location
+type SoftwarePackageVersionS3LocationArgs struct {
+	// The S3 bucket
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The S3 key
+	Key pulumi.StringInput `pulumi:"key"`
+	// The S3 version
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (SoftwarePackageVersionS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwarePackageVersionS3Location)(nil)).Elem()
+}
+
+func (i SoftwarePackageVersionS3LocationArgs) ToSoftwarePackageVersionS3LocationOutput() SoftwarePackageVersionS3LocationOutput {
+	return i.ToSoftwarePackageVersionS3LocationOutputWithContext(context.Background())
+}
+
+func (i SoftwarePackageVersionS3LocationArgs) ToSoftwarePackageVersionS3LocationOutputWithContext(ctx context.Context) SoftwarePackageVersionS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionS3LocationOutput)
+}
+
+func (i SoftwarePackageVersionS3LocationArgs) ToSoftwarePackageVersionS3LocationPtrOutput() SoftwarePackageVersionS3LocationPtrOutput {
+	return i.ToSoftwarePackageVersionS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i SoftwarePackageVersionS3LocationArgs) ToSoftwarePackageVersionS3LocationPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionS3LocationOutput).ToSoftwarePackageVersionS3LocationPtrOutputWithContext(ctx)
+}
+
+// SoftwarePackageVersionS3LocationPtrInput is an input type that accepts SoftwarePackageVersionS3LocationArgs, SoftwarePackageVersionS3LocationPtr and SoftwarePackageVersionS3LocationPtrOutput values.
+// You can construct a concrete instance of `SoftwarePackageVersionS3LocationPtrInput` via:
+//
+//	        SoftwarePackageVersionS3LocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SoftwarePackageVersionS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToSoftwarePackageVersionS3LocationPtrOutput() SoftwarePackageVersionS3LocationPtrOutput
+	ToSoftwarePackageVersionS3LocationPtrOutputWithContext(context.Context) SoftwarePackageVersionS3LocationPtrOutput
+}
+
+type softwarePackageVersionS3LocationPtrType SoftwarePackageVersionS3LocationArgs
+
+func SoftwarePackageVersionS3LocationPtr(v *SoftwarePackageVersionS3LocationArgs) SoftwarePackageVersionS3LocationPtrInput {
+	return (*softwarePackageVersionS3LocationPtrType)(v)
+}
+
+func (*softwarePackageVersionS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwarePackageVersionS3Location)(nil)).Elem()
+}
+
+func (i *softwarePackageVersionS3LocationPtrType) ToSoftwarePackageVersionS3LocationPtrOutput() SoftwarePackageVersionS3LocationPtrOutput {
+	return i.ToSoftwarePackageVersionS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *softwarePackageVersionS3LocationPtrType) ToSoftwarePackageVersionS3LocationPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionS3LocationPtrOutput)
+}
+
+// The Amazon S3 location
+type SoftwarePackageVersionS3LocationOutput struct{ *pulumi.OutputState }
+
+func (SoftwarePackageVersionS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwarePackageVersionS3Location)(nil)).Elem()
+}
+
+func (o SoftwarePackageVersionS3LocationOutput) ToSoftwarePackageVersionS3LocationOutput() SoftwarePackageVersionS3LocationOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionS3LocationOutput) ToSoftwarePackageVersionS3LocationOutputWithContext(ctx context.Context) SoftwarePackageVersionS3LocationOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionS3LocationOutput) ToSoftwarePackageVersionS3LocationPtrOutput() SoftwarePackageVersionS3LocationPtrOutput {
+	return o.ToSoftwarePackageVersionS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o SoftwarePackageVersionS3LocationOutput) ToSoftwarePackageVersionS3LocationPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwarePackageVersionS3Location) *SoftwarePackageVersionS3Location {
+		return &v
+	}).(SoftwarePackageVersionS3LocationPtrOutput)
+}
+
+// The S3 bucket
+func (o SoftwarePackageVersionS3LocationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v SoftwarePackageVersionS3Location) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The S3 key
+func (o SoftwarePackageVersionS3LocationOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SoftwarePackageVersionS3Location) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The S3 version
+func (o SoftwarePackageVersionS3LocationOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v SoftwarePackageVersionS3Location) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type SoftwarePackageVersionS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (SoftwarePackageVersionS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwarePackageVersionS3Location)(nil)).Elem()
+}
+
+func (o SoftwarePackageVersionS3LocationPtrOutput) ToSoftwarePackageVersionS3LocationPtrOutput() SoftwarePackageVersionS3LocationPtrOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionS3LocationPtrOutput) ToSoftwarePackageVersionS3LocationPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionS3LocationPtrOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionS3LocationPtrOutput) Elem() SoftwarePackageVersionS3LocationOutput {
+	return o.ApplyT(func(v *SoftwarePackageVersionS3Location) SoftwarePackageVersionS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret SoftwarePackageVersionS3Location
+		return ret
+	}).(SoftwarePackageVersionS3LocationOutput)
+}
+
+// The S3 bucket
+func (o SoftwarePackageVersionS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwarePackageVersionS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 key
+func (o SoftwarePackageVersionS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwarePackageVersionS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 version
+func (o SoftwarePackageVersionS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwarePackageVersionS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// The sbom zip archive location of the package version
+type SoftwarePackageVersionSbom struct {
+	S3Location SoftwarePackageVersionS3Location `pulumi:"s3Location"`
+}
+
+// SoftwarePackageVersionSbomInput is an input type that accepts SoftwarePackageVersionSbomArgs and SoftwarePackageVersionSbomOutput values.
+// You can construct a concrete instance of `SoftwarePackageVersionSbomInput` via:
+//
+//	SoftwarePackageVersionSbomArgs{...}
+type SoftwarePackageVersionSbomInput interface {
+	pulumi.Input
+
+	ToSoftwarePackageVersionSbomOutput() SoftwarePackageVersionSbomOutput
+	ToSoftwarePackageVersionSbomOutputWithContext(context.Context) SoftwarePackageVersionSbomOutput
+}
+
+// The sbom zip archive location of the package version
+type SoftwarePackageVersionSbomArgs struct {
+	S3Location SoftwarePackageVersionS3LocationInput `pulumi:"s3Location"`
+}
+
+func (SoftwarePackageVersionSbomArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwarePackageVersionSbom)(nil)).Elem()
+}
+
+func (i SoftwarePackageVersionSbomArgs) ToSoftwarePackageVersionSbomOutput() SoftwarePackageVersionSbomOutput {
+	return i.ToSoftwarePackageVersionSbomOutputWithContext(context.Background())
+}
+
+func (i SoftwarePackageVersionSbomArgs) ToSoftwarePackageVersionSbomOutputWithContext(ctx context.Context) SoftwarePackageVersionSbomOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionSbomOutput)
+}
+
+func (i SoftwarePackageVersionSbomArgs) ToSoftwarePackageVersionSbomPtrOutput() SoftwarePackageVersionSbomPtrOutput {
+	return i.ToSoftwarePackageVersionSbomPtrOutputWithContext(context.Background())
+}
+
+func (i SoftwarePackageVersionSbomArgs) ToSoftwarePackageVersionSbomPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionSbomPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionSbomOutput).ToSoftwarePackageVersionSbomPtrOutputWithContext(ctx)
+}
+
+// SoftwarePackageVersionSbomPtrInput is an input type that accepts SoftwarePackageVersionSbomArgs, SoftwarePackageVersionSbomPtr and SoftwarePackageVersionSbomPtrOutput values.
+// You can construct a concrete instance of `SoftwarePackageVersionSbomPtrInput` via:
+//
+//	        SoftwarePackageVersionSbomArgs{...}
+//
+//	or:
+//
+//	        nil
+type SoftwarePackageVersionSbomPtrInput interface {
+	pulumi.Input
+
+	ToSoftwarePackageVersionSbomPtrOutput() SoftwarePackageVersionSbomPtrOutput
+	ToSoftwarePackageVersionSbomPtrOutputWithContext(context.Context) SoftwarePackageVersionSbomPtrOutput
+}
+
+type softwarePackageVersionSbomPtrType SoftwarePackageVersionSbomArgs
+
+func SoftwarePackageVersionSbomPtr(v *SoftwarePackageVersionSbomArgs) SoftwarePackageVersionSbomPtrInput {
+	return (*softwarePackageVersionSbomPtrType)(v)
+}
+
+func (*softwarePackageVersionSbomPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwarePackageVersionSbom)(nil)).Elem()
+}
+
+func (i *softwarePackageVersionSbomPtrType) ToSoftwarePackageVersionSbomPtrOutput() SoftwarePackageVersionSbomPtrOutput {
+	return i.ToSoftwarePackageVersionSbomPtrOutputWithContext(context.Background())
+}
+
+func (i *softwarePackageVersionSbomPtrType) ToSoftwarePackageVersionSbomPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionSbomPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionSbomPtrOutput)
+}
+
+// The sbom zip archive location of the package version
+type SoftwarePackageVersionSbomOutput struct{ *pulumi.OutputState }
+
+func (SoftwarePackageVersionSbomOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwarePackageVersionSbom)(nil)).Elem()
+}
+
+func (o SoftwarePackageVersionSbomOutput) ToSoftwarePackageVersionSbomOutput() SoftwarePackageVersionSbomOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionSbomOutput) ToSoftwarePackageVersionSbomOutputWithContext(ctx context.Context) SoftwarePackageVersionSbomOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionSbomOutput) ToSoftwarePackageVersionSbomPtrOutput() SoftwarePackageVersionSbomPtrOutput {
+	return o.ToSoftwarePackageVersionSbomPtrOutputWithContext(context.Background())
+}
+
+func (o SoftwarePackageVersionSbomOutput) ToSoftwarePackageVersionSbomPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionSbomPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwarePackageVersionSbom) *SoftwarePackageVersionSbom {
+		return &v
+	}).(SoftwarePackageVersionSbomPtrOutput)
+}
+
+func (o SoftwarePackageVersionSbomOutput) S3Location() SoftwarePackageVersionS3LocationOutput {
+	return o.ApplyT(func(v SoftwarePackageVersionSbom) SoftwarePackageVersionS3Location { return v.S3Location }).(SoftwarePackageVersionS3LocationOutput)
+}
+
+type SoftwarePackageVersionSbomPtrOutput struct{ *pulumi.OutputState }
+
+func (SoftwarePackageVersionSbomPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwarePackageVersionSbom)(nil)).Elem()
+}
+
+func (o SoftwarePackageVersionSbomPtrOutput) ToSoftwarePackageVersionSbomPtrOutput() SoftwarePackageVersionSbomPtrOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionSbomPtrOutput) ToSoftwarePackageVersionSbomPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionSbomPtrOutput {
+	return o
+}
+
+func (o SoftwarePackageVersionSbomPtrOutput) Elem() SoftwarePackageVersionSbomOutput {
+	return o.ApplyT(func(v *SoftwarePackageVersionSbom) SoftwarePackageVersionSbom {
+		if v != nil {
+			return *v
+		}
+		var ret SoftwarePackageVersionSbom
+		return ret
+	}).(SoftwarePackageVersionSbomOutput)
+}
+
+func (o SoftwarePackageVersionSbomPtrOutput) S3Location() SoftwarePackageVersionS3LocationPtrOutput {
+	return o.ApplyT(func(v *SoftwarePackageVersionSbom) *SoftwarePackageVersionS3Location {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Location
+	}).(SoftwarePackageVersionS3LocationPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -15040,6 +16119,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationAuditNotificationTargetPtrInput)(nil)).Elem(), AccountAuditConfigurationAuditNotificationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationAuditNotificationTargetConfigurationsInput)(nil)).Elem(), AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrInput)(nil)).Elem(), AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationCertAgeCheckCustomConfigurationInput)(nil)).Elem(), AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrInput)(nil)).Elem(), AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationCertExpirationCheckCustomConfigurationInput)(nil)).Elem(), AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrInput)(nil)).Elem(), AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationInput)(nil)).Elem(), AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrInput)(nil)).Elem(), AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationInput)(nil)).Elem(), AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrInput)(nil)).Elem(), AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupPropertiesPropertiesInput)(nil)).Elem(), BillingGroupPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupPropertiesPropertiesPtrInput)(nil)).Elem(), BillingGroupPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateRegistrationConfigInput)(nil)).Elem(), CaCertificateRegistrationConfigArgs{})
@@ -15109,6 +16196,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileMetricValuePtrInput)(nil)).Elem(), SecurityProfileMetricValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileStatisticalThresholdInput)(nil)).Elem(), SecurityProfileStatisticalThresholdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileStatisticalThresholdPtrInput)(nil)).Elem(), SecurityProfileStatisticalThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwarePackageVersionPackageVersionArtifactInput)(nil)).Elem(), SoftwarePackageVersionPackageVersionArtifactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwarePackageVersionPackageVersionArtifactPtrInput)(nil)).Elem(), SoftwarePackageVersionPackageVersionArtifactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwarePackageVersionS3LocationInput)(nil)).Elem(), SoftwarePackageVersionS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwarePackageVersionS3LocationPtrInput)(nil)).Elem(), SoftwarePackageVersionS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwarePackageVersionSbomInput)(nil)).Elem(), SoftwarePackageVersionSbomArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwarePackageVersionSbomPtrInput)(nil)).Elem(), SoftwarePackageVersionSbomArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingAttributePayloadInput)(nil)).Elem(), ThingAttributePayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingAttributePayloadPtrInput)(nil)).Elem(), ThingAttributePayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupAttributePayloadInput)(nil)).Elem(), ThingGroupAttributePayloadArgs{})
@@ -15211,6 +16304,14 @@ func init() {
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditNotificationTargetPtrOutput{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditNotificationTargetConfigurationsOutput{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput{})
+	pulumi.RegisterOutputType(AccountAuditConfigurationCertAgeCheckCustomConfigurationOutput{})
+	pulumi.RegisterOutputType(AccountAuditConfigurationCertAgeCheckCustomConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AccountAuditConfigurationCertExpirationCheckCustomConfigurationOutput{})
+	pulumi.RegisterOutputType(AccountAuditConfigurationCertExpirationCheckCustomConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationOutput{})
+	pulumi.RegisterOutputType(AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationOutput{})
+	pulumi.RegisterOutputType(AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BillingGroupPropertiesPropertiesOutput{})
 	pulumi.RegisterOutputType(BillingGroupPropertiesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CaCertificateRegistrationConfigOutput{})
@@ -15283,6 +16384,12 @@ func init() {
 	pulumi.RegisterOutputType(SecurityProfileMetricValuePtrOutput{})
 	pulumi.RegisterOutputType(SecurityProfileStatisticalThresholdOutput{})
 	pulumi.RegisterOutputType(SecurityProfileStatisticalThresholdPtrOutput{})
+	pulumi.RegisterOutputType(SoftwarePackageVersionPackageVersionArtifactOutput{})
+	pulumi.RegisterOutputType(SoftwarePackageVersionPackageVersionArtifactPtrOutput{})
+	pulumi.RegisterOutputType(SoftwarePackageVersionS3LocationOutput{})
+	pulumi.RegisterOutputType(SoftwarePackageVersionS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(SoftwarePackageVersionSbomOutput{})
+	pulumi.RegisterOutputType(SoftwarePackageVersionSbomPtrOutput{})
 	pulumi.RegisterOutputType(ThingAttributePayloadOutput{})
 	pulumi.RegisterOutputType(ThingAttributePayloadPtrOutput{})
 	pulumi.RegisterOutputType(ThingGroupAttributePayloadOutput{})

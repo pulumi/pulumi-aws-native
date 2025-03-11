@@ -96,7 +96,7 @@ export class ContainerFleet extends pulumi.CustomResource {
     public readonly instanceType!: pulumi.Output<string | undefined>;
     public readonly locations!: pulumi.Output<outputs.gamelift.ContainerFleetLocationConfiguration[] | undefined>;
     /**
-     * The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+     * The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
      *
      * - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
      * - `S3` -- Store logs in an Amazon S3 bucket that you define.
@@ -255,7 +255,7 @@ export interface ContainerFleetArgs {
     instanceType?: pulumi.Input<string>;
     locations?: pulumi.Input<pulumi.Input<inputs.gamelift.ContainerFleetLocationConfigurationArgs>[]>;
     /**
-     * The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+     * The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
      *
      * - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
      * - `S3` -- Store logs in an Amazon S3 bucket that you define.

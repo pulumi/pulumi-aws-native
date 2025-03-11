@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.MediaLive
         /// A cloudwatch alarm template group's identifier. Can be either be its id or current name.
         /// </summary>
         [Output("groupIdentifier")]
-        public Output<string> GroupIdentifier { get; private set; } = null!;
+        public Output<string?> GroupIdentifier { get; private set; } = null!;
 
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
@@ -199,8 +199,8 @@ namespace Pulumi.AwsNative.MediaLive
         /// <summary>
         /// A cloudwatch alarm template group's identifier. Can be either be its id or current name.
         /// </summary>
-        [Input("groupIdentifier", required: true)]
-        public Input<string> GroupIdentifier { get; set; } = null!;
+        [Input("groupIdentifier")]
+        public Input<string>? GroupIdentifier { get; set; }
 
         /// <summary>
         /// The name of the metric associated with the alarm. Must be compatible with targetResourceType.

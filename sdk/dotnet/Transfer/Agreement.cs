@@ -37,7 +37,13 @@ namespace Pulumi.AwsNative.Transfer
         /// Specifies the base directory for the agreement.
         /// </summary>
         [Output("baseDirectory")]
-        public Output<string> BaseDirectory { get; private set; } = null!;
+        public Output<string?> BaseDirectory { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies a separate directory for each type of file to store for an AS2 message.
+        /// </summary>
+        [Output("customDirectories")]
+        public Output<Outputs.CustomDirectoriesProperties?> CustomDirectories { get; private set; } = null!;
 
         /// <summary>
         /// A textual description for the agreement.
@@ -145,8 +151,14 @@ namespace Pulumi.AwsNative.Transfer
         /// <summary>
         /// Specifies the base directory for the agreement.
         /// </summary>
-        [Input("baseDirectory", required: true)]
-        public Input<string> BaseDirectory { get; set; } = null!;
+        [Input("baseDirectory")]
+        public Input<string>? BaseDirectory { get; set; }
+
+        /// <summary>
+        /// Specifies a separate directory for each type of file to store for an AS2 message.
+        /// </summary>
+        [Input("customDirectories")]
+        public Input<Inputs.CustomDirectoriesPropertiesArgs>? CustomDirectories { get; set; }
 
         /// <summary>
         /// A textual description for the agreement.

@@ -1482,9 +1482,9 @@ func (ctx *cfSchemaContext) genEnumType(enumName string, propSchema *jsschema.Sc
 			continue
 		}
 
-		// Special case for `ChannelPreset` enum in the `AWS::IVS::Channel` resource. The enum has an empty string value which
-		// gets returned by the service in certain default cases (for channel types (BASIC and STANDARD)).
-		if typName == "ChannelPreset" && str == "" {
+		// Special case for when there is an enum which has an empty string value
+		// TODO[pulumi/aws-native#2121]
+		if (typName == "ChannelPreset" || typName == "SoftwarePackageVersionSbomValidationStatus") && str == "" {
 			str = "Empty"
 		}
 

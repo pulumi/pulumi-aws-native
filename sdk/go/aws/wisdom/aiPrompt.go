@@ -28,7 +28,7 @@ type AiPrompt struct {
 	AssistantId pulumi.StringPtrOutput `pulumi:"assistantId"`
 	// The description of the AI Prompt.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The identifier of the model used for this AI Prompt. Model Ids supported are: `CLAUDE_3_HAIKU_20240307_V1` .
+	// The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
 	ModelId             pulumi.StringOutput  `pulumi:"modelId"`
 	ModifiedTimeSeconds pulumi.Float64Output `pulumi:"modifiedTimeSeconds"`
 	// The name of the AI Prompt
@@ -114,7 +114,7 @@ type aiPromptArgs struct {
 	AssistantId *string `pulumi:"assistantId"`
 	// The description of the AI Prompt.
 	Description *string `pulumi:"description"`
-	// The identifier of the model used for this AI Prompt. Model Ids supported are: `CLAUDE_3_HAIKU_20240307_V1` .
+	// The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
 	ModelId string `pulumi:"modelId"`
 	// The name of the AI Prompt
 	Name *string `pulumi:"name"`
@@ -136,7 +136,7 @@ type AiPromptArgs struct {
 	AssistantId pulumi.StringPtrInput
 	// The description of the AI Prompt.
 	Description pulumi.StringPtrInput
-	// The identifier of the model used for this AI Prompt. Model Ids supported are: `CLAUDE_3_HAIKU_20240307_V1` .
+	// The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
 	ModelId pulumi.StringInput
 	// The name of the AI Prompt
 	Name pulumi.StringPtrInput
@@ -217,7 +217,7 @@ func (o AiPromptOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AiPrompt) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the model used for this AI Prompt. Model Ids supported are: `CLAUDE_3_HAIKU_20240307_V1` .
+// The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
 func (o AiPromptOutput) ModelId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiPrompt) pulumi.StringOutput { return v.ModelId }).(pulumi.StringOutput)
 }

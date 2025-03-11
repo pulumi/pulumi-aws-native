@@ -3415,8 +3415,6 @@ func (o GatewayGreengrassV2PtrOutput) CoreDeviceThingName() pulumi.StringPtrOutp
 
 // Contains a gateway's platform information.
 type GatewayPlatform struct {
-	// A gateway that runs on AWS IoT Greengrass V1.
-	Greengrass interface{} `pulumi:"greengrass"`
 	// A gateway that runs on AWS IoT Greengrass V2.
 	GreengrassV2 *GatewayGreengrassV2 `pulumi:"greengrassV2"`
 	// A gateway that runs on Siemens Industrial Edge.
@@ -3436,8 +3434,6 @@ type GatewayPlatformInput interface {
 
 // Contains a gateway's platform information.
 type GatewayPlatformArgs struct {
-	// A gateway that runs on AWS IoT Greengrass V1.
-	Greengrass pulumi.Input `pulumi:"greengrass"`
 	// A gateway that runs on AWS IoT Greengrass V2.
 	GreengrassV2 GatewayGreengrassV2PtrInput `pulumi:"greengrassV2"`
 	// A gateway that runs on Siemens Industrial Edge.
@@ -3469,11 +3465,6 @@ func (o GatewayPlatformOutput) ToGatewayPlatformOutput() GatewayPlatformOutput {
 
 func (o GatewayPlatformOutput) ToGatewayPlatformOutputWithContext(ctx context.Context) GatewayPlatformOutput {
 	return o
-}
-
-// A gateway that runs on AWS IoT Greengrass V1.
-func (o GatewayPlatformOutput) Greengrass() pulumi.AnyOutput {
-	return o.ApplyT(func(v GatewayPlatform) interface{} { return v.Greengrass }).(pulumi.AnyOutput)
 }
 
 // A gateway that runs on AWS IoT Greengrass V2.
@@ -3644,6 +3635,7 @@ type PortalTag struct {
 
 // Container associated a certain PortalType.
 type PortalTypeEntry struct {
+	// The array of tools associated with the specified portal type. The possible values are `ASSISTANT` and `DASHBOARD` .
 	PortalTools []string `pulumi:"portalTools"`
 }
 
@@ -3660,6 +3652,7 @@ type PortalTypeEntryInput interface {
 
 // Container associated a certain PortalType.
 type PortalTypeEntryArgs struct {
+	// The array of tools associated with the specified portal type. The possible values are `ASSISTANT` and `DASHBOARD` .
 	PortalTools pulumi.StringArrayInput `pulumi:"portalTools"`
 }
 
@@ -3715,6 +3708,7 @@ func (o PortalTypeEntryOutput) ToPortalTypeEntryOutputWithContext(ctx context.Co
 	return o
 }
 
+// The array of tools associated with the specified portal type. The possible values are `ASSISTANT` and `DASHBOARD` .
 func (o PortalTypeEntryOutput) PortalTools() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PortalTypeEntry) []string { return v.PortalTools }).(pulumi.StringArrayOutput)
 }

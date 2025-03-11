@@ -22,6 +22,18 @@ namespace Pulumi.AwsNative.Dms.Inputs
         public Input<Inputs.SettingsPropertiesDocDbSettingsPropertiesArgs>? DocDbSettings { get; set; }
 
         /// <summary>
+        /// IbmDb2LuwSettings property identifier.
+        /// </summary>
+        [Input("ibmDb2LuwSettings")]
+        public Input<Inputs.SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs>? IbmDb2LuwSettings { get; set; }
+
+        /// <summary>
+        /// IbmDb2zOsSettings property identifier.
+        /// </summary>
+        [Input("ibmDb2zOsSettings")]
+        public Input<Inputs.SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs>? IbmDb2zOsSettings { get; set; }
+
+        /// <summary>
         /// MariaDbSettings property identifier.
         /// </summary>
         [Input("mariaDbSettings")]

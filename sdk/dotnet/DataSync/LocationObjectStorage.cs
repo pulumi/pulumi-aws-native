@@ -140,7 +140,6 @@ namespace Pulumi.AwsNative.DataSync
                 ReplaceOnChanges =
                 {
                     "bucketName",
-                    "serverHostname",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Msk.Inputs
         [Input("encryptionAtRest")]
         public Input<Inputs.ClusterEncryptionAtRestArgs>? EncryptionAtRest { get; set; }
 
+        /// <summary>
+        /// The details for encryption in transit.
+        /// </summary>
         [Input("encryptionInTransit")]
         public Input<Inputs.ClusterEncryptionInTransitArgs>? EncryptionInTransit { get; set; }
 

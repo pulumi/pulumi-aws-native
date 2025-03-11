@@ -24,6 +24,7 @@ __all__ = [
     'IpAccessSettingsIpRule',
     'UserSettingsCookieSpecification',
     'UserSettingsCookieSynchronizationConfiguration',
+    'UserSettingsToolbarConfiguration',
 ]
 
 @pulumi.output_type
@@ -450,5 +451,83 @@ class UserSettingsCookieSynchronizationConfiguration(dict):
         The list of cookie specifications that are blocked from being synchronized to the remote browser.
         """
         return pulumi.get(self, "blocklist")
+
+
+@pulumi.output_type
+class UserSettingsToolbarConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hiddenToolbarItems":
+            suggest = "hidden_toolbar_items"
+        elif key == "maxDisplayResolution":
+            suggest = "max_display_resolution"
+        elif key == "toolbarType":
+            suggest = "toolbar_type"
+        elif key == "visualMode":
+            suggest = "visual_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserSettingsToolbarConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserSettingsToolbarConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserSettingsToolbarConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hidden_toolbar_items: Optional[Sequence['UserSettingsToolbarItem']] = None,
+                 max_display_resolution: Optional['UserSettingsMaxDisplayResolution'] = None,
+                 toolbar_type: Optional['UserSettingsToolbarType'] = None,
+                 visual_mode: Optional['UserSettingsVisualMode'] = None):
+        """
+        :param Sequence['UserSettingsToolbarItem'] hidden_toolbar_items: The list of toolbar items to be hidden.
+        :param 'UserSettingsMaxDisplayResolution' max_display_resolution: The maximum display resolution that is allowed for the session.
+        :param 'UserSettingsToolbarType' toolbar_type: The type of toolbar displayed during the session.
+        :param 'UserSettingsVisualMode' visual_mode: The visual mode of the toolbar.
+        """
+        if hidden_toolbar_items is not None:
+            pulumi.set(__self__, "hidden_toolbar_items", hidden_toolbar_items)
+        if max_display_resolution is not None:
+            pulumi.set(__self__, "max_display_resolution", max_display_resolution)
+        if toolbar_type is not None:
+            pulumi.set(__self__, "toolbar_type", toolbar_type)
+        if visual_mode is not None:
+            pulumi.set(__self__, "visual_mode", visual_mode)
+
+    @property
+    @pulumi.getter(name="hiddenToolbarItems")
+    def hidden_toolbar_items(self) -> Optional[Sequence['UserSettingsToolbarItem']]:
+        """
+        The list of toolbar items to be hidden.
+        """
+        return pulumi.get(self, "hidden_toolbar_items")
+
+    @property
+    @pulumi.getter(name="maxDisplayResolution")
+    def max_display_resolution(self) -> Optional['UserSettingsMaxDisplayResolution']:
+        """
+        The maximum display resolution that is allowed for the session.
+        """
+        return pulumi.get(self, "max_display_resolution")
+
+    @property
+    @pulumi.getter(name="toolbarType")
+    def toolbar_type(self) -> Optional['UserSettingsToolbarType']:
+        """
+        The type of toolbar displayed during the session.
+        """
+        return pulumi.get(self, "toolbar_type")
+
+    @property
+    @pulumi.getter(name="visualMode")
+    def visual_mode(self) -> Optional['UserSettingsVisualMode']:
+        """
+        The visual mode of the toolbar.
+        """
+        return pulumi.get(self, "visual_mode")
 
 

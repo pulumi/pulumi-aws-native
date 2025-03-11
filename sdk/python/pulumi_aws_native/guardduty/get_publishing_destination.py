@@ -48,6 +48,9 @@ class GetPublishingDestinationResult:
     @property
     @pulumi.getter(name="destinationProperties")
     def destination_properties(self) -> Optional['outputs.PublishingDestinationCfnDestinationProperties']:
+        """
+        Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
+        """
         return pulumi.get(self, "destination_properties")
 
     @property
@@ -85,6 +88,9 @@ class GetPublishingDestinationResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Describes a tag.
+        """
         return pulumi.get(self, "tags")
 
 

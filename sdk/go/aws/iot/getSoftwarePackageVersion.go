@@ -31,6 +31,7 @@ type LookupSoftwarePackageVersionArgs struct {
 }
 
 type LookupSoftwarePackageVersionResult struct {
+	Artifact *SoftwarePackageVersionPackageVersionArtifact `pulumi:"artifact"`
 	// Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
 	//
 	// The combined size of all the attributes on a package version is limited to 3KB.
@@ -41,6 +42,10 @@ type LookupSoftwarePackageVersionResult struct {
 	ErrorReason *string `pulumi:"errorReason"`
 	// The Amazon Resource Name (ARN) for the package.
 	PackageVersionArn *string `pulumi:"packageVersionArn"`
+	// The inline json job document associated with a software package version
+	Recipe               *string                                     `pulumi:"recipe"`
+	Sbom                 *SoftwarePackageVersionSbom                 `pulumi:"sbom"`
+	SbomValidationStatus *SoftwarePackageVersionSbomValidationStatus `pulumi:"sbomValidationStatus"`
 	// The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
 	Status *SoftwarePackageVersionPackageVersionStatus `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
@@ -81,6 +86,12 @@ func (o LookupSoftwarePackageVersionResultOutput) ToLookupSoftwarePackageVersion
 	return o
 }
 
+func (o LookupSoftwarePackageVersionResultOutput) Artifact() SoftwarePackageVersionPackageVersionArtifactPtrOutput {
+	return o.ApplyT(func(v LookupSoftwarePackageVersionResult) *SoftwarePackageVersionPackageVersionArtifact {
+		return v.Artifact
+	}).(SoftwarePackageVersionPackageVersionArtifactPtrOutput)
+}
+
 // Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
 //
 // The combined size of all the attributes on a package version is limited to 3KB.
@@ -101,6 +112,21 @@ func (o LookupSoftwarePackageVersionResultOutput) ErrorReason() pulumi.StringPtr
 // The Amazon Resource Name (ARN) for the package.
 func (o LookupSoftwarePackageVersionResultOutput) PackageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSoftwarePackageVersionResult) *string { return v.PackageVersionArn }).(pulumi.StringPtrOutput)
+}
+
+// The inline json job document associated with a software package version
+func (o LookupSoftwarePackageVersionResultOutput) Recipe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSoftwarePackageVersionResult) *string { return v.Recipe }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupSoftwarePackageVersionResultOutput) Sbom() SoftwarePackageVersionSbomPtrOutput {
+	return o.ApplyT(func(v LookupSoftwarePackageVersionResult) *SoftwarePackageVersionSbom { return v.Sbom }).(SoftwarePackageVersionSbomPtrOutput)
+}
+
+func (o LookupSoftwarePackageVersionResultOutput) SbomValidationStatus() SoftwarePackageVersionSbomValidationStatusPtrOutput {
+	return o.ApplyT(func(v LookupSoftwarePackageVersionResult) *SoftwarePackageVersionSbomValidationStatus {
+		return v.SbomValidationStatus
+	}).(SoftwarePackageVersionSbomValidationStatusPtrOutput)
 }
 
 // The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .

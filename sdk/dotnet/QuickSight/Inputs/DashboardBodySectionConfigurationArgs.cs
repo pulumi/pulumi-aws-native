@@ -25,6 +25,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DashboardSectionPageBreakConfigurationArgs>? PageBreakConfiguration { get; set; }
 
         /// <summary>
+        /// Describes the configurations that are required to declare a section as repeating.
+        /// </summary>
+        [Input("repeatConfiguration")]
+        public Input<Inputs.DashboardBodySectionRepeatConfigurationArgs>? RepeatConfiguration { get; set; }
+
+        /// <summary>
         /// The unique identifier of a body section.
         /// </summary>
         [Input("sectionId", required: true)]

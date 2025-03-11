@@ -21,10 +21,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateSheet
     {
         /// <summary>
-        /// A list of images on a sheet.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.TemplateSheetImage> Images;
-        /// <summary>
         /// &lt;p&gt;The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
         ///             console.&lt;/p&gt;
         /// </summary>
@@ -36,13 +32,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private TemplateSheet(
-            ImmutableArray<Outputs.TemplateSheetImage> images,
-
             string? name,
 
             string? sheetId)
         {
-            Images = images;
             Name = name;
             SheetId = sheetId;
         }

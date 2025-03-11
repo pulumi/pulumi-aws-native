@@ -54,6 +54,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.TemplateRadarChartFieldWells? FieldWells;
         /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        public readonly Outputs.TemplateVisualInteractionOptions? Interactions;
+        /// <summary>
         /// The legend display setup of the visual.
         /// </summary>
         public readonly Outputs.TemplateLegendOptions? Legend;
@@ -96,6 +100,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateRadarChartFieldWells? fieldWells,
 
+            Outputs.TemplateVisualInteractionOptions? interactions,
+
             Outputs.TemplateLegendOptions? legend,
 
             Pulumi.AwsNative.QuickSight.TemplateRadarChartShape? shape,
@@ -116,6 +122,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ColorAxis = colorAxis;
             ColorLabelOptions = colorLabelOptions;
             FieldWells = fieldWells;
+            Interactions = interactions;
             Legend = legend;
             Shape = shape;
             SortConfiguration = sortConfiguration;

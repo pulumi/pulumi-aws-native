@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class AnalysisGeospatialLayerMapConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("interactions")]
-        public Input<object>? Interactions { get; set; }
+        public Input<Inputs.AnalysisVisualInteractionOptionsArgs>? Interactions { get; set; }
 
         [Input("legend")]
         public Input<Inputs.AnalysisLegendOptionsArgs>? Legend { get; set; }

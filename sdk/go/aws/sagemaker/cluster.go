@@ -27,7 +27,7 @@ type Cluster struct {
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The failure message of the HyperPod Cluster.
 	FailureMessage pulumi.StringOutput `pulumi:"failureMessage"`
-	// The instance groups of the SageMaker HyperPod cluster.
+	// The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
 	InstanceGroups ClusterInstanceGroupArrayOutput `pulumi:"instanceGroups"`
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery ClusterNodeRecoveryPtrOutput `pulumi:"nodeRecovery"`
@@ -95,7 +95,7 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// The name of the HyperPod Cluster.
 	ClusterName *string `pulumi:"clusterName"`
-	// The instance groups of the SageMaker HyperPod cluster.
+	// The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
 	InstanceGroups []ClusterInstanceGroup `pulumi:"instanceGroups"`
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery *ClusterNodeRecovery `pulumi:"nodeRecovery"`
@@ -111,7 +111,7 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// The name of the HyperPod Cluster.
 	ClusterName pulumi.StringPtrInput
-	// The instance groups of the SageMaker HyperPod cluster.
+	// The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
 	InstanceGroups ClusterInstanceGroupArrayInput
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery ClusterNodeRecoveryPtrInput
@@ -185,7 +185,7 @@ func (o ClusterOutput) FailureMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.FailureMessage }).(pulumi.StringOutput)
 }
 
-// The instance groups of the SageMaker HyperPod cluster.
+// The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
 func (o ClusterOutput) InstanceGroups() ClusterInstanceGroupArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterInstanceGroupArrayOutput { return v.InstanceGroups }).(ClusterInstanceGroupArrayOutput)
 }

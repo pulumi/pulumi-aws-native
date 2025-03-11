@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<string> FailureMessage { get; private set; } = null!;
 
         /// <summary>
-        /// The instance groups of the SageMaker HyperPod cluster.
+        /// The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
         /// </summary>
         [Output("instanceGroups")]
         public Output<ImmutableArray<Outputs.ClusterInstanceGroup>> InstanceGroups { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.AwsNative.SageMaker
         private InputList<Inputs.ClusterInstanceGroupArgs>? _instanceGroups;
 
         /// <summary>
-        /// The instance groups of the SageMaker HyperPod cluster.
+        /// The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
         /// </summary>
         public InputList<Inputs.ClusterInstanceGroupArgs> InstanceGroups
         {

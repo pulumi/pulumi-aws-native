@@ -37,21 +37,57 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the MSK cluster.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Information about the broker nodes in the cluster.
+     */
     public readonly brokerNodeGroupInfo!: pulumi.Output<outputs.msk.ClusterBrokerNodeGroupInfo>;
+    /**
+     * Includes all client authentication related information.
+     */
     public readonly clientAuthentication!: pulumi.Output<outputs.msk.ClusterClientAuthentication | undefined>;
+    /**
+     * The name of the cluster.
+     */
     public readonly clusterName!: pulumi.Output<string>;
+    /**
+     * Represents the configuration that you want MSK to use for the cluster.
+     */
     public readonly configurationInfo!: pulumi.Output<outputs.msk.ClusterConfigurationInfo | undefined>;
     /**
      * The current version of the MSK cluster
      */
     public readonly currentVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Includes all encryption-related information.
+     */
     public readonly encryptionInfo!: pulumi.Output<outputs.msk.ClusterEncryptionInfo | undefined>;
+    /**
+     * Specifies the level of monitoring for the MSK cluster.
+     */
     public readonly enhancedMonitoring!: pulumi.Output<enums.msk.ClusterEnhancedMonitoring | undefined>;
+    /**
+     * The version of Apache Kafka. You can use Amazon MSK to create clusters that use [supported Apache Kafka versions](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) .
+     */
     public readonly kafkaVersion!: pulumi.Output<string>;
+    /**
+     * Logging info details for the cluster.
+     */
     public readonly loggingInfo!: pulumi.Output<outputs.msk.ClusterLoggingInfo | undefined>;
+    /**
+     * The number of broker nodes in the cluster.
+     */
     public readonly numberOfBrokerNodes!: pulumi.Output<number>;
+    /**
+     * The settings for open monitoring.
+     */
     public readonly openMonitoring!: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
+    /**
+     * This controls storage mode for supported storage tiers.
+     */
     public readonly storageMode!: pulumi.Output<enums.msk.ClusterStorageMode | undefined>;
     /**
      * A key-value pair to associate with a resource.
@@ -119,20 +155,53 @@ export class Cluster extends pulumi.CustomResource {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * Information about the broker nodes in the cluster.
+     */
     brokerNodeGroupInfo: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfoArgs>;
+    /**
+     * Includes all client authentication related information.
+     */
     clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthenticationArgs>;
+    /**
+     * The name of the cluster.
+     */
     clusterName?: pulumi.Input<string>;
+    /**
+     * Represents the configuration that you want MSK to use for the cluster.
+     */
     configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfoArgs>;
     /**
      * The current version of the MSK cluster
      */
     currentVersion?: pulumi.Input<string>;
+    /**
+     * Includes all encryption-related information.
+     */
     encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfoArgs>;
+    /**
+     * Specifies the level of monitoring for the MSK cluster.
+     */
     enhancedMonitoring?: pulumi.Input<enums.msk.ClusterEnhancedMonitoring>;
+    /**
+     * The version of Apache Kafka. You can use Amazon MSK to create clusters that use [supported Apache Kafka versions](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) .
+     */
     kafkaVersion: pulumi.Input<string>;
+    /**
+     * Logging info details for the cluster.
+     */
     loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfoArgs>;
+    /**
+     * The number of broker nodes in the cluster.
+     */
     numberOfBrokerNodes: pulumi.Input<number>;
+    /**
+     * The settings for open monitoring.
+     */
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoringArgs>;
+    /**
+     * This controls storage mode for supported storage tiers.
+     */
     storageMode?: pulumi.Input<enums.msk.ClusterStorageMode>;
     /**
      * A key-value pair to associate with a resource.

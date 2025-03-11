@@ -38,16 +38,25 @@ class GetConfigurationResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the configuration.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the configuration.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> Optional['outputs.ConfigurationLatestRevision']:
+        """
+        Latest revision of the MSK configuration.
+        """
         return pulumi.get(self, "latest_revision")
 
 
@@ -66,6 +75,9 @@ def get_configuration(arn: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationResult:
     """
     Resource Type definition for AWS::MSK::Configuration
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -80,6 +92,9 @@ def get_configuration_output(arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationResult]:
     """
     Resource Type definition for AWS::MSK::Configuration
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn

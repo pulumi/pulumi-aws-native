@@ -100,6 +100,10 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         public readonly string? PortalUrl;
         /// <summary>
+        /// The service role of the domain that is created.
+        /// </summary>
+        public readonly string? ServiceRole;
+        /// <summary>
         /// The single-sign on configuration of the Amazon DataZone domain.
         /// </summary>
         public readonly Outputs.DomainSingleSignOn? SingleSignOn;
@@ -132,6 +136,8 @@ namespace Pulumi.AwsNative.DataZone
 
             string? portalUrl,
 
+            string? serviceRole,
+
             Outputs.DomainSingleSignOn? singleSignOn,
 
             Pulumi.AwsNative.DataZone.DomainStatus? status,
@@ -147,6 +153,7 @@ namespace Pulumi.AwsNative.DataZone
             ManagedAccountId = managedAccountId;
             Name = name;
             PortalUrl = portalUrl;
+            ServiceRole = serviceRole;
             SingleSignOn = singleSignOn;
             Status = status;
             Tags = tags;

@@ -6297,6 +6297,13 @@
         "type": "string",
         "description": "The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner."
       },
+      "supportedIpAddressTypes": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:ec2:VpcEndpointServiceIpAddressType"
+        },
+        "description": "Specify which Ip Address types are supported for VPC endpoint service."
+      },
       "tags": {
         "type": "array",
         "items": {
@@ -6493,19 +6500,19 @@
     "properties": {
       "credentialArn": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry."
+        "description": "The ARN of the Secrets Manager secret associated with the pull through cache rule."
       },
       "ecrRepositoryPrefix": {
         "type": "string",
-        "description": "The ECRRepositoryPrefix is a custom alias for upstream registry url."
+        "description": "The Amazon ECR repository prefix associated with the pull through cache rule."
       },
       "upstreamRegistry": {
         "type": "string",
-        "description": "The name of the upstream registry."
+        "description": "The name of the upstream source registry associated with the pull through cache rule."
       },
       "upstreamRegistryUrl": {
         "type": "string",
-        "description": "The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached"
+        "description": "The upstream registry URL associated with the pull through cache rule."
       }
     }
   },
@@ -6540,15 +6547,15 @@
         "items": {
           "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateAppliedForItem"
         },
-        "description": "A list of enumerable Strings representing the repository creation scenarios that the template will apply towards."
+        "description": "A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION"
       },
       "customRoleArn": {
         "type": "string",
-        "description": "The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring."
+        "description": "The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template."
       },
       "description": {
         "type": "string",
-        "description": "The description of the template."
+        "description": "The description associated with the repository creation template."
       },
       "encryptionConfiguration": {
         "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateEncryptionConfiguration",
@@ -6556,26 +6563,26 @@
       },
       "imageTagMutability": {
         "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateImageTagMutability",
-        "description": "The image tag mutability setting for the repository."
+        "description": "The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten."
       },
       "lifecyclePolicy": {
         "type": "string",
-        "description": "The JSON lifecycle policy text to apply to the repository. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html"
+        "description": "The lifecycle policy to use for repositories created using the template."
       },
       "prefix": {
         "type": "string",
-        "description": "The prefix use to match the repository name and apply the template."
+        "description": "The repository namespace prefix associated with the repository creation template."
       },
       "repositoryPolicy": {
         "type": "string",
-        "description": "The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html"
+        "description": "he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions."
       },
       "resourceTags": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateTag"
         },
-        "description": "An array of key-value pairs to apply to this resource."
+        "description": "The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters."
       }
     }
   },
@@ -6638,7 +6645,7 @@
       },
       "cpu": {
         "type": "string",
-        "description": "The number of ``cpu`` units used by the task. If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the ``memory`` parameter.\n If you use the EC2 launch type, this field is optional. Supported values are between ``128`` CPU units (``0.125`` vCPUs) and ``10240`` CPU units (``10`` vCPUs).\n The CPU units cannot be less than 1 vCPU when you use Windows containers on Fargate.\n  +  256 (.25 vCPU) - Available ``memory`` values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)\n  +  512 (.5 vCPU) - Available ``memory`` values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)\n  +  1024 (1 vCPU) - Available ``memory`` values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)\n  +  2048 (2 vCPU) - Available ``memory`` values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)\n  +  4096 (4 vCPU) - Available ``memory`` values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)\n  +  8192 (8 vCPU) - Available ``memory`` values: 16 GB and 60 GB in 4 GB increments\n This option requires Linux platform ``1.4.0`` or later.\n  +  16384 (16vCPU) - Available ``memory`` values: 32GB and 120 GB in 8 GB increments\n This option requires Linux platform ``1.4.0`` or later."
+        "description": "The number of ``cpu`` units used by the task. If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the ``memory`` parameter.\n If you're using the EC2 launch type or the external launch type, this field is optional. Supported values are between ``128`` CPU units (``0.125`` vCPUs) and ``196608`` CPU units (``192`` vCPUs). The CPU units cannot be less than 1 vCPU when you use Windows containers on Fargate.\n  +  256 (.25 vCPU) - Available ``memory`` values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)\n  +  512 (.5 vCPU) - Available ``memory`` values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)\n  +  1024 (1 vCPU) - Available ``memory`` values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)\n  +  2048 (2 vCPU) - Available ``memory`` values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)\n  +  4096 (4 vCPU) - Available ``memory`` values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)\n  +  8192 (8 vCPU) - Available ``memory`` values: 16 GB and 60 GB in 4 GB increments\n This option requires Linux platform ``1.4.0`` or later.\n  +  16384 (16vCPU) - Available ``memory`` values: 32GB and 120 GB in 8 GB increments\n This option requires Linux platform ``1.4.0`` or later."
       },
       "enableFaultInjection": {
         "type": "boolean",
@@ -7599,7 +7606,7 @@
       },
       "logConfiguration": {
         "$ref": "#/types/aws-native:gamelift:ContainerFleetLogConfiguration",
-        "description": "The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.\n\n- `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.\n- `S3` -- Store logs in an Amazon S3 bucket that you define.\n- `NONE` -- Don't collect container logs."
+        "description": "The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.\n\n- `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.\n- `S3` -- Store logs in an Amazon S3 bucket that you define.\n- `NONE` -- Don't collect container logs."
       },
       "metricGroups": {
         "type": "array",
@@ -7629,6 +7636,76 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "An array of key-value pairs to apply to this resource."
+      }
+    }
+  },
+  "aws-native:gameliftstreams:Application": {
+    "cfTypeName": "AWS::GameLiftStreams::Application",
+    "properties": {
+      "applicationLogOutputUri": {
+        "type": "string",
+        "description": "An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Required if you specify one or more `ApplicationLogPaths` ."
+      },
+      "applicationLogPaths": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Locations of log files that your content generates during a stream session. Enter path values that are relative to the `ApplicationSourceUri` location. You can specify up to 10 log paths. Amazon GameLift Streams uploads designated log files to the Amazon S3 bucket that you specify in `ApplicationLogOutputUri` at the end of a stream session. To retrieve stored log files, call [GetStreamSession](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html) and get the `LogFileLocationUri` ."
+      },
+      "applicationSourceUri": {
+        "type": "string",
+        "description": "The location of the content that you want to stream. Enter an Amazon S3 URI to a bucket that contains your game or other application. The location can have a multi-level prefix structure, but it must include all the files needed to run the content. Amazon GameLift Streams copies everything under the specified location.\n\nThis value is immutable. To designate a different content location, create a new application.\n\n\u003e The Amazon S3 bucket and the Amazon GameLift Streams application must be in the same AWS Region."
+      },
+      "description": {
+        "type": "string",
+        "description": "A human-readable label for the application. You can update this value later."
+      },
+      "executablePath": {
+        "type": "string",
+        "description": "The path and file name of the executable file that launches the content for streaming. Enter a path value that is relative to the location set in `ApplicationSourceUri` ."
+      },
+      "runtimeEnvironment": {
+        "$ref": "#/types/aws-native:gameliftstreams:ApplicationRuntimeEnvironment",
+        "description": "A set of configuration settings to run the application on a stream group. This configures the operating system, and can include compatibility layers and other drivers."
+      },
+      "tags": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "A list of labels to assign to the new application resource. Tags are developer-defined key-value pairs. Tagging AWS resources is useful for resource management, access management and cost allocation. See [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* ."
+      }
+    }
+  },
+  "aws-native:gameliftstreams:StreamGroup": {
+    "cfTypeName": "AWS::GameLiftStreams::StreamGroup",
+    "properties": {
+      "defaultApplication": {
+        "$ref": "#/types/aws-native:gameliftstreams:StreamGroupDefaultApplication",
+        "description": "Object that identifies the Amazon GameLift Streams application to stream with this stream group."
+      },
+      "description": {
+        "type": "string",
+        "description": "A descriptive label for the stream group."
+      },
+      "locationConfigurations": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:gameliftstreams:StreamGroupLocationConfiguration"
+        },
+        "description": "A set of one or more locations and the streaming capacity for each location. One of the locations MUST be your primary location, which is the AWS Region where you are specifying this resource."
+      },
+      "streamClass": {
+        "type": "string",
+        "description": "The target stream quality for sessions that are hosted in this stream group. Set a stream class that is appropriate to the type of content that you're streaming. Stream class determines the type of computing resources Amazon GameLift Streams uses and impacts the cost of streaming. The following options are available:\n\nA stream class can be one of the following:\n\n- *`gen5n_win2022` (NVIDIA, ultra)* Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.4, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA A10G Tensor GPU.\n\n- Reference resolution: 1080p\n- Reference frame rate: 60 fps\n- Workload specifications: 8 vCPUs, 32 GB RAM, 24 GB VRAM\n- Tenancy: Supports 1 concurrent stream session\n- *`gen5n_high` (NVIDIA, high)* Supports applications with moderate to high 3D scene complexity. Uses NVIDIA A10G Tensor GPU.\n\n- Reference resolution: 1080p\n- Reference frame rate: 60 fps\n- Workload specifications: 4 vCPUs, 16 GB RAM, 12 GB VRAM\n- Tenancy: Supports up to 2 concurrent stream sessions\n- *`gen5n_ultra` (NVIDIA, ultra)* Supports applications with extremely high 3D scene complexity. Uses dedicated NVIDIA A10G Tensor GPU.\n\n- Reference resolution: 1080p\n- Reference frame rate: 60 fps\n- Workload specifications: 8 vCPUs, 32 GB RAM, 24 GB VRAM\n- Tenancy: Supports 1 concurrent stream session\n- *`gen4n_win2022` (NVIDIA, ultra)* Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.4, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA T4 Tensor GPU.\n\n- Reference resolution: 1080p\n- Reference frame rate: 60 fps\n- Workload specifications: 8 vCPUs, 32 GB RAM, 16 GB VRAM\n- Tenancy: Supports 1 concurrent stream session\n- *`gen4n_high` (NVIDIA, high)* Supports applications with moderate to high 3D scene complexity. Uses NVIDIA T4 Tensor GPU.\n\n- Reference resolution: 1080p\n- Reference frame rate: 60 fps\n- Workload specifications: 4 vCPUs, 16 GB RAM, 8 GB VRAM\n- Tenancy: Supports up to 2 concurrent stream sessions\n- *`gen4n_ultra` (NVIDIA, ultra)* Supports applications with high 3D scene complexity. Uses dedicated NVIDIA T4 Tensor GPU.\n\n- Reference resolution: 1080p\n- Reference frame rate: 60 fps\n- Workload specifications: 8 vCPUs, 32 GB RAM, 16 GB VRAM\n- Tenancy: Supports 1 concurrent stream session"
+      },
+      "tags": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "A list of labels to assign to the new stream group resource. Tags are developer-defined key-value pairs. Tagging AWS resources is useful for resource management, access management and cost allocation. See [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* ."
       }
     }
   },
@@ -7889,7 +7966,8 @@
     "cfTypeName": "AWS::GuardDuty::PublishingDestination",
     "properties": {
       "destinationProperties": {
-        "$ref": "#/types/aws-native:guardduty:PublishingDestinationCfnDestinationProperties"
+        "$ref": "#/types/aws-native:guardduty:PublishingDestinationCfnDestinationProperties",
+        "description": "Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings."
       },
       "destinationType": {
         "type": "string",
@@ -7903,7 +7981,8 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
-        }
+        },
+        "description": "Describes a tag."
       }
     }
   },
@@ -9615,13 +9694,15 @@
     "cfTypeName": "AWS::MSK::BatchScramSecret",
     "properties": {
       "clusterArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) that uniquely identifies the cluster."
       },
       "secretArnList": {
         "type": "array",
         "items": {
           "type": "string"
-        }
+        },
+        "description": "List of Amazon Resource Name (ARN)s of Secrets Manager secrets."
       }
     }
   },
@@ -9649,26 +9730,30 @@
         "type": "array",
         "items": {
           "type": "string"
-        }
+        },
+        "description": "The list of subnets in the client VPC to connect to."
       },
       "securityGroups": {
         "type": "array",
         "items": {
           "type": "string"
-        }
+        },
+        "description": "The security groups to attach to the ENIs for the broker nodes."
       },
       "tags": {
         "type": "object",
         "additionalProperties": {
           "type": "string"
-        }
+        },
+        "description": "An arbitrary set of tags (key-value pairs) you specify while creating the VPC connection."
       },
       "targetClusterArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the target cluster"
       },
       "vpcId": {
-        "type": "string"
+        "type": "string",
+        "description": "The VPC ID of the remote client."
       }
     }
   },
@@ -11296,6 +11381,10 @@
         "type": "boolean",
         "description": "A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.\n Constraints: Major version upgrades must be allowed when specifying a value for the ``EngineVersion`` parameter that is a different major version than the DB instance's current version."
       },
+      "applyImmediately": {
+        "type": "boolean",
+        "description": "Specifies whether changes to the DB instance and any pending modifications are applied immediately, regardless of the ``PreferredMaintenanceWindow`` setting. If set to ``false``, changes are applied during the next maintenance window. Until RDS applies the changes, the DB instance remains in a drift state. As a result, the configuration doesn't fully reflect the requested modifications and temporarily diverges from the intended state.\n In addition to the settings described in [Modifying a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html), this property also determines whether the DB instance reboots when a static parameter is modified in the associated DB parameter group.\n Default: ``true``"
+      },
       "associatedRoles": {
         "type": "array",
         "items": {
@@ -11589,7 +11678,7 @@
       },
       "storageType": {
         "type": "string",
-        "description": "The storage type to associate with the DB instance.\n If you specify ``io1``, ``io2``, or ``gp3``, you must also include a value for the ``Iops`` parameter.\n This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.\n Valid Values: ``gp2 | gp3 | io1 | io2 | standard`` \n Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp2``."
+        "description": "The storage type to associate with the DB instance.\n If you specify ``io1``, ``io2``, or ``gp3``, you must also include a value for the ``Iops`` parameter.\n This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.\n Valid Values: ``gp2 | gp3 | io1 | io2 | standard`` \n Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp3``."
       },
       "tags": {
         "type": "array",
@@ -13406,6 +13495,10 @@
         "type": "string",
         "description": "Specifies the base directory for the agreement."
       },
+      "customDirectories": {
+        "$ref": "#/types/aws-native:transfer:CustomDirectoriesProperties",
+        "description": "Specifies a separate directory for each type of file to store for an AS2 message."
+      },
       "description": {
         "type": "string",
         "description": "A textual description for the agreement."
@@ -14314,9 +14407,21 @@
         },
         "description": "The tags to add to the user settings resource. A tag is a key-value pair."
       },
+      "toolbarConfiguration": {
+        "$ref": "#/types/aws-native:workspacesweb:UserSettingsToolbarConfiguration",
+        "description": "The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences."
+      },
       "uploadAllowed": {
         "$ref": "#/types/aws-native:workspacesweb:UserSettingsEnabledType",
         "description": "Specifies whether the user can upload files from the local device to the streaming session."
+      }
+    }
+  },
+  "aws-native:xray:TransactionSearchConfig": {
+    "cfTypeName": "AWS::XRay::TransactionSearchConfig",
+    "properties": {
+      "indexingPercentage": {
+        "type": "number"
       }
     }
   }

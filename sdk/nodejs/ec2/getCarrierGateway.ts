@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource
  */
 export function getCarrierGateway(args: GetCarrierGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCarrierGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,7 +43,7 @@ export interface GetCarrierGatewayResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource
  */
 export function getCarrierGatewayOutput(args: GetCarrierGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCarrierGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

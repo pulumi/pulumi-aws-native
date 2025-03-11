@@ -13,6 +13,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateFontSizeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// String based length that is composed of value and unit in px
+        /// </summary>
+        [Input("absolute")]
+        public Input<string>? Absolute { get; set; }
+
+        /// <summary>
         /// The lexical name for the text size, proportional to its surrounding context.
         /// </summary>
         [Input("relative")]

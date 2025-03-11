@@ -13,14 +13,33 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterBrokerNodeGroupInfo
     {
+        /// <summary>
+        /// This parameter is currently not in use.
+        /// </summary>
         public readonly string? BrokerAzDistribution;
+        /// <summary>
+        /// The list of subnets to connect to in the client virtual private cloud (VPC). Amazon creates elastic network interfaces (ENIs) inside these subnets. Client applications use ENIs to produce and consume data.
+        /// 
+        /// If you use the US West (N. California) Region, specify exactly two subnets. For other Regions where Amazon MSK is available, you can specify either two or three subnets. The subnets that you specify must be in distinct Availability Zones. When you create a cluster, Amazon MSK distributes the broker nodes evenly across the subnets that you specify.
+        /// 
+        /// Client subnets can't occupy the Availability Zone with ID `use1-az3` .
+        /// </summary>
         public readonly ImmutableArray<string> ClientSubnets;
+        /// <summary>
+        /// Information about the cluster's connectivity setting.
+        /// </summary>
         public readonly Outputs.ClusterConnectivityInfo? ConnectivityInfo;
         /// <summary>
         /// The type of Amazon EC2 instances to use for brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, kafka.m5.24xlarge, and kafka.t3.small.
         /// </summary>
         public readonly string InstanceType;
+        /// <summary>
+        /// The security groups to associate with the ENIs in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC. If you specify security groups that were shared with you, you must ensure that you have permissions to them. Specifically, you need the `ec2:DescribeSecurityGroups` permission.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
+        /// <summary>
+        /// Contains information about storage volumes attached to Amazon MSK broker nodes.
+        /// </summary>
         public readonly Outputs.ClusterStorageInfo? StorageInfo;
 
         [OutputConstructor]

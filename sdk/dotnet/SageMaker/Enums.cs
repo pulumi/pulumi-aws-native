@@ -1151,6 +1151,34 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     [EnumType]
+    public readonly struct InferenceComponentCapacitySizeType : IEquatable<InferenceComponentCapacitySizeType>
+    {
+        private readonly string _value;
+
+        private InferenceComponentCapacitySizeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InferenceComponentCapacitySizeType CopyCount { get; } = new InferenceComponentCapacitySizeType("COPY_COUNT");
+        public static InferenceComponentCapacitySizeType CapacityPercent { get; } = new InferenceComponentCapacitySizeType("CAPACITY_PERCENT");
+
+        public static bool operator ==(InferenceComponentCapacitySizeType left, InferenceComponentCapacitySizeType right) => left.Equals(right);
+        public static bool operator !=(InferenceComponentCapacitySizeType left, InferenceComponentCapacitySizeType right) => !left.Equals(right);
+
+        public static explicit operator string(InferenceComponentCapacitySizeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InferenceComponentCapacitySizeType other && Equals(other);
+        public bool Equals(InferenceComponentCapacitySizeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct InferenceComponentStatus : IEquatable<InferenceComponentStatus>
     {
         private readonly string _value;

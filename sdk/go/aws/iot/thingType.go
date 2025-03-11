@@ -20,7 +20,7 @@ type ThingType struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The thing type id.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
+	// Deprecates a thing type. You can not associate new things with deprecated thing type.
 	//
 	// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 	DeprecateThingType pulumi.BoolPtrOutput `pulumi:"deprecateThingType"`
@@ -76,7 +76,7 @@ func (ThingTypeState) ElementType() reflect.Type {
 }
 
 type thingTypeArgs struct {
-	// Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
+	// Deprecates a thing type. You can not associate new things with deprecated thing type.
 	//
 	// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 	DeprecateThingType *bool `pulumi:"deprecateThingType"`
@@ -90,7 +90,7 @@ type thingTypeArgs struct {
 
 // The set of arguments for constructing a ThingType resource.
 type ThingTypeArgs struct {
-	// Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
+	// Deprecates a thing type. You can not associate new things with deprecated thing type.
 	//
 	// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 	DeprecateThingType pulumi.BoolPtrInput
@@ -149,7 +149,7 @@ func (o ThingTypeOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingType) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
+// Deprecates a thing type. You can not associate new things with deprecated thing type.
 //
 // Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 func (o ThingTypeOutput) DeprecateThingType() pulumi.BoolPtrOutput {

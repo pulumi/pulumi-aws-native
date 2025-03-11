@@ -270,6 +270,7 @@ type AiAgentAnswerRecommendationAiAgentConfiguration struct {
 	AnswerGenerationAiPromptId         *string                           `pulumi:"answerGenerationAiPromptId"`
 	AssociationConfigurations          []AiAgentAssociationConfiguration `pulumi:"associationConfigurations"`
 	IntentLabelingGenerationAiPromptId *string                           `pulumi:"intentLabelingGenerationAiPromptId"`
+	Locale                             *string                           `pulumi:"locale"`
 	QueryReformulationAiPromptId       *string                           `pulumi:"queryReformulationAiPromptId"`
 }
 
@@ -289,6 +290,7 @@ type AiAgentAnswerRecommendationAiAgentConfigurationArgs struct {
 	AnswerGenerationAiPromptId         pulumi.StringPtrInput                     `pulumi:"answerGenerationAiPromptId"`
 	AssociationConfigurations          AiAgentAssociationConfigurationArrayInput `pulumi:"associationConfigurations"`
 	IntentLabelingGenerationAiPromptId pulumi.StringPtrInput                     `pulumi:"intentLabelingGenerationAiPromptId"`
+	Locale                             pulumi.StringPtrInput                     `pulumi:"locale"`
 	QueryReformulationAiPromptId       pulumi.StringPtrInput                     `pulumi:"queryReformulationAiPromptId"`
 }
 
@@ -338,6 +340,10 @@ func (o AiAgentAnswerRecommendationAiAgentConfigurationOutput) IntentLabelingGen
 	return o.ApplyT(func(v AiAgentAnswerRecommendationAiAgentConfiguration) *string {
 		return v.IntentLabelingGenerationAiPromptId
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentAnswerRecommendationAiAgentConfigurationOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentAnswerRecommendationAiAgentConfiguration) *string { return v.Locale }).(pulumi.StringPtrOutput)
 }
 
 func (o AiAgentAnswerRecommendationAiAgentConfigurationOutput) QueryReformulationAiPromptId() pulumi.StringPtrOutput {
@@ -401,6 +407,15 @@ func (o AiAgentAnswerRecommendationAiAgentConfigurationPtrOutput) IntentLabeling
 			return nil
 		}
 		return v.IntentLabelingGenerationAiPromptId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentAnswerRecommendationAiAgentConfigurationPtrOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentAnswerRecommendationAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Locale
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -831,6 +846,7 @@ type AiAgentManualSearchAiAgentConfiguration struct {
 	AnswerGenerationAiGuardrailId *string                           `pulumi:"answerGenerationAiGuardrailId"`
 	AnswerGenerationAiPromptId    *string                           `pulumi:"answerGenerationAiPromptId"`
 	AssociationConfigurations     []AiAgentAssociationConfiguration `pulumi:"associationConfigurations"`
+	Locale                        *string                           `pulumi:"locale"`
 }
 
 // AiAgentManualSearchAiAgentConfigurationInput is an input type that accepts AiAgentManualSearchAiAgentConfigurationArgs and AiAgentManualSearchAiAgentConfigurationOutput values.
@@ -848,6 +864,7 @@ type AiAgentManualSearchAiAgentConfigurationArgs struct {
 	AnswerGenerationAiGuardrailId pulumi.StringPtrInput                     `pulumi:"answerGenerationAiGuardrailId"`
 	AnswerGenerationAiPromptId    pulumi.StringPtrInput                     `pulumi:"answerGenerationAiPromptId"`
 	AssociationConfigurations     AiAgentAssociationConfigurationArrayInput `pulumi:"associationConfigurations"`
+	Locale                        pulumi.StringPtrInput                     `pulumi:"locale"`
 }
 
 func (AiAgentManualSearchAiAgentConfigurationArgs) ElementType() reflect.Type {
@@ -888,6 +905,10 @@ func (o AiAgentManualSearchAiAgentConfigurationOutput) AssociationConfigurations
 	return o.ApplyT(func(v AiAgentManualSearchAiAgentConfiguration) []AiAgentAssociationConfiguration {
 		return v.AssociationConfigurations
 	}).(AiAgentAssociationConfigurationArrayOutput)
+}
+
+func (o AiAgentManualSearchAiAgentConfigurationOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentManualSearchAiAgentConfiguration) *string { return v.Locale }).(pulumi.StringPtrOutput)
 }
 
 type AiAgentManualSearchAiAgentConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -939,6 +960,15 @@ func (o AiAgentManualSearchAiAgentConfigurationPtrOutput) AssociationConfigurati
 		}
 		return v.AssociationConfigurations
 	}).(AiAgentAssociationConfigurationArrayOutput)
+}
+
+func (o AiAgentManualSearchAiAgentConfigurationPtrOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentManualSearchAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Locale
+	}).(pulumi.StringPtrOutput)
 }
 
 type AiAgentOrCondition0Properties struct {

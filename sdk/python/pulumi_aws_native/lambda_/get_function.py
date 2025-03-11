@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFunctionResult:
-    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storage=None, file_system_configs=None, handler=None, image_config=None, kms_key_arn=None, layers=None, logging_config=None, memory_size=None, package_type=None, recursive_loop=None, reserved_concurrent_executions=None, role=None, runtime=None, runtime_management_config=None, snap_start_response=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storage=None, file_system_configs=None, handler=None, image_config=None, kms_key_arn=None, layers=None, logging_config=None, memory_size=None, recursive_loop=None, reserved_concurrent_executions=None, role=None, runtime=None, runtime_management_config=None, snap_start_response=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
@@ -69,9 +69,6 @@ class GetFunctionResult:
         if memory_size and not isinstance(memory_size, int):
             raise TypeError("Expected argument 'memory_size' to be a int")
         pulumi.set(__self__, "memory_size", memory_size)
-        if package_type and not isinstance(package_type, str):
-            raise TypeError("Expected argument 'package_type' to be a str")
-        pulumi.set(__self__, "package_type", package_type)
         if recursive_loop and not isinstance(recursive_loop, str):
             raise TypeError("Expected argument 'recursive_loop' to be a str")
         pulumi.set(__self__, "recursive_loop", recursive_loop)
@@ -188,7 +185,13 @@ class GetFunctionResult:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[str]:
         """
-        The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption). When [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, LAM also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, LAM also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the ECRlong (ECR). If you don't provide a customer managed key, LAM uses a default service key.
+        The ARN of the KMSlong (KMS) customer managed key that's used to encrypt the following resources:
+          +  The function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption).
+          +  The function's [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) snapshots.
+          +  When used with ``SourceKMSKeyArn``, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see [Specifying a customer managed key for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption).
+          +  The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see [Function lifecycle](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle).
+          
+         If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) or an [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -215,14 +218,6 @@ class GetFunctionResult:
         The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
         """
         return pulumi.get(self, "memory_size")
-
-    @property
-    @pulumi.getter(name="packageType")
-    def package_type(self) -> Optional['FunctionPackageType']:
-        """
-        The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
-        """
-        return pulumi.get(self, "package_type")
 
     @property
     @pulumi.getter(name="recursiveLoop")
@@ -327,7 +322,6 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             layers=self.layers,
             logging_config=self.logging_config,
             memory_size=self.memory_size,
-            package_type=self.package_type,
             recursive_loop=self.recursive_loop,
             reserved_concurrent_executions=self.reserved_concurrent_executions,
             role=self.role,
@@ -375,7 +369,6 @@ def get_function(function_name: Optional[str] = None,
         layers=pulumi.get(__ret__, 'layers'),
         logging_config=pulumi.get(__ret__, 'logging_config'),
         memory_size=pulumi.get(__ret__, 'memory_size'),
-        package_type=pulumi.get(__ret__, 'package_type'),
         recursive_loop=pulumi.get(__ret__, 'recursive_loop'),
         reserved_concurrent_executions=pulumi.get(__ret__, 'reserved_concurrent_executions'),
         role=pulumi.get(__ret__, 'role'),
@@ -420,7 +413,6 @@ def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
         layers=pulumi.get(__response__, 'layers'),
         logging_config=pulumi.get(__response__, 'logging_config'),
         memory_size=pulumi.get(__response__, 'memory_size'),
-        package_type=pulumi.get(__response__, 'package_type'),
         recursive_loop=pulumi.get(__response__, 'recursive_loop'),
         reserved_concurrent_executions=pulumi.get(__response__, 'reserved_concurrent_executions'),
         role=pulumi.get(__response__, 'role'),

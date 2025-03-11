@@ -1451,29 +1451,17 @@ class GatewayPlatform(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 greengrass: Optional[Any] = None,
                  greengrass_v2: Optional['outputs.GatewayGreengrassV2'] = None,
                  siemens_ie: Optional['outputs.GatewaySiemensIe'] = None):
         """
         Contains a gateway's platform information.
-        :param Any greengrass: A gateway that runs on AWS IoT Greengrass V1.
         :param 'GatewayGreengrassV2' greengrass_v2: A gateway that runs on AWS IoT Greengrass V2.
         :param 'GatewaySiemensIe' siemens_ie: A gateway that runs on Siemens Industrial Edge.
         """
-        if greengrass is not None:
-            pulumi.set(__self__, "greengrass", greengrass)
         if greengrass_v2 is not None:
             pulumi.set(__self__, "greengrass_v2", greengrass_v2)
         if siemens_ie is not None:
             pulumi.set(__self__, "siemens_ie", siemens_ie)
-
-    @property
-    @pulumi.getter
-    def greengrass(self) -> Optional[Any]:
-        """
-        A gateway that runs on AWS IoT Greengrass V1.
-        """
-        return pulumi.get(self, "greengrass")
 
     @property
     @pulumi.getter(name="greengrassV2")
@@ -1557,12 +1545,16 @@ class PortalTypeEntry(dict):
                  portal_tools: Sequence[str]):
         """
         Container associated a certain PortalType.
+        :param Sequence[str] portal_tools: The array of tools associated with the specified portal type. The possible values are `ASSISTANT` and `DASHBOARD` .
         """
         pulumi.set(__self__, "portal_tools", portal_tools)
 
     @property
     @pulumi.getter(name="portalTools")
     def portal_tools(self) -> Sequence[str]:
+        """
+        The array of tools associated with the specified portal type. The possible values are `ASSISTANT` and `DASHBOARD` .
+        """
         return pulumi.get(self, "portal_tools")
 
 

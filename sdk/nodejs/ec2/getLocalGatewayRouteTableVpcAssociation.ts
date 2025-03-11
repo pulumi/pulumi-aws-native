@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes an association between a local gateway route table and a VPC.
+ * Resource Type definition for Local Gateway Route Table VPC Association which describes an association between a local gateway route table and a VPC.
  */
 export function getLocalGatewayRouteTableVpcAssociation(args: GetLocalGatewayRouteTableVpcAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteTableVpcAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,7 +43,7 @@ export interface GetLocalGatewayRouteTableVpcAssociationResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Describes an association between a local gateway route table and a VPC.
+ * Resource Type definition for Local Gateway Route Table VPC Association which describes an association between a local gateway route table and a VPC.
  */
 export function getLocalGatewayRouteTableVpcAssociationOutput(args: GetLocalGatewayRouteTableVpcAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalGatewayRouteTableVpcAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

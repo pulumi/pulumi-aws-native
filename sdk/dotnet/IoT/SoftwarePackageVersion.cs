@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:SoftwarePackageVersion")]
     public partial class SoftwarePackageVersion : global::Pulumi.CustomResource
     {
+        [Output("artifact")]
+        public Output<Outputs.SoftwarePackageVersionPackageVersionArtifact?> Artifact { get; private set; } = null!;
+
         /// <summary>
         /// Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
         /// 
@@ -46,6 +49,18 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         [Output("packageVersionArn")]
         public Output<string> PackageVersionArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The inline json job document associated with a software package version
+        /// </summary>
+        [Output("recipe")]
+        public Output<string?> Recipe { get; private set; } = null!;
+
+        [Output("sbom")]
+        public Output<Outputs.SoftwarePackageVersionSbom?> Sbom { get; private set; } = null!;
+
+        [Output("sbomValidationStatus")]
+        public Output<Pulumi.AwsNative.IoT.SoftwarePackageVersionSbomValidationStatus> SbomValidationStatus { get; private set; } = null!;
 
         /// <summary>
         /// The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
@@ -115,6 +130,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class SoftwarePackageVersionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("artifact")]
+        public Input<Inputs.SoftwarePackageVersionPackageVersionArtifactArgs>? Artifact { get; set; }
+
         [Input("attributes")]
         private InputMap<string>? _attributes;
 
@@ -140,6 +158,15 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         [Input("packageName", required: true)]
         public Input<string> PackageName { get; set; } = null!;
+
+        /// <summary>
+        /// The inline json job document associated with a software package version
+        /// </summary>
+        [Input("recipe")]
+        public Input<string>? Recipe { get; set; }
+
+        [Input("sbom")]
+        public Input<Inputs.SoftwarePackageVersionSbomArgs>? Sbom { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

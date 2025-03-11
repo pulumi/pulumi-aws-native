@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Describes a route for a local gateway route table.
+ * Resource Type definition for Local Gateway Route which describes a route for a local gateway route table.
  */
 export function getLocalGatewayRoute(args: GetLocalGatewayRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,7 +45,7 @@ export interface GetLocalGatewayRouteResult {
     readonly type?: string;
 }
 /**
- * Describes a route for a local gateway route table.
+ * Resource Type definition for Local Gateway Route which describes a route for a local gateway route table.
  */
 export function getLocalGatewayRouteOutput(args: GetLocalGatewayRouteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalGatewayRouteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

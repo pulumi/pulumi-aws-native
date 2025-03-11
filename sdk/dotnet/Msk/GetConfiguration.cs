@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class GetConfigurationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the configuration.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class GetConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the configuration.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -57,8 +63,17 @@ namespace Pulumi.AwsNative.Msk
     [OutputType]
     public sealed class GetConfigurationResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the configuration.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The description of the configuration.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Latest revision of the MSK configuration.
+        /// </summary>
         public readonly Outputs.ConfigurationLatestRevision? LatestRevision;
 
         [OutputConstructor]

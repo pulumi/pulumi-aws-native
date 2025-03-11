@@ -26,7 +26,7 @@ export interface GetCustomActionArgs {
 
 export interface GetCustomActionResult {
     /**
-     * The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+     * The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
      */
     readonly aliasName?: string;
     /**

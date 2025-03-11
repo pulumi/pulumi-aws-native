@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Ec2
     public static class GetLocalGatewayRouteTableVpcAssociation
     {
         /// <summary>
-        /// Describes an association between a local gateway route table and a VPC.
+        /// Resource Type definition for Local Gateway Route Table VPC Association which describes an association between a local gateway route table and a VPC.
         /// </summary>
         public static Task<GetLocalGatewayRouteTableVpcAssociationResult> InvokeAsync(GetLocalGatewayRouteTableVpcAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayRouteTableVpcAssociationResult>("aws-native:ec2:getLocalGatewayRouteTableVpcAssociation", args ?? new GetLocalGatewayRouteTableVpcAssociationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes an association between a local gateway route table and a VPC.
+        /// Resource Type definition for Local Gateway Route Table VPC Association which describes an association between a local gateway route table and a VPC.
         /// </summary>
         public static Output<GetLocalGatewayRouteTableVpcAssociationResult> Invoke(GetLocalGatewayRouteTableVpcAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTableVpcAssociationResult>("aws-native:ec2:getLocalGatewayRouteTableVpcAssociation", args ?? new GetLocalGatewayRouteTableVpcAssociationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes an association between a local gateway route table and a VPC.
+        /// Resource Type definition for Local Gateway Route Table VPC Association which describes an association between a local gateway route table and a VPC.
         /// </summary>
         public static Output<GetLocalGatewayRouteTableVpcAssociationResult> Invoke(GetLocalGatewayRouteTableVpcAssociationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTableVpcAssociationResult>("aws-native:ec2:getLocalGatewayRouteTableVpcAssociation", args ?? new GetLocalGatewayRouteTableVpcAssociationInvokeArgs(), options.WithDefaults());

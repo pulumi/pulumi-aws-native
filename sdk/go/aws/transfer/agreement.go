@@ -24,7 +24,9 @@ type Agreement struct {
 	// Specifies the unique Amazon Resource Name (ARN) for the agreement.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies the base directory for the agreement.
-	BaseDirectory pulumi.StringOutput `pulumi:"baseDirectory"`
+	BaseDirectory pulumi.StringPtrOutput `pulumi:"baseDirectory"`
+	// Specifies a separate directory for each type of file to store for an AS2 message.
+	CustomDirectories CustomDirectoriesPropertiesPtrOutput `pulumi:"customDirectories"`
 	// A textual description for the agreement.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies whether to enforce an AS2 message is signed for this agreement.
@@ -52,9 +54,6 @@ func NewAgreement(ctx *pulumi.Context,
 
 	if args.AccessRole == nil {
 		return nil, errors.New("invalid value for required argument 'AccessRole'")
-	}
-	if args.BaseDirectory == nil {
-		return nil, errors.New("invalid value for required argument 'BaseDirectory'")
 	}
 	if args.LocalProfileId == nil {
 		return nil, errors.New("invalid value for required argument 'LocalProfileId'")
@@ -105,7 +104,9 @@ type agreementArgs struct {
 	// Specifies the access role for the agreement.
 	AccessRole string `pulumi:"accessRole"`
 	// Specifies the base directory for the agreement.
-	BaseDirectory string `pulumi:"baseDirectory"`
+	BaseDirectory *string `pulumi:"baseDirectory"`
+	// Specifies a separate directory for each type of file to store for an AS2 message.
+	CustomDirectories *CustomDirectoriesProperties `pulumi:"customDirectories"`
 	// A textual description for the agreement.
 	Description *string `pulumi:"description"`
 	// Specifies whether to enforce an AS2 message is signed for this agreement.
@@ -129,7 +130,9 @@ type AgreementArgs struct {
 	// Specifies the access role for the agreement.
 	AccessRole pulumi.StringInput
 	// Specifies the base directory for the agreement.
-	BaseDirectory pulumi.StringInput
+	BaseDirectory pulumi.StringPtrInput
+	// Specifies a separate directory for each type of file to store for an AS2 message.
+	CustomDirectories CustomDirectoriesPropertiesPtrInput
 	// A textual description for the agreement.
 	Description pulumi.StringPtrInput
 	// Specifies whether to enforce an AS2 message is signed for this agreement.
@@ -201,8 +204,13 @@ func (o AgreementOutput) Arn() pulumi.StringOutput {
 }
 
 // Specifies the base directory for the agreement.
-func (o AgreementOutput) BaseDirectory() pulumi.StringOutput {
-	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.BaseDirectory }).(pulumi.StringOutput)
+func (o AgreementOutput) BaseDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.StringPtrOutput { return v.BaseDirectory }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a separate directory for each type of file to store for an AS2 message.
+func (o AgreementOutput) CustomDirectories() CustomDirectoriesPropertiesPtrOutput {
+	return o.ApplyT(func(v *Agreement) CustomDirectoriesPropertiesPtrOutput { return v.CustomDirectories }).(CustomDirectoriesPropertiesPtrOutput)
 }
 
 // A textual description for the agreement.

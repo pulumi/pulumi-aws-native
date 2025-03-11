@@ -3629,13 +3629,13 @@ func (o LoggingPtrOutput) ClusterLogging() ClusterLoggingEnabledTypesPtrOutput {
 type NodegroupLaunchTemplateSpecification struct {
 	// The ID of the launch template.
 	//
-	// You must specify either the launch template ID or the launch template name in the request, but not both.
+	// You must specify either the launch template ID or the launch template name in the request, but not both. After node group creation, you cannot use a different ID.
 	Id *string `pulumi:"id"`
 	// The name of the launch template.
 	//
-	// You must specify either the launch template name or the launch template ID in the request, but not both.
+	// You must specify either the launch template name or the launch template ID in the request, but not both. After node group creation, you cannot use a different name.
 	Name *string `pulumi:"name"`
-	// The version number of the launch template to use. If no version is specified, then the template's default version is used.
+	// The version number of the launch template to use. If no version is specified, then the template's default version is used. You can use a different version for node group updates.
 	Version *string `pulumi:"version"`
 }
 
@@ -3654,13 +3654,13 @@ type NodegroupLaunchTemplateSpecificationInput interface {
 type NodegroupLaunchTemplateSpecificationArgs struct {
 	// The ID of the launch template.
 	//
-	// You must specify either the launch template ID or the launch template name in the request, but not both.
+	// You must specify either the launch template ID or the launch template name in the request, but not both. After node group creation, you cannot use a different ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the launch template.
 	//
-	// You must specify either the launch template name or the launch template ID in the request, but not both.
+	// You must specify either the launch template name or the launch template ID in the request, but not both. After node group creation, you cannot use a different name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The version number of the launch template to use. If no version is specified, then the template's default version is used.
+	// The version number of the launch template to use. If no version is specified, then the template's default version is used. You can use a different version for node group updates.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -3744,19 +3744,19 @@ func (o NodegroupLaunchTemplateSpecificationOutput) ToNodegroupLaunchTemplateSpe
 
 // The ID of the launch template.
 //
-// You must specify either the launch template ID or the launch template name in the request, but not both.
+// You must specify either the launch template ID or the launch template name in the request, but not both. After node group creation, you cannot use a different ID.
 func (o NodegroupLaunchTemplateSpecificationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodegroupLaunchTemplateSpecification) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The name of the launch template.
 //
-// You must specify either the launch template name or the launch template ID in the request, but not both.
+// You must specify either the launch template name or the launch template ID in the request, but not both. After node group creation, you cannot use a different name.
 func (o NodegroupLaunchTemplateSpecificationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodegroupLaunchTemplateSpecification) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The version number of the launch template to use. If no version is specified, then the template's default version is used.
+// The version number of the launch template to use. If no version is specified, then the template's default version is used. You can use a different version for node group updates.
 func (o NodegroupLaunchTemplateSpecificationOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodegroupLaunchTemplateSpecification) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -3787,7 +3787,7 @@ func (o NodegroupLaunchTemplateSpecificationPtrOutput) Elem() NodegroupLaunchTem
 
 // The ID of the launch template.
 //
-// You must specify either the launch template ID or the launch template name in the request, but not both.
+// You must specify either the launch template ID or the launch template name in the request, but not both. After node group creation, you cannot use a different ID.
 func (o NodegroupLaunchTemplateSpecificationPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodegroupLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -3799,7 +3799,7 @@ func (o NodegroupLaunchTemplateSpecificationPtrOutput) Id() pulumi.StringPtrOutp
 
 // The name of the launch template.
 //
-// You must specify either the launch template name or the launch template ID in the request, but not both.
+// You must specify either the launch template name or the launch template ID in the request, but not both. After node group creation, you cannot use a different name.
 func (o NodegroupLaunchTemplateSpecificationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodegroupLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -3809,7 +3809,7 @@ func (o NodegroupLaunchTemplateSpecificationPtrOutput) Name() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version number of the launch template to use. If no version is specified, then the template's default version is used.
+// The version number of the launch template to use. If no version is specified, then the template's default version is used. You can use a different version for node group updates.
 func (o NodegroupLaunchTemplateSpecificationPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodegroupLaunchTemplateSpecification) *string {
 		if v == nil {

@@ -52,7 +52,11 @@ export class Agreement extends pulumi.CustomResource {
     /**
      * Specifies the base directory for the agreement.
      */
-    public readonly baseDirectory!: pulumi.Output<string>;
+    public readonly baseDirectory!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies a separate directory for each type of file to store for an AS2 message.
+     */
+    public readonly customDirectories!: pulumi.Output<outputs.transfer.CustomDirectoriesProperties | undefined>;
     /**
      * A textual description for the agreement.
      */
@@ -100,9 +104,6 @@ export class Agreement extends pulumi.CustomResource {
             if ((!args || args.accessRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accessRole'");
             }
-            if ((!args || args.baseDirectory === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'baseDirectory'");
-            }
             if ((!args || args.localProfileId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'localProfileId'");
             }
@@ -114,6 +115,7 @@ export class Agreement extends pulumi.CustomResource {
             }
             resourceInputs["accessRole"] = args ? args.accessRole : undefined;
             resourceInputs["baseDirectory"] = args ? args.baseDirectory : undefined;
+            resourceInputs["customDirectories"] = args ? args.customDirectories : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enforceMessageSigning"] = args ? args.enforceMessageSigning : undefined;
             resourceInputs["localProfileId"] = args ? args.localProfileId : undefined;
@@ -129,6 +131,7 @@ export class Agreement extends pulumi.CustomResource {
             resourceInputs["agreementId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["baseDirectory"] = undefined /*out*/;
+            resourceInputs["customDirectories"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["enforceMessageSigning"] = undefined /*out*/;
             resourceInputs["localProfileId"] = undefined /*out*/;
@@ -156,7 +159,11 @@ export interface AgreementArgs {
     /**
      * Specifies the base directory for the agreement.
      */
-    baseDirectory: pulumi.Input<string>;
+    baseDirectory?: pulumi.Input<string>;
+    /**
+     * Specifies a separate directory for each type of file to store for an AS2 message.
+     */
+    customDirectories?: pulumi.Input<inputs.transfer.CustomDirectoriesPropertiesArgs>;
     /**
      * A textual description for the agreement.
      */

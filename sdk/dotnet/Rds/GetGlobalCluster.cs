@@ -75,9 +75,6 @@ namespace Pulumi.AwsNative.Rds
         /// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         /// </summary>
         public readonly string? EngineVersion;
-        /// <summary>
-        /// The writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
-        /// </summary>
         public readonly Outputs.GlobalClusterGlobalEndpoint? GlobalEndpoint;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

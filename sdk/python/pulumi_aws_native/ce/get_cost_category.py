@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCostCategoryResult:
-    def __init__(__self__, arn=None, default_value=None, effective_start=None, rule_version=None, rules=None, split_charge_rules=None):
+    def __init__(__self__, arn=None, default_value=None, effective_start=None, rule_version=None, rules=None, split_charge_rules=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +44,9 @@ class GetCostCategoryResult:
         if split_charge_rules and not isinstance(split_charge_rules, str):
             raise TypeError("Expected argument 'split_charge_rules' to be a str")
         pulumi.set(__self__, "split_charge_rules", split_charge_rules)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -92,6 +96,14 @@ class GetCostCategoryResult:
         """
         return pulumi.get(self, "split_charge_rules")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Tags to assign to the cost category.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetCostCategoryResult(GetCostCategoryResult):
     # pylint: disable=using-constant-test
@@ -104,13 +116,14 @@ class AwaitableGetCostCategoryResult(GetCostCategoryResult):
             effective_start=self.effective_start,
             rule_version=self.rule_version,
             rules=self.rules,
-            split_charge_rules=self.split_charge_rules)
+            split_charge_rules=self.split_charge_rules,
+            tags=self.tags)
 
 
 def get_cost_category(arn: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCostCategoryResult:
     """
-    Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
+    Resource Type definition for AWS::CE::CostCategory. Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
 
 
     :param str arn: Cost category ARN
@@ -126,11 +139,12 @@ def get_cost_category(arn: Optional[str] = None,
         effective_start=pulumi.get(__ret__, 'effective_start'),
         rule_version=pulumi.get(__ret__, 'rule_version'),
         rules=pulumi.get(__ret__, 'rules'),
-        split_charge_rules=pulumi.get(__ret__, 'split_charge_rules'))
+        split_charge_rules=pulumi.get(__ret__, 'split_charge_rules'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_cost_category_output(arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCostCategoryResult]:
     """
-    Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
+    Resource Type definition for AWS::CE::CostCategory. Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
 
 
     :param str arn: Cost category ARN
@@ -145,4 +159,5 @@ def get_cost_category_output(arn: Optional[pulumi.Input[str]] = None,
         effective_start=pulumi.get(__response__, 'effective_start'),
         rule_version=pulumi.get(__response__, 'rule_version'),
         rules=pulumi.get(__response__, 'rules'),
-        split_charge_rules=pulumi.get(__response__, 'split_charge_rules')))
+        split_charge_rules=pulumi.get(__response__, 'split_charge_rules'),
+        tags=pulumi.get(__response__, 'tags')))

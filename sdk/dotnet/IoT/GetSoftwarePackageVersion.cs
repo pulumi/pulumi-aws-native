@@ -75,6 +75,7 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetSoftwarePackageVersionResult
     {
+        public readonly Outputs.SoftwarePackageVersionPackageVersionArtifact? Artifact;
         /// <summary>
         /// Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
         /// 
@@ -94,6 +95,12 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public readonly string? PackageVersionArn;
         /// <summary>
+        /// The inline json job document associated with a software package version
+        /// </summary>
+        public readonly string? Recipe;
+        public readonly Outputs.SoftwarePackageVersionSbom? Sbom;
+        public readonly Pulumi.AwsNative.IoT.SoftwarePackageVersionSbomValidationStatus? SbomValidationStatus;
+        /// <summary>
         /// The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
         /// </summary>
         public readonly Pulumi.AwsNative.IoT.SoftwarePackageVersionPackageVersionStatus? Status;
@@ -104,6 +111,8 @@ namespace Pulumi.AwsNative.IoT
 
         [OutputConstructor]
         private GetSoftwarePackageVersionResult(
+            Outputs.SoftwarePackageVersionPackageVersionArtifact? artifact,
+
             ImmutableDictionary<string, string>? attributes,
 
             string? description,
@@ -112,14 +121,24 @@ namespace Pulumi.AwsNative.IoT
 
             string? packageVersionArn,
 
+            string? recipe,
+
+            Outputs.SoftwarePackageVersionSbom? sbom,
+
+            Pulumi.AwsNative.IoT.SoftwarePackageVersionSbomValidationStatus? sbomValidationStatus,
+
             Pulumi.AwsNative.IoT.SoftwarePackageVersionPackageVersionStatus? status,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            Artifact = artifact;
             Attributes = attributes;
             Description = description;
             ErrorReason = errorReason;
             PackageVersionArn = packageVersionArn;
+            Recipe = recipe;
+            Sbom = sbom;
+            SbomValidationStatus = sbomValidationStatus;
             Status = status;
             Tags = tags;
         }

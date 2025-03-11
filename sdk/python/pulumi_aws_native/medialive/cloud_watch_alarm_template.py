@@ -22,7 +22,6 @@ class CloudWatchAlarmTemplateArgs:
     def __init__(__self__, *,
                  comparison_operator: pulumi.Input['CloudWatchAlarmTemplateComparisonOperator'],
                  evaluation_periods: pulumi.Input[float],
-                 group_identifier: pulumi.Input[str],
                  metric_name: pulumi.Input[str],
                  period: pulumi.Input[float],
                  statistic: pulumi.Input['CloudWatchAlarmTemplateStatistic'],
@@ -31,13 +30,13 @@ class CloudWatchAlarmTemplateArgs:
                  treat_missing_data: pulumi.Input['CloudWatchAlarmTemplateTreatMissingData'],
                  datapoints_to_alarm: Optional[pulumi.Input[float]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 group_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CloudWatchAlarmTemplate resource.
         :param pulumi.Input['CloudWatchAlarmTemplateComparisonOperator'] comparison_operator: The comparison operator used to compare the specified statistic and the threshold.
         :param pulumi.Input[float] evaluation_periods: The number of periods over which data is compared to the specified threshold.
-        :param pulumi.Input[str] group_identifier: A cloudwatch alarm template group's identifier. Can be either be its id or current name.
         :param pulumi.Input[str] metric_name: The name of the metric associated with the alarm. Must be compatible with targetResourceType.
         :param pulumi.Input[float] period: The period, in seconds, over which the specified statistic is applied.
         :param pulumi.Input['CloudWatchAlarmTemplateStatistic'] statistic: The statistic to apply to the alarm's metric data.
@@ -46,11 +45,11 @@ class CloudWatchAlarmTemplateArgs:
         :param pulumi.Input['CloudWatchAlarmTemplateTreatMissingData'] treat_missing_data: Specifies how missing data points are treated when evaluating the alarm's condition.
         :param pulumi.Input[float] datapoints_to_alarm: The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
         :param pulumi.Input[str] description: A resource's optional description.
+        :param pulumi.Input[str] group_identifier: A cloudwatch alarm template group's identifier. Can be either be its id or current name.
         :param pulumi.Input[str] name: A resource's name. Names must be unique within the scope of a resource type in a specific region.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "evaluation_periods", evaluation_periods)
-        pulumi.set(__self__, "group_identifier", group_identifier)
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "period", period)
         pulumi.set(__self__, "statistic", statistic)
@@ -61,6 +60,8 @@ class CloudWatchAlarmTemplateArgs:
             pulumi.set(__self__, "datapoints_to_alarm", datapoints_to_alarm)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if group_identifier is not None:
+            pulumi.set(__self__, "group_identifier", group_identifier)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -89,18 +90,6 @@ class CloudWatchAlarmTemplateArgs:
     @evaluation_periods.setter
     def evaluation_periods(self, value: pulumi.Input[float]):
         pulumi.set(self, "evaluation_periods", value)
-
-    @property
-    @pulumi.getter(name="groupIdentifier")
-    def group_identifier(self) -> pulumi.Input[str]:
-        """
-        A cloudwatch alarm template group's identifier. Can be either be its id or current name.
-        """
-        return pulumi.get(self, "group_identifier")
-
-    @group_identifier.setter
-    def group_identifier(self, value: pulumi.Input[str]):
-        pulumi.set(self, "group_identifier", value)
 
     @property
     @pulumi.getter(name="metricName")
@@ -197,6 +186,18 @@ class CloudWatchAlarmTemplateArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="groupIdentifier")
+    def group_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+        """
+        return pulumi.get(self, "group_identifier")
+
+    @group_identifier.setter
+    def group_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_identifier", value)
 
     @property
     @pulumi.getter
@@ -311,8 +312,6 @@ class CloudWatchAlarmTemplate(pulumi.CustomResource):
             if evaluation_periods is None and not opts.urn:
                 raise TypeError("Missing required property 'evaluation_periods'")
             __props__.__dict__["evaluation_periods"] = evaluation_periods
-            if group_identifier is None and not opts.urn:
-                raise TypeError("Missing required property 'group_identifier'")
             __props__.__dict__["group_identifier"] = group_identifier
             if metric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_name'")
@@ -451,7 +450,7 @@ class CloudWatchAlarmTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupIdentifier")
-    def group_identifier(self) -> pulumi.Output[str]:
+    def group_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         A cloudwatch alarm template group's identifier. Can be either be its id or current name.
         """

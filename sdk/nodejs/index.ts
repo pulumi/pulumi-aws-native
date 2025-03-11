@@ -154,6 +154,7 @@ import * as forecast from "./forecast";
 import * as frauddetector from "./frauddetector";
 import * as fsx from "./fsx";
 import * as gamelift from "./gamelift";
+import * as gameliftstreams from "./gameliftstreams";
 import * as globalaccelerator from "./globalaccelerator";
 import * as glue from "./glue";
 import * as grafana from "./grafana";
@@ -379,6 +380,7 @@ export {
     frauddetector,
     fsx,
     gamelift,
+    gameliftstreams,
     globalaccelerator,
     glue,
     grafana,

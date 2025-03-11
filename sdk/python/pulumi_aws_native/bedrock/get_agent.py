@@ -127,6 +127,9 @@ class GetAgentResult:
     @property
     @pulumi.getter(name="agentCollaboration")
     def agent_collaboration(self) -> Optional['AgentCollaboration']:
+        """
+        The agent's collaboration settings.
+        """
         return pulumi.get(self, "agent_collaboration")
 
     @property
@@ -196,6 +199,9 @@ class GetAgentResult:
     @property
     @pulumi.getter(name="customOrchestration")
     def custom_orchestration(self) -> Optional['outputs.AgentCustomOrchestration']:
+        """
+        Contains custom orchestration configurations for the agent.
+        """
         return pulumi.get(self, "custom_orchestration")
 
     @property
@@ -265,11 +271,17 @@ class GetAgentResult:
     @property
     @pulumi.getter(name="memoryConfiguration")
     def memory_configuration(self) -> Optional['outputs.AgentMemoryConfiguration']:
+        """
+        Contains memory configuration for the agent.
+        """
         return pulumi.get(self, "memory_configuration")
 
     @property
     @pulumi.getter(name="orchestrationType")
     def orchestration_type(self) -> Optional['AgentOrchestrationType']:
+        """
+        Specifies the orchestration strategy for the agent.
+        """
         return pulumi.get(self, "orchestration_type")
 
     @property

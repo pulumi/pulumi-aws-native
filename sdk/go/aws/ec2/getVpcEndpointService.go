@@ -39,6 +39,8 @@ type LookupVpcEndpointServiceResult struct {
 	PayerResponsibility *string `pulumi:"payerResponsibility"`
 	// The ID of the endpoint service.
 	ServiceId *string `pulumi:"serviceId"`
+	// Specify which Ip Address types are supported for VPC endpoint service.
+	SupportedIpAddressTypes []VpcEndpointServiceIpAddressType `pulumi:"supportedIpAddressTypes"`
 	// The tags to add to the VPC endpoint service.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -98,6 +100,13 @@ func (o LookupVpcEndpointServiceResultOutput) PayerResponsibility() pulumi.Strin
 // The ID of the endpoint service.
 func (o LookupVpcEndpointServiceResultOutput) ServiceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *string { return v.ServiceId }).(pulumi.StringPtrOutput)
+}
+
+// Specify which Ip Address types are supported for VPC endpoint service.
+func (o LookupVpcEndpointServiceResultOutput) SupportedIpAddressTypes() VpcEndpointServiceIpAddressTypeArrayOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) []VpcEndpointServiceIpAddressType {
+		return v.SupportedIpAddressTypes
+	}).(VpcEndpointServiceIpAddressTypeArrayOutput)
 }
 
 // The tags to add to the VPC endpoint service.

@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class GetServerlessClusterArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the MSK cluster.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class GetServerlessClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the MSK cluster.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -57,6 +63,9 @@ namespace Pulumi.AwsNative.Msk
     [OutputType]
     public sealed class GetServerlessClusterResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the MSK cluster.
+        /// </summary>
         public readonly string? Arn;
 
         [OutputConstructor]

@@ -110,7 +110,7 @@ class AwaitableGetLocalGatewayRouteTableResult(GetLocalGatewayRouteTableResult):
 def get_local_gateway_route_table(local_gateway_route_table_id: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayRouteTableResult:
     """
-    Describes a route table for a local gateway.
+    Resource Type definition for Local Gateway Route Table which describes a route table for a local gateway.
 
 
     :param str local_gateway_route_table_id: The ID of the local gateway route table.
@@ -130,7 +130,7 @@ def get_local_gateway_route_table(local_gateway_route_table_id: Optional[str] = 
 def get_local_gateway_route_table_output(local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayRouteTableResult]:
     """
-    Describes a route table for a local gateway.
+    Resource Type definition for Local Gateway Route Table which describes a route table for a local gateway.
 
 
     :param str local_gateway_route_table_id: The ID of the local gateway route table.

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes a local gateway route table virtual interface group association for a local gateway.
+ * Resource Type definition for Local Gateway Route Table Virtual Interface Group Association which describes a local gateway route table virtual interface group association for a local gateway.
  */
 export function getLocalGatewayRouteTableVirtualInterfaceGroupAssociation(args: GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,7 +51,7 @@ export interface GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult
     readonly tags?: outputs.Tag[];
 }
 /**
- * Describes a local gateway route table virtual interface group association for a local gateway.
+ * Resource Type definition for Local Gateway Route Table Virtual Interface Group Association which describes a local gateway route table virtual interface group association for a local gateway.
  */
 export function getLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput(args: GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -45,10 +45,6 @@ func NewLocationNfs(ctx *pulumi.Context,
 	if args.OnPremConfig == nil {
 		return nil, errors.New("invalid value for required argument 'OnPremConfig'")
 	}
-	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"serverHostname",
-	})
-	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationNfs
 	err := ctx.RegisterResource("aws-native:datasync:LocationNfs", name, args, &resource, opts...)

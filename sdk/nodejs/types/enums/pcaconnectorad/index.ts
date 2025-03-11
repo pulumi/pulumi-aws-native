@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ConnectorVpcInformationIpAddressType = {
+    Ipv4: "IPV4",
+    Dualstack: "DUALSTACK",
+} as const;
+
+export type ConnectorVpcInformationIpAddressType = (typeof ConnectorVpcInformationIpAddressType)[keyof typeof ConnectorVpcInformationIpAddressType];
+
 export const TemplateApplicationPolicyType = {
     AllApplicationPolicies: "ALL_APPLICATION_POLICIES",
     AnyPurpose: "ANY_PURPOSE",

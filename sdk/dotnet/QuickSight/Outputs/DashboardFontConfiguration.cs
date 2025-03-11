@@ -22,6 +22,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardFontDecoration? FontDecoration;
         /// <summary>
+        /// The font family that you want to use.
+        /// </summary>
+        public readonly string? FontFamily;
+        /// <summary>
         /// The option that determines the text display size.
         /// </summary>
         public readonly Outputs.DashboardFontSize? FontSize;
@@ -40,6 +44,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.DashboardFontDecoration? fontDecoration,
 
+            string? fontFamily,
+
             Outputs.DashboardFontSize? fontSize,
 
             Pulumi.AwsNative.QuickSight.DashboardFontStyle? fontStyle,
@@ -48,6 +54,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         {
             FontColor = fontColor;
             FontDecoration = fontDecoration;
+            FontFamily = fontFamily;
             FontSize = fontSize;
             FontStyle = fontStyle;
             FontWeight = fontWeight;

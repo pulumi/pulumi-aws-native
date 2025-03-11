@@ -8018,7 +8018,11 @@ func (o PipeTargetBatchJobParametersPtrOutput) RetryStrategy() PipeBatchRetryStr
 type PipeTargetCloudWatchLogsParameters struct {
 	// The name of the log stream.
 	LogStreamName *string `pulumi:"logStreamName"`
-	// The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+	// A [dynamic path parameter](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) to a field in the payload containing the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+	//
+	// The value cannot be a static timestamp as the provided timestamp would be applied to all events delivered by the Pipe, regardless of when they are actually delivered.
+	//
+	// If no dynamic path parameter is provided, the default value is the time the invocation is processed by the Pipe.
 	Timestamp *string `pulumi:"timestamp"`
 }
 
@@ -8036,7 +8040,11 @@ type PipeTargetCloudWatchLogsParametersInput interface {
 type PipeTargetCloudWatchLogsParametersArgs struct {
 	// The name of the log stream.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
-	// The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+	// A [dynamic path parameter](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) to a field in the payload containing the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+	//
+	// The value cannot be a static timestamp as the provided timestamp would be applied to all events delivered by the Pipe, regardless of when they are actually delivered.
+	//
+	// If no dynamic path parameter is provided, the default value is the time the invocation is processed by the Pipe.
 	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
 }
 
@@ -8122,7 +8130,11 @@ func (o PipeTargetCloudWatchLogsParametersOutput) LogStreamName() pulumi.StringP
 	return o.ApplyT(func(v PipeTargetCloudWatchLogsParameters) *string { return v.LogStreamName }).(pulumi.StringPtrOutput)
 }
 
-// The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+// A [dynamic path parameter](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) to a field in the payload containing the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+//
+// The value cannot be a static timestamp as the provided timestamp would be applied to all events delivered by the Pipe, regardless of when they are actually delivered.
+//
+// If no dynamic path parameter is provided, the default value is the time the invocation is processed by the Pipe.
 func (o PipeTargetCloudWatchLogsParametersOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetCloudWatchLogsParameters) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
@@ -8161,7 +8173,11 @@ func (o PipeTargetCloudWatchLogsParametersPtrOutput) LogStreamName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+// A [dynamic path parameter](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) to a field in the payload containing the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+//
+// The value cannot be a static timestamp as the provided timestamp would be applied to all events delivered by the Pipe, regardless of when they are actually delivered.
+//
+// If no dynamic path parameter is provided, the default value is the time the invocation is processed by the Pipe.
 func (o PipeTargetCloudWatchLogsParametersPtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetCloudWatchLogsParameters) *string {
 		if v == nil {

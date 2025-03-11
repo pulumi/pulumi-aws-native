@@ -20,6 +20,11 @@ export const getSamplingRule: typeof import("./getSamplingRule").getSamplingRule
 export const getSamplingRuleOutput: typeof import("./getSamplingRule").getSamplingRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getSamplingRule","getSamplingRuleOutput"], () => require("./getSamplingRule"));
 
+export { GetTransactionSearchConfigArgs, GetTransactionSearchConfigResult, GetTransactionSearchConfigOutputArgs } from "./getTransactionSearchConfig";
+export const getTransactionSearchConfig: typeof import("./getTransactionSearchConfig").getTransactionSearchConfig = null as any;
+export const getTransactionSearchConfigOutput: typeof import("./getTransactionSearchConfig").getTransactionSearchConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getTransactionSearchConfig","getTransactionSearchConfigOutput"], () => require("./getTransactionSearchConfig"));
+
 export { GroupArgs } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
@@ -35,6 +40,11 @@ export type SamplingRule = import("./samplingRule").SamplingRule;
 export const SamplingRule: typeof import("./samplingRule").SamplingRule = null as any;
 utilities.lazyLoad(exports, ["SamplingRule"], () => require("./samplingRule"));
 
+export { TransactionSearchConfigArgs } from "./transactionSearchConfig";
+export type TransactionSearchConfig = import("./transactionSearchConfig").TransactionSearchConfig;
+export const TransactionSearchConfig: typeof import("./transactionSearchConfig").TransactionSearchConfig = null as any;
+utilities.lazyLoad(exports, ["TransactionSearchConfig"], () => require("./transactionSearchConfig"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -46,6 +56,8 @@ const _module = {
                 return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws-native:xray:SamplingRule":
                 return new SamplingRule(name, <any>undefined, { urn })
+            case "aws-native:xray:TransactionSearchConfig":
+                return new TransactionSearchConfig(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

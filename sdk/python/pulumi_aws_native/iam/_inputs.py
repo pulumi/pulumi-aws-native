@@ -13,12 +13,15 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'GroupPolicyArgs',
     'GroupPolicyArgsDict',
     'RolePolicyArgs',
     'RolePolicyArgsDict',
+    'SamlProviderSamlPrivateKeyArgs',
+    'SamlProviderSamlPrivateKeyArgsDict',
     'UserLoginProfileArgs',
     'UserLoginProfileArgsDict',
     'UserPolicyArgs',
@@ -141,6 +144,60 @@ class RolePolicyArgs:
     @policy_name.setter
     def policy_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "policy_name", value)
+
+
+if not MYPY:
+    class SamlProviderSamlPrivateKeyArgsDict(TypedDict):
+        """
+        The private key metadata for the SAML provider
+        """
+        key_id: pulumi.Input[str]
+        """
+        The unique identifier for the SAML private key.
+        """
+        timestamp: pulumi.Input[str]
+        """
+        The date and time, in <a href=\\"http://www.iso.org/iso/iso8601\\">ISO 8601 date-time </a> format, when the private key was uploaded.
+        """
+elif False:
+    SamlProviderSamlPrivateKeyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SamlProviderSamlPrivateKeyArgs:
+    def __init__(__self__, *,
+                 key_id: pulumi.Input[str],
+                 timestamp: pulumi.Input[str]):
+        """
+        The private key metadata for the SAML provider
+        :param pulumi.Input[str] key_id: The unique identifier for the SAML private key.
+        :param pulumi.Input[str] timestamp: The date and time, in <a href=\\"http://www.iso.org/iso/iso8601\\">ISO 8601 date-time </a> format, when the private key was uploaded.
+        """
+        pulumi.set(__self__, "key_id", key_id)
+        pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier for the SAML private key.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_id", value)
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> pulumi.Input[str]:
+        """
+        The date and time, in <a href=\\"http://www.iso.org/iso/iso8601\\">ISO 8601 date-time </a> format, when the private key was uploaded.
+        """
+        return pulumi.get(self, "timestamp")
+
+    @timestamp.setter
+    def timestamp(self, value: pulumi.Input[str]):
+        pulumi.set(self, "timestamp", value)
 
 
 if not MYPY:

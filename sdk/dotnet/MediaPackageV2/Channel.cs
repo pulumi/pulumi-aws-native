@@ -55,6 +55,12 @@ namespace Pulumi.AwsNative.MediaPackageV2
         public Output<ImmutableArray<Outputs.ChannelIngestEndpoint>> IngestEndpoints { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.
+        /// </summary>
+        [Output("inputSwitchConfiguration")]
+        public Output<Outputs.ChannelInputSwitchConfiguration?> InputSwitchConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
         /// 
         /// The allowed values are:
@@ -70,6 +76,12 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
+        /// </summary>
+        [Output("outputHeaderConfiguration")]
+        public Output<Outputs.ChannelOutputHeaderConfiguration?> OutputHeaderConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The tags associated with the channel.
@@ -147,6 +159,12 @@ namespace Pulumi.AwsNative.MediaPackageV2
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.
+        /// </summary>
+        [Input("inputSwitchConfiguration")]
+        public Input<Inputs.ChannelInputSwitchConfigurationArgs>? InputSwitchConfiguration { get; set; }
+
+        /// <summary>
         /// The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
         /// 
         /// The allowed values are:
@@ -156,6 +174,12 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         [Input("inputType")]
         public Input<Pulumi.AwsNative.MediaPackageV2.ChannelInputType>? InputType { get; set; }
+
+        /// <summary>
+        /// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
+        /// </summary>
+        [Input("outputHeaderConfiguration")]
+        public Input<Inputs.ChannelOutputHeaderConfigurationArgs>? OutputHeaderConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

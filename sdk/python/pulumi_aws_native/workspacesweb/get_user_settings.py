@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserSettingsResult:
-    def __init__(__self__, additional_encryption_context=None, associated_portal_arns=None, cookie_synchronization_configuration=None, copy_allowed=None, customer_managed_key=None, deep_link_allowed=None, disconnect_timeout_in_minutes=None, download_allowed=None, idle_disconnect_timeout_in_minutes=None, paste_allowed=None, print_allowed=None, tags=None, upload_allowed=None, user_settings_arn=None):
+    def __init__(__self__, additional_encryption_context=None, associated_portal_arns=None, cookie_synchronization_configuration=None, copy_allowed=None, customer_managed_key=None, deep_link_allowed=None, disconnect_timeout_in_minutes=None, download_allowed=None, idle_disconnect_timeout_in_minutes=None, paste_allowed=None, print_allowed=None, tags=None, toolbar_configuration=None, upload_allowed=None, user_settings_arn=None):
         if additional_encryption_context and not isinstance(additional_encryption_context, dict):
             raise TypeError("Expected argument 'additional_encryption_context' to be a dict")
         pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
@@ -63,6 +63,9 @@ class GetUserSettingsResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if toolbar_configuration and not isinstance(toolbar_configuration, dict):
+            raise TypeError("Expected argument 'toolbar_configuration' to be a dict")
+        pulumi.set(__self__, "toolbar_configuration", toolbar_configuration)
         if upload_allowed and not isinstance(upload_allowed, str):
             raise TypeError("Expected argument 'upload_allowed' to be a str")
         pulumi.set(__self__, "upload_allowed", upload_allowed)
@@ -167,6 +170,14 @@ class GetUserSettingsResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="toolbarConfiguration")
+    def toolbar_configuration(self) -> Optional['outputs.UserSettingsToolbarConfiguration']:
+        """
+        The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
+        """
+        return pulumi.get(self, "toolbar_configuration")
+
+    @property
     @pulumi.getter(name="uploadAllowed")
     def upload_allowed(self) -> Optional['UserSettingsEnabledType']:
         """
@@ -201,6 +212,7 @@ class AwaitableGetUserSettingsResult(GetUserSettingsResult):
             paste_allowed=self.paste_allowed,
             print_allowed=self.print_allowed,
             tags=self.tags,
+            toolbar_configuration=self.toolbar_configuration,
             upload_allowed=self.upload_allowed,
             user_settings_arn=self.user_settings_arn)
 
@@ -231,6 +243,7 @@ def get_user_settings(user_settings_arn: Optional[str] = None,
         paste_allowed=pulumi.get(__ret__, 'paste_allowed'),
         print_allowed=pulumi.get(__ret__, 'print_allowed'),
         tags=pulumi.get(__ret__, 'tags'),
+        toolbar_configuration=pulumi.get(__ret__, 'toolbar_configuration'),
         upload_allowed=pulumi.get(__ret__, 'upload_allowed'),
         user_settings_arn=pulumi.get(__ret__, 'user_settings_arn'))
 def get_user_settings_output(user_settings_arn: Optional[pulumi.Input[str]] = None,
@@ -258,5 +271,6 @@ def get_user_settings_output(user_settings_arn: Optional[pulumi.Input[str]] = No
         paste_allowed=pulumi.get(__response__, 'paste_allowed'),
         print_allowed=pulumi.get(__response__, 'print_allowed'),
         tags=pulumi.get(__response__, 'tags'),
+        toolbar_configuration=pulumi.get(__response__, 'toolbar_configuration'),
         upload_allowed=pulumi.get(__response__, 'upload_allowed'),
         user_settings_arn=pulumi.get(__response__, 'user_settings_arn')))

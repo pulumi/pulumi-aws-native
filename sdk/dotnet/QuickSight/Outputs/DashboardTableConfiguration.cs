@@ -22,6 +22,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardTableFieldWells? FieldWells;
         /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
+        public readonly Outputs.DashboardVisualInteractionOptions? Interactions;
+        /// <summary>
         /// The paginated report options for a table visual.
         /// </summary>
         public readonly Outputs.DashboardTablePaginatedReportOptions? PaginatedReportOptions;
@@ -48,6 +52,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardTableFieldWells? fieldWells,
 
+            Outputs.DashboardVisualInteractionOptions? interactions,
+
             Outputs.DashboardTablePaginatedReportOptions? paginatedReportOptions,
 
             Outputs.DashboardTableSortConfiguration? sortConfiguration,
@@ -60,6 +66,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         {
             FieldOptions = fieldOptions;
             FieldWells = fieldWells;
+            Interactions = interactions;
             PaginatedReportOptions = paginatedReportOptions;
             SortConfiguration = sortConfiguration;
             TableInlineVisualizations = tableInlineVisualizations;

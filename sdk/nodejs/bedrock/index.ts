@@ -20,6 +20,16 @@ export type ApplicationInferenceProfile = import("./applicationInferenceProfile"
 export const ApplicationInferenceProfile: typeof import("./applicationInferenceProfile").ApplicationInferenceProfile = null as any;
 utilities.lazyLoad(exports, ["ApplicationInferenceProfile"], () => require("./applicationInferenceProfile"));
 
+export { BlueprintArgs } from "./blueprint";
+export type Blueprint = import("./blueprint").Blueprint;
+export const Blueprint: typeof import("./blueprint").Blueprint = null as any;
+utilities.lazyLoad(exports, ["Blueprint"], () => require("./blueprint"));
+
+export { DataAutomationProjectArgs } from "./dataAutomationProject";
+export type DataAutomationProject = import("./dataAutomationProject").DataAutomationProject;
+export const DataAutomationProject: typeof import("./dataAutomationProject").DataAutomationProject = null as any;
+utilities.lazyLoad(exports, ["DataAutomationProject"], () => require("./dataAutomationProject"));
+
 export { DataSourceArgs } from "./dataSource";
 export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
@@ -54,6 +64,16 @@ export { GetApplicationInferenceProfileArgs, GetApplicationInferenceProfileResul
 export const getApplicationInferenceProfile: typeof import("./getApplicationInferenceProfile").getApplicationInferenceProfile = null as any;
 export const getApplicationInferenceProfileOutput: typeof import("./getApplicationInferenceProfile").getApplicationInferenceProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getApplicationInferenceProfile","getApplicationInferenceProfileOutput"], () => require("./getApplicationInferenceProfile"));
+
+export { GetBlueprintArgs, GetBlueprintResult, GetBlueprintOutputArgs } from "./getBlueprint";
+export const getBlueprint: typeof import("./getBlueprint").getBlueprint = null as any;
+export const getBlueprintOutput: typeof import("./getBlueprint").getBlueprintOutput = null as any;
+utilities.lazyLoad(exports, ["getBlueprint","getBlueprintOutput"], () => require("./getBlueprint"));
+
+export { GetDataAutomationProjectArgs, GetDataAutomationProjectResult, GetDataAutomationProjectOutputArgs } from "./getDataAutomationProject";
+export const getDataAutomationProject: typeof import("./getDataAutomationProject").getDataAutomationProject = null as any;
+export const getDataAutomationProjectOutput: typeof import("./getDataAutomationProject").getDataAutomationProjectOutput = null as any;
+utilities.lazyLoad(exports, ["getDataAutomationProject","getDataAutomationProjectOutput"], () => require("./getDataAutomationProject"));
 
 export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
 export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
@@ -139,6 +159,10 @@ const _module = {
                 return new AgentAlias(name, <any>undefined, { urn })
             case "aws-native:bedrock:ApplicationInferenceProfile":
                 return new ApplicationInferenceProfile(name, <any>undefined, { urn })
+            case "aws-native:bedrock:Blueprint":
+                return new Blueprint(name, <any>undefined, { urn })
+            case "aws-native:bedrock:DataAutomationProject":
+                return new DataAutomationProject(name, <any>undefined, { urn })
             case "aws-native:bedrock:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
             case "aws-native:bedrock:Flow":

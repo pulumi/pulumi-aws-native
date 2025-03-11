@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetSoftwarePackageArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the new software package.
+        /// </summary>
         [Input("packageName", required: true)]
         public string PackageName { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetSoftwarePackageInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the new software package.
+        /// </summary>
         [Input("packageName", required: true)]
         public Input<string> PackageName { get; set; } = null!;
 
@@ -57,6 +63,9 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetSoftwarePackageResult
     {
+        /// <summary>
+        /// A summary of the package being created. This can be used to outline the package's contents or purpose.
+        /// </summary>
         public readonly string? Description;
         /// <summary>
         /// The Amazon Resource Name (ARN) for the package.

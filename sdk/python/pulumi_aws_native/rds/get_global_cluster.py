@@ -69,9 +69,6 @@ class GetGlobalClusterResult:
     @property
     @pulumi.getter(name="globalEndpoint")
     def global_endpoint(self) -> Optional['outputs.GlobalClusterGlobalEndpoint']:
-        """
-        The writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
-        """
         return pulumi.get(self, "global_endpoint")
 
     @property

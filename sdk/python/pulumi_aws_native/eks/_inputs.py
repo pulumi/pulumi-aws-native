@@ -1529,17 +1529,17 @@ if not MYPY:
         """
         The ID of the launch template.
 
-        You must specify either the launch template ID or the launch template name in the request, but not both.
+        You must specify either the launch template ID or the launch template name in the request, but not both. After node group creation, you cannot use a different ID.
         """
         name: NotRequired[pulumi.Input[str]]
         """
         The name of the launch template.
 
-        You must specify either the launch template name or the launch template ID in the request, but not both.
+        You must specify either the launch template name or the launch template ID in the request, but not both. After node group creation, you cannot use a different name.
         """
         version: NotRequired[pulumi.Input[str]]
         """
-        The version number of the launch template to use. If no version is specified, then the template's default version is used.
+        The version number of the launch template to use. If no version is specified, then the template's default version is used. You can use a different version for node group updates.
         """
 elif False:
     NodegroupLaunchTemplateSpecificationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1554,11 +1554,11 @@ class NodegroupLaunchTemplateSpecificationArgs:
         An object representing a launch template specification for AWS EKS Nodegroup.
         :param pulumi.Input[str] id: The ID of the launch template.
                
-               You must specify either the launch template ID or the launch template name in the request, but not both.
+               You must specify either the launch template ID or the launch template name in the request, but not both. After node group creation, you cannot use a different ID.
         :param pulumi.Input[str] name: The name of the launch template.
                
-               You must specify either the launch template name or the launch template ID in the request, but not both.
-        :param pulumi.Input[str] version: The version number of the launch template to use. If no version is specified, then the template's default version is used.
+               You must specify either the launch template name or the launch template ID in the request, but not both. After node group creation, you cannot use a different name.
+        :param pulumi.Input[str] version: The version number of the launch template to use. If no version is specified, then the template's default version is used. You can use a different version for node group updates.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -1573,7 +1573,7 @@ class NodegroupLaunchTemplateSpecificationArgs:
         """
         The ID of the launch template.
 
-        You must specify either the launch template ID or the launch template name in the request, but not both.
+        You must specify either the launch template ID or the launch template name in the request, but not both. After node group creation, you cannot use a different ID.
         """
         return pulumi.get(self, "id")
 
@@ -1587,7 +1587,7 @@ class NodegroupLaunchTemplateSpecificationArgs:
         """
         The name of the launch template.
 
-        You must specify either the launch template name or the launch template ID in the request, but not both.
+        You must specify either the launch template name or the launch template ID in the request, but not both. After node group creation, you cannot use a different name.
         """
         return pulumi.get(self, "name")
 
@@ -1599,7 +1599,7 @@ class NodegroupLaunchTemplateSpecificationArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version number of the launch template to use. If no version is specified, then the template's default version is used.
+        The version number of the launch template to use. If no version is specified, then the template's default version is used. You can use a different version for node group updates.
         """
         return pulumi.get(self, "version")
 

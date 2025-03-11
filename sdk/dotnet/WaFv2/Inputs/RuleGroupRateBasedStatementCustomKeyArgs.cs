@@ -52,6 +52,18 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         public Input<Inputs.RuleGroupRateLimitIpArgs>? Ip { get; set; }
 
         /// <summary>
+        /// Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+        /// </summary>
+        [Input("ja3Fingerprint")]
+        public Input<Inputs.RuleGroupRateLimitJa3FingerprintArgs>? Ja3Fingerprint { get; set; }
+
+        /// <summary>
+        /// Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
+        /// </summary>
+        [Input("ja4Fingerprint")]
+        public Input<Inputs.RuleGroupRateLimitJa4FingerprintArgs>? Ja4Fingerprint { get; set; }
+
+        /// <summary>
         /// Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
         /// 
         /// This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
