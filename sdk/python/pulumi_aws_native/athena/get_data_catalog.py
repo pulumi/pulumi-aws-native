@@ -25,19 +25,36 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataCatalogResult:
-    def __init__(__self__, description=None, parameters=None, tags=None, type=None):
+    def __init__(__self__, connection_type=None, description=None, error=None, parameters=None, status=None, tags=None, type=None):
+        if connection_type and not isinstance(connection_type, str):
+            raise TypeError("Expected argument 'connection_type' to be a str")
+        pulumi.set(__self__, "connection_type", connection_type)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if error and not isinstance(error, str):
+            raise TypeError("Expected argument 'error' to be a str")
+        pulumi.set(__self__, "error", error)
         if parameters and not isinstance(parameters, dict):
             raise TypeError("Expected argument 'parameters' to be a dict")
         pulumi.set(__self__, "parameters", parameters)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> Optional[str]:
+        """
+        The type of connection for a FEDERATED data catalog
+        """
+        return pulumi.get(self, "connection_type")
 
     @property
     @pulumi.getter
@@ -49,11 +66,27 @@ class GetDataCatalogResult:
 
     @property
     @pulumi.getter
+    def error(self) -> Optional[str]:
+        """
+        Text of the error that occurred during data catalog creation or deletion.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, str]]:
         """
         Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['DataCatalogStatus']:
+        """
+        The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
+        """
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
@@ -67,7 +100,7 @@ class GetDataCatalogResult:
     @pulumi.getter
     def type(self) -> Optional['DataCatalogType']:
         """
-        The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
+        The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
         """
         return pulumi.get(self, "type")
 
@@ -78,8 +111,11 @@ class AwaitableGetDataCatalogResult(GetDataCatalogResult):
         if False:
             yield self
         return GetDataCatalogResult(
+            connection_type=self.connection_type,
             description=self.description,
+            error=self.error,
             parameters=self.parameters,
+            status=self.status,
             tags=self.tags,
             type=self.type)
 
@@ -98,8 +134,11 @@ def get_data_catalog(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:athena:getDataCatalog', __args__, opts=opts, typ=GetDataCatalogResult).value
 
     return AwaitableGetDataCatalogResult(
+        connection_type=pulumi.get(__ret__, 'connection_type'),
         description=pulumi.get(__ret__, 'description'),
+        error=pulumi.get(__ret__, 'error'),
         parameters=pulumi.get(__ret__, 'parameters'),
+        status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_data_catalog_output(name: Optional[pulumi.Input[str]] = None,
@@ -115,7 +154,10 @@ def get_data_catalog_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:athena:getDataCatalog', __args__, opts=opts, typ=GetDataCatalogResult)
     return __ret__.apply(lambda __response__: GetDataCatalogResult(
+        connection_type=pulumi.get(__response__, 'connection_type'),
         description=pulumi.get(__response__, 'description'),
+        error=pulumi.get(__response__, 'error'),
         parameters=pulumi.get(__response__, 'parameters'),
+        status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

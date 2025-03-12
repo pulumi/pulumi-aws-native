@@ -96,6 +96,10 @@ namespace Pulumi.AwsNative.Chatbot
         /// </summary>
         public readonly string? TeamsChannelId;
         /// <summary>
+        /// The name of the Microsoft Teams channel
+        /// </summary>
+        public readonly string? TeamsChannelName;
+        /// <summary>
         /// Enables use of a user role requirement in your chat configuration
         /// </summary>
         public readonly bool? UserRoleRequired;
@@ -118,6 +122,8 @@ namespace Pulumi.AwsNative.Chatbot
 
             string? teamsChannelId,
 
+            string? teamsChannelName,
+
             bool? userRoleRequired)
         {
             Arn = arn;
@@ -128,6 +134,7 @@ namespace Pulumi.AwsNative.Chatbot
             SnsTopicArns = snsTopicArns;
             Tags = tags;
             TeamsChannelId = teamsChannelId;
+            TeamsChannelName = teamsChannelName;
             UserRoleRequired = userRoleRequired;
         }
     }

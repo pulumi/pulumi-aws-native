@@ -1334,6 +1334,9 @@ class AgentPromptConfiguration(dict):
                  prompt_type: Optional['AgentPromptType'] = None):
         """
         BasePromptConfiguration per Prompt Type.
+        :param 'AgentAdditionalModelRequestFields' additional_model_request_fields: If the Converse or ConverseStream operations support the model, `additionalModelRequestFields` contains additional inference parameters, beyond the base set of inference parameters in the `inferenceConfiguration` field.
+               
+               For more information, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
         :param str base_prompt_template: Base Prompt Template.
         :param str foundation_model: The agent's foundation model.
         :param 'AgentInferenceConfiguration' inference_configuration: Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
@@ -1367,6 +1370,11 @@ class AgentPromptConfiguration(dict):
     @property
     @pulumi.getter(name="additionalModelRequestFields")
     def additional_model_request_fields(self) -> Optional['outputs.AgentAdditionalModelRequestFields']:
+        """
+        If the Converse or ConverseStream operations support the model, `additionalModelRequestFields` contains additional inference parameters, beyond the base set of inference parameters in the `inferenceConfiguration` field.
+
+        For more information, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+        """
         return pulumi.get(self, "additional_model_request_fields")
 
     @property

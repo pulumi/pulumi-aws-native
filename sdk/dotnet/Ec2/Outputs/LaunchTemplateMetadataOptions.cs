@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? HttpTokens;
         /// <summary>
-        /// Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [Work with instance tags using the instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS).
+        /// Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [View tags for your EC2 instances using instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html).
         ///  Default: ``disabled``
         /// </summary>
         public readonly string? InstanceMetadataTags;

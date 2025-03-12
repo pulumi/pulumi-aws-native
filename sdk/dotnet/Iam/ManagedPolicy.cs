@@ -18,12 +18,23 @@ namespace Pulumi.AwsNative.Iam
     [AwsNativeResourceType("aws-native:iam:ManagedPolicy")]
     public partial class ManagedPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The number of principal entities (users, groups, and roles) that the policy is attached to.
+        /// </summary>
         [Output("attachmentCount")]
         public Output<int> AttachmentCount { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time, in [ISO 8601 date-time format](https://docs.aws.amazon.com/http://www.iso.org/iso/iso8601) , when the policy was created.
+        /// </summary>
         [Output("createDate")]
         public Output<string> CreateDate { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier for the version of the policy that is set as the default (operative) version.
+        /// 
+        /// For more information about policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html) in the *IAM User Guide* .
+        /// </summary>
         [Output("defaultVersionId")]
         public Output<string> DefaultVersionId { get; private set; } = null!;
 
@@ -42,6 +53,9 @@ namespace Pulumi.AwsNative.Iam
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the policy can be attached to an IAM user, group, or role.
+        /// </summary>
         [Output("isAttachable")]
         public Output<bool> IsAttachable { get; private set; } = null!;
 
@@ -64,9 +78,19 @@ namespace Pulumi.AwsNative.Iam
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of entities (users and roles) for which the policy is used as the permissions boundary.
+        /// 
+        /// For more information about permissions boundaries, see [Permissions boundaries for IAM identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
+        /// </summary>
         [Output("permissionsBoundaryUsageCount")]
         public Output<int> PermissionsBoundaryUsageCount { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the managed policy that you want information about.
+        /// 
+        /// For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
+        /// </summary>
         [Output("policyArn")]
         public Output<string> PolicyArn { get; private set; } = null!;
 
@@ -85,6 +109,11 @@ namespace Pulumi.AwsNative.Iam
         [Output("policyDocument")]
         public Output<object> PolicyDocument { get; private set; } = null!;
 
+        /// <summary>
+        /// The stable and unique string identifying the policy.
+        /// 
+        /// For more information about IDs, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
+        /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
 
@@ -96,6 +125,11 @@ namespace Pulumi.AwsNative.Iam
         [Output("roles")]
         public Output<ImmutableArray<string>> Roles { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time, in [ISO 8601 date-time format](https://docs.aws.amazon.com/http://www.iso.org/iso/iso8601) , when the policy was last updated.
+        /// 
+        /// When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
+        /// </summary>
         [Output("updateDate")]
         public Output<string> UpdateDate { get; private set; } = null!;
 

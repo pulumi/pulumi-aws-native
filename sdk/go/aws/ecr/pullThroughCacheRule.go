@@ -71,12 +71,14 @@ type PullThroughCacheRule struct {
 
 	// The ARN of the Secrets Manager secret associated with the pull through cache rule.
 	CredentialArn pulumi.StringPtrOutput `pulumi:"credentialArn"`
+	CustomRoleArn pulumi.StringPtrOutput `pulumi:"customRoleArn"`
 	// The Amazon ECR repository prefix associated with the pull through cache rule.
 	EcrRepositoryPrefix pulumi.StringPtrOutput `pulumi:"ecrRepositoryPrefix"`
 	// The name of the upstream source registry associated with the pull through cache rule.
 	UpstreamRegistry pulumi.StringPtrOutput `pulumi:"upstreamRegistry"`
 	// The upstream registry URL associated with the pull through cache rule.
-	UpstreamRegistryUrl pulumi.StringPtrOutput `pulumi:"upstreamRegistryUrl"`
+	UpstreamRegistryUrl      pulumi.StringPtrOutput `pulumi:"upstreamRegistryUrl"`
+	UpstreamRepositoryPrefix pulumi.StringPtrOutput `pulumi:"upstreamRepositoryPrefix"`
 }
 
 // NewPullThroughCacheRule registers a new resource with the given unique name, arguments, and options.
@@ -88,9 +90,11 @@ func NewPullThroughCacheRule(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"credentialArn",
+		"customRoleArn",
 		"ecrRepositoryPrefix",
 		"upstreamRegistry",
 		"upstreamRegistryUrl",
+		"upstreamRepositoryPrefix",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -128,24 +132,28 @@ func (PullThroughCacheRuleState) ElementType() reflect.Type {
 type pullThroughCacheRuleArgs struct {
 	// The ARN of the Secrets Manager secret associated with the pull through cache rule.
 	CredentialArn *string `pulumi:"credentialArn"`
+	CustomRoleArn *string `pulumi:"customRoleArn"`
 	// The Amazon ECR repository prefix associated with the pull through cache rule.
 	EcrRepositoryPrefix *string `pulumi:"ecrRepositoryPrefix"`
 	// The name of the upstream source registry associated with the pull through cache rule.
 	UpstreamRegistry *string `pulumi:"upstreamRegistry"`
 	// The upstream registry URL associated with the pull through cache rule.
-	UpstreamRegistryUrl *string `pulumi:"upstreamRegistryUrl"`
+	UpstreamRegistryUrl      *string `pulumi:"upstreamRegistryUrl"`
+	UpstreamRepositoryPrefix *string `pulumi:"upstreamRepositoryPrefix"`
 }
 
 // The set of arguments for constructing a PullThroughCacheRule resource.
 type PullThroughCacheRuleArgs struct {
 	// The ARN of the Secrets Manager secret associated with the pull through cache rule.
 	CredentialArn pulumi.StringPtrInput
+	CustomRoleArn pulumi.StringPtrInput
 	// The Amazon ECR repository prefix associated with the pull through cache rule.
 	EcrRepositoryPrefix pulumi.StringPtrInput
 	// The name of the upstream source registry associated with the pull through cache rule.
 	UpstreamRegistry pulumi.StringPtrInput
 	// The upstream registry URL associated with the pull through cache rule.
-	UpstreamRegistryUrl pulumi.StringPtrInput
+	UpstreamRegistryUrl      pulumi.StringPtrInput
+	UpstreamRepositoryPrefix pulumi.StringPtrInput
 }
 
 func (PullThroughCacheRuleArgs) ElementType() reflect.Type {
@@ -190,6 +198,10 @@ func (o PullThroughCacheRuleOutput) CredentialArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PullThroughCacheRule) pulumi.StringPtrOutput { return v.CredentialArn }).(pulumi.StringPtrOutput)
 }
 
+func (o PullThroughCacheRuleOutput) CustomRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PullThroughCacheRule) pulumi.StringPtrOutput { return v.CustomRoleArn }).(pulumi.StringPtrOutput)
+}
+
 // The Amazon ECR repository prefix associated with the pull through cache rule.
 func (o PullThroughCacheRuleOutput) EcrRepositoryPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PullThroughCacheRule) pulumi.StringPtrOutput { return v.EcrRepositoryPrefix }).(pulumi.StringPtrOutput)
@@ -203,6 +215,10 @@ func (o PullThroughCacheRuleOutput) UpstreamRegistry() pulumi.StringPtrOutput {
 // The upstream registry URL associated with the pull through cache rule.
 func (o PullThroughCacheRuleOutput) UpstreamRegistryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PullThroughCacheRule) pulumi.StringPtrOutput { return v.UpstreamRegistryUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o PullThroughCacheRuleOutput) UpstreamRepositoryPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PullThroughCacheRule) pulumi.StringPtrOutput { return v.UpstreamRepositoryPrefix }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -98,7 +98,11 @@
     },
     "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic" : {
       "type" : "string",
-      "description" : "Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink."
+      "description" : "Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``."
+    },
+    "Ipv4IpamPoolId" : {
+      "type" : "string",
+      "description" : ""
     }
   },
   "definitions" : {
@@ -187,7 +191,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "elasticloadbalancing:CreateLoadBalancer", "elasticloadbalancing:DescribeLoadBalancers", "elasticloadbalancing:ModifyLoadBalancerAttributes", "elasticloadbalancing:AddTags" ],
+      "permissions" : [ "elasticloadbalancing:CreateLoadBalancer", "elasticloadbalancing:DescribeLoadBalancers", "elasticloadbalancing:ModifyLoadBalancerAttributes", "elasticloadbalancing:AddTags", "ec2:DescribeIpamPools" ],
       "timeoutInMinutes" : 30
     },
     "delete" : {
@@ -200,7 +204,7 @@
       "permissions" : [ "elasticloadbalancing:DescribeLoadBalancers", "elasticloadbalancing:DescribeLoadBalancerAttributes", "elasticloadbalancing:DescribeCapacityReservation", "elasticloadbalancing:DescribeTags" ]
     },
     "update" : {
-      "permissions" : [ "elasticloadbalancing:ModifyLoadBalancerAttributes", "elasticloadbalancing:ModifyCapacityReservation", "elasticloadbalancing:SetSubnets", "elasticloadbalancing:SetIpAddressType", "elasticloadbalancing:SetSecurityGroups", "elasticloadbalancing:AddTags", "elasticloadbalancing:RemoveTags" ]
+      "permissions" : [ "elasticloadbalancing:ModifyLoadBalancerAttributes", "elasticloadbalancing:ModifyCapacityReservation", "elasticloadbalancing:SetSubnets", "elasticloadbalancing:SetIpAddressType", "elasticloadbalancing:ModifyIpPools", "elasticloadbalancing:SetSecurityGroups", "elasticloadbalancing:AddTags", "elasticloadbalancing:RemoveTags" ]
     }
   }
 }

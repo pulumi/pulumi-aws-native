@@ -50,7 +50,7 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
      */
     public readonly restoreTestingPlanName!: pulumi.Output<string>;
     /**
-     * A CRON expression in specified timezone when a restore testing plan is executed.
+     * A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
      */
     public readonly scheduleExpression!: pulumi.Output<string>;
     /**
@@ -127,7 +127,7 @@ export interface RestoreTestingPlanArgs {
      */
     restoreTestingPlanName?: pulumi.Input<string>;
     /**
-     * A CRON expression in specified timezone when a restore testing plan is executed.
+     * A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
      */
     scheduleExpression: pulumi.Input<string>;
     /**

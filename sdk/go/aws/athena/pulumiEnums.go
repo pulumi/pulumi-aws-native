@@ -104,13 +104,194 @@ func (o CapacityReservationStatusPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
+// The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
+type DataCatalogStatus string
+
+const (
+	DataCatalogStatusCreateInProgress              = DataCatalogStatus("CREATE_IN_PROGRESS")
+	DataCatalogStatusCreateComplete                = DataCatalogStatus("CREATE_COMPLETE")
+	DataCatalogStatusCreateFailed                  = DataCatalogStatus("CREATE_FAILED")
+	DataCatalogStatusCreateFailedCleanupInProgress = DataCatalogStatus("CREATE_FAILED_CLEANUP_IN_PROGRESS")
+	DataCatalogStatusCreateFailedCleanupComplete   = DataCatalogStatus("CREATE_FAILED_CLEANUP_COMPLETE")
+	DataCatalogStatusCreateFailedCleanupFailed     = DataCatalogStatus("CREATE_FAILED_CLEANUP_FAILED")
+	DataCatalogStatusDeleteInProgress              = DataCatalogStatus("DELETE_IN_PROGRESS")
+	DataCatalogStatusDeleteComplete                = DataCatalogStatus("DELETE_COMPLETE")
+	DataCatalogStatusDeleteFailed                  = DataCatalogStatus("DELETE_FAILED")
+)
+
+func (DataCatalogStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogStatus)(nil)).Elem()
+}
+
+func (e DataCatalogStatus) ToDataCatalogStatusOutput() DataCatalogStatusOutput {
+	return pulumi.ToOutput(e).(DataCatalogStatusOutput)
+}
+
+func (e DataCatalogStatus) ToDataCatalogStatusOutputWithContext(ctx context.Context) DataCatalogStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataCatalogStatusOutput)
+}
+
+func (e DataCatalogStatus) ToDataCatalogStatusPtrOutput() DataCatalogStatusPtrOutput {
+	return e.ToDataCatalogStatusPtrOutputWithContext(context.Background())
+}
+
+func (e DataCatalogStatus) ToDataCatalogStatusPtrOutputWithContext(ctx context.Context) DataCatalogStatusPtrOutput {
+	return DataCatalogStatus(e).ToDataCatalogStatusOutputWithContext(ctx).ToDataCatalogStatusPtrOutputWithContext(ctx)
+}
+
+func (e DataCatalogStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataCatalogStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataCatalogStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataCatalogStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataCatalogStatusOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogStatus)(nil)).Elem()
+}
+
+func (o DataCatalogStatusOutput) ToDataCatalogStatusOutput() DataCatalogStatusOutput {
+	return o
+}
+
+func (o DataCatalogStatusOutput) ToDataCatalogStatusOutputWithContext(ctx context.Context) DataCatalogStatusOutput {
+	return o
+}
+
+func (o DataCatalogStatusOutput) ToDataCatalogStatusPtrOutput() DataCatalogStatusPtrOutput {
+	return o.ToDataCatalogStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DataCatalogStatusOutput) ToDataCatalogStatusPtrOutputWithContext(ctx context.Context) DataCatalogStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCatalogStatus) *DataCatalogStatus {
+		return &v
+	}).(DataCatalogStatusPtrOutput)
+}
+
+func (o DataCatalogStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataCatalogStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataCatalogStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataCatalogStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataCatalogStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataCatalogStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataCatalogStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogStatus)(nil)).Elem()
+}
+
+func (o DataCatalogStatusPtrOutput) ToDataCatalogStatusPtrOutput() DataCatalogStatusPtrOutput {
+	return o
+}
+
+func (o DataCatalogStatusPtrOutput) ToDataCatalogStatusPtrOutputWithContext(ctx context.Context) DataCatalogStatusPtrOutput {
+	return o
+}
+
+func (o DataCatalogStatusPtrOutput) Elem() DataCatalogStatusOutput {
+	return o.ApplyT(func(v *DataCatalogStatus) DataCatalogStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DataCatalogStatus
+		return ret
+	}).(DataCatalogStatusOutput)
+}
+
+func (o DataCatalogStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataCatalogStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataCatalogStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataCatalogStatusInput is an input type that accepts values of the DataCatalogStatus enum
+// A concrete instance of `DataCatalogStatusInput` can be one of the following:
+//
+//	DataCatalogStatusCreateInProgress
+//	DataCatalogStatusCreateComplete
+//	DataCatalogStatusCreateFailed
+//	DataCatalogStatusCreateFailedCleanupInProgress
+//	DataCatalogStatusCreateFailedCleanupComplete
+//	DataCatalogStatusCreateFailedCleanupFailed
+//	DataCatalogStatusDeleteInProgress
+//	DataCatalogStatusDeleteComplete
+//	DataCatalogStatusDeleteFailed
+type DataCatalogStatusInput interface {
+	pulumi.Input
+
+	ToDataCatalogStatusOutput() DataCatalogStatusOutput
+	ToDataCatalogStatusOutputWithContext(context.Context) DataCatalogStatusOutput
+}
+
+var dataCatalogStatusPtrType = reflect.TypeOf((**DataCatalogStatus)(nil)).Elem()
+
+type DataCatalogStatusPtrInput interface {
+	pulumi.Input
+
+	ToDataCatalogStatusPtrOutput() DataCatalogStatusPtrOutput
+	ToDataCatalogStatusPtrOutputWithContext(context.Context) DataCatalogStatusPtrOutput
+}
+
+type dataCatalogStatusPtr string
+
+func DataCatalogStatusPtr(v string) DataCatalogStatusPtrInput {
+	return (*dataCatalogStatusPtr)(&v)
+}
+
+func (*dataCatalogStatusPtr) ElementType() reflect.Type {
+	return dataCatalogStatusPtrType
+}
+
+func (in *dataCatalogStatusPtr) ToDataCatalogStatusPtrOutput() DataCatalogStatusPtrOutput {
+	return pulumi.ToOutput(in).(DataCatalogStatusPtrOutput)
+}
+
+func (in *dataCatalogStatusPtr) ToDataCatalogStatusPtrOutputWithContext(ctx context.Context) DataCatalogStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataCatalogStatusPtrOutput)
+}
+
+// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
 type DataCatalogType string
 
 const (
-	DataCatalogTypeLambda = DataCatalogType("LAMBDA")
-	DataCatalogTypeGlue   = DataCatalogType("GLUE")
-	DataCatalogTypeHive   = DataCatalogType("HIVE")
+	DataCatalogTypeLambda    = DataCatalogType("LAMBDA")
+	DataCatalogTypeGlue      = DataCatalogType("GLUE")
+	DataCatalogTypeHive      = DataCatalogType("HIVE")
+	DataCatalogTypeFederated = DataCatalogType("FEDERATED")
 )
 
 func (DataCatalogType) ElementType() reflect.Type {
@@ -238,6 +419,7 @@ func (o DataCatalogTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 //	DataCatalogTypeLambda
 //	DataCatalogTypeGlue
 //	DataCatalogTypeHive
+//	DataCatalogTypeFederated
 type DataCatalogTypeInput interface {
 	pulumi.Input
 
@@ -771,6 +953,8 @@ func (in *workGroupStateEnumPtr) ToWorkGroupStateEnumPtrOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogStatusInput)(nil)).Elem(), DataCatalogStatus("CREATE_IN_PROGRESS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogStatusPtrInput)(nil)).Elem(), DataCatalogStatus("CREATE_IN_PROGRESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogTypeInput)(nil)).Elem(), DataCatalogType("LAMBDA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogTypePtrInput)(nil)).Elem(), DataCatalogType("LAMBDA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEncryptionOptionInput)(nil)).Elem(), WorkGroupEncryptionOption("SSE_S3"))
@@ -781,6 +965,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupStateEnumPtrInput)(nil)).Elem(), WorkGroupStateEnum("ENABLED"))
 	pulumi.RegisterOutputType(CapacityReservationStatusOutput{})
 	pulumi.RegisterOutputType(CapacityReservationStatusPtrOutput{})
+	pulumi.RegisterOutputType(DataCatalogStatusOutput{})
+	pulumi.RegisterOutputType(DataCatalogStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataCatalogTypeOutput{})
 	pulumi.RegisterOutputType(DataCatalogTypePtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupEncryptionOptionOutput{})

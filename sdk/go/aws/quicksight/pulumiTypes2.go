@@ -2648,8 +2648,7 @@ func (o DashboardSheetLayoutElementMaximizationOptionPtrOutput) AvailabilityStat
 
 type DashboardSheetTextBox struct {
 	// The content that is displayed in the text box.
-	Content      *string     `pulumi:"content"`
-	Interactions interface{} `pulumi:"interactions"`
+	Content *string `pulumi:"content"`
 	// The unique identifier for a text box. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have text boxes that share identifiers.
 	SheetTextBoxId string `pulumi:"sheetTextBoxId"`
 }
@@ -2667,8 +2666,7 @@ type DashboardSheetTextBoxInput interface {
 
 type DashboardSheetTextBoxArgs struct {
 	// The content that is displayed in the text box.
-	Content      pulumi.StringPtrInput `pulumi:"content"`
-	Interactions pulumi.Input          `pulumi:"interactions"`
+	Content pulumi.StringPtrInput `pulumi:"content"`
 	// The unique identifier for a text box. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have text boxes that share identifiers.
 	SheetTextBoxId pulumi.StringInput `pulumi:"sheetTextBoxId"`
 }
@@ -2727,10 +2725,6 @@ func (o DashboardSheetTextBoxOutput) ToDashboardSheetTextBoxOutputWithContext(ct
 // The content that is displayed in the text box.
 func (o DashboardSheetTextBoxOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardSheetTextBox) *string { return v.Content }).(pulumi.StringPtrOutput)
-}
-
-func (o DashboardSheetTextBoxOutput) Interactions() pulumi.AnyOutput {
-	return o.ApplyT(func(v DashboardSheetTextBox) interface{} { return v.Interactions }).(pulumi.AnyOutput)
 }
 
 // The unique identifier for a text box. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have text boxes that share identifiers.

@@ -13,14 +13,32 @@ export const CapacityReservationStatus = {
 
 export type CapacityReservationStatus = (typeof CapacityReservationStatus)[keyof typeof CapacityReservationStatus];
 
+export const DataCatalogStatus = {
+    CreateInProgress: "CREATE_IN_PROGRESS",
+    CreateComplete: "CREATE_COMPLETE",
+    CreateFailed: "CREATE_FAILED",
+    CreateFailedCleanupInProgress: "CREATE_FAILED_CLEANUP_IN_PROGRESS",
+    CreateFailedCleanupComplete: "CREATE_FAILED_CLEANUP_COMPLETE",
+    CreateFailedCleanupFailed: "CREATE_FAILED_CLEANUP_FAILED",
+    DeleteInProgress: "DELETE_IN_PROGRESS",
+    DeleteComplete: "DELETE_COMPLETE",
+    DeleteFailed: "DELETE_FAILED",
+} as const;
+
+/**
+ * The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
+ */
+export type DataCatalogStatus = (typeof DataCatalogStatus)[keyof typeof DataCatalogStatus];
+
 export const DataCatalogType = {
     Lambda: "LAMBDA",
     Glue: "GLUE",
     Hive: "HIVE",
+    Federated: "FEDERATED",
 } as const;
 
 /**
- * The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
+ * The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
  */
 export type DataCatalogType = (typeof DataCatalogType)[keyof typeof DataCatalogType];
 

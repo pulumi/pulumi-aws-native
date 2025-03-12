@@ -194,6 +194,8 @@ __all__ = [
     'LaunchTemplateNetworkInterfaceCountArgsDict',
     'LaunchTemplateNetworkInterfaceArgs',
     'LaunchTemplateNetworkInterfaceArgsDict',
+    'LaunchTemplateNetworkPerformanceOptionsArgs',
+    'LaunchTemplateNetworkPerformanceOptionsArgsDict',
     'LaunchTemplatePlacementArgs',
     'LaunchTemplatePlacementArgsDict',
     'LaunchTemplatePrivateDnsNameOptionsArgs',
@@ -5788,7 +5790,7 @@ if not MYPY:
         """
         amd_sev_snp: NotRequired[pulumi.Input['LaunchTemplateCpuOptionsAmdSevSnp']]
         """
-        Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
+        Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
         """
         core_count: NotRequired[pulumi.Input[int]]
         """
@@ -5810,7 +5812,7 @@ class LaunchTemplateCpuOptionsArgs:
         """
         Specifies the CPU options for an instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *User Guide*.
           ``CpuOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        :param pulumi.Input['LaunchTemplateCpuOptionsAmdSevSnp'] amd_sev_snp: Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
+        :param pulumi.Input['LaunchTemplateCpuOptionsAmdSevSnp'] amd_sev_snp: Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
         :param pulumi.Input[int] core_count: The number of CPU cores for the instance.
         :param pulumi.Input[int] threads_per_core: The number of threads per CPU core. To disable multithreading for the instance, specify a value of ``1``. Otherwise, specify the default value of ``2``.
         """
@@ -5825,7 +5827,7 @@ class LaunchTemplateCpuOptionsArgs:
     @pulumi.getter(name="amdSevSnp")
     def amd_sev_snp(self) -> Optional[pulumi.Input['LaunchTemplateCpuOptionsAmdSevSnp']]:
         """
-        Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
+        Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
         """
         return pulumi.get(self, "amd_sev_snp")
 
@@ -5951,7 +5953,7 @@ if not MYPY:
         """
         cpu_options: NotRequired[pulumi.Input['LaunchTemplateCpuOptionsArgsDict']]
         """
-        The CPU options for the instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
+        The CPU options for the instance. For more information, see [CPU options for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
         """
         credit_specification: NotRequired[pulumi.Input['LaunchTemplateCreditSpecificationArgsDict']]
         """
@@ -5959,11 +5961,11 @@ if not MYPY:
         """
         disable_api_stop: NotRequired[pulumi.Input[bool]]
         """
-        Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
+        Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
         """
         disable_api_termination: NotRequired[pulumi.Input[bool]]
         """
-        If you set this parameter to ``true``, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html). Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate``, you can terminate the instance by running the shutdown command from the instance.
+        Indicates whether termination protection is enabled for the instance. The default is ``false``, which means that you can terminate the instance using the Amazon EC2 console, command line tools, or API. You can enable termination protection when you launch an instance, while the instance is running, or while the instance is stopped.
         """
         ebs_optimized: NotRequired[pulumi.Input[bool]]
         """
@@ -6052,7 +6054,7 @@ if not MYPY:
         """
         metadata_options: NotRequired[pulumi.Input['LaunchTemplateMetadataOptionsArgsDict']]
         """
-        The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
+        The metadata options for the instance. For more information, see [Configure the Instance Metadata Service options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html) in the *Amazon EC2 User Guide*.
         """
         monitoring: NotRequired[pulumi.Input['LaunchTemplateMonitoringArgsDict']]
         """
@@ -6062,9 +6064,9 @@ if not MYPY:
         """
         The network interfaces for the instance.
         """
-        network_performance_options: NotRequired[Any]
+        network_performance_options: NotRequired[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgsDict']]
         """
-        The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) .
+        The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html).
         """
         placement: NotRequired[pulumi.Input['LaunchTemplatePlacementArgsDict']]
         """
@@ -6096,8 +6098,8 @@ if not MYPY:
         """
         user_data: NotRequired[pulumi.Input[str]]
         """
-        The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Amazon EC2 instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
-         If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
+        The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands when you launch an EC2 instance with user data input](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
+         If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html#lt-user-data) in the *User Guide*.
         """
 elif False:
     LaunchTemplateDataArgsDict: TypeAlias = Mapping[str, Any]
@@ -6129,7 +6131,7 @@ class LaunchTemplateDataArgs:
                  metadata_options: Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']] = None,
                  monitoring: Optional[pulumi.Input['LaunchTemplateMonitoringArgs']] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]] = None,
-                 network_performance_options: Optional[Any] = None,
+                 network_performance_options: Optional[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgs']] = None,
                  placement: Optional[pulumi.Input['LaunchTemplatePlacementArgs']] = None,
                  private_dns_name_options: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']] = None,
                  ram_disk_id: Optional[pulumi.Input[str]] = None,
@@ -6142,10 +6144,10 @@ class LaunchTemplateDataArgs:
           You must specify at least one parameter for the launch template data.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]] block_device_mappings: The block device mapping.
         :param pulumi.Input['LaunchTemplateCapacityReservationSpecificationArgs'] capacity_reservation_specification: The Capacity Reservation targeting option. If you do not specify this parameter, the instance's Capacity Reservation preference defaults to ``open``, which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
-        :param pulumi.Input['LaunchTemplateCpuOptionsArgs'] cpu_options: The CPU options for the instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
+        :param pulumi.Input['LaunchTemplateCpuOptionsArgs'] cpu_options: The CPU options for the instance. For more information, see [CPU options for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
         :param pulumi.Input['LaunchTemplateCreditSpecificationArgs'] credit_specification: The credit option for CPU usage of the instance. Valid only for T instances.
-        :param pulumi.Input[bool] disable_api_stop: Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
-        :param pulumi.Input[bool] disable_api_termination: If you set this parameter to ``true``, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html). Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate``, you can terminate the instance by running the shutdown command from the instance.
+        :param pulumi.Input[bool] disable_api_stop: Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
+        :param pulumi.Input[bool] disable_api_termination: Indicates whether termination protection is enabled for the instance. The default is ``false``, which means that you can terminate the instance using the Amazon EC2 console, command line tools, or API. You can enable termination protection when you launch an instance, while the instance is running, or while the instance is stopped.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]] elastic_gpu_specifications: Deprecated.
                  Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
@@ -6186,10 +6188,10 @@ class LaunchTemplateDataArgs:
                  If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]] license_specifications: The license configurations.
         :param pulumi.Input['LaunchTemplateMaintenanceOptionsArgs'] maintenance_options: The maintenance options of your instance.
-        :param pulumi.Input['LaunchTemplateMetadataOptionsArgs'] metadata_options: The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
+        :param pulumi.Input['LaunchTemplateMetadataOptionsArgs'] metadata_options: The metadata options for the instance. For more information, see [Configure the Instance Metadata Service options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html) in the *Amazon EC2 User Guide*.
         :param pulumi.Input['LaunchTemplateMonitoringArgs'] monitoring: The monitoring for the instance.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]] network_interfaces: The network interfaces for the instance.
-        :param Any network_performance_options: The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) .
+        :param pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgs'] network_performance_options: The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html).
         :param pulumi.Input['LaunchTemplatePlacementArgs'] placement: The placement for the instance.
         :param pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs'] private_dns_name_options: The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
         :param pulumi.Input[str] ram_disk_id: The ID of the RAM disk.
@@ -6200,8 +6202,8 @@ class LaunchTemplateDataArgs:
                 If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
         :param pulumi.Input[Sequence[pulumi.Input['TagSpecificationArgs']]] tag_specifications: The tags to apply to resources that are created during instance launch.
                 To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
-        :param pulumi.Input[str] user_data: The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Amazon EC2 instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
-                If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
+        :param pulumi.Input[str] user_data: The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands when you launch an EC2 instance with user data input](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
+                If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html#lt-user-data) in the *User Guide*.
         """
         if block_device_mappings is not None:
             pulumi.set(__self__, "block_device_mappings", block_device_mappings)
@@ -6296,7 +6298,7 @@ class LaunchTemplateDataArgs:
     @pulumi.getter(name="cpuOptions")
     def cpu_options(self) -> Optional[pulumi.Input['LaunchTemplateCpuOptionsArgs']]:
         """
-        The CPU options for the instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
+        The CPU options for the instance. For more information, see [CPU options for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
         """
         return pulumi.get(self, "cpu_options")
 
@@ -6320,7 +6322,7 @@ class LaunchTemplateDataArgs:
     @pulumi.getter(name="disableApiStop")
     def disable_api_stop(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
+        Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
         """
         return pulumi.get(self, "disable_api_stop")
 
@@ -6332,7 +6334,7 @@ class LaunchTemplateDataArgs:
     @pulumi.getter(name="disableApiTermination")
     def disable_api_termination(self) -> Optional[pulumi.Input[bool]]:
         """
-        If you set this parameter to ``true``, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html). Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate``, you can terminate the instance by running the shutdown command from the instance.
+        Indicates whether termination protection is enabled for the instance. The default is ``false``, which means that you can terminate the instance using the Amazon EC2 console, command line tools, or API. You can enable termination protection when you launch an instance, while the instance is running, or while the instance is stopped.
         """
         return pulumi.get(self, "disable_api_termination")
 
@@ -6549,7 +6551,7 @@ class LaunchTemplateDataArgs:
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']]:
         """
-        The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
+        The metadata options for the instance. For more information, see [Configure the Instance Metadata Service options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html) in the *Amazon EC2 User Guide*.
         """
         return pulumi.get(self, "metadata_options")
 
@@ -6583,14 +6585,14 @@ class LaunchTemplateDataArgs:
 
     @property
     @pulumi.getter(name="networkPerformanceOptions")
-    def network_performance_options(self) -> Optional[Any]:
+    def network_performance_options(self) -> Optional[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgs']]:
         """
-        The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) .
+        The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html).
         """
         return pulumi.get(self, "network_performance_options")
 
     @network_performance_options.setter
-    def network_performance_options(self, value: Optional[Any]):
+    def network_performance_options(self, value: Optional[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgs']]):
         pulumi.set(self, "network_performance_options", value)
 
     @property
@@ -6673,8 +6675,8 @@ class LaunchTemplateDataArgs:
     @pulumi.getter(name="userData")
     def user_data(self) -> Optional[pulumi.Input[str]]:
         """
-        The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Amazon EC2 instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
-         If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
+        The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands when you launch an EC2 instance with user data input](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
+         If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html#lt-user-data) in the *User Guide*.
         """
         return pulumi.get(self, "user_data")
 
@@ -6705,7 +6707,7 @@ if not MYPY:
           +   ``io1``: 100 - 64,000 IOPS
           +   ``io2``: 100 - 256,000 IOPS
           
-         For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+         For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
          This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
         """
         kms_key_id: NotRequired[pulumi.Input[str]]
@@ -6759,7 +6761,7 @@ class LaunchTemplateEbsArgs:
                  +   ``io1``: 100 - 64,000 IOPS
                  +   ``io2``: 100 - 256,000 IOPS
                  
-                For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+                For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
                 This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
         :param pulumi.Input[str] kms_key_id: Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
         :param pulumi.Input[str] snapshot_id: The ID of the snapshot.
@@ -6824,7 +6826,7 @@ class LaunchTemplateEbsArgs:
           +   ``io1``: 100 - 64,000 IOPS
           +   ``io2``: 100 - 256,000 IOPS
           
-         For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+         For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
          This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
         """
         return pulumi.get(self, "iops")
@@ -8414,7 +8416,7 @@ if not MYPY:
         """
         instance_metadata_tags: NotRequired[pulumi.Input[str]]
         """
-        Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [Work with instance tags using the instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS).
+        Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [View tags for your EC2 instances using instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html).
          Default: ``disabled``
         """
 elif False:
@@ -8443,7 +8445,7 @@ class LaunchTemplateMetadataOptionsArgs:
                  +   ``required`` - IMDSv2 is required. You must send a session token in your instance metadata retrieval requests. With this option, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.
                  
                 Default: If the value of ``ImdsSupport`` for the Amazon Machine Image (AMI) for your instance is ``v2.0``, the default is ``required``.
-        :param pulumi.Input[str] instance_metadata_tags: Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [Work with instance tags using the instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS).
+        :param pulumi.Input[str] instance_metadata_tags: Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [View tags for your EC2 instances using instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html).
                 Default: ``disabled``
         """
         if http_endpoint is not None:
@@ -8517,7 +8519,7 @@ class LaunchTemplateMetadataOptionsArgs:
     @pulumi.getter(name="instanceMetadataTags")
     def instance_metadata_tags(self) -> Optional[pulumi.Input[str]]:
         """
-        Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [Work with instance tags using the instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS).
+        Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [View tags for your EC2 instances using instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html).
          Default: ``disabled``
         """
         return pulumi.get(self, "instance_metadata_tags")
@@ -8722,7 +8724,7 @@ if not MYPY:
         """
         interface_type: NotRequired[pulumi.Input[str]]
         """
-        The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
+        The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
          If you are not creating an EFA, specify ``interface`` or omit this parameter.
          If you specify ``efa-only``, do not assign any IP addresses to the network interface. EFA-only network interfaces do not support IP addresses.
          Valid values: ``interface`` | ``efa`` | ``efa-only``
@@ -8821,7 +8823,7 @@ class LaunchTemplateNetworkInterfaceArgs:
                 If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
         :param pulumi.Input['LaunchTemplateEnaSrdSpecificationArgs'] ena_srd_specification: The ENA Express configuration for the network interface.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The IDs of one or more security groups.
-        :param pulumi.Input[str] interface_type: The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
+        :param pulumi.Input[str] interface_type: The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
                 If you are not creating an EFA, specify ``interface`` or omit this parameter.
                 If you specify ``efa-only``, do not assign any IP addresses to the network interface. EFA-only network interfaces do not support IP addresses.
                 Valid values: ``interface`` | ``efa`` | ``efa-only``
@@ -8987,7 +8989,7 @@ class LaunchTemplateNetworkInterfaceArgs:
     @pulumi.getter(name="interfaceType")
     def interface_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
+        The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
          If you are not creating an EFA, specify ``interface`` or omit this parameter.
          If you specify ``efa-only``, do not assign any IP addresses to the network interface. EFA-only network interfaces do not support IP addresses.
          Valid values: ``interface`` | ``efa`` | ``efa-only``
@@ -9153,6 +9155,38 @@ class LaunchTemplateNetworkInterfaceArgs:
     @subnet_id.setter
     def subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_id", value)
+
+
+if not MYPY:
+    class LaunchTemplateNetworkPerformanceOptionsArgsDict(TypedDict):
+        bandwidth_weighting: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the performance options of your instance or sets it to default.
+        """
+elif False:
+    LaunchTemplateNetworkPerformanceOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LaunchTemplateNetworkPerformanceOptionsArgs:
+    def __init__(__self__, *,
+                 bandwidth_weighting: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bandwidth_weighting: Specifies the performance options of your instance or sets it to default.
+        """
+        if bandwidth_weighting is not None:
+            pulumi.set(__self__, "bandwidth_weighting", bandwidth_weighting)
+
+    @property
+    @pulumi.getter(name="bandwidthWeighting")
+    def bandwidth_weighting(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the performance options of your instance or sets it to default.
+        """
+        return pulumi.get(self, "bandwidth_weighting")
+
+    @bandwidth_weighting.setter
+    def bandwidth_weighting(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bandwidth_weighting", value)
 
 
 if not MYPY:
@@ -9575,7 +9609,7 @@ if not MYPY:
         """
         max_price: NotRequired[pulumi.Input[str]]
         """
-        The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+        The maximum hourly price you're willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price. If you do specify this parameter, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an ``InvalidParameterValue`` error message when the launch template is used to launch an instance.
           If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
         """
         spot_instance_type: NotRequired[pulumi.Input[str]]
@@ -9607,7 +9641,7 @@ class LaunchTemplateSpotOptionsArgs:
           ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
         :param pulumi.Input[int] block_duration_minutes: Deprecated.
         :param pulumi.Input[str] instance_interruption_behavior: The behavior when a Spot Instance is interrupted. The default is ``terminate``.
-        :param pulumi.Input[str] max_price: The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+        :param pulumi.Input[str] max_price: The maximum hourly price you're willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price. If you do specify this parameter, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an ``InvalidParameterValue`` error message when the launch template is used to launch an instance.
                  If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
         :param pulumi.Input[str] spot_instance_type: The Spot Instance request type.
                 If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the ASlong service handles requesting new Spot Instances whenever the group is below its desired capacity.
@@ -9656,7 +9690,7 @@ class LaunchTemplateSpotOptionsArgs:
     @pulumi.getter(name="maxPrice")
     def max_price(self) -> Optional[pulumi.Input[str]]:
         """
-        The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+        The maximum hourly price you're willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price. If you do specify this parameter, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an ``InvalidParameterValue`` error message when the launch template is used to launch an instance.
           If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
         """
         return pulumi.get(self, "max_price")

@@ -469,7 +469,7 @@ class KeyPairKeyType(str, Enum):
 
 class LaunchTemplateCpuOptionsAmdSevSnp(str, Enum):
     """
-    Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
+    Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
     """
     ENABLED = "enabled"
     DISABLED = "disabled"

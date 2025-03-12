@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly Outputs.LaunchTemplateCapacityReservationSpecification? CapacityReservationSpecification;
         /// <summary>
-        /// The CPU options for the instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
+        /// The CPU options for the instance. For more information, see [CPU options for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
         /// </summary>
         public readonly Outputs.LaunchTemplateCpuOptions? CpuOptions;
         /// <summary>
@@ -34,11 +34,11 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly Outputs.LaunchTemplateCreditSpecification? CreditSpecification;
         /// <summary>
-        /// Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
+        /// Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
         /// </summary>
         public readonly bool? DisableApiStop;
         /// <summary>
-        /// If you set this parameter to ``true``, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html). Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate``, you can terminate the instance by running the shutdown command from the instance.
+        /// Indicates whether termination protection is enabled for the instance. The default is ``false``, which means that you can terminate the instance using the Amazon EC2 console, command line tools, or API. You can enable termination protection when you launch an instance, while the instance is running, or while the instance is stopped.
         /// </summary>
         public readonly bool? DisableApiTermination;
         /// <summary>
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly Outputs.LaunchTemplateMaintenanceOptions? MaintenanceOptions;
         /// <summary>
-        /// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
+        /// The metadata options for the instance. For more information, see [Configure the Instance Metadata Service options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html) in the *Amazon EC2 User Guide*.
         /// </summary>
         public readonly Outputs.LaunchTemplateMetadataOptions? MetadataOptions;
         /// <summary>
@@ -139,9 +139,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.LaunchTemplateNetworkInterface> NetworkInterfaces;
         /// <summary>
-        /// The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) .
+        /// The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html).
         /// </summary>
-        public readonly object? NetworkPerformanceOptions;
+        public readonly Outputs.LaunchTemplateNetworkPerformanceOptions? NetworkPerformanceOptions;
         /// <summary>
         /// The placement for the instance.
         /// </summary>
@@ -171,8 +171,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TagSpecification> TagSpecifications;
         /// <summary>
-        /// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Amazon EC2 instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
-        ///  If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
+        /// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands when you launch an EC2 instance with user data input](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
+        ///  If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html#lt-user-data) in the *User Guide*.
         /// </summary>
         public readonly string? UserData;
 
@@ -226,7 +226,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             ImmutableArray<Outputs.LaunchTemplateNetworkInterface> networkInterfaces,
 
-            object? networkPerformanceOptions,
+            Outputs.LaunchTemplateNetworkPerformanceOptions? networkPerformanceOptions,
 
             Outputs.LaunchTemplatePlacement? placement,
 

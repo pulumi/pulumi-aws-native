@@ -35,13 +35,14 @@ type LookupLoadBalancerResult struct {
 	DnsName *string `pulumi:"dnsName"`
 	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
 	EnablePrefixForIpv6SourceNat *string `pulumi:"enablePrefixForIpv6SourceNat"`
-	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
+	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic *string `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
 	// The IP address type. Internal load balancers must use ``ipv4``.
 	//  [Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).
 	//  Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
 	//  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
-	IpAddressType *string `pulumi:"ipAddressType"`
+	IpAddressType  *string `pulumi:"ipAddressType"`
+	Ipv4IpamPoolId *string `pulumi:"ipv4IpamPoolId"`
 	// The Amazon Resource Name (ARN) of the load balancer.
 	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
 	// The load balancer attributes.
@@ -118,7 +119,7 @@ func (o LookupLoadBalancerResultOutput) EnablePrefixForIpv6SourceNat() pulumi.St
 	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.EnablePrefixForIpv6SourceNat }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
+// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is “on“.
 func (o LookupLoadBalancerResultOutput) EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) *string {
 		return v.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
@@ -132,6 +133,10 @@ func (o LookupLoadBalancerResultOutput) EnforceSecurityGroupInboundRulesOnPrivat
 //	[Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
 func (o LookupLoadBalancerResultOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) Ipv4IpamPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.Ipv4IpamPoolId }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the load balancer.

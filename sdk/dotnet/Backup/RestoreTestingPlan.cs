@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Backup
         public Output<string> RestoreTestingPlanName { get; private set; } = null!;
 
         /// <summary>
-        /// A CRON expression in specified timezone when a restore testing plan is executed.
+        /// A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
         /// </summary>
         [Output("scheduleExpression")]
         public Output<string> ScheduleExpression { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.Backup
         public Input<string>? RestoreTestingPlanName { get; set; }
 
         /// <summary>
-        /// A CRON expression in specified timezone when a restore testing plan is executed.
+        /// A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
         /// </summary>
         [Input("scheduleExpression", required: true)]
         public Input<string> ScheduleExpression { get; set; } = null!;

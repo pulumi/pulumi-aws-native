@@ -47,6 +47,7 @@ export interface GetAppMonitorResult {
      * The unique ID of the new app monitor.
      */
     readonly id?: string;
+    readonly resourcePolicy?: outputs.rum.AppMonitorResourcePolicy;
     /**
      * Assigns one or more tags (key-value pairs) to the app monitor.
      *

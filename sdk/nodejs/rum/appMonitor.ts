@@ -63,6 +63,7 @@ export class AppMonitor extends pulumi.CustomResource {
      * A name for the app monitor
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly resourcePolicy!: pulumi.Output<outputs.rum.AppMonitorResourcePolicy | undefined>;
     /**
      * Assigns one or more tags (key-value pairs) to the app monitor.
      *
@@ -95,6 +96,7 @@ export class AppMonitor extends pulumi.CustomResource {
             resourceInputs["cwLogEnabled"] = args ? args.cwLogEnabled : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
@@ -104,6 +106,7 @@ export class AppMonitor extends pulumi.CustomResource {
             resourceInputs["cwLogEnabled"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourcePolicy"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -139,6 +142,7 @@ export interface AppMonitorArgs {
      * A name for the app monitor
      */
     name?: pulumi.Input<string>;
+    resourcePolicy?: pulumi.Input<inputs.rum.AppMonitorResourcePolicyArgs>;
     /**
      * Assigns one or more tags (key-value pairs) to the app monitor.
      *

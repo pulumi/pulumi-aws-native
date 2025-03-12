@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// </summary>
         public readonly string? EnablePrefixForIpv6SourceNat;
         /// <summary>
-        /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
+        /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
         /// </summary>
         public readonly string? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
         /// <summary>
@@ -86,6 +86,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         ///  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
         /// </summary>
         public readonly string? IpAddressType;
+        public readonly string? Ipv4IpamPoolId;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the load balancer.
         /// </summary>
@@ -144,6 +145,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
             string? ipAddressType,
 
+            string? ipv4IpamPoolId,
+
             string? loadBalancerArn,
 
             ImmutableArray<Outputs.LoadBalancerAttribute> loadBalancerAttributes,
@@ -167,6 +170,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
             EnablePrefixForIpv6SourceNat = enablePrefixForIpv6SourceNat;
             EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic = enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
             IpAddressType = ipAddressType;
+            Ipv4IpamPoolId = ipv4IpamPoolId;
             LoadBalancerArn = loadBalancerArn;
             LoadBalancerAttributes = loadBalancerAttributes;
             LoadBalancerFullName = loadBalancerFullName;

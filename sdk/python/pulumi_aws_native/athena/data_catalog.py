@@ -23,25 +23,37 @@ __all__ = ['DataCatalogArgs', 'DataCatalog']
 class DataCatalogArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['DataCatalogType'],
+                 connection_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 error: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 status: Optional[pulumi.Input['DataCatalogStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataCatalog resource.
-        :param pulumi.Input['DataCatalogType'] type: The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
+        :param pulumi.Input['DataCatalogType'] type: The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
+        :param pulumi.Input[str] connection_type: The type of connection for a FEDERATED data catalog
         :param pulumi.Input[str] description: A description of the data catalog to be created. 
+        :param pulumi.Input[str] error: Text of the error that occurred during data catalog creation or deletion.
         :param pulumi.Input[str] name: The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
+        :param pulumi.Input['DataCatalogStatus'] status: The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of comma separated tags to add to the data catalog that is created. 
         """
         pulumi.set(__self__, "type", type)
+        if connection_type is not None:
+            pulumi.set(__self__, "connection_type", connection_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -49,13 +61,25 @@ class DataCatalogArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input['DataCatalogType']:
         """
-        The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
+        The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input['DataCatalogType']):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of connection for a FEDERATED data catalog
+        """
+        return pulumi.get(self, "connection_type")
+
+    @connection_type.setter
+    def connection_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_type", value)
 
     @property
     @pulumi.getter
@@ -68,6 +92,18 @@ class DataCatalogArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[str]]:
+        """
+        Text of the error that occurred during data catalog creation or deletion.
+        """
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error", value)
 
     @property
     @pulumi.getter
@@ -95,6 +131,18 @@ class DataCatalogArgs:
 
     @property
     @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['DataCatalogStatus']]:
+        """
+        The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['DataCatalogStatus']]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of comma separated tags to add to the data catalog that is created. 
@@ -111,9 +159,12 @@ class DataCatalog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 connection_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 error: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 status: Optional[pulumi.Input['DataCatalogStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['DataCatalogType']] = None,
                  __props__=None):
@@ -174,11 +225,14 @@ class DataCatalog(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] connection_type: The type of connection for a FEDERATED data catalog
         :param pulumi.Input[str] description: A description of the data catalog to be created. 
+        :param pulumi.Input[str] error: Text of the error that occurred during data catalog creation or deletion.
         :param pulumi.Input[str] name: The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
+        :param pulumi.Input['DataCatalogStatus'] status: The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of comma separated tags to add to the data catalog that is created. 
-        :param pulumi.Input['DataCatalogType'] type: The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
+        :param pulumi.Input['DataCatalogType'] type: The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
         """
         ...
     @overload
@@ -256,9 +310,12 @@ class DataCatalog(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 connection_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 error: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 status: Optional[pulumi.Input['DataCatalogStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['DataCatalogType']] = None,
                  __props__=None):
@@ -270,9 +327,12 @@ class DataCatalog(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataCatalogArgs.__new__(DataCatalogArgs)
 
+            __props__.__dict__["connection_type"] = connection_type
             __props__.__dict__["description"] = description
+            __props__.__dict__["error"] = error
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -301,12 +361,23 @@ class DataCatalog(pulumi.CustomResource):
 
         __props__ = DataCatalogArgs.__new__(DataCatalogArgs)
 
+        __props__.__dict__["connection_type"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["error"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["parameters"] = None
+        __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return DataCatalog(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of connection for a FEDERATED data catalog
+        """
+        return pulumi.get(self, "connection_type")
 
     @property
     @pulumi.getter
@@ -315,6 +386,14 @@ class DataCatalog(pulumi.CustomResource):
         A description of the data catalog to be created. 
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def error(self) -> pulumi.Output[Optional[str]]:
+        """
+        Text of the error that occurred during data catalog creation or deletion.
+        """
+        return pulumi.get(self, "error")
 
     @property
     @pulumi.getter
@@ -334,6 +413,14 @@ class DataCatalog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def status(self) -> pulumi.Output[Optional['DataCatalogStatus']]:
+        """
+        The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of comma separated tags to add to the data catalog that is created. 
@@ -344,7 +431,7 @@ class DataCatalog(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output['DataCatalogType']:
         """
-        The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
+        The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
         """
         return pulumi.get(self, "type")
 

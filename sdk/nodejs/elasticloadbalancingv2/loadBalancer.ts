@@ -50,7 +50,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly enablePrefixForIpv6SourceNat!: pulumi.Output<string | undefined>;
     /**
-     * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
+     * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
      */
     public readonly enforceSecurityGroupInboundRulesOnPrivateLinkTraffic!: pulumi.Output<string | undefined>;
     /**
@@ -60,6 +60,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      *  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
      */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
+    public readonly ipv4IpamPoolId!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the load balancer.
      */
@@ -136,6 +137,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["enablePrefixForIpv6SourceNat"] = args ? args.enablePrefixForIpv6SourceNat : undefined;
             resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = args ? args.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic : undefined;
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
             resourceInputs["loadBalancerAttributes"] = args ? args.loadBalancerAttributes : undefined;
             resourceInputs["minimumLoadBalancerCapacity"] = args ? args.minimumLoadBalancerCapacity : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -156,6 +158,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["enablePrefixForIpv6SourceNat"] = undefined /*out*/;
             resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = undefined /*out*/;
             resourceInputs["ipAddressType"] = undefined /*out*/;
+            resourceInputs["ipv4IpamPoolId"] = undefined /*out*/;
             resourceInputs["loadBalancerArn"] = undefined /*out*/;
             resourceInputs["loadBalancerAttributes"] = undefined /*out*/;
             resourceInputs["loadBalancerFullName"] = undefined /*out*/;
@@ -185,7 +188,7 @@ export interface LoadBalancerArgs {
      */
     enablePrefixForIpv6SourceNat?: pulumi.Input<string>;
     /**
-     * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
+     * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
      */
     enforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: pulumi.Input<string>;
     /**
@@ -195,6 +198,7 @@ export interface LoadBalancerArgs {
      *  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
      */
     ipAddressType?: pulumi.Input<string>;
+    ipv4IpamPoolId?: pulumi.Input<string>;
     /**
      * The load balancer attributes.
      */

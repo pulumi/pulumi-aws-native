@@ -30,7 +30,8 @@ type AppMonitor struct {
 	// The top-level internet domain name for which your application has administrative authority.
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// A name for the app monitor
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name           pulumi.StringOutput               `pulumi:"name"`
+	ResourcePolicy AppMonitorResourcePolicyPtrOutput `pulumi:"resourcePolicy"`
 	// Assigns one or more tags (key-value pairs) to the app monitor.
 	//
 	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
@@ -101,7 +102,8 @@ type appMonitorArgs struct {
 	// The top-level internet domain name for which your application has administrative authority.
 	Domain string `pulumi:"domain"`
 	// A name for the app monitor
-	Name *string `pulumi:"name"`
+	Name           *string                   `pulumi:"name"`
+	ResourcePolicy *AppMonitorResourcePolicy `pulumi:"resourcePolicy"`
 	// Assigns one or more tags (key-value pairs) to the app monitor.
 	//
 	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
@@ -127,7 +129,8 @@ type AppMonitorArgs struct {
 	// The top-level internet domain name for which your application has administrative authority.
 	Domain pulumi.StringInput
 	// A name for the app monitor
-	Name pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
+	ResourcePolicy AppMonitorResourcePolicyPtrInput
 	// Assigns one or more tags (key-value pairs) to the app monitor.
 	//
 	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
@@ -207,6 +210,10 @@ func (o AppMonitorOutput) Domain() pulumi.StringOutput {
 // A name for the app monitor
 func (o AppMonitorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AppMonitorOutput) ResourcePolicy() AppMonitorResourcePolicyPtrOutput {
+	return o.ApplyT(func(v *AppMonitor) AppMonitorResourcePolicyPtrOutput { return v.ResourcePolicy }).(AppMonitorResourcePolicyPtrOutput)
 }
 
 // Assigns one or more tags (key-value pairs) to the app monitor.

@@ -92,10 +92,22 @@ namespace Pulumi.AwsNative.Athena
     public partial class DataCatalog : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The type of connection for a FEDERATED data catalog
+        /// </summary>
+        [Output("connectionType")]
+        public Output<string?> ConnectionType { get; private set; } = null!;
+
+        /// <summary>
         /// A description of the data catalog to be created. 
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Text of the error that occurred during data catalog creation or deletion.
+        /// </summary>
+        [Output("error")]
+        public Output<string?> Error { get; private set; } = null!;
 
         /// <summary>
         /// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
@@ -110,13 +122,19 @@ namespace Pulumi.AwsNative.Athena
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
+        /// The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
+        /// </summary>
+        [Output("status")]
+        public Output<Pulumi.AwsNative.Athena.DataCatalogStatus?> Status { get; private set; } = null!;
+
+        /// <summary>
         /// A list of comma separated tags to add to the data catalog that is created. 
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
+        /// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
         /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.Athena.DataCatalogType> Type { get; private set; } = null!;
@@ -171,10 +189,22 @@ namespace Pulumi.AwsNative.Athena
     public sealed class DataCatalogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The type of connection for a FEDERATED data catalog
+        /// </summary>
+        [Input("connectionType")]
+        public Input<string>? ConnectionType { get; set; }
+
+        /// <summary>
         /// A description of the data catalog to be created. 
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Text of the error that occurred during data catalog creation or deletion.
+        /// </summary>
+        [Input("error")]
+        public Input<string>? Error { get; set; }
 
         /// <summary>
         /// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
@@ -194,6 +224,12 @@ namespace Pulumi.AwsNative.Athena
             set => _parameters = value;
         }
 
+        /// <summary>
+        /// The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
+        /// </summary>
+        [Input("status")]
+        public Input<Pulumi.AwsNative.Athena.DataCatalogStatus>? Status { get; set; }
+
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
@@ -207,7 +243,7 @@ namespace Pulumi.AwsNative.Athena
         }
 
         /// <summary>
-        /// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
+        /// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
         /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Athena.DataCatalogType> Type { get; set; } = null!;

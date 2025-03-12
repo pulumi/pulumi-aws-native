@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetJobDefinitionResult:
-    def __init__(__self__, consumable_resource_properties=None, container_properties=None, ecs_properties=None, eks_properties=None, node_properties=None, parameters=None, platform_capabilities=None, propagate_tags=None, retry_strategy=None, scheduling_priority=None, tags=None, timeout=None, type=None):
+    def __init__(__self__, consumable_resource_properties=None, container_properties=None, ecs_properties=None, eks_properties=None, job_definition_arn=None, node_properties=None, parameters=None, platform_capabilities=None, propagate_tags=None, retry_strategy=None, scheduling_priority=None, tags=None, timeout=None, type=None):
         if consumable_resource_properties and not isinstance(consumable_resource_properties, dict):
             raise TypeError("Expected argument 'consumable_resource_properties' to be a dict")
         pulumi.set(__self__, "consumable_resource_properties", consumable_resource_properties)
@@ -37,6 +37,9 @@ class GetJobDefinitionResult:
         if eks_properties and not isinstance(eks_properties, dict):
             raise TypeError("Expected argument 'eks_properties' to be a dict")
         pulumi.set(__self__, "eks_properties", eks_properties)
+        if job_definition_arn and not isinstance(job_definition_arn, str):
+            raise TypeError("Expected argument 'job_definition_arn' to be a str")
+        pulumi.set(__self__, "job_definition_arn", job_definition_arn)
         if node_properties and not isinstance(node_properties, dict):
             raise TypeError("Expected argument 'node_properties' to be a dict")
         pulumi.set(__self__, "node_properties", node_properties)
@@ -96,6 +99,11 @@ class GetJobDefinitionResult:
         An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
         """
         return pulumi.get(self, "eks_properties")
+
+    @property
+    @pulumi.getter(name="jobDefinitionArn")
+    def job_definition_arn(self) -> Optional[str]:
+        return pulumi.get(self, "job_definition_arn")
 
     @property
     @pulumi.getter(name="nodeProperties")
@@ -187,6 +195,7 @@ class AwaitableGetJobDefinitionResult(GetJobDefinitionResult):
             container_properties=self.container_properties,
             ecs_properties=self.ecs_properties,
             eks_properties=self.eks_properties,
+            job_definition_arn=self.job_definition_arn,
             node_properties=self.node_properties,
             parameters=self.parameters,
             platform_capabilities=self.platform_capabilities,
@@ -216,6 +225,7 @@ def get_job_definition(job_definition_name: Optional[str] = None,
         container_properties=pulumi.get(__ret__, 'container_properties'),
         ecs_properties=pulumi.get(__ret__, 'ecs_properties'),
         eks_properties=pulumi.get(__ret__, 'eks_properties'),
+        job_definition_arn=pulumi.get(__ret__, 'job_definition_arn'),
         node_properties=pulumi.get(__ret__, 'node_properties'),
         parameters=pulumi.get(__ret__, 'parameters'),
         platform_capabilities=pulumi.get(__ret__, 'platform_capabilities'),
@@ -242,6 +252,7 @@ def get_job_definition_output(job_definition_name: Optional[pulumi.Input[str]] =
         container_properties=pulumi.get(__response__, 'container_properties'),
         ecs_properties=pulumi.get(__response__, 'ecs_properties'),
         eks_properties=pulumi.get(__response__, 'eks_properties'),
+        job_definition_arn=pulumi.get(__response__, 'job_definition_arn'),
         node_properties=pulumi.get(__response__, 'node_properties'),
         parameters=pulumi.get(__response__, 'parameters'),
         platform_capabilities=pulumi.get(__response__, 'platform_capabilities'),

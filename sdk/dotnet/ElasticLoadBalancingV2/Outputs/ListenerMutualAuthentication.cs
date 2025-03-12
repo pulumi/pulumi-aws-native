@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 {
 
     /// <summary>
-    /// Specifies the configuration information for mutual authentication.
+    /// The mutual authentication configuration information.
     /// </summary>
     [OutputType]
     public sealed class ListenerMutualAuthentication
     {
         /// <summary>
-        /// Indicates whether trust store CA certificate names are advertised. The default value is `off` .
+        /// Indicates whether trust store CA certificate names are advertised. The default value is ``off``.
         /// </summary>
         public readonly string? AdvertiseTrustStoreCaNames;
         /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         /// </summary>
         public readonly bool? IgnoreClientCertificateExpiry;
         /// <summary>
-        /// The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
+        /// The client certificate handling method. The possible values are ``off``, ``passthrough``, and ``verify``. The default value is ``off``.
         /// </summary>
         public readonly string? Mode;
         /// <summary>

@@ -42,6 +42,11 @@ namespace Pulumi.AwsNative.Iam
 
     public sealed class GetManagedPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the managed policy that you want information about.
+        /// 
+        /// For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
+        /// </summary>
         [Input("policyArn", required: true)]
         public string PolicyArn { get; set; } = null!;
 
@@ -53,6 +58,11 @@ namespace Pulumi.AwsNative.Iam
 
     public sealed class GetManagedPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the managed policy that you want information about.
+        /// 
+        /// For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
+        /// </summary>
         [Input("policyArn", required: true)]
         public Input<string> PolicyArn { get; set; } = null!;
 
@@ -66,16 +76,40 @@ namespace Pulumi.AwsNative.Iam
     [OutputType]
     public sealed class GetManagedPolicyResult
     {
+        /// <summary>
+        /// The number of principal entities (users, groups, and roles) that the policy is attached to.
+        /// </summary>
         public readonly int? AttachmentCount;
+        /// <summary>
+        /// The date and time, in [ISO 8601 date-time format](https://docs.aws.amazon.com/http://www.iso.org/iso/iso8601) , when the policy was created.
+        /// </summary>
         public readonly string? CreateDate;
+        /// <summary>
+        /// The identifier for the version of the policy that is set as the default (operative) version.
+        /// 
+        /// For more information about policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html) in the *IAM User Guide* .
+        /// </summary>
         public readonly string? DefaultVersionId;
         /// <summary>
         /// The name (friendly name, not ARN) of the group to attach the policy to.
         ///  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         /// </summary>
         public readonly ImmutableArray<string> Groups;
+        /// <summary>
+        /// Specifies whether the policy can be attached to an IAM user, group, or role.
+        /// </summary>
         public readonly bool? IsAttachable;
+        /// <summary>
+        /// The number of entities (users and roles) for which the policy is used as the permissions boundary.
+        /// 
+        /// For more information about permissions boundaries, see [Permissions boundaries for IAM identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
+        /// </summary>
         public readonly int? PermissionsBoundaryUsageCount;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the managed policy that you want information about.
+        /// 
+        /// For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
+        /// </summary>
         public readonly string? PolicyArn;
         /// <summary>
         /// The JSON policy document that you want to use as the content for the new policy.
@@ -90,6 +124,11 @@ namespace Pulumi.AwsNative.Iam
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? PolicyDocument;
+        /// <summary>
+        /// The stable and unique string identifying the policy.
+        /// 
+        /// For more information about IDs, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
+        /// </summary>
         public readonly string? PolicyId;
         /// <summary>
         /// The name (friendly name, not ARN) of the role to attach the policy to.
@@ -97,6 +136,11 @@ namespace Pulumi.AwsNative.Iam
         ///   If an external policy (such as ``AWS::IAM::Policy`` or ``AWS::IAM::ManagedPolicy``) has a ``Ref`` to a role and if a resource (such as ``AWS::ECS::Service``) also has a ``Ref`` to the same role, add a ``DependsOn`` attribute to the resource to make the resource depend on the external policy. This dependency ensures that the role's policy is available throughout the resource's lifecycle. For example, when you delete a stack with an ``AWS::ECS::Service`` resource, the ``DependsOn`` attribute ensures that CFN deletes the ``AWS::ECS::Service`` resource before deleting its role's policy.
         /// </summary>
         public readonly ImmutableArray<string> Roles;
+        /// <summary>
+        /// The date and time, in [ISO 8601 date-time format](https://docs.aws.amazon.com/http://www.iso.org/iso/iso8601) , when the policy was last updated.
+        /// 
+        /// When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
+        /// </summary>
         public readonly string? UpdateDate;
         /// <summary>
         /// The name (friendly name, not ARN) of the IAM user to attach the policy to.

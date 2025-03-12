@@ -64,16 +64,27 @@ class GetManagedPolicyResult:
     @property
     @pulumi.getter(name="attachmentCount")
     def attachment_count(self) -> Optional[int]:
+        """
+        The number of principal entities (users, groups, and roles) that the policy is attached to.
+        """
         return pulumi.get(self, "attachment_count")
 
     @property
     @pulumi.getter(name="createDate")
     def create_date(self) -> Optional[str]:
+        """
+        The date and time, in [ISO 8601 date-time format](https://docs.aws.amazon.com/http://www.iso.org/iso/iso8601) , when the policy was created.
+        """
         return pulumi.get(self, "create_date")
 
     @property
     @pulumi.getter(name="defaultVersionId")
     def default_version_id(self) -> Optional[str]:
+        """
+        The identifier for the version of the policy that is set as the default (operative) version.
+
+        For more information about policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html) in the *IAM User Guide* .
+        """
         return pulumi.get(self, "default_version_id")
 
     @property
@@ -88,16 +99,29 @@ class GetManagedPolicyResult:
     @property
     @pulumi.getter(name="isAttachable")
     def is_attachable(self) -> Optional[bool]:
+        """
+        Specifies whether the policy can be attached to an IAM user, group, or role.
+        """
         return pulumi.get(self, "is_attachable")
 
     @property
     @pulumi.getter(name="permissionsBoundaryUsageCount")
     def permissions_boundary_usage_count(self) -> Optional[int]:
+        """
+        The number of entities (users and roles) for which the policy is used as the permissions boundary.
+
+        For more information about permissions boundaries, see [Permissions boundaries for IAM identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
+        """
         return pulumi.get(self, "permissions_boundary_usage_count")
 
     @property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the managed policy that you want information about.
+
+        For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
+        """
         return pulumi.get(self, "policy_arn")
 
     @property
@@ -120,6 +144,11 @@ class GetManagedPolicyResult:
     @property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[str]:
+        """
+        The stable and unique string identifying the policy.
+
+        For more information about IDs, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
+        """
         return pulumi.get(self, "policy_id")
 
     @property
@@ -135,6 +164,11 @@ class GetManagedPolicyResult:
     @property
     @pulumi.getter(name="updateDate")
     def update_date(self) -> Optional[str]:
+        """
+        The date and time, in [ISO 8601 date-time format](https://docs.aws.amazon.com/http://www.iso.org/iso/iso8601) , when the policy was last updated.
+
+        When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
+        """
         return pulumi.get(self, "update_date")
 
     @property
@@ -174,6 +208,11 @@ def get_managed_policy(policy_arn: Optional[str] = None,
      This operation creates a policy version with a version identifier of ``v1`` and sets v1 as the policy's default version. For more information about policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html) in the *IAM User Guide*.
      As a best practice, you can validate your IAM policies. To learn more, see [Validating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html) in the *IAM User Guide*.
      For more information about managed policies in general, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide*.
+
+
+    :param str policy_arn: The Amazon Resource Name (ARN) of the managed policy that you want information about.
+           
+           For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
     """
     __args__ = dict()
     __args__['policyArn'] = policy_arn
@@ -200,6 +239,11 @@ def get_managed_policy_output(policy_arn: Optional[pulumi.Input[str]] = None,
      This operation creates a policy version with a version identifier of ``v1`` and sets v1 as the policy's default version. For more information about policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html) in the *IAM User Guide*.
      As a best practice, you can validate your IAM policies. To learn more, see [Validating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html) in the *IAM User Guide*.
      For more information about managed policies in general, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide*.
+
+
+    :param str policy_arn: The Amazon Resource Name (ARN) of the managed policy that you want information about.
+           
+           For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
     """
     __args__ = dict()
     __args__['policyArn'] = policy_arn

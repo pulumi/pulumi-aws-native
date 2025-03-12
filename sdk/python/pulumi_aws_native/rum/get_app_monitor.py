@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAppMonitorResult:
-    def __init__(__self__, app_monitor_configuration=None, custom_events=None, cw_log_enabled=None, domain=None, id=None, tags=None):
+    def __init__(__self__, app_monitor_configuration=None, custom_events=None, cw_log_enabled=None, domain=None, id=None, resource_policy=None, tags=None):
         if app_monitor_configuration and not isinstance(app_monitor_configuration, dict):
             raise TypeError("Expected argument 'app_monitor_configuration' to be a dict")
         pulumi.set(__self__, "app_monitor_configuration", app_monitor_configuration)
@@ -42,6 +42,9 @@ class GetAppMonitorResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if resource_policy and not isinstance(resource_policy, dict):
+            raise TypeError("Expected argument 'resource_policy' to be a dict")
+        pulumi.set(__self__, "resource_policy", resource_policy)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -89,6 +92,11 @@ class GetAppMonitorResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="resourcePolicy")
+    def resource_policy(self) -> Optional['outputs.AppMonitorResourcePolicy']:
+        return pulumi.get(self, "resource_policy")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -116,6 +124,7 @@ class AwaitableGetAppMonitorResult(GetAppMonitorResult):
             cw_log_enabled=self.cw_log_enabled,
             domain=self.domain,
             id=self.id,
+            resource_policy=self.resource_policy,
             tags=self.tags)
 
 
@@ -138,6 +147,7 @@ def get_app_monitor(name: Optional[str] = None,
         cw_log_enabled=pulumi.get(__ret__, 'cw_log_enabled'),
         domain=pulumi.get(__ret__, 'domain'),
         id=pulumi.get(__ret__, 'id'),
+        resource_policy=pulumi.get(__ret__, 'resource_policy'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_app_monitor_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppMonitorResult]:
@@ -157,4 +167,5 @@ def get_app_monitor_output(name: Optional[pulumi.Input[str]] = None,
         cw_log_enabled=pulumi.get(__response__, 'cw_log_enabled'),
         domain=pulumi.get(__response__, 'domain'),
         id=pulumi.get(__response__, 'id'),
+        resource_policy=pulumi.get(__response__, 'resource_policy'),
         tags=pulumi.get(__response__, 'tags')))

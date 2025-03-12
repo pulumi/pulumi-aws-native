@@ -45,6 +45,8 @@ type LookupMicrosoftTeamsChannelConfigurationResult struct {
 	Tags []aws.Tag `pulumi:"tags"`
 	// The id of the Microsoft Teams channel
 	TeamsChannelId *string `pulumi:"teamsChannelId"`
+	// The name of the Microsoft Teams channel
+	TeamsChannelName *string `pulumi:"teamsChannelName"`
 	// Enables use of a user role requirement in your chat configuration
 	UserRoleRequired *bool `pulumi:"userRoleRequired"`
 }
@@ -119,6 +121,11 @@ func (o LookupMicrosoftTeamsChannelConfigurationResultOutput) Tags() aws.TagArra
 // The id of the Microsoft Teams channel
 func (o LookupMicrosoftTeamsChannelConfigurationResultOutput) TeamsChannelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMicrosoftTeamsChannelConfigurationResult) *string { return v.TeamsChannelId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Microsoft Teams channel
+func (o LookupMicrosoftTeamsChannelConfigurationResultOutput) TeamsChannelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMicrosoftTeamsChannelConfigurationResult) *string { return v.TeamsChannelName }).(pulumi.StringPtrOutput)
 }
 
 // Enables use of a user role requirement in your chat configuration

@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.Batch
         /// An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
         /// </summary>
         public readonly Outputs.JobDefinitionEksProperties? EksProperties;
+        public readonly string? JobDefinitionArn;
         /// <summary>
         /// An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
         /// 
@@ -133,6 +134,8 @@ namespace Pulumi.AwsNative.Batch
 
             Outputs.JobDefinitionEksProperties? eksProperties,
 
+            string? jobDefinitionArn,
+
             Outputs.JobDefinitionNodeProperties? nodeProperties,
 
             ImmutableDictionary<string, string>? parameters,
@@ -155,6 +158,7 @@ namespace Pulumi.AwsNative.Batch
             ContainerProperties = containerProperties;
             EcsProperties = ecsProperties;
             EksProperties = eksProperties;
+            JobDefinitionArn = jobDefinitionArn;
             NodeProperties = nodeProperties;
             Parameters = parameters;
             PlatformCapabilities = platformCapabilities;

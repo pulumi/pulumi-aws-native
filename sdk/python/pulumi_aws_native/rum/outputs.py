@@ -21,6 +21,7 @@ __all__ = [
     'AppMonitorCustomEvents',
     'AppMonitorMetricDefinition',
     'AppMonitorMetricDestination',
+    'AppMonitorResourcePolicy',
 ]
 
 @pulumi.output_type
@@ -504,5 +505,62 @@ class AppMonitorMetricDestination(dict):
         An array of structures which define the metrics that you want to send.
         """
         return pulumi.get(self, "metric_definitions")
+
+
+@pulumi.output_type
+class AppMonitorResourcePolicy(dict):
+    """
+    A structure that defines resource policy attached to your app monitor.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyDocument":
+            suggest = "policy_document"
+        elif key == "policyRevisionId":
+            suggest = "policy_revision_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppMonitorResourcePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppMonitorResourcePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppMonitorResourcePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_document: str,
+                 policy_revision_id: Optional[str] = None):
+        """
+        A structure that defines resource policy attached to your app monitor.
+        :param str policy_document: The JSON to use as the resource policy. The document can be up to 4 KB in size. 
+        :param str policy_revision_id: A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy. 
+               
+                When you assign a policy revision ID, then later requests about that policy will be rejected with an InvalidPolicyRevisionIdException error if they don't provide the correct current revision ID.
+        """
+        pulumi.set(__self__, "policy_document", policy_document)
+        if policy_revision_id is not None:
+            pulumi.set(__self__, "policy_revision_id", policy_revision_id)
+
+    @property
+    @pulumi.getter(name="policyDocument")
+    def policy_document(self) -> str:
+        """
+        The JSON to use as the resource policy. The document can be up to 4 KB in size. 
+        """
+        return pulumi.get(self, "policy_document")
+
+    @property
+    @pulumi.getter(name="policyRevisionId")
+    def policy_revision_id(self) -> Optional[str]:
+        """
+        A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy. 
+
+         When you assign a policy revision ID, then later requests about that policy will be rejected with an InvalidPolicyRevisionIdException error if they don't provide the correct current revision ID.
+        """
+        return pulumi.get(self, "policy_revision_id")
 
 

@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         ///   +   ``io1``: 100 - 64,000 IOPS
         ///   +   ``io2``: 100 - 256,000 IOPS
         ///   
-        ///  For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+        ///  For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
         ///  This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
         /// </summary>
         public readonly int? Iops;

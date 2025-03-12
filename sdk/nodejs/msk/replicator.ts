@@ -40,7 +40,7 @@ export class Replicator extends pulumi.CustomResource {
     /**
      * The current version of the MSK replicator.
      */
-    public readonly currentVersion!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly currentVersion!: pulumi.Output<string>;
     /**
      * A summary description of the replicator.
      */
@@ -90,13 +90,13 @@ export class Replicator extends pulumi.CustomResource {
             if ((!args || args.serviceExecutionRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceExecutionRoleArn'");
             }
-            resourceInputs["currentVersion"] = args ? args.currentVersion : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["kafkaClusters"] = args ? args.kafkaClusters : undefined;
             resourceInputs["replicationInfoList"] = args ? args.replicationInfoList : undefined;
             resourceInputs["replicatorName"] = args ? args.replicatorName : undefined;
             resourceInputs["serviceExecutionRoleArn"] = args ? args.serviceExecutionRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["currentVersion"] = undefined /*out*/;
             resourceInputs["replicatorArn"] = undefined /*out*/;
         } else {
             resourceInputs["currentVersion"] = undefined /*out*/;
@@ -119,10 +119,6 @@ export class Replicator extends pulumi.CustomResource {
  * The set of arguments for constructing a Replicator resource.
  */
 export interface ReplicatorArgs {
-    /**
-     * The current version of the MSK replicator.
-     */
-    currentVersion?: pulumi.Input<string>;
     /**
      * A summary description of the replicator.
      */

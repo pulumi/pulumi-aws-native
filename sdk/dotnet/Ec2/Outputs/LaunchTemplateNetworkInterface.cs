@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
-        /// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
+        /// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
         ///  If you are not creating an EFA, specify ``interface`` or omit this parameter.
         ///  If you specify ``efa-only``, do not assign any IP addresses to the network interface. EFA-only network interfaces do not support IP addresses.
         ///  Valid values: ``interface`` | ``efa`` | ``efa-only``

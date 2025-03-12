@@ -23545,8 +23545,7 @@ func (o TemplateSheetImageTooltipTextPtrOutput) PlainText() pulumi.StringPtrOutp
 
 type TemplateSheetTextBox struct {
 	// The content that is displayed in the text box.
-	Content      *string     `pulumi:"content"`
-	Interactions interface{} `pulumi:"interactions"`
+	Content *string `pulumi:"content"`
 	// The unique identifier for a text box. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have text boxes that share identifiers.
 	SheetTextBoxId string `pulumi:"sheetTextBoxId"`
 }
@@ -23564,8 +23563,7 @@ type TemplateSheetTextBoxInput interface {
 
 type TemplateSheetTextBoxArgs struct {
 	// The content that is displayed in the text box.
-	Content      pulumi.StringPtrInput `pulumi:"content"`
-	Interactions pulumi.Input          `pulumi:"interactions"`
+	Content pulumi.StringPtrInput `pulumi:"content"`
 	// The unique identifier for a text box. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have text boxes that share identifiers.
 	SheetTextBoxId pulumi.StringInput `pulumi:"sheetTextBoxId"`
 }
@@ -23624,10 +23622,6 @@ func (o TemplateSheetTextBoxOutput) ToTemplateSheetTextBoxOutputWithContext(ctx 
 // The content that is displayed in the text box.
 func (o TemplateSheetTextBoxOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateSheetTextBox) *string { return v.Content }).(pulumi.StringPtrOutput)
-}
-
-func (o TemplateSheetTextBoxOutput) Interactions() pulumi.AnyOutput {
-	return o.ApplyT(func(v TemplateSheetTextBox) interface{} { return v.Interactions }).(pulumi.AnyOutput)
 }
 
 // The unique identifier for a text box. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have text boxes that share identifiers.

@@ -58,6 +58,10 @@ export interface GetMicrosoftTeamsChannelConfigurationResult {
      */
     readonly teamsChannelId?: string;
     /**
+     * The name of the Microsoft Teams channel
+     */
+    readonly teamsChannelName?: string;
+    /**
      * Enables use of a user role requirement in your chat configuration
      */
     readonly userRoleRequired?: boolean;

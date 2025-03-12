@@ -767,7 +767,7 @@ class ListenerForwardConfig(dict):
 @pulumi.output_type
 class ListenerMutualAuthentication(dict):
     """
-    Specifies the configuration information for mutual authentication.
+    The mutual authentication configuration information.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -796,10 +796,10 @@ class ListenerMutualAuthentication(dict):
                  mode: Optional[str] = None,
                  trust_store_arn: Optional[str] = None):
         """
-        Specifies the configuration information for mutual authentication.
-        :param str advertise_trust_store_ca_names: Indicates whether trust store CA certificate names are advertised. The default value is `off` .
+        The mutual authentication configuration information.
+        :param str advertise_trust_store_ca_names: Indicates whether trust store CA certificate names are advertised. The default value is ``off``.
         :param bool ignore_client_certificate_expiry: Indicates whether expired client certificates are ignored.
-        :param str mode: The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
+        :param str mode: The client certificate handling method. The possible values are ``off``, ``passthrough``, and ``verify``. The default value is ``off``.
         :param str trust_store_arn: The Amazon Resource Name (ARN) of the trust store.
         """
         if advertise_trust_store_ca_names is not None:
@@ -815,7 +815,7 @@ class ListenerMutualAuthentication(dict):
     @pulumi.getter(name="advertiseTrustStoreCaNames")
     def advertise_trust_store_ca_names(self) -> Optional[str]:
         """
-        Indicates whether trust store CA certificate names are advertised. The default value is `off` .
+        Indicates whether trust store CA certificate names are advertised. The default value is ``off``.
         """
         return pulumi.get(self, "advertise_trust_store_ca_names")
 
@@ -831,7 +831,7 @@ class ListenerMutualAuthentication(dict):
     @pulumi.getter
     def mode(self) -> Optional[str]:
         """
-        The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
+        The client certificate handling method. The possible values are ``off``, ``passthrough``, and ``verify``. The default value is ``off``.
         """
         return pulumi.get(self, "mode")
 

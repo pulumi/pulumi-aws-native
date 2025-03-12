@@ -31,6 +31,7 @@ class MicrosoftTeamsChannelConfigurationArgs:
                  logging_level: Optional[pulumi.Input[str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 teams_channel_name: Optional[pulumi.Input[str]] = None,
                  user_role_required: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a MicrosoftTeamsChannelConfiguration resource.
@@ -44,6 +45,7 @@ class MicrosoftTeamsChannelConfigurationArgs:
         :param pulumi.Input[str] logging_level: Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sns_topic_arns: ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the configuration
+        :param pulumi.Input[str] teams_channel_name: The name of the Microsoft Teams channel
         :param pulumi.Input[bool] user_role_required: Enables use of a user role requirement in your chat configuration
         """
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
@@ -62,6 +64,8 @@ class MicrosoftTeamsChannelConfigurationArgs:
             pulumi.set(__self__, "sns_topic_arns", sns_topic_arns)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if teams_channel_name is not None:
+            pulumi.set(__self__, "teams_channel_name", teams_channel_name)
         if user_role_required is not None:
             pulumi.set(__self__, "user_role_required", user_role_required)
 
@@ -186,6 +190,18 @@ class MicrosoftTeamsChannelConfigurationArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="teamsChannelName")
+    def teams_channel_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Microsoft Teams channel
+        """
+        return pulumi.get(self, "teams_channel_name")
+
+    @teams_channel_name.setter
+    def teams_channel_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "teams_channel_name", value)
+
+    @property
     @pulumi.getter(name="userRoleRequired")
     def user_role_required(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -212,6 +228,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  team_id: Optional[pulumi.Input[str]] = None,
                  teams_channel_id: Optional[pulumi.Input[str]] = None,
+                 teams_channel_name: Optional[pulumi.Input[str]] = None,
                  teams_tenant_id: Optional[pulumi.Input[str]] = None,
                  user_role_required: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -229,6 +246,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the configuration
         :param pulumi.Input[str] team_id: The id of the Microsoft Teams team
         :param pulumi.Input[str] teams_channel_id: The id of the Microsoft Teams channel
+        :param pulumi.Input[str] teams_channel_name: The name of the Microsoft Teams channel
         :param pulumi.Input[str] teams_tenant_id: The id of the Microsoft Teams tenant
         :param pulumi.Input[bool] user_role_required: Enables use of a user role requirement in your chat configuration
         """
@@ -265,6 +283,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  team_id: Optional[pulumi.Input[str]] = None,
                  teams_channel_id: Optional[pulumi.Input[str]] = None,
+                 teams_channel_name: Optional[pulumi.Input[str]] = None,
                  teams_tenant_id: Optional[pulumi.Input[str]] = None,
                  user_role_required: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -291,6 +310,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
             if teams_channel_id is None and not opts.urn:
                 raise TypeError("Missing required property 'teams_channel_id'")
             __props__.__dict__["teams_channel_id"] = teams_channel_id
+            __props__.__dict__["teams_channel_name"] = teams_channel_name
             if teams_tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'teams_tenant_id'")
             __props__.__dict__["teams_tenant_id"] = teams_tenant_id
@@ -330,6 +350,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["team_id"] = None
         __props__.__dict__["teams_channel_id"] = None
+        __props__.__dict__["teams_channel_name"] = None
         __props__.__dict__["teams_tenant_id"] = None
         __props__.__dict__["user_role_required"] = None
         return MicrosoftTeamsChannelConfiguration(resource_name, opts=opts, __props__=__props__)
@@ -413,6 +434,14 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
         The id of the Microsoft Teams channel
         """
         return pulumi.get(self, "teams_channel_id")
+
+    @property
+    @pulumi.getter(name="teamsChannelName")
+    def teams_channel_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the Microsoft Teams channel
+        """
+        return pulumi.get(self, "teams_channel_name")
 
     @property
     @pulumi.getter(name="teamsTenantId")

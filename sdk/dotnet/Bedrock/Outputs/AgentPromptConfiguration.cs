@@ -16,6 +16,11 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class AgentPromptConfiguration
     {
+        /// <summary>
+        /// If the Converse or ConverseStream operations support the model, `additionalModelRequestFields` contains additional inference parameters, beyond the base set of inference parameters in the `inferenceConfiguration` field.
+        /// 
+        /// For more information, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+        /// </summary>
         public readonly Outputs.AgentAdditionalModelRequestFields? AdditionalModelRequestFields;
         /// <summary>
         /// Base Prompt Template.

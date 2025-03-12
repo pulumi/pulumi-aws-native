@@ -76,6 +76,12 @@ namespace Pulumi.AwsNative.Chatbot
         public Output<string> TeamsChannelId { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the Microsoft Teams channel
+        /// </summary>
+        [Output("teamsChannelName")]
+        public Output<string?> TeamsChannelName { get; private set; } = null!;
+
+        /// <summary>
         /// The id of the Microsoft Teams tenant
         /// </summary>
         [Output("teamsTenantId")]
@@ -215,6 +221,12 @@ namespace Pulumi.AwsNative.Chatbot
         /// </summary>
         [Input("teamsChannelId", required: true)]
         public Input<string> TeamsChannelId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Microsoft Teams channel
+        /// </summary>
+        [Input("teamsChannelName")]
+        public Input<string>? TeamsChannelName { get; set; }
 
         /// <summary>
         /// The id of the Microsoft Teams tenant

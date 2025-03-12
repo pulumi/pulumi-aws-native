@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.Ecr
         [Output("credentialArn")]
         public Output<string?> CredentialArn { get; private set; } = null!;
 
+        [Output("customRoleArn")]
+        public Output<string?> CustomRoleArn { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon ECR repository prefix associated with the pull through cache rule.
         /// </summary>
@@ -78,6 +81,9 @@ namespace Pulumi.AwsNative.Ecr
         /// </summary>
         [Output("upstreamRegistryUrl")]
         public Output<string?> UpstreamRegistryUrl { get; private set; } = null!;
+
+        [Output("upstreamRepositoryPrefix")]
+        public Output<string?> UpstreamRepositoryPrefix { get; private set; } = null!;
 
 
         /// <summary>
@@ -105,9 +111,11 @@ namespace Pulumi.AwsNative.Ecr
                 ReplaceOnChanges =
                 {
                     "credentialArn",
+                    "customRoleArn",
                     "ecrRepositoryPrefix",
                     "upstreamRegistry",
                     "upstreamRegistryUrl",
+                    "upstreamRepositoryPrefix",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -137,6 +145,9 @@ namespace Pulumi.AwsNative.Ecr
         [Input("credentialArn")]
         public Input<string>? CredentialArn { get; set; }
 
+        [Input("customRoleArn")]
+        public Input<string>? CustomRoleArn { get; set; }
+
         /// <summary>
         /// The Amazon ECR repository prefix associated with the pull through cache rule.
         /// </summary>
@@ -154,6 +165,9 @@ namespace Pulumi.AwsNative.Ecr
         /// </summary>
         [Input("upstreamRegistryUrl")]
         public Input<string>? UpstreamRegistryUrl { get; set; }
+
+        [Input("upstreamRepositoryPrefix")]
+        public Input<string>? UpstreamRepositoryPrefix { get; set; }
 
         public PullThroughCacheRuleArgs()
         {

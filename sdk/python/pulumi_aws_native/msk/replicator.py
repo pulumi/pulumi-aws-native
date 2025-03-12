@@ -27,7 +27,6 @@ class ReplicatorArgs:
                  kafka_clusters: pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]],
                  replication_info_list: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoArgs']]],
                  service_execution_role_arn: pulumi.Input[str],
-                 current_version: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  replicator_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -36,7 +35,6 @@ class ReplicatorArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]] kafka_clusters: Specifies a list of Kafka clusters which are targets of the replicator.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoArgs']]] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the replicator to access external resources.
-        :param pulumi.Input[str] current_version: The current version of the MSK replicator.
         :param pulumi.Input[str] description: A summary description of the replicator.
         :param pulumi.Input[str] replicator_name: The name of the replicator.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of tags associated with a resource
@@ -44,8 +42,6 @@ class ReplicatorArgs:
         pulumi.set(__self__, "kafka_clusters", kafka_clusters)
         pulumi.set(__self__, "replication_info_list", replication_info_list)
         pulumi.set(__self__, "service_execution_role_arn", service_execution_role_arn)
-        if current_version is not None:
-            pulumi.set(__self__, "current_version", current_version)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if replicator_name is not None:
@@ -90,18 +86,6 @@ class ReplicatorArgs:
         pulumi.set(self, "service_execution_role_arn", value)
 
     @property
-    @pulumi.getter(name="currentVersion")
-    def current_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The current version of the MSK replicator.
-        """
-        return pulumi.get(self, "current_version")
-
-    @current_version.setter
-    def current_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "current_version", value)
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -143,7 +127,6 @@ class Replicator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 current_version: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
                  replication_info_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorReplicationInfoArgs', 'ReplicatorReplicationInfoArgsDict']]]]] = None,
@@ -156,7 +139,6 @@ class Replicator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] current_version: The current version of the MSK replicator.
         :param pulumi.Input[str] description: A summary description of the replicator.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]] kafka_clusters: Specifies a list of Kafka clusters which are targets of the replicator.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorReplicationInfoArgs', 'ReplicatorReplicationInfoArgsDict']]]] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
@@ -188,7 +170,6 @@ class Replicator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 current_version: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
                  replication_info_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorReplicationInfoArgs', 'ReplicatorReplicationInfoArgsDict']]]]] = None,
@@ -204,7 +185,6 @@ class Replicator(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReplicatorArgs.__new__(ReplicatorArgs)
 
-            __props__.__dict__["current_version"] = current_version
             __props__.__dict__["description"] = description
             if kafka_clusters is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_clusters'")
@@ -217,6 +197,7 @@ class Replicator(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_execution_role_arn'")
             __props__.__dict__["service_execution_role_arn"] = service_execution_role_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["current_version"] = None
             __props__.__dict__["replicator_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "kafkaClusters[*]", "replicationInfoList[*].sourceKafkaClusterArn", "replicationInfoList[*].targetCompressionType", "replicationInfoList[*].targetKafkaClusterArn", "replicationInfoList[*].topicReplication.startingPosition", "replicationInfoList[*].topicReplication.topicNameConfiguration", "replicatorName", "serviceExecutionRoleArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -254,7 +235,7 @@ class Replicator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="currentVersion")
-    def current_version(self) -> pulumi.Output[Optional[str]]:
+    def current_version(self) -> pulumi.Output[str]:
         """
         The current version of the MSK replicator.
         """

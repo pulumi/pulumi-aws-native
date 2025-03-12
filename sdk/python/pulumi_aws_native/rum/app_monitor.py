@@ -29,6 +29,7 @@ class AppMonitorArgs:
                  custom_events: Optional[pulumi.Input['AppMonitorCustomEventsArgs']] = None,
                  cw_log_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 resource_policy: Optional[pulumi.Input['AppMonitorResourcePolicyArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AppMonitor resource.
@@ -58,6 +59,8 @@ class AppMonitorArgs:
             pulumi.set(__self__, "cw_log_enabled", cw_log_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if resource_policy is not None:
+            pulumi.set(__self__, "resource_policy", resource_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -124,6 +127,15 @@ class AppMonitorArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="resourcePolicy")
+    def resource_policy(self) -> Optional[pulumi.Input['AppMonitorResourcePolicyArgs']]:
+        return pulumi.get(self, "resource_policy")
+
+    @resource_policy.setter
+    def resource_policy(self, value: Optional[pulumi.Input['AppMonitorResourcePolicyArgs']]):
+        pulumi.set(self, "resource_policy", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -154,6 +166,7 @@ class AppMonitor(pulumi.CustomResource):
                  cw_log_enabled: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 resource_policy: Optional[pulumi.Input[Union['AppMonitorResourcePolicyArgs', 'AppMonitorResourcePolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -207,6 +220,7 @@ class AppMonitor(pulumi.CustomResource):
                  cw_log_enabled: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 resource_policy: Optional[pulumi.Input[Union['AppMonitorResourcePolicyArgs', 'AppMonitorResourcePolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -224,6 +238,7 @@ class AppMonitor(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain'")
             __props__.__dict__["domain"] = domain
             __props__.__dict__["name"] = name
+            __props__.__dict__["resource_policy"] = resource_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
@@ -256,6 +271,7 @@ class AppMonitor(pulumi.CustomResource):
         __props__.__dict__["cw_log_enabled"] = None
         __props__.__dict__["domain"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["resource_policy"] = None
         __props__.__dict__["tags"] = None
         return AppMonitor(resource_name, opts=opts, __props__=__props__)
 
@@ -308,6 +324,11 @@ class AppMonitor(pulumi.CustomResource):
         A name for the app monitor
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourcePolicy")
+    def resource_policy(self) -> pulumi.Output[Optional['outputs.AppMonitorResourcePolicy']]:
+        return pulumi.get(self, "resource_policy")
 
     @property
     @pulumi.getter

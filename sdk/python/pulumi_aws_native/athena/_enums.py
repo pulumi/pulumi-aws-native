@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'CapacityReservationStatus',
+    'DataCatalogStatus',
     'DataCatalogType',
     'WorkGroupEncryptionOption',
     'WorkGroupS3AclOption',
@@ -22,13 +23,29 @@ class CapacityReservationStatus(str, Enum):
     UPDATE_PENDING = "UPDATE_PENDING"
 
 
+class DataCatalogStatus(str, Enum):
+    """
+    The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
+    """
+    CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
+    CREATE_COMPLETE = "CREATE_COMPLETE"
+    CREATE_FAILED = "CREATE_FAILED"
+    CREATE_FAILED_CLEANUP_IN_PROGRESS = "CREATE_FAILED_CLEANUP_IN_PROGRESS"
+    CREATE_FAILED_CLEANUP_COMPLETE = "CREATE_FAILED_CLEANUP_COMPLETE"
+    CREATE_FAILED_CLEANUP_FAILED = "CREATE_FAILED_CLEANUP_FAILED"
+    DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+    DELETE_COMPLETE = "DELETE_COMPLETE"
+    DELETE_FAILED = "DELETE_FAILED"
+
+
 class DataCatalogType(str, Enum):
     """
-    The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
+    The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
     """
     LAMBDA_ = "LAMBDA"
     GLUE = "GLUE"
     HIVE = "HIVE"
+    FEDERATED = "FEDERATED"
 
 
 class WorkGroupEncryptionOption(str, Enum):

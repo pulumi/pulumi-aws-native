@@ -40,7 +40,8 @@ type LookupAppMonitorResult struct {
 	// The top-level internet domain name for which your application has administrative authority.
 	Domain *string `pulumi:"domain"`
 	// The unique ID of the new app monitor.
-	Id *string `pulumi:"id"`
+	Id             *string                   `pulumi:"id"`
+	ResourcePolicy *AppMonitorResourcePolicy `pulumi:"resourcePolicy"`
 	// Assigns one or more tags (key-value pairs) to the app monitor.
 	//
 	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
@@ -110,6 +111,10 @@ func (o LookupAppMonitorResultOutput) Domain() pulumi.StringPtrOutput {
 // The unique ID of the new app monitor.
 func (o LookupAppMonitorResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppMonitorResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAppMonitorResultOutput) ResourcePolicy() AppMonitorResourcePolicyPtrOutput {
+	return o.ApplyT(func(v LookupAppMonitorResult) *AppMonitorResourcePolicy { return v.ResourcePolicy }).(AppMonitorResourcePolicyPtrOutput)
 }
 
 // Assigns one or more tags (key-value pairs) to the app monitor.

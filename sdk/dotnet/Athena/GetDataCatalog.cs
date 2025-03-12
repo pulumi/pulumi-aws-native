@@ -64,34 +64,55 @@ namespace Pulumi.AwsNative.Athena
     public sealed class GetDataCatalogResult
     {
         /// <summary>
+        /// The type of connection for a FEDERATED data catalog
+        /// </summary>
+        public readonly string? ConnectionType;
+        /// <summary>
         /// A description of the data catalog to be created. 
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Text of the error that occurred during data catalog creation or deletion.
+        /// </summary>
+        public readonly string? Error;
         /// <summary>
         /// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
+        /// The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Athena.DataCatalogStatus? Status;
+        /// <summary>
         /// A list of comma separated tags to add to the data catalog that is created. 
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
-        /// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
+        /// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
         /// </summary>
         public readonly Pulumi.AwsNative.Athena.DataCatalogType? Type;
 
         [OutputConstructor]
         private GetDataCatalogResult(
+            string? connectionType,
+
             string? description,
 
+            string? error,
+
             ImmutableDictionary<string, string>? parameters,
+
+            Pulumi.AwsNative.Athena.DataCatalogStatus? status,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Pulumi.AwsNative.Athena.DataCatalogType? type)
         {
+            ConnectionType = connectionType;
             Description = description;
+            Error = error;
             Parameters = parameters;
+            Status = status;
             Tags = tags;
             Type = type;
         }

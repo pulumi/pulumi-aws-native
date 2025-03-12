@@ -53,6 +53,7 @@ export class JobDefinition extends pulumi.CustomResource {
      * An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
      */
     public readonly eksProperties!: pulumi.Output<outputs.batch.JobDefinitionEksProperties | undefined>;
+    public /*out*/ readonly jobDefinitionArn!: pulumi.Output<string>;
     /**
      * The name of the job definition.
      */
@@ -129,11 +130,13 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["jobDefinitionArn"] = undefined /*out*/;
         } else {
             resourceInputs["consumableResourceProperties"] = undefined /*out*/;
             resourceInputs["containerProperties"] = undefined /*out*/;
             resourceInputs["ecsProperties"] = undefined /*out*/;
             resourceInputs["eksProperties"] = undefined /*out*/;
+            resourceInputs["jobDefinitionArn"] = undefined /*out*/;
             resourceInputs["jobDefinitionName"] = undefined /*out*/;
             resourceInputs["nodeProperties"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;

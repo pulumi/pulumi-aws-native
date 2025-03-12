@@ -78,6 +78,10 @@ export class MicrosoftTeamsChannelConfiguration extends pulumi.CustomResource {
      */
     public readonly teamsChannelId!: pulumi.Output<string>;
     /**
+     * The name of the Microsoft Teams channel
+     */
+    public readonly teamsChannelName!: pulumi.Output<string | undefined>;
+    /**
      * The id of the Microsoft Teams tenant
      */
     public readonly teamsTenantId!: pulumi.Output<string>;
@@ -118,6 +122,7 @@ export class MicrosoftTeamsChannelConfiguration extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["teamId"] = args ? args.teamId : undefined;
             resourceInputs["teamsChannelId"] = args ? args.teamsChannelId : undefined;
+            resourceInputs["teamsChannelName"] = args ? args.teamsChannelName : undefined;
             resourceInputs["teamsTenantId"] = args ? args.teamsTenantId : undefined;
             resourceInputs["userRoleRequired"] = args ? args.userRoleRequired : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -132,6 +137,7 @@ export class MicrosoftTeamsChannelConfiguration extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["teamId"] = undefined /*out*/;
             resourceInputs["teamsChannelId"] = undefined /*out*/;
+            resourceInputs["teamsChannelName"] = undefined /*out*/;
             resourceInputs["teamsTenantId"] = undefined /*out*/;
             resourceInputs["userRoleRequired"] = undefined /*out*/;
         }
@@ -182,6 +188,10 @@ export interface MicrosoftTeamsChannelConfigurationArgs {
      * The id of the Microsoft Teams channel
      */
     teamsChannelId: pulumi.Input<string>;
+    /**
+     * The name of the Microsoft Teams channel
+     */
+    teamsChannelName?: pulumi.Input<string>;
     /**
      * The id of the Microsoft Teams tenant
      */

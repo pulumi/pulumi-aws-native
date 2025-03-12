@@ -101,15 +101,21 @@ import (
 type DataCatalog struct {
 	pulumi.CustomResourceState
 
+	// The type of connection for a FEDERATED data catalog
+	ConnectionType pulumi.StringPtrOutput `pulumi:"connectionType"`
 	// A description of the data catalog to be created.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Text of the error that occurred during data catalog creation or deletion.
+	Error pulumi.StringPtrOutput `pulumi:"error"`
 	// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+	// The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
+	Status DataCatalogStatusPtrOutput `pulumi:"status"`
 	// A list of comma separated tags to add to the data catalog that is created.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
+	// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
 	Type DataCatalogTypeOutput `pulumi:"type"`
 }
 
@@ -160,29 +166,41 @@ func (DataCatalogState) ElementType() reflect.Type {
 }
 
 type dataCatalogArgs struct {
+	// The type of connection for a FEDERATED data catalog
+	ConnectionType *string `pulumi:"connectionType"`
 	// A description of the data catalog to be created.
 	Description *string `pulumi:"description"`
+	// Text of the error that occurred during data catalog creation or deletion.
+	Error *string `pulumi:"error"`
 	// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
 	Name *string `pulumi:"name"`
 	// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
 	Parameters map[string]string `pulumi:"parameters"`
+	// The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
+	Status *DataCatalogStatus `pulumi:"status"`
 	// A list of comma separated tags to add to the data catalog that is created.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
+	// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
 	Type DataCatalogType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DataCatalog resource.
 type DataCatalogArgs struct {
+	// The type of connection for a FEDERATED data catalog
+	ConnectionType pulumi.StringPtrInput
 	// A description of the data catalog to be created.
 	Description pulumi.StringPtrInput
+	// Text of the error that occurred during data catalog creation or deletion.
+	Error pulumi.StringPtrInput
 	// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
 	Name pulumi.StringPtrInput
 	// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
 	Parameters pulumi.StringMapInput
+	// The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
+	Status DataCatalogStatusPtrInput
 	// A list of comma separated tags to add to the data catalog that is created.
 	Tags aws.TagArrayInput
-	// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
+	// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
 	Type DataCatalogTypeInput
 }
 
@@ -223,9 +241,19 @@ func (o DataCatalogOutput) ToDataCatalogOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// The type of connection for a FEDERATED data catalog
+func (o DataCatalogOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalog) pulumi.StringPtrOutput { return v.ConnectionType }).(pulumi.StringPtrOutput)
+}
+
 // A description of the data catalog to be created.
 func (o DataCatalogOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCatalog) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Text of the error that occurred during data catalog creation or deletion.
+func (o DataCatalogOutput) Error() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalog) pulumi.StringPtrOutput { return v.Error }).(pulumi.StringPtrOutput)
 }
 
 // The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
@@ -238,12 +266,17 @@ func (o DataCatalogOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataCatalog) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
+// The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
+func (o DataCatalogOutput) Status() DataCatalogStatusPtrOutput {
+	return o.ApplyT(func(v *DataCatalog) DataCatalogStatusPtrOutput { return v.Status }).(DataCatalogStatusPtrOutput)
+}
+
 // A list of comma separated tags to add to the data catalog that is created.
 func (o DataCatalogOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DataCatalog) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
+// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
 func (o DataCatalogOutput) Type() DataCatalogTypeOutput {
 	return o.ApplyT(func(v *DataCatalog) DataCatalogTypeOutput { return v.Type }).(DataCatalogTypeOutput)
 }

@@ -53,6 +53,9 @@ namespace Pulumi.AwsNative.Rum
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("resourcePolicy")]
+        public Output<Outputs.AppMonitorResourcePolicy?> ResourcePolicy { get; private set; } = null!;
+
         /// <summary>
         /// Assigns one or more tags (key-value pairs) to the app monitor.
         /// 
@@ -147,6 +150,9 @@ namespace Pulumi.AwsNative.Rum
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("resourcePolicy")]
+        public Input<Inputs.AppMonitorResourcePolicyArgs>? ResourcePolicy { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

@@ -2537,6 +2537,9 @@ func (o AgentParameterDetailMapOutput) MapIndex(k pulumi.StringInput) AgentParam
 
 // BasePromptConfiguration per Prompt Type.
 type AgentPromptConfiguration struct {
+	// If the Converse or ConverseStream operations support the model, `additionalModelRequestFields` contains additional inference parameters, beyond the base set of inference parameters in the `inferenceConfiguration` field.
+	//
+	// For more information, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
 	AdditionalModelRequestFields *AgentAdditionalModelRequestFields `pulumi:"additionalModelRequestFields"`
 	// Base Prompt Template.
 	BasePromptTemplate *string `pulumi:"basePromptTemplate"`
@@ -2572,6 +2575,9 @@ type AgentPromptConfigurationInput interface {
 
 // BasePromptConfiguration per Prompt Type.
 type AgentPromptConfigurationArgs struct {
+	// If the Converse or ConverseStream operations support the model, `additionalModelRequestFields` contains additional inference parameters, beyond the base set of inference parameters in the `inferenceConfiguration` field.
+	//
+	// For more information, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
 	AdditionalModelRequestFields AgentAdditionalModelRequestFieldsPtrInput `pulumi:"additionalModelRequestFields"`
 	// Base Prompt Template.
 	BasePromptTemplate pulumi.StringPtrInput `pulumi:"basePromptTemplate"`
@@ -2646,6 +2652,9 @@ func (o AgentPromptConfigurationOutput) ToAgentPromptConfigurationOutputWithCont
 	return o
 }
 
+// If the Converse or ConverseStream operations support the model, `additionalModelRequestFields` contains additional inference parameters, beyond the base set of inference parameters in the `inferenceConfiguration` field.
+//
+// For more information, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
 func (o AgentPromptConfigurationOutput) AdditionalModelRequestFields() AgentAdditionalModelRequestFieldsPtrOutput {
 	return o.ApplyT(func(v AgentPromptConfiguration) *AgentAdditionalModelRequestFields {
 		return v.AdditionalModelRequestFields

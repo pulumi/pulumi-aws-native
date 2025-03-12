@@ -69,7 +69,7 @@ class GetRestoreTestingPlanResult:
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[str]:
         """
-        A CRON expression in specified timezone when a restore testing plan is executed.
+        A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
         """
         return pulumi.get(self, "schedule_expression")
 

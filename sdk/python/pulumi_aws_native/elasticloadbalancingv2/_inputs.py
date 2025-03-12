@@ -1008,11 +1008,11 @@ class ListenerForwardConfigArgs:
 if not MYPY:
     class ListenerMutualAuthenticationArgsDict(TypedDict):
         """
-        Specifies the configuration information for mutual authentication.
+        The mutual authentication configuration information.
         """
         advertise_trust_store_ca_names: NotRequired[pulumi.Input[str]]
         """
-        Indicates whether trust store CA certificate names are advertised. The default value is `off` .
+        Indicates whether trust store CA certificate names are advertised. The default value is ``off``.
         """
         ignore_client_certificate_expiry: NotRequired[pulumi.Input[bool]]
         """
@@ -1020,7 +1020,7 @@ if not MYPY:
         """
         mode: NotRequired[pulumi.Input[str]]
         """
-        The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
+        The client certificate handling method. The possible values are ``off``, ``passthrough``, and ``verify``. The default value is ``off``.
         """
         trust_store_arn: NotRequired[pulumi.Input[str]]
         """
@@ -1037,10 +1037,10 @@ class ListenerMutualAuthenticationArgs:
                  mode: Optional[pulumi.Input[str]] = None,
                  trust_store_arn: Optional[pulumi.Input[str]] = None):
         """
-        Specifies the configuration information for mutual authentication.
-        :param pulumi.Input[str] advertise_trust_store_ca_names: Indicates whether trust store CA certificate names are advertised. The default value is `off` .
+        The mutual authentication configuration information.
+        :param pulumi.Input[str] advertise_trust_store_ca_names: Indicates whether trust store CA certificate names are advertised. The default value is ``off``.
         :param pulumi.Input[bool] ignore_client_certificate_expiry: Indicates whether expired client certificates are ignored.
-        :param pulumi.Input[str] mode: The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
+        :param pulumi.Input[str] mode: The client certificate handling method. The possible values are ``off``, ``passthrough``, and ``verify``. The default value is ``off``.
         :param pulumi.Input[str] trust_store_arn: The Amazon Resource Name (ARN) of the trust store.
         """
         if advertise_trust_store_ca_names is not None:
@@ -1056,7 +1056,7 @@ class ListenerMutualAuthenticationArgs:
     @pulumi.getter(name="advertiseTrustStoreCaNames")
     def advertise_trust_store_ca_names(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates whether trust store CA certificate names are advertised. The default value is `off` .
+        Indicates whether trust store CA certificate names are advertised. The default value is ``off``.
         """
         return pulumi.get(self, "advertise_trust_store_ca_names")
 
@@ -1080,7 +1080,7 @@ class ListenerMutualAuthenticationArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
+        The client certificate handling method. The possible values are ``off``, ``passthrough``, and ``verify``. The default value is ``off``.
         """
         return pulumi.get(self, "mode")
 

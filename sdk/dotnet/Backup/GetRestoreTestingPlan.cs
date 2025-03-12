@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Backup
         /// </summary>
         public readonly string? RestoreTestingPlanArn;
         /// <summary>
-        /// A CRON expression in specified timezone when a restore testing plan is executed.
+        /// A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
         /// </summary>
         public readonly string? ScheduleExpression;
         /// <summary>

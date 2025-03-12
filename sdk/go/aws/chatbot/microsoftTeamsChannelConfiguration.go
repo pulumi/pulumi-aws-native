@@ -37,6 +37,8 @@ type MicrosoftTeamsChannelConfiguration struct {
 	TeamId pulumi.StringOutput `pulumi:"teamId"`
 	// The id of the Microsoft Teams channel
 	TeamsChannelId pulumi.StringOutput `pulumi:"teamsChannelId"`
+	// The name of the Microsoft Teams channel
+	TeamsChannelName pulumi.StringPtrOutput `pulumi:"teamsChannelName"`
 	// The id of the Microsoft Teams tenant
 	TeamsTenantId pulumi.StringOutput `pulumi:"teamsTenantId"`
 	// Enables use of a user role requirement in your chat configuration
@@ -119,6 +121,8 @@ type microsoftTeamsChannelConfigurationArgs struct {
 	TeamId string `pulumi:"teamId"`
 	// The id of the Microsoft Teams channel
 	TeamsChannelId string `pulumi:"teamsChannelId"`
+	// The name of the Microsoft Teams channel
+	TeamsChannelName *string `pulumi:"teamsChannelName"`
 	// The id of the Microsoft Teams tenant
 	TeamsTenantId string `pulumi:"teamsTenantId"`
 	// Enables use of a user role requirement in your chat configuration
@@ -145,6 +149,8 @@ type MicrosoftTeamsChannelConfigurationArgs struct {
 	TeamId pulumi.StringInput
 	// The id of the Microsoft Teams channel
 	TeamsChannelId pulumi.StringInput
+	// The name of the Microsoft Teams channel
+	TeamsChannelName pulumi.StringPtrInput
 	// The id of the Microsoft Teams tenant
 	TeamsTenantId pulumi.StringInput
 	// Enables use of a user role requirement in your chat configuration
@@ -238,6 +244,11 @@ func (o MicrosoftTeamsChannelConfigurationOutput) TeamId() pulumi.StringOutput {
 // The id of the Microsoft Teams channel
 func (o MicrosoftTeamsChannelConfigurationOutput) TeamsChannelId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MicrosoftTeamsChannelConfiguration) pulumi.StringOutput { return v.TeamsChannelId }).(pulumi.StringOutput)
+}
+
+// The name of the Microsoft Teams channel
+func (o MicrosoftTeamsChannelConfigurationOutput) TeamsChannelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MicrosoftTeamsChannelConfiguration) pulumi.StringPtrOutput { return v.TeamsChannelName }).(pulumi.StringPtrOutput)
 }
 
 // The id of the Microsoft Teams tenant

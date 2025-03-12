@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<Inputs.LaunchTemplateCapacityReservationSpecificationArgs>? CapacityReservationSpecification { get; set; }
 
         /// <summary>
-        /// The CPU options for the instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
+        /// The CPU options for the instance. For more information, see [CPU options for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
         /// </summary>
         [Input("cpuOptions")]
         public Input<Inputs.LaunchTemplateCpuOptionsArgs>? CpuOptions { get; set; }
@@ -47,13 +47,13 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<Inputs.LaunchTemplateCreditSpecificationArgs>? CreditSpecification { get; set; }
 
         /// <summary>
-        /// Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
+        /// Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
         /// </summary>
         [Input("disableApiStop")]
         public Input<bool>? DisableApiStop { get; set; }
 
         /// <summary>
-        /// If you set this parameter to ``true``, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html). Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate``, you can terminate the instance by running the shutdown command from the instance.
+        /// Indicates whether termination protection is enabled for the instance. The default is ``false``, which means that you can terminate the instance using the Amazon EC2 console, command line tools, or API. You can enable termination protection when you launch an instance, while the instance is running, or while the instance is stopped.
         /// </summary>
         [Input("disableApiTermination")]
         public Input<bool>? DisableApiTermination { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<Inputs.LaunchTemplateMaintenanceOptionsArgs>? MaintenanceOptions { get; set; }
 
         /// <summary>
-        /// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
+        /// The metadata options for the instance. For more information, see [Configure the Instance Metadata Service options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html) in the *Amazon EC2 User Guide*.
         /// </summary>
         [Input("metadataOptions")]
         public Input<Inputs.LaunchTemplateMetadataOptionsArgs>? MetadataOptions { get; set; }
@@ -216,10 +216,10 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         }
 
         /// <summary>
-        /// The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) .
+        /// The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html).
         /// </summary>
         [Input("networkPerformanceOptions")]
-        public Input<object>? NetworkPerformanceOptions { get; set; }
+        public Input<Inputs.LaunchTemplateNetworkPerformanceOptionsArgs>? NetworkPerformanceOptions { get; set; }
 
         /// <summary>
         /// The placement for the instance.
@@ -280,8 +280,8 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         }
 
         /// <summary>
-        /// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Amazon EC2 instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
-        ///  If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
+        /// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands when you launch an EC2 instance with user data input](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
+        ///  If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html#lt-user-data) in the *User Guide*.
         /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }

@@ -904,6 +904,173 @@ func (o AppMonitorMetricDestinationArrayOutput) Index(i pulumi.IntInput) AppMoni
 	}).(AppMonitorMetricDestinationOutput)
 }
 
+// A structure that defines resource policy attached to your app monitor.
+type AppMonitorResourcePolicy struct {
+	// The JSON to use as the resource policy. The document can be up to 4 KB in size.
+	PolicyDocument string `pulumi:"policyDocument"`
+	// A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.
+	//
+	//  When you assign a policy revision ID, then later requests about that policy will be rejected with an InvalidPolicyRevisionIdException error if they don't provide the correct current revision ID.
+	PolicyRevisionId *string `pulumi:"policyRevisionId"`
+}
+
+// AppMonitorResourcePolicyInput is an input type that accepts AppMonitorResourcePolicyArgs and AppMonitorResourcePolicyOutput values.
+// You can construct a concrete instance of `AppMonitorResourcePolicyInput` via:
+//
+//	AppMonitorResourcePolicyArgs{...}
+type AppMonitorResourcePolicyInput interface {
+	pulumi.Input
+
+	ToAppMonitorResourcePolicyOutput() AppMonitorResourcePolicyOutput
+	ToAppMonitorResourcePolicyOutputWithContext(context.Context) AppMonitorResourcePolicyOutput
+}
+
+// A structure that defines resource policy attached to your app monitor.
+type AppMonitorResourcePolicyArgs struct {
+	// The JSON to use as the resource policy. The document can be up to 4 KB in size.
+	PolicyDocument pulumi.StringInput `pulumi:"policyDocument"`
+	// A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.
+	//
+	//  When you assign a policy revision ID, then later requests about that policy will be rejected with an InvalidPolicyRevisionIdException error if they don't provide the correct current revision ID.
+	PolicyRevisionId pulumi.StringPtrInput `pulumi:"policyRevisionId"`
+}
+
+func (AppMonitorResourcePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppMonitorResourcePolicy)(nil)).Elem()
+}
+
+func (i AppMonitorResourcePolicyArgs) ToAppMonitorResourcePolicyOutput() AppMonitorResourcePolicyOutput {
+	return i.ToAppMonitorResourcePolicyOutputWithContext(context.Background())
+}
+
+func (i AppMonitorResourcePolicyArgs) ToAppMonitorResourcePolicyOutputWithContext(ctx context.Context) AppMonitorResourcePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorResourcePolicyOutput)
+}
+
+func (i AppMonitorResourcePolicyArgs) ToAppMonitorResourcePolicyPtrOutput() AppMonitorResourcePolicyPtrOutput {
+	return i.ToAppMonitorResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i AppMonitorResourcePolicyArgs) ToAppMonitorResourcePolicyPtrOutputWithContext(ctx context.Context) AppMonitorResourcePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorResourcePolicyOutput).ToAppMonitorResourcePolicyPtrOutputWithContext(ctx)
+}
+
+// AppMonitorResourcePolicyPtrInput is an input type that accepts AppMonitorResourcePolicyArgs, AppMonitorResourcePolicyPtr and AppMonitorResourcePolicyPtrOutput values.
+// You can construct a concrete instance of `AppMonitorResourcePolicyPtrInput` via:
+//
+//	        AppMonitorResourcePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AppMonitorResourcePolicyPtrInput interface {
+	pulumi.Input
+
+	ToAppMonitorResourcePolicyPtrOutput() AppMonitorResourcePolicyPtrOutput
+	ToAppMonitorResourcePolicyPtrOutputWithContext(context.Context) AppMonitorResourcePolicyPtrOutput
+}
+
+type appMonitorResourcePolicyPtrType AppMonitorResourcePolicyArgs
+
+func AppMonitorResourcePolicyPtr(v *AppMonitorResourcePolicyArgs) AppMonitorResourcePolicyPtrInput {
+	return (*appMonitorResourcePolicyPtrType)(v)
+}
+
+func (*appMonitorResourcePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppMonitorResourcePolicy)(nil)).Elem()
+}
+
+func (i *appMonitorResourcePolicyPtrType) ToAppMonitorResourcePolicyPtrOutput() AppMonitorResourcePolicyPtrOutput {
+	return i.ToAppMonitorResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *appMonitorResourcePolicyPtrType) ToAppMonitorResourcePolicyPtrOutputWithContext(ctx context.Context) AppMonitorResourcePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorResourcePolicyPtrOutput)
+}
+
+// A structure that defines resource policy attached to your app monitor.
+type AppMonitorResourcePolicyOutput struct{ *pulumi.OutputState }
+
+func (AppMonitorResourcePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppMonitorResourcePolicy)(nil)).Elem()
+}
+
+func (o AppMonitorResourcePolicyOutput) ToAppMonitorResourcePolicyOutput() AppMonitorResourcePolicyOutput {
+	return o
+}
+
+func (o AppMonitorResourcePolicyOutput) ToAppMonitorResourcePolicyOutputWithContext(ctx context.Context) AppMonitorResourcePolicyOutput {
+	return o
+}
+
+func (o AppMonitorResourcePolicyOutput) ToAppMonitorResourcePolicyPtrOutput() AppMonitorResourcePolicyPtrOutput {
+	return o.ToAppMonitorResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o AppMonitorResourcePolicyOutput) ToAppMonitorResourcePolicyPtrOutputWithContext(ctx context.Context) AppMonitorResourcePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppMonitorResourcePolicy) *AppMonitorResourcePolicy {
+		return &v
+	}).(AppMonitorResourcePolicyPtrOutput)
+}
+
+// The JSON to use as the resource policy. The document can be up to 4 KB in size.
+func (o AppMonitorResourcePolicyOutput) PolicyDocument() pulumi.StringOutput {
+	return o.ApplyT(func(v AppMonitorResourcePolicy) string { return v.PolicyDocument }).(pulumi.StringOutput)
+}
+
+// A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.
+//
+//	When you assign a policy revision ID, then later requests about that policy will be rejected with an InvalidPolicyRevisionIdException error if they don't provide the correct current revision ID.
+func (o AppMonitorResourcePolicyOutput) PolicyRevisionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppMonitorResourcePolicy) *string { return v.PolicyRevisionId }).(pulumi.StringPtrOutput)
+}
+
+type AppMonitorResourcePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (AppMonitorResourcePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppMonitorResourcePolicy)(nil)).Elem()
+}
+
+func (o AppMonitorResourcePolicyPtrOutput) ToAppMonitorResourcePolicyPtrOutput() AppMonitorResourcePolicyPtrOutput {
+	return o
+}
+
+func (o AppMonitorResourcePolicyPtrOutput) ToAppMonitorResourcePolicyPtrOutputWithContext(ctx context.Context) AppMonitorResourcePolicyPtrOutput {
+	return o
+}
+
+func (o AppMonitorResourcePolicyPtrOutput) Elem() AppMonitorResourcePolicyOutput {
+	return o.ApplyT(func(v *AppMonitorResourcePolicy) AppMonitorResourcePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret AppMonitorResourcePolicy
+		return ret
+	}).(AppMonitorResourcePolicyOutput)
+}
+
+// The JSON to use as the resource policy. The document can be up to 4 KB in size.
+func (o AppMonitorResourcePolicyPtrOutput) PolicyDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppMonitorResourcePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PolicyDocument
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.
+//
+//	When you assign a policy revision ID, then later requests about that policy will be rejected with an InvalidPolicyRevisionIdException error if they don't provide the correct current revision ID.
+func (o AppMonitorResourcePolicyPtrOutput) PolicyRevisionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppMonitorResourcePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyRevisionId
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type AppMonitorTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -921,6 +1088,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDefinitionArrayInput)(nil)).Elem(), AppMonitorMetricDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDestinationInput)(nil)).Elem(), AppMonitorMetricDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDestinationArrayInput)(nil)).Elem(), AppMonitorMetricDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorResourcePolicyInput)(nil)).Elem(), AppMonitorResourcePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorResourcePolicyPtrInput)(nil)).Elem(), AppMonitorResourcePolicyArgs{})
 	pulumi.RegisterOutputType(AppMonitorConfigurationOutput{})
 	pulumi.RegisterOutputType(AppMonitorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AppMonitorCustomEventsOutput{})
@@ -929,4 +1098,6 @@ func init() {
 	pulumi.RegisterOutputType(AppMonitorMetricDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(AppMonitorMetricDestinationOutput{})
 	pulumi.RegisterOutputType(AppMonitorMetricDestinationArrayOutput{})
+	pulumi.RegisterOutputType(AppMonitorResourcePolicyOutput{})
+	pulumi.RegisterOutputType(AppMonitorResourcePolicyPtrOutput{})
 }

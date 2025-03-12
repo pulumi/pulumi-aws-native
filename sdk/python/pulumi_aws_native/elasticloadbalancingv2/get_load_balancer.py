@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLoadBalancerResult:
-    def __init__(__self__, canonical_hosted_zone_id=None, dns_name=None, enable_prefix_for_ipv6_source_nat=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, ip_address_type=None, load_balancer_arn=None, load_balancer_attributes=None, load_balancer_full_name=None, load_balancer_name=None, minimum_load_balancer_capacity=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None):
+    def __init__(__self__, canonical_hosted_zone_id=None, dns_name=None, enable_prefix_for_ipv6_source_nat=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, ip_address_type=None, ipv4_ipam_pool_id=None, load_balancer_arn=None, load_balancer_attributes=None, load_balancer_full_name=None, load_balancer_name=None, minimum_load_balancer_capacity=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None):
         if canonical_hosted_zone_id and not isinstance(canonical_hosted_zone_id, str):
             raise TypeError("Expected argument 'canonical_hosted_zone_id' to be a str")
         pulumi.set(__self__, "canonical_hosted_zone_id", canonical_hosted_zone_id)
@@ -41,6 +41,9 @@ class GetLoadBalancerResult:
         if ip_address_type and not isinstance(ip_address_type, str):
             raise TypeError("Expected argument 'ip_address_type' to be a str")
         pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if ipv4_ipam_pool_id and not isinstance(ipv4_ipam_pool_id, str):
+            raise TypeError("Expected argument 'ipv4_ipam_pool_id' to be a str")
+        pulumi.set(__self__, "ipv4_ipam_pool_id", ipv4_ipam_pool_id)
         if load_balancer_arn and not isinstance(load_balancer_arn, str):
             raise TypeError("Expected argument 'load_balancer_arn' to be a str")
         pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
@@ -97,7 +100,7 @@ class GetLoadBalancerResult:
     @pulumi.getter(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
     def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> Optional[str]:
         """
-        Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
+        Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
         """
         return pulumi.get(self, "enforce_security_group_inbound_rules_on_private_link_traffic")
 
@@ -111,6 +114,11 @@ class GetLoadBalancerResult:
          [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
         """
         return pulumi.get(self, "ip_address_type")
+
+    @property
+    @pulumi.getter(name="ipv4IpamPoolId")
+    def ipv4_ipam_pool_id(self) -> Optional[str]:
+        return pulumi.get(self, "ipv4_ipam_pool_id")
 
     @property
     @pulumi.getter(name="loadBalancerArn")
@@ -205,6 +213,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             enable_prefix_for_ipv6_source_nat=self.enable_prefix_for_ipv6_source_nat,
             enforce_security_group_inbound_rules_on_private_link_traffic=self.enforce_security_group_inbound_rules_on_private_link_traffic,
             ip_address_type=self.ip_address_type,
+            ipv4_ipam_pool_id=self.ipv4_ipam_pool_id,
             load_balancer_arn=self.load_balancer_arn,
             load_balancer_attributes=self.load_balancer_attributes,
             load_balancer_full_name=self.load_balancer_full_name,
@@ -235,6 +244,7 @@ def get_load_balancer(load_balancer_arn: Optional[str] = None,
         enable_prefix_for_ipv6_source_nat=pulumi.get(__ret__, 'enable_prefix_for_ipv6_source_nat'),
         enforce_security_group_inbound_rules_on_private_link_traffic=pulumi.get(__ret__, 'enforce_security_group_inbound_rules_on_private_link_traffic'),
         ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
+        ipv4_ipam_pool_id=pulumi.get(__ret__, 'ipv4_ipam_pool_id'),
         load_balancer_arn=pulumi.get(__ret__, 'load_balancer_arn'),
         load_balancer_attributes=pulumi.get(__ret__, 'load_balancer_attributes'),
         load_balancer_full_name=pulumi.get(__ret__, 'load_balancer_full_name'),
@@ -262,6 +272,7 @@ def get_load_balancer_output(load_balancer_arn: Optional[pulumi.Input[str]] = No
         enable_prefix_for_ipv6_source_nat=pulumi.get(__response__, 'enable_prefix_for_ipv6_source_nat'),
         enforce_security_group_inbound_rules_on_private_link_traffic=pulumi.get(__response__, 'enforce_security_group_inbound_rules_on_private_link_traffic'),
         ip_address_type=pulumi.get(__response__, 'ip_address_type'),
+        ipv4_ipam_pool_id=pulumi.get(__response__, 'ipv4_ipam_pool_id'),
         load_balancer_arn=pulumi.get(__response__, 'load_balancer_arn'),
         load_balancer_attributes=pulumi.get(__response__, 'load_balancer_attributes'),
         load_balancer_full_name=pulumi.get(__response__, 'load_balancer_full_name'),

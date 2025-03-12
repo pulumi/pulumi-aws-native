@@ -23,7 +23,7 @@ type RestoreTestingPlan struct {
 	RestoreTestingPlanArn pulumi.StringOutput `pulumi:"restoreTestingPlanArn"`
 	// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
 	RestoreTestingPlanName pulumi.StringOutput `pulumi:"restoreTestingPlanName"`
-	// A CRON expression in specified timezone when a restore testing plan is executed.
+	// A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
 	ScheduleExpression pulumi.StringOutput `pulumi:"scheduleExpression"`
 	// Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
 	ScheduleExpressionTimezone pulumi.StringPtrOutput `pulumi:"scheduleExpressionTimezone"`
@@ -91,7 +91,7 @@ type restoreTestingPlanArgs struct {
 	RecoveryPointSelection RestoreTestingPlanRestoreTestingRecoveryPointSelection `pulumi:"recoveryPointSelection"`
 	// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
 	RestoreTestingPlanName *string `pulumi:"restoreTestingPlanName"`
-	// A CRON expression in specified timezone when a restore testing plan is executed.
+	// A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
 	ScheduleExpression string `pulumi:"scheduleExpression"`
 	// Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
 	ScheduleExpressionTimezone *string `pulumi:"scheduleExpressionTimezone"`
@@ -111,7 +111,7 @@ type RestoreTestingPlanArgs struct {
 	RecoveryPointSelection RestoreTestingPlanRestoreTestingRecoveryPointSelectionInput
 	// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
 	RestoreTestingPlanName pulumi.StringPtrInput
-	// A CRON expression in specified timezone when a restore testing plan is executed.
+	// A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
 	ScheduleExpression pulumi.StringInput
 	// Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
 	ScheduleExpressionTimezone pulumi.StringPtrInput
@@ -179,7 +179,7 @@ func (o RestoreTestingPlanOutput) RestoreTestingPlanName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringOutput { return v.RestoreTestingPlanName }).(pulumi.StringOutput)
 }
 
-// A CRON expression in specified timezone when a restore testing plan is executed.
+// A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
 func (o RestoreTestingPlanOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringOutput { return v.ScheduleExpression }).(pulumi.StringOutput)
 }

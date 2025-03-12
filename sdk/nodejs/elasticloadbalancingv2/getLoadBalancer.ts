@@ -38,7 +38,7 @@ export interface GetLoadBalancerResult {
      */
     readonly enablePrefixForIpv6SourceNat?: string;
     /**
-     * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
+     * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
      */
     readonly enforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: string;
     /**
@@ -48,6 +48,7 @@ export interface GetLoadBalancerResult {
      *  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
      */
     readonly ipAddressType?: string;
+    readonly ipv4IpamPoolId?: string;
     /**
      * The Amazon Resource Name (ARN) of the load balancer.
      */

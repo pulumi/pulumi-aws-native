@@ -40,7 +40,45 @@ namespace Pulumi.AwsNative.Athena
     }
 
     /// <summary>
-    /// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
+    /// The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataCatalogStatus : IEquatable<DataCatalogStatus>
+    {
+        private readonly string _value;
+
+        private DataCatalogStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataCatalogStatus CreateInProgress { get; } = new DataCatalogStatus("CREATE_IN_PROGRESS");
+        public static DataCatalogStatus CreateComplete { get; } = new DataCatalogStatus("CREATE_COMPLETE");
+        public static DataCatalogStatus CreateFailed { get; } = new DataCatalogStatus("CREATE_FAILED");
+        public static DataCatalogStatus CreateFailedCleanupInProgress { get; } = new DataCatalogStatus("CREATE_FAILED_CLEANUP_IN_PROGRESS");
+        public static DataCatalogStatus CreateFailedCleanupComplete { get; } = new DataCatalogStatus("CREATE_FAILED_CLEANUP_COMPLETE");
+        public static DataCatalogStatus CreateFailedCleanupFailed { get; } = new DataCatalogStatus("CREATE_FAILED_CLEANUP_FAILED");
+        public static DataCatalogStatus DeleteInProgress { get; } = new DataCatalogStatus("DELETE_IN_PROGRESS");
+        public static DataCatalogStatus DeleteComplete { get; } = new DataCatalogStatus("DELETE_COMPLETE");
+        public static DataCatalogStatus DeleteFailed { get; } = new DataCatalogStatus("DELETE_FAILED");
+
+        public static bool operator ==(DataCatalogStatus left, DataCatalogStatus right) => left.Equals(right);
+        public static bool operator !=(DataCatalogStatus left, DataCatalogStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DataCatalogStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataCatalogStatus other && Equals(other);
+        public bool Equals(DataCatalogStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
     /// </summary>
     [EnumType]
     public readonly struct DataCatalogType : IEquatable<DataCatalogType>
@@ -55,6 +93,7 @@ namespace Pulumi.AwsNative.Athena
         public static DataCatalogType Lambda { get; } = new DataCatalogType("LAMBDA");
         public static DataCatalogType Glue { get; } = new DataCatalogType("GLUE");
         public static DataCatalogType Hive { get; } = new DataCatalogType("HIVE");
+        public static DataCatalogType Federated { get; } = new DataCatalogType("FEDERATED");
 
         public static bool operator ==(DataCatalogType left, DataCatalogType right) => left.Equals(right);
         public static bool operator !=(DataCatalogType left, DataCatalogType right) => !left.Equals(right);

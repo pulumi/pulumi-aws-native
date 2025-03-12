@@ -18,7 +18,7 @@ type Replicator struct {
 	pulumi.CustomResourceState
 
 	// The current version of the MSK replicator.
-	CurrentVersion pulumi.StringPtrOutput `pulumi:"currentVersion"`
+	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
 	// A summary description of the replicator.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies a list of Kafka clusters which are targets of the replicator.
@@ -96,8 +96,6 @@ func (ReplicatorState) ElementType() reflect.Type {
 }
 
 type replicatorArgs struct {
-	// The current version of the MSK replicator.
-	CurrentVersion *string `pulumi:"currentVersion"`
 	// A summary description of the replicator.
 	Description *string `pulumi:"description"`
 	// Specifies a list of Kafka clusters which are targets of the replicator.
@@ -114,8 +112,6 @@ type replicatorArgs struct {
 
 // The set of arguments for constructing a Replicator resource.
 type ReplicatorArgs struct {
-	// The current version of the MSK replicator.
-	CurrentVersion pulumi.StringPtrInput
 	// A summary description of the replicator.
 	Description pulumi.StringPtrInput
 	// Specifies a list of Kafka clusters which are targets of the replicator.
@@ -168,8 +164,8 @@ func (o ReplicatorOutput) ToReplicatorOutputWithContext(ctx context.Context) Rep
 }
 
 // The current version of the MSK replicator.
-func (o ReplicatorOutput) CurrentVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Replicator) pulumi.StringPtrOutput { return v.CurrentVersion }).(pulumi.StringPtrOutput)
+func (o ReplicatorOutput) CurrentVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Replicator) pulumi.StringOutput { return v.CurrentVersion }).(pulumi.StringOutput)
 }
 
 // A summary description of the replicator.

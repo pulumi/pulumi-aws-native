@@ -85,6 +85,7 @@ namespace Pulumi.AwsNative.Rum
         /// The unique ID of the new app monitor.
         /// </summary>
         public readonly string? Id;
+        public readonly Outputs.AppMonitorResourcePolicy? ResourcePolicy;
         /// <summary>
         /// Assigns one or more tags (key-value pairs) to the app monitor.
         /// 
@@ -110,6 +111,8 @@ namespace Pulumi.AwsNative.Rum
 
             string? id,
 
+            Outputs.AppMonitorResourcePolicy? resourcePolicy,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AppMonitorConfiguration = appMonitorConfiguration;
@@ -117,6 +120,7 @@ namespace Pulumi.AwsNative.Rum
             CwLogEnabled = cwLogEnabled;
             Domain = domain;
             Id = id;
+            ResourcePolicy = resourcePolicy;
             Tags = tags;
         }
     }

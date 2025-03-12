@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public Output<string?> EnablePrefixForIpv6SourceNat { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
+        /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
         /// </summary>
         [Output("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
         public Output<string?> EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; private set; } = null!;
@@ -47,6 +47,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// </summary>
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;
+
+        [Output("ipv4IpamPoolId")]
+        public Output<string?> Ipv4IpamPoolId { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the load balancer.
@@ -191,7 +194,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public Input<string>? EnablePrefixForIpv6SourceNat { get; set; }
 
         /// <summary>
-        /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
+        /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
         /// </summary>
         [Input("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
         public Input<string>? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; set; }
@@ -204,6 +207,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
+
+        [Input("ipv4IpamPoolId")]
+        public Input<string>? Ipv4IpamPoolId { get; set; }
 
         [Input("loadBalancerAttributes")]
         private InputList<Inputs.LoadBalancerAttributeArgs>? _loadBalancerAttributes;

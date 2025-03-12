@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Msk
         /// The current version of the MSK replicator.
         /// </summary>
         [Output("currentVersion")]
-        public Output<string?> CurrentVersion { get; private set; } = null!;
+        public Output<string> CurrentVersion { get; private set; } = null!;
 
         /// <summary>
         /// A summary description of the replicator.
@@ -120,12 +120,6 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class ReplicatorArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The current version of the MSK replicator.
-        /// </summary>
-        [Input("currentVersion")]
-        public Input<string>? CurrentVersion { get; set; }
-
         /// <summary>
         /// A summary description of the replicator.
         /// </summary>

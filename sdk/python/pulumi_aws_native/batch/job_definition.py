@@ -373,6 +373,7 @@ class JobDefinition(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["job_definition_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["jobDefinitionName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(JobDefinition, __self__).__init__(
@@ -401,6 +402,7 @@ class JobDefinition(pulumi.CustomResource):
         __props__.__dict__["container_properties"] = None
         __props__.__dict__["ecs_properties"] = None
         __props__.__dict__["eks_properties"] = None
+        __props__.__dict__["job_definition_arn"] = None
         __props__.__dict__["job_definition_name"] = None
         __props__.__dict__["node_properties"] = None
         __props__.__dict__["parameters"] = None
@@ -444,6 +446,11 @@ class JobDefinition(pulumi.CustomResource):
         An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
         """
         return pulumi.get(self, "eks_properties")
+
+    @property
+    @pulumi.getter(name="jobDefinitionArn")
+    def job_definition_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "job_definition_arn")
 
     @property
     @pulumi.getter(name="jobDefinitionName")

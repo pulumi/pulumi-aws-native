@@ -34,7 +34,7 @@ class RestoreTestingPlanArgs:
         """
         The set of arguments for constructing a RestoreTestingPlan resource.
         :param pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs'] recovery_point_selection: The specified criteria to assign a set of resources, such as recovery point types or backup vaults.
-        :param pulumi.Input[str] schedule_expression: A CRON expression in specified timezone when a restore testing plan is executed.
+        :param pulumi.Input[str] schedule_expression: A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
         :param pulumi.Input[str] restore_testing_plan_name: The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
         :param pulumi.Input[str] schedule_expression_timezone: Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
         :param pulumi.Input['RestoreTestingPlanRestoreTestingScheduleStatus'] schedule_status: This parameter is not currently supported.
@@ -72,7 +72,7 @@ class RestoreTestingPlanArgs:
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Input[str]:
         """
-        A CRON expression in specified timezone when a restore testing plan is executed.
+        A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
         """
         return pulumi.get(self, "schedule_expression")
 
@@ -163,7 +163,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs', 'RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgsDict']] recovery_point_selection: The specified criteria to assign a set of resources, such as recovery point types or backup vaults.
         :param pulumi.Input[str] restore_testing_plan_name: The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
-        :param pulumi.Input[str] schedule_expression: A CRON expression in specified timezone when a restore testing plan is executed.
+        :param pulumi.Input[str] schedule_expression: A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
         :param pulumi.Input[str] schedule_expression_timezone: Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
         :param pulumi.Input['RestoreTestingPlanRestoreTestingScheduleStatus'] schedule_status: This parameter is not currently supported.
         :param pulumi.Input[int] start_window_hours: Defaults to 24 hours.
@@ -285,7 +285,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Output[str]:
         """
-        A CRON expression in specified timezone when a restore testing plan is executed.
+        A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
         """
         return pulumi.get(self, "schedule_expression")
 

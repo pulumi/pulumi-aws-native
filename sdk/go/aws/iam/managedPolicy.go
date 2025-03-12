@@ -20,8 +20,13 @@ import (
 type ManagedPolicy struct {
 	pulumi.CustomResourceState
 
-	AttachmentCount  pulumi.IntOutput    `pulumi:"attachmentCount"`
-	CreateDate       pulumi.StringOutput `pulumi:"createDate"`
+	// The number of principal entities (users, groups, and roles) that the policy is attached to.
+	AttachmentCount pulumi.IntOutput `pulumi:"attachmentCount"`
+	// The date and time, in [ISO 8601 date-time format](https://docs.aws.amazon.com/http://www.iso.org/iso/iso8601) , when the policy was created.
+	CreateDate pulumi.StringOutput `pulumi:"createDate"`
+	// The identifier for the version of the policy that is set as the default (operative) version.
+	//
+	// For more information about policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html) in the *IAM User Guide* .
 	DefaultVersionId pulumi.StringOutput `pulumi:"defaultVersionId"`
 	// A friendly description of the policy.
 	//  Typically used to store information about the permissions defined in the policy. For example, "Grants access to production DynamoDB tables."
@@ -29,8 +34,9 @@ type ManagedPolicy struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name (friendly name, not ARN) of the group to attach the policy to.
 	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	Groups       pulumi.StringArrayOutput `pulumi:"groups"`
-	IsAttachable pulumi.BoolOutput        `pulumi:"isAttachable"`
+	Groups pulumi.StringArrayOutput `pulumi:"groups"`
+	// Specifies whether the policy can be attached to an IAM user, group, or role.
+	IsAttachable pulumi.BoolOutput `pulumi:"isAttachable"`
 	// The friendly name of the policy.
 	//   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	//   If you specify a name, you must specify the ``CAPABILITY_NAMED_IAM`` value to acknowledge your template's capabilities. For more information, see [Acknowledging Resources in Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities).
@@ -41,9 +47,15 @@ type ManagedPolicy struct {
 	//  This parameter is optional. If it is not included, it defaults to a slash (/).
 	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
 	//   You cannot use an asterisk (*) in the path name.
-	Path                          pulumi.StringPtrOutput `pulumi:"path"`
-	PermissionsBoundaryUsageCount pulumi.IntOutput       `pulumi:"permissionsBoundaryUsageCount"`
-	PolicyArn                     pulumi.StringOutput    `pulumi:"policyArn"`
+	Path pulumi.StringPtrOutput `pulumi:"path"`
+	// The number of entities (users and roles) for which the policy is used as the permissions boundary.
+	//
+	// For more information about permissions boundaries, see [Permissions boundaries for IAM identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
+	PermissionsBoundaryUsageCount pulumi.IntOutput `pulumi:"permissionsBoundaryUsageCount"`
+	// The Amazon Resource Name (ARN) of the managed policy that you want information about.
+	//
+	// For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
+	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
 	// The JSON policy document that you want to use as the content for the new policy.
 	//  You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
 	//  The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see [IAM and character quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length).
@@ -54,13 +66,19 @@ type ManagedPolicy struct {
 	//   +  The special characters tab (``\u0009``), line feed (``\u000A``), and carriage return (``\u000D``)
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
-	PolicyDocument pulumi.AnyOutput    `pulumi:"policyDocument"`
-	PolicyId       pulumi.StringOutput `pulumi:"policyId"`
+	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
+	// The stable and unique string identifying the policy.
+	//
+	// For more information about IDs, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
+	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// The name (friendly name, not ARN) of the role to attach the policy to.
 	//  This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	//   If an external policy (such as ``AWS::IAM::Policy`` or ``AWS::IAM::ManagedPolicy``) has a ``Ref`` to a role and if a resource (such as ``AWS::ECS::Service``) also has a ``Ref`` to the same role, add a ``DependsOn`` attribute to the resource to make the resource depend on the external policy. This dependency ensures that the role's policy is available throughout the resource's lifecycle. For example, when you delete a stack with an ``AWS::ECS::Service`` resource, the ``DependsOn`` attribute ensures that CFN deletes the ``AWS::ECS::Service`` resource before deleting its role's policy.
-	Roles      pulumi.StringArrayOutput `pulumi:"roles"`
-	UpdateDate pulumi.StringOutput      `pulumi:"updateDate"`
+	Roles pulumi.StringArrayOutput `pulumi:"roles"`
+	// The date and time, in [ISO 8601 date-time format](https://docs.aws.amazon.com/http://www.iso.org/iso/iso8601) , when the policy was last updated.
+	//
+	// When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
+	UpdateDate pulumi.StringOutput `pulumi:"updateDate"`
 	// The name (friendly name, not ARN) of the IAM user to attach the policy to.
 	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	Users pulumi.StringArrayOutput `pulumi:"users"`
@@ -230,14 +248,19 @@ func (o ManagedPolicyOutput) ToManagedPolicyOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The number of principal entities (users, groups, and roles) that the policy is attached to.
 func (o ManagedPolicyOutput) AttachmentCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.IntOutput { return v.AttachmentCount }).(pulumi.IntOutput)
 }
 
+// The date and time, in [ISO 8601 date-time format](https://docs.aws.amazon.com/http://www.iso.org/iso/iso8601) , when the policy was created.
 func (o ManagedPolicyOutput) CreateDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringOutput { return v.CreateDate }).(pulumi.StringOutput)
 }
 
+// The identifier for the version of the policy that is set as the default (operative) version.
+//
+// For more information about policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html) in the *IAM User Guide* .
 func (o ManagedPolicyOutput) DefaultVersionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringOutput { return v.DefaultVersionId }).(pulumi.StringOutput)
 }
@@ -257,6 +280,7 @@ func (o ManagedPolicyOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
+// Specifies whether the policy can be attached to an IAM user, group, or role.
 func (o ManagedPolicyOutput) IsAttachable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.BoolOutput { return v.IsAttachable }).(pulumi.BoolOutput)
 }
@@ -280,10 +304,16 @@ func (o ManagedPolicyOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The number of entities (users and roles) for which the policy is used as the permissions boundary.
+//
+// For more information about permissions boundaries, see [Permissions boundaries for IAM identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
 func (o ManagedPolicyOutput) PermissionsBoundaryUsageCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.IntOutput { return v.PermissionsBoundaryUsageCount }).(pulumi.IntOutput)
 }
 
+// The Amazon Resource Name (ARN) of the managed policy that you want information about.
+//
+// For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
 func (o ManagedPolicyOutput) PolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringOutput { return v.PolicyArn }).(pulumi.StringOutput)
 }
@@ -303,6 +333,9 @@ func (o ManagedPolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
+// The stable and unique string identifying the policy.
+//
+// For more information about IDs, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
 func (o ManagedPolicyOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
@@ -315,6 +348,9 @@ func (o ManagedPolicyOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
+// The date and time, in [ISO 8601 date-time format](https://docs.aws.amazon.com/http://www.iso.org/iso/iso8601) , when the policy was last updated.
+//
+// When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
 func (o ManagedPolicyOutput) UpdateDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringOutput { return v.UpdateDate }).(pulumi.StringOutput)
 }

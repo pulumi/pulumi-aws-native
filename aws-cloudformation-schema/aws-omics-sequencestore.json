@@ -84,7 +84,6 @@
   },
   "required" : [ "Name" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreationTime", "/properties/SequenceStoreId" ],
-  "writeOnlyProperties" : [ "/properties/Tags" ],
   "createOnlyProperties" : [ "/properties/Description", "/properties/Name", "/properties/FallbackLocation", "/properties/SseConfig", "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/SequenceStoreId" ],
   "tagging" : {

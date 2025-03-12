@@ -10959,7 +10959,7 @@ func (o LaunchTemplateCpuPtrOutput) References() LaunchTemplateReferenceArrayOut
 //
 //	``CpuOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateCpuOptions struct {
-	// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
+	// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
 	AmdSevSnp *LaunchTemplateCpuOptionsAmdSevSnp `pulumi:"amdSevSnp"`
 	// The number of CPU cores for the instance.
 	CoreCount *int `pulumi:"coreCount"`
@@ -10982,7 +10982,7 @@ type LaunchTemplateCpuOptionsInput interface {
 //
 //	``CpuOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateCpuOptionsArgs struct {
-	// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
+	// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
 	AmdSevSnp LaunchTemplateCpuOptionsAmdSevSnpPtrInput `pulumi:"amdSevSnp"`
 	// The number of CPU cores for the instance.
 	CoreCount pulumi.IntPtrInput `pulumi:"coreCount"`
@@ -11070,7 +11070,7 @@ func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsPtrOutputWithC
 	}).(LaunchTemplateCpuOptionsPtrOutput)
 }
 
-// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
+// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
 func (o LaunchTemplateCpuOptionsOutput) AmdSevSnp() LaunchTemplateCpuOptionsAmdSevSnpPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCpuOptions) *LaunchTemplateCpuOptionsAmdSevSnp { return v.AmdSevSnp }).(LaunchTemplateCpuOptionsAmdSevSnpPtrOutput)
 }
@@ -11109,7 +11109,7 @@ func (o LaunchTemplateCpuOptionsPtrOutput) Elem() LaunchTemplateCpuOptionsOutput
 	}).(LaunchTemplateCpuOptionsOutput)
 }
 
-// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
+// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
 func (o LaunchTemplateCpuOptionsPtrOutput) AmdSevSnp() LaunchTemplateCpuOptionsAmdSevSnpPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *LaunchTemplateCpuOptionsAmdSevSnp {
 		if v == nil {
@@ -11299,13 +11299,13 @@ type LaunchTemplateData struct {
 	BlockDeviceMappings []LaunchTemplateBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// The Capacity Reservation targeting option. If you do not specify this parameter, the instance's Capacity Reservation preference defaults to ``open``, which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
 	CapacityReservationSpecification *LaunchTemplateCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
-	// The CPU options for the instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
+	// The CPU options for the instance. For more information, see [CPU options for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
 	CpuOptions *LaunchTemplateCpuOptions `pulumi:"cpuOptions"`
 	// The credit option for CPU usage of the instance. Valid only for T instances.
 	CreditSpecification *LaunchTemplateCreditSpecification `pulumi:"creditSpecification"`
-	// Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
+	// Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
 	DisableApiStop *bool `pulumi:"disableApiStop"`
-	// If you set this parameter to ``true``, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html). Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate``, you can terminate the instance by running the shutdown command from the instance.
+	// Indicates whether termination protection is enabled for the instance. The default is ``false``, which means that you can terminate the instance using the Amazon EC2 console, command line tools, or API. You can enable termination protection when you launch an instance, while the instance is running, or while the instance is stopped.
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
 	// Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
 	EbsOptimized *bool `pulumi:"ebsOptimized"`
@@ -11362,14 +11362,14 @@ type LaunchTemplateData struct {
 	LicenseSpecifications []LaunchTemplateLicenseSpecification `pulumi:"licenseSpecifications"`
 	// The maintenance options of your instance.
 	MaintenanceOptions *LaunchTemplateMaintenanceOptions `pulumi:"maintenanceOptions"`
-	// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
+	// The metadata options for the instance. For more information, see [Configure the Instance Metadata Service options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html) in the *Amazon EC2 User Guide*.
 	MetadataOptions *LaunchTemplateMetadataOptions `pulumi:"metadataOptions"`
 	// The monitoring for the instance.
 	Monitoring *LaunchTemplateMonitoring `pulumi:"monitoring"`
 	// The network interfaces for the instance.
 	NetworkInterfaces []LaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
-	// The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) .
-	NetworkPerformanceOptions interface{} `pulumi:"networkPerformanceOptions"`
+	// The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html).
+	NetworkPerformanceOptions *LaunchTemplateNetworkPerformanceOptions `pulumi:"networkPerformanceOptions"`
 	// The placement for the instance.
 	Placement *LaunchTemplatePlacement `pulumi:"placement"`
 	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
@@ -11386,8 +11386,8 @@ type LaunchTemplateData struct {
 	// The tags to apply to resources that are created during instance launch.
 	//  To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
 	TagSpecifications []TagSpecification `pulumi:"tagSpecifications"`
-	// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Amazon EC2 instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
-	//  If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
+	// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands when you launch an EC2 instance with user data input](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
+	//  If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html#lt-user-data) in the *User Guide*.
 	UserData *string `pulumi:"userData"`
 }
 
@@ -11410,13 +11410,13 @@ type LaunchTemplateDataArgs struct {
 	BlockDeviceMappings LaunchTemplateBlockDeviceMappingArrayInput `pulumi:"blockDeviceMappings"`
 	// The Capacity Reservation targeting option. If you do not specify this parameter, the instance's Capacity Reservation preference defaults to ``open``, which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
 	CapacityReservationSpecification LaunchTemplateCapacityReservationSpecificationPtrInput `pulumi:"capacityReservationSpecification"`
-	// The CPU options for the instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
+	// The CPU options for the instance. For more information, see [CPU options for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
 	CpuOptions LaunchTemplateCpuOptionsPtrInput `pulumi:"cpuOptions"`
 	// The credit option for CPU usage of the instance. Valid only for T instances.
 	CreditSpecification LaunchTemplateCreditSpecificationPtrInput `pulumi:"creditSpecification"`
-	// Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
+	// Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
 	DisableApiStop pulumi.BoolPtrInput `pulumi:"disableApiStop"`
-	// If you set this parameter to ``true``, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html). Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate``, you can terminate the instance by running the shutdown command from the instance.
+	// Indicates whether termination protection is enabled for the instance. The default is ``false``, which means that you can terminate the instance using the Amazon EC2 console, command line tools, or API. You can enable termination protection when you launch an instance, while the instance is running, or while the instance is stopped.
 	DisableApiTermination pulumi.BoolPtrInput `pulumi:"disableApiTermination"`
 	// Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
 	EbsOptimized pulumi.BoolPtrInput `pulumi:"ebsOptimized"`
@@ -11473,14 +11473,14 @@ type LaunchTemplateDataArgs struct {
 	LicenseSpecifications LaunchTemplateLicenseSpecificationArrayInput `pulumi:"licenseSpecifications"`
 	// The maintenance options of your instance.
 	MaintenanceOptions LaunchTemplateMaintenanceOptionsPtrInput `pulumi:"maintenanceOptions"`
-	// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
+	// The metadata options for the instance. For more information, see [Configure the Instance Metadata Service options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html) in the *Amazon EC2 User Guide*.
 	MetadataOptions LaunchTemplateMetadataOptionsPtrInput `pulumi:"metadataOptions"`
 	// The monitoring for the instance.
 	Monitoring LaunchTemplateMonitoringPtrInput `pulumi:"monitoring"`
 	// The network interfaces for the instance.
 	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
-	// The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) .
-	NetworkPerformanceOptions pulumi.Input `pulumi:"networkPerformanceOptions"`
+	// The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html).
+	NetworkPerformanceOptions LaunchTemplateNetworkPerformanceOptionsPtrInput `pulumi:"networkPerformanceOptions"`
 	// The placement for the instance.
 	Placement LaunchTemplatePlacementPtrInput `pulumi:"placement"`
 	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
@@ -11497,8 +11497,8 @@ type LaunchTemplateDataArgs struct {
 	// The tags to apply to resources that are created during instance launch.
 	//  To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
 	TagSpecifications TagSpecificationArrayInput `pulumi:"tagSpecifications"`
-	// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Amazon EC2 instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
-	//  If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
+	// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands when you launch an EC2 instance with user data input](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
+	//  If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html#lt-user-data) in the *User Guide*.
 	UserData pulumi.StringPtrInput `pulumi:"userData"`
 }
 
@@ -11543,7 +11543,7 @@ func (o LaunchTemplateDataOutput) CapacityReservationSpecification() LaunchTempl
 	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
 }
 
-// The CPU options for the instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
+// The CPU options for the instance. For more information, see [CPU options for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
 func (o LaunchTemplateDataOutput) CpuOptions() LaunchTemplateCpuOptionsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateCpuOptions { return v.CpuOptions }).(LaunchTemplateCpuOptionsPtrOutput)
 }
@@ -11553,12 +11553,12 @@ func (o LaunchTemplateDataOutput) CreditSpecification() LaunchTemplateCreditSpec
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateCreditSpecification { return v.CreditSpecification }).(LaunchTemplateCreditSpecificationPtrOutput)
 }
 
-// Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
+// Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
 func (o LaunchTemplateDataOutput) DisableApiStop() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *bool { return v.DisableApiStop }).(pulumi.BoolPtrOutput)
 }
 
-// If you set this parameter to “true“, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html). Alternatively, if you set “InstanceInitiatedShutdownBehavior“ to “terminate“, you can terminate the instance by running the shutdown command from the instance.
+// Indicates whether termination protection is enabled for the instance. The default is “false“, which means that you can terminate the instance using the Amazon EC2 console, command line tools, or API. You can enable termination protection when you launch an instance, while the instance is running, or while the instance is stopped.
 func (o LaunchTemplateDataOutput) DisableApiTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *bool { return v.DisableApiTermination }).(pulumi.BoolPtrOutput)
 }
@@ -11674,7 +11674,7 @@ func (o LaunchTemplateDataOutput) MaintenanceOptions() LaunchTemplateMaintenance
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateMaintenanceOptions { return v.MaintenanceOptions }).(LaunchTemplateMaintenanceOptionsPtrOutput)
 }
 
-// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
+// The metadata options for the instance. For more information, see [Configure the Instance Metadata Service options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html) in the *Amazon EC2 User Guide*.
 func (o LaunchTemplateDataOutput) MetadataOptions() LaunchTemplateMetadataOptionsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateMetadataOptions { return v.MetadataOptions }).(LaunchTemplateMetadataOptionsPtrOutput)
 }
@@ -11689,9 +11689,11 @@ func (o LaunchTemplateDataOutput) NetworkInterfaces() LaunchTemplateNetworkInter
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateNetworkInterface { return v.NetworkInterfaces }).(LaunchTemplateNetworkInterfaceArrayOutput)
 }
 
-// The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) .
-func (o LaunchTemplateDataOutput) NetworkPerformanceOptions() pulumi.AnyOutput {
-	return o.ApplyT(func(v LaunchTemplateData) interface{} { return v.NetworkPerformanceOptions }).(pulumi.AnyOutput)
+// The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html).
+func (o LaunchTemplateDataOutput) NetworkPerformanceOptions() LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateNetworkPerformanceOptions {
+		return v.NetworkPerformanceOptions
+	}).(LaunchTemplateNetworkPerformanceOptionsPtrOutput)
 }
 
 // The placement for the instance.
@@ -11732,9 +11734,9 @@ func (o LaunchTemplateDataOutput) TagSpecifications() TagSpecificationArrayOutpu
 	return o.ApplyT(func(v LaunchTemplateData) []TagSpecification { return v.TagSpecifications }).(TagSpecificationArrayOutput)
 }
 
-// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Amazon EC2 instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
+// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands when you launch an EC2 instance with user data input](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
 //
-//	If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
+//	If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html#lt-user-data) in the *User Guide*.
 func (o LaunchTemplateDataOutput) UserData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *string { return v.UserData }).(pulumi.StringPtrOutput)
 }
@@ -11753,7 +11755,7 @@ type LaunchTemplateEbs struct {
 	//   +   ``io1``: 100 - 64,000 IOPS
 	//   +   ``io2``: 100 - 256,000 IOPS
 	//
-	//  For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+	//  For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
 	//  This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
 	Iops *int `pulumi:"iops"`
 	// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
@@ -11799,7 +11801,7 @@ type LaunchTemplateEbsArgs struct {
 	//   +   ``io1``: 100 - 64,000 IOPS
 	//   +   ``io2``: 100 - 256,000 IOPS
 	//
-	//  For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+	//  For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
 	//  This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
@@ -11917,7 +11919,7 @@ func (o LaunchTemplateEbsOutput) Encrypted() pulumi.BoolPtrOutput {
 //	 +   ``io1``: 100 - 64,000 IOPS
 //	 +   ``io2``: 100 - 256,000 IOPS
 //
-//	For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+//	For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
 //	This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
 func (o LaunchTemplateEbsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
@@ -12006,7 +12008,7 @@ func (o LaunchTemplateEbsPtrOutput) Encrypted() pulumi.BoolPtrOutput {
 //	 +   ``io1``: 100 - 64,000 IOPS
 //	 +   ``io2``: 100 - 256,000 IOPS
 //
-//	For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+//	For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
 //	This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
 func (o LaunchTemplateEbsPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *int {
@@ -15218,7 +15220,7 @@ type LaunchTemplateMetadataOptions struct {
 	//
 	//  Default: If the value of ``ImdsSupport`` for the Amazon Machine Image (AMI) for your instance is ``v2.0``, the default is ``required``.
 	HttpTokens *string `pulumi:"httpTokens"`
-	// Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [Work with instance tags using the instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS).
+	// Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [View tags for your EC2 instances using instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html).
 	//  Default: ``disabled``
 	InstanceMetadataTags *string `pulumi:"instanceMetadataTags"`
 }
@@ -15254,7 +15256,7 @@ type LaunchTemplateMetadataOptionsArgs struct {
 	//
 	//  Default: If the value of ``ImdsSupport`` for the Amazon Machine Image (AMI) for your instance is ``v2.0``, the default is ``required``.
 	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
-	// Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [Work with instance tags using the instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS).
+	// Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [View tags for your EC2 instances using instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html).
 	//  Default: ``disabled``
 	InstanceMetadataTags pulumi.StringPtrInput `pulumi:"instanceMetadataTags"`
 }
@@ -15372,7 +15374,7 @@ func (o LaunchTemplateMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
 }
 
-// Set to “enabled“ to allow access to instance tags from the instance metadata. Set to “disabled“ to turn off access to instance tags from the instance metadata. For more information, see [Work with instance tags using the instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS).
+// Set to “enabled“ to allow access to instance tags from the instance metadata. Set to “disabled“ to turn off access to instance tags from the instance metadata. For more information, see [View tags for your EC2 instances using instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html).
 //
 //	Default: ``disabled``
 func (o LaunchTemplateMetadataOptionsOutput) InstanceMetadataTags() pulumi.StringPtrOutput {
@@ -15456,7 +15458,7 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set to “enabled“ to allow access to instance tags from the instance metadata. Set to “disabled“ to turn off access to instance tags from the instance metadata. For more information, see [Work with instance tags using the instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS).
+// Set to “enabled“ to allow access to instance tags from the instance metadata. Set to “disabled“ to turn off access to instance tags from the instance metadata. For more information, see [View tags for your EC2 instances using instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html).
 //
 //	Default: ``disabled``
 func (o LaunchTemplateMetadataOptionsPtrOutput) InstanceMetadataTags() pulumi.StringPtrOutput {
@@ -15802,7 +15804,7 @@ type LaunchTemplateNetworkInterface struct {
 	EnaSrdSpecification *LaunchTemplateEnaSrdSpecification `pulumi:"enaSrdSpecification"`
 	// The IDs of one or more security groups.
 	Groups []string `pulumi:"groups"`
-	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
+	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
 	//  If you are not creating an EFA, specify ``interface`` or omit this parameter.
 	//  If you specify ``efa-only``, do not assign any IP addresses to the network interface. EFA-only network interfaces do not support IP addresses.
 	//  Valid values: ``interface`` | ``efa`` | ``efa-only``
@@ -15869,7 +15871,7 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	EnaSrdSpecification LaunchTemplateEnaSrdSpecificationPtrInput `pulumi:"enaSrdSpecification"`
 	// The IDs of one or more security groups.
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
-	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
+	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
 	//  If you are not creating an EFA, specify ``interface`` or omit this parameter.
 	//  If you specify ``efa-only``, do not assign any IP addresses to the network interface. EFA-only network interfaces do not support IP addresses.
 	//  Valid values: ``interface`` | ``efa`` | ``efa-only``
@@ -16006,7 +16008,7 @@ func (o LaunchTemplateNetworkInterfaceOutput) Groups() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify “efa“ or “efa“. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
+// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify “efa“ or “efa“. For more information, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
 //
 //	If you are not creating an EFA, specify ``interface`` or omit this parameter.
 //	If you specify ``efa-only``, do not assign any IP addresses to the network interface. EFA-only network interfaces do not support IP addresses.
@@ -16257,6 +16259,143 @@ func (o LaunchTemplateNetworkInterfaceCountPtrOutput) Min() pulumi.IntPtrOutput 
 		}
 		return v.Min
 	}).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateNetworkPerformanceOptions struct {
+	// Specifies the performance options of your instance or sets it to default.
+	BandwidthWeighting *string `pulumi:"bandwidthWeighting"`
+}
+
+// LaunchTemplateNetworkPerformanceOptionsInput is an input type that accepts LaunchTemplateNetworkPerformanceOptionsArgs and LaunchTemplateNetworkPerformanceOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkPerformanceOptionsInput` via:
+//
+//	LaunchTemplateNetworkPerformanceOptionsArgs{...}
+type LaunchTemplateNetworkPerformanceOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkPerformanceOptionsOutput() LaunchTemplateNetworkPerformanceOptionsOutput
+	ToLaunchTemplateNetworkPerformanceOptionsOutputWithContext(context.Context) LaunchTemplateNetworkPerformanceOptionsOutput
+}
+
+type LaunchTemplateNetworkPerformanceOptionsArgs struct {
+	// Specifies the performance options of your instance or sets it to default.
+	BandwidthWeighting pulumi.StringPtrInput `pulumi:"bandwidthWeighting"`
+}
+
+func (LaunchTemplateNetworkPerformanceOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkPerformanceOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateNetworkPerformanceOptionsArgs) ToLaunchTemplateNetworkPerformanceOptionsOutput() LaunchTemplateNetworkPerformanceOptionsOutput {
+	return i.ToLaunchTemplateNetworkPerformanceOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkPerformanceOptionsArgs) ToLaunchTemplateNetworkPerformanceOptionsOutputWithContext(ctx context.Context) LaunchTemplateNetworkPerformanceOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkPerformanceOptionsOutput)
+}
+
+func (i LaunchTemplateNetworkPerformanceOptionsArgs) ToLaunchTemplateNetworkPerformanceOptionsPtrOutput() LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return i.ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkPerformanceOptionsArgs) ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkPerformanceOptionsOutput).ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateNetworkPerformanceOptionsPtrInput is an input type that accepts LaunchTemplateNetworkPerformanceOptionsArgs, LaunchTemplateNetworkPerformanceOptionsPtr and LaunchTemplateNetworkPerformanceOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkPerformanceOptionsPtrInput` via:
+//
+//	        LaunchTemplateNetworkPerformanceOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchTemplateNetworkPerformanceOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkPerformanceOptionsPtrOutput() LaunchTemplateNetworkPerformanceOptionsPtrOutput
+	ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(context.Context) LaunchTemplateNetworkPerformanceOptionsPtrOutput
+}
+
+type launchTemplateNetworkPerformanceOptionsPtrType LaunchTemplateNetworkPerformanceOptionsArgs
+
+func LaunchTemplateNetworkPerformanceOptionsPtr(v *LaunchTemplateNetworkPerformanceOptionsArgs) LaunchTemplateNetworkPerformanceOptionsPtrInput {
+	return (*launchTemplateNetworkPerformanceOptionsPtrType)(v)
+}
+
+func (*launchTemplateNetworkPerformanceOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateNetworkPerformanceOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateNetworkPerformanceOptionsPtrType) ToLaunchTemplateNetworkPerformanceOptionsPtrOutput() LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return i.ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateNetworkPerformanceOptionsPtrType) ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkPerformanceOptionsPtrOutput)
+}
+
+type LaunchTemplateNetworkPerformanceOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkPerformanceOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkPerformanceOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkPerformanceOptionsOutput) ToLaunchTemplateNetworkPerformanceOptionsOutput() LaunchTemplateNetworkPerformanceOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkPerformanceOptionsOutput) ToLaunchTemplateNetworkPerformanceOptionsOutputWithContext(ctx context.Context) LaunchTemplateNetworkPerformanceOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkPerformanceOptionsOutput) ToLaunchTemplateNetworkPerformanceOptionsPtrOutput() LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return o.ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateNetworkPerformanceOptionsOutput) ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateNetworkPerformanceOptions) *LaunchTemplateNetworkPerformanceOptions {
+		return &v
+	}).(LaunchTemplateNetworkPerformanceOptionsPtrOutput)
+}
+
+// Specifies the performance options of your instance or sets it to default.
+func (o LaunchTemplateNetworkPerformanceOptionsOutput) BandwidthWeighting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkPerformanceOptions) *string { return v.BandwidthWeighting }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateNetworkPerformanceOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkPerformanceOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateNetworkPerformanceOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkPerformanceOptionsPtrOutput) ToLaunchTemplateNetworkPerformanceOptionsPtrOutput() LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkPerformanceOptionsPtrOutput) ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkPerformanceOptionsPtrOutput) Elem() LaunchTemplateNetworkPerformanceOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkPerformanceOptions) LaunchTemplateNetworkPerformanceOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateNetworkPerformanceOptions
+		return ret
+	}).(LaunchTemplateNetworkPerformanceOptionsOutput)
+}
+
+// Specifies the performance options of your instance or sets it to default.
+func (o LaunchTemplateNetworkPerformanceOptionsPtrOutput) BandwidthWeighting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkPerformanceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BandwidthWeighting
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the placement of an instance.
@@ -16995,7 +17134,7 @@ type LaunchTemplateSpotOptions struct {
 	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
 	// The behavior when a Spot Instance is interrupted. The default is ``terminate``.
 	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
-	// The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+	// The maximum hourly price you're willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price. If you do specify this parameter, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an ``InvalidParameterValue`` error message when the launch template is used to launch an instance.
 	//   If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
 	MaxPrice *string `pulumi:"maxPrice"`
 	// The Spot Instance request type.
@@ -17028,7 +17167,7 @@ type LaunchTemplateSpotOptionsArgs struct {
 	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
 	// The behavior when a Spot Instance is interrupted. The default is ``terminate``.
 	InstanceInterruptionBehavior pulumi.StringPtrInput `pulumi:"instanceInterruptionBehavior"`
-	// The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+	// The maximum hourly price you're willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price. If you do specify this parameter, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an ``InvalidParameterValue`` error message when the launch template is used to launch an instance.
 	//   If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
 	MaxPrice pulumi.StringPtrInput `pulumi:"maxPrice"`
 	// The Spot Instance request type.
@@ -17132,7 +17271,7 @@ func (o LaunchTemplateSpotOptionsOutput) InstanceInterruptionBehavior() pulumi.S
 	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.InstanceInterruptionBehavior }).(pulumi.StringPtrOutput)
 }
 
-// The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+// The maximum hourly price you're willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price. If you do specify this parameter, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an “InvalidParameterValue“ error message when the launch template is used to launch an instance.
 //
 //	If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
 func (o LaunchTemplateSpotOptionsOutput) MaxPrice() pulumi.StringPtrOutput {
@@ -17201,7 +17340,7 @@ func (o LaunchTemplateSpotOptionsPtrOutput) InstanceInterruptionBehavior() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+// The maximum hourly price you're willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price. If you do specify this parameter, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an “InvalidParameterValue“ error message when the launch template is used to launch an instance.
 //
 //	If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
 func (o LaunchTemplateSpotOptionsPtrOutput) MaxPrice() pulumi.StringPtrOutput {
@@ -35036,6 +35175,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceArrayInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceCountInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceCountPtrInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkPerformanceOptionsInput)(nil)).Elem(), LaunchTemplateNetworkPerformanceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkPerformanceOptionsPtrInput)(nil)).Elem(), LaunchTemplateNetworkPerformanceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePlacementInput)(nil)).Elem(), LaunchTemplatePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePlacementPtrInput)(nil)).Elem(), LaunchTemplatePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePrivateDnsNameOptionsInput)(nil)).Elem(), LaunchTemplatePrivateDnsNameOptionsArgs{})
@@ -35399,6 +35540,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceCountOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceCountPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkPerformanceOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkPerformanceOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePlacementOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePlacementPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePrivateDnsNameOptionsOutput{})
