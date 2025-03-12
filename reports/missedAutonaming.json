@@ -6502,6 +6502,9 @@
         "type": "string",
         "description": "The ARN of the Secrets Manager secret associated with the pull through cache rule."
       },
+      "customRoleArn": {
+        "type": "string"
+      },
       "ecrRepositoryPrefix": {
         "type": "string",
         "description": "The Amazon ECR repository prefix associated with the pull through cache rule."
@@ -6513,6 +6516,9 @@
       "upstreamRegistryUrl": {
         "type": "string",
         "description": "The upstream registry URL associated with the pull through cache rule."
+      },
+      "upstreamRepositoryPrefix": {
+        "type": "string"
       }
     }
   },

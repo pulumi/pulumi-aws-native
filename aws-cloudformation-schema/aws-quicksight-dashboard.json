@@ -9295,8 +9295,7 @@
           "minLength" : 0,
           "type" : "string",
           "maxLength" : 150000
-        },
-        "Interactions" : { }
+        }
       },
       "required" : [ "SheetTextBoxId" ]
     },

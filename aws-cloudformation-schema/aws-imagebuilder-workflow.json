@@ -65,7 +65,12 @@
   "writeOnlyProperties" : [ "/properties/Data", "/properties/Uri" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/Version", "/properties/ChangeDescription", "/properties/Description", "/properties/Data", "/properties/Uri", "/properties/Type", "/properties/KmsKeyId", "/properties/Tags" ],
   "tagging" : {
-    "taggable" : false
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UnTagResource" ]
   },
   "handlers" : {
     "create" : {

@@ -282,7 +282,11 @@
   "readOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "tagging" : {
-    "taggable" : false
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
   },
   "handlers" : {
     "create" : {
