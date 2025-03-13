@@ -41,6 +41,9 @@ export interface GetJobDefinitionResult {
      * An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
      */
     readonly eksProperties?: outputs.batch.JobDefinitionEksProperties;
+    /**
+     * The job definition ARN, such as `batch: *us-east-1* : *111122223333* :job-definition/ *test-gpu* : *2*` .
+     */
     readonly jobDefinitionArn?: string;
     /**
      * An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .

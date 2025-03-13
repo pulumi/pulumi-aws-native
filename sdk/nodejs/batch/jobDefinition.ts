@@ -53,6 +53,9 @@ export class JobDefinition extends pulumi.CustomResource {
      * An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
      */
     public readonly eksProperties!: pulumi.Output<outputs.batch.JobDefinitionEksProperties | undefined>;
+    /**
+     * The job definition ARN, such as `batch: *us-east-1* : *111122223333* :job-definition/ *test-gpu* : *2*` .
+     */
     public /*out*/ readonly jobDefinitionArn!: pulumi.Output<string>;
     /**
      * The name of the job definition.

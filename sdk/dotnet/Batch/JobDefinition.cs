@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Batch
         [Output("eksProperties")]
         public Output<Outputs.JobDefinitionEksProperties?> EksProperties { get; private set; } = null!;
 
+        /// <summary>
+        /// The job definition ARN, such as `batch: *us-east-1* : *111122223333* :job-definition/ *test-gpu* : *2*` .
+        /// </summary>
         [Output("jobDefinitionArn")]
         public Output<string> JobDefinitionArn { get; private set; } = null!;
 

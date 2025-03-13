@@ -35,8 +35,9 @@ type LookupJobDefinitionResult struct {
 	// An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
 	EcsProperties *JobDefinitionEcsProperties `pulumi:"ecsProperties"`
 	// An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
-	EksProperties    *JobDefinitionEksProperties `pulumi:"eksProperties"`
-	JobDefinitionArn *string                     `pulumi:"jobDefinitionArn"`
+	EksProperties *JobDefinitionEksProperties `pulumi:"eksProperties"`
+	// The job definition ARN, such as `batch: *us-east-1* : *111122223333* :job-definition/ *test-gpu* : *2*` .
+	JobDefinitionArn *string `pulumi:"jobDefinitionArn"`
 	// An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
 	//
 	// > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
@@ -118,6 +119,7 @@ func (o LookupJobDefinitionResultOutput) EksProperties() JobDefinitionEksPropert
 	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionEksProperties { return v.EksProperties }).(JobDefinitionEksPropertiesPtrOutput)
 }
 
+// The job definition ARN, such as `batch: *us-east-1* : *111122223333* :job-definition/ *test-gpu* : *2*` .
 func (o LookupJobDefinitionResultOutput) JobDefinitionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) *string { return v.JobDefinitionArn }).(pulumi.StringPtrOutput)
 }

@@ -103,6 +103,9 @@ class GetJobDefinitionResult:
     @property
     @pulumi.getter(name="jobDefinitionArn")
     def job_definition_arn(self) -> Optional[str]:
+        """
+        The job definition ARN, such as `batch: *us-east-1* : *111122223333* :job-definition/ *test-gpu* : *2*` .
+        """
         return pulumi.get(self, "job_definition_arn")
 
     @property
