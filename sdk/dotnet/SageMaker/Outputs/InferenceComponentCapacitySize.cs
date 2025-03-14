@@ -16,7 +16,16 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class InferenceComponentCapacitySize
     {
+        /// <summary>
+        /// Specifies the endpoint capacity type.
+        /// 
+        /// - **COPY_COUNT** - The endpoint activates based on the number of inference component copies.
+        /// - **CAPACITY_PERCENT** - The endpoint activates based on the specified percentage of capacity.
+        /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.InferenceComponentCapacitySizeType Type;
+        /// <summary>
+        /// Defines the capacity size, either as a number of inference component copies or a capacity percentage.
+        /// </summary>
         public readonly int Value;
 
         [OutputConstructor]

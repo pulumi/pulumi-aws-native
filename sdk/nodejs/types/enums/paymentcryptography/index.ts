@@ -13,6 +13,7 @@ export const KeyAlgorithm = {
     Rsa4096: "RSA_4096",
     EccNistP256: "ECC_NIST_P256",
     EccNistP384: "ECC_NIST_P384",
+    EccNistP521: "ECC_NIST_P521",
 } as const;
 
 export type KeyAlgorithm = (typeof KeyAlgorithm)[keyof typeof KeyAlgorithm];

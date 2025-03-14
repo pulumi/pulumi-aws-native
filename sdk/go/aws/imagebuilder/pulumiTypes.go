@@ -1388,6 +1388,8 @@ type DistributionConfigurationDistribution struct {
 	LicenseConfigurationArns []string `pulumi:"licenseConfigurationArns"`
 	// region
 	Region string `pulumi:"region"`
+	// The SSM parameter configurations to use for AMI distribution.
+	SsmParameterConfigurations []interface{} `pulumi:"ssmParameterConfigurations"`
 }
 
 // DistributionConfigurationDistributionInput is an input type that accepts DistributionConfigurationDistributionArgs and DistributionConfigurationDistributionOutput values.
@@ -1415,6 +1417,8 @@ type DistributionConfigurationDistributionArgs struct {
 	LicenseConfigurationArns pulumi.StringArrayInput `pulumi:"licenseConfigurationArns"`
 	// region
 	Region pulumi.StringInput `pulumi:"region"`
+	// The SSM parameter configurations to use for AMI distribution.
+	SsmParameterConfigurations pulumi.ArrayInput `pulumi:"ssmParameterConfigurations"`
 }
 
 func (DistributionConfigurationDistributionArgs) ElementType() reflect.Type {
@@ -1505,6 +1509,11 @@ func (o DistributionConfigurationDistributionOutput) LicenseConfigurationArns() 
 // region
 func (o DistributionConfigurationDistributionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// The SSM parameter configurations to use for AMI distribution.
+func (o DistributionConfigurationDistributionOutput) SsmParameterConfigurations() pulumi.ArrayOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistribution) []interface{} { return v.SsmParameterConfigurations }).(pulumi.ArrayOutput)
 }
 
 type DistributionConfigurationDistributionArrayOutput struct{ *pulumi.OutputState }

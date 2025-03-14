@@ -4628,11 +4628,17 @@ class InferenceComponentAlarm(dict):
 
     def __init__(__self__, *,
                  alarm_name: str):
+        """
+        :param str alarm_name: The name of a CloudWatch alarm in your account.
+        """
         pulumi.set(__self__, "alarm_name", alarm_name)
 
     @property
     @pulumi.getter(name="alarmName")
     def alarm_name(self) -> str:
+        """
+        The name of a CloudWatch alarm in your account.
+        """
         return pulumi.get(self, "alarm_name")
 
 
@@ -4658,6 +4664,11 @@ class InferenceComponentCapacitySize(dict):
                  value: int):
         """
         Capacity size configuration for the inference component
+        :param 'InferenceComponentCapacitySizeType' type: Specifies the endpoint capacity type.
+               
+               - **COPY_COUNT** - The endpoint activates based on the number of inference component copies.
+               - **CAPACITY_PERCENT** - The endpoint activates based on the specified percentage of capacity.
+        :param int value: Defines the capacity size, either as a number of inference component copies or a capacity percentage.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -4665,11 +4676,20 @@ class InferenceComponentCapacitySize(dict):
     @property
     @pulumi.getter
     def type(self) -> 'InferenceComponentCapacitySizeType':
+        """
+        Specifies the endpoint capacity type.
+
+        - **COPY_COUNT** - The endpoint activates based on the number of inference component copies.
+        - **CAPACITY_PERCENT** - The endpoint activates based on the specified percentage of capacity.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def value(self) -> int:
+        """
+        Defines the capacity size, either as a number of inference component copies or a capacity percentage.
+        """
         return pulumi.get(self, "value")
 
 
@@ -4914,6 +4934,7 @@ class InferenceComponentDeploymentConfig(dict):
                  rolling_update_policy: Optional['outputs.InferenceComponentRollingUpdatePolicy'] = None):
         """
         The deployment config for the inference component
+        :param 'InferenceComponentRollingUpdatePolicy' rolling_update_policy: Specifies a rolling deployment strategy for updating a SageMaker AI endpoint.
         """
         if auto_rollback_configuration is not None:
             pulumi.set(__self__, "auto_rollback_configuration", auto_rollback_configuration)
@@ -4928,6 +4949,9 @@ class InferenceComponentDeploymentConfig(dict):
     @property
     @pulumi.getter(name="rollingUpdatePolicy")
     def rolling_update_policy(self) -> Optional['outputs.InferenceComponentRollingUpdatePolicy']:
+        """
+        Specifies a rolling deployment strategy for updating a SageMaker AI endpoint.
+        """
         return pulumi.get(self, "rolling_update_policy")
 
 
@@ -4966,6 +4990,10 @@ class InferenceComponentRollingUpdatePolicy(dict):
                  wait_interval_in_seconds: Optional[int] = None):
         """
         The rolling update policy for the inference component
+        :param 'InferenceComponentCapacitySize' maximum_batch_size: The batch size for each rolling step in the deployment process. For each step, SageMaker AI provisions capacity on the new endpoint fleet, routes traffic to that fleet, and terminates capacity on the old endpoint fleet. The value must be between 5% to 50% of the copy count of the inference component.
+        :param int maximum_execution_timeout_in_seconds: The time limit for the total deployment. Exceeding this limit causes a timeout.
+        :param 'InferenceComponentCapacitySize' rollback_maximum_batch_size: The batch size for a rollback to the old endpoint fleet. If this field is absent, the value is set to the default, which is 100% of the total capacity. When the default is used, SageMaker AI provisions the entire capacity of the old fleet at once during rollback.
+        :param int wait_interval_in_seconds: The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet.
         """
         if maximum_batch_size is not None:
             pulumi.set(__self__, "maximum_batch_size", maximum_batch_size)
@@ -4979,21 +5007,33 @@ class InferenceComponentRollingUpdatePolicy(dict):
     @property
     @pulumi.getter(name="maximumBatchSize")
     def maximum_batch_size(self) -> Optional['outputs.InferenceComponentCapacitySize']:
+        """
+        The batch size for each rolling step in the deployment process. For each step, SageMaker AI provisions capacity on the new endpoint fleet, routes traffic to that fleet, and terminates capacity on the old endpoint fleet. The value must be between 5% to 50% of the copy count of the inference component.
+        """
         return pulumi.get(self, "maximum_batch_size")
 
     @property
     @pulumi.getter(name="maximumExecutionTimeoutInSeconds")
     def maximum_execution_timeout_in_seconds(self) -> Optional[int]:
+        """
+        The time limit for the total deployment. Exceeding this limit causes a timeout.
+        """
         return pulumi.get(self, "maximum_execution_timeout_in_seconds")
 
     @property
     @pulumi.getter(name="rollbackMaximumBatchSize")
     def rollback_maximum_batch_size(self) -> Optional['outputs.InferenceComponentCapacitySize']:
+        """
+        The batch size for a rollback to the old endpoint fleet. If this field is absent, the value is set to the default, which is 100% of the total capacity. When the default is used, SageMaker AI provisions the entire capacity of the old fleet at once during rollback.
+        """
         return pulumi.get(self, "rollback_maximum_batch_size")
 
     @property
     @pulumi.getter(name="waitIntervalInSeconds")
     def wait_interval_in_seconds(self) -> Optional[int]:
+        """
+        The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet.
+        """
         return pulumi.get(self, "wait_interval_in_seconds")
 
 

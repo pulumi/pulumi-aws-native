@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.Pcs.Inputs
         /// <summary>
         /// The ID of the EC2 launch template to use to provision instances.
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("templateId")]
+        public Input<string>? TemplateId { get; set; }
 
         /// <summary>
         /// The version of the EC2 launch template to use to provision instances.

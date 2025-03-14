@@ -18,7 +18,8 @@ type InferenceComponent struct {
 	pulumi.CustomResourceState
 
 	// The time when the inference component was created.
-	CreationTime     pulumi.StringOutput                         `pulumi:"creationTime"`
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
 	DeploymentConfig InferenceComponentDeploymentConfigPtrOutput `pulumi:"deploymentConfig"`
 	// The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
 	EndpointArn pulumi.StringPtrOutput `pulumi:"endpointArn"`
@@ -86,6 +87,7 @@ func (InferenceComponentState) ElementType() reflect.Type {
 }
 
 type inferenceComponentArgs struct {
+	// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
 	DeploymentConfig *InferenceComponentDeploymentConfig `pulumi:"deploymentConfig"`
 	// The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
 	EndpointArn *string `pulumi:"endpointArn"`
@@ -102,6 +104,7 @@ type inferenceComponentArgs struct {
 
 // The set of arguments for constructing a InferenceComponent resource.
 type InferenceComponentArgs struct {
+	// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
 	DeploymentConfig InferenceComponentDeploymentConfigPtrInput
 	// The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
 	EndpointArn pulumi.StringPtrInput
@@ -158,6 +161,7 @@ func (o InferenceComponentOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceComponent) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
 func (o InferenceComponentOutput) DeploymentConfig() InferenceComponentDeploymentConfigPtrOutput {
 	return o.ApplyT(func(v *InferenceComponent) InferenceComponentDeploymentConfigPtrOutput { return v.DeploymentConfig }).(InferenceComponentDeploymentConfigPtrOutput)
 }

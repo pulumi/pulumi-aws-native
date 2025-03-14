@@ -148,6 +148,8 @@
         "applicationinsights/application.ts",
         "applicationinsights/getApplication.ts",
         "applicationinsights/index.ts",
+        "applicationsignals/discovery.ts",
+        "applicationsignals/getDiscovery.ts",
         "applicationsignals/getServiceLevelObjective.ts",
         "applicationsignals/index.ts",
         "applicationsignals/serviceLevelObjective.ts",

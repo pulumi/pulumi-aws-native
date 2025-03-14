@@ -64,6 +64,9 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
      * The ARN of the Secrets Manager secret associated with the pull through cache rule.
      */
     public readonly credentialArn!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the IAM role associated with the pull through cache rule.
+     */
     public readonly customRoleArn!: pulumi.Output<string | undefined>;
     /**
      * The Amazon ECR repository prefix associated with the pull through cache rule.
@@ -77,6 +80,9 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
      * The upstream registry URL associated with the pull through cache rule.
      */
     public readonly upstreamRegistryUrl!: pulumi.Output<string | undefined>;
+    /**
+     * The upstream repository prefix associated with the pull through cache rule.
+     */
     public readonly upstreamRepositoryPrefix!: pulumi.Output<string | undefined>;
 
     /**
@@ -119,6 +125,9 @@ export interface PullThroughCacheRuleArgs {
      * The ARN of the Secrets Manager secret associated with the pull through cache rule.
      */
     credentialArn?: pulumi.Input<string>;
+    /**
+     * The ARN of the IAM role associated with the pull through cache rule.
+     */
     customRoleArn?: pulumi.Input<string>;
     /**
      * The Amazon ECR repository prefix associated with the pull through cache rule.
@@ -132,5 +141,8 @@ export interface PullThroughCacheRuleArgs {
      * The upstream registry URL associated with the pull through cache rule.
      */
     upstreamRegistryUrl?: pulumi.Input<string>;
+    /**
+     * The upstream repository prefix associated with the pull through cache rule.
+     */
     upstreamRepositoryPrefix?: pulumi.Input<string>;
 }

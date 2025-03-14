@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class InferenceComponentAlarm
     {
+        /// <summary>
+        /// The name of a CloudWatch alarm in your account.
+        /// </summary>
         public readonly string AlarmName;
 
         [OutputConstructor]

@@ -414,7 +414,7 @@ func (o ComputeNodeGroupSlurmCustomSettingArrayOutput) Index(i pulumi.IntInput) 
 // An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
 type CustomLaunchTemplateProperties struct {
 	// The ID of the EC2 launch template to use to provision instances.
-	Id string `pulumi:"id"`
+	TemplateId *string `pulumi:"templateId"`
 	// The version of the EC2 launch template to use to provision instances.
 	Version string `pulumi:"version"`
 }
@@ -433,7 +433,7 @@ type CustomLaunchTemplatePropertiesInput interface {
 // An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
 type CustomLaunchTemplatePropertiesArgs struct {
 	// The ID of the EC2 launch template to use to provision instances.
-	Id pulumi.StringInput `pulumi:"id"`
+	TemplateId pulumi.StringPtrInput `pulumi:"templateId"`
 	// The version of the EC2 launch template to use to provision instances.
 	Version pulumi.StringInput `pulumi:"version"`
 }
@@ -466,8 +466,8 @@ func (o CustomLaunchTemplatePropertiesOutput) ToCustomLaunchTemplatePropertiesOu
 }
 
 // The ID of the EC2 launch template to use to provision instances.
-func (o CustomLaunchTemplatePropertiesOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomLaunchTemplateProperties) string { return v.Id }).(pulumi.StringOutput)
+func (o CustomLaunchTemplatePropertiesOutput) TemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomLaunchTemplateProperties) *string { return v.TemplateId }).(pulumi.StringPtrOutput)
 }
 
 // The version of the EC2 launch template to use to provision instances.
@@ -500,12 +500,12 @@ func (o CustomLaunchTemplatePropertiesPtrOutput) Elem() CustomLaunchTemplateProp
 }
 
 // The ID of the EC2 launch template to use to provision instances.
-func (o CustomLaunchTemplatePropertiesPtrOutput) Id() pulumi.StringPtrOutput {
+func (o CustomLaunchTemplatePropertiesPtrOutput) TemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomLaunchTemplateProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Id
+		return v.TemplateId
 	}).(pulumi.StringPtrOutput)
 }
 

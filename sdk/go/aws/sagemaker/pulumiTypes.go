@@ -11230,6 +11230,7 @@ type ImageTag struct {
 }
 
 type InferenceComponentAlarm struct {
+	// The name of a CloudWatch alarm in your account.
 	AlarmName string `pulumi:"alarmName"`
 }
 
@@ -11245,6 +11246,7 @@ type InferenceComponentAlarmInput interface {
 }
 
 type InferenceComponentAlarmArgs struct {
+	// The name of a CloudWatch alarm in your account.
 	AlarmName pulumi.StringInput `pulumi:"alarmName"`
 }
 
@@ -11299,6 +11301,7 @@ func (o InferenceComponentAlarmOutput) ToInferenceComponentAlarmOutputWithContex
 	return o
 }
 
+// The name of a CloudWatch alarm in your account.
 func (o InferenceComponentAlarmOutput) AlarmName() pulumi.StringOutput {
 	return o.ApplyT(func(v InferenceComponentAlarm) string { return v.AlarmName }).(pulumi.StringOutput)
 }
@@ -11458,8 +11461,13 @@ func (o InferenceComponentAutoRollbackConfigurationPtrOutput) Alarms() Inference
 
 // Capacity size configuration for the inference component
 type InferenceComponentCapacitySize struct {
-	Type  InferenceComponentCapacitySizeType `pulumi:"type"`
-	Value int                                `pulumi:"value"`
+	// Specifies the endpoint capacity type.
+	//
+	// - **COPY_COUNT** - The endpoint activates based on the number of inference component copies.
+	// - **CAPACITY_PERCENT** - The endpoint activates based on the specified percentage of capacity.
+	Type InferenceComponentCapacitySizeType `pulumi:"type"`
+	// Defines the capacity size, either as a number of inference component copies or a capacity percentage.
+	Value int `pulumi:"value"`
 }
 
 // InferenceComponentCapacitySizeInput is an input type that accepts InferenceComponentCapacitySizeArgs and InferenceComponentCapacitySizeOutput values.
@@ -11475,8 +11483,13 @@ type InferenceComponentCapacitySizeInput interface {
 
 // Capacity size configuration for the inference component
 type InferenceComponentCapacitySizeArgs struct {
-	Type  InferenceComponentCapacitySizeTypeInput `pulumi:"type"`
-	Value pulumi.IntInput                         `pulumi:"value"`
+	// Specifies the endpoint capacity type.
+	//
+	// - **COPY_COUNT** - The endpoint activates based on the number of inference component copies.
+	// - **CAPACITY_PERCENT** - The endpoint activates based on the specified percentage of capacity.
+	Type InferenceComponentCapacitySizeTypeInput `pulumi:"type"`
+	// Defines the capacity size, either as a number of inference component copies or a capacity percentage.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (InferenceComponentCapacitySizeArgs) ElementType() reflect.Type {
@@ -11557,10 +11570,15 @@ func (o InferenceComponentCapacitySizeOutput) ToInferenceComponentCapacitySizePt
 	}).(InferenceComponentCapacitySizePtrOutput)
 }
 
+// Specifies the endpoint capacity type.
+//
+// - **COPY_COUNT** - The endpoint activates based on the number of inference component copies.
+// - **CAPACITY_PERCENT** - The endpoint activates based on the specified percentage of capacity.
 func (o InferenceComponentCapacitySizeOutput) Type() InferenceComponentCapacitySizeTypeOutput {
 	return o.ApplyT(func(v InferenceComponentCapacitySize) InferenceComponentCapacitySizeType { return v.Type }).(InferenceComponentCapacitySizeTypeOutput)
 }
 
+// Defines the capacity size, either as a number of inference component copies or a capacity percentage.
 func (o InferenceComponentCapacitySizeOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v InferenceComponentCapacitySize) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -11589,6 +11607,10 @@ func (o InferenceComponentCapacitySizePtrOutput) Elem() InferenceComponentCapaci
 	}).(InferenceComponentCapacitySizeOutput)
 }
 
+// Specifies the endpoint capacity type.
+//
+// - **COPY_COUNT** - The endpoint activates based on the number of inference component copies.
+// - **CAPACITY_PERCENT** - The endpoint activates based on the specified percentage of capacity.
 func (o InferenceComponentCapacitySizePtrOutput) Type() InferenceComponentCapacitySizeTypePtrOutput {
 	return o.ApplyT(func(v *InferenceComponentCapacitySize) *InferenceComponentCapacitySizeType {
 		if v == nil {
@@ -11598,6 +11620,7 @@ func (o InferenceComponentCapacitySizePtrOutput) Type() InferenceComponentCapaci
 	}).(InferenceComponentCapacitySizeTypePtrOutput)
 }
 
+// Defines the capacity size, either as a number of inference component copies or a capacity percentage.
 func (o InferenceComponentCapacitySizePtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InferenceComponentCapacitySize) *int {
 		if v == nil {
@@ -12173,7 +12196,8 @@ func (o InferenceComponentDeployedImagePtrOutput) SpecifiedImage() pulumi.String
 // The deployment config for the inference component
 type InferenceComponentDeploymentConfig struct {
 	AutoRollbackConfiguration *InferenceComponentAutoRollbackConfiguration `pulumi:"autoRollbackConfiguration"`
-	RollingUpdatePolicy       *InferenceComponentRollingUpdatePolicy       `pulumi:"rollingUpdatePolicy"`
+	// Specifies a rolling deployment strategy for updating a SageMaker AI endpoint.
+	RollingUpdatePolicy *InferenceComponentRollingUpdatePolicy `pulumi:"rollingUpdatePolicy"`
 }
 
 // InferenceComponentDeploymentConfigInput is an input type that accepts InferenceComponentDeploymentConfigArgs and InferenceComponentDeploymentConfigOutput values.
@@ -12190,7 +12214,8 @@ type InferenceComponentDeploymentConfigInput interface {
 // The deployment config for the inference component
 type InferenceComponentDeploymentConfigArgs struct {
 	AutoRollbackConfiguration InferenceComponentAutoRollbackConfigurationPtrInput `pulumi:"autoRollbackConfiguration"`
-	RollingUpdatePolicy       InferenceComponentRollingUpdatePolicyPtrInput       `pulumi:"rollingUpdatePolicy"`
+	// Specifies a rolling deployment strategy for updating a SageMaker AI endpoint.
+	RollingUpdatePolicy InferenceComponentRollingUpdatePolicyPtrInput `pulumi:"rollingUpdatePolicy"`
 }
 
 func (InferenceComponentDeploymentConfigArgs) ElementType() reflect.Type {
@@ -12277,6 +12302,7 @@ func (o InferenceComponentDeploymentConfigOutput) AutoRollbackConfiguration() In
 	}).(InferenceComponentAutoRollbackConfigurationPtrOutput)
 }
 
+// Specifies a rolling deployment strategy for updating a SageMaker AI endpoint.
 func (o InferenceComponentDeploymentConfigOutput) RollingUpdatePolicy() InferenceComponentRollingUpdatePolicyPtrOutput {
 	return o.ApplyT(func(v InferenceComponentDeploymentConfig) *InferenceComponentRollingUpdatePolicy {
 		return v.RollingUpdatePolicy
@@ -12316,6 +12342,7 @@ func (o InferenceComponentDeploymentConfigPtrOutput) AutoRollbackConfiguration()
 	}).(InferenceComponentAutoRollbackConfigurationPtrOutput)
 }
 
+// Specifies a rolling deployment strategy for updating a SageMaker AI endpoint.
 func (o InferenceComponentDeploymentConfigPtrOutput) RollingUpdatePolicy() InferenceComponentRollingUpdatePolicyPtrOutput {
 	return o.ApplyT(func(v *InferenceComponentDeploymentConfig) *InferenceComponentRollingUpdatePolicy {
 		if v == nil {
@@ -12327,10 +12354,14 @@ func (o InferenceComponentDeploymentConfigPtrOutput) RollingUpdatePolicy() Infer
 
 // The rolling update policy for the inference component
 type InferenceComponentRollingUpdatePolicy struct {
-	MaximumBatchSize                 *InferenceComponentCapacitySize `pulumi:"maximumBatchSize"`
-	MaximumExecutionTimeoutInSeconds *int                            `pulumi:"maximumExecutionTimeoutInSeconds"`
-	RollbackMaximumBatchSize         *InferenceComponentCapacitySize `pulumi:"rollbackMaximumBatchSize"`
-	WaitIntervalInSeconds            *int                            `pulumi:"waitIntervalInSeconds"`
+	// The batch size for each rolling step in the deployment process. For each step, SageMaker AI provisions capacity on the new endpoint fleet, routes traffic to that fleet, and terminates capacity on the old endpoint fleet. The value must be between 5% to 50% of the copy count of the inference component.
+	MaximumBatchSize *InferenceComponentCapacitySize `pulumi:"maximumBatchSize"`
+	// The time limit for the total deployment. Exceeding this limit causes a timeout.
+	MaximumExecutionTimeoutInSeconds *int `pulumi:"maximumExecutionTimeoutInSeconds"`
+	// The batch size for a rollback to the old endpoint fleet. If this field is absent, the value is set to the default, which is 100% of the total capacity. When the default is used, SageMaker AI provisions the entire capacity of the old fleet at once during rollback.
+	RollbackMaximumBatchSize *InferenceComponentCapacitySize `pulumi:"rollbackMaximumBatchSize"`
+	// The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet.
+	WaitIntervalInSeconds *int `pulumi:"waitIntervalInSeconds"`
 }
 
 // InferenceComponentRollingUpdatePolicyInput is an input type that accepts InferenceComponentRollingUpdatePolicyArgs and InferenceComponentRollingUpdatePolicyOutput values.
@@ -12346,10 +12377,14 @@ type InferenceComponentRollingUpdatePolicyInput interface {
 
 // The rolling update policy for the inference component
 type InferenceComponentRollingUpdatePolicyArgs struct {
-	MaximumBatchSize                 InferenceComponentCapacitySizePtrInput `pulumi:"maximumBatchSize"`
-	MaximumExecutionTimeoutInSeconds pulumi.IntPtrInput                     `pulumi:"maximumExecutionTimeoutInSeconds"`
-	RollbackMaximumBatchSize         InferenceComponentCapacitySizePtrInput `pulumi:"rollbackMaximumBatchSize"`
-	WaitIntervalInSeconds            pulumi.IntPtrInput                     `pulumi:"waitIntervalInSeconds"`
+	// The batch size for each rolling step in the deployment process. For each step, SageMaker AI provisions capacity on the new endpoint fleet, routes traffic to that fleet, and terminates capacity on the old endpoint fleet. The value must be between 5% to 50% of the copy count of the inference component.
+	MaximumBatchSize InferenceComponentCapacitySizePtrInput `pulumi:"maximumBatchSize"`
+	// The time limit for the total deployment. Exceeding this limit causes a timeout.
+	MaximumExecutionTimeoutInSeconds pulumi.IntPtrInput `pulumi:"maximumExecutionTimeoutInSeconds"`
+	// The batch size for a rollback to the old endpoint fleet. If this field is absent, the value is set to the default, which is 100% of the total capacity. When the default is used, SageMaker AI provisions the entire capacity of the old fleet at once during rollback.
+	RollbackMaximumBatchSize InferenceComponentCapacitySizePtrInput `pulumi:"rollbackMaximumBatchSize"`
+	// The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet.
+	WaitIntervalInSeconds pulumi.IntPtrInput `pulumi:"waitIntervalInSeconds"`
 }
 
 func (InferenceComponentRollingUpdatePolicyArgs) ElementType() reflect.Type {
@@ -12430,22 +12465,26 @@ func (o InferenceComponentRollingUpdatePolicyOutput) ToInferenceComponentRolling
 	}).(InferenceComponentRollingUpdatePolicyPtrOutput)
 }
 
+// The batch size for each rolling step in the deployment process. For each step, SageMaker AI provisions capacity on the new endpoint fleet, routes traffic to that fleet, and terminates capacity on the old endpoint fleet. The value must be between 5% to 50% of the copy count of the inference component.
 func (o InferenceComponentRollingUpdatePolicyOutput) MaximumBatchSize() InferenceComponentCapacitySizePtrOutput {
 	return o.ApplyT(func(v InferenceComponentRollingUpdatePolicy) *InferenceComponentCapacitySize {
 		return v.MaximumBatchSize
 	}).(InferenceComponentCapacitySizePtrOutput)
 }
 
+// The time limit for the total deployment. Exceeding this limit causes a timeout.
 func (o InferenceComponentRollingUpdatePolicyOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InferenceComponentRollingUpdatePolicy) *int { return v.MaximumExecutionTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The batch size for a rollback to the old endpoint fleet. If this field is absent, the value is set to the default, which is 100% of the total capacity. When the default is used, SageMaker AI provisions the entire capacity of the old fleet at once during rollback.
 func (o InferenceComponentRollingUpdatePolicyOutput) RollbackMaximumBatchSize() InferenceComponentCapacitySizePtrOutput {
 	return o.ApplyT(func(v InferenceComponentRollingUpdatePolicy) *InferenceComponentCapacitySize {
 		return v.RollbackMaximumBatchSize
 	}).(InferenceComponentCapacitySizePtrOutput)
 }
 
+// The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet.
 func (o InferenceComponentRollingUpdatePolicyOutput) WaitIntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InferenceComponentRollingUpdatePolicy) *int { return v.WaitIntervalInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -12474,6 +12513,7 @@ func (o InferenceComponentRollingUpdatePolicyPtrOutput) Elem() InferenceComponen
 	}).(InferenceComponentRollingUpdatePolicyOutput)
 }
 
+// The batch size for each rolling step in the deployment process. For each step, SageMaker AI provisions capacity on the new endpoint fleet, routes traffic to that fleet, and terminates capacity on the old endpoint fleet. The value must be between 5% to 50% of the copy count of the inference component.
 func (o InferenceComponentRollingUpdatePolicyPtrOutput) MaximumBatchSize() InferenceComponentCapacitySizePtrOutput {
 	return o.ApplyT(func(v *InferenceComponentRollingUpdatePolicy) *InferenceComponentCapacitySize {
 		if v == nil {
@@ -12483,6 +12523,7 @@ func (o InferenceComponentRollingUpdatePolicyPtrOutput) MaximumBatchSize() Infer
 	}).(InferenceComponentCapacitySizePtrOutput)
 }
 
+// The time limit for the total deployment. Exceeding this limit causes a timeout.
 func (o InferenceComponentRollingUpdatePolicyPtrOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InferenceComponentRollingUpdatePolicy) *int {
 		if v == nil {
@@ -12492,6 +12533,7 @@ func (o InferenceComponentRollingUpdatePolicyPtrOutput) MaximumExecutionTimeoutI
 	}).(pulumi.IntPtrOutput)
 }
 
+// The batch size for a rollback to the old endpoint fleet. If this field is absent, the value is set to the default, which is 100% of the total capacity. When the default is used, SageMaker AI provisions the entire capacity of the old fleet at once during rollback.
 func (o InferenceComponentRollingUpdatePolicyPtrOutput) RollbackMaximumBatchSize() InferenceComponentCapacitySizePtrOutput {
 	return o.ApplyT(func(v *InferenceComponentRollingUpdatePolicy) *InferenceComponentCapacitySize {
 		if v == nil {
@@ -12501,6 +12543,7 @@ func (o InferenceComponentRollingUpdatePolicyPtrOutput) RollbackMaximumBatchSize
 	}).(InferenceComponentCapacitySizePtrOutput)
 }
 
+// The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet.
 func (o InferenceComponentRollingUpdatePolicyPtrOutput) WaitIntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InferenceComponentRollingUpdatePolicy) *int {
 		if v == nil {

@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.Ecr
         [Output("credentialArn")]
         public Output<string?> CredentialArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM role associated with the pull through cache rule.
+        /// </summary>
         [Output("customRoleArn")]
         public Output<string?> CustomRoleArn { get; private set; } = null!;
 
@@ -82,6 +85,9 @@ namespace Pulumi.AwsNative.Ecr
         [Output("upstreamRegistryUrl")]
         public Output<string?> UpstreamRegistryUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// The upstream repository prefix associated with the pull through cache rule.
+        /// </summary>
         [Output("upstreamRepositoryPrefix")]
         public Output<string?> UpstreamRepositoryPrefix { get; private set; } = null!;
 
@@ -145,6 +151,9 @@ namespace Pulumi.AwsNative.Ecr
         [Input("credentialArn")]
         public Input<string>? CredentialArn { get; set; }
 
+        /// <summary>
+        /// The ARN of the IAM role associated with the pull through cache rule.
+        /// </summary>
         [Input("customRoleArn")]
         public Input<string>? CustomRoleArn { get; set; }
 
@@ -166,6 +175,9 @@ namespace Pulumi.AwsNative.Ecr
         [Input("upstreamRegistryUrl")]
         public Input<string>? UpstreamRegistryUrl { get; set; }
 
+        /// <summary>
+        /// The upstream repository prefix associated with the pull through cache rule.
+        /// </summary>
         [Input("upstreamRepositoryPrefix")]
         public Input<string>? UpstreamRepositoryPrefix { get; set; }
 

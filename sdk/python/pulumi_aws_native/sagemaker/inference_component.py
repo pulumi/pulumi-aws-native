@@ -35,6 +35,7 @@ class InferenceComponentArgs:
         """
         The set of arguments for constructing a InferenceComponent resource.
         :param pulumi.Input[str] endpoint_name: The name of the endpoint that hosts the inference component.
+        :param pulumi.Input['InferenceComponentDeploymentConfigArgs'] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
         :param pulumi.Input[str] endpoint_arn: The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
         :param pulumi.Input[str] inference_component_name: The name of the inference component.
         :param pulumi.Input[str] variant_name: The name of the production variant that hosts the inference component.
@@ -78,6 +79,9 @@ class InferenceComponentArgs:
     @property
     @pulumi.getter(name="deploymentConfig")
     def deployment_config(self) -> Optional[pulumi.Input['InferenceComponentDeploymentConfigArgs']]:
+        """
+        The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
+        """
         return pulumi.get(self, "deployment_config")
 
     @deployment_config.setter
@@ -158,6 +162,7 @@ class InferenceComponent(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['InferenceComponentDeploymentConfigArgs', 'InferenceComponentDeploymentConfigArgsDict']] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
         :param pulumi.Input[str] endpoint_arn: The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
         :param pulumi.Input[str] endpoint_name: The name of the endpoint that hosts the inference component.
         :param pulumi.Input[str] inference_component_name: The name of the inference component.
@@ -269,6 +274,9 @@ class InferenceComponent(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deploymentConfig")
     def deployment_config(self) -> pulumi.Output[Optional['outputs.InferenceComponentDeploymentConfig']]:
+        """
+        The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
+        """
         return pulumi.get(self, "deployment_config")
 
     @property

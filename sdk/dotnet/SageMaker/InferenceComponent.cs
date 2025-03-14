@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
+        /// </summary>
         [Output("deploymentConfig")]
         public Output<Outputs.InferenceComponentDeploymentConfig?> DeploymentConfig { get; private set; } = null!;
 
@@ -123,6 +126,9 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class InferenceComponentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
+        /// </summary>
         [Input("deploymentConfig")]
         public Input<Inputs.InferenceComponentDeploymentConfigArgs>? DeploymentConfig { get; set; }
 

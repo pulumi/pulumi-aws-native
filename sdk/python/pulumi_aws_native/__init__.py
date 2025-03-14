@@ -847,6 +847,7 @@ _utilities.register(
   "mod": "applicationsignals",
   "fqn": "pulumi_aws_native.applicationsignals",
   "classes": {
+   "aws-native:applicationsignals:Discovery": "Discovery",
    "aws-native:applicationsignals:ServiceLevelObjective": "ServiceLevelObjective"
   }
  },

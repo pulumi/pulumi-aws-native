@@ -4,7 +4,7 @@
   "definitions" : {
     "KeyAlgorithm" : {
       "type" : "string",
-      "enum" : [ "TDES_2KEY", "TDES_3KEY", "AES_128", "AES_192", "AES_256", "RSA_2048", "RSA_3072", "RSA_4096", "ECC_NIST_P256", "ECC_NIST_P384" ]
+      "enum" : [ "TDES_2KEY", "TDES_3KEY", "AES_128", "AES_192", "AES_256", "RSA_2048", "RSA_3072", "RSA_4096", "ECC_NIST_P256", "ECC_NIST_P384", "ECC_NIST_P521" ]
     },
     "KeyAttributes" : {
       "type" : "object",

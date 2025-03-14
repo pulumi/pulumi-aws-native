@@ -87,6 +87,7 @@ AWS::AppSync::SourceApiAssociation
 AWS::ApplicationAutoScaling::ScalableTarget
 AWS::ApplicationAutoScaling::ScalingPolicy
 AWS::ApplicationInsights::Application
+AWS::ApplicationSignals::Discovery
 AWS::ApplicationSignals::ServiceLevelObjective
 AWS::Athena::CapacityReservation
 AWS::Athena::DataCatalog

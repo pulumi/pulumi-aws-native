@@ -133,13 +133,13 @@ if not MYPY:
         """
         An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
         """
-        id: pulumi.Input[str]
-        """
-        The ID of the EC2 launch template to use to provision instances.
-        """
         version: pulumi.Input[str]
         """
         The version of the EC2 launch template to use to provision instances.
+        """
+        template_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the EC2 launch template to use to provision instances.
         """
 elif False:
     CustomLaunchTemplatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -147,27 +147,16 @@ elif False:
 @pulumi.input_type
 class CustomLaunchTemplatePropertiesArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[str],
-                 version: pulumi.Input[str]):
+                 version: pulumi.Input[str],
+                 template_id: Optional[pulumi.Input[str]] = None):
         """
         An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
-        :param pulumi.Input[str] id: The ID of the EC2 launch template to use to provision instances.
         :param pulumi.Input[str] version: The version of the EC2 launch template to use to provision instances.
+        :param pulumi.Input[str] template_id: The ID of the EC2 launch template to use to provision instances.
         """
-        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        The ID of the EC2 launch template to use to provision instances.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
+        if template_id is not None:
+            pulumi.set(__self__, "template_id", template_id)
 
     @property
     @pulumi.getter
@@ -180,6 +169,18 @@ class CustomLaunchTemplatePropertiesArgs:
     @version.setter
     def version(self, value: pulumi.Input[str]):
         pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the EC2 launch template to use to provision instances.
+        """
+        return pulumi.get(self, "template_id")
+
+    @template_id.setter
+    def template_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_id", value)
 
 
 if not MYPY:

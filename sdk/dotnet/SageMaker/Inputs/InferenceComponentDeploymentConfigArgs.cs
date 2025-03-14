@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("autoRollbackConfiguration")]
         public Input<Inputs.InferenceComponentAutoRollbackConfigurationArgs>? AutoRollbackConfiguration { get; set; }
 
+        /// <summary>
+        /// Specifies a rolling deployment strategy for updating a SageMaker AI endpoint.
+        /// </summary>
         [Input("rollingUpdatePolicy")]
         public Input<Inputs.InferenceComponentRollingUpdatePolicyArgs>? RollingUpdatePolicy { get; set; }
 

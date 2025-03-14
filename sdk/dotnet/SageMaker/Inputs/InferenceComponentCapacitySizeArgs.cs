@@ -15,9 +15,18 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class InferenceComponentCapacitySizeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the endpoint capacity type.
+        /// 
+        /// - **COPY_COUNT** - The endpoint activates based on the number of inference component copies.
+        /// - **CAPACITY_PERCENT** - The endpoint activates based on the specified percentage of capacity.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.SageMaker.InferenceComponentCapacitySizeType> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Defines the capacity size, either as a number of inference component copies or a capacity percentage.
+        /// </summary>
         [Input("value", required: true)]
         public Input<int> Value { get; set; } = null!;
 

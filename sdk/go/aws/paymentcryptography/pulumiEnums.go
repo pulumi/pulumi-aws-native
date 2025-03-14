@@ -23,6 +23,7 @@ const (
 	KeyAlgorithmRsa4096     = KeyAlgorithm("RSA_4096")
 	KeyAlgorithmEccNistP256 = KeyAlgorithm("ECC_NIST_P256")
 	KeyAlgorithmEccNistP384 = KeyAlgorithm("ECC_NIST_P384")
+	KeyAlgorithmEccNistP521 = KeyAlgorithm("ECC_NIST_P521")
 )
 
 func (KeyAlgorithm) ElementType() reflect.Type {
@@ -157,6 +158,7 @@ func (o KeyAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	KeyAlgorithmRsa4096
 //	KeyAlgorithmEccNistP256
 //	KeyAlgorithmEccNistP384
+//	KeyAlgorithmEccNistP521
 type KeyAlgorithmInput interface {
 	pulumi.Input
 

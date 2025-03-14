@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class InferenceComponentRollingUpdatePolicy
     {
+        /// <summary>
+        /// The batch size for each rolling step in the deployment process. For each step, SageMaker AI provisions capacity on the new endpoint fleet, routes traffic to that fleet, and terminates capacity on the old endpoint fleet. The value must be between 5% to 50% of the copy count of the inference component.
+        /// </summary>
         public readonly Outputs.InferenceComponentCapacitySize? MaximumBatchSize;
+        /// <summary>
+        /// The time limit for the total deployment. Exceeding this limit causes a timeout.
+        /// </summary>
         public readonly int? MaximumExecutionTimeoutInSeconds;
+        /// <summary>
+        /// The batch size for a rollback to the old endpoint fleet. If this field is absent, the value is set to the default, which is 100% of the total capacity. When the default is used, SageMaker AI provisions the entire capacity of the old fleet at once during rollback.
+        /// </summary>
         public readonly Outputs.InferenceComponentCapacitySize? RollbackMaximumBatchSize;
+        /// <summary>
+        /// The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet.
+        /// </summary>
         public readonly int? WaitIntervalInSeconds;
 
         [OutputConstructor]

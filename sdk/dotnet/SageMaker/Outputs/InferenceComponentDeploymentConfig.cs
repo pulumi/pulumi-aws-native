@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class InferenceComponentDeploymentConfig
     {
         public readonly Outputs.InferenceComponentAutoRollbackConfiguration? AutoRollbackConfiguration;
+        /// <summary>
+        /// Specifies a rolling deployment strategy for updating a SageMaker AI endpoint.
+        /// </summary>
         public readonly Outputs.InferenceComponentRollingUpdatePolicy? RollingUpdatePolicy;
 
         [OutputConstructor]

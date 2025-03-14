@@ -41,6 +41,9 @@ export class InferenceComponent extends pulumi.CustomResource {
      * The time when the inference component was created.
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
+     */
     public readonly deploymentConfig!: pulumi.Output<outputs.sagemaker.InferenceComponentDeploymentConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
@@ -129,6 +132,9 @@ export class InferenceComponent extends pulumi.CustomResource {
  * The set of arguments for constructing a InferenceComponent resource.
  */
 export interface InferenceComponentArgs {
+    /**
+     * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
+     */
     deploymentConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentDeploymentConfigArgs>;
     /**
      * The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.

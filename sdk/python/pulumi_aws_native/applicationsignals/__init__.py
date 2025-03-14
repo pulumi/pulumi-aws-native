@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .discovery import *
+from .get_discovery import *
 from .get_service_level_objective import *
 from .service_level_objective import *
 from ._inputs import *

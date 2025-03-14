@@ -274,24 +274,34 @@ class CustomLaunchTemplateProperties(dict):
     """
     An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "templateId":
+            suggest = "template_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomLaunchTemplateProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomLaunchTemplateProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomLaunchTemplateProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 id: str,
-                 version: str):
+                 version: str,
+                 template_id: Optional[str] = None):
         """
         An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
-        :param str id: The ID of the EC2 launch template to use to provision instances.
         :param str version: The version of the EC2 launch template to use to provision instances.
+        :param str template_id: The ID of the EC2 launch template to use to provision instances.
         """
-        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The ID of the EC2 launch template to use to provision instances.
-        """
-        return pulumi.get(self, "id")
+        if template_id is not None:
+            pulumi.set(__self__, "template_id", template_id)
 
     @property
     @pulumi.getter
@@ -300,6 +310,14 @@ class CustomLaunchTemplateProperties(dict):
         The version of the EC2 launch template to use to provision instances.
         """
         return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> Optional[str]:
+        """
+        The ID of the EC2 launch template to use to provision instances.
+        """
+        return pulumi.get(self, "template_id")
 
 
 @pulumi.output_type

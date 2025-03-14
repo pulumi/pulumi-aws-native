@@ -28,9 +28,11 @@ class PullThroughCacheRuleArgs:
         """
         The set of arguments for constructing a PullThroughCacheRule resource.
         :param pulumi.Input[str] credential_arn: The ARN of the Secrets Manager secret associated with the pull through cache rule.
+        :param pulumi.Input[str] custom_role_arn: The ARN of the IAM role associated with the pull through cache rule.
         :param pulumi.Input[str] ecr_repository_prefix: The Amazon ECR repository prefix associated with the pull through cache rule.
         :param pulumi.Input[str] upstream_registry: The name of the upstream source registry associated with the pull through cache rule.
         :param pulumi.Input[str] upstream_registry_url: The upstream registry URL associated with the pull through cache rule.
+        :param pulumi.Input[str] upstream_repository_prefix: The upstream repository prefix associated with the pull through cache rule.
         """
         if credential_arn is not None:
             pulumi.set(__self__, "credential_arn", credential_arn)
@@ -60,6 +62,9 @@ class PullThroughCacheRuleArgs:
     @property
     @pulumi.getter(name="customRoleArn")
     def custom_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM role associated with the pull through cache rule.
+        """
         return pulumi.get(self, "custom_role_arn")
 
     @custom_role_arn.setter
@@ -105,6 +110,9 @@ class PullThroughCacheRuleArgs:
     @property
     @pulumi.getter(name="upstreamRepositoryPrefix")
     def upstream_repository_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The upstream repository prefix associated with the pull through cache rule.
+        """
         return pulumi.get(self, "upstream_repository_prefix")
 
     @upstream_repository_prefix.setter
@@ -154,9 +162,11 @@ class PullThroughCacheRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] credential_arn: The ARN of the Secrets Manager secret associated with the pull through cache rule.
+        :param pulumi.Input[str] custom_role_arn: The ARN of the IAM role associated with the pull through cache rule.
         :param pulumi.Input[str] ecr_repository_prefix: The Amazon ECR repository prefix associated with the pull through cache rule.
         :param pulumi.Input[str] upstream_registry: The name of the upstream source registry associated with the pull through cache rule.
         :param pulumi.Input[str] upstream_registry_url: The upstream registry URL associated with the pull through cache rule.
+        :param pulumi.Input[str] upstream_repository_prefix: The upstream repository prefix associated with the pull through cache rule.
         """
         ...
     @overload
@@ -270,6 +280,9 @@ class PullThroughCacheRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="customRoleArn")
     def custom_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the IAM role associated with the pull through cache rule.
+        """
         return pulumi.get(self, "custom_role_arn")
 
     @property
@@ -299,5 +312,8 @@ class PullThroughCacheRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="upstreamRepositoryPrefix")
     def upstream_repository_prefix(self) -> pulumi.Output[Optional[str]]:
+        """
+        The upstream repository prefix associated with the pull through cache rule.
+        """
         return pulumi.get(self, "upstream_repository_prefix")
 
