@@ -1011,6 +1011,10 @@
       }
     }
   },
+  "aws-native:applicationsignals:Discovery": {
+    "cfTypeName": "AWS::ApplicationSignals::Discovery",
+    "properties": {}
+  },
   "aws-native:appstream:ApplicationEntitlementAssociation": {
     "cfTypeName": "AWS::AppStream::ApplicationEntitlementAssociation",
     "properties": {
@@ -6503,7 +6507,8 @@
         "description": "The ARN of the Secrets Manager secret associated with the pull through cache rule."
       },
       "customRoleArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The ARN of the IAM role associated with the pull through cache rule."
       },
       "ecrRepositoryPrefix": {
         "type": "string",
@@ -6518,7 +6523,8 @@
         "description": "The upstream registry URL associated with the pull through cache rule."
       },
       "upstreamRepositoryPrefix": {
-        "type": "string"
+        "type": "string",
+        "description": "The upstream repository prefix associated with the pull through cache rule."
       }
     }
   },
