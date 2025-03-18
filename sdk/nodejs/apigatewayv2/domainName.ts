@@ -42,6 +42,7 @@ export class DomainName extends pulumi.CustomResource {
      * The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
      */
     public readonly domainName!: pulumi.Output<string>;
+    public /*out*/ readonly domainNameArn!: pulumi.Output<string>;
     /**
      * The domain name configurations.
      */
@@ -81,10 +82,12 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["domainNameConfigurations"] = args ? args.domainNameConfigurations : undefined;
             resourceInputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainNameArn"] = undefined /*out*/;
             resourceInputs["regionalDomainName"] = undefined /*out*/;
             resourceInputs["regionalHostedZoneId"] = undefined /*out*/;
         } else {
             resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["domainNameArn"] = undefined /*out*/;
             resourceInputs["domainNameConfigurations"] = undefined /*out*/;
             resourceInputs["mutualTlsAuthentication"] = undefined /*out*/;
             resourceInputs["regionalDomainName"] = undefined /*out*/;

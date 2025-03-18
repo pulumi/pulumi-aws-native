@@ -67,6 +67,12 @@ namespace Pulumi.AwsNative.Ec2
         /// Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
         /// </summary>
         public readonly int? AvailableInstanceCount;
+        public readonly ImmutableArray<Outputs.CapacityReservationCapacityAllocation> CapacityAllocationSet;
+        public readonly string? CapacityReservationArn;
+        public readonly string? CapacityReservationFleetId;
+        public readonly Outputs.CommitmentInfoProperties? CommitmentInfo;
+        public readonly string? CreateDate;
+        public readonly string? DeliveryPreference;
         /// <summary>
         /// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
         /// 
@@ -107,6 +113,10 @@ namespace Pulumi.AwsNative.Ec2
         /// Default: `open`
         /// </summary>
         public readonly string? InstanceMatchCriteria;
+        public readonly string? OwnerId;
+        public readonly string? ReservationType;
+        public readonly string? StartDate;
+        public readonly string? State;
         /// <summary>
         /// Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
         /// </summary>
@@ -115,6 +125,18 @@ namespace Pulumi.AwsNative.Ec2
         [OutputConstructor]
         private GetCapacityReservationResult(
             int? availableInstanceCount,
+
+            ImmutableArray<Outputs.CapacityReservationCapacityAllocation> capacityAllocationSet,
+
+            string? capacityReservationArn,
+
+            string? capacityReservationFleetId,
+
+            Outputs.CommitmentInfoProperties? commitmentInfo,
+
+            string? createDate,
+
+            string? deliveryPreference,
 
             string? endDate,
 
@@ -126,14 +148,32 @@ namespace Pulumi.AwsNative.Ec2
 
             string? instanceMatchCriteria,
 
+            string? ownerId,
+
+            string? reservationType,
+
+            string? startDate,
+
+            string? state,
+
             int? totalInstanceCount)
         {
             AvailableInstanceCount = availableInstanceCount;
+            CapacityAllocationSet = capacityAllocationSet;
+            CapacityReservationArn = capacityReservationArn;
+            CapacityReservationFleetId = capacityReservationFleetId;
+            CommitmentInfo = commitmentInfo;
+            CreateDate = createDate;
+            DeliveryPreference = deliveryPreference;
             EndDate = endDate;
             EndDateType = endDateType;
             Id = id;
             InstanceCount = instanceCount;
             InstanceMatchCriteria = instanceMatchCriteria;
+            OwnerId = ownerId;
+            ReservationType = reservationType;
+            StartDate = startDate;
+            State = state;
             TotalInstanceCount = totalInstanceCount;
         }
     }

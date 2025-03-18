@@ -102,12 +102,15 @@ __all__ = [
     'WebAclCustomRequestHandling',
     'WebAclCustomResponse',
     'WebAclCustomResponseBody',
+    'WebAclDataProtect',
+    'WebAclDataProtectionConfig',
     'WebAclDefaultAction',
     'WebAclExcludedRule',
     'WebAclFieldIdentifier',
     'WebAclFieldToMatch',
     'WebAclFieldToMatchSingleHeaderProperties',
     'WebAclFieldToMatchSingleQueryArgumentProperties',
+    'WebAclFieldToProtect',
     'WebAclForwardedIpConfiguration',
     'WebAclGeoMatchStatement',
     'WebAclHeaderMatchPattern',
@@ -5485,6 +5488,89 @@ class WebAclCustomResponseBody(dict):
 
 
 @pulumi.output_type
+class WebAclDataProtect(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludeRateBasedDetails":
+            suggest = "exclude_rate_based_details"
+        elif key == "excludeRuleMatchDetails":
+            suggest = "exclude_rule_match_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclDataProtect. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclDataProtect.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclDataProtect.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: 'WebAclDataProtectionAction',
+                 field: 'outputs.WebAclFieldToProtect',
+                 exclude_rate_based_details: Optional[bool] = None,
+                 exclude_rule_match_details: Optional[bool] = None):
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "field", field)
+        if exclude_rate_based_details is not None:
+            pulumi.set(__self__, "exclude_rate_based_details", exclude_rate_based_details)
+        if exclude_rule_match_details is not None:
+            pulumi.set(__self__, "exclude_rule_match_details", exclude_rule_match_details)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'WebAclDataProtectionAction':
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def field(self) -> 'outputs.WebAclFieldToProtect':
+        return pulumi.get(self, "field")
+
+    @property
+    @pulumi.getter(name="excludeRateBasedDetails")
+    def exclude_rate_based_details(self) -> Optional[bool]:
+        return pulumi.get(self, "exclude_rate_based_details")
+
+    @property
+    @pulumi.getter(name="excludeRuleMatchDetails")
+    def exclude_rule_match_details(self) -> Optional[bool]:
+        return pulumi.get(self, "exclude_rule_match_details")
+
+
+@pulumi.output_type
+class WebAclDataProtectionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataProtections":
+            suggest = "data_protections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclDataProtectionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclDataProtectionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclDataProtectionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_protections: Sequence['outputs.WebAclDataProtect']):
+        pulumi.set(__self__, "data_protections", data_protections)
+
+    @property
+    @pulumi.getter(name="dataProtections")
+    def data_protections(self) -> Sequence['outputs.WebAclDataProtect']:
+        return pulumi.get(self, "data_protections")
+
+
+@pulumi.output_type
 class WebAclDefaultAction(dict):
     """
     Default Action WebACL will take against ingress traffic when there is no matching Rule.
@@ -5867,6 +5953,59 @@ class WebAclFieldToMatchSingleQueryArgumentProperties(dict):
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class WebAclFieldToProtect(dict):
+    """
+    Field in log to protect.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldType":
+            suggest = "field_type"
+        elif key == "fieldKeys":
+            suggest = "field_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclFieldToProtect. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclFieldToProtect.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclFieldToProtect.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_type: 'WebAclFieldToProtectFieldType',
+                 field_keys: Optional[Sequence[str]] = None):
+        """
+        Field in log to protect.
+        :param 'WebAclFieldToProtectFieldType' field_type: Field type to protect
+        :param Sequence[str] field_keys: List of field keys to protect
+        """
+        pulumi.set(__self__, "field_type", field_type)
+        if field_keys is not None:
+            pulumi.set(__self__, "field_keys", field_keys)
+
+    @property
+    @pulumi.getter(name="fieldType")
+    def field_type(self) -> 'WebAclFieldToProtectFieldType':
+        """
+        Field type to protect
+        """
+        return pulumi.get(self, "field_type")
+
+    @property
+    @pulumi.getter(name="fieldKeys")
+    def field_keys(self) -> Optional[Sequence[str]]:
+        """
+        List of field keys to protect
+        """
+        return pulumi.get(self, "field_keys")
 
 
 @pulumi.output_type

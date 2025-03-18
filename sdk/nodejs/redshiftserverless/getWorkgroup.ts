@@ -45,6 +45,7 @@ export interface GetWorkgroupResult {
      * The map of the key-value pairs used to tag the workgroup.
      */
     readonly tags?: outputs.Tag[];
+    readonly trackName?: string;
     /**
      * Definition for workgroup resource
      */

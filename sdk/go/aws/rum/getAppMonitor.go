@@ -40,7 +40,8 @@ type LookupAppMonitorResult struct {
 	// The top-level internet domain name for which your application has administrative authority.
 	Domain *string `pulumi:"domain"`
 	// The unique ID of the new app monitor.
-	Id             *string                   `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
 	ResourcePolicy *AppMonitorResourcePolicy `pulumi:"resourcePolicy"`
 	// Assigns one or more tags (key-value pairs) to the app monitor.
 	//
@@ -113,6 +114,7 @@ func (o LookupAppMonitorResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppMonitorResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
 func (o LookupAppMonitorResultOutput) ResourcePolicy() AppMonitorResourcePolicyPtrOutput {
 	return o.ApplyT(func(v LookupAppMonitorResult) *AppMonitorResourcePolicy { return v.ResourcePolicy }).(AppMonitorResourcePolicyPtrOutput)
 }

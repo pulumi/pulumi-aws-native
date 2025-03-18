@@ -83,6 +83,7 @@ namespace Pulumi.AwsNative.RedshiftServerless
         /// The map of the key-value pairs used to tag the workgroup.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly string? TrackName;
         /// <summary>
         /// Definition for workgroup resource
         /// </summary>
@@ -100,6 +101,8 @@ namespace Pulumi.AwsNative.RedshiftServerless
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
+            string? trackName,
+
             Outputs.Workgroup? workgroup)
         {
             EnhancedVpcRouting = enhancedVpcRouting;
@@ -107,6 +110,7 @@ namespace Pulumi.AwsNative.RedshiftServerless
             PricePerformanceTarget = pricePerformanceTarget;
             PubliclyAccessible = publiclyAccessible;
             Tags = tags;
+            TrackName = trackName;
             WorkgroupValue = workgroup;
         }
     }

@@ -29,7 +29,13 @@ type LookupCapacityReservationArgs struct {
 
 type LookupCapacityReservationResult struct {
 	// Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
-	AvailableInstanceCount *int `pulumi:"availableInstanceCount"`
+	AvailableInstanceCount     *int                                    `pulumi:"availableInstanceCount"`
+	CapacityAllocationSet      []CapacityReservationCapacityAllocation `pulumi:"capacityAllocationSet"`
+	CapacityReservationArn     *string                                 `pulumi:"capacityReservationArn"`
+	CapacityReservationFleetId *string                                 `pulumi:"capacityReservationFleetId"`
+	CommitmentInfo             *CommitmentInfoProperties               `pulumi:"commitmentInfo"`
+	CreateDate                 *string                                 `pulumi:"createDate"`
+	DeliveryPreference         *string                                 `pulumi:"deliveryPreference"`
 	// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
 	//
 	// You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
@@ -60,6 +66,10 @@ type LookupCapacityReservationResult struct {
 	//
 	// Default: `open`
 	InstanceMatchCriteria *string `pulumi:"instanceMatchCriteria"`
+	OwnerId               *string `pulumi:"ownerId"`
+	ReservationType       *string `pulumi:"reservationType"`
+	StartDate             *string `pulumi:"startDate"`
+	State                 *string `pulumi:"state"`
 	// Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
 	TotalInstanceCount *int `pulumi:"totalInstanceCount"`
 }
@@ -99,6 +109,32 @@ func (o LookupCapacityReservationResultOutput) ToLookupCapacityReservationResult
 // Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
 func (o LookupCapacityReservationResultOutput) AvailableInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupCapacityReservationResult) *int { return v.AvailableInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupCapacityReservationResultOutput) CapacityAllocationSet() CapacityReservationCapacityAllocationArrayOutput {
+	return o.ApplyT(func(v LookupCapacityReservationResult) []CapacityReservationCapacityAllocation {
+		return v.CapacityAllocationSet
+	}).(CapacityReservationCapacityAllocationArrayOutput)
+}
+
+func (o LookupCapacityReservationResultOutput) CapacityReservationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.CapacityReservationArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCapacityReservationResultOutput) CapacityReservationFleetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.CapacityReservationFleetId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCapacityReservationResultOutput) CommitmentInfo() CommitmentInfoPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupCapacityReservationResult) *CommitmentInfoProperties { return v.CommitmentInfo }).(CommitmentInfoPropertiesPtrOutput)
+}
+
+func (o LookupCapacityReservationResultOutput) CreateDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.CreateDate }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCapacityReservationResultOutput) DeliveryPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.DeliveryPreference }).(pulumi.StringPtrOutput)
 }
 
 // The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
@@ -144,6 +180,22 @@ func (o LookupCapacityReservationResultOutput) InstanceCount() pulumi.IntPtrOutp
 // Default: `open`
 func (o LookupCapacityReservationResultOutput) InstanceMatchCriteria() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.InstanceMatchCriteria }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCapacityReservationResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCapacityReservationResultOutput) ReservationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.ReservationType }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCapacityReservationResultOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.StartDate }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCapacityReservationResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .

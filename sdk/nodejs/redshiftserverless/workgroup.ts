@@ -81,10 +81,11 @@ export class Workgroup extends pulumi.CustomResource {
      * The map of the key-value pairs used to tag the workgroup.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly trackName!: pulumi.Output<string | undefined>;
     /**
      * Definition for workgroup resource
      */
-    public /*out*/ readonly workgroup!: pulumi.Output<outputs.redshiftserverless.Workgroup>;
+    public readonly workgroup!: pulumi.Output<outputs.redshiftserverless.Workgroup | undefined>;
     /**
      * The name of the workgroup.
      */
@@ -112,8 +113,9 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trackName"] = args ? args.trackName : undefined;
+            resourceInputs["workgroup"] = args ? args.workgroup : undefined;
             resourceInputs["workgroupName"] = args ? args.workgroupName : undefined;
-            resourceInputs["workgroup"] = undefined /*out*/;
         } else {
             resourceInputs["baseCapacity"] = undefined /*out*/;
             resourceInputs["configParameters"] = undefined /*out*/;
@@ -126,6 +128,7 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["trackName"] = undefined /*out*/;
             resourceInputs["workgroup"] = undefined /*out*/;
             resourceInputs["workgroupName"] = undefined /*out*/;
         }
@@ -184,6 +187,11 @@ export interface WorkgroupArgs {
      * The map of the key-value pairs used to tag the workgroup.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    trackName?: pulumi.Input<string>;
+    /**
+     * Definition for workgroup resource
+     */
+    workgroup?: pulumi.Input<inputs.redshiftserverless.WorkgroupArgs>;
     /**
      * The name of the workgroup.
      */

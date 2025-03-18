@@ -66,6 +66,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     [OutputType]
     public sealed class GetDomainNameResult
     {
+        public readonly string? DomainNameArn;
         /// <summary>
         /// The domain name configurations.
         /// </summary>
@@ -89,6 +90,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
         [OutputConstructor]
         private GetDomainNameResult(
+            string? domainNameArn,
+
             ImmutableArray<Outputs.DomainNameConfiguration> domainNameConfigurations,
 
             Outputs.DomainNameMutualTlsAuthentication? mutualTlsAuthentication,
@@ -99,6 +102,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
             ImmutableDictionary<string, string>? tags)
         {
+            DomainNameArn = domainNameArn;
             DomainNameConfigurations = domainNameConfigurations;
             MutualTlsAuthentication = mutualTlsAuthentication;
             RegionalDomainName = regionalDomainName;

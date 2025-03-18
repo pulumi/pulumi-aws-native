@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkgroupResult:
-    def __init__(__self__, enhanced_vpc_routing=None, port=None, price_performance_target=None, publicly_accessible=None, tags=None, workgroup=None):
+    def __init__(__self__, enhanced_vpc_routing=None, port=None, price_performance_target=None, publicly_accessible=None, tags=None, track_name=None, workgroup=None):
         if enhanced_vpc_routing and not isinstance(enhanced_vpc_routing, bool):
             raise TypeError("Expected argument 'enhanced_vpc_routing' to be a bool")
         pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
@@ -42,6 +42,9 @@ class GetWorkgroupResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if track_name and not isinstance(track_name, str):
+            raise TypeError("Expected argument 'track_name' to be a str")
+        pulumi.set(__self__, "track_name", track_name)
         if workgroup and not isinstance(workgroup, dict):
             raise TypeError("Expected argument 'workgroup' to be a dict")
         pulumi.set(__self__, "workgroup", workgroup)
@@ -87,6 +90,11 @@ class GetWorkgroupResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="trackName")
+    def track_name(self) -> Optional[str]:
+        return pulumi.get(self, "track_name")
+
+    @property
     @pulumi.getter
     def workgroup(self) -> Optional['outputs.Workgroup']:
         """
@@ -106,6 +114,7 @@ class AwaitableGetWorkgroupResult(GetWorkgroupResult):
             price_performance_target=self.price_performance_target,
             publicly_accessible=self.publicly_accessible,
             tags=self.tags,
+            track_name=self.track_name,
             workgroup=self.workgroup)
 
 
@@ -128,6 +137,7 @@ def get_workgroup(workgroup_name: Optional[str] = None,
         price_performance_target=pulumi.get(__ret__, 'price_performance_target'),
         publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
         tags=pulumi.get(__ret__, 'tags'),
+        track_name=pulumi.get(__ret__, 'track_name'),
         workgroup=pulumi.get(__ret__, 'workgroup'))
 def get_workgroup_output(workgroup_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkgroupResult]:
@@ -147,4 +157,5 @@ def get_workgroup_output(workgroup_name: Optional[pulumi.Input[str]] = None,
         price_performance_target=pulumi.get(__response__, 'price_performance_target'),
         publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
         tags=pulumi.get(__response__, 'tags'),
+        track_name=pulumi.get(__response__, 'track_name'),
         workgroup=pulumi.get(__response__, 'workgroup')))

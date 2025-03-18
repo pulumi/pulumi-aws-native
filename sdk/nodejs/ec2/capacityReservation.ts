@@ -53,6 +53,12 @@ export class CapacityReservation extends pulumi.CustomResource {
      * The ID of the Capacity Reservation.
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    public /*out*/ readonly capacityAllocationSet!: pulumi.Output<outputs.ec2.CapacityReservationCapacityAllocation[]>;
+    public /*out*/ readonly capacityReservationArn!: pulumi.Output<string>;
+    public /*out*/ readonly capacityReservationFleetId!: pulumi.Output<string>;
+    public /*out*/ readonly commitmentInfo!: pulumi.Output<outputs.ec2.CommitmentInfoProperties>;
+    public /*out*/ readonly createDate!: pulumi.Output<string>;
+    public /*out*/ readonly deliveryPreference!: pulumi.Output<string>;
     /**
      * Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
      */
@@ -115,12 +121,16 @@ export class CapacityReservation extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
      */
     public readonly outPostArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * > Not supported for future-dated Capacity Reservations. 
      *
      * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
      */
     public readonly placementGroupArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly reservationType!: pulumi.Output<string>;
+    public /*out*/ readonly startDate!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * The tags to apply to the Capacity Reservation during launch.
      */
@@ -180,12 +190,28 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["unusedReservationBillingOwnerId"] = args ? args.unusedReservationBillingOwnerId : undefined;
             resourceInputs["availableInstanceCount"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["capacityAllocationSet"] = undefined /*out*/;
+            resourceInputs["capacityReservationArn"] = undefined /*out*/;
+            resourceInputs["capacityReservationFleetId"] = undefined /*out*/;
+            resourceInputs["commitmentInfo"] = undefined /*out*/;
+            resourceInputs["createDate"] = undefined /*out*/;
+            resourceInputs["deliveryPreference"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["reservationType"] = undefined /*out*/;
+            resourceInputs["startDate"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["totalInstanceCount"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["availabilityZoneId"] = undefined /*out*/;
             resourceInputs["availableInstanceCount"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["capacityAllocationSet"] = undefined /*out*/;
+            resourceInputs["capacityReservationArn"] = undefined /*out*/;
+            resourceInputs["capacityReservationFleetId"] = undefined /*out*/;
+            resourceInputs["commitmentInfo"] = undefined /*out*/;
+            resourceInputs["createDate"] = undefined /*out*/;
+            resourceInputs["deliveryPreference"] = undefined /*out*/;
             resourceInputs["ebsOptimized"] = undefined /*out*/;
             resourceInputs["endDate"] = undefined /*out*/;
             resourceInputs["endDateType"] = undefined /*out*/;
@@ -195,7 +221,11 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["instancePlatform"] = undefined /*out*/;
             resourceInputs["instanceType"] = undefined /*out*/;
             resourceInputs["outPostArn"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["placementGroupArn"] = undefined /*out*/;
+            resourceInputs["reservationType"] = undefined /*out*/;
+            resourceInputs["startDate"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tagSpecifications"] = undefined /*out*/;
             resourceInputs["tenancy"] = undefined /*out*/;
             resourceInputs["totalInstanceCount"] = undefined /*out*/;

@@ -38,7 +38,8 @@ type LookupWorkgroupResult struct {
 	// A value that specifies whether the workgroup can be accessible from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// The map of the key-value pairs used to tag the workgroup.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags      []aws.Tag `pulumi:"tags"`
+	TrackName *string   `pulumi:"trackName"`
 	// Definition for workgroup resource
 	Workgroup *WorkgroupType `pulumi:"workgroup"`
 }
@@ -98,6 +99,10 @@ func (o LookupWorkgroupResultOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 // The map of the key-value pairs used to tag the workgroup.
 func (o LookupWorkgroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupWorkgroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o LookupWorkgroupResultOutput) TrackName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkgroupResult) *string { return v.TrackName }).(pulumi.StringPtrOutput)
 }
 
 // Definition for workgroup resource

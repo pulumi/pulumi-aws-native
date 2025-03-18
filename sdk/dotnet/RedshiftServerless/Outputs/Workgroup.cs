@@ -61,6 +61,7 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
         /// An array of subnet IDs the workgroup is associated with.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        public readonly string? TrackName;
         /// <summary>
         /// The Amazon Resource Name (ARN) that links to the workgroup.
         /// </summary>
@@ -100,6 +101,8 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
 
             ImmutableArray<string> subnetIds,
 
+            string? trackName,
+
             string? workgroupArn,
 
             string? workgroupId,
@@ -118,6 +121,7 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
             SecurityGroupIds = securityGroupIds;
             Status = status;
             SubnetIds = subnetIds;
+            TrackName = trackName;
             WorkgroupArn = workgroupArn;
             WorkgroupId = workgroupId;
             WorkgroupName = workgroupName;

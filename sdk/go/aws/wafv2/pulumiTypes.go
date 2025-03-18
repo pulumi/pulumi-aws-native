@@ -15106,6 +15106,251 @@ func (o WebAclCustomResponseBodyMapOutput) MapIndex(k pulumi.StringInput) WebAcl
 	}).(WebAclCustomResponseBodyOutput)
 }
 
+type WebAclDataProtect struct {
+	Action                  WebAclDataProtectionAction `pulumi:"action"`
+	ExcludeRateBasedDetails *bool                      `pulumi:"excludeRateBasedDetails"`
+	ExcludeRuleMatchDetails *bool                      `pulumi:"excludeRuleMatchDetails"`
+	Field                   WebAclFieldToProtect       `pulumi:"field"`
+}
+
+// WebAclDataProtectInput is an input type that accepts WebAclDataProtectArgs and WebAclDataProtectOutput values.
+// You can construct a concrete instance of `WebAclDataProtectInput` via:
+//
+//	WebAclDataProtectArgs{...}
+type WebAclDataProtectInput interface {
+	pulumi.Input
+
+	ToWebAclDataProtectOutput() WebAclDataProtectOutput
+	ToWebAclDataProtectOutputWithContext(context.Context) WebAclDataProtectOutput
+}
+
+type WebAclDataProtectArgs struct {
+	Action                  WebAclDataProtectionActionInput `pulumi:"action"`
+	ExcludeRateBasedDetails pulumi.BoolPtrInput             `pulumi:"excludeRateBasedDetails"`
+	ExcludeRuleMatchDetails pulumi.BoolPtrInput             `pulumi:"excludeRuleMatchDetails"`
+	Field                   WebAclFieldToProtectInput       `pulumi:"field"`
+}
+
+func (WebAclDataProtectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclDataProtect)(nil)).Elem()
+}
+
+func (i WebAclDataProtectArgs) ToWebAclDataProtectOutput() WebAclDataProtectOutput {
+	return i.ToWebAclDataProtectOutputWithContext(context.Background())
+}
+
+func (i WebAclDataProtectArgs) ToWebAclDataProtectOutputWithContext(ctx context.Context) WebAclDataProtectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclDataProtectOutput)
+}
+
+// WebAclDataProtectArrayInput is an input type that accepts WebAclDataProtectArray and WebAclDataProtectArrayOutput values.
+// You can construct a concrete instance of `WebAclDataProtectArrayInput` via:
+//
+//	WebAclDataProtectArray{ WebAclDataProtectArgs{...} }
+type WebAclDataProtectArrayInput interface {
+	pulumi.Input
+
+	ToWebAclDataProtectArrayOutput() WebAclDataProtectArrayOutput
+	ToWebAclDataProtectArrayOutputWithContext(context.Context) WebAclDataProtectArrayOutput
+}
+
+type WebAclDataProtectArray []WebAclDataProtectInput
+
+func (WebAclDataProtectArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclDataProtect)(nil)).Elem()
+}
+
+func (i WebAclDataProtectArray) ToWebAclDataProtectArrayOutput() WebAclDataProtectArrayOutput {
+	return i.ToWebAclDataProtectArrayOutputWithContext(context.Background())
+}
+
+func (i WebAclDataProtectArray) ToWebAclDataProtectArrayOutputWithContext(ctx context.Context) WebAclDataProtectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclDataProtectArrayOutput)
+}
+
+type WebAclDataProtectOutput struct{ *pulumi.OutputState }
+
+func (WebAclDataProtectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclDataProtect)(nil)).Elem()
+}
+
+func (o WebAclDataProtectOutput) ToWebAclDataProtectOutput() WebAclDataProtectOutput {
+	return o
+}
+
+func (o WebAclDataProtectOutput) ToWebAclDataProtectOutputWithContext(ctx context.Context) WebAclDataProtectOutput {
+	return o
+}
+
+func (o WebAclDataProtectOutput) Action() WebAclDataProtectionActionOutput {
+	return o.ApplyT(func(v WebAclDataProtect) WebAclDataProtectionAction { return v.Action }).(WebAclDataProtectionActionOutput)
+}
+
+func (o WebAclDataProtectOutput) ExcludeRateBasedDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebAclDataProtect) *bool { return v.ExcludeRateBasedDetails }).(pulumi.BoolPtrOutput)
+}
+
+func (o WebAclDataProtectOutput) ExcludeRuleMatchDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebAclDataProtect) *bool { return v.ExcludeRuleMatchDetails }).(pulumi.BoolPtrOutput)
+}
+
+func (o WebAclDataProtectOutput) Field() WebAclFieldToProtectOutput {
+	return o.ApplyT(func(v WebAclDataProtect) WebAclFieldToProtect { return v.Field }).(WebAclFieldToProtectOutput)
+}
+
+type WebAclDataProtectArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAclDataProtectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclDataProtect)(nil)).Elem()
+}
+
+func (o WebAclDataProtectArrayOutput) ToWebAclDataProtectArrayOutput() WebAclDataProtectArrayOutput {
+	return o
+}
+
+func (o WebAclDataProtectArrayOutput) ToWebAclDataProtectArrayOutputWithContext(ctx context.Context) WebAclDataProtectArrayOutput {
+	return o
+}
+
+func (o WebAclDataProtectArrayOutput) Index(i pulumi.IntInput) WebAclDataProtectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclDataProtect {
+		return vs[0].([]WebAclDataProtect)[vs[1].(int)]
+	}).(WebAclDataProtectOutput)
+}
+
+type WebAclDataProtectionConfig struct {
+	DataProtections []WebAclDataProtect `pulumi:"dataProtections"`
+}
+
+// WebAclDataProtectionConfigInput is an input type that accepts WebAclDataProtectionConfigArgs and WebAclDataProtectionConfigOutput values.
+// You can construct a concrete instance of `WebAclDataProtectionConfigInput` via:
+//
+//	WebAclDataProtectionConfigArgs{...}
+type WebAclDataProtectionConfigInput interface {
+	pulumi.Input
+
+	ToWebAclDataProtectionConfigOutput() WebAclDataProtectionConfigOutput
+	ToWebAclDataProtectionConfigOutputWithContext(context.Context) WebAclDataProtectionConfigOutput
+}
+
+type WebAclDataProtectionConfigArgs struct {
+	DataProtections WebAclDataProtectArrayInput `pulumi:"dataProtections"`
+}
+
+func (WebAclDataProtectionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclDataProtectionConfig)(nil)).Elem()
+}
+
+func (i WebAclDataProtectionConfigArgs) ToWebAclDataProtectionConfigOutput() WebAclDataProtectionConfigOutput {
+	return i.ToWebAclDataProtectionConfigOutputWithContext(context.Background())
+}
+
+func (i WebAclDataProtectionConfigArgs) ToWebAclDataProtectionConfigOutputWithContext(ctx context.Context) WebAclDataProtectionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclDataProtectionConfigOutput)
+}
+
+func (i WebAclDataProtectionConfigArgs) ToWebAclDataProtectionConfigPtrOutput() WebAclDataProtectionConfigPtrOutput {
+	return i.ToWebAclDataProtectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclDataProtectionConfigArgs) ToWebAclDataProtectionConfigPtrOutputWithContext(ctx context.Context) WebAclDataProtectionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclDataProtectionConfigOutput).ToWebAclDataProtectionConfigPtrOutputWithContext(ctx)
+}
+
+// WebAclDataProtectionConfigPtrInput is an input type that accepts WebAclDataProtectionConfigArgs, WebAclDataProtectionConfigPtr and WebAclDataProtectionConfigPtrOutput values.
+// You can construct a concrete instance of `WebAclDataProtectionConfigPtrInput` via:
+//
+//	        WebAclDataProtectionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclDataProtectionConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebAclDataProtectionConfigPtrOutput() WebAclDataProtectionConfigPtrOutput
+	ToWebAclDataProtectionConfigPtrOutputWithContext(context.Context) WebAclDataProtectionConfigPtrOutput
+}
+
+type webAclDataProtectionConfigPtrType WebAclDataProtectionConfigArgs
+
+func WebAclDataProtectionConfigPtr(v *WebAclDataProtectionConfigArgs) WebAclDataProtectionConfigPtrInput {
+	return (*webAclDataProtectionConfigPtrType)(v)
+}
+
+func (*webAclDataProtectionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclDataProtectionConfig)(nil)).Elem()
+}
+
+func (i *webAclDataProtectionConfigPtrType) ToWebAclDataProtectionConfigPtrOutput() WebAclDataProtectionConfigPtrOutput {
+	return i.ToWebAclDataProtectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclDataProtectionConfigPtrType) ToWebAclDataProtectionConfigPtrOutputWithContext(ctx context.Context) WebAclDataProtectionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclDataProtectionConfigPtrOutput)
+}
+
+type WebAclDataProtectionConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclDataProtectionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclDataProtectionConfig)(nil)).Elem()
+}
+
+func (o WebAclDataProtectionConfigOutput) ToWebAclDataProtectionConfigOutput() WebAclDataProtectionConfigOutput {
+	return o
+}
+
+func (o WebAclDataProtectionConfigOutput) ToWebAclDataProtectionConfigOutputWithContext(ctx context.Context) WebAclDataProtectionConfigOutput {
+	return o
+}
+
+func (o WebAclDataProtectionConfigOutput) ToWebAclDataProtectionConfigPtrOutput() WebAclDataProtectionConfigPtrOutput {
+	return o.ToWebAclDataProtectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclDataProtectionConfigOutput) ToWebAclDataProtectionConfigPtrOutputWithContext(ctx context.Context) WebAclDataProtectionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclDataProtectionConfig) *WebAclDataProtectionConfig {
+		return &v
+	}).(WebAclDataProtectionConfigPtrOutput)
+}
+
+func (o WebAclDataProtectionConfigOutput) DataProtections() WebAclDataProtectArrayOutput {
+	return o.ApplyT(func(v WebAclDataProtectionConfig) []WebAclDataProtect { return v.DataProtections }).(WebAclDataProtectArrayOutput)
+}
+
+type WebAclDataProtectionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclDataProtectionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclDataProtectionConfig)(nil)).Elem()
+}
+
+func (o WebAclDataProtectionConfigPtrOutput) ToWebAclDataProtectionConfigPtrOutput() WebAclDataProtectionConfigPtrOutput {
+	return o
+}
+
+func (o WebAclDataProtectionConfigPtrOutput) ToWebAclDataProtectionConfigPtrOutputWithContext(ctx context.Context) WebAclDataProtectionConfigPtrOutput {
+	return o
+}
+
+func (o WebAclDataProtectionConfigPtrOutput) Elem() WebAclDataProtectionConfigOutput {
+	return o.ApplyT(func(v *WebAclDataProtectionConfig) WebAclDataProtectionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclDataProtectionConfig
+		return ret
+	}).(WebAclDataProtectionConfigOutput)
+}
+
+func (o WebAclDataProtectionConfigPtrOutput) DataProtections() WebAclDataProtectArrayOutput {
+	return o.ApplyT(func(v *WebAclDataProtectionConfig) []WebAclDataProtect {
+		if v == nil {
+			return nil
+		}
+		return v.DataProtections
+	}).(WebAclDataProtectArrayOutput)
+}
+
 // Default Action WebACL will take against ingress traffic when there is no matching Rule.
 type WebAclDefaultAction struct {
 	// Specifies that AWS WAF should allow requests by default.
@@ -16289,6 +16534,70 @@ func (o WebAclFieldToMatchSingleQueryArgumentPropertiesPtrOutput) Name() pulumi.
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// Field in log to protect.
+type WebAclFieldToProtect struct {
+	// List of field keys to protect
+	FieldKeys []string `pulumi:"fieldKeys"`
+	// Field type to protect
+	FieldType WebAclFieldToProtectFieldType `pulumi:"fieldType"`
+}
+
+// WebAclFieldToProtectInput is an input type that accepts WebAclFieldToProtectArgs and WebAclFieldToProtectOutput values.
+// You can construct a concrete instance of `WebAclFieldToProtectInput` via:
+//
+//	WebAclFieldToProtectArgs{...}
+type WebAclFieldToProtectInput interface {
+	pulumi.Input
+
+	ToWebAclFieldToProtectOutput() WebAclFieldToProtectOutput
+	ToWebAclFieldToProtectOutputWithContext(context.Context) WebAclFieldToProtectOutput
+}
+
+// Field in log to protect.
+type WebAclFieldToProtectArgs struct {
+	// List of field keys to protect
+	FieldKeys pulumi.StringArrayInput `pulumi:"fieldKeys"`
+	// Field type to protect
+	FieldType WebAclFieldToProtectFieldTypeInput `pulumi:"fieldType"`
+}
+
+func (WebAclFieldToProtectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclFieldToProtect)(nil)).Elem()
+}
+
+func (i WebAclFieldToProtectArgs) ToWebAclFieldToProtectOutput() WebAclFieldToProtectOutput {
+	return i.ToWebAclFieldToProtectOutputWithContext(context.Background())
+}
+
+func (i WebAclFieldToProtectArgs) ToWebAclFieldToProtectOutputWithContext(ctx context.Context) WebAclFieldToProtectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclFieldToProtectOutput)
+}
+
+// Field in log to protect.
+type WebAclFieldToProtectOutput struct{ *pulumi.OutputState }
+
+func (WebAclFieldToProtectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclFieldToProtect)(nil)).Elem()
+}
+
+func (o WebAclFieldToProtectOutput) ToWebAclFieldToProtectOutput() WebAclFieldToProtectOutput {
+	return o
+}
+
+func (o WebAclFieldToProtectOutput) ToWebAclFieldToProtectOutputWithContext(ctx context.Context) WebAclFieldToProtectOutput {
+	return o
+}
+
+// List of field keys to protect
+func (o WebAclFieldToProtectOutput) FieldKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebAclFieldToProtect) []string { return v.FieldKeys }).(pulumi.StringArrayOutput)
+}
+
+// Field type to protect
+func (o WebAclFieldToProtectOutput) FieldType() WebAclFieldToProtectFieldTypeOutput {
+	return o.ApplyT(func(v WebAclFieldToProtect) WebAclFieldToProtectFieldType { return v.FieldType }).(WebAclFieldToProtectFieldTypeOutput)
 }
 
 type WebAclForwardedIpConfiguration struct {
@@ -26325,6 +26634,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCustomResponsePtrInput)(nil)).Elem(), WebAclCustomResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCustomResponseBodyInput)(nil)).Elem(), WebAclCustomResponseBodyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCustomResponseBodyMapInput)(nil)).Elem(), WebAclCustomResponseBodyMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclDataProtectInput)(nil)).Elem(), WebAclDataProtectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclDataProtectArrayInput)(nil)).Elem(), WebAclDataProtectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclDataProtectionConfigInput)(nil)).Elem(), WebAclDataProtectionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclDataProtectionConfigPtrInput)(nil)).Elem(), WebAclDataProtectionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclDefaultActionInput)(nil)).Elem(), WebAclDefaultActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclExcludedRuleInput)(nil)).Elem(), WebAclExcludedRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclExcludedRuleArrayInput)(nil)).Elem(), WebAclExcludedRuleArray{})
@@ -26337,6 +26650,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclFieldToMatchSingleHeaderPropertiesPtrInput)(nil)).Elem(), WebAclFieldToMatchSingleHeaderPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclFieldToMatchSingleQueryArgumentPropertiesInput)(nil)).Elem(), WebAclFieldToMatchSingleQueryArgumentPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclFieldToMatchSingleQueryArgumentPropertiesPtrInput)(nil)).Elem(), WebAclFieldToMatchSingleQueryArgumentPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclFieldToProtectInput)(nil)).Elem(), WebAclFieldToProtectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclForwardedIpConfigurationInput)(nil)).Elem(), WebAclForwardedIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclForwardedIpConfigurationPtrInput)(nil)).Elem(), WebAclForwardedIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclGeoMatchStatementInput)(nil)).Elem(), WebAclGeoMatchStatementArgs{})
@@ -26610,6 +26924,10 @@ func init() {
 	pulumi.RegisterOutputType(WebAclCustomResponsePtrOutput{})
 	pulumi.RegisterOutputType(WebAclCustomResponseBodyOutput{})
 	pulumi.RegisterOutputType(WebAclCustomResponseBodyMapOutput{})
+	pulumi.RegisterOutputType(WebAclDataProtectOutput{})
+	pulumi.RegisterOutputType(WebAclDataProtectArrayOutput{})
+	pulumi.RegisterOutputType(WebAclDataProtectionConfigOutput{})
+	pulumi.RegisterOutputType(WebAclDataProtectionConfigPtrOutput{})
 	pulumi.RegisterOutputType(WebAclDefaultActionOutput{})
 	pulumi.RegisterOutputType(WebAclDefaultActionPtrOutput{})
 	pulumi.RegisterOutputType(WebAclExcludedRuleOutput{})
@@ -26623,6 +26941,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclFieldToMatchSingleHeaderPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WebAclFieldToMatchSingleQueryArgumentPropertiesOutput{})
 	pulumi.RegisterOutputType(WebAclFieldToMatchSingleQueryArgumentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WebAclFieldToProtectOutput{})
 	pulumi.RegisterOutputType(WebAclForwardedIpConfigurationOutput{})
 	pulumi.RegisterOutputType(WebAclForwardedIpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebAclGeoMatchStatementOutput{})

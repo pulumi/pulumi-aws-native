@@ -31,6 +31,9 @@ class GetDiscoveryResult:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[str]:
+        """
+        The 12 digit AWS Account ID for the account.
+        """
         return pulumi.get(self, "account_id")
 
 
@@ -47,6 +50,9 @@ def get_discovery(account_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiscoveryResult:
     """
     Resource Type definition for AWS::ApplicationSignals::Discovery
+
+
+    :param str account_id: The 12 digit AWS Account ID for the account.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -59,6 +65,9 @@ def get_discovery_output(account_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiscoveryResult]:
     """
     Resource Type definition for AWS::ApplicationSignals::Discovery
+
+
+    :param str account_id: The 12 digit AWS Account ID for the account.
     """
     __args__ = dict()
     __args__['accountId'] = account_id

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -26,6 +29,12 @@ export interface GetCapacityReservationResult {
      * Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
      */
     readonly availableInstanceCount?: number;
+    readonly capacityAllocationSet?: outputs.ec2.CapacityReservationCapacityAllocation[];
+    readonly capacityReservationArn?: string;
+    readonly capacityReservationFleetId?: string;
+    readonly commitmentInfo?: outputs.ec2.CommitmentInfoProperties;
+    readonly createDate?: string;
+    readonly deliveryPreference?: string;
     /**
      * The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
      *
@@ -66,6 +75,10 @@ export interface GetCapacityReservationResult {
      * Default: `open`
      */
     readonly instanceMatchCriteria?: string;
+    readonly ownerId?: string;
+    readonly reservationType?: string;
+    readonly startDate?: string;
+    readonly state?: string;
     /**
      * Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
      */

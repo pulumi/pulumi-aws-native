@@ -677,6 +677,7 @@ class ServiceLevelObjectiveRequestBasedSliMetric(dict):
                - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
                - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
                - `Environment` specifies the location where this object is hosted, or what it belongs to.
+               - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
         :param 'ServiceLevelObjectiveRequestBasedSliMetricMetricType' metric_type: If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
         :param 'ServiceLevelObjectiveMonitoredRequestCountMetric' monitored_request_count_metric: Use this structure to define the metric that you want to use as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` will be divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
         :param str operation_name: If the SLO monitors a specific operation of the service, this field displays that operation name.
@@ -704,6 +705,7 @@ class ServiceLevelObjectiveRequestBasedSliMetric(dict):
         - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
         - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
         - `Environment` specifies the location where this object is hosted, or what it belongs to.
+        - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
         """
         return pulumi.get(self, "key_attributes")
 

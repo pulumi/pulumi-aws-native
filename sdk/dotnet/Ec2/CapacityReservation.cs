@@ -39,6 +39,24 @@ namespace Pulumi.AwsNative.Ec2
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        [Output("capacityAllocationSet")]
+        public Output<ImmutableArray<Outputs.CapacityReservationCapacityAllocation>> CapacityAllocationSet { get; private set; } = null!;
+
+        [Output("capacityReservationArn")]
+        public Output<string> CapacityReservationArn { get; private set; } = null!;
+
+        [Output("capacityReservationFleetId")]
+        public Output<string> CapacityReservationFleetId { get; private set; } = null!;
+
+        [Output("commitmentInfo")]
+        public Output<Outputs.CommitmentInfoProperties> CommitmentInfo { get; private set; } = null!;
+
+        [Output("createDate")]
+        public Output<string> CreateDate { get; private set; } = null!;
+
+        [Output("deliveryPreference")]
+        public Output<string> DeliveryPreference { get; private set; } = null!;
+
         /// <summary>
         /// Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
         /// </summary>
@@ -119,6 +137,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("outPostArn")]
         public Output<string?> OutPostArn { get; private set; } = null!;
 
+        [Output("ownerId")]
+        public Output<string> OwnerId { get; private set; } = null!;
+
         /// <summary>
         /// &gt; Not supported for future-dated Capacity Reservations. 
         /// 
@@ -126,6 +147,15 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Output("placementGroupArn")]
         public Output<string?> PlacementGroupArn { get; private set; } = null!;
+
+        [Output("reservationType")]
+        public Output<string> ReservationType { get; private set; } = null!;
+
+        [Output("startDate")]
+        public Output<string> StartDate { get; private set; } = null!;
+
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// The tags to apply to the Capacity Reservation during launch.

@@ -845,10 +845,6 @@ if not MYPY:
         """
         The License Manager Configuration to associate with the AMI in the specified Region.
         """
-        ssm_parameter_configurations: NotRequired[pulumi.Input[Sequence[Any]]]
-        """
-        The SSM parameter configurations to use for AMI distribution.
-        """
 elif False:
     DistributionConfigurationDistributionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -860,8 +856,7 @@ class DistributionConfigurationDistributionArgs:
                  container_distribution_configuration: Optional[pulumi.Input['DistributionConfigurationContainerDistributionConfigurationArgs']] = None,
                  fast_launch_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationFastLaunchConfigurationArgs']]]] = None,
                  launch_template_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationLaunchTemplateConfigurationArgs']]]] = None,
-                 license_configuration_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ssm_parameter_configurations: Optional[pulumi.Input[Sequence[Any]]] = None):
+                 license_configuration_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The distributions of the distribution configuration.
         :param pulumi.Input[str] region: region
@@ -870,7 +865,6 @@ class DistributionConfigurationDistributionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationFastLaunchConfigurationArgs']]] fast_launch_configurations: The Windows faster-launching configurations to use for AMI distribution.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationLaunchTemplateConfigurationArgs']]] launch_template_configurations: A group of launchTemplateConfiguration settings that apply to image distribution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] license_configuration_arns: The License Manager Configuration to associate with the AMI in the specified Region.
-        :param pulumi.Input[Sequence[Any]] ssm_parameter_configurations: The SSM parameter configurations to use for AMI distribution.
         """
         pulumi.set(__self__, "region", region)
         if ami_distribution_configuration is not None:
@@ -883,8 +877,6 @@ class DistributionConfigurationDistributionArgs:
             pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
         if license_configuration_arns is not None:
             pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
-        if ssm_parameter_configurations is not None:
-            pulumi.set(__self__, "ssm_parameter_configurations", ssm_parameter_configurations)
 
     @property
     @pulumi.getter
@@ -957,18 +949,6 @@ class DistributionConfigurationDistributionArgs:
     @license_configuration_arns.setter
     def license_configuration_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "license_configuration_arns", value)
-
-    @property
-    @pulumi.getter(name="ssmParameterConfigurations")
-    def ssm_parameter_configurations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
-        """
-        The SSM parameter configurations to use for AMI distribution.
-        """
-        return pulumi.get(self, "ssm_parameter_configurations")
-
-    @ssm_parameter_configurations.setter
-    def ssm_parameter_configurations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
-        pulumi.set(self, "ssm_parameter_configurations", value)
 
 
 if not MYPY:

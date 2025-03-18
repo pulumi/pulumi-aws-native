@@ -37,9 +37,10 @@ type Workgroup struct {
 	// A list of subnet IDs the workgroup is associated with.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// The map of the key-value pairs used to tag the workgroup.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags      aws.TagArrayOutput     `pulumi:"tags"`
+	TrackName pulumi.StringPtrOutput `pulumi:"trackName"`
 	// Definition for workgroup resource
-	Workgroup WorkgroupTypeOutput `pulumi:"workgroup"`
+	Workgroup WorkgroupTypePtrOutput `pulumi:"workgroup"`
 	// The name of the workgroup.
 	WorkgroupName pulumi.StringOutput `pulumi:"workgroupName"`
 }
@@ -110,7 +111,10 @@ type workgroupArgs struct {
 	// A list of subnet IDs the workgroup is associated with.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// The map of the key-value pairs used to tag the workgroup.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags      []aws.Tag `pulumi:"tags"`
+	TrackName *string   `pulumi:"trackName"`
+	// Definition for workgroup resource
+	Workgroup *WorkgroupType `pulumi:"workgroup"`
 	// The name of the workgroup.
 	WorkgroupName *string `pulumi:"workgroupName"`
 }
@@ -138,7 +142,10 @@ type WorkgroupArgs struct {
 	// A list of subnet IDs the workgroup is associated with.
 	SubnetIds pulumi.StringArrayInput
 	// The map of the key-value pairs used to tag the workgroup.
-	Tags aws.TagArrayInput
+	Tags      aws.TagArrayInput
+	TrackName pulumi.StringPtrInput
+	// Definition for workgroup resource
+	Workgroup WorkgroupTypePtrInput
 	// The name of the workgroup.
 	WorkgroupName pulumi.StringPtrInput
 }
@@ -235,9 +242,13 @@ func (o WorkgroupOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Workgroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+func (o WorkgroupOutput) TrackName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workgroup) pulumi.StringPtrOutput { return v.TrackName }).(pulumi.StringPtrOutput)
+}
+
 // Definition for workgroup resource
-func (o WorkgroupOutput) Workgroup() WorkgroupTypeOutput {
-	return o.ApplyT(func(v *Workgroup) WorkgroupTypeOutput { return v.Workgroup }).(WorkgroupTypeOutput)
+func (o WorkgroupOutput) Workgroup() WorkgroupTypePtrOutput {
+	return o.ApplyT(func(v *Workgroup) WorkgroupTypePtrOutput { return v.Workgroup }).(WorkgroupTypePtrOutput)
 }
 
 // The name of the workgroup.
