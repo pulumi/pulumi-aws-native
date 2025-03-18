@@ -2019,7 +2019,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "A complex type that contains zero or more `Tag` elements."
+        "description": "A complex type that contains zero or more ``Tag`` elements."
       },
       "vpcOriginEndpointConfig": {
         "$ref": "#/types/aws-native:cloudfront:VpcOriginEndpointConfig",
@@ -6307,6 +6307,13 @@
           "$ref": "#/types/aws-native:ec2:VpcEndpointServiceIpAddressType"
         },
         "description": "Specify which Ip Address types are supported for VPC endpoint service."
+      },
+      "supportedRegions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The Regions from which service consumers can access the service."
       },
       "tags": {
         "type": "array",
