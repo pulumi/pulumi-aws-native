@@ -1088,6 +1088,12 @@
             "name": "DomainNameValue"
           }
         }
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
       }
     }
   },
@@ -2019,7 +2025,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "A complex type that contains zero or more `Tag` elements."
+        "description": "A complex type that contains zero or more ``Tag`` elements."
       },
       "vpcOriginEndpointConfig": {
         "$ref": "#/types/aws-native:cloudfront:VpcOriginEndpointConfig",
@@ -6308,6 +6314,13 @@
         },
         "description": "Specify which Ip Address types are supported for VPC endpoint service."
       },
+      "supportedRegions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The Regions from which service consumers can access the service."
+      },
       "tags": {
         "type": "array",
         "items": {
@@ -10398,7 +10411,7 @@
         "items": {
           "$ref": "#/types/aws-native:oam:LinkResourceType"
         },
-        "description": "An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` ."
+        "description": "An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` ."
       },
       "sinkIdentifier": {
         "type": "string",

@@ -124,8 +124,9 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "workspaces:CreateTags", "workspaces:DescribeTags", "workspaces:DeleteTags" ]
   },
   "primaryIdentifier" : [ "/properties/PoolId" ],
   "createOnlyProperties" : [ "/properties/PoolName" ],
@@ -133,19 +134,19 @@
   "deprecatedProperties" : [ "/properties/Tags", "/properties/Tags/TagKey", "/properties/Tags/TagValue" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "workspaces:CreateWorkspacesPool", "workspaces:DescribeWorkspacesPools" ]
+      "permissions" : [ "workspaces:CreateWorkspacesPool", "workspaces:DescribeWorkspacesPools", "workspaces:CreateTags" ]
     },
     "read" : {
-      "permissions" : [ "workspaces:DescribeWorkspacesPools" ]
+      "permissions" : [ "workspaces:DescribeWorkspacesPools", "workspaces:DescribeTags" ]
     },
     "update" : {
-      "permissions" : [ "workspaces:UpdateWorkspacesPool" ]
+      "permissions" : [ "workspaces:UpdateWorkspacesPool", "workspaces:CreateTags", "workspaces:DeleteTags", "workspaces:DescribeWorkspacesPools", "workspaces:DescribeTags" ]
     },
     "delete" : {
-      "permissions" : [ "workspaces:DescribeWorkspacesPools", "workspaces:TerminateWorkspacesPool" ]
+      "permissions" : [ "workspaces:DescribeWorkspacesPools", "workspaces:TerminateWorkspacesPool", "workspaces:DeleteTags" ]
     },
     "list" : {
-      "permissions" : [ "workspaces:DescribeWorkspacesPools" ]
+      "permissions" : [ "workspaces:DescribeWorkspacesPools", "workspaces:DescribeTags" ]
     }
   }
 }
