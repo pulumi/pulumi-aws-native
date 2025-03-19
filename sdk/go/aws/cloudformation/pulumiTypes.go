@@ -1743,8 +1743,6 @@ type StackSetOperationPreferences struct {
 	// The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
 	RegionConcurrencyType *StackSetRegionConcurrencyType `pulumi:"regionConcurrencyType"`
 	// The order of the Regions where you want to perform the stack operation.
-	//
-	// > `RegionOrder` isn't followed if `AutoDeployment` is enabled.
 	RegionOrder []string `pulumi:"regionOrder"`
 }
 
@@ -1795,8 +1793,6 @@ type StackSetOperationPreferencesArgs struct {
 	// The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
 	RegionConcurrencyType StackSetRegionConcurrencyTypePtrInput `pulumi:"regionConcurrencyType"`
 	// The order of the Regions where you want to perform the stack operation.
-	//
-	// > `RegionOrder` isn't followed if `AutoDeployment` is enabled.
 	RegionOrder pulumi.StringArrayInput `pulumi:"regionOrder"`
 }
 
@@ -1930,8 +1926,6 @@ func (o StackSetOperationPreferencesOutput) RegionConcurrencyType() StackSetRegi
 }
 
 // The order of the Regions where you want to perform the stack operation.
-//
-// > `RegionOrder` isn't followed if `AutoDeployment` is enabled.
 func (o StackSetOperationPreferencesOutput) RegionOrder() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StackSetOperationPreferences) []string { return v.RegionOrder }).(pulumi.StringArrayOutput)
 }
@@ -2042,8 +2036,6 @@ func (o StackSetOperationPreferencesPtrOutput) RegionConcurrencyType() StackSetR
 }
 
 // The order of the Regions where you want to perform the stack operation.
-//
-// > `RegionOrder` isn't followed if `AutoDeployment` is enabled.
 func (o StackSetOperationPreferencesPtrOutput) RegionOrder() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StackSetOperationPreferences) []string {
 		if v == nil {

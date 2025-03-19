@@ -33,6 +33,8 @@ __all__ = [
     'RuleGroupTextTransformationType',
     'WebAclAwsManagedRulesBotControlRuleSetInspectionLevel',
     'WebAclBodyParsingFallbackBehavior',
+    'WebAclDataProtectionAction',
+    'WebAclFieldToProtectFieldType',
     'WebAclForwardedIpConfigurationFallbackBehavior',
     'WebAclIpSetForwardedIpConfigurationFallbackBehavior',
     'WebAclIpSetForwardedIpConfigurationPosition',
@@ -375,6 +377,22 @@ class WebAclBodyParsingFallbackBehavior(str, Enum):
     MATCH = "MATCH"
     NO_MATCH = "NO_MATCH"
     EVALUATE_AS_STRING = "EVALUATE_AS_STRING"
+
+
+class WebAclDataProtectionAction(str, Enum):
+    SUBSTITUTION = "SUBSTITUTION"
+    HASH = "HASH"
+
+
+class WebAclFieldToProtectFieldType(str, Enum):
+    """
+    Field type to protect
+    """
+    SINGLE_HEADER = "SINGLE_HEADER"
+    SINGLE_COOKIE = "SINGLE_COOKIE"
+    SINGLE_QUERY_ARGUMENT = "SINGLE_QUERY_ARGUMENT"
+    QUERY_STRING = "QUERY_STRING"
+    BODY = "BODY"
 
 
 class WebAclForwardedIpConfigurationFallbackBehavior(str, Enum):

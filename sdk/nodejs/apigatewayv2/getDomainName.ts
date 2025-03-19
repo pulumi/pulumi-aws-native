@@ -26,6 +26,7 @@ export interface GetDomainNameArgs {
 }
 
 export interface GetDomainNameResult {
+    readonly domainNameArn?: string;
     /**
      * The domain name configurations.
      */

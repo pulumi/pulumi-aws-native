@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.CloudFront
     public static class GetVpcOrigin
     {
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::VpcOrigin
+        /// An Amazon CloudFront VPC origin.
         /// </summary>
         public static Task<GetVpcOriginResult> InvokeAsync(GetVpcOriginArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcOriginResult>("aws-native:cloudfront:getVpcOrigin", args ?? new GetVpcOriginArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::VpcOrigin
+        /// An Amazon CloudFront VPC origin.
         /// </summary>
         public static Output<GetVpcOriginResult> Invoke(GetVpcOriginInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcOriginResult>("aws-native:cloudfront:getVpcOrigin", args ?? new GetVpcOriginInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::VpcOrigin
+        /// An Amazon CloudFront VPC origin.
         /// </summary>
         public static Output<GetVpcOriginResult> Invoke(GetVpcOriginInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcOriginResult>("aws-native:cloudfront:getVpcOrigin", args ?? new GetVpcOriginInvokeArgs(), options.WithDefaults());
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         public readonly string? Status;
         /// <summary>
-        /// A complex type that contains zero or more `Tag` elements.
+        /// A complex type that contains zero or more ``Tag`` elements.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

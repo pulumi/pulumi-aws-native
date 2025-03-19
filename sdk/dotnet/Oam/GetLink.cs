@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Oam
         /// </summary>
         public readonly Outputs.LinkConfiguration? LinkConfiguration;
         /// <summary>
-        /// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+        /// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` .
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Oam.LinkResourceType> ResourceTypes;
         /// <summary>

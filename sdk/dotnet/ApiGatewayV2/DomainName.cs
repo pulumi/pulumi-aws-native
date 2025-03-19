@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("domainName")]
         public Output<string> DomainNameValue { get; private set; } = null!;
 
+        [Output("domainNameArn")]
+        public Output<string> DomainNameArn { get; private set; } = null!;
+
         /// <summary>
         /// The domain name configurations.
         /// </summary>

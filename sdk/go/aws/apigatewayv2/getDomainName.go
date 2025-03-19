@@ -30,6 +30,7 @@ type LookupDomainNameArgs struct {
 }
 
 type LookupDomainNameResult struct {
+	DomainNameArn *string `pulumi:"domainNameArn"`
 	// The domain name configurations.
 	DomainNameConfigurations []DomainNameConfiguration `pulumi:"domainNameConfigurations"`
 	// The mutual TLS authentication configuration for a custom domain name.
@@ -72,6 +73,10 @@ func (o LookupDomainNameResultOutput) ToLookupDomainNameResultOutput() LookupDom
 
 func (o LookupDomainNameResultOutput) ToLookupDomainNameResultOutputWithContext(ctx context.Context) LookupDomainNameResultOutput {
 	return o
+}
+
+func (o LookupDomainNameResultOutput) DomainNameArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.DomainNameArn }).(pulumi.StringPtrOutput)
 }
 
 // The domain name configurations.

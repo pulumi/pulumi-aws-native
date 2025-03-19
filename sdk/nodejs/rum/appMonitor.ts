@@ -63,6 +63,9 @@ export class AppMonitor extends pulumi.CustomResource {
      * A name for the app monitor
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
+     */
     public readonly resourcePolicy!: pulumi.Output<outputs.rum.AppMonitorResourcePolicy | undefined>;
     /**
      * Assigns one or more tags (key-value pairs) to the app monitor.
@@ -142,6 +145,9 @@ export interface AppMonitorArgs {
      * A name for the app monitor
      */
     name?: pulumi.Input<string>;
+    /**
+     * Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
+     */
     resourcePolicy?: pulumi.Input<inputs.rum.AppMonitorResourcePolicyArgs>;
     /**
      * Assigns one or more tags (key-value pairs) to the app monitor.

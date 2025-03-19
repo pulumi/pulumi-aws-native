@@ -132,6 +132,10 @@ namespace Pulumi.AwsNative.WaFv2
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.WebAclCustomResponseBody>? CustomResponseBodies;
         /// <summary>
+        /// Collection of dataProtects.
+        /// </summary>
+        public readonly Outputs.WebAclDataProtectionConfig? DataProtectionConfig;
+        /// <summary>
         /// The action to perform if none of the `Rules` contained in the `WebACL` match.
         /// </summary>
         public readonly Outputs.WebAclDefaultAction? DefaultAction;
@@ -184,6 +188,8 @@ namespace Pulumi.AwsNative.WaFv2
 
             ImmutableDictionary<string, Outputs.WebAclCustomResponseBody>? customResponseBodies,
 
+            Outputs.WebAclDataProtectionConfig? dataProtectionConfig,
+
             Outputs.WebAclDefaultAction? defaultAction,
 
             string? description,
@@ -206,6 +212,7 @@ namespace Pulumi.AwsNative.WaFv2
             CaptchaConfig = captchaConfig;
             ChallengeConfig = challengeConfig;
             CustomResponseBodies = customResponseBodies;
+            DataProtectionConfig = dataProtectionConfig;
             DefaultAction = defaultAction;
             Description = description;
             Id = id;

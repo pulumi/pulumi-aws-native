@@ -23,7 +23,13 @@ type CapacityReservation struct {
 	// Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
 	AvailableInstanceCount pulumi.IntOutput `pulumi:"availableInstanceCount"`
 	// The ID of the Capacity Reservation.
-	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	AwsId                      pulumi.StringOutput                              `pulumi:"awsId"`
+	CapacityAllocationSet      CapacityReservationCapacityAllocationArrayOutput `pulumi:"capacityAllocationSet"`
+	CapacityReservationArn     pulumi.StringOutput                              `pulumi:"capacityReservationArn"`
+	CapacityReservationFleetId pulumi.StringOutput                              `pulumi:"capacityReservationFleetId"`
+	CommitmentInfo             CommitmentInfoPropertiesOutput                   `pulumi:"commitmentInfo"`
+	CreateDate                 pulumi.StringOutput                              `pulumi:"createDate"`
+	DeliveryPreference         pulumi.StringOutput                              `pulumi:"deliveryPreference"`
 	// Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
 	EbsOptimized pulumi.BoolPtrOutput `pulumi:"ebsOptimized"`
 	// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
@@ -68,10 +74,14 @@ type CapacityReservation struct {
 	//
 	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
 	OutPostArn pulumi.StringPtrOutput `pulumi:"outPostArn"`
+	OwnerId    pulumi.StringOutput    `pulumi:"ownerId"`
 	// > Not supported for future-dated Capacity Reservations.
 	//
 	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
 	PlacementGroupArn pulumi.StringPtrOutput `pulumi:"placementGroupArn"`
+	ReservationType   pulumi.StringOutput    `pulumi:"reservationType"`
+	StartDate         pulumi.StringOutput    `pulumi:"startDate"`
+	State             pulumi.StringOutput    `pulumi:"state"`
 	// The tags to apply to the Capacity Reservation during launch.
 	TagSpecifications CapacityReservationTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
 	// Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
@@ -338,6 +348,32 @@ func (o CapacityReservationOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+func (o CapacityReservationOutput) CapacityAllocationSet() CapacityReservationCapacityAllocationArrayOutput {
+	return o.ApplyT(func(v *CapacityReservation) CapacityReservationCapacityAllocationArrayOutput {
+		return v.CapacityAllocationSet
+	}).(CapacityReservationCapacityAllocationArrayOutput)
+}
+
+func (o CapacityReservationOutput) CapacityReservationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.CapacityReservationArn }).(pulumi.StringOutput)
+}
+
+func (o CapacityReservationOutput) CapacityReservationFleetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.CapacityReservationFleetId }).(pulumi.StringOutput)
+}
+
+func (o CapacityReservationOutput) CommitmentInfo() CommitmentInfoPropertiesOutput {
+	return o.ApplyT(func(v *CapacityReservation) CommitmentInfoPropertiesOutput { return v.CommitmentInfo }).(CommitmentInfoPropertiesOutput)
+}
+
+func (o CapacityReservationOutput) CreateDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.CreateDate }).(pulumi.StringOutput)
+}
+
+func (o CapacityReservationOutput) DeliveryPreference() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.DeliveryPreference }).(pulumi.StringOutput)
+}
+
 // Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
 func (o CapacityReservationOutput) EbsOptimized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.BoolPtrOutput { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
@@ -409,11 +445,27 @@ func (o CapacityReservationOutput) OutPostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.OutPostArn }).(pulumi.StringPtrOutput)
 }
 
+func (o CapacityReservationOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
 // > Not supported for future-dated Capacity Reservations.
 //
 // The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
 func (o CapacityReservationOutput) PlacementGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.PlacementGroupArn }).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityReservationOutput) ReservationType() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.ReservationType }).(pulumi.StringOutput)
+}
+
+func (o CapacityReservationOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.StartDate }).(pulumi.StringOutput)
+}
+
+func (o CapacityReservationOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
 // The tags to apply to the Capacity Reservation during launch.
