@@ -85,6 +85,9 @@ namespace Pulumi.AwsNative.Rum
         /// The unique ID of the new app monitor.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
+        /// </summary>
         public readonly Outputs.AppMonitorResourcePolicy? ResourcePolicy;
         /// <summary>
         /// Assigns one or more tags (key-value pairs) to the app monitor.

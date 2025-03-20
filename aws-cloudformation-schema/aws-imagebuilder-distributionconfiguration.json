@@ -198,12 +198,6 @@
         "Region" : {
           "description" : "region",
           "type" : "string"
-        },
-        "SsmParameterConfigurations" : {
-          "description" : "The SSM parameter configurations to use for AMI distribution.",
-          "insertionOrder" : true,
-          "type" : "array",
-          "items" : { }
         }
       },
       "required" : [ "Region" ]

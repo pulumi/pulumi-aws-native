@@ -1489,6 +1489,14 @@
       "permissions" : [ "kendra:DescribeDataSource", "kendra:UpdateDataSource", "kendra:ListTagsForResource", "kendra:TagResource", "kendra:UntagResource", "iam:PassRole" ]
     }
   },
+  "tagging" : {
+    "taggable" : true,
+    "tagUpdatable" : true,
+    "tagOnCreate" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "kendra:UntagResource", "kendra:TagResource", "kendra:ListTagsForResource" ]
+  },
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Id", "/properties/IndexId" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],
