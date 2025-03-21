@@ -72,9 +72,14 @@ namespace Pulumi.AwsNative.AppSync
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the Domain Name.
+        /// </summary>
+        public readonly string? DomainNameArn;
+        /// <summary>
         /// The ID of your Amazon Route 53 hosted zone.
         /// </summary>
         public readonly string? HostedZoneId;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDomainNameResult(
@@ -82,11 +87,17 @@ namespace Pulumi.AwsNative.AppSync
 
             string? description,
 
-            string? hostedZoneId)
+            string? domainNameArn,
+
+            string? hostedZoneId,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AppSyncDomainName = appSyncDomainName;
             Description = description;
+            DomainNameArn = domainNameArn;
             HostedZoneId = hostedZoneId;
+            Tags = tags;
         }
     }
 }

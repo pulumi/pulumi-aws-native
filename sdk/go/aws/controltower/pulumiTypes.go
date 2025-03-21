@@ -14,9 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type EnabledBaselineParameter struct {
-	// A string denoting the parameter key.
-	Key *string `pulumi:"key"`
-	// A low-level `Document` object of any type (for example, a Java Object).
+	Key   *string     `pulumi:"key"`
 	Value interface{} `pulumi:"value"`
 }
 
@@ -32,10 +30,8 @@ type EnabledBaselineParameterInput interface {
 }
 
 type EnabledBaselineParameterArgs struct {
-	// A string denoting the parameter key.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// A low-level `Document` object of any type (for example, a Java Object).
-	Value pulumi.Input `pulumi:"value"`
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.Input          `pulumi:"value"`
 }
 
 func (EnabledBaselineParameterArgs) ElementType() reflect.Type {
@@ -89,12 +85,10 @@ func (o EnabledBaselineParameterOutput) ToEnabledBaselineParameterOutputWithCont
 	return o
 }
 
-// A string denoting the parameter key.
 func (o EnabledBaselineParameterOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnabledBaselineParameter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// A low-level `Document` object of any type (for example, a Java Object).
 func (o EnabledBaselineParameterOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v EnabledBaselineParameter) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
@@ -120,9 +114,7 @@ func (o EnabledBaselineParameterArrayOutput) Index(i pulumi.IntInput) EnabledBas
 }
 
 type EnabledBaselineTag struct {
-	// A string that identifies a key-value pair.
-	Key *string `pulumi:"key"`
-	// A string parameter that describes an `EnabledBaseline` resource.
+	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 

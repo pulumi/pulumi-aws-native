@@ -10,9 +10,6 @@ __all__ = [
 
 
 class PackageGroupRestrictionTypeRestrictionMode(str, Enum):
-    """
-    The package group origin restriction setting. When the value is `INHERIT` , the value is set to the value of the first parent package group which does not have a value of `INHERIT` .
-    """
     ALLOW = "ALLOW"
     BLOCK = "BLOCK"
     ALLOW_SPECIFIC_REPOSITORIES = "ALLOW_SPECIFIC_REPOSITORIES"

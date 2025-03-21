@@ -66,6 +66,10 @@ export class VpcEndpointService extends pulumi.CustomResource {
      */
     public readonly supportedIpAddressTypes!: pulumi.Output<enums.ec2.VpcEndpointServiceIpAddressType[] | undefined>;
     /**
+     * The Regions from which service consumers can access the service.
+     */
+    public readonly supportedRegions!: pulumi.Output<string[] | undefined>;
+    /**
      * The tags to add to the VPC endpoint service.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -87,6 +91,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
             resourceInputs["networkLoadBalancerArns"] = args ? args.networkLoadBalancerArns : undefined;
             resourceInputs["payerResponsibility"] = args ? args.payerResponsibility : undefined;
             resourceInputs["supportedIpAddressTypes"] = args ? args.supportedIpAddressTypes : undefined;
+            resourceInputs["supportedRegions"] = args ? args.supportedRegions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["serviceId"] = undefined /*out*/;
         } else {
@@ -97,6 +102,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
             resourceInputs["payerResponsibility"] = undefined /*out*/;
             resourceInputs["serviceId"] = undefined /*out*/;
             resourceInputs["supportedIpAddressTypes"] = undefined /*out*/;
+            resourceInputs["supportedRegions"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -132,6 +138,10 @@ export interface VpcEndpointServiceArgs {
      * Specify which Ip Address types are supported for VPC endpoint service.
      */
     supportedIpAddressTypes?: pulumi.Input<pulumi.Input<enums.ec2.VpcEndpointServiceIpAddressType>[]>;
+    /**
+     * The Regions from which service consumers can access the service.
+     */
+    supportedRegions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The tags to add to the VPC endpoint service.
      */

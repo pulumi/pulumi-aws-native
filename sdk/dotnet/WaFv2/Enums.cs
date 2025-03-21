@@ -970,6 +970,68 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct WebAclDataProtectionAction : IEquatable<WebAclDataProtectionAction>
+    {
+        private readonly string _value;
+
+        private WebAclDataProtectionAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclDataProtectionAction Substitution { get; } = new WebAclDataProtectionAction("SUBSTITUTION");
+        public static WebAclDataProtectionAction Hash { get; } = new WebAclDataProtectionAction("HASH");
+
+        public static bool operator ==(WebAclDataProtectionAction left, WebAclDataProtectionAction right) => left.Equals(right);
+        public static bool operator !=(WebAclDataProtectionAction left, WebAclDataProtectionAction right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclDataProtectionAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclDataProtectionAction other && Equals(other);
+        public bool Equals(WebAclDataProtectionAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Field type to protect
+    /// </summary>
+    [EnumType]
+    public readonly struct WebAclFieldToProtectFieldType : IEquatable<WebAclFieldToProtectFieldType>
+    {
+        private readonly string _value;
+
+        private WebAclFieldToProtectFieldType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclFieldToProtectFieldType SingleHeader { get; } = new WebAclFieldToProtectFieldType("SINGLE_HEADER");
+        public static WebAclFieldToProtectFieldType SingleCookie { get; } = new WebAclFieldToProtectFieldType("SINGLE_COOKIE");
+        public static WebAclFieldToProtectFieldType SingleQueryArgument { get; } = new WebAclFieldToProtectFieldType("SINGLE_QUERY_ARGUMENT");
+        public static WebAclFieldToProtectFieldType QueryString { get; } = new WebAclFieldToProtectFieldType("QUERY_STRING");
+        public static WebAclFieldToProtectFieldType Body { get; } = new WebAclFieldToProtectFieldType("BODY");
+
+        public static bool operator ==(WebAclFieldToProtectFieldType left, WebAclFieldToProtectFieldType right) => left.Equals(right);
+        public static bool operator !=(WebAclFieldToProtectFieldType left, WebAclFieldToProtectFieldType right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclFieldToProtectFieldType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclFieldToProtectFieldType other && Equals(other);
+        public bool Equals(WebAclFieldToProtectFieldType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
     /// 

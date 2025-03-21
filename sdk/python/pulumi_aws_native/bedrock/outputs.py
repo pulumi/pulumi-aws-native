@@ -72,13 +72,16 @@ __all__ = [
     'DataAutomationProjectVideoStandardOutputConfiguration',
     'DataSourceBedrockDataAutomationConfiguration',
     'DataSourceBedrockFoundationModelConfiguration',
+    'DataSourceBedrockFoundationModelContextEnrichmentConfiguration',
     'DataSourceChunkingConfiguration',
     'DataSourceConfiguration',
     'DataSourceConfluenceCrawlerConfiguration',
     'DataSourceConfluenceDataSourceConfiguration',
     'DataSourceConfluenceSourceConfiguration',
+    'DataSourceContextEnrichmentConfiguration',
     'DataSourceCrawlFilterConfiguration',
     'DataSourceCustomTransformationConfiguration',
+    'DataSourceEnrichmentStrategyConfiguration',
     'DataSourceFixedSizeChunkingConfiguration',
     'DataSourceHierarchicalChunkingConfiguration',
     'DataSourceHierarchicalChunkingLevelConfiguration',
@@ -225,6 +228,8 @@ __all__ = [
     'KnowledgeBaseKendraKnowledgeBaseConfiguration',
     'KnowledgeBaseMongoDbAtlasConfiguration',
     'KnowledgeBaseMongoDbAtlasFieldMapping',
+    'KnowledgeBaseNeptuneAnalyticsConfiguration',
+    'KnowledgeBaseNeptuneAnalyticsFieldMapping',
     'KnowledgeBaseOpenSearchServerlessConfiguration',
     'KnowledgeBaseOpenSearchServerlessFieldMapping',
     'KnowledgeBasePineconeConfiguration',
@@ -2663,7 +2668,7 @@ class DataSourceBedrockFoundationModelConfiguration(dict):
                  parsing_prompt: Optional['outputs.DataSourceParsingPrompt'] = None):
         """
         Settings for a foundation model used to parse documents for a data source.
-        :param str model_arn: The model's ARN.
+        :param str model_arn: The ARN of the foundation model to use for parsing.
         :param 'DataSourceParsingModality' parsing_modality: Specifies whether to enable parsing of multimodal data, including both text and/or images.
         :param 'DataSourceParsingPrompt' parsing_prompt: Instructions for interpreting the contents of a document.
         """
@@ -2677,7 +2682,7 @@ class DataSourceBedrockFoundationModelConfiguration(dict):
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> str:
         """
-        The model's ARN.
+        The ARN of the foundation model to use for parsing.
         """
         return pulumi.get(self, "model_arn")
 
@@ -2696,6 +2701,50 @@ class DataSourceBedrockFoundationModelConfiguration(dict):
         Instructions for interpreting the contents of a document.
         """
         return pulumi.get(self, "parsing_prompt")
+
+
+@pulumi.output_type
+class DataSourceBedrockFoundationModelContextEnrichmentConfiguration(dict):
+    """
+    Bedrock Foundation Model configuration to be used for Context Enrichment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enrichmentStrategyConfiguration":
+            suggest = "enrichment_strategy_configuration"
+        elif key == "modelArn":
+            suggest = "model_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceBedrockFoundationModelContextEnrichmentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceBedrockFoundationModelContextEnrichmentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceBedrockFoundationModelContextEnrichmentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enrichment_strategy_configuration: 'outputs.DataSourceEnrichmentStrategyConfiguration',
+                 model_arn: str):
+        """
+        Bedrock Foundation Model configuration to be used for Context Enrichment.
+        """
+        pulumi.set(__self__, "enrichment_strategy_configuration", enrichment_strategy_configuration)
+        pulumi.set(__self__, "model_arn", model_arn)
+
+    @property
+    @pulumi.getter(name="enrichmentStrategyConfiguration")
+    def enrichment_strategy_configuration(self) -> 'outputs.DataSourceEnrichmentStrategyConfiguration':
+        return pulumi.get(self, "enrichment_strategy_configuration")
+
+    @property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> str:
+        return pulumi.get(self, "model_arn")
 
 
 @pulumi.output_type
@@ -3084,6 +3133,49 @@ class DataSourceConfluenceSourceConfiguration(dict):
 
 
 @pulumi.output_type
+class DataSourceContextEnrichmentConfiguration(dict):
+    """
+    Additional Enrichment Configuration for example when using GraphRag.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bedrockFoundationModelConfiguration":
+            suggest = "bedrock_foundation_model_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceContextEnrichmentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceContextEnrichmentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceContextEnrichmentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'DataSourceContextEnrichmentType',
+                 bedrock_foundation_model_configuration: Optional['outputs.DataSourceBedrockFoundationModelContextEnrichmentConfiguration'] = None):
+        """
+        Additional Enrichment Configuration for example when using GraphRag.
+        """
+        pulumi.set(__self__, "type", type)
+        if bedrock_foundation_model_configuration is not None:
+            pulumi.set(__self__, "bedrock_foundation_model_configuration", bedrock_foundation_model_configuration)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'DataSourceContextEnrichmentType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="bedrockFoundationModelConfiguration")
+    def bedrock_foundation_model_configuration(self) -> Optional['outputs.DataSourceBedrockFoundationModelContextEnrichmentConfiguration']:
+        return pulumi.get(self, "bedrock_foundation_model_configuration")
+
+
+@pulumi.output_type
 class DataSourceCrawlFilterConfiguration(dict):
     """
     The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
@@ -3182,6 +3274,24 @@ class DataSourceCustomTransformationConfiguration(dict):
         A list of Lambda functions that process documents.
         """
         return pulumi.get(self, "transformations")
+
+
+@pulumi.output_type
+class DataSourceEnrichmentStrategyConfiguration(dict):
+    """
+    Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
+    """
+    def __init__(__self__, *,
+                 method: 'DataSourceEnrichmentStrategyMethod'):
+        """
+        Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
+        """
+        pulumi.set(__self__, "method", method)
+
+    @property
+    @pulumi.getter
+    def method(self) -> 'DataSourceEnrichmentStrategyMethod':
+        return pulumi.get(self, "method")
 
 
 @pulumi.output_type
@@ -4302,6 +4412,8 @@ class DataSourceVectorIngestionConfiguration(dict):
         suggest = None
         if key == "chunkingConfiguration":
             suggest = "chunking_configuration"
+        elif key == "contextEnrichmentConfiguration":
+            suggest = "context_enrichment_configuration"
         elif key == "customTransformationConfiguration":
             suggest = "custom_transformation_configuration"
         elif key == "parsingConfiguration":
@@ -4320,6 +4432,7 @@ class DataSourceVectorIngestionConfiguration(dict):
 
     def __init__(__self__, *,
                  chunking_configuration: Optional['outputs.DataSourceChunkingConfiguration'] = None,
+                 context_enrichment_configuration: Optional['outputs.DataSourceContextEnrichmentConfiguration'] = None,
                  custom_transformation_configuration: Optional['outputs.DataSourceCustomTransformationConfiguration'] = None,
                  parsing_configuration: Optional['outputs.DataSourceParsingConfiguration'] = None):
         """
@@ -4330,6 +4443,8 @@ class DataSourceVectorIngestionConfiguration(dict):
         """
         if chunking_configuration is not None:
             pulumi.set(__self__, "chunking_configuration", chunking_configuration)
+        if context_enrichment_configuration is not None:
+            pulumi.set(__self__, "context_enrichment_configuration", context_enrichment_configuration)
         if custom_transformation_configuration is not None:
             pulumi.set(__self__, "custom_transformation_configuration", custom_transformation_configuration)
         if parsing_configuration is not None:
@@ -4342,6 +4457,11 @@ class DataSourceVectorIngestionConfiguration(dict):
         Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
         """
         return pulumi.get(self, "chunking_configuration")
+
+    @property
+    @pulumi.getter(name="contextEnrichmentConfiguration")
+    def context_enrichment_configuration(self) -> Optional['outputs.DataSourceContextEnrichmentConfiguration']:
+        return pulumi.get(self, "context_enrichment_configuration")
 
     @property
     @pulumi.getter(name="customTransformationConfiguration")
@@ -4374,6 +4494,10 @@ class DataSourceWebCrawlerConfiguration(dict):
             suggest = "exclusion_filters"
         elif key == "inclusionFilters":
             suggest = "inclusion_filters"
+        elif key == "userAgent":
+            suggest = "user_agent"
+        elif key == "userAgentHeader":
+            suggest = "user_agent_header"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataSourceWebCrawlerConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -4390,7 +4514,9 @@ class DataSourceWebCrawlerConfiguration(dict):
                  crawler_limits: Optional['outputs.DataSourceWebCrawlerLimits'] = None,
                  exclusion_filters: Optional[Sequence[str]] = None,
                  inclusion_filters: Optional[Sequence[str]] = None,
-                 scope: Optional['DataSourceWebScopeType'] = None):
+                 scope: Optional['DataSourceWebScopeType'] = None,
+                 user_agent: Optional[str] = None,
+                 user_agent_header: Optional[str] = None):
         """
         Configuration for the web crawler.
         :param 'DataSourceWebCrawlerLimits' crawler_limits: The configuration of crawl limits for the web URLs.
@@ -4399,6 +4525,8 @@ class DataSourceWebCrawlerConfiguration(dict):
         :param 'DataSourceWebScopeType' scope: The scope of what is crawled for your URLs.
                
                You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL "https://docs.aws.amazon.com/bedrock/latest/userguide/" and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain "aws.amazon.com" can also include sub domain "docs.aws.amazon.com".
+        :param str user_agent: The suffix that will be included in the user agent header.
+        :param str user_agent_header: The full user agent header, including UUID and suffix.
         """
         if crawler_limits is not None:
             pulumi.set(__self__, "crawler_limits", crawler_limits)
@@ -4408,6 +4536,10 @@ class DataSourceWebCrawlerConfiguration(dict):
             pulumi.set(__self__, "inclusion_filters", inclusion_filters)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
+        if user_agent is not None:
+            pulumi.set(__self__, "user_agent", user_agent)
+        if user_agent_header is not None:
+            pulumi.set(__self__, "user_agent_header", user_agent_header)
 
     @property
     @pulumi.getter(name="crawlerLimits")
@@ -4443,6 +4575,22 @@ class DataSourceWebCrawlerConfiguration(dict):
         """
         return pulumi.get(self, "scope")
 
+    @property
+    @pulumi.getter(name="userAgent")
+    def user_agent(self) -> Optional[str]:
+        """
+        The suffix that will be included in the user agent header.
+        """
+        return pulumi.get(self, "user_agent")
+
+    @property
+    @pulumi.getter(name="userAgentHeader")
+    def user_agent_header(self) -> Optional[str]:
+        """
+        The full user agent header, including UUID and suffix.
+        """
+        return pulumi.get(self, "user_agent_header")
+
 
 @pulumi.output_type
 class DataSourceWebCrawlerLimits(dict):
@@ -4452,7 +4600,9 @@ class DataSourceWebCrawlerLimits(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "rateLimit":
+        if key == "maxPages":
+            suggest = "max_pages"
+        elif key == "rateLimit":
             suggest = "rate_limit"
 
         if suggest:
@@ -4467,13 +4617,25 @@ class DataSourceWebCrawlerLimits(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 max_pages: Optional[int] = None,
                  rate_limit: Optional[int] = None):
         """
         Limit settings for the web crawler.
+        :param int max_pages: Maximum number of pages the crawler can crawl.
         :param int rate_limit: Rate of web URLs retrieved per minute.
         """
+        if max_pages is not None:
+            pulumi.set(__self__, "max_pages", max_pages)
         if rate_limit is not None:
             pulumi.set(__self__, "rate_limit", rate_limit)
+
+    @property
+    @pulumi.getter(name="maxPages")
+    def max_pages(self) -> Optional[int]:
+        """
+        Maximum number of pages the crawler can crawl.
+        """
+        return pulumi.get(self, "max_pages")
 
     @property
     @pulumi.getter(name="rateLimit")
@@ -8905,6 +9067,106 @@ class KnowledgeBaseMongoDbAtlasFieldMapping(dict):
 
 
 @pulumi.output_type
+class KnowledgeBaseNeptuneAnalyticsConfiguration(dict):
+    """
+    Contains the configurations to use Neptune Analytics as Vector Store.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldMapping":
+            suggest = "field_mapping"
+        elif key == "graphArn":
+            suggest = "graph_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseNeptuneAnalyticsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseNeptuneAnalyticsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseNeptuneAnalyticsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_mapping: 'outputs.KnowledgeBaseNeptuneAnalyticsFieldMapping',
+                 graph_arn: str):
+        """
+        Contains the configurations to use Neptune Analytics as Vector Store.
+        :param str graph_arn: ARN for Neptune Analytics graph database.
+        """
+        pulumi.set(__self__, "field_mapping", field_mapping)
+        pulumi.set(__self__, "graph_arn", graph_arn)
+
+    @property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> 'outputs.KnowledgeBaseNeptuneAnalyticsFieldMapping':
+        return pulumi.get(self, "field_mapping")
+
+    @property
+    @pulumi.getter(name="graphArn")
+    def graph_arn(self) -> str:
+        """
+        ARN for Neptune Analytics graph database.
+        """
+        return pulumi.get(self, "graph_arn")
+
+
+@pulumi.output_type
+class KnowledgeBaseNeptuneAnalyticsFieldMapping(dict):
+    """
+    A mapping of Bedrock Knowledge Base fields to Neptune Analytics fields.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metadataField":
+            suggest = "metadata_field"
+        elif key == "textField":
+            suggest = "text_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseNeptuneAnalyticsFieldMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseNeptuneAnalyticsFieldMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseNeptuneAnalyticsFieldMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metadata_field: str,
+                 text_field: str):
+        """
+        A mapping of Bedrock Knowledge Base fields to Neptune Analytics fields.
+        :param str metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        :param str text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        pulumi.set(__self__, "metadata_field", metadata_field)
+        pulumi.set(__self__, "text_field", text_field)
+
+    @property
+    @pulumi.getter(name="metadataField")
+    def metadata_field(self) -> str:
+        """
+        The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        return pulumi.get(self, "metadata_field")
+
+    @property
+    @pulumi.getter(name="textField")
+    def text_field(self) -> str:
+        """
+        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        return pulumi.get(self, "text_field")
+
+
+@pulumi.output_type
 class KnowledgeBaseOpenSearchServerlessConfiguration(dict):
     """
     Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
@@ -10072,6 +10334,8 @@ class KnowledgeBaseStorageConfiguration(dict):
         suggest = None
         if key == "mongoDbAtlasConfiguration":
             suggest = "mongo_db_atlas_configuration"
+        elif key == "neptuneAnalyticsConfiguration":
+            suggest = "neptune_analytics_configuration"
         elif key == "opensearchServerlessConfiguration":
             suggest = "opensearch_serverless_configuration"
         elif key == "pineconeConfiguration":
@@ -10093,6 +10357,7 @@ class KnowledgeBaseStorageConfiguration(dict):
     def __init__(__self__, *,
                  type: 'KnowledgeBaseStorageType',
                  mongo_db_atlas_configuration: Optional['outputs.KnowledgeBaseMongoDbAtlasConfiguration'] = None,
+                 neptune_analytics_configuration: Optional['outputs.KnowledgeBaseNeptuneAnalyticsConfiguration'] = None,
                  opensearch_serverless_configuration: Optional['outputs.KnowledgeBaseOpenSearchServerlessConfiguration'] = None,
                  pinecone_configuration: Optional['outputs.KnowledgeBasePineconeConfiguration'] = None,
                  rds_configuration: Optional['outputs.KnowledgeBaseRdsConfiguration'] = None):
@@ -10107,6 +10372,8 @@ class KnowledgeBaseStorageConfiguration(dict):
         pulumi.set(__self__, "type", type)
         if mongo_db_atlas_configuration is not None:
             pulumi.set(__self__, "mongo_db_atlas_configuration", mongo_db_atlas_configuration)
+        if neptune_analytics_configuration is not None:
+            pulumi.set(__self__, "neptune_analytics_configuration", neptune_analytics_configuration)
         if opensearch_serverless_configuration is not None:
             pulumi.set(__self__, "opensearch_serverless_configuration", opensearch_serverless_configuration)
         if pinecone_configuration is not None:
@@ -10129,6 +10396,11 @@ class KnowledgeBaseStorageConfiguration(dict):
         Contains the storage configuration of the knowledge base in MongoDB Atlas.
         """
         return pulumi.get(self, "mongo_db_atlas_configuration")
+
+    @property
+    @pulumi.getter(name="neptuneAnalyticsConfiguration")
+    def neptune_analytics_configuration(self) -> Optional['outputs.KnowledgeBaseNeptuneAnalyticsConfiguration']:
+        return pulumi.get(self, "neptune_analytics_configuration")
 
     @property
     @pulumi.getter(name="opensearchServerlessConfiguration")
