@@ -42,6 +42,9 @@ jobs:
   prerequisites:
     runs-on: ubuntu-latest
     name: prerequisites
+    permissions:
+      id-token: write
+      pull-requests: write
     steps:
     - name: Checkout Repo
       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -165,15 +168,19 @@ jobs:
       with:
         name: pulumi-${{ env.PROVIDER }}-provider.tar.gz
         path: ${{ github.workspace }}/bin/provider.tar.gz
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@ececac1a45f3b08a01d2dd070d28d111c5fe6722 # v4.1.0
+    - name: Generate Pulumi Access Token
+      id: generate_pulumi_token
+      uses: pulumi/auth-actions@80dec0d5e009a11565cbf87d9ef9103fc7d24198 # v1.0.0
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-region: ${{ env.AWS_REGION }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        role-duration-seconds: 3600
-        role-session-name: ${{ env.PROVIDER }}@githubActions
-        role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
+        organization: pulumi
+        requested-token-type: urn:pulumi:token-type:access_token:organization
+        export-environment-variables: false
+    - name: Export AWS Credentials
+      uses: pulumi/esc-action@41fd832f44f4820124b5350b5f84a00f741f234e # v1.3.0
+      env:
+        PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
+      with:
+        environment: logins/pulumi-ci
     - name: Test Provider Library
       run: make test_provider
     - name: Upload coverage reports to Codecov
@@ -422,15 +429,19 @@ jobs:
         pip3 install pipenv
     - name: Install dependencies
       run: make install_${{ matrix.language}}_sdk
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@ececac1a45f3b08a01d2dd070d28d111c5fe6722 # v4.1.0
+    - name: Generate Pulumi Access Token
+      id: generate_pulumi_token
+      uses: pulumi/auth-actions@80dec0d5e009a11565cbf87d9ef9103fc7d24198 # v1.0.0
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-region: ${{ env.AWS_REGION }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        role-duration-seconds: 3600
-        role-session-name: ${{ env.PROVIDER }}@githubActions
-        role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
+        organization: pulumi
+        requested-token-type: urn:pulumi:token-type:access_token:organization
+        export-environment-variables: false
+    - name: Export AWS Credentials
+      uses: pulumi/esc-action@41fd832f44f4820124b5350b5f84a00f741f234e # v1.3.0
+      env:
+        PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
+      with:
+        environment: logins/pulumi-ci
     - name: Install gotestfmt
       uses: GoTestTools/gotestfmt-action@v2
       with:
