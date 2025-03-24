@@ -28,7 +28,7 @@ require (
 	github.com/mattbaird/jsonpatch v0.0.0-20200820163806-098863c1fc24
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/jsschema v0.0.0-20240222154951-2ba83b66ea54
-	github.com/pulumi/providertest v0.1.6
+	github.com/pulumi/providertest v0.1.7
 	github.com/pulumi/pulumi-go-provider v0.24.1
 	github.com/pulumi/pulumi/pkg/v3 v3.157.0
 	github.com/pulumi/pulumi/sdk/v3 v3.157.0
