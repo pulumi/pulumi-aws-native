@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Contains the storage configuration of the knowledge base in MongoDB Atlas.
         /// </summary>
         public readonly Outputs.KnowledgeBaseMongoDbAtlasConfiguration? MongoDbAtlasConfiguration;
+        public readonly Outputs.KnowledgeBaseNeptuneAnalyticsConfiguration? NeptuneAnalyticsConfiguration;
         /// <summary>
         /// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
         /// </summary>
@@ -41,6 +42,8 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         private KnowledgeBaseStorageConfiguration(
             Outputs.KnowledgeBaseMongoDbAtlasConfiguration? mongoDbAtlasConfiguration,
 
+            Outputs.KnowledgeBaseNeptuneAnalyticsConfiguration? neptuneAnalyticsConfiguration,
+
             Outputs.KnowledgeBaseOpenSearchServerlessConfiguration? opensearchServerlessConfiguration,
 
             Outputs.KnowledgeBasePineconeConfiguration? pineconeConfiguration,
@@ -50,6 +53,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
             Pulumi.AwsNative.Bedrock.KnowledgeBaseStorageType type)
         {
             MongoDbAtlasConfiguration = mongoDbAtlasConfiguration;
+            NeptuneAnalyticsConfiguration = neptuneAnalyticsConfiguration;
             OpensearchServerlessConfiguration = opensearchServerlessConfiguration;
             PineconeConfiguration = pineconeConfiguration;
             RdsConfiguration = rdsConfiguration;

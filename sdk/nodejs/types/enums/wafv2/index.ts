@@ -377,6 +377,26 @@ export const WebAclBodyParsingFallbackBehavior = {
  */
 export type WebAclBodyParsingFallbackBehavior = (typeof WebAclBodyParsingFallbackBehavior)[keyof typeof WebAclBodyParsingFallbackBehavior];
 
+export const WebAclDataProtectionAction = {
+    Substitution: "SUBSTITUTION",
+    Hash: "HASH",
+} as const;
+
+export type WebAclDataProtectionAction = (typeof WebAclDataProtectionAction)[keyof typeof WebAclDataProtectionAction];
+
+export const WebAclFieldToProtectFieldType = {
+    SingleHeader: "SINGLE_HEADER",
+    SingleCookie: "SINGLE_COOKIE",
+    SingleQueryArgument: "SINGLE_QUERY_ARGUMENT",
+    QueryString: "QUERY_STRING",
+    Body: "BODY",
+} as const;
+
+/**
+ * Field type to protect
+ */
+export type WebAclFieldToProtectFieldType = (typeof WebAclFieldToProtectFieldType)[keyof typeof WebAclFieldToProtectFieldType];
+
 export const WebAclForwardedIpConfigurationFallbackBehavior = {
     Match: "MATCH",
     NoMatch: "NO_MATCH",

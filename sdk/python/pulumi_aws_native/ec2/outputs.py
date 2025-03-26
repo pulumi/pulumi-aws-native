@@ -17,11 +17,13 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CapacityReservationCapacityAllocation',
     'CapacityReservationFleetInstanceTypeSpecification',
     'CapacityReservationFleetTag',
     'CapacityReservationFleetTagSpecification',
     'CapacityReservationTag',
     'CapacityReservationTagSpecification',
+    'CommitmentInfoProperties',
     'CpuOptionsProperties',
     'CreditSpecificationProperties',
     'DestinationOptionsProperties',
@@ -216,6 +218,54 @@ __all__ = [
     'VpnConnectionVpnTunnelLogOptionsSpecification',
     'VpnConnectionVpnTunnelOptionsSpecification',
 ]
+
+@pulumi.output_type
+class CapacityReservationCapacityAllocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocationType":
+            suggest = "allocation_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityReservationCapacityAllocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityReservationCapacityAllocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityReservationCapacityAllocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allocation_type: Optional[str] = None,
+                 count: Optional[int] = None):
+        """
+        :param str allocation_type: The usage type. `used` indicates that the instance capacity is in use by instances that are running in the Capacity Reservation.
+        :param int count: The amount of instance capacity associated with the usage. For example a value of `4` indicates that instance capacity for 4 instances is currently in use.
+        """
+        if allocation_type is not None:
+            pulumi.set(__self__, "allocation_type", allocation_type)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+
+    @property
+    @pulumi.getter(name="allocationType")
+    def allocation_type(self) -> Optional[str]:
+        """
+        The usage type. `used` indicates that the instance capacity is in use by instances that are running in the Capacity Reservation.
+        """
+        return pulumi.get(self, "allocation_type")
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        """
+        The amount of instance capacity associated with the usage. For example a value of `4` indicates that instance capacity for 4 instances is currently in use.
+        """
+        return pulumi.get(self, "count")
+
 
 @pulumi.output_type
 class CapacityReservationFleetInstanceTypeSpecification(dict):
@@ -493,6 +543,56 @@ class CapacityReservationTagSpecification(dict):
         The tags to apply to the resource.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class CommitmentInfoProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commitmentEndDate":
+            suggest = "commitment_end_date"
+        elif key == "committedInstanceCount":
+            suggest = "committed_instance_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CommitmentInfoProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CommitmentInfoProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CommitmentInfoProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 commitment_end_date: Optional[str] = None,
+                 committed_instance_count: Optional[int] = None):
+        """
+        :param str commitment_end_date: The date and time at which the commitment duration expires, in the ISO8601 format in the UTC time zone ( `YYYY-MM-DDThh:mm:ss.sssZ` ). You can't decrease the instance count or cancel the Capacity Reservation before this date and time.
+        :param int committed_instance_count: The instance capacity that you committed to when you requested the future-dated Capacity Reservation.
+        """
+        if commitment_end_date is not None:
+            pulumi.set(__self__, "commitment_end_date", commitment_end_date)
+        if committed_instance_count is not None:
+            pulumi.set(__self__, "committed_instance_count", committed_instance_count)
+
+    @property
+    @pulumi.getter(name="commitmentEndDate")
+    def commitment_end_date(self) -> Optional[str]:
+        """
+        The date and time at which the commitment duration expires, in the ISO8601 format in the UTC time zone ( `YYYY-MM-DDThh:mm:ss.sssZ` ). You can't decrease the instance count or cancel the Capacity Reservation before this date and time.
+        """
+        return pulumi.get(self, "commitment_end_date")
+
+    @property
+    @pulumi.getter(name="committedInstanceCount")
+    def committed_instance_count(self) -> Optional[int]:
+        """
+        The instance capacity that you committed to when you requested the future-dated Capacity Reservation.
+        """
+        return pulumi.get(self, "committed_instance_count")
 
 
 @pulumi.output_type
@@ -1341,7 +1441,6 @@ class Ec2FleetInstanceRequirementsRequest(dict):
                
                - For instance types with FPGA accelerators, specify `fpga` .
                - For instance types with GPU accelerators, specify `gpu` .
-               - For instance types with Inference accelerators, specify `inference` .
                
                Default: Any accelerator type
         :param Sequence[str] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -1579,7 +1678,6 @@ class Ec2FleetInstanceRequirementsRequest(dict):
 
         - For instance types with FPGA accelerators, specify `fpga` .
         - For instance types with GPU accelerators, specify `gpu` .
-        - For instance types with Inference accelerators, specify `inference` .
 
         Default: Any accelerator type
         """
@@ -11648,7 +11746,6 @@ class SpotFleetInstanceRequirementsRequest(dict):
                
                - For instance types with FPGA accelerators, specify `fpga` .
                - For instance types with GPU accelerators, specify `gpu` .
-               - For instance types with Inference accelerators, specify `inference` .
                
                Default: Any accelerator type
         :param Sequence[str] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -11886,7 +11983,6 @@ class SpotFleetInstanceRequirementsRequest(dict):
 
         - For instance types with FPGA accelerators, specify `fpga` .
         - For instance types with GPU accelerators, specify `gpu` .
-        - For instance types with Inference accelerators, specify `inference` .
 
         Default: Any accelerator type
         """

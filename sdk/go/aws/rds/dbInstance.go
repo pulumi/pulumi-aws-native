@@ -262,7 +262,7 @@ type DbInstance struct {
 	//  Not applicable. Snapshot restore is managed by the DB cluster.
 	DbSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"dbSnapshotIdentifier"`
 	// A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
-	//  If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
+	//  If you don't specify a DB subnet group, RDS uses the default DB subnet group if one exists. If a default DB subnet group does not exist, and you don't specify a ``DBSubnetGroupName``, the DB instance fails to launch.
 	//  For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*.
 	//  This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
 	DbSubnetGroupName pulumi.StringPtrOutput `pulumi:"dbSubnetGroupName"`
@@ -929,7 +929,7 @@ type dbInstanceArgs struct {
 	//  Not applicable. Snapshot restore is managed by the DB cluster.
 	DbSnapshotIdentifier *string `pulumi:"dbSnapshotIdentifier"`
 	// A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
-	//  If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
+	//  If you don't specify a DB subnet group, RDS uses the default DB subnet group if one exists. If a default DB subnet group does not exist, and you don't specify a ``DBSubnetGroupName``, the DB instance fails to launch.
 	//  For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*.
 	//  This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
@@ -1540,7 +1540,7 @@ type DbInstanceArgs struct {
 	//  Not applicable. Snapshot restore is managed by the DB cluster.
 	DbSnapshotIdentifier pulumi.StringPtrInput
 	// A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
-	//  If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
+	//  If you don't specify a DB subnet group, RDS uses the default DB subnet group if one exists. If a default DB subnet group does not exist, and you don't specify a ``DBSubnetGroupName``, the DB instance fails to launch.
 	//  For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*.
 	//  This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
 	DbSubnetGroupName pulumi.StringPtrInput
@@ -2284,7 +2284,7 @@ func (o DbInstanceOutput) DbSnapshotIdentifier() pulumi.StringPtrOutput {
 
 // A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
 //
-//	If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
+//	If you don't specify a DB subnet group, RDS uses the default DB subnet group if one exists. If a default DB subnet group does not exist, and you don't specify a ``DBSubnetGroupName``, the DB instance fails to launch.
 //	For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*.
 //	This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
 func (o DbInstanceOutput) DbSubnetGroupName() pulumi.StringPtrOutput {

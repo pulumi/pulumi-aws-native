@@ -109,7 +109,7 @@ class DbClusterArgs:
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] database_insights_mode: The mode of Database Insights to enable for the DB cluster.
                 If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-                Valid for Cluster Type: Aurora DB clusters only
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] database_name: The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*. 
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] db_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
@@ -628,7 +628,7 @@ class DbClusterArgs:
         """
         The mode of Database Insights to enable for the DB cluster.
          If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-         Valid for Cluster Type: Aurora DB clusters only
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "database_insights_mode")
 
@@ -1579,7 +1579,7 @@ class DbCluster(pulumi.CustomResource):
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] database_insights_mode: The mode of Database Insights to enable for the DB cluster.
                 If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-                Valid for Cluster Type: Aurora DB clusters only
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] database_name: The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*. 
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] db_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
@@ -2207,7 +2207,7 @@ class DbCluster(pulumi.CustomResource):
         """
         The mode of Database Insights to enable for the DB cluster.
          If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-         Valid for Cluster Type: Aurora DB clusters only
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "database_insights_mode")
 

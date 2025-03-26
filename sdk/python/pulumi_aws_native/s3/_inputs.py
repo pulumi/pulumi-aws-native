@@ -1726,9 +1726,12 @@ class BucketLoggingConfigurationArgs:
 
 if not MYPY:
     class BucketMetadataTableConfigurationArgsDict(TypedDict):
+        """
+        The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
+        """
         s3_tables_destination: pulumi.Input['BucketS3TablesDestinationArgsDict']
         """
-        The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket. The specified metadata table name must be unique within the `aws_s3_metadata` namespace in the destination table bucket.
+        The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
         """
 elif False:
     BucketMetadataTableConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1738,7 +1741,8 @@ class BucketMetadataTableConfigurationArgs:
     def __init__(__self__, *,
                  s3_tables_destination: pulumi.Input['BucketS3TablesDestinationArgs']):
         """
-        :param pulumi.Input['BucketS3TablesDestinationArgs'] s3_tables_destination: The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket. The specified metadata table name must be unique within the `aws_s3_metadata` namespace in the destination table bucket.
+        The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
+        :param pulumi.Input['BucketS3TablesDestinationArgs'] s3_tables_destination: The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
         """
         pulumi.set(__self__, "s3_tables_destination", s3_tables_destination)
 
@@ -1746,7 +1750,7 @@ class BucketMetadataTableConfigurationArgs:
     @pulumi.getter(name="s3TablesDestination")
     def s3_tables_destination(self) -> pulumi.Input['BucketS3TablesDestinationArgs']:
         """
-        The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket. The specified metadata table name must be unique within the `aws_s3_metadata` namespace in the destination table bucket.
+        The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
         """
         return pulumi.get(self, "s3_tables_destination")
 
@@ -3891,21 +3895,24 @@ class BucketS3KeyFilterArgs:
 
 if not MYPY:
     class BucketS3TablesDestinationArgsDict(TypedDict):
+        """
+        The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
+        """
         table_bucket_arn: pulumi.Input[str]
         """
-        The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket.
+        The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket.
         """
         table_name: pulumi.Input[str]
         """
-        The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
+        The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
         """
         table_arn: NotRequired[pulumi.Input[str]]
         """
-        The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
+        The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
         """
         table_namespace: NotRequired[pulumi.Input[str]]
         """
-        The table bucket namespace for the metadata table in your metadata table configuration. This value is always <code>aws_s3_metadata</code>.
+        The table bucket namespace for the metadata table in your metadata table configuration. This value is always ``aws_s3_metadata``.
         """
 elif False:
     BucketS3TablesDestinationArgsDict: TypeAlias = Mapping[str, Any]
@@ -3918,10 +3925,11 @@ class BucketS3TablesDestinationArgs:
                  table_arn: Optional[pulumi.Input[str]] = None,
                  table_namespace: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] table_bucket_arn: The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket.
-        :param pulumi.Input[str] table_name: The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
-        :param pulumi.Input[str] table_arn: The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
-        :param pulumi.Input[str] table_namespace: The table bucket namespace for the metadata table in your metadata table configuration. This value is always <code>aws_s3_metadata</code>.
+        The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
+        :param pulumi.Input[str] table_bucket_arn: The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket.
+        :param pulumi.Input[str] table_name: The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
+        :param pulumi.Input[str] table_arn: The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
+        :param pulumi.Input[str] table_namespace: The table bucket namespace for the metadata table in your metadata table configuration. This value is always ``aws_s3_metadata``.
         """
         pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
         pulumi.set(__self__, "table_name", table_name)
@@ -3934,7 +3942,7 @@ class BucketS3TablesDestinationArgs:
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> pulumi.Input[str]:
         """
-        The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket.
+        The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket.
         """
         return pulumi.get(self, "table_bucket_arn")
 
@@ -3946,7 +3954,7 @@ class BucketS3TablesDestinationArgs:
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
         """
-        The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
+        The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
         """
         return pulumi.get(self, "table_name")
 
@@ -3958,7 +3966,7 @@ class BucketS3TablesDestinationArgs:
     @pulumi.getter(name="tableArn")
     def table_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
+        The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
         """
         return pulumi.get(self, "table_arn")
 
@@ -3970,7 +3978,7 @@ class BucketS3TablesDestinationArgs:
     @pulumi.getter(name="tableNamespace")
     def table_namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        The table bucket namespace for the metadata table in your metadata table configuration. This value is always <code>aws_s3_metadata</code>.
+        The table bucket namespace for the metadata table in your metadata table configuration. This value is always ``aws_s3_metadata``.
         """
         return pulumi.get(self, "table_namespace")
 

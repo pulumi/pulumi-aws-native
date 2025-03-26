@@ -81,7 +81,7 @@ type LookupDbClusterResult struct {
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// The mode of Database Insights to enable for the DB cluster.
 	//  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-	//  Valid for Cluster Type: Aurora DB clusters only
+	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	DatabaseInsightsMode *string `pulumi:"databaseInsightsMode"`
 	// The Amazon Resource Name (ARN) for the DB cluster.
 	DbClusterArn *string `pulumi:"dbClusterArn"`
@@ -402,7 +402,7 @@ func (o LookupDbClusterResultOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
 // The mode of Database Insights to enable for the DB cluster.
 //
 //	If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-//	Valid for Cluster Type: Aurora DB clusters only
+//	Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 func (o LookupDbClusterResultOutput) DatabaseInsightsMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.DatabaseInsightsMode }).(pulumi.StringPtrOutput)
 }

@@ -99,5 +99,8 @@ class Discovery(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
+        """
+        The 12 digit AWS Account ID for the account.
+        """
         return pulumi.get(self, "account_id")
 

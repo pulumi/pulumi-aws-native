@@ -1391,6 +1391,7 @@ _utilities.register(
   "mod": "datazone",
   "fqn": "pulumi_aws_native.datazone",
   "classes": {
+   "aws-native:datazone:Connection": "Connection",
    "aws-native:datazone:DataSource": "DataSource",
    "aws-native:datazone:Domain": "Domain",
    "aws-native:datazone:Environment": "Environment",

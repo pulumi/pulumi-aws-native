@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -26,6 +29,24 @@ export interface GetCapacityReservationResult {
      * Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
      */
     readonly availableInstanceCount?: number;
+    readonly capacityAllocationSet?: outputs.ec2.CapacityReservationCapacityAllocation[];
+    /**
+     * The Amazon Resource Name (ARN) of the Capacity Reservation.
+     */
+    readonly capacityReservationArn?: string;
+    /**
+     * The ID of the Capacity Reservation Fleet to which the Capacity Reservation belongs. Only valid for Capacity Reservations that were created by a Capacity Reservation Fleet.
+     */
+    readonly capacityReservationFleetId?: string;
+    readonly commitmentInfo?: outputs.ec2.CommitmentInfoProperties;
+    /**
+     * The date and time at which the Capacity Reservation was created.
+     */
+    readonly createDate?: string;
+    /**
+     * The delivery method for a future-dated Capacity Reservation. `incremental` indicates that the requested capacity is delivered in addition to any running instances and reserved capacity that you have in your account at the requested date and time.
+     */
+    readonly deliveryPreference?: string;
     /**
      * The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
      *
@@ -66,6 +87,34 @@ export interface GetCapacityReservationResult {
      * Default: `open`
      */
     readonly instanceMatchCriteria?: string;
+    /**
+     * The ID of the AWS account that owns the Capacity Reservation.
+     */
+    readonly ownerId?: string;
+    /**
+     * The type of Capacity Reservation.
+     */
+    readonly reservationType?: string;
+    /**
+     * The date and time at which the Capacity Reservation was started.
+     */
+    readonly startDate?: string;
+    /**
+     * The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:
+     *
+     * - `active` - The capacity is available for use.
+     * - `expired` - The Capacity Reservation expired automatically at the date and time specified in your reservation request. The reserved capacity is no longer available for your use.
+     * - `cancelled` - The Capacity Reservation was canceled. The reserved capacity is no longer available for your use.
+     * - `pending` - The Capacity Reservation request was successful but the capacity provisioning is still pending.
+     * - `failed` - The Capacity Reservation request has failed. A request can fail due to request parameters that are not valid, capacity constraints, or instance limit constraints. You can view a failed request for 60 minutes.
+     * - `scheduled` - ( *Future-dated Capacity Reservations* ) The future-dated Capacity Reservation request was approved and the Capacity Reservation is scheduled for delivery on the requested start date.
+     * - `payment-pending` - ( *Capacity Blocks* ) The upfront payment has not been processed yet.
+     * - `payment-failed` - ( *Capacity Blocks* ) The upfront payment was not processed in the 12-hour time frame. Your Capacity Block was released.
+     * - `assessing` - ( *Future-dated Capacity Reservations* ) Amazon EC2 is assessing your request for a future-dated Capacity Reservation.
+     * - `delayed` - ( *Future-dated Capacity Reservations* ) Amazon EC2 encountered a delay in provisioning the requested future-dated Capacity Reservation. Amazon EC2 is unable to deliver the requested capacity by the requested start date and time.
+     * - `unsupported` - ( *Future-dated Capacity Reservations* ) Amazon EC2 can't support the future-dated Capacity Reservation request due to capacity constraints. You can view unsupported requests for 30 days. The Capacity Reservation will not be delivered.
+     */
+    readonly state?: string;
     /**
      * Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
      */

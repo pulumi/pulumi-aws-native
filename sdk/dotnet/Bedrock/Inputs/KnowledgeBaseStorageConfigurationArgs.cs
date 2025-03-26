@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("mongoDbAtlasConfiguration")]
         public Input<Inputs.KnowledgeBaseMongoDbAtlasConfigurationArgs>? MongoDbAtlasConfiguration { get; set; }
 
+        [Input("neptuneAnalyticsConfiguration")]
+        public Input<Inputs.KnowledgeBaseNeptuneAnalyticsConfigurationArgs>? NeptuneAnalyticsConfiguration { get; set; }
+
         /// <summary>
         /// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
         /// </summary>

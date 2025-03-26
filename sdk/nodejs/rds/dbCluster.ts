@@ -103,7 +103,7 @@ export class DbCluster extends pulumi.CustomResource {
     /**
      * The mode of Database Insights to enable for the DB cluster.
      *  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-     *  Valid for Cluster Type: Aurora DB clusters only
+     *  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
      */
     public readonly databaseInsightsMode!: pulumi.Output<string | undefined>;
     /**
@@ -753,7 +753,7 @@ export interface DbClusterArgs {
     /**
      * The mode of Database Insights to enable for the DB cluster.
      *  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-     *  Valid for Cluster Type: Aurora DB clusters only
+     *  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
      */
     databaseInsightsMode?: pulumi.Input<string>;
     /**

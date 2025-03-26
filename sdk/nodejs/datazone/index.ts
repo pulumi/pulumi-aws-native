@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ConnectionArgs } from "./connection";
+export type Connection = import("./connection").Connection;
+export const Connection: typeof import("./connection").Connection = null as any;
+utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
+
 export { DataSourceArgs } from "./dataSource";
 export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
@@ -34,6 +39,11 @@ export { EnvironmentProfileArgs } from "./environmentProfile";
 export type EnvironmentProfile = import("./environmentProfile").EnvironmentProfile;
 export const EnvironmentProfile: typeof import("./environmentProfile").EnvironmentProfile = null as any;
 utilities.lazyLoad(exports, ["EnvironmentProfile"], () => require("./environmentProfile"));
+
+export { GetConnectionArgs, GetConnectionResult, GetConnectionOutputArgs } from "./getConnection";
+export const getConnection: typeof import("./getConnection").getConnection = null as any;
+export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => require("./getConnection"));
 
 export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
 export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
@@ -118,6 +128,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:datazone:Connection":
+                return new Connection(name, <any>undefined, { urn })
             case "aws-native:datazone:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
             case "aws-native:datazone:Domain":

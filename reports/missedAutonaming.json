@@ -1088,6 +1088,13 @@
             "name": "DomainNameValue"
           }
         }
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A set of tags (key-value pairs) for this API."
       }
     }
   },
@@ -1554,7 +1561,7 @@
       },
       "queryLogStatus": {
         "$ref": "#/types/aws-native:cleanrooms:MembershipQueryLogStatus",
-        "description": "An indicator as to whether query logging has been enabled or disabled for the membership."
+        "description": "An indicator as to whether query logging has been enabled or disabled for the membership.\n\nWhen `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` ."
       },
       "tags": {
         "type": "array",
@@ -2019,7 +2026,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "A complex type that contains zero or more `Tag` elements."
+        "description": "A complex type that contains zero or more ``Tag`` elements."
       },
       "vpcOriginEndpointConfig": {
         "$ref": "#/types/aws-native:cloudfront:VpcOriginEndpointConfig",
@@ -2657,14 +2664,13 @@
         "items": {
           "$ref": "#/types/aws-native:controltower:EnabledBaselineParameter"
         },
-        "description": "Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline."
+        "description": "Shows the parameters that are applied when enabling this `Baseline` ."
       },
       "tags": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "Tags associated with input to `EnableBaseline` ."
+        }
       },
       "targetIdentifier": {
         "type": "string",
@@ -6307,6 +6313,13 @@
           "$ref": "#/types/aws-native:ec2:VpcEndpointServiceIpAddressType"
         },
         "description": "Specify which Ip Address types are supported for VPC endpoint service."
+      },
+      "supportedRegions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The Regions from which service consumers can access the service."
       },
       "tags": {
         "type": "array",
@@ -10398,7 +10411,7 @@
         "items": {
           "$ref": "#/types/aws-native:oam:LinkResourceType"
         },
-        "description": "An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` ."
+        "description": "An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` ."
       },
       "sinkIdentifier": {
         "type": "string",
@@ -11169,7 +11182,7 @@
       },
       "databaseInsightsMode": {
         "type": "string",
-        "description": "The mode of Database Insights to enable for the DB cluster.\n If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.\n Valid for Cluster Type: Aurora DB clusters only"
+        "description": "The mode of Database Insights to enable for the DB cluster.\n If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.\n Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters"
       },
       "databaseName": {
         "type": "string",
@@ -11485,7 +11498,7 @@
       },
       "dbSubnetGroupName": {
         "type": "string",
-        "description": "A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC. \n If there's no DB subnet group, then the DB instance isn't a VPC DB instance.\n For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. \n This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting."
+        "description": "A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC. \n If you don't specify a DB subnet group, RDS uses the default DB subnet group if one exists. If a default DB subnet group does not exist, and you don't specify a ``DBSubnetGroupName``, the DB instance fails to launch. \n For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. \n This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting."
       },
       "dbSystemId": {
         "type": "string",

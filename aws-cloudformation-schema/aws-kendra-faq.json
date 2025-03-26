@@ -155,6 +155,14 @@
       "permissions" : [ "kendra:ListFaqs" ]
     }
   },
+  "tagging" : {
+    "taggable" : true,
+    "tagUpdatable" : true,
+    "tagOnCreate" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "kendra:UntagResource", "kendra:TagResource", "kendra:ListTagsForResource" ]
+  },
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/IndexId", "/properties/Name", "/properties/S3Path", "/properties/RoleArn", "/properties/Description", "/properties/FileFormat" ],

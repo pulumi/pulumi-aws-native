@@ -410,6 +410,129 @@ func (o ServiceLevelObjectiveDimensionArrayOutput) Index(i pulumi.IntInput) Serv
 	}).(ServiceLevelObjectiveDimensionOutput)
 }
 
+// This object defines a time exclusion window for this SLO. The time exclusion window is used to exclude breaching data points from affecting attainment rate, error budget, and burn rate metrics.
+type ServiceLevelObjectiveExclusionWindow struct {
+	// An optional reason for scheduling this time exclusion window. Default is 'No reason'.
+	Reason         *string                              `pulumi:"reason"`
+	RecurrenceRule *ServiceLevelObjectiveRecurrenceRule `pulumi:"recurrenceRule"`
+	// The time you want the exclusion window to start at. Note that time exclusion windows can only be scheduled in the future, not the past.
+	StartTime *string                     `pulumi:"startTime"`
+	Window    ServiceLevelObjectiveWindow `pulumi:"window"`
+}
+
+// ServiceLevelObjectiveExclusionWindowInput is an input type that accepts ServiceLevelObjectiveExclusionWindowArgs and ServiceLevelObjectiveExclusionWindowOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveExclusionWindowInput` via:
+//
+//	ServiceLevelObjectiveExclusionWindowArgs{...}
+type ServiceLevelObjectiveExclusionWindowInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveExclusionWindowOutput() ServiceLevelObjectiveExclusionWindowOutput
+	ToServiceLevelObjectiveExclusionWindowOutputWithContext(context.Context) ServiceLevelObjectiveExclusionWindowOutput
+}
+
+// This object defines a time exclusion window for this SLO. The time exclusion window is used to exclude breaching data points from affecting attainment rate, error budget, and burn rate metrics.
+type ServiceLevelObjectiveExclusionWindowArgs struct {
+	// An optional reason for scheduling this time exclusion window. Default is 'No reason'.
+	Reason         pulumi.StringPtrInput                       `pulumi:"reason"`
+	RecurrenceRule ServiceLevelObjectiveRecurrenceRulePtrInput `pulumi:"recurrenceRule"`
+	// The time you want the exclusion window to start at. Note that time exclusion windows can only be scheduled in the future, not the past.
+	StartTime pulumi.StringPtrInput            `pulumi:"startTime"`
+	Window    ServiceLevelObjectiveWindowInput `pulumi:"window"`
+}
+
+func (ServiceLevelObjectiveExclusionWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveExclusionWindow)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveExclusionWindowArgs) ToServiceLevelObjectiveExclusionWindowOutput() ServiceLevelObjectiveExclusionWindowOutput {
+	return i.ToServiceLevelObjectiveExclusionWindowOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveExclusionWindowArgs) ToServiceLevelObjectiveExclusionWindowOutputWithContext(ctx context.Context) ServiceLevelObjectiveExclusionWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveExclusionWindowOutput)
+}
+
+// ServiceLevelObjectiveExclusionWindowArrayInput is an input type that accepts ServiceLevelObjectiveExclusionWindowArray and ServiceLevelObjectiveExclusionWindowArrayOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveExclusionWindowArrayInput` via:
+//
+//	ServiceLevelObjectiveExclusionWindowArray{ ServiceLevelObjectiveExclusionWindowArgs{...} }
+type ServiceLevelObjectiveExclusionWindowArrayInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveExclusionWindowArrayOutput() ServiceLevelObjectiveExclusionWindowArrayOutput
+	ToServiceLevelObjectiveExclusionWindowArrayOutputWithContext(context.Context) ServiceLevelObjectiveExclusionWindowArrayOutput
+}
+
+type ServiceLevelObjectiveExclusionWindowArray []ServiceLevelObjectiveExclusionWindowInput
+
+func (ServiceLevelObjectiveExclusionWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLevelObjectiveExclusionWindow)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveExclusionWindowArray) ToServiceLevelObjectiveExclusionWindowArrayOutput() ServiceLevelObjectiveExclusionWindowArrayOutput {
+	return i.ToServiceLevelObjectiveExclusionWindowArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveExclusionWindowArray) ToServiceLevelObjectiveExclusionWindowArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveExclusionWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveExclusionWindowArrayOutput)
+}
+
+// This object defines a time exclusion window for this SLO. The time exclusion window is used to exclude breaching data points from affecting attainment rate, error budget, and burn rate metrics.
+type ServiceLevelObjectiveExclusionWindowOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveExclusionWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveExclusionWindow)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveExclusionWindowOutput) ToServiceLevelObjectiveExclusionWindowOutput() ServiceLevelObjectiveExclusionWindowOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveExclusionWindowOutput) ToServiceLevelObjectiveExclusionWindowOutputWithContext(ctx context.Context) ServiceLevelObjectiveExclusionWindowOutput {
+	return o
+}
+
+// An optional reason for scheduling this time exclusion window. Default is 'No reason'.
+func (o ServiceLevelObjectiveExclusionWindowOutput) Reason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveExclusionWindow) *string { return v.Reason }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceLevelObjectiveExclusionWindowOutput) RecurrenceRule() ServiceLevelObjectiveRecurrenceRulePtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveExclusionWindow) *ServiceLevelObjectiveRecurrenceRule {
+		return v.RecurrenceRule
+	}).(ServiceLevelObjectiveRecurrenceRulePtrOutput)
+}
+
+// The time you want the exclusion window to start at. Note that time exclusion windows can only be scheduled in the future, not the past.
+func (o ServiceLevelObjectiveExclusionWindowOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveExclusionWindow) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceLevelObjectiveExclusionWindowOutput) Window() ServiceLevelObjectiveWindowOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveExclusionWindow) ServiceLevelObjectiveWindow { return v.Window }).(ServiceLevelObjectiveWindowOutput)
+}
+
+type ServiceLevelObjectiveExclusionWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveExclusionWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLevelObjectiveExclusionWindow)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveExclusionWindowArrayOutput) ToServiceLevelObjectiveExclusionWindowArrayOutput() ServiceLevelObjectiveExclusionWindowArrayOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveExclusionWindowArrayOutput) ToServiceLevelObjectiveExclusionWindowArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveExclusionWindowArrayOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveExclusionWindowArrayOutput) Index(i pulumi.IntInput) ServiceLevelObjectiveExclusionWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceLevelObjectiveExclusionWindow {
+		return vs[0].([]ServiceLevelObjectiveExclusionWindow)[vs[1].(int)]
+	}).(ServiceLevelObjectiveExclusionWindowOutput)
+}
+
 // A structure that contains the attributes that determine the goal of the SLO. This includes the time period for evaluation and the attainment threshold.
 type ServiceLevelObjectiveGoal struct {
 	// The threshold that determines if the goal is being met. An attainment goal is the ratio of good periods that meet the threshold requirements to the total periods within the interval. For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the periods to be in healthy state.
@@ -1437,6 +1560,146 @@ func (o ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput) GoodCountMetr
 	}).(ServiceLevelObjectiveMetricDataQueryArrayOutput)
 }
 
+// This object defines how often to repeat a time exclusion window.
+type ServiceLevelObjectiveRecurrenceRule struct {
+	// A cron or rate expression denoting how often to repeat this exclusion window.
+	Expression string `pulumi:"expression"`
+}
+
+// ServiceLevelObjectiveRecurrenceRuleInput is an input type that accepts ServiceLevelObjectiveRecurrenceRuleArgs and ServiceLevelObjectiveRecurrenceRuleOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveRecurrenceRuleInput` via:
+//
+//	ServiceLevelObjectiveRecurrenceRuleArgs{...}
+type ServiceLevelObjectiveRecurrenceRuleInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveRecurrenceRuleOutput() ServiceLevelObjectiveRecurrenceRuleOutput
+	ToServiceLevelObjectiveRecurrenceRuleOutputWithContext(context.Context) ServiceLevelObjectiveRecurrenceRuleOutput
+}
+
+// This object defines how often to repeat a time exclusion window.
+type ServiceLevelObjectiveRecurrenceRuleArgs struct {
+	// A cron or rate expression denoting how often to repeat this exclusion window.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (ServiceLevelObjectiveRecurrenceRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveRecurrenceRule)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveRecurrenceRuleArgs) ToServiceLevelObjectiveRecurrenceRuleOutput() ServiceLevelObjectiveRecurrenceRuleOutput {
+	return i.ToServiceLevelObjectiveRecurrenceRuleOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveRecurrenceRuleArgs) ToServiceLevelObjectiveRecurrenceRuleOutputWithContext(ctx context.Context) ServiceLevelObjectiveRecurrenceRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveRecurrenceRuleOutput)
+}
+
+func (i ServiceLevelObjectiveRecurrenceRuleArgs) ToServiceLevelObjectiveRecurrenceRulePtrOutput() ServiceLevelObjectiveRecurrenceRulePtrOutput {
+	return i.ToServiceLevelObjectiveRecurrenceRulePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveRecurrenceRuleArgs) ToServiceLevelObjectiveRecurrenceRulePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRecurrenceRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveRecurrenceRuleOutput).ToServiceLevelObjectiveRecurrenceRulePtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveRecurrenceRulePtrInput is an input type that accepts ServiceLevelObjectiveRecurrenceRuleArgs, ServiceLevelObjectiveRecurrenceRulePtr and ServiceLevelObjectiveRecurrenceRulePtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveRecurrenceRulePtrInput` via:
+//
+//	        ServiceLevelObjectiveRecurrenceRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveRecurrenceRulePtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveRecurrenceRulePtrOutput() ServiceLevelObjectiveRecurrenceRulePtrOutput
+	ToServiceLevelObjectiveRecurrenceRulePtrOutputWithContext(context.Context) ServiceLevelObjectiveRecurrenceRulePtrOutput
+}
+
+type serviceLevelObjectiveRecurrenceRulePtrType ServiceLevelObjectiveRecurrenceRuleArgs
+
+func ServiceLevelObjectiveRecurrenceRulePtr(v *ServiceLevelObjectiveRecurrenceRuleArgs) ServiceLevelObjectiveRecurrenceRulePtrInput {
+	return (*serviceLevelObjectiveRecurrenceRulePtrType)(v)
+}
+
+func (*serviceLevelObjectiveRecurrenceRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveRecurrenceRule)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveRecurrenceRulePtrType) ToServiceLevelObjectiveRecurrenceRulePtrOutput() ServiceLevelObjectiveRecurrenceRulePtrOutput {
+	return i.ToServiceLevelObjectiveRecurrenceRulePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveRecurrenceRulePtrType) ToServiceLevelObjectiveRecurrenceRulePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRecurrenceRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveRecurrenceRulePtrOutput)
+}
+
+// This object defines how often to repeat a time exclusion window.
+type ServiceLevelObjectiveRecurrenceRuleOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveRecurrenceRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveRecurrenceRule)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveRecurrenceRuleOutput) ToServiceLevelObjectiveRecurrenceRuleOutput() ServiceLevelObjectiveRecurrenceRuleOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRecurrenceRuleOutput) ToServiceLevelObjectiveRecurrenceRuleOutputWithContext(ctx context.Context) ServiceLevelObjectiveRecurrenceRuleOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRecurrenceRuleOutput) ToServiceLevelObjectiveRecurrenceRulePtrOutput() ServiceLevelObjectiveRecurrenceRulePtrOutput {
+	return o.ToServiceLevelObjectiveRecurrenceRulePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveRecurrenceRuleOutput) ToServiceLevelObjectiveRecurrenceRulePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRecurrenceRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveRecurrenceRule) *ServiceLevelObjectiveRecurrenceRule {
+		return &v
+	}).(ServiceLevelObjectiveRecurrenceRulePtrOutput)
+}
+
+// A cron or rate expression denoting how often to repeat this exclusion window.
+func (o ServiceLevelObjectiveRecurrenceRuleOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveRecurrenceRule) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type ServiceLevelObjectiveRecurrenceRulePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveRecurrenceRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveRecurrenceRule)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveRecurrenceRulePtrOutput) ToServiceLevelObjectiveRecurrenceRulePtrOutput() ServiceLevelObjectiveRecurrenceRulePtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRecurrenceRulePtrOutput) ToServiceLevelObjectiveRecurrenceRulePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRecurrenceRulePtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRecurrenceRulePtrOutput) Elem() ServiceLevelObjectiveRecurrenceRuleOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRecurrenceRule) ServiceLevelObjectiveRecurrenceRule {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveRecurrenceRule
+		return ret
+	}).(ServiceLevelObjectiveRecurrenceRuleOutput)
+}
+
+// A cron or rate expression denoting how often to repeat this exclusion window.
+func (o ServiceLevelObjectiveRecurrenceRulePtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRecurrenceRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
 // This structure contains information about the performance metric that a request-based SLO monitors.
 type ServiceLevelObjectiveRequestBasedSli struct {
 	// The arithmetic operation used when comparing the specified metric to the threshold.
@@ -1628,6 +1891,7 @@ type ServiceLevelObjectiveRequestBasedSliMetric struct {
 	// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
 	// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
 	// - `Environment` specifies the location where this object is hosted, or what it belongs to.
+	// - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
 	KeyAttributes map[string]string `pulumi:"keyAttributes"`
 	// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
 	MetricType *ServiceLevelObjectiveRequestBasedSliMetricMetricType `pulumi:"metricType"`
@@ -1659,6 +1923,7 @@ type ServiceLevelObjectiveRequestBasedSliMetricArgs struct {
 	// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
 	// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
 	// - `Environment` specifies the location where this object is hosted, or what it belongs to.
+	// - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
 	KeyAttributes pulumi.StringMapInput `pulumi:"keyAttributes"`
 	// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
 	MetricType ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrInput `pulumi:"metricType"`
@@ -1755,6 +2020,7 @@ func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) ToServiceLevelObjectiv
 // - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
 // - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
 // - `Environment` specifies the location where this object is hosted, or what it belongs to.
+// - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
 func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) KeyAttributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveRequestBasedSliMetric) map[string]string { return v.KeyAttributes }).(pulumi.StringMapOutput)
 }
@@ -1816,6 +2082,7 @@ func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) Elem() ServiceLevel
 // - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
 // - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
 // - `Environment` specifies the location where this object is hosted, or what it belongs to.
+// - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
 func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) KeyAttributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSliMetric) map[string]string {
 		if v == nil {
@@ -2480,6 +2747,64 @@ type ServiceLevelObjectiveTag struct {
 	Value string `pulumi:"value"`
 }
 
+// This object defines the length of time an exclusion window should span.
+type ServiceLevelObjectiveWindow struct {
+	Duration     int                               `pulumi:"duration"`
+	DurationUnit ServiceLevelObjectiveDurationUnit `pulumi:"durationUnit"`
+}
+
+// ServiceLevelObjectiveWindowInput is an input type that accepts ServiceLevelObjectiveWindowArgs and ServiceLevelObjectiveWindowOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveWindowInput` via:
+//
+//	ServiceLevelObjectiveWindowArgs{...}
+type ServiceLevelObjectiveWindowInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveWindowOutput() ServiceLevelObjectiveWindowOutput
+	ToServiceLevelObjectiveWindowOutputWithContext(context.Context) ServiceLevelObjectiveWindowOutput
+}
+
+// This object defines the length of time an exclusion window should span.
+type ServiceLevelObjectiveWindowArgs struct {
+	Duration     pulumi.IntInput                        `pulumi:"duration"`
+	DurationUnit ServiceLevelObjectiveDurationUnitInput `pulumi:"durationUnit"`
+}
+
+func (ServiceLevelObjectiveWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveWindow)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveWindowArgs) ToServiceLevelObjectiveWindowOutput() ServiceLevelObjectiveWindowOutput {
+	return i.ToServiceLevelObjectiveWindowOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveWindowArgs) ToServiceLevelObjectiveWindowOutputWithContext(ctx context.Context) ServiceLevelObjectiveWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveWindowOutput)
+}
+
+// This object defines the length of time an exclusion window should span.
+type ServiceLevelObjectiveWindowOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveWindow)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveWindowOutput) ToServiceLevelObjectiveWindowOutput() ServiceLevelObjectiveWindowOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveWindowOutput) ToServiceLevelObjectiveWindowOutputWithContext(ctx context.Context) ServiceLevelObjectiveWindowOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveWindowOutput) Duration() pulumi.IntOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveWindow) int { return v.Duration }).(pulumi.IntOutput)
+}
+
+func (o ServiceLevelObjectiveWindowOutput) DurationUnit() ServiceLevelObjectiveDurationUnitOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveWindow) ServiceLevelObjectiveDurationUnit { return v.DurationUnit }).(ServiceLevelObjectiveDurationUnitOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveBurnRateConfigurationInput)(nil)).Elem(), ServiceLevelObjectiveBurnRateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveBurnRateConfigurationArrayInput)(nil)).Elem(), ServiceLevelObjectiveBurnRateConfigurationArray{})
@@ -2487,6 +2812,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveCalendarIntervalPtrInput)(nil)).Elem(), ServiceLevelObjectiveCalendarIntervalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDimensionInput)(nil)).Elem(), ServiceLevelObjectiveDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDimensionArrayInput)(nil)).Elem(), ServiceLevelObjectiveDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveExclusionWindowInput)(nil)).Elem(), ServiceLevelObjectiveExclusionWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveExclusionWindowArrayInput)(nil)).Elem(), ServiceLevelObjectiveExclusionWindowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveGoalInput)(nil)).Elem(), ServiceLevelObjectiveGoalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveGoalPtrInput)(nil)).Elem(), ServiceLevelObjectiveGoalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveIntervalInput)(nil)).Elem(), ServiceLevelObjectiveIntervalArgs{})
@@ -2499,6 +2826,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveMetricStatPtrInput)(nil)).Elem(), ServiceLevelObjectiveMetricStatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveMonitoredRequestCountMetricInput)(nil)).Elem(), ServiceLevelObjectiveMonitoredRequestCountMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveMonitoredRequestCountMetricPtrInput)(nil)).Elem(), ServiceLevelObjectiveMonitoredRequestCountMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRecurrenceRuleInput)(nil)).Elem(), ServiceLevelObjectiveRecurrenceRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRecurrenceRulePtrInput)(nil)).Elem(), ServiceLevelObjectiveRecurrenceRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliPtrInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliMetricInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliMetricArgs{})
@@ -2509,12 +2838,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliMetricInput)(nil)).Elem(), ServiceLevelObjectiveSliMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliMetricPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveWindowInput)(nil)).Elem(), ServiceLevelObjectiveWindowArgs{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveBurnRateConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveBurnRateConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveCalendarIntervalOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveCalendarIntervalPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveDimensionOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveDimensionArrayOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveExclusionWindowOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveExclusionWindowArrayOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveGoalOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveGoalPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveIntervalOutput{})
@@ -2527,6 +2859,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceLevelObjectiveMetricStatPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveMonitoredRequestCountMetricOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveRecurrenceRuleOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveRecurrenceRulePtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveRequestBasedSliOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveRequestBasedSliPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveRequestBasedSliMetricOutput{})
@@ -2537,4 +2871,5 @@ func init() {
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliMetricOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliMetricPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveWindowOutput{})
 }

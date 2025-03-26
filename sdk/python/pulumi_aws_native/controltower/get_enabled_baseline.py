@@ -50,25 +50,19 @@ class GetEnabledBaselineResult:
     @property
     @pulumi.getter(name="enabledBaselineIdentifier")
     def enabled_baseline_identifier(self) -> Optional[str]:
-        """
-        The ARN of the `EnabledBaseline` resource.
-        """
         return pulumi.get(self, "enabled_baseline_identifier")
 
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Sequence['outputs.EnabledBaselineParameter']]:
         """
-        Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
+        Shows the parameters that are applied when enabling this `Baseline` .
         """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        Tags associated with input to `EnableBaseline` .
-        """
         return pulumi.get(self, "tags")
 
 
@@ -88,9 +82,6 @@ def get_enabled_baseline(enabled_baseline_identifier: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnabledBaselineResult:
     """
     Definition of AWS::ControlTower::EnabledBaseline Resource Type
-
-
-    :param str enabled_baseline_identifier: The ARN of the `EnabledBaseline` resource.
     """
     __args__ = dict()
     __args__['enabledBaselineIdentifier'] = enabled_baseline_identifier
@@ -106,9 +97,6 @@ def get_enabled_baseline_output(enabled_baseline_identifier: Optional[pulumi.Inp
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnabledBaselineResult]:
     """
     Definition of AWS::ControlTower::EnabledBaseline Resource Type
-
-
-    :param str enabled_baseline_identifier: The ARN of the `EnabledBaseline` resource.
     """
     __args__ = dict()
     __args__['enabledBaselineIdentifier'] = enabled_baseline_identifier

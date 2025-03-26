@@ -4084,7 +4084,6 @@ class DeliveryStreamSnowflakeDestinationConfiguration(dict):
                
                `"kinesisStreamName" : "streamname", "kinesisShardId" : "Id", "kinesisPartitionKey" : "key", "kinesisSequenceNumber" : "1234", "subsequenceNumber" : "2334", "IngestionTime" : "timestamp" }`
         :param str private_key: The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
-        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: Specifies configuration for Snowflake.
         :param 'DeliveryStreamSnowflakeRetryOptions' retry_options: The time period where Firehose will retry sending data to the chosen HTTP endpoint.
         :param 'DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode' s3_backup_mode: Choose an S3 backup mode
         :param 'DeliveryStreamSecretsManagerConfiguration' secrets_manager_configuration: The configuration that defines how you access secrets for Snowflake.
@@ -4236,9 +4235,6 @@ class DeliveryStreamSnowflakeDestinationConfiguration(dict):
     @property
     @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional['outputs.DeliveryStreamProcessingConfiguration']:
-        """
-        Specifies configuration for Snowflake.
-        """
         return pulumi.get(self, "processing_configuration")
 
     @property
