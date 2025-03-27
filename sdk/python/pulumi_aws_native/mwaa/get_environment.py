@@ -134,7 +134,7 @@ class GetEnvironmentResult:
 
         If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
 
-        *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` (latest)
+        *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` (latest)
         """
         return pulumi.get(self, "airflow_version")
 
@@ -174,7 +174,7 @@ class GetEnvironmentResult:
     @pulumi.getter(name="environmentClass")
     def environment_class(self) -> Optional[str]:
         """
-        The environment class type. Valid values: `mw1.small` , `mw1.medium` , `mw1.large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
+        The environment class type. Valid values: `mw1.micro` , `mw1.small` , `mw1.medium` , `mw1.large` , `mw1.1large` , and `mw1.2large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
         """
         return pulumi.get(self, "environment_class")
 
@@ -276,7 +276,7 @@ class GetEnvironmentResult:
         """
         The number of schedulers that you want to run in your environment. Valid values:
 
-        - *v2* - Accepts between 2 to 5. Defaults to 2.
+        - *v2* - For environments larger than mw1.micro, accepts values from 2 to 5. Defaults to 2 for all environment sizes except mw1.micro, which defaults to 1.
         - *v1* - Accepts 1.
         """
         return pulumi.get(self, "schedulers")

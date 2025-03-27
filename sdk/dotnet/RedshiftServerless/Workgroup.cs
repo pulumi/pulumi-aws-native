@@ -82,10 +82,16 @@ namespace Pulumi.AwsNative.RedshiftServerless
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
+        /// </summary>
+        [Output("trackName")]
+        public Output<string?> TrackName { get; private set; } = null!;
+
+        /// <summary>
         /// Definition for workgroup resource
         /// </summary>
         [Output("workgroup")]
-        public Output<Outputs.Workgroup> WorkgroupValue { get; private set; } = null!;
+        public Output<Outputs.Workgroup?> WorkgroupValue { get; private set; } = null!;
 
         /// <summary>
         /// The name of the workgroup.
@@ -232,6 +238,18 @@ namespace Pulumi.AwsNative.RedshiftServerless
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
+        /// </summary>
+        [Input("trackName")]
+        public Input<string>? TrackName { get; set; }
+
+        /// <summary>
+        /// Definition for workgroup resource
+        /// </summary>
+        [Input("workgroup")]
+        public Input<Inputs.WorkgroupArgs>? WorkgroupValue { get; set; }
 
         /// <summary>
         /// The name of the workgroup.

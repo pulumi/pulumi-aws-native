@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<ImmutableArray<Pulumi.AwsNative.Ec2.VpcEndpointServiceIpAddressType>> SupportedIpAddressTypes { get; private set; } = null!;
 
         /// <summary>
+        /// The Regions from which service consumers can access the service.
+        /// </summary>
+        [Output("supportedRegions")]
+        public Output<ImmutableArray<string>> SupportedRegions { get; private set; } = null!;
+
+        /// <summary>
         /// The tags to add to the VPC endpoint service.
         /// </summary>
         [Output("tags")]
@@ -160,6 +166,18 @@ namespace Pulumi.AwsNative.Ec2
         {
             get => _supportedIpAddressTypes ?? (_supportedIpAddressTypes = new InputList<Pulumi.AwsNative.Ec2.VpcEndpointServiceIpAddressType>());
             set => _supportedIpAddressTypes = value;
+        }
+
+        [Input("supportedRegions")]
+        private InputList<string>? _supportedRegions;
+
+        /// <summary>
+        /// The Regions from which service consumers can access the service.
+        /// </summary>
+        public InputList<string> SupportedRegions
+        {
+            get => _supportedRegions ?? (_supportedRegions = new InputList<string>());
+            set => _supportedRegions = value;
         }
 
         [Input("tags")]

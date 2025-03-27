@@ -142,6 +142,8 @@ __all__ = [
     'RuleGroupStatementArgsDict',
     'RuleGroupTextTransformationArgs',
     'RuleGroupTextTransformationArgsDict',
+    'RuleGroupUriFragmentArgs',
+    'RuleGroupUriFragmentArgsDict',
     'RuleGroupVisibilityConfigArgs',
     'RuleGroupVisibilityConfigArgsDict',
     'RuleGroupXssMatchStatementArgs',
@@ -186,6 +188,10 @@ __all__ = [
     'WebAclCustomResponseBodyArgsDict',
     'WebAclCustomResponseArgs',
     'WebAclCustomResponseArgsDict',
+    'WebAclDataProtectionConfigArgs',
+    'WebAclDataProtectionConfigArgsDict',
+    'WebAclDataProtectArgs',
+    'WebAclDataProtectArgsDict',
     'WebAclDefaultActionArgs',
     'WebAclDefaultActionArgsDict',
     'WebAclExcludedRuleArgs',
@@ -198,6 +204,8 @@ __all__ = [
     'WebAclFieldToMatchSingleQueryArgumentPropertiesArgsDict',
     'WebAclFieldToMatchArgs',
     'WebAclFieldToMatchArgsDict',
+    'WebAclFieldToProtectArgs',
+    'WebAclFieldToProtectArgsDict',
     'WebAclForwardedIpConfigurationArgs',
     'WebAclForwardedIpConfigurationArgsDict',
     'WebAclGeoMatchStatementArgs',
@@ -296,6 +304,8 @@ __all__ = [
     'WebAclStatementArgsDict',
     'WebAclTextTransformationArgs',
     'WebAclTextTransformationArgsDict',
+    'WebAclUriFragmentArgs',
+    'WebAclUriFragmentArgsDict',
     'WebAclVisibilityConfigArgs',
     'WebAclVisibilityConfigArgsDict',
     'WebAclXssMatchStatementArgs',
@@ -1846,6 +1856,7 @@ if not MYPY:
         """
         One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         """
+        uri_fragment: NotRequired[pulumi.Input['RuleGroupUriFragmentArgsDict']]
         uri_path: NotRequired[Any]
         """
         The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
@@ -1867,6 +1878,7 @@ class RuleGroupFieldToMatchArgs:
                  query_string: Optional[Any] = None,
                  single_header: Optional[pulumi.Input['RuleGroupFieldToMatchSingleHeaderPropertiesArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['RuleGroupUriFragmentArgs']] = None,
                  uri_path: Optional[Any] = None):
         """
         Field of the request to match.
@@ -1939,6 +1951,8 @@ class RuleGroupFieldToMatchArgs:
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -2107,6 +2121,15 @@ class RuleGroupFieldToMatchArgs:
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['RuleGroupUriFragmentArgs']]:
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['RuleGroupUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -5279,6 +5302,35 @@ class RuleGroupTextTransformationArgs:
 
 
 if not MYPY:
+    class RuleGroupUriFragmentArgsDict(TypedDict):
+        """
+        The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+        """
+        fallback_behavior: NotRequired[pulumi.Input['RuleGroupUriFragmentFallbackBehavior']]
+elif False:
+    RuleGroupUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input['RuleGroupUriFragmentFallbackBehavior']] = None):
+        """
+        The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input['RuleGroupUriFragmentFallbackBehavior']]:
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input['RuleGroupUriFragmentFallbackBehavior']]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class RuleGroupVisibilityConfigArgsDict(TypedDict):
         """
         Visibility Metric of the RuleGroup.
@@ -6832,6 +6884,97 @@ class WebAclCustomResponseArgs:
 
 
 if not MYPY:
+    class WebAclDataProtectionConfigArgsDict(TypedDict):
+        data_protections: pulumi.Input[Sequence[pulumi.Input['WebAclDataProtectArgsDict']]]
+        """
+        An array of data protection configurations for specific web request field types. This is defined for each web ACL. AWS WAF applies the specified protection to all web requests that the web ACL inspects.
+        """
+elif False:
+    WebAclDataProtectionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclDataProtectionConfigArgs:
+    def __init__(__self__, *,
+                 data_protections: pulumi.Input[Sequence[pulumi.Input['WebAclDataProtectArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclDataProtectArgs']]] data_protections: An array of data protection configurations for specific web request field types. This is defined for each web ACL. AWS WAF applies the specified protection to all web requests that the web ACL inspects.
+        """
+        pulumi.set(__self__, "data_protections", data_protections)
+
+    @property
+    @pulumi.getter(name="dataProtections")
+    def data_protections(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclDataProtectArgs']]]:
+        """
+        An array of data protection configurations for specific web request field types. This is defined for each web ACL. AWS WAF applies the specified protection to all web requests that the web ACL inspects.
+        """
+        return pulumi.get(self, "data_protections")
+
+    @data_protections.setter
+    def data_protections(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclDataProtectArgs']]]):
+        pulumi.set(self, "data_protections", value)
+
+
+if not MYPY:
+    class WebAclDataProtectArgsDict(TypedDict):
+        action: pulumi.Input['WebAclDataProtectionAction']
+        field: pulumi.Input['WebAclFieldToProtectArgsDict']
+        exclude_rate_based_details: NotRequired[pulumi.Input[bool]]
+        exclude_rule_match_details: NotRequired[pulumi.Input[bool]]
+elif False:
+    WebAclDataProtectArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclDataProtectArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['WebAclDataProtectionAction'],
+                 field: pulumi.Input['WebAclFieldToProtectArgs'],
+                 exclude_rate_based_details: Optional[pulumi.Input[bool]] = None,
+                 exclude_rule_match_details: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "field", field)
+        if exclude_rate_based_details is not None:
+            pulumi.set(__self__, "exclude_rate_based_details", exclude_rate_based_details)
+        if exclude_rule_match_details is not None:
+            pulumi.set(__self__, "exclude_rule_match_details", exclude_rule_match_details)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['WebAclDataProtectionAction']:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['WebAclDataProtectionAction']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def field(self) -> pulumi.Input['WebAclFieldToProtectArgs']:
+        return pulumi.get(self, "field")
+
+    @field.setter
+    def field(self, value: pulumi.Input['WebAclFieldToProtectArgs']):
+        pulumi.set(self, "field", value)
+
+    @property
+    @pulumi.getter(name="excludeRateBasedDetails")
+    def exclude_rate_based_details(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "exclude_rate_based_details")
+
+    @exclude_rate_based_details.setter
+    def exclude_rate_based_details(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exclude_rate_based_details", value)
+
+    @property
+    @pulumi.getter(name="excludeRuleMatchDetails")
+    def exclude_rule_match_details(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "exclude_rule_match_details")
+
+    @exclude_rule_match_details.setter
+    def exclude_rule_match_details(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exclude_rule_match_details", value)
+
+
+if not MYPY:
     class WebAclDefaultActionArgsDict(TypedDict):
         """
         Default Action WebACL will take against ingress traffic when there is no matching Rule.
@@ -7118,6 +7261,7 @@ if not MYPY:
         """
         One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclUriFragmentArgsDict']]
         uri_path: NotRequired[Any]
         """
         The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
@@ -7139,6 +7283,7 @@ class WebAclFieldToMatchArgs:
                  query_string: Optional[Any] = None,
                  single_header: Optional[pulumi.Input['WebAclFieldToMatchSingleHeaderPropertiesArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclFieldToMatchSingleQueryArgumentPropertiesArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclUriFragmentArgs']] = None,
                  uri_path: Optional[Any] = None):
         """
         Field of the request to match.
@@ -7211,6 +7356,8 @@ class WebAclFieldToMatchArgs:
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -7381,6 +7528,15 @@ class WebAclFieldToMatchArgs:
         pulumi.set(self, "single_query_argument", value)
 
     @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclUriFragmentArgs']]:
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
+
+    @property
     @pulumi.getter(name="uriPath")
     def uri_path(self) -> Optional[Any]:
         """
@@ -7391,6 +7547,61 @@ class WebAclFieldToMatchArgs:
     @uri_path.setter
     def uri_path(self, value: Optional[Any]):
         pulumi.set(self, "uri_path", value)
+
+
+if not MYPY:
+    class WebAclFieldToProtectArgsDict(TypedDict):
+        """
+        Field in log to protect.
+        """
+        field_type: pulumi.Input['WebAclFieldToProtectFieldType']
+        """
+        Field type to protect
+        """
+        field_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of field keys to protect
+        """
+elif False:
+    WebAclFieldToProtectArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclFieldToProtectArgs:
+    def __init__(__self__, *,
+                 field_type: pulumi.Input['WebAclFieldToProtectFieldType'],
+                 field_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Field in log to protect.
+        :param pulumi.Input['WebAclFieldToProtectFieldType'] field_type: Field type to protect
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] field_keys: List of field keys to protect
+        """
+        pulumi.set(__self__, "field_type", field_type)
+        if field_keys is not None:
+            pulumi.set(__self__, "field_keys", field_keys)
+
+    @property
+    @pulumi.getter(name="fieldType")
+    def field_type(self) -> pulumi.Input['WebAclFieldToProtectFieldType']:
+        """
+        Field type to protect
+        """
+        return pulumi.get(self, "field_type")
+
+    @field_type.setter
+    def field_type(self, value: pulumi.Input['WebAclFieldToProtectFieldType']):
+        pulumi.set(self, "field_type", value)
+
+    @property
+    @pulumi.getter(name="fieldKeys")
+    def field_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of field keys to protect
+        """
+        return pulumi.get(self, "field_keys")
+
+    @field_keys.setter
+    def field_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "field_keys", value)
 
 
 if not MYPY:
@@ -12013,6 +12224,35 @@ class WebAclTextTransformationArgs:
     @type.setter
     def type(self, value: pulumi.Input['WebAclTextTransformationType']):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class WebAclUriFragmentArgsDict(TypedDict):
+        """
+        The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+        """
+        fallback_behavior: NotRequired[pulumi.Input['WebAclUriFragmentFallbackBehavior']]
+elif False:
+    WebAclUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input['WebAclUriFragmentFallbackBehavior']] = None):
+        """
+        The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input['WebAclUriFragmentFallbackBehavior']]:
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input['WebAclUriFragmentFallbackBehavior']]):
+        pulumi.set(self, "fallback_behavior", value)
 
 
 if not MYPY:

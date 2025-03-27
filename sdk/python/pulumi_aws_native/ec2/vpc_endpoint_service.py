@@ -28,6 +28,7 @@ class VpcEndpointServiceArgs:
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  payer_responsibility: Optional[pulumi.Input[str]] = None,
                  supported_ip_address_types: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]] = None,
+                 supported_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VpcEndpointService resource.
@@ -37,6 +38,7 @@ class VpcEndpointServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_load_balancer_arns: The Amazon Resource Names (ARNs) of the Network Load Balancers.
         :param pulumi.Input[str] payer_responsibility: The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
         :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]] supported_ip_address_types: Specify which Ip Address types are supported for VPC endpoint service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_regions: The Regions from which service consumers can access the service.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the VPC endpoint service.
         """
         if acceptance_required is not None:
@@ -51,6 +53,8 @@ class VpcEndpointServiceArgs:
             pulumi.set(__self__, "payer_responsibility", payer_responsibility)
         if supported_ip_address_types is not None:
             pulumi.set(__self__, "supported_ip_address_types", supported_ip_address_types)
+        if supported_regions is not None:
+            pulumi.set(__self__, "supported_regions", supported_regions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -127,6 +131,18 @@ class VpcEndpointServiceArgs:
         pulumi.set(self, "supported_ip_address_types", value)
 
     @property
+    @pulumi.getter(name="supportedRegions")
+    def supported_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Regions from which service consumers can access the service.
+        """
+        return pulumi.get(self, "supported_regions")
+
+    @supported_regions.setter
+    def supported_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "supported_regions", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -150,6 +166,7 @@ class VpcEndpointService(pulumi.CustomResource):
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  payer_responsibility: Optional[pulumi.Input[str]] = None,
                  supported_ip_address_types: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]] = None,
+                 supported_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -163,6 +180,7 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_load_balancer_arns: The Amazon Resource Names (ARNs) of the Network Load Balancers.
         :param pulumi.Input[str] payer_responsibility: The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
         :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]] supported_ip_address_types: Specify which Ip Address types are supported for VPC endpoint service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_regions: The Regions from which service consumers can access the service.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the VPC endpoint service.
         """
         ...
@@ -195,6 +213,7 @@ class VpcEndpointService(pulumi.CustomResource):
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  payer_responsibility: Optional[pulumi.Input[str]] = None,
                  supported_ip_address_types: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]] = None,
+                 supported_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -211,6 +230,7 @@ class VpcEndpointService(pulumi.CustomResource):
             __props__.__dict__["network_load_balancer_arns"] = network_load_balancer_arns
             __props__.__dict__["payer_responsibility"] = payer_responsibility
             __props__.__dict__["supported_ip_address_types"] = supported_ip_address_types
+            __props__.__dict__["supported_regions"] = supported_regions
             __props__.__dict__["tags"] = tags
             __props__.__dict__["service_id"] = None
         super(VpcEndpointService, __self__).__init__(
@@ -242,6 +262,7 @@ class VpcEndpointService(pulumi.CustomResource):
         __props__.__dict__["payer_responsibility"] = None
         __props__.__dict__["service_id"] = None
         __props__.__dict__["supported_ip_address_types"] = None
+        __props__.__dict__["supported_regions"] = None
         __props__.__dict__["tags"] = None
         return VpcEndpointService(resource_name, opts=opts, __props__=__props__)
 
@@ -300,6 +321,14 @@ class VpcEndpointService(pulumi.CustomResource):
         Specify which Ip Address types are supported for VPC endpoint service.
         """
         return pulumi.get(self, "supported_ip_address_types")
+
+    @property
+    @pulumi.getter(name="supportedRegions")
+    def supported_regions(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The Regions from which service consumers can access the service.
+        """
+        return pulumi.get(self, "supported_regions")
 
     @property
     @pulumi.getter

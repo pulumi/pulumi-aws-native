@@ -356,6 +356,13 @@ export const RuleGroupTextTransformationType = {
  */
 export type RuleGroupTextTransformationType = (typeof RuleGroupTextTransformationType)[keyof typeof RuleGroupTextTransformationType];
 
+export const RuleGroupUriFragmentFallbackBehavior = {
+    Match: "MATCH",
+    NoMatch: "NO_MATCH",
+} as const;
+
+export type RuleGroupUriFragmentFallbackBehavior = (typeof RuleGroupUriFragmentFallbackBehavior)[keyof typeof RuleGroupUriFragmentFallbackBehavior];
+
 export const WebAclAwsManagedRulesBotControlRuleSetInspectionLevel = {
     Common: "COMMON",
     Targeted: "TARGETED",
@@ -376,6 +383,26 @@ export const WebAclBodyParsingFallbackBehavior = {
  * The inspection behavior to fall back to if the JSON in the request body is invalid.
  */
 export type WebAclBodyParsingFallbackBehavior = (typeof WebAclBodyParsingFallbackBehavior)[keyof typeof WebAclBodyParsingFallbackBehavior];
+
+export const WebAclDataProtectionAction = {
+    Substitution: "SUBSTITUTION",
+    Hash: "HASH",
+} as const;
+
+export type WebAclDataProtectionAction = (typeof WebAclDataProtectionAction)[keyof typeof WebAclDataProtectionAction];
+
+export const WebAclFieldToProtectFieldType = {
+    SingleHeader: "SINGLE_HEADER",
+    SingleCookie: "SINGLE_COOKIE",
+    SingleQueryArgument: "SINGLE_QUERY_ARGUMENT",
+    QueryString: "QUERY_STRING",
+    Body: "BODY",
+} as const;
+
+/**
+ * Field type to protect
+ */
+export type WebAclFieldToProtectFieldType = (typeof WebAclFieldToProtectFieldType)[keyof typeof WebAclFieldToProtectFieldType];
 
 export const WebAclForwardedIpConfigurationFallbackBehavior = {
     Match: "MATCH",
@@ -684,3 +711,10 @@ export const WebAclTextTransformationType = {
  * Type of text transformation.
  */
 export type WebAclTextTransformationType = (typeof WebAclTextTransformationType)[keyof typeof WebAclTextTransformationType];
+
+export const WebAclUriFragmentFallbackBehavior = {
+    Match: "MATCH",
+    NoMatch: "NO_MATCH",
+} as const;
+
+export type WebAclUriFragmentFallbackBehavior = (typeof WebAclUriFragmentFallbackBehavior)[keyof typeof WebAclUriFragmentFallbackBehavior];

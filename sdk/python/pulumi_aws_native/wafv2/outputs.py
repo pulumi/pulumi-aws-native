@@ -80,6 +80,7 @@ __all__ = [
     'RuleGroupSqliMatchStatement',
     'RuleGroupStatement',
     'RuleGroupTextTransformation',
+    'RuleGroupUriFragment',
     'RuleGroupVisibilityConfig',
     'RuleGroupXssMatchStatement',
     'WebAclAllowAction',
@@ -102,12 +103,15 @@ __all__ = [
     'WebAclCustomRequestHandling',
     'WebAclCustomResponse',
     'WebAclCustomResponseBody',
+    'WebAclDataProtect',
+    'WebAclDataProtectionConfig',
     'WebAclDefaultAction',
     'WebAclExcludedRule',
     'WebAclFieldIdentifier',
     'WebAclFieldToMatch',
     'WebAclFieldToMatchSingleHeaderProperties',
     'WebAclFieldToMatchSingleQueryArgumentProperties',
+    'WebAclFieldToProtect',
     'WebAclForwardedIpConfiguration',
     'WebAclGeoMatchStatement',
     'WebAclHeaderMatchPattern',
@@ -157,6 +161,7 @@ __all__ = [
     'WebAclSqliMatchStatement',
     'WebAclStatement',
     'WebAclTextTransformation',
+    'WebAclUriFragment',
     'WebAclVisibilityConfig',
     'WebAclXssMatchStatement',
 ]
@@ -1381,6 +1386,8 @@ class RuleGroupFieldToMatch(dict):
             suggest = "single_header"
         elif key == "singleQueryArgument":
             suggest = "single_query_argument"
+        elif key == "uriFragment":
+            suggest = "uri_fragment"
         elif key == "uriPath":
             suggest = "uri_path"
 
@@ -1407,6 +1414,7 @@ class RuleGroupFieldToMatch(dict):
                  query_string: Optional[Any] = None,
                  single_header: Optional['outputs.RuleGroupFieldToMatchSingleHeaderProperties'] = None,
                  single_query_argument: Optional['outputs.RuleGroupFieldToMatchSingleQueryArgumentProperties'] = None,
+                 uri_fragment: Optional['outputs.RuleGroupUriFragment'] = None,
                  uri_path: Optional[Any] = None):
         """
         Field of the request to match.
@@ -1479,6 +1487,8 @@ class RuleGroupFieldToMatch(dict):
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -1603,6 +1613,11 @@ class RuleGroupFieldToMatch(dict):
         One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         """
         return pulumi.get(self, "single_query_argument")
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional['outputs.RuleGroupUriFragment']:
+        return pulumi.get(self, "uri_fragment")
 
     @property
     @pulumi.getter(name="uriPath")
@@ -4134,6 +4149,42 @@ class RuleGroupTextTransformation(dict):
 
 
 @pulumi.output_type
+class RuleGroupUriFragment(dict):
+    """
+    The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupUriFragment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupUriFragment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupUriFragment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: Optional['RuleGroupUriFragmentFallbackBehavior'] = None):
+        """
+        The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional['RuleGroupUriFragmentFallbackBehavior']:
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
 class RuleGroupVisibilityConfig(dict):
     """
     Visibility Metric of the RuleGroup.
@@ -5485,6 +5536,95 @@ class WebAclCustomResponseBody(dict):
 
 
 @pulumi.output_type
+class WebAclDataProtect(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludeRateBasedDetails":
+            suggest = "exclude_rate_based_details"
+        elif key == "excludeRuleMatchDetails":
+            suggest = "exclude_rule_match_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclDataProtect. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclDataProtect.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclDataProtect.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: 'WebAclDataProtectionAction',
+                 field: 'outputs.WebAclFieldToProtect',
+                 exclude_rate_based_details: Optional[bool] = None,
+                 exclude_rule_match_details: Optional[bool] = None):
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "field", field)
+        if exclude_rate_based_details is not None:
+            pulumi.set(__self__, "exclude_rate_based_details", exclude_rate_based_details)
+        if exclude_rule_match_details is not None:
+            pulumi.set(__self__, "exclude_rule_match_details", exclude_rule_match_details)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'WebAclDataProtectionAction':
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def field(self) -> 'outputs.WebAclFieldToProtect':
+        return pulumi.get(self, "field")
+
+    @property
+    @pulumi.getter(name="excludeRateBasedDetails")
+    def exclude_rate_based_details(self) -> Optional[bool]:
+        return pulumi.get(self, "exclude_rate_based_details")
+
+    @property
+    @pulumi.getter(name="excludeRuleMatchDetails")
+    def exclude_rule_match_details(self) -> Optional[bool]:
+        return pulumi.get(self, "exclude_rule_match_details")
+
+
+@pulumi.output_type
+class WebAclDataProtectionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataProtections":
+            suggest = "data_protections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclDataProtectionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclDataProtectionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclDataProtectionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_protections: Sequence['outputs.WebAclDataProtect']):
+        """
+        :param Sequence['WebAclDataProtect'] data_protections: An array of data protection configurations for specific web request field types. This is defined for each web ACL. AWS WAF applies the specified protection to all web requests that the web ACL inspects.
+        """
+        pulumi.set(__self__, "data_protections", data_protections)
+
+    @property
+    @pulumi.getter(name="dataProtections")
+    def data_protections(self) -> Sequence['outputs.WebAclDataProtect']:
+        """
+        An array of data protection configurations for specific web request field types. This is defined for each web ACL. AWS WAF applies the specified protection to all web requests that the web ACL inspects.
+        """
+        return pulumi.get(self, "data_protections")
+
+
+@pulumi.output_type
 class WebAclDefaultAction(dict):
     """
     Default Action WebACL will take against ingress traffic when there is no matching Rule.
@@ -5593,6 +5733,8 @@ class WebAclFieldToMatch(dict):
             suggest = "single_header"
         elif key == "singleQueryArgument":
             suggest = "single_query_argument"
+        elif key == "uriFragment":
+            suggest = "uri_fragment"
         elif key == "uriPath":
             suggest = "uri_path"
 
@@ -5619,6 +5761,7 @@ class WebAclFieldToMatch(dict):
                  query_string: Optional[Any] = None,
                  single_header: Optional['outputs.WebAclFieldToMatchSingleHeaderProperties'] = None,
                  single_query_argument: Optional['outputs.WebAclFieldToMatchSingleQueryArgumentProperties'] = None,
+                 uri_fragment: Optional['outputs.WebAclUriFragment'] = None,
                  uri_path: Optional[Any] = None):
         """
         Field of the request to match.
@@ -5691,6 +5834,8 @@ class WebAclFieldToMatch(dict):
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -5817,6 +5962,11 @@ class WebAclFieldToMatch(dict):
         return pulumi.get(self, "single_query_argument")
 
     @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional['outputs.WebAclUriFragment']:
+        return pulumi.get(self, "uri_fragment")
+
+    @property
     @pulumi.getter(name="uriPath")
     def uri_path(self) -> Optional[Any]:
         """
@@ -5867,6 +6017,59 @@ class WebAclFieldToMatchSingleQueryArgumentProperties(dict):
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class WebAclFieldToProtect(dict):
+    """
+    Field in log to protect.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldType":
+            suggest = "field_type"
+        elif key == "fieldKeys":
+            suggest = "field_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclFieldToProtect. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclFieldToProtect.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclFieldToProtect.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_type: 'WebAclFieldToProtectFieldType',
+                 field_keys: Optional[Sequence[str]] = None):
+        """
+        Field in log to protect.
+        :param 'WebAclFieldToProtectFieldType' field_type: Field type to protect
+        :param Sequence[str] field_keys: List of field keys to protect
+        """
+        pulumi.set(__self__, "field_type", field_type)
+        if field_keys is not None:
+            pulumi.set(__self__, "field_keys", field_keys)
+
+    @property
+    @pulumi.getter(name="fieldType")
+    def field_type(self) -> 'WebAclFieldToProtectFieldType':
+        """
+        Field type to protect
+        """
+        return pulumi.get(self, "field_type")
+
+    @property
+    @pulumi.getter(name="fieldKeys")
+    def field_keys(self) -> Optional[Sequence[str]]:
+        """
+        List of field keys to protect
+        """
+        return pulumi.get(self, "field_keys")
 
 
 @pulumi.output_type
@@ -9509,6 +9712,42 @@ class WebAclTextTransformation(dict):
         For detailed descriptions of each of the transformation types, see [Text transformations](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-transformation.html) in the *AWS WAF Developer Guide* .
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class WebAclUriFragment(dict):
+    """
+    The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclUriFragment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclUriFragment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclUriFragment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: Optional['WebAclUriFragmentFallbackBehavior'] = None):
+        """
+        The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional['WebAclUriFragmentFallbackBehavior']:
+        return pulumi.get(self, "fallback_behavior")
 
 
 @pulumi.output_type

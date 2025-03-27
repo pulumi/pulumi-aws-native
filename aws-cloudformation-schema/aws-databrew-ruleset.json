@@ -183,11 +183,11 @@
   "additionalProperties" : false,
   "required" : [ "Name", "TargetArn", "Rules" ],
   "primaryIdentifier" : [ "/properties/Name" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/TargetArn", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/TargetArn" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "databrew:TagResource", "databrew:UntagResource", "databrew:ListTagsForResource" ]
@@ -197,10 +197,10 @@
       "permissions" : [ "databrew:CreateRuleset", "databrew:DescribeRuleset", "databrew:TagResource", "databrew:UntagResource", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "databrew:DescribeRuleset", "databrew:ListTagsForResource", "iam:ListRoles" ]
+      "permissions" : [ "databrew:DescribeRuleset", "iam:ListRoles" ]
     },
     "update" : {
-      "permissions" : [ "databrew:UpdateRuleset" ]
+      "permissions" : [ "databrew:UpdateRuleset", "databrew:TagResource", "databrew:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "databrew:DeleteRuleset" ]

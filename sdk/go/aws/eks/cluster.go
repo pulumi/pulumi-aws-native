@@ -37,6 +37,8 @@ type Cluster struct {
 	EncryptionConfigKeyArn pulumi.StringOutput `pulumi:"encryptionConfigKeyArn"`
 	// The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// Force cluster version update
+	Force pulumi.BoolPtrOutput `pulumi:"force"`
 	// The Kubernetes network configuration for the cluster.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrOutput `pulumi:"kubernetesNetworkConfig"`
 	// The logging configuration for your cluster.
@@ -133,6 +135,8 @@ type clusterArgs struct {
 	ComputeConfig *ClusterComputeConfig `pulumi:"computeConfig"`
 	// The encryption configuration for the cluster.
 	EncryptionConfig []ClusterEncryptionConfig `pulumi:"encryptionConfig"`
+	// Force cluster version update
+	Force *bool `pulumi:"force"`
 	// The Kubernetes network configuration for the cluster.
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
 	// The logging configuration for your cluster.
@@ -171,6 +175,8 @@ type ClusterArgs struct {
 	ComputeConfig ClusterComputeConfigPtrInput
 	// The encryption configuration for the cluster.
 	EncryptionConfig ClusterEncryptionConfigArrayInput
+	// Force cluster version update
+	Force pulumi.BoolPtrInput
 	// The Kubernetes network configuration for the cluster.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput
 	// The logging configuration for your cluster.
@@ -284,6 +290,11 @@ func (o ClusterOutput) EncryptionConfigKeyArn() pulumi.StringOutput {
 // The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
 func (o ClusterOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// Force cluster version update
+func (o ClusterOutput) Force() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.Force }).(pulumi.BoolPtrOutput)
 }
 
 // The Kubernetes network configuration for the cluster.

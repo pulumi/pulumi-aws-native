@@ -22,7 +22,13 @@ namespace Pulumi.AwsNative.CleanRooms
         public Output<ImmutableArray<string>> AllowedColumns { get; private set; } = null!;
 
         /// <summary>
-        /// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+        /// The analysis method for the configured table.
+        /// 
+        /// `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+        /// 
+        /// `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+        /// 
+        /// `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
         /// </summary>
         [Output("analysisMethod")]
         public Output<Pulumi.AwsNative.CleanRooms.ConfiguredTableAnalysisMethod> AnalysisMethod { get; private set; } = null!;
@@ -137,7 +143,13 @@ namespace Pulumi.AwsNative.CleanRooms
         }
 
         /// <summary>
-        /// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+        /// The analysis method for the configured table.
+        /// 
+        /// `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+        /// 
+        /// `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+        /// 
+        /// `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
         /// </summary>
         [Input("analysisMethod", required: true)]
         public Input<Pulumi.AwsNative.CleanRooms.ConfiguredTableAnalysisMethod> AnalysisMethod { get; set; } = null!;

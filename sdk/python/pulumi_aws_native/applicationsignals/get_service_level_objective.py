@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServiceLevelObjectiveResult:
-    def __init__(__self__, arn=None, burn_rate_configurations=None, created_time=None, description=None, evaluation_type=None, goal=None, last_updated_time=None, request_based_sli=None, sli=None, tags=None):
+    def __init__(__self__, arn=None, burn_rate_configurations=None, created_time=None, description=None, evaluation_type=None, exclusion_windows=None, goal=None, last_updated_time=None, request_based_sli=None, sli=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetServiceLevelObjectiveResult:
         if evaluation_type and not isinstance(evaluation_type, str):
             raise TypeError("Expected argument 'evaluation_type' to be a str")
         pulumi.set(__self__, "evaluation_type", evaluation_type)
+        if exclusion_windows and not isinstance(exclusion_windows, list):
+            raise TypeError("Expected argument 'exclusion_windows' to be a list")
+        pulumi.set(__self__, "exclusion_windows", exclusion_windows)
         if goal and not isinstance(goal, dict):
             raise TypeError("Expected argument 'goal' to be a dict")
         pulumi.set(__self__, "goal", goal)
@@ -99,6 +102,11 @@ class GetServiceLevelObjectiveResult:
         return pulumi.get(self, "evaluation_type")
 
     @property
+    @pulumi.getter(name="exclusionWindows")
+    def exclusion_windows(self) -> Optional[Sequence['outputs.ServiceLevelObjectiveExclusionWindow']]:
+        return pulumi.get(self, "exclusion_windows")
+
+    @property
     @pulumi.getter
     def goal(self) -> Optional['outputs.ServiceLevelObjectiveGoal']:
         """
@@ -152,6 +160,7 @@ class AwaitableGetServiceLevelObjectiveResult(GetServiceLevelObjectiveResult):
             created_time=self.created_time,
             description=self.description,
             evaluation_type=self.evaluation_type,
+            exclusion_windows=self.exclusion_windows,
             goal=self.goal,
             last_updated_time=self.last_updated_time,
             request_based_sli=self.request_based_sli,
@@ -178,6 +187,7 @@ def get_service_level_objective(arn: Optional[str] = None,
         created_time=pulumi.get(__ret__, 'created_time'),
         description=pulumi.get(__ret__, 'description'),
         evaluation_type=pulumi.get(__ret__, 'evaluation_type'),
+        exclusion_windows=pulumi.get(__ret__, 'exclusion_windows'),
         goal=pulumi.get(__ret__, 'goal'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         request_based_sli=pulumi.get(__ret__, 'request_based_sli'),
@@ -201,6 +211,7 @@ def get_service_level_objective_output(arn: Optional[pulumi.Input[str]] = None,
         created_time=pulumi.get(__response__, 'created_time'),
         description=pulumi.get(__response__, 'description'),
         evaluation_type=pulumi.get(__response__, 'evaluation_type'),
+        exclusion_windows=pulumi.get(__response__, 'exclusion_windows'),
         goal=pulumi.get(__response__, 'goal'),
         last_updated_time=pulumi.get(__response__, 'last_updated_time'),
         request_based_sli=pulumi.get(__response__, 'request_based_sli'),

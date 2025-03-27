@@ -78,6 +78,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
+     * Force cluster version update
+     */
+    public readonly force!: pulumi.Output<boolean | undefined>;
+    /**
      * The Kubernetes network configuration for the cluster.
      */
     public readonly kubernetesNetworkConfig!: pulumi.Output<outputs.eks.ClusterKubernetesNetworkConfig | undefined>;
@@ -153,6 +157,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["bootstrapSelfManagedAddons"] = args ? args.bootstrapSelfManagedAddons : undefined;
             resourceInputs["computeConfig"] = args ? args.computeConfig : undefined;
             resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
+            resourceInputs["force"] = args ? args.force : undefined;
             resourceInputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
             resourceInputs["logging"] = args ? args.logging : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -183,6 +188,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["encryptionConfig"] = undefined /*out*/;
             resourceInputs["encryptionConfigKeyArn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["force"] = undefined /*out*/;
             resourceInputs["kubernetesNetworkConfig"] = undefined /*out*/;
             resourceInputs["logging"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -224,6 +230,10 @@ export interface ClusterArgs {
      * The encryption configuration for the cluster.
      */
     encryptionConfig?: pulumi.Input<pulumi.Input<inputs.eks.ClusterEncryptionConfigArgs>[]>;
+    /**
+     * Force cluster version update
+     */
+    force?: pulumi.Input<boolean>;
     /**
      * The Kubernetes network configuration for the cluster.
      */

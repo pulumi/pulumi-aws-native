@@ -115,6 +115,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         [Input("singleQueryArgument")]
         public Input<Inputs.WebAclFieldToMatchSingleQueryArgumentPropertiesArgs>? SingleQueryArgument { get; set; }
 
+        [Input("uriFragment")]
+        public Input<Inputs.WebAclUriFragmentArgs>? UriFragment { get; set; }
+
         /// <summary>
         /// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         /// </summary>

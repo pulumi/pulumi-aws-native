@@ -28,7 +28,7 @@ class VpcOriginArgs:
         """
         The set of arguments for constructing a VpcOrigin resource.
         :param pulumi.Input['VpcOriginEndpointConfigArgs'] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more `Tag` elements.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         pulumi.set(__self__, "vpc_origin_endpoint_config", vpc_origin_endpoint_config)
         if tags is not None:
@@ -50,7 +50,7 @@ class VpcOriginArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A complex type that contains zero or more `Tag` elements.
+        A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 
@@ -68,11 +68,11 @@ class VpcOrigin(pulumi.CustomResource):
                  vpc_origin_endpoint_config: Optional[pulumi.Input[Union['VpcOriginEndpointConfigArgs', 'VpcOriginEndpointConfigArgsDict']]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::CloudFront::VpcOrigin
+        An Amazon CloudFront VPC origin.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more `Tag` elements.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more ``Tag`` elements.
         :param pulumi.Input[Union['VpcOriginEndpointConfigArgs', 'VpcOriginEndpointConfigArgsDict']] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
         """
         ...
@@ -82,7 +82,7 @@ class VpcOrigin(pulumi.CustomResource):
                  args: VpcOriginArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::CloudFront::VpcOrigin
+        An Amazon CloudFront VPC origin.
 
         :param str resource_name: The name of the resource.
         :param VpcOriginArgs args: The arguments to use to populate this resource's properties.
@@ -194,7 +194,7 @@ class VpcOrigin(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A complex type that contains zero or more `Tag` elements.
+        A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 

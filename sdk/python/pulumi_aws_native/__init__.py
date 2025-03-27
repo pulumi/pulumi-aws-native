@@ -1391,6 +1391,7 @@ _utilities.register(
   "mod": "datazone",
   "fqn": "pulumi_aws_native.datazone",
   "classes": {
+   "aws-native:datazone:Connection": "Connection",
    "aws-native:datazone:DataSource": "DataSource",
    "aws-native:datazone:Domain": "Domain",
    "aws-native:datazone:Environment": "Environment",
@@ -2084,6 +2085,7 @@ _utilities.register(
    "aws-native:iotsitewise:Asset": "Asset",
    "aws-native:iotsitewise:AssetModel": "AssetModel",
    "aws-native:iotsitewise:Dashboard": "Dashboard",
+   "aws-native:iotsitewise:Dataset": "Dataset",
    "aws-native:iotsitewise:Gateway": "Gateway",
    "aws-native:iotsitewise:Portal": "Portal",
    "aws-native:iotsitewise:Project": "Project"

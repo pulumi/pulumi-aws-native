@@ -76,6 +76,10 @@ export interface GetWebAclResult {
      */
     readonly customResponseBodies?: {[key: string]: outputs.wafv2.WebAclCustomResponseBody};
     /**
+     * Collection of dataProtects.
+     */
+    readonly dataProtectionConfig?: outputs.wafv2.WebAclDataProtectionConfig;
+    /**
      * The action to perform if none of the `Rules` contained in the `WebACL` match.
      */
     readonly defaultAction?: outputs.wafv2.WebAclDefaultAction;

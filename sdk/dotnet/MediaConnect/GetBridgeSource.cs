@@ -76,11 +76,11 @@ namespace Pulumi.AwsNative.MediaConnect
     public sealed class GetBridgeSourceResult
     {
         /// <summary>
-        /// Add a flow source to an existing bridge.
+        /// The source of the flow.
         /// </summary>
         public readonly Outputs.BridgeSourceBridgeFlowSource? FlowSource;
         /// <summary>
-        /// Add a network source to an existing bridge.
+        /// The source of the network.
         /// </summary>
         public readonly Outputs.BridgeSourceBridgeNetworkSource? NetworkSource;
 

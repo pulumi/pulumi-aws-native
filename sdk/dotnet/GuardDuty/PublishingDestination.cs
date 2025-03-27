@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GuardDuty
 {
     /// <summary>
-    /// Resource Type definition for AWS::GuardDuty::PublishingDestination
+    /// Resource Type definition for AWS::GuardDuty::PublishingDestination.
     /// </summary>
     [AwsNativeResourceType("aws-native:guardduty:PublishingDestination")]
     public partial class PublishingDestination : global::Pulumi.CustomResource

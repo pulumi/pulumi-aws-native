@@ -76,6 +76,12 @@ namespace Pulumi.AwsNative.Eks
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// Force cluster version update
+        /// </summary>
+        [Output("force")]
+        public Output<bool?> Force { get; private set; } = null!;
+
+        /// <summary>
         /// The Kubernetes network configuration for the cluster.
         /// </summary>
         [Output("kubernetesNetworkConfig")]
@@ -241,6 +247,12 @@ namespace Pulumi.AwsNative.Eks
             get => _encryptionConfig ?? (_encryptionConfig = new InputList<Inputs.ClusterEncryptionConfigArgs>());
             set => _encryptionConfig = value;
         }
+
+        /// <summary>
+        /// Force cluster version update
+        /// </summary>
+        [Input("force")]
+        public Input<bool>? Force { get; set; }
 
         /// <summary>
         /// The Kubernetes network configuration for the cluster.

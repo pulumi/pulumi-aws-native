@@ -24,14 +24,18 @@ __all__ = ['ClusterArgs', 'Cluster']
 class ClusterArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input['ClusterNetworkType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] name: Name of a Cluster. You can use any non-white space character in the name
+        :param pulumi.Input['ClusterNetworkType'] network_type: Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A collection of tags associated with a resource
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -46,6 +50,18 @@ class ClusterArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input['ClusterNetworkType']]:
+        """
+        Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input['ClusterNetworkType']]):
+        pulumi.set(self, "network_type", value)
 
     @property
     @pulumi.getter
@@ -66,6 +82,7 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input['ClusterNetworkType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -74,6 +91,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of a Cluster. You can use any non-white space character in the name
+        :param pulumi.Input['ClusterNetworkType'] network_type: Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: A collection of tags associated with a resource
         """
         ...
@@ -101,6 +119,7 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input['ClusterNetworkType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -112,6 +131,7 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["cluster_arn"] = None
             __props__.__dict__["cluster_endpoints"] = None
@@ -143,6 +163,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["cluster_arn"] = None
         __props__.__dict__["cluster_endpoints"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_type"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
@@ -170,6 +191,14 @@ class Cluster(pulumi.CustomResource):
         Name of a Cluster. You can use any non-white space character in the name
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[Optional['ClusterNetworkType']]:
+        """
+        Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+        """
+        return pulumi.get(self, "network_type")
 
     @property
     @pulumi.getter

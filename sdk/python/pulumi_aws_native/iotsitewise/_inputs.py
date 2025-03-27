@@ -60,6 +60,12 @@ __all__ = [
     'AssetModelVariableValueArgsDict',
     'AssetPropertyArgs',
     'AssetPropertyArgsDict',
+    'DatasetKendraSourceDetailArgs',
+    'DatasetKendraSourceDetailArgsDict',
+    'DatasetSourceDetailArgs',
+    'DatasetSourceDetailArgsDict',
+    'DatasetSourceArgs',
+    'DatasetSourceArgsDict',
     'GatewayCapabilitySummaryArgs',
     'GatewayCapabilitySummaryArgsDict',
     'GatewayGreengrassV2Args',
@@ -1810,6 +1816,158 @@ class AssetPropertyArgs:
     @unit.setter
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
+
+
+if not MYPY:
+    class DatasetKendraSourceDetailArgsDict(TypedDict):
+        knowledge_base_arn: pulumi.Input[str]
+        """
+        The knowledgeBaseArn details for the Kendra dataset source.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The roleARN details for the Kendra dataset source.
+        """
+elif False:
+    DatasetKendraSourceDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DatasetKendraSourceDetailArgs:
+    def __init__(__self__, *,
+                 knowledge_base_arn: pulumi.Input[str],
+                 role_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] knowledge_base_arn: The knowledgeBaseArn details for the Kendra dataset source.
+        :param pulumi.Input[str] role_arn: The roleARN details for the Kendra dataset source.
+        """
+        pulumi.set(__self__, "knowledge_base_arn", knowledge_base_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="knowledgeBaseArn")
+    def knowledge_base_arn(self) -> pulumi.Input[str]:
+        """
+        The knowledgeBaseArn details for the Kendra dataset source.
+        """
+        return pulumi.get(self, "knowledge_base_arn")
+
+    @knowledge_base_arn.setter
+    def knowledge_base_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "knowledge_base_arn", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The roleARN details for the Kendra dataset source.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+
+if not MYPY:
+    class DatasetSourceDetailArgsDict(TypedDict):
+        kendra: NotRequired[pulumi.Input['DatasetKendraSourceDetailArgsDict']]
+        """
+        Contains details about the Kendra dataset source.
+        """
+elif False:
+    DatasetSourceDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DatasetSourceDetailArgs:
+    def __init__(__self__, *,
+                 kendra: Optional[pulumi.Input['DatasetKendraSourceDetailArgs']] = None):
+        """
+        :param pulumi.Input['DatasetKendraSourceDetailArgs'] kendra: Contains details about the Kendra dataset source.
+        """
+        if kendra is not None:
+            pulumi.set(__self__, "kendra", kendra)
+
+    @property
+    @pulumi.getter
+    def kendra(self) -> Optional[pulumi.Input['DatasetKendraSourceDetailArgs']]:
+        """
+        Contains details about the Kendra dataset source.
+        """
+        return pulumi.get(self, "kendra")
+
+    @kendra.setter
+    def kendra(self, value: Optional[pulumi.Input['DatasetKendraSourceDetailArgs']]):
+        pulumi.set(self, "kendra", value)
+
+
+if not MYPY:
+    class DatasetSourceArgsDict(TypedDict):
+        source_format: pulumi.Input['DatasetSourceSourceFormat']
+        """
+        The format of the dataset source associated with the dataset.
+        """
+        source_type: pulumi.Input['DatasetSourceSourceType']
+        """
+        The type of data source for the dataset.
+        """
+        source_detail: NotRequired[pulumi.Input['DatasetSourceDetailArgsDict']]
+        """
+        The details of the dataset source associated with the dataset.
+        """
+elif False:
+    DatasetSourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DatasetSourceArgs:
+    def __init__(__self__, *,
+                 source_format: pulumi.Input['DatasetSourceSourceFormat'],
+                 source_type: pulumi.Input['DatasetSourceSourceType'],
+                 source_detail: Optional[pulumi.Input['DatasetSourceDetailArgs']] = None):
+        """
+        :param pulumi.Input['DatasetSourceSourceFormat'] source_format: The format of the dataset source associated with the dataset.
+        :param pulumi.Input['DatasetSourceSourceType'] source_type: The type of data source for the dataset.
+        :param pulumi.Input['DatasetSourceDetailArgs'] source_detail: The details of the dataset source associated with the dataset.
+        """
+        pulumi.set(__self__, "source_format", source_format)
+        pulumi.set(__self__, "source_type", source_type)
+        if source_detail is not None:
+            pulumi.set(__self__, "source_detail", source_detail)
+
+    @property
+    @pulumi.getter(name="sourceFormat")
+    def source_format(self) -> pulumi.Input['DatasetSourceSourceFormat']:
+        """
+        The format of the dataset source associated with the dataset.
+        """
+        return pulumi.get(self, "source_format")
+
+    @source_format.setter
+    def source_format(self, value: pulumi.Input['DatasetSourceSourceFormat']):
+        pulumi.set(self, "source_format", value)
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> pulumi.Input['DatasetSourceSourceType']:
+        """
+        The type of data source for the dataset.
+        """
+        return pulumi.get(self, "source_type")
+
+    @source_type.setter
+    def source_type(self, value: pulumi.Input['DatasetSourceSourceType']):
+        pulumi.set(self, "source_type", value)
+
+    @property
+    @pulumi.getter(name="sourceDetail")
+    def source_detail(self) -> Optional[pulumi.Input['DatasetSourceDetailArgs']]:
+        """
+        The details of the dataset source associated with the dataset.
+        """
+        return pulumi.get(self, "source_detail")
+
+    @source_detail.setter
+    def source_detail(self, value: Optional[pulumi.Input['DatasetSourceDetailArgs']]):
+        pulumi.set(self, "source_detail", value)
 
 
 if not MYPY:

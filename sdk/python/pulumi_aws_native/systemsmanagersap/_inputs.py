@@ -16,11 +16,62 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApplicationComponentInfoArgs',
+    'ApplicationComponentInfoArgsDict',
     'ApplicationCredentialArgs',
     'ApplicationCredentialArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ApplicationComponentInfoArgsDict(TypedDict):
+        component_type: NotRequired[pulumi.Input['ApplicationComponentInfoComponentType']]
+        ec2_instance_id: NotRequired[pulumi.Input[str]]
+        sid: NotRequired[pulumi.Input[str]]
+elif False:
+    ApplicationComponentInfoArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationComponentInfoArgs:
+    def __init__(__self__, *,
+                 component_type: Optional[pulumi.Input['ApplicationComponentInfoComponentType']] = None,
+                 ec2_instance_id: Optional[pulumi.Input[str]] = None,
+                 sid: Optional[pulumi.Input[str]] = None):
+        if component_type is not None:
+            pulumi.set(__self__, "component_type", component_type)
+        if ec2_instance_id is not None:
+            pulumi.set(__self__, "ec2_instance_id", ec2_instance_id)
+        if sid is not None:
+            pulumi.set(__self__, "sid", sid)
+
+    @property
+    @pulumi.getter(name="componentType")
+    def component_type(self) -> Optional[pulumi.Input['ApplicationComponentInfoComponentType']]:
+        return pulumi.get(self, "component_type")
+
+    @component_type.setter
+    def component_type(self, value: Optional[pulumi.Input['ApplicationComponentInfoComponentType']]):
+        pulumi.set(self, "component_type", value)
+
+    @property
+    @pulumi.getter(name="ec2InstanceId")
+    def ec2_instance_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ec2_instance_id")
+
+    @ec2_instance_id.setter
+    def ec2_instance_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ec2_instance_id", value)
+
+    @property
+    @pulumi.getter
+    def sid(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sid")
+
+    @sid.setter
+    def sid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sid", value)
+
 
 if not MYPY:
     class ApplicationCredentialArgsDict(TypedDict):

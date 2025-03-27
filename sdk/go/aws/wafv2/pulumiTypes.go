@@ -3679,6 +3679,7 @@ type RuleGroupFieldToMatch struct {
 	SingleHeader *RuleGroupFieldToMatchSingleHeaderProperties `pulumi:"singleHeader"`
 	// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
 	SingleQueryArgument *RuleGroupFieldToMatchSingleQueryArgumentProperties `pulumi:"singleQueryArgument"`
+	UriFragment         *RuleGroupUriFragment                               `pulumi:"uriFragment"`
 	// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 	UriPath interface{} `pulumi:"uriPath"`
 }
@@ -3752,6 +3753,7 @@ type RuleGroupFieldToMatchArgs struct {
 	SingleHeader RuleGroupFieldToMatchSingleHeaderPropertiesPtrInput `pulumi:"singleHeader"`
 	// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
 	SingleQueryArgument RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrInput `pulumi:"singleQueryArgument"`
+	UriFragment         RuleGroupUriFragmentPtrInput                               `pulumi:"uriFragment"`
 	// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 	UriPath pulumi.Input `pulumi:"uriPath"`
 }
@@ -3925,6 +3927,10 @@ func (o RuleGroupFieldToMatchOutput) SingleQueryArgument() RuleGroupFieldToMatch
 	}).(RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput)
 }
 
+func (o RuleGroupFieldToMatchOutput) UriFragment() RuleGroupUriFragmentPtrOutput {
+	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupUriFragment { return v.UriFragment }).(RuleGroupUriFragmentPtrOutput)
+}
+
 // The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 func (o RuleGroupFieldToMatchOutput) UriPath() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) interface{} { return v.UriPath }).(pulumi.AnyOutput)
@@ -4096,6 +4102,15 @@ func (o RuleGroupFieldToMatchPtrOutput) SingleQueryArgument() RuleGroupFieldToMa
 		}
 		return v.SingleQueryArgument
 	}).(RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput)
+}
+
+func (o RuleGroupFieldToMatchPtrOutput) UriFragment() RuleGroupUriFragmentPtrOutput {
+	return o.ApplyT(func(v *RuleGroupFieldToMatch) *RuleGroupUriFragment {
+		if v == nil {
+			return nil
+		}
+		return v.UriFragment
+	}).(RuleGroupUriFragmentPtrOutput)
 }
 
 // The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
@@ -11303,6 +11318,142 @@ func (o RuleGroupTextTransformationArrayOutput) Index(i pulumi.IntInput) RuleGro
 	}).(RuleGroupTextTransformationOutput)
 }
 
+// The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+type RuleGroupUriFragment struct {
+	FallbackBehavior *RuleGroupUriFragmentFallbackBehavior `pulumi:"fallbackBehavior"`
+}
+
+// RuleGroupUriFragmentInput is an input type that accepts RuleGroupUriFragmentArgs and RuleGroupUriFragmentOutput values.
+// You can construct a concrete instance of `RuleGroupUriFragmentInput` via:
+//
+//	RuleGroupUriFragmentArgs{...}
+type RuleGroupUriFragmentInput interface {
+	pulumi.Input
+
+	ToRuleGroupUriFragmentOutput() RuleGroupUriFragmentOutput
+	ToRuleGroupUriFragmentOutputWithContext(context.Context) RuleGroupUriFragmentOutput
+}
+
+// The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+type RuleGroupUriFragmentArgs struct {
+	FallbackBehavior RuleGroupUriFragmentFallbackBehaviorPtrInput `pulumi:"fallbackBehavior"`
+}
+
+func (RuleGroupUriFragmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupUriFragment)(nil)).Elem()
+}
+
+func (i RuleGroupUriFragmentArgs) ToRuleGroupUriFragmentOutput() RuleGroupUriFragmentOutput {
+	return i.ToRuleGroupUriFragmentOutputWithContext(context.Background())
+}
+
+func (i RuleGroupUriFragmentArgs) ToRuleGroupUriFragmentOutputWithContext(ctx context.Context) RuleGroupUriFragmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupUriFragmentOutput)
+}
+
+func (i RuleGroupUriFragmentArgs) ToRuleGroupUriFragmentPtrOutput() RuleGroupUriFragmentPtrOutput {
+	return i.ToRuleGroupUriFragmentPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupUriFragmentArgs) ToRuleGroupUriFragmentPtrOutputWithContext(ctx context.Context) RuleGroupUriFragmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupUriFragmentOutput).ToRuleGroupUriFragmentPtrOutputWithContext(ctx)
+}
+
+// RuleGroupUriFragmentPtrInput is an input type that accepts RuleGroupUriFragmentArgs, RuleGroupUriFragmentPtr and RuleGroupUriFragmentPtrOutput values.
+// You can construct a concrete instance of `RuleGroupUriFragmentPtrInput` via:
+//
+//	        RuleGroupUriFragmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupUriFragmentPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupUriFragmentPtrOutput() RuleGroupUriFragmentPtrOutput
+	ToRuleGroupUriFragmentPtrOutputWithContext(context.Context) RuleGroupUriFragmentPtrOutput
+}
+
+type ruleGroupUriFragmentPtrType RuleGroupUriFragmentArgs
+
+func RuleGroupUriFragmentPtr(v *RuleGroupUriFragmentArgs) RuleGroupUriFragmentPtrInput {
+	return (*ruleGroupUriFragmentPtrType)(v)
+}
+
+func (*ruleGroupUriFragmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupUriFragment)(nil)).Elem()
+}
+
+func (i *ruleGroupUriFragmentPtrType) ToRuleGroupUriFragmentPtrOutput() RuleGroupUriFragmentPtrOutput {
+	return i.ToRuleGroupUriFragmentPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupUriFragmentPtrType) ToRuleGroupUriFragmentPtrOutputWithContext(ctx context.Context) RuleGroupUriFragmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupUriFragmentPtrOutput)
+}
+
+// The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+type RuleGroupUriFragmentOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupUriFragmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupUriFragment)(nil)).Elem()
+}
+
+func (o RuleGroupUriFragmentOutput) ToRuleGroupUriFragmentOutput() RuleGroupUriFragmentOutput {
+	return o
+}
+
+func (o RuleGroupUriFragmentOutput) ToRuleGroupUriFragmentOutputWithContext(ctx context.Context) RuleGroupUriFragmentOutput {
+	return o
+}
+
+func (o RuleGroupUriFragmentOutput) ToRuleGroupUriFragmentPtrOutput() RuleGroupUriFragmentPtrOutput {
+	return o.ToRuleGroupUriFragmentPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupUriFragmentOutput) ToRuleGroupUriFragmentPtrOutputWithContext(ctx context.Context) RuleGroupUriFragmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupUriFragment) *RuleGroupUriFragment {
+		return &v
+	}).(RuleGroupUriFragmentPtrOutput)
+}
+
+func (o RuleGroupUriFragmentOutput) FallbackBehavior() RuleGroupUriFragmentFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v RuleGroupUriFragment) *RuleGroupUriFragmentFallbackBehavior { return v.FallbackBehavior }).(RuleGroupUriFragmentFallbackBehaviorPtrOutput)
+}
+
+type RuleGroupUriFragmentPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupUriFragmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupUriFragment)(nil)).Elem()
+}
+
+func (o RuleGroupUriFragmentPtrOutput) ToRuleGroupUriFragmentPtrOutput() RuleGroupUriFragmentPtrOutput {
+	return o
+}
+
+func (o RuleGroupUriFragmentPtrOutput) ToRuleGroupUriFragmentPtrOutputWithContext(ctx context.Context) RuleGroupUriFragmentPtrOutput {
+	return o
+}
+
+func (o RuleGroupUriFragmentPtrOutput) Elem() RuleGroupUriFragmentOutput {
+	return o.ApplyT(func(v *RuleGroupUriFragment) RuleGroupUriFragment {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupUriFragment
+		return ret
+	}).(RuleGroupUriFragmentOutput)
+}
+
+func (o RuleGroupUriFragmentPtrOutput) FallbackBehavior() RuleGroupUriFragmentFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v *RuleGroupUriFragment) *RuleGroupUriFragmentFallbackBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.FallbackBehavior
+	}).(RuleGroupUriFragmentFallbackBehaviorPtrOutput)
+}
+
 // Visibility Metric of the RuleGroup.
 type RuleGroupVisibilityConfig struct {
 	// Indicates whether the associated resource sends metrics to Amazon CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics) in the *AWS WAF Developer Guide* .
@@ -15106,6 +15257,255 @@ func (o WebAclCustomResponseBodyMapOutput) MapIndex(k pulumi.StringInput) WebAcl
 	}).(WebAclCustomResponseBodyOutput)
 }
 
+type WebAclDataProtect struct {
+	Action                  WebAclDataProtectionAction `pulumi:"action"`
+	ExcludeRateBasedDetails *bool                      `pulumi:"excludeRateBasedDetails"`
+	ExcludeRuleMatchDetails *bool                      `pulumi:"excludeRuleMatchDetails"`
+	Field                   WebAclFieldToProtect       `pulumi:"field"`
+}
+
+// WebAclDataProtectInput is an input type that accepts WebAclDataProtectArgs and WebAclDataProtectOutput values.
+// You can construct a concrete instance of `WebAclDataProtectInput` via:
+//
+//	WebAclDataProtectArgs{...}
+type WebAclDataProtectInput interface {
+	pulumi.Input
+
+	ToWebAclDataProtectOutput() WebAclDataProtectOutput
+	ToWebAclDataProtectOutputWithContext(context.Context) WebAclDataProtectOutput
+}
+
+type WebAclDataProtectArgs struct {
+	Action                  WebAclDataProtectionActionInput `pulumi:"action"`
+	ExcludeRateBasedDetails pulumi.BoolPtrInput             `pulumi:"excludeRateBasedDetails"`
+	ExcludeRuleMatchDetails pulumi.BoolPtrInput             `pulumi:"excludeRuleMatchDetails"`
+	Field                   WebAclFieldToProtectInput       `pulumi:"field"`
+}
+
+func (WebAclDataProtectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclDataProtect)(nil)).Elem()
+}
+
+func (i WebAclDataProtectArgs) ToWebAclDataProtectOutput() WebAclDataProtectOutput {
+	return i.ToWebAclDataProtectOutputWithContext(context.Background())
+}
+
+func (i WebAclDataProtectArgs) ToWebAclDataProtectOutputWithContext(ctx context.Context) WebAclDataProtectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclDataProtectOutput)
+}
+
+// WebAclDataProtectArrayInput is an input type that accepts WebAclDataProtectArray and WebAclDataProtectArrayOutput values.
+// You can construct a concrete instance of `WebAclDataProtectArrayInput` via:
+//
+//	WebAclDataProtectArray{ WebAclDataProtectArgs{...} }
+type WebAclDataProtectArrayInput interface {
+	pulumi.Input
+
+	ToWebAclDataProtectArrayOutput() WebAclDataProtectArrayOutput
+	ToWebAclDataProtectArrayOutputWithContext(context.Context) WebAclDataProtectArrayOutput
+}
+
+type WebAclDataProtectArray []WebAclDataProtectInput
+
+func (WebAclDataProtectArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclDataProtect)(nil)).Elem()
+}
+
+func (i WebAclDataProtectArray) ToWebAclDataProtectArrayOutput() WebAclDataProtectArrayOutput {
+	return i.ToWebAclDataProtectArrayOutputWithContext(context.Background())
+}
+
+func (i WebAclDataProtectArray) ToWebAclDataProtectArrayOutputWithContext(ctx context.Context) WebAclDataProtectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclDataProtectArrayOutput)
+}
+
+type WebAclDataProtectOutput struct{ *pulumi.OutputState }
+
+func (WebAclDataProtectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclDataProtect)(nil)).Elem()
+}
+
+func (o WebAclDataProtectOutput) ToWebAclDataProtectOutput() WebAclDataProtectOutput {
+	return o
+}
+
+func (o WebAclDataProtectOutput) ToWebAclDataProtectOutputWithContext(ctx context.Context) WebAclDataProtectOutput {
+	return o
+}
+
+func (o WebAclDataProtectOutput) Action() WebAclDataProtectionActionOutput {
+	return o.ApplyT(func(v WebAclDataProtect) WebAclDataProtectionAction { return v.Action }).(WebAclDataProtectionActionOutput)
+}
+
+func (o WebAclDataProtectOutput) ExcludeRateBasedDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebAclDataProtect) *bool { return v.ExcludeRateBasedDetails }).(pulumi.BoolPtrOutput)
+}
+
+func (o WebAclDataProtectOutput) ExcludeRuleMatchDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebAclDataProtect) *bool { return v.ExcludeRuleMatchDetails }).(pulumi.BoolPtrOutput)
+}
+
+func (o WebAclDataProtectOutput) Field() WebAclFieldToProtectOutput {
+	return o.ApplyT(func(v WebAclDataProtect) WebAclFieldToProtect { return v.Field }).(WebAclFieldToProtectOutput)
+}
+
+type WebAclDataProtectArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAclDataProtectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclDataProtect)(nil)).Elem()
+}
+
+func (o WebAclDataProtectArrayOutput) ToWebAclDataProtectArrayOutput() WebAclDataProtectArrayOutput {
+	return o
+}
+
+func (o WebAclDataProtectArrayOutput) ToWebAclDataProtectArrayOutputWithContext(ctx context.Context) WebAclDataProtectArrayOutput {
+	return o
+}
+
+func (o WebAclDataProtectArrayOutput) Index(i pulumi.IntInput) WebAclDataProtectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclDataProtect {
+		return vs[0].([]WebAclDataProtect)[vs[1].(int)]
+	}).(WebAclDataProtectOutput)
+}
+
+type WebAclDataProtectionConfig struct {
+	// An array of data protection configurations for specific web request field types. This is defined for each web ACL. AWS WAF applies the specified protection to all web requests that the web ACL inspects.
+	DataProtections []WebAclDataProtect `pulumi:"dataProtections"`
+}
+
+// WebAclDataProtectionConfigInput is an input type that accepts WebAclDataProtectionConfigArgs and WebAclDataProtectionConfigOutput values.
+// You can construct a concrete instance of `WebAclDataProtectionConfigInput` via:
+//
+//	WebAclDataProtectionConfigArgs{...}
+type WebAclDataProtectionConfigInput interface {
+	pulumi.Input
+
+	ToWebAclDataProtectionConfigOutput() WebAclDataProtectionConfigOutput
+	ToWebAclDataProtectionConfigOutputWithContext(context.Context) WebAclDataProtectionConfigOutput
+}
+
+type WebAclDataProtectionConfigArgs struct {
+	// An array of data protection configurations for specific web request field types. This is defined for each web ACL. AWS WAF applies the specified protection to all web requests that the web ACL inspects.
+	DataProtections WebAclDataProtectArrayInput `pulumi:"dataProtections"`
+}
+
+func (WebAclDataProtectionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclDataProtectionConfig)(nil)).Elem()
+}
+
+func (i WebAclDataProtectionConfigArgs) ToWebAclDataProtectionConfigOutput() WebAclDataProtectionConfigOutput {
+	return i.ToWebAclDataProtectionConfigOutputWithContext(context.Background())
+}
+
+func (i WebAclDataProtectionConfigArgs) ToWebAclDataProtectionConfigOutputWithContext(ctx context.Context) WebAclDataProtectionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclDataProtectionConfigOutput)
+}
+
+func (i WebAclDataProtectionConfigArgs) ToWebAclDataProtectionConfigPtrOutput() WebAclDataProtectionConfigPtrOutput {
+	return i.ToWebAclDataProtectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclDataProtectionConfigArgs) ToWebAclDataProtectionConfigPtrOutputWithContext(ctx context.Context) WebAclDataProtectionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclDataProtectionConfigOutput).ToWebAclDataProtectionConfigPtrOutputWithContext(ctx)
+}
+
+// WebAclDataProtectionConfigPtrInput is an input type that accepts WebAclDataProtectionConfigArgs, WebAclDataProtectionConfigPtr and WebAclDataProtectionConfigPtrOutput values.
+// You can construct a concrete instance of `WebAclDataProtectionConfigPtrInput` via:
+//
+//	        WebAclDataProtectionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclDataProtectionConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebAclDataProtectionConfigPtrOutput() WebAclDataProtectionConfigPtrOutput
+	ToWebAclDataProtectionConfigPtrOutputWithContext(context.Context) WebAclDataProtectionConfigPtrOutput
+}
+
+type webAclDataProtectionConfigPtrType WebAclDataProtectionConfigArgs
+
+func WebAclDataProtectionConfigPtr(v *WebAclDataProtectionConfigArgs) WebAclDataProtectionConfigPtrInput {
+	return (*webAclDataProtectionConfigPtrType)(v)
+}
+
+func (*webAclDataProtectionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclDataProtectionConfig)(nil)).Elem()
+}
+
+func (i *webAclDataProtectionConfigPtrType) ToWebAclDataProtectionConfigPtrOutput() WebAclDataProtectionConfigPtrOutput {
+	return i.ToWebAclDataProtectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclDataProtectionConfigPtrType) ToWebAclDataProtectionConfigPtrOutputWithContext(ctx context.Context) WebAclDataProtectionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclDataProtectionConfigPtrOutput)
+}
+
+type WebAclDataProtectionConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclDataProtectionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclDataProtectionConfig)(nil)).Elem()
+}
+
+func (o WebAclDataProtectionConfigOutput) ToWebAclDataProtectionConfigOutput() WebAclDataProtectionConfigOutput {
+	return o
+}
+
+func (o WebAclDataProtectionConfigOutput) ToWebAclDataProtectionConfigOutputWithContext(ctx context.Context) WebAclDataProtectionConfigOutput {
+	return o
+}
+
+func (o WebAclDataProtectionConfigOutput) ToWebAclDataProtectionConfigPtrOutput() WebAclDataProtectionConfigPtrOutput {
+	return o.ToWebAclDataProtectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclDataProtectionConfigOutput) ToWebAclDataProtectionConfigPtrOutputWithContext(ctx context.Context) WebAclDataProtectionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclDataProtectionConfig) *WebAclDataProtectionConfig {
+		return &v
+	}).(WebAclDataProtectionConfigPtrOutput)
+}
+
+// An array of data protection configurations for specific web request field types. This is defined for each web ACL. AWS WAF applies the specified protection to all web requests that the web ACL inspects.
+func (o WebAclDataProtectionConfigOutput) DataProtections() WebAclDataProtectArrayOutput {
+	return o.ApplyT(func(v WebAclDataProtectionConfig) []WebAclDataProtect { return v.DataProtections }).(WebAclDataProtectArrayOutput)
+}
+
+type WebAclDataProtectionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclDataProtectionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclDataProtectionConfig)(nil)).Elem()
+}
+
+func (o WebAclDataProtectionConfigPtrOutput) ToWebAclDataProtectionConfigPtrOutput() WebAclDataProtectionConfigPtrOutput {
+	return o
+}
+
+func (o WebAclDataProtectionConfigPtrOutput) ToWebAclDataProtectionConfigPtrOutputWithContext(ctx context.Context) WebAclDataProtectionConfigPtrOutput {
+	return o
+}
+
+func (o WebAclDataProtectionConfigPtrOutput) Elem() WebAclDataProtectionConfigOutput {
+	return o.ApplyT(func(v *WebAclDataProtectionConfig) WebAclDataProtectionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclDataProtectionConfig
+		return ret
+	}).(WebAclDataProtectionConfigOutput)
+}
+
+// An array of data protection configurations for specific web request field types. This is defined for each web ACL. AWS WAF applies the specified protection to all web requests that the web ACL inspects.
+func (o WebAclDataProtectionConfigPtrOutput) DataProtections() WebAclDataProtectArrayOutput {
+	return o.ApplyT(func(v *WebAclDataProtectionConfig) []WebAclDataProtect {
+		if v == nil {
+			return nil
+		}
+		return v.DataProtections
+	}).(WebAclDataProtectArrayOutput)
+}
+
 // Default Action WebACL will take against ingress traffic when there is no matching Rule.
 type WebAclDefaultAction struct {
 	// Specifies that AWS WAF should allow requests by default.
@@ -15578,6 +15978,7 @@ type WebAclFieldToMatch struct {
 	SingleHeader *WebAclFieldToMatchSingleHeaderProperties `pulumi:"singleHeader"`
 	// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
 	SingleQueryArgument *WebAclFieldToMatchSingleQueryArgumentProperties `pulumi:"singleQueryArgument"`
+	UriFragment         *WebAclUriFragment                               `pulumi:"uriFragment"`
 	// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 	UriPath interface{} `pulumi:"uriPath"`
 }
@@ -15651,6 +16052,7 @@ type WebAclFieldToMatchArgs struct {
 	SingleHeader WebAclFieldToMatchSingleHeaderPropertiesPtrInput `pulumi:"singleHeader"`
 	// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
 	SingleQueryArgument WebAclFieldToMatchSingleQueryArgumentPropertiesPtrInput `pulumi:"singleQueryArgument"`
+	UriFragment         WebAclUriFragmentPtrInput                               `pulumi:"uriFragment"`
 	// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 	UriPath pulumi.Input `pulumi:"uriPath"`
 }
@@ -15824,6 +16226,10 @@ func (o WebAclFieldToMatchOutput) SingleQueryArgument() WebAclFieldToMatchSingle
 	}).(WebAclFieldToMatchSingleQueryArgumentPropertiesPtrOutput)
 }
 
+func (o WebAclFieldToMatchOutput) UriFragment() WebAclUriFragmentPtrOutput {
+	return o.ApplyT(func(v WebAclFieldToMatch) *WebAclUriFragment { return v.UriFragment }).(WebAclUriFragmentPtrOutput)
+}
+
 // The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 func (o WebAclFieldToMatchOutput) UriPath() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebAclFieldToMatch) interface{} { return v.UriPath }).(pulumi.AnyOutput)
@@ -15995,6 +16401,15 @@ func (o WebAclFieldToMatchPtrOutput) SingleQueryArgument() WebAclFieldToMatchSin
 		}
 		return v.SingleQueryArgument
 	}).(WebAclFieldToMatchSingleQueryArgumentPropertiesPtrOutput)
+}
+
+func (o WebAclFieldToMatchPtrOutput) UriFragment() WebAclUriFragmentPtrOutput {
+	return o.ApplyT(func(v *WebAclFieldToMatch) *WebAclUriFragment {
+		if v == nil {
+			return nil
+		}
+		return v.UriFragment
+	}).(WebAclUriFragmentPtrOutput)
 }
 
 // The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
@@ -16289,6 +16704,70 @@ func (o WebAclFieldToMatchSingleQueryArgumentPropertiesPtrOutput) Name() pulumi.
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// Field in log to protect.
+type WebAclFieldToProtect struct {
+	// List of field keys to protect
+	FieldKeys []string `pulumi:"fieldKeys"`
+	// Field type to protect
+	FieldType WebAclFieldToProtectFieldType `pulumi:"fieldType"`
+}
+
+// WebAclFieldToProtectInput is an input type that accepts WebAclFieldToProtectArgs and WebAclFieldToProtectOutput values.
+// You can construct a concrete instance of `WebAclFieldToProtectInput` via:
+//
+//	WebAclFieldToProtectArgs{...}
+type WebAclFieldToProtectInput interface {
+	pulumi.Input
+
+	ToWebAclFieldToProtectOutput() WebAclFieldToProtectOutput
+	ToWebAclFieldToProtectOutputWithContext(context.Context) WebAclFieldToProtectOutput
+}
+
+// Field in log to protect.
+type WebAclFieldToProtectArgs struct {
+	// List of field keys to protect
+	FieldKeys pulumi.StringArrayInput `pulumi:"fieldKeys"`
+	// Field type to protect
+	FieldType WebAclFieldToProtectFieldTypeInput `pulumi:"fieldType"`
+}
+
+func (WebAclFieldToProtectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclFieldToProtect)(nil)).Elem()
+}
+
+func (i WebAclFieldToProtectArgs) ToWebAclFieldToProtectOutput() WebAclFieldToProtectOutput {
+	return i.ToWebAclFieldToProtectOutputWithContext(context.Background())
+}
+
+func (i WebAclFieldToProtectArgs) ToWebAclFieldToProtectOutputWithContext(ctx context.Context) WebAclFieldToProtectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclFieldToProtectOutput)
+}
+
+// Field in log to protect.
+type WebAclFieldToProtectOutput struct{ *pulumi.OutputState }
+
+func (WebAclFieldToProtectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclFieldToProtect)(nil)).Elem()
+}
+
+func (o WebAclFieldToProtectOutput) ToWebAclFieldToProtectOutput() WebAclFieldToProtectOutput {
+	return o
+}
+
+func (o WebAclFieldToProtectOutput) ToWebAclFieldToProtectOutputWithContext(ctx context.Context) WebAclFieldToProtectOutput {
+	return o
+}
+
+// List of field keys to protect
+func (o WebAclFieldToProtectOutput) FieldKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebAclFieldToProtect) []string { return v.FieldKeys }).(pulumi.StringArrayOutput)
+}
+
+// Field type to protect
+func (o WebAclFieldToProtectOutput) FieldType() WebAclFieldToProtectFieldTypeOutput {
+	return o.ApplyT(func(v WebAclFieldToProtect) WebAclFieldToProtectFieldType { return v.FieldType }).(WebAclFieldToProtectFieldTypeOutput)
 }
 
 type WebAclForwardedIpConfiguration struct {
@@ -25840,6 +26319,142 @@ func (o WebAclTextTransformationArrayOutput) Index(i pulumi.IntInput) WebAclText
 	}).(WebAclTextTransformationOutput)
 }
 
+// The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+type WebAclUriFragment struct {
+	FallbackBehavior *WebAclUriFragmentFallbackBehavior `pulumi:"fallbackBehavior"`
+}
+
+// WebAclUriFragmentInput is an input type that accepts WebAclUriFragmentArgs and WebAclUriFragmentOutput values.
+// You can construct a concrete instance of `WebAclUriFragmentInput` via:
+//
+//	WebAclUriFragmentArgs{...}
+type WebAclUriFragmentInput interface {
+	pulumi.Input
+
+	ToWebAclUriFragmentOutput() WebAclUriFragmentOutput
+	ToWebAclUriFragmentOutputWithContext(context.Context) WebAclUriFragmentOutput
+}
+
+// The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+type WebAclUriFragmentArgs struct {
+	FallbackBehavior WebAclUriFragmentFallbackBehaviorPtrInput `pulumi:"fallbackBehavior"`
+}
+
+func (WebAclUriFragmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclUriFragment)(nil)).Elem()
+}
+
+func (i WebAclUriFragmentArgs) ToWebAclUriFragmentOutput() WebAclUriFragmentOutput {
+	return i.ToWebAclUriFragmentOutputWithContext(context.Background())
+}
+
+func (i WebAclUriFragmentArgs) ToWebAclUriFragmentOutputWithContext(ctx context.Context) WebAclUriFragmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclUriFragmentOutput)
+}
+
+func (i WebAclUriFragmentArgs) ToWebAclUriFragmentPtrOutput() WebAclUriFragmentPtrOutput {
+	return i.ToWebAclUriFragmentPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclUriFragmentArgs) ToWebAclUriFragmentPtrOutputWithContext(ctx context.Context) WebAclUriFragmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclUriFragmentOutput).ToWebAclUriFragmentPtrOutputWithContext(ctx)
+}
+
+// WebAclUriFragmentPtrInput is an input type that accepts WebAclUriFragmentArgs, WebAclUriFragmentPtr and WebAclUriFragmentPtrOutput values.
+// You can construct a concrete instance of `WebAclUriFragmentPtrInput` via:
+//
+//	        WebAclUriFragmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclUriFragmentPtrInput interface {
+	pulumi.Input
+
+	ToWebAclUriFragmentPtrOutput() WebAclUriFragmentPtrOutput
+	ToWebAclUriFragmentPtrOutputWithContext(context.Context) WebAclUriFragmentPtrOutput
+}
+
+type webAclUriFragmentPtrType WebAclUriFragmentArgs
+
+func WebAclUriFragmentPtr(v *WebAclUriFragmentArgs) WebAclUriFragmentPtrInput {
+	return (*webAclUriFragmentPtrType)(v)
+}
+
+func (*webAclUriFragmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclUriFragment)(nil)).Elem()
+}
+
+func (i *webAclUriFragmentPtrType) ToWebAclUriFragmentPtrOutput() WebAclUriFragmentPtrOutput {
+	return i.ToWebAclUriFragmentPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclUriFragmentPtrType) ToWebAclUriFragmentPtrOutputWithContext(ctx context.Context) WebAclUriFragmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclUriFragmentPtrOutput)
+}
+
+// The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+type WebAclUriFragmentOutput struct{ *pulumi.OutputState }
+
+func (WebAclUriFragmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclUriFragment)(nil)).Elem()
+}
+
+func (o WebAclUriFragmentOutput) ToWebAclUriFragmentOutput() WebAclUriFragmentOutput {
+	return o
+}
+
+func (o WebAclUriFragmentOutput) ToWebAclUriFragmentOutputWithContext(ctx context.Context) WebAclUriFragmentOutput {
+	return o
+}
+
+func (o WebAclUriFragmentOutput) ToWebAclUriFragmentPtrOutput() WebAclUriFragmentPtrOutput {
+	return o.ToWebAclUriFragmentPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclUriFragmentOutput) ToWebAclUriFragmentPtrOutputWithContext(ctx context.Context) WebAclUriFragmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclUriFragment) *WebAclUriFragment {
+		return &v
+	}).(WebAclUriFragmentPtrOutput)
+}
+
+func (o WebAclUriFragmentOutput) FallbackBehavior() WebAclUriFragmentFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v WebAclUriFragment) *WebAclUriFragmentFallbackBehavior { return v.FallbackBehavior }).(WebAclUriFragmentFallbackBehaviorPtrOutput)
+}
+
+type WebAclUriFragmentPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclUriFragmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclUriFragment)(nil)).Elem()
+}
+
+func (o WebAclUriFragmentPtrOutput) ToWebAclUriFragmentPtrOutput() WebAclUriFragmentPtrOutput {
+	return o
+}
+
+func (o WebAclUriFragmentPtrOutput) ToWebAclUriFragmentPtrOutputWithContext(ctx context.Context) WebAclUriFragmentPtrOutput {
+	return o
+}
+
+func (o WebAclUriFragmentPtrOutput) Elem() WebAclUriFragmentOutput {
+	return o.ApplyT(func(v *WebAclUriFragment) WebAclUriFragment {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclUriFragment
+		return ret
+	}).(WebAclUriFragmentOutput)
+}
+
+func (o WebAclUriFragmentPtrOutput) FallbackBehavior() WebAclUriFragmentFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v *WebAclUriFragment) *WebAclUriFragmentFallbackBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.FallbackBehavior
+	}).(WebAclUriFragmentFallbackBehaviorPtrOutput)
+}
+
 // Visibility Metric of the WebACL.
 type WebAclVisibilityConfig struct {
 	// Indicates whether the associated resource sends metrics to Amazon CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics) in the *AWS WAF Developer Guide* .
@@ -26282,6 +26897,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupStatementArrayInput)(nil)).Elem(), RuleGroupStatementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTextTransformationInput)(nil)).Elem(), RuleGroupTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTextTransformationArrayInput)(nil)).Elem(), RuleGroupTextTransformationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupUriFragmentInput)(nil)).Elem(), RuleGroupUriFragmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupUriFragmentPtrInput)(nil)).Elem(), RuleGroupUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupVisibilityConfigInput)(nil)).Elem(), RuleGroupVisibilityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupXssMatchStatementInput)(nil)).Elem(), RuleGroupXssMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupXssMatchStatementPtrInput)(nil)).Elem(), RuleGroupXssMatchStatementArgs{})
@@ -26325,6 +26942,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCustomResponsePtrInput)(nil)).Elem(), WebAclCustomResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCustomResponseBodyInput)(nil)).Elem(), WebAclCustomResponseBodyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCustomResponseBodyMapInput)(nil)).Elem(), WebAclCustomResponseBodyMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclDataProtectInput)(nil)).Elem(), WebAclDataProtectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclDataProtectArrayInput)(nil)).Elem(), WebAclDataProtectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclDataProtectionConfigInput)(nil)).Elem(), WebAclDataProtectionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclDataProtectionConfigPtrInput)(nil)).Elem(), WebAclDataProtectionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclDefaultActionInput)(nil)).Elem(), WebAclDefaultActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclExcludedRuleInput)(nil)).Elem(), WebAclExcludedRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclExcludedRuleArrayInput)(nil)).Elem(), WebAclExcludedRuleArray{})
@@ -26337,6 +26958,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclFieldToMatchSingleHeaderPropertiesPtrInput)(nil)).Elem(), WebAclFieldToMatchSingleHeaderPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclFieldToMatchSingleQueryArgumentPropertiesInput)(nil)).Elem(), WebAclFieldToMatchSingleQueryArgumentPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclFieldToMatchSingleQueryArgumentPropertiesPtrInput)(nil)).Elem(), WebAclFieldToMatchSingleQueryArgumentPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclFieldToProtectInput)(nil)).Elem(), WebAclFieldToProtectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclForwardedIpConfigurationInput)(nil)).Elem(), WebAclForwardedIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclForwardedIpConfigurationPtrInput)(nil)).Elem(), WebAclForwardedIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclGeoMatchStatementInput)(nil)).Elem(), WebAclGeoMatchStatementArgs{})
@@ -26436,6 +27058,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclStatementArrayInput)(nil)).Elem(), WebAclStatementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclTextTransformationInput)(nil)).Elem(), WebAclTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclTextTransformationArrayInput)(nil)).Elem(), WebAclTextTransformationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclUriFragmentInput)(nil)).Elem(), WebAclUriFragmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclUriFragmentPtrInput)(nil)).Elem(), WebAclUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclVisibilityConfigInput)(nil)).Elem(), WebAclVisibilityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclXssMatchStatementInput)(nil)).Elem(), WebAclXssMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclXssMatchStatementPtrInput)(nil)).Elem(), WebAclXssMatchStatementArgs{})
@@ -26566,6 +27190,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupStatementArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupTextTransformationOutput{})
 	pulumi.RegisterOutputType(RuleGroupTextTransformationArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupUriFragmentOutput{})
+	pulumi.RegisterOutputType(RuleGroupUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupVisibilityConfigOutput{})
 	pulumi.RegisterOutputType(RuleGroupVisibilityConfigPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupXssMatchStatementOutput{})
@@ -26610,6 +27236,10 @@ func init() {
 	pulumi.RegisterOutputType(WebAclCustomResponsePtrOutput{})
 	pulumi.RegisterOutputType(WebAclCustomResponseBodyOutput{})
 	pulumi.RegisterOutputType(WebAclCustomResponseBodyMapOutput{})
+	pulumi.RegisterOutputType(WebAclDataProtectOutput{})
+	pulumi.RegisterOutputType(WebAclDataProtectArrayOutput{})
+	pulumi.RegisterOutputType(WebAclDataProtectionConfigOutput{})
+	pulumi.RegisterOutputType(WebAclDataProtectionConfigPtrOutput{})
 	pulumi.RegisterOutputType(WebAclDefaultActionOutput{})
 	pulumi.RegisterOutputType(WebAclDefaultActionPtrOutput{})
 	pulumi.RegisterOutputType(WebAclExcludedRuleOutput{})
@@ -26623,6 +27253,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclFieldToMatchSingleHeaderPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WebAclFieldToMatchSingleQueryArgumentPropertiesOutput{})
 	pulumi.RegisterOutputType(WebAclFieldToMatchSingleQueryArgumentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WebAclFieldToProtectOutput{})
 	pulumi.RegisterOutputType(WebAclForwardedIpConfigurationOutput{})
 	pulumi.RegisterOutputType(WebAclForwardedIpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebAclGeoMatchStatementOutput{})
@@ -26722,6 +27353,8 @@ func init() {
 	pulumi.RegisterOutputType(WebAclStatementArrayOutput{})
 	pulumi.RegisterOutputType(WebAclTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclTextTransformationArrayOutput{})
+	pulumi.RegisterOutputType(WebAclUriFragmentOutput{})
+	pulumi.RegisterOutputType(WebAclUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclVisibilityConfigOutput{})
 	pulumi.RegisterOutputType(WebAclVisibilityConfigPtrOutput{})
 	pulumi.RegisterOutputType(WebAclXssMatchStatementOutput{})

@@ -37,8 +37,8 @@ import (
 //				},
 //				Name:           pulumi.String("schedule-name"),
 //				CronExpression: pulumi.String("cron(0 0/1 ? * * *)"),
-//				Tags: aws.CreateOnlyTagArray{
-//					&aws.CreateOnlyTagArgs{
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
 //						Key:   pulumi.String("key00AtCreate"),
 //						Value: pulumi.String("value001AtCreate"),
 //					},
@@ -62,7 +62,7 @@ type Schedule struct {
 	// Schedule Name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Metadata tags that have been applied to the schedule.
-	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewSchedule registers a new resource with the given unique name, arguments, and options.
@@ -77,7 +77,6 @@ func NewSchedule(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
-		"tags[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -120,7 +119,7 @@ type scheduleArgs struct {
 	// Schedule Name
 	Name *string `pulumi:"name"`
 	// Metadata tags that have been applied to the schedule.
-	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Schedule resource.
@@ -132,7 +131,7 @@ type ScheduleArgs struct {
 	// Schedule Name
 	Name pulumi.StringPtrInput
 	// Metadata tags that have been applied to the schedule.
-	Tags aws.CreateOnlyTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ScheduleArgs) ElementType() reflect.Type {
@@ -188,8 +187,8 @@ func (o ScheduleOutput) Name() pulumi.StringOutput {
 }
 
 // Metadata tags that have been applied to the schedule.
-func (o ScheduleOutput) Tags() aws.CreateOnlyTagArrayOutput {
-	return o.ApplyT(func(v *Schedule) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
+func (o ScheduleOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Schedule) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -75,6 +75,8 @@ export class Membership extends pulumi.CustomResource {
     public readonly paymentConfiguration!: pulumi.Output<outputs.cleanrooms.MembershipPaymentConfiguration | undefined>;
     /**
      * An indicator as to whether query logging has been enabled or disabled for the membership.
+     *
+     * When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
      */
     public readonly queryLogStatus!: pulumi.Output<enums.cleanrooms.MembershipQueryLogStatus>;
     /**
@@ -144,6 +146,8 @@ export interface MembershipArgs {
     paymentConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipPaymentConfigurationArgs>;
     /**
      * An indicator as to whether query logging has been enabled or disabled for the membership.
+     *
+     * When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
      */
     queryLogStatus: pulumi.Input<enums.cleanrooms.MembershipQueryLogStatus>;
     /**

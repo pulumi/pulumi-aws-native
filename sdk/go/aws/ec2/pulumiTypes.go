@@ -13,6 +13,57 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type CapacityReservationCapacityAllocation struct {
+	// The usage type. `used` indicates that the instance capacity is in use by instances that are running in the Capacity Reservation.
+	AllocationType *string `pulumi:"allocationType"`
+	// The amount of instance capacity associated with the usage. For example a value of `4` indicates that instance capacity for 4 instances is currently in use.
+	Count *int `pulumi:"count"`
+}
+
+type CapacityReservationCapacityAllocationOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationCapacityAllocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationCapacityAllocation)(nil)).Elem()
+}
+
+func (o CapacityReservationCapacityAllocationOutput) ToCapacityReservationCapacityAllocationOutput() CapacityReservationCapacityAllocationOutput {
+	return o
+}
+
+func (o CapacityReservationCapacityAllocationOutput) ToCapacityReservationCapacityAllocationOutputWithContext(ctx context.Context) CapacityReservationCapacityAllocationOutput {
+	return o
+}
+
+// The usage type. `used` indicates that the instance capacity is in use by instances that are running in the Capacity Reservation.
+func (o CapacityReservationCapacityAllocationOutput) AllocationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityReservationCapacityAllocation) *string { return v.AllocationType }).(pulumi.StringPtrOutput)
+}
+
+// The amount of instance capacity associated with the usage. For example a value of `4` indicates that instance capacity for 4 instances is currently in use.
+func (o CapacityReservationCapacityAllocationOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityReservationCapacityAllocation) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+type CapacityReservationCapacityAllocationArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationCapacityAllocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityReservationCapacityAllocation)(nil)).Elem()
+}
+
+func (o CapacityReservationCapacityAllocationArrayOutput) ToCapacityReservationCapacityAllocationArrayOutput() CapacityReservationCapacityAllocationArrayOutput {
+	return o
+}
+
+func (o CapacityReservationCapacityAllocationArrayOutput) ToCapacityReservationCapacityAllocationArrayOutputWithContext(ctx context.Context) CapacityReservationCapacityAllocationArrayOutput {
+	return o
+}
+
+func (o CapacityReservationCapacityAllocationArrayOutput) Index(i pulumi.IntInput) CapacityReservationCapacityAllocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityReservationCapacityAllocation {
+		return vs[0].([]CapacityReservationCapacityAllocation)[vs[1].(int)]
+	}).(CapacityReservationCapacityAllocationOutput)
+}
+
 type CapacityReservationFleetInstanceTypeSpecification struct {
 	// The Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you specify for the Fleet must use the same Availability Zone.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
@@ -603,6 +654,81 @@ func (o CapacityReservationTagSpecificationArrayOutput) Index(i pulumi.IntInput)
 type CarrierGatewayTag struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
+}
+
+type CommitmentInfoProperties struct {
+	// The date and time at which the commitment duration expires, in the ISO8601 format in the UTC time zone ( `YYYY-MM-DDThh:mm:ss.sssZ` ). You can't decrease the instance count or cancel the Capacity Reservation before this date and time.
+	CommitmentEndDate *string `pulumi:"commitmentEndDate"`
+	// The instance capacity that you committed to when you requested the future-dated Capacity Reservation.
+	CommittedInstanceCount *int `pulumi:"committedInstanceCount"`
+}
+
+type CommitmentInfoPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CommitmentInfoPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentInfoProperties)(nil)).Elem()
+}
+
+func (o CommitmentInfoPropertiesOutput) ToCommitmentInfoPropertiesOutput() CommitmentInfoPropertiesOutput {
+	return o
+}
+
+func (o CommitmentInfoPropertiesOutput) ToCommitmentInfoPropertiesOutputWithContext(ctx context.Context) CommitmentInfoPropertiesOutput {
+	return o
+}
+
+// The date and time at which the commitment duration expires, in the ISO8601 format in the UTC time zone ( `YYYY-MM-DDThh:mm:ss.sssZ` ). You can't decrease the instance count or cancel the Capacity Reservation before this date and time.
+func (o CommitmentInfoPropertiesOutput) CommitmentEndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommitmentInfoProperties) *string { return v.CommitmentEndDate }).(pulumi.StringPtrOutput)
+}
+
+// The instance capacity that you committed to when you requested the future-dated Capacity Reservation.
+func (o CommitmentInfoPropertiesOutput) CommittedInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CommitmentInfoProperties) *int { return v.CommittedInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+type CommitmentInfoPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CommitmentInfoPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommitmentInfoProperties)(nil)).Elem()
+}
+
+func (o CommitmentInfoPropertiesPtrOutput) ToCommitmentInfoPropertiesPtrOutput() CommitmentInfoPropertiesPtrOutput {
+	return o
+}
+
+func (o CommitmentInfoPropertiesPtrOutput) ToCommitmentInfoPropertiesPtrOutputWithContext(ctx context.Context) CommitmentInfoPropertiesPtrOutput {
+	return o
+}
+
+func (o CommitmentInfoPropertiesPtrOutput) Elem() CommitmentInfoPropertiesOutput {
+	return o.ApplyT(func(v *CommitmentInfoProperties) CommitmentInfoProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CommitmentInfoProperties
+		return ret
+	}).(CommitmentInfoPropertiesOutput)
+}
+
+// The date and time at which the commitment duration expires, in the ISO8601 format in the UTC time zone ( `YYYY-MM-DDThh:mm:ss.sssZ` ). You can't decrease the instance count or cancel the Capacity Reservation before this date and time.
+func (o CommitmentInfoPropertiesPtrOutput) CommitmentEndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommitmentInfoProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CommitmentEndDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The instance capacity that you committed to when you requested the future-dated Capacity Reservation.
+func (o CommitmentInfoPropertiesPtrOutput) CommittedInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CommitmentInfoProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CommittedInstanceCount
+	}).(pulumi.IntPtrOutput)
 }
 
 // The CPU options for the instance.
@@ -2807,7 +2933,6 @@ type Ec2FleetInstanceRequirementsRequest struct {
 	//
 	// - For instance types with FPGA accelerators, specify `fpga` .
 	// - For instance types with GPU accelerators, specify `gpu` .
-	// - For instance types with Inference accelerators, specify `inference` .
 	//
 	// Default: Any accelerator type
 	AcceleratorTypes []Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem `pulumi:"acceleratorTypes"`
@@ -3000,7 +3125,6 @@ type Ec2FleetInstanceRequirementsRequestArgs struct {
 	//
 	// - For instance types with FPGA accelerators, specify `fpga` .
 	// - For instance types with GPU accelerators, specify `gpu` .
-	// - For instance types with Inference accelerators, specify `inference` .
 	//
 	// Default: Any accelerator type
 	AcceleratorTypes Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput `pulumi:"acceleratorTypes"`
@@ -3278,7 +3402,6 @@ func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorTotalMemoryMiB() E
 //
 // - For instance types with FPGA accelerators, specify `fpga` .
 // - For instance types with GPU accelerators, specify `gpu` .
-// - For instance types with Inference accelerators, specify `inference` .
 //
 // Default: Any accelerator type
 func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorTypes() Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
@@ -3604,7 +3727,6 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorTotalMemoryMiB(
 //
 // - For instance types with FPGA accelerators, specify `fpga` .
 // - For instance types with GPU accelerators, specify `gpu` .
-// - For instance types with Inference accelerators, specify `inference` .
 //
 // Default: Any accelerator type
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorTypes() Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
@@ -25193,7 +25315,6 @@ type SpotFleetInstanceRequirementsRequest struct {
 	//
 	// - For instance types with FPGA accelerators, specify `fpga` .
 	// - For instance types with GPU accelerators, specify `gpu` .
-	// - For instance types with Inference accelerators, specify `inference` .
 	//
 	// Default: Any accelerator type
 	AcceleratorTypes []SpotFleetInstanceRequirementsRequestAcceleratorTypesItem `pulumi:"acceleratorTypes"`
@@ -25386,7 +25507,6 @@ type SpotFleetInstanceRequirementsRequestArgs struct {
 	//
 	// - For instance types with FPGA accelerators, specify `fpga` .
 	// - For instance types with GPU accelerators, specify `gpu` .
-	// - For instance types with Inference accelerators, specify `inference` .
 	//
 	// Default: Any accelerator type
 	AcceleratorTypes SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput `pulumi:"acceleratorTypes"`
@@ -25664,7 +25784,6 @@ func (o SpotFleetInstanceRequirementsRequestOutput) AcceleratorTotalMemoryMiB() 
 //
 // - For instance types with FPGA accelerators, specify `fpga` .
 // - For instance types with GPU accelerators, specify `gpu` .
-// - For instance types with Inference accelerators, specify `inference` .
 //
 // Default: Any accelerator type
 func (o SpotFleetInstanceRequirementsRequestOutput) AcceleratorTypes() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
@@ -25990,7 +26109,6 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorTotalMemoryMiB
 //
 // - For instance types with FPGA accelerators, specify `fpga` .
 // - For instance types with GPU accelerators, specify `gpu` .
-// - For instance types with Inference accelerators, specify `inference` .
 //
 // Default: Any accelerator type
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorTypes() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
@@ -35361,6 +35479,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelLogOptionsSpecificationPtrInput)(nil)).Elem(), VpnConnectionVpnTunnelLogOptionsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationArrayInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationArray{})
+	pulumi.RegisterOutputType(CapacityReservationCapacityAllocationOutput{})
+	pulumi.RegisterOutputType(CapacityReservationCapacityAllocationArrayOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetInstanceTypeSpecificationOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetInstanceTypeSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetTagOutput{})
@@ -35371,6 +35491,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityReservationTagArrayOutput{})
 	pulumi.RegisterOutputType(CapacityReservationTagSpecificationOutput{})
 	pulumi.RegisterOutputType(CapacityReservationTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(CommitmentInfoPropertiesOutput{})
+	pulumi.RegisterOutputType(CommitmentInfoPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CpuOptionsPropertiesOutput{})
 	pulumi.RegisterOutputType(CpuOptionsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CreditSpecificationPropertiesOutput{})

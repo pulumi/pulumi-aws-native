@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::GuardDuty::PublishingDestination
+// Resource Type definition for AWS::GuardDuty::PublishingDestination.
 func LookupPublishingDestination(ctx *pulumi.Context, args *LookupPublishingDestinationArgs, opts ...pulumi.InvokeOption) (*LookupPublishingDestinationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPublishingDestinationResult

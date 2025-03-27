@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,6 +33,10 @@ type LookupRulesetResult struct {
 	Description *string `pulumi:"description"`
 	// List of the data quality rules in the ruleset
 	Rules []RulesetRule `pulumi:"rules"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRulesetOutput(ctx *pulumi.Context, args LookupRulesetOutputArgs, opts ...pulumi.InvokeOption) LookupRulesetResultOutput {
@@ -74,6 +79,13 @@ func (o LookupRulesetResultOutput) Description() pulumi.StringPtrOutput {
 // List of the data quality rules in the ruleset
 func (o LookupRulesetResultOutput) Rules() RulesetRuleArrayOutput {
 	return o.ApplyT(func(v LookupRulesetResult) []RulesetRule { return v.Rules }).(RulesetRuleArrayOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+func (o LookupRulesetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRulesetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

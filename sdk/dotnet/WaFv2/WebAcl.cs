@@ -70,6 +70,12 @@ namespace Pulumi.AwsNative.WaFv2
         public Output<ImmutableDictionary<string, Outputs.WebAclCustomResponseBody>?> CustomResponseBodies { get; private set; } = null!;
 
         /// <summary>
+        /// Collection of dataProtects.
+        /// </summary>
+        [Output("dataProtectionConfig")]
+        public Output<Outputs.WebAclDataProtectionConfig?> DataProtectionConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The action to perform if none of the `Rules` contained in the `WebACL` match.
         /// </summary>
         [Output("defaultAction")]
@@ -222,6 +228,12 @@ namespace Pulumi.AwsNative.WaFv2
             get => _customResponseBodies ?? (_customResponseBodies = new InputMap<Inputs.WebAclCustomResponseBodyArgs>());
             set => _customResponseBodies = value;
         }
+
+        /// <summary>
+        /// Collection of dataProtects.
+        /// </summary>
+        [Input("dataProtectionConfig")]
+        public Input<Inputs.WebAclDataProtectionConfigArgs>? DataProtectionConfig { get; set; }
 
         /// <summary>
         /// The action to perform if none of the `Rules` contained in the `WebACL` match.

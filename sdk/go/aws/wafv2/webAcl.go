@@ -43,6 +43,8 @@ type WebAcl struct {
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 	CustomResponseBodies WebAclCustomResponseBodyMapOutput `pulumi:"customResponseBodies"`
+	// Collection of dataProtects.
+	DataProtectionConfig WebAclDataProtectionConfigPtrOutput `pulumi:"dataProtectionConfig"`
 	// The action to perform if none of the `Rules` contained in the `WebACL` match.
 	DefaultAction WebAclDefaultActionOutput `pulumi:"defaultAction"`
 	// A description of the web ACL that helps with identification.
@@ -145,6 +147,8 @@ type webAclArgs struct {
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 	CustomResponseBodies map[string]WebAclCustomResponseBody `pulumi:"customResponseBodies"`
+	// Collection of dataProtects.
+	DataProtectionConfig *WebAclDataProtectionConfig `pulumi:"dataProtectionConfig"`
 	// The action to perform if none of the `Rules` contained in the `WebACL` match.
 	DefaultAction WebAclDefaultAction `pulumi:"defaultAction"`
 	// A description of the web ACL that helps with identification.
@@ -189,6 +193,8 @@ type WebAclArgs struct {
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 	CustomResponseBodies WebAclCustomResponseBodyMapInput
+	// Collection of dataProtects.
+	DataProtectionConfig WebAclDataProtectionConfigPtrInput
 	// The action to perform if none of the `Rules` contained in the `WebACL` match.
 	DefaultAction WebAclDefaultActionInput
 	// A description of the web ACL that helps with identification.
@@ -295,6 +301,11 @@ func (o WebAclOutput) ChallengeConfig() WebAclChallengeConfigPtrOutput {
 // For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 func (o WebAclOutput) CustomResponseBodies() WebAclCustomResponseBodyMapOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclCustomResponseBodyMapOutput { return v.CustomResponseBodies }).(WebAclCustomResponseBodyMapOutput)
+}
+
+// Collection of dataProtects.
+func (o WebAclOutput) DataProtectionConfig() WebAclDataProtectionConfigPtrOutput {
+	return o.ApplyT(func(v *WebAcl) WebAclDataProtectionConfigPtrOutput { return v.DataProtectionConfig }).(WebAclDataProtectionConfigPtrOutput)
 }
 
 // The action to perform if none of the `Rules` contained in the `WebACL` match.

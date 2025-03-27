@@ -20,6 +20,10 @@ __all__ = [
     'AppMonitorConfigurationArgsDict',
     'AppMonitorCustomEventsArgs',
     'AppMonitorCustomEventsArgsDict',
+    'AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs',
+    'AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgsDict',
+    'AppMonitorDeobfuscationConfigurationArgs',
+    'AppMonitorDeobfuscationConfigurationArgsDict',
     'AppMonitorMetricDefinitionArgs',
     'AppMonitorMetricDefinitionArgsDict',
     'AppMonitorMetricDestinationArgs',
@@ -280,6 +284,97 @@ class AppMonitorCustomEventsArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input['AppMonitorCustomEventsStatus']]):
         pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgsDict(TypedDict):
+        """
+        A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
+        """
+        status: pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus']
+        """
+        Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be DISABLED
+        """
+        s3_uri: NotRequired[pulumi.Input[str]]
+        """
+        The S3Uri of the bucket or folder that stores the source map files. It is required if status is ENABLED.
+        """
+elif False:
+    AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus'],
+                 s3_uri: Optional[pulumi.Input[str]] = None):
+        """
+        A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
+        :param pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus'] status: Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be DISABLED
+        :param pulumi.Input[str] s3_uri: The S3Uri of the bucket or folder that stores the source map files. It is required if status is ENABLED.
+        """
+        pulumi.set(__self__, "status", status)
+        if s3_uri is not None:
+            pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus']:
+        """
+        Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be DISABLED
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus']):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The S3Uri of the bucket or folder that stores the source map files. It is required if status is ENABLED.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_uri", value)
+
+
+if not MYPY:
+    class AppMonitorDeobfuscationConfigurationArgsDict(TypedDict):
+        """
+        A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+        """
+        java_script_source_maps: NotRequired[pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgsDict']]
+        """
+        A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
+        """
+elif False:
+    AppMonitorDeobfuscationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppMonitorDeobfuscationConfigurationArgs:
+    def __init__(__self__, *,
+                 java_script_source_maps: Optional[pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs']] = None):
+        """
+        A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+        :param pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs'] java_script_source_maps: A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
+        """
+        if java_script_source_maps is not None:
+            pulumi.set(__self__, "java_script_source_maps", java_script_source_maps)
+
+    @property
+    @pulumi.getter(name="javaScriptSourceMaps")
+    def java_script_source_maps(self) -> Optional[pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs']]:
+        """
+        A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
+        """
+        return pulumi.get(self, "java_script_source_maps")
+
+    @java_script_source_maps.setter
+    def java_script_source_maps(self, value: Optional[pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs']]):
+        pulumi.set(self, "java_script_source_maps", value)
 
 
 if not MYPY:
