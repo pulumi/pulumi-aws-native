@@ -1,8 +1,8 @@
 module github.com/pulumi/pulumi-aws-native/provider
 
-go 1.23
+go 1.24
 
-toolchain go1.23.4
+toolchain go1.24.1
 
 require (
 	github.com/apparentlymart/go-cidr v1.1.0
@@ -29,9 +29,9 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/jsschema v0.0.0-20240222154951-2ba83b66ea54
 	github.com/pulumi/providertest v0.2.0
-	github.com/pulumi/pulumi-go-provider v0.24.1
-	github.com/pulumi/pulumi/pkg/v3 v3.158.0
-	github.com/pulumi/pulumi/sdk/v3 v3.158.0
+	github.com/pulumi/pulumi-go-provider v0.25.0
+	github.com/pulumi/pulumi/pkg/v3 v3.159.0
+	github.com/pulumi/pulumi/sdk/v3 v3.159.0
 	github.com/stretchr/testify v1.10.0
 	github.com/wI2L/jsondiff v0.5.1
 	github.com/zclconf/go-cty v1.13.2
@@ -144,10 +144,10 @@ require (
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
 	go.uber.org/atomic v1.11.0 // indirect
-	golang.org/x/crypto v0.33.0 // indirect
+	golang.org/x/crypto v0.35.0 // indirect
 	golang.org/x/exp v0.0.0-20240719175910-8a7402abbf56 // indirect
 	golang.org/x/mod v0.19.0 // indirect
-	golang.org/x/net v0.35.0 // indirect
+	golang.org/x/net v0.36.0 // indirect
 	golang.org/x/sync v0.11.0 // indirect
 	golang.org/x/sys v0.30.0 // indirect
 	golang.org/x/term v0.29.0 // indirect
