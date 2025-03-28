@@ -18,6 +18,10 @@ const (
 	KeyAlgorithmAes128      = KeyAlgorithm("AES_128")
 	KeyAlgorithmAes192      = KeyAlgorithm("AES_192")
 	KeyAlgorithmAes256      = KeyAlgorithm("AES_256")
+	KeyAlgorithmHmacSha256  = KeyAlgorithm("HMAC_SHA256")
+	KeyAlgorithmHmacSha384  = KeyAlgorithm("HMAC_SHA384")
+	KeyAlgorithmHmacSha512  = KeyAlgorithm("HMAC_SHA512")
+	KeyAlgorithmHmacSha224  = KeyAlgorithm("HMAC_SHA224")
 	KeyAlgorithmRsa2048     = KeyAlgorithm("RSA_2048")
 	KeyAlgorithmRsa3072     = KeyAlgorithm("RSA_3072")
 	KeyAlgorithmRsa4096     = KeyAlgorithm("RSA_4096")
@@ -153,6 +157,10 @@ func (o KeyAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	KeyAlgorithmAes128
 //	KeyAlgorithmAes192
 //	KeyAlgorithmAes256
+//	KeyAlgorithmHmacSha256
+//	KeyAlgorithmHmacSha384
+//	KeyAlgorithmHmacSha512
+//	KeyAlgorithmHmacSha224
 //	KeyAlgorithmRsa2048
 //	KeyAlgorithmRsa3072
 //	KeyAlgorithmRsa4096

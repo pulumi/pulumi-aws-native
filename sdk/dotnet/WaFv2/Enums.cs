@@ -907,6 +907,34 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct RuleGroupUriFragmentFallbackBehavior : IEquatable<RuleGroupUriFragmentFallbackBehavior>
+    {
+        private readonly string _value;
+
+        private RuleGroupUriFragmentFallbackBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleGroupUriFragmentFallbackBehavior Match { get; } = new RuleGroupUriFragmentFallbackBehavior("MATCH");
+        public static RuleGroupUriFragmentFallbackBehavior NoMatch { get; } = new RuleGroupUriFragmentFallbackBehavior("NO_MATCH");
+
+        public static bool operator ==(RuleGroupUriFragmentFallbackBehavior left, RuleGroupUriFragmentFallbackBehavior right) => left.Equals(right);
+        public static bool operator !=(RuleGroupUriFragmentFallbackBehavior left, RuleGroupUriFragmentFallbackBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(RuleGroupUriFragmentFallbackBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleGroupUriFragmentFallbackBehavior other && Equals(other);
+        public bool Equals(RuleGroupUriFragmentFallbackBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The inspection level to use for the Bot Control rule group. The common level is the least expensive. The targeted level includes all common level rules and adds rules with more advanced inspection criteria. For details, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) in the *AWS WAF Developer Guide* .
     /// </summary>
@@ -963,6 +991,68 @@ namespace Pulumi.AwsNative.WaFv2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WebAclBodyParsingFallbackBehavior other && Equals(other);
         public bool Equals(WebAclBodyParsingFallbackBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct WebAclDataProtectionAction : IEquatable<WebAclDataProtectionAction>
+    {
+        private readonly string _value;
+
+        private WebAclDataProtectionAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclDataProtectionAction Substitution { get; } = new WebAclDataProtectionAction("SUBSTITUTION");
+        public static WebAclDataProtectionAction Hash { get; } = new WebAclDataProtectionAction("HASH");
+
+        public static bool operator ==(WebAclDataProtectionAction left, WebAclDataProtectionAction right) => left.Equals(right);
+        public static bool operator !=(WebAclDataProtectionAction left, WebAclDataProtectionAction right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclDataProtectionAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclDataProtectionAction other && Equals(other);
+        public bool Equals(WebAclDataProtectionAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Field type to protect
+    /// </summary>
+    [EnumType]
+    public readonly struct WebAclFieldToProtectFieldType : IEquatable<WebAclFieldToProtectFieldType>
+    {
+        private readonly string _value;
+
+        private WebAclFieldToProtectFieldType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclFieldToProtectFieldType SingleHeader { get; } = new WebAclFieldToProtectFieldType("SINGLE_HEADER");
+        public static WebAclFieldToProtectFieldType SingleCookie { get; } = new WebAclFieldToProtectFieldType("SINGLE_COOKIE");
+        public static WebAclFieldToProtectFieldType SingleQueryArgument { get; } = new WebAclFieldToProtectFieldType("SINGLE_QUERY_ARGUMENT");
+        public static WebAclFieldToProtectFieldType QueryString { get; } = new WebAclFieldToProtectFieldType("QUERY_STRING");
+        public static WebAclFieldToProtectFieldType Body { get; } = new WebAclFieldToProtectFieldType("BODY");
+
+        public static bool operator ==(WebAclFieldToProtectFieldType left, WebAclFieldToProtectFieldType right) => left.Equals(right);
+        public static bool operator !=(WebAclFieldToProtectFieldType left, WebAclFieldToProtectFieldType right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclFieldToProtectFieldType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclFieldToProtectFieldType other && Equals(other);
+        public bool Equals(WebAclFieldToProtectFieldType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1733,6 +1823,34 @@ namespace Pulumi.AwsNative.WaFv2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WebAclTextTransformationType other && Equals(other);
         public bool Equals(WebAclTextTransformationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct WebAclUriFragmentFallbackBehavior : IEquatable<WebAclUriFragmentFallbackBehavior>
+    {
+        private readonly string _value;
+
+        private WebAclUriFragmentFallbackBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclUriFragmentFallbackBehavior Match { get; } = new WebAclUriFragmentFallbackBehavior("MATCH");
+        public static WebAclUriFragmentFallbackBehavior NoMatch { get; } = new WebAclUriFragmentFallbackBehavior("NO_MATCH");
+
+        public static bool operator ==(WebAclUriFragmentFallbackBehavior left, WebAclUriFragmentFallbackBehavior right) => left.Equals(right);
+        public static bool operator !=(WebAclUriFragmentFallbackBehavior left, WebAclUriFragmentFallbackBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclUriFragmentFallbackBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclUriFragmentFallbackBehavior other && Equals(other);
+        public bool Equals(WebAclUriFragmentFallbackBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -52,6 +52,13 @@
     }
   },
   "properties" : {
+    "RootDomainUnitId" : {
+      "type" : "string",
+      "description" : "The ID of the root domain in Amazon Datazone.",
+      "pattern" : "^[a-z0-9_\\-]+$",
+      "minLength" : 1,
+      "maxLength" : 256
+    },
     "Arn" : {
       "type" : "string",
       "description" : "The ARN of the Amazon DataZone domain.",
@@ -129,7 +136,7 @@
     }
   },
   "required" : [ "DomainExecutionRole", "Name" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/Id", "/properties/LastUpdatedAt", "/properties/ManagedAccountId", "/properties/PortalUrl", "/properties/Status" ],
+  "readOnlyProperties" : [ "/properties/RootDomainUnitId", "/properties/Arn", "/properties/CreatedAt", "/properties/Id", "/properties/LastUpdatedAt", "/properties/ManagedAccountId", "/properties/PortalUrl", "/properties/Status" ],
   "createOnlyProperties" : [ "/properties/KmsKeyIdentifier", "/properties/DomainVersion" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "additionalIdentifiers" : [ [ "/properties/Name" ] ],

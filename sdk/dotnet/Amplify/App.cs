@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.Amplify
         [Output("cacheConfig")]
         public Output<Outputs.AppCacheConfig?> CacheConfig { get; private set; } = null!;
 
+        [Output("computeRoleArn")]
+        public Output<string?> ComputeRoleArn { get; private set; } = null!;
+
         /// <summary>
         /// The custom HTTP headers for an Amplify app.
         /// </summary>
@@ -231,6 +234,9 @@ namespace Pulumi.AwsNative.Amplify
         /// </summary>
         [Input("cacheConfig")]
         public Input<Inputs.AppCacheConfigArgs>? CacheConfig { get; set; }
+
+        [Input("computeRoleArn")]
+        public Input<string>? ComputeRoleArn { get; set; }
 
         /// <summary>
         /// The custom HTTP headers for an Amplify app.

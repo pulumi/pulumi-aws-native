@@ -163,6 +163,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        [Output("useAs")]
+        public Output<Pulumi.AwsNative.QuickSight.DataSetUseAs?> UseAs { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a DataSet resource with the given unique name, arguments, and options.
@@ -382,6 +385,9 @@ namespace Pulumi.AwsNative.QuickSight
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        [Input("useAs")]
+        public Input<Pulumi.AwsNative.QuickSight.DataSetUseAs>? UseAs { get; set; }
 
         public DataSetArgs()
         {

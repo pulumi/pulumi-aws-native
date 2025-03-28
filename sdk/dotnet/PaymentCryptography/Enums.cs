@@ -22,6 +22,10 @@ namespace Pulumi.AwsNative.PaymentCryptography
         public static KeyAlgorithm Aes128 { get; } = new KeyAlgorithm("AES_128");
         public static KeyAlgorithm Aes192 { get; } = new KeyAlgorithm("AES_192");
         public static KeyAlgorithm Aes256 { get; } = new KeyAlgorithm("AES_256");
+        public static KeyAlgorithm HmacSha256 { get; } = new KeyAlgorithm("HMAC_SHA256");
+        public static KeyAlgorithm HmacSha384 { get; } = new KeyAlgorithm("HMAC_SHA384");
+        public static KeyAlgorithm HmacSha512 { get; } = new KeyAlgorithm("HMAC_SHA512");
+        public static KeyAlgorithm HmacSha224 { get; } = new KeyAlgorithm("HMAC_SHA224");
         public static KeyAlgorithm Rsa2048 { get; } = new KeyAlgorithm("RSA_2048");
         public static KeyAlgorithm Rsa3072 { get; } = new KeyAlgorithm("RSA_3072");
         public static KeyAlgorithm Rsa4096 { get; } = new KeyAlgorithm("RSA_4096");

@@ -30,7 +30,8 @@ type Branch struct {
 	// The name for the branch.
 	BranchName pulumi.StringOutput `pulumi:"branchName"`
 	// The build specification (build spec) for the branch.
-	BuildSpec pulumi.StringPtrOutput `pulumi:"buildSpec"`
+	BuildSpec      pulumi.StringPtrOutput `pulumi:"buildSpec"`
+	ComputeRoleArn pulumi.StringPtrOutput `pulumi:"computeRoleArn"`
 	// The description for the branch that is part of an Amplify app.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Enables auto building for the branch.
@@ -45,6 +46,7 @@ type Branch struct {
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 	EnablePullRequestPreview pulumi.BoolPtrOutput `pulumi:"enablePullRequestPreview"`
+	EnableSkewProtection     pulumi.BoolPtrOutput `pulumi:"enableSkewProtection"`
 	// The environment variables for the branch.
 	EnvironmentVariables BranchEnvironmentVariableArrayOutput `pulumi:"environmentVariables"`
 	// The framework for the branch.
@@ -122,7 +124,8 @@ type branchArgs struct {
 	// The name for the branch.
 	BranchName *string `pulumi:"branchName"`
 	// The build specification (build spec) for the branch.
-	BuildSpec *string `pulumi:"buildSpec"`
+	BuildSpec      *string `pulumi:"buildSpec"`
+	ComputeRoleArn *string `pulumi:"computeRoleArn"`
 	// The description for the branch that is part of an Amplify app.
 	Description *string `pulumi:"description"`
 	// Enables auto building for the branch.
@@ -137,6 +140,7 @@ type branchArgs struct {
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 	EnablePullRequestPreview *bool `pulumi:"enablePullRequestPreview"`
+	EnableSkewProtection     *bool `pulumi:"enableSkewProtection"`
 	// The environment variables for the branch.
 	EnvironmentVariables []BranchEnvironmentVariable `pulumi:"environmentVariables"`
 	// The framework for the branch.
@@ -168,7 +172,8 @@ type BranchArgs struct {
 	// The name for the branch.
 	BranchName pulumi.StringPtrInput
 	// The build specification (build spec) for the branch.
-	BuildSpec pulumi.StringPtrInput
+	BuildSpec      pulumi.StringPtrInput
+	ComputeRoleArn pulumi.StringPtrInput
 	// The description for the branch that is part of an Amplify app.
 	Description pulumi.StringPtrInput
 	// Enables auto building for the branch.
@@ -183,6 +188,7 @@ type BranchArgs struct {
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 	EnablePullRequestPreview pulumi.BoolPtrInput
+	EnableSkewProtection     pulumi.BoolPtrInput
 	// The environment variables for the branch.
 	EnvironmentVariables BranchEnvironmentVariableArrayInput
 	// The framework for the branch.
@@ -270,6 +276,10 @@ func (o BranchOutput) BuildSpec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.BuildSpec }).(pulumi.StringPtrOutput)
 }
 
+func (o BranchOutput) ComputeRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.ComputeRoleArn }).(pulumi.StringPtrOutput)
+}
+
 // The description for the branch that is part of an Amplify app.
 func (o BranchOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -294,6 +304,10 @@ func (o BranchOutput) EnablePerformanceMode() pulumi.BoolPtrOutput {
 // For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 func (o BranchOutput) EnablePullRequestPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Branch) pulumi.BoolPtrOutput { return v.EnablePullRequestPreview }).(pulumi.BoolPtrOutput)
+}
+
+func (o BranchOutput) EnableSkewProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Branch) pulumi.BoolPtrOutput { return v.EnableSkewProtection }).(pulumi.BoolPtrOutput)
 }
 
 // The environment variables for the branch.

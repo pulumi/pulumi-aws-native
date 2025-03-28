@@ -2,6 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ApplicationComponentInfoComponentType = {
+    Hana: "HANA",
+    HanaNode: "HANA_NODE",
+    Abap: "ABAP",
+    Ascs: "ASCS",
+    Dialog: "DIALOG",
+    Webdisp: "WEBDISP",
+    Wd: "WD",
+    Ers: "ERS",
+} as const;
+
+export type ApplicationComponentInfoComponentType = (typeof ApplicationComponentInfoComponentType)[keyof typeof ApplicationComponentInfoComponentType];
+
 export const ApplicationCredentialCredentialType = {
     Admin: "ADMIN",
 } as const;

@@ -31,8 +31,11 @@ __all__ = [
     'RuleGroupSensitivityLevel',
     'RuleGroupSizeConstraintStatementComparisonOperator',
     'RuleGroupTextTransformationType',
+    'RuleGroupUriFragmentFallbackBehavior',
     'WebAclAwsManagedRulesBotControlRuleSetInspectionLevel',
     'WebAclBodyParsingFallbackBehavior',
+    'WebAclDataProtectionAction',
+    'WebAclFieldToProtectFieldType',
     'WebAclForwardedIpConfigurationFallbackBehavior',
     'WebAclIpSetForwardedIpConfigurationFallbackBehavior',
     'WebAclIpSetForwardedIpConfigurationPosition',
@@ -55,6 +58,7 @@ __all__ = [
     'WebAclSizeConstraintStatementComparisonOperator',
     'WebAclSizeInspectionLimit',
     'WebAclTextTransformationType',
+    'WebAclUriFragmentFallbackBehavior',
 ]
 
 
@@ -360,6 +364,11 @@ class RuleGroupTextTransformationType(str, Enum):
     UTF8_TO_UNICODE = "UTF8_TO_UNICODE"
 
 
+class RuleGroupUriFragmentFallbackBehavior(str, Enum):
+    MATCH = "MATCH"
+    NO_MATCH = "NO_MATCH"
+
+
 class WebAclAwsManagedRulesBotControlRuleSetInspectionLevel(str, Enum):
     """
     The inspection level to use for the Bot Control rule group. The common level is the least expensive. The targeted level includes all common level rules and adds rules with more advanced inspection criteria. For details, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) in the *AWS WAF Developer Guide* .
@@ -375,6 +384,22 @@ class WebAclBodyParsingFallbackBehavior(str, Enum):
     MATCH = "MATCH"
     NO_MATCH = "NO_MATCH"
     EVALUATE_AS_STRING = "EVALUATE_AS_STRING"
+
+
+class WebAclDataProtectionAction(str, Enum):
+    SUBSTITUTION = "SUBSTITUTION"
+    HASH = "HASH"
+
+
+class WebAclFieldToProtectFieldType(str, Enum):
+    """
+    Field type to protect
+    """
+    SINGLE_HEADER = "SINGLE_HEADER"
+    SINGLE_COOKIE = "SINGLE_COOKIE"
+    SINGLE_QUERY_ARGUMENT = "SINGLE_QUERY_ARGUMENT"
+    QUERY_STRING = "QUERY_STRING"
+    BODY = "BODY"
 
 
 class WebAclForwardedIpConfigurationFallbackBehavior(str, Enum):
@@ -639,3 +664,8 @@ class WebAclTextTransformationType(str, Enum):
     BASE64_DECODE_EXT = "BASE64_DECODE_EXT"
     URL_DECODE_UNI = "URL_DECODE_UNI"
     UTF8_TO_UNICODE = "UTF8_TO_UNICODE"
+
+
+class WebAclUriFragmentFallbackBehavior(str, Enum):
+    MATCH = "MATCH"
+    NO_MATCH = "NO_MATCH"

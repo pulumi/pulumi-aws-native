@@ -37,7 +37,8 @@ type App struct {
 	// The build specification (build spec) for an Amplify app.
 	BuildSpec pulumi.StringPtrOutput `pulumi:"buildSpec"`
 	// The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
-	CacheConfig AppCacheConfigPtrOutput `pulumi:"cacheConfig"`
+	CacheConfig    AppCacheConfigPtrOutput `pulumi:"cacheConfig"`
+	ComputeRoleArn pulumi.StringPtrOutput  `pulumi:"computeRoleArn"`
 	// The custom HTTP headers for an Amplify app.
 	CustomHeaders pulumi.StringPtrOutput `pulumi:"customHeaders"`
 	// The custom rewrite and redirect rules for an Amplify app.
@@ -129,7 +130,8 @@ type appArgs struct {
 	// The build specification (build spec) for an Amplify app.
 	BuildSpec *string `pulumi:"buildSpec"`
 	// The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
-	CacheConfig *AppCacheConfig `pulumi:"cacheConfig"`
+	CacheConfig    *AppCacheConfig `pulumi:"cacheConfig"`
+	ComputeRoleArn *string         `pulumi:"computeRoleArn"`
 	// The custom HTTP headers for an Amplify app.
 	CustomHeaders *string `pulumi:"customHeaders"`
 	// The custom rewrite and redirect rules for an Amplify app.
@@ -181,7 +183,8 @@ type AppArgs struct {
 	// The build specification (build spec) for an Amplify app.
 	BuildSpec pulumi.StringPtrInput
 	// The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
-	CacheConfig AppCacheConfigPtrInput
+	CacheConfig    AppCacheConfigPtrInput
+	ComputeRoleArn pulumi.StringPtrInput
 	// The custom HTTP headers for an Amplify app.
 	CustomHeaders pulumi.StringPtrInput
 	// The custom rewrite and redirect rules for an Amplify app.
@@ -297,6 +300,10 @@ func (o AppOutput) BuildSpec() pulumi.StringPtrOutput {
 // The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
 func (o AppOutput) CacheConfig() AppCacheConfigPtrOutput {
 	return o.ApplyT(func(v *App) AppCacheConfigPtrOutput { return v.CacheConfig }).(AppCacheConfigPtrOutput)
+}
+
+func (o AppOutput) ComputeRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.ComputeRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The custom HTTP headers for an Amplify app.

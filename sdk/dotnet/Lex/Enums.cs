@@ -68,6 +68,37 @@ namespace Pulumi.AwsNative.Lex
     }
 
     /// <summary>
+    /// The Bedrock trace status in the Bedrock model specification details.
+    /// </summary>
+    [EnumType]
+    public readonly struct BotBedrockModelSpecificationBedrockTraceStatus : IEquatable<BotBedrockModelSpecificationBedrockTraceStatus>
+    {
+        private readonly string _value;
+
+        private BotBedrockModelSpecificationBedrockTraceStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BotBedrockModelSpecificationBedrockTraceStatus Enabled { get; } = new BotBedrockModelSpecificationBedrockTraceStatus("ENABLED");
+        public static BotBedrockModelSpecificationBedrockTraceStatus Disabled { get; } = new BotBedrockModelSpecificationBedrockTraceStatus("DISABLED");
+
+        public static bool operator ==(BotBedrockModelSpecificationBedrockTraceStatus left, BotBedrockModelSpecificationBedrockTraceStatus right) => left.Equals(right);
+        public static bool operator !=(BotBedrockModelSpecificationBedrockTraceStatus left, BotBedrockModelSpecificationBedrockTraceStatus right) => !left.Equals(right);
+
+        public static explicit operator string(BotBedrockModelSpecificationBedrockTraceStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BotBedrockModelSpecificationBedrockTraceStatus other && Equals(other);
+        public bool Equals(BotBedrockModelSpecificationBedrockTraceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The possible values of actions that the conversation can take.
     /// </summary>
     [EnumType]
@@ -269,6 +300,8 @@ namespace Pulumi.AwsNative.Lex
 
         public static BotVoiceSettingsEngine Standard { get; } = new BotVoiceSettingsEngine("standard");
         public static BotVoiceSettingsEngine Neural { get; } = new BotVoiceSettingsEngine("neural");
+        public static BotVoiceSettingsEngine LongForm { get; } = new BotVoiceSettingsEngine("long-form");
+        public static BotVoiceSettingsEngine Generative { get; } = new BotVoiceSettingsEngine("generative");
 
         public static bool operator ==(BotVoiceSettingsEngine left, BotVoiceSettingsEngine right) => left.Equals(right);
         public static bool operator !=(BotVoiceSettingsEngine left, BotVoiceSettingsEngine right) => !left.Equals(right);

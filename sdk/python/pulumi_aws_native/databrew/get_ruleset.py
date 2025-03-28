@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetRulesetResult:
-    def __init__(__self__, description=None, rules=None):
+    def __init__(__self__, description=None, rules=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if rules and not isinstance(rules, list):
             raise TypeError("Expected argument 'rules' to be a list")
         pulumi.set(__self__, "rules", rules)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -49,6 +53,16 @@ class GetRulesetResult:
         """
         return pulumi.get(self, "rules")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetRulesetResult(GetRulesetResult):
     # pylint: disable=using-constant-test
@@ -57,7 +71,8 @@ class AwaitableGetRulesetResult(GetRulesetResult):
             yield self
         return GetRulesetResult(
             description=self.description,
-            rules=self.rules)
+            rules=self.rules,
+            tags=self.tags)
 
 
 def get_ruleset(name: Optional[str] = None,
@@ -75,7 +90,8 @@ def get_ruleset(name: Optional[str] = None,
 
     return AwaitableGetRulesetResult(
         description=pulumi.get(__ret__, 'description'),
-        rules=pulumi.get(__ret__, 'rules'))
+        rules=pulumi.get(__ret__, 'rules'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_ruleset_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRulesetResult]:
     """
@@ -90,4 +106,5 @@ def get_ruleset_output(name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:databrew:getRuleset', __args__, opts=opts, typ=GetRulesetResult)
     return __ret__.apply(lambda __response__: GetRulesetResult(
         description=pulumi.get(__response__, 'description'),
-        rules=pulumi.get(__response__, 'rules')))
+        rules=pulumi.get(__response__, 'rules'),
+        tags=pulumi.get(__response__, 'tags')))

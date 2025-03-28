@@ -34,6 +34,14 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL "https://docs.aws.amazon.com/bedrock/latest/userguide/" and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain "aws.amazon.com" can also include sub domain "docs.aws.amazon.com".
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.DataSourceWebScopeType? Scope;
+        /// <summary>
+        /// The suffix that will be included in the user agent header.
+        /// </summary>
+        public readonly string? UserAgent;
+        /// <summary>
+        /// The full user agent header, including UUID and suffix.
+        /// </summary>
+        public readonly string? UserAgentHeader;
 
         [OutputConstructor]
         private DataSourceWebCrawlerConfiguration(
@@ -43,12 +51,18 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
             ImmutableArray<string> inclusionFilters,
 
-            Pulumi.AwsNative.Bedrock.DataSourceWebScopeType? scope)
+            Pulumi.AwsNative.Bedrock.DataSourceWebScopeType? scope,
+
+            string? userAgent,
+
+            string? userAgentHeader)
         {
             CrawlerLimits = crawlerLimits;
             ExclusionFilters = exclusionFilters;
             InclusionFilters = inclusionFilters;
             Scope = scope;
+            UserAgent = userAgent;
+            UserAgentHeader = userAgentHeader;
         }
     }
 }

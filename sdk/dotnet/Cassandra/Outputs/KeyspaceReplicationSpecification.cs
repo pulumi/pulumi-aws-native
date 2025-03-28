@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
     public sealed class KeyspaceReplicationSpecification
     {
         /// <summary>
-        /// Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two and up to six Regions, including the Region that the keyspace is being created in.
+        /// Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two Regions, including the Region that the keyspace is being created in.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Cassandra.KeyspaceRegionListItem> RegionList;
         /// <summary>

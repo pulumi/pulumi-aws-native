@@ -50,6 +50,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+     */
+    public readonly networkType!: pulumi.Output<enums.route53recoverycontrol.ClusterNetworkType | undefined>;
+    /**
      * Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
      */
     public /*out*/ readonly status!: pulumi.Output<enums.route53recoverycontrol.ClusterStatus>;
@@ -70,6 +74,7 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["clusterArn"] = undefined /*out*/;
             resourceInputs["clusterEndpoints"] = undefined /*out*/;
@@ -78,6 +83,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterArn"] = undefined /*out*/;
             resourceInputs["clusterEndpoints"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkType"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -96,6 +102,10 @@ export interface ClusterArgs {
      * Name of a Cluster. You can use any non-white space character in the name
      */
     name?: pulumi.Input<string>;
+    /**
+     * Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+     */
+    networkType?: pulumi.Input<enums.route53recoverycontrol.ClusterNetworkType>;
     /**
      * A collection of tags associated with a resource
      */

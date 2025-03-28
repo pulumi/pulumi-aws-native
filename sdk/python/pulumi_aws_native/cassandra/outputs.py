@@ -56,7 +56,7 @@ class KeyspaceReplicationSpecification(dict):
                  region_list: Optional[Sequence['KeyspaceRegionListItem']] = None,
                  replication_strategy: Optional['KeyspaceReplicationSpecificationReplicationStrategy'] = None):
         """
-        :param Sequence['KeyspaceRegionListItem'] region_list: Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two and up to six Regions, including the Region that the keyspace is being created in.
+        :param Sequence['KeyspaceRegionListItem'] region_list: Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two Regions, including the Region that the keyspace is being created in.
         :param 'KeyspaceReplicationSpecificationReplicationStrategy' replication_strategy: The options are:
                
                - `SINGLE_REGION` (optional)
@@ -73,7 +73,7 @@ class KeyspaceReplicationSpecification(dict):
     @pulumi.getter(name="regionList")
     def region_list(self) -> Optional[Sequence['KeyspaceRegionListItem']]:
         """
-        Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two and up to six Regions, including the Region that the keyspace is being created in.
+        Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two Regions, including the Region that the keyspace is being created in.
         """
         return pulumi.get(self, "region_list")
 

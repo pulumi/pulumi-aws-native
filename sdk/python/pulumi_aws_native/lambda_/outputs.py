@@ -295,7 +295,11 @@ class EventInvokeConfigDestinationConfig(dict):
         """
         A destination for events after they have been sent to a function for processing.
         :param 'EventInvokeConfigOnFailure' on_failure: The destination configuration for failed invocations.
+               
+               > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
         :param 'EventInvokeConfigOnSuccess' on_success: The destination configuration for successful invocations.
+               
+               > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
         """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
@@ -307,6 +311,8 @@ class EventInvokeConfigDestinationConfig(dict):
     def on_failure(self) -> Optional['outputs.EventInvokeConfigOnFailure']:
         """
         The destination configuration for failed invocations.
+
+        > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
         """
         return pulumi.get(self, "on_failure")
 
@@ -315,6 +321,8 @@ class EventInvokeConfigDestinationConfig(dict):
     def on_success(self) -> Optional['outputs.EventInvokeConfigOnSuccess']:
         """
         The destination configuration for successful invocations.
+
+        > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
         """
         return pulumi.get(self, "on_success")
 

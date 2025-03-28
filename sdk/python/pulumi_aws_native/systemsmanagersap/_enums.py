@@ -5,9 +5,21 @@
 from enum import Enum
 
 __all__ = [
+    'ApplicationComponentInfoComponentType',
     'ApplicationCredentialCredentialType',
     'ApplicationType',
 ]
+
+
+class ApplicationComponentInfoComponentType(str, Enum):
+    HANA = "HANA"
+    HANA_NODE = "HANA_NODE"
+    ABAP = "ABAP"
+    ASCS = "ASCS"
+    DIALOG = "DIALOG"
+    WEBDISP = "WEBDISP"
+    WD = "WD"
+    ERS = "ERS"
 
 
 class ApplicationCredentialCredentialType(str, Enum):

@@ -76,6 +76,14 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public readonly string? FlowAvailabilityZone;
         /// <summary>
+        /// A prefix for the names of the NDI sources that the flow creates.(ReadOnly)
+        /// </summary>
+        public readonly string? FlowNdiMachineName;
+        /// <summary>
+        /// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+        /// </summary>
+        public readonly Pulumi.AwsNative.MediaConnect.FlowSize? FlowSize;
+        /// <summary>
         /// The maintenance settings you want to use for the flow.
         /// </summary>
         public readonly Outputs.FlowMaintenance? Maintenance;
@@ -83,6 +91,10 @@ namespace Pulumi.AwsNative.MediaConnect
         /// The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
         /// </summary>
         public readonly ImmutableArray<Outputs.FlowMediaStream> MediaStreams;
+        /// <summary>
+        /// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+        /// </summary>
+        public readonly Outputs.FlowNdiConfig? NdiConfig;
         /// <summary>
         /// The source of the flow.
         /// </summary>
@@ -108,9 +120,15 @@ namespace Pulumi.AwsNative.MediaConnect
 
             string? flowAvailabilityZone,
 
+            string? flowNdiMachineName,
+
+            Pulumi.AwsNative.MediaConnect.FlowSize? flowSize,
+
             Outputs.FlowMaintenance? maintenance,
 
             ImmutableArray<Outputs.FlowMediaStream> mediaStreams,
+
+            Outputs.FlowNdiConfig? ndiConfig,
 
             Outputs.FlowSource? source,
 
@@ -123,8 +141,11 @@ namespace Pulumi.AwsNative.MediaConnect
             EgressIp = egressIp;
             FlowArn = flowArn;
             FlowAvailabilityZone = flowAvailabilityZone;
+            FlowNdiMachineName = flowNdiMachineName;
+            FlowSize = flowSize;
             Maintenance = maintenance;
             MediaStreams = mediaStreams;
+            NdiConfig = ndiConfig;
             Source = source;
             SourceFailoverConfig = sourceFailoverConfig;
             SourceMonitoringConfig = sourceMonitoringConfig;

@@ -67,7 +67,8 @@ type DataSet struct {
 	// The element you can use to define tags for row-level security.
 	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrOutput `pulumi:"rowLevelPermissionTagConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags  aws.TagArrayOutput    `pulumi:"tags"`
+	UseAs DataSetUseAsPtrOutput `pulumi:"useAs"`
 }
 
 // NewDataSet registers a new resource with the given unique name, arguments, and options.
@@ -154,7 +155,8 @@ type dataSetArgs struct {
 	// The element you can use to define tags for row-level security.
 	RowLevelPermissionTagConfiguration *DataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags  []aws.Tag     `pulumi:"tags"`
+	UseAs *DataSetUseAs `pulumi:"useAs"`
 }
 
 // The set of arguments for constructing a DataSet resource.
@@ -198,7 +200,8 @@ type DataSetArgs struct {
 	// The element you can use to define tags for row-level security.
 	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrInput
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-	Tags aws.TagArrayInput
+	Tags  aws.TagArrayInput
+	UseAs DataSetUseAsPtrInput
 }
 
 func (DataSetArgs) ElementType() reflect.Type {
@@ -365,6 +368,10 @@ func (o DataSetOutput) RowLevelPermissionTagConfiguration() DataSetRowLevelPermi
 // <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 func (o DataSetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DataSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o DataSetOutput) UseAs() DataSetUseAsPtrOutput {
+	return o.ApplyT(func(v *DataSet) DataSetUseAsPtrOutput { return v.UseAs }).(DataSetUseAsPtrOutput)
 }
 
 func init() {

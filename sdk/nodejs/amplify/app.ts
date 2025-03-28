@@ -75,6 +75,7 @@ export class App extends pulumi.CustomResource {
      * The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
      */
     public readonly cacheConfig!: pulumi.Output<outputs.amplify.AppCacheConfig | undefined>;
+    public readonly computeRoleArn!: pulumi.Output<string | undefined>;
     /**
      * The custom HTTP headers for an Amplify app.
      */
@@ -150,6 +151,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["basicAuthConfig"] = args ? args.basicAuthConfig : undefined;
             resourceInputs["buildSpec"] = args ? args.buildSpec : undefined;
             resourceInputs["cacheConfig"] = args ? args.cacheConfig : undefined;
+            resourceInputs["computeRoleArn"] = args ? args.computeRoleArn : undefined;
             resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
             resourceInputs["customRules"] = args ? args.customRules : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -174,6 +176,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["basicAuthConfig"] = undefined /*out*/;
             resourceInputs["buildSpec"] = undefined /*out*/;
             resourceInputs["cacheConfig"] = undefined /*out*/;
+            resourceInputs["computeRoleArn"] = undefined /*out*/;
             resourceInputs["customHeaders"] = undefined /*out*/;
             resourceInputs["customRules"] = undefined /*out*/;
             resourceInputs["defaultDomain"] = undefined /*out*/;
@@ -222,6 +225,7 @@ export interface AppArgs {
      * The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
      */
     cacheConfig?: pulumi.Input<inputs.amplify.AppCacheConfigArgs>;
+    computeRoleArn?: pulumi.Input<string>;
     /**
      * The custom HTTP headers for an Amplify app.
      */

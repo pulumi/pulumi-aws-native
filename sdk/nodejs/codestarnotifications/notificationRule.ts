@@ -74,11 +74,11 @@ export class NotificationRule extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.
+     * The Amazon Resource Name (ARN) of the Amazon SNS topic or  client.
      */
     public readonly targetAddress!: pulumi.Output<string | undefined>;
     /**
-     * A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
+     * A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
      */
     public readonly targets!: pulumi.Output<outputs.codestarnotifications.NotificationRuleTarget[]>;
 
@@ -173,11 +173,11 @@ export interface NotificationRuleArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.
+     * The Amazon Resource Name (ARN) of the Amazon SNS topic or  client.
      */
     targetAddress?: pulumi.Input<string>;
     /**
-     * A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
+     * A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
      */
     targets: pulumi.Input<pulumi.Input<inputs.codestarnotifications.NotificationRuleTargetArgs>[]>;
 }

@@ -45,6 +45,10 @@ export interface GetDatasetResult {
      * Source type of the dataset
      */
     readonly source?: enums.databrew.DatasetSource;
+    /**
+     * Metadata tags that have been applied to the dataset.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::DataBrew::Dataset.

@@ -13,6 +13,112 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ApplicationComponentInfo struct {
+	ComponentType *ApplicationComponentInfoComponentType `pulumi:"componentType"`
+	Ec2InstanceId *string                                `pulumi:"ec2InstanceId"`
+	Sid           *string                                `pulumi:"sid"`
+}
+
+// ApplicationComponentInfoInput is an input type that accepts ApplicationComponentInfoArgs and ApplicationComponentInfoOutput values.
+// You can construct a concrete instance of `ApplicationComponentInfoInput` via:
+//
+//	ApplicationComponentInfoArgs{...}
+type ApplicationComponentInfoInput interface {
+	pulumi.Input
+
+	ToApplicationComponentInfoOutput() ApplicationComponentInfoOutput
+	ToApplicationComponentInfoOutputWithContext(context.Context) ApplicationComponentInfoOutput
+}
+
+type ApplicationComponentInfoArgs struct {
+	ComponentType ApplicationComponentInfoComponentTypePtrInput `pulumi:"componentType"`
+	Ec2InstanceId pulumi.StringPtrInput                         `pulumi:"ec2InstanceId"`
+	Sid           pulumi.StringPtrInput                         `pulumi:"sid"`
+}
+
+func (ApplicationComponentInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationComponentInfo)(nil)).Elem()
+}
+
+func (i ApplicationComponentInfoArgs) ToApplicationComponentInfoOutput() ApplicationComponentInfoOutput {
+	return i.ToApplicationComponentInfoOutputWithContext(context.Background())
+}
+
+func (i ApplicationComponentInfoArgs) ToApplicationComponentInfoOutputWithContext(ctx context.Context) ApplicationComponentInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationComponentInfoOutput)
+}
+
+// ApplicationComponentInfoArrayInput is an input type that accepts ApplicationComponentInfoArray and ApplicationComponentInfoArrayOutput values.
+// You can construct a concrete instance of `ApplicationComponentInfoArrayInput` via:
+//
+//	ApplicationComponentInfoArray{ ApplicationComponentInfoArgs{...} }
+type ApplicationComponentInfoArrayInput interface {
+	pulumi.Input
+
+	ToApplicationComponentInfoArrayOutput() ApplicationComponentInfoArrayOutput
+	ToApplicationComponentInfoArrayOutputWithContext(context.Context) ApplicationComponentInfoArrayOutput
+}
+
+type ApplicationComponentInfoArray []ApplicationComponentInfoInput
+
+func (ApplicationComponentInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationComponentInfo)(nil)).Elem()
+}
+
+func (i ApplicationComponentInfoArray) ToApplicationComponentInfoArrayOutput() ApplicationComponentInfoArrayOutput {
+	return i.ToApplicationComponentInfoArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationComponentInfoArray) ToApplicationComponentInfoArrayOutputWithContext(ctx context.Context) ApplicationComponentInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationComponentInfoArrayOutput)
+}
+
+type ApplicationComponentInfoOutput struct{ *pulumi.OutputState }
+
+func (ApplicationComponentInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationComponentInfo)(nil)).Elem()
+}
+
+func (o ApplicationComponentInfoOutput) ToApplicationComponentInfoOutput() ApplicationComponentInfoOutput {
+	return o
+}
+
+func (o ApplicationComponentInfoOutput) ToApplicationComponentInfoOutputWithContext(ctx context.Context) ApplicationComponentInfoOutput {
+	return o
+}
+
+func (o ApplicationComponentInfoOutput) ComponentType() ApplicationComponentInfoComponentTypePtrOutput {
+	return o.ApplyT(func(v ApplicationComponentInfo) *ApplicationComponentInfoComponentType { return v.ComponentType }).(ApplicationComponentInfoComponentTypePtrOutput)
+}
+
+func (o ApplicationComponentInfoOutput) Ec2InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationComponentInfo) *string { return v.Ec2InstanceId }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationComponentInfoOutput) Sid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationComponentInfo) *string { return v.Sid }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationComponentInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationComponentInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationComponentInfo)(nil)).Elem()
+}
+
+func (o ApplicationComponentInfoArrayOutput) ToApplicationComponentInfoArrayOutput() ApplicationComponentInfoArrayOutput {
+	return o
+}
+
+func (o ApplicationComponentInfoArrayOutput) ToApplicationComponentInfoArrayOutputWithContext(ctx context.Context) ApplicationComponentInfoArrayOutput {
+	return o
+}
+
+func (o ApplicationComponentInfoArrayOutput) Index(i pulumi.IntInput) ApplicationComponentInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationComponentInfo {
+		return vs[0].([]ApplicationComponentInfo)[vs[1].(int)]
+	}).(ApplicationComponentInfoOutput)
+}
+
 type ApplicationCredential struct {
 	// The type of the application credentials.
 	CredentialType *ApplicationCredentialCredentialType `pulumi:"credentialType"`
@@ -137,8 +243,12 @@ type ApplicationTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationComponentInfoInput)(nil)).Elem(), ApplicationComponentInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationComponentInfoArrayInput)(nil)).Elem(), ApplicationComponentInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCredentialInput)(nil)).Elem(), ApplicationCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCredentialArrayInput)(nil)).Elem(), ApplicationCredentialArray{})
+	pulumi.RegisterOutputType(ApplicationComponentInfoOutput{})
+	pulumi.RegisterOutputType(ApplicationComponentInfoArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationCredentialOutput{})
 	pulumi.RegisterOutputType(ApplicationCredentialArrayOutput{})
 }

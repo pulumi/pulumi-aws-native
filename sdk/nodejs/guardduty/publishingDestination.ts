@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::GuardDuty::PublishingDestination
+ * Resource Type definition for AWS::GuardDuty::PublishingDestination.
  */
 export class PublishingDestination extends pulumi.CustomResource {
     /**

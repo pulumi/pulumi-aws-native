@@ -83,6 +83,7 @@ namespace Pulumi.AwsNative.Amplify
         /// The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
         /// </summary>
         public readonly Outputs.AppCacheConfig? CacheConfig;
+        public readonly string? ComputeRoleArn;
         /// <summary>
         /// The custom HTTP headers for an Amplify app.
         /// </summary>
@@ -144,6 +145,8 @@ namespace Pulumi.AwsNative.Amplify
 
             Outputs.AppCacheConfig? cacheConfig,
 
+            string? computeRoleArn,
+
             string? customHeaders,
 
             ImmutableArray<Outputs.AppCustomRule> customRules,
@@ -171,6 +174,7 @@ namespace Pulumi.AwsNative.Amplify
             Arn = arn;
             BuildSpec = buildSpec;
             CacheConfig = cacheConfig;
+            ComputeRoleArn = computeRoleArn;
             CustomHeaders = customHeaders;
             CustomRules = customRules;
             DefaultDomain = defaultDomain;

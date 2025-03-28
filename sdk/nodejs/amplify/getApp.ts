@@ -45,6 +45,7 @@ export interface GetAppResult {
      * The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
      */
     readonly cacheConfig?: outputs.amplify.AppCacheConfig;
+    readonly computeRoleArn?: string;
     /**
      * The custom HTTP headers for an Amplify app.
      */

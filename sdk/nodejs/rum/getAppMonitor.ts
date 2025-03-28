@@ -39,14 +39,22 @@ export interface GetAppMonitorResult {
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
      */
     readonly cwLogEnabled?: boolean;
+    readonly deobfuscationConfiguration?: outputs.rum.AppMonitorDeobfuscationConfiguration;
     /**
-     * The top-level internet domain name for which your application has administrative authority.
+     * The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
      */
     readonly domain?: string;
+    /**
+     * The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+     */
+    readonly domainList?: string[];
     /**
      * The unique ID of the new app monitor.
      */
     readonly id?: string;
+    /**
+     * Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
+     */
     readonly resourcePolicy?: outputs.rum.AppMonitorResourcePolicy;
     /**
      * Assigns one or more tags (key-value pairs) to the app monitor.

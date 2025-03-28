@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,8 +25,12 @@ type DomainName struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The domain name.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The Amazon Resource Name (ARN) for the Domain Name.
+	DomainNameArn pulumi.StringOutput `pulumi:"domainNameArn"`
 	// The ID of your Amazon Route 53 hosted zone.
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
+	// A set of tags (key-value pairs) for this domain name.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDomainName registers a new resource with the given unique name, arguments, and options.
@@ -85,6 +90,8 @@ type domainNameArgs struct {
 	Description *string `pulumi:"description"`
 	// The domain name.
 	DomainName string `pulumi:"domainName"`
+	// A set of tags (key-value pairs) for this domain name.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DomainName resource.
@@ -95,6 +102,8 @@ type DomainNameArgs struct {
 	Description pulumi.StringPtrInput
 	// The domain name.
 	DomainName pulumi.StringInput
+	// A set of tags (key-value pairs) for this domain name.
+	Tags aws.TagArrayInput
 }
 
 func (DomainNameArgs) ElementType() reflect.Type {
@@ -154,9 +163,19 @@ func (o DomainNameOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) for the Domain Name.
+func (o DomainNameOutput) DomainNameArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DomainNameArn }).(pulumi.StringOutput)
+}
+
 // The ID of your Amazon Route 53 hosted zone.
 func (o DomainNameOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
+}
+
+// A set of tags (key-value pairs) for this domain name.
+func (o DomainNameOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DomainName) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

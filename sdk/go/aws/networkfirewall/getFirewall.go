@@ -33,6 +33,8 @@ type LookupFirewallResult struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// A description of the firewall.
 	Description *string `pulumi:"description"`
+	// The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
+	EnabledAnalysisTypes []FirewallEnabledAnalysisType `pulumi:"enabledAnalysisTypes"`
 	// The unique IDs of the firewall endpoints for all of the subnets that you attached to the firewall. The subnets are not listed in any particular order. For example: `["us-west-2c:vpce-111122223333", "us-west-2a:vpce-987654321098", "us-west-2b:vpce-012345678901"]` .
 	EndpointIds []string `pulumi:"endpointIds"`
 	// The Amazon Resource Name (ARN) of the `Firewall` .
@@ -95,6 +97,11 @@ func (o LookupFirewallResultOutput) DeleteProtection() pulumi.BoolPtrOutput {
 // A description of the firewall.
 func (o LookupFirewallResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFirewallResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
+func (o LookupFirewallResultOutput) EnabledAnalysisTypes() FirewallEnabledAnalysisTypeArrayOutput {
+	return o.ApplyT(func(v LookupFirewallResult) []FirewallEnabledAnalysisType { return v.EnabledAnalysisTypes }).(FirewallEnabledAnalysisTypeArrayOutput)
 }
 
 // The unique IDs of the firewall endpoints for all of the subnets that you attached to the firewall. The subnets are not listed in any particular order. For example: `["us-west-2c:vpce-111122223333", "us-west-2a:vpce-987654321098", "us-west-2b:vpce-012345678901"]` .

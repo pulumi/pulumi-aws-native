@@ -317,6 +317,8 @@ class Workgroup(dict):
             suggest = "security_group_ids"
         elif key == "subnetIds":
             suggest = "subnet_ids"
+        elif key == "trackName":
+            suggest = "track_name"
         elif key == "workgroupArn":
             suggest = "workgroup_arn"
         elif key == "workgroupId":
@@ -348,6 +350,7 @@ class Workgroup(dict):
                  security_group_ids: Optional[Sequence[str]] = None,
                  status: Optional['WorkgroupStatus'] = None,
                  subnet_ids: Optional[Sequence[str]] = None,
+                 track_name: Optional[str] = None,
                  workgroup_arn: Optional[str] = None,
                  workgroup_id: Optional[str] = None,
                  workgroup_name: Optional[str] = None):
@@ -364,6 +367,7 @@ class Workgroup(dict):
         :param Sequence[str] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param 'WorkgroupStatus' status: The status of the workgroup.
         :param Sequence[str] subnet_ids: An array of subnet IDs the workgroup is associated with.
+        :param str track_name: The name of the track for the workgroup.
         :param str workgroup_arn: The Amazon Resource Name (ARN) that links to the workgroup.
         :param str workgroup_id: The unique identifier of the workgroup.
         :param str workgroup_name: The name of the workgroup.
@@ -392,6 +396,8 @@ class Workgroup(dict):
             pulumi.set(__self__, "status", status)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if track_name is not None:
+            pulumi.set(__self__, "track_name", track_name)
         if workgroup_arn is not None:
             pulumi.set(__self__, "workgroup_arn", workgroup_arn)
         if workgroup_id is not None:
@@ -494,6 +500,14 @@ class Workgroup(dict):
         An array of subnet IDs the workgroup is associated with.
         """
         return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="trackName")
+    def track_name(self) -> Optional[str]:
+        """
+        The name of the track for the workgroup.
+        """
+        return pulumi.get(self, "track_name")
 
     @property
     @pulumi.getter(name="workgroupArn")

@@ -74,6 +74,14 @@ export class FlowOutput extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
+     * A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
+     */
+    public readonly ndiProgramName!: pulumi.Output<string | undefined>;
+    /**
+     * A quality setting for the NDI Speed HQ encoder.
+     */
+    public readonly ndiSpeedHqQuality!: pulumi.Output<number | undefined>;
+    /**
      * The ARN of the output.
      */
     public /*out*/ readonly outputArn!: pulumi.Output<string>;
@@ -132,6 +140,8 @@ export class FlowOutput extends pulumi.CustomResource {
             resourceInputs["mediaStreamOutputConfigurations"] = args ? args.mediaStreamOutputConfigurations : undefined;
             resourceInputs["minLatency"] = args ? args.minLatency : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ndiProgramName"] = args ? args.ndiProgramName : undefined;
+            resourceInputs["ndiSpeedHqQuality"] = args ? args.ndiSpeedHqQuality : undefined;
             resourceInputs["outputStatus"] = args ? args.outputStatus : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
@@ -150,6 +160,8 @@ export class FlowOutput extends pulumi.CustomResource {
             resourceInputs["mediaStreamOutputConfigurations"] = undefined /*out*/;
             resourceInputs["minLatency"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ndiProgramName"] = undefined /*out*/;
+            resourceInputs["ndiSpeedHqQuality"] = undefined /*out*/;
             resourceInputs["outputArn"] = undefined /*out*/;
             resourceInputs["outputStatus"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
@@ -206,6 +218,14 @@ export interface FlowOutputArgs {
      * The name of the output. This value must be unique within the current flow.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
+     */
+    ndiProgramName?: pulumi.Input<string>;
+    /**
+     * A quality setting for the NDI Speed HQ encoder.
+     */
+    ndiSpeedHqQuality?: pulumi.Input<number>;
     /**
      * An indication of whether the output should transmit data or not.
      */

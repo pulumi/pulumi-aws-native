@@ -414,6 +414,11 @@
       "type" : "string",
       "pattern" : "1\\.\\d\\d"
     },
+    "Force" : {
+      "description" : "Force cluster version update",
+      "type" : "boolean",
+      "default" : false
+    },
     "Tags" : {
       "description" : "An array of key-value pairs to apply to this resource.",
       "type" : "array",
@@ -468,7 +473,7 @@
   "primaryIdentifier" : [ "/properties/Name" ],
   "createOnlyProperties" : [ "/properties/OutpostConfig", "/properties/EncryptionConfig", "/properties/KubernetesNetworkConfig/IpFamily", "/properties/KubernetesNetworkConfig/ServiceIpv4Cidr", "/properties/AccessConfig/BootstrapClusterCreatorAdminPermissions", "/properties/Name", "/properties/RoleArn", "/properties/BootstrapSelfManagedAddons", "/properties/RemoteNetworkConfig" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/Endpoint", "/properties/CertificateAuthorityData", "/properties/ClusterSecurityGroupId", "/properties/EncryptionConfigKeyArn", "/properties/OpenIdConnectIssuerUrl", "/properties/KubernetesNetworkConfig/ServiceIpv6Cidr" ],
-  "writeOnlyProperties" : [ "/properties/AccessConfig/BootstrapClusterCreatorAdminPermissions", "/properties/BootstrapSelfManagedAddons" ],
+  "writeOnlyProperties" : [ "/properties/AccessConfig/BootstrapClusterCreatorAdminPermissions", "/properties/BootstrapSelfManagedAddons", "/properties/Force" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "eks:CreateCluster", "eks:DescribeCluster", "eks:TagResource", "eks:CreateAccessEntry", "iam:PassRole", "iam:GetRole", "iam:ListAttachedRolePolicies", "iam:CreateServiceLinkedRole", "iam:CreateInstanceProfile", "iam:TagInstanceProfile", "iam:AddRoleToInstanceProfile", "iam:GetInstanceProfile", "iam:DeleteInstanceProfile", "iam:RemoveRoleFromInstanceProfile", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "kms:DescribeKey", "kms:CreateGrant" ]

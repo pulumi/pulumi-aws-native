@@ -27,6 +27,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// 
         /// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         /// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+        /// - For AWS Amplify , use the CloudFront limit.
         /// 
         /// For information about how to handle oversized request bodies, see the `Body` object configuration.
         /// </summary>
@@ -70,6 +71,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// 
         /// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         /// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+        /// - For AWS Amplify , use the CloudFront limit.
         /// 
         /// For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
         /// </summary>
@@ -94,6 +96,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         /// </summary>
         public readonly Outputs.RuleGroupFieldToMatchSingleQueryArgumentProperties? SingleQueryArgument;
+        public readonly Outputs.RuleGroupUriFragment? UriFragment;
         /// <summary>
         /// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         /// </summary>
@@ -123,6 +126,8 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
 
             Outputs.RuleGroupFieldToMatchSingleQueryArgumentProperties? singleQueryArgument,
 
+            Outputs.RuleGroupUriFragment? uriFragment,
+
             object? uriPath)
         {
             AllQueryArguments = allQueryArguments;
@@ -136,6 +141,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
             QueryString = queryString;
             SingleHeader = singleHeader;
             SingleQueryArgument = singleQueryArgument;
+            UriFragment = uriFragment;
             UriPath = uriPath;
         }
     }

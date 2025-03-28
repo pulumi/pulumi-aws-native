@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT
 {
     /// <summary>
-    /// Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
+    /// Resource Type definition for AWS::IoT::JobTemplate. Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:JobTemplate")]
     public partial class JobTemplate : global::Pulumi.CustomResource

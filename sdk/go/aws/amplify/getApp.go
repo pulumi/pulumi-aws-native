@@ -38,7 +38,8 @@ type LookupAppResult struct {
 	// The build specification (build spec) for an Amplify app.
 	BuildSpec *string `pulumi:"buildSpec"`
 	// The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
-	CacheConfig *AppCacheConfig `pulumi:"cacheConfig"`
+	CacheConfig    *AppCacheConfig `pulumi:"cacheConfig"`
+	ComputeRoleArn *string         `pulumi:"computeRoleArn"`
 	// The custom HTTP headers for an Amplify app.
 	CustomHeaders *string `pulumi:"customHeaders"`
 	// The custom rewrite and redirect rules for an Amplify app.
@@ -122,6 +123,10 @@ func (o LookupAppResultOutput) BuildSpec() pulumi.StringPtrOutput {
 // The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
 func (o LookupAppResultOutput) CacheConfig() AppCacheConfigPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *AppCacheConfig { return v.CacheConfig }).(AppCacheConfigPtrOutput)
+}
+
+func (o LookupAppResultOutput) ComputeRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *string { return v.ComputeRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The custom HTTP headers for an Amplify app.

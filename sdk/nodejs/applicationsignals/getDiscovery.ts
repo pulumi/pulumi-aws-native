@@ -15,10 +15,16 @@ export function getDiscovery(args: GetDiscoveryArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetDiscoveryArgs {
+    /**
+     * The 12 digit AWS Account ID for the account.
+     */
     accountId: string;
 }
 
 export interface GetDiscoveryResult {
+    /**
+     * The 12 digit AWS Account ID for the account.
+     */
     readonly accountId?: string;
 }
 /**
@@ -32,5 +38,8 @@ export function getDiscoveryOutput(args: GetDiscoveryOutputArgs, opts?: pulumi.I
 }
 
 export interface GetDiscoveryOutputArgs {
+    /**
+     * The 12 digit AWS Account ID for the account.
+     */
     accountId: pulumi.Input<string>;
 }

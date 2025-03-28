@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWebAclResult:
-    def __init__(__self__, arn=None, association_config=None, capacity=None, captcha_config=None, challenge_config=None, custom_response_bodies=None, default_action=None, description=None, id=None, label_namespace=None, rules=None, tags=None, token_domains=None, visibility_config=None):
+    def __init__(__self__, arn=None, association_config=None, capacity=None, captcha_config=None, challenge_config=None, custom_response_bodies=None, data_protection_config=None, default_action=None, description=None, id=None, label_namespace=None, rules=None, tags=None, token_domains=None, visibility_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +45,9 @@ class GetWebAclResult:
         if custom_response_bodies and not isinstance(custom_response_bodies, dict):
             raise TypeError("Expected argument 'custom_response_bodies' to be a dict")
         pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
+        if data_protection_config and not isinstance(data_protection_config, dict):
+            raise TypeError("Expected argument 'data_protection_config' to be a dict")
+        pulumi.set(__self__, "data_protection_config", data_protection_config)
         if default_action and not isinstance(default_action, dict):
             raise TypeError("Expected argument 'default_action' to be a dict")
         pulumi.set(__self__, "default_action", default_action)
@@ -131,6 +134,14 @@ class GetWebAclResult:
         return pulumi.get(self, "custom_response_bodies")
 
     @property
+    @pulumi.getter(name="dataProtectionConfig")
+    def data_protection_config(self) -> Optional['outputs.WebAclDataProtectionConfig']:
+        """
+        Collection of dataProtects.
+        """
+        return pulumi.get(self, "data_protection_config")
+
+    @property
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> Optional['outputs.WebAclDefaultAction']:
         """
@@ -213,6 +224,7 @@ class AwaitableGetWebAclResult(GetWebAclResult):
             captcha_config=self.captcha_config,
             challenge_config=self.challenge_config,
             custom_response_bodies=self.custom_response_bodies,
+            data_protection_config=self.data_protection_config,
             default_action=self.default_action,
             description=self.description,
             id=self.id,
@@ -233,7 +245,7 @@ def get_web_acl(id: Optional[str] = None,
 
     :param str id: The ID of the web ACL.
     :param str name: The name of the web ACL. You cannot change the name of a web ACL after you create it.
-    :param 'WebAclScope' scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+    :param 'WebAclScope' scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
            
            > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
            
@@ -253,6 +265,7 @@ def get_web_acl(id: Optional[str] = None,
         captcha_config=pulumi.get(__ret__, 'captcha_config'),
         challenge_config=pulumi.get(__ret__, 'challenge_config'),
         custom_response_bodies=pulumi.get(__ret__, 'custom_response_bodies'),
+        data_protection_config=pulumi.get(__ret__, 'data_protection_config'),
         default_action=pulumi.get(__ret__, 'default_action'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
@@ -271,7 +284,7 @@ def get_web_acl_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the web ACL.
     :param str name: The name of the web ACL. You cannot change the name of a web ACL after you create it.
-    :param 'WebAclScope' scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+    :param 'WebAclScope' scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
            
            > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
            
@@ -290,6 +303,7 @@ def get_web_acl_output(id: Optional[pulumi.Input[str]] = None,
         captcha_config=pulumi.get(__response__, 'captcha_config'),
         challenge_config=pulumi.get(__response__, 'challenge_config'),
         custom_response_bodies=pulumi.get(__response__, 'custom_response_bodies'),
+        data_protection_config=pulumi.get(__response__, 'data_protection_config'),
         default_action=pulumi.get(__response__, 'default_action'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),

@@ -30,6 +30,7 @@ class ClusterArgs:
                  bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
                  compute_config: Optional[pulumi.Input['ClusterComputeConfigArgs']] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]]] = None,
+                 force: Optional[pulumi.Input[bool]] = None,
                  kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
                  logging: Optional[pulumi.Input['LoggingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -48,6 +49,7 @@ class ClusterArgs:
         :param pulumi.Input[bool] bootstrap_self_managed_addons: Set this value to false to avoid creating the default networking add-ons when the cluster is created.
         :param pulumi.Input['ClusterComputeConfigArgs'] compute_config: Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]] encryption_config: The encryption configuration for the cluster.
+        :param pulumi.Input[bool] force: Force cluster version update
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: The Kubernetes network configuration for the cluster.
         :param pulumi.Input['LoggingArgs'] logging: The logging configuration for your cluster.
         :param pulumi.Input[str] name: The unique name to give to your cluster.
@@ -71,6 +73,8 @@ class ClusterArgs:
             pulumi.set(__self__, "compute_config", compute_config)
         if encryption_config is not None:
             pulumi.set(__self__, "encryption_config", encryption_config)
+        if force is not None:
+            pulumi.set(__self__, "force", force)
         if kubernetes_network_config is not None:
             pulumi.set(__self__, "kubernetes_network_config", kubernetes_network_config)
         if logging is not None:
@@ -163,6 +167,18 @@ class ClusterArgs:
     @encryption_config.setter
     def encryption_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]]]):
         pulumi.set(self, "encryption_config", value)
+
+    @property
+    @pulumi.getter
+    def force(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Force cluster version update
+        """
+        return pulumi.get(self, "force")
+
+    @force.setter
+    def force(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force", value)
 
     @property
     @pulumi.getter(name="kubernetesNetworkConfig")
@@ -296,6 +312,7 @@ class Cluster(pulumi.CustomResource):
                  bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
                  compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]]]] = None,
+                 force: Optional[pulumi.Input[bool]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
                  logging: Optional[pulumi.Input[Union['LoggingArgs', 'LoggingArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -318,6 +335,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] bootstrap_self_managed_addons: Set this value to false to avoid creating the default networking add-ons when the cluster is created.
         :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']] compute_config: Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]]] encryption_config: The encryption configuration for the cluster.
+        :param pulumi.Input[bool] force: Force cluster version update
         :param pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']] kubernetes_network_config: The Kubernetes network configuration for the cluster.
         :param pulumi.Input[Union['LoggingArgs', 'LoggingArgsDict']] logging: The logging configuration for your cluster.
         :param pulumi.Input[str] name: The unique name to give to your cluster.
@@ -361,6 +379,7 @@ class Cluster(pulumi.CustomResource):
                  bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
                  compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]]]] = None,
+                 force: Optional[pulumi.Input[bool]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
                  logging: Optional[pulumi.Input[Union['LoggingArgs', 'LoggingArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -386,6 +405,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
             __props__.__dict__["compute_config"] = compute_config
             __props__.__dict__["encryption_config"] = encryption_config
+            __props__.__dict__["force"] = force
             __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
             __props__.__dict__["logging"] = logging
             __props__.__dict__["name"] = name
@@ -443,6 +463,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["encryption_config"] = None
         __props__.__dict__["encryption_config_key_arn"] = None
         __props__.__dict__["endpoint"] = None
+        __props__.__dict__["force"] = None
         __props__.__dict__["kubernetes_network_config"] = None
         __props__.__dict__["logging"] = None
         __props__.__dict__["name"] = None
@@ -537,6 +558,14 @@ class Cluster(pulumi.CustomResource):
         The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def force(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Force cluster version update
+        """
+        return pulumi.get(self, "force")
 
     @property
     @pulumi.getter(name="kubernetesNetworkConfig")

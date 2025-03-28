@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Inputs
 
     public sealed class IndexSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Index settings.
+        /// </summary>
         [Input("index")]
         public Input<Inputs.IndexSettingsIndexPropertiesArgs>? Index { get; set; }
 

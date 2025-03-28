@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFlowResult:
-    def __init__(__self__, egress_ip=None, flow_arn=None, flow_availability_zone=None, maintenance=None, media_streams=None, source=None, source_failover_config=None, source_monitoring_config=None, vpc_interfaces=None):
+    def __init__(__self__, egress_ip=None, flow_arn=None, flow_availability_zone=None, flow_ndi_machine_name=None, flow_size=None, maintenance=None, media_streams=None, ndi_config=None, source=None, source_failover_config=None, source_monitoring_config=None, vpc_interfaces=None):
         if egress_ip and not isinstance(egress_ip, str):
             raise TypeError("Expected argument 'egress_ip' to be a str")
         pulumi.set(__self__, "egress_ip", egress_ip)
@@ -35,12 +35,21 @@ class GetFlowResult:
         if flow_availability_zone and not isinstance(flow_availability_zone, str):
             raise TypeError("Expected argument 'flow_availability_zone' to be a str")
         pulumi.set(__self__, "flow_availability_zone", flow_availability_zone)
+        if flow_ndi_machine_name and not isinstance(flow_ndi_machine_name, str):
+            raise TypeError("Expected argument 'flow_ndi_machine_name' to be a str")
+        pulumi.set(__self__, "flow_ndi_machine_name", flow_ndi_machine_name)
+        if flow_size and not isinstance(flow_size, str):
+            raise TypeError("Expected argument 'flow_size' to be a str")
+        pulumi.set(__self__, "flow_size", flow_size)
         if maintenance and not isinstance(maintenance, dict):
             raise TypeError("Expected argument 'maintenance' to be a dict")
         pulumi.set(__self__, "maintenance", maintenance)
         if media_streams and not isinstance(media_streams, list):
             raise TypeError("Expected argument 'media_streams' to be a list")
         pulumi.set(__self__, "media_streams", media_streams)
+        if ndi_config and not isinstance(ndi_config, dict):
+            raise TypeError("Expected argument 'ndi_config' to be a dict")
+        pulumi.set(__self__, "ndi_config", ndi_config)
         if source and not isinstance(source, dict):
             raise TypeError("Expected argument 'source' to be a dict")
         pulumi.set(__self__, "source", source)
@@ -79,6 +88,22 @@ class GetFlowResult:
         return pulumi.get(self, "flow_availability_zone")
 
     @property
+    @pulumi.getter(name="flowNdiMachineName")
+    def flow_ndi_machine_name(self) -> Optional[str]:
+        """
+        A prefix for the names of the NDI sources that the flow creates.(ReadOnly)
+        """
+        return pulumi.get(self, "flow_ndi_machine_name")
+
+    @property
+    @pulumi.getter(name="flowSize")
+    def flow_size(self) -> Optional['FlowSize']:
+        """
+        Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+        """
+        return pulumi.get(self, "flow_size")
+
+    @property
     @pulumi.getter
     def maintenance(self) -> Optional['outputs.FlowMaintenance']:
         """
@@ -93,6 +118,14 @@ class GetFlowResult:
         The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
         """
         return pulumi.get(self, "media_streams")
+
+    @property
+    @pulumi.getter(name="ndiConfig")
+    def ndi_config(self) -> Optional['outputs.FlowNdiConfig']:
+        """
+        Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+        """
+        return pulumi.get(self, "ndi_config")
 
     @property
     @pulumi.getter
@@ -136,8 +169,11 @@ class AwaitableGetFlowResult(GetFlowResult):
             egress_ip=self.egress_ip,
             flow_arn=self.flow_arn,
             flow_availability_zone=self.flow_availability_zone,
+            flow_ndi_machine_name=self.flow_ndi_machine_name,
+            flow_size=self.flow_size,
             maintenance=self.maintenance,
             media_streams=self.media_streams,
+            ndi_config=self.ndi_config,
             source=self.source,
             source_failover_config=self.source_failover_config,
             source_monitoring_config=self.source_monitoring_config,
@@ -161,8 +197,11 @@ def get_flow(flow_arn: Optional[str] = None,
         egress_ip=pulumi.get(__ret__, 'egress_ip'),
         flow_arn=pulumi.get(__ret__, 'flow_arn'),
         flow_availability_zone=pulumi.get(__ret__, 'flow_availability_zone'),
+        flow_ndi_machine_name=pulumi.get(__ret__, 'flow_ndi_machine_name'),
+        flow_size=pulumi.get(__ret__, 'flow_size'),
         maintenance=pulumi.get(__ret__, 'maintenance'),
         media_streams=pulumi.get(__ret__, 'media_streams'),
+        ndi_config=pulumi.get(__ret__, 'ndi_config'),
         source=pulumi.get(__ret__, 'source'),
         source_failover_config=pulumi.get(__ret__, 'source_failover_config'),
         source_monitoring_config=pulumi.get(__ret__, 'source_monitoring_config'),
@@ -183,8 +222,11 @@ def get_flow_output(flow_arn: Optional[pulumi.Input[str]] = None,
         egress_ip=pulumi.get(__response__, 'egress_ip'),
         flow_arn=pulumi.get(__response__, 'flow_arn'),
         flow_availability_zone=pulumi.get(__response__, 'flow_availability_zone'),
+        flow_ndi_machine_name=pulumi.get(__response__, 'flow_ndi_machine_name'),
+        flow_size=pulumi.get(__response__, 'flow_size'),
         maintenance=pulumi.get(__response__, 'maintenance'),
         media_streams=pulumi.get(__response__, 'media_streams'),
+        ndi_config=pulumi.get(__response__, 'ndi_config'),
         source=pulumi.get(__response__, 'source'),
         source_failover_config=pulumi.get(__response__, 'source_failover_config'),
         source_monitoring_config=pulumi.get(__response__, 'source_monitoring_config'),

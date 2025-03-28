@@ -45,6 +45,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// 
         /// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         /// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+        /// - For AWS Amplify , use the CloudFront limit.
         /// 
         /// The options for oversize handling are the following:
         /// 
