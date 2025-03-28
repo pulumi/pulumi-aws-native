@@ -71,7 +71,7 @@
     }
   },
   "tagging" : {
-    "taggable" : true
+    "taggable" : false
   },
   "required" : [ "Description", "ParameterGroupFamily" ],
   "createOnlyProperties" : [ "/properties/ParameterGroupName", "/properties/ParameterGroupFamily", "/properties/Description" ],
