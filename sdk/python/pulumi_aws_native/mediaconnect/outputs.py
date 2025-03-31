@@ -48,6 +48,8 @@ __all__ = [
     'FlowMediaStream',
     'FlowMediaStreamAttributes',
     'FlowMediaStreamSourceConfiguration',
+    'FlowNdiConfig',
+    'FlowNdiDiscoveryServerConfig',
     'FlowOutputDestinationConfiguration',
     'FlowOutputEncodingParameters',
     'FlowOutputEncryption',
@@ -2066,6 +2068,140 @@ class FlowMediaStreamSourceConfiguration(dict):
         The media streams that you want to associate with the source.
         """
         return pulumi.get(self, "input_configurations")
+
+
+@pulumi.output_type
+class FlowNdiConfig(dict):
+    """
+    Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "machineName":
+            suggest = "machine_name"
+        elif key == "ndiDiscoveryServers":
+            suggest = "ndi_discovery_servers"
+        elif key == "ndiState":
+            suggest = "ndi_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowNdiConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowNdiConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowNdiConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 machine_name: Optional[str] = None,
+                 ndi_discovery_servers: Optional[Sequence['outputs.FlowNdiDiscoveryServerConfig']] = None,
+                 ndi_state: Optional['FlowNdiConfigNdiState'] = None):
+        """
+        Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+        :param str machine_name: A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
+        :param Sequence['FlowNdiDiscoveryServerConfig'] ndi_discovery_servers: A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
+        :param 'FlowNdiConfigNdiState' ndi_state: A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+        """
+        if machine_name is not None:
+            pulumi.set(__self__, "machine_name", machine_name)
+        if ndi_discovery_servers is not None:
+            pulumi.set(__self__, "ndi_discovery_servers", ndi_discovery_servers)
+        if ndi_state is not None:
+            pulumi.set(__self__, "ndi_state", ndi_state)
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> Optional[str]:
+        """
+        A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
+        """
+        return pulumi.get(self, "machine_name")
+
+    @property
+    @pulumi.getter(name="ndiDiscoveryServers")
+    def ndi_discovery_servers(self) -> Optional[Sequence['outputs.FlowNdiDiscoveryServerConfig']]:
+        """
+        A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
+        """
+        return pulumi.get(self, "ndi_discovery_servers")
+
+    @property
+    @pulumi.getter(name="ndiState")
+    def ndi_state(self) -> Optional['FlowNdiConfigNdiState']:
+        """
+        A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+        """
+        return pulumi.get(self, "ndi_state")
+
+
+@pulumi.output_type
+class FlowNdiDiscoveryServerConfig(dict):
+    """
+    Specifies the configuration settings for individual NDI discovery servers. A maximum of 3 servers is allowed.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "discoveryServerAddress":
+            suggest = "discovery_server_address"
+        elif key == "vpcInterfaceAdapter":
+            suggest = "vpc_interface_adapter"
+        elif key == "discoveryServerPort":
+            suggest = "discovery_server_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowNdiDiscoveryServerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowNdiDiscoveryServerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowNdiDiscoveryServerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 discovery_server_address: str,
+                 vpc_interface_adapter: str,
+                 discovery_server_port: Optional[int] = None):
+        """
+        Specifies the configuration settings for individual NDI discovery servers. A maximum of 3 servers is allowed.
+        :param str discovery_server_address: The unique network address of the NDI discovery server.
+        :param str vpc_interface_adapter: The identifier for the Virtual Private Cloud (VPC) network interface used by the flow.
+        :param int discovery_server_port: The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
+        """
+        pulumi.set(__self__, "discovery_server_address", discovery_server_address)
+        pulumi.set(__self__, "vpc_interface_adapter", vpc_interface_adapter)
+        if discovery_server_port is not None:
+            pulumi.set(__self__, "discovery_server_port", discovery_server_port)
+
+    @property
+    @pulumi.getter(name="discoveryServerAddress")
+    def discovery_server_address(self) -> str:
+        """
+        The unique network address of the NDI discovery server.
+        """
+        return pulumi.get(self, "discovery_server_address")
+
+    @property
+    @pulumi.getter(name="vpcInterfaceAdapter")
+    def vpc_interface_adapter(self) -> str:
+        """
+        The identifier for the Virtual Private Cloud (VPC) network interface used by the flow.
+        """
+        return pulumi.get(self, "vpc_interface_adapter")
+
+    @property
+    @pulumi.getter(name="discoveryServerPort")
+    def discovery_server_port(self) -> Optional[int]:
+        """
+        The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
+        """
+        return pulumi.get(self, "discovery_server_port")
 
 
 @pulumi.output_type

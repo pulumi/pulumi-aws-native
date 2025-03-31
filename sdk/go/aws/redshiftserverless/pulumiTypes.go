@@ -422,12 +422,113 @@ type WorkgroupType struct {
 	Status *WorkgroupStatus `pulumi:"status"`
 	// An array of subnet IDs the workgroup is associated with.
 	SubnetIds []string `pulumi:"subnetIds"`
+	// The name of the track for the workgroup.
+	TrackName *string `pulumi:"trackName"`
 	// The Amazon Resource Name (ARN) that links to the workgroup.
 	WorkgroupArn *string `pulumi:"workgroupArn"`
 	// The unique identifier of the workgroup.
 	WorkgroupId *string `pulumi:"workgroupId"`
 	// The name of the workgroup.
 	WorkgroupName *string `pulumi:"workgroupName"`
+}
+
+// WorkgroupTypeInput is an input type that accepts WorkgroupTypeArgs and WorkgroupTypeOutput values.
+// You can construct a concrete instance of `WorkgroupTypeInput` via:
+//
+//	WorkgroupTypeArgs{...}
+type WorkgroupTypeInput interface {
+	pulumi.Input
+
+	ToWorkgroupTypeOutput() WorkgroupTypeOutput
+	ToWorkgroupTypeOutputWithContext(context.Context) WorkgroupTypeOutput
+}
+
+type WorkgroupTypeArgs struct {
+	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+	BaseCapacity pulumi.IntPtrInput `pulumi:"baseCapacity"`
+	// An array of parameters to set for advanced control over a database. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
+	ConfigParameters WorkgroupConfigParameterArrayInput `pulumi:"configParameters"`
+	// The creation date of the workgroup.
+	CreationDate pulumi.StringPtrInput `pulumi:"creationDate"`
+	// The endpoint that is created from the workgroup.
+	Endpoint WorkgroupEndpointPtrInput `pulumi:"endpoint"`
+	// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+	EnhancedVpcRouting pulumi.BoolPtrInput `pulumi:"enhancedVpcRouting"`
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.
+	MaxCapacity pulumi.IntPtrInput `pulumi:"maxCapacity"`
+	// The namespace the workgroup is associated with.
+	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
+	// An object that represents the price performance target settings for the workgroup.
+	PricePerformanceTarget WorkgroupPerformanceTargetPtrInput `pulumi:"pricePerformanceTarget"`
+	// A value that specifies whether the workgroup can be accessible from a public network.
+	PubliclyAccessible pulumi.BoolPtrInput `pulumi:"publiclyAccessible"`
+	// An array of security group IDs to associate with the workgroup.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The status of the workgroup.
+	Status WorkgroupStatusPtrInput `pulumi:"status"`
+	// An array of subnet IDs the workgroup is associated with.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The name of the track for the workgroup.
+	TrackName pulumi.StringPtrInput `pulumi:"trackName"`
+	// The Amazon Resource Name (ARN) that links to the workgroup.
+	WorkgroupArn pulumi.StringPtrInput `pulumi:"workgroupArn"`
+	// The unique identifier of the workgroup.
+	WorkgroupId pulumi.StringPtrInput `pulumi:"workgroupId"`
+	// The name of the workgroup.
+	WorkgroupName pulumi.StringPtrInput `pulumi:"workgroupName"`
+}
+
+func (WorkgroupTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupType)(nil)).Elem()
+}
+
+func (i WorkgroupTypeArgs) ToWorkgroupTypeOutput() WorkgroupTypeOutput {
+	return i.ToWorkgroupTypeOutputWithContext(context.Background())
+}
+
+func (i WorkgroupTypeArgs) ToWorkgroupTypeOutputWithContext(ctx context.Context) WorkgroupTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupTypeOutput)
+}
+
+func (i WorkgroupTypeArgs) ToWorkgroupTypePtrOutput() WorkgroupTypePtrOutput {
+	return i.ToWorkgroupTypePtrOutputWithContext(context.Background())
+}
+
+func (i WorkgroupTypeArgs) ToWorkgroupTypePtrOutputWithContext(ctx context.Context) WorkgroupTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupTypeOutput).ToWorkgroupTypePtrOutputWithContext(ctx)
+}
+
+// WorkgroupTypePtrInput is an input type that accepts WorkgroupTypeArgs, WorkgroupTypePtr and WorkgroupTypePtrOutput values.
+// You can construct a concrete instance of `WorkgroupTypePtrInput` via:
+//
+//	        WorkgroupTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkgroupTypePtrInput interface {
+	pulumi.Input
+
+	ToWorkgroupTypePtrOutput() WorkgroupTypePtrOutput
+	ToWorkgroupTypePtrOutputWithContext(context.Context) WorkgroupTypePtrOutput
+}
+
+type workgroupTypePtrType WorkgroupTypeArgs
+
+func WorkgroupTypePtr(v *WorkgroupTypeArgs) WorkgroupTypePtrInput {
+	return (*workgroupTypePtrType)(v)
+}
+
+func (*workgroupTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupType)(nil)).Elem()
+}
+
+func (i *workgroupTypePtrType) ToWorkgroupTypePtrOutput() WorkgroupTypePtrOutput {
+	return i.ToWorkgroupTypePtrOutputWithContext(context.Background())
+}
+
+func (i *workgroupTypePtrType) ToWorkgroupTypePtrOutputWithContext(ctx context.Context) WorkgroupTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupTypePtrOutput)
 }
 
 type WorkgroupTypeOutput struct{ *pulumi.OutputState }
@@ -442,6 +543,16 @@ func (o WorkgroupTypeOutput) ToWorkgroupTypeOutput() WorkgroupTypeOutput {
 
 func (o WorkgroupTypeOutput) ToWorkgroupTypeOutputWithContext(ctx context.Context) WorkgroupTypeOutput {
 	return o
+}
+
+func (o WorkgroupTypeOutput) ToWorkgroupTypePtrOutput() WorkgroupTypePtrOutput {
+	return o.ToWorkgroupTypePtrOutputWithContext(context.Background())
+}
+
+func (o WorkgroupTypeOutput) ToWorkgroupTypePtrOutputWithContext(ctx context.Context) WorkgroupTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupType) *WorkgroupType {
+		return &v
+	}).(WorkgroupTypePtrOutput)
 }
 
 // The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
@@ -502,6 +613,11 @@ func (o WorkgroupTypeOutput) Status() WorkgroupStatusPtrOutput {
 // An array of subnet IDs the workgroup is associated with.
 func (o WorkgroupTypeOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkgroupType) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// The name of the track for the workgroup.
+func (o WorkgroupTypeOutput) TrackName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkgroupType) *string { return v.TrackName }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) that links to the workgroup.
@@ -663,6 +779,16 @@ func (o WorkgroupTypePtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The name of the track for the workgroup.
+func (o WorkgroupTypePtrOutput) TrackName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkgroupType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrackName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) that links to the workgroup.
 func (o WorkgroupTypePtrOutput) WorkgroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupType) *string {
@@ -808,6 +934,79 @@ type WorkgroupEndpoint struct {
 	VpcEndpoints []WorkgroupVpcEndpoint `pulumi:"vpcEndpoints"`
 }
 
+// WorkgroupEndpointInput is an input type that accepts WorkgroupEndpointArgs and WorkgroupEndpointOutput values.
+// You can construct a concrete instance of `WorkgroupEndpointInput` via:
+//
+//	WorkgroupEndpointArgs{...}
+type WorkgroupEndpointInput interface {
+	pulumi.Input
+
+	ToWorkgroupEndpointOutput() WorkgroupEndpointOutput
+	ToWorkgroupEndpointOutputWithContext(context.Context) WorkgroupEndpointOutput
+}
+
+type WorkgroupEndpointArgs struct {
+	// The DNS address of the VPC endpoint.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+	// The port that Amazon Redshift Serverless listens on.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// An array of `VpcEndpoint` objects.
+	VpcEndpoints WorkgroupVpcEndpointArrayInput `pulumi:"vpcEndpoints"`
+}
+
+func (WorkgroupEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupEndpoint)(nil)).Elem()
+}
+
+func (i WorkgroupEndpointArgs) ToWorkgroupEndpointOutput() WorkgroupEndpointOutput {
+	return i.ToWorkgroupEndpointOutputWithContext(context.Background())
+}
+
+func (i WorkgroupEndpointArgs) ToWorkgroupEndpointOutputWithContext(ctx context.Context) WorkgroupEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupEndpointOutput)
+}
+
+func (i WorkgroupEndpointArgs) ToWorkgroupEndpointPtrOutput() WorkgroupEndpointPtrOutput {
+	return i.ToWorkgroupEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i WorkgroupEndpointArgs) ToWorkgroupEndpointPtrOutputWithContext(ctx context.Context) WorkgroupEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupEndpointOutput).ToWorkgroupEndpointPtrOutputWithContext(ctx)
+}
+
+// WorkgroupEndpointPtrInput is an input type that accepts WorkgroupEndpointArgs, WorkgroupEndpointPtr and WorkgroupEndpointPtrOutput values.
+// You can construct a concrete instance of `WorkgroupEndpointPtrInput` via:
+//
+//	        WorkgroupEndpointArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkgroupEndpointPtrInput interface {
+	pulumi.Input
+
+	ToWorkgroupEndpointPtrOutput() WorkgroupEndpointPtrOutput
+	ToWorkgroupEndpointPtrOutputWithContext(context.Context) WorkgroupEndpointPtrOutput
+}
+
+type workgroupEndpointPtrType WorkgroupEndpointArgs
+
+func WorkgroupEndpointPtr(v *WorkgroupEndpointArgs) WorkgroupEndpointPtrInput {
+	return (*workgroupEndpointPtrType)(v)
+}
+
+func (*workgroupEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupEndpoint)(nil)).Elem()
+}
+
+func (i *workgroupEndpointPtrType) ToWorkgroupEndpointPtrOutput() WorkgroupEndpointPtrOutput {
+	return i.ToWorkgroupEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *workgroupEndpointPtrType) ToWorkgroupEndpointPtrOutputWithContext(ctx context.Context) WorkgroupEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupEndpointPtrOutput)
+}
+
 type WorkgroupEndpointOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupEndpointOutput) ElementType() reflect.Type {
@@ -820,6 +1019,16 @@ func (o WorkgroupEndpointOutput) ToWorkgroupEndpointOutput() WorkgroupEndpointOu
 
 func (o WorkgroupEndpointOutput) ToWorkgroupEndpointOutputWithContext(ctx context.Context) WorkgroupEndpointOutput {
 	return o
+}
+
+func (o WorkgroupEndpointOutput) ToWorkgroupEndpointPtrOutput() WorkgroupEndpointPtrOutput {
+	return o.ToWorkgroupEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o WorkgroupEndpointOutput) ToWorkgroupEndpointPtrOutputWithContext(ctx context.Context) WorkgroupEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupEndpoint) *WorkgroupEndpoint {
+		return &v
+	}).(WorkgroupEndpointPtrOutput)
 }
 
 // The DNS address of the VPC endpoint.
@@ -900,6 +1109,65 @@ type WorkgroupNetworkInterface struct {
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// The unique identifier of the subnet.
 	SubnetId *string `pulumi:"subnetId"`
+}
+
+// WorkgroupNetworkInterfaceInput is an input type that accepts WorkgroupNetworkInterfaceArgs and WorkgroupNetworkInterfaceOutput values.
+// You can construct a concrete instance of `WorkgroupNetworkInterfaceInput` via:
+//
+//	WorkgroupNetworkInterfaceArgs{...}
+type WorkgroupNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToWorkgroupNetworkInterfaceOutput() WorkgroupNetworkInterfaceOutput
+	ToWorkgroupNetworkInterfaceOutputWithContext(context.Context) WorkgroupNetworkInterfaceOutput
+}
+
+type WorkgroupNetworkInterfaceArgs struct {
+	// The availability Zone.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The unique identifier of the network interface.
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	// The IPv4 address of the network interface within the subnet.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The unique identifier of the subnet.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (WorkgroupNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupNetworkInterface)(nil)).Elem()
+}
+
+func (i WorkgroupNetworkInterfaceArgs) ToWorkgroupNetworkInterfaceOutput() WorkgroupNetworkInterfaceOutput {
+	return i.ToWorkgroupNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i WorkgroupNetworkInterfaceArgs) ToWorkgroupNetworkInterfaceOutputWithContext(ctx context.Context) WorkgroupNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupNetworkInterfaceOutput)
+}
+
+// WorkgroupNetworkInterfaceArrayInput is an input type that accepts WorkgroupNetworkInterfaceArray and WorkgroupNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `WorkgroupNetworkInterfaceArrayInput` via:
+//
+//	WorkgroupNetworkInterfaceArray{ WorkgroupNetworkInterfaceArgs{...} }
+type WorkgroupNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToWorkgroupNetworkInterfaceArrayOutput() WorkgroupNetworkInterfaceArrayOutput
+	ToWorkgroupNetworkInterfaceArrayOutputWithContext(context.Context) WorkgroupNetworkInterfaceArrayOutput
+}
+
+type WorkgroupNetworkInterfaceArray []WorkgroupNetworkInterfaceInput
+
+func (WorkgroupNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkgroupNetworkInterface)(nil)).Elem()
+}
+
+func (i WorkgroupNetworkInterfaceArray) ToWorkgroupNetworkInterfaceArrayOutput() WorkgroupNetworkInterfaceArrayOutput {
+	return i.ToWorkgroupNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i WorkgroupNetworkInterfaceArray) ToWorkgroupNetworkInterfaceArrayOutputWithContext(ctx context.Context) WorkgroupNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupNetworkInterfaceArrayOutput)
 }
 
 type WorkgroupNetworkInterfaceOutput struct{ *pulumi.OutputState }
@@ -1128,6 +1396,63 @@ type WorkgroupVpcEndpoint struct {
 	VpcId *string `pulumi:"vpcId"`
 }
 
+// WorkgroupVpcEndpointInput is an input type that accepts WorkgroupVpcEndpointArgs and WorkgroupVpcEndpointOutput values.
+// You can construct a concrete instance of `WorkgroupVpcEndpointInput` via:
+//
+//	WorkgroupVpcEndpointArgs{...}
+type WorkgroupVpcEndpointInput interface {
+	pulumi.Input
+
+	ToWorkgroupVpcEndpointOutput() WorkgroupVpcEndpointOutput
+	ToWorkgroupVpcEndpointOutputWithContext(context.Context) WorkgroupVpcEndpointOutput
+}
+
+type WorkgroupVpcEndpointArgs struct {
+	// One or more network interfaces of the endpoint. Also known as an interface endpoint.
+	NetworkInterfaces WorkgroupNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
+	// The connection endpoint ID for connecting to Amazon Redshift Serverless.
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
+	// The VPC identifier that the endpoint is associated with.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+}
+
+func (WorkgroupVpcEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupVpcEndpoint)(nil)).Elem()
+}
+
+func (i WorkgroupVpcEndpointArgs) ToWorkgroupVpcEndpointOutput() WorkgroupVpcEndpointOutput {
+	return i.ToWorkgroupVpcEndpointOutputWithContext(context.Background())
+}
+
+func (i WorkgroupVpcEndpointArgs) ToWorkgroupVpcEndpointOutputWithContext(ctx context.Context) WorkgroupVpcEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupVpcEndpointOutput)
+}
+
+// WorkgroupVpcEndpointArrayInput is an input type that accepts WorkgroupVpcEndpointArray and WorkgroupVpcEndpointArrayOutput values.
+// You can construct a concrete instance of `WorkgroupVpcEndpointArrayInput` via:
+//
+//	WorkgroupVpcEndpointArray{ WorkgroupVpcEndpointArgs{...} }
+type WorkgroupVpcEndpointArrayInput interface {
+	pulumi.Input
+
+	ToWorkgroupVpcEndpointArrayOutput() WorkgroupVpcEndpointArrayOutput
+	ToWorkgroupVpcEndpointArrayOutputWithContext(context.Context) WorkgroupVpcEndpointArrayOutput
+}
+
+type WorkgroupVpcEndpointArray []WorkgroupVpcEndpointInput
+
+func (WorkgroupVpcEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkgroupVpcEndpoint)(nil)).Elem()
+}
+
+func (i WorkgroupVpcEndpointArray) ToWorkgroupVpcEndpointArrayOutput() WorkgroupVpcEndpointArrayOutput {
+	return i.ToWorkgroupVpcEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i WorkgroupVpcEndpointArray) ToWorkgroupVpcEndpointArrayOutputWithContext(ctx context.Context) WorkgroupVpcEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupVpcEndpointArrayOutput)
+}
+
 type WorkgroupVpcEndpointOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupVpcEndpointOutput) ElementType() reflect.Type {
@@ -1180,10 +1505,18 @@ func (o WorkgroupVpcEndpointArrayOutput) Index(i pulumi.IntInput) WorkgroupVpcEn
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceSnapshotCopyConfigurationInput)(nil)).Elem(), NamespaceSnapshotCopyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceSnapshotCopyConfigurationArrayInput)(nil)).Elem(), NamespaceSnapshotCopyConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupTypeInput)(nil)).Elem(), WorkgroupTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupTypePtrInput)(nil)).Elem(), WorkgroupTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigParameterInput)(nil)).Elem(), WorkgroupConfigParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigParameterArrayInput)(nil)).Elem(), WorkgroupConfigParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupEndpointInput)(nil)).Elem(), WorkgroupEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupEndpointPtrInput)(nil)).Elem(), WorkgroupEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupNetworkInterfaceInput)(nil)).Elem(), WorkgroupNetworkInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupNetworkInterfaceArrayInput)(nil)).Elem(), WorkgroupNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupPerformanceTargetInput)(nil)).Elem(), WorkgroupPerformanceTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupPerformanceTargetPtrInput)(nil)).Elem(), WorkgroupPerformanceTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupVpcEndpointInput)(nil)).Elem(), WorkgroupVpcEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupVpcEndpointArrayInput)(nil)).Elem(), WorkgroupVpcEndpointArray{})
 	pulumi.RegisterOutputType(NamespaceTypeOutput{})
 	pulumi.RegisterOutputType(NamespaceTypePtrOutput{})
 	pulumi.RegisterOutputType(NamespaceSnapshotCopyConfigurationOutput{})

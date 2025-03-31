@@ -77,6 +77,7 @@ namespace Pulumi.AwsNative.Amplify
         /// The build specification (build spec) for the branch.
         /// </summary>
         public readonly string? BuildSpec;
+        public readonly string? ComputeRoleArn;
         /// <summary>
         /// The description for the branch that is part of an Amplify app.
         /// </summary>
@@ -99,6 +100,7 @@ namespace Pulumi.AwsNative.Amplify
         /// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
         /// </summary>
         public readonly bool? EnablePullRequestPreview;
+        public readonly bool? EnableSkewProtection;
         /// <summary>
         /// The environment variables for the branch.
         /// </summary>
@@ -134,6 +136,8 @@ namespace Pulumi.AwsNative.Amplify
 
             string? buildSpec,
 
+            string? computeRoleArn,
+
             string? description,
 
             bool? enableAutoBuild,
@@ -141,6 +145,8 @@ namespace Pulumi.AwsNative.Amplify
             bool? enablePerformanceMode,
 
             bool? enablePullRequestPreview,
+
+            bool? enableSkewProtection,
 
             ImmutableArray<Outputs.BranchEnvironmentVariable> environmentVariables,
 
@@ -155,10 +161,12 @@ namespace Pulumi.AwsNative.Amplify
             Arn = arn;
             Backend = backend;
             BuildSpec = buildSpec;
+            ComputeRoleArn = computeRoleArn;
             Description = description;
             EnableAutoBuild = enableAutoBuild;
             EnablePerformanceMode = enablePerformanceMode;
             EnablePullRequestPreview = enablePullRequestPreview;
+            EnableSkewProtection = enableSkewProtection;
             EnvironmentVariables = environmentVariables;
             Framework = framework;
             PullRequestEnvironmentName = pullRequestEnvironmentName;

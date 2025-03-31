@@ -60,6 +60,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// A unique identifier for the built-in intent to base this intent on.
         /// </summary>
         public readonly string? ParentIntentSignature;
+        public readonly Outputs.BotQnAIntentConfiguration? QnAIntentConfiguration;
         /// <summary>
         /// A sample utterance that invokes an intent or respond to a slot elicitation prompt.
         /// </summary>
@@ -97,6 +98,8 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             string? parentIntentSignature,
 
+            Outputs.BotQnAIntentConfiguration? qnAIntentConfiguration,
+
             ImmutableArray<Outputs.BotSampleUtterance> sampleUtterances,
 
             ImmutableArray<Outputs.BotSlotPriority> slotPriorities,
@@ -114,6 +117,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
             Name = name;
             OutputContexts = outputContexts;
             ParentIntentSignature = parentIntentSignature;
+            QnAIntentConfiguration = qnAIntentConfiguration;
             SampleUtterances = sampleUtterances;
             SlotPriorities = slotPriorities;
             Slots = slots;

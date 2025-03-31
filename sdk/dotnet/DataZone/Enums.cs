@@ -8,6 +8,70 @@ using Pulumi;
 namespace Pulumi.AwsNative.DataZone
 {
     /// <summary>
+    /// Authentication Type
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionAuthenticationType : IEquatable<ConnectionAuthenticationType>
+    {
+        private readonly string _value;
+
+        private ConnectionAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionAuthenticationType Basic { get; } = new ConnectionAuthenticationType("BASIC");
+        public static ConnectionAuthenticationType Oauth2 { get; } = new ConnectionAuthenticationType("OAUTH2");
+        public static ConnectionAuthenticationType Custom { get; } = new ConnectionAuthenticationType("CUSTOM");
+
+        public static bool operator ==(ConnectionAuthenticationType left, ConnectionAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(ConnectionAuthenticationType left, ConnectionAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionAuthenticationType other && Equals(other);
+        public bool Equals(ConnectionAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// OAuth2 Grant Type
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionOAuth2GrantType : IEquatable<ConnectionOAuth2GrantType>
+    {
+        private readonly string _value;
+
+        private ConnectionOAuth2GrantType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionOAuth2GrantType AuthorizationCode { get; } = new ConnectionOAuth2GrantType("AUTHORIZATION_CODE");
+        public static ConnectionOAuth2GrantType ClientCredentials { get; } = new ConnectionOAuth2GrantType("CLIENT_CREDENTIALS");
+        public static ConnectionOAuth2GrantType JwtBearer { get; } = new ConnectionOAuth2GrantType("JWT_BEARER");
+
+        public static bool operator ==(ConnectionOAuth2GrantType left, ConnectionOAuth2GrantType right) => left.Equals(right);
+        public static bool operator !=(ConnectionOAuth2GrantType left, ConnectionOAuth2GrantType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionOAuth2GrantType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionOAuth2GrantType other && Equals(other);
+        public bool Equals(ConnectionOAuth2GrantType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies whether the data source is enabled.
     /// </summary>
     [EnumType]

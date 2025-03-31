@@ -53,6 +53,9 @@ namespace Pulumi.AwsNative.Amplify
         [Output("buildSpec")]
         public Output<string?> BuildSpec { get; private set; } = null!;
 
+        [Output("computeRoleArn")]
+        public Output<string?> ComputeRoleArn { get; private set; } = null!;
+
         /// <summary>
         /// The description for the branch that is part of an Amplify app.
         /// </summary>
@@ -82,6 +85,9 @@ namespace Pulumi.AwsNative.Amplify
         /// </summary>
         [Output("enablePullRequestPreview")]
         public Output<bool?> EnablePullRequestPreview { get; private set; } = null!;
+
+        [Output("enableSkewProtection")]
+        public Output<bool?> EnableSkewProtection { get; private set; } = null!;
 
         /// <summary>
         /// The environment variables for the branch.
@@ -201,6 +207,9 @@ namespace Pulumi.AwsNative.Amplify
         [Input("buildSpec")]
         public Input<string>? BuildSpec { get; set; }
 
+        [Input("computeRoleArn")]
+        public Input<string>? ComputeRoleArn { get; set; }
+
         /// <summary>
         /// The description for the branch that is part of an Amplify app.
         /// </summary>
@@ -230,6 +239,9 @@ namespace Pulumi.AwsNative.Amplify
         /// </summary>
         [Input("enablePullRequestPreview")]
         public Input<bool>? EnablePullRequestPreview { get; set; }
+
+        [Input("enableSkewProtection")]
+        public Input<bool>? EnableSkewProtection { get; set; }
 
         [Input("environmentVariables")]
         private InputList<Inputs.BranchEnvironmentVariableArgs>? _environmentVariables;

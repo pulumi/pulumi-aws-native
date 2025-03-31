@@ -45,6 +45,7 @@ export interface GetServiceLevelObjectiveResult {
      * Displays whether this is a period-based SLO or a request-based SLO.
      */
     readonly evaluationType?: enums.applicationsignals.ServiceLevelObjectiveEvaluationType;
+    readonly exclusionWindows?: outputs.applicationsignals.ServiceLevelObjectiveExclusionWindow[];
     /**
      * This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
      */

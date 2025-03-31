@@ -82,6 +82,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly portalUrl!: pulumi.Output<string>;
     /**
+     * The ID of the root domain in Amazon Datazone.
+     */
+    public /*out*/ readonly rootDomainUnitId!: pulumi.Output<string>;
+    /**
      * The service role of the domain that is created.
      */
     public readonly serviceRole!: pulumi.Output<string | undefined>;
@@ -126,6 +130,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["managedAccountId"] = undefined /*out*/;
             resourceInputs["portalUrl"] = undefined /*out*/;
+            resourceInputs["rootDomainUnitId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -139,6 +144,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["managedAccountId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["portalUrl"] = undefined /*out*/;
+            resourceInputs["rootDomainUnitId"] = undefined /*out*/;
             resourceInputs["serviceRole"] = undefined /*out*/;
             resourceInputs["singleSignOn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

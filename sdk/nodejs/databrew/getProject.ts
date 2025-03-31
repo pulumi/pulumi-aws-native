@@ -41,6 +41,10 @@ export interface GetProjectResult {
      * Sample
      */
     readonly sample?: outputs.databrew.ProjectSample;
+    /**
+     * Metadata tags that have been applied to the project.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::DataBrew::Project.

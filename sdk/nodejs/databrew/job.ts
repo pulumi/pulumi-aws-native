@@ -131,7 +131,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Metadata tags that have been applied to the job.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Timeout
      */
@@ -205,7 +205,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["validationConfigurations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name", "tags[*]", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["name", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Job.__pulumiType, name, resourceInputs, opts);
     }
@@ -282,7 +282,7 @@ export interface JobArgs {
     /**
      * Metadata tags that have been applied to the job.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Timeout
      */

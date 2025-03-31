@@ -63,6 +63,7 @@ export class Branch extends pulumi.CustomResource {
      * The build specification (build spec) for the branch.
      */
     public readonly buildSpec!: pulumi.Output<string | undefined>;
+    public readonly computeRoleArn!: pulumi.Output<string | undefined>;
     /**
      * The description for the branch that is part of an Amplify app.
      */
@@ -85,6 +86,7 @@ export class Branch extends pulumi.CustomResource {
      * For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
      */
     public readonly enablePullRequestPreview!: pulumi.Output<boolean | undefined>;
+    public readonly enableSkewProtection!: pulumi.Output<boolean | undefined>;
     /**
      * The environment variables for the branch.
      */
@@ -131,10 +133,12 @@ export class Branch extends pulumi.CustomResource {
             resourceInputs["basicAuthConfig"] = args ? args.basicAuthConfig : undefined;
             resourceInputs["branchName"] = args ? args.branchName : undefined;
             resourceInputs["buildSpec"] = args ? args.buildSpec : undefined;
+            resourceInputs["computeRoleArn"] = args ? args.computeRoleArn : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enableAutoBuild"] = args ? args.enableAutoBuild : undefined;
             resourceInputs["enablePerformanceMode"] = args ? args.enablePerformanceMode : undefined;
             resourceInputs["enablePullRequestPreview"] = args ? args.enablePullRequestPreview : undefined;
+            resourceInputs["enableSkewProtection"] = args ? args.enableSkewProtection : undefined;
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["framework"] = args ? args.framework : undefined;
             resourceInputs["pullRequestEnvironmentName"] = args ? args.pullRequestEnvironmentName : undefined;
@@ -148,10 +152,12 @@ export class Branch extends pulumi.CustomResource {
             resourceInputs["basicAuthConfig"] = undefined /*out*/;
             resourceInputs["branchName"] = undefined /*out*/;
             resourceInputs["buildSpec"] = undefined /*out*/;
+            resourceInputs["computeRoleArn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["enableAutoBuild"] = undefined /*out*/;
             resourceInputs["enablePerformanceMode"] = undefined /*out*/;
             resourceInputs["enablePullRequestPreview"] = undefined /*out*/;
+            resourceInputs["enableSkewProtection"] = undefined /*out*/;
             resourceInputs["environmentVariables"] = undefined /*out*/;
             resourceInputs["framework"] = undefined /*out*/;
             resourceInputs["pullRequestEnvironmentName"] = undefined /*out*/;
@@ -191,6 +197,7 @@ export interface BranchArgs {
      * The build specification (build spec) for the branch.
      */
     buildSpec?: pulumi.Input<string>;
+    computeRoleArn?: pulumi.Input<string>;
     /**
      * The description for the branch that is part of an Amplify app.
      */
@@ -213,6 +220,7 @@ export interface BranchArgs {
      * For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
      */
     enablePullRequestPreview?: pulumi.Input<boolean>;
+    enableSkewProtection?: pulumi.Input<boolean>;
     /**
      * The environment variables for the branch.
      */

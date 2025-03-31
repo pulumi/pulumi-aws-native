@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ConnectorVpcInformation struct {
+	// The VPC IP address type.
 	IpAddressType *ConnectorVpcInformationIpAddressType `pulumi:"ipAddressType"`
 	// The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -31,6 +32,7 @@ type ConnectorVpcInformationInput interface {
 }
 
 type ConnectorVpcInformationArgs struct {
+	// The VPC IP address type.
 	IpAddressType ConnectorVpcInformationIpAddressTypePtrInput `pulumi:"ipAddressType"`
 	// The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
@@ -62,6 +64,7 @@ func (o ConnectorVpcInformationOutput) ToConnectorVpcInformationOutputWithContex
 	return o
 }
 
+// The VPC IP address type.
 func (o ConnectorVpcInformationOutput) IpAddressType() ConnectorVpcInformationIpAddressTypePtrOutput {
 	return o.ApplyT(func(v ConnectorVpcInformation) *ConnectorVpcInformationIpAddressType { return v.IpAddressType }).(ConnectorVpcInformationIpAddressTypePtrOutput)
 }

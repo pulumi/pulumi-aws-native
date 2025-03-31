@@ -10,6 +10,342 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Authentication Type
+type ConnectionAuthenticationType string
+
+const (
+	ConnectionAuthenticationTypeBasic  = ConnectionAuthenticationType("BASIC")
+	ConnectionAuthenticationTypeOauth2 = ConnectionAuthenticationType("OAUTH2")
+	ConnectionAuthenticationTypeCustom = ConnectionAuthenticationType("CUSTOM")
+)
+
+func (ConnectionAuthenticationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationType)(nil)).Elem()
+}
+
+func (e ConnectionAuthenticationType) ToConnectionAuthenticationTypeOutput() ConnectionAuthenticationTypeOutput {
+	return pulumi.ToOutput(e).(ConnectionAuthenticationTypeOutput)
+}
+
+func (e ConnectionAuthenticationType) ToConnectionAuthenticationTypeOutputWithContext(ctx context.Context) ConnectionAuthenticationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionAuthenticationTypeOutput)
+}
+
+func (e ConnectionAuthenticationType) ToConnectionAuthenticationTypePtrOutput() ConnectionAuthenticationTypePtrOutput {
+	return e.ToConnectionAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionAuthenticationType) ToConnectionAuthenticationTypePtrOutputWithContext(ctx context.Context) ConnectionAuthenticationTypePtrOutput {
+	return ConnectionAuthenticationType(e).ToConnectionAuthenticationTypeOutputWithContext(ctx).ToConnectionAuthenticationTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectionAuthenticationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionAuthenticationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionAuthenticationTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationType)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationTypeOutput) ToConnectionAuthenticationTypeOutput() ConnectionAuthenticationTypeOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationTypeOutput) ToConnectionAuthenticationTypeOutputWithContext(ctx context.Context) ConnectionAuthenticationTypeOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationTypeOutput) ToConnectionAuthenticationTypePtrOutput() ConnectionAuthenticationTypePtrOutput {
+	return o.ToConnectionAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAuthenticationTypeOutput) ToConnectionAuthenticationTypePtrOutputWithContext(ctx context.Context) ConnectionAuthenticationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAuthenticationType) *ConnectionAuthenticationType {
+		return &v
+	}).(ConnectionAuthenticationTypePtrOutput)
+}
+
+func (o ConnectionAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionAuthenticationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionAuthenticationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionAuthenticationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAuthenticationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionAuthenticationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionAuthenticationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthenticationType)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationTypePtrOutput) ToConnectionAuthenticationTypePtrOutput() ConnectionAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationTypePtrOutput) ToConnectionAuthenticationTypePtrOutputWithContext(ctx context.Context) ConnectionAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationTypePtrOutput) Elem() ConnectionAuthenticationTypeOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationType) ConnectionAuthenticationType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionAuthenticationType
+		return ret
+	}).(ConnectionAuthenticationTypeOutput)
+}
+
+func (o ConnectionAuthenticationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionAuthenticationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionAuthenticationTypeInput is an input type that accepts values of the ConnectionAuthenticationType enum
+// A concrete instance of `ConnectionAuthenticationTypeInput` can be one of the following:
+//
+//	ConnectionAuthenticationTypeBasic
+//	ConnectionAuthenticationTypeOauth2
+//	ConnectionAuthenticationTypeCustom
+type ConnectionAuthenticationTypeInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationTypeOutput() ConnectionAuthenticationTypeOutput
+	ToConnectionAuthenticationTypeOutputWithContext(context.Context) ConnectionAuthenticationTypeOutput
+}
+
+var connectionAuthenticationTypePtrType = reflect.TypeOf((**ConnectionAuthenticationType)(nil)).Elem()
+
+type ConnectionAuthenticationTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationTypePtrOutput() ConnectionAuthenticationTypePtrOutput
+	ToConnectionAuthenticationTypePtrOutputWithContext(context.Context) ConnectionAuthenticationTypePtrOutput
+}
+
+type connectionAuthenticationTypePtr string
+
+func ConnectionAuthenticationTypePtr(v string) ConnectionAuthenticationTypePtrInput {
+	return (*connectionAuthenticationTypePtr)(&v)
+}
+
+func (*connectionAuthenticationTypePtr) ElementType() reflect.Type {
+	return connectionAuthenticationTypePtrType
+}
+
+func (in *connectionAuthenticationTypePtr) ToConnectionAuthenticationTypePtrOutput() ConnectionAuthenticationTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectionAuthenticationTypePtrOutput)
+}
+
+func (in *connectionAuthenticationTypePtr) ToConnectionAuthenticationTypePtrOutputWithContext(ctx context.Context) ConnectionAuthenticationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionAuthenticationTypePtrOutput)
+}
+
+// OAuth2 Grant Type
+type ConnectionOAuth2GrantType string
+
+const (
+	ConnectionOAuth2GrantTypeAuthorizationCode = ConnectionOAuth2GrantType("AUTHORIZATION_CODE")
+	ConnectionOAuth2GrantTypeClientCredentials = ConnectionOAuth2GrantType("CLIENT_CREDENTIALS")
+	ConnectionOAuth2GrantTypeJwtBearer         = ConnectionOAuth2GrantType("JWT_BEARER")
+)
+
+func (ConnectionOAuth2GrantType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionOAuth2GrantType)(nil)).Elem()
+}
+
+func (e ConnectionOAuth2GrantType) ToConnectionOAuth2GrantTypeOutput() ConnectionOAuth2GrantTypeOutput {
+	return pulumi.ToOutput(e).(ConnectionOAuth2GrantTypeOutput)
+}
+
+func (e ConnectionOAuth2GrantType) ToConnectionOAuth2GrantTypeOutputWithContext(ctx context.Context) ConnectionOAuth2GrantTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionOAuth2GrantTypeOutput)
+}
+
+func (e ConnectionOAuth2GrantType) ToConnectionOAuth2GrantTypePtrOutput() ConnectionOAuth2GrantTypePtrOutput {
+	return e.ToConnectionOAuth2GrantTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionOAuth2GrantType) ToConnectionOAuth2GrantTypePtrOutputWithContext(ctx context.Context) ConnectionOAuth2GrantTypePtrOutput {
+	return ConnectionOAuth2GrantType(e).ToConnectionOAuth2GrantTypeOutputWithContext(ctx).ToConnectionOAuth2GrantTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectionOAuth2GrantType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionOAuth2GrantType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionOAuth2GrantType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionOAuth2GrantType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionOAuth2GrantTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectionOAuth2GrantTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionOAuth2GrantType)(nil)).Elem()
+}
+
+func (o ConnectionOAuth2GrantTypeOutput) ToConnectionOAuth2GrantTypeOutput() ConnectionOAuth2GrantTypeOutput {
+	return o
+}
+
+func (o ConnectionOAuth2GrantTypeOutput) ToConnectionOAuth2GrantTypeOutputWithContext(ctx context.Context) ConnectionOAuth2GrantTypeOutput {
+	return o
+}
+
+func (o ConnectionOAuth2GrantTypeOutput) ToConnectionOAuth2GrantTypePtrOutput() ConnectionOAuth2GrantTypePtrOutput {
+	return o.ToConnectionOAuth2GrantTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionOAuth2GrantTypeOutput) ToConnectionOAuth2GrantTypePtrOutputWithContext(ctx context.Context) ConnectionOAuth2GrantTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionOAuth2GrantType) *ConnectionOAuth2GrantType {
+		return &v
+	}).(ConnectionOAuth2GrantTypePtrOutput)
+}
+
+func (o ConnectionOAuth2GrantTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionOAuth2GrantTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionOAuth2GrantType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionOAuth2GrantTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionOAuth2GrantTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionOAuth2GrantType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionOAuth2GrantTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionOAuth2GrantTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionOAuth2GrantType)(nil)).Elem()
+}
+
+func (o ConnectionOAuth2GrantTypePtrOutput) ToConnectionOAuth2GrantTypePtrOutput() ConnectionOAuth2GrantTypePtrOutput {
+	return o
+}
+
+func (o ConnectionOAuth2GrantTypePtrOutput) ToConnectionOAuth2GrantTypePtrOutputWithContext(ctx context.Context) ConnectionOAuth2GrantTypePtrOutput {
+	return o
+}
+
+func (o ConnectionOAuth2GrantTypePtrOutput) Elem() ConnectionOAuth2GrantTypeOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2GrantType) ConnectionOAuth2GrantType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionOAuth2GrantType
+		return ret
+	}).(ConnectionOAuth2GrantTypeOutput)
+}
+
+func (o ConnectionOAuth2GrantTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionOAuth2GrantTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionOAuth2GrantType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionOAuth2GrantTypeInput is an input type that accepts values of the ConnectionOAuth2GrantType enum
+// A concrete instance of `ConnectionOAuth2GrantTypeInput` can be one of the following:
+//
+//	ConnectionOAuth2GrantTypeAuthorizationCode
+//	ConnectionOAuth2GrantTypeClientCredentials
+//	ConnectionOAuth2GrantTypeJwtBearer
+type ConnectionOAuth2GrantTypeInput interface {
+	pulumi.Input
+
+	ToConnectionOAuth2GrantTypeOutput() ConnectionOAuth2GrantTypeOutput
+	ToConnectionOAuth2GrantTypeOutputWithContext(context.Context) ConnectionOAuth2GrantTypeOutput
+}
+
+var connectionOAuth2GrantTypePtrType = reflect.TypeOf((**ConnectionOAuth2GrantType)(nil)).Elem()
+
+type ConnectionOAuth2GrantTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectionOAuth2GrantTypePtrOutput() ConnectionOAuth2GrantTypePtrOutput
+	ToConnectionOAuth2GrantTypePtrOutputWithContext(context.Context) ConnectionOAuth2GrantTypePtrOutput
+}
+
+type connectionOAuth2GrantTypePtr string
+
+func ConnectionOAuth2GrantTypePtr(v string) ConnectionOAuth2GrantTypePtrInput {
+	return (*connectionOAuth2GrantTypePtr)(&v)
+}
+
+func (*connectionOAuth2GrantTypePtr) ElementType() reflect.Type {
+	return connectionOAuth2GrantTypePtrType
+}
+
+func (in *connectionOAuth2GrantTypePtr) ToConnectionOAuth2GrantTypePtrOutput() ConnectionOAuth2GrantTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectionOAuth2GrantTypePtrOutput)
+}
+
+func (in *connectionOAuth2GrantTypePtr) ToConnectionOAuth2GrantTypePtrOutputWithContext(ctx context.Context) ConnectionOAuth2GrantTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionOAuth2GrantTypePtrOutput)
+}
+
 // Specifies whether the data source is enabled.
 type DataSourceEnableSetting string
 
@@ -1901,6 +2237,10 @@ func (in *userProfileUserTypePtr) ToUserProfileUserTypePtrOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationTypeInput)(nil)).Elem(), ConnectionAuthenticationType("BASIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationTypePtrInput)(nil)).Elem(), ConnectionAuthenticationType("BASIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuth2GrantTypeInput)(nil)).Elem(), ConnectionOAuth2GrantType("AUTHORIZATION_CODE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuth2GrantTypePtrInput)(nil)).Elem(), ConnectionOAuth2GrantType("AUTHORIZATION_CODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnableSettingInput)(nil)).Elem(), DataSourceEnableSetting("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnableSettingPtrInput)(nil)).Elem(), DataSourceEnableSetting("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceFilterExpressionTypeInput)(nil)).Elem(), DataSourceFilterExpressionType("INCLUDE"))
@@ -1919,6 +2259,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileStatusPtrInput)(nil)).Elem(), UserProfileStatus("ASSIGNED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserTypeInput)(nil)).Elem(), UserProfileUserType("IAM_USER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserTypePtrInput)(nil)).Elem(), UserProfileUserType("IAM_USER"))
+	pulumi.RegisterOutputType(ConnectionAuthenticationTypeOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthenticationTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionOAuth2GrantTypeOutput{})
+	pulumi.RegisterOutputType(ConnectionOAuth2GrantTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceEnableSettingOutput{})
 	pulumi.RegisterOutputType(DataSourceEnableSettingPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceFilterExpressionTypeOutput{})

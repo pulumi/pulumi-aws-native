@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -31,9 +34,17 @@ export interface GetDomainNameResult {
      */
     readonly description?: string;
     /**
+     * The Amazon Resource Name (ARN) for the Domain Name.
+     */
+    readonly domainNameArn?: string;
+    /**
      * The ID of your Amazon Route 53 hosted zone.
      */
     readonly hostedZoneId?: string;
+    /**
+     * A set of tags (key-value pairs) for this domain name.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::AppSync::DomainName

@@ -17,9 +17,17 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     public sealed class GuardrailContentFilterConfig
     {
         /// <summary>
+        /// List of modalities
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Bedrock.GuardrailModality> InputModalities;
+        /// <summary>
         /// The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.GuardrailFilterStrength InputStrength;
+        /// <summary>
+        /// List of modalities
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Bedrock.GuardrailModality> OutputModalities;
         /// <summary>
         /// The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
         /// </summary>
@@ -31,13 +39,19 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
         [OutputConstructor]
         private GuardrailContentFilterConfig(
+            ImmutableArray<Pulumi.AwsNative.Bedrock.GuardrailModality> inputModalities,
+
             Pulumi.AwsNative.Bedrock.GuardrailFilterStrength inputStrength,
+
+            ImmutableArray<Pulumi.AwsNative.Bedrock.GuardrailModality> outputModalities,
 
             Pulumi.AwsNative.Bedrock.GuardrailFilterStrength outputStrength,
 
             Pulumi.AwsNative.Bedrock.GuardrailContentFilterType type)
         {
+            InputModalities = inputModalities;
             InputStrength = inputStrength;
+            OutputModalities = outputModalities;
             OutputStrength = outputStrength;
             Type = type;
         }

@@ -36,7 +36,8 @@ type LookupBranchResult struct {
 	// This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
 	Backend *BranchBackend `pulumi:"backend"`
 	// The build specification (build spec) for the branch.
-	BuildSpec *string `pulumi:"buildSpec"`
+	BuildSpec      *string `pulumi:"buildSpec"`
+	ComputeRoleArn *string `pulumi:"computeRoleArn"`
 	// The description for the branch that is part of an Amplify app.
 	Description *string `pulumi:"description"`
 	// Enables auto building for the branch.
@@ -51,6 +52,7 @@ type LookupBranchResult struct {
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 	EnablePullRequestPreview *bool `pulumi:"enablePullRequestPreview"`
+	EnableSkewProtection     *bool `pulumi:"enableSkewProtection"`
 	// The environment variables for the branch.
 	EnvironmentVariables []BranchEnvironmentVariable `pulumi:"environmentVariables"`
 	// The framework for the branch.
@@ -118,6 +120,10 @@ func (o LookupBranchResultOutput) BuildSpec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBranchResult) *string { return v.BuildSpec }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupBranchResultOutput) ComputeRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBranchResult) *string { return v.ComputeRoleArn }).(pulumi.StringPtrOutput)
+}
+
 // The description for the branch that is part of an Amplify app.
 func (o LookupBranchResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBranchResult) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -142,6 +148,10 @@ func (o LookupBranchResultOutput) EnablePerformanceMode() pulumi.BoolPtrOutput {
 // For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 func (o LookupBranchResultOutput) EnablePullRequestPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupBranchResult) *bool { return v.EnablePullRequestPreview }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupBranchResultOutput) EnableSkewProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBranchResult) *bool { return v.EnableSkewProtection }).(pulumi.BoolPtrOutput)
 }
 
 // The environment variables for the branch.

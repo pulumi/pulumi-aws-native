@@ -38,6 +38,8 @@ type App struct {
 	BuildSpec pulumi.StringPtrOutput `pulumi:"buildSpec"`
 	// The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
 	CacheConfig AppCacheConfigPtrOutput `pulumi:"cacheConfig"`
+	// The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+	ComputeRoleArn pulumi.StringPtrOutput `pulumi:"computeRoleArn"`
 	// The custom HTTP headers for an Amplify app.
 	CustomHeaders pulumi.StringPtrOutput `pulumi:"customHeaders"`
 	// The custom rewrite and redirect rules for an Amplify app.
@@ -130,6 +132,8 @@ type appArgs struct {
 	BuildSpec *string `pulumi:"buildSpec"`
 	// The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
 	CacheConfig *AppCacheConfig `pulumi:"cacheConfig"`
+	// The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+	ComputeRoleArn *string `pulumi:"computeRoleArn"`
 	// The custom HTTP headers for an Amplify app.
 	CustomHeaders *string `pulumi:"customHeaders"`
 	// The custom rewrite and redirect rules for an Amplify app.
@@ -182,6 +186,8 @@ type AppArgs struct {
 	BuildSpec pulumi.StringPtrInput
 	// The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
 	CacheConfig AppCacheConfigPtrInput
+	// The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+	ComputeRoleArn pulumi.StringPtrInput
 	// The custom HTTP headers for an Amplify app.
 	CustomHeaders pulumi.StringPtrInput
 	// The custom rewrite and redirect rules for an Amplify app.
@@ -297,6 +303,11 @@ func (o AppOutput) BuildSpec() pulumi.StringPtrOutput {
 // The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
 func (o AppOutput) CacheConfig() AppCacheConfigPtrOutput {
 	return o.ApplyT(func(v *App) AppCacheConfigPtrOutput { return v.CacheConfig }).(AppCacheConfigPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+func (o AppOutput) ComputeRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.ComputeRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The custom HTTP headers for an Amplify app.

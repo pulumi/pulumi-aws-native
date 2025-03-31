@@ -2925,17 +2925,19 @@ func (o RuleGroupIpSetReferenceMapOutput) MapIndex(k pulumi.StringInput) RuleGro
 }
 
 type RuleGroupMatchAttributes struct {
-	// The destination ports to inspect for. If not specified, this matches with any destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+	// The destination port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
 	//
-	// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+	// This setting is only used for protocols 6 (TCP) and 17 (UDP).
 	DestinationPorts []RuleGroupPortRange `pulumi:"destinationPorts"`
 	// The destination IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address.
 	Destinations []RuleGroupAddress `pulumi:"destinations"`
-	// The protocols to inspect for, specified using each protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+	// The protocols to inspect for, specified using the assigned internet protocol number (IANA) for each protocol. If not specified, this matches with any protocol.
 	Protocols []int `pulumi:"protocols"`
-	// The source ports to inspect for. If not specified, this matches with any source port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+	// The source port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
 	//
-	// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+	// If not specified, this matches with any source port.
+	//
+	// This setting is only used for protocols 6 (TCP) and 17 (UDP).
 	SourcePorts []RuleGroupPortRange `pulumi:"sourcePorts"`
 	// The source IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address.
 	Sources []RuleGroupAddress `pulumi:"sources"`
@@ -2955,17 +2957,19 @@ type RuleGroupMatchAttributesInput interface {
 }
 
 type RuleGroupMatchAttributesArgs struct {
-	// The destination ports to inspect for. If not specified, this matches with any destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+	// The destination port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
 	//
-	// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+	// This setting is only used for protocols 6 (TCP) and 17 (UDP).
 	DestinationPorts RuleGroupPortRangeArrayInput `pulumi:"destinationPorts"`
 	// The destination IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address.
 	Destinations RuleGroupAddressArrayInput `pulumi:"destinations"`
-	// The protocols to inspect for, specified using each protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+	// The protocols to inspect for, specified using the assigned internet protocol number (IANA) for each protocol. If not specified, this matches with any protocol.
 	Protocols pulumi.IntArrayInput `pulumi:"protocols"`
-	// The source ports to inspect for. If not specified, this matches with any source port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+	// The source port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
 	//
-	// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+	// If not specified, this matches with any source port.
+	//
+	// This setting is only used for protocols 6 (TCP) and 17 (UDP).
 	SourcePorts RuleGroupPortRangeArrayInput `pulumi:"sourcePorts"`
 	// The source IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address.
 	Sources RuleGroupAddressArrayInput `pulumi:"sources"`
@@ -2999,9 +3003,9 @@ func (o RuleGroupMatchAttributesOutput) ToRuleGroupMatchAttributesOutputWithCont
 	return o
 }
 
-// The destination ports to inspect for. If not specified, this matches with any destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+// The destination port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
 //
-// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+// This setting is only used for protocols 6 (TCP) and 17 (UDP).
 func (o RuleGroupMatchAttributesOutput) DestinationPorts() RuleGroupPortRangeArrayOutput {
 	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupPortRange { return v.DestinationPorts }).(RuleGroupPortRangeArrayOutput)
 }
@@ -3011,14 +3015,16 @@ func (o RuleGroupMatchAttributesOutput) Destinations() RuleGroupAddressArrayOutp
 	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupAddress { return v.Destinations }).(RuleGroupAddressArrayOutput)
 }
 
-// The protocols to inspect for, specified using each protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+// The protocols to inspect for, specified using the assigned internet protocol number (IANA) for each protocol. If not specified, this matches with any protocol.
 func (o RuleGroupMatchAttributesOutput) Protocols() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RuleGroupMatchAttributes) []int { return v.Protocols }).(pulumi.IntArrayOutput)
 }
 
-// The source ports to inspect for. If not specified, this matches with any source port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+// The source port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
 //
-// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+// If not specified, this matches with any source port.
+//
+// This setting is only used for protocols 6 (TCP) and 17 (UDP).
 func (o RuleGroupMatchAttributesOutput) SourcePorts() RuleGroupPortRangeArrayOutput {
 	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupPortRange { return v.SourcePorts }).(RuleGroupPortRangeArrayOutput)
 }
@@ -5600,8 +5606,9 @@ type TlsInspectionConfigurationServerCertificateScope struct {
 	// The destination IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
 	// matches with any destination address.
 	Destinations []TlsInspectionConfigurationAddress `pulumi:"destinations"`
-	// The protocols to decrypt for inspection, specified using each protocol's assigned internet protocol number
-	// (IANA). Network Firewall currently supports only TCP.
+	// The protocols to inspect for, specified using the assigned internet protocol number (IANA) for each protocol. If not specified, this matches with any protocol.
+	//
+	// Network Firewall currently supports only TCP.
 	Protocols []int `pulumi:"protocols"`
 	// The source ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any source port.
 	//
@@ -5631,8 +5638,9 @@ type TlsInspectionConfigurationServerCertificateScopeArgs struct {
 	// The destination IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
 	// matches with any destination address.
 	Destinations TlsInspectionConfigurationAddressArrayInput `pulumi:"destinations"`
-	// The protocols to decrypt for inspection, specified using each protocol's assigned internet protocol number
-	// (IANA). Network Firewall currently supports only TCP.
+	// The protocols to inspect for, specified using the assigned internet protocol number (IANA) for each protocol. If not specified, this matches with any protocol.
+	//
+	// Network Firewall currently supports only TCP.
 	Protocols pulumi.IntArrayInput `pulumi:"protocols"`
 	// The source ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any source port.
 	//
@@ -5711,8 +5719,9 @@ func (o TlsInspectionConfigurationServerCertificateScopeOutput) Destinations() T
 	}).(TlsInspectionConfigurationAddressArrayOutput)
 }
 
-// The protocols to decrypt for inspection, specified using each protocol's assigned internet protocol number
-// (IANA). Network Firewall currently supports only TCP.
+// The protocols to inspect for, specified using the assigned internet protocol number (IANA) for each protocol. If not specified, this matches with any protocol.
+//
+// Network Firewall currently supports only TCP.
 func (o TlsInspectionConfigurationServerCertificateScopeOutput) Protocols() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateScope) []int { return v.Protocols }).(pulumi.IntArrayOutput)
 }

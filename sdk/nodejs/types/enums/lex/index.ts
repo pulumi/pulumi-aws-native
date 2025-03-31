@@ -20,6 +20,16 @@ export const BotAudioRecognitionStrategy = {
  */
 export type BotAudioRecognitionStrategy = (typeof BotAudioRecognitionStrategy)[keyof typeof BotAudioRecognitionStrategy];
 
+export const BotBedrockModelSpecificationBedrockTraceStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The Bedrock trace status in the Bedrock model specification details.
+ */
+export type BotBedrockModelSpecificationBedrockTraceStatus = (typeof BotBedrockModelSpecificationBedrockTraceStatus)[keyof typeof BotBedrockModelSpecificationBedrockTraceStatus];
+
 export const BotDialogActionType = {
     CloseIntent: "CloseIntent",
     ConfirmIntent: "ConfirmIntent",
@@ -84,6 +94,8 @@ export type BotSlotValueResolutionStrategy = (typeof BotSlotValueResolutionStrat
 export const BotVoiceSettingsEngine = {
     Standard: "standard",
     Neural: "neural",
+    LongForm: "long-form",
+    Generative: "generative",
 } as const;
 
 /**

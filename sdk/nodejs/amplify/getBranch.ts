@@ -39,6 +39,7 @@ export interface GetBranchResult {
      * The build specification (build spec) for the branch.
      */
     readonly buildSpec?: string;
+    readonly computeRoleArn?: string;
     /**
      * The description for the branch that is part of an Amplify app.
      */
@@ -61,6 +62,7 @@ export interface GetBranchResult {
      * For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
      */
     readonly enablePullRequestPreview?: boolean;
+    readonly enableSkewProtection?: boolean;
     /**
      * The environment variables for the branch.
      */

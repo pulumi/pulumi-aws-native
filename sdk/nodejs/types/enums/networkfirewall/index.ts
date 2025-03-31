@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const FirewallEnabledAnalysisType = {
+    TlsSni: "TLS_SNI",
+    HttpHost: "HTTP_HOST",
+} as const;
+
+/**
+ * An analysis type.
+ */
+export type FirewallEnabledAnalysisType = (typeof FirewallEnabledAnalysisType)[keyof typeof FirewallEnabledAnalysisType];
+
 export const FirewallPolicyOverrideAction = {
     DropToAlert: "DROP_TO_ALERT",
 } as const;

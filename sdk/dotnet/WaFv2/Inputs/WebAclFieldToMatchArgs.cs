@@ -28,6 +28,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         /// 
         /// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         /// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+        /// - For AWS Amplify , use the CloudFront limit.
         /// 
         /// For information about how to handle oversized request bodies, see the `Body` object configuration.
         /// </summary>
@@ -81,6 +82,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         /// 
         /// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         /// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+        /// - For AWS Amplify , use the CloudFront limit.
         /// 
         /// For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
         /// </summary>
@@ -114,6 +116,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         /// </summary>
         [Input("singleQueryArgument")]
         public Input<Inputs.WebAclFieldToMatchSingleQueryArgumentPropertiesArgs>? SingleQueryArgument { get; set; }
+
+        [Input("uriFragment")]
+        public Input<Inputs.WebAclUriFragmentArgs>? UriFragment { get; set; }
 
         /// <summary>
         /// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.

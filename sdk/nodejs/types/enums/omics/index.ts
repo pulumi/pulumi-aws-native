@@ -55,11 +55,29 @@ export const ReferenceStoreEncryptionType = {
 
 export type ReferenceStoreEncryptionType = (typeof ReferenceStoreEncryptionType)[keyof typeof ReferenceStoreEncryptionType];
 
+export const SequenceStoreETagAlgorithmFamily = {
+    Md5up: "MD5up",
+    Sha256up: "SHA256up",
+    Sha512up: "SHA512up",
+} as const;
+
+export type SequenceStoreETagAlgorithmFamily = (typeof SequenceStoreETagAlgorithmFamily)[keyof typeof SequenceStoreETagAlgorithmFamily];
+
 export const SequenceStoreEncryptionType = {
     Kms: "KMS",
 } as const;
 
 export type SequenceStoreEncryptionType = (typeof SequenceStoreEncryptionType)[keyof typeof SequenceStoreEncryptionType];
+
+export const SequenceStoreStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Updating: "UPDATING",
+    Deleting: "DELETING",
+    Failed: "FAILED",
+} as const;
+
+export type SequenceStoreStatus = (typeof SequenceStoreStatus)[keyof typeof SequenceStoreStatus];
 
 export const VariantStoreEncryptionType = {
     Kms: "KMS",

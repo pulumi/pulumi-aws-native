@@ -54,9 +54,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication &amp; Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
         /// </summary>
         public readonly string? PrivateKey;
-        /// <summary>
-        /// Specifies configuration for Snowflake.
-        /// </summary>
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
         /// The time period where Firehose will retry sending data to the chosen HTTP endpoint.

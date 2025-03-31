@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.PcaConnectorAd.Inputs
 
     public sealed class ConnectorVpcInformationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The VPC IP address type.
+        /// </summary>
         [Input("ipAddressType")]
         public Input<Pulumi.AwsNative.PcaConnectorAd.ConnectorVpcInformationIpAddressType>? IpAddressType { get; set; }
 

@@ -29,10 +29,12 @@ class BranchArgs:
                  basic_auth_config: Optional[pulumi.Input['BranchBasicAuthConfigArgs']] = None,
                  branch_name: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
+                 compute_role_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_auto_build: Optional[pulumi.Input[bool]] = None,
                  enable_performance_mode: Optional[pulumi.Input[bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
+                 enable_skew_protection: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['BranchEnvironmentVariableArgs']]]] = None,
                  framework: Optional[pulumi.Input[str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
@@ -78,6 +80,8 @@ class BranchArgs:
             pulumi.set(__self__, "branch_name", branch_name)
         if build_spec is not None:
             pulumi.set(__self__, "build_spec", build_spec)
+        if compute_role_arn is not None:
+            pulumi.set(__self__, "compute_role_arn", compute_role_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enable_auto_build is not None:
@@ -86,6 +90,8 @@ class BranchArgs:
             pulumi.set(__self__, "enable_performance_mode", enable_performance_mode)
         if enable_pull_request_preview is not None:
             pulumi.set(__self__, "enable_pull_request_preview", enable_pull_request_preview)
+        if enable_skew_protection is not None:
+            pulumi.set(__self__, "enable_skew_protection", enable_skew_protection)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if framework is not None:
@@ -160,6 +166,15 @@ class BranchArgs:
         pulumi.set(self, "build_spec", value)
 
     @property
+    @pulumi.getter(name="computeRoleArn")
+    def compute_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "compute_role_arn")
+
+    @compute_role_arn.setter
+    def compute_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_role_arn", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -212,6 +227,15 @@ class BranchArgs:
     @enable_pull_request_preview.setter
     def enable_pull_request_preview(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_pull_request_preview", value)
+
+    @property
+    @pulumi.getter(name="enableSkewProtection")
+    def enable_skew_protection(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_skew_protection")
+
+    @enable_skew_protection.setter
+    def enable_skew_protection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_skew_protection", value)
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -290,10 +314,12 @@ class Branch(pulumi.CustomResource):
                  basic_auth_config: Optional[pulumi.Input[Union['BranchBasicAuthConfigArgs', 'BranchBasicAuthConfigArgsDict']]] = None,
                  branch_name: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
+                 compute_role_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_auto_build: Optional[pulumi.Input[bool]] = None,
                  enable_performance_mode: Optional[pulumi.Input[bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
+                 enable_skew_protection: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchEnvironmentVariableArgs', 'BranchEnvironmentVariableArgsDict']]]]] = None,
                  framework: Optional[pulumi.Input[str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
@@ -363,10 +389,12 @@ class Branch(pulumi.CustomResource):
                  basic_auth_config: Optional[pulumi.Input[Union['BranchBasicAuthConfigArgs', 'BranchBasicAuthConfigArgsDict']]] = None,
                  branch_name: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
+                 compute_role_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_auto_build: Optional[pulumi.Input[bool]] = None,
                  enable_performance_mode: Optional[pulumi.Input[bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
+                 enable_skew_protection: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchEnvironmentVariableArgs', 'BranchEnvironmentVariableArgsDict']]]]] = None,
                  framework: Optional[pulumi.Input[str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
@@ -388,10 +416,12 @@ class Branch(pulumi.CustomResource):
             __props__.__dict__["basic_auth_config"] = basic_auth_config
             __props__.__dict__["branch_name"] = branch_name
             __props__.__dict__["build_spec"] = build_spec
+            __props__.__dict__["compute_role_arn"] = compute_role_arn
             __props__.__dict__["description"] = description
             __props__.__dict__["enable_auto_build"] = enable_auto_build
             __props__.__dict__["enable_performance_mode"] = enable_performance_mode
             __props__.__dict__["enable_pull_request_preview"] = enable_pull_request_preview
+            __props__.__dict__["enable_skew_protection"] = enable_skew_protection
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["framework"] = framework
             __props__.__dict__["pull_request_environment_name"] = pull_request_environment_name
@@ -428,10 +458,12 @@ class Branch(pulumi.CustomResource):
         __props__.__dict__["basic_auth_config"] = None
         __props__.__dict__["branch_name"] = None
         __props__.__dict__["build_spec"] = None
+        __props__.__dict__["compute_role_arn"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["enable_auto_build"] = None
         __props__.__dict__["enable_performance_mode"] = None
         __props__.__dict__["enable_pull_request_preview"] = None
+        __props__.__dict__["enable_skew_protection"] = None
         __props__.__dict__["environment_variables"] = None
         __props__.__dict__["framework"] = None
         __props__.__dict__["pull_request_environment_name"] = None
@@ -490,6 +522,11 @@ class Branch(pulumi.CustomResource):
         return pulumi.get(self, "build_spec")
 
     @property
+    @pulumi.getter(name="computeRoleArn")
+    def compute_role_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "compute_role_arn")
+
+    @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
@@ -526,6 +563,11 @@ class Branch(pulumi.CustomResource):
         For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
         """
         return pulumi.get(self, "enable_pull_request_preview")
+
+    @property
+    @pulumi.getter(name="enableSkewProtection")
+    def enable_skew_protection(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "enable_skew_protection")
 
     @property
     @pulumi.getter(name="environmentVariables")

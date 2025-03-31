@@ -42,7 +42,8 @@ class DataSetArgs:
                  physical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetPhysicalTableArgs']]]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 use_as: Optional[pulumi.Input['DataSetUseAs']] = None):
         """
         The set of arguments for constructing a DataSet resource.
         :param pulumi.Input[str] aws_account_id: The AWS account ID.
@@ -105,6 +106,8 @@ class DataSetArgs:
             pulumi.set(__self__, "row_level_permission_tag_configuration", row_level_permission_tag_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if use_as is not None:
+            pulumi.set(__self__, "use_as", use_as)
 
     @property
     @pulumi.getter(name="awsAccountId")
@@ -336,6 +339,15 @@ class DataSetArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="useAs")
+    def use_as(self) -> Optional[pulumi.Input['DataSetUseAs']]:
+        return pulumi.get(self, "use_as")
+
+    @use_as.setter
+    def use_as(self, value: Optional[pulumi.Input['DataSetUseAs']]):
+        pulumi.set(self, "use_as", value)
+
 
 class DataSet(pulumi.CustomResource):
     @overload
@@ -361,6 +373,7 @@ class DataSet(pulumi.CustomResource):
                  row_level_permission_data_set: Optional[pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']]] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 use_as: Optional[pulumi.Input['DataSetUseAs']] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::DataSet Resource Type.
@@ -432,6 +445,7 @@ class DataSet(pulumi.CustomResource):
                  row_level_permission_data_set: Optional[pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']]] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 use_as: Optional[pulumi.Input['DataSetUseAs']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -460,6 +474,7 @@ class DataSet(pulumi.CustomResource):
             __props__.__dict__["row_level_permission_data_set"] = row_level_permission_data_set
             __props__.__dict__["row_level_permission_tag_configuration"] = row_level_permission_tag_configuration
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["use_as"] = use_as
             __props__.__dict__["arn"] = None
             __props__.__dict__["consumed_spice_capacity_in_bytes"] = None
             __props__.__dict__["created_time"] = None
@@ -513,6 +528,7 @@ class DataSet(pulumi.CustomResource):
         __props__.__dict__["row_level_permission_data_set"] = None
         __props__.__dict__["row_level_permission_tag_configuration"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["use_as"] = None
         return DataSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -710,4 +726,9 @@ class DataSet(pulumi.CustomResource):
         <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="useAs")
+    def use_as(self) -> pulumi.Output[Optional['DataSetUseAs']]:
+        return pulumi.get(self, "use_as")
 

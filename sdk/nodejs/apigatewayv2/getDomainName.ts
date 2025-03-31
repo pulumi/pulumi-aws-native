@@ -27,6 +27,10 @@ export interface GetDomainNameArgs {
 
 export interface GetDomainNameResult {
     /**
+     * Represents an Amazon Resource Name (ARN).
+     */
+    readonly domainNameArn?: string;
+    /**
      * The domain name configurations.
      */
     readonly domainNameConfigurations?: outputs.apigatewayv2.DomainNameConfiguration[];

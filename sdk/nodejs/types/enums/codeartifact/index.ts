@@ -9,7 +9,4 @@ export const PackageGroupRestrictionTypeRestrictionMode = {
     Inherit: "INHERIT",
 } as const;
 
-/**
- * The package group origin restriction setting. When the value is `INHERIT` , the value is set to the value of the first parent package group which does not have a value of `INHERIT` .
- */
 export type PackageGroupRestrictionTypeRestrictionMode = (typeof PackageGroupRestrictionTypeRestrictionMode)[keyof typeof PackageGroupRestrictionTypeRestrictionMode];

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,6 +39,8 @@ type LookupDatasetResult struct {
 	PathOptions *DatasetPathOptions `pulumi:"pathOptions"`
 	// Source type of the dataset
 	Source *DatasetSource `pulumi:"source"`
+	// Metadata tags that have been applied to the dataset.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDatasetOutput(ctx *pulumi.Context, args LookupDatasetOutputArgs, opts ...pulumi.InvokeOption) LookupDatasetResultOutput {
@@ -95,6 +98,11 @@ func (o LookupDatasetResultOutput) PathOptions() DatasetPathOptionsPtrOutput {
 // Source type of the dataset
 func (o LookupDatasetResultOutput) Source() DatasetSourcePtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *DatasetSource { return v.Source }).(DatasetSourcePtrOutput)
+}
+
+// Metadata tags that have been applied to the dataset.
+func (o LookupDatasetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDatasetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {
