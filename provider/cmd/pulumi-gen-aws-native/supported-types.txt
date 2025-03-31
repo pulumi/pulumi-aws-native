@@ -293,6 +293,7 @@ AWS::DataSync::LocationS3
 AWS::DataSync::LocationSMB
 AWS::DataSync::StorageSystem
 AWS::DataSync::Task
+AWS::DataZone::Connection
 AWS::DataZone::DataSource
 AWS::DataZone::Domain
 AWS::DataZone::Environment
@@ -623,6 +624,7 @@ AWS::IoTSiteWise::AccessPolicy
 AWS::IoTSiteWise::Asset
 AWS::IoTSiteWise::AssetModel
 AWS::IoTSiteWise::Dashboard
+AWS::IoTSiteWise::Dataset
 AWS::IoTSiteWise::Gateway
 AWS::IoTSiteWise::Portal
 AWS::IoTSiteWise::Project

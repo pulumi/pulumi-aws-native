@@ -385,11 +385,11 @@
   "additionalProperties" : false,
   "required" : [ "Name", "Input" ],
   "primaryIdentifier" : [ "/properties/Name" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/Name" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "databrew:TagResource", "databrew:UntagResource", "databrew:ListTagsForResource" ]
@@ -399,10 +399,10 @@
       "permissions" : [ "databrew:CreateDataset", "databrew:DescribeDataset", "databrew:TagResource", "databrew:UntagResource", "glue:GetConnection", "glue:GetTable", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "databrew:DescribeDataset", "databrew:ListTagsForResource", "iam:ListRoles" ]
+      "permissions" : [ "databrew:DescribeDataset", "iam:ListRoles" ]
     },
     "update" : {
-      "permissions" : [ "databrew:UpdateDataset", "glue:GetConnection", "glue:GetTable" ]
+      "permissions" : [ "databrew:UpdateDataset", "databrew:TagResource", "databrew:UntagResource", "glue:GetConnection", "glue:GetTable" ]
     },
     "delete" : {
       "permissions" : [ "databrew:DeleteDataset" ]

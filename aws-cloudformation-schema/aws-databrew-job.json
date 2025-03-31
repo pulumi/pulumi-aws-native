@@ -513,11 +513,11 @@
   "additionalProperties" : false,
   "required" : [ "Name", "RoleArn", "Type" ],
   "primaryIdentifier" : [ "/properties/Name" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Type", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Type" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "databrew:TagResource", "databrew:UntagResource", "databrew:ListTagsForResource" ]
@@ -527,10 +527,10 @@
       "permissions" : [ "databrew:CreateProfileJob", "databrew:CreateRecipeJob", "databrew:DescribeJob", "databrew:TagResource", "databrew:UntagResource", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "databrew:DescribeJob", "databrew:ListTagsForResource", "iam:ListRoles" ]
+      "permissions" : [ "databrew:DescribeJob", "iam:ListRoles" ]
     },
     "update" : {
-      "permissions" : [ "databrew:UpdateProfileJob", "databrew:UpdateRecipeJob", "iam:PassRole" ]
+      "permissions" : [ "databrew:UpdateProfileJob", "databrew:UpdateRecipeJob", "databrew:TagResource", "databrew:UntagResource", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "databrew:DeleteJob" ]
