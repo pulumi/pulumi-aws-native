@@ -61,6 +61,50 @@
     },
     "AvailabilityZoneId" : {
       "type" : "string"
+    },
+    "StartDate" : {
+      "type" : "string"
+    },
+    "CapacityReservationArn" : {
+      "type" : "string"
+    },
+    "CreateDate" : {
+      "type" : "string"
+    },
+    "State" : {
+      "type" : "string"
+    },
+    "OwnerId" : {
+      "type" : "string"
+    },
+    "DeliveryPreference" : {
+      "type" : "string"
+    },
+    "CapacityReservationFleetId" : {
+      "type" : "string"
+    },
+    "ReservationType" : {
+      "type" : "string"
+    },
+    "CapacityAllocationSet" : {
+      "type" : "array",
+      "insertionOrder" : false,
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/CapacityAllocation"
+      }
+    },
+    "CommitmentInfo" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CommitmentEndDate" : {
+          "type" : "string"
+        },
+        "CommittedInstanceCount" : {
+          "type" : "integer"
+        }
+      }
     }
   },
   "definitions" : {
@@ -93,12 +137,24 @@
           }
         }
       }
+    },
+    "CapacityAllocation" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AllocationType" : {
+          "type" : "string"
+        },
+        "Count" : {
+          "type" : "integer"
+        }
+      }
     }
   },
   "required" : [ "InstanceCount", "InstancePlatform", "InstanceType" ],
   "createOnlyProperties" : [ "/properties/Tenancy", "/properties/InstancePlatform", "/properties/InstanceType", "/properties/AvailabilityZone", "/properties/TagSpecifications", "/properties/OutPostArn", "/properties/EphemeralStorage", "/properties/EbsOptimized", "/properties/PlacementGroupArn", "/properties/AvailabilityZoneId" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id", "/properties/AvailableInstanceCount", "/properties/TotalInstanceCount" ],
+  "readOnlyProperties" : [ "/properties/Id", "/properties/AvailableInstanceCount", "/properties/TotalInstanceCount", "/properties/StartDate", "/properties/CapacityReservationArn", "/properties/CreateDate", "/properties/State", "/properties/OwnerId", "/properties/ReservationType", "/properties/CapacityAllocationSet", "/properties/CommitmentInfo", "/properties/DeliveryPreference", "/properties/CapacityReservationFleetId" ],
   "writeOnlyProperties" : [ "/properties/UnusedReservationBillingOwnerId" ],
   "tagging" : {
     "taggable" : true,

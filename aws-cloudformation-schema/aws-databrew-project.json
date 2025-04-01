@@ -78,11 +78,11 @@
   "additionalProperties" : false,
   "required" : [ "DatasetName", "Name", "RecipeName", "RoleArn" ],
   "primaryIdentifier" : [ "/properties/Name" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/Name" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "databrew:TagResource", "databrew:UntagResource", "databrew:ListTagsForResource" ]
@@ -92,10 +92,10 @@
       "permissions" : [ "databrew:CreateProject", "databrew:DescribeProject", "databrew:TagResource", "databrew:UntagResource", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "databrew:DescribeProject", "databrew:ListTagsForResource", "iam:ListRoles" ]
+      "permissions" : [ "databrew:DescribeProject", "iam:ListRoles" ]
     },
     "update" : {
-      "permissions" : [ "databrew:UpdateProject", "iam:PassRole" ]
+      "permissions" : [ "databrew:UpdateProject", "databrew:TagResource", "databrew:UntagResource", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "databrew:DeleteProject" ]
