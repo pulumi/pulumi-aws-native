@@ -37,10 +37,15 @@ type LookupAppMonitorResult struct {
 	CustomEvents *AppMonitorCustomEvents `pulumi:"customEvents"`
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled *bool `pulumi:"cwLogEnabled"`
-	// The top-level internet domain name for which your application has administrative authority.
+	// A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+	DeobfuscationConfiguration *AppMonitorDeobfuscationConfiguration `pulumi:"deobfuscationConfiguration"`
+	// The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
 	Domain *string `pulumi:"domain"`
+	// The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+	DomainList []string `pulumi:"domainList"`
 	// The unique ID of the new app monitor.
-	Id             *string                   `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
 	ResourcePolicy *AppMonitorResourcePolicy `pulumi:"resourcePolicy"`
 	// Assigns one or more tags (key-value pairs) to the app monitor.
 	//
@@ -103,9 +108,21 @@ func (o LookupAppMonitorResultOutput) CwLogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupAppMonitorResult) *bool { return v.CwLogEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The top-level internet domain name for which your application has administrative authority.
+// A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+func (o LookupAppMonitorResultOutput) DeobfuscationConfiguration() AppMonitorDeobfuscationConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupAppMonitorResult) *AppMonitorDeobfuscationConfiguration {
+		return v.DeobfuscationConfiguration
+	}).(AppMonitorDeobfuscationConfigurationPtrOutput)
+}
+
+// The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
 func (o LookupAppMonitorResultOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppMonitorResult) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+func (o LookupAppMonitorResultOutput) DomainList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupAppMonitorResult) []string { return v.DomainList }).(pulumi.StringArrayOutput)
 }
 
 // The unique ID of the new app monitor.
@@ -113,6 +130,7 @@ func (o LookupAppMonitorResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppMonitorResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
 func (o LookupAppMonitorResultOutput) ResourcePolicy() AppMonitorResourcePolicyPtrOutput {
 	return o.ApplyT(func(v LookupAppMonitorResult) *AppMonitorResourcePolicy { return v.ResourcePolicy }).(AppMonitorResourcePolicyPtrOutput)
 }

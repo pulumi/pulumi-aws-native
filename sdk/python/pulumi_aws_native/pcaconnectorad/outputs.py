@@ -81,6 +81,7 @@ class ConnectorVpcInformation(dict):
                  ip_address_type: Optional['ConnectorVpcInformationIpAddressType'] = None):
         """
         :param Sequence[str] security_group_ids: The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
+        :param 'ConnectorVpcInformationIpAddressType' ip_address_type: The VPC IP address type.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         if ip_address_type is not None:
@@ -97,6 +98,9 @@ class ConnectorVpcInformation(dict):
     @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional['ConnectorVpcInformationIpAddressType']:
+        """
+        The VPC IP address type.
+        """
         return pulumi.get(self, "ip_address_type")
 
 

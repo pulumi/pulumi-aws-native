@@ -99,6 +99,9 @@ if not MYPY:
         The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
         """
         ip_address_type: NotRequired[pulumi.Input['ConnectorVpcInformationIpAddressType']]
+        """
+        The VPC IP address type.
+        """
 elif False:
     ConnectorVpcInformationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -109,6 +112,7 @@ class ConnectorVpcInformationArgs:
                  ip_address_type: Optional[pulumi.Input['ConnectorVpcInformationIpAddressType']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
+        :param pulumi.Input['ConnectorVpcInformationIpAddressType'] ip_address_type: The VPC IP address type.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         if ip_address_type is not None:
@@ -129,6 +133,9 @@ class ConnectorVpcInformationArgs:
     @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input['ConnectorVpcInformationIpAddressType']]:
+        """
+        The VPC IP address type.
+        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter

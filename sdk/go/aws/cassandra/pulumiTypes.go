@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type KeyspaceReplicationSpecification struct {
-	// Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two and up to six Regions, including the Region that the keyspace is being created in.
+	// Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two Regions, including the Region that the keyspace is being created in.
 	RegionList []KeyspaceRegionListItem `pulumi:"regionList"`
 	// The options are:
 	//
@@ -37,7 +37,7 @@ type KeyspaceReplicationSpecificationInput interface {
 }
 
 type KeyspaceReplicationSpecificationArgs struct {
-	// Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two and up to six Regions, including the Region that the keyspace is being created in.
+	// Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two Regions, including the Region that the keyspace is being created in.
 	RegionList KeyspaceRegionListItemArrayInput `pulumi:"regionList"`
 	// The options are:
 	//
@@ -125,7 +125,7 @@ func (o KeyspaceReplicationSpecificationOutput) ToKeyspaceReplicationSpecificati
 	}).(KeyspaceReplicationSpecificationPtrOutput)
 }
 
-// Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two and up to six Regions, including the Region that the keyspace is being created in.
+// Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two Regions, including the Region that the keyspace is being created in.
 func (o KeyspaceReplicationSpecificationOutput) RegionList() KeyspaceRegionListItemArrayOutput {
 	return o.ApplyT(func(v KeyspaceReplicationSpecification) []KeyspaceRegionListItem { return v.RegionList }).(KeyspaceRegionListItemArrayOutput)
 }
@@ -166,7 +166,7 @@ func (o KeyspaceReplicationSpecificationPtrOutput) Elem() KeyspaceReplicationSpe
 	}).(KeyspaceReplicationSpecificationOutput)
 }
 
-// Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two and up to six Regions, including the Region that the keyspace is being created in.
+// Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two Regions, including the Region that the keyspace is being created in.
 func (o KeyspaceReplicationSpecificationPtrOutput) RegionList() KeyspaceRegionListItemArrayOutput {
 	return o.ApplyT(func(v *KeyspaceReplicationSpecification) []KeyspaceRegionListItem {
 		if v == nil {

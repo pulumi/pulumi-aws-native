@@ -39,6 +39,9 @@ __all__ = [
     'AssetModelTumblingWindow',
     'AssetModelVariableValue',
     'AssetProperty',
+    'DatasetKendraSourceDetail',
+    'DatasetSource',
+    'DatasetSourceDetail',
     'GatewayCapabilitySummary',
     'GatewayGreengrassV2',
     'GatewayPlatform',
@@ -1318,6 +1321,135 @@ class AssetProperty(dict):
         The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
         """
         return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class DatasetKendraSourceDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "knowledgeBaseArn":
+            suggest = "knowledge_base_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetKendraSourceDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetKendraSourceDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetKendraSourceDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 knowledge_base_arn: str,
+                 role_arn: str):
+        """
+        :param str knowledge_base_arn: The knowledgeBaseArn details for the Kendra dataset source.
+        :param str role_arn: The roleARN details for the Kendra dataset source.
+        """
+        pulumi.set(__self__, "knowledge_base_arn", knowledge_base_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="knowledgeBaseArn")
+    def knowledge_base_arn(self) -> str:
+        """
+        The knowledgeBaseArn details for the Kendra dataset source.
+        """
+        return pulumi.get(self, "knowledge_base_arn")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The roleARN details for the Kendra dataset source.
+        """
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class DatasetSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceFormat":
+            suggest = "source_format"
+        elif key == "sourceType":
+            suggest = "source_type"
+        elif key == "sourceDetail":
+            suggest = "source_detail"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_format: 'DatasetSourceSourceFormat',
+                 source_type: 'DatasetSourceSourceType',
+                 source_detail: Optional['outputs.DatasetSourceDetail'] = None):
+        """
+        :param 'DatasetSourceSourceFormat' source_format: The format of the dataset source associated with the dataset.
+        :param 'DatasetSourceSourceType' source_type: The type of data source for the dataset.
+        :param 'DatasetSourceDetail' source_detail: The details of the dataset source associated with the dataset.
+        """
+        pulumi.set(__self__, "source_format", source_format)
+        pulumi.set(__self__, "source_type", source_type)
+        if source_detail is not None:
+            pulumi.set(__self__, "source_detail", source_detail)
+
+    @property
+    @pulumi.getter(name="sourceFormat")
+    def source_format(self) -> 'DatasetSourceSourceFormat':
+        """
+        The format of the dataset source associated with the dataset.
+        """
+        return pulumi.get(self, "source_format")
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> 'DatasetSourceSourceType':
+        """
+        The type of data source for the dataset.
+        """
+        return pulumi.get(self, "source_type")
+
+    @property
+    @pulumi.getter(name="sourceDetail")
+    def source_detail(self) -> Optional['outputs.DatasetSourceDetail']:
+        """
+        The details of the dataset source associated with the dataset.
+        """
+        return pulumi.get(self, "source_detail")
+
+
+@pulumi.output_type
+class DatasetSourceDetail(dict):
+    def __init__(__self__, *,
+                 kendra: Optional['outputs.DatasetKendraSourceDetail'] = None):
+        """
+        :param 'DatasetKendraSourceDetail' kendra: Contains details about the Kendra dataset source.
+        """
+        if kendra is not None:
+            pulumi.set(__self__, "kendra", kendra)
+
+    @property
+    @pulumi.getter
+    def kendra(self) -> Optional['outputs.DatasetKendraSourceDetail']:
+        """
+        Contains details about the Kendra dataset source.
+        """
+        return pulumi.get(self, "kendra")
 
 
 @pulumi.output_type

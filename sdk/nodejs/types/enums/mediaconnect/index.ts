@@ -256,6 +256,16 @@ export const FlowMediaStreamVideoFormat = {
  */
 export type FlowMediaStreamVideoFormat = (typeof FlowMediaStreamVideoFormat)[keyof typeof FlowMediaStreamVideoFormat];
 
+export const FlowNdiConfigNdiState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+ */
+export type FlowNdiConfigNdiState = (typeof FlowNdiConfigNdiState)[keyof typeof FlowNdiConfigNdiState];
+
 export const FlowOutputEncodingParametersEncoderProfile = {
     Main: "main",
     High: "high",
@@ -320,6 +330,7 @@ export const FlowOutputProtocol = {
     SrtCaller: "srt-caller",
     St2110Jpegxs: "st2110-jpegxs",
     Cdi: "cdi",
+    NdiSpeedHq: "ndi-speed-hq",
 } as const;
 
 /**
@@ -336,6 +347,16 @@ export const FlowSilentAudioState = {
  * Indicates whether the SilentAudio metric is enabled or disabled.
  */
 export type FlowSilentAudioState = (typeof FlowSilentAudioState)[keyof typeof FlowSilentAudioState];
+
+export const FlowSize = {
+    Medium: "MEDIUM",
+    Large: "LARGE",
+} as const;
+
+/**
+ * Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+ */
+export type FlowSize = (typeof FlowSize)[keyof typeof FlowSize];
 
 export const FlowSourceEncryptionAlgorithm = {
     Aes128: "aes128",

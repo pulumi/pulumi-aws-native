@@ -21,7 +21,7 @@ type ResponsePlan struct {
 	Actions ResponsePlanActionArrayOutput `pulumi:"actions"`
 	// The ARN of the response plan.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS Chatbot chat channel used for collaboration during an incident.
+	// The  chat channel used for collaboration during an incident.
 	ChatChannel ResponsePlanChatChannelPtrOutput `pulumi:"chatChannel"`
 	// The display name of the response plan.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
@@ -86,7 +86,7 @@ func (ResponsePlanState) ElementType() reflect.Type {
 type responsePlanArgs struct {
 	// The list of actions.
 	Actions []ResponsePlanAction `pulumi:"actions"`
-	// The AWS Chatbot chat channel used for collaboration during an incident.
+	// The  chat channel used for collaboration during an incident.
 	ChatChannel *ResponsePlanChatChannel `pulumi:"chatChannel"`
 	// The display name of the response plan.
 	DisplayName *string `pulumi:"displayName"`
@@ -106,7 +106,7 @@ type responsePlanArgs struct {
 type ResponsePlanArgs struct {
 	// The list of actions.
 	Actions ResponsePlanActionArrayInput
-	// The AWS Chatbot chat channel used for collaboration during an incident.
+	// The  chat channel used for collaboration during an incident.
 	ChatChannel ResponsePlanChatChannelPtrInput
 	// The display name of the response plan.
 	DisplayName pulumi.StringPtrInput
@@ -169,7 +169,7 @@ func (o ResponsePlanOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponsePlan) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS Chatbot chat channel used for collaboration during an incident.
+// The  chat channel used for collaboration during an incident.
 func (o ResponsePlanOutput) ChatChannel() ResponsePlanChatChannelPtrOutput {
 	return o.ApplyT(func(v *ResponsePlan) ResponsePlanChatChannelPtrOutput { return v.ChatChannel }).(ResponsePlanChatChannelPtrOutput)
 }

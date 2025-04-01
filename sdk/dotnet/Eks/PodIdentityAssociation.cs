@@ -34,6 +34,18 @@ namespace Pulumi.AwsNative.Eks
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
+        /// The Disable Session Tags of the pod identity association.
+        /// </summary>
+        [Output("disableSessionTags")]
+        public Output<bool?> DisableSessionTags { get; private set; } = null!;
+
+        /// <summary>
+        /// The External Id of the pod identity association.
+        /// </summary>
+        [Output("externalId")]
+        public Output<string> ExternalId { get; private set; } = null!;
+
+        /// <summary>
         /// The Kubernetes namespace that the pod identity association is created for.
         /// </summary>
         [Output("namespace")]
@@ -56,6 +68,12 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The Target Role Arn of the pod identity association.
+        /// </summary>
+        [Output("targetRoleArn")]
+        public Output<string?> TargetRoleArn { get; private set; } = null!;
 
 
         /// <summary>
@@ -115,6 +133,12 @@ namespace Pulumi.AwsNative.Eks
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
+        /// The Disable Session Tags of the pod identity association.
+        /// </summary>
+        [Input("disableSessionTags")]
+        public Input<bool>? DisableSessionTags { get; set; }
+
+        /// <summary>
         /// The Kubernetes namespace that the pod identity association is created for.
         /// </summary>
         [Input("namespace", required: true)]
@@ -143,6 +167,12 @@ namespace Pulumi.AwsNative.Eks
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The Target Role Arn of the pod identity association.
+        /// </summary>
+        [Input("targetRoleArn")]
+        public Input<string>? TargetRoleArn { get; set; }
 
         public PodIdentityAssociationArgs()
         {

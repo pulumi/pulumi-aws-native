@@ -85,7 +85,7 @@ export class Recipe extends pulumi.CustomResource {
     /**
      * Metadata tags that have been applied to the recipe.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Recipe resource with the given unique name, arguments, and options.
@@ -112,7 +112,7 @@ export class Recipe extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name", "tags[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Recipe.__pulumiType, name, resourceInputs, opts);
     }
@@ -137,5 +137,5 @@ export interface RecipeArgs {
     /**
      * Metadata tags that have been applied to the recipe.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

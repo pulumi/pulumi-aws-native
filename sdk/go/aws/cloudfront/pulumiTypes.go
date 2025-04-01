@@ -5811,6 +5811,7 @@ func (o DistributionLoggingPtrOutput) Prefix() pulumi.StringPtrOutput {
 //
 //	An origin is the location where content is stored, and from which CloudFront gets content to serve to viewers. To specify an origin:
 //	 +  Use ``S3OriginConfig`` to specify an Amazon S3 bucket that is not configured with static website hosting.
+//	 +  Use ``VpcOriginConfig`` to specify a VPC origin.
 //	 +  Use ``CustomOriginConfig`` to specify all other kinds of origins, including:
 //	 +  An Amazon S3 bucket that is configured with static website hosting
 //	 +  An Elastic Load Balancing load balancer
@@ -5868,6 +5869,7 @@ type DistributionOriginInput interface {
 //
 //	An origin is the location where content is stored, and from which CloudFront gets content to serve to viewers. To specify an origin:
 //	 +  Use ``S3OriginConfig`` to specify an Amazon S3 bucket that is not configured with static website hosting.
+//	 +  Use ``VpcOriginConfig`` to specify a VPC origin.
 //	 +  Use ``CustomOriginConfig`` to specify all other kinds of origins, including:
 //	 +  An Amazon S3 bucket that is configured with static website hosting
 //	 +  An Elastic Load Balancing load balancer
@@ -5951,6 +5953,7 @@ func (i DistributionOriginArray) ToDistributionOriginArrayOutputWithContext(ctx 
 //
 //	An origin is the location where content is stored, and from which CloudFront gets content to serve to viewers. To specify an origin:
 //	 +  Use ``S3OriginConfig`` to specify an Amazon S3 bucket that is not configured with static website hosting.
+//	 +  Use ``VpcOriginConfig`` to specify a VPC origin.
 //	 +  Use ``CustomOriginConfig`` to specify all other kinds of origins, including:
 //	 +  An Amazon S3 bucket that is configured with static website hosting
 //	 +  An Elastic Load Balancing load balancer
@@ -7604,14 +7607,13 @@ func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// An Amazon CloudFront VPC origin configuration.
 type DistributionVpcOriginConfig struct {
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
-	//
-	// For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide* .
+	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginKeepaliveTimeout *int `pulumi:"originKeepaliveTimeout"`
-	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout* . The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-	//
-	// For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide* .
+	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+	//  For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginReadTimeout *int `pulumi:"originReadTimeout"`
 	// The VPC origin ID.
 	VpcOriginId string `pulumi:"vpcOriginId"`
@@ -7628,14 +7630,13 @@ type DistributionVpcOriginConfigInput interface {
 	ToDistributionVpcOriginConfigOutputWithContext(context.Context) DistributionVpcOriginConfigOutput
 }
 
+// An Amazon CloudFront VPC origin configuration.
 type DistributionVpcOriginConfigArgs struct {
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
-	//
-	// For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide* .
+	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginKeepaliveTimeout pulumi.IntPtrInput `pulumi:"originKeepaliveTimeout"`
-	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout* . The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-	//
-	// For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide* .
+	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+	//  For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginReadTimeout pulumi.IntPtrInput `pulumi:"originReadTimeout"`
 	// The VPC origin ID.
 	VpcOriginId pulumi.StringInput `pulumi:"vpcOriginId"`
@@ -7694,6 +7695,7 @@ func (i *distributionVpcOriginConfigPtrType) ToDistributionVpcOriginConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionVpcOriginConfigPtrOutput)
 }
 
+// An Amazon CloudFront VPC origin configuration.
 type DistributionVpcOriginConfigOutput struct{ *pulumi.OutputState }
 
 func (DistributionVpcOriginConfigOutput) ElementType() reflect.Type {
@@ -7720,14 +7722,14 @@ func (o DistributionVpcOriginConfigOutput) ToDistributionVpcOriginConfigPtrOutpu
 
 // Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 //
-// For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide* .
+//	For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionVpcOriginConfigOutput) OriginKeepaliveTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionVpcOriginConfig) *int { return v.OriginKeepaliveTimeout }).(pulumi.IntPtrOutput)
 }
 
-// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout* . The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
 //
-// For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide* .
+//	For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionVpcOriginConfigOutput) OriginReadTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionVpcOriginConfig) *int { return v.OriginReadTimeout }).(pulumi.IntPtrOutput)
 }
@@ -7763,7 +7765,7 @@ func (o DistributionVpcOriginConfigPtrOutput) Elem() DistributionVpcOriginConfig
 
 // Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 //
-// For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide* .
+//	For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionVpcOriginConfigPtrOutput) OriginKeepaliveTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionVpcOriginConfig) *int {
 		if v == nil {
@@ -7773,9 +7775,9 @@ func (o DistributionVpcOriginConfigPtrOutput) OriginKeepaliveTimeout() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout* . The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
 //
-// For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide* .
+//	For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionVpcOriginConfigPtrOutput) OriginReadTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionVpcOriginConfig) *int {
 		if v == nil {
@@ -12964,12 +12966,13 @@ func (o ResponseHeadersPolicyXssProtectionPtrOutput) ReportUri() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// An Amazon CloudFront VPC origin endpoint configuration.
 type VpcOriginEndpointConfig struct {
 	// The ARN of the CloudFront VPC origin endpoint configuration.
 	Arn string `pulumi:"arn"`
-	// The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is `80` .
+	// The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is ``80``.
 	HttpPort *int `pulumi:"httpPort"`
-	// The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is `443` .
+	// The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is ``443``.
 	HttpsPort *int `pulumi:"httpsPort"`
 	// The name of the CloudFront VPC origin endpoint configuration.
 	Name string `pulumi:"name"`
@@ -12989,12 +12992,13 @@ type VpcOriginEndpointConfigInput interface {
 	ToVpcOriginEndpointConfigOutputWithContext(context.Context) VpcOriginEndpointConfigOutput
 }
 
+// An Amazon CloudFront VPC origin endpoint configuration.
 type VpcOriginEndpointConfigArgs struct {
 	// The ARN of the CloudFront VPC origin endpoint configuration.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is `80` .
+	// The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is ``80``.
 	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
-	// The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is `443` .
+	// The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is ``443``.
 	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
 	// The name of the CloudFront VPC origin endpoint configuration.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -13015,6 +13019,7 @@ func (i VpcOriginEndpointConfigArgs) ToVpcOriginEndpointConfigOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(VpcOriginEndpointConfigOutput)
 }
 
+// An Amazon CloudFront VPC origin endpoint configuration.
 type VpcOriginEndpointConfigOutput struct{ *pulumi.OutputState }
 
 func (VpcOriginEndpointConfigOutput) ElementType() reflect.Type {
@@ -13034,12 +13039,12 @@ func (o VpcOriginEndpointConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcOriginEndpointConfig) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is `80` .
+// The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is “80“.
 func (o VpcOriginEndpointConfigOutput) HttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpcOriginEndpointConfig) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
 }
 
-// The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is `443` .
+// The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is “443“.
 func (o VpcOriginEndpointConfigOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpcOriginEndpointConfig) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
@@ -13092,7 +13097,7 @@ func (o VpcOriginEndpointConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is `80` .
+// The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is “80“.
 func (o VpcOriginEndpointConfigPtrOutput) HttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpcOriginEndpointConfig) *int {
 		if v == nil {
@@ -13102,7 +13107,7 @@ func (o VpcOriginEndpointConfigPtrOutput) HttpPort() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is `443` .
+// The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is “443“.
 func (o VpcOriginEndpointConfigPtrOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpcOriginEndpointConfig) *int {
 		if v == nil {
@@ -13141,14 +13146,13 @@ func (o VpcOriginEndpointConfigPtrOutput) OriginSslProtocols() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+// A complex type that contains “Tag“ key and “Tag“ value.
 type VpcOriginTag struct {
-	// A string that contains `Tag` key.
-	//
-	// The string length should be between 1 and 128 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
+	// A string that contains ``Tag`` key.
+	//  The string length should be between 1 and 128 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
 	Key string `pulumi:"key"`
-	// A string that contains an optional `Tag` value.
-	//
-	// The string length should be between 0 and 256 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
+	// A string that contains an optional ``Tag`` value.
+	//  The string length should be between 0 and 256 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
 	Value string `pulumi:"value"`
 }
 

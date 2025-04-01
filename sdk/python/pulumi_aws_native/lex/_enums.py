@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'BotAliasStatus',
     'BotAudioRecognitionStrategy',
+    'BotBedrockModelSpecificationBedrockTraceStatus',
     'BotDialogActionType',
     'BotMessageSelectionStrategy',
     'BotObfuscationSettingObfuscationSettingType',
@@ -29,6 +30,14 @@ class BotAudioRecognitionStrategy(str, Enum):
     Enables using slot values as a custom vocabulary when recognizing user utterances.
     """
     USE_SLOT_VALUES_AS_CUSTOM_VOCABULARY = "UseSlotValuesAsCustomVocabulary"
+
+
+class BotBedrockModelSpecificationBedrockTraceStatus(str, Enum):
+    """
+    The Bedrock trace status in the Bedrock model specification details.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class BotDialogActionType(str, Enum):
@@ -86,3 +95,5 @@ class BotVoiceSettingsEngine(str, Enum):
     """
     STANDARD = "standard"
     NEURAL = "neural"
+    LONG_FORM = "long-form"
+    GENERATIVE = "generative"

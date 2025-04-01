@@ -104,7 +104,7 @@ type DomainName struct {
 	DistributionHostedZoneId pulumi.StringOutput `pulumi:"distributionHostedZoneId"`
 	// The custom domain name as an API host name, for example, `my-api.example.com` .
 	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
-	// The endpoint configuration of this DomainName showing the endpoint types of the domain name.
+	// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
 	EndpointConfiguration DomainNameEndpointConfigurationPtrOutput `pulumi:"endpointConfiguration"`
 	// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
 	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrOutput `pulumi:"mutualTlsAuthentication"`
@@ -170,7 +170,7 @@ type domainNameArgs struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The custom domain name as an API host name, for example, `my-api.example.com` .
 	DomainName *string `pulumi:"domainName"`
-	// The endpoint configuration of this DomainName showing the endpoint types of the domain name.
+	// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
 	EndpointConfiguration *DomainNameEndpointConfiguration `pulumi:"endpointConfiguration"`
 	// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
 	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
@@ -190,7 +190,7 @@ type DomainNameArgs struct {
 	CertificateArn pulumi.StringPtrInput
 	// The custom domain name as an API host name, for example, `my-api.example.com` .
 	DomainName pulumi.StringPtrInput
-	// The endpoint configuration of this DomainName showing the endpoint types of the domain name.
+	// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
 	EndpointConfiguration DomainNameEndpointConfigurationPtrInput
 	// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
 	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput
@@ -263,7 +263,7 @@ func (o DomainNameOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
-// The endpoint configuration of this DomainName showing the endpoint types of the domain name.
+// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
 func (o DomainNameOutput) EndpointConfiguration() DomainNameEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v *DomainName) DomainNameEndpointConfigurationPtrOutput { return v.EndpointConfiguration }).(DomainNameEndpointConfigurationPtrOutput)
 }

@@ -103,7 +103,7 @@ export class DbCluster extends pulumi.CustomResource {
     /**
      * The mode of Database Insights to enable for the DB cluster.
      *  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-     *  Valid for Cluster Type: Aurora DB clusters only
+     *  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
      */
     public readonly databaseInsightsMode!: pulumi.Output<string | undefined>;
     /**
@@ -361,7 +361,7 @@ export class DbCluster extends pulumi.CustomResource {
      */
     public readonly performanceInsightsKmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * The number of days to retain Performance Insights data.
+     * The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
      *  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
      *  Valid Values:
      *   +   ``7`` 
@@ -428,7 +428,7 @@ export class DbCluster extends pulumi.CustomResource {
      *   
      *  For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
      */
-    public readonly readEndpoint!: pulumi.Output<outputs.rds.DbClusterReadEndpoint | undefined>;
+    public /*out*/ readonly readEndpoint!: pulumi.Output<outputs.rds.DbClusterReadEndpoint>;
     /**
      * The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.
      *  Valid for: Aurora DB clusters only
@@ -609,7 +609,6 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            resourceInputs["readEndpoint"] = args ? args.readEndpoint : undefined;
             resourceInputs["replicationSourceIdentifier"] = args ? args.replicationSourceIdentifier : undefined;
             resourceInputs["restoreToTime"] = args ? args.restoreToTime : undefined;
             resourceInputs["restoreType"] = args ? args.restoreType : undefined;
@@ -626,6 +625,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["dbClusterArn"] = undefined /*out*/;
             resourceInputs["dbClusterResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["readEndpoint"] = undefined /*out*/;
             resourceInputs["storageThroughput"] = undefined /*out*/;
         } else {
             resourceInputs["allocatedStorage"] = undefined /*out*/;
@@ -753,7 +753,7 @@ export interface DbClusterArgs {
     /**
      * The mode of Database Insights to enable for the DB cluster.
      *  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-     *  Valid for Cluster Type: Aurora DB clusters only
+     *  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
      */
     databaseInsightsMode?: pulumi.Input<string>;
     /**
@@ -1002,7 +1002,7 @@ export interface DbClusterArgs {
      */
     performanceInsightsKmsKeyId?: pulumi.Input<string>;
     /**
-     * The number of days to retain Performance Insights data.
+     * The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
      *  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
      *  Valid Values:
      *   +   ``7`` 
@@ -1061,15 +1061,6 @@ export interface DbClusterArgs {
      *   +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
-    /**
-     * This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-     *   +   ``CreateDBInstance`` 
-     *   +   ``DescribeDBInstances`` 
-     *   +   ``DeleteDBInstance`` 
-     *   
-     *  For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
-     */
-    readEndpoint?: pulumi.Input<inputs.rds.DbClusterReadEndpointArgs>;
     /**
      * The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.
      *  Valid for: Aurora DB clusters only

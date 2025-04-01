@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetBranchResult:
-    def __init__(__self__, arn=None, backend=None, build_spec=None, description=None, enable_auto_build=None, enable_performance_mode=None, enable_pull_request_preview=None, environment_variables=None, framework=None, pull_request_environment_name=None, stage=None, tags=None):
+    def __init__(__self__, arn=None, backend=None, build_spec=None, compute_role_arn=None, description=None, enable_auto_build=None, enable_performance_mode=None, enable_pull_request_preview=None, enable_skew_protection=None, environment_variables=None, framework=None, pull_request_environment_name=None, stage=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,6 +36,9 @@ class GetBranchResult:
         if build_spec and not isinstance(build_spec, str):
             raise TypeError("Expected argument 'build_spec' to be a str")
         pulumi.set(__self__, "build_spec", build_spec)
+        if compute_role_arn and not isinstance(compute_role_arn, str):
+            raise TypeError("Expected argument 'compute_role_arn' to be a str")
+        pulumi.set(__self__, "compute_role_arn", compute_role_arn)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -48,6 +51,9 @@ class GetBranchResult:
         if enable_pull_request_preview and not isinstance(enable_pull_request_preview, bool):
             raise TypeError("Expected argument 'enable_pull_request_preview' to be a bool")
         pulumi.set(__self__, "enable_pull_request_preview", enable_pull_request_preview)
+        if enable_skew_protection and not isinstance(enable_skew_protection, bool):
+            raise TypeError("Expected argument 'enable_skew_protection' to be a bool")
+        pulumi.set(__self__, "enable_skew_protection", enable_skew_protection)
         if environment_variables and not isinstance(environment_variables, list):
             raise TypeError("Expected argument 'environment_variables' to be a list")
         pulumi.set(__self__, "environment_variables", environment_variables)
@@ -91,6 +97,14 @@ class GetBranchResult:
         return pulumi.get(self, "build_spec")
 
     @property
+    @pulumi.getter(name="computeRoleArn")
+    def compute_role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+        """
+        return pulumi.get(self, "compute_role_arn")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
@@ -127,6 +141,16 @@ class GetBranchResult:
         For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
         """
         return pulumi.get(self, "enable_pull_request_preview")
+
+    @property
+    @pulumi.getter(name="enableSkewProtection")
+    def enable_skew_protection(self) -> Optional[bool]:
+        """
+        Specifies whether the skew protection feature is enabled for the branch.
+
+        Deployment skew protection is available to Amplify applications to eliminate version skew issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see [Skew protection for Amplify deployments](https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html) in the *Amplify User Guide* .
+        """
+        return pulumi.get(self, "enable_skew_protection")
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -184,10 +208,12 @@ class AwaitableGetBranchResult(GetBranchResult):
             arn=self.arn,
             backend=self.backend,
             build_spec=self.build_spec,
+            compute_role_arn=self.compute_role_arn,
             description=self.description,
             enable_auto_build=self.enable_auto_build,
             enable_performance_mode=self.enable_performance_mode,
             enable_pull_request_preview=self.enable_pull_request_preview,
+            enable_skew_protection=self.enable_skew_protection,
             environment_variables=self.environment_variables,
             framework=self.framework,
             pull_request_environment_name=self.pull_request_environment_name,
@@ -212,10 +238,12 @@ def get_branch(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         backend=pulumi.get(__ret__, 'backend'),
         build_spec=pulumi.get(__ret__, 'build_spec'),
+        compute_role_arn=pulumi.get(__ret__, 'compute_role_arn'),
         description=pulumi.get(__ret__, 'description'),
         enable_auto_build=pulumi.get(__ret__, 'enable_auto_build'),
         enable_performance_mode=pulumi.get(__ret__, 'enable_performance_mode'),
         enable_pull_request_preview=pulumi.get(__ret__, 'enable_pull_request_preview'),
+        enable_skew_protection=pulumi.get(__ret__, 'enable_skew_protection'),
         environment_variables=pulumi.get(__ret__, 'environment_variables'),
         framework=pulumi.get(__ret__, 'framework'),
         pull_request_environment_name=pulumi.get(__ret__, 'pull_request_environment_name'),
@@ -237,10 +265,12 @@ def get_branch_output(arn: Optional[pulumi.Input[str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         backend=pulumi.get(__response__, 'backend'),
         build_spec=pulumi.get(__response__, 'build_spec'),
+        compute_role_arn=pulumi.get(__response__, 'compute_role_arn'),
         description=pulumi.get(__response__, 'description'),
         enable_auto_build=pulumi.get(__response__, 'enable_auto_build'),
         enable_performance_mode=pulumi.get(__response__, 'enable_performance_mode'),
         enable_pull_request_preview=pulumi.get(__response__, 'enable_pull_request_preview'),
+        enable_skew_protection=pulumi.get(__response__, 'enable_skew_protection'),
         environment_variables=pulumi.get(__response__, 'environment_variables'),
         framework=pulumi.get(__response__, 'framework'),
         pull_request_environment_name=pulumi.get(__response__, 'pull_request_environment_name'),

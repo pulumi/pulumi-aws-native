@@ -655,8 +655,6 @@ class DistributionConfigurationDistribution(dict):
             suggest = "launch_template_configurations"
         elif key == "licenseConfigurationArns":
             suggest = "license_configuration_arns"
-        elif key == "ssmParameterConfigurations":
-            suggest = "ssm_parameter_configurations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistribution. Access the value via the '{suggest}' property getter instead.")
@@ -675,8 +673,7 @@ class DistributionConfigurationDistribution(dict):
                  container_distribution_configuration: Optional['outputs.DistributionConfigurationContainerDistributionConfiguration'] = None,
                  fast_launch_configurations: Optional[Sequence['outputs.DistributionConfigurationFastLaunchConfiguration']] = None,
                  launch_template_configurations: Optional[Sequence['outputs.DistributionConfigurationLaunchTemplateConfiguration']] = None,
-                 license_configuration_arns: Optional[Sequence[str]] = None,
-                 ssm_parameter_configurations: Optional[Sequence[Any]] = None):
+                 license_configuration_arns: Optional[Sequence[str]] = None):
         """
         The distributions of the distribution configuration.
         :param str region: region
@@ -685,7 +682,6 @@ class DistributionConfigurationDistribution(dict):
         :param Sequence['DistributionConfigurationFastLaunchConfiguration'] fast_launch_configurations: The Windows faster-launching configurations to use for AMI distribution.
         :param Sequence['DistributionConfigurationLaunchTemplateConfiguration'] launch_template_configurations: A group of launchTemplateConfiguration settings that apply to image distribution.
         :param Sequence[str] license_configuration_arns: The License Manager Configuration to associate with the AMI in the specified Region.
-        :param Sequence[Any] ssm_parameter_configurations: The SSM parameter configurations to use for AMI distribution.
         """
         pulumi.set(__self__, "region", region)
         if ami_distribution_configuration is not None:
@@ -698,8 +694,6 @@ class DistributionConfigurationDistribution(dict):
             pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
         if license_configuration_arns is not None:
             pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
-        if ssm_parameter_configurations is not None:
-            pulumi.set(__self__, "ssm_parameter_configurations", ssm_parameter_configurations)
 
     @property
     @pulumi.getter
@@ -748,14 +742,6 @@ class DistributionConfigurationDistribution(dict):
         The License Manager Configuration to associate with the AMI in the specified Region.
         """
         return pulumi.get(self, "license_configuration_arns")
-
-    @property
-    @pulumi.getter(name="ssmParameterConfigurations")
-    def ssm_parameter_configurations(self) -> Optional[Sequence[Any]]:
-        """
-        The SSM parameter configurations to use for AMI distribution.
-        """
-        return pulumi.get(self, "ssm_parameter_configurations")
 
 
 @pulumi.output_type

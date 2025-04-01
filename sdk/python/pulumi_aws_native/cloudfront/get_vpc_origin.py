@@ -92,7 +92,7 @@ class GetVpcOriginResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        A complex type that contains zero or more `Tag` elements.
+        A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 
@@ -123,7 +123,7 @@ class AwaitableGetVpcOriginResult(GetVpcOriginResult):
 def get_vpc_origin(id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcOriginResult:
     """
-    Resource Type definition for AWS::CloudFront::VpcOrigin
+    An Amazon CloudFront VPC origin.
 
 
     :param str id: The VPC origin ID.
@@ -144,7 +144,7 @@ def get_vpc_origin(id: Optional[str] = None,
 def get_vpc_origin_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcOriginResult]:
     """
-    Resource Type definition for AWS::CloudFront::VpcOrigin
+    An Amazon CloudFront VPC origin.
 
 
     :param str id: The VPC origin ID.

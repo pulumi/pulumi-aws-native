@@ -33,6 +33,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// The position of the network interface in the attachment order. A primary network interface has a device index of 0.
         /// </summary>
         public readonly string DeviceIndex;
+        public readonly Outputs.InstanceEnaSrdSpecification? EnaSrdSpecification;
         /// <summary>
         /// The IDs of the security groups for the network interface.
         /// </summary>
@@ -78,6 +79,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             string deviceIndex,
 
+            Outputs.InstanceEnaSrdSpecification? enaSrdSpecification,
+
             ImmutableArray<string> groupSet,
 
             int? ipv6AddressCount,
@@ -99,6 +102,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             DeleteOnTermination = deleteOnTermination;
             Description = description;
             DeviceIndex = deviceIndex;
+            EnaSrdSpecification = enaSrdSpecification;
             GroupSet = groupSet;
             Ipv6AddressCount = ipv6AddressCount;
             Ipv6Addresses = ipv6Addresses;

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Outputs
     [OutputType]
     public sealed class IndexSettings
     {
+        /// <summary>
+        /// Index settings.
+        /// </summary>
         public readonly Outputs.IndexSettingsIndexProperties? Index;
 
         [OutputConstructor]

@@ -20,9 +20,9 @@ type Bridge struct {
 	BridgeArn pulumi.StringOutput `pulumi:"bridgeArn"`
 	// The current status of the bridge. Possible values are: ACTIVE or STANDBY.
 	BridgeState BridgeStateEnumOutput `pulumi:"bridgeState"`
-	// Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+	// An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
 	EgressGatewayBridge BridgeEgressGatewayBridgePtrOutput `pulumi:"egressGatewayBridge"`
-	// Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+	// An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
 	IngressGatewayBridge BridgeIngressGatewayBridgePtrOutput `pulumi:"ingressGatewayBridge"`
 	// The name of the bridge.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -82,9 +82,9 @@ func (BridgeState) ElementType() reflect.Type {
 }
 
 type bridgeArgs struct {
-	// Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+	// An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
 	EgressGatewayBridge *BridgeEgressGatewayBridge `pulumi:"egressGatewayBridge"`
-	// Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+	// An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
 	IngressGatewayBridge *BridgeIngressGatewayBridge `pulumi:"ingressGatewayBridge"`
 	// The name of the bridge.
 	Name *string `pulumi:"name"`
@@ -100,9 +100,9 @@ type bridgeArgs struct {
 
 // The set of arguments for constructing a Bridge resource.
 type BridgeArgs struct {
-	// Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+	// An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
 	EgressGatewayBridge BridgeEgressGatewayBridgePtrInput
-	// Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+	// An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
 	IngressGatewayBridge BridgeIngressGatewayBridgePtrInput
 	// The name of the bridge.
 	Name pulumi.StringPtrInput
@@ -163,12 +163,12 @@ func (o BridgeOutput) BridgeState() BridgeStateEnumOutput {
 	return o.ApplyT(func(v *Bridge) BridgeStateEnumOutput { return v.BridgeState }).(BridgeStateEnumOutput)
 }
 
-// Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+// An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
 func (o BridgeOutput) EgressGatewayBridge() BridgeEgressGatewayBridgePtrOutput {
 	return o.ApplyT(func(v *Bridge) BridgeEgressGatewayBridgePtrOutput { return v.EgressGatewayBridge }).(BridgeEgressGatewayBridgePtrOutput)
 }
 
-// Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+// An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
 func (o BridgeOutput) IngressGatewayBridge() BridgeIngressGatewayBridgePtrOutput {
 	return o.ApplyT(func(v *Bridge) BridgeIngressGatewayBridgePtrOutput { return v.IngressGatewayBridge }).(BridgeIngressGatewayBridgePtrOutput)
 }

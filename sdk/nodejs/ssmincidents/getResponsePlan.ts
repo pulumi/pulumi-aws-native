@@ -34,7 +34,7 @@ export interface GetResponsePlanResult {
      */
     readonly arn?: string;
     /**
-     * The AWS Chatbot chat channel used for collaboration during an incident.
+     * The  chat channel used for collaboration during an incident.
      */
     readonly chatChannel?: outputs.ssmincidents.ResponsePlanChatChannel;
     /**

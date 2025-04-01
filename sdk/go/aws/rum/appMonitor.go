@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -27,10 +26,15 @@ type AppMonitor struct {
 	CustomEvents AppMonitorCustomEventsPtrOutput `pulumi:"customEvents"`
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled pulumi.BoolPtrOutput `pulumi:"cwLogEnabled"`
-	// The top-level internet domain name for which your application has administrative authority.
-	Domain pulumi.StringOutput `pulumi:"domain"`
+	// A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+	DeobfuscationConfiguration AppMonitorDeobfuscationConfigurationPtrOutput `pulumi:"deobfuscationConfiguration"`
+	// The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+	Domain pulumi.StringPtrOutput `pulumi:"domain"`
+	// The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+	DomainList pulumi.StringArrayOutput `pulumi:"domainList"`
 	// A name for the app monitor
-	Name           pulumi.StringOutput               `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
 	ResourcePolicy AppMonitorResourcePolicyPtrOutput `pulumi:"resourcePolicy"`
 	// Assigns one or more tags (key-value pairs) to the app monitor.
 	//
@@ -48,12 +52,9 @@ type AppMonitor struct {
 func NewAppMonitor(ctx *pulumi.Context,
 	name string, args *AppMonitorArgs, opts ...pulumi.ResourceOption) (*AppMonitor, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &AppMonitorArgs{}
 	}
 
-	if args.Domain == nil {
-		return nil, errors.New("invalid value for required argument 'Domain'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
 	})
@@ -99,10 +100,15 @@ type appMonitorArgs struct {
 	CustomEvents *AppMonitorCustomEvents `pulumi:"customEvents"`
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled *bool `pulumi:"cwLogEnabled"`
-	// The top-level internet domain name for which your application has administrative authority.
-	Domain string `pulumi:"domain"`
+	// A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+	DeobfuscationConfiguration *AppMonitorDeobfuscationConfiguration `pulumi:"deobfuscationConfiguration"`
+	// The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+	Domain *string `pulumi:"domain"`
+	// The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+	DomainList []string `pulumi:"domainList"`
 	// A name for the app monitor
-	Name           *string                   `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
 	ResourcePolicy *AppMonitorResourcePolicy `pulumi:"resourcePolicy"`
 	// Assigns one or more tags (key-value pairs) to the app monitor.
 	//
@@ -126,10 +132,15 @@ type AppMonitorArgs struct {
 	CustomEvents AppMonitorCustomEventsPtrInput
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled pulumi.BoolPtrInput
-	// The top-level internet domain name for which your application has administrative authority.
-	Domain pulumi.StringInput
+	// A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+	DeobfuscationConfiguration AppMonitorDeobfuscationConfigurationPtrInput
+	// The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+	Domain pulumi.StringPtrInput
+	// The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+	DomainList pulumi.StringArrayInput
 	// A name for the app monitor
-	Name           pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
 	ResourcePolicy AppMonitorResourcePolicyPtrInput
 	// Assigns one or more tags (key-value pairs) to the app monitor.
 	//
@@ -202,9 +213,19 @@ func (o AppMonitorOutput) CwLogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.BoolPtrOutput { return v.CwLogEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The top-level internet domain name for which your application has administrative authority.
-func (o AppMonitorOutput) Domain() pulumi.StringOutput {
-	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
+// A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+func (o AppMonitorOutput) DeobfuscationConfiguration() AppMonitorDeobfuscationConfigurationPtrOutput {
+	return o.ApplyT(func(v *AppMonitor) AppMonitorDeobfuscationConfigurationPtrOutput { return v.DeobfuscationConfiguration }).(AppMonitorDeobfuscationConfigurationPtrOutput)
+}
+
+// The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+func (o AppMonitorOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppMonitor) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+func (o AppMonitorOutput) DomainList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppMonitor) pulumi.StringArrayOutput { return v.DomainList }).(pulumi.StringArrayOutput)
 }
 
 // A name for the app monitor
@@ -212,6 +233,7 @@ func (o AppMonitorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
 func (o AppMonitorOutput) ResourcePolicy() AppMonitorResourcePolicyPtrOutput {
 	return o.ApplyT(func(v *AppMonitor) AppMonitorResourcePolicyPtrOutput { return v.ResourcePolicy }).(AppMonitorResourcePolicyPtrOutput)
 }

@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.ApplicationSignals
 
     public sealed class GetDiscoveryArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The 12 digit AWS Account ID for the account.
+        /// </summary>
         [Input("accountId", required: true)]
         public string AccountId { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.ApplicationSignals
 
     public sealed class GetDiscoveryInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The 12 digit AWS Account ID for the account.
+        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
@@ -57,6 +63,9 @@ namespace Pulumi.AwsNative.ApplicationSignals
     [OutputType]
     public sealed class GetDiscoveryResult
     {
+        /// <summary>
+        /// The 12 digit AWS Account ID for the account.
+        /// </summary>
         public readonly string? AccountId;
 
         [OutputConstructor]

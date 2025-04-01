@@ -31,10 +31,10 @@ class DbInstanceArgs:
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  automatic_backup_replication_kms_key_id: Optional[pulumi.Input[str]] = None,
                  automatic_backup_replication_region: Optional[pulumi.Input[str]] = None,
+                 automatic_backup_replication_retention_period: Optional[pulumi.Input[int]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
-                 certificate_details: Optional[pulumi.Input['DbInstanceCertificateDetailsArgs']] = None,
                  certificate_rotation_restart: Optional[pulumi.Input[bool]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
@@ -61,7 +61,6 @@ class DbInstanceArgs:
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
-                 endpoint: Optional[pulumi.Input['DbInstanceEndpointArgs']] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
@@ -163,6 +162,9 @@ class DbInstanceArgs:
         :param pulumi.Input[bool] auto_minor_version_upgrade: A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
         :param pulumi.Input[str] automatic_backup_replication_kms_key_id: The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS-Region, for example, ``arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE``.
         :param pulumi.Input[str] automatic_backup_replication_region: The AWS-Region associated with the automated backup.
+        :param pulumi.Input[int] automatic_backup_replication_retention_period: The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
+               
+               If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
         :param pulumi.Input[str] availability_zone: The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
                 For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
                 Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.
@@ -180,7 +182,6 @@ class DbInstanceArgs:
                  +  Can't be set to 0 if the DB instance is a source to read replicas
         :param pulumi.Input[str] ca_certificate_identifier: The identifier of the CA certificate for this DB instance.
                 For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
-        :param pulumi.Input['DbInstanceCertificateDetailsArgs'] certificate_details: The details of the DB instance's server certificate.
         :param pulumi.Input[bool] certificate_rotation_restart: Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.
                 By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
                  Set this parameter only if you are *not* using SSL/TLS to connect to the DB instance.
@@ -304,7 +305,7 @@ class DbInstanceArgs:
                  *Amazon Aurora* 
                 Not applicable. Snapshot restore is managed by the DB cluster.
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC. 
-                If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
+                If you don't specify a DB subnet group, RDS uses the default DB subnet group if one exists. If a default DB subnet group does not exist, and you don't specify a ``DBSubnetGroupName``, the DB instance fails to launch. 
                 For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
                 This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
         :param pulumi.Input[str] db_system_id: The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
@@ -359,8 +360,6 @@ class DbInstanceArgs:
                 Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB cluster.
         :param pulumi.Input[bool] enable_performance_insights: Specifies whether to enable Performance Insights for the DB instance. For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html) in the *Amazon RDS User Guide*.
                 This setting doesn't apply to RDS Custom DB instances.
-        :param pulumi.Input['DbInstanceEndpointArgs'] endpoint: The connection endpoint for the DB instance.
-                 The endpoint might not be shown for instances with the status of ``creating``.
         :param pulumi.Input[str] engine: The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.
                 This property is required when creating a DB instance.
                  You can convert an Oracle database from the non-CDB architecture to the container database (CDB) architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` to ``oracle-ee-cdb`` or from ``oracle-se2`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.
@@ -526,7 +525,7 @@ class DbInstanceArgs:
                 The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
                 If you do not specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS account. Your AWS account has a different default KMS key for each AWS Region.
                 For information about enabling Performance Insights, see [EnablePerformanceInsights](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights).
-        :param pulumi.Input[int] performance_insights_retention_period: The number of days to retain Performance Insights data.
+        :param pulumi.Input[int] performance_insights_retention_period: The number of days to retain Performance Insights data. When creating a DB instance without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
                 This setting doesn't apply to RDS Custom DB instances.
                 Valid Values:
                  +   ``7`` 
@@ -648,14 +647,14 @@ class DbInstanceArgs:
             pulumi.set(__self__, "automatic_backup_replication_kms_key_id", automatic_backup_replication_kms_key_id)
         if automatic_backup_replication_region is not None:
             pulumi.set(__self__, "automatic_backup_replication_region", automatic_backup_replication_region)
+        if automatic_backup_replication_retention_period is not None:
+            pulumi.set(__self__, "automatic_backup_replication_retention_period", automatic_backup_replication_retention_period)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if backup_retention_period is not None:
             pulumi.set(__self__, "backup_retention_period", backup_retention_period)
         if ca_certificate_identifier is not None:
             pulumi.set(__self__, "ca_certificate_identifier", ca_certificate_identifier)
-        if certificate_details is not None:
-            pulumi.set(__self__, "certificate_details", certificate_details)
         if certificate_rotation_restart is not None:
             pulumi.set(__self__, "certificate_rotation_restart", certificate_rotation_restart)
         if character_set_name is not None:
@@ -708,8 +707,6 @@ class DbInstanceArgs:
             pulumi.set(__self__, "enable_iam_database_authentication", enable_iam_database_authentication)
         if enable_performance_insights is not None:
             pulumi.set(__self__, "enable_performance_insights", enable_performance_insights)
-        if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
         if engine_lifecycle_support is not None:
@@ -930,6 +927,20 @@ class DbInstanceArgs:
         pulumi.set(self, "automatic_backup_replication_region", value)
 
     @property
+    @pulumi.getter(name="automaticBackupReplicationRetentionPeriod")
+    def automatic_backup_replication_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
+
+        If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+        """
+        return pulumi.get(self, "automatic_backup_replication_retention_period")
+
+    @automatic_backup_replication_retention_period.setter
+    def automatic_backup_replication_retention_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "automatic_backup_replication_retention_period", value)
+
+    @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
         """
@@ -978,18 +989,6 @@ class DbInstanceArgs:
     @ca_certificate_identifier.setter
     def ca_certificate_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ca_certificate_identifier", value)
-
-    @property
-    @pulumi.getter(name="certificateDetails")
-    def certificate_details(self) -> Optional[pulumi.Input['DbInstanceCertificateDetailsArgs']]:
-        """
-        The details of the DB instance's server certificate.
-        """
-        return pulumi.get(self, "certificate_details")
-
-    @certificate_details.setter
-    def certificate_details(self, value: Optional[pulumi.Input['DbInstanceCertificateDetailsArgs']]):
-        pulumi.set(self, "certificate_details", value)
 
     @property
     @pulumi.getter(name="certificateRotationRestart")
@@ -1250,7 +1249,7 @@ class DbInstanceArgs:
     def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
         """
         A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC. 
-         If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
+         If you don't specify a DB subnet group, RDS uses the default DB subnet group if one exists. If a default DB subnet group does not exist, and you don't specify a ``DBSubnetGroupName``, the DB instance fails to launch. 
          For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
          This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
         """
@@ -1454,19 +1453,6 @@ class DbInstanceArgs:
     @enable_performance_insights.setter
     def enable_performance_insights(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_performance_insights", value)
-
-    @property
-    @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input['DbInstanceEndpointArgs']]:
-        """
-        The connection endpoint for the DB instance.
-          The endpoint might not be shown for instances with the status of ``creating``.
-        """
-        return pulumi.get(self, "endpoint")
-
-    @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input['DbInstanceEndpointArgs']]):
-        pulumi.set(self, "endpoint", value)
 
     @property
     @pulumi.getter
@@ -1835,7 +1821,7 @@ class DbInstanceArgs:
     @pulumi.getter(name="performanceInsightsRetentionPeriod")
     def performance_insights_retention_period(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of days to retain Performance Insights data.
+        The number of days to retain Performance Insights data. When creating a DB instance without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
          This setting doesn't apply to RDS Custom DB instances.
          Valid Values:
           +   ``7`` 
@@ -2211,10 +2197,10 @@ class DbInstance(pulumi.CustomResource):
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  automatic_backup_replication_kms_key_id: Optional[pulumi.Input[str]] = None,
                  automatic_backup_replication_region: Optional[pulumi.Input[str]] = None,
+                 automatic_backup_replication_retention_period: Optional[pulumi.Input[int]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
-                 certificate_details: Optional[pulumi.Input[Union['DbInstanceCertificateDetailsArgs', 'DbInstanceCertificateDetailsArgsDict']]] = None,
                  certificate_rotation_restart: Optional[pulumi.Input[bool]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
@@ -2241,7 +2227,6 @@ class DbInstance(pulumi.CustomResource):
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
-                 endpoint: Optional[pulumi.Input[Union['DbInstanceEndpointArgs', 'DbInstanceEndpointArgsDict']]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
@@ -2367,6 +2352,9 @@ class DbInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_minor_version_upgrade: A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
         :param pulumi.Input[str] automatic_backup_replication_kms_key_id: The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS-Region, for example, ``arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE``.
         :param pulumi.Input[str] automatic_backup_replication_region: The AWS-Region associated with the automated backup.
+        :param pulumi.Input[int] automatic_backup_replication_retention_period: The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
+               
+               If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
         :param pulumi.Input[str] availability_zone: The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
                 For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
                 Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.
@@ -2384,7 +2372,6 @@ class DbInstance(pulumi.CustomResource):
                  +  Can't be set to 0 if the DB instance is a source to read replicas
         :param pulumi.Input[str] ca_certificate_identifier: The identifier of the CA certificate for this DB instance.
                 For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
-        :param pulumi.Input[Union['DbInstanceCertificateDetailsArgs', 'DbInstanceCertificateDetailsArgsDict']] certificate_details: The details of the DB instance's server certificate.
         :param pulumi.Input[bool] certificate_rotation_restart: Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.
                 By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
                  Set this parameter only if you are *not* using SSL/TLS to connect to the DB instance.
@@ -2508,7 +2495,7 @@ class DbInstance(pulumi.CustomResource):
                  *Amazon Aurora* 
                 Not applicable. Snapshot restore is managed by the DB cluster.
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC. 
-                If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
+                If you don't specify a DB subnet group, RDS uses the default DB subnet group if one exists. If a default DB subnet group does not exist, and you don't specify a ``DBSubnetGroupName``, the DB instance fails to launch. 
                 For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
                 This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
         :param pulumi.Input[str] db_system_id: The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
@@ -2563,8 +2550,6 @@ class DbInstance(pulumi.CustomResource):
                 Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB cluster.
         :param pulumi.Input[bool] enable_performance_insights: Specifies whether to enable Performance Insights for the DB instance. For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html) in the *Amazon RDS User Guide*.
                 This setting doesn't apply to RDS Custom DB instances.
-        :param pulumi.Input[Union['DbInstanceEndpointArgs', 'DbInstanceEndpointArgsDict']] endpoint: The connection endpoint for the DB instance.
-                 The endpoint might not be shown for instances with the status of ``creating``.
         :param pulumi.Input[str] engine: The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.
                 This property is required when creating a DB instance.
                  You can convert an Oracle database from the non-CDB architecture to the container database (CDB) architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` to ``oracle-ee-cdb`` or from ``oracle-se2`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.
@@ -2730,7 +2715,7 @@ class DbInstance(pulumi.CustomResource):
                 The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
                 If you do not specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS account. Your AWS account has a different default KMS key for each AWS Region.
                 For information about enabling Performance Insights, see [EnablePerformanceInsights](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights).
-        :param pulumi.Input[int] performance_insights_retention_period: The number of days to retain Performance Insights data.
+        :param pulumi.Input[int] performance_insights_retention_period: The number of days to retain Performance Insights data. When creating a DB instance without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
                 This setting doesn't apply to RDS Custom DB instances.
                 Valid Values:
                  +   ``7`` 
@@ -2889,10 +2874,10 @@ class DbInstance(pulumi.CustomResource):
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  automatic_backup_replication_kms_key_id: Optional[pulumi.Input[str]] = None,
                  automatic_backup_replication_region: Optional[pulumi.Input[str]] = None,
+                 automatic_backup_replication_retention_period: Optional[pulumi.Input[int]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
-                 certificate_details: Optional[pulumi.Input[Union['DbInstanceCertificateDetailsArgs', 'DbInstanceCertificateDetailsArgsDict']]] = None,
                  certificate_rotation_restart: Optional[pulumi.Input[bool]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
@@ -2919,7 +2904,6 @@ class DbInstance(pulumi.CustomResource):
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
-                 endpoint: Optional[pulumi.Input[Union['DbInstanceEndpointArgs', 'DbInstanceEndpointArgsDict']]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
@@ -2978,10 +2962,10 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["automatic_backup_replication_kms_key_id"] = automatic_backup_replication_kms_key_id
             __props__.__dict__["automatic_backup_replication_region"] = automatic_backup_replication_region
+            __props__.__dict__["automatic_backup_replication_retention_period"] = automatic_backup_replication_retention_period
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["backup_retention_period"] = backup_retention_period
             __props__.__dict__["ca_certificate_identifier"] = ca_certificate_identifier
-            __props__.__dict__["certificate_details"] = certificate_details
             __props__.__dict__["certificate_rotation_restart"] = certificate_rotation_restart
             __props__.__dict__["character_set_name"] = character_set_name
             __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
@@ -3008,7 +2992,6 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
             __props__.__dict__["enable_iam_database_authentication"] = enable_iam_database_authentication
             __props__.__dict__["enable_performance_insights"] = enable_performance_insights
-            __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_lifecycle_support"] = engine_lifecycle_support
             __props__.__dict__["engine_version"] = engine_version
@@ -3051,9 +3034,11 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["use_default_processor_features"] = use_default_processor_features
             __props__.__dict__["use_latest_restorable_time"] = use_latest_restorable_time
             __props__.__dict__["vpc_security_groups"] = vpc_security_groups
+            __props__.__dict__["certificate_details"] = None
             __props__.__dict__["database_insights_mode"] = None
             __props__.__dict__["db_instance_arn"] = None
             __props__.__dict__["dbi_resource_id"] = None
+            __props__.__dict__["endpoint"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["characterSetName", "customIamInstanceProfile", "dbClusterIdentifier", "dbInstanceIdentifier", "dbName", "dbSubnetGroupName", "dbSystemId", "kmsKeyId", "masterUsername", "ncharCharacterSetName", "sourceRegion", "storageEncrypted", "timezone"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbInstance, __self__).__init__(
@@ -3085,6 +3070,7 @@ class DbInstance(pulumi.CustomResource):
         __props__.__dict__["auto_minor_version_upgrade"] = None
         __props__.__dict__["automatic_backup_replication_kms_key_id"] = None
         __props__.__dict__["automatic_backup_replication_region"] = None
+        __props__.__dict__["automatic_backup_replication_retention_period"] = None
         __props__.__dict__["availability_zone"] = None
         __props__.__dict__["backup_retention_period"] = None
         __props__.__dict__["ca_certificate_identifier"] = None
@@ -3270,6 +3256,16 @@ class DbInstance(pulumi.CustomResource):
         return pulumi.get(self, "automatic_backup_replication_region")
 
     @property
+    @pulumi.getter(name="automaticBackupReplicationRetentionPeriod")
+    def automatic_backup_replication_retention_period(self) -> pulumi.Output[Optional[int]]:
+        """
+        The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
+
+        If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+        """
+        return pulumi.get(self, "automatic_backup_replication_retention_period")
+
+    @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
@@ -3309,7 +3305,7 @@ class DbInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateDetails")
-    def certificate_details(self) -> pulumi.Output[Optional['outputs.DbInstanceCertificateDetails']]:
+    def certificate_details(self) -> pulumi.Output['outputs.DbInstanceCertificateDetails']:
         """
         The details of the DB instance's server certificate.
         """
@@ -3542,7 +3538,7 @@ class DbInstance(pulumi.CustomResource):
     def db_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC. 
-         If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
+         If you don't specify a DB subnet group, RDS uses the default DB subnet group if one exists. If a default DB subnet group does not exist, and you don't specify a ``DBSubnetGroupName``, the DB instance fails to launch. 
          For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
          This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
         """
@@ -3701,7 +3697,7 @@ class DbInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[Optional['outputs.DbInstanceEndpoint']]:
+    def endpoint(self) -> pulumi.Output['outputs.DbInstanceEndpoint']:
         """
         The connection endpoint for the DB instance.
           The endpoint might not be shown for instances with the status of ``creating``.
@@ -4003,7 +3999,7 @@ class DbInstance(pulumi.CustomResource):
     @pulumi.getter(name="performanceInsightsRetentionPeriod")
     def performance_insights_retention_period(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of days to retain Performance Insights data.
+        The number of days to retain Performance Insights data. When creating a DB instance without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
          This setting doesn't apply to RDS Custom DB instances.
          Valid Values:
           +   ``7`` 

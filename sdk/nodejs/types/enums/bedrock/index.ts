@@ -339,6 +339,15 @@ export const DataSourceConfluenceSourceConfigurationHostType = {
  */
 export type DataSourceConfluenceSourceConfigurationHostType = (typeof DataSourceConfluenceSourceConfigurationHostType)[keyof typeof DataSourceConfluenceSourceConfigurationHostType];
 
+export const DataSourceContextEnrichmentType = {
+    BedrockFoundationModel: "BEDROCK_FOUNDATION_MODEL",
+} as const;
+
+/**
+ * Enrichment type to be used for the vector database.
+ */
+export type DataSourceContextEnrichmentType = (typeof DataSourceContextEnrichmentType)[keyof typeof DataSourceContextEnrichmentType];
+
 export const DataSourceCrawlFilterConfigurationType = {
     Pattern: "PATTERN",
 } as const;
@@ -357,6 +366,15 @@ export const DataSourceDataDeletionPolicy = {
  * The deletion policy for the data source.
  */
 export type DataSourceDataDeletionPolicy = (typeof DataSourceDataDeletionPolicy)[keyof typeof DataSourceDataDeletionPolicy];
+
+export const DataSourceEnrichmentStrategyMethod = {
+    ChunkEntityExtraction: "CHUNK_ENTITY_EXTRACTION",
+} as const;
+
+/**
+ * Enrichment Strategy method.
+ */
+export type DataSourceEnrichmentStrategyMethod = (typeof DataSourceEnrichmentStrategyMethod)[keyof typeof DataSourceEnrichmentStrategyMethod];
 
 export const DataSourceParsingModality = {
     Multimodal: "MULTIMODAL",
@@ -388,6 +406,7 @@ export type DataSourceSalesforceSourceConfigurationAuthType = (typeof DataSource
 
 export const DataSourceSharePointSourceConfigurationAuthType = {
     Oauth2ClientCredentials: "OAUTH2_CLIENT_CREDENTIALS",
+    Oauth2SharepointAppOnlyClientCredentials: "OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS",
 } as const;
 
 /**
@@ -622,6 +641,16 @@ export const GuardrailManagedWordsType = {
  */
 export type GuardrailManagedWordsType = (typeof GuardrailManagedWordsType)[keyof typeof GuardrailManagedWordsType];
 
+export const GuardrailModality = {
+    Text: "TEXT",
+    Image: "IMAGE",
+} as const;
+
+/**
+ * Modality for filters
+ */
+export type GuardrailModality = (typeof GuardrailModality)[keyof typeof GuardrailModality];
+
 export const GuardrailPiiEntityType = {
     Address: "ADDRESS",
     Age: "AGE",
@@ -783,6 +812,7 @@ export const KnowledgeBaseStorageType = {
     Pinecone: "PINECONE",
     Rds: "RDS",
     MongoDbAtlas: "MONGO_DB_ATLAS",
+    NeptuneAnalytics: "NEPTUNE_ANALYTICS",
 } as const;
 
 /**

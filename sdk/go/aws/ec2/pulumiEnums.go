@@ -6878,6 +6878,338 @@ func (in *prefixListAddressFamilyPtr) ToPrefixListAddressFamilyPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(PrefixListAddressFamilyPtrOutput)
 }
 
+// BGP Liveness Detection
+type RouteServerPeerBgpOptionsPeerLivenessDetection string
+
+const (
+	RouteServerPeerBgpOptionsPeerLivenessDetectionBfd          = RouteServerPeerBgpOptionsPeerLivenessDetection("bfd")
+	RouteServerPeerBgpOptionsPeerLivenessDetectionBgpKeepalive = RouteServerPeerBgpOptionsPeerLivenessDetection("bgp-keepalive")
+)
+
+func (RouteServerPeerBgpOptionsPeerLivenessDetection) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerPeerBgpOptionsPeerLivenessDetection)(nil)).Elem()
+}
+
+func (e RouteServerPeerBgpOptionsPeerLivenessDetection) ToRouteServerPeerBgpOptionsPeerLivenessDetectionOutput() RouteServerPeerBgpOptionsPeerLivenessDetectionOutput {
+	return pulumi.ToOutput(e).(RouteServerPeerBgpOptionsPeerLivenessDetectionOutput)
+}
+
+func (e RouteServerPeerBgpOptionsPeerLivenessDetection) ToRouteServerPeerBgpOptionsPeerLivenessDetectionOutputWithContext(ctx context.Context) RouteServerPeerBgpOptionsPeerLivenessDetectionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RouteServerPeerBgpOptionsPeerLivenessDetectionOutput)
+}
+
+func (e RouteServerPeerBgpOptionsPeerLivenessDetection) ToRouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput() RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput {
+	return e.ToRouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutputWithContext(context.Background())
+}
+
+func (e RouteServerPeerBgpOptionsPeerLivenessDetection) ToRouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutputWithContext(ctx context.Context) RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput {
+	return RouteServerPeerBgpOptionsPeerLivenessDetection(e).ToRouteServerPeerBgpOptionsPeerLivenessDetectionOutputWithContext(ctx).ToRouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutputWithContext(ctx)
+}
+
+func (e RouteServerPeerBgpOptionsPeerLivenessDetection) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouteServerPeerBgpOptionsPeerLivenessDetection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouteServerPeerBgpOptionsPeerLivenessDetection) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RouteServerPeerBgpOptionsPeerLivenessDetection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RouteServerPeerBgpOptionsPeerLivenessDetectionOutput struct{ *pulumi.OutputState }
+
+func (RouteServerPeerBgpOptionsPeerLivenessDetectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerPeerBgpOptionsPeerLivenessDetection)(nil)).Elem()
+}
+
+func (o RouteServerPeerBgpOptionsPeerLivenessDetectionOutput) ToRouteServerPeerBgpOptionsPeerLivenessDetectionOutput() RouteServerPeerBgpOptionsPeerLivenessDetectionOutput {
+	return o
+}
+
+func (o RouteServerPeerBgpOptionsPeerLivenessDetectionOutput) ToRouteServerPeerBgpOptionsPeerLivenessDetectionOutputWithContext(ctx context.Context) RouteServerPeerBgpOptionsPeerLivenessDetectionOutput {
+	return o
+}
+
+func (o RouteServerPeerBgpOptionsPeerLivenessDetectionOutput) ToRouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput() RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput {
+	return o.ToRouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutputWithContext(context.Background())
+}
+
+func (o RouteServerPeerBgpOptionsPeerLivenessDetectionOutput) ToRouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutputWithContext(ctx context.Context) RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteServerPeerBgpOptionsPeerLivenessDetection) *RouteServerPeerBgpOptionsPeerLivenessDetection {
+		return &v
+	}).(RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput)
+}
+
+func (o RouteServerPeerBgpOptionsPeerLivenessDetectionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RouteServerPeerBgpOptionsPeerLivenessDetectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouteServerPeerBgpOptionsPeerLivenessDetection) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RouteServerPeerBgpOptionsPeerLivenessDetectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouteServerPeerBgpOptionsPeerLivenessDetectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouteServerPeerBgpOptionsPeerLivenessDetection) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteServerPeerBgpOptionsPeerLivenessDetection)(nil)).Elem()
+}
+
+func (o RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput) ToRouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput() RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput {
+	return o
+}
+
+func (o RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput) ToRouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutputWithContext(ctx context.Context) RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput {
+	return o
+}
+
+func (o RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput) Elem() RouteServerPeerBgpOptionsPeerLivenessDetectionOutput {
+	return o.ApplyT(func(v *RouteServerPeerBgpOptionsPeerLivenessDetection) RouteServerPeerBgpOptionsPeerLivenessDetection {
+		if v != nil {
+			return *v
+		}
+		var ret RouteServerPeerBgpOptionsPeerLivenessDetection
+		return ret
+	}).(RouteServerPeerBgpOptionsPeerLivenessDetectionOutput)
+}
+
+func (o RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RouteServerPeerBgpOptionsPeerLivenessDetection) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RouteServerPeerBgpOptionsPeerLivenessDetectionInput is an input type that accepts values of the RouteServerPeerBgpOptionsPeerLivenessDetection enum
+// A concrete instance of `RouteServerPeerBgpOptionsPeerLivenessDetectionInput` can be one of the following:
+//
+//	RouteServerPeerBgpOptionsPeerLivenessDetectionBfd
+//	RouteServerPeerBgpOptionsPeerLivenessDetectionBgpKeepalive
+type RouteServerPeerBgpOptionsPeerLivenessDetectionInput interface {
+	pulumi.Input
+
+	ToRouteServerPeerBgpOptionsPeerLivenessDetectionOutput() RouteServerPeerBgpOptionsPeerLivenessDetectionOutput
+	ToRouteServerPeerBgpOptionsPeerLivenessDetectionOutputWithContext(context.Context) RouteServerPeerBgpOptionsPeerLivenessDetectionOutput
+}
+
+var routeServerPeerBgpOptionsPeerLivenessDetectionPtrType = reflect.TypeOf((**RouteServerPeerBgpOptionsPeerLivenessDetection)(nil)).Elem()
+
+type RouteServerPeerBgpOptionsPeerLivenessDetectionPtrInput interface {
+	pulumi.Input
+
+	ToRouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput() RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput
+	ToRouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutputWithContext(context.Context) RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput
+}
+
+type routeServerPeerBgpOptionsPeerLivenessDetectionPtr string
+
+func RouteServerPeerBgpOptionsPeerLivenessDetectionPtr(v string) RouteServerPeerBgpOptionsPeerLivenessDetectionPtrInput {
+	return (*routeServerPeerBgpOptionsPeerLivenessDetectionPtr)(&v)
+}
+
+func (*routeServerPeerBgpOptionsPeerLivenessDetectionPtr) ElementType() reflect.Type {
+	return routeServerPeerBgpOptionsPeerLivenessDetectionPtrType
+}
+
+func (in *routeServerPeerBgpOptionsPeerLivenessDetectionPtr) ToRouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput() RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput {
+	return pulumi.ToOutput(in).(RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput)
+}
+
+func (in *routeServerPeerBgpOptionsPeerLivenessDetectionPtr) ToRouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutputWithContext(ctx context.Context) RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput)
+}
+
+// Whether to enable persistent routes
+type RouteServerPersistRoutes string
+
+const (
+	RouteServerPersistRoutesEnable  = RouteServerPersistRoutes("enable")
+	RouteServerPersistRoutesDisable = RouteServerPersistRoutes("disable")
+)
+
+func (RouteServerPersistRoutes) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerPersistRoutes)(nil)).Elem()
+}
+
+func (e RouteServerPersistRoutes) ToRouteServerPersistRoutesOutput() RouteServerPersistRoutesOutput {
+	return pulumi.ToOutput(e).(RouteServerPersistRoutesOutput)
+}
+
+func (e RouteServerPersistRoutes) ToRouteServerPersistRoutesOutputWithContext(ctx context.Context) RouteServerPersistRoutesOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RouteServerPersistRoutesOutput)
+}
+
+func (e RouteServerPersistRoutes) ToRouteServerPersistRoutesPtrOutput() RouteServerPersistRoutesPtrOutput {
+	return e.ToRouteServerPersistRoutesPtrOutputWithContext(context.Background())
+}
+
+func (e RouteServerPersistRoutes) ToRouteServerPersistRoutesPtrOutputWithContext(ctx context.Context) RouteServerPersistRoutesPtrOutput {
+	return RouteServerPersistRoutes(e).ToRouteServerPersistRoutesOutputWithContext(ctx).ToRouteServerPersistRoutesPtrOutputWithContext(ctx)
+}
+
+func (e RouteServerPersistRoutes) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouteServerPersistRoutes) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouteServerPersistRoutes) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RouteServerPersistRoutes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RouteServerPersistRoutesOutput struct{ *pulumi.OutputState }
+
+func (RouteServerPersistRoutesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerPersistRoutes)(nil)).Elem()
+}
+
+func (o RouteServerPersistRoutesOutput) ToRouteServerPersistRoutesOutput() RouteServerPersistRoutesOutput {
+	return o
+}
+
+func (o RouteServerPersistRoutesOutput) ToRouteServerPersistRoutesOutputWithContext(ctx context.Context) RouteServerPersistRoutesOutput {
+	return o
+}
+
+func (o RouteServerPersistRoutesOutput) ToRouteServerPersistRoutesPtrOutput() RouteServerPersistRoutesPtrOutput {
+	return o.ToRouteServerPersistRoutesPtrOutputWithContext(context.Background())
+}
+
+func (o RouteServerPersistRoutesOutput) ToRouteServerPersistRoutesPtrOutputWithContext(ctx context.Context) RouteServerPersistRoutesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteServerPersistRoutes) *RouteServerPersistRoutes {
+		return &v
+	}).(RouteServerPersistRoutesPtrOutput)
+}
+
+func (o RouteServerPersistRoutesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RouteServerPersistRoutesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouteServerPersistRoutes) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RouteServerPersistRoutesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouteServerPersistRoutesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouteServerPersistRoutes) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouteServerPersistRoutesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteServerPersistRoutesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteServerPersistRoutes)(nil)).Elem()
+}
+
+func (o RouteServerPersistRoutesPtrOutput) ToRouteServerPersistRoutesPtrOutput() RouteServerPersistRoutesPtrOutput {
+	return o
+}
+
+func (o RouteServerPersistRoutesPtrOutput) ToRouteServerPersistRoutesPtrOutputWithContext(ctx context.Context) RouteServerPersistRoutesPtrOutput {
+	return o
+}
+
+func (o RouteServerPersistRoutesPtrOutput) Elem() RouteServerPersistRoutesOutput {
+	return o.ApplyT(func(v *RouteServerPersistRoutes) RouteServerPersistRoutes {
+		if v != nil {
+			return *v
+		}
+		var ret RouteServerPersistRoutes
+		return ret
+	}).(RouteServerPersistRoutesOutput)
+}
+
+func (o RouteServerPersistRoutesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouteServerPersistRoutesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RouteServerPersistRoutes) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RouteServerPersistRoutesInput is an input type that accepts values of the RouteServerPersistRoutes enum
+// A concrete instance of `RouteServerPersistRoutesInput` can be one of the following:
+//
+//	RouteServerPersistRoutesEnable
+//	RouteServerPersistRoutesDisable
+type RouteServerPersistRoutesInput interface {
+	pulumi.Input
+
+	ToRouteServerPersistRoutesOutput() RouteServerPersistRoutesOutput
+	ToRouteServerPersistRoutesOutputWithContext(context.Context) RouteServerPersistRoutesOutput
+}
+
+var routeServerPersistRoutesPtrType = reflect.TypeOf((**RouteServerPersistRoutes)(nil)).Elem()
+
+type RouteServerPersistRoutesPtrInput interface {
+	pulumi.Input
+
+	ToRouteServerPersistRoutesPtrOutput() RouteServerPersistRoutesPtrOutput
+	ToRouteServerPersistRoutesPtrOutputWithContext(context.Context) RouteServerPersistRoutesPtrOutput
+}
+
+type routeServerPersistRoutesPtr string
+
+func RouteServerPersistRoutesPtr(v string) RouteServerPersistRoutesPtrInput {
+	return (*routeServerPersistRoutesPtr)(&v)
+}
+
+func (*routeServerPersistRoutesPtr) ElementType() reflect.Type {
+	return routeServerPersistRoutesPtrType
+}
+
+func (in *routeServerPersistRoutesPtr) ToRouteServerPersistRoutesPtrOutput() RouteServerPersistRoutesPtrOutput {
+	return pulumi.ToOutput(in).(RouteServerPersistRoutesPtrOutput)
+}
+
+func (in *routeServerPersistRoutesPtr) ToRouteServerPersistRoutesPtrOutputWithContext(ctx context.Context) RouteServerPersistRoutesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RouteServerPersistRoutesPtrOutput)
+}
+
 type SecurityGroupVpcAssociationStateEnum string
 
 const (
@@ -13233,6 +13565,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathProtocolPtrInput)(nil)).Elem(), NetworkInsightsPathProtocol("tcp"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListAddressFamilyInput)(nil)).Elem(), PrefixListAddressFamily("IPv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListAddressFamilyPtrInput)(nil)).Elem(), PrefixListAddressFamily("IPv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerPeerBgpOptionsPeerLivenessDetectionInput)(nil)).Elem(), RouteServerPeerBgpOptionsPeerLivenessDetection("bfd"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerPeerBgpOptionsPeerLivenessDetectionPtrInput)(nil)).Elem(), RouteServerPeerBgpOptionsPeerLivenessDetection("bfd"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerPersistRoutesInput)(nil)).Elem(), RouteServerPersistRoutes("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerPersistRoutesPtrInput)(nil)).Elem(), RouteServerPersistRoutes("enable"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotBlockPublicAccessStateEnumInput)(nil)).Elem(), SnapshotBlockPublicAccessStateEnum("block-all-sharing"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotBlockPublicAccessStateEnumPtrInput)(nil)).Elem(), SnapshotBlockPublicAccessStateEnum("block-all-sharing"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetEbsBlockDeviceVolumeTypeInput)(nil)).Elem(), SpotFleetEbsBlockDeviceVolumeType("gp2"))
@@ -13397,6 +13733,10 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInsightsPathProtocolPtrOutput{})
 	pulumi.RegisterOutputType(PrefixListAddressFamilyOutput{})
 	pulumi.RegisterOutputType(PrefixListAddressFamilyPtrOutput{})
+	pulumi.RegisterOutputType(RouteServerPeerBgpOptionsPeerLivenessDetectionOutput{})
+	pulumi.RegisterOutputType(RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput{})
+	pulumi.RegisterOutputType(RouteServerPersistRoutesOutput{})
+	pulumi.RegisterOutputType(RouteServerPersistRoutesPtrOutput{})
 	pulumi.RegisterOutputType(SecurityGroupVpcAssociationStateEnumOutput{})
 	pulumi.RegisterOutputType(SecurityGroupVpcAssociationStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotBlockPublicAccessStateEnumOutput{})

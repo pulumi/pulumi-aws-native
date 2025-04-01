@@ -65,16 +65,12 @@ func (o ClusterEndpointArrayOutput) Index(i pulumi.IntInput) ClusterEndpointOutp
 }
 
 type ClusterTag struct {
-	// The key for a tag.
-	Key string `pulumi:"key"`
-	// The value for a tag.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
 type ControlPanelTag struct {
-	// The key for a tag.
-	Key string `pulumi:"key"`
-	// The value for a tag.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -598,9 +594,7 @@ func (o SafetyRuleRuleConfigPtrOutput) Type() SafetyRuleRuleTypePtrOutput {
 }
 
 type SafetyRuleTag struct {
-	// The key for a tag.
-	Key string `pulumi:"key"`
-	// The value for a tag.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 

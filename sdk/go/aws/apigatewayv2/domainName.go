@@ -20,6 +20,8 @@ type DomainName struct {
 
 	// The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// Represents an Amazon Resource Name (ARN).
+	DomainNameArn pulumi.StringOutput `pulumi:"domainNameArn"`
 	// The domain name configurations.
 	DomainNameConfigurations DomainNameConfigurationArrayOutput `pulumi:"domainNameConfigurations"`
 	// The mutual TLS authentication configuration for a custom domain name.
@@ -141,6 +143,11 @@ func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) Dom
 // The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (“_“) character are not supported.
 func (o DomainNameOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// Represents an Amazon Resource Name (ARN).
+func (o DomainNameOutput) DomainNameArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DomainNameArn }).(pulumi.StringOutput)
 }
 
 // The domain name configurations.

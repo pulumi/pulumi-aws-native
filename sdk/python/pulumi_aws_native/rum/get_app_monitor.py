@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAppMonitorResult:
-    def __init__(__self__, app_monitor_configuration=None, custom_events=None, cw_log_enabled=None, domain=None, id=None, resource_policy=None, tags=None):
+    def __init__(__self__, app_monitor_configuration=None, custom_events=None, cw_log_enabled=None, deobfuscation_configuration=None, domain=None, domain_list=None, id=None, resource_policy=None, tags=None):
         if app_monitor_configuration and not isinstance(app_monitor_configuration, dict):
             raise TypeError("Expected argument 'app_monitor_configuration' to be a dict")
         pulumi.set(__self__, "app_monitor_configuration", app_monitor_configuration)
@@ -36,9 +36,15 @@ class GetAppMonitorResult:
         if cw_log_enabled and not isinstance(cw_log_enabled, bool):
             raise TypeError("Expected argument 'cw_log_enabled' to be a bool")
         pulumi.set(__self__, "cw_log_enabled", cw_log_enabled)
+        if deobfuscation_configuration and not isinstance(deobfuscation_configuration, dict):
+            raise TypeError("Expected argument 'deobfuscation_configuration' to be a dict")
+        pulumi.set(__self__, "deobfuscation_configuration", deobfuscation_configuration)
         if domain and not isinstance(domain, str):
             raise TypeError("Expected argument 'domain' to be a str")
         pulumi.set(__self__, "domain", domain)
+        if domain_list and not isinstance(domain_list, list):
+            raise TypeError("Expected argument 'domain_list' to be a list")
+        pulumi.set(__self__, "domain_list", domain_list)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -76,12 +82,28 @@ class GetAppMonitorResult:
         return pulumi.get(self, "cw_log_enabled")
 
     @property
+    @pulumi.getter(name="deobfuscationConfiguration")
+    def deobfuscation_configuration(self) -> Optional['outputs.AppMonitorDeobfuscationConfiguration']:
+        """
+        A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+        """
+        return pulumi.get(self, "deobfuscation_configuration")
+
+    @property
     @pulumi.getter
     def domain(self) -> Optional[str]:
         """
-        The top-level internet domain name for which your application has administrative authority.
+        The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
         """
         return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="domainList")
+    def domain_list(self) -> Optional[Sequence[str]]:
+        """
+        The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+        """
+        return pulumi.get(self, "domain_list")
 
     @property
     @pulumi.getter
@@ -94,6 +116,9 @@ class GetAppMonitorResult:
     @property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> Optional['outputs.AppMonitorResourcePolicy']:
+        """
+        Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
+        """
         return pulumi.get(self, "resource_policy")
 
     @property
@@ -122,7 +147,9 @@ class AwaitableGetAppMonitorResult(GetAppMonitorResult):
             app_monitor_configuration=self.app_monitor_configuration,
             custom_events=self.custom_events,
             cw_log_enabled=self.cw_log_enabled,
+            deobfuscation_configuration=self.deobfuscation_configuration,
             domain=self.domain,
+            domain_list=self.domain_list,
             id=self.id,
             resource_policy=self.resource_policy,
             tags=self.tags)
@@ -145,7 +172,9 @@ def get_app_monitor(name: Optional[str] = None,
         app_monitor_configuration=pulumi.get(__ret__, 'app_monitor_configuration'),
         custom_events=pulumi.get(__ret__, 'custom_events'),
         cw_log_enabled=pulumi.get(__ret__, 'cw_log_enabled'),
+        deobfuscation_configuration=pulumi.get(__ret__, 'deobfuscation_configuration'),
         domain=pulumi.get(__ret__, 'domain'),
+        domain_list=pulumi.get(__ret__, 'domain_list'),
         id=pulumi.get(__ret__, 'id'),
         resource_policy=pulumi.get(__ret__, 'resource_policy'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -165,7 +194,9 @@ def get_app_monitor_output(name: Optional[pulumi.Input[str]] = None,
         app_monitor_configuration=pulumi.get(__response__, 'app_monitor_configuration'),
         custom_events=pulumi.get(__response__, 'custom_events'),
         cw_log_enabled=pulumi.get(__response__, 'cw_log_enabled'),
+        deobfuscation_configuration=pulumi.get(__response__, 'deobfuscation_configuration'),
         domain=pulumi.get(__response__, 'domain'),
+        domain_list=pulumi.get(__response__, 'domain_list'),
         id=pulumi.get(__response__, 'id'),
         resource_policy=pulumi.get(__response__, 'resource_policy'),
         tags=pulumi.get(__response__, 'tags')))
