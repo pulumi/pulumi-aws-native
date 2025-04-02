@@ -1,6 +1,6 @@
 {
   "typeName" : "AWS::IoT::JobTemplate",
-  "description" : "Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.",
+  "description" : "Resource Type definition for AWS::IoT::JobTemplate. Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iot.git",
   "documentationUrl" : "https://docs.aws.amazon.com/iot/latest/developerguide/job-templates.html",
   "definitions" : {
@@ -306,19 +306,26 @@
       }
     }
   },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iot:TagResource", "iot:UntagResource", "iot:ListTagsForResource" ]
+  },
   "required" : [ "JobTemplateId", "Description" ],
-  "taggable" : true,
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/Arn" ],
-  "writeOnlyProperties" : [ "/properties/JobArn", "/properties/Tags", "/properties/Document", "/properties/DocumentSource", "/properties/TimeoutConfig", "/properties/JobExecutionsRolloutConfig", "/properties/AbortConfig", "/properties/PresignedUrlConfig", "/properties/DestinationPackageVersions", "/properties/JobExecutionsRetryConfig", "/properties/MaintenanceWindows" ],
-  "createOnlyProperties" : [ "/properties/JobTemplateId", "/properties/JobArn", "/properties/Description", "/properties/Document", "/properties/DocumentSource", "/properties/TimeoutConfig", "/properties/JobExecutionsRolloutConfig", "/properties/AbortConfig", "/properties/PresignedUrlConfig", "/properties/Tags", "/properties/DestinationPackageVersions", "/properties/JobExecutionsRetryConfig", "/properties/MaintenanceWindows" ],
+  "writeOnlyProperties" : [ "/properties/JobArn", "/properties/Document", "/properties/DocumentSource", "/properties/TimeoutConfig", "/properties/JobExecutionsRolloutConfig", "/properties/AbortConfig", "/properties/PresignedUrlConfig", "/properties/DestinationPackageVersions", "/properties/JobExecutionsRetryConfig", "/properties/MaintenanceWindows" ],
+  "createOnlyProperties" : [ "/properties/JobTemplateId", "/properties/JobArn", "/properties/Description", "/properties/Document", "/properties/DocumentSource", "/properties/TimeoutConfig", "/properties/JobExecutionsRolloutConfig", "/properties/AbortConfig", "/properties/PresignedUrlConfig", "/properties/DestinationPackageVersions", "/properties/JobExecutionsRetryConfig", "/properties/MaintenanceWindows", "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/JobTemplateId" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "iot:CreateJobTemplate", "iam:PassRole", "s3:GetObject", "iot:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "iot:DescribeJobTemplate" ]
+      "permissions" : [ "iot:DescribeJobTemplate", "iot:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "iot:DeleteJobTemplate" ]

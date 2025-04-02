@@ -513,11 +513,11 @@
   "additionalProperties" : false,
   "required" : [ "Name", "Steps" ],
   "primaryIdentifier" : [ "/properties/Name" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/Name" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "databrew:TagResource", "databrew:UntagResource", "databrew:ListTagsForResource" ]
@@ -533,10 +533,10 @@
       "permissions" : [ "databrew:DeleteRecipeVersion" ]
     },
     "list" : {
-      "permissions" : [ "databrew:ListRecipes", "databrew:ListTagsForResource", "iam:ListRoles" ]
+      "permissions" : [ "databrew:ListRecipes", "iam:ListRoles" ]
     },
     "update" : {
-      "permissions" : [ "databrew:UpdateRecipe" ]
+      "permissions" : [ "databrew:UpdateRecipe", "databrew:TagResource", "databrew:UntagResource" ]
     }
   }
 }
