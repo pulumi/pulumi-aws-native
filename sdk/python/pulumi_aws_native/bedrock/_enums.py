@@ -39,8 +39,10 @@ __all__ = [
     'DataSourceChunkingStrategy',
     'DataSourceConfluenceSourceConfigurationAuthType',
     'DataSourceConfluenceSourceConfigurationHostType',
+    'DataSourceContextEnrichmentType',
     'DataSourceCrawlFilterConfigurationType',
     'DataSourceDataDeletionPolicy',
+    'DataSourceEnrichmentStrategyMethod',
     'DataSourceParsingModality',
     'DataSourceParsingStrategy',
     'DataSourceSalesforceSourceConfigurationAuthType',
@@ -64,6 +66,7 @@ __all__ = [
     'GuardrailContextualGroundingFilterType',
     'GuardrailFilterStrength',
     'GuardrailManagedWordsType',
+    'GuardrailModality',
     'GuardrailPiiEntityType',
     'GuardrailSensitiveInformationAction',
     'GuardrailStatus',
@@ -357,6 +360,13 @@ class DataSourceConfluenceSourceConfigurationHostType(str, Enum):
     SAAS = "SAAS"
 
 
+class DataSourceContextEnrichmentType(str, Enum):
+    """
+    Enrichment type to be used for the vector database.
+    """
+    BEDROCK_FOUNDATION_MODEL = "BEDROCK_FOUNDATION_MODEL"
+
+
 class DataSourceCrawlFilterConfigurationType(str, Enum):
     """
     The crawl filter type.
@@ -370,6 +380,13 @@ class DataSourceDataDeletionPolicy(str, Enum):
     """
     RETAIN = "RETAIN"
     DELETE = "DELETE"
+
+
+class DataSourceEnrichmentStrategyMethod(str, Enum):
+    """
+    Enrichment Strategy method.
+    """
+    CHUNK_ENTITY_EXTRACTION = "CHUNK_ENTITY_EXTRACTION"
 
 
 class DataSourceParsingModality(str, Enum):
@@ -399,6 +416,7 @@ class DataSourceSharePointSourceConfigurationAuthType(str, Enum):
     The supported authentication type to authenticate and connect to your SharePoint site/sites.
     """
     OAUTH2_CLIENT_CREDENTIALS = "OAUTH2_CLIENT_CREDENTIALS"
+    OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS = "OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS"
 
 
 class DataSourceSharePointSourceConfigurationHostType(str, Enum):
@@ -590,6 +608,14 @@ class GuardrailManagedWordsType(str, Enum):
     PROFANITY = "PROFANITY"
 
 
+class GuardrailModality(str, Enum):
+    """
+    Modality for filters
+    """
+    TEXT = "TEXT"
+    IMAGE = "IMAGE"
+
+
 class GuardrailPiiEntityType(str, Enum):
     """
     The currently supported PII entities
@@ -730,6 +756,7 @@ class KnowledgeBaseStorageType(str, Enum):
     PINECONE = "PINECONE"
     RDS = "RDS"
     MONGO_DB_ATLAS = "MONGO_DB_ATLAS"
+    NEPTUNE_ANALYTICS = "NEPTUNE_ANALYTICS"
 
 
 class KnowledgeBaseSupplementalDataStorageLocationType(str, Enum):

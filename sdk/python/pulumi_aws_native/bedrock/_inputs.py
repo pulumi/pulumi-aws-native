@@ -122,6 +122,8 @@ __all__ = [
     'DataSourceBedrockDataAutomationConfigurationArgsDict',
     'DataSourceBedrockFoundationModelConfigurationArgs',
     'DataSourceBedrockFoundationModelConfigurationArgsDict',
+    'DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs',
+    'DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgsDict',
     'DataSourceChunkingConfigurationArgs',
     'DataSourceChunkingConfigurationArgsDict',
     'DataSourceConfigurationArgs',
@@ -132,10 +134,14 @@ __all__ = [
     'DataSourceConfluenceDataSourceConfigurationArgsDict',
     'DataSourceConfluenceSourceConfigurationArgs',
     'DataSourceConfluenceSourceConfigurationArgsDict',
+    'DataSourceContextEnrichmentConfigurationArgs',
+    'DataSourceContextEnrichmentConfigurationArgsDict',
     'DataSourceCrawlFilterConfigurationArgs',
     'DataSourceCrawlFilterConfigurationArgsDict',
     'DataSourceCustomTransformationConfigurationArgs',
     'DataSourceCustomTransformationConfigurationArgsDict',
+    'DataSourceEnrichmentStrategyConfigurationArgs',
+    'DataSourceEnrichmentStrategyConfigurationArgsDict',
     'DataSourceFixedSizeChunkingConfigurationArgs',
     'DataSourceFixedSizeChunkingConfigurationArgsDict',
     'DataSourceHierarchicalChunkingConfigurationArgs',
@@ -330,6 +336,10 @@ __all__ = [
     'KnowledgeBaseMongoDbAtlasConfigurationArgsDict',
     'KnowledgeBaseMongoDbAtlasFieldMappingArgs',
     'KnowledgeBaseMongoDbAtlasFieldMappingArgsDict',
+    'KnowledgeBaseNeptuneAnalyticsConfigurationArgs',
+    'KnowledgeBaseNeptuneAnalyticsConfigurationArgsDict',
+    'KnowledgeBaseNeptuneAnalyticsFieldMappingArgs',
+    'KnowledgeBaseNeptuneAnalyticsFieldMappingArgsDict',
     'KnowledgeBaseOpenSearchServerlessConfigurationArgs',
     'KnowledgeBaseOpenSearchServerlessConfigurationArgsDict',
     'KnowledgeBaseOpenSearchServerlessFieldMappingArgs',
@@ -3243,7 +3253,7 @@ if not MYPY:
         """
         model_arn: pulumi.Input[str]
         """
-        The model's ARN.
+        The ARN of the foundation model to use for parsing.
         """
         parsing_modality: NotRequired[pulumi.Input['DataSourceParsingModality']]
         """
@@ -3264,7 +3274,7 @@ class DataSourceBedrockFoundationModelConfigurationArgs:
                  parsing_prompt: Optional[pulumi.Input['DataSourceParsingPromptArgs']] = None):
         """
         Settings for a foundation model used to parse documents for a data source.
-        :param pulumi.Input[str] model_arn: The model's ARN.
+        :param pulumi.Input[str] model_arn: The ARN of the foundation model to use for parsing.
         :param pulumi.Input['DataSourceParsingModality'] parsing_modality: Specifies whether to enable parsing of multimodal data, including both text and/or images.
         :param pulumi.Input['DataSourceParsingPromptArgs'] parsing_prompt: Instructions for interpreting the contents of a document.
         """
@@ -3278,7 +3288,7 @@ class DataSourceBedrockFoundationModelConfigurationArgs:
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> pulumi.Input[str]:
         """
-        The model's ARN.
+        The ARN of the foundation model to use for parsing.
         """
         return pulumi.get(self, "model_arn")
 
@@ -3309,6 +3319,60 @@ class DataSourceBedrockFoundationModelConfigurationArgs:
     @parsing_prompt.setter
     def parsing_prompt(self, value: Optional[pulumi.Input['DataSourceParsingPromptArgs']]):
         pulumi.set(self, "parsing_prompt", value)
+
+
+if not MYPY:
+    class DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgsDict(TypedDict):
+        """
+        Bedrock Foundation Model configuration to be used for Context Enrichment.
+        """
+        enrichment_strategy_configuration: pulumi.Input['DataSourceEnrichmentStrategyConfigurationArgsDict']
+        """
+        The enrichment stategy used to provide additional context. For example, Neptune GraphRAG uses Amazon Bedrock foundation models to perform chunk entity extraction.
+        """
+        model_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the model used to create vector embeddings for the knowledge base.
+        """
+elif False:
+    DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs:
+    def __init__(__self__, *,
+                 enrichment_strategy_configuration: pulumi.Input['DataSourceEnrichmentStrategyConfigurationArgs'],
+                 model_arn: pulumi.Input[str]):
+        """
+        Bedrock Foundation Model configuration to be used for Context Enrichment.
+        :param pulumi.Input['DataSourceEnrichmentStrategyConfigurationArgs'] enrichment_strategy_configuration: The enrichment stategy used to provide additional context. For example, Neptune GraphRAG uses Amazon Bedrock foundation models to perform chunk entity extraction.
+        :param pulumi.Input[str] model_arn: The Amazon Resource Name (ARN) of the model used to create vector embeddings for the knowledge base.
+        """
+        pulumi.set(__self__, "enrichment_strategy_configuration", enrichment_strategy_configuration)
+        pulumi.set(__self__, "model_arn", model_arn)
+
+    @property
+    @pulumi.getter(name="enrichmentStrategyConfiguration")
+    def enrichment_strategy_configuration(self) -> pulumi.Input['DataSourceEnrichmentStrategyConfigurationArgs']:
+        """
+        The enrichment stategy used to provide additional context. For example, Neptune GraphRAG uses Amazon Bedrock foundation models to perform chunk entity extraction.
+        """
+        return pulumi.get(self, "enrichment_strategy_configuration")
+
+    @enrichment_strategy_configuration.setter
+    def enrichment_strategy_configuration(self, value: pulumi.Input['DataSourceEnrichmentStrategyConfigurationArgs']):
+        pulumi.set(self, "enrichment_strategy_configuration", value)
+
+    @property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the model used to create vector embeddings for the knowledge base.
+        """
+        return pulumi.get(self, "model_arn")
+
+    @model_arn.setter
+    def model_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "model_arn", value)
 
 
 if not MYPY:
@@ -3764,6 +3828,61 @@ class DataSourceConfluenceSourceConfigurationArgs:
 
 
 if not MYPY:
+    class DataSourceContextEnrichmentConfigurationArgsDict(TypedDict):
+        """
+        Additional Enrichment Configuration for example when using GraphRag.
+        """
+        type: pulumi.Input['DataSourceContextEnrichmentType']
+        """
+        The method used for context enrichment. It must be Amazon Bedrock foundation models.
+        """
+        bedrock_foundation_model_configuration: NotRequired[pulumi.Input['DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgsDict']]
+        """
+        The configuration of the Amazon Bedrock foundation model used for context enrichment.
+        """
+elif False:
+    DataSourceContextEnrichmentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceContextEnrichmentConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['DataSourceContextEnrichmentType'],
+                 bedrock_foundation_model_configuration: Optional[pulumi.Input['DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs']] = None):
+        """
+        Additional Enrichment Configuration for example when using GraphRag.
+        :param pulumi.Input['DataSourceContextEnrichmentType'] type: The method used for context enrichment. It must be Amazon Bedrock foundation models.
+        :param pulumi.Input['DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs'] bedrock_foundation_model_configuration: The configuration of the Amazon Bedrock foundation model used for context enrichment.
+        """
+        pulumi.set(__self__, "type", type)
+        if bedrock_foundation_model_configuration is not None:
+            pulumi.set(__self__, "bedrock_foundation_model_configuration", bedrock_foundation_model_configuration)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['DataSourceContextEnrichmentType']:
+        """
+        The method used for context enrichment. It must be Amazon Bedrock foundation models.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['DataSourceContextEnrichmentType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="bedrockFoundationModelConfiguration")
+    def bedrock_foundation_model_configuration(self) -> Optional[pulumi.Input['DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs']]:
+        """
+        The configuration of the Amazon Bedrock foundation model used for context enrichment.
+        """
+        return pulumi.get(self, "bedrock_foundation_model_configuration")
+
+    @bedrock_foundation_model_configuration.setter
+    def bedrock_foundation_model_configuration(self, value: Optional[pulumi.Input['DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs']]):
+        pulumi.set(self, "bedrock_foundation_model_configuration", value)
+
+
+if not MYPY:
     class DataSourceCrawlFilterConfigurationArgsDict(TypedDict):
         """
         The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
@@ -3870,6 +3989,41 @@ class DataSourceCustomTransformationConfigurationArgs:
     @transformations.setter
     def transformations(self, value: pulumi.Input[Sequence[pulumi.Input['DataSourceTransformationArgs']]]):
         pulumi.set(self, "transformations", value)
+
+
+if not MYPY:
+    class DataSourceEnrichmentStrategyConfigurationArgsDict(TypedDict):
+        """
+        Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
+        """
+        method: pulumi.Input['DataSourceEnrichmentStrategyMethod']
+        """
+        The method used for the context enrichment strategy.
+        """
+elif False:
+    DataSourceEnrichmentStrategyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceEnrichmentStrategyConfigurationArgs:
+    def __init__(__self__, *,
+                 method: pulumi.Input['DataSourceEnrichmentStrategyMethod']):
+        """
+        Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
+        :param pulumi.Input['DataSourceEnrichmentStrategyMethod'] method: The method used for the context enrichment strategy.
+        """
+        pulumi.set(__self__, "method", method)
+
+    @property
+    @pulumi.getter
+    def method(self) -> pulumi.Input['DataSourceEnrichmentStrategyMethod']:
+        """
+        The method used for the context enrichment strategy.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: pulumi.Input['DataSourceEnrichmentStrategyMethod']):
+        pulumi.set(self, "method", value)
 
 
 if not MYPY:
@@ -5064,6 +5218,10 @@ if not MYPY:
         """
         Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
         """
+        context_enrichment_configuration: NotRequired[pulumi.Input['DataSourceContextEnrichmentConfigurationArgsDict']]
+        """
+        The context enrichment configuration used for ingestion of the data into the vector store.
+        """
         custom_transformation_configuration: NotRequired[pulumi.Input['DataSourceCustomTransformationConfigurationArgsDict']]
         """
         A custom document transformer for parsed data source documents.
@@ -5079,16 +5237,20 @@ elif False:
 class DataSourceVectorIngestionConfigurationArgs:
     def __init__(__self__, *,
                  chunking_configuration: Optional[pulumi.Input['DataSourceChunkingConfigurationArgs']] = None,
+                 context_enrichment_configuration: Optional[pulumi.Input['DataSourceContextEnrichmentConfigurationArgs']] = None,
                  custom_transformation_configuration: Optional[pulumi.Input['DataSourceCustomTransformationConfigurationArgs']] = None,
                  parsing_configuration: Optional[pulumi.Input['DataSourceParsingConfigurationArgs']] = None):
         """
         Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
         :param pulumi.Input['DataSourceChunkingConfigurationArgs'] chunking_configuration: Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+        :param pulumi.Input['DataSourceContextEnrichmentConfigurationArgs'] context_enrichment_configuration: The context enrichment configuration used for ingestion of the data into the vector store.
         :param pulumi.Input['DataSourceCustomTransformationConfigurationArgs'] custom_transformation_configuration: A custom document transformer for parsed data source documents.
         :param pulumi.Input['DataSourceParsingConfigurationArgs'] parsing_configuration: Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.
         """
         if chunking_configuration is not None:
             pulumi.set(__self__, "chunking_configuration", chunking_configuration)
+        if context_enrichment_configuration is not None:
+            pulumi.set(__self__, "context_enrichment_configuration", context_enrichment_configuration)
         if custom_transformation_configuration is not None:
             pulumi.set(__self__, "custom_transformation_configuration", custom_transformation_configuration)
         if parsing_configuration is not None:
@@ -5105,6 +5267,18 @@ class DataSourceVectorIngestionConfigurationArgs:
     @chunking_configuration.setter
     def chunking_configuration(self, value: Optional[pulumi.Input['DataSourceChunkingConfigurationArgs']]):
         pulumi.set(self, "chunking_configuration", value)
+
+    @property
+    @pulumi.getter(name="contextEnrichmentConfiguration")
+    def context_enrichment_configuration(self) -> Optional[pulumi.Input['DataSourceContextEnrichmentConfigurationArgs']]:
+        """
+        The context enrichment configuration used for ingestion of the data into the vector store.
+        """
+        return pulumi.get(self, "context_enrichment_configuration")
+
+    @context_enrichment_configuration.setter
+    def context_enrichment_configuration(self, value: Optional[pulumi.Input['DataSourceContextEnrichmentConfigurationArgs']]):
+        pulumi.set(self, "context_enrichment_configuration", value)
 
     @property
     @pulumi.getter(name="customTransformationConfiguration")
@@ -5154,6 +5328,14 @@ if not MYPY:
 
         You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL "https://docs.aws.amazon.com/bedrock/latest/userguide/" and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain "aws.amazon.com" can also include sub domain "docs.aws.amazon.com".
         """
+        user_agent: NotRequired[pulumi.Input[str]]
+        """
+        The suffix that will be included in the user agent header.
+        """
+        user_agent_header: NotRequired[pulumi.Input[str]]
+        """
+        The full user agent header, including UUID and suffix.
+        """
 elif False:
     DataSourceWebCrawlerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5163,7 +5345,9 @@ class DataSourceWebCrawlerConfigurationArgs:
                  crawler_limits: Optional[pulumi.Input['DataSourceWebCrawlerLimitsArgs']] = None,
                  exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  inclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 scope: Optional[pulumi.Input['DataSourceWebScopeType']] = None):
+                 scope: Optional[pulumi.Input['DataSourceWebScopeType']] = None,
+                 user_agent: Optional[pulumi.Input[str]] = None,
+                 user_agent_header: Optional[pulumi.Input[str]] = None):
         """
         Configuration for the web crawler.
         :param pulumi.Input['DataSourceWebCrawlerLimitsArgs'] crawler_limits: The configuration of crawl limits for the web URLs.
@@ -5172,6 +5356,8 @@ class DataSourceWebCrawlerConfigurationArgs:
         :param pulumi.Input['DataSourceWebScopeType'] scope: The scope of what is crawled for your URLs.
                
                You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL "https://docs.aws.amazon.com/bedrock/latest/userguide/" and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain "aws.amazon.com" can also include sub domain "docs.aws.amazon.com".
+        :param pulumi.Input[str] user_agent: The suffix that will be included in the user agent header.
+        :param pulumi.Input[str] user_agent_header: The full user agent header, including UUID and suffix.
         """
         if crawler_limits is not None:
             pulumi.set(__self__, "crawler_limits", crawler_limits)
@@ -5181,6 +5367,10 @@ class DataSourceWebCrawlerConfigurationArgs:
             pulumi.set(__self__, "inclusion_filters", inclusion_filters)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
+        if user_agent is not None:
+            pulumi.set(__self__, "user_agent", user_agent)
+        if user_agent_header is not None:
+            pulumi.set(__self__, "user_agent_header", user_agent_header)
 
     @property
     @pulumi.getter(name="crawlerLimits")
@@ -5232,11 +5422,39 @@ class DataSourceWebCrawlerConfigurationArgs:
     def scope(self, value: Optional[pulumi.Input['DataSourceWebScopeType']]):
         pulumi.set(self, "scope", value)
 
+    @property
+    @pulumi.getter(name="userAgent")
+    def user_agent(self) -> Optional[pulumi.Input[str]]:
+        """
+        The suffix that will be included in the user agent header.
+        """
+        return pulumi.get(self, "user_agent")
+
+    @user_agent.setter
+    def user_agent(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_agent", value)
+
+    @property
+    @pulumi.getter(name="userAgentHeader")
+    def user_agent_header(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full user agent header, including UUID and suffix.
+        """
+        return pulumi.get(self, "user_agent_header")
+
+    @user_agent_header.setter
+    def user_agent_header(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_agent_header", value)
+
 
 if not MYPY:
     class DataSourceWebCrawlerLimitsArgsDict(TypedDict):
         """
         Limit settings for the web crawler.
+        """
+        max_pages: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of pages the crawler can crawl.
         """
         rate_limit: NotRequired[pulumi.Input[int]]
         """
@@ -5248,13 +5466,29 @@ elif False:
 @pulumi.input_type
 class DataSourceWebCrawlerLimitsArgs:
     def __init__(__self__, *,
+                 max_pages: Optional[pulumi.Input[int]] = None,
                  rate_limit: Optional[pulumi.Input[int]] = None):
         """
         Limit settings for the web crawler.
+        :param pulumi.Input[int] max_pages: Maximum number of pages the crawler can crawl.
         :param pulumi.Input[int] rate_limit: Rate of web URLs retrieved per minute.
         """
+        if max_pages is not None:
+            pulumi.set(__self__, "max_pages", max_pages)
         if rate_limit is not None:
             pulumi.set(__self__, "rate_limit", rate_limit)
+
+    @property
+    @pulumi.getter(name="maxPages")
+    def max_pages(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of pages the crawler can crawl.
+        """
+        return pulumi.get(self, "max_pages")
+
+    @max_pages.setter
+    def max_pages(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_pages", value)
 
     @property
     @pulumi.getter(name="rateLimit")
@@ -7417,6 +7651,14 @@ if not MYPY:
         """
         The harmful category that the content filter is applied to.
         """
+        input_modalities: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]
+        """
+        List of modalities
+        """
+        output_modalities: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]
+        """
+        List of modalities
+        """
 elif False:
     GuardrailContentFilterConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -7425,16 +7667,24 @@ class GuardrailContentFilterConfigArgs:
     def __init__(__self__, *,
                  input_strength: pulumi.Input['GuardrailFilterStrength'],
                  output_strength: pulumi.Input['GuardrailFilterStrength'],
-                 type: pulumi.Input['GuardrailContentFilterType']):
+                 type: pulumi.Input['GuardrailContentFilterType'],
+                 input_modalities: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]] = None,
+                 output_modalities: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]] = None):
         """
         Content filter config in content policy.
         :param pulumi.Input['GuardrailFilterStrength'] input_strength: The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
         :param pulumi.Input['GuardrailFilterStrength'] output_strength: The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
         :param pulumi.Input['GuardrailContentFilterType'] type: The harmful category that the content filter is applied to.
+        :param pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]] input_modalities: List of modalities
+        :param pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]] output_modalities: List of modalities
         """
         pulumi.set(__self__, "input_strength", input_strength)
         pulumi.set(__self__, "output_strength", output_strength)
         pulumi.set(__self__, "type", type)
+        if input_modalities is not None:
+            pulumi.set(__self__, "input_modalities", input_modalities)
+        if output_modalities is not None:
+            pulumi.set(__self__, "output_modalities", output_modalities)
 
     @property
     @pulumi.getter(name="inputStrength")
@@ -7471,6 +7721,30 @@ class GuardrailContentFilterConfigArgs:
     @type.setter
     def type(self, value: pulumi.Input['GuardrailContentFilterType']):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="inputModalities")
+    def input_modalities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]:
+        """
+        List of modalities
+        """
+        return pulumi.get(self, "input_modalities")
+
+    @input_modalities.setter
+    def input_modalities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]):
+        pulumi.set(self, "input_modalities", value)
+
+    @property
+    @pulumi.getter(name="outputModalities")
+    def output_modalities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]:
+        """
+        List of modalities
+        """
+        return pulumi.get(self, "output_modalities")
+
+    @output_modalities.setter
+    def output_modalities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]):
+        pulumi.set(self, "output_modalities", value)
 
 
 if not MYPY:
@@ -8891,6 +9165,114 @@ class KnowledgeBaseMongoDbAtlasFieldMappingArgs:
 
 
 if not MYPY:
+    class KnowledgeBaseNeptuneAnalyticsConfigurationArgsDict(TypedDict):
+        """
+        Contains the configurations to use Neptune Analytics as Vector Store.
+        """
+        field_mapping: pulumi.Input['KnowledgeBaseNeptuneAnalyticsFieldMappingArgsDict']
+        """
+        Contains the names of the fields to which to map information about the vector store.
+        """
+        graph_arn: pulumi.Input[str]
+        """
+        ARN for Neptune Analytics graph database.
+        """
+elif False:
+    KnowledgeBaseNeptuneAnalyticsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseNeptuneAnalyticsConfigurationArgs:
+    def __init__(__self__, *,
+                 field_mapping: pulumi.Input['KnowledgeBaseNeptuneAnalyticsFieldMappingArgs'],
+                 graph_arn: pulumi.Input[str]):
+        """
+        Contains the configurations to use Neptune Analytics as Vector Store.
+        :param pulumi.Input['KnowledgeBaseNeptuneAnalyticsFieldMappingArgs'] field_mapping: Contains the names of the fields to which to map information about the vector store.
+        :param pulumi.Input[str] graph_arn: ARN for Neptune Analytics graph database.
+        """
+        pulumi.set(__self__, "field_mapping", field_mapping)
+        pulumi.set(__self__, "graph_arn", graph_arn)
+
+    @property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> pulumi.Input['KnowledgeBaseNeptuneAnalyticsFieldMappingArgs']:
+        """
+        Contains the names of the fields to which to map information about the vector store.
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @field_mapping.setter
+    def field_mapping(self, value: pulumi.Input['KnowledgeBaseNeptuneAnalyticsFieldMappingArgs']):
+        pulumi.set(self, "field_mapping", value)
+
+    @property
+    @pulumi.getter(name="graphArn")
+    def graph_arn(self) -> pulumi.Input[str]:
+        """
+        ARN for Neptune Analytics graph database.
+        """
+        return pulumi.get(self, "graph_arn")
+
+    @graph_arn.setter
+    def graph_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "graph_arn", value)
+
+
+if not MYPY:
+    class KnowledgeBaseNeptuneAnalyticsFieldMappingArgsDict(TypedDict):
+        """
+        A mapping of Bedrock Knowledge Base fields to Neptune Analytics fields.
+        """
+        metadata_field: pulumi.Input[str]
+        """
+        The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        text_field: pulumi.Input[str]
+        """
+        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+elif False:
+    KnowledgeBaseNeptuneAnalyticsFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseNeptuneAnalyticsFieldMappingArgs:
+    def __init__(__self__, *,
+                 metadata_field: pulumi.Input[str],
+                 text_field: pulumi.Input[str]):
+        """
+        A mapping of Bedrock Knowledge Base fields to Neptune Analytics fields.
+        :param pulumi.Input[str] metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        :param pulumi.Input[str] text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        pulumi.set(__self__, "metadata_field", metadata_field)
+        pulumi.set(__self__, "text_field", text_field)
+
+    @property
+    @pulumi.getter(name="metadataField")
+    def metadata_field(self) -> pulumi.Input[str]:
+        """
+        The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        return pulumi.get(self, "metadata_field")
+
+    @metadata_field.setter
+    def metadata_field(self, value: pulumi.Input[str]):
+        pulumi.set(self, "metadata_field", value)
+
+    @property
+    @pulumi.getter(name="textField")
+    def text_field(self) -> pulumi.Input[str]:
+        """
+        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        return pulumi.get(self, "text_field")
+
+    @text_field.setter
+    def text_field(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text_field", value)
+
+
+if not MYPY:
     class KnowledgeBaseOpenSearchServerlessConfigurationArgsDict(TypedDict):
         """
         Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
@@ -10220,6 +10602,10 @@ if not MYPY:
         """
         Contains the storage configuration of the knowledge base in MongoDB Atlas.
         """
+        neptune_analytics_configuration: NotRequired[pulumi.Input['KnowledgeBaseNeptuneAnalyticsConfigurationArgsDict']]
+        """
+        Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
+        """
         opensearch_serverless_configuration: NotRequired[pulumi.Input['KnowledgeBaseOpenSearchServerlessConfigurationArgsDict']]
         """
         Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
@@ -10240,6 +10626,7 @@ class KnowledgeBaseStorageConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['KnowledgeBaseStorageType'],
                  mongo_db_atlas_configuration: Optional[pulumi.Input['KnowledgeBaseMongoDbAtlasConfigurationArgs']] = None,
+                 neptune_analytics_configuration: Optional[pulumi.Input['KnowledgeBaseNeptuneAnalyticsConfigurationArgs']] = None,
                  opensearch_serverless_configuration: Optional[pulumi.Input['KnowledgeBaseOpenSearchServerlessConfigurationArgs']] = None,
                  pinecone_configuration: Optional[pulumi.Input['KnowledgeBasePineconeConfigurationArgs']] = None,
                  rds_configuration: Optional[pulumi.Input['KnowledgeBaseRdsConfigurationArgs']] = None):
@@ -10247,6 +10634,7 @@ class KnowledgeBaseStorageConfigurationArgs:
         The vector store service in which the knowledge base is stored.
         :param pulumi.Input['KnowledgeBaseStorageType'] type: The vector store service in which the knowledge base is stored.
         :param pulumi.Input['KnowledgeBaseMongoDbAtlasConfigurationArgs'] mongo_db_atlas_configuration: Contains the storage configuration of the knowledge base in MongoDB Atlas.
+        :param pulumi.Input['KnowledgeBaseNeptuneAnalyticsConfigurationArgs'] neptune_analytics_configuration: Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
         :param pulumi.Input['KnowledgeBaseOpenSearchServerlessConfigurationArgs'] opensearch_serverless_configuration: Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
         :param pulumi.Input['KnowledgeBasePineconeConfigurationArgs'] pinecone_configuration: Contains the storage configuration of the knowledge base in Pinecone.
         :param pulumi.Input['KnowledgeBaseRdsConfigurationArgs'] rds_configuration: Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
@@ -10254,6 +10642,8 @@ class KnowledgeBaseStorageConfigurationArgs:
         pulumi.set(__self__, "type", type)
         if mongo_db_atlas_configuration is not None:
             pulumi.set(__self__, "mongo_db_atlas_configuration", mongo_db_atlas_configuration)
+        if neptune_analytics_configuration is not None:
+            pulumi.set(__self__, "neptune_analytics_configuration", neptune_analytics_configuration)
         if opensearch_serverless_configuration is not None:
             pulumi.set(__self__, "opensearch_serverless_configuration", opensearch_serverless_configuration)
         if pinecone_configuration is not None:
@@ -10284,6 +10674,18 @@ class KnowledgeBaseStorageConfigurationArgs:
     @mongo_db_atlas_configuration.setter
     def mongo_db_atlas_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseMongoDbAtlasConfigurationArgs']]):
         pulumi.set(self, "mongo_db_atlas_configuration", value)
+
+    @property
+    @pulumi.getter(name="neptuneAnalyticsConfiguration")
+    def neptune_analytics_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseNeptuneAnalyticsConfigurationArgs']]:
+        """
+        Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
+        """
+        return pulumi.get(self, "neptune_analytics_configuration")
+
+    @neptune_analytics_configuration.setter
+    def neptune_analytics_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseNeptuneAnalyticsConfigurationArgs']]):
+        pulumi.set(self, "neptune_analytics_configuration", value)
 
     @property
     @pulumi.getter(name="opensearchServerlessConfiguration")

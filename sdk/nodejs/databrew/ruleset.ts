@@ -54,7 +54,7 @@ export class Ruleset extends pulumi.CustomResource {
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Arn of the target resource (dataset) to apply the ruleset to
      */
@@ -90,7 +90,7 @@ export class Ruleset extends pulumi.CustomResource {
             resourceInputs["targetArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name", "tags[*]", "targetArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["name", "targetArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Ruleset.__pulumiType, name, resourceInputs, opts);
     }
@@ -117,7 +117,7 @@ export interface RulesetArgs {
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Arn of the target resource (dataset) to apply the ruleset to
      */

@@ -488,13 +488,13 @@
   "primaryIdentifier" : [ "/properties/JobDefinitionArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "sagemaker:CreateDataQualityJobDefinition", "sagemaker:DescribeDataQualityJobDefinition", "sagemaker:AddTags", "iam:PassRole" ]
+      "permissions" : [ "sagemaker:CreateDataQualityJobDefinition", "sagemaker:DescribeDataQualityJobDefinition", "sagemaker:AddTags", "sagemaker:ListTags", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "sagemaker:DeleteDataQualityJobDefinition" ]
     },
     "read" : {
-      "permissions" : [ "sagemaker:DescribeDataQualityJobDefinition" ]
+      "permissions" : [ "sagemaker:DescribeDataQualityJobDefinition", "sagemaker:ListTags" ]
     },
     "list" : {
       "permissions" : [ "sagemaker:ListDataQualityJobDefinitions", "sagemaker:ListTags" ]
@@ -502,7 +502,7 @@
   },
   "readOnlyProperties" : [ "/properties/CreationTime", "/properties/JobDefinitionArn" ],
   "createOnlyProperties" : [ "/properties/JobDefinitionName", "/properties/DataQualityAppSpecification", "/properties/DataQualityBaselineConfig", "/properties/DataQualityJobInput", "/properties/DataQualityJobOutputConfig", "/properties/JobResources", "/properties/NetworkConfig", "/properties/RoleArn", "/properties/StoppingCondition", "/properties/Tags", "/properties/EndpointName" ],
-  "writeOnlyProperties" : [ "/properties/EndpointName", "/properties/Tags", "/properties/Tags/*/Key", "/properties/Tags/*/Value" ],
+  "writeOnlyProperties" : [ "/properties/EndpointName" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,

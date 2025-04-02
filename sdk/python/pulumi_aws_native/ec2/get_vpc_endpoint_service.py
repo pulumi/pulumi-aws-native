@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetVpcEndpointServiceResult:
-    def __init__(__self__, acceptance_required=None, gateway_load_balancer_arns=None, network_load_balancer_arns=None, payer_responsibility=None, service_id=None, supported_ip_address_types=None, tags=None):
+    def __init__(__self__, acceptance_required=None, gateway_load_balancer_arns=None, network_load_balancer_arns=None, payer_responsibility=None, service_id=None, supported_ip_address_types=None, supported_regions=None, tags=None):
         if acceptance_required and not isinstance(acceptance_required, bool):
             raise TypeError("Expected argument 'acceptance_required' to be a bool")
         pulumi.set(__self__, "acceptance_required", acceptance_required)
@@ -44,6 +44,9 @@ class GetVpcEndpointServiceResult:
         if supported_ip_address_types and not isinstance(supported_ip_address_types, list):
             raise TypeError("Expected argument 'supported_ip_address_types' to be a list")
         pulumi.set(__self__, "supported_ip_address_types", supported_ip_address_types)
+        if supported_regions and not isinstance(supported_regions, list):
+            raise TypeError("Expected argument 'supported_regions' to be a list")
+        pulumi.set(__self__, "supported_regions", supported_regions)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -97,6 +100,14 @@ class GetVpcEndpointServiceResult:
         return pulumi.get(self, "supported_ip_address_types")
 
     @property
+    @pulumi.getter(name="supportedRegions")
+    def supported_regions(self) -> Optional[Sequence[str]]:
+        """
+        The Regions from which service consumers can access the service.
+        """
+        return pulumi.get(self, "supported_regions")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -117,6 +128,7 @@ class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
             payer_responsibility=self.payer_responsibility,
             service_id=self.service_id,
             supported_ip_address_types=self.supported_ip_address_types,
+            supported_regions=self.supported_regions,
             tags=self.tags)
 
 
@@ -140,6 +152,7 @@ def get_vpc_endpoint_service(service_id: Optional[str] = None,
         payer_responsibility=pulumi.get(__ret__, 'payer_responsibility'),
         service_id=pulumi.get(__ret__, 'service_id'),
         supported_ip_address_types=pulumi.get(__ret__, 'supported_ip_address_types'),
+        supported_regions=pulumi.get(__ret__, 'supported_regions'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_vpc_endpoint_service_output(service_id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointServiceResult]:
@@ -160,4 +173,5 @@ def get_vpc_endpoint_service_output(service_id: Optional[pulumi.Input[str]] = No
         payer_responsibility=pulumi.get(__response__, 'payer_responsibility'),
         service_id=pulumi.get(__response__, 'service_id'),
         supported_ip_address_types=pulumi.get(__response__, 'supported_ip_address_types'),
+        supported_regions=pulumi.get(__response__, 'supported_regions'),
         tags=pulumi.get(__response__, 'tags')))

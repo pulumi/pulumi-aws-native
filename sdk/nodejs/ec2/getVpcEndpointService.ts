@@ -50,6 +50,10 @@ export interface GetVpcEndpointServiceResult {
      */
     readonly supportedIpAddressTypes?: enums.ec2.VpcEndpointServiceIpAddressType[];
     /**
+     * The Regions from which service consumers can access the service.
+     */
+    readonly supportedRegions?: string[];
+    /**
      * The tags to add to the VPC endpoint service.
      */
     readonly tags?: outputs.Tag[];

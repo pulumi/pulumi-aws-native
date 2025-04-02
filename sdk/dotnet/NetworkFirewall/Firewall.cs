@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
+        /// </summary>
+        [Output("enabledAnalysisTypes")]
+        public Output<ImmutableArray<Pulumi.AwsNative.NetworkFirewall.FirewallEnabledAnalysisType>> EnabledAnalysisTypes { get; private set; } = null!;
+
+        /// <summary>
         /// The unique IDs of the firewall endpoints for all of the subnets that you attached to the firewall. The subnets are not listed in any particular order. For example: `["us-west-2c:vpce-111122223333", "us-west-2a:vpce-987654321098", "us-west-2b:vpce-012345678901"]` .
         /// </summary>
         [Output("endpointIds")]
@@ -152,6 +158,18 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("enabledAnalysisTypes")]
+        private InputList<Pulumi.AwsNative.NetworkFirewall.FirewallEnabledAnalysisType>? _enabledAnalysisTypes;
+
+        /// <summary>
+        /// The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.NetworkFirewall.FirewallEnabledAnalysisType> EnabledAnalysisTypes
+        {
+            get => _enabledAnalysisTypes ?? (_enabledAnalysisTypes = new InputList<Pulumi.AwsNative.NetworkFirewall.FirewallEnabledAnalysisType>());
+            set => _enabledAnalysisTypes = value;
+        }
 
         /// <summary>
         /// The descriptive name of the firewall. You can't change the name of a firewall after you create it.

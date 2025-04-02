@@ -40,7 +40,7 @@ export interface GetDomainNameResult {
      */
     readonly distributionHostedZoneId?: string;
     /**
-     * The endpoint configuration of this DomainName showing the endpoint types of the domain name.
+     * The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
      */
     readonly endpointConfiguration?: outputs.apigateway.DomainNameEndpointConfiguration;
     /**

@@ -34,7 +34,13 @@ class ConfiguredTableArgs:
         """
         The set of arguments for constructing a ConfiguredTable resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_columns: The columns within the underlying AWS Glue table that can be utilized within collaborations.
-        :param pulumi.Input['ConfiguredTableAnalysisMethod'] analysis_method: The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+        :param pulumi.Input['ConfiguredTableAnalysisMethod'] analysis_method: The analysis method for the configured table.
+               
+               `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+               
+               `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+               
+               `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
         :param pulumi.Input[Union['ConfiguredTableTableReference0PropertiesArgs', 'ConfiguredTableTableReference1PropertiesArgs', 'ConfiguredTableTableReference2PropertiesArgs']] table_reference: The table that this configured table represents.
         :param pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAnalysisRuleArgs']]] analysis_rules: The analysis rule that was created for the configured table.
         :param pulumi.Input[str] description: A description for the configured table.
@@ -69,7 +75,13 @@ class ConfiguredTableArgs:
     @pulumi.getter(name="analysisMethod")
     def analysis_method(self) -> pulumi.Input['ConfiguredTableAnalysisMethod']:
         """
-        The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+        The analysis method for the configured table.
+
+        `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+
+        `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+
+        `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
         """
         return pulumi.get(self, "analysis_method")
 
@@ -157,7 +169,13 @@ class ConfiguredTable(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_columns: The columns within the underlying AWS Glue table that can be utilized within collaborations.
-        :param pulumi.Input['ConfiguredTableAnalysisMethod'] analysis_method: The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+        :param pulumi.Input['ConfiguredTableAnalysisMethod'] analysis_method: The analysis method for the configured table.
+               
+               `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+               
+               `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+               
+               `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConfiguredTableAnalysisRuleArgs', 'ConfiguredTableAnalysisRuleArgsDict']]]] analysis_rules: The analysis rule that was created for the configured table.
         :param pulumi.Input[str] description: A description for the configured table.
         :param pulumi.Input[str] name: A name for the configured table.
@@ -266,7 +284,13 @@ class ConfiguredTable(pulumi.CustomResource):
     @pulumi.getter(name="analysisMethod")
     def analysis_method(self) -> pulumi.Output['ConfiguredTableAnalysisMethod']:
         """
-        The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+        The analysis method for the configured table.
+
+        `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+
+        `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+
+        `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
         """
         return pulumi.get(self, "analysis_method")
 

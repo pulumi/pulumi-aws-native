@@ -26642,8 +26642,284 @@ func (o DataSetRefreshConfigurationPtrOutput) IncrementalRefresh() DataSetIncrem
 	}).(DataSetIncrementalRefreshPtrOutput)
 }
 
+type DataSetRefreshFailureConfiguration struct {
+	// The email alert configuration for a dataset refresh failure.
+	EmailAlert *DataSetRefreshFailureEmailAlert `pulumi:"emailAlert"`
+}
+
+// DataSetRefreshFailureConfigurationInput is an input type that accepts DataSetRefreshFailureConfigurationArgs and DataSetRefreshFailureConfigurationOutput values.
+// You can construct a concrete instance of `DataSetRefreshFailureConfigurationInput` via:
+//
+//	DataSetRefreshFailureConfigurationArgs{...}
+type DataSetRefreshFailureConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSetRefreshFailureConfigurationOutput() DataSetRefreshFailureConfigurationOutput
+	ToDataSetRefreshFailureConfigurationOutputWithContext(context.Context) DataSetRefreshFailureConfigurationOutput
+}
+
+type DataSetRefreshFailureConfigurationArgs struct {
+	// The email alert configuration for a dataset refresh failure.
+	EmailAlert DataSetRefreshFailureEmailAlertPtrInput `pulumi:"emailAlert"`
+}
+
+func (DataSetRefreshFailureConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetRefreshFailureConfiguration)(nil)).Elem()
+}
+
+func (i DataSetRefreshFailureConfigurationArgs) ToDataSetRefreshFailureConfigurationOutput() DataSetRefreshFailureConfigurationOutput {
+	return i.ToDataSetRefreshFailureConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSetRefreshFailureConfigurationArgs) ToDataSetRefreshFailureConfigurationOutputWithContext(ctx context.Context) DataSetRefreshFailureConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetRefreshFailureConfigurationOutput)
+}
+
+func (i DataSetRefreshFailureConfigurationArgs) ToDataSetRefreshFailureConfigurationPtrOutput() DataSetRefreshFailureConfigurationPtrOutput {
+	return i.ToDataSetRefreshFailureConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetRefreshFailureConfigurationArgs) ToDataSetRefreshFailureConfigurationPtrOutputWithContext(ctx context.Context) DataSetRefreshFailureConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetRefreshFailureConfigurationOutput).ToDataSetRefreshFailureConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSetRefreshFailureConfigurationPtrInput is an input type that accepts DataSetRefreshFailureConfigurationArgs, DataSetRefreshFailureConfigurationPtr and DataSetRefreshFailureConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSetRefreshFailureConfigurationPtrInput` via:
+//
+//	        DataSetRefreshFailureConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetRefreshFailureConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSetRefreshFailureConfigurationPtrOutput() DataSetRefreshFailureConfigurationPtrOutput
+	ToDataSetRefreshFailureConfigurationPtrOutputWithContext(context.Context) DataSetRefreshFailureConfigurationPtrOutput
+}
+
+type dataSetRefreshFailureConfigurationPtrType DataSetRefreshFailureConfigurationArgs
+
+func DataSetRefreshFailureConfigurationPtr(v *DataSetRefreshFailureConfigurationArgs) DataSetRefreshFailureConfigurationPtrInput {
+	return (*dataSetRefreshFailureConfigurationPtrType)(v)
+}
+
+func (*dataSetRefreshFailureConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetRefreshFailureConfiguration)(nil)).Elem()
+}
+
+func (i *dataSetRefreshFailureConfigurationPtrType) ToDataSetRefreshFailureConfigurationPtrOutput() DataSetRefreshFailureConfigurationPtrOutput {
+	return i.ToDataSetRefreshFailureConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetRefreshFailureConfigurationPtrType) ToDataSetRefreshFailureConfigurationPtrOutputWithContext(ctx context.Context) DataSetRefreshFailureConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetRefreshFailureConfigurationPtrOutput)
+}
+
+type DataSetRefreshFailureConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSetRefreshFailureConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetRefreshFailureConfiguration)(nil)).Elem()
+}
+
+func (o DataSetRefreshFailureConfigurationOutput) ToDataSetRefreshFailureConfigurationOutput() DataSetRefreshFailureConfigurationOutput {
+	return o
+}
+
+func (o DataSetRefreshFailureConfigurationOutput) ToDataSetRefreshFailureConfigurationOutputWithContext(ctx context.Context) DataSetRefreshFailureConfigurationOutput {
+	return o
+}
+
+func (o DataSetRefreshFailureConfigurationOutput) ToDataSetRefreshFailureConfigurationPtrOutput() DataSetRefreshFailureConfigurationPtrOutput {
+	return o.ToDataSetRefreshFailureConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetRefreshFailureConfigurationOutput) ToDataSetRefreshFailureConfigurationPtrOutputWithContext(ctx context.Context) DataSetRefreshFailureConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetRefreshFailureConfiguration) *DataSetRefreshFailureConfiguration {
+		return &v
+	}).(DataSetRefreshFailureConfigurationPtrOutput)
+}
+
+// The email alert configuration for a dataset refresh failure.
+func (o DataSetRefreshFailureConfigurationOutput) EmailAlert() DataSetRefreshFailureEmailAlertPtrOutput {
+	return o.ApplyT(func(v DataSetRefreshFailureConfiguration) *DataSetRefreshFailureEmailAlert { return v.EmailAlert }).(DataSetRefreshFailureEmailAlertPtrOutput)
+}
+
+type DataSetRefreshFailureConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetRefreshFailureConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetRefreshFailureConfiguration)(nil)).Elem()
+}
+
+func (o DataSetRefreshFailureConfigurationPtrOutput) ToDataSetRefreshFailureConfigurationPtrOutput() DataSetRefreshFailureConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSetRefreshFailureConfigurationPtrOutput) ToDataSetRefreshFailureConfigurationPtrOutputWithContext(ctx context.Context) DataSetRefreshFailureConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSetRefreshFailureConfigurationPtrOutput) Elem() DataSetRefreshFailureConfigurationOutput {
+	return o.ApplyT(func(v *DataSetRefreshFailureConfiguration) DataSetRefreshFailureConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetRefreshFailureConfiguration
+		return ret
+	}).(DataSetRefreshFailureConfigurationOutput)
+}
+
+// The email alert configuration for a dataset refresh failure.
+func (o DataSetRefreshFailureConfigurationPtrOutput) EmailAlert() DataSetRefreshFailureEmailAlertPtrOutput {
+	return o.ApplyT(func(v *DataSetRefreshFailureConfiguration) *DataSetRefreshFailureEmailAlert {
+		if v == nil {
+			return nil
+		}
+		return v.EmailAlert
+	}).(DataSetRefreshFailureEmailAlertPtrOutput)
+}
+
+type DataSetRefreshFailureEmailAlert struct {
+	// The status value that determines if email alerts are sent.
+	AlertStatus *DataSetRefreshFailureAlertStatus `pulumi:"alertStatus"`
+}
+
+// DataSetRefreshFailureEmailAlertInput is an input type that accepts DataSetRefreshFailureEmailAlertArgs and DataSetRefreshFailureEmailAlertOutput values.
+// You can construct a concrete instance of `DataSetRefreshFailureEmailAlertInput` via:
+//
+//	DataSetRefreshFailureEmailAlertArgs{...}
+type DataSetRefreshFailureEmailAlertInput interface {
+	pulumi.Input
+
+	ToDataSetRefreshFailureEmailAlertOutput() DataSetRefreshFailureEmailAlertOutput
+	ToDataSetRefreshFailureEmailAlertOutputWithContext(context.Context) DataSetRefreshFailureEmailAlertOutput
+}
+
+type DataSetRefreshFailureEmailAlertArgs struct {
+	// The status value that determines if email alerts are sent.
+	AlertStatus DataSetRefreshFailureAlertStatusPtrInput `pulumi:"alertStatus"`
+}
+
+func (DataSetRefreshFailureEmailAlertArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetRefreshFailureEmailAlert)(nil)).Elem()
+}
+
+func (i DataSetRefreshFailureEmailAlertArgs) ToDataSetRefreshFailureEmailAlertOutput() DataSetRefreshFailureEmailAlertOutput {
+	return i.ToDataSetRefreshFailureEmailAlertOutputWithContext(context.Background())
+}
+
+func (i DataSetRefreshFailureEmailAlertArgs) ToDataSetRefreshFailureEmailAlertOutputWithContext(ctx context.Context) DataSetRefreshFailureEmailAlertOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetRefreshFailureEmailAlertOutput)
+}
+
+func (i DataSetRefreshFailureEmailAlertArgs) ToDataSetRefreshFailureEmailAlertPtrOutput() DataSetRefreshFailureEmailAlertPtrOutput {
+	return i.ToDataSetRefreshFailureEmailAlertPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetRefreshFailureEmailAlertArgs) ToDataSetRefreshFailureEmailAlertPtrOutputWithContext(ctx context.Context) DataSetRefreshFailureEmailAlertPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetRefreshFailureEmailAlertOutput).ToDataSetRefreshFailureEmailAlertPtrOutputWithContext(ctx)
+}
+
+// DataSetRefreshFailureEmailAlertPtrInput is an input type that accepts DataSetRefreshFailureEmailAlertArgs, DataSetRefreshFailureEmailAlertPtr and DataSetRefreshFailureEmailAlertPtrOutput values.
+// You can construct a concrete instance of `DataSetRefreshFailureEmailAlertPtrInput` via:
+//
+//	        DataSetRefreshFailureEmailAlertArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetRefreshFailureEmailAlertPtrInput interface {
+	pulumi.Input
+
+	ToDataSetRefreshFailureEmailAlertPtrOutput() DataSetRefreshFailureEmailAlertPtrOutput
+	ToDataSetRefreshFailureEmailAlertPtrOutputWithContext(context.Context) DataSetRefreshFailureEmailAlertPtrOutput
+}
+
+type dataSetRefreshFailureEmailAlertPtrType DataSetRefreshFailureEmailAlertArgs
+
+func DataSetRefreshFailureEmailAlertPtr(v *DataSetRefreshFailureEmailAlertArgs) DataSetRefreshFailureEmailAlertPtrInput {
+	return (*dataSetRefreshFailureEmailAlertPtrType)(v)
+}
+
+func (*dataSetRefreshFailureEmailAlertPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetRefreshFailureEmailAlert)(nil)).Elem()
+}
+
+func (i *dataSetRefreshFailureEmailAlertPtrType) ToDataSetRefreshFailureEmailAlertPtrOutput() DataSetRefreshFailureEmailAlertPtrOutput {
+	return i.ToDataSetRefreshFailureEmailAlertPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetRefreshFailureEmailAlertPtrType) ToDataSetRefreshFailureEmailAlertPtrOutputWithContext(ctx context.Context) DataSetRefreshFailureEmailAlertPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetRefreshFailureEmailAlertPtrOutput)
+}
+
+type DataSetRefreshFailureEmailAlertOutput struct{ *pulumi.OutputState }
+
+func (DataSetRefreshFailureEmailAlertOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetRefreshFailureEmailAlert)(nil)).Elem()
+}
+
+func (o DataSetRefreshFailureEmailAlertOutput) ToDataSetRefreshFailureEmailAlertOutput() DataSetRefreshFailureEmailAlertOutput {
+	return o
+}
+
+func (o DataSetRefreshFailureEmailAlertOutput) ToDataSetRefreshFailureEmailAlertOutputWithContext(ctx context.Context) DataSetRefreshFailureEmailAlertOutput {
+	return o
+}
+
+func (o DataSetRefreshFailureEmailAlertOutput) ToDataSetRefreshFailureEmailAlertPtrOutput() DataSetRefreshFailureEmailAlertPtrOutput {
+	return o.ToDataSetRefreshFailureEmailAlertPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetRefreshFailureEmailAlertOutput) ToDataSetRefreshFailureEmailAlertPtrOutputWithContext(ctx context.Context) DataSetRefreshFailureEmailAlertPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetRefreshFailureEmailAlert) *DataSetRefreshFailureEmailAlert {
+		return &v
+	}).(DataSetRefreshFailureEmailAlertPtrOutput)
+}
+
+// The status value that determines if email alerts are sent.
+func (o DataSetRefreshFailureEmailAlertOutput) AlertStatus() DataSetRefreshFailureAlertStatusPtrOutput {
+	return o.ApplyT(func(v DataSetRefreshFailureEmailAlert) *DataSetRefreshFailureAlertStatus { return v.AlertStatus }).(DataSetRefreshFailureAlertStatusPtrOutput)
+}
+
+type DataSetRefreshFailureEmailAlertPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetRefreshFailureEmailAlertPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetRefreshFailureEmailAlert)(nil)).Elem()
+}
+
+func (o DataSetRefreshFailureEmailAlertPtrOutput) ToDataSetRefreshFailureEmailAlertPtrOutput() DataSetRefreshFailureEmailAlertPtrOutput {
+	return o
+}
+
+func (o DataSetRefreshFailureEmailAlertPtrOutput) ToDataSetRefreshFailureEmailAlertPtrOutputWithContext(ctx context.Context) DataSetRefreshFailureEmailAlertPtrOutput {
+	return o
+}
+
+func (o DataSetRefreshFailureEmailAlertPtrOutput) Elem() DataSetRefreshFailureEmailAlertOutput {
+	return o.ApplyT(func(v *DataSetRefreshFailureEmailAlert) DataSetRefreshFailureEmailAlert {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetRefreshFailureEmailAlert
+		return ret
+	}).(DataSetRefreshFailureEmailAlertOutput)
+}
+
+// The status value that determines if email alerts are sent.
+func (o DataSetRefreshFailureEmailAlertPtrOutput) AlertStatus() DataSetRefreshFailureAlertStatusPtrOutput {
+	return o.ApplyT(func(v *DataSetRefreshFailureEmailAlert) *DataSetRefreshFailureAlertStatus {
+		if v == nil {
+			return nil
+		}
+		return v.AlertStatus
+	}).(DataSetRefreshFailureAlertStatusPtrOutput)
+}
+
 // <p>The refresh properties of a dataset.</p>
 type DataSetRefreshProperties struct {
+	// The failure configuration for a dataset.
+	FailureConfiguration *DataSetRefreshFailureConfiguration `pulumi:"failureConfiguration"`
 	// The refresh configuration for a dataset.
 	RefreshConfiguration *DataSetRefreshConfiguration `pulumi:"refreshConfiguration"`
 }
@@ -26661,6 +26937,8 @@ type DataSetRefreshPropertiesInput interface {
 
 // <p>The refresh properties of a dataset.</p>
 type DataSetRefreshPropertiesArgs struct {
+	// The failure configuration for a dataset.
+	FailureConfiguration DataSetRefreshFailureConfigurationPtrInput `pulumi:"failureConfiguration"`
 	// The refresh configuration for a dataset.
 	RefreshConfiguration DataSetRefreshConfigurationPtrInput `pulumi:"refreshConfiguration"`
 }
@@ -26743,6 +27021,11 @@ func (o DataSetRefreshPropertiesOutput) ToDataSetRefreshPropertiesPtrOutputWithC
 	}).(DataSetRefreshPropertiesPtrOutput)
 }
 
+// The failure configuration for a dataset.
+func (o DataSetRefreshPropertiesOutput) FailureConfiguration() DataSetRefreshFailureConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSetRefreshProperties) *DataSetRefreshFailureConfiguration { return v.FailureConfiguration }).(DataSetRefreshFailureConfigurationPtrOutput)
+}
+
 // The refresh configuration for a dataset.
 func (o DataSetRefreshPropertiesOutput) RefreshConfiguration() DataSetRefreshConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSetRefreshProperties) *DataSetRefreshConfiguration { return v.RefreshConfiguration }).(DataSetRefreshConfigurationPtrOutput)
@@ -26770,6 +27053,16 @@ func (o DataSetRefreshPropertiesPtrOutput) Elem() DataSetRefreshPropertiesOutput
 		var ret DataSetRefreshProperties
 		return ret
 	}).(DataSetRefreshPropertiesOutput)
+}
+
+// The failure configuration for a dataset.
+func (o DataSetRefreshPropertiesPtrOutput) FailureConfiguration() DataSetRefreshFailureConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSetRefreshProperties) *DataSetRefreshFailureConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FailureConfiguration
+	}).(DataSetRefreshFailureConfigurationPtrOutput)
 }
 
 // The refresh configuration for a dataset.
@@ -27003,7 +27296,7 @@ type DataSetRenameColumnOperation struct {
 	// <p>The name of the column to be renamed.</p>
 	ColumnName string `pulumi:"columnName"`
 	// <p>The new name for the column.</p>
-	NewColumnName string `pulumi:"newColumnName"`
+	NewColumnName *string `pulumi:"newColumnName"`
 }
 
 // DataSetRenameColumnOperationInput is an input type that accepts DataSetRenameColumnOperationArgs and DataSetRenameColumnOperationOutput values.
@@ -27022,7 +27315,7 @@ type DataSetRenameColumnOperationArgs struct {
 	// <p>The name of the column to be renamed.</p>
 	ColumnName pulumi.StringInput `pulumi:"columnName"`
 	// <p>The new name for the column.</p>
-	NewColumnName pulumi.StringInput `pulumi:"newColumnName"`
+	NewColumnName pulumi.StringPtrInput `pulumi:"newColumnName"`
 }
 
 func (DataSetRenameColumnOperationArgs) ElementType() reflect.Type {
@@ -27109,8 +27402,8 @@ func (o DataSetRenameColumnOperationOutput) ColumnName() pulumi.StringOutput {
 }
 
 // <p>The new name for the column.</p>
-func (o DataSetRenameColumnOperationOutput) NewColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetRenameColumnOperation) string { return v.NewColumnName }).(pulumi.StringOutput)
+func (o DataSetRenameColumnOperationOutput) NewColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetRenameColumnOperation) *string { return v.NewColumnName }).(pulumi.StringPtrOutput)
 }
 
 type DataSetRenameColumnOperationPtrOutput struct{ *pulumi.OutputState }
@@ -27153,7 +27446,7 @@ func (o DataSetRenameColumnOperationPtrOutput) NewColumnName() pulumi.StringPtrO
 		if v == nil {
 			return nil
 		}
-		return &v.NewColumnName
+		return v.NewColumnName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -27870,7 +28163,7 @@ type DataSetS3Source struct {
 	//          </note>
 	InputColumns []DataSetInputColumn `pulumi:"inputColumns"`
 	// Information about the format for the S3 source file or files.
-	UploadSettings interface{} `pulumi:"uploadSettings"`
+	UploadSettings *DataSetUploadSettings `pulumi:"uploadSettings"`
 }
 
 // DataSetS3SourceInput is an input type that accepts DataSetS3SourceArgs and DataSetS3SourceOutput values.
@@ -27894,7 +28187,7 @@ type DataSetS3SourceArgs struct {
 	//          </note>
 	InputColumns DataSetInputColumnArrayInput `pulumi:"inputColumns"`
 	// Information about the format for the S3 source file or files.
-	UploadSettings pulumi.Input `pulumi:"uploadSettings"`
+	UploadSettings DataSetUploadSettingsPtrInput `pulumi:"uploadSettings"`
 }
 
 func (DataSetS3SourceArgs) ElementType() reflect.Type {
@@ -27990,8 +28283,8 @@ func (o DataSetS3SourceOutput) InputColumns() DataSetInputColumnArrayOutput {
 }
 
 // Information about the format for the S3 source file or files.
-func (o DataSetS3SourceOutput) UploadSettings() pulumi.AnyOutput {
-	return o.ApplyT(func(v DataSetS3Source) interface{} { return v.UploadSettings }).(pulumi.AnyOutput)
+func (o DataSetS3SourceOutput) UploadSettings() DataSetUploadSettingsPtrOutput {
+	return o.ApplyT(func(v DataSetS3Source) *DataSetUploadSettings { return v.UploadSettings }).(DataSetUploadSettingsPtrOutput)
 }
 
 type DataSetS3SourcePtrOutput struct{ *pulumi.OutputState }
@@ -28043,13 +28336,13 @@ func (o DataSetS3SourcePtrOutput) InputColumns() DataSetInputColumnArrayOutput {
 }
 
 // Information about the format for the S3 source file or files.
-func (o DataSetS3SourcePtrOutput) UploadSettings() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DataSetS3Source) interface{} {
+func (o DataSetS3SourcePtrOutput) UploadSettings() DataSetUploadSettingsPtrOutput {
+	return o.ApplyT(func(v *DataSetS3Source) *DataSetUploadSettings {
 		if v == nil {
 			return nil
 		}
 		return v.UploadSettings
-	}).(pulumi.AnyOutput)
+	}).(DataSetUploadSettingsPtrOutput)
 }
 
 // <p>A string parameter for a dataset.</p>
@@ -28993,6 +29286,222 @@ func (o DataSetUntagColumnOperationPtrOutput) TagNames() DataSetColumnTagNameArr
 		}
 		return v.TagNames
 	}).(DataSetColumnTagNameArrayOutput)
+}
+
+// <p>Information about the format for a source file or files.</p>
+type DataSetUploadSettings struct {
+	// <p>Whether the file has a header row, or the files each have a header row.</p>
+	ContainsHeader *bool `pulumi:"containsHeader"`
+	// <p>The delimiter between values in the file.</p>
+	Delimiter *string `pulumi:"delimiter"`
+	// File format.
+	Format *DataSetFileFormat `pulumi:"format"`
+	// <p>A row number to start reading data from.</p>
+	StartFromRow *float64 `pulumi:"startFromRow"`
+	// Text qualifier.
+	TextQualifier *DataSetTextQualifier `pulumi:"textQualifier"`
+}
+
+// DataSetUploadSettingsInput is an input type that accepts DataSetUploadSettingsArgs and DataSetUploadSettingsOutput values.
+// You can construct a concrete instance of `DataSetUploadSettingsInput` via:
+//
+//	DataSetUploadSettingsArgs{...}
+type DataSetUploadSettingsInput interface {
+	pulumi.Input
+
+	ToDataSetUploadSettingsOutput() DataSetUploadSettingsOutput
+	ToDataSetUploadSettingsOutputWithContext(context.Context) DataSetUploadSettingsOutput
+}
+
+// <p>Information about the format for a source file or files.</p>
+type DataSetUploadSettingsArgs struct {
+	// <p>Whether the file has a header row, or the files each have a header row.</p>
+	ContainsHeader pulumi.BoolPtrInput `pulumi:"containsHeader"`
+	// <p>The delimiter between values in the file.</p>
+	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
+	// File format.
+	Format DataSetFileFormatPtrInput `pulumi:"format"`
+	// <p>A row number to start reading data from.</p>
+	StartFromRow pulumi.Float64PtrInput `pulumi:"startFromRow"`
+	// Text qualifier.
+	TextQualifier DataSetTextQualifierPtrInput `pulumi:"textQualifier"`
+}
+
+func (DataSetUploadSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetUploadSettings)(nil)).Elem()
+}
+
+func (i DataSetUploadSettingsArgs) ToDataSetUploadSettingsOutput() DataSetUploadSettingsOutput {
+	return i.ToDataSetUploadSettingsOutputWithContext(context.Background())
+}
+
+func (i DataSetUploadSettingsArgs) ToDataSetUploadSettingsOutputWithContext(ctx context.Context) DataSetUploadSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetUploadSettingsOutput)
+}
+
+func (i DataSetUploadSettingsArgs) ToDataSetUploadSettingsPtrOutput() DataSetUploadSettingsPtrOutput {
+	return i.ToDataSetUploadSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetUploadSettingsArgs) ToDataSetUploadSettingsPtrOutputWithContext(ctx context.Context) DataSetUploadSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetUploadSettingsOutput).ToDataSetUploadSettingsPtrOutputWithContext(ctx)
+}
+
+// DataSetUploadSettingsPtrInput is an input type that accepts DataSetUploadSettingsArgs, DataSetUploadSettingsPtr and DataSetUploadSettingsPtrOutput values.
+// You can construct a concrete instance of `DataSetUploadSettingsPtrInput` via:
+//
+//	        DataSetUploadSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetUploadSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataSetUploadSettingsPtrOutput() DataSetUploadSettingsPtrOutput
+	ToDataSetUploadSettingsPtrOutputWithContext(context.Context) DataSetUploadSettingsPtrOutput
+}
+
+type dataSetUploadSettingsPtrType DataSetUploadSettingsArgs
+
+func DataSetUploadSettingsPtr(v *DataSetUploadSettingsArgs) DataSetUploadSettingsPtrInput {
+	return (*dataSetUploadSettingsPtrType)(v)
+}
+
+func (*dataSetUploadSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetUploadSettings)(nil)).Elem()
+}
+
+func (i *dataSetUploadSettingsPtrType) ToDataSetUploadSettingsPtrOutput() DataSetUploadSettingsPtrOutput {
+	return i.ToDataSetUploadSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetUploadSettingsPtrType) ToDataSetUploadSettingsPtrOutputWithContext(ctx context.Context) DataSetUploadSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetUploadSettingsPtrOutput)
+}
+
+// <p>Information about the format for a source file or files.</p>
+type DataSetUploadSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataSetUploadSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetUploadSettings)(nil)).Elem()
+}
+
+func (o DataSetUploadSettingsOutput) ToDataSetUploadSettingsOutput() DataSetUploadSettingsOutput {
+	return o
+}
+
+func (o DataSetUploadSettingsOutput) ToDataSetUploadSettingsOutputWithContext(ctx context.Context) DataSetUploadSettingsOutput {
+	return o
+}
+
+func (o DataSetUploadSettingsOutput) ToDataSetUploadSettingsPtrOutput() DataSetUploadSettingsPtrOutput {
+	return o.ToDataSetUploadSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetUploadSettingsOutput) ToDataSetUploadSettingsPtrOutputWithContext(ctx context.Context) DataSetUploadSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetUploadSettings) *DataSetUploadSettings {
+		return &v
+	}).(DataSetUploadSettingsPtrOutput)
+}
+
+// <p>Whether the file has a header row, or the files each have a header row.</p>
+func (o DataSetUploadSettingsOutput) ContainsHeader() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataSetUploadSettings) *bool { return v.ContainsHeader }).(pulumi.BoolPtrOutput)
+}
+
+// <p>The delimiter between values in the file.</p>
+func (o DataSetUploadSettingsOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetUploadSettings) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
+}
+
+// File format.
+func (o DataSetUploadSettingsOutput) Format() DataSetFileFormatPtrOutput {
+	return o.ApplyT(func(v DataSetUploadSettings) *DataSetFileFormat { return v.Format }).(DataSetFileFormatPtrOutput)
+}
+
+// <p>A row number to start reading data from.</p>
+func (o DataSetUploadSettingsOutput) StartFromRow() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DataSetUploadSettings) *float64 { return v.StartFromRow }).(pulumi.Float64PtrOutput)
+}
+
+// Text qualifier.
+func (o DataSetUploadSettingsOutput) TextQualifier() DataSetTextQualifierPtrOutput {
+	return o.ApplyT(func(v DataSetUploadSettings) *DataSetTextQualifier { return v.TextQualifier }).(DataSetTextQualifierPtrOutput)
+}
+
+type DataSetUploadSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetUploadSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetUploadSettings)(nil)).Elem()
+}
+
+func (o DataSetUploadSettingsPtrOutput) ToDataSetUploadSettingsPtrOutput() DataSetUploadSettingsPtrOutput {
+	return o
+}
+
+func (o DataSetUploadSettingsPtrOutput) ToDataSetUploadSettingsPtrOutputWithContext(ctx context.Context) DataSetUploadSettingsPtrOutput {
+	return o
+}
+
+func (o DataSetUploadSettingsPtrOutput) Elem() DataSetUploadSettingsOutput {
+	return o.ApplyT(func(v *DataSetUploadSettings) DataSetUploadSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetUploadSettings
+		return ret
+	}).(DataSetUploadSettingsOutput)
+}
+
+// <p>Whether the file has a header row, or the files each have a header row.</p>
+func (o DataSetUploadSettingsPtrOutput) ContainsHeader() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataSetUploadSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ContainsHeader
+	}).(pulumi.BoolPtrOutput)
+}
+
+// <p>The delimiter between values in the file.</p>
+func (o DataSetUploadSettingsPtrOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetUploadSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+// File format.
+func (o DataSetUploadSettingsPtrOutput) Format() DataSetFileFormatPtrOutput {
+	return o.ApplyT(func(v *DataSetUploadSettings) *DataSetFileFormat {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(DataSetFileFormatPtrOutput)
+}
+
+// <p>A row number to start reading data from.</p>
+func (o DataSetUploadSettingsPtrOutput) StartFromRow() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DataSetUploadSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.StartFromRow
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Text qualifier.
+func (o DataSetUploadSettingsPtrOutput) TextQualifier() DataSetTextQualifierPtrOutput {
+	return o.ApplyT(func(v *DataSetUploadSettings) *DataSetTextQualifier {
+		if v == nil {
+			return nil
+		}
+		return v.TextQualifier
+	}).(DataSetTextQualifierPtrOutput)
 }
 
 // <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
@@ -84680,405 +85189,6 @@ func (o TemplateLoadingAnimationPtrOutput) Visibility() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-type TemplateLocalNavigationConfiguration struct {
-	// The sheet that is targeted for navigation in the same analysis.
-	TargetSheetId string `pulumi:"targetSheetId"`
-}
-
-// TemplateLocalNavigationConfigurationInput is an input type that accepts TemplateLocalNavigationConfigurationArgs and TemplateLocalNavigationConfigurationOutput values.
-// You can construct a concrete instance of `TemplateLocalNavigationConfigurationInput` via:
-//
-//	TemplateLocalNavigationConfigurationArgs{...}
-type TemplateLocalNavigationConfigurationInput interface {
-	pulumi.Input
-
-	ToTemplateLocalNavigationConfigurationOutput() TemplateLocalNavigationConfigurationOutput
-	ToTemplateLocalNavigationConfigurationOutputWithContext(context.Context) TemplateLocalNavigationConfigurationOutput
-}
-
-type TemplateLocalNavigationConfigurationArgs struct {
-	// The sheet that is targeted for navigation in the same analysis.
-	TargetSheetId pulumi.StringInput `pulumi:"targetSheetId"`
-}
-
-func (TemplateLocalNavigationConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateLocalNavigationConfiguration)(nil)).Elem()
-}
-
-func (i TemplateLocalNavigationConfigurationArgs) ToTemplateLocalNavigationConfigurationOutput() TemplateLocalNavigationConfigurationOutput {
-	return i.ToTemplateLocalNavigationConfigurationOutputWithContext(context.Background())
-}
-
-func (i TemplateLocalNavigationConfigurationArgs) ToTemplateLocalNavigationConfigurationOutputWithContext(ctx context.Context) TemplateLocalNavigationConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateLocalNavigationConfigurationOutput)
-}
-
-func (i TemplateLocalNavigationConfigurationArgs) ToTemplateLocalNavigationConfigurationPtrOutput() TemplateLocalNavigationConfigurationPtrOutput {
-	return i.ToTemplateLocalNavigationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateLocalNavigationConfigurationArgs) ToTemplateLocalNavigationConfigurationPtrOutputWithContext(ctx context.Context) TemplateLocalNavigationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateLocalNavigationConfigurationOutput).ToTemplateLocalNavigationConfigurationPtrOutputWithContext(ctx)
-}
-
-// TemplateLocalNavigationConfigurationPtrInput is an input type that accepts TemplateLocalNavigationConfigurationArgs, TemplateLocalNavigationConfigurationPtr and TemplateLocalNavigationConfigurationPtrOutput values.
-// You can construct a concrete instance of `TemplateLocalNavigationConfigurationPtrInput` via:
-//
-//	        TemplateLocalNavigationConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateLocalNavigationConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToTemplateLocalNavigationConfigurationPtrOutput() TemplateLocalNavigationConfigurationPtrOutput
-	ToTemplateLocalNavigationConfigurationPtrOutputWithContext(context.Context) TemplateLocalNavigationConfigurationPtrOutput
-}
-
-type templateLocalNavigationConfigurationPtrType TemplateLocalNavigationConfigurationArgs
-
-func TemplateLocalNavigationConfigurationPtr(v *TemplateLocalNavigationConfigurationArgs) TemplateLocalNavigationConfigurationPtrInput {
-	return (*templateLocalNavigationConfigurationPtrType)(v)
-}
-
-func (*templateLocalNavigationConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateLocalNavigationConfiguration)(nil)).Elem()
-}
-
-func (i *templateLocalNavigationConfigurationPtrType) ToTemplateLocalNavigationConfigurationPtrOutput() TemplateLocalNavigationConfigurationPtrOutput {
-	return i.ToTemplateLocalNavigationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *templateLocalNavigationConfigurationPtrType) ToTemplateLocalNavigationConfigurationPtrOutputWithContext(ctx context.Context) TemplateLocalNavigationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateLocalNavigationConfigurationPtrOutput)
-}
-
-type TemplateLocalNavigationConfigurationOutput struct{ *pulumi.OutputState }
-
-func (TemplateLocalNavigationConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateLocalNavigationConfiguration)(nil)).Elem()
-}
-
-func (o TemplateLocalNavigationConfigurationOutput) ToTemplateLocalNavigationConfigurationOutput() TemplateLocalNavigationConfigurationOutput {
-	return o
-}
-
-func (o TemplateLocalNavigationConfigurationOutput) ToTemplateLocalNavigationConfigurationOutputWithContext(ctx context.Context) TemplateLocalNavigationConfigurationOutput {
-	return o
-}
-
-func (o TemplateLocalNavigationConfigurationOutput) ToTemplateLocalNavigationConfigurationPtrOutput() TemplateLocalNavigationConfigurationPtrOutput {
-	return o.ToTemplateLocalNavigationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateLocalNavigationConfigurationOutput) ToTemplateLocalNavigationConfigurationPtrOutputWithContext(ctx context.Context) TemplateLocalNavigationConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateLocalNavigationConfiguration) *TemplateLocalNavigationConfiguration {
-		return &v
-	}).(TemplateLocalNavigationConfigurationPtrOutput)
-}
-
-// The sheet that is targeted for navigation in the same analysis.
-func (o TemplateLocalNavigationConfigurationOutput) TargetSheetId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateLocalNavigationConfiguration) string { return v.TargetSheetId }).(pulumi.StringOutput)
-}
-
-type TemplateLocalNavigationConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateLocalNavigationConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateLocalNavigationConfiguration)(nil)).Elem()
-}
-
-func (o TemplateLocalNavigationConfigurationPtrOutput) ToTemplateLocalNavigationConfigurationPtrOutput() TemplateLocalNavigationConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateLocalNavigationConfigurationPtrOutput) ToTemplateLocalNavigationConfigurationPtrOutputWithContext(ctx context.Context) TemplateLocalNavigationConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateLocalNavigationConfigurationPtrOutput) Elem() TemplateLocalNavigationConfigurationOutput {
-	return o.ApplyT(func(v *TemplateLocalNavigationConfiguration) TemplateLocalNavigationConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateLocalNavigationConfiguration
-		return ret
-	}).(TemplateLocalNavigationConfigurationOutput)
-}
-
-// The sheet that is targeted for navigation in the same analysis.
-func (o TemplateLocalNavigationConfigurationPtrOutput) TargetSheetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateLocalNavigationConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetSheetId
-	}).(pulumi.StringPtrOutput)
-}
-
-type TemplateLongFormatText struct {
-	// Plain text format.
-	PlainText *string `pulumi:"plainText"`
-	// Rich text. Examples of rich text include bold, underline, and italics.
-	RichText *string `pulumi:"richText"`
-}
-
-// TemplateLongFormatTextInput is an input type that accepts TemplateLongFormatTextArgs and TemplateLongFormatTextOutput values.
-// You can construct a concrete instance of `TemplateLongFormatTextInput` via:
-//
-//	TemplateLongFormatTextArgs{...}
-type TemplateLongFormatTextInput interface {
-	pulumi.Input
-
-	ToTemplateLongFormatTextOutput() TemplateLongFormatTextOutput
-	ToTemplateLongFormatTextOutputWithContext(context.Context) TemplateLongFormatTextOutput
-}
-
-type TemplateLongFormatTextArgs struct {
-	// Plain text format.
-	PlainText pulumi.StringPtrInput `pulumi:"plainText"`
-	// Rich text. Examples of rich text include bold, underline, and italics.
-	RichText pulumi.StringPtrInput `pulumi:"richText"`
-}
-
-func (TemplateLongFormatTextArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateLongFormatText)(nil)).Elem()
-}
-
-func (i TemplateLongFormatTextArgs) ToTemplateLongFormatTextOutput() TemplateLongFormatTextOutput {
-	return i.ToTemplateLongFormatTextOutputWithContext(context.Background())
-}
-
-func (i TemplateLongFormatTextArgs) ToTemplateLongFormatTextOutputWithContext(ctx context.Context) TemplateLongFormatTextOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateLongFormatTextOutput)
-}
-
-func (i TemplateLongFormatTextArgs) ToTemplateLongFormatTextPtrOutput() TemplateLongFormatTextPtrOutput {
-	return i.ToTemplateLongFormatTextPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateLongFormatTextArgs) ToTemplateLongFormatTextPtrOutputWithContext(ctx context.Context) TemplateLongFormatTextPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateLongFormatTextOutput).ToTemplateLongFormatTextPtrOutputWithContext(ctx)
-}
-
-// TemplateLongFormatTextPtrInput is an input type that accepts TemplateLongFormatTextArgs, TemplateLongFormatTextPtr and TemplateLongFormatTextPtrOutput values.
-// You can construct a concrete instance of `TemplateLongFormatTextPtrInput` via:
-//
-//	        TemplateLongFormatTextArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateLongFormatTextPtrInput interface {
-	pulumi.Input
-
-	ToTemplateLongFormatTextPtrOutput() TemplateLongFormatTextPtrOutput
-	ToTemplateLongFormatTextPtrOutputWithContext(context.Context) TemplateLongFormatTextPtrOutput
-}
-
-type templateLongFormatTextPtrType TemplateLongFormatTextArgs
-
-func TemplateLongFormatTextPtr(v *TemplateLongFormatTextArgs) TemplateLongFormatTextPtrInput {
-	return (*templateLongFormatTextPtrType)(v)
-}
-
-func (*templateLongFormatTextPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateLongFormatText)(nil)).Elem()
-}
-
-func (i *templateLongFormatTextPtrType) ToTemplateLongFormatTextPtrOutput() TemplateLongFormatTextPtrOutput {
-	return i.ToTemplateLongFormatTextPtrOutputWithContext(context.Background())
-}
-
-func (i *templateLongFormatTextPtrType) ToTemplateLongFormatTextPtrOutputWithContext(ctx context.Context) TemplateLongFormatTextPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateLongFormatTextPtrOutput)
-}
-
-type TemplateLongFormatTextOutput struct{ *pulumi.OutputState }
-
-func (TemplateLongFormatTextOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateLongFormatText)(nil)).Elem()
-}
-
-func (o TemplateLongFormatTextOutput) ToTemplateLongFormatTextOutput() TemplateLongFormatTextOutput {
-	return o
-}
-
-func (o TemplateLongFormatTextOutput) ToTemplateLongFormatTextOutputWithContext(ctx context.Context) TemplateLongFormatTextOutput {
-	return o
-}
-
-func (o TemplateLongFormatTextOutput) ToTemplateLongFormatTextPtrOutput() TemplateLongFormatTextPtrOutput {
-	return o.ToTemplateLongFormatTextPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateLongFormatTextOutput) ToTemplateLongFormatTextPtrOutputWithContext(ctx context.Context) TemplateLongFormatTextPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateLongFormatText) *TemplateLongFormatText {
-		return &v
-	}).(TemplateLongFormatTextPtrOutput)
-}
-
-// Plain text format.
-func (o TemplateLongFormatTextOutput) PlainText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateLongFormatText) *string { return v.PlainText }).(pulumi.StringPtrOutput)
-}
-
-// Rich text. Examples of rich text include bold, underline, and italics.
-func (o TemplateLongFormatTextOutput) RichText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateLongFormatText) *string { return v.RichText }).(pulumi.StringPtrOutput)
-}
-
-type TemplateLongFormatTextPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateLongFormatTextPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateLongFormatText)(nil)).Elem()
-}
-
-func (o TemplateLongFormatTextPtrOutput) ToTemplateLongFormatTextPtrOutput() TemplateLongFormatTextPtrOutput {
-	return o
-}
-
-func (o TemplateLongFormatTextPtrOutput) ToTemplateLongFormatTextPtrOutputWithContext(ctx context.Context) TemplateLongFormatTextPtrOutput {
-	return o
-}
-
-func (o TemplateLongFormatTextPtrOutput) Elem() TemplateLongFormatTextOutput {
-	return o.ApplyT(func(v *TemplateLongFormatText) TemplateLongFormatText {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateLongFormatText
-		return ret
-	}).(TemplateLongFormatTextOutput)
-}
-
-// Plain text format.
-func (o TemplateLongFormatTextPtrOutput) PlainText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateLongFormatText) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PlainText
-	}).(pulumi.StringPtrOutput)
-}
-
-// Rich text. Examples of rich text include bold, underline, and italics.
-func (o TemplateLongFormatTextPtrOutput) RichText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateLongFormatText) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RichText
-	}).(pulumi.StringPtrOutput)
-}
-
-type TemplateMappedDataSetParameter struct {
-	// A unique name that identifies a dataset within the analysis or dashboard.
-	DataSetIdentifier string `pulumi:"dataSetIdentifier"`
-	// The name of the dataset parameter.
-	DataSetParameterName string `pulumi:"dataSetParameterName"`
-}
-
-// TemplateMappedDataSetParameterInput is an input type that accepts TemplateMappedDataSetParameterArgs and TemplateMappedDataSetParameterOutput values.
-// You can construct a concrete instance of `TemplateMappedDataSetParameterInput` via:
-//
-//	TemplateMappedDataSetParameterArgs{...}
-type TemplateMappedDataSetParameterInput interface {
-	pulumi.Input
-
-	ToTemplateMappedDataSetParameterOutput() TemplateMappedDataSetParameterOutput
-	ToTemplateMappedDataSetParameterOutputWithContext(context.Context) TemplateMappedDataSetParameterOutput
-}
-
-type TemplateMappedDataSetParameterArgs struct {
-	// A unique name that identifies a dataset within the analysis or dashboard.
-	DataSetIdentifier pulumi.StringInput `pulumi:"dataSetIdentifier"`
-	// The name of the dataset parameter.
-	DataSetParameterName pulumi.StringInput `pulumi:"dataSetParameterName"`
-}
-
-func (TemplateMappedDataSetParameterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateMappedDataSetParameter)(nil)).Elem()
-}
-
-func (i TemplateMappedDataSetParameterArgs) ToTemplateMappedDataSetParameterOutput() TemplateMappedDataSetParameterOutput {
-	return i.ToTemplateMappedDataSetParameterOutputWithContext(context.Background())
-}
-
-func (i TemplateMappedDataSetParameterArgs) ToTemplateMappedDataSetParameterOutputWithContext(ctx context.Context) TemplateMappedDataSetParameterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateMappedDataSetParameterOutput)
-}
-
-// TemplateMappedDataSetParameterArrayInput is an input type that accepts TemplateMappedDataSetParameterArray and TemplateMappedDataSetParameterArrayOutput values.
-// You can construct a concrete instance of `TemplateMappedDataSetParameterArrayInput` via:
-//
-//	TemplateMappedDataSetParameterArray{ TemplateMappedDataSetParameterArgs{...} }
-type TemplateMappedDataSetParameterArrayInput interface {
-	pulumi.Input
-
-	ToTemplateMappedDataSetParameterArrayOutput() TemplateMappedDataSetParameterArrayOutput
-	ToTemplateMappedDataSetParameterArrayOutputWithContext(context.Context) TemplateMappedDataSetParameterArrayOutput
-}
-
-type TemplateMappedDataSetParameterArray []TemplateMappedDataSetParameterInput
-
-func (TemplateMappedDataSetParameterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateMappedDataSetParameter)(nil)).Elem()
-}
-
-func (i TemplateMappedDataSetParameterArray) ToTemplateMappedDataSetParameterArrayOutput() TemplateMappedDataSetParameterArrayOutput {
-	return i.ToTemplateMappedDataSetParameterArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateMappedDataSetParameterArray) ToTemplateMappedDataSetParameterArrayOutputWithContext(ctx context.Context) TemplateMappedDataSetParameterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateMappedDataSetParameterArrayOutput)
-}
-
-type TemplateMappedDataSetParameterOutput struct{ *pulumi.OutputState }
-
-func (TemplateMappedDataSetParameterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateMappedDataSetParameter)(nil)).Elem()
-}
-
-func (o TemplateMappedDataSetParameterOutput) ToTemplateMappedDataSetParameterOutput() TemplateMappedDataSetParameterOutput {
-	return o
-}
-
-func (o TemplateMappedDataSetParameterOutput) ToTemplateMappedDataSetParameterOutputWithContext(ctx context.Context) TemplateMappedDataSetParameterOutput {
-	return o
-}
-
-// A unique name that identifies a dataset within the analysis or dashboard.
-func (o TemplateMappedDataSetParameterOutput) DataSetIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateMappedDataSetParameter) string { return v.DataSetIdentifier }).(pulumi.StringOutput)
-}
-
-// The name of the dataset parameter.
-func (o TemplateMappedDataSetParameterOutput) DataSetParameterName() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateMappedDataSetParameter) string { return v.DataSetParameterName }).(pulumi.StringOutput)
-}
-
-type TemplateMappedDataSetParameterArrayOutput struct{ *pulumi.OutputState }
-
-func (TemplateMappedDataSetParameterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateMappedDataSetParameter)(nil)).Elem()
-}
-
-func (o TemplateMappedDataSetParameterArrayOutput) ToTemplateMappedDataSetParameterArrayOutput() TemplateMappedDataSetParameterArrayOutput {
-	return o
-}
-
-func (o TemplateMappedDataSetParameterArrayOutput) ToTemplateMappedDataSetParameterArrayOutputWithContext(ctx context.Context) TemplateMappedDataSetParameterArrayOutput {
-	return o
-}
-
-func (o TemplateMappedDataSetParameterArrayOutput) Index(i pulumi.IntInput) TemplateMappedDataSetParameterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateMappedDataSetParameter {
-		return vs[0].([]TemplateMappedDataSetParameter)[vs[1].(int)]
-	}).(TemplateMappedDataSetParameterOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionPageBreakConfigurationInput)(nil)).Elem(), DashboardSectionPageBreakConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionPageBreakConfigurationPtrInput)(nil)).Elem(), DashboardSectionPageBreakConfigurationArgs{})
@@ -85393,6 +85503,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetProjectOperationPtrInput)(nil)).Elem(), DataSetProjectOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRefreshConfigurationInput)(nil)).Elem(), DataSetRefreshConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRefreshConfigurationPtrInput)(nil)).Elem(), DataSetRefreshConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRefreshFailureConfigurationInput)(nil)).Elem(), DataSetRefreshFailureConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRefreshFailureConfigurationPtrInput)(nil)).Elem(), DataSetRefreshFailureConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRefreshFailureEmailAlertInput)(nil)).Elem(), DataSetRefreshFailureEmailAlertArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRefreshFailureEmailAlertPtrInput)(nil)).Elem(), DataSetRefreshFailureEmailAlertArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRefreshPropertiesInput)(nil)).Elem(), DataSetRefreshPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRefreshPropertiesPtrInput)(nil)).Elem(), DataSetRefreshPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRelationalTableInput)(nil)).Elem(), DataSetRelationalTableArgs{})
@@ -85421,6 +85535,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetUniqueKeyArrayInput)(nil)).Elem(), DataSetUniqueKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetUntagColumnOperationInput)(nil)).Elem(), DataSetUntagColumnOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetUntagColumnOperationPtrInput)(nil)).Elem(), DataSetUntagColumnOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetUploadSettingsInput)(nil)).Elem(), DataSetUploadSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetUploadSettingsPtrInput)(nil)).Elem(), DataSetUploadSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetUsageConfigurationInput)(nil)).Elem(), DataSetUsageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetUsageConfigurationPtrInput)(nil)).Elem(), DataSetUsageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAmazonElasticsearchParametersInput)(nil)).Elem(), DataSourceAmazonElasticsearchParametersArgs{})
@@ -86053,12 +86169,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSelectAllOptionsPtrInput)(nil)).Elem(), TemplateListControlSelectAllOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLoadingAnimationInput)(nil)).Elem(), TemplateLoadingAnimationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLoadingAnimationPtrInput)(nil)).Elem(), TemplateLoadingAnimationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLocalNavigationConfigurationInput)(nil)).Elem(), TemplateLocalNavigationConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLocalNavigationConfigurationPtrInput)(nil)).Elem(), TemplateLocalNavigationConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLongFormatTextInput)(nil)).Elem(), TemplateLongFormatTextArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLongFormatTextPtrInput)(nil)).Elem(), TemplateLongFormatTextArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMappedDataSetParameterInput)(nil)).Elem(), TemplateMappedDataSetParameterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMappedDataSetParameterArrayInput)(nil)).Elem(), TemplateMappedDataSetParameterArray{})
 	pulumi.RegisterOutputType(DashboardSectionPageBreakConfigurationOutput{})
 	pulumi.RegisterOutputType(DashboardSectionPageBreakConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSectionStyleOutput{})
@@ -86378,6 +86488,10 @@ func init() {
 	pulumi.RegisterOutputType(DataSetProjectOperationPtrOutput{})
 	pulumi.RegisterOutputType(DataSetRefreshConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSetRefreshConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSetRefreshFailureConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSetRefreshFailureConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSetRefreshFailureEmailAlertOutput{})
+	pulumi.RegisterOutputType(DataSetRefreshFailureEmailAlertPtrOutput{})
 	pulumi.RegisterOutputType(DataSetRefreshPropertiesOutput{})
 	pulumi.RegisterOutputType(DataSetRefreshPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataSetRelationalTableOutput{})
@@ -86406,6 +86520,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSetUniqueKeyArrayOutput{})
 	pulumi.RegisterOutputType(DataSetUntagColumnOperationOutput{})
 	pulumi.RegisterOutputType(DataSetUntagColumnOperationPtrOutput{})
+	pulumi.RegisterOutputType(DataSetUploadSettingsOutput{})
+	pulumi.RegisterOutputType(DataSetUploadSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DataSetUsageConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSetUsageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAmazonElasticsearchParametersOutput{})
@@ -87042,10 +87158,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateListControlSelectAllOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateLoadingAnimationOutput{})
 	pulumi.RegisterOutputType(TemplateLoadingAnimationPtrOutput{})
-	pulumi.RegisterOutputType(TemplateLocalNavigationConfigurationOutput{})
-	pulumi.RegisterOutputType(TemplateLocalNavigationConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(TemplateLongFormatTextOutput{})
-	pulumi.RegisterOutputType(TemplateLongFormatTextPtrOutput{})
-	pulumi.RegisterOutputType(TemplateMappedDataSetParameterOutput{})
-	pulumi.RegisterOutputType(TemplateMappedDataSetParameterArrayOutput{})
 }

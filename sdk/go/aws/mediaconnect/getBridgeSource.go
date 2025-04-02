@@ -30,9 +30,9 @@ type LookupBridgeSourceArgs struct {
 }
 
 type LookupBridgeSourceResult struct {
-	// Add a flow source to an existing bridge.
+	// The source of the flow.
 	FlowSource *BridgeSourceBridgeFlowSource `pulumi:"flowSource"`
-	// Add a network source to an existing bridge.
+	// The source of the network.
 	NetworkSource *BridgeSourceBridgeNetworkSource `pulumi:"networkSource"`
 }
 
@@ -70,12 +70,12 @@ func (o LookupBridgeSourceResultOutput) ToLookupBridgeSourceResultOutputWithCont
 	return o
 }
 
-// Add a flow source to an existing bridge.
+// The source of the flow.
 func (o LookupBridgeSourceResultOutput) FlowSource() BridgeSourceBridgeFlowSourcePtrOutput {
 	return o.ApplyT(func(v LookupBridgeSourceResult) *BridgeSourceBridgeFlowSource { return v.FlowSource }).(BridgeSourceBridgeFlowSourcePtrOutput)
 }
 
-// Add a network source to an existing bridge.
+// The source of the network.
 func (o LookupBridgeSourceResultOutput) NetworkSource() BridgeSourceBridgeNetworkSourcePtrOutput {
 	return o.ApplyT(func(v LookupBridgeSourceResult) *BridgeSourceBridgeNetworkSource { return v.NetworkSource }).(BridgeSourceBridgeNetworkSourcePtrOutput)
 }

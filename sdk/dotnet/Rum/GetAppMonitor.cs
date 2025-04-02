@@ -78,13 +78,24 @@ namespace Pulumi.AwsNative.Rum
         /// </summary>
         public readonly bool? CwLogEnabled;
         /// <summary>
-        /// The top-level internet domain name for which your application has administrative authority.
+        /// A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+        /// </summary>
+        public readonly Outputs.AppMonitorDeobfuscationConfiguration? DeobfuscationConfiguration;
+        /// <summary>
+        /// The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
         /// </summary>
         public readonly string? Domain;
+        /// <summary>
+        /// The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+        /// </summary>
+        public readonly ImmutableArray<string> DomainList;
         /// <summary>
         /// The unique ID of the new app monitor.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
+        /// </summary>
         public readonly Outputs.AppMonitorResourcePolicy? ResourcePolicy;
         /// <summary>
         /// Assigns one or more tags (key-value pairs) to the app monitor.
@@ -107,7 +118,11 @@ namespace Pulumi.AwsNative.Rum
 
             bool? cwLogEnabled,
 
+            Outputs.AppMonitorDeobfuscationConfiguration? deobfuscationConfiguration,
+
             string? domain,
+
+            ImmutableArray<string> domainList,
 
             string? id,
 
@@ -118,7 +133,9 @@ namespace Pulumi.AwsNative.Rum
             AppMonitorConfiguration = appMonitorConfiguration;
             CustomEvents = customEvents;
             CwLogEnabled = cwLogEnabled;
+            DeobfuscationConfiguration = deobfuscationConfiguration;
             Domain = domain;
+            DomainList = domainList;
             Id = id;
             ResourcePolicy = resourcePolicy;
             Tags = tags;

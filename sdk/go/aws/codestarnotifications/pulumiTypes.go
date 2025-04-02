@@ -14,13 +14,13 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type NotificationRuleTarget struct {
-	// The Amazon Resource Name (ARN) of the AWS Chatbot topic or AWS Chatbot client.
+	// The Amazon Resource Name (ARN) of the  topic or  client.
 	TargetAddress string `pulumi:"targetAddress"`
-	// The target type. Can be an Amazon Simple Notification Service topic or AWS Chatbot client.
+	// The target type. Can be an Amazon Simple Notification Service topic or  client.
 	//
 	// - Amazon Simple Notification Service topics are specified as `SNS` .
-	// - AWS Chatbot clients are specified as `AWSChatbotSlack` .
-	// - AWS Chatbot clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
+	// - clients are specified as `AWSChatbotSlack` .
+	// - clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
 	TargetType string `pulumi:"targetType"`
 }
 
@@ -36,13 +36,13 @@ type NotificationRuleTargetInput interface {
 }
 
 type NotificationRuleTargetArgs struct {
-	// The Amazon Resource Name (ARN) of the AWS Chatbot topic or AWS Chatbot client.
+	// The Amazon Resource Name (ARN) of the  topic or  client.
 	TargetAddress pulumi.StringInput `pulumi:"targetAddress"`
-	// The target type. Can be an Amazon Simple Notification Service topic or AWS Chatbot client.
+	// The target type. Can be an Amazon Simple Notification Service topic or  client.
 	//
 	// - Amazon Simple Notification Service topics are specified as `SNS` .
-	// - AWS Chatbot clients are specified as `AWSChatbotSlack` .
-	// - AWS Chatbot clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
+	// - clients are specified as `AWSChatbotSlack` .
+	// - clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
 	TargetType pulumi.StringInput `pulumi:"targetType"`
 }
 
@@ -97,16 +97,16 @@ func (o NotificationRuleTargetOutput) ToNotificationRuleTargetOutputWithContext(
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the AWS Chatbot topic or AWS Chatbot client.
+// The Amazon Resource Name (ARN) of the  topic or  client.
 func (o NotificationRuleTargetOutput) TargetAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationRuleTarget) string { return v.TargetAddress }).(pulumi.StringOutput)
 }
 
-// The target type. Can be an Amazon Simple Notification Service topic or AWS Chatbot client.
+// The target type. Can be an Amazon Simple Notification Service topic or  client.
 //
 // - Amazon Simple Notification Service topics are specified as `SNS` .
-// - AWS Chatbot clients are specified as `AWSChatbotSlack` .
-// - AWS Chatbot clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
+// - clients are specified as `AWSChatbotSlack` .
+// - clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
 func (o NotificationRuleTargetOutput) TargetType() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationRuleTarget) string { return v.TargetType }).(pulumi.StringOutput)
 }

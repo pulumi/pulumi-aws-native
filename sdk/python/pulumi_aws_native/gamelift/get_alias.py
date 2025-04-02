@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetAliasResult:
-    def __init__(__self__, alias_id=None, description=None, name=None, routing_strategy=None):
+    def __init__(__self__, alias_arn=None, alias_id=None, description=None, name=None, routing_strategy=None, tags=None):
+        if alias_arn and not isinstance(alias_arn, str):
+            raise TypeError("Expected argument 'alias_arn' to be a str")
+        pulumi.set(__self__, "alias_arn", alias_arn)
         if alias_id and not isinstance(alias_id, str):
             raise TypeError("Expected argument 'alias_id' to be a str")
         pulumi.set(__self__, "alias_id", alias_id)
@@ -38,6 +42,17 @@ class GetAliasResult:
         if routing_strategy and not isinstance(routing_strategy, dict):
             raise TypeError("Expected argument 'routing_strategy' to be a dict")
         pulumi.set(__self__, "routing_strategy", routing_strategy)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="aliasArn")
+    def alias_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Alias ARN, the resource ID matches the AliasId value.
+        """
+        return pulumi.get(self, "alias_arn")
 
     @property
     @pulumi.getter(name="aliasId")
@@ -71,6 +86,14 @@ class GetAliasResult:
         """
         return pulumi.get(self, "routing_strategy")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetAliasResult(GetAliasResult):
     # pylint: disable=using-constant-test
@@ -78,10 +101,12 @@ class AwaitableGetAliasResult(GetAliasResult):
         if False:
             yield self
         return GetAliasResult(
+            alias_arn=self.alias_arn,
             alias_id=self.alias_id,
             description=self.description,
             name=self.name,
-            routing_strategy=self.routing_strategy)
+            routing_strategy=self.routing_strategy,
+            tags=self.tags)
 
 
 def get_alias(alias_id: Optional[str] = None,
@@ -98,10 +123,12 @@ def get_alias(alias_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:gamelift:getAlias', __args__, opts=opts, typ=GetAliasResult).value
 
     return AwaitableGetAliasResult(
+        alias_arn=pulumi.get(__ret__, 'alias_arn'),
         alias_id=pulumi.get(__ret__, 'alias_id'),
         description=pulumi.get(__ret__, 'description'),
         name=pulumi.get(__ret__, 'name'),
-        routing_strategy=pulumi.get(__ret__, 'routing_strategy'))
+        routing_strategy=pulumi.get(__ret__, 'routing_strategy'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_alias_output(alias_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
     """
@@ -115,7 +142,9 @@ def get_alias_output(alias_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:gamelift:getAlias', __args__, opts=opts, typ=GetAliasResult)
     return __ret__.apply(lambda __response__: GetAliasResult(
+        alias_arn=pulumi.get(__response__, 'alias_arn'),
         alias_id=pulumi.get(__response__, 'alias_id'),
         description=pulumi.get(__response__, 'description'),
         name=pulumi.get(__response__, 'name'),
-        routing_strategy=pulumi.get(__response__, 'routing_strategy')))
+        routing_strategy=pulumi.get(__response__, 'routing_strategy'),
+        tags=pulumi.get(__response__, 'tags')))

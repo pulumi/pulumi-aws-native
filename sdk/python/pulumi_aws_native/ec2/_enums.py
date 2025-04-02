@@ -46,6 +46,8 @@ __all__ = [
     'NetworkInsightsAnalysisStatus',
     'NetworkInsightsPathProtocol',
     'PrefixListAddressFamily',
+    'RouteServerPeerBgpOptionsPeerLivenessDetection',
+    'RouteServerPersistRoutes',
     'SecurityGroupVpcAssociationState',
     'SnapshotBlockPublicAccessState',
     'SpotFleetEbsBlockDeviceVolumeType',
@@ -518,6 +520,22 @@ class PrefixListAddressFamily(str, Enum):
     """
     I_PV4 = "IPv4"
     I_PV6 = "IPv6"
+
+
+class RouteServerPeerBgpOptionsPeerLivenessDetection(str, Enum):
+    """
+    BGP Liveness Detection
+    """
+    BFD = "bfd"
+    BGP_KEEPALIVE = "bgp-keepalive"
+
+
+class RouteServerPersistRoutes(str, Enum):
+    """
+    Whether to enable persistent routes
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
 
 
 class SecurityGroupVpcAssociationState(str, Enum):

@@ -37,6 +37,24 @@ export const AssetPropertyNotificationState = {
  */
 export type AssetPropertyNotificationState = (typeof AssetPropertyNotificationState)[keyof typeof AssetPropertyNotificationState];
 
+export const DatasetSourceSourceFormat = {
+    KnowledgeBase: "KNOWLEDGE_BASE",
+} as const;
+
+/**
+ * The format of the dataset source associated with the dataset.
+ */
+export type DatasetSourceSourceFormat = (typeof DatasetSourceSourceFormat)[keyof typeof DatasetSourceSourceFormat];
+
+export const DatasetSourceSourceType = {
+    Kendra: "KENDRA",
+} as const;
+
+/**
+ * The type of data source for the dataset.
+ */
+export type DatasetSourceSourceType = (typeof DatasetSourceSourceType)[keyof typeof DatasetSourceSourceType];
+
 export const GatewayGreengrassV2CoreDeviceOperatingSystem = {
     LinuxAarch64: "LINUX_AARCH64",
     LinuxAmd64: "LINUX_AMD64",

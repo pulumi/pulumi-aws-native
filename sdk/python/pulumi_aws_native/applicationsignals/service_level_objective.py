@@ -26,6 +26,7 @@ class ServiceLevelObjectiveArgs:
     def __init__(__self__, *,
                  burn_rate_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveBurnRateConfigurationArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 exclusion_windows: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveExclusionWindowArgs']]]] = None,
                  goal: Optional[pulumi.Input['ServiceLevelObjectiveGoalArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  request_based_sli: Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliArgs']] = None,
@@ -47,6 +48,8 @@ class ServiceLevelObjectiveArgs:
             pulumi.set(__self__, "burn_rate_configurations", burn_rate_configurations)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if exclusion_windows is not None:
+            pulumi.set(__self__, "exclusion_windows", exclusion_windows)
         if goal is not None:
             pulumi.set(__self__, "goal", goal)
         if name is not None:
@@ -81,6 +84,15 @@ class ServiceLevelObjectiveArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="exclusionWindows")
+    def exclusion_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveExclusionWindowArgs']]]]:
+        return pulumi.get(self, "exclusion_windows")
+
+    @exclusion_windows.setter
+    def exclusion_windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveExclusionWindowArgs']]]]):
+        pulumi.set(self, "exclusion_windows", value)
 
     @property
     @pulumi.getter
@@ -152,6 +164,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  burn_rate_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveBurnRateConfigurationArgs', 'ServiceLevelObjectiveBurnRateConfigurationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 exclusion_windows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveExclusionWindowArgs', 'ServiceLevelObjectiveExclusionWindowArgsDict']]]]] = None,
                  goal: Optional[pulumi.Input[Union['ServiceLevelObjectiveGoalArgs', 'ServiceLevelObjectiveGoalArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  request_based_sli: Optional[pulumi.Input[Union['ServiceLevelObjectiveRequestBasedSliArgs', 'ServiceLevelObjectiveRequestBasedSliArgsDict']]] = None,
@@ -199,6 +212,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  burn_rate_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveBurnRateConfigurationArgs', 'ServiceLevelObjectiveBurnRateConfigurationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 exclusion_windows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveExclusionWindowArgs', 'ServiceLevelObjectiveExclusionWindowArgsDict']]]]] = None,
                  goal: Optional[pulumi.Input[Union['ServiceLevelObjectiveGoalArgs', 'ServiceLevelObjectiveGoalArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  request_based_sli: Optional[pulumi.Input[Union['ServiceLevelObjectiveRequestBasedSliArgs', 'ServiceLevelObjectiveRequestBasedSliArgsDict']]] = None,
@@ -215,6 +229,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
             __props__.__dict__["burn_rate_configurations"] = burn_rate_configurations
             __props__.__dict__["description"] = description
+            __props__.__dict__["exclusion_windows"] = exclusion_windows
             __props__.__dict__["goal"] = goal
             __props__.__dict__["name"] = name
             __props__.__dict__["request_based_sli"] = request_based_sli
@@ -253,6 +268,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         __props__.__dict__["created_time"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["evaluation_type"] = None
+        __props__.__dict__["exclusion_windows"] = None
         __props__.__dict__["goal"] = None
         __props__.__dict__["last_updated_time"] = None
         __props__.__dict__["name"] = None
@@ -300,6 +316,11 @@ class ServiceLevelObjective(pulumi.CustomResource):
         Displays whether this is a period-based SLO or a request-based SLO.
         """
         return pulumi.get(self, "evaluation_type")
+
+    @property
+    @pulumi.getter(name="exclusionWindows")
+    def exclusion_windows(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceLevelObjectiveExclusionWindow']]]:
+        return pulumi.get(self, "exclusion_windows")
 
     @property
     @pulumi.getter

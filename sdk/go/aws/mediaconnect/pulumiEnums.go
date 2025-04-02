@@ -3817,6 +3817,172 @@ func (in *flowMediaStreamVideoFormatPtr) ToFlowMediaStreamVideoFormatPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(FlowMediaStreamVideoFormatPtrOutput)
 }
 
+// A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+type FlowNdiConfigNdiState string
+
+const (
+	FlowNdiConfigNdiStateEnabled  = FlowNdiConfigNdiState("ENABLED")
+	FlowNdiConfigNdiStateDisabled = FlowNdiConfigNdiState("DISABLED")
+)
+
+func (FlowNdiConfigNdiState) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNdiConfigNdiState)(nil)).Elem()
+}
+
+func (e FlowNdiConfigNdiState) ToFlowNdiConfigNdiStateOutput() FlowNdiConfigNdiStateOutput {
+	return pulumi.ToOutput(e).(FlowNdiConfigNdiStateOutput)
+}
+
+func (e FlowNdiConfigNdiState) ToFlowNdiConfigNdiStateOutputWithContext(ctx context.Context) FlowNdiConfigNdiStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowNdiConfigNdiStateOutput)
+}
+
+func (e FlowNdiConfigNdiState) ToFlowNdiConfigNdiStatePtrOutput() FlowNdiConfigNdiStatePtrOutput {
+	return e.ToFlowNdiConfigNdiStatePtrOutputWithContext(context.Background())
+}
+
+func (e FlowNdiConfigNdiState) ToFlowNdiConfigNdiStatePtrOutputWithContext(ctx context.Context) FlowNdiConfigNdiStatePtrOutput {
+	return FlowNdiConfigNdiState(e).ToFlowNdiConfigNdiStateOutputWithContext(ctx).ToFlowNdiConfigNdiStatePtrOutputWithContext(ctx)
+}
+
+func (e FlowNdiConfigNdiState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowNdiConfigNdiState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowNdiConfigNdiState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowNdiConfigNdiState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowNdiConfigNdiStateOutput struct{ *pulumi.OutputState }
+
+func (FlowNdiConfigNdiStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNdiConfigNdiState)(nil)).Elem()
+}
+
+func (o FlowNdiConfigNdiStateOutput) ToFlowNdiConfigNdiStateOutput() FlowNdiConfigNdiStateOutput {
+	return o
+}
+
+func (o FlowNdiConfigNdiStateOutput) ToFlowNdiConfigNdiStateOutputWithContext(ctx context.Context) FlowNdiConfigNdiStateOutput {
+	return o
+}
+
+func (o FlowNdiConfigNdiStateOutput) ToFlowNdiConfigNdiStatePtrOutput() FlowNdiConfigNdiStatePtrOutput {
+	return o.ToFlowNdiConfigNdiStatePtrOutputWithContext(context.Background())
+}
+
+func (o FlowNdiConfigNdiStateOutput) ToFlowNdiConfigNdiStatePtrOutputWithContext(ctx context.Context) FlowNdiConfigNdiStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowNdiConfigNdiState) *FlowNdiConfigNdiState {
+		return &v
+	}).(FlowNdiConfigNdiStatePtrOutput)
+}
+
+func (o FlowNdiConfigNdiStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowNdiConfigNdiStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowNdiConfigNdiState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowNdiConfigNdiStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNdiConfigNdiStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowNdiConfigNdiState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowNdiConfigNdiStatePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowNdiConfigNdiStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNdiConfigNdiState)(nil)).Elem()
+}
+
+func (o FlowNdiConfigNdiStatePtrOutput) ToFlowNdiConfigNdiStatePtrOutput() FlowNdiConfigNdiStatePtrOutput {
+	return o
+}
+
+func (o FlowNdiConfigNdiStatePtrOutput) ToFlowNdiConfigNdiStatePtrOutputWithContext(ctx context.Context) FlowNdiConfigNdiStatePtrOutput {
+	return o
+}
+
+func (o FlowNdiConfigNdiStatePtrOutput) Elem() FlowNdiConfigNdiStateOutput {
+	return o.ApplyT(func(v *FlowNdiConfigNdiState) FlowNdiConfigNdiState {
+		if v != nil {
+			return *v
+		}
+		var ret FlowNdiConfigNdiState
+		return ret
+	}).(FlowNdiConfigNdiStateOutput)
+}
+
+func (o FlowNdiConfigNdiStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNdiConfigNdiStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowNdiConfigNdiState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowNdiConfigNdiStateInput is an input type that accepts values of the FlowNdiConfigNdiState enum
+// A concrete instance of `FlowNdiConfigNdiStateInput` can be one of the following:
+//
+//	FlowNdiConfigNdiStateEnabled
+//	FlowNdiConfigNdiStateDisabled
+type FlowNdiConfigNdiStateInput interface {
+	pulumi.Input
+
+	ToFlowNdiConfigNdiStateOutput() FlowNdiConfigNdiStateOutput
+	ToFlowNdiConfigNdiStateOutputWithContext(context.Context) FlowNdiConfigNdiStateOutput
+}
+
+var flowNdiConfigNdiStatePtrType = reflect.TypeOf((**FlowNdiConfigNdiState)(nil)).Elem()
+
+type FlowNdiConfigNdiStatePtrInput interface {
+	pulumi.Input
+
+	ToFlowNdiConfigNdiStatePtrOutput() FlowNdiConfigNdiStatePtrOutput
+	ToFlowNdiConfigNdiStatePtrOutputWithContext(context.Context) FlowNdiConfigNdiStatePtrOutput
+}
+
+type flowNdiConfigNdiStatePtr string
+
+func FlowNdiConfigNdiStatePtr(v string) FlowNdiConfigNdiStatePtrInput {
+	return (*flowNdiConfigNdiStatePtr)(&v)
+}
+
+func (*flowNdiConfigNdiStatePtr) ElementType() reflect.Type {
+	return flowNdiConfigNdiStatePtrType
+}
+
+func (in *flowNdiConfigNdiStatePtr) ToFlowNdiConfigNdiStatePtrOutput() FlowNdiConfigNdiStatePtrOutput {
+	return pulumi.ToOutput(in).(FlowNdiConfigNdiStatePtrOutput)
+}
+
+func (in *flowNdiConfigNdiStatePtr) ToFlowNdiConfigNdiStatePtrOutputWithContext(ctx context.Context) FlowNdiConfigNdiStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowNdiConfigNdiStatePtrOutput)
+}
+
 // A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
 type FlowOutputEncodingParametersEncoderProfile string
 
@@ -4667,6 +4833,7 @@ const (
 	FlowOutputProtocolSrtCaller    = FlowOutputProtocol("srt-caller")
 	FlowOutputProtocolSt2110Jpegxs = FlowOutputProtocol("st2110-jpegxs")
 	FlowOutputProtocolCdi          = FlowOutputProtocol("cdi")
+	FlowOutputProtocolNdiSpeedHq   = FlowOutputProtocol("ndi-speed-hq")
 )
 
 func (FlowOutputProtocol) ElementType() reflect.Type {
@@ -4801,6 +4968,7 @@ func (o FlowOutputProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //	FlowOutputProtocolSrtCaller
 //	FlowOutputProtocolSt2110Jpegxs
 //	FlowOutputProtocolCdi
+//	FlowOutputProtocolNdiSpeedHq
 type FlowOutputProtocolInput interface {
 	pulumi.Input
 
@@ -4999,6 +5167,172 @@ func (in *flowSilentAudioStatePtr) ToFlowSilentAudioStatePtrOutput() FlowSilentA
 
 func (in *flowSilentAudioStatePtr) ToFlowSilentAudioStatePtrOutputWithContext(ctx context.Context) FlowSilentAudioStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSilentAudioStatePtrOutput)
+}
+
+// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+type FlowSize string
+
+const (
+	FlowSizeMedium = FlowSize("MEDIUM")
+	FlowSizeLarge  = FlowSize("LARGE")
+)
+
+func (FlowSize) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSize)(nil)).Elem()
+}
+
+func (e FlowSize) ToFlowSizeOutput() FlowSizeOutput {
+	return pulumi.ToOutput(e).(FlowSizeOutput)
+}
+
+func (e FlowSize) ToFlowSizeOutputWithContext(ctx context.Context) FlowSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowSizeOutput)
+}
+
+func (e FlowSize) ToFlowSizePtrOutput() FlowSizePtrOutput {
+	return e.ToFlowSizePtrOutputWithContext(context.Background())
+}
+
+func (e FlowSize) ToFlowSizePtrOutputWithContext(ctx context.Context) FlowSizePtrOutput {
+	return FlowSize(e).ToFlowSizeOutputWithContext(ctx).ToFlowSizePtrOutputWithContext(ctx)
+}
+
+func (e FlowSize) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowSize) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowSize) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowSize) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowSizeOutput struct{ *pulumi.OutputState }
+
+func (FlowSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSize)(nil)).Elem()
+}
+
+func (o FlowSizeOutput) ToFlowSizeOutput() FlowSizeOutput {
+	return o
+}
+
+func (o FlowSizeOutput) ToFlowSizeOutputWithContext(ctx context.Context) FlowSizeOutput {
+	return o
+}
+
+func (o FlowSizeOutput) ToFlowSizePtrOutput() FlowSizePtrOutput {
+	return o.ToFlowSizePtrOutputWithContext(context.Background())
+}
+
+func (o FlowSizeOutput) ToFlowSizePtrOutputWithContext(ctx context.Context) FlowSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSize) *FlowSize {
+		return &v
+	}).(FlowSizePtrOutput)
+}
+
+func (o FlowSizeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowSizeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowSize) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowSizeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSizeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowSize) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowSizePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSize)(nil)).Elem()
+}
+
+func (o FlowSizePtrOutput) ToFlowSizePtrOutput() FlowSizePtrOutput {
+	return o
+}
+
+func (o FlowSizePtrOutput) ToFlowSizePtrOutputWithContext(ctx context.Context) FlowSizePtrOutput {
+	return o
+}
+
+func (o FlowSizePtrOutput) Elem() FlowSizeOutput {
+	return o.ApplyT(func(v *FlowSize) FlowSize {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSize
+		return ret
+	}).(FlowSizeOutput)
+}
+
+func (o FlowSizePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSizePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowSize) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowSizeInput is an input type that accepts values of the FlowSize enum
+// A concrete instance of `FlowSizeInput` can be one of the following:
+//
+//	FlowSizeMedium
+//	FlowSizeLarge
+type FlowSizeInput interface {
+	pulumi.Input
+
+	ToFlowSizeOutput() FlowSizeOutput
+	ToFlowSizeOutputWithContext(context.Context) FlowSizeOutput
+}
+
+var flowSizePtrType = reflect.TypeOf((**FlowSize)(nil)).Elem()
+
+type FlowSizePtrInput interface {
+	pulumi.Input
+
+	ToFlowSizePtrOutput() FlowSizePtrOutput
+	ToFlowSizePtrOutputWithContext(context.Context) FlowSizePtrOutput
+}
+
+type flowSizePtr string
+
+func FlowSizePtr(v string) FlowSizePtrInput {
+	return (*flowSizePtr)(&v)
+}
+
+func (*flowSizePtr) ElementType() reflect.Type {
+	return flowSizePtrType
+}
+
+func (in *flowSizePtr) ToFlowSizePtrOutput() FlowSizePtrOutput {
+	return pulumi.ToOutput(in).(FlowSizePtrOutput)
+}
+
+func (in *flowSizePtr) ToFlowSizePtrOutputWithContext(ctx context.Context) FlowSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowSizePtrOutput)
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -6155,6 +6489,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamSourceConfigurationEncodingNamePtrInput)(nil)).Elem(), FlowMediaStreamSourceConfigurationEncodingName("jxsv"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamVideoFormatInput)(nil)).Elem(), FlowMediaStreamVideoFormat("2160p"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamVideoFormatPtrInput)(nil)).Elem(), FlowMediaStreamVideoFormat("2160p"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNdiConfigNdiStateInput)(nil)).Elem(), FlowNdiConfigNdiState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNdiConfigNdiStatePtrInput)(nil)).Elem(), FlowNdiConfigNdiState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncodingParametersEncoderProfileInput)(nil)).Elem(), FlowOutputEncodingParametersEncoderProfile("main"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncodingParametersEncoderProfilePtrInput)(nil)).Elem(), FlowOutputEncodingParametersEncoderProfile("main"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncryptionAlgorithmInput)(nil)).Elem(), FlowOutputEncryptionAlgorithm("aes128"))
@@ -6169,6 +6505,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputProtocolPtrInput)(nil)).Elem(), FlowOutputProtocol("zixi-push"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSilentAudioStateInput)(nil)).Elem(), FlowSilentAudioState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSilentAudioStatePtrInput)(nil)).Elem(), FlowSilentAudioState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSizeInput)(nil)).Elem(), FlowSize("MEDIUM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSizePtrInput)(nil)).Elem(), FlowSize("MEDIUM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionAlgorithmInput)(nil)).Elem(), FlowSourceEncryptionAlgorithm("aes128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionAlgorithmPtrInput)(nil)).Elem(), FlowSourceEncryptionAlgorithm("aes128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionKeyTypeInput)(nil)).Elem(), FlowSourceEncryptionKeyType("speke"))
@@ -6227,6 +6565,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowMediaStreamSourceConfigurationEncodingNamePtrOutput{})
 	pulumi.RegisterOutputType(FlowMediaStreamVideoFormatOutput{})
 	pulumi.RegisterOutputType(FlowMediaStreamVideoFormatPtrOutput{})
+	pulumi.RegisterOutputType(FlowNdiConfigNdiStateOutput{})
+	pulumi.RegisterOutputType(FlowNdiConfigNdiStatePtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputEncodingParametersEncoderProfileOutput{})
 	pulumi.RegisterOutputType(FlowOutputEncodingParametersEncoderProfilePtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputEncryptionAlgorithmOutput{})
@@ -6241,6 +6581,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowOutputProtocolPtrOutput{})
 	pulumi.RegisterOutputType(FlowSilentAudioStateOutput{})
 	pulumi.RegisterOutputType(FlowSilentAudioStatePtrOutput{})
+	pulumi.RegisterOutputType(FlowSizeOutput{})
+	pulumi.RegisterOutputType(FlowSizePtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionAlgorithmOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionKeyTypeOutput{})

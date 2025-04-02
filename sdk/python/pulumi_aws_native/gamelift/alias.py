@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -24,18 +26,22 @@ class AliasArgs:
     def __init__(__self__, *,
                  routing_strategy: pulumi.Input['AliasRoutingStrategyArgs'],
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Alias resource.
         :param pulumi.Input['AliasRoutingStrategyArgs'] routing_strategy: A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
         :param pulumi.Input[str] description: A human-readable description of the alias.
         :param pulumi.Input[str] name: A descriptive label that is associated with an alias. Alias names do not need to be unique.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "routing_strategy", routing_strategy)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="routingStrategy")
@@ -73,6 +79,18 @@ class AliasArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class Alias(pulumi.CustomResource):
     @overload
@@ -82,6 +100,7 @@ class Alias(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  routing_strategy: Optional[pulumi.Input[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
@@ -123,6 +142,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[str] description: A human-readable description of the alias.
         :param pulumi.Input[str] name: A descriptive label that is associated with an alias. Alias names do not need to be unique.
         :param pulumi.Input[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']] routing_strategy: A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -183,6 +203,7 @@ class Alias(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  routing_strategy: Optional[pulumi.Input[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -197,6 +218,8 @@ class Alias(pulumi.CustomResource):
             if routing_strategy is None and not opts.urn:
                 raise TypeError("Missing required property 'routing_strategy'")
             __props__.__dict__["routing_strategy"] = routing_strategy
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["alias_arn"] = None
             __props__.__dict__["alias_id"] = None
         super(Alias, __self__).__init__(
             'aws-native:gamelift:Alias',
@@ -220,11 +243,21 @@ class Alias(pulumi.CustomResource):
 
         __props__ = AliasArgs.__new__(AliasArgs)
 
+        __props__.__dict__["alias_arn"] = None
         __props__.__dict__["alias_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["routing_strategy"] = None
+        __props__.__dict__["tags"] = None
         return Alias(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="aliasArn")
+    def alias_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Alias ARN, the resource ID matches the AliasId value.
+        """
+        return pulumi.get(self, "alias_arn")
 
     @property
     @pulumi.getter(name="aliasId")
@@ -257,4 +290,12 @@ class Alias(pulumi.CustomResource):
         A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
         """
         return pulumi.get(self, "routing_strategy")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 

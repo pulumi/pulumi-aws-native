@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,6 +29,8 @@ type LookupAliasArgs struct {
 }
 
 type LookupAliasResult struct {
+	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Alias ARN, the resource ID matches the AliasId value.
+	AliasArn *string `pulumi:"aliasArn"`
 	// Unique alias ID
 	AliasId *string `pulumi:"aliasId"`
 	// A human-readable description of the alias.
@@ -36,6 +39,8 @@ type LookupAliasResult struct {
 	Name *string `pulumi:"name"`
 	// A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
 	RoutingStrategy *AliasRoutingStrategy `pulumi:"routingStrategy"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...pulumi.InvokeOption) LookupAliasResultOutput {
@@ -70,6 +75,11 @@ func (o LookupAliasResultOutput) ToLookupAliasResultOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Alias ARN, the resource ID matches the AliasId value.
+func (o LookupAliasResultOutput) AliasArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAliasResult) *string { return v.AliasArn }).(pulumi.StringPtrOutput)
+}
+
 // Unique alias ID
 func (o LookupAliasResultOutput) AliasId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAliasResult) *string { return v.AliasId }).(pulumi.StringPtrOutput)
@@ -88,6 +98,11 @@ func (o LookupAliasResultOutput) Name() pulumi.StringPtrOutput {
 // A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
 func (o LookupAliasResultOutput) RoutingStrategy() AliasRoutingStrategyPtrOutput {
 	return o.ApplyT(func(v LookupAliasResult) *AliasRoutingStrategy { return v.RoutingStrategy }).(AliasRoutingStrategyPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupAliasResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAliasResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

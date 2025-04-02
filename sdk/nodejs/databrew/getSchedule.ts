@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -30,6 +33,10 @@ export interface GetScheduleResult {
      * A list of jobs to be run, according to the schedule.
      */
     readonly jobNames?: string[];
+    /**
+     * Metadata tags that have been applied to the schedule.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::DataBrew::Schedule.

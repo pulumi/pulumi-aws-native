@@ -78,6 +78,10 @@ __all__ = [
     'FlowMediaStreamSourceConfigurationArgsDict',
     'FlowMediaStreamArgs',
     'FlowMediaStreamArgsDict',
+    'FlowNdiConfigArgs',
+    'FlowNdiConfigArgsDict',
+    'FlowNdiDiscoveryServerConfigArgs',
+    'FlowNdiDiscoveryServerConfigArgsDict',
     'FlowOutputDestinationConfigurationArgs',
     'FlowOutputDestinationConfigurationArgsDict',
     'FlowOutputEncodingParametersArgs',
@@ -2478,6 +2482,156 @@ class FlowMediaStreamArgs:
     @video_format.setter
     def video_format(self, value: Optional[pulumi.Input['FlowMediaStreamVideoFormat']]):
         pulumi.set(self, "video_format", value)
+
+
+if not MYPY:
+    class FlowNdiConfigArgsDict(TypedDict):
+        """
+        Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+        """
+        machine_name: NotRequired[pulumi.Input[str]]
+        """
+        A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
+        """
+        ndi_discovery_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowNdiDiscoveryServerConfigArgsDict']]]]
+        """
+        A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
+        """
+        ndi_state: NotRequired[pulumi.Input['FlowNdiConfigNdiState']]
+        """
+        A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+        """
+elif False:
+    FlowNdiConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowNdiConfigArgs:
+    def __init__(__self__, *,
+                 machine_name: Optional[pulumi.Input[str]] = None,
+                 ndi_discovery_servers: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNdiDiscoveryServerConfigArgs']]]] = None,
+                 ndi_state: Optional[pulumi.Input['FlowNdiConfigNdiState']] = None):
+        """
+        Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+        :param pulumi.Input[str] machine_name: A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowNdiDiscoveryServerConfigArgs']]] ndi_discovery_servers: A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
+        :param pulumi.Input['FlowNdiConfigNdiState'] ndi_state: A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+        """
+        if machine_name is not None:
+            pulumi.set(__self__, "machine_name", machine_name)
+        if ndi_discovery_servers is not None:
+            pulumi.set(__self__, "ndi_discovery_servers", ndi_discovery_servers)
+        if ndi_state is not None:
+            pulumi.set(__self__, "ndi_state", ndi_state)
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
+        """
+        return pulumi.get(self, "machine_name")
+
+    @machine_name.setter
+    def machine_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "machine_name", value)
+
+    @property
+    @pulumi.getter(name="ndiDiscoveryServers")
+    def ndi_discovery_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowNdiDiscoveryServerConfigArgs']]]]:
+        """
+        A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
+        """
+        return pulumi.get(self, "ndi_discovery_servers")
+
+    @ndi_discovery_servers.setter
+    def ndi_discovery_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNdiDiscoveryServerConfigArgs']]]]):
+        pulumi.set(self, "ndi_discovery_servers", value)
+
+    @property
+    @pulumi.getter(name="ndiState")
+    def ndi_state(self) -> Optional[pulumi.Input['FlowNdiConfigNdiState']]:
+        """
+        A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+        """
+        return pulumi.get(self, "ndi_state")
+
+    @ndi_state.setter
+    def ndi_state(self, value: Optional[pulumi.Input['FlowNdiConfigNdiState']]):
+        pulumi.set(self, "ndi_state", value)
+
+
+if not MYPY:
+    class FlowNdiDiscoveryServerConfigArgsDict(TypedDict):
+        """
+        Specifies the configuration settings for individual NDI discovery servers. A maximum of 3 servers is allowed.
+        """
+        discovery_server_address: pulumi.Input[str]
+        """
+        The unique network address of the NDI discovery server.
+        """
+        vpc_interface_adapter: pulumi.Input[str]
+        """
+        The identifier for the Virtual Private Cloud (VPC) network interface used by the flow.
+        """
+        discovery_server_port: NotRequired[pulumi.Input[int]]
+        """
+        The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
+        """
+elif False:
+    FlowNdiDiscoveryServerConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowNdiDiscoveryServerConfigArgs:
+    def __init__(__self__, *,
+                 discovery_server_address: pulumi.Input[str],
+                 vpc_interface_adapter: pulumi.Input[str],
+                 discovery_server_port: Optional[pulumi.Input[int]] = None):
+        """
+        Specifies the configuration settings for individual NDI discovery servers. A maximum of 3 servers is allowed.
+        :param pulumi.Input[str] discovery_server_address: The unique network address of the NDI discovery server.
+        :param pulumi.Input[str] vpc_interface_adapter: The identifier for the Virtual Private Cloud (VPC) network interface used by the flow.
+        :param pulumi.Input[int] discovery_server_port: The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
+        """
+        pulumi.set(__self__, "discovery_server_address", discovery_server_address)
+        pulumi.set(__self__, "vpc_interface_adapter", vpc_interface_adapter)
+        if discovery_server_port is not None:
+            pulumi.set(__self__, "discovery_server_port", discovery_server_port)
+
+    @property
+    @pulumi.getter(name="discoveryServerAddress")
+    def discovery_server_address(self) -> pulumi.Input[str]:
+        """
+        The unique network address of the NDI discovery server.
+        """
+        return pulumi.get(self, "discovery_server_address")
+
+    @discovery_server_address.setter
+    def discovery_server_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "discovery_server_address", value)
+
+    @property
+    @pulumi.getter(name="vpcInterfaceAdapter")
+    def vpc_interface_adapter(self) -> pulumi.Input[str]:
+        """
+        The identifier for the Virtual Private Cloud (VPC) network interface used by the flow.
+        """
+        return pulumi.get(self, "vpc_interface_adapter")
+
+    @vpc_interface_adapter.setter
+    def vpc_interface_adapter(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_interface_adapter", value)
+
+    @property
+    @pulumi.getter(name="discoveryServerPort")
+    def discovery_server_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
+        """
+        return pulumi.get(self, "discovery_server_port")
+
+    @discovery_server_port.setter
+    def discovery_server_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "discovery_server_port", value)
 
 
 if not MYPY:

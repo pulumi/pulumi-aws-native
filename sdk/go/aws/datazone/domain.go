@@ -39,6 +39,8 @@ type Domain struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The URL of the data portal for this Amazon DataZone domain.
 	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
+	// The ID of the root domain in Amazon Datazone.
+	RootDomainUnitId pulumi.StringOutput `pulumi:"rootDomainUnitId"`
 	// The service role of the domain that is created.
 	ServiceRole pulumi.StringPtrOutput `pulumi:"serviceRole"`
 	// The single-sign on configuration of the Amazon DataZone domain.
@@ -225,6 +227,11 @@ func (o DomainOutput) Name() pulumi.StringOutput {
 // The URL of the data portal for this Amazon DataZone domain.
 func (o DomainOutput) PortalUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.PortalUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the root domain in Amazon Datazone.
+func (o DomainOutput) RootDomainUnitId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.RootDomainUnitId }).(pulumi.StringOutput)
 }
 
 // The service role of the domain that is created.

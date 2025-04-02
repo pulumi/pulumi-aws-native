@@ -25,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, cluster_arn=None, cluster_endpoints=None, status=None):
+    def __init__(__self__, cluster_arn=None, cluster_endpoints=None, network_type=None, status=None):
         if cluster_arn and not isinstance(cluster_arn, str):
             raise TypeError("Expected argument 'cluster_arn' to be a str")
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         if cluster_endpoints and not isinstance(cluster_endpoints, list):
             raise TypeError("Expected argument 'cluster_endpoints' to be a list")
         pulumi.set(__self__, "cluster_endpoints", cluster_endpoints)
+        if network_type and not isinstance(network_type, str):
+            raise TypeError("Expected argument 'network_type' to be a str")
+        pulumi.set(__self__, "network_type", network_type)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -53,6 +56,14 @@ class GetClusterResult:
         return pulumi.get(self, "cluster_endpoints")
 
     @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional['ClusterNetworkType']:
+        """
+        Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+        """
+        return pulumi.get(self, "network_type")
+
+    @property
     @pulumi.getter
     def status(self) -> Optional['ClusterStatus']:
         """
@@ -69,6 +80,7 @@ class AwaitableGetClusterResult(GetClusterResult):
         return GetClusterResult(
             cluster_arn=self.cluster_arn,
             cluster_endpoints=self.cluster_endpoints,
+            network_type=self.network_type,
             status=self.status)
 
 
@@ -88,6 +100,7 @@ def get_cluster(cluster_arn: Optional[str] = None,
     return AwaitableGetClusterResult(
         cluster_arn=pulumi.get(__ret__, 'cluster_arn'),
         cluster_endpoints=pulumi.get(__ret__, 'cluster_endpoints'),
+        network_type=pulumi.get(__ret__, 'network_type'),
         status=pulumi.get(__ret__, 'status'))
 def get_cluster_output(cluster_arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
@@ -104,4 +117,5 @@ def get_cluster_output(cluster_arn: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetClusterResult(
         cluster_arn=pulumi.get(__response__, 'cluster_arn'),
         cluster_endpoints=pulumi.get(__response__, 'cluster_endpoints'),
+        network_type=pulumi.get(__response__, 'network_type'),
         status=pulumi.get(__response__, 'status')))

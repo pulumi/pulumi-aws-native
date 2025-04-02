@@ -3116,6 +3116,14 @@ func (o DataSourceRelationalDatabaseConfigPtrOutput) RelationalDatabaseSourceTyp
 	}).(pulumi.StringPtrOutput)
 }
 
+// An arbitrary set of tags (key-value pairs) for this Domain Name.
+type DomainNameTag struct {
+	// A string used to identify this tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
+	Value string `pulumi:"value"`
+}
+
 // Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
 type FunctionConfigurationAppSyncRuntime struct {
 	// The name of the runtime to use. Currently, the only allowed value is APPSYNC_JS.

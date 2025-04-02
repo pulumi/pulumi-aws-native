@@ -71,15 +71,22 @@ namespace Pulumi.AwsNative.DataBrew
         /// A list of jobs to be run, according to the schedule.
         /// </summary>
         public readonly ImmutableArray<string> JobNames;
+        /// <summary>
+        /// Metadata tags that have been applied to the schedule.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetScheduleResult(
             string? cronExpression,
 
-            ImmutableArray<string> jobNames)
+            ImmutableArray<string> jobNames,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CronExpression = cronExpression;
             JobNames = jobNames;
+            Tags = tags;
         }
     }
 }

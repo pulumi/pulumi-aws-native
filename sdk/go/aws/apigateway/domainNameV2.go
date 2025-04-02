@@ -24,7 +24,7 @@ type DomainNameV2 struct {
 	DomainNameArn pulumi.StringOutput `pulumi:"domainNameArn"`
 	// The domain name ID.
 	DomainNameId pulumi.StringOutput `pulumi:"domainNameId"`
-	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
+	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
 	EndpointConfiguration DomainNameV2EndpointConfigurationPtrOutput `pulumi:"endpointConfiguration"`
 	// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
 	//
@@ -86,7 +86,7 @@ type domainNameV2Args struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// Represents a custom domain name as a user-friendly host name of an API (RestApi).
 	DomainName *string `pulumi:"domainName"`
-	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
+	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
 	EndpointConfiguration *DomainNameV2EndpointConfiguration `pulumi:"endpointConfiguration"`
 	// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
 	//
@@ -104,7 +104,7 @@ type DomainNameV2Args struct {
 	CertificateArn pulumi.StringPtrInput
 	// Represents a custom domain name as a user-friendly host name of an API (RestApi).
 	DomainName pulumi.StringPtrInput
-	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
+	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
 	EndpointConfiguration DomainNameV2EndpointConfigurationPtrInput
 	// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
 	//
@@ -173,7 +173,7 @@ func (o DomainNameV2Output) DomainNameId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameV2) pulumi.StringOutput { return v.DomainNameId }).(pulumi.StringOutput)
 }
 
-// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
+// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
 func (o DomainNameV2Output) EndpointConfiguration() DomainNameV2EndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v *DomainNameV2) DomainNameV2EndpointConfigurationPtrOutput { return v.EndpointConfiguration }).(DomainNameV2EndpointConfigurationPtrOutput)
 }

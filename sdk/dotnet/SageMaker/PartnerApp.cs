@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<string> ExecutionRoleArn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
+        /// </summary>
+        [Output("kmsKeyId")]
+        public Output<string?> KmsKeyId { get; private set; } = null!;
+
+        /// <summary>
         /// A collection of settings that specify the maintenance schedule for the PartnerApp.
         /// </summary>
         [Output("maintenanceConfig")]
@@ -114,6 +120,7 @@ namespace Pulumi.AwsNative.SageMaker
                 {
                     "authType",
                     "executionRoleArn",
+                    "kmsKeyId",
                     "name",
                     "type",
                 },
@@ -168,6 +175,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         [Input("executionRoleArn", required: true)]
         public Input<string> ExecutionRoleArn { get; set; } = null!;
+
+        /// <summary>
+        /// The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
+        /// </summary>
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
         /// A collection of settings that specify the maintenance schedule for the PartnerApp.

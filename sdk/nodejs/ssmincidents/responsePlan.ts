@@ -46,7 +46,7 @@ export class ResponsePlan extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The AWS Chatbot chat channel used for collaboration during an incident.
+     * The  chat channel used for collaboration during an incident.
      */
     public readonly chatChannel!: pulumi.Output<outputs.ssmincidents.ResponsePlanChatChannel | undefined>;
     /**
@@ -124,7 +124,7 @@ export interface ResponsePlanArgs {
      */
     actions?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ResponsePlanActionArgs>[]>;
     /**
-     * The AWS Chatbot chat channel used for collaboration during an incident.
+     * The  chat channel used for collaboration during an incident.
      */
     chatChannel?: pulumi.Input<inputs.ssmincidents.ResponsePlanChatChannelArgs>;
     /**

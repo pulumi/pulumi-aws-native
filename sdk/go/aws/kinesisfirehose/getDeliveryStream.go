@@ -51,6 +51,8 @@ type LookupDeliveryStreamResult struct {
 	ExtendedS3DestinationConfiguration *DeliveryStreamExtendedS3DestinationConfiguration `pulumi:"extendedS3DestinationConfiguration"`
 	// Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
 	HttpEndpointDestinationConfiguration *DeliveryStreamHttpEndpointDestinationConfiguration `pulumi:"httpEndpointDestinationConfiguration"`
+	// Specifies the destination configure settings for Apache Iceberg Table.
+	IcebergDestinationConfiguration *DeliveryStreamIcebergDestinationConfiguration `pulumi:"icebergDestinationConfiguration"`
 	// An Amazon Redshift destination for the delivery stream.
 	//
 	// Conditional. You must specify only one destination configuration.
@@ -166,6 +168,13 @@ func (o LookupDeliveryStreamResultOutput) HttpEndpointDestinationConfiguration()
 	return o.ApplyT(func(v LookupDeliveryStreamResult) *DeliveryStreamHttpEndpointDestinationConfiguration {
 		return v.HttpEndpointDestinationConfiguration
 	}).(DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput)
+}
+
+// Specifies the destination configure settings for Apache Iceberg Table.
+func (o LookupDeliveryStreamResultOutput) IcebergDestinationConfiguration() DeliveryStreamIcebergDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupDeliveryStreamResult) *DeliveryStreamIcebergDestinationConfiguration {
+		return v.IcebergDestinationConfiguration
+	}).(DeliveryStreamIcebergDestinationConfigurationPtrOutput)
 }
 
 // An Amazon Redshift destination for the delivery stream.

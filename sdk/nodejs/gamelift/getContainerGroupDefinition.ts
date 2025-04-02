@@ -42,10 +42,6 @@ export interface GetContainerGroupDefinitionResult {
      */
     readonly operatingSystem?: enums.gamelift.ContainerGroupDefinitionOperatingSystem;
     /**
-     * A specific ContainerGroupDefinition version to be updated
-     */
-    readonly sourceVersionNumber?: number;
-    /**
      * A string indicating ContainerGroupDefinition status.
      */
     readonly status?: enums.gamelift.ContainerGroupDefinitionStatus;

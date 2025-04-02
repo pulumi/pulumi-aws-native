@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The VPC IP address type.
 type ConnectorVpcInformationIpAddressType string
 
 const (

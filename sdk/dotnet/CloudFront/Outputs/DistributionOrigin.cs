@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     /// An origin.
     ///  An origin is the location where content is stored, and from which CloudFront gets content to serve to viewers. To specify an origin:
     ///   +  Use ``S3OriginConfig`` to specify an Amazon S3 bucket that is not configured with static website hosting.
+    ///   +  Use ``VpcOriginConfig`` to specify a VPC origin.
     ///   +  Use ``CustomOriginConfig`` to specify all other kinds of origins, including:
     ///   +  An Amazon S3 bucket that is configured with static website hosting
     ///   +  An Elastic Load Balancing load balancer

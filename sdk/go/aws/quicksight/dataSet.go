@@ -68,6 +68,8 @@ type DataSet struct {
 	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrOutput `pulumi:"rowLevelPermissionTagConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The usage of the dataset.
+	UseAs DataSetUseAsPtrOutput `pulumi:"useAs"`
 }
 
 // NewDataSet registers a new resource with the given unique name, arguments, and options.
@@ -155,6 +157,8 @@ type dataSetArgs struct {
 	RowLevelPermissionTagConfiguration *DataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags []aws.Tag `pulumi:"tags"`
+	// The usage of the dataset.
+	UseAs *DataSetUseAs `pulumi:"useAs"`
 }
 
 // The set of arguments for constructing a DataSet resource.
@@ -199,6 +203,8 @@ type DataSetArgs struct {
 	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrInput
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags aws.TagArrayInput
+	// The usage of the dataset.
+	UseAs DataSetUseAsPtrInput
 }
 
 func (DataSetArgs) ElementType() reflect.Type {
@@ -365,6 +371,11 @@ func (o DataSetOutput) RowLevelPermissionTagConfiguration() DataSetRowLevelPermi
 // <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 func (o DataSetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DataSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The usage of the dataset.
+func (o DataSetOutput) UseAs() DataSetUseAsPtrOutput {
+	return o.ApplyT(func(v *DataSet) DataSetUseAsPtrOutput { return v.UseAs }).(DataSetUseAsPtrOutput)
 }
 
 func init() {

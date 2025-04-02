@@ -610,7 +610,7 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.s3.BucketLoggingConfiguration | undefined>;
     /**
-     * The metadata table configuration of an Amazon S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html) .
+     * The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
      */
     public readonly metadataTableConfiguration!: pulumi.Output<outputs.s3.BucketMetadataTableConfiguration | undefined>;
     /**
@@ -795,7 +795,7 @@ export interface BucketArgs {
      */
     loggingConfiguration?: pulumi.Input<inputs.s3.BucketLoggingConfigurationArgs>;
     /**
-     * The metadata table configuration of an Amazon S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html) .
+     * The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
      */
     metadataTableConfiguration?: pulumi.Input<inputs.s3.BucketMetadataTableConfigurationArgs>;
     /**

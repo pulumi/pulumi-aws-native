@@ -53,6 +53,18 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("scope")]
         public Input<Pulumi.AwsNative.Bedrock.DataSourceWebScopeType>? Scope { get; set; }
 
+        /// <summary>
+        /// The suffix that will be included in the user agent header.
+        /// </summary>
+        [Input("userAgent")]
+        public Input<string>? UserAgent { get; set; }
+
+        /// <summary>
+        /// The full user agent header, including UUID and suffix.
+        /// </summary>
+        [Input("userAgentHeader")]
+        public Input<string>? UserAgentHeader { get; set; }
+
         public DataSourceWebCrawlerConfigurationArgs()
         {
         }

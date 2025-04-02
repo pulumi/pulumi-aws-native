@@ -22,29 +22,59 @@ __all__ = ['SequenceStoreArgs', 'SequenceStore']
 @pulumi.input_type
 class SequenceStoreArgs:
     def __init__(__self__, *,
+                 access_log_location: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 e_tag_algorithm_family: Optional[pulumi.Input['SequenceStoreETagAlgorithmFamily']] = None,
                  fallback_location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 propagated_set_level_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 s3_access_policy: Optional[Any] = None,
                  sse_config: Optional[pulumi.Input['SequenceStoreSseConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SequenceStore resource.
+        :param pulumi.Input[str] access_log_location: Location of the access logs.
         :param pulumi.Input[str] description: A description for the store.
-        :param pulumi.Input[str] fallback_location: An S3 URI representing the bucket and folder to store failed read set uploads.
+        :param pulumi.Input['SequenceStoreETagAlgorithmFamily'] e_tag_algorithm_family: The algorithm family of the ETag.
+        :param pulumi.Input[str] fallback_location: An S3 location that is used to store files that have failed a direct upload.
         :param pulumi.Input[str] name: A name for the store.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] propagated_set_level_tags: The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+        :param Any s3_access_policy: The resource policy that controls S3 access on the store
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Omics::SequenceStore` for more information about the expected schema for this property.
         :param pulumi.Input['SequenceStoreSseConfigArgs'] sse_config: Server-side encryption (SSE) settings for the store.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the store.
         """
+        if access_log_location is not None:
+            pulumi.set(__self__, "access_log_location", access_log_location)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if e_tag_algorithm_family is not None:
+            pulumi.set(__self__, "e_tag_algorithm_family", e_tag_algorithm_family)
         if fallback_location is not None:
             pulumi.set(__self__, "fallback_location", fallback_location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if propagated_set_level_tags is not None:
+            pulumi.set(__self__, "propagated_set_level_tags", propagated_set_level_tags)
+        if s3_access_policy is not None:
+            pulumi.set(__self__, "s3_access_policy", s3_access_policy)
         if sse_config is not None:
             pulumi.set(__self__, "sse_config", sse_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="accessLogLocation")
+    def access_log_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of the access logs.
+        """
+        return pulumi.get(self, "access_log_location")
+
+    @access_log_location.setter
+    def access_log_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_log_location", value)
 
     @property
     @pulumi.getter
@@ -59,10 +89,22 @@ class SequenceStoreArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="eTagAlgorithmFamily")
+    def e_tag_algorithm_family(self) -> Optional[pulumi.Input['SequenceStoreETagAlgorithmFamily']]:
+        """
+        The algorithm family of the ETag.
+        """
+        return pulumi.get(self, "e_tag_algorithm_family")
+
+    @e_tag_algorithm_family.setter
+    def e_tag_algorithm_family(self, value: Optional[pulumi.Input['SequenceStoreETagAlgorithmFamily']]):
+        pulumi.set(self, "e_tag_algorithm_family", value)
+
+    @property
     @pulumi.getter(name="fallbackLocation")
     def fallback_location(self) -> Optional[pulumi.Input[str]]:
         """
-        An S3 URI representing the bucket and folder to store failed read set uploads.
+        An S3 location that is used to store files that have failed a direct upload.
         """
         return pulumi.get(self, "fallback_location")
 
@@ -81,6 +123,32 @@ class SequenceStoreArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="propagatedSetLevelTags")
+    def propagated_set_level_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+        """
+        return pulumi.get(self, "propagated_set_level_tags")
+
+    @propagated_set_level_tags.setter
+    def propagated_set_level_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "propagated_set_level_tags", value)
+
+    @property
+    @pulumi.getter(name="s3AccessPolicy")
+    def s3_access_policy(self) -> Optional[Any]:
+        """
+        The resource policy that controls S3 access on the store
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Omics::SequenceStore` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "s3_access_policy")
+
+    @s3_access_policy.setter
+    def s3_access_policy(self, value: Optional[Any]):
+        pulumi.set(self, "s3_access_policy", value)
 
     @property
     @pulumi.getter(name="sseConfig")
@@ -112,20 +180,30 @@ class SequenceStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_log_location: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 e_tag_algorithm_family: Optional[pulumi.Input['SequenceStoreETagAlgorithmFamily']] = None,
                  fallback_location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 propagated_set_level_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 s3_access_policy: Optional[Any] = None,
                  sse_config: Optional[pulumi.Input[Union['SequenceStoreSseConfigArgs', 'SequenceStoreSseConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Definition of AWS::Omics::SequenceStore Resource Type
+        Resource Type definition for AWS::Omics::SequenceStore
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_log_location: Location of the access logs.
         :param pulumi.Input[str] description: A description for the store.
-        :param pulumi.Input[str] fallback_location: An S3 URI representing the bucket and folder to store failed read set uploads.
+        :param pulumi.Input['SequenceStoreETagAlgorithmFamily'] e_tag_algorithm_family: The algorithm family of the ETag.
+        :param pulumi.Input[str] fallback_location: An S3 location that is used to store files that have failed a direct upload.
         :param pulumi.Input[str] name: A name for the store.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] propagated_set_level_tags: The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+        :param Any s3_access_policy: The resource policy that controls S3 access on the store
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Omics::SequenceStore` for more information about the expected schema for this property.
         :param pulumi.Input[Union['SequenceStoreSseConfigArgs', 'SequenceStoreSseConfigArgsDict']] sse_config: Server-side encryption (SSE) settings for the store.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the store.
         """
@@ -136,7 +214,7 @@ class SequenceStore(pulumi.CustomResource):
                  args: Optional[SequenceStoreArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::Omics::SequenceStore Resource Type
+        Resource Type definition for AWS::Omics::SequenceStore
 
         :param str resource_name: The name of the resource.
         :param SequenceStoreArgs args: The arguments to use to populate this resource's properties.
@@ -153,9 +231,13 @@ class SequenceStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_log_location: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 e_tag_algorithm_family: Optional[pulumi.Input['SequenceStoreETagAlgorithmFamily']] = None,
                  fallback_location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 propagated_set_level_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 s3_access_policy: Optional[Any] = None,
                  sse_config: Optional[pulumi.Input[Union['SequenceStoreSseConfigArgs', 'SequenceStoreSseConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -167,15 +249,24 @@ class SequenceStore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SequenceStoreArgs.__new__(SequenceStoreArgs)
 
+            __props__.__dict__["access_log_location"] = access_log_location
             __props__.__dict__["description"] = description
+            __props__.__dict__["e_tag_algorithm_family"] = e_tag_algorithm_family
             __props__.__dict__["fallback_location"] = fallback_location
             __props__.__dict__["name"] = name
+            __props__.__dict__["propagated_set_level_tags"] = propagated_set_level_tags
+            __props__.__dict__["s3_access_policy"] = s3_access_policy
             __props__.__dict__["sse_config"] = sse_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_time"] = None
+            __props__.__dict__["s3_access_point_arn"] = None
+            __props__.__dict__["s3_uri"] = None
             __props__.__dict__["sequence_store_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "fallbackLocation", "name", "sseConfig", "tags.*"])
+            __props__.__dict__["status"] = None
+            __props__.__dict__["status_message"] = None
+            __props__.__dict__["update_time"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["eTagAlgorithmFamily", "sseConfig"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SequenceStore, __self__).__init__(
             'aws-native:omics:SequenceStore',
@@ -199,15 +290,32 @@ class SequenceStore(pulumi.CustomResource):
 
         __props__ = SequenceStoreArgs.__new__(SequenceStoreArgs)
 
+        __props__.__dict__["access_log_location"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["e_tag_algorithm_family"] = None
         __props__.__dict__["fallback_location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["propagated_set_level_tags"] = None
+        __props__.__dict__["s3_access_point_arn"] = None
+        __props__.__dict__["s3_access_policy"] = None
+        __props__.__dict__["s3_uri"] = None
         __props__.__dict__["sequence_store_id"] = None
         __props__.__dict__["sse_config"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["status_message"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["update_time"] = None
         return SequenceStore(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accessLogLocation")
+    def access_log_location(self) -> pulumi.Output[Optional[str]]:
+        """
+        Location of the access logs.
+        """
+        return pulumi.get(self, "access_log_location")
 
     @property
     @pulumi.getter
@@ -234,10 +342,18 @@ class SequenceStore(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="eTagAlgorithmFamily")
+    def e_tag_algorithm_family(self) -> pulumi.Output[Optional['SequenceStoreETagAlgorithmFamily']]:
+        """
+        The algorithm family of the ETag.
+        """
+        return pulumi.get(self, "e_tag_algorithm_family")
+
+    @property
     @pulumi.getter(name="fallbackLocation")
     def fallback_location(self) -> pulumi.Output[Optional[str]]:
         """
-        An S3 URI representing the bucket and folder to store failed read set uploads.
+        An S3 location that is used to store files that have failed a direct upload.
         """
         return pulumi.get(self, "fallback_location")
 
@@ -248,6 +364,40 @@ class SequenceStore(pulumi.CustomResource):
         A name for the store.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="propagatedSetLevelTags")
+    def propagated_set_level_tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+        """
+        return pulumi.get(self, "propagated_set_level_tags")
+
+    @property
+    @pulumi.getter(name="s3AccessPointArn")
+    def s3_access_point_arn(self) -> pulumi.Output[str]:
+        """
+        This is ARN of the access point associated with the S3 bucket storing read sets.
+        """
+        return pulumi.get(self, "s3_access_point_arn")
+
+    @property
+    @pulumi.getter(name="s3AccessPolicy")
+    def s3_access_policy(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The resource policy that controls S3 access on the store
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Omics::SequenceStore` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "s3_access_policy")
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Output[str]:
+        """
+        The S3 URI of the sequence store.
+        """
+        return pulumi.get(self, "s3_uri")
 
     @property
     @pulumi.getter(name="sequenceStoreId")
@@ -267,9 +417,33 @@ class SequenceStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def status(self) -> pulumi.Output['SequenceStoreStatus']:
+        """
+        Status of the sequence store.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> pulumi.Output[str]:
+        """
+        The status message of the sequence store.
+        """
+        return pulumi.get(self, "status_message")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Tags for the store.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="updateTime")
+    def update_time(self) -> pulumi.Output[str]:
+        """
+        The last-updated time of the sequence store.
+        """
+        return pulumi.get(self, "update_time")
 

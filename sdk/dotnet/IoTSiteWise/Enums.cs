@@ -127,6 +127,66 @@ namespace Pulumi.AwsNative.IoTSiteWise
     }
 
     /// <summary>
+    /// The format of the dataset source associated with the dataset.
+    /// </summary>
+    [EnumType]
+    public readonly struct DatasetSourceSourceFormat : IEquatable<DatasetSourceSourceFormat>
+    {
+        private readonly string _value;
+
+        private DatasetSourceSourceFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DatasetSourceSourceFormat KnowledgeBase { get; } = new DatasetSourceSourceFormat("KNOWLEDGE_BASE");
+
+        public static bool operator ==(DatasetSourceSourceFormat left, DatasetSourceSourceFormat right) => left.Equals(right);
+        public static bool operator !=(DatasetSourceSourceFormat left, DatasetSourceSourceFormat right) => !left.Equals(right);
+
+        public static explicit operator string(DatasetSourceSourceFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DatasetSourceSourceFormat other && Equals(other);
+        public bool Equals(DatasetSourceSourceFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of data source for the dataset.
+    /// </summary>
+    [EnumType]
+    public readonly struct DatasetSourceSourceType : IEquatable<DatasetSourceSourceType>
+    {
+        private readonly string _value;
+
+        private DatasetSourceSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DatasetSourceSourceType Kendra { get; } = new DatasetSourceSourceType("KENDRA");
+
+        public static bool operator ==(DatasetSourceSourceType left, DatasetSourceSourceType right) => left.Equals(right);
+        public static bool operator !=(DatasetSourceSourceType left, DatasetSourceSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(DatasetSourceSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DatasetSourceSourceType other && Equals(other);
+        public bool Equals(DatasetSourceSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The operating system of the core device in AWS IoT Greengrass V2.
     /// </summary>
     [EnumType]

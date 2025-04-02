@@ -28,6 +28,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         /// 
         /// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         /// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+        /// - For AWS Amplify , use the CloudFront limit.
         /// 
         /// For information about how to handle oversized request bodies, see the `Body` object configuration.
         /// </summary>
@@ -81,6 +82,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         /// 
         /// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         /// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+        /// - For AWS Amplify , use the CloudFront limit.
         /// 
         /// For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
         /// </summary>
@@ -114,6 +116,14 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         /// </summary>
         [Input("singleQueryArgument")]
         public Input<Inputs.RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs>? SingleQueryArgument { get; set; }
+
+        /// <summary>
+        /// Inspect fragments of the request URI. You must configure scope and pattern matching filters in the `UriFragment` object, to define the fragment of a URI that AWS WAF inspects.
+        /// 
+        /// Only the first 8 KB (8192 bytes) of a request's URI fragments and only the first 200 URI fragments are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize URI fragment content in the `UriFragment` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
+        /// </summary>
+        [Input("uriFragment")]
+        public Input<Inputs.RuleGroupUriFragmentArgs>? UriFragment { get; set; }
 
         /// <summary>
         /// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.

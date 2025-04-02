@@ -18,9 +18,6 @@ export function getEnabledBaseline(args: GetEnabledBaselineArgs, opts?: pulumi.I
 }
 
 export interface GetEnabledBaselineArgs {
-    /**
-     * The ARN of the `EnabledBaseline` resource.
-     */
     enabledBaselineIdentifier: string;
 }
 
@@ -29,17 +26,11 @@ export interface GetEnabledBaselineResult {
      * The enabled version of the `Baseline` .
      */
     readonly baselineVersion?: string;
-    /**
-     * The ARN of the `EnabledBaseline` resource.
-     */
     readonly enabledBaselineIdentifier?: string;
     /**
-     * Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
+     * Shows the parameters that are applied when enabling this `Baseline` .
      */
     readonly parameters?: outputs.controltower.EnabledBaselineParameter[];
-    /**
-     * Tags associated with input to `EnableBaseline` .
-     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -53,8 +44,5 @@ export function getEnabledBaselineOutput(args: GetEnabledBaselineOutputArgs, opt
 }
 
 export interface GetEnabledBaselineOutputArgs {
-    /**
-     * The ARN of the `EnabledBaseline` resource.
-     */
     enabledBaselineIdentifier: pulumi.Input<string>;
 }
