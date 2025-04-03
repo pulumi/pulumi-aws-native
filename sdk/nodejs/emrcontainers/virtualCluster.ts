@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *         value: "Value1",
  *     }],
  * });
- * export const primaryId = undefined;
+ * export const primaryId = null;
  *
  * ```
  * ### Example
