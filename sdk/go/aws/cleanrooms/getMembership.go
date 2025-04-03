@@ -52,6 +52,8 @@ type LookupMembershipResult struct {
 	// The payment responsibilities accepted by the collaboration member.
 	PaymentConfiguration *MembershipPaymentConfiguration `pulumi:"paymentConfiguration"`
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
+	//
+	// When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
 	QueryLogStatus *MembershipQueryLogStatus `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -132,6 +134,8 @@ func (o LookupMembershipResultOutput) PaymentConfiguration() MembershipPaymentCo
 }
 
 // An indicator as to whether query logging has been enabled or disabled for the membership.
+//
+// When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
 func (o LookupMembershipResultOutput) QueryLogStatus() MembershipQueryLogStatusPtrOutput {
 	return o.ApplyT(func(v LookupMembershipResult) *MembershipQueryLogStatus { return v.QueryLogStatus }).(MembershipQueryLogStatusPtrOutput)
 }

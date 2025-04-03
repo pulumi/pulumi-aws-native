@@ -20,18 +20,12 @@ __all__ = [
     'DbClusterDbClusterRoleArgsDict',
     'DbClusterMasterUserSecretArgs',
     'DbClusterMasterUserSecretArgsDict',
-    'DbClusterReadEndpointArgs',
-    'DbClusterReadEndpointArgsDict',
     'DbClusterScalingConfigurationArgs',
     'DbClusterScalingConfigurationArgsDict',
     'DbClusterServerlessV2ScalingConfigurationArgs',
     'DbClusterServerlessV2ScalingConfigurationArgsDict',
-    'DbInstanceCertificateDetailsArgs',
-    'DbInstanceCertificateDetailsArgsDict',
     'DbInstanceDbInstanceRoleArgs',
     'DbInstanceDbInstanceRoleArgsDict',
-    'DbInstanceEndpointArgs',
-    'DbInstanceEndpointArgsDict',
     'DbInstanceMasterUserSecretArgs',
     'DbInstanceMasterUserSecretArgsDict',
     'DbInstanceProcessorFeatureArgs',
@@ -159,48 +153,6 @@ class DbClusterMasterUserSecretArgs:
     @secret_arn.setter
     def secret_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_arn", value)
-
-
-if not MYPY:
-    class DbClusterReadEndpointArgsDict(TypedDict):
-        """
-        The ``ReadEndpoint`` return value specifies the reader endpoint for the DB cluster.
-         The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
-         If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
-         For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide*.
-        """
-        address: NotRequired[pulumi.Input[str]]
-        """
-        The host address of the reader endpoint.
-        """
-elif False:
-    DbClusterReadEndpointArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class DbClusterReadEndpointArgs:
-    def __init__(__self__, *,
-                 address: Optional[pulumi.Input[str]] = None):
-        """
-        The ``ReadEndpoint`` return value specifies the reader endpoint for the DB cluster.
-         The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
-         If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
-         For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide*.
-        :param pulumi.Input[str] address: The host address of the reader endpoint.
-        """
-        if address is not None:
-            pulumi.set(__self__, "address", address)
-
-    @property
-    @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The host address of the reader endpoint.
-        """
-        return pulumi.get(self, "address")
-
-    @address.setter
-    def address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "address", value)
 
 
 if not MYPY:
@@ -476,64 +428,6 @@ class DbClusterServerlessV2ScalingConfigurationArgs:
 
 
 if not MYPY:
-    class DbInstanceCertificateDetailsArgsDict(TypedDict):
-        """
-        The details of the DB instance’s server certificate.
-         For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
-        """
-        ca_identifier: NotRequired[pulumi.Input[str]]
-        """
-        The CA identifier of the CA certificate used for the DB instance's server certificate.
-        """
-        valid_till: NotRequired[pulumi.Input[str]]
-        """
-        The expiration date of the DB instance’s server certificate.
-        """
-elif False:
-    DbInstanceCertificateDetailsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class DbInstanceCertificateDetailsArgs:
-    def __init__(__self__, *,
-                 ca_identifier: Optional[pulumi.Input[str]] = None,
-                 valid_till: Optional[pulumi.Input[str]] = None):
-        """
-        The details of the DB instance’s server certificate.
-         For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
-        :param pulumi.Input[str] ca_identifier: The CA identifier of the CA certificate used for the DB instance's server certificate.
-        :param pulumi.Input[str] valid_till: The expiration date of the DB instance’s server certificate.
-        """
-        if ca_identifier is not None:
-            pulumi.set(__self__, "ca_identifier", ca_identifier)
-        if valid_till is not None:
-            pulumi.set(__self__, "valid_till", valid_till)
-
-    @property
-    @pulumi.getter(name="caIdentifier")
-    def ca_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        The CA identifier of the CA certificate used for the DB instance's server certificate.
-        """
-        return pulumi.get(self, "ca_identifier")
-
-    @ca_identifier.setter
-    def ca_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ca_identifier", value)
-
-    @property
-    @pulumi.getter(name="validTill")
-    def valid_till(self) -> Optional[pulumi.Input[str]]:
-        """
-        The expiration date of the DB instance’s server certificate.
-        """
-        return pulumi.get(self, "valid_till")
-
-    @valid_till.setter
-    def valid_till(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "valid_till", value)
-
-
-if not MYPY:
     class DbInstanceDbInstanceRoleArgsDict(TypedDict):
         """
         Information about an AWS Identity and Access Management (IAM) role that is associated with a DB instance.
@@ -585,92 +479,6 @@ class DbInstanceDbInstanceRoleArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
-
-
-if not MYPY:
-    class DbInstanceEndpointArgsDict(TypedDict):
-        """
-        This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-          +   ``CreateDBInstance`` 
-          +   ``DescribeDBInstances`` 
-          +   ``DeleteDBInstance`` 
-          
-         For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
-        """
-        address: NotRequired[pulumi.Input[str]]
-        """
-        Specifies the DNS address of the DB instance.
-        """
-        hosted_zone_id: NotRequired[pulumi.Input[str]]
-        """
-        Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
-        """
-        port: NotRequired[pulumi.Input[str]]
-        """
-        Specifies the port that the database engine is listening on.
-        """
-elif False:
-    DbInstanceEndpointArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class DbInstanceEndpointArgs:
-    def __init__(__self__, *,
-                 address: Optional[pulumi.Input[str]] = None,
-                 hosted_zone_id: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[str]] = None):
-        """
-        This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-          +   ``CreateDBInstance`` 
-          +   ``DescribeDBInstances`` 
-          +   ``DeleteDBInstance`` 
-          
-         For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
-        :param pulumi.Input[str] address: Specifies the DNS address of the DB instance.
-        :param pulumi.Input[str] hosted_zone_id: Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
-        :param pulumi.Input[str] port: Specifies the port that the database engine is listening on.
-        """
-        if address is not None:
-            pulumi.set(__self__, "address", address)
-        if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the DNS address of the DB instance.
-        """
-        return pulumi.get(self, "address")
-
-    @address.setter
-    def address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "address", value)
-
-    @property
-    @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
-        """
-        return pulumi.get(self, "hosted_zone_id")
-
-    @hosted_zone_id.setter
-    def hosted_zone_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "hosted_zone_id", value)
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the port that the database engine is listening on.
-        """
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "port", value)
 
 
 if not MYPY:

@@ -643,8 +643,12 @@ type CodeSigningConfigTag struct {
 // A destination for events after they have been sent to a function for processing.
 type EventInvokeConfigDestinationConfig struct {
 	// The destination configuration for failed invocations.
+	//
+	// > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
 	OnFailure *EventInvokeConfigOnFailure `pulumi:"onFailure"`
 	// The destination configuration for successful invocations.
+	//
+	// > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
 	OnSuccess *EventInvokeConfigOnSuccess `pulumi:"onSuccess"`
 }
 
@@ -662,8 +666,12 @@ type EventInvokeConfigDestinationConfigInput interface {
 // A destination for events after they have been sent to a function for processing.
 type EventInvokeConfigDestinationConfigArgs struct {
 	// The destination configuration for failed invocations.
+	//
+	// > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
 	OnFailure EventInvokeConfigOnFailurePtrInput `pulumi:"onFailure"`
 	// The destination configuration for successful invocations.
+	//
+	// > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
 	OnSuccess EventInvokeConfigOnSuccessPtrInput `pulumi:"onSuccess"`
 }
 
@@ -746,11 +754,15 @@ func (o EventInvokeConfigDestinationConfigOutput) ToEventInvokeConfigDestination
 }
 
 // The destination configuration for failed invocations.
+//
+// > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
 func (o EventInvokeConfigDestinationConfigOutput) OnFailure() EventInvokeConfigOnFailurePtrOutput {
 	return o.ApplyT(func(v EventInvokeConfigDestinationConfig) *EventInvokeConfigOnFailure { return v.OnFailure }).(EventInvokeConfigOnFailurePtrOutput)
 }
 
 // The destination configuration for successful invocations.
+//
+// > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
 func (o EventInvokeConfigDestinationConfigOutput) OnSuccess() EventInvokeConfigOnSuccessPtrOutput {
 	return o.ApplyT(func(v EventInvokeConfigDestinationConfig) *EventInvokeConfigOnSuccess { return v.OnSuccess }).(EventInvokeConfigOnSuccessPtrOutput)
 }
@@ -780,6 +792,8 @@ func (o EventInvokeConfigDestinationConfigPtrOutput) Elem() EventInvokeConfigDes
 }
 
 // The destination configuration for failed invocations.
+//
+// > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
 func (o EventInvokeConfigDestinationConfigPtrOutput) OnFailure() EventInvokeConfigOnFailurePtrOutput {
 	return o.ApplyT(func(v *EventInvokeConfigDestinationConfig) *EventInvokeConfigOnFailure {
 		if v == nil {
@@ -790,6 +804,8 @@ func (o EventInvokeConfigDestinationConfigPtrOutput) OnFailure() EventInvokeConf
 }
 
 // The destination configuration for successful invocations.
+//
+// > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
 func (o EventInvokeConfigDestinationConfigPtrOutput) OnSuccess() EventInvokeConfigOnSuccessPtrOutput {
 	return o.ApplyT(func(v *EventInvokeConfigDestinationConfig) *EventInvokeConfigOnSuccess {
 		if v == nil {

@@ -89,6 +89,8 @@ export class Collaboration extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * An indicator as to whether query logging has been enabled or disabled for the collaboration.
+     *
+     * When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
      */
     public readonly queryLogStatus!: pulumi.Output<enums.cleanrooms.CollaborationQueryLogStatus>;
     /**
@@ -201,6 +203,8 @@ export interface CollaborationArgs {
     name?: pulumi.Input<string>;
     /**
      * An indicator as to whether query logging has been enabled or disabled for the collaboration.
+     *
+     * When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
      */
     queryLogStatus: pulumi.Input<enums.cleanrooms.CollaborationQueryLogStatus>;
     /**

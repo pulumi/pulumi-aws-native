@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     public sealed class DataSourceWebCrawlerLimitsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Maximum number of pages the crawler can crawl.
+        /// </summary>
+        [Input("maxPages")]
+        public Input<int>? MaxPages { get; set; }
+
+        /// <summary>
         /// Rate of web URLs retrieved per minute.
         /// </summary>
         [Input("rateLimit")]

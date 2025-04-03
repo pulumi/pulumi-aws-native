@@ -72,6 +72,10 @@ export class Alias extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Alias ARN, the resource ID matches the AliasId value.
+     */
+    public /*out*/ readonly aliasArn!: pulumi.Output<string>;
+    /**
      * Unique alias ID
      */
     public /*out*/ readonly aliasId!: pulumi.Output<string>;
@@ -87,6 +91,10 @@ export class Alias extends pulumi.CustomResource {
      * A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
      */
     public readonly routingStrategy!: pulumi.Output<outputs.gamelift.AliasRoutingStrategy>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -105,12 +113,16 @@ export class Alias extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["routingStrategy"] = args ? args.routingStrategy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["aliasArn"] = undefined /*out*/;
             resourceInputs["aliasId"] = undefined /*out*/;
         } else {
+            resourceInputs["aliasArn"] = undefined /*out*/;
             resourceInputs["aliasId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["routingStrategy"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Alias.__pulumiType, name, resourceInputs, opts);
@@ -133,4 +145,8 @@ export interface AliasArgs {
      * A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
      */
     routingStrategy: pulumi.Input<inputs.gamelift.AliasRoutingStrategyArgs>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

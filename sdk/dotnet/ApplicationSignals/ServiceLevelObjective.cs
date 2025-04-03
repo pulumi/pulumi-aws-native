@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.ApplicationSignals
         [Output("evaluationType")]
         public Output<Pulumi.AwsNative.ApplicationSignals.ServiceLevelObjectiveEvaluationType> EvaluationType { get; private set; } = null!;
 
+        [Output("exclusionWindows")]
+        public Output<ImmutableArray<Outputs.ServiceLevelObjectiveExclusionWindow>> ExclusionWindows { get; private set; } = null!;
+
         /// <summary>
         /// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
         /// </summary>
@@ -149,6 +152,14 @@ namespace Pulumi.AwsNative.ApplicationSignals
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("exclusionWindows")]
+        private InputList<Inputs.ServiceLevelObjectiveExclusionWindowArgs>? _exclusionWindows;
+        public InputList<Inputs.ServiceLevelObjectiveExclusionWindowArgs> ExclusionWindows
+        {
+            get => _exclusionWindows ?? (_exclusionWindows = new InputList<Inputs.ServiceLevelObjectiveExclusionWindowArgs>());
+            set => _exclusionWindows = value;
+        }
 
         /// <summary>
         /// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.

@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'FirewallEnabledAnalysisType',
     'FirewallPolicyOverrideAction',
     'FirewallPolicyRuleOrder',
     'FirewallPolicyStreamExceptionPolicy',
@@ -21,6 +22,14 @@ __all__ = [
     'TlsInspectionConfigurationRevokedStatusAction',
     'TlsInspectionConfigurationUnknownStatusAction',
 ]
+
+
+class FirewallEnabledAnalysisType(str, Enum):
+    """
+    An analysis type.
+    """
+    TLS_SNI = "TLS_SNI"
+    HTTP_HOST = "HTTP_HOST"
 
 
 class FirewallPolicyOverrideAction(str, Enum):

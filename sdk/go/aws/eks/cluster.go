@@ -37,6 +37,8 @@ type Cluster struct {
 	EncryptionConfigKeyArn pulumi.StringOutput `pulumi:"encryptionConfigKeyArn"`
 	// The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// Force cluster version update
+	Force pulumi.BoolPtrOutput `pulumi:"force"`
 	// The Kubernetes network configuration for the cluster.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrOutput `pulumi:"kubernetesNetworkConfig"`
 	// The logging configuration for your cluster.
@@ -47,7 +49,7 @@ type Cluster struct {
 	OpenIdConnectIssuerUrl pulumi.StringOutput `pulumi:"openIdConnectIssuerUrl"`
 	// An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
 	OutpostConfig ClusterOutpostConfigPtrOutput `pulumi:"outpostConfig"`
-	// The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
+	// The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this configuration after the cluster is created.
 	RemoteNetworkConfig ClusterRemoteNetworkConfigPtrOutput `pulumi:"remoteNetworkConfig"`
 	// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 	ResourcesVpcConfig ClusterResourcesVpcConfigOutput `pulumi:"resourcesVpcConfig"`
@@ -88,7 +90,6 @@ func NewCluster(ctx *pulumi.Context,
 		"kubernetesNetworkConfig.serviceIpv4Cidr",
 		"name",
 		"outpostConfig",
-		"remoteNetworkConfig",
 		"roleArn",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -133,6 +134,8 @@ type clusterArgs struct {
 	ComputeConfig *ClusterComputeConfig `pulumi:"computeConfig"`
 	// The encryption configuration for the cluster.
 	EncryptionConfig []ClusterEncryptionConfig `pulumi:"encryptionConfig"`
+	// Force cluster version update
+	Force *bool `pulumi:"force"`
 	// The Kubernetes network configuration for the cluster.
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
 	// The logging configuration for your cluster.
@@ -141,7 +144,7 @@ type clusterArgs struct {
 	Name *string `pulumi:"name"`
 	// An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
 	OutpostConfig *ClusterOutpostConfig `pulumi:"outpostConfig"`
-	// The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
+	// The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this configuration after the cluster is created.
 	RemoteNetworkConfig *ClusterRemoteNetworkConfig `pulumi:"remoteNetworkConfig"`
 	// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 	ResourcesVpcConfig ClusterResourcesVpcConfig `pulumi:"resourcesVpcConfig"`
@@ -171,6 +174,8 @@ type ClusterArgs struct {
 	ComputeConfig ClusterComputeConfigPtrInput
 	// The encryption configuration for the cluster.
 	EncryptionConfig ClusterEncryptionConfigArrayInput
+	// Force cluster version update
+	Force pulumi.BoolPtrInput
 	// The Kubernetes network configuration for the cluster.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput
 	// The logging configuration for your cluster.
@@ -179,7 +184,7 @@ type ClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
 	OutpostConfig ClusterOutpostConfigPtrInput
-	// The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
+	// The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this configuration after the cluster is created.
 	RemoteNetworkConfig ClusterRemoteNetworkConfigPtrInput
 	// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 	ResourcesVpcConfig ClusterResourcesVpcConfigInput
@@ -286,6 +291,11 @@ func (o ClusterOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
+// Force cluster version update
+func (o ClusterOutput) Force() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.Force }).(pulumi.BoolPtrOutput)
+}
+
 // The Kubernetes network configuration for the cluster.
 func (o ClusterOutput) KubernetesNetworkConfig() ClusterKubernetesNetworkConfigPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterKubernetesNetworkConfigPtrOutput { return v.KubernetesNetworkConfig }).(ClusterKubernetesNetworkConfigPtrOutput)
@@ -311,7 +321,7 @@ func (o ClusterOutput) OutpostConfig() ClusterOutpostConfigPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterOutpostConfigPtrOutput { return v.OutpostConfig }).(ClusterOutpostConfigPtrOutput)
 }
 
-// The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
+// The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this configuration after the cluster is created.
 func (o ClusterOutput) RemoteNetworkConfig() ClusterRemoteNetworkConfigPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterRemoteNetworkConfigPtrOutput { return v.RemoteNetworkConfig }).(ClusterRemoteNetworkConfigPtrOutput)
 }

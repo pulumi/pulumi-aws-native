@@ -10,6 +10,186 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This string is the type of the component.
+//
+// Accepted value is `WD` .
+type ApplicationComponentInfoComponentType string
+
+const (
+	ApplicationComponentInfoComponentTypeHana     = ApplicationComponentInfoComponentType("HANA")
+	ApplicationComponentInfoComponentTypeHanaNode = ApplicationComponentInfoComponentType("HANA_NODE")
+	ApplicationComponentInfoComponentTypeAbap     = ApplicationComponentInfoComponentType("ABAP")
+	ApplicationComponentInfoComponentTypeAscs     = ApplicationComponentInfoComponentType("ASCS")
+	ApplicationComponentInfoComponentTypeDialog   = ApplicationComponentInfoComponentType("DIALOG")
+	ApplicationComponentInfoComponentTypeWebdisp  = ApplicationComponentInfoComponentType("WEBDISP")
+	ApplicationComponentInfoComponentTypeWd       = ApplicationComponentInfoComponentType("WD")
+	ApplicationComponentInfoComponentTypeErs      = ApplicationComponentInfoComponentType("ERS")
+)
+
+func (ApplicationComponentInfoComponentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationComponentInfoComponentType)(nil)).Elem()
+}
+
+func (e ApplicationComponentInfoComponentType) ToApplicationComponentInfoComponentTypeOutput() ApplicationComponentInfoComponentTypeOutput {
+	return pulumi.ToOutput(e).(ApplicationComponentInfoComponentTypeOutput)
+}
+
+func (e ApplicationComponentInfoComponentType) ToApplicationComponentInfoComponentTypeOutputWithContext(ctx context.Context) ApplicationComponentInfoComponentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationComponentInfoComponentTypeOutput)
+}
+
+func (e ApplicationComponentInfoComponentType) ToApplicationComponentInfoComponentTypePtrOutput() ApplicationComponentInfoComponentTypePtrOutput {
+	return e.ToApplicationComponentInfoComponentTypePtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationComponentInfoComponentType) ToApplicationComponentInfoComponentTypePtrOutputWithContext(ctx context.Context) ApplicationComponentInfoComponentTypePtrOutput {
+	return ApplicationComponentInfoComponentType(e).ToApplicationComponentInfoComponentTypeOutputWithContext(ctx).ToApplicationComponentInfoComponentTypePtrOutputWithContext(ctx)
+}
+
+func (e ApplicationComponentInfoComponentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationComponentInfoComponentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationComponentInfoComponentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationComponentInfoComponentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationComponentInfoComponentTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationComponentInfoComponentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationComponentInfoComponentType)(nil)).Elem()
+}
+
+func (o ApplicationComponentInfoComponentTypeOutput) ToApplicationComponentInfoComponentTypeOutput() ApplicationComponentInfoComponentTypeOutput {
+	return o
+}
+
+func (o ApplicationComponentInfoComponentTypeOutput) ToApplicationComponentInfoComponentTypeOutputWithContext(ctx context.Context) ApplicationComponentInfoComponentTypeOutput {
+	return o
+}
+
+func (o ApplicationComponentInfoComponentTypeOutput) ToApplicationComponentInfoComponentTypePtrOutput() ApplicationComponentInfoComponentTypePtrOutput {
+	return o.ToApplicationComponentInfoComponentTypePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationComponentInfoComponentTypeOutput) ToApplicationComponentInfoComponentTypePtrOutputWithContext(ctx context.Context) ApplicationComponentInfoComponentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationComponentInfoComponentType) *ApplicationComponentInfoComponentType {
+		return &v
+	}).(ApplicationComponentInfoComponentTypePtrOutput)
+}
+
+func (o ApplicationComponentInfoComponentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationComponentInfoComponentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationComponentInfoComponentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationComponentInfoComponentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationComponentInfoComponentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationComponentInfoComponentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationComponentInfoComponentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationComponentInfoComponentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationComponentInfoComponentType)(nil)).Elem()
+}
+
+func (o ApplicationComponentInfoComponentTypePtrOutput) ToApplicationComponentInfoComponentTypePtrOutput() ApplicationComponentInfoComponentTypePtrOutput {
+	return o
+}
+
+func (o ApplicationComponentInfoComponentTypePtrOutput) ToApplicationComponentInfoComponentTypePtrOutputWithContext(ctx context.Context) ApplicationComponentInfoComponentTypePtrOutput {
+	return o
+}
+
+func (o ApplicationComponentInfoComponentTypePtrOutput) Elem() ApplicationComponentInfoComponentTypeOutput {
+	return o.ApplyT(func(v *ApplicationComponentInfoComponentType) ApplicationComponentInfoComponentType {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationComponentInfoComponentType
+		return ret
+	}).(ApplicationComponentInfoComponentTypeOutput)
+}
+
+func (o ApplicationComponentInfoComponentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationComponentInfoComponentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationComponentInfoComponentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationComponentInfoComponentTypeInput is an input type that accepts values of the ApplicationComponentInfoComponentType enum
+// A concrete instance of `ApplicationComponentInfoComponentTypeInput` can be one of the following:
+//
+//	ApplicationComponentInfoComponentTypeHana
+//	ApplicationComponentInfoComponentTypeHanaNode
+//	ApplicationComponentInfoComponentTypeAbap
+//	ApplicationComponentInfoComponentTypeAscs
+//	ApplicationComponentInfoComponentTypeDialog
+//	ApplicationComponentInfoComponentTypeWebdisp
+//	ApplicationComponentInfoComponentTypeWd
+//	ApplicationComponentInfoComponentTypeErs
+type ApplicationComponentInfoComponentTypeInput interface {
+	pulumi.Input
+
+	ToApplicationComponentInfoComponentTypeOutput() ApplicationComponentInfoComponentTypeOutput
+	ToApplicationComponentInfoComponentTypeOutputWithContext(context.Context) ApplicationComponentInfoComponentTypeOutput
+}
+
+var applicationComponentInfoComponentTypePtrType = reflect.TypeOf((**ApplicationComponentInfoComponentType)(nil)).Elem()
+
+type ApplicationComponentInfoComponentTypePtrInput interface {
+	pulumi.Input
+
+	ToApplicationComponentInfoComponentTypePtrOutput() ApplicationComponentInfoComponentTypePtrOutput
+	ToApplicationComponentInfoComponentTypePtrOutputWithContext(context.Context) ApplicationComponentInfoComponentTypePtrOutput
+}
+
+type applicationComponentInfoComponentTypePtr string
+
+func ApplicationComponentInfoComponentTypePtr(v string) ApplicationComponentInfoComponentTypePtrInput {
+	return (*applicationComponentInfoComponentTypePtr)(&v)
+}
+
+func (*applicationComponentInfoComponentTypePtr) ElementType() reflect.Type {
+	return applicationComponentInfoComponentTypePtrType
+}
+
+func (in *applicationComponentInfoComponentTypePtr) ToApplicationComponentInfoComponentTypePtrOutput() ApplicationComponentInfoComponentTypePtrOutput {
+	return pulumi.ToOutput(in).(ApplicationComponentInfoComponentTypePtrOutput)
+}
+
+func (in *applicationComponentInfoComponentTypePtr) ToApplicationComponentInfoComponentTypePtrOutputWithContext(ctx context.Context) ApplicationComponentInfoComponentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationComponentInfoComponentTypePtrOutput)
+}
+
 // The type of the application credentials.
 type ApplicationCredentialCredentialType string
 
@@ -341,10 +521,14 @@ func (in *applicationTypePtr) ToApplicationTypePtrOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationComponentInfoComponentTypeInput)(nil)).Elem(), ApplicationComponentInfoComponentType("HANA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationComponentInfoComponentTypePtrInput)(nil)).Elem(), ApplicationComponentInfoComponentType("HANA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCredentialCredentialTypeInput)(nil)).Elem(), ApplicationCredentialCredentialType("ADMIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCredentialCredentialTypePtrInput)(nil)).Elem(), ApplicationCredentialCredentialType("ADMIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTypeInput)(nil)).Elem(), ApplicationType("HANA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTypePtrInput)(nil)).Elem(), ApplicationType("HANA"))
+	pulumi.RegisterOutputType(ApplicationComponentInfoComponentTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationComponentInfoComponentTypePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationCredentialCredentialTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationCredentialCredentialTypePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeOutput{})

@@ -27,21 +27,15 @@ namespace Pulumi.AwsNative.ControlTower
         [Output("baselineVersion")]
         public Output<string> BaselineVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the `EnabledBaseline` resource.
-        /// </summary>
         [Output("enabledBaselineIdentifier")]
         public Output<string> EnabledBaselineIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
+        /// Shows the parameters that are applied when enabling this `Baseline` .
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.EnabledBaselineParameter>> Parameters { get; private set; } = null!;
 
-        /// <summary>
-        /// Tags associated with input to `EnableBaseline` .
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -117,7 +111,7 @@ namespace Pulumi.AwsNative.ControlTower
         private InputList<Inputs.EnabledBaselineParameterArgs>? _parameters;
 
         /// <summary>
-        /// Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
+        /// Shows the parameters that are applied when enabling this `Baseline` .
         /// </summary>
         public InputList<Inputs.EnabledBaselineParameterArgs> Parameters
         {
@@ -127,10 +121,6 @@ namespace Pulumi.AwsNative.ControlTower
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// Tags associated with input to `EnableBaseline` .
-        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -34,6 +34,10 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string DeviceIndex;
         /// <summary>
+        /// Configures ENA Express for UDP network traffic.
+        /// </summary>
+        public readonly Outputs.InstanceEnaSrdSpecification? EnaSrdSpecification;
+        /// <summary>
         /// The IDs of the security groups for the network interface.
         /// </summary>
         public readonly ImmutableArray<string> GroupSet;
@@ -78,6 +82,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             string deviceIndex,
 
+            Outputs.InstanceEnaSrdSpecification? enaSrdSpecification,
+
             ImmutableArray<string> groupSet,
 
             int? ipv6AddressCount,
@@ -99,6 +105,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             DeleteOnTermination = deleteOnTermination;
             Description = description;
             DeviceIndex = deviceIndex;
+            EnaSrdSpecification = enaSrdSpecification;
             GroupSet = groupSet;
             Ipv6AddressCount = ipv6AddressCount;
             Ipv6Addresses = ipv6Addresses;

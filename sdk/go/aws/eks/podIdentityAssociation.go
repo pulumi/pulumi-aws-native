@@ -23,6 +23,10 @@ type PodIdentityAssociation struct {
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// The cluster that the pod identity association is created for.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+	// The Disable Session Tags of the pod identity association.
+	DisableSessionTags pulumi.BoolPtrOutput `pulumi:"disableSessionTags"`
+	// The External Id of the pod identity association.
+	ExternalId pulumi.StringOutput `pulumi:"externalId"`
 	// The Kubernetes namespace that the pod identity association is created for.
 	Namespace pulumi.StringOutput `pulumi:"namespace"`
 	// The IAM role ARN that the pod identity association is created for.
@@ -31,6 +35,8 @@ type PodIdentityAssociation struct {
 	ServiceAccount pulumi.StringOutput `pulumi:"serviceAccount"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The Target Role Arn of the pod identity association.
+	TargetRoleArn pulumi.StringPtrOutput `pulumi:"targetRoleArn"`
 }
 
 // NewPodIdentityAssociation registers a new resource with the given unique name, arguments, and options.
@@ -93,6 +99,8 @@ func (PodIdentityAssociationState) ElementType() reflect.Type {
 type podIdentityAssociationArgs struct {
 	// The cluster that the pod identity association is created for.
 	ClusterName string `pulumi:"clusterName"`
+	// The Disable Session Tags of the pod identity association.
+	DisableSessionTags *bool `pulumi:"disableSessionTags"`
 	// The Kubernetes namespace that the pod identity association is created for.
 	Namespace string `pulumi:"namespace"`
 	// The IAM role ARN that the pod identity association is created for.
@@ -101,12 +109,16 @@ type podIdentityAssociationArgs struct {
 	ServiceAccount string `pulumi:"serviceAccount"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The Target Role Arn of the pod identity association.
+	TargetRoleArn *string `pulumi:"targetRoleArn"`
 }
 
 // The set of arguments for constructing a PodIdentityAssociation resource.
 type PodIdentityAssociationArgs struct {
 	// The cluster that the pod identity association is created for.
 	ClusterName pulumi.StringInput
+	// The Disable Session Tags of the pod identity association.
+	DisableSessionTags pulumi.BoolPtrInput
 	// The Kubernetes namespace that the pod identity association is created for.
 	Namespace pulumi.StringInput
 	// The IAM role ARN that the pod identity association is created for.
@@ -115,6 +127,8 @@ type PodIdentityAssociationArgs struct {
 	ServiceAccount pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
+	// The Target Role Arn of the pod identity association.
+	TargetRoleArn pulumi.StringPtrInput
 }
 
 func (PodIdentityAssociationArgs) ElementType() reflect.Type {
@@ -169,6 +183,16 @@ func (o PodIdentityAssociationOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PodIdentityAssociation) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
 
+// The Disable Session Tags of the pod identity association.
+func (o PodIdentityAssociationOutput) DisableSessionTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PodIdentityAssociation) pulumi.BoolPtrOutput { return v.DisableSessionTags }).(pulumi.BoolPtrOutput)
+}
+
+// The External Id of the pod identity association.
+func (o PodIdentityAssociationOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PodIdentityAssociation) pulumi.StringOutput { return v.ExternalId }).(pulumi.StringOutput)
+}
+
 // The Kubernetes namespace that the pod identity association is created for.
 func (o PodIdentityAssociationOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *PodIdentityAssociation) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
@@ -187,6 +211,11 @@ func (o PodIdentityAssociationOutput) ServiceAccount() pulumi.StringOutput {
 // An array of key-value pairs to apply to this resource.
 func (o PodIdentityAssociationOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *PodIdentityAssociation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The Target Role Arn of the pod identity association.
+func (o PodIdentityAssociationOutput) TargetRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PodIdentityAssociation) pulumi.StringPtrOutput { return v.TargetRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

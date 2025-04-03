@@ -26,6 +26,7 @@ namespace Pulumi.AwsNative.ApplicationSignals.Inputs
         /// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
         /// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
         /// - `Environment` specifies the location where this object is hosted, or what it belongs to.
+        /// - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
         /// </summary>
         public InputMap<string> KeyAttributes
         {

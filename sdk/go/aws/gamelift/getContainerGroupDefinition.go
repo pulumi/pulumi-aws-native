@@ -37,8 +37,6 @@ type LookupContainerGroupDefinitionResult struct {
 	GameServerContainerDefinition *ContainerGroupDefinitionGameServerContainerDefinition `pulumi:"gameServerContainerDefinition"`
 	// The operating system of the container group
 	OperatingSystem *ContainerGroupDefinitionOperatingSystem `pulumi:"operatingSystem"`
-	// A specific ContainerGroupDefinition version to be updated
-	SourceVersionNumber *int `pulumi:"sourceVersionNumber"`
 	// A string indicating ContainerGroupDefinition status.
 	Status *ContainerGroupDefinitionStatus `pulumi:"status"`
 	// A string indicating the reason for ContainerGroupDefinition status.
@@ -111,11 +109,6 @@ func (o LookupContainerGroupDefinitionResultOutput) OperatingSystem() ContainerG
 	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) *ContainerGroupDefinitionOperatingSystem {
 		return v.OperatingSystem
 	}).(ContainerGroupDefinitionOperatingSystemPtrOutput)
-}
-
-// A specific ContainerGroupDefinition version to be updated
-func (o LookupContainerGroupDefinitionResultOutput) SourceVersionNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) *int { return v.SourceVersionNumber }).(pulumi.IntPtrOutput)
 }
 
 // A string indicating ContainerGroupDefinition status.

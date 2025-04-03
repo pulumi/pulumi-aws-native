@@ -3143,6 +3143,428 @@ type DashboardTag struct {
 	Value string `pulumi:"value"`
 }
 
+type DatasetKendraSourceDetail struct {
+	// The knowledgeBaseArn details for the Kendra dataset source.
+	KnowledgeBaseArn string `pulumi:"knowledgeBaseArn"`
+	// The roleARN details for the Kendra dataset source.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// DatasetKendraSourceDetailInput is an input type that accepts DatasetKendraSourceDetailArgs and DatasetKendraSourceDetailOutput values.
+// You can construct a concrete instance of `DatasetKendraSourceDetailInput` via:
+//
+//	DatasetKendraSourceDetailArgs{...}
+type DatasetKendraSourceDetailInput interface {
+	pulumi.Input
+
+	ToDatasetKendraSourceDetailOutput() DatasetKendraSourceDetailOutput
+	ToDatasetKendraSourceDetailOutputWithContext(context.Context) DatasetKendraSourceDetailOutput
+}
+
+type DatasetKendraSourceDetailArgs struct {
+	// The knowledgeBaseArn details for the Kendra dataset source.
+	KnowledgeBaseArn pulumi.StringInput `pulumi:"knowledgeBaseArn"`
+	// The roleARN details for the Kendra dataset source.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (DatasetKendraSourceDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetKendraSourceDetail)(nil)).Elem()
+}
+
+func (i DatasetKendraSourceDetailArgs) ToDatasetKendraSourceDetailOutput() DatasetKendraSourceDetailOutput {
+	return i.ToDatasetKendraSourceDetailOutputWithContext(context.Background())
+}
+
+func (i DatasetKendraSourceDetailArgs) ToDatasetKendraSourceDetailOutputWithContext(ctx context.Context) DatasetKendraSourceDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetKendraSourceDetailOutput)
+}
+
+func (i DatasetKendraSourceDetailArgs) ToDatasetKendraSourceDetailPtrOutput() DatasetKendraSourceDetailPtrOutput {
+	return i.ToDatasetKendraSourceDetailPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetKendraSourceDetailArgs) ToDatasetKendraSourceDetailPtrOutputWithContext(ctx context.Context) DatasetKendraSourceDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetKendraSourceDetailOutput).ToDatasetKendraSourceDetailPtrOutputWithContext(ctx)
+}
+
+// DatasetKendraSourceDetailPtrInput is an input type that accepts DatasetKendraSourceDetailArgs, DatasetKendraSourceDetailPtr and DatasetKendraSourceDetailPtrOutput values.
+// You can construct a concrete instance of `DatasetKendraSourceDetailPtrInput` via:
+//
+//	        DatasetKendraSourceDetailArgs{...}
+//
+//	or:
+//
+//	        nil
+type DatasetKendraSourceDetailPtrInput interface {
+	pulumi.Input
+
+	ToDatasetKendraSourceDetailPtrOutput() DatasetKendraSourceDetailPtrOutput
+	ToDatasetKendraSourceDetailPtrOutputWithContext(context.Context) DatasetKendraSourceDetailPtrOutput
+}
+
+type datasetKendraSourceDetailPtrType DatasetKendraSourceDetailArgs
+
+func DatasetKendraSourceDetailPtr(v *DatasetKendraSourceDetailArgs) DatasetKendraSourceDetailPtrInput {
+	return (*datasetKendraSourceDetailPtrType)(v)
+}
+
+func (*datasetKendraSourceDetailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetKendraSourceDetail)(nil)).Elem()
+}
+
+func (i *datasetKendraSourceDetailPtrType) ToDatasetKendraSourceDetailPtrOutput() DatasetKendraSourceDetailPtrOutput {
+	return i.ToDatasetKendraSourceDetailPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetKendraSourceDetailPtrType) ToDatasetKendraSourceDetailPtrOutputWithContext(ctx context.Context) DatasetKendraSourceDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetKendraSourceDetailPtrOutput)
+}
+
+type DatasetKendraSourceDetailOutput struct{ *pulumi.OutputState }
+
+func (DatasetKendraSourceDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetKendraSourceDetail)(nil)).Elem()
+}
+
+func (o DatasetKendraSourceDetailOutput) ToDatasetKendraSourceDetailOutput() DatasetKendraSourceDetailOutput {
+	return o
+}
+
+func (o DatasetKendraSourceDetailOutput) ToDatasetKendraSourceDetailOutputWithContext(ctx context.Context) DatasetKendraSourceDetailOutput {
+	return o
+}
+
+func (o DatasetKendraSourceDetailOutput) ToDatasetKendraSourceDetailPtrOutput() DatasetKendraSourceDetailPtrOutput {
+	return o.ToDatasetKendraSourceDetailPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetKendraSourceDetailOutput) ToDatasetKendraSourceDetailPtrOutputWithContext(ctx context.Context) DatasetKendraSourceDetailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetKendraSourceDetail) *DatasetKendraSourceDetail {
+		return &v
+	}).(DatasetKendraSourceDetailPtrOutput)
+}
+
+// The knowledgeBaseArn details for the Kendra dataset source.
+func (o DatasetKendraSourceDetailOutput) KnowledgeBaseArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetKendraSourceDetail) string { return v.KnowledgeBaseArn }).(pulumi.StringOutput)
+}
+
+// The roleARN details for the Kendra dataset source.
+func (o DatasetKendraSourceDetailOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetKendraSourceDetail) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type DatasetKendraSourceDetailPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetKendraSourceDetailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetKendraSourceDetail)(nil)).Elem()
+}
+
+func (o DatasetKendraSourceDetailPtrOutput) ToDatasetKendraSourceDetailPtrOutput() DatasetKendraSourceDetailPtrOutput {
+	return o
+}
+
+func (o DatasetKendraSourceDetailPtrOutput) ToDatasetKendraSourceDetailPtrOutputWithContext(ctx context.Context) DatasetKendraSourceDetailPtrOutput {
+	return o
+}
+
+func (o DatasetKendraSourceDetailPtrOutput) Elem() DatasetKendraSourceDetailOutput {
+	return o.ApplyT(func(v *DatasetKendraSourceDetail) DatasetKendraSourceDetail {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetKendraSourceDetail
+		return ret
+	}).(DatasetKendraSourceDetailOutput)
+}
+
+// The knowledgeBaseArn details for the Kendra dataset source.
+func (o DatasetKendraSourceDetailPtrOutput) KnowledgeBaseArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetKendraSourceDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KnowledgeBaseArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The roleARN details for the Kendra dataset source.
+func (o DatasetKendraSourceDetailPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetKendraSourceDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasetSource struct {
+	// The details of the dataset source associated with the dataset.
+	SourceDetail *DatasetSourceDetail `pulumi:"sourceDetail"`
+	// The format of the dataset source associated with the dataset.
+	SourceFormat DatasetSourceSourceFormat `pulumi:"sourceFormat"`
+	// The type of data source for the dataset.
+	SourceType DatasetSourceSourceType `pulumi:"sourceType"`
+}
+
+// DatasetSourceInput is an input type that accepts DatasetSourceArgs and DatasetSourceOutput values.
+// You can construct a concrete instance of `DatasetSourceInput` via:
+//
+//	DatasetSourceArgs{...}
+type DatasetSourceInput interface {
+	pulumi.Input
+
+	ToDatasetSourceOutput() DatasetSourceOutput
+	ToDatasetSourceOutputWithContext(context.Context) DatasetSourceOutput
+}
+
+type DatasetSourceArgs struct {
+	// The details of the dataset source associated with the dataset.
+	SourceDetail DatasetSourceDetailPtrInput `pulumi:"sourceDetail"`
+	// The format of the dataset source associated with the dataset.
+	SourceFormat DatasetSourceSourceFormatInput `pulumi:"sourceFormat"`
+	// The type of data source for the dataset.
+	SourceType DatasetSourceSourceTypeInput `pulumi:"sourceType"`
+}
+
+func (DatasetSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSource)(nil)).Elem()
+}
+
+func (i DatasetSourceArgs) ToDatasetSourceOutput() DatasetSourceOutput {
+	return i.ToDatasetSourceOutputWithContext(context.Background())
+}
+
+func (i DatasetSourceArgs) ToDatasetSourceOutputWithContext(ctx context.Context) DatasetSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSourceOutput)
+}
+
+type DatasetSourceOutput struct{ *pulumi.OutputState }
+
+func (DatasetSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSource)(nil)).Elem()
+}
+
+func (o DatasetSourceOutput) ToDatasetSourceOutput() DatasetSourceOutput {
+	return o
+}
+
+func (o DatasetSourceOutput) ToDatasetSourceOutputWithContext(ctx context.Context) DatasetSourceOutput {
+	return o
+}
+
+// The details of the dataset source associated with the dataset.
+func (o DatasetSourceOutput) SourceDetail() DatasetSourceDetailPtrOutput {
+	return o.ApplyT(func(v DatasetSource) *DatasetSourceDetail { return v.SourceDetail }).(DatasetSourceDetailPtrOutput)
+}
+
+// The format of the dataset source associated with the dataset.
+func (o DatasetSourceOutput) SourceFormat() DatasetSourceSourceFormatOutput {
+	return o.ApplyT(func(v DatasetSource) DatasetSourceSourceFormat { return v.SourceFormat }).(DatasetSourceSourceFormatOutput)
+}
+
+// The type of data source for the dataset.
+func (o DatasetSourceOutput) SourceType() DatasetSourceSourceTypeOutput {
+	return o.ApplyT(func(v DatasetSource) DatasetSourceSourceType { return v.SourceType }).(DatasetSourceSourceTypeOutput)
+}
+
+type DatasetSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetSource)(nil)).Elem()
+}
+
+func (o DatasetSourcePtrOutput) ToDatasetSourcePtrOutput() DatasetSourcePtrOutput {
+	return o
+}
+
+func (o DatasetSourcePtrOutput) ToDatasetSourcePtrOutputWithContext(ctx context.Context) DatasetSourcePtrOutput {
+	return o
+}
+
+func (o DatasetSourcePtrOutput) Elem() DatasetSourceOutput {
+	return o.ApplyT(func(v *DatasetSource) DatasetSource {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetSource
+		return ret
+	}).(DatasetSourceOutput)
+}
+
+// The details of the dataset source associated with the dataset.
+func (o DatasetSourcePtrOutput) SourceDetail() DatasetSourceDetailPtrOutput {
+	return o.ApplyT(func(v *DatasetSource) *DatasetSourceDetail {
+		if v == nil {
+			return nil
+		}
+		return v.SourceDetail
+	}).(DatasetSourceDetailPtrOutput)
+}
+
+// The format of the dataset source associated with the dataset.
+func (o DatasetSourcePtrOutput) SourceFormat() DatasetSourceSourceFormatPtrOutput {
+	return o.ApplyT(func(v *DatasetSource) *DatasetSourceSourceFormat {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceFormat
+	}).(DatasetSourceSourceFormatPtrOutput)
+}
+
+// The type of data source for the dataset.
+func (o DatasetSourcePtrOutput) SourceType() DatasetSourceSourceTypePtrOutput {
+	return o.ApplyT(func(v *DatasetSource) *DatasetSourceSourceType {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceType
+	}).(DatasetSourceSourceTypePtrOutput)
+}
+
+type DatasetSourceDetail struct {
+	// Contains details about the Kendra dataset source.
+	Kendra *DatasetKendraSourceDetail `pulumi:"kendra"`
+}
+
+// DatasetSourceDetailInput is an input type that accepts DatasetSourceDetailArgs and DatasetSourceDetailOutput values.
+// You can construct a concrete instance of `DatasetSourceDetailInput` via:
+//
+//	DatasetSourceDetailArgs{...}
+type DatasetSourceDetailInput interface {
+	pulumi.Input
+
+	ToDatasetSourceDetailOutput() DatasetSourceDetailOutput
+	ToDatasetSourceDetailOutputWithContext(context.Context) DatasetSourceDetailOutput
+}
+
+type DatasetSourceDetailArgs struct {
+	// Contains details about the Kendra dataset source.
+	Kendra DatasetKendraSourceDetailPtrInput `pulumi:"kendra"`
+}
+
+func (DatasetSourceDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSourceDetail)(nil)).Elem()
+}
+
+func (i DatasetSourceDetailArgs) ToDatasetSourceDetailOutput() DatasetSourceDetailOutput {
+	return i.ToDatasetSourceDetailOutputWithContext(context.Background())
+}
+
+func (i DatasetSourceDetailArgs) ToDatasetSourceDetailOutputWithContext(ctx context.Context) DatasetSourceDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSourceDetailOutput)
+}
+
+func (i DatasetSourceDetailArgs) ToDatasetSourceDetailPtrOutput() DatasetSourceDetailPtrOutput {
+	return i.ToDatasetSourceDetailPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetSourceDetailArgs) ToDatasetSourceDetailPtrOutputWithContext(ctx context.Context) DatasetSourceDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSourceDetailOutput).ToDatasetSourceDetailPtrOutputWithContext(ctx)
+}
+
+// DatasetSourceDetailPtrInput is an input type that accepts DatasetSourceDetailArgs, DatasetSourceDetailPtr and DatasetSourceDetailPtrOutput values.
+// You can construct a concrete instance of `DatasetSourceDetailPtrInput` via:
+//
+//	        DatasetSourceDetailArgs{...}
+//
+//	or:
+//
+//	        nil
+type DatasetSourceDetailPtrInput interface {
+	pulumi.Input
+
+	ToDatasetSourceDetailPtrOutput() DatasetSourceDetailPtrOutput
+	ToDatasetSourceDetailPtrOutputWithContext(context.Context) DatasetSourceDetailPtrOutput
+}
+
+type datasetSourceDetailPtrType DatasetSourceDetailArgs
+
+func DatasetSourceDetailPtr(v *DatasetSourceDetailArgs) DatasetSourceDetailPtrInput {
+	return (*datasetSourceDetailPtrType)(v)
+}
+
+func (*datasetSourceDetailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetSourceDetail)(nil)).Elem()
+}
+
+func (i *datasetSourceDetailPtrType) ToDatasetSourceDetailPtrOutput() DatasetSourceDetailPtrOutput {
+	return i.ToDatasetSourceDetailPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetSourceDetailPtrType) ToDatasetSourceDetailPtrOutputWithContext(ctx context.Context) DatasetSourceDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSourceDetailPtrOutput)
+}
+
+type DatasetSourceDetailOutput struct{ *pulumi.OutputState }
+
+func (DatasetSourceDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSourceDetail)(nil)).Elem()
+}
+
+func (o DatasetSourceDetailOutput) ToDatasetSourceDetailOutput() DatasetSourceDetailOutput {
+	return o
+}
+
+func (o DatasetSourceDetailOutput) ToDatasetSourceDetailOutputWithContext(ctx context.Context) DatasetSourceDetailOutput {
+	return o
+}
+
+func (o DatasetSourceDetailOutput) ToDatasetSourceDetailPtrOutput() DatasetSourceDetailPtrOutput {
+	return o.ToDatasetSourceDetailPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetSourceDetailOutput) ToDatasetSourceDetailPtrOutputWithContext(ctx context.Context) DatasetSourceDetailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetSourceDetail) *DatasetSourceDetail {
+		return &v
+	}).(DatasetSourceDetailPtrOutput)
+}
+
+// Contains details about the Kendra dataset source.
+func (o DatasetSourceDetailOutput) Kendra() DatasetKendraSourceDetailPtrOutput {
+	return o.ApplyT(func(v DatasetSourceDetail) *DatasetKendraSourceDetail { return v.Kendra }).(DatasetKendraSourceDetailPtrOutput)
+}
+
+type DatasetSourceDetailPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetSourceDetailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetSourceDetail)(nil)).Elem()
+}
+
+func (o DatasetSourceDetailPtrOutput) ToDatasetSourceDetailPtrOutput() DatasetSourceDetailPtrOutput {
+	return o
+}
+
+func (o DatasetSourceDetailPtrOutput) ToDatasetSourceDetailPtrOutputWithContext(ctx context.Context) DatasetSourceDetailPtrOutput {
+	return o
+}
+
+func (o DatasetSourceDetailPtrOutput) Elem() DatasetSourceDetailOutput {
+	return o.ApplyT(func(v *DatasetSourceDetail) DatasetSourceDetail {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetSourceDetail
+		return ret
+	}).(DatasetSourceDetailOutput)
+}
+
+// Contains details about the Kendra dataset source.
+func (o DatasetSourceDetailPtrOutput) Kendra() DatasetKendraSourceDetailPtrOutput {
+	return o.ApplyT(func(v *DatasetSourceDetail) *DatasetKendraSourceDetail {
+		if v == nil {
+			return nil
+		}
+		return v.Kendra
+	}).(DatasetKendraSourceDetailPtrOutput)
+}
+
+type DatasetTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // Contains a summary of a gateway capability configuration.
 type GatewayCapabilitySummary struct {
 	// The JSON document that defines the configuration for the gateway capability. For more information, see [Configuring data sources (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli) in the *AWS IoT SiteWise User Guide* .
@@ -3782,6 +4204,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelVariableValueInput)(nil)).Elem(), AssetModelVariableValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetPropertyInput)(nil)).Elem(), AssetPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetPropertyArrayInput)(nil)).Elem(), AssetPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetKendraSourceDetailInput)(nil)).Elem(), DatasetKendraSourceDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetKendraSourceDetailPtrInput)(nil)).Elem(), DatasetKendraSourceDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSourceInput)(nil)).Elem(), DatasetSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSourceDetailInput)(nil)).Elem(), DatasetSourceDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSourceDetailPtrInput)(nil)).Elem(), DatasetSourceDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayCapabilitySummaryInput)(nil)).Elem(), GatewayCapabilitySummaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayCapabilitySummaryArrayInput)(nil)).Elem(), GatewayCapabilitySummaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGreengrassV2Input)(nil)).Elem(), GatewayGreengrassV2Args{})
@@ -3833,6 +4260,12 @@ func init() {
 	pulumi.RegisterOutputType(AssetModelVariableValueOutput{})
 	pulumi.RegisterOutputType(AssetPropertyOutput{})
 	pulumi.RegisterOutputType(AssetPropertyArrayOutput{})
+	pulumi.RegisterOutputType(DatasetKendraSourceDetailOutput{})
+	pulumi.RegisterOutputType(DatasetKendraSourceDetailPtrOutput{})
+	pulumi.RegisterOutputType(DatasetSourceOutput{})
+	pulumi.RegisterOutputType(DatasetSourcePtrOutput{})
+	pulumi.RegisterOutputType(DatasetSourceDetailOutput{})
+	pulumi.RegisterOutputType(DatasetSourceDetailPtrOutput{})
 	pulumi.RegisterOutputType(GatewayCapabilitySummaryOutput{})
 	pulumi.RegisterOutputType(GatewayCapabilitySummaryArrayOutput{})
 	pulumi.RegisterOutputType(GatewayGreengrassV2Output{})

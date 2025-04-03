@@ -5104,6 +5104,302 @@ func (o FlowMediaStreamSourceConfigurationArrayOutput) Index(i pulumi.IntInput) 
 	}).(FlowMediaStreamSourceConfigurationOutput)
 }
 
+// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+type FlowNdiConfig struct {
+	// A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
+	MachineName *string `pulumi:"machineName"`
+	// A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
+	NdiDiscoveryServers []FlowNdiDiscoveryServerConfig `pulumi:"ndiDiscoveryServers"`
+	// A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+	NdiState *FlowNdiConfigNdiState `pulumi:"ndiState"`
+}
+
+// FlowNdiConfigInput is an input type that accepts FlowNdiConfigArgs and FlowNdiConfigOutput values.
+// You can construct a concrete instance of `FlowNdiConfigInput` via:
+//
+//	FlowNdiConfigArgs{...}
+type FlowNdiConfigInput interface {
+	pulumi.Input
+
+	ToFlowNdiConfigOutput() FlowNdiConfigOutput
+	ToFlowNdiConfigOutputWithContext(context.Context) FlowNdiConfigOutput
+}
+
+// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+type FlowNdiConfigArgs struct {
+	// A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
+	MachineName pulumi.StringPtrInput `pulumi:"machineName"`
+	// A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
+	NdiDiscoveryServers FlowNdiDiscoveryServerConfigArrayInput `pulumi:"ndiDiscoveryServers"`
+	// A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+	NdiState FlowNdiConfigNdiStatePtrInput `pulumi:"ndiState"`
+}
+
+func (FlowNdiConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNdiConfig)(nil)).Elem()
+}
+
+func (i FlowNdiConfigArgs) ToFlowNdiConfigOutput() FlowNdiConfigOutput {
+	return i.ToFlowNdiConfigOutputWithContext(context.Background())
+}
+
+func (i FlowNdiConfigArgs) ToFlowNdiConfigOutputWithContext(ctx context.Context) FlowNdiConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNdiConfigOutput)
+}
+
+func (i FlowNdiConfigArgs) ToFlowNdiConfigPtrOutput() FlowNdiConfigPtrOutput {
+	return i.ToFlowNdiConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FlowNdiConfigArgs) ToFlowNdiConfigPtrOutputWithContext(ctx context.Context) FlowNdiConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNdiConfigOutput).ToFlowNdiConfigPtrOutputWithContext(ctx)
+}
+
+// FlowNdiConfigPtrInput is an input type that accepts FlowNdiConfigArgs, FlowNdiConfigPtr and FlowNdiConfigPtrOutput values.
+// You can construct a concrete instance of `FlowNdiConfigPtrInput` via:
+//
+//	        FlowNdiConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowNdiConfigPtrInput interface {
+	pulumi.Input
+
+	ToFlowNdiConfigPtrOutput() FlowNdiConfigPtrOutput
+	ToFlowNdiConfigPtrOutputWithContext(context.Context) FlowNdiConfigPtrOutput
+}
+
+type flowNdiConfigPtrType FlowNdiConfigArgs
+
+func FlowNdiConfigPtr(v *FlowNdiConfigArgs) FlowNdiConfigPtrInput {
+	return (*flowNdiConfigPtrType)(v)
+}
+
+func (*flowNdiConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNdiConfig)(nil)).Elem()
+}
+
+func (i *flowNdiConfigPtrType) ToFlowNdiConfigPtrOutput() FlowNdiConfigPtrOutput {
+	return i.ToFlowNdiConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *flowNdiConfigPtrType) ToFlowNdiConfigPtrOutputWithContext(ctx context.Context) FlowNdiConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNdiConfigPtrOutput)
+}
+
+// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+type FlowNdiConfigOutput struct{ *pulumi.OutputState }
+
+func (FlowNdiConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNdiConfig)(nil)).Elem()
+}
+
+func (o FlowNdiConfigOutput) ToFlowNdiConfigOutput() FlowNdiConfigOutput {
+	return o
+}
+
+func (o FlowNdiConfigOutput) ToFlowNdiConfigOutputWithContext(ctx context.Context) FlowNdiConfigOutput {
+	return o
+}
+
+func (o FlowNdiConfigOutput) ToFlowNdiConfigPtrOutput() FlowNdiConfigPtrOutput {
+	return o.ToFlowNdiConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNdiConfigOutput) ToFlowNdiConfigPtrOutputWithContext(ctx context.Context) FlowNdiConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowNdiConfig) *FlowNdiConfig {
+		return &v
+	}).(FlowNdiConfigPtrOutput)
+}
+
+// A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
+func (o FlowNdiConfigOutput) MachineName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowNdiConfig) *string { return v.MachineName }).(pulumi.StringPtrOutput)
+}
+
+// A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
+func (o FlowNdiConfigOutput) NdiDiscoveryServers() FlowNdiDiscoveryServerConfigArrayOutput {
+	return o.ApplyT(func(v FlowNdiConfig) []FlowNdiDiscoveryServerConfig { return v.NdiDiscoveryServers }).(FlowNdiDiscoveryServerConfigArrayOutput)
+}
+
+// A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+func (o FlowNdiConfigOutput) NdiState() FlowNdiConfigNdiStatePtrOutput {
+	return o.ApplyT(func(v FlowNdiConfig) *FlowNdiConfigNdiState { return v.NdiState }).(FlowNdiConfigNdiStatePtrOutput)
+}
+
+type FlowNdiConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowNdiConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNdiConfig)(nil)).Elem()
+}
+
+func (o FlowNdiConfigPtrOutput) ToFlowNdiConfigPtrOutput() FlowNdiConfigPtrOutput {
+	return o
+}
+
+func (o FlowNdiConfigPtrOutput) ToFlowNdiConfigPtrOutputWithContext(ctx context.Context) FlowNdiConfigPtrOutput {
+	return o
+}
+
+func (o FlowNdiConfigPtrOutput) Elem() FlowNdiConfigOutput {
+	return o.ApplyT(func(v *FlowNdiConfig) FlowNdiConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FlowNdiConfig
+		return ret
+	}).(FlowNdiConfigOutput)
+}
+
+// A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
+func (o FlowNdiConfigPtrOutput) MachineName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowNdiConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MachineName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
+func (o FlowNdiConfigPtrOutput) NdiDiscoveryServers() FlowNdiDiscoveryServerConfigArrayOutput {
+	return o.ApplyT(func(v *FlowNdiConfig) []FlowNdiDiscoveryServerConfig {
+		if v == nil {
+			return nil
+		}
+		return v.NdiDiscoveryServers
+	}).(FlowNdiDiscoveryServerConfigArrayOutput)
+}
+
+// A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+func (o FlowNdiConfigPtrOutput) NdiState() FlowNdiConfigNdiStatePtrOutput {
+	return o.ApplyT(func(v *FlowNdiConfig) *FlowNdiConfigNdiState {
+		if v == nil {
+			return nil
+		}
+		return v.NdiState
+	}).(FlowNdiConfigNdiStatePtrOutput)
+}
+
+// Specifies the configuration settings for individual NDI discovery servers. A maximum of 3 servers is allowed.
+type FlowNdiDiscoveryServerConfig struct {
+	// The unique network address of the NDI discovery server.
+	DiscoveryServerAddress string `pulumi:"discoveryServerAddress"`
+	// The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
+	DiscoveryServerPort *int `pulumi:"discoveryServerPort"`
+	// The identifier for the Virtual Private Cloud (VPC) network interface used by the flow.
+	VpcInterfaceAdapter string `pulumi:"vpcInterfaceAdapter"`
+}
+
+// FlowNdiDiscoveryServerConfigInput is an input type that accepts FlowNdiDiscoveryServerConfigArgs and FlowNdiDiscoveryServerConfigOutput values.
+// You can construct a concrete instance of `FlowNdiDiscoveryServerConfigInput` via:
+//
+//	FlowNdiDiscoveryServerConfigArgs{...}
+type FlowNdiDiscoveryServerConfigInput interface {
+	pulumi.Input
+
+	ToFlowNdiDiscoveryServerConfigOutput() FlowNdiDiscoveryServerConfigOutput
+	ToFlowNdiDiscoveryServerConfigOutputWithContext(context.Context) FlowNdiDiscoveryServerConfigOutput
+}
+
+// Specifies the configuration settings for individual NDI discovery servers. A maximum of 3 servers is allowed.
+type FlowNdiDiscoveryServerConfigArgs struct {
+	// The unique network address of the NDI discovery server.
+	DiscoveryServerAddress pulumi.StringInput `pulumi:"discoveryServerAddress"`
+	// The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
+	DiscoveryServerPort pulumi.IntPtrInput `pulumi:"discoveryServerPort"`
+	// The identifier for the Virtual Private Cloud (VPC) network interface used by the flow.
+	VpcInterfaceAdapter pulumi.StringInput `pulumi:"vpcInterfaceAdapter"`
+}
+
+func (FlowNdiDiscoveryServerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNdiDiscoveryServerConfig)(nil)).Elem()
+}
+
+func (i FlowNdiDiscoveryServerConfigArgs) ToFlowNdiDiscoveryServerConfigOutput() FlowNdiDiscoveryServerConfigOutput {
+	return i.ToFlowNdiDiscoveryServerConfigOutputWithContext(context.Background())
+}
+
+func (i FlowNdiDiscoveryServerConfigArgs) ToFlowNdiDiscoveryServerConfigOutputWithContext(ctx context.Context) FlowNdiDiscoveryServerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNdiDiscoveryServerConfigOutput)
+}
+
+// FlowNdiDiscoveryServerConfigArrayInput is an input type that accepts FlowNdiDiscoveryServerConfigArray and FlowNdiDiscoveryServerConfigArrayOutput values.
+// You can construct a concrete instance of `FlowNdiDiscoveryServerConfigArrayInput` via:
+//
+//	FlowNdiDiscoveryServerConfigArray{ FlowNdiDiscoveryServerConfigArgs{...} }
+type FlowNdiDiscoveryServerConfigArrayInput interface {
+	pulumi.Input
+
+	ToFlowNdiDiscoveryServerConfigArrayOutput() FlowNdiDiscoveryServerConfigArrayOutput
+	ToFlowNdiDiscoveryServerConfigArrayOutputWithContext(context.Context) FlowNdiDiscoveryServerConfigArrayOutput
+}
+
+type FlowNdiDiscoveryServerConfigArray []FlowNdiDiscoveryServerConfigInput
+
+func (FlowNdiDiscoveryServerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowNdiDiscoveryServerConfig)(nil)).Elem()
+}
+
+func (i FlowNdiDiscoveryServerConfigArray) ToFlowNdiDiscoveryServerConfigArrayOutput() FlowNdiDiscoveryServerConfigArrayOutput {
+	return i.ToFlowNdiDiscoveryServerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i FlowNdiDiscoveryServerConfigArray) ToFlowNdiDiscoveryServerConfigArrayOutputWithContext(ctx context.Context) FlowNdiDiscoveryServerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNdiDiscoveryServerConfigArrayOutput)
+}
+
+// Specifies the configuration settings for individual NDI discovery servers. A maximum of 3 servers is allowed.
+type FlowNdiDiscoveryServerConfigOutput struct{ *pulumi.OutputState }
+
+func (FlowNdiDiscoveryServerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNdiDiscoveryServerConfig)(nil)).Elem()
+}
+
+func (o FlowNdiDiscoveryServerConfigOutput) ToFlowNdiDiscoveryServerConfigOutput() FlowNdiDiscoveryServerConfigOutput {
+	return o
+}
+
+func (o FlowNdiDiscoveryServerConfigOutput) ToFlowNdiDiscoveryServerConfigOutputWithContext(ctx context.Context) FlowNdiDiscoveryServerConfigOutput {
+	return o
+}
+
+// The unique network address of the NDI discovery server.
+func (o FlowNdiDiscoveryServerConfigOutput) DiscoveryServerAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowNdiDiscoveryServerConfig) string { return v.DiscoveryServerAddress }).(pulumi.StringOutput)
+}
+
+// The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
+func (o FlowNdiDiscoveryServerConfigOutput) DiscoveryServerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowNdiDiscoveryServerConfig) *int { return v.DiscoveryServerPort }).(pulumi.IntPtrOutput)
+}
+
+// The identifier for the Virtual Private Cloud (VPC) network interface used by the flow.
+func (o FlowNdiDiscoveryServerConfigOutput) VpcInterfaceAdapter() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowNdiDiscoveryServerConfig) string { return v.VpcInterfaceAdapter }).(pulumi.StringOutput)
+}
+
+type FlowNdiDiscoveryServerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowNdiDiscoveryServerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowNdiDiscoveryServerConfig)(nil)).Elem()
+}
+
+func (o FlowNdiDiscoveryServerConfigArrayOutput) ToFlowNdiDiscoveryServerConfigArrayOutput() FlowNdiDiscoveryServerConfigArrayOutput {
+	return o
+}
+
+func (o FlowNdiDiscoveryServerConfigArrayOutput) ToFlowNdiDiscoveryServerConfigArrayOutputWithContext(ctx context.Context) FlowNdiDiscoveryServerConfigArrayOutput {
+	return o
+}
+
+func (o FlowNdiDiscoveryServerConfigArrayOutput) Index(i pulumi.IntInput) FlowNdiDiscoveryServerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowNdiDiscoveryServerConfig {
+		return vs[0].([]FlowNdiDiscoveryServerConfig)[vs[1].(int)]
+	}).(FlowNdiDiscoveryServerConfigOutput)
+}
+
 // The definition of a media stream that is associated with the output.
 type FlowOutputDestinationConfiguration struct {
 	// The IP address where contents of the media stream will be sent.
@@ -7911,6 +8207,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamAttributesPtrInput)(nil)).Elem(), FlowMediaStreamAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamSourceConfigurationInput)(nil)).Elem(), FlowMediaStreamSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamSourceConfigurationArrayInput)(nil)).Elem(), FlowMediaStreamSourceConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNdiConfigInput)(nil)).Elem(), FlowNdiConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNdiConfigPtrInput)(nil)).Elem(), FlowNdiConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNdiDiscoveryServerConfigInput)(nil)).Elem(), FlowNdiDiscoveryServerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNdiDiscoveryServerConfigArrayInput)(nil)).Elem(), FlowNdiDiscoveryServerConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputDestinationConfigurationInput)(nil)).Elem(), FlowOutputDestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputDestinationConfigurationArrayInput)(nil)).Elem(), FlowOutputDestinationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncodingParametersInput)(nil)).Elem(), FlowOutputEncodingParametersArgs{})
@@ -8002,6 +8302,10 @@ func init() {
 	pulumi.RegisterOutputType(FlowMediaStreamAttributesPtrOutput{})
 	pulumi.RegisterOutputType(FlowMediaStreamSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowMediaStreamSourceConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(FlowNdiConfigOutput{})
+	pulumi.RegisterOutputType(FlowNdiConfigPtrOutput{})
+	pulumi.RegisterOutputType(FlowNdiDiscoveryServerConfigOutput{})
+	pulumi.RegisterOutputType(FlowNdiDiscoveryServerConfigArrayOutput{})
 	pulumi.RegisterOutputType(FlowOutputDestinationConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowOutputDestinationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(FlowOutputEncodingParametersOutput{})

@@ -71,9 +71,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
 
-        /// <summary>
-        /// Specifies configuration for Snowflake.
-        /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.DeliveryStreamProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
 

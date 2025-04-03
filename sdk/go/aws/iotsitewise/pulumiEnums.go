@@ -679,6 +679,334 @@ func (in *assetPropertyNotificationStatePtr) ToAssetPropertyNotificationStatePtr
 	return pulumi.ToOutputWithContext(ctx, in).(AssetPropertyNotificationStatePtrOutput)
 }
 
+// The format of the dataset source associated with the dataset.
+type DatasetSourceSourceFormat string
+
+const (
+	DatasetSourceSourceFormatKnowledgeBase = DatasetSourceSourceFormat("KNOWLEDGE_BASE")
+)
+
+func (DatasetSourceSourceFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSourceSourceFormat)(nil)).Elem()
+}
+
+func (e DatasetSourceSourceFormat) ToDatasetSourceSourceFormatOutput() DatasetSourceSourceFormatOutput {
+	return pulumi.ToOutput(e).(DatasetSourceSourceFormatOutput)
+}
+
+func (e DatasetSourceSourceFormat) ToDatasetSourceSourceFormatOutputWithContext(ctx context.Context) DatasetSourceSourceFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DatasetSourceSourceFormatOutput)
+}
+
+func (e DatasetSourceSourceFormat) ToDatasetSourceSourceFormatPtrOutput() DatasetSourceSourceFormatPtrOutput {
+	return e.ToDatasetSourceSourceFormatPtrOutputWithContext(context.Background())
+}
+
+func (e DatasetSourceSourceFormat) ToDatasetSourceSourceFormatPtrOutputWithContext(ctx context.Context) DatasetSourceSourceFormatPtrOutput {
+	return DatasetSourceSourceFormat(e).ToDatasetSourceSourceFormatOutputWithContext(ctx).ToDatasetSourceSourceFormatPtrOutputWithContext(ctx)
+}
+
+func (e DatasetSourceSourceFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DatasetSourceSourceFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DatasetSourceSourceFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DatasetSourceSourceFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DatasetSourceSourceFormatOutput struct{ *pulumi.OutputState }
+
+func (DatasetSourceSourceFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSourceSourceFormat)(nil)).Elem()
+}
+
+func (o DatasetSourceSourceFormatOutput) ToDatasetSourceSourceFormatOutput() DatasetSourceSourceFormatOutput {
+	return o
+}
+
+func (o DatasetSourceSourceFormatOutput) ToDatasetSourceSourceFormatOutputWithContext(ctx context.Context) DatasetSourceSourceFormatOutput {
+	return o
+}
+
+func (o DatasetSourceSourceFormatOutput) ToDatasetSourceSourceFormatPtrOutput() DatasetSourceSourceFormatPtrOutput {
+	return o.ToDatasetSourceSourceFormatPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetSourceSourceFormatOutput) ToDatasetSourceSourceFormatPtrOutputWithContext(ctx context.Context) DatasetSourceSourceFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetSourceSourceFormat) *DatasetSourceSourceFormat {
+		return &v
+	}).(DatasetSourceSourceFormatPtrOutput)
+}
+
+func (o DatasetSourceSourceFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DatasetSourceSourceFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatasetSourceSourceFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DatasetSourceSourceFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetSourceSourceFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatasetSourceSourceFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasetSourceSourceFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetSourceSourceFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetSourceSourceFormat)(nil)).Elem()
+}
+
+func (o DatasetSourceSourceFormatPtrOutput) ToDatasetSourceSourceFormatPtrOutput() DatasetSourceSourceFormatPtrOutput {
+	return o
+}
+
+func (o DatasetSourceSourceFormatPtrOutput) ToDatasetSourceSourceFormatPtrOutputWithContext(ctx context.Context) DatasetSourceSourceFormatPtrOutput {
+	return o
+}
+
+func (o DatasetSourceSourceFormatPtrOutput) Elem() DatasetSourceSourceFormatOutput {
+	return o.ApplyT(func(v *DatasetSourceSourceFormat) DatasetSourceSourceFormat {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetSourceSourceFormat
+		return ret
+	}).(DatasetSourceSourceFormatOutput)
+}
+
+func (o DatasetSourceSourceFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetSourceSourceFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DatasetSourceSourceFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DatasetSourceSourceFormatInput is an input type that accepts values of the DatasetSourceSourceFormat enum
+// A concrete instance of `DatasetSourceSourceFormatInput` can be one of the following:
+//
+//	DatasetSourceSourceFormatKnowledgeBase
+type DatasetSourceSourceFormatInput interface {
+	pulumi.Input
+
+	ToDatasetSourceSourceFormatOutput() DatasetSourceSourceFormatOutput
+	ToDatasetSourceSourceFormatOutputWithContext(context.Context) DatasetSourceSourceFormatOutput
+}
+
+var datasetSourceSourceFormatPtrType = reflect.TypeOf((**DatasetSourceSourceFormat)(nil)).Elem()
+
+type DatasetSourceSourceFormatPtrInput interface {
+	pulumi.Input
+
+	ToDatasetSourceSourceFormatPtrOutput() DatasetSourceSourceFormatPtrOutput
+	ToDatasetSourceSourceFormatPtrOutputWithContext(context.Context) DatasetSourceSourceFormatPtrOutput
+}
+
+type datasetSourceSourceFormatPtr string
+
+func DatasetSourceSourceFormatPtr(v string) DatasetSourceSourceFormatPtrInput {
+	return (*datasetSourceSourceFormatPtr)(&v)
+}
+
+func (*datasetSourceSourceFormatPtr) ElementType() reflect.Type {
+	return datasetSourceSourceFormatPtrType
+}
+
+func (in *datasetSourceSourceFormatPtr) ToDatasetSourceSourceFormatPtrOutput() DatasetSourceSourceFormatPtrOutput {
+	return pulumi.ToOutput(in).(DatasetSourceSourceFormatPtrOutput)
+}
+
+func (in *datasetSourceSourceFormatPtr) ToDatasetSourceSourceFormatPtrOutputWithContext(ctx context.Context) DatasetSourceSourceFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DatasetSourceSourceFormatPtrOutput)
+}
+
+// The type of data source for the dataset.
+type DatasetSourceSourceType string
+
+const (
+	DatasetSourceSourceTypeKendra = DatasetSourceSourceType("KENDRA")
+)
+
+func (DatasetSourceSourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSourceSourceType)(nil)).Elem()
+}
+
+func (e DatasetSourceSourceType) ToDatasetSourceSourceTypeOutput() DatasetSourceSourceTypeOutput {
+	return pulumi.ToOutput(e).(DatasetSourceSourceTypeOutput)
+}
+
+func (e DatasetSourceSourceType) ToDatasetSourceSourceTypeOutputWithContext(ctx context.Context) DatasetSourceSourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DatasetSourceSourceTypeOutput)
+}
+
+func (e DatasetSourceSourceType) ToDatasetSourceSourceTypePtrOutput() DatasetSourceSourceTypePtrOutput {
+	return e.ToDatasetSourceSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e DatasetSourceSourceType) ToDatasetSourceSourceTypePtrOutputWithContext(ctx context.Context) DatasetSourceSourceTypePtrOutput {
+	return DatasetSourceSourceType(e).ToDatasetSourceSourceTypeOutputWithContext(ctx).ToDatasetSourceSourceTypePtrOutputWithContext(ctx)
+}
+
+func (e DatasetSourceSourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DatasetSourceSourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DatasetSourceSourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DatasetSourceSourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DatasetSourceSourceTypeOutput struct{ *pulumi.OutputState }
+
+func (DatasetSourceSourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSourceSourceType)(nil)).Elem()
+}
+
+func (o DatasetSourceSourceTypeOutput) ToDatasetSourceSourceTypeOutput() DatasetSourceSourceTypeOutput {
+	return o
+}
+
+func (o DatasetSourceSourceTypeOutput) ToDatasetSourceSourceTypeOutputWithContext(ctx context.Context) DatasetSourceSourceTypeOutput {
+	return o
+}
+
+func (o DatasetSourceSourceTypeOutput) ToDatasetSourceSourceTypePtrOutput() DatasetSourceSourceTypePtrOutput {
+	return o.ToDatasetSourceSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o DatasetSourceSourceTypeOutput) ToDatasetSourceSourceTypePtrOutputWithContext(ctx context.Context) DatasetSourceSourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetSourceSourceType) *DatasetSourceSourceType {
+		return &v
+	}).(DatasetSourceSourceTypePtrOutput)
+}
+
+func (o DatasetSourceSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DatasetSourceSourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatasetSourceSourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DatasetSourceSourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetSourceSourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatasetSourceSourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasetSourceSourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetSourceSourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetSourceSourceType)(nil)).Elem()
+}
+
+func (o DatasetSourceSourceTypePtrOutput) ToDatasetSourceSourceTypePtrOutput() DatasetSourceSourceTypePtrOutput {
+	return o
+}
+
+func (o DatasetSourceSourceTypePtrOutput) ToDatasetSourceSourceTypePtrOutputWithContext(ctx context.Context) DatasetSourceSourceTypePtrOutput {
+	return o
+}
+
+func (o DatasetSourceSourceTypePtrOutput) Elem() DatasetSourceSourceTypeOutput {
+	return o.ApplyT(func(v *DatasetSourceSourceType) DatasetSourceSourceType {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetSourceSourceType
+		return ret
+	}).(DatasetSourceSourceTypeOutput)
+}
+
+func (o DatasetSourceSourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetSourceSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DatasetSourceSourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DatasetSourceSourceTypeInput is an input type that accepts values of the DatasetSourceSourceType enum
+// A concrete instance of `DatasetSourceSourceTypeInput` can be one of the following:
+//
+//	DatasetSourceSourceTypeKendra
+type DatasetSourceSourceTypeInput interface {
+	pulumi.Input
+
+	ToDatasetSourceSourceTypeOutput() DatasetSourceSourceTypeOutput
+	ToDatasetSourceSourceTypeOutputWithContext(context.Context) DatasetSourceSourceTypeOutput
+}
+
+var datasetSourceSourceTypePtrType = reflect.TypeOf((**DatasetSourceSourceType)(nil)).Elem()
+
+type DatasetSourceSourceTypePtrInput interface {
+	pulumi.Input
+
+	ToDatasetSourceSourceTypePtrOutput() DatasetSourceSourceTypePtrOutput
+	ToDatasetSourceSourceTypePtrOutputWithContext(context.Context) DatasetSourceSourceTypePtrOutput
+}
+
+type datasetSourceSourceTypePtr string
+
+func DatasetSourceSourceTypePtr(v string) DatasetSourceSourceTypePtrInput {
+	return (*datasetSourceSourceTypePtr)(&v)
+}
+
+func (*datasetSourceSourceTypePtr) ElementType() reflect.Type {
+	return datasetSourceSourceTypePtrType
+}
+
+func (in *datasetSourceSourceTypePtr) ToDatasetSourceSourceTypePtrOutput() DatasetSourceSourceTypePtrOutput {
+	return pulumi.ToOutput(in).(DatasetSourceSourceTypePtrOutput)
+}
+
+func (in *datasetSourceSourceTypePtr) ToDatasetSourceSourceTypePtrOutputWithContext(ctx context.Context) DatasetSourceSourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DatasetSourceSourceTypePtrOutput)
+}
+
 // The operating system of the core device in AWS IoT Greengrass V2.
 type GatewayGreengrassV2CoreDeviceOperatingSystem string
 
@@ -1022,6 +1350,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelTypeNamePtrInput)(nil)).Elem(), AssetModelTypeName("Measurement"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetPropertyNotificationStateInput)(nil)).Elem(), AssetPropertyNotificationState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetPropertyNotificationStatePtrInput)(nil)).Elem(), AssetPropertyNotificationState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSourceSourceFormatInput)(nil)).Elem(), DatasetSourceSourceFormat("KNOWLEDGE_BASE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSourceSourceFormatPtrInput)(nil)).Elem(), DatasetSourceSourceFormat("KNOWLEDGE_BASE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSourceSourceTypeInput)(nil)).Elem(), DatasetSourceSourceType("KENDRA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSourceSourceTypePtrInput)(nil)).Elem(), DatasetSourceSourceType("KENDRA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGreengrassV2CoreDeviceOperatingSystemInput)(nil)).Elem(), GatewayGreengrassV2CoreDeviceOperatingSystem("LINUX_AARCH64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGreengrassV2CoreDeviceOperatingSystemPtrInput)(nil)).Elem(), GatewayGreengrassV2CoreDeviceOperatingSystem("LINUX_AARCH64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PortalTypeInput)(nil)).Elem(), PortalType("SITEWISE_PORTAL_V1"))
@@ -1034,6 +1366,10 @@ func init() {
 	pulumi.RegisterOutputType(AssetModelTypeNamePtrOutput{})
 	pulumi.RegisterOutputType(AssetPropertyNotificationStateOutput{})
 	pulumi.RegisterOutputType(AssetPropertyNotificationStatePtrOutput{})
+	pulumi.RegisterOutputType(DatasetSourceSourceFormatOutput{})
+	pulumi.RegisterOutputType(DatasetSourceSourceFormatPtrOutput{})
+	pulumi.RegisterOutputType(DatasetSourceSourceTypeOutput{})
+	pulumi.RegisterOutputType(DatasetSourceSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayGreengrassV2CoreDeviceOperatingSystemOutput{})
 	pulumi.RegisterOutputType(GatewayGreengrassV2CoreDeviceOperatingSystemPtrOutput{})
 	pulumi.RegisterOutputType(PortalTypeOutput{})

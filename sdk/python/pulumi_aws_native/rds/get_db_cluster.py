@@ -230,7 +230,7 @@ class GetDbClusterResult:
         """
         The mode of Database Insights to enable for the DB cluster.
          If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-         Valid for Cluster Type: Aurora DB clusters only
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "database_insights_mode")
 
@@ -537,7 +537,7 @@ class GetDbClusterResult:
     @pulumi.getter(name="performanceInsightsRetentionPeriod")
     def performance_insights_retention_period(self) -> Optional[int]:
         """
-        The number of days to retain Performance Insights data.
+        The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
          Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
          Valid Values:
           +   ``7`` 

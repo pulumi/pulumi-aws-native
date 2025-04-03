@@ -71,15 +71,24 @@ namespace Pulumi.AwsNative.DataBrew
         /// List of the data quality rules in the ruleset
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRule> Rules;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRulesetResult(
             string? description,
 
-            ImmutableArray<Outputs.RulesetRule> rules)
+            ImmutableArray<Outputs.RulesetRule> rules,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             Rules = rules;
+            Tags = tags;
         }
     }
 }

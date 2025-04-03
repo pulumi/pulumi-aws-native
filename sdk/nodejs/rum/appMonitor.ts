@@ -56,13 +56,24 @@ export class AppMonitor extends pulumi.CustomResource {
      */
     public readonly cwLogEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The top-level internet domain name for which your application has administrative authority.
+     * A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
      */
-    public readonly domain!: pulumi.Output<string>;
+    public readonly deobfuscationConfiguration!: pulumi.Output<outputs.rum.AppMonitorDeobfuscationConfiguration | undefined>;
+    /**
+     * The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+     */
+    public readonly domain!: pulumi.Output<string | undefined>;
+    /**
+     * The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+     */
+    public readonly domainList!: pulumi.Output<string[] | undefined>;
     /**
      * A name for the app monitor
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
+     */
     public readonly resourcePolicy!: pulumi.Output<outputs.rum.AppMonitorResourcePolicy | undefined>;
     /**
      * Assigns one or more tags (key-value pairs) to the app monitor.
@@ -84,17 +95,16 @@ export class AppMonitor extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AppMonitorArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AppMonitorArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domain === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'domain'");
-            }
             resourceInputs["appMonitorConfiguration"] = args ? args.appMonitorConfiguration : undefined;
             resourceInputs["customEvents"] = args ? args.customEvents : undefined;
             resourceInputs["cwLogEnabled"] = args ? args.cwLogEnabled : undefined;
+            resourceInputs["deobfuscationConfiguration"] = args ? args.deobfuscationConfiguration : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["domainList"] = args ? args.domainList : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -104,7 +114,9 @@ export class AppMonitor extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["customEvents"] = undefined /*out*/;
             resourceInputs["cwLogEnabled"] = undefined /*out*/;
+            resourceInputs["deobfuscationConfiguration"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
+            resourceInputs["domainList"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["resourcePolicy"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -135,13 +147,24 @@ export interface AppMonitorArgs {
      */
     cwLogEnabled?: pulumi.Input<boolean>;
     /**
-     * The top-level internet domain name for which your application has administrative authority.
+     * A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
      */
-    domain: pulumi.Input<string>;
+    deobfuscationConfiguration?: pulumi.Input<inputs.rum.AppMonitorDeobfuscationConfigurationArgs>;
+    /**
+     * The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+     */
+    domain?: pulumi.Input<string>;
+    /**
+     * The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+     */
+    domainList?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A name for the app monitor
      */
     name?: pulumi.Input<string>;
+    /**
+     * Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
+     */
     resourcePolicy?: pulumi.Input<inputs.rum.AppMonitorResourcePolicyArgs>;
     /**
      * Assigns one or more tags (key-value pairs) to the app monitor.

@@ -356,6 +356,26 @@ export const RuleGroupTextTransformationType = {
  */
 export type RuleGroupTextTransformationType = (typeof RuleGroupTextTransformationType)[keyof typeof RuleGroupTextTransformationType];
 
+export const RuleGroupUriFragmentFallbackBehavior = {
+    Match: "MATCH",
+    NoMatch: "NO_MATCH",
+} as const;
+
+/**
+ * What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
+ *
+ * - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
+ * - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+ * - `NO_MATCH` - Treat the web request as not matching the rule statement.
+ *
+ * If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
+ *
+ * Example JSON: `{ "UriFragment": { "FallbackBehavior": "MATCH"} }`
+ *
+ * > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
+ */
+export type RuleGroupUriFragmentFallbackBehavior = (typeof RuleGroupUriFragmentFallbackBehavior)[keyof typeof RuleGroupUriFragmentFallbackBehavior];
+
 export const WebAclAwsManagedRulesBotControlRuleSetInspectionLevel = {
     Common: "COMMON",
     Targeted: "TARGETED",
@@ -376,6 +396,26 @@ export const WebAclBodyParsingFallbackBehavior = {
  * The inspection behavior to fall back to if the JSON in the request body is invalid.
  */
 export type WebAclBodyParsingFallbackBehavior = (typeof WebAclBodyParsingFallbackBehavior)[keyof typeof WebAclBodyParsingFallbackBehavior];
+
+export const WebAclDataProtectionAction = {
+    Substitution: "SUBSTITUTION",
+    Hash: "HASH",
+} as const;
+
+export type WebAclDataProtectionAction = (typeof WebAclDataProtectionAction)[keyof typeof WebAclDataProtectionAction];
+
+export const WebAclFieldToProtectFieldType = {
+    SingleHeader: "SINGLE_HEADER",
+    SingleCookie: "SINGLE_COOKIE",
+    SingleQueryArgument: "SINGLE_QUERY_ARGUMENT",
+    QueryString: "QUERY_STRING",
+    Body: "BODY",
+} as const;
+
+/**
+ * Field type to protect
+ */
+export type WebAclFieldToProtectFieldType = (typeof WebAclFieldToProtectFieldType)[keyof typeof WebAclFieldToProtectFieldType];
 
 export const WebAclForwardedIpConfigurationFallbackBehavior = {
     Match: "MATCH",
@@ -684,3 +724,23 @@ export const WebAclTextTransformationType = {
  * Type of text transformation.
  */
 export type WebAclTextTransformationType = (typeof WebAclTextTransformationType)[keyof typeof WebAclTextTransformationType];
+
+export const WebAclUriFragmentFallbackBehavior = {
+    Match: "MATCH",
+    NoMatch: "NO_MATCH",
+} as const;
+
+/**
+ * What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
+ *
+ * - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
+ * - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+ * - `NO_MATCH` - Treat the web request as not matching the rule statement.
+ *
+ * If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
+ *
+ * Example JSON: `{ "UriFragment": { "FallbackBehavior": "MATCH"} }`
+ *
+ * > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
+ */
+export type WebAclUriFragmentFallbackBehavior = (typeof WebAclUriFragmentFallbackBehavior)[keyof typeof WebAclUriFragmentFallbackBehavior];

@@ -17,13 +17,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DataSetRefreshProperties
     {
         /// <summary>
+        /// The failure configuration for a dataset.
+        /// </summary>
+        public readonly Outputs.DataSetRefreshFailureConfiguration? FailureConfiguration;
+        /// <summary>
         /// The refresh configuration for a dataset.
         /// </summary>
         public readonly Outputs.DataSetRefreshConfiguration? RefreshConfiguration;
 
         [OutputConstructor]
-        private DataSetRefreshProperties(Outputs.DataSetRefreshConfiguration? refreshConfiguration)
+        private DataSetRefreshProperties(
+            Outputs.DataSetRefreshFailureConfiguration? failureConfiguration,
+
+            Outputs.DataSetRefreshConfiguration? refreshConfiguration)
         {
+            FailureConfiguration = failureConfiguration;
             RefreshConfiguration = refreshConfiguration;
         }
     }

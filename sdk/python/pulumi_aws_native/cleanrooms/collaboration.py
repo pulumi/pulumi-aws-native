@@ -44,6 +44,8 @@ class CollaborationArgs:
         :param pulumi.Input[str] description: A description of the collaboration provided by the collaboration owner.
         :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]] members: A list of initial members, not including the creator. This list is immutable.
         :param pulumi.Input['CollaborationQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the collaboration.
+               
+               When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
         :param pulumi.Input['CollaborationAnalyticsEngine'] analytics_engine: The analytics engine for the collaboration.
         :param pulumi.Input['CollaborationMlMemberAbilitiesArgs'] creator_ml_member_abilities: The ML member abilities for a collaboration member.
         :param pulumi.Input['CollaborationPaymentConfigurationArgs'] creator_payment_configuration: An object representing the collaboration member's payment responsibilities set by the collaboration creator.
@@ -124,6 +126,8 @@ class CollaborationArgs:
     def query_log_status(self) -> pulumi.Input['CollaborationQueryLogStatus']:
         """
         An indicator as to whether query logging has been enabled or disabled for the collaboration.
+
+        When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
         """
         return pulumi.get(self, "query_log_status")
 
@@ -238,6 +242,8 @@ class Collaboration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberSpecificationArgs', 'CollaborationMemberSpecificationArgsDict']]]] members: A list of initial members, not including the creator. This list is immutable.
         :param pulumi.Input[str] name: A human-readable identifier provided by the collaboration owner. Display names are not unique.
         :param pulumi.Input['CollaborationQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the collaboration.
+               
+               When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
         ...
@@ -445,6 +451,8 @@ class Collaboration(pulumi.CustomResource):
     def query_log_status(self) -> pulumi.Output['CollaborationQueryLogStatus']:
         """
         An indicator as to whether query logging has been enabled or disabled for the collaboration.
+
+        When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
         """
         return pulumi.get(self, "query_log_status")
 

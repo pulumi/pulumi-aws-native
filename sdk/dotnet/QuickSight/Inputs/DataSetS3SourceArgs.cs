@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("dataSourceArn", required: true)]
         public Input<string> DataSourceArn { get; set; } = null!;
 
-        [Input("inputColumns", required: true)]
+        [Input("inputColumns")]
         private InputList<Inputs.DataSetInputColumnArgs>? _inputColumns;
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Information about the format for the S3 source file or files.
         /// </summary>
         [Input("uploadSettings")]
-        public Input<object>? UploadSettings { get; set; }
+        public Input<Inputs.DataSetUploadSettingsArgs>? UploadSettings { get; set; }
 
         public DataSetS3SourceArgs()
         {

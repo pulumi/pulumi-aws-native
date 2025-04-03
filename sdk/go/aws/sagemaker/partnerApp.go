@@ -31,6 +31,8 @@ type PartnerApp struct {
 	EnableIamSessionBasedIdentity pulumi.BoolPtrOutput `pulumi:"enableIamSessionBasedIdentity"`
 	// The execution role for the user.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
+	// The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// A collection of settings that specify the maintenance schedule for the PartnerApp.
 	MaintenanceConfig PartnerAppMaintenanceConfigPtrOutput `pulumi:"maintenanceConfig"`
 	// A name for the PartnerApp.
@@ -65,6 +67,7 @@ func NewPartnerApp(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"authType",
 		"executionRoleArn",
+		"kmsKeyId",
 		"name",
 		"type",
 	})
@@ -112,6 +115,8 @@ type partnerAppArgs struct {
 	EnableIamSessionBasedIdentity *bool `pulumi:"enableIamSessionBasedIdentity"`
 	// The execution role for the user.
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
+	// The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A collection of settings that specify the maintenance schedule for the PartnerApp.
 	MaintenanceConfig *PartnerAppMaintenanceConfig `pulumi:"maintenanceConfig"`
 	// A name for the PartnerApp.
@@ -136,6 +141,8 @@ type PartnerAppArgs struct {
 	EnableIamSessionBasedIdentity pulumi.BoolPtrInput
 	// The execution role for the user.
 	ExecutionRoleArn pulumi.StringInput
+	// The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
+	KmsKeyId pulumi.StringPtrInput
 	// A collection of settings that specify the maintenance schedule for the PartnerApp.
 	MaintenanceConfig PartnerAppMaintenanceConfigPtrInput
 	// A name for the PartnerApp.
@@ -218,6 +225,11 @@ func (o PartnerAppOutput) EnableIamSessionBasedIdentity() pulumi.BoolPtrOutput {
 // The execution role for the user.
 func (o PartnerAppOutput) ExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PartnerApp) pulumi.StringOutput { return v.ExecutionRoleArn }).(pulumi.StringOutput)
+}
+
+// The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
+func (o PartnerAppOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerApp) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // A collection of settings that specify the maintenance schedule for the PartnerApp.

@@ -80,6 +80,7 @@ __all__ = [
     'RuleGroupSqliMatchStatement',
     'RuleGroupStatement',
     'RuleGroupTextTransformation',
+    'RuleGroupUriFragment',
     'RuleGroupVisibilityConfig',
     'RuleGroupXssMatchStatement',
     'WebAclAllowAction',
@@ -102,12 +103,15 @@ __all__ = [
     'WebAclCustomRequestHandling',
     'WebAclCustomResponse',
     'WebAclCustomResponseBody',
+    'WebAclDataProtect',
+    'WebAclDataProtectionConfig',
     'WebAclDefaultAction',
     'WebAclExcludedRule',
     'WebAclFieldIdentifier',
     'WebAclFieldToMatch',
     'WebAclFieldToMatchSingleHeaderProperties',
     'WebAclFieldToMatchSingleQueryArgumentProperties',
+    'WebAclFieldToProtect',
     'WebAclForwardedIpConfiguration',
     'WebAclGeoMatchStatement',
     'WebAclHeaderMatchPattern',
@@ -157,6 +161,7 @@ __all__ = [
     'WebAclSqliMatchStatement',
     'WebAclStatement',
     'WebAclTextTransformation',
+    'WebAclUriFragment',
     'WebAclVisibilityConfig',
     'WebAclXssMatchStatement',
 ]
@@ -602,6 +607,7 @@ class RuleGroupBody(dict):
                
                - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
                - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+               - For AWS Amplify , use the CloudFront limit.
                
                The options for oversize handling are the following:
                
@@ -626,6 +632,7 @@ class RuleGroupBody(dict):
 
         - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+        - For AWS Amplify , use the CloudFront limit.
 
         The options for oversize handling are the following:
 
@@ -1381,6 +1388,8 @@ class RuleGroupFieldToMatch(dict):
             suggest = "single_header"
         elif key == "singleQueryArgument":
             suggest = "single_query_argument"
+        elif key == "uriFragment":
+            suggest = "uri_fragment"
         elif key == "uriPath":
             suggest = "uri_path"
 
@@ -1407,6 +1416,7 @@ class RuleGroupFieldToMatch(dict):
                  query_string: Optional[Any] = None,
                  single_header: Optional['outputs.RuleGroupFieldToMatchSingleHeaderProperties'] = None,
                  single_query_argument: Optional['outputs.RuleGroupFieldToMatchSingleQueryArgumentProperties'] = None,
+                 uri_fragment: Optional['outputs.RuleGroupUriFragment'] = None,
                  uri_path: Optional[Any] = None):
         """
         Field of the request to match.
@@ -1417,6 +1427,7 @@ class RuleGroupFieldToMatch(dict):
                
                - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
                - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+               - For AWS Amplify , use the CloudFront limit.
                
                For information about how to handle oversized request bodies, see the `Body` object configuration.
         :param 'RuleGroupCookies' cookies: Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
@@ -1445,6 +1456,7 @@ class RuleGroupFieldToMatch(dict):
                
                - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
                - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+               - For AWS Amplify , use the CloudFront limit.
                
                For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
         :param Any method: The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
@@ -1455,6 +1467,9 @@ class RuleGroupFieldToMatch(dict):
                
                Alternately, you can filter and inspect all headers with the `Headers` `FieldToMatch` setting.
         :param 'RuleGroupFieldToMatchSingleQueryArgumentProperties' single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+        :param 'RuleGroupUriFragment' uri_fragment: Inspect fragments of the request URI. You must configure scope and pattern matching filters in the `UriFragment` object, to define the fragment of a URI that AWS WAF inspects.
+               
+               Only the first 8 KB (8192 bytes) of a request's URI fragments and only the first 200 URI fragments are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize URI fragment content in the `UriFragment` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
         :param Any uri_path: The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
         if all_query_arguments is not None:
@@ -1479,6 +1494,8 @@ class RuleGroupFieldToMatch(dict):
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -1500,6 +1517,7 @@ class RuleGroupFieldToMatch(dict):
 
         - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+        - For AWS Amplify , use the CloudFront limit.
 
         For information about how to handle oversized request bodies, see the `Body` object configuration.
         """
@@ -1563,6 +1581,7 @@ class RuleGroupFieldToMatch(dict):
 
         - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+        - For AWS Amplify , use the CloudFront limit.
 
         For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
         """
@@ -1603,6 +1622,16 @@ class RuleGroupFieldToMatch(dict):
         One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         """
         return pulumi.get(self, "single_query_argument")
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional['outputs.RuleGroupUriFragment']:
+        """
+        Inspect fragments of the request URI. You must configure scope and pattern matching filters in the `UriFragment` object, to define the fragment of a URI that AWS WAF inspects.
+
+        Only the first 8 KB (8192 bytes) of a request's URI fragments and only the first 200 URI fragments are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize URI fragment content in the `UriFragment` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
+        """
+        return pulumi.get(self, "uri_fragment")
 
     @property
     @pulumi.getter(name="uriPath")
@@ -2267,6 +2296,7 @@ class RuleGroupJsonBody(dict):
                
                - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
                - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+               - For AWS Amplify , use the CloudFront limit.
                
                The options for oversize handling are the following:
                
@@ -2329,6 +2359,7 @@ class RuleGroupJsonBody(dict):
 
         - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+        - For AWS Amplify , use the CloudFront limit.
 
         The options for oversize handling are the following:
 
@@ -4134,6 +4165,66 @@ class RuleGroupTextTransformation(dict):
 
 
 @pulumi.output_type
+class RuleGroupUriFragment(dict):
+    """
+    The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupUriFragment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupUriFragment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupUriFragment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: Optional['RuleGroupUriFragmentFallbackBehavior'] = None):
+        """
+        The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+        :param 'RuleGroupUriFragmentFallbackBehavior' fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
+               
+               - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
+               - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+               - `NO_MATCH` - Treat the web request as not matching the rule statement.
+               
+               If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
+               
+               Example JSON: `{ "UriFragment": { "FallbackBehavior": "MATCH"} }`
+               
+               > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional['RuleGroupUriFragmentFallbackBehavior']:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
+
+        - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
+        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+
+        If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
+
+        Example JSON: `{ "UriFragment": { "FallbackBehavior": "MATCH"} }`
+
+        > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
 class RuleGroupVisibilityConfig(dict):
     """
     Visibility Metric of the RuleGroup.
@@ -4727,6 +4818,7 @@ class WebAclBody(dict):
                
                - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
                - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+               - For AWS Amplify , use the CloudFront limit.
                
                The options for oversize handling are the following:
                
@@ -4751,6 +4843,7 @@ class WebAclBody(dict):
 
         - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+        - For AWS Amplify , use the CloudFront limit.
 
         The options for oversize handling are the following:
 
@@ -5485,6 +5578,95 @@ class WebAclCustomResponseBody(dict):
 
 
 @pulumi.output_type
+class WebAclDataProtect(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludeRateBasedDetails":
+            suggest = "exclude_rate_based_details"
+        elif key == "excludeRuleMatchDetails":
+            suggest = "exclude_rule_match_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclDataProtect. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclDataProtect.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclDataProtect.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: 'WebAclDataProtectionAction',
+                 field: 'outputs.WebAclFieldToProtect',
+                 exclude_rate_based_details: Optional[bool] = None,
+                 exclude_rule_match_details: Optional[bool] = None):
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "field", field)
+        if exclude_rate_based_details is not None:
+            pulumi.set(__self__, "exclude_rate_based_details", exclude_rate_based_details)
+        if exclude_rule_match_details is not None:
+            pulumi.set(__self__, "exclude_rule_match_details", exclude_rule_match_details)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'WebAclDataProtectionAction':
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def field(self) -> 'outputs.WebAclFieldToProtect':
+        return pulumi.get(self, "field")
+
+    @property
+    @pulumi.getter(name="excludeRateBasedDetails")
+    def exclude_rate_based_details(self) -> Optional[bool]:
+        return pulumi.get(self, "exclude_rate_based_details")
+
+    @property
+    @pulumi.getter(name="excludeRuleMatchDetails")
+    def exclude_rule_match_details(self) -> Optional[bool]:
+        return pulumi.get(self, "exclude_rule_match_details")
+
+
+@pulumi.output_type
+class WebAclDataProtectionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataProtections":
+            suggest = "data_protections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclDataProtectionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclDataProtectionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclDataProtectionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_protections: Sequence['outputs.WebAclDataProtect']):
+        """
+        :param Sequence['WebAclDataProtect'] data_protections: An array of data protection configurations for specific web request field types. This is defined for each web ACL. AWS WAF applies the specified protection to all web requests that the web ACL inspects.
+        """
+        pulumi.set(__self__, "data_protections", data_protections)
+
+    @property
+    @pulumi.getter(name="dataProtections")
+    def data_protections(self) -> Sequence['outputs.WebAclDataProtect']:
+        """
+        An array of data protection configurations for specific web request field types. This is defined for each web ACL. AWS WAF applies the specified protection to all web requests that the web ACL inspects.
+        """
+        return pulumi.get(self, "data_protections")
+
+
+@pulumi.output_type
 class WebAclDefaultAction(dict):
     """
     Default Action WebACL will take against ingress traffic when there is no matching Rule.
@@ -5593,6 +5775,8 @@ class WebAclFieldToMatch(dict):
             suggest = "single_header"
         elif key == "singleQueryArgument":
             suggest = "single_query_argument"
+        elif key == "uriFragment":
+            suggest = "uri_fragment"
         elif key == "uriPath":
             suggest = "uri_path"
 
@@ -5619,6 +5803,7 @@ class WebAclFieldToMatch(dict):
                  query_string: Optional[Any] = None,
                  single_header: Optional['outputs.WebAclFieldToMatchSingleHeaderProperties'] = None,
                  single_query_argument: Optional['outputs.WebAclFieldToMatchSingleQueryArgumentProperties'] = None,
+                 uri_fragment: Optional['outputs.WebAclUriFragment'] = None,
                  uri_path: Optional[Any] = None):
         """
         Field of the request to match.
@@ -5629,6 +5814,7 @@ class WebAclFieldToMatch(dict):
                
                - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
                - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+               - For AWS Amplify , use the CloudFront limit.
                
                For information about how to handle oversized request bodies, see the `Body` object configuration.
         :param 'WebAclCookies' cookies: Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
@@ -5657,6 +5843,7 @@ class WebAclFieldToMatch(dict):
                
                - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
                - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+               - For AWS Amplify , use the CloudFront limit.
                
                For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
         :param Any method: The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
@@ -5667,6 +5854,9 @@ class WebAclFieldToMatch(dict):
                
                Alternately, you can filter and inspect all headers with the `Headers` `FieldToMatch` setting.
         :param 'WebAclFieldToMatchSingleQueryArgumentProperties' single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+        :param 'WebAclUriFragment' uri_fragment: Inspect fragments of the request URI. You must configure scope and pattern matching filters in the `UriFragment` object, to define the fragment of a URI that AWS WAF inspects.
+               
+               Only the first 8 KB (8192 bytes) of a request's URI fragments and only the first 200 URI fragments are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize URI fragment content in the `UriFragment` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
         :param Any uri_path: The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
         if all_query_arguments is not None:
@@ -5691,6 +5881,8 @@ class WebAclFieldToMatch(dict):
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -5712,6 +5904,7 @@ class WebAclFieldToMatch(dict):
 
         - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+        - For AWS Amplify , use the CloudFront limit.
 
         For information about how to handle oversized request bodies, see the `Body` object configuration.
         """
@@ -5775,6 +5968,7 @@ class WebAclFieldToMatch(dict):
 
         - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+        - For AWS Amplify , use the CloudFront limit.
 
         For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
         """
@@ -5815,6 +6009,16 @@ class WebAclFieldToMatch(dict):
         One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         """
         return pulumi.get(self, "single_query_argument")
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional['outputs.WebAclUriFragment']:
+        """
+        Inspect fragments of the request URI. You must configure scope and pattern matching filters in the `UriFragment` object, to define the fragment of a URI that AWS WAF inspects.
+
+        Only the first 8 KB (8192 bytes) of a request's URI fragments and only the first 200 URI fragments are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize URI fragment content in the `UriFragment` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
+        """
+        return pulumi.get(self, "uri_fragment")
 
     @property
     @pulumi.getter(name="uriPath")
@@ -5867,6 +6071,59 @@ class WebAclFieldToMatchSingleQueryArgumentProperties(dict):
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class WebAclFieldToProtect(dict):
+    """
+    Field in log to protect.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldType":
+            suggest = "field_type"
+        elif key == "fieldKeys":
+            suggest = "field_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclFieldToProtect. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclFieldToProtect.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclFieldToProtect.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_type: 'WebAclFieldToProtectFieldType',
+                 field_keys: Optional[Sequence[str]] = None):
+        """
+        Field in log to protect.
+        :param 'WebAclFieldToProtectFieldType' field_type: Field type to protect
+        :param Sequence[str] field_keys: List of field keys to protect
+        """
+        pulumi.set(__self__, "field_type", field_type)
+        if field_keys is not None:
+            pulumi.set(__self__, "field_keys", field_keys)
+
+    @property
+    @pulumi.getter(name="fieldType")
+    def field_type(self) -> 'WebAclFieldToProtectFieldType':
+        """
+        Field type to protect
+        """
+        return pulumi.get(self, "field_type")
+
+    @property
+    @pulumi.getter(name="fieldKeys")
+    def field_keys(self) -> Optional[Sequence[str]]:
+        """
+        List of field keys to protect
+        """
+        return pulumi.get(self, "field_keys")
 
 
 @pulumi.output_type
@@ -6479,6 +6736,7 @@ class WebAclJsonBody(dict):
                
                - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
                - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+               - For AWS Amplify , use the CloudFront limit.
                
                The options for oversize handling are the following:
                
@@ -6541,6 +6799,7 @@ class WebAclJsonBody(dict):
 
         - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+        - For AWS Amplify , use the CloudFront limit.
 
         The options for oversize handling are the following:
 
@@ -9509,6 +9768,66 @@ class WebAclTextTransformation(dict):
         For detailed descriptions of each of the transformation types, see [Text transformations](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-transformation.html) in the *AWS WAF Developer Guide* .
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class WebAclUriFragment(dict):
+    """
+    The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclUriFragment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclUriFragment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclUriFragment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: Optional['WebAclUriFragmentFallbackBehavior'] = None):
+        """
+        The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+        :param 'WebAclUriFragmentFallbackBehavior' fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
+               
+               - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
+               - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+               - `NO_MATCH` - Treat the web request as not matching the rule statement.
+               
+               If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
+               
+               Example JSON: `{ "UriFragment": { "FallbackBehavior": "MATCH"} }`
+               
+               > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional['WebAclUriFragmentFallbackBehavior']:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
+
+        - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
+        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+
+        If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
+
+        Example JSON: `{ "UriFragment": { "FallbackBehavior": "MATCH"} }`
+
+        > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
+        """
+        return pulumi.get(self, "fallback_behavior")
 
 
 @pulumi.output_type

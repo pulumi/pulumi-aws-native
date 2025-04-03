@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpenSearchServerless.Inputs
 {
 
+    /// <summary>
+    /// Index settings.
+    /// </summary>
     public sealed class IndexSettingsIndexPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

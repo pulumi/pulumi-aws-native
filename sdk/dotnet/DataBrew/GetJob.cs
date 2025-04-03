@@ -124,6 +124,10 @@ namespace Pulumi.AwsNative.DataBrew
         /// </summary>
         public readonly string? RoleArn;
         /// <summary>
+        /// Metadata tags that have been applied to the job.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// Timeout
         /// </summary>
         public readonly int? Timeout;
@@ -164,6 +168,8 @@ namespace Pulumi.AwsNative.DataBrew
 
             string? roleArn,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             int? timeout,
 
             ImmutableArray<Outputs.JobValidationConfiguration> validationConfigurations)
@@ -183,6 +189,7 @@ namespace Pulumi.AwsNative.DataBrew
             ProjectName = projectName;
             Recipe = recipe;
             RoleArn = roleArn;
+            Tags = tags;
             Timeout = timeout;
             ValidationConfigurations = validationConfigurations;
         }

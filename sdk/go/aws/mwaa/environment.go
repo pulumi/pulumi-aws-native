@@ -31,7 +31,7 @@ type Environment struct {
 	//
 	// If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
 	//
-	// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` (latest)
+	// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` (latest)
 	AirflowVersion pulumi.StringPtrOutput `pulumi:"airflowVersion"`
 	// The ARN for the Amazon MWAA environment.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -43,7 +43,7 @@ type Environment struct {
 	DatabaseVpcEndpointService pulumi.StringOutput `pulumi:"databaseVpcEndpointService"`
 	// Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA. If set to `SERVICE` , Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER` , you must create, and manage, the VPC endpoints in your VPC.
 	EndpointManagement EnvironmentEndpointManagementPtrOutput `pulumi:"endpointManagement"`
-	// The environment class type. Valid values: `mw1.small` , `mw1.medium` , `mw1.large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
+	// The environment class type. Valid values: `mw1.micro` , `mw1.small` , `mw1.medium` , `mw1.large` , `mw1.1large` , and `mw1.2large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
 	EnvironmentClass pulumi.StringPtrOutput `pulumi:"environmentClass"`
 	// The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA to access AWS resources in your environment. For example, `arn:aws:iam::123456789:role/my-execution-role` . To learn more, see [Amazon MWAA Execution role](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) .
 	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
@@ -77,7 +77,7 @@ type Environment struct {
 	RequirementsS3Path pulumi.StringPtrOutput `pulumi:"requirementsS3Path"`
 	// The number of schedulers that you want to run in your environment. Valid values:
 	//
-	// - *v2* - Accepts between 2 to 5. Defaults to 2.
+	// - *v2* - For environments larger than mw1.micro, accepts values from 2 to 5. Defaults to 2 for all environment sizes except mw1.micro, which defaults to 1.
 	// - *v1* - Accepts 1.
 	Schedulers pulumi.IntPtrOutput `pulumi:"schedulers"`
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting files are stored. For example, `arn:aws:s3:::my-airflow-bucket-unique-name` . To learn more, see [Create an Amazon S3 bucket for Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html) .
@@ -173,13 +173,13 @@ type environmentArgs struct {
 	//
 	// If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
 	//
-	// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` (latest)
+	// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` (latest)
 	AirflowVersion *string `pulumi:"airflowVersion"`
 	// The relative path to the DAGs folder on your Amazon S3 bucket. For example, `dags` . To learn more, see [Adding or updating DAGs](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html) .
 	DagS3Path *string `pulumi:"dagS3Path"`
 	// Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA. If set to `SERVICE` , Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER` , you must create, and manage, the VPC endpoints in your VPC.
 	EndpointManagement *EnvironmentEndpointManagement `pulumi:"endpointManagement"`
-	// The environment class type. Valid values: `mw1.small` , `mw1.medium` , `mw1.large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
+	// The environment class type. Valid values: `mw1.micro` , `mw1.small` , `mw1.medium` , `mw1.large` , `mw1.1large` , and `mw1.2large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
 	EnvironmentClass *string `pulumi:"environmentClass"`
 	// The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA to access AWS resources in your environment. For example, `arn:aws:iam::123456789:role/my-execution-role` . To learn more, see [Amazon MWAA Execution role](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) .
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
@@ -213,7 +213,7 @@ type environmentArgs struct {
 	RequirementsS3Path *string `pulumi:"requirementsS3Path"`
 	// The number of schedulers that you want to run in your environment. Valid values:
 	//
-	// - *v2* - Accepts between 2 to 5. Defaults to 2.
+	// - *v2* - For environments larger than mw1.micro, accepts values from 2 to 5. Defaults to 2 for all environment sizes except mw1.micro, which defaults to 1.
 	// - *v1* - Accepts 1.
 	Schedulers *int `pulumi:"schedulers"`
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting files are stored. For example, `arn:aws:s3:::my-airflow-bucket-unique-name` . To learn more, see [Create an Amazon S3 bucket for Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html) .
@@ -260,13 +260,13 @@ type EnvironmentArgs struct {
 	//
 	// If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
 	//
-	// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` (latest)
+	// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` (latest)
 	AirflowVersion pulumi.StringPtrInput
 	// The relative path to the DAGs folder on your Amazon S3 bucket. For example, `dags` . To learn more, see [Adding or updating DAGs](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html) .
 	DagS3Path pulumi.StringPtrInput
 	// Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA. If set to `SERVICE` , Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER` , you must create, and manage, the VPC endpoints in your VPC.
 	EndpointManagement EnvironmentEndpointManagementPtrInput
-	// The environment class type. Valid values: `mw1.small` , `mw1.medium` , `mw1.large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
+	// The environment class type. Valid values: `mw1.micro` , `mw1.small` , `mw1.medium` , `mw1.large` , `mw1.1large` , and `mw1.2large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
 	EnvironmentClass pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA to access AWS resources in your environment. For example, `arn:aws:iam::123456789:role/my-execution-role` . To learn more, see [Amazon MWAA Execution role](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) .
 	ExecutionRoleArn pulumi.StringPtrInput
@@ -300,7 +300,7 @@ type EnvironmentArgs struct {
 	RequirementsS3Path pulumi.StringPtrInput
 	// The number of schedulers that you want to run in your environment. Valid values:
 	//
-	// - *v2* - Accepts between 2 to 5. Defaults to 2.
+	// - *v2* - For environments larger than mw1.micro, accepts values from 2 to 5. Defaults to 2 for all environment sizes except mw1.micro, which defaults to 1.
 	// - *v1* - Accepts 1.
 	Schedulers pulumi.IntPtrInput
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting files are stored. For example, `arn:aws:s3:::my-airflow-bucket-unique-name` . To learn more, see [Create an Amazon S3 bucket for Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html) .
@@ -386,7 +386,7 @@ func (o EnvironmentOutput) AirflowConfigurationOptions() pulumi.AnyOutput {
 //
 // If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
 //
-// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` (latest)
+// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` (latest)
 func (o EnvironmentOutput) AirflowVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.AirflowVersion }).(pulumi.StringPtrOutput)
 }
@@ -416,7 +416,7 @@ func (o EnvironmentOutput) EndpointManagement() EnvironmentEndpointManagementPtr
 	return o.ApplyT(func(v *Environment) EnvironmentEndpointManagementPtrOutput { return v.EndpointManagement }).(EnvironmentEndpointManagementPtrOutput)
 }
 
-// The environment class type. Valid values: `mw1.small` , `mw1.medium` , `mw1.large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
+// The environment class type. Valid values: `mw1.micro` , `mw1.small` , `mw1.medium` , `mw1.large` , `mw1.1large` , and `mw1.2large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
 func (o EnvironmentOutput) EnvironmentClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.EnvironmentClass }).(pulumi.StringPtrOutput)
 }
@@ -492,7 +492,7 @@ func (o EnvironmentOutput) RequirementsS3Path() pulumi.StringPtrOutput {
 
 // The number of schedulers that you want to run in your environment. Valid values:
 //
-// - *v2* - Accepts between 2 to 5. Defaults to 2.
+// - *v2* - For environments larger than mw1.micro, accepts values from 2 to 5. Defaults to 2 for all environment sizes except mw1.micro, which defaults to 1.
 // - *v1* - Accepts 1.
 func (o EnvironmentOutput) Schedulers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.IntPtrOutput { return v.Schedulers }).(pulumi.IntPtrOutput)

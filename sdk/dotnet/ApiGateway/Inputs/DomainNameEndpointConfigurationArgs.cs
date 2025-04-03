@@ -12,6 +12,12 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
 
     public sealed class DomainNameEndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IP address types that can invoke this DomainName. Use `ipv4` to allow only IPv4 addresses to invoke this DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke this DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
+
         [Input("types")]
         private InputList<string>? _types;
 
