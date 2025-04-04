@@ -19,7 +19,13 @@ type ConfiguredTable struct {
 
 	// The columns within the underlying AWS Glue table that can be utilized within collaborations.
 	AllowedColumns pulumi.StringArrayOutput `pulumi:"allowedColumns"`
-	// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+	// The analysis method for the configured table.
+	//
+	// `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+	//
+	// `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+	//
+	// `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
 	AnalysisMethod ConfiguredTableAnalysisMethodOutput `pulumi:"analysisMethod"`
 	// The analysis rule that was created for the configured table.
 	AnalysisRules ConfiguredTableAnalysisRuleArrayOutput `pulumi:"analysisRules"`
@@ -98,7 +104,13 @@ func (ConfiguredTableState) ElementType() reflect.Type {
 type configuredTableArgs struct {
 	// The columns within the underlying AWS Glue table that can be utilized within collaborations.
 	AllowedColumns []string `pulumi:"allowedColumns"`
-	// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+	// The analysis method for the configured table.
+	//
+	// `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+	//
+	// `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+	//
+	// `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
 	AnalysisMethod ConfiguredTableAnalysisMethod `pulumi:"analysisMethod"`
 	// The analysis rule that was created for the configured table.
 	AnalysisRules []ConfiguredTableAnalysisRule `pulumi:"analysisRules"`
@@ -116,7 +128,13 @@ type configuredTableArgs struct {
 type ConfiguredTableArgs struct {
 	// The columns within the underlying AWS Glue table that can be utilized within collaborations.
 	AllowedColumns pulumi.StringArrayInput
-	// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+	// The analysis method for the configured table.
+	//
+	// `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+	//
+	// `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+	//
+	// `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
 	AnalysisMethod ConfiguredTableAnalysisMethodInput
 	// The analysis rule that was created for the configured table.
 	AnalysisRules ConfiguredTableAnalysisRuleArrayInput
@@ -172,7 +190,13 @@ func (o ConfiguredTableOutput) AllowedColumns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringArrayOutput { return v.AllowedColumns }).(pulumi.StringArrayOutput)
 }
 
-// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+// The analysis method for the configured table.
+//
+// `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+//
+// `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+//
+// `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
 func (o ConfiguredTableOutput) AnalysisMethod() ConfiguredTableAnalysisMethodOutput {
 	return o.ApplyT(func(v *ConfiguredTable) ConfiguredTableAnalysisMethodOutput { return v.AnalysisMethod }).(ConfiguredTableAnalysisMethodOutput)
 }

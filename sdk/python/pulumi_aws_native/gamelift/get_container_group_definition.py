@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetContainerGroupDefinitionResult:
-    def __init__(__self__, container_group_definition_arn=None, creation_time=None, game_server_container_definition=None, operating_system=None, source_version_number=None, status=None, status_reason=None, support_container_definitions=None, tags=None, total_memory_limit_mebibytes=None, total_vcpu_limit=None, version_description=None, version_number=None):
+    def __init__(__self__, container_group_definition_arn=None, creation_time=None, game_server_container_definition=None, operating_system=None, status=None, status_reason=None, support_container_definitions=None, tags=None, total_memory_limit_mebibytes=None, total_vcpu_limit=None, version_description=None, version_number=None):
         if container_group_definition_arn and not isinstance(container_group_definition_arn, str):
             raise TypeError("Expected argument 'container_group_definition_arn' to be a str")
         pulumi.set(__self__, "container_group_definition_arn", container_group_definition_arn)
@@ -39,9 +39,6 @@ class GetContainerGroupDefinitionResult:
         if operating_system and not isinstance(operating_system, str):
             raise TypeError("Expected argument 'operating_system' to be a str")
         pulumi.set(__self__, "operating_system", operating_system)
-        if source_version_number and not isinstance(source_version_number, int):
-            raise TypeError("Expected argument 'source_version_number' to be a int")
-        pulumi.set(__self__, "source_version_number", source_version_number)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -98,14 +95,6 @@ class GetContainerGroupDefinitionResult:
         The operating system of the container group
         """
         return pulumi.get(self, "operating_system")
-
-    @property
-    @pulumi.getter(name="sourceVersionNumber")
-    def source_version_number(self) -> Optional[int]:
-        """
-        A specific ContainerGroupDefinition version to be updated
-        """
-        return pulumi.get(self, "source_version_number")
 
     @property
     @pulumi.getter
@@ -182,7 +171,6 @@ class AwaitableGetContainerGroupDefinitionResult(GetContainerGroupDefinitionResu
             creation_time=self.creation_time,
             game_server_container_definition=self.game_server_container_definition,
             operating_system=self.operating_system,
-            source_version_number=self.source_version_number,
             status=self.status,
             status_reason=self.status_reason,
             support_container_definitions=self.support_container_definitions,
@@ -211,7 +199,6 @@ def get_container_group_definition(name: Optional[str] = None,
         creation_time=pulumi.get(__ret__, 'creation_time'),
         game_server_container_definition=pulumi.get(__ret__, 'game_server_container_definition'),
         operating_system=pulumi.get(__ret__, 'operating_system'),
-        source_version_number=pulumi.get(__ret__, 'source_version_number'),
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'),
         support_container_definitions=pulumi.get(__ret__, 'support_container_definitions'),
@@ -237,7 +224,6 @@ def get_container_group_definition_output(name: Optional[pulumi.Input[str]] = No
         creation_time=pulumi.get(__response__, 'creation_time'),
         game_server_container_definition=pulumi.get(__response__, 'game_server_container_definition'),
         operating_system=pulumi.get(__response__, 'operating_system'),
-        source_version_number=pulumi.get(__response__, 'source_version_number'),
         status=pulumi.get(__response__, 'status'),
         status_reason=pulumi.get(__response__, 'status_reason'),
         support_container_definitions=pulumi.get(__response__, 'support_container_definitions'),

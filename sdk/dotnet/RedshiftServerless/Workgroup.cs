@@ -64,10 +64,34 @@ namespace Pulumi.AwsNative.RedshiftServerless
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
+        /// The recovery point id to restore from.
+        /// </summary>
+        [Output("recoveryPointId")]
+        public Output<string?> RecoveryPointId { get; private set; } = null!;
+
+        /// <summary>
         /// A list of security group IDs to associate with the workgroup.
         /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the snapshot to restore from.
+        /// </summary>
+        [Output("snapshotArn")]
+        public Output<string?> SnapshotArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The snapshot name to restore from.
+        /// </summary>
+        [Output("snapshotName")]
+        public Output<string?> SnapshotName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Web Services account that owns the snapshot.
+        /// </summary>
+        [Output("snapshotOwnerAccount")]
+        public Output<string?> SnapshotOwnerAccount { get; private set; } = null!;
 
         /// <summary>
         /// A list of subnet IDs the workgroup is associated with.
@@ -82,10 +106,16 @@ namespace Pulumi.AwsNative.RedshiftServerless
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
+        /// </summary>
+        [Output("trackName")]
+        public Output<string?> TrackName { get; private set; } = null!;
+
+        /// <summary>
         /// Definition for workgroup resource
         /// </summary>
         [Output("workgroup")]
-        public Output<Outputs.Workgroup> WorkgroupValue { get; private set; } = null!;
+        public Output<Outputs.Workgroup?> WorkgroupValue { get; private set; } = null!;
 
         /// <summary>
         /// The name of the workgroup.
@@ -197,6 +227,12 @@ namespace Pulumi.AwsNative.RedshiftServerless
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
 
+        /// <summary>
+        /// The recovery point id to restore from.
+        /// </summary>
+        [Input("recoveryPointId")]
+        public Input<string>? RecoveryPointId { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
@@ -208,6 +244,24 @@ namespace Pulumi.AwsNative.RedshiftServerless
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
             set => _securityGroupIds = value;
         }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the snapshot to restore from.
+        /// </summary>
+        [Input("snapshotArn")]
+        public Input<string>? SnapshotArn { get; set; }
+
+        /// <summary>
+        /// The snapshot name to restore from.
+        /// </summary>
+        [Input("snapshotName")]
+        public Input<string>? SnapshotName { get; set; }
+
+        /// <summary>
+        /// The Amazon Web Services account that owns the snapshot.
+        /// </summary>
+        [Input("snapshotOwnerAccount")]
+        public Input<string>? SnapshotOwnerAccount { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
@@ -232,6 +286,18 @@ namespace Pulumi.AwsNative.RedshiftServerless
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
+        /// </summary>
+        [Input("trackName")]
+        public Input<string>? TrackName { get; set; }
+
+        /// <summary>
+        /// Definition for workgroup resource
+        /// </summary>
+        [Input("workgroup")]
+        public Input<Inputs.WorkgroupArgs>? WorkgroupValue { get; set; }
 
         /// <summary>
         /// The name of the workgroup.

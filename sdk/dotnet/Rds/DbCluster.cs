@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// The mode of Database Insights to enable for the DB cluster.
         ///  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-        ///  Valid for Cluster Type: Aurora DB clusters only
+        ///  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         /// </summary>
         [Output("databaseInsightsMode")]
         public Output<string?> DatabaseInsightsMode { get; private set; } = null!;
@@ -425,7 +425,7 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> PerformanceInsightsKmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days to retain Performance Insights data.
+        /// The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
         ///  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         ///  Valid Values:
         ///   +   ``7`` 
@@ -503,7 +503,7 @@ namespace Pulumi.AwsNative.Rds
         ///  For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
         /// </summary>
         [Output("readEndpoint")]
-        public Output<Outputs.DbClusterReadEndpoint?> ReadEndpoint { get; private set; } = null!;
+        public Output<Outputs.DbClusterReadEndpoint> ReadEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.
@@ -798,7 +798,7 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// The mode of Database Insights to enable for the DB cluster.
         ///  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-        ///  Valid for Cluster Type: Aurora DB clusters only
+        ///  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         /// </summary>
         [Input("databaseInsightsMode")]
         public Input<string>? DatabaseInsightsMode { get; set; }
@@ -1117,7 +1117,7 @@ namespace Pulumi.AwsNative.Rds
         public Input<string>? PerformanceInsightsKmsKeyId { get; set; }
 
         /// <summary>
-        /// The number of days to retain Performance Insights data.
+        /// The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
         ///  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         ///  Valid Values:
         ///   +   ``7`` 
@@ -1185,17 +1185,6 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
-
-        /// <summary>
-        /// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-        ///   +   ``CreateDBInstance`` 
-        ///   +   ``DescribeDBInstances`` 
-        ///   +   ``DeleteDBInstance`` 
-        ///   
-        ///  For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
-        /// </summary>
-        [Input("readEndpoint")]
-        public Input<Inputs.DbClusterReadEndpointArgs>? ReadEndpoint { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.

@@ -134,7 +134,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "rds:AddTagsToResource", "rds:RemoveTagsFromResource", "rds:ListTagsForResource" ]
   },
   "primaryIdentifier" : [ "/properties/DBProxyName" ],
   "handlers" : {

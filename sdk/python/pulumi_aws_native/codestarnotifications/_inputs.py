@@ -26,15 +26,15 @@ if not MYPY:
     class NotificationRuleTargetArgsDict(TypedDict):
         target_address: pulumi.Input[str]
         """
-        The Amazon Resource Name (ARN) of the AWS Chatbot topic or AWS Chatbot client.
+        The Amazon Resource Name (ARN) of the  topic or  client.
         """
         target_type: pulumi.Input[str]
         """
-        The target type. Can be an Amazon Simple Notification Service topic or AWS Chatbot client.
+        The target type. Can be an Amazon Simple Notification Service topic or  client.
 
         - Amazon Simple Notification Service topics are specified as `SNS` .
-        - AWS Chatbot clients are specified as `AWSChatbotSlack` .
-        - AWS Chatbot clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
+        - clients are specified as `AWSChatbotSlack` .
+        - clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
         """
 elif False:
     NotificationRuleTargetArgsDict: TypeAlias = Mapping[str, Any]
@@ -45,12 +45,12 @@ class NotificationRuleTargetArgs:
                  target_address: pulumi.Input[str],
                  target_type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] target_address: The Amazon Resource Name (ARN) of the AWS Chatbot topic or AWS Chatbot client.
-        :param pulumi.Input[str] target_type: The target type. Can be an Amazon Simple Notification Service topic or AWS Chatbot client.
+        :param pulumi.Input[str] target_address: The Amazon Resource Name (ARN) of the  topic or  client.
+        :param pulumi.Input[str] target_type: The target type. Can be an Amazon Simple Notification Service topic or  client.
                
                - Amazon Simple Notification Service topics are specified as `SNS` .
-               - AWS Chatbot clients are specified as `AWSChatbotSlack` .
-               - AWS Chatbot clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
+               - clients are specified as `AWSChatbotSlack` .
+               - clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
         """
         pulumi.set(__self__, "target_address", target_address)
         pulumi.set(__self__, "target_type", target_type)
@@ -59,7 +59,7 @@ class NotificationRuleTargetArgs:
     @pulumi.getter(name="targetAddress")
     def target_address(self) -> pulumi.Input[str]:
         """
-        The Amazon Resource Name (ARN) of the AWS Chatbot topic or AWS Chatbot client.
+        The Amazon Resource Name (ARN) of the  topic or  client.
         """
         return pulumi.get(self, "target_address")
 
@@ -71,11 +71,11 @@ class NotificationRuleTargetArgs:
     @pulumi.getter(name="targetType")
     def target_type(self) -> pulumi.Input[str]:
         """
-        The target type. Can be an Amazon Simple Notification Service topic or AWS Chatbot client.
+        The target type. Can be an Amazon Simple Notification Service topic or  client.
 
         - Amazon Simple Notification Service topics are specified as `SNS` .
-        - AWS Chatbot clients are specified as `AWSChatbotSlack` .
-        - AWS Chatbot clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
+        - clients are specified as `AWSChatbotSlack` .
+        - clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
         """
         return pulumi.get(self, "target_type")
 

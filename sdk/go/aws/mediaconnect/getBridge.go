@@ -32,9 +32,9 @@ type LookupBridgeResult struct {
 	BridgeArn *string `pulumi:"bridgeArn"`
 	// The current status of the bridge. Possible values are: ACTIVE or STANDBY.
 	BridgeState *BridgeStateEnum `pulumi:"bridgeState"`
-	// Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+	// An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
 	EgressGatewayBridge *BridgeEgressGatewayBridge `pulumi:"egressGatewayBridge"`
-	// Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+	// An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
 	IngressGatewayBridge *BridgeIngressGatewayBridge `pulumi:"ingressGatewayBridge"`
 	// The name of the bridge.
 	Name *string `pulumi:"name"`
@@ -90,12 +90,12 @@ func (o LookupBridgeResultOutput) BridgeState() BridgeStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupBridgeResult) *BridgeStateEnum { return v.BridgeState }).(BridgeStateEnumPtrOutput)
 }
 
-// Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+// An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
 func (o LookupBridgeResultOutput) EgressGatewayBridge() BridgeEgressGatewayBridgePtrOutput {
 	return o.ApplyT(func(v LookupBridgeResult) *BridgeEgressGatewayBridge { return v.EgressGatewayBridge }).(BridgeEgressGatewayBridgePtrOutput)
 }
 
-// Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+// An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
 func (o LookupBridgeResultOutput) IngressGatewayBridge() BridgeIngressGatewayBridgePtrOutput {
 	return o.ApplyT(func(v LookupBridgeResult) *BridgeIngressGatewayBridge { return v.IngressGatewayBridge }).(BridgeIngressGatewayBridgePtrOutput)
 }

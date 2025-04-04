@@ -166,5 +166,9 @@
   {
     "name": "us-isof-south-1",
     "description": "US ISOF SOUTH"
+  },
+  {
+    "name": "eusc-de-east-1",
+    "description": "EU (Germany)"
   }
 ]

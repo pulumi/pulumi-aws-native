@@ -46,8 +46,8 @@ import (
 //						},
 //					},
 //				},
-//				Tags: aws.CreateOnlyTagArray{
-//					&aws.CreateOnlyTagArgs{
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
 //						Key:   pulumi.String("key00AtCreate"),
 //						Value: pulumi.String("value001AtCreate"),
 //					},
@@ -77,7 +77,7 @@ type Dataset struct {
 	// Source type of the dataset
 	Source DatasetSourcePtrOutput `pulumi:"source"`
 	// Metadata tags that have been applied to the dataset.
-	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDataset registers a new resource with the given unique name, arguments, and options.
@@ -92,7 +92,6 @@ func NewDataset(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
-		"tags[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -141,7 +140,7 @@ type datasetArgs struct {
 	// Source type of the dataset
 	Source *DatasetSource `pulumi:"source"`
 	// Metadata tags that have been applied to the dataset.
-	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Dataset resource.
@@ -159,7 +158,7 @@ type DatasetArgs struct {
 	// Source type of the dataset
 	Source DatasetSourcePtrInput
 	// Metadata tags that have been applied to the dataset.
-	Tags aws.CreateOnlyTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DatasetArgs) ElementType() reflect.Type {
@@ -230,8 +229,8 @@ func (o DatasetOutput) Source() DatasetSourcePtrOutput {
 }
 
 // Metadata tags that have been applied to the dataset.
-func (o DatasetOutput) Tags() aws.CreateOnlyTagArrayOutput {
-	return o.ApplyT(func(v *Dataset) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
+func (o DatasetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Dataset) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

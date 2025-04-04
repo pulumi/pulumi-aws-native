@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDatasetResult:
-    def __init__(__self__, format=None, format_options=None, input=None, path_options=None, source=None):
+    def __init__(__self__, format=None, format_options=None, input=None, path_options=None, source=None, tags=None):
         if format and not isinstance(format, str):
             raise TypeError("Expected argument 'format' to be a str")
         pulumi.set(__self__, "format", format)
@@ -41,6 +42,9 @@ class GetDatasetResult:
         if source and not isinstance(source, str):
             raise TypeError("Expected argument 'source' to be a str")
         pulumi.set(__self__, "source", source)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -82,6 +86,14 @@ class GetDatasetResult:
         """
         return pulumi.get(self, "source")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Metadata tags that have been applied to the dataset.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetDatasetResult(GetDatasetResult):
     # pylint: disable=using-constant-test
@@ -93,7 +105,8 @@ class AwaitableGetDatasetResult(GetDatasetResult):
             format_options=self.format_options,
             input=self.input,
             path_options=self.path_options,
-            source=self.source)
+            source=self.source,
+            tags=self.tags)
 
 
 def get_dataset(name: Optional[str] = None,
@@ -114,7 +127,8 @@ def get_dataset(name: Optional[str] = None,
         format_options=pulumi.get(__ret__, 'format_options'),
         input=pulumi.get(__ret__, 'input'),
         path_options=pulumi.get(__ret__, 'path_options'),
-        source=pulumi.get(__ret__, 'source'))
+        source=pulumi.get(__ret__, 'source'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_dataset_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetResult]:
     """
@@ -132,4 +146,5 @@ def get_dataset_output(name: Optional[pulumi.Input[str]] = None,
         format_options=pulumi.get(__response__, 'format_options'),
         input=pulumi.get(__response__, 'input'),
         path_options=pulumi.get(__response__, 'path_options'),
-        source=pulumi.get(__response__, 'source')))
+        source=pulumi.get(__response__, 'source'),
+        tags=pulumi.get(__response__, 'tags')))

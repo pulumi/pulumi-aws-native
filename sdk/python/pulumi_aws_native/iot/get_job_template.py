@@ -49,7 +49,7 @@ class AwaitableGetJobTemplateResult(GetJobTemplateResult):
 def get_job_template(job_template_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobTemplateResult:
     """
-    Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
+    Resource Type definition for AWS::IoT::JobTemplate. Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
 
 
     :param str job_template_id: A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
@@ -64,7 +64,7 @@ def get_job_template(job_template_id: Optional[str] = None,
 def get_job_template_output(job_template_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobTemplateResult]:
     """
-    Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
+    Resource Type definition for AWS::IoT::JobTemplate. Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
 
 
     :param str job_template_id: A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.

@@ -19,10 +19,10 @@ from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['WorkgroupArgs', 'Workgroup']
+__all__ = ['WorkgroupInitArgs', 'Workgroup']
 
 @pulumi.input_type
-class WorkgroupArgs:
+class WorkgroupInitArgs:
     def __init__(__self__, *,
                  base_capacity: Optional[pulumi.Input[int]] = None,
                  config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]] = None,
@@ -32,9 +32,15 @@ class WorkgroupArgs:
                  port: Optional[pulumi.Input[int]] = None,
                  price_performance_target: Optional[pulumi.Input['WorkgroupPerformanceTargetArgs']] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 recovery_point_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 snapshot_arn: Optional[pulumi.Input[str]] = None,
+                 snapshot_name: Optional[pulumi.Input[str]] = None,
+                 snapshot_owner_account: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 track_name: Optional[pulumi.Input[str]] = None,
+                 workgroup: Optional[pulumi.Input['WorkgroupArgs']] = None,
                  workgroup_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Workgroup resource.
@@ -46,9 +52,15 @@ class WorkgroupArgs:
         :param pulumi.Input[int] port: The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
         :param pulumi.Input['WorkgroupPerformanceTargetArgs'] price_performance_target: A property that represents the price performance target settings for the workgroup.
         :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessible from a public network.
+        :param pulumi.Input[str] recovery_point_id: The recovery point id to restore from.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security group IDs to associate with the workgroup.
+        :param pulumi.Input[str] snapshot_arn: The Amazon Resource Name (ARN) of the snapshot to restore from.
+        :param pulumi.Input[str] snapshot_name: The snapshot name to restore from.
+        :param pulumi.Input[str] snapshot_owner_account: The Amazon Web Services account that owns the snapshot.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs the workgroup is associated with.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The map of the key-value pairs used to tag the workgroup.
+        :param pulumi.Input[str] track_name: An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
+        :param pulumi.Input['WorkgroupArgs'] workgroup: Definition for workgroup resource
         :param pulumi.Input[str] workgroup_name: The name of the workgroup.
         """
         if base_capacity is not None:
@@ -67,12 +79,24 @@ class WorkgroupArgs:
             pulumi.set(__self__, "price_performance_target", price_performance_target)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if recovery_point_id is not None:
+            pulumi.set(__self__, "recovery_point_id", recovery_point_id)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if snapshot_arn is not None:
+            pulumi.set(__self__, "snapshot_arn", snapshot_arn)
+        if snapshot_name is not None:
+            pulumi.set(__self__, "snapshot_name", snapshot_name)
+        if snapshot_owner_account is not None:
+            pulumi.set(__self__, "snapshot_owner_account", snapshot_owner_account)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if track_name is not None:
+            pulumi.set(__self__, "track_name", track_name)
+        if workgroup is not None:
+            pulumi.set(__self__, "workgroup", workgroup)
         if workgroup_name is not None:
             pulumi.set(__self__, "workgroup_name", workgroup_name)
 
@@ -173,6 +197,18 @@ class WorkgroupArgs:
         pulumi.set(self, "publicly_accessible", value)
 
     @property
+    @pulumi.getter(name="recoveryPointId")
+    def recovery_point_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The recovery point id to restore from.
+        """
+        return pulumi.get(self, "recovery_point_id")
+
+    @recovery_point_id.setter
+    def recovery_point_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_point_id", value)
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -183,6 +219,42 @@ class WorkgroupArgs:
     @security_group_ids.setter
     def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="snapshotArn")
+    def snapshot_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the snapshot to restore from.
+        """
+        return pulumi.get(self, "snapshot_arn")
+
+    @snapshot_arn.setter
+    def snapshot_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_arn", value)
+
+    @property
+    @pulumi.getter(name="snapshotName")
+    def snapshot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The snapshot name to restore from.
+        """
+        return pulumi.get(self, "snapshot_name")
+
+    @snapshot_name.setter
+    def snapshot_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_name", value)
+
+    @property
+    @pulumi.getter(name="snapshotOwnerAccount")
+    def snapshot_owner_account(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Web Services account that owns the snapshot.
+        """
+        return pulumi.get(self, "snapshot_owner_account")
+
+    @snapshot_owner_account.setter
+    def snapshot_owner_account(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_owner_account", value)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -207,6 +279,30 @@ class WorkgroupArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="trackName")
+    def track_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
+        """
+        return pulumi.get(self, "track_name")
+
+    @track_name.setter
+    def track_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "track_name", value)
+
+    @property
+    @pulumi.getter
+    def workgroup(self) -> Optional[pulumi.Input['WorkgroupArgs']]:
+        """
+        Definition for workgroup resource
+        """
+        return pulumi.get(self, "workgroup")
+
+    @workgroup.setter
+    def workgroup(self, value: Optional[pulumi.Input['WorkgroupArgs']]):
+        pulumi.set(self, "workgroup", value)
 
     @property
     @pulumi.getter(name="workgroupName")
@@ -234,9 +330,15 @@ class Workgroup(pulumi.CustomResource):
                  port: Optional[pulumi.Input[int]] = None,
                  price_performance_target: Optional[pulumi.Input[Union['WorkgroupPerformanceTargetArgs', 'WorkgroupPerformanceTargetArgsDict']]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 recovery_point_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 snapshot_arn: Optional[pulumi.Input[str]] = None,
+                 snapshot_name: Optional[pulumi.Input[str]] = None,
+                 snapshot_owner_account: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 track_name: Optional[pulumi.Input[str]] = None,
+                 workgroup: Optional[pulumi.Input[Union['WorkgroupArgs', 'WorkgroupArgsDict']]] = None,
                  workgroup_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -252,27 +354,33 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[int] port: The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
         :param pulumi.Input[Union['WorkgroupPerformanceTargetArgs', 'WorkgroupPerformanceTargetArgsDict']] price_performance_target: A property that represents the price performance target settings for the workgroup.
         :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessible from a public network.
+        :param pulumi.Input[str] recovery_point_id: The recovery point id to restore from.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security group IDs to associate with the workgroup.
+        :param pulumi.Input[str] snapshot_arn: The Amazon Resource Name (ARN) of the snapshot to restore from.
+        :param pulumi.Input[str] snapshot_name: The snapshot name to restore from.
+        :param pulumi.Input[str] snapshot_owner_account: The Amazon Web Services account that owns the snapshot.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs the workgroup is associated with.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The map of the key-value pairs used to tag the workgroup.
+        :param pulumi.Input[str] track_name: An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
+        :param pulumi.Input[Union['WorkgroupArgs', 'WorkgroupArgsDict']] workgroup: Definition for workgroup resource
         :param pulumi.Input[str] workgroup_name: The name of the workgroup.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[WorkgroupArgs] = None,
+                 args: Optional[WorkgroupInitArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::RedshiftServerless::Workgroup Resource Type
 
         :param str resource_name: The name of the resource.
-        :param WorkgroupArgs args: The arguments to use to populate this resource's properties.
+        :param WorkgroupInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkgroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkgroupInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -289,9 +397,15 @@ class Workgroup(pulumi.CustomResource):
                  port: Optional[pulumi.Input[int]] = None,
                  price_performance_target: Optional[pulumi.Input[Union['WorkgroupPerformanceTargetArgs', 'WorkgroupPerformanceTargetArgsDict']]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 recovery_point_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 snapshot_arn: Optional[pulumi.Input[str]] = None,
+                 snapshot_name: Optional[pulumi.Input[str]] = None,
+                 snapshot_owner_account: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 track_name: Optional[pulumi.Input[str]] = None,
+                 workgroup: Optional[pulumi.Input[Union['WorkgroupArgs', 'WorkgroupArgsDict']]] = None,
                  workgroup_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -300,7 +414,7 @@ class Workgroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkgroupArgs.__new__(WorkgroupArgs)
+            __props__ = WorkgroupInitArgs.__new__(WorkgroupInitArgs)
 
             __props__.__dict__["base_capacity"] = base_capacity
             __props__.__dict__["config_parameters"] = config_parameters
@@ -310,11 +424,16 @@ class Workgroup(pulumi.CustomResource):
             __props__.__dict__["port"] = port
             __props__.__dict__["price_performance_target"] = price_performance_target
             __props__.__dict__["publicly_accessible"] = publicly_accessible
+            __props__.__dict__["recovery_point_id"] = recovery_point_id
             __props__.__dict__["security_group_ids"] = security_group_ids
+            __props__.__dict__["snapshot_arn"] = snapshot_arn
+            __props__.__dict__["snapshot_name"] = snapshot_name
+            __props__.__dict__["snapshot_owner_account"] = snapshot_owner_account
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["track_name"] = track_name
+            __props__.__dict__["workgroup"] = workgroup
             __props__.__dict__["workgroup_name"] = workgroup_name
-            __props__.__dict__["workgroup"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["namespaceName", "workgroupName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workgroup, __self__).__init__(
@@ -337,7 +456,7 @@ class Workgroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = WorkgroupArgs.__new__(WorkgroupArgs)
+        __props__ = WorkgroupInitArgs.__new__(WorkgroupInitArgs)
 
         __props__.__dict__["base_capacity"] = None
         __props__.__dict__["config_parameters"] = None
@@ -347,9 +466,14 @@ class Workgroup(pulumi.CustomResource):
         __props__.__dict__["port"] = None
         __props__.__dict__["price_performance_target"] = None
         __props__.__dict__["publicly_accessible"] = None
+        __props__.__dict__["recovery_point_id"] = None
         __props__.__dict__["security_group_ids"] = None
+        __props__.__dict__["snapshot_arn"] = None
+        __props__.__dict__["snapshot_name"] = None
+        __props__.__dict__["snapshot_owner_account"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["track_name"] = None
         __props__.__dict__["workgroup"] = None
         __props__.__dict__["workgroup_name"] = None
         return Workgroup(resource_name, opts=opts, __props__=__props__)
@@ -419,12 +543,44 @@ class Workgroup(pulumi.CustomResource):
         return pulumi.get(self, "publicly_accessible")
 
     @property
+    @pulumi.getter(name="recoveryPointId")
+    def recovery_point_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The recovery point id to restore from.
+        """
+        return pulumi.get(self, "recovery_point_id")
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of security group IDs to associate with the workgroup.
         """
         return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="snapshotArn")
+    def snapshot_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the snapshot to restore from.
+        """
+        return pulumi.get(self, "snapshot_arn")
+
+    @property
+    @pulumi.getter(name="snapshotName")
+    def snapshot_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The snapshot name to restore from.
+        """
+        return pulumi.get(self, "snapshot_name")
+
+    @property
+    @pulumi.getter(name="snapshotOwnerAccount")
+    def snapshot_owner_account(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Web Services account that owns the snapshot.
+        """
+        return pulumi.get(self, "snapshot_owner_account")
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -443,8 +599,16 @@ class Workgroup(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="trackName")
+    def track_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
+        """
+        return pulumi.get(self, "track_name")
+
+    @property
     @pulumi.getter
-    def workgroup(self) -> pulumi.Output['outputs.Workgroup']:
+    def workgroup(self) -> pulumi.Output[Optional['outputs.Workgroup']]:
         """
         Definition for workgroup resource
         """

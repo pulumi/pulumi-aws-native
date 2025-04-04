@@ -36,7 +36,7 @@ class ResponsePlanArgs:
         The set of arguments for constructing a ResponsePlan resource.
         :param pulumi.Input['ResponsePlanIncidentTemplateArgs'] incident_template: Details used to create an incident when using this response plan.
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionArgs']]] actions: The list of actions.
-        :param pulumi.Input['ResponsePlanChatChannelArgs'] chat_channel: The AWS Chatbot chat channel used for collaboration during an incident.
+        :param pulumi.Input['ResponsePlanChatChannelArgs'] chat_channel: The  chat channel used for collaboration during an incident.
         :param pulumi.Input[str] display_name: The display name of the response plan.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] engagements: The list of engagements to use.
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationArgs']]] integrations: The list of integrations.
@@ -87,7 +87,7 @@ class ResponsePlanArgs:
     @pulumi.getter(name="chatChannel")
     def chat_channel(self) -> Optional[pulumi.Input['ResponsePlanChatChannelArgs']]:
         """
-        The AWS Chatbot chat channel used for collaboration during an incident.
+        The  chat channel used for collaboration during an incident.
         """
         return pulumi.get(self, "chat_channel")
 
@@ -176,7 +176,7 @@ class ResponsePlan(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlanActionArgs', 'ResponsePlanActionArgsDict']]]] actions: The list of actions.
-        :param pulumi.Input[Union['ResponsePlanChatChannelArgs', 'ResponsePlanChatChannelArgsDict']] chat_channel: The AWS Chatbot chat channel used for collaboration during an incident.
+        :param pulumi.Input[Union['ResponsePlanChatChannelArgs', 'ResponsePlanChatChannelArgsDict']] chat_channel: The  chat channel used for collaboration during an incident.
         :param pulumi.Input[str] display_name: The display name of the response plan.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] engagements: The list of engagements to use.
         :param pulumi.Input[Union['ResponsePlanIncidentTemplateArgs', 'ResponsePlanIncidentTemplateArgsDict']] incident_template: Details used to create an incident when using this response plan.
@@ -291,7 +291,7 @@ class ResponsePlan(pulumi.CustomResource):
     @pulumi.getter(name="chatChannel")
     def chat_channel(self) -> pulumi.Output[Optional['outputs.ResponsePlanChatChannel']]:
         """
-        The AWS Chatbot chat channel used for collaboration during an incident.
+        The  chat channel used for collaboration during an incident.
         """
         return pulumi.get(self, "chat_channel")
 

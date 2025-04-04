@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly string? DistributionHostedZoneId;
         /// <summary>
-        /// The endpoint configuration of this DomainName showing the endpoint types of the domain name.
+        /// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
         /// </summary>
         public readonly Outputs.DomainNameEndpointConfiguration? EndpointConfiguration;
         /// <summary>

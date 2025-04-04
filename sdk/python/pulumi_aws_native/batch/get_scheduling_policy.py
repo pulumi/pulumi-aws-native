@@ -62,7 +62,7 @@ class AwaitableGetSchedulingPolicyResult(GetSchedulingPolicyResult):
 def get_scheduling_policy(arn: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchedulingPolicyResult:
     """
-    Resource Type schema for AWS::Batch::SchedulingPolicy
+    Resource Type definition for AWS::Batch::SchedulingPolicy
 
 
     :param str arn: Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
@@ -78,7 +78,7 @@ def get_scheduling_policy(arn: Optional[str] = None,
 def get_scheduling_policy_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchedulingPolicyResult]:
     """
-    Resource Type schema for AWS::Batch::SchedulingPolicy
+    Resource Type definition for AWS::Batch::SchedulingPolicy
 
 
     :param str arn: Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .

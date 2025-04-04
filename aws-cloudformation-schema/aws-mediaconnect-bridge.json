@@ -259,7 +259,7 @@
   "primaryIdentifier" : [ "/properties/BridgeArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "mediaconnect:CreateBridge", "mediaconnect:DescribeBridge" ]
+      "permissions" : [ "mediaconnect:CreateBridge", "mediaconnect:DescribeBridge", "mediaconnect:AddBridgeOutputs", "mediaconnect:AddBridgeSources" ]
     },
     "read" : {
       "permissions" : [ "mediaconnect:DescribeBridge" ]
@@ -268,7 +268,7 @@
       "permissions" : [ "mediaconnect:DescribeBridge", "mediaconnect:UpdateBridge" ]
     },
     "delete" : {
-      "permissions" : [ "mediaconnect:DescribeBridge", "mediaconnect:DeleteBridge" ]
+      "permissions" : [ "mediaconnect:DescribeBridge", "mediaconnect:DeleteBridge", "mediaconnect:RemoveBridgeOutput", "mediaconnect:RemoveBridgeSource" ]
     },
     "list" : {
       "permissions" : [ "mediaconnect:ListBridges" ]

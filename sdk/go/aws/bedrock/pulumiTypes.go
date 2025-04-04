@@ -7787,7 +7787,7 @@ func (o DataSourceBedrockDataAutomationConfigurationPtrOutput) ParsingModality()
 
 // Settings for a foundation model used to parse documents for a data source.
 type DataSourceBedrockFoundationModelConfiguration struct {
-	// The model's ARN.
+	// The ARN of the foundation model to use for parsing.
 	ModelArn string `pulumi:"modelArn"`
 	// Specifies whether to enable parsing of multimodal data, including both text and/or images.
 	ParsingModality *DataSourceParsingModality `pulumi:"parsingModality"`
@@ -7808,7 +7808,7 @@ type DataSourceBedrockFoundationModelConfigurationInput interface {
 
 // Settings for a foundation model used to parse documents for a data source.
 type DataSourceBedrockFoundationModelConfigurationArgs struct {
-	// The model's ARN.
+	// The ARN of the foundation model to use for parsing.
 	ModelArn pulumi.StringInput `pulumi:"modelArn"`
 	// Specifies whether to enable parsing of multimodal data, including both text and/or images.
 	ParsingModality DataSourceParsingModalityPtrInput `pulumi:"parsingModality"`
@@ -7894,7 +7894,7 @@ func (o DataSourceBedrockFoundationModelConfigurationOutput) ToDataSourceBedrock
 	}).(DataSourceBedrockFoundationModelConfigurationPtrOutput)
 }
 
-// The model's ARN.
+// The ARN of the foundation model to use for parsing.
 func (o DataSourceBedrockFoundationModelConfigurationOutput) ModelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceBedrockFoundationModelConfiguration) string { return v.ModelArn }).(pulumi.StringOutput)
 }
@@ -7935,7 +7935,7 @@ func (o DataSourceBedrockFoundationModelConfigurationPtrOutput) Elem() DataSourc
 	}).(DataSourceBedrockFoundationModelConfigurationOutput)
 }
 
-// The model's ARN.
+// The ARN of the foundation model to use for parsing.
 func (o DataSourceBedrockFoundationModelConfigurationPtrOutput) ModelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceBedrockFoundationModelConfiguration) *string {
 		if v == nil {
@@ -7963,6 +7963,167 @@ func (o DataSourceBedrockFoundationModelConfigurationPtrOutput) ParsingPrompt() 
 		}
 		return v.ParsingPrompt
 	}).(DataSourceParsingPromptPtrOutput)
+}
+
+// Bedrock Foundation Model configuration to be used for Context Enrichment.
+type DataSourceBedrockFoundationModelContextEnrichmentConfiguration struct {
+	// The enrichment stategy used to provide additional context. For example, Neptune GraphRAG uses Amazon Bedrock foundation models to perform chunk entity extraction.
+	EnrichmentStrategyConfiguration DataSourceEnrichmentStrategyConfiguration `pulumi:"enrichmentStrategyConfiguration"`
+	// The Amazon Resource Name (ARN) of the model used to create vector embeddings for the knowledge base.
+	ModelArn string `pulumi:"modelArn"`
+}
+
+// DataSourceBedrockFoundationModelContextEnrichmentConfigurationInput is an input type that accepts DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs and DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceBedrockFoundationModelContextEnrichmentConfigurationInput` via:
+//
+//	DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs{...}
+type DataSourceBedrockFoundationModelContextEnrichmentConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput() DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput
+	ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationOutputWithContext(context.Context) DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput
+}
+
+// Bedrock Foundation Model configuration to be used for Context Enrichment.
+type DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs struct {
+	// The enrichment stategy used to provide additional context. For example, Neptune GraphRAG uses Amazon Bedrock foundation models to perform chunk entity extraction.
+	EnrichmentStrategyConfiguration DataSourceEnrichmentStrategyConfigurationInput `pulumi:"enrichmentStrategyConfiguration"`
+	// The Amazon Resource Name (ARN) of the model used to create vector embeddings for the knowledge base.
+	ModelArn pulumi.StringInput `pulumi:"modelArn"`
+}
+
+func (DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceBedrockFoundationModelContextEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs) ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput() DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput {
+	return i.ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs) ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationOutputWithContext(ctx context.Context) DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput)
+}
+
+func (i DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs) ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput() DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput {
+	return i.ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs) ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput).ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrInput is an input type that accepts DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs, DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtr and DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrInput` via:
+//
+//	        DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput() DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput
+	ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutputWithContext(context.Context) DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput
+}
+
+type dataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrType DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs
+
+func DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtr(v *DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs) DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrInput {
+	return (*dataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrType)(v)
+}
+
+func (*dataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceBedrockFoundationModelContextEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrType) ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput() DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput {
+	return i.ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrType) ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput)
+}
+
+// Bedrock Foundation Model configuration to be used for Context Enrichment.
+type DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceBedrockFoundationModelContextEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput) ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput() DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput {
+	return o
+}
+
+func (o DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput) ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationOutputWithContext(ctx context.Context) DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput {
+	return o
+}
+
+func (o DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput) ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput() DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput {
+	return o.ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput) ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceBedrockFoundationModelContextEnrichmentConfiguration) *DataSourceBedrockFoundationModelContextEnrichmentConfiguration {
+		return &v
+	}).(DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput)
+}
+
+// The enrichment stategy used to provide additional context. For example, Neptune GraphRAG uses Amazon Bedrock foundation models to perform chunk entity extraction.
+func (o DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput) EnrichmentStrategyConfiguration() DataSourceEnrichmentStrategyConfigurationOutput {
+	return o.ApplyT(func(v DataSourceBedrockFoundationModelContextEnrichmentConfiguration) DataSourceEnrichmentStrategyConfiguration {
+		return v.EnrichmentStrategyConfiguration
+	}).(DataSourceEnrichmentStrategyConfigurationOutput)
+}
+
+// The Amazon Resource Name (ARN) of the model used to create vector embeddings for the knowledge base.
+func (o DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput) ModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceBedrockFoundationModelContextEnrichmentConfiguration) string { return v.ModelArn }).(pulumi.StringOutput)
+}
+
+type DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceBedrockFoundationModelContextEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput) ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput() DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput) ToDataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput) Elem() DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceBedrockFoundationModelContextEnrichmentConfiguration) DataSourceBedrockFoundationModelContextEnrichmentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceBedrockFoundationModelContextEnrichmentConfiguration
+		return ret
+	}).(DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput)
+}
+
+// The enrichment stategy used to provide additional context. For example, Neptune GraphRAG uses Amazon Bedrock foundation models to perform chunk entity extraction.
+func (o DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput) EnrichmentStrategyConfiguration() DataSourceEnrichmentStrategyConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceBedrockFoundationModelContextEnrichmentConfiguration) *DataSourceEnrichmentStrategyConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.EnrichmentStrategyConfiguration
+	}).(DataSourceEnrichmentStrategyConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the model used to create vector embeddings for the knowledge base.
+func (o DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput) ModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceBedrockFoundationModelContextEnrichmentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
@@ -8916,6 +9077,167 @@ func (o DataSourceConfluenceSourceConfigurationPtrOutput) HostUrl() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Additional Enrichment Configuration for example when using GraphRag.
+type DataSourceContextEnrichmentConfiguration struct {
+	// The configuration of the Amazon Bedrock foundation model used for context enrichment.
+	BedrockFoundationModelConfiguration *DataSourceBedrockFoundationModelContextEnrichmentConfiguration `pulumi:"bedrockFoundationModelConfiguration"`
+	// The method used for context enrichment. It must be Amazon Bedrock foundation models.
+	Type DataSourceContextEnrichmentType `pulumi:"type"`
+}
+
+// DataSourceContextEnrichmentConfigurationInput is an input type that accepts DataSourceContextEnrichmentConfigurationArgs and DataSourceContextEnrichmentConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceContextEnrichmentConfigurationInput` via:
+//
+//	DataSourceContextEnrichmentConfigurationArgs{...}
+type DataSourceContextEnrichmentConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceContextEnrichmentConfigurationOutput() DataSourceContextEnrichmentConfigurationOutput
+	ToDataSourceContextEnrichmentConfigurationOutputWithContext(context.Context) DataSourceContextEnrichmentConfigurationOutput
+}
+
+// Additional Enrichment Configuration for example when using GraphRag.
+type DataSourceContextEnrichmentConfigurationArgs struct {
+	// The configuration of the Amazon Bedrock foundation model used for context enrichment.
+	BedrockFoundationModelConfiguration DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrInput `pulumi:"bedrockFoundationModelConfiguration"`
+	// The method used for context enrichment. It must be Amazon Bedrock foundation models.
+	Type DataSourceContextEnrichmentTypeInput `pulumi:"type"`
+}
+
+func (DataSourceContextEnrichmentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceContextEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceContextEnrichmentConfigurationArgs) ToDataSourceContextEnrichmentConfigurationOutput() DataSourceContextEnrichmentConfigurationOutput {
+	return i.ToDataSourceContextEnrichmentConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceContextEnrichmentConfigurationArgs) ToDataSourceContextEnrichmentConfigurationOutputWithContext(ctx context.Context) DataSourceContextEnrichmentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceContextEnrichmentConfigurationOutput)
+}
+
+func (i DataSourceContextEnrichmentConfigurationArgs) ToDataSourceContextEnrichmentConfigurationPtrOutput() DataSourceContextEnrichmentConfigurationPtrOutput {
+	return i.ToDataSourceContextEnrichmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceContextEnrichmentConfigurationArgs) ToDataSourceContextEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) DataSourceContextEnrichmentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceContextEnrichmentConfigurationOutput).ToDataSourceContextEnrichmentConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceContextEnrichmentConfigurationPtrInput is an input type that accepts DataSourceContextEnrichmentConfigurationArgs, DataSourceContextEnrichmentConfigurationPtr and DataSourceContextEnrichmentConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceContextEnrichmentConfigurationPtrInput` via:
+//
+//	        DataSourceContextEnrichmentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceContextEnrichmentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceContextEnrichmentConfigurationPtrOutput() DataSourceContextEnrichmentConfigurationPtrOutput
+	ToDataSourceContextEnrichmentConfigurationPtrOutputWithContext(context.Context) DataSourceContextEnrichmentConfigurationPtrOutput
+}
+
+type dataSourceContextEnrichmentConfigurationPtrType DataSourceContextEnrichmentConfigurationArgs
+
+func DataSourceContextEnrichmentConfigurationPtr(v *DataSourceContextEnrichmentConfigurationArgs) DataSourceContextEnrichmentConfigurationPtrInput {
+	return (*dataSourceContextEnrichmentConfigurationPtrType)(v)
+}
+
+func (*dataSourceContextEnrichmentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceContextEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceContextEnrichmentConfigurationPtrType) ToDataSourceContextEnrichmentConfigurationPtrOutput() DataSourceContextEnrichmentConfigurationPtrOutput {
+	return i.ToDataSourceContextEnrichmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceContextEnrichmentConfigurationPtrType) ToDataSourceContextEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) DataSourceContextEnrichmentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceContextEnrichmentConfigurationPtrOutput)
+}
+
+// Additional Enrichment Configuration for example when using GraphRag.
+type DataSourceContextEnrichmentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceContextEnrichmentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceContextEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceContextEnrichmentConfigurationOutput) ToDataSourceContextEnrichmentConfigurationOutput() DataSourceContextEnrichmentConfigurationOutput {
+	return o
+}
+
+func (o DataSourceContextEnrichmentConfigurationOutput) ToDataSourceContextEnrichmentConfigurationOutputWithContext(ctx context.Context) DataSourceContextEnrichmentConfigurationOutput {
+	return o
+}
+
+func (o DataSourceContextEnrichmentConfigurationOutput) ToDataSourceContextEnrichmentConfigurationPtrOutput() DataSourceContextEnrichmentConfigurationPtrOutput {
+	return o.ToDataSourceContextEnrichmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceContextEnrichmentConfigurationOutput) ToDataSourceContextEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) DataSourceContextEnrichmentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceContextEnrichmentConfiguration) *DataSourceContextEnrichmentConfiguration {
+		return &v
+	}).(DataSourceContextEnrichmentConfigurationPtrOutput)
+}
+
+// The configuration of the Amazon Bedrock foundation model used for context enrichment.
+func (o DataSourceContextEnrichmentConfigurationOutput) BedrockFoundationModelConfiguration() DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceContextEnrichmentConfiguration) *DataSourceBedrockFoundationModelContextEnrichmentConfiguration {
+		return v.BedrockFoundationModelConfiguration
+	}).(DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput)
+}
+
+// The method used for context enrichment. It must be Amazon Bedrock foundation models.
+func (o DataSourceContextEnrichmentConfigurationOutput) Type() DataSourceContextEnrichmentTypeOutput {
+	return o.ApplyT(func(v DataSourceContextEnrichmentConfiguration) DataSourceContextEnrichmentType { return v.Type }).(DataSourceContextEnrichmentTypeOutput)
+}
+
+type DataSourceContextEnrichmentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceContextEnrichmentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceContextEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceContextEnrichmentConfigurationPtrOutput) ToDataSourceContextEnrichmentConfigurationPtrOutput() DataSourceContextEnrichmentConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceContextEnrichmentConfigurationPtrOutput) ToDataSourceContextEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) DataSourceContextEnrichmentConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceContextEnrichmentConfigurationPtrOutput) Elem() DataSourceContextEnrichmentConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceContextEnrichmentConfiguration) DataSourceContextEnrichmentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceContextEnrichmentConfiguration
+		return ret
+	}).(DataSourceContextEnrichmentConfigurationOutput)
+}
+
+// The configuration of the Amazon Bedrock foundation model used for context enrichment.
+func (o DataSourceContextEnrichmentConfigurationPtrOutput) BedrockFoundationModelConfiguration() DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceContextEnrichmentConfiguration) *DataSourceBedrockFoundationModelContextEnrichmentConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockFoundationModelConfiguration
+	}).(DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput)
+}
+
+// The method used for context enrichment. It must be Amazon Bedrock foundation models.
+func (o DataSourceContextEnrichmentConfigurationPtrOutput) Type() DataSourceContextEnrichmentTypePtrOutput {
+	return o.ApplyT(func(v *DataSourceContextEnrichmentConfiguration) *DataSourceContextEnrichmentType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(DataSourceContextEnrichmentTypePtrOutput)
+}
+
 // The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
 type DataSourceCrawlFilterConfiguration struct {
 	// The configuration of filtering certain objects or content types of the data source.
@@ -9238,6 +9560,146 @@ func (o DataSourceCustomTransformationConfigurationPtrOutput) Transformations() 
 		}
 		return v.Transformations
 	}).(DataSourceTransformationArrayOutput)
+}
+
+// Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
+type DataSourceEnrichmentStrategyConfiguration struct {
+	// The method used for the context enrichment strategy.
+	Method DataSourceEnrichmentStrategyMethod `pulumi:"method"`
+}
+
+// DataSourceEnrichmentStrategyConfigurationInput is an input type that accepts DataSourceEnrichmentStrategyConfigurationArgs and DataSourceEnrichmentStrategyConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceEnrichmentStrategyConfigurationInput` via:
+//
+//	DataSourceEnrichmentStrategyConfigurationArgs{...}
+type DataSourceEnrichmentStrategyConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceEnrichmentStrategyConfigurationOutput() DataSourceEnrichmentStrategyConfigurationOutput
+	ToDataSourceEnrichmentStrategyConfigurationOutputWithContext(context.Context) DataSourceEnrichmentStrategyConfigurationOutput
+}
+
+// Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
+type DataSourceEnrichmentStrategyConfigurationArgs struct {
+	// The method used for the context enrichment strategy.
+	Method DataSourceEnrichmentStrategyMethodInput `pulumi:"method"`
+}
+
+func (DataSourceEnrichmentStrategyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceEnrichmentStrategyConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceEnrichmentStrategyConfigurationArgs) ToDataSourceEnrichmentStrategyConfigurationOutput() DataSourceEnrichmentStrategyConfigurationOutput {
+	return i.ToDataSourceEnrichmentStrategyConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceEnrichmentStrategyConfigurationArgs) ToDataSourceEnrichmentStrategyConfigurationOutputWithContext(ctx context.Context) DataSourceEnrichmentStrategyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceEnrichmentStrategyConfigurationOutput)
+}
+
+func (i DataSourceEnrichmentStrategyConfigurationArgs) ToDataSourceEnrichmentStrategyConfigurationPtrOutput() DataSourceEnrichmentStrategyConfigurationPtrOutput {
+	return i.ToDataSourceEnrichmentStrategyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceEnrichmentStrategyConfigurationArgs) ToDataSourceEnrichmentStrategyConfigurationPtrOutputWithContext(ctx context.Context) DataSourceEnrichmentStrategyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceEnrichmentStrategyConfigurationOutput).ToDataSourceEnrichmentStrategyConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceEnrichmentStrategyConfigurationPtrInput is an input type that accepts DataSourceEnrichmentStrategyConfigurationArgs, DataSourceEnrichmentStrategyConfigurationPtr and DataSourceEnrichmentStrategyConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceEnrichmentStrategyConfigurationPtrInput` via:
+//
+//	        DataSourceEnrichmentStrategyConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceEnrichmentStrategyConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceEnrichmentStrategyConfigurationPtrOutput() DataSourceEnrichmentStrategyConfigurationPtrOutput
+	ToDataSourceEnrichmentStrategyConfigurationPtrOutputWithContext(context.Context) DataSourceEnrichmentStrategyConfigurationPtrOutput
+}
+
+type dataSourceEnrichmentStrategyConfigurationPtrType DataSourceEnrichmentStrategyConfigurationArgs
+
+func DataSourceEnrichmentStrategyConfigurationPtr(v *DataSourceEnrichmentStrategyConfigurationArgs) DataSourceEnrichmentStrategyConfigurationPtrInput {
+	return (*dataSourceEnrichmentStrategyConfigurationPtrType)(v)
+}
+
+func (*dataSourceEnrichmentStrategyConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceEnrichmentStrategyConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceEnrichmentStrategyConfigurationPtrType) ToDataSourceEnrichmentStrategyConfigurationPtrOutput() DataSourceEnrichmentStrategyConfigurationPtrOutput {
+	return i.ToDataSourceEnrichmentStrategyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceEnrichmentStrategyConfigurationPtrType) ToDataSourceEnrichmentStrategyConfigurationPtrOutputWithContext(ctx context.Context) DataSourceEnrichmentStrategyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceEnrichmentStrategyConfigurationPtrOutput)
+}
+
+// Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
+type DataSourceEnrichmentStrategyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceEnrichmentStrategyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceEnrichmentStrategyConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceEnrichmentStrategyConfigurationOutput) ToDataSourceEnrichmentStrategyConfigurationOutput() DataSourceEnrichmentStrategyConfigurationOutput {
+	return o
+}
+
+func (o DataSourceEnrichmentStrategyConfigurationOutput) ToDataSourceEnrichmentStrategyConfigurationOutputWithContext(ctx context.Context) DataSourceEnrichmentStrategyConfigurationOutput {
+	return o
+}
+
+func (o DataSourceEnrichmentStrategyConfigurationOutput) ToDataSourceEnrichmentStrategyConfigurationPtrOutput() DataSourceEnrichmentStrategyConfigurationPtrOutput {
+	return o.ToDataSourceEnrichmentStrategyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceEnrichmentStrategyConfigurationOutput) ToDataSourceEnrichmentStrategyConfigurationPtrOutputWithContext(ctx context.Context) DataSourceEnrichmentStrategyConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceEnrichmentStrategyConfiguration) *DataSourceEnrichmentStrategyConfiguration {
+		return &v
+	}).(DataSourceEnrichmentStrategyConfigurationPtrOutput)
+}
+
+// The method used for the context enrichment strategy.
+func (o DataSourceEnrichmentStrategyConfigurationOutput) Method() DataSourceEnrichmentStrategyMethodOutput {
+	return o.ApplyT(func(v DataSourceEnrichmentStrategyConfiguration) DataSourceEnrichmentStrategyMethod { return v.Method }).(DataSourceEnrichmentStrategyMethodOutput)
+}
+
+type DataSourceEnrichmentStrategyConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceEnrichmentStrategyConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceEnrichmentStrategyConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceEnrichmentStrategyConfigurationPtrOutput) ToDataSourceEnrichmentStrategyConfigurationPtrOutput() DataSourceEnrichmentStrategyConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceEnrichmentStrategyConfigurationPtrOutput) ToDataSourceEnrichmentStrategyConfigurationPtrOutputWithContext(ctx context.Context) DataSourceEnrichmentStrategyConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceEnrichmentStrategyConfigurationPtrOutput) Elem() DataSourceEnrichmentStrategyConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceEnrichmentStrategyConfiguration) DataSourceEnrichmentStrategyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceEnrichmentStrategyConfiguration
+		return ret
+	}).(DataSourceEnrichmentStrategyConfigurationOutput)
+}
+
+// The method used for the context enrichment strategy.
+func (o DataSourceEnrichmentStrategyConfigurationPtrOutput) Method() DataSourceEnrichmentStrategyMethodPtrOutput {
+	return o.ApplyT(func(v *DataSourceEnrichmentStrategyConfiguration) *DataSourceEnrichmentStrategyMethod {
+		if v == nil {
+			return nil
+		}
+		return &v.Method
+	}).(DataSourceEnrichmentStrategyMethodPtrOutput)
 }
 
 // Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as NONE, exclude this field.
@@ -12504,6 +12966,8 @@ func (o DataSourceUrlConfigurationPtrOutput) SeedUrls() DataSourceSeedUrlArrayOu
 type DataSourceVectorIngestionConfiguration struct {
 	// Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 	ChunkingConfiguration *DataSourceChunkingConfiguration `pulumi:"chunkingConfiguration"`
+	// The context enrichment configuration used for ingestion of the data into the vector store.
+	ContextEnrichmentConfiguration *DataSourceContextEnrichmentConfiguration `pulumi:"contextEnrichmentConfiguration"`
 	// A custom document transformer for parsed data source documents.
 	CustomTransformationConfiguration *DataSourceCustomTransformationConfiguration `pulumi:"customTransformationConfiguration"`
 	// Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.
@@ -12525,6 +12989,8 @@ type DataSourceVectorIngestionConfigurationInput interface {
 type DataSourceVectorIngestionConfigurationArgs struct {
 	// Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 	ChunkingConfiguration DataSourceChunkingConfigurationPtrInput `pulumi:"chunkingConfiguration"`
+	// The context enrichment configuration used for ingestion of the data into the vector store.
+	ContextEnrichmentConfiguration DataSourceContextEnrichmentConfigurationPtrInput `pulumi:"contextEnrichmentConfiguration"`
 	// A custom document transformer for parsed data source documents.
 	CustomTransformationConfiguration DataSourceCustomTransformationConfigurationPtrInput `pulumi:"customTransformationConfiguration"`
 	// Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.
@@ -12616,6 +13082,13 @@ func (o DataSourceVectorIngestionConfigurationOutput) ChunkingConfiguration() Da
 	}).(DataSourceChunkingConfigurationPtrOutput)
 }
 
+// The context enrichment configuration used for ingestion of the data into the vector store.
+func (o DataSourceVectorIngestionConfigurationOutput) ContextEnrichmentConfiguration() DataSourceContextEnrichmentConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceVectorIngestionConfiguration) *DataSourceContextEnrichmentConfiguration {
+		return v.ContextEnrichmentConfiguration
+	}).(DataSourceContextEnrichmentConfigurationPtrOutput)
+}
+
 // A custom document transformer for parsed data source documents.
 func (o DataSourceVectorIngestionConfigurationOutput) CustomTransformationConfiguration() DataSourceCustomTransformationConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceVectorIngestionConfiguration) *DataSourceCustomTransformationConfiguration {
@@ -12664,6 +13137,16 @@ func (o DataSourceVectorIngestionConfigurationPtrOutput) ChunkingConfiguration()
 	}).(DataSourceChunkingConfigurationPtrOutput)
 }
 
+// The context enrichment configuration used for ingestion of the data into the vector store.
+func (o DataSourceVectorIngestionConfigurationPtrOutput) ContextEnrichmentConfiguration() DataSourceContextEnrichmentConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceVectorIngestionConfiguration) *DataSourceContextEnrichmentConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ContextEnrichmentConfiguration
+	}).(DataSourceContextEnrichmentConfigurationPtrOutput)
+}
+
 // A custom document transformer for parsed data source documents.
 func (o DataSourceVectorIngestionConfigurationPtrOutput) CustomTransformationConfiguration() DataSourceCustomTransformationConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceVectorIngestionConfiguration) *DataSourceCustomTransformationConfiguration {
@@ -12696,6 +13179,10 @@ type DataSourceWebCrawlerConfiguration struct {
 	//
 	// You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL "https://docs.aws.amazon.com/bedrock/latest/userguide/" and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain "aws.amazon.com" can also include sub domain "docs.aws.amazon.com".
 	Scope *DataSourceWebScopeType `pulumi:"scope"`
+	// The suffix that will be included in the user agent header.
+	UserAgent *string `pulumi:"userAgent"`
+	// The full user agent header, including UUID and suffix.
+	UserAgentHeader *string `pulumi:"userAgentHeader"`
 }
 
 // DataSourceWebCrawlerConfigurationInput is an input type that accepts DataSourceWebCrawlerConfigurationArgs and DataSourceWebCrawlerConfigurationOutput values.
@@ -12721,6 +13208,10 @@ type DataSourceWebCrawlerConfigurationArgs struct {
 	//
 	// You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL "https://docs.aws.amazon.com/bedrock/latest/userguide/" and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain "aws.amazon.com" can also include sub domain "docs.aws.amazon.com".
 	Scope DataSourceWebScopeTypePtrInput `pulumi:"scope"`
+	// The suffix that will be included in the user agent header.
+	UserAgent pulumi.StringPtrInput `pulumi:"userAgent"`
+	// The full user agent header, including UUID and suffix.
+	UserAgentHeader pulumi.StringPtrInput `pulumi:"userAgentHeader"`
 }
 
 func (DataSourceWebCrawlerConfigurationArgs) ElementType() reflect.Type {
@@ -12823,6 +13314,16 @@ func (o DataSourceWebCrawlerConfigurationOutput) Scope() DataSourceWebScopeTypeP
 	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) *DataSourceWebScopeType { return v.Scope }).(DataSourceWebScopeTypePtrOutput)
 }
 
+// The suffix that will be included in the user agent header.
+func (o DataSourceWebCrawlerConfigurationOutput) UserAgent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) *string { return v.UserAgent }).(pulumi.StringPtrOutput)
+}
+
+// The full user agent header, including UUID and suffix.
+func (o DataSourceWebCrawlerConfigurationOutput) UserAgentHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) *string { return v.UserAgentHeader }).(pulumi.StringPtrOutput)
+}
+
 type DataSourceWebCrawlerConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DataSourceWebCrawlerConfigurationPtrOutput) ElementType() reflect.Type {
@@ -12889,8 +13390,30 @@ func (o DataSourceWebCrawlerConfigurationPtrOutput) Scope() DataSourceWebScopeTy
 	}).(DataSourceWebScopeTypePtrOutput)
 }
 
+// The suffix that will be included in the user agent header.
+func (o DataSourceWebCrawlerConfigurationPtrOutput) UserAgent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAgent
+	}).(pulumi.StringPtrOutput)
+}
+
+// The full user agent header, including UUID and suffix.
+func (o DataSourceWebCrawlerConfigurationPtrOutput) UserAgentHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAgentHeader
+	}).(pulumi.StringPtrOutput)
+}
+
 // Limit settings for the web crawler.
 type DataSourceWebCrawlerLimits struct {
+	// Maximum number of pages the crawler can crawl.
+	MaxPages *int `pulumi:"maxPages"`
 	// Rate of web URLs retrieved per minute.
 	RateLimit *int `pulumi:"rateLimit"`
 }
@@ -12908,6 +13431,8 @@ type DataSourceWebCrawlerLimitsInput interface {
 
 // Limit settings for the web crawler.
 type DataSourceWebCrawlerLimitsArgs struct {
+	// Maximum number of pages the crawler can crawl.
+	MaxPages pulumi.IntPtrInput `pulumi:"maxPages"`
 	// Rate of web URLs retrieved per minute.
 	RateLimit pulumi.IntPtrInput `pulumi:"rateLimit"`
 }
@@ -12990,6 +13515,11 @@ func (o DataSourceWebCrawlerLimitsOutput) ToDataSourceWebCrawlerLimitsPtrOutputW
 	}).(DataSourceWebCrawlerLimitsPtrOutput)
 }
 
+// Maximum number of pages the crawler can crawl.
+func (o DataSourceWebCrawlerLimitsOutput) MaxPages() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataSourceWebCrawlerLimits) *int { return v.MaxPages }).(pulumi.IntPtrOutput)
+}
+
 // Rate of web URLs retrieved per minute.
 func (o DataSourceWebCrawlerLimitsOutput) RateLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerLimits) *int { return v.RateLimit }).(pulumi.IntPtrOutput)
@@ -13017,6 +13547,16 @@ func (o DataSourceWebCrawlerLimitsPtrOutput) Elem() DataSourceWebCrawlerLimitsOu
 		var ret DataSourceWebCrawlerLimits
 		return ret
 	}).(DataSourceWebCrawlerLimitsOutput)
+}
+
+// Maximum number of pages the crawler can crawl.
+func (o DataSourceWebCrawlerLimitsPtrOutput) MaxPages() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceWebCrawlerLimits) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPages
+	}).(pulumi.IntPtrOutput)
 }
 
 // Rate of web URLs retrieved per minute.
@@ -23410,8 +23950,12 @@ func (o FlowVersionTextPromptTemplateConfigurationPtrOutput) Text() pulumi.Strin
 
 // Content filter config in content policy.
 type GuardrailContentFilterConfig struct {
+	// List of modalities
+	InputModalities []GuardrailModality `pulumi:"inputModalities"`
 	// The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
 	InputStrength GuardrailFilterStrength `pulumi:"inputStrength"`
+	// List of modalities
+	OutputModalities []GuardrailModality `pulumi:"outputModalities"`
 	// The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
 	OutputStrength GuardrailFilterStrength `pulumi:"outputStrength"`
 	// The harmful category that the content filter is applied to.
@@ -23431,8 +23975,12 @@ type GuardrailContentFilterConfigInput interface {
 
 // Content filter config in content policy.
 type GuardrailContentFilterConfigArgs struct {
+	// List of modalities
+	InputModalities GuardrailModalityArrayInput `pulumi:"inputModalities"`
 	// The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
 	InputStrength GuardrailFilterStrengthInput `pulumi:"inputStrength"`
+	// List of modalities
+	OutputModalities GuardrailModalityArrayInput `pulumi:"outputModalities"`
 	// The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
 	OutputStrength GuardrailFilterStrengthInput `pulumi:"outputStrength"`
 	// The harmful category that the content filter is applied to.
@@ -23491,9 +24039,19 @@ func (o GuardrailContentFilterConfigOutput) ToGuardrailContentFilterConfigOutput
 	return o
 }
 
+// List of modalities
+func (o GuardrailContentFilterConfigOutput) InputModalities() GuardrailModalityArrayOutput {
+	return o.ApplyT(func(v GuardrailContentFilterConfig) []GuardrailModality { return v.InputModalities }).(GuardrailModalityArrayOutput)
+}
+
 // The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
 func (o GuardrailContentFilterConfigOutput) InputStrength() GuardrailFilterStrengthOutput {
 	return o.ApplyT(func(v GuardrailContentFilterConfig) GuardrailFilterStrength { return v.InputStrength }).(GuardrailFilterStrengthOutput)
+}
+
+// List of modalities
+func (o GuardrailContentFilterConfigOutput) OutputModalities() GuardrailModalityArrayOutput {
+	return o.ApplyT(func(v GuardrailContentFilterConfig) []GuardrailModality { return v.OutputModalities }).(GuardrailModalityArrayOutput)
 }
 
 // The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
@@ -26428,6 +26986,326 @@ func (o KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput) VectorField() pulumi.Str
 			return nil
 		}
 		return &v.VectorField
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains the configurations to use Neptune Analytics as Vector Store.
+type KnowledgeBaseNeptuneAnalyticsConfiguration struct {
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping KnowledgeBaseNeptuneAnalyticsFieldMapping `pulumi:"fieldMapping"`
+	// ARN for Neptune Analytics graph database.
+	GraphArn string `pulumi:"graphArn"`
+}
+
+// KnowledgeBaseNeptuneAnalyticsConfigurationInput is an input type that accepts KnowledgeBaseNeptuneAnalyticsConfigurationArgs and KnowledgeBaseNeptuneAnalyticsConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseNeptuneAnalyticsConfigurationInput` via:
+//
+//	KnowledgeBaseNeptuneAnalyticsConfigurationArgs{...}
+type KnowledgeBaseNeptuneAnalyticsConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseNeptuneAnalyticsConfigurationOutput() KnowledgeBaseNeptuneAnalyticsConfigurationOutput
+	ToKnowledgeBaseNeptuneAnalyticsConfigurationOutputWithContext(context.Context) KnowledgeBaseNeptuneAnalyticsConfigurationOutput
+}
+
+// Contains the configurations to use Neptune Analytics as Vector Store.
+type KnowledgeBaseNeptuneAnalyticsConfigurationArgs struct {
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping KnowledgeBaseNeptuneAnalyticsFieldMappingInput `pulumi:"fieldMapping"`
+	// ARN for Neptune Analytics graph database.
+	GraphArn pulumi.StringInput `pulumi:"graphArn"`
+}
+
+func (KnowledgeBaseNeptuneAnalyticsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseNeptuneAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseNeptuneAnalyticsConfigurationArgs) ToKnowledgeBaseNeptuneAnalyticsConfigurationOutput() KnowledgeBaseNeptuneAnalyticsConfigurationOutput {
+	return i.ToKnowledgeBaseNeptuneAnalyticsConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseNeptuneAnalyticsConfigurationArgs) ToKnowledgeBaseNeptuneAnalyticsConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseNeptuneAnalyticsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseNeptuneAnalyticsConfigurationOutput)
+}
+
+func (i KnowledgeBaseNeptuneAnalyticsConfigurationArgs) ToKnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput() KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput {
+	return i.ToKnowledgeBaseNeptuneAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseNeptuneAnalyticsConfigurationArgs) ToKnowledgeBaseNeptuneAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseNeptuneAnalyticsConfigurationOutput).ToKnowledgeBaseNeptuneAnalyticsConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseNeptuneAnalyticsConfigurationPtrInput is an input type that accepts KnowledgeBaseNeptuneAnalyticsConfigurationArgs, KnowledgeBaseNeptuneAnalyticsConfigurationPtr and KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseNeptuneAnalyticsConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseNeptuneAnalyticsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseNeptuneAnalyticsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput() KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput
+	ToKnowledgeBaseNeptuneAnalyticsConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput
+}
+
+type knowledgeBaseNeptuneAnalyticsConfigurationPtrType KnowledgeBaseNeptuneAnalyticsConfigurationArgs
+
+func KnowledgeBaseNeptuneAnalyticsConfigurationPtr(v *KnowledgeBaseNeptuneAnalyticsConfigurationArgs) KnowledgeBaseNeptuneAnalyticsConfigurationPtrInput {
+	return (*knowledgeBaseNeptuneAnalyticsConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseNeptuneAnalyticsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseNeptuneAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseNeptuneAnalyticsConfigurationPtrType) ToKnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput() KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput {
+	return i.ToKnowledgeBaseNeptuneAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseNeptuneAnalyticsConfigurationPtrType) ToKnowledgeBaseNeptuneAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput)
+}
+
+// Contains the configurations to use Neptune Analytics as Vector Store.
+type KnowledgeBaseNeptuneAnalyticsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseNeptuneAnalyticsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseNeptuneAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseNeptuneAnalyticsConfigurationOutput) ToKnowledgeBaseNeptuneAnalyticsConfigurationOutput() KnowledgeBaseNeptuneAnalyticsConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseNeptuneAnalyticsConfigurationOutput) ToKnowledgeBaseNeptuneAnalyticsConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseNeptuneAnalyticsConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseNeptuneAnalyticsConfigurationOutput) ToKnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput() KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput {
+	return o.ToKnowledgeBaseNeptuneAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseNeptuneAnalyticsConfigurationOutput) ToKnowledgeBaseNeptuneAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseNeptuneAnalyticsConfiguration) *KnowledgeBaseNeptuneAnalyticsConfiguration {
+		return &v
+	}).(KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput)
+}
+
+// Contains the names of the fields to which to map information about the vector store.
+func (o KnowledgeBaseNeptuneAnalyticsConfigurationOutput) FieldMapping() KnowledgeBaseNeptuneAnalyticsFieldMappingOutput {
+	return o.ApplyT(func(v KnowledgeBaseNeptuneAnalyticsConfiguration) KnowledgeBaseNeptuneAnalyticsFieldMapping {
+		return v.FieldMapping
+	}).(KnowledgeBaseNeptuneAnalyticsFieldMappingOutput)
+}
+
+// ARN for Neptune Analytics graph database.
+func (o KnowledgeBaseNeptuneAnalyticsConfigurationOutput) GraphArn() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseNeptuneAnalyticsConfiguration) string { return v.GraphArn }).(pulumi.StringOutput)
+}
+
+type KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseNeptuneAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput) ToKnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput() KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput) ToKnowledgeBaseNeptuneAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput) Elem() KnowledgeBaseNeptuneAnalyticsConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseNeptuneAnalyticsConfiguration) KnowledgeBaseNeptuneAnalyticsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseNeptuneAnalyticsConfiguration
+		return ret
+	}).(KnowledgeBaseNeptuneAnalyticsConfigurationOutput)
+}
+
+// Contains the names of the fields to which to map information about the vector store.
+func (o KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput) FieldMapping() KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseNeptuneAnalyticsConfiguration) *KnowledgeBaseNeptuneAnalyticsFieldMapping {
+		if v == nil {
+			return nil
+		}
+		return &v.FieldMapping
+	}).(KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput)
+}
+
+// ARN for Neptune Analytics graph database.
+func (o KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput) GraphArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseNeptuneAnalyticsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GraphArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A mapping of Bedrock Knowledge Base fields to Neptune Analytics fields.
+type KnowledgeBaseNeptuneAnalyticsFieldMapping struct {
+	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField string `pulumi:"metadataField"`
+	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField string `pulumi:"textField"`
+}
+
+// KnowledgeBaseNeptuneAnalyticsFieldMappingInput is an input type that accepts KnowledgeBaseNeptuneAnalyticsFieldMappingArgs and KnowledgeBaseNeptuneAnalyticsFieldMappingOutput values.
+// You can construct a concrete instance of `KnowledgeBaseNeptuneAnalyticsFieldMappingInput` via:
+//
+//	KnowledgeBaseNeptuneAnalyticsFieldMappingArgs{...}
+type KnowledgeBaseNeptuneAnalyticsFieldMappingInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseNeptuneAnalyticsFieldMappingOutput() KnowledgeBaseNeptuneAnalyticsFieldMappingOutput
+	ToKnowledgeBaseNeptuneAnalyticsFieldMappingOutputWithContext(context.Context) KnowledgeBaseNeptuneAnalyticsFieldMappingOutput
+}
+
+// A mapping of Bedrock Knowledge Base fields to Neptune Analytics fields.
+type KnowledgeBaseNeptuneAnalyticsFieldMappingArgs struct {
+	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField pulumi.StringInput `pulumi:"metadataField"`
+	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField pulumi.StringInput `pulumi:"textField"`
+}
+
+func (KnowledgeBaseNeptuneAnalyticsFieldMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseNeptuneAnalyticsFieldMapping)(nil)).Elem()
+}
+
+func (i KnowledgeBaseNeptuneAnalyticsFieldMappingArgs) ToKnowledgeBaseNeptuneAnalyticsFieldMappingOutput() KnowledgeBaseNeptuneAnalyticsFieldMappingOutput {
+	return i.ToKnowledgeBaseNeptuneAnalyticsFieldMappingOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseNeptuneAnalyticsFieldMappingArgs) ToKnowledgeBaseNeptuneAnalyticsFieldMappingOutputWithContext(ctx context.Context) KnowledgeBaseNeptuneAnalyticsFieldMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseNeptuneAnalyticsFieldMappingOutput)
+}
+
+func (i KnowledgeBaseNeptuneAnalyticsFieldMappingArgs) ToKnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput() KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput {
+	return i.ToKnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseNeptuneAnalyticsFieldMappingArgs) ToKnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutputWithContext(ctx context.Context) KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseNeptuneAnalyticsFieldMappingOutput).ToKnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseNeptuneAnalyticsFieldMappingPtrInput is an input type that accepts KnowledgeBaseNeptuneAnalyticsFieldMappingArgs, KnowledgeBaseNeptuneAnalyticsFieldMappingPtr and KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseNeptuneAnalyticsFieldMappingPtrInput` via:
+//
+//	        KnowledgeBaseNeptuneAnalyticsFieldMappingArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseNeptuneAnalyticsFieldMappingPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput() KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput
+	ToKnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutputWithContext(context.Context) KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput
+}
+
+type knowledgeBaseNeptuneAnalyticsFieldMappingPtrType KnowledgeBaseNeptuneAnalyticsFieldMappingArgs
+
+func KnowledgeBaseNeptuneAnalyticsFieldMappingPtr(v *KnowledgeBaseNeptuneAnalyticsFieldMappingArgs) KnowledgeBaseNeptuneAnalyticsFieldMappingPtrInput {
+	return (*knowledgeBaseNeptuneAnalyticsFieldMappingPtrType)(v)
+}
+
+func (*knowledgeBaseNeptuneAnalyticsFieldMappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseNeptuneAnalyticsFieldMapping)(nil)).Elem()
+}
+
+func (i *knowledgeBaseNeptuneAnalyticsFieldMappingPtrType) ToKnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput() KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput {
+	return i.ToKnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseNeptuneAnalyticsFieldMappingPtrType) ToKnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutputWithContext(ctx context.Context) KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput)
+}
+
+// A mapping of Bedrock Knowledge Base fields to Neptune Analytics fields.
+type KnowledgeBaseNeptuneAnalyticsFieldMappingOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseNeptuneAnalyticsFieldMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseNeptuneAnalyticsFieldMapping)(nil)).Elem()
+}
+
+func (o KnowledgeBaseNeptuneAnalyticsFieldMappingOutput) ToKnowledgeBaseNeptuneAnalyticsFieldMappingOutput() KnowledgeBaseNeptuneAnalyticsFieldMappingOutput {
+	return o
+}
+
+func (o KnowledgeBaseNeptuneAnalyticsFieldMappingOutput) ToKnowledgeBaseNeptuneAnalyticsFieldMappingOutputWithContext(ctx context.Context) KnowledgeBaseNeptuneAnalyticsFieldMappingOutput {
+	return o
+}
+
+func (o KnowledgeBaseNeptuneAnalyticsFieldMappingOutput) ToKnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput() KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput {
+	return o.ToKnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseNeptuneAnalyticsFieldMappingOutput) ToKnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutputWithContext(ctx context.Context) KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseNeptuneAnalyticsFieldMapping) *KnowledgeBaseNeptuneAnalyticsFieldMapping {
+		return &v
+	}).(KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o KnowledgeBaseNeptuneAnalyticsFieldMappingOutput) MetadataField() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseNeptuneAnalyticsFieldMapping) string { return v.MetadataField }).(pulumi.StringOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o KnowledgeBaseNeptuneAnalyticsFieldMappingOutput) TextField() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseNeptuneAnalyticsFieldMapping) string { return v.TextField }).(pulumi.StringOutput)
+}
+
+type KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseNeptuneAnalyticsFieldMapping)(nil)).Elem()
+}
+
+func (o KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput) ToKnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput() KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput) ToKnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutputWithContext(ctx context.Context) KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput) Elem() KnowledgeBaseNeptuneAnalyticsFieldMappingOutput {
+	return o.ApplyT(func(v *KnowledgeBaseNeptuneAnalyticsFieldMapping) KnowledgeBaseNeptuneAnalyticsFieldMapping {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseNeptuneAnalyticsFieldMapping
+		return ret
+	}).(KnowledgeBaseNeptuneAnalyticsFieldMappingOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput) MetadataField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseNeptuneAnalyticsFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetadataField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput) TextField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseNeptuneAnalyticsFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TextField
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -29827,6 +30705,8 @@ func (o KnowledgeBaseSqlKnowledgeBaseConfigurationPtrOutput) Type() KnowledgeBas
 type KnowledgeBaseStorageConfiguration struct {
 	// Contains the storage configuration of the knowledge base in MongoDB Atlas.
 	MongoDbAtlasConfiguration *KnowledgeBaseMongoDbAtlasConfiguration `pulumi:"mongoDbAtlasConfiguration"`
+	// Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
+	NeptuneAnalyticsConfiguration *KnowledgeBaseNeptuneAnalyticsConfiguration `pulumi:"neptuneAnalyticsConfiguration"`
 	// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 	OpensearchServerlessConfiguration *KnowledgeBaseOpenSearchServerlessConfiguration `pulumi:"opensearchServerlessConfiguration"`
 	// Contains the storage configuration of the knowledge base in Pinecone.
@@ -29852,6 +30732,8 @@ type KnowledgeBaseStorageConfigurationInput interface {
 type KnowledgeBaseStorageConfigurationArgs struct {
 	// Contains the storage configuration of the knowledge base in MongoDB Atlas.
 	MongoDbAtlasConfiguration KnowledgeBaseMongoDbAtlasConfigurationPtrInput `pulumi:"mongoDbAtlasConfiguration"`
+	// Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
+	NeptuneAnalyticsConfiguration KnowledgeBaseNeptuneAnalyticsConfigurationPtrInput `pulumi:"neptuneAnalyticsConfiguration"`
 	// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 	OpensearchServerlessConfiguration KnowledgeBaseOpenSearchServerlessConfigurationPtrInput `pulumi:"opensearchServerlessConfiguration"`
 	// Contains the storage configuration of the knowledge base in Pinecone.
@@ -29947,6 +30829,13 @@ func (o KnowledgeBaseStorageConfigurationOutput) MongoDbAtlasConfiguration() Kno
 	}).(KnowledgeBaseMongoDbAtlasConfigurationPtrOutput)
 }
 
+// Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
+func (o KnowledgeBaseStorageConfigurationOutput) NeptuneAnalyticsConfiguration() KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseStorageConfiguration) *KnowledgeBaseNeptuneAnalyticsConfiguration {
+		return v.NeptuneAnalyticsConfiguration
+	}).(KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput)
+}
+
 // Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 func (o KnowledgeBaseStorageConfigurationOutput) OpensearchServerlessConfiguration() KnowledgeBaseOpenSearchServerlessConfigurationPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseStorageConfiguration) *KnowledgeBaseOpenSearchServerlessConfiguration {
@@ -30003,6 +30892,16 @@ func (o KnowledgeBaseStorageConfigurationPtrOutput) MongoDbAtlasConfiguration() 
 		}
 		return v.MongoDbAtlasConfiguration
 	}).(KnowledgeBaseMongoDbAtlasConfigurationPtrOutput)
+}
+
+// Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
+func (o KnowledgeBaseStorageConfigurationPtrOutput) NeptuneAnalyticsConfiguration() KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseStorageConfiguration) *KnowledgeBaseNeptuneAnalyticsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.NeptuneAnalyticsConfiguration
+	}).(KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput)
 }
 
 // Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
@@ -35137,6 +36036,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceBedrockDataAutomationConfigurationPtrInput)(nil)).Elem(), DataSourceBedrockDataAutomationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceBedrockFoundationModelConfigurationInput)(nil)).Elem(), DataSourceBedrockFoundationModelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceBedrockFoundationModelConfigurationPtrInput)(nil)).Elem(), DataSourceBedrockFoundationModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceBedrockFoundationModelContextEnrichmentConfigurationInput)(nil)).Elem(), DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrInput)(nil)).Elem(), DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceChunkingConfigurationInput)(nil)).Elem(), DataSourceChunkingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceChunkingConfigurationPtrInput)(nil)).Elem(), DataSourceChunkingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput)(nil)).Elem(), DataSourceConfigurationArgs{})
@@ -35146,10 +36047,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceDataSourceConfigurationPtrInput)(nil)).Elem(), DataSourceConfluenceDataSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceSourceConfigurationInput)(nil)).Elem(), DataSourceConfluenceSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceSourceConfigurationPtrInput)(nil)).Elem(), DataSourceConfluenceSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceContextEnrichmentConfigurationInput)(nil)).Elem(), DataSourceContextEnrichmentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceContextEnrichmentConfigurationPtrInput)(nil)).Elem(), DataSourceContextEnrichmentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCrawlFilterConfigurationInput)(nil)).Elem(), DataSourceCrawlFilterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCrawlFilterConfigurationPtrInput)(nil)).Elem(), DataSourceCrawlFilterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomTransformationConfigurationInput)(nil)).Elem(), DataSourceCustomTransformationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomTransformationConfigurationPtrInput)(nil)).Elem(), DataSourceCustomTransformationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnrichmentStrategyConfigurationInput)(nil)).Elem(), DataSourceEnrichmentStrategyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnrichmentStrategyConfigurationPtrInput)(nil)).Elem(), DataSourceEnrichmentStrategyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceFixedSizeChunkingConfigurationInput)(nil)).Elem(), DataSourceFixedSizeChunkingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceFixedSizeChunkingConfigurationPtrInput)(nil)).Elem(), DataSourceFixedSizeChunkingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceHierarchicalChunkingConfigurationInput)(nil)).Elem(), DataSourceHierarchicalChunkingConfigurationArgs{})
@@ -35341,6 +36246,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseMongoDbAtlasConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseMongoDbAtlasConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseMongoDbAtlasFieldMappingInput)(nil)).Elem(), KnowledgeBaseMongoDbAtlasFieldMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseMongoDbAtlasFieldMappingPtrInput)(nil)).Elem(), KnowledgeBaseMongoDbAtlasFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseNeptuneAnalyticsConfigurationInput)(nil)).Elem(), KnowledgeBaseNeptuneAnalyticsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseNeptuneAnalyticsConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseNeptuneAnalyticsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseNeptuneAnalyticsFieldMappingInput)(nil)).Elem(), KnowledgeBaseNeptuneAnalyticsFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseNeptuneAnalyticsFieldMappingPtrInput)(nil)).Elem(), KnowledgeBaseNeptuneAnalyticsFieldMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseOpenSearchServerlessConfigurationInput)(nil)).Elem(), KnowledgeBaseOpenSearchServerlessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseOpenSearchServerlessConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseOpenSearchServerlessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseOpenSearchServerlessFieldMappingInput)(nil)).Elem(), KnowledgeBaseOpenSearchServerlessFieldMappingArgs{})
@@ -35548,6 +36457,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceBedrockDataAutomationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceBedrockFoundationModelConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceBedrockFoundationModelConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceBedrockFoundationModelContextEnrichmentConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceBedrockFoundationModelContextEnrichmentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceChunkingConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceChunkingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationOutput{})
@@ -35558,10 +36469,14 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceConfluenceDataSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceContextEnrichmentConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceContextEnrichmentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceCrawlFilterConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceCrawlFilterConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceCustomTransformationConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceCustomTransformationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceEnrichmentStrategyConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceEnrichmentStrategyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceFixedSizeChunkingConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceFixedSizeChunkingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceHierarchicalChunkingConfigurationOutput{})
@@ -35852,6 +36767,10 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseMongoDbAtlasConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseMongoDbAtlasFieldMappingOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseNeptuneAnalyticsConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseNeptuneAnalyticsFieldMappingOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseOpenSearchServerlessConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseOpenSearchServerlessConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseOpenSearchServerlessFieldMappingOutput{})

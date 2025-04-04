@@ -460,6 +460,10 @@ export const Region = {
      */
     EuWest3: "eu-west-3",
     /**
+     * EU (Germany)
+     */
+    EuscDeEast1: "eusc-de-east-1",
+    /**
      * Israel (Tel Aviv)
      */
     IlCentral1: "il-central-1",

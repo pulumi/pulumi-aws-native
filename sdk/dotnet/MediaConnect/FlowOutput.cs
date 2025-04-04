@@ -70,6 +70,18 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
+        /// </summary>
+        [Output("ndiProgramName")]
+        public Output<string?> NdiProgramName { get; private set; } = null!;
+
+        /// <summary>
+        /// A quality setting for the NDI Speed HQ encoder.
+        /// </summary>
+        [Output("ndiSpeedHqQuality")]
+        public Output<int?> NdiSpeedHqQuality { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the output.
         /// </summary>
         [Output("outputArn")]
@@ -231,6 +243,18 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
+        /// </summary>
+        [Input("ndiProgramName")]
+        public Input<string>? NdiProgramName { get; set; }
+
+        /// <summary>
+        /// A quality setting for the NDI Speed HQ encoder.
+        /// </summary>
+        [Input("ndiSpeedHqQuality")]
+        public Input<int>? NdiSpeedHqQuality { get; set; }
 
         /// <summary>
         /// An indication of whether the output should transmit data or not.

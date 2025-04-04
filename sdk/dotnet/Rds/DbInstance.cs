@@ -128,6 +128,14 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> AutomaticBackupReplicationRegion { get; private set; } = null!;
 
         /// <summary>
+        /// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
+        /// 
+        /// If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+        /// </summary>
+        [Output("automaticBackupReplicationRetentionPeriod")]
+        public Output<int?> AutomaticBackupReplicationRetentionPeriod { get; private set; } = null!;
+
+        /// <summary>
         /// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
         ///  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
         ///  Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.
@@ -163,7 +171,7 @@ namespace Pulumi.AwsNative.Rds
         /// The details of the DB instance's server certificate.
         /// </summary>
         [Output("certificateDetails")]
-        public Output<Outputs.DbInstanceCertificateDetails?> CertificateDetails { get; private set; } = null!;
+        public Output<Outputs.DbInstanceCertificateDetails> CertificateDetails { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.
@@ -361,7 +369,7 @@ namespace Pulumi.AwsNative.Rds
 
         /// <summary>
         /// A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC. 
-        ///  If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
+        ///  If you don't specify a DB subnet group, RDS uses the default DB subnet group if one exists. If a default DB subnet group does not exist, and you don't specify a ``DBSubnetGroupName``, the DB instance fails to launch. 
         ///  For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
         ///  This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
         /// </summary>
@@ -496,7 +504,7 @@ namespace Pulumi.AwsNative.Rds
         ///   The endpoint might not be shown for instances with the status of ``creating``.
         /// </summary>
         [Output("endpoint")]
-        public Output<Outputs.DbInstanceEndpoint?> Endpoint { get; private set; } = null!;
+        public Output<Outputs.DbInstanceEndpoint> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.
@@ -754,7 +762,7 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> PerformanceInsightsKmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days to retain Performance Insights data.
+        /// The number of days to retain Performance Insights data. When creating a DB instance without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
         ///  This setting doesn't apply to RDS Custom DB instances.
         ///  Valid Values:
         ///   +   ``7`` 
@@ -1136,6 +1144,14 @@ namespace Pulumi.AwsNative.Rds
         public Input<string>? AutomaticBackupReplicationRegion { get; set; }
 
         /// <summary>
+        /// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
+        /// 
+        /// If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+        /// </summary>
+        [Input("automaticBackupReplicationRetentionPeriod")]
+        public Input<int>? AutomaticBackupReplicationRetentionPeriod { get; set; }
+
+        /// <summary>
         /// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
         ///  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
         ///  Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.
@@ -1166,12 +1182,6 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("caCertificateIdentifier")]
         public Input<string>? CaCertificateIdentifier { get; set; }
-
-        /// <summary>
-        /// The details of the DB instance's server certificate.
-        /// </summary>
-        [Input("certificateDetails")]
-        public Input<Inputs.DbInstanceCertificateDetailsArgs>? CertificateDetails { get; set; }
 
         /// <summary>
         /// Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.
@@ -1363,7 +1373,7 @@ namespace Pulumi.AwsNative.Rds
 
         /// <summary>
         /// A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC. 
-        ///  If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
+        ///  If you don't specify a DB subnet group, RDS uses the default DB subnet group if one exists. If a default DB subnet group does not exist, and you don't specify a ``DBSubnetGroupName``, the DB instance fails to launch. 
         ///  For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
         ///  This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
         /// </summary>
@@ -1498,13 +1508,6 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("enablePerformanceInsights")]
         public Input<bool>? EnablePerformanceInsights { get; set; }
-
-        /// <summary>
-        /// The connection endpoint for the DB instance.
-        ///   The endpoint might not be shown for instances with the status of ``creating``.
-        /// </summary>
-        [Input("endpoint")]
-        public Input<Inputs.DbInstanceEndpointArgs>? Endpoint { get; set; }
 
         /// <summary>
         /// The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.
@@ -1762,7 +1765,7 @@ namespace Pulumi.AwsNative.Rds
         public Input<string>? PerformanceInsightsKmsKeyId { get; set; }
 
         /// <summary>
-        /// The number of days to retain Performance Insights data.
+        /// The number of days to retain Performance Insights data. When creating a DB instance without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
         ///  This setting doesn't apply to RDS Custom DB instances.
         ///  Valid Values:
         ///   +   ``7`` 

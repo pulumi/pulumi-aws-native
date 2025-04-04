@@ -4993,9 +4993,6 @@ if not MYPY:
         The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
         """
         processing_configuration: NotRequired[pulumi.Input['DeliveryStreamProcessingConfigurationArgsDict']]
-        """
-        Specifies configuration for Snowflake.
-        """
         retry_options: NotRequired[pulumi.Input['DeliveryStreamSnowflakeRetryOptionsArgsDict']]
         """
         The time period where Firehose will retry sending data to the chosen HTTP endpoint.
@@ -5066,7 +5063,6 @@ class DeliveryStreamSnowflakeDestinationConfigurationArgs:
                
                `"kinesisStreamName" : "streamname", "kinesisShardId" : "Id", "kinesisPartitionKey" : "key", "kinesisSequenceNumber" : "1234", "subsequenceNumber" : "2334", "IngestionTime" : "timestamp" }`
         :param pulumi.Input[str] private_key: The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
-        :param pulumi.Input['DeliveryStreamProcessingConfigurationArgs'] processing_configuration: Specifies configuration for Snowflake.
         :param pulumi.Input['DeliveryStreamSnowflakeRetryOptionsArgs'] retry_options: The time period where Firehose will retry sending data to the chosen HTTP endpoint.
         :param pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode'] s3_backup_mode: Choose an S3 backup mode
         :param pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs'] secrets_manager_configuration: The configuration that defines how you access secrets for Snowflake.
@@ -5270,9 +5266,6 @@ class DeliveryStreamSnowflakeDestinationConfigurationArgs:
     @property
     @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']]:
-        """
-        Specifies configuration for Snowflake.
-        """
         return pulumi.get(self, "processing_configuration")
 
     @processing_configuration.setter

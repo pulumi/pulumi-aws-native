@@ -10,10 +10,20 @@ export type DbCluster = import("./dbCluster").DbCluster;
 export const DbCluster: typeof import("./dbCluster").DbCluster = null as any;
 utilities.lazyLoad(exports, ["DbCluster"], () => require("./dbCluster"));
 
+export { DbSubnetGroupArgs } from "./dbSubnetGroup";
+export type DbSubnetGroup = import("./dbSubnetGroup").DbSubnetGroup;
+export const DbSubnetGroup: typeof import("./dbSubnetGroup").DbSubnetGroup = null as any;
+utilities.lazyLoad(exports, ["DbSubnetGroup"], () => require("./dbSubnetGroup"));
+
 export { GetDbClusterArgs, GetDbClusterResult, GetDbClusterOutputArgs } from "./getDbCluster";
 export const getDbCluster: typeof import("./getDbCluster").getDbCluster = null as any;
 export const getDbClusterOutput: typeof import("./getDbCluster").getDbClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getDbCluster","getDbClusterOutput"], () => require("./getDbCluster"));
+
+export { GetDbSubnetGroupArgs, GetDbSubnetGroupResult, GetDbSubnetGroupOutputArgs } from "./getDbSubnetGroup";
+export const getDbSubnetGroup: typeof import("./getDbSubnetGroup").getDbSubnetGroup = null as any;
+export const getDbSubnetGroupOutput: typeof import("./getDbSubnetGroup").getDbSubnetGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDbSubnetGroup","getDbSubnetGroupOutput"], () => require("./getDbSubnetGroup"));
 
 
 const _module = {
@@ -22,6 +32,8 @@ const _module = {
         switch (type) {
             case "aws-native:neptune:DbCluster":
                 return new DbCluster(name, <any>undefined, { urn })
+            case "aws-native:neptune:DbSubnetGroup":
+                return new DbSubnetGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

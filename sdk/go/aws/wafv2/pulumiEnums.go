@@ -4460,6 +4460,182 @@ func (in *ruleGroupTextTransformationTypePtr) ToRuleGroupTextTransformationTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupTextTransformationTypePtrOutput)
 }
 
+// What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
+//
+// - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+//
+// If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
+//
+// Example JSON: `{ "UriFragment": { "FallbackBehavior": "MATCH"} }`
+//
+// > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
+type RuleGroupUriFragmentFallbackBehavior string
+
+const (
+	RuleGroupUriFragmentFallbackBehaviorMatch   = RuleGroupUriFragmentFallbackBehavior("MATCH")
+	RuleGroupUriFragmentFallbackBehaviorNoMatch = RuleGroupUriFragmentFallbackBehavior("NO_MATCH")
+)
+
+func (RuleGroupUriFragmentFallbackBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupUriFragmentFallbackBehavior)(nil)).Elem()
+}
+
+func (e RuleGroupUriFragmentFallbackBehavior) ToRuleGroupUriFragmentFallbackBehaviorOutput() RuleGroupUriFragmentFallbackBehaviorOutput {
+	return pulumi.ToOutput(e).(RuleGroupUriFragmentFallbackBehaviorOutput)
+}
+
+func (e RuleGroupUriFragmentFallbackBehavior) ToRuleGroupUriFragmentFallbackBehaviorOutputWithContext(ctx context.Context) RuleGroupUriFragmentFallbackBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupUriFragmentFallbackBehaviorOutput)
+}
+
+func (e RuleGroupUriFragmentFallbackBehavior) ToRuleGroupUriFragmentFallbackBehaviorPtrOutput() RuleGroupUriFragmentFallbackBehaviorPtrOutput {
+	return e.ToRuleGroupUriFragmentFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupUriFragmentFallbackBehavior) ToRuleGroupUriFragmentFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupUriFragmentFallbackBehaviorPtrOutput {
+	return RuleGroupUriFragmentFallbackBehavior(e).ToRuleGroupUriFragmentFallbackBehaviorOutputWithContext(ctx).ToRuleGroupUriFragmentFallbackBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e RuleGroupUriFragmentFallbackBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupUriFragmentFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupUriFragmentFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupUriFragmentFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleGroupUriFragmentFallbackBehaviorOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupUriFragmentFallbackBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupUriFragmentFallbackBehavior)(nil)).Elem()
+}
+
+func (o RuleGroupUriFragmentFallbackBehaviorOutput) ToRuleGroupUriFragmentFallbackBehaviorOutput() RuleGroupUriFragmentFallbackBehaviorOutput {
+	return o
+}
+
+func (o RuleGroupUriFragmentFallbackBehaviorOutput) ToRuleGroupUriFragmentFallbackBehaviorOutputWithContext(ctx context.Context) RuleGroupUriFragmentFallbackBehaviorOutput {
+	return o
+}
+
+func (o RuleGroupUriFragmentFallbackBehaviorOutput) ToRuleGroupUriFragmentFallbackBehaviorPtrOutput() RuleGroupUriFragmentFallbackBehaviorPtrOutput {
+	return o.ToRuleGroupUriFragmentFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupUriFragmentFallbackBehaviorOutput) ToRuleGroupUriFragmentFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupUriFragmentFallbackBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupUriFragmentFallbackBehavior) *RuleGroupUriFragmentFallbackBehavior {
+		return &v
+	}).(RuleGroupUriFragmentFallbackBehaviorPtrOutput)
+}
+
+func (o RuleGroupUriFragmentFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleGroupUriFragmentFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupUriFragmentFallbackBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleGroupUriFragmentFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupUriFragmentFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupUriFragmentFallbackBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupUriFragmentFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupUriFragmentFallbackBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupUriFragmentFallbackBehavior)(nil)).Elem()
+}
+
+func (o RuleGroupUriFragmentFallbackBehaviorPtrOutput) ToRuleGroupUriFragmentFallbackBehaviorPtrOutput() RuleGroupUriFragmentFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o RuleGroupUriFragmentFallbackBehaviorPtrOutput) ToRuleGroupUriFragmentFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupUriFragmentFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o RuleGroupUriFragmentFallbackBehaviorPtrOutput) Elem() RuleGroupUriFragmentFallbackBehaviorOutput {
+	return o.ApplyT(func(v *RuleGroupUriFragmentFallbackBehavior) RuleGroupUriFragmentFallbackBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupUriFragmentFallbackBehavior
+		return ret
+	}).(RuleGroupUriFragmentFallbackBehaviorOutput)
+}
+
+func (o RuleGroupUriFragmentFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupUriFragmentFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupUriFragmentFallbackBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleGroupUriFragmentFallbackBehaviorInput is an input type that accepts values of the RuleGroupUriFragmentFallbackBehavior enum
+// A concrete instance of `RuleGroupUriFragmentFallbackBehaviorInput` can be one of the following:
+//
+//	RuleGroupUriFragmentFallbackBehaviorMatch
+//	RuleGroupUriFragmentFallbackBehaviorNoMatch
+type RuleGroupUriFragmentFallbackBehaviorInput interface {
+	pulumi.Input
+
+	ToRuleGroupUriFragmentFallbackBehaviorOutput() RuleGroupUriFragmentFallbackBehaviorOutput
+	ToRuleGroupUriFragmentFallbackBehaviorOutputWithContext(context.Context) RuleGroupUriFragmentFallbackBehaviorOutput
+}
+
+var ruleGroupUriFragmentFallbackBehaviorPtrType = reflect.TypeOf((**RuleGroupUriFragmentFallbackBehavior)(nil)).Elem()
+
+type RuleGroupUriFragmentFallbackBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupUriFragmentFallbackBehaviorPtrOutput() RuleGroupUriFragmentFallbackBehaviorPtrOutput
+	ToRuleGroupUriFragmentFallbackBehaviorPtrOutputWithContext(context.Context) RuleGroupUriFragmentFallbackBehaviorPtrOutput
+}
+
+type ruleGroupUriFragmentFallbackBehaviorPtr string
+
+func RuleGroupUriFragmentFallbackBehaviorPtr(v string) RuleGroupUriFragmentFallbackBehaviorPtrInput {
+	return (*ruleGroupUriFragmentFallbackBehaviorPtr)(&v)
+}
+
+func (*ruleGroupUriFragmentFallbackBehaviorPtr) ElementType() reflect.Type {
+	return ruleGroupUriFragmentFallbackBehaviorPtrType
+}
+
+func (in *ruleGroupUriFragmentFallbackBehaviorPtr) ToRuleGroupUriFragmentFallbackBehaviorPtrOutput() RuleGroupUriFragmentFallbackBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupUriFragmentFallbackBehaviorPtrOutput)
+}
+
+func (in *ruleGroupUriFragmentFallbackBehaviorPtr) ToRuleGroupUriFragmentFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupUriFragmentFallbackBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupUriFragmentFallbackBehaviorPtrOutput)
+}
+
 // The inspection level to use for the Bot Control rule group. The common level is the least expensive. The targeted level includes all common level rules and adds rules with more advanced inspection criteria. For details, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) in the *AWS WAF Developer Guide* .
 type WebAclAwsManagedRulesBotControlRuleSetInspectionLevel string
 
@@ -4792,6 +4968,343 @@ func (in *webAclBodyParsingFallbackBehaviorPtr) ToWebAclBodyParsingFallbackBehav
 
 func (in *webAclBodyParsingFallbackBehaviorPtr) ToWebAclBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclBodyParsingFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclBodyParsingFallbackBehaviorPtrOutput)
+}
+
+type WebAclDataProtectionAction string
+
+const (
+	WebAclDataProtectionActionSubstitution = WebAclDataProtectionAction("SUBSTITUTION")
+	WebAclDataProtectionActionHash         = WebAclDataProtectionAction("HASH")
+)
+
+func (WebAclDataProtectionAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclDataProtectionAction)(nil)).Elem()
+}
+
+func (e WebAclDataProtectionAction) ToWebAclDataProtectionActionOutput() WebAclDataProtectionActionOutput {
+	return pulumi.ToOutput(e).(WebAclDataProtectionActionOutput)
+}
+
+func (e WebAclDataProtectionAction) ToWebAclDataProtectionActionOutputWithContext(ctx context.Context) WebAclDataProtectionActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclDataProtectionActionOutput)
+}
+
+func (e WebAclDataProtectionAction) ToWebAclDataProtectionActionPtrOutput() WebAclDataProtectionActionPtrOutput {
+	return e.ToWebAclDataProtectionActionPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclDataProtectionAction) ToWebAclDataProtectionActionPtrOutputWithContext(ctx context.Context) WebAclDataProtectionActionPtrOutput {
+	return WebAclDataProtectionAction(e).ToWebAclDataProtectionActionOutputWithContext(ctx).ToWebAclDataProtectionActionPtrOutputWithContext(ctx)
+}
+
+func (e WebAclDataProtectionAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclDataProtectionAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclDataProtectionAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclDataProtectionAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAclDataProtectionActionOutput struct{ *pulumi.OutputState }
+
+func (WebAclDataProtectionActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclDataProtectionAction)(nil)).Elem()
+}
+
+func (o WebAclDataProtectionActionOutput) ToWebAclDataProtectionActionOutput() WebAclDataProtectionActionOutput {
+	return o
+}
+
+func (o WebAclDataProtectionActionOutput) ToWebAclDataProtectionActionOutputWithContext(ctx context.Context) WebAclDataProtectionActionOutput {
+	return o
+}
+
+func (o WebAclDataProtectionActionOutput) ToWebAclDataProtectionActionPtrOutput() WebAclDataProtectionActionPtrOutput {
+	return o.ToWebAclDataProtectionActionPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclDataProtectionActionOutput) ToWebAclDataProtectionActionPtrOutputWithContext(ctx context.Context) WebAclDataProtectionActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclDataProtectionAction) *WebAclDataProtectionAction {
+		return &v
+	}).(WebAclDataProtectionActionPtrOutput)
+}
+
+func (o WebAclDataProtectionActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAclDataProtectionActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclDataProtectionAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclDataProtectionActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclDataProtectionActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclDataProtectionAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclDataProtectionActionPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclDataProtectionActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclDataProtectionAction)(nil)).Elem()
+}
+
+func (o WebAclDataProtectionActionPtrOutput) ToWebAclDataProtectionActionPtrOutput() WebAclDataProtectionActionPtrOutput {
+	return o
+}
+
+func (o WebAclDataProtectionActionPtrOutput) ToWebAclDataProtectionActionPtrOutputWithContext(ctx context.Context) WebAclDataProtectionActionPtrOutput {
+	return o
+}
+
+func (o WebAclDataProtectionActionPtrOutput) Elem() WebAclDataProtectionActionOutput {
+	return o.ApplyT(func(v *WebAclDataProtectionAction) WebAclDataProtectionAction {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclDataProtectionAction
+		return ret
+	}).(WebAclDataProtectionActionOutput)
+}
+
+func (o WebAclDataProtectionActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclDataProtectionActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclDataProtectionAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAclDataProtectionActionInput is an input type that accepts values of the WebAclDataProtectionAction enum
+// A concrete instance of `WebAclDataProtectionActionInput` can be one of the following:
+//
+//	WebAclDataProtectionActionSubstitution
+//	WebAclDataProtectionActionHash
+type WebAclDataProtectionActionInput interface {
+	pulumi.Input
+
+	ToWebAclDataProtectionActionOutput() WebAclDataProtectionActionOutput
+	ToWebAclDataProtectionActionOutputWithContext(context.Context) WebAclDataProtectionActionOutput
+}
+
+var webAclDataProtectionActionPtrType = reflect.TypeOf((**WebAclDataProtectionAction)(nil)).Elem()
+
+type WebAclDataProtectionActionPtrInput interface {
+	pulumi.Input
+
+	ToWebAclDataProtectionActionPtrOutput() WebAclDataProtectionActionPtrOutput
+	ToWebAclDataProtectionActionPtrOutputWithContext(context.Context) WebAclDataProtectionActionPtrOutput
+}
+
+type webAclDataProtectionActionPtr string
+
+func WebAclDataProtectionActionPtr(v string) WebAclDataProtectionActionPtrInput {
+	return (*webAclDataProtectionActionPtr)(&v)
+}
+
+func (*webAclDataProtectionActionPtr) ElementType() reflect.Type {
+	return webAclDataProtectionActionPtrType
+}
+
+func (in *webAclDataProtectionActionPtr) ToWebAclDataProtectionActionPtrOutput() WebAclDataProtectionActionPtrOutput {
+	return pulumi.ToOutput(in).(WebAclDataProtectionActionPtrOutput)
+}
+
+func (in *webAclDataProtectionActionPtr) ToWebAclDataProtectionActionPtrOutputWithContext(ctx context.Context) WebAclDataProtectionActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclDataProtectionActionPtrOutput)
+}
+
+// Field type to protect
+type WebAclFieldToProtectFieldType string
+
+const (
+	WebAclFieldToProtectFieldTypeSingleHeader        = WebAclFieldToProtectFieldType("SINGLE_HEADER")
+	WebAclFieldToProtectFieldTypeSingleCookie        = WebAclFieldToProtectFieldType("SINGLE_COOKIE")
+	WebAclFieldToProtectFieldTypeSingleQueryArgument = WebAclFieldToProtectFieldType("SINGLE_QUERY_ARGUMENT")
+	WebAclFieldToProtectFieldTypeQueryString         = WebAclFieldToProtectFieldType("QUERY_STRING")
+	WebAclFieldToProtectFieldTypeBody                = WebAclFieldToProtectFieldType("BODY")
+)
+
+func (WebAclFieldToProtectFieldType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclFieldToProtectFieldType)(nil)).Elem()
+}
+
+func (e WebAclFieldToProtectFieldType) ToWebAclFieldToProtectFieldTypeOutput() WebAclFieldToProtectFieldTypeOutput {
+	return pulumi.ToOutput(e).(WebAclFieldToProtectFieldTypeOutput)
+}
+
+func (e WebAclFieldToProtectFieldType) ToWebAclFieldToProtectFieldTypeOutputWithContext(ctx context.Context) WebAclFieldToProtectFieldTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclFieldToProtectFieldTypeOutput)
+}
+
+func (e WebAclFieldToProtectFieldType) ToWebAclFieldToProtectFieldTypePtrOutput() WebAclFieldToProtectFieldTypePtrOutput {
+	return e.ToWebAclFieldToProtectFieldTypePtrOutputWithContext(context.Background())
+}
+
+func (e WebAclFieldToProtectFieldType) ToWebAclFieldToProtectFieldTypePtrOutputWithContext(ctx context.Context) WebAclFieldToProtectFieldTypePtrOutput {
+	return WebAclFieldToProtectFieldType(e).ToWebAclFieldToProtectFieldTypeOutputWithContext(ctx).ToWebAclFieldToProtectFieldTypePtrOutputWithContext(ctx)
+}
+
+func (e WebAclFieldToProtectFieldType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclFieldToProtectFieldType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclFieldToProtectFieldType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclFieldToProtectFieldType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAclFieldToProtectFieldTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAclFieldToProtectFieldTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclFieldToProtectFieldType)(nil)).Elem()
+}
+
+func (o WebAclFieldToProtectFieldTypeOutput) ToWebAclFieldToProtectFieldTypeOutput() WebAclFieldToProtectFieldTypeOutput {
+	return o
+}
+
+func (o WebAclFieldToProtectFieldTypeOutput) ToWebAclFieldToProtectFieldTypeOutputWithContext(ctx context.Context) WebAclFieldToProtectFieldTypeOutput {
+	return o
+}
+
+func (o WebAclFieldToProtectFieldTypeOutput) ToWebAclFieldToProtectFieldTypePtrOutput() WebAclFieldToProtectFieldTypePtrOutput {
+	return o.ToWebAclFieldToProtectFieldTypePtrOutputWithContext(context.Background())
+}
+
+func (o WebAclFieldToProtectFieldTypeOutput) ToWebAclFieldToProtectFieldTypePtrOutputWithContext(ctx context.Context) WebAclFieldToProtectFieldTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclFieldToProtectFieldType) *WebAclFieldToProtectFieldType {
+		return &v
+	}).(WebAclFieldToProtectFieldTypePtrOutput)
+}
+
+func (o WebAclFieldToProtectFieldTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAclFieldToProtectFieldTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclFieldToProtectFieldType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclFieldToProtectFieldTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclFieldToProtectFieldTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclFieldToProtectFieldType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclFieldToProtectFieldTypePtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclFieldToProtectFieldTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclFieldToProtectFieldType)(nil)).Elem()
+}
+
+func (o WebAclFieldToProtectFieldTypePtrOutput) ToWebAclFieldToProtectFieldTypePtrOutput() WebAclFieldToProtectFieldTypePtrOutput {
+	return o
+}
+
+func (o WebAclFieldToProtectFieldTypePtrOutput) ToWebAclFieldToProtectFieldTypePtrOutputWithContext(ctx context.Context) WebAclFieldToProtectFieldTypePtrOutput {
+	return o
+}
+
+func (o WebAclFieldToProtectFieldTypePtrOutput) Elem() WebAclFieldToProtectFieldTypeOutput {
+	return o.ApplyT(func(v *WebAclFieldToProtectFieldType) WebAclFieldToProtectFieldType {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclFieldToProtectFieldType
+		return ret
+	}).(WebAclFieldToProtectFieldTypeOutput)
+}
+
+func (o WebAclFieldToProtectFieldTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclFieldToProtectFieldTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclFieldToProtectFieldType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAclFieldToProtectFieldTypeInput is an input type that accepts values of the WebAclFieldToProtectFieldType enum
+// A concrete instance of `WebAclFieldToProtectFieldTypeInput` can be one of the following:
+//
+//	WebAclFieldToProtectFieldTypeSingleHeader
+//	WebAclFieldToProtectFieldTypeSingleCookie
+//	WebAclFieldToProtectFieldTypeSingleQueryArgument
+//	WebAclFieldToProtectFieldTypeQueryString
+//	WebAclFieldToProtectFieldTypeBody
+type WebAclFieldToProtectFieldTypeInput interface {
+	pulumi.Input
+
+	ToWebAclFieldToProtectFieldTypeOutput() WebAclFieldToProtectFieldTypeOutput
+	ToWebAclFieldToProtectFieldTypeOutputWithContext(context.Context) WebAclFieldToProtectFieldTypeOutput
+}
+
+var webAclFieldToProtectFieldTypePtrType = reflect.TypeOf((**WebAclFieldToProtectFieldType)(nil)).Elem()
+
+type WebAclFieldToProtectFieldTypePtrInput interface {
+	pulumi.Input
+
+	ToWebAclFieldToProtectFieldTypePtrOutput() WebAclFieldToProtectFieldTypePtrOutput
+	ToWebAclFieldToProtectFieldTypePtrOutputWithContext(context.Context) WebAclFieldToProtectFieldTypePtrOutput
+}
+
+type webAclFieldToProtectFieldTypePtr string
+
+func WebAclFieldToProtectFieldTypePtr(v string) WebAclFieldToProtectFieldTypePtrInput {
+	return (*webAclFieldToProtectFieldTypePtr)(&v)
+}
+
+func (*webAclFieldToProtectFieldTypePtr) ElementType() reflect.Type {
+	return webAclFieldToProtectFieldTypePtrType
+}
+
+func (in *webAclFieldToProtectFieldTypePtr) ToWebAclFieldToProtectFieldTypePtrOutput() WebAclFieldToProtectFieldTypePtrOutput {
+	return pulumi.ToOutput(in).(WebAclFieldToProtectFieldTypePtrOutput)
+}
+
+func (in *webAclFieldToProtectFieldTypePtr) ToWebAclFieldToProtectFieldTypePtrOutputWithContext(ctx context.Context) WebAclFieldToProtectFieldTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclFieldToProtectFieldTypePtrOutput)
 }
 
 // The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
@@ -8573,6 +9086,182 @@ func (in *webAclTextTransformationTypePtr) ToWebAclTextTransformationTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclTextTransformationTypePtrOutput)
 }
 
+// What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
+//
+// - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+//
+// If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
+//
+// Example JSON: `{ "UriFragment": { "FallbackBehavior": "MATCH"} }`
+//
+// > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
+type WebAclUriFragmentFallbackBehavior string
+
+const (
+	WebAclUriFragmentFallbackBehaviorMatch   = WebAclUriFragmentFallbackBehavior("MATCH")
+	WebAclUriFragmentFallbackBehaviorNoMatch = WebAclUriFragmentFallbackBehavior("NO_MATCH")
+)
+
+func (WebAclUriFragmentFallbackBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclUriFragmentFallbackBehavior)(nil)).Elem()
+}
+
+func (e WebAclUriFragmentFallbackBehavior) ToWebAclUriFragmentFallbackBehaviorOutput() WebAclUriFragmentFallbackBehaviorOutput {
+	return pulumi.ToOutput(e).(WebAclUriFragmentFallbackBehaviorOutput)
+}
+
+func (e WebAclUriFragmentFallbackBehavior) ToWebAclUriFragmentFallbackBehaviorOutputWithContext(ctx context.Context) WebAclUriFragmentFallbackBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclUriFragmentFallbackBehaviorOutput)
+}
+
+func (e WebAclUriFragmentFallbackBehavior) ToWebAclUriFragmentFallbackBehaviorPtrOutput() WebAclUriFragmentFallbackBehaviorPtrOutput {
+	return e.ToWebAclUriFragmentFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclUriFragmentFallbackBehavior) ToWebAclUriFragmentFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclUriFragmentFallbackBehaviorPtrOutput {
+	return WebAclUriFragmentFallbackBehavior(e).ToWebAclUriFragmentFallbackBehaviorOutputWithContext(ctx).ToWebAclUriFragmentFallbackBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e WebAclUriFragmentFallbackBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclUriFragmentFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclUriFragmentFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclUriFragmentFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAclUriFragmentFallbackBehaviorOutput struct{ *pulumi.OutputState }
+
+func (WebAclUriFragmentFallbackBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclUriFragmentFallbackBehavior)(nil)).Elem()
+}
+
+func (o WebAclUriFragmentFallbackBehaviorOutput) ToWebAclUriFragmentFallbackBehaviorOutput() WebAclUriFragmentFallbackBehaviorOutput {
+	return o
+}
+
+func (o WebAclUriFragmentFallbackBehaviorOutput) ToWebAclUriFragmentFallbackBehaviorOutputWithContext(ctx context.Context) WebAclUriFragmentFallbackBehaviorOutput {
+	return o
+}
+
+func (o WebAclUriFragmentFallbackBehaviorOutput) ToWebAclUriFragmentFallbackBehaviorPtrOutput() WebAclUriFragmentFallbackBehaviorPtrOutput {
+	return o.ToWebAclUriFragmentFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclUriFragmentFallbackBehaviorOutput) ToWebAclUriFragmentFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclUriFragmentFallbackBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclUriFragmentFallbackBehavior) *WebAclUriFragmentFallbackBehavior {
+		return &v
+	}).(WebAclUriFragmentFallbackBehaviorPtrOutput)
+}
+
+func (o WebAclUriFragmentFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAclUriFragmentFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclUriFragmentFallbackBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclUriFragmentFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclUriFragmentFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclUriFragmentFallbackBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclUriFragmentFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclUriFragmentFallbackBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclUriFragmentFallbackBehavior)(nil)).Elem()
+}
+
+func (o WebAclUriFragmentFallbackBehaviorPtrOutput) ToWebAclUriFragmentFallbackBehaviorPtrOutput() WebAclUriFragmentFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o WebAclUriFragmentFallbackBehaviorPtrOutput) ToWebAclUriFragmentFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclUriFragmentFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o WebAclUriFragmentFallbackBehaviorPtrOutput) Elem() WebAclUriFragmentFallbackBehaviorOutput {
+	return o.ApplyT(func(v *WebAclUriFragmentFallbackBehavior) WebAclUriFragmentFallbackBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclUriFragmentFallbackBehavior
+		return ret
+	}).(WebAclUriFragmentFallbackBehaviorOutput)
+}
+
+func (o WebAclUriFragmentFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclUriFragmentFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclUriFragmentFallbackBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAclUriFragmentFallbackBehaviorInput is an input type that accepts values of the WebAclUriFragmentFallbackBehavior enum
+// A concrete instance of `WebAclUriFragmentFallbackBehaviorInput` can be one of the following:
+//
+//	WebAclUriFragmentFallbackBehaviorMatch
+//	WebAclUriFragmentFallbackBehaviorNoMatch
+type WebAclUriFragmentFallbackBehaviorInput interface {
+	pulumi.Input
+
+	ToWebAclUriFragmentFallbackBehaviorOutput() WebAclUriFragmentFallbackBehaviorOutput
+	ToWebAclUriFragmentFallbackBehaviorOutputWithContext(context.Context) WebAclUriFragmentFallbackBehaviorOutput
+}
+
+var webAclUriFragmentFallbackBehaviorPtrType = reflect.TypeOf((**WebAclUriFragmentFallbackBehavior)(nil)).Elem()
+
+type WebAclUriFragmentFallbackBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToWebAclUriFragmentFallbackBehaviorPtrOutput() WebAclUriFragmentFallbackBehaviorPtrOutput
+	ToWebAclUriFragmentFallbackBehaviorPtrOutputWithContext(context.Context) WebAclUriFragmentFallbackBehaviorPtrOutput
+}
+
+type webAclUriFragmentFallbackBehaviorPtr string
+
+func WebAclUriFragmentFallbackBehaviorPtr(v string) WebAclUriFragmentFallbackBehaviorPtrInput {
+	return (*webAclUriFragmentFallbackBehaviorPtr)(&v)
+}
+
+func (*webAclUriFragmentFallbackBehaviorPtr) ElementType() reflect.Type {
+	return webAclUriFragmentFallbackBehaviorPtrType
+}
+
+func (in *webAclUriFragmentFallbackBehaviorPtr) ToWebAclUriFragmentFallbackBehaviorPtrOutput() WebAclUriFragmentFallbackBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(WebAclUriFragmentFallbackBehaviorPtrOutput)
+}
+
+func (in *webAclUriFragmentFallbackBehaviorPtr) ToWebAclUriFragmentFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclUriFragmentFallbackBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclUriFragmentFallbackBehaviorPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IpSetIpAddressVersionInput)(nil)).Elem(), IpSetIpAddressVersion("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpSetIpAddressVersionPtrInput)(nil)).Elem(), IpSetIpAddressVersion("IPV4"))
@@ -8626,10 +9315,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupSizeConstraintStatementComparisonOperatorPtrInput)(nil)).Elem(), RuleGroupSizeConstraintStatementComparisonOperator("EQ"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTextTransformationTypeInput)(nil)).Elem(), RuleGroupTextTransformationType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTextTransformationTypePtrInput)(nil)).Elem(), RuleGroupTextTransformationType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupUriFragmentFallbackBehaviorInput)(nil)).Elem(), RuleGroupUriFragmentFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupUriFragmentFallbackBehaviorPtrInput)(nil)).Elem(), RuleGroupUriFragmentFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAwsManagedRulesBotControlRuleSetInspectionLevelInput)(nil)).Elem(), WebAclAwsManagedRulesBotControlRuleSetInspectionLevel("COMMON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrInput)(nil)).Elem(), WebAclAwsManagedRulesBotControlRuleSetInspectionLevel("COMMON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclBodyParsingFallbackBehaviorInput)(nil)).Elem(), WebAclBodyParsingFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclBodyParsingFallbackBehaviorPtrInput)(nil)).Elem(), WebAclBodyParsingFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclDataProtectionActionInput)(nil)).Elem(), WebAclDataProtectionAction("SUBSTITUTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclDataProtectionActionPtrInput)(nil)).Elem(), WebAclDataProtectionAction("SUBSTITUTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclFieldToProtectFieldTypeInput)(nil)).Elem(), WebAclFieldToProtectFieldType("SINGLE_HEADER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclFieldToProtectFieldTypePtrInput)(nil)).Elem(), WebAclFieldToProtectFieldType("SINGLE_HEADER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclForwardedIpConfigurationFallbackBehaviorInput)(nil)).Elem(), WebAclForwardedIpConfigurationFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclForwardedIpConfigurationFallbackBehaviorPtrInput)(nil)).Elem(), WebAclForwardedIpConfigurationFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclIpSetForwardedIpConfigurationFallbackBehaviorInput)(nil)).Elem(), WebAclIpSetForwardedIpConfigurationFallbackBehavior("MATCH"))
@@ -8674,6 +9369,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSizeInspectionLimitPtrInput)(nil)).Elem(), WebAclSizeInspectionLimit("KB_16"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclTextTransformationTypeInput)(nil)).Elem(), WebAclTextTransformationType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclTextTransformationTypePtrInput)(nil)).Elem(), WebAclTextTransformationType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclUriFragmentFallbackBehaviorInput)(nil)).Elem(), WebAclUriFragmentFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclUriFragmentFallbackBehaviorPtrInput)(nil)).Elem(), WebAclUriFragmentFallbackBehavior("MATCH"))
 	pulumi.RegisterOutputType(IpSetIpAddressVersionOutput{})
 	pulumi.RegisterOutputType(IpSetIpAddressVersionPtrOutput{})
 	pulumi.RegisterOutputType(IpSetScopeOutput{})
@@ -8726,10 +9423,16 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupTextTransformationTypeOutput{})
 	pulumi.RegisterOutputType(RuleGroupTextTransformationTypePtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupUriFragmentFallbackBehaviorOutput{})
+	pulumi.RegisterOutputType(RuleGroupUriFragmentFallbackBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput{})
 	pulumi.RegisterOutputType(WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput{})
 	pulumi.RegisterOutputType(WebAclBodyParsingFallbackBehaviorOutput{})
 	pulumi.RegisterOutputType(WebAclBodyParsingFallbackBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(WebAclDataProtectionActionOutput{})
+	pulumi.RegisterOutputType(WebAclDataProtectionActionPtrOutput{})
+	pulumi.RegisterOutputType(WebAclFieldToProtectFieldTypeOutput{})
+	pulumi.RegisterOutputType(WebAclFieldToProtectFieldTypePtrOutput{})
 	pulumi.RegisterOutputType(WebAclForwardedIpConfigurationFallbackBehaviorOutput{})
 	pulumi.RegisterOutputType(WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(WebAclIpSetForwardedIpConfigurationFallbackBehaviorOutput{})
@@ -8774,4 +9477,6 @@ func init() {
 	pulumi.RegisterOutputType(WebAclSizeInspectionLimitPtrOutput{})
 	pulumi.RegisterOutputType(WebAclTextTransformationTypeOutput{})
 	pulumi.RegisterOutputType(WebAclTextTransformationTypePtrOutput{})
+	pulumi.RegisterOutputType(WebAclUriFragmentFallbackBehaviorOutput{})
+	pulumi.RegisterOutputType(WebAclUriFragmentFallbackBehaviorPtrOutput{})
 }

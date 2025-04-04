@@ -33,6 +33,8 @@ class MembershipArgs:
         The set of arguments for constructing a Membership resource.
         :param pulumi.Input[str] collaboration_identifier: The unique ID for the associated collaboration.
         :param pulumi.Input['MembershipQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
+               
+               When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
         :param pulumi.Input['MembershipProtectedQueryResultConfigurationArgs'] default_result_configuration: The default protected query result configuration as specified by the member who can receive results.
         :param pulumi.Input['MembershipPaymentConfigurationArgs'] payment_configuration: The payment responsibilities accepted by the collaboration member.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
@@ -63,6 +65,8 @@ class MembershipArgs:
     def query_log_status(self) -> pulumi.Input['MembershipQueryLogStatus']:
         """
         An indicator as to whether query logging has been enabled or disabled for the membership.
+
+        When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
         """
         return pulumi.get(self, "query_log_status")
 
@@ -127,6 +131,8 @@ class Membership(pulumi.CustomResource):
         :param pulumi.Input[Union['MembershipProtectedQueryResultConfigurationArgs', 'MembershipProtectedQueryResultConfigurationArgsDict']] default_result_configuration: The default protected query result configuration as specified by the member who can receive results.
         :param pulumi.Input[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict']] payment_configuration: The payment responsibilities accepted by the collaboration member.
         :param pulumi.Input['MembershipQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
+               
+               When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
         """
         ...
@@ -284,6 +290,8 @@ class Membership(pulumi.CustomResource):
     def query_log_status(self) -> pulumi.Output['MembershipQueryLogStatus']:
         """
         An indicator as to whether query logging has been enabled or disabled for the membership.
+
+        When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
         """
         return pulumi.get(self, "query_log_status")
 

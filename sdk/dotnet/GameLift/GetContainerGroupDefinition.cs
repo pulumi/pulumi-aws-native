@@ -80,10 +80,6 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         public readonly Pulumi.AwsNative.GameLift.ContainerGroupDefinitionOperatingSystem? OperatingSystem;
         /// <summary>
-        /// A specific ContainerGroupDefinition version to be updated
-        /// </summary>
-        public readonly int? SourceVersionNumber;
-        /// <summary>
         /// A string indicating ContainerGroupDefinition status.
         /// </summary>
         public readonly Pulumi.AwsNative.GameLift.ContainerGroupDefinitionStatus? Status;
@@ -126,8 +122,6 @@ namespace Pulumi.AwsNative.GameLift
 
             Pulumi.AwsNative.GameLift.ContainerGroupDefinitionOperatingSystem? operatingSystem,
 
-            int? sourceVersionNumber,
-
             Pulumi.AwsNative.GameLift.ContainerGroupDefinitionStatus? status,
 
             string? statusReason,
@@ -148,7 +142,6 @@ namespace Pulumi.AwsNative.GameLift
             CreationTime = creationTime;
             GameServerContainerDefinition = gameServerContainerDefinition;
             OperatingSystem = operatingSystem;
-            SourceVersionNumber = sourceVersionNumber;
             Status = status;
             StatusReason = statusReason;
             SupportContainerDefinitions = supportContainerDefinitions;

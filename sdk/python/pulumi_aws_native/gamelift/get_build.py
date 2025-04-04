@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetBuildResult',
@@ -23,16 +24,30 @@ __all__ = [
 
 @pulumi.output_type
 class GetBuildResult:
-    def __init__(__self__, build_id=None, name=None, version=None):
+    def __init__(__self__, build_arn=None, build_id=None, name=None, tags=None, version=None):
+        if build_arn and not isinstance(build_arn, str):
+            raise TypeError("Expected argument 'build_arn' to be a str")
+        pulumi.set(__self__, "build_arn", build_arn)
         if build_id and not isinstance(build_id, str):
             raise TypeError("Expected argument 'build_id' to be a str")
         pulumi.set(__self__, "build_id", build_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="buildArn")
+    def build_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift build resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift build ARN, the resource ID matches the BuildId value.
+        """
+        return pulumi.get(self, "build_arn")
 
     @property
     @pulumi.getter(name="buildId")
@@ -52,6 +67,14 @@ class GetBuildResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def version(self) -> Optional[str]:
         """
         Version information that is associated with this build. Version strings do not need to be unique.
@@ -65,8 +88,10 @@ class AwaitableGetBuildResult(GetBuildResult):
         if False:
             yield self
         return GetBuildResult(
+            build_arn=self.build_arn,
             build_id=self.build_id,
             name=self.name,
+            tags=self.tags,
             version=self.version)
 
 
@@ -84,8 +109,10 @@ def get_build(build_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:gamelift:getBuild', __args__, opts=opts, typ=GetBuildResult).value
 
     return AwaitableGetBuildResult(
+        build_arn=pulumi.get(__ret__, 'build_arn'),
         build_id=pulumi.get(__ret__, 'build_id'),
         name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
 def get_build_output(build_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBuildResult]:
@@ -100,6 +127,8 @@ def get_build_output(build_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:gamelift:getBuild', __args__, opts=opts, typ=GetBuildResult)
     return __ret__.apply(lambda __response__: GetBuildResult(
+        build_arn=pulumi.get(__response__, 'build_arn'),
         build_id=pulumi.get(__response__, 'build_id'),
         name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
         version=pulumi.get(__response__, 'version')))

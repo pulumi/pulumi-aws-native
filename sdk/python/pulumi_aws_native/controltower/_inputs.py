@@ -27,13 +27,7 @@ MYPY = False
 if not MYPY:
     class EnabledBaselineParameterArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[str]]
-        """
-        A string denoting the parameter key.
-        """
         value: NotRequired[pulumi.Input[Union[str, Any, float, Sequence[pulumi.Input[Union[bool, float, Any, str]]], bool]]]
-        """
-        A low-level `Document` object of any type (for example, a Java Object).
-        """
 elif False:
     EnabledBaselineParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -42,10 +36,6 @@ class EnabledBaselineParameterArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[Union[str, Any, float, Sequence[pulumi.Input[Union[bool, float, Any, str]]], bool]]] = None):
-        """
-        :param pulumi.Input[str] key: A string denoting the parameter key.
-        :param pulumi.Input[Union[str, Any, float, Sequence[pulumi.Input[Union[bool, float, Any, str]]], bool]] value: A low-level `Document` object of any type (for example, a Java Object).
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -54,9 +44,6 @@ class EnabledBaselineParameterArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        A string denoting the parameter key.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -66,9 +53,6 @@ class EnabledBaselineParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[Union[str, Any, float, Sequence[pulumi.Input[Union[bool, float, Any, str]]], bool]]]:
-        """
-        A low-level `Document` object of any type (for example, a Java Object).
-        """
         return pulumi.get(self, "value")
 
     @value.setter

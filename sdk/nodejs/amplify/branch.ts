@@ -64,6 +64,10 @@ export class Branch extends pulumi.CustomResource {
      */
     public readonly buildSpec!: pulumi.Output<string | undefined>;
     /**
+     * The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+     */
+    public readonly computeRoleArn!: pulumi.Output<string | undefined>;
+    /**
      * The description for the branch that is part of an Amplify app.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -85,6 +89,12 @@ export class Branch extends pulumi.CustomResource {
      * For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
      */
     public readonly enablePullRequestPreview!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether the skew protection feature is enabled for the branch.
+     *
+     * Deployment skew protection is available to Amplify applications to eliminate version skew issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see [Skew protection for Amplify deployments](https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html) in the *Amplify User Guide* .
+     */
+    public readonly enableSkewProtection!: pulumi.Output<boolean | undefined>;
     /**
      * The environment variables for the branch.
      */
@@ -131,10 +141,12 @@ export class Branch extends pulumi.CustomResource {
             resourceInputs["basicAuthConfig"] = args ? args.basicAuthConfig : undefined;
             resourceInputs["branchName"] = args ? args.branchName : undefined;
             resourceInputs["buildSpec"] = args ? args.buildSpec : undefined;
+            resourceInputs["computeRoleArn"] = args ? args.computeRoleArn : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enableAutoBuild"] = args ? args.enableAutoBuild : undefined;
             resourceInputs["enablePerformanceMode"] = args ? args.enablePerformanceMode : undefined;
             resourceInputs["enablePullRequestPreview"] = args ? args.enablePullRequestPreview : undefined;
+            resourceInputs["enableSkewProtection"] = args ? args.enableSkewProtection : undefined;
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["framework"] = args ? args.framework : undefined;
             resourceInputs["pullRequestEnvironmentName"] = args ? args.pullRequestEnvironmentName : undefined;
@@ -148,10 +160,12 @@ export class Branch extends pulumi.CustomResource {
             resourceInputs["basicAuthConfig"] = undefined /*out*/;
             resourceInputs["branchName"] = undefined /*out*/;
             resourceInputs["buildSpec"] = undefined /*out*/;
+            resourceInputs["computeRoleArn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["enableAutoBuild"] = undefined /*out*/;
             resourceInputs["enablePerformanceMode"] = undefined /*out*/;
             resourceInputs["enablePullRequestPreview"] = undefined /*out*/;
+            resourceInputs["enableSkewProtection"] = undefined /*out*/;
             resourceInputs["environmentVariables"] = undefined /*out*/;
             resourceInputs["framework"] = undefined /*out*/;
             resourceInputs["pullRequestEnvironmentName"] = undefined /*out*/;
@@ -192,6 +206,10 @@ export interface BranchArgs {
      */
     buildSpec?: pulumi.Input<string>;
     /**
+     * The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+     */
+    computeRoleArn?: pulumi.Input<string>;
+    /**
      * The description for the branch that is part of an Amplify app.
      */
     description?: pulumi.Input<string>;
@@ -213,6 +231,12 @@ export interface BranchArgs {
      * For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
      */
     enablePullRequestPreview?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether the skew protection feature is enabled for the branch.
+     *
+     * Deployment skew protection is available to Amplify applications to eliminate version skew issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see [Skew protection for Amplify deployments](https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html) in the *Amplify User Guide* .
+     */
+    enableSkewProtection?: pulumi.Input<boolean>;
     /**
      * The environment variables for the branch.
      */

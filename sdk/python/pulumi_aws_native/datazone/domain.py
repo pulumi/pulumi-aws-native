@@ -241,6 +241,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["managed_account_id"] = None
             __props__.__dict__["portal_url"] = None
+            __props__.__dict__["root_domain_unit_id"] = None
             __props__.__dict__["status"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainVersion", "kmsKeyIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -277,6 +278,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["managed_account_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["portal_url"] = None
+        __props__.__dict__["root_domain_unit_id"] = None
         __props__.__dict__["service_role"] = None
         __props__.__dict__["single_sign_on"] = None
         __props__.__dict__["status"] = None
@@ -370,6 +372,14 @@ class Domain(pulumi.CustomResource):
         The URL of the data portal for this Amazon DataZone domain.
         """
         return pulumi.get(self, "portal_url")
+
+    @property
+    @pulumi.getter(name="rootDomainUnitId")
+    def root_domain_unit_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the root domain in Amazon Datazone.
+        """
+        return pulumi.get(self, "root_domain_unit_id")
 
     @property
     @pulumi.getter(name="serviceRole")

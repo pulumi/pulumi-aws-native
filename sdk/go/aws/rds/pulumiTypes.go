@@ -394,80 +394,6 @@ type DbClusterReadEndpoint struct {
 	Address *string `pulumi:"address"`
 }
 
-// DbClusterReadEndpointInput is an input type that accepts DbClusterReadEndpointArgs and DbClusterReadEndpointOutput values.
-// You can construct a concrete instance of `DbClusterReadEndpointInput` via:
-//
-//	DbClusterReadEndpointArgs{...}
-type DbClusterReadEndpointInput interface {
-	pulumi.Input
-
-	ToDbClusterReadEndpointOutput() DbClusterReadEndpointOutput
-	ToDbClusterReadEndpointOutputWithContext(context.Context) DbClusterReadEndpointOutput
-}
-
-// The “ReadEndpoint“ return value specifies the reader endpoint for the DB cluster.
-//
-//	The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
-//	If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
-//	For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide*.
-type DbClusterReadEndpointArgs struct {
-	// The host address of the reader endpoint.
-	Address pulumi.StringPtrInput `pulumi:"address"`
-}
-
-func (DbClusterReadEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DbClusterReadEndpoint)(nil)).Elem()
-}
-
-func (i DbClusterReadEndpointArgs) ToDbClusterReadEndpointOutput() DbClusterReadEndpointOutput {
-	return i.ToDbClusterReadEndpointOutputWithContext(context.Background())
-}
-
-func (i DbClusterReadEndpointArgs) ToDbClusterReadEndpointOutputWithContext(ctx context.Context) DbClusterReadEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DbClusterReadEndpointOutput)
-}
-
-func (i DbClusterReadEndpointArgs) ToDbClusterReadEndpointPtrOutput() DbClusterReadEndpointPtrOutput {
-	return i.ToDbClusterReadEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i DbClusterReadEndpointArgs) ToDbClusterReadEndpointPtrOutputWithContext(ctx context.Context) DbClusterReadEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DbClusterReadEndpointOutput).ToDbClusterReadEndpointPtrOutputWithContext(ctx)
-}
-
-// DbClusterReadEndpointPtrInput is an input type that accepts DbClusterReadEndpointArgs, DbClusterReadEndpointPtr and DbClusterReadEndpointPtrOutput values.
-// You can construct a concrete instance of `DbClusterReadEndpointPtrInput` via:
-//
-//	        DbClusterReadEndpointArgs{...}
-//
-//	or:
-//
-//	        nil
-type DbClusterReadEndpointPtrInput interface {
-	pulumi.Input
-
-	ToDbClusterReadEndpointPtrOutput() DbClusterReadEndpointPtrOutput
-	ToDbClusterReadEndpointPtrOutputWithContext(context.Context) DbClusterReadEndpointPtrOutput
-}
-
-type dbClusterReadEndpointPtrType DbClusterReadEndpointArgs
-
-func DbClusterReadEndpointPtr(v *DbClusterReadEndpointArgs) DbClusterReadEndpointPtrInput {
-	return (*dbClusterReadEndpointPtrType)(v)
-}
-
-func (*dbClusterReadEndpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DbClusterReadEndpoint)(nil)).Elem()
-}
-
-func (i *dbClusterReadEndpointPtrType) ToDbClusterReadEndpointPtrOutput() DbClusterReadEndpointPtrOutput {
-	return i.ToDbClusterReadEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i *dbClusterReadEndpointPtrType) ToDbClusterReadEndpointPtrOutputWithContext(ctx context.Context) DbClusterReadEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DbClusterReadEndpointPtrOutput)
-}
-
 // The “ReadEndpoint“ return value specifies the reader endpoint for the DB cluster.
 //
 //	The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
@@ -485,16 +411,6 @@ func (o DbClusterReadEndpointOutput) ToDbClusterReadEndpointOutput() DbClusterRe
 
 func (o DbClusterReadEndpointOutput) ToDbClusterReadEndpointOutputWithContext(ctx context.Context) DbClusterReadEndpointOutput {
 	return o
-}
-
-func (o DbClusterReadEndpointOutput) ToDbClusterReadEndpointPtrOutput() DbClusterReadEndpointPtrOutput {
-	return o.ToDbClusterReadEndpointPtrOutputWithContext(context.Background())
-}
-
-func (o DbClusterReadEndpointOutput) ToDbClusterReadEndpointPtrOutputWithContext(ctx context.Context) DbClusterReadEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbClusterReadEndpoint) *DbClusterReadEndpoint {
-		return &v
-	}).(DbClusterReadEndpointPtrOutput)
 }
 
 // The host address of the reader endpoint.
@@ -1073,80 +989,6 @@ type DbInstanceCertificateDetails struct {
 	ValidTill *string `pulumi:"validTill"`
 }
 
-// DbInstanceCertificateDetailsInput is an input type that accepts DbInstanceCertificateDetailsArgs and DbInstanceCertificateDetailsOutput values.
-// You can construct a concrete instance of `DbInstanceCertificateDetailsInput` via:
-//
-//	DbInstanceCertificateDetailsArgs{...}
-type DbInstanceCertificateDetailsInput interface {
-	pulumi.Input
-
-	ToDbInstanceCertificateDetailsOutput() DbInstanceCertificateDetailsOutput
-	ToDbInstanceCertificateDetailsOutputWithContext(context.Context) DbInstanceCertificateDetailsOutput
-}
-
-// The details of the DB instance’s server certificate.
-//
-//	For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
-type DbInstanceCertificateDetailsArgs struct {
-	// The CA identifier of the CA certificate used for the DB instance's server certificate.
-	CaIdentifier pulumi.StringPtrInput `pulumi:"caIdentifier"`
-	// The expiration date of the DB instance’s server certificate.
-	ValidTill pulumi.StringPtrInput `pulumi:"validTill"`
-}
-
-func (DbInstanceCertificateDetailsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DbInstanceCertificateDetails)(nil)).Elem()
-}
-
-func (i DbInstanceCertificateDetailsArgs) ToDbInstanceCertificateDetailsOutput() DbInstanceCertificateDetailsOutput {
-	return i.ToDbInstanceCertificateDetailsOutputWithContext(context.Background())
-}
-
-func (i DbInstanceCertificateDetailsArgs) ToDbInstanceCertificateDetailsOutputWithContext(ctx context.Context) DbInstanceCertificateDetailsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceCertificateDetailsOutput)
-}
-
-func (i DbInstanceCertificateDetailsArgs) ToDbInstanceCertificateDetailsPtrOutput() DbInstanceCertificateDetailsPtrOutput {
-	return i.ToDbInstanceCertificateDetailsPtrOutputWithContext(context.Background())
-}
-
-func (i DbInstanceCertificateDetailsArgs) ToDbInstanceCertificateDetailsPtrOutputWithContext(ctx context.Context) DbInstanceCertificateDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceCertificateDetailsOutput).ToDbInstanceCertificateDetailsPtrOutputWithContext(ctx)
-}
-
-// DbInstanceCertificateDetailsPtrInput is an input type that accepts DbInstanceCertificateDetailsArgs, DbInstanceCertificateDetailsPtr and DbInstanceCertificateDetailsPtrOutput values.
-// You can construct a concrete instance of `DbInstanceCertificateDetailsPtrInput` via:
-//
-//	        DbInstanceCertificateDetailsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DbInstanceCertificateDetailsPtrInput interface {
-	pulumi.Input
-
-	ToDbInstanceCertificateDetailsPtrOutput() DbInstanceCertificateDetailsPtrOutput
-	ToDbInstanceCertificateDetailsPtrOutputWithContext(context.Context) DbInstanceCertificateDetailsPtrOutput
-}
-
-type dbInstanceCertificateDetailsPtrType DbInstanceCertificateDetailsArgs
-
-func DbInstanceCertificateDetailsPtr(v *DbInstanceCertificateDetailsArgs) DbInstanceCertificateDetailsPtrInput {
-	return (*dbInstanceCertificateDetailsPtrType)(v)
-}
-
-func (*dbInstanceCertificateDetailsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DbInstanceCertificateDetails)(nil)).Elem()
-}
-
-func (i *dbInstanceCertificateDetailsPtrType) ToDbInstanceCertificateDetailsPtrOutput() DbInstanceCertificateDetailsPtrOutput {
-	return i.ToDbInstanceCertificateDetailsPtrOutputWithContext(context.Background())
-}
-
-func (i *dbInstanceCertificateDetailsPtrType) ToDbInstanceCertificateDetailsPtrOutputWithContext(ctx context.Context) DbInstanceCertificateDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceCertificateDetailsPtrOutput)
-}
-
 // The details of the DB instance’s server certificate.
 //
 //	For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
@@ -1162,16 +1004,6 @@ func (o DbInstanceCertificateDetailsOutput) ToDbInstanceCertificateDetailsOutput
 
 func (o DbInstanceCertificateDetailsOutput) ToDbInstanceCertificateDetailsOutputWithContext(ctx context.Context) DbInstanceCertificateDetailsOutput {
 	return o
-}
-
-func (o DbInstanceCertificateDetailsOutput) ToDbInstanceCertificateDetailsPtrOutput() DbInstanceCertificateDetailsPtrOutput {
-	return o.ToDbInstanceCertificateDetailsPtrOutputWithContext(context.Background())
-}
-
-func (o DbInstanceCertificateDetailsOutput) ToDbInstanceCertificateDetailsPtrOutputWithContext(ctx context.Context) DbInstanceCertificateDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbInstanceCertificateDetails) *DbInstanceCertificateDetails {
-		return &v
-	}).(DbInstanceCertificateDetailsPtrOutput)
 }
 
 // The CA identifier of the CA certificate used for the DB instance's server certificate.
@@ -1355,88 +1187,6 @@ type DbInstanceEndpoint struct {
 	Port *string `pulumi:"port"`
 }
 
-// DbInstanceEndpointInput is an input type that accepts DbInstanceEndpointArgs and DbInstanceEndpointOutput values.
-// You can construct a concrete instance of `DbInstanceEndpointInput` via:
-//
-//	DbInstanceEndpointArgs{...}
-type DbInstanceEndpointInput interface {
-	pulumi.Input
-
-	ToDbInstanceEndpointOutput() DbInstanceEndpointOutput
-	ToDbInstanceEndpointOutputWithContext(context.Context) DbInstanceEndpointOutput
-}
-
-// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-//
-//   - “CreateDBInstance“
-//
-//   - “DescribeDBInstances“
-//
-//   - “DeleteDBInstance“
-//
-//     For the data structure that represents Amazon Aurora DB cluster endpoints, see “DBClusterEndpoint“.
-type DbInstanceEndpointArgs struct {
-	// Specifies the DNS address of the DB instance.
-	Address pulumi.StringPtrInput `pulumi:"address"`
-	// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
-	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
-	// Specifies the port that the database engine is listening on.
-	Port pulumi.StringPtrInput `pulumi:"port"`
-}
-
-func (DbInstanceEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DbInstanceEndpoint)(nil)).Elem()
-}
-
-func (i DbInstanceEndpointArgs) ToDbInstanceEndpointOutput() DbInstanceEndpointOutput {
-	return i.ToDbInstanceEndpointOutputWithContext(context.Background())
-}
-
-func (i DbInstanceEndpointArgs) ToDbInstanceEndpointOutputWithContext(ctx context.Context) DbInstanceEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceEndpointOutput)
-}
-
-func (i DbInstanceEndpointArgs) ToDbInstanceEndpointPtrOutput() DbInstanceEndpointPtrOutput {
-	return i.ToDbInstanceEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i DbInstanceEndpointArgs) ToDbInstanceEndpointPtrOutputWithContext(ctx context.Context) DbInstanceEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceEndpointOutput).ToDbInstanceEndpointPtrOutputWithContext(ctx)
-}
-
-// DbInstanceEndpointPtrInput is an input type that accepts DbInstanceEndpointArgs, DbInstanceEndpointPtr and DbInstanceEndpointPtrOutput values.
-// You can construct a concrete instance of `DbInstanceEndpointPtrInput` via:
-//
-//	        DbInstanceEndpointArgs{...}
-//
-//	or:
-//
-//	        nil
-type DbInstanceEndpointPtrInput interface {
-	pulumi.Input
-
-	ToDbInstanceEndpointPtrOutput() DbInstanceEndpointPtrOutput
-	ToDbInstanceEndpointPtrOutputWithContext(context.Context) DbInstanceEndpointPtrOutput
-}
-
-type dbInstanceEndpointPtrType DbInstanceEndpointArgs
-
-func DbInstanceEndpointPtr(v *DbInstanceEndpointArgs) DbInstanceEndpointPtrInput {
-	return (*dbInstanceEndpointPtrType)(v)
-}
-
-func (*dbInstanceEndpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DbInstanceEndpoint)(nil)).Elem()
-}
-
-func (i *dbInstanceEndpointPtrType) ToDbInstanceEndpointPtrOutput() DbInstanceEndpointPtrOutput {
-	return i.ToDbInstanceEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i *dbInstanceEndpointPtrType) ToDbInstanceEndpointPtrOutputWithContext(ctx context.Context) DbInstanceEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceEndpointPtrOutput)
-}
-
 // This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
 //
 //   - “CreateDBInstance“
@@ -1458,16 +1208,6 @@ func (o DbInstanceEndpointOutput) ToDbInstanceEndpointOutput() DbInstanceEndpoin
 
 func (o DbInstanceEndpointOutput) ToDbInstanceEndpointOutputWithContext(ctx context.Context) DbInstanceEndpointOutput {
 	return o
-}
-
-func (o DbInstanceEndpointOutput) ToDbInstanceEndpointPtrOutput() DbInstanceEndpointPtrOutput {
-	return o.ToDbInstanceEndpointPtrOutputWithContext(context.Background())
-}
-
-func (o DbInstanceEndpointOutput) ToDbInstanceEndpointPtrOutputWithContext(ctx context.Context) DbInstanceEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbInstanceEndpoint) *DbInstanceEndpoint {
-		return &v
-	}).(DbInstanceEndpointPtrOutput)
 }
 
 // Specifies the DNS address of the DB instance.
@@ -2572,18 +2312,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterDbClusterRoleArrayInput)(nil)).Elem(), DbClusterDbClusterRoleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterMasterUserSecretInput)(nil)).Elem(), DbClusterMasterUserSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterMasterUserSecretPtrInput)(nil)).Elem(), DbClusterMasterUserSecretArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterReadEndpointInput)(nil)).Elem(), DbClusterReadEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterReadEndpointPtrInput)(nil)).Elem(), DbClusterReadEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterScalingConfigurationInput)(nil)).Elem(), DbClusterScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterScalingConfigurationPtrInput)(nil)).Elem(), DbClusterScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterServerlessV2ScalingConfigurationInput)(nil)).Elem(), DbClusterServerlessV2ScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterServerlessV2ScalingConfigurationPtrInput)(nil)).Elem(), DbClusterServerlessV2ScalingConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceCertificateDetailsInput)(nil)).Elem(), DbInstanceCertificateDetailsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceCertificateDetailsPtrInput)(nil)).Elem(), DbInstanceCertificateDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceDbInstanceRoleInput)(nil)).Elem(), DbInstanceDbInstanceRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceDbInstanceRoleArrayInput)(nil)).Elem(), DbInstanceDbInstanceRoleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceEndpointInput)(nil)).Elem(), DbInstanceEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceEndpointPtrInput)(nil)).Elem(), DbInstanceEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceMasterUserSecretInput)(nil)).Elem(), DbInstanceMasterUserSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceMasterUserSecretPtrInput)(nil)).Elem(), DbInstanceMasterUserSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceProcessorFeatureInput)(nil)).Elem(), DbInstanceProcessorFeatureArgs{})

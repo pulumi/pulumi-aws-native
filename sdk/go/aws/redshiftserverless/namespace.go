@@ -51,7 +51,7 @@ type Namespace struct {
 	// The snapshot copy configurations for the namespace.
 	SnapshotCopyConfigurations NamespaceSnapshotCopyConfigurationArrayOutput `pulumi:"snapshotCopyConfigurations"`
 	// The list of tags for the namespace.
-	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -63,7 +63,6 @@ func NewNamespace(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"namespaceName",
-		"tags[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -132,7 +131,7 @@ type namespaceArgs struct {
 	// The snapshot copy configurations for the namespace.
 	SnapshotCopyConfigurations []NamespaceSnapshotCopyConfiguration `pulumi:"snapshotCopyConfigurations"`
 	// The list of tags for the namespace.
-	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Namespace resource.
@@ -170,7 +169,7 @@ type NamespaceArgs struct {
 	// The snapshot copy configurations for the namespace.
 	SnapshotCopyConfigurations NamespaceSnapshotCopyConfigurationArrayInput
 	// The list of tags for the namespace.
-	Tags aws.CreateOnlyTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (NamespaceArgs) ElementType() reflect.Type {
@@ -293,8 +292,8 @@ func (o NamespaceOutput) SnapshotCopyConfigurations() NamespaceSnapshotCopyConfi
 }
 
 // The list of tags for the namespace.
-func (o NamespaceOutput) Tags() aws.CreateOnlyTagArrayOutput {
-	return o.ApplyT(func(v *Namespace) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
+func (o NamespaceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Namespace) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

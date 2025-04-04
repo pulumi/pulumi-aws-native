@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Omics::SequenceStore Resource Type
+ * Resource Type definition for AWS::Omics::SequenceStore
  */
 export class SequenceStore extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class SequenceStore extends pulumi.CustomResource {
     }
 
     /**
+     * Location of the access logs.
+     */
+    public readonly accessLogLocation!: pulumi.Output<string | undefined>;
+    /**
      * The store's ARN.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -50,13 +54,35 @@ export class SequenceStore extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * An S3 URI representing the bucket and folder to store failed read set uploads.
+     * The algorithm family of the ETag.
+     */
+    public readonly eTagAlgorithmFamily!: pulumi.Output<enums.omics.SequenceStoreETagAlgorithmFamily | undefined>;
+    /**
+     * An S3 location that is used to store files that have failed a direct upload.
      */
     public readonly fallbackLocation!: pulumi.Output<string | undefined>;
     /**
      * A name for the store.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+     */
+    public readonly propagatedSetLevelTags!: pulumi.Output<string[] | undefined>;
+    /**
+     * This is ARN of the access point associated with the S3 bucket storing read sets.
+     */
+    public /*out*/ readonly s3AccessPointArn!: pulumi.Output<string>;
+    /**
+     * The resource policy that controls S3 access on the store
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Omics::SequenceStore` for more information about the expected schema for this property.
+     */
+    public readonly s3AccessPolicy!: pulumi.Output<any | undefined>;
+    /**
+     * The S3 URI of the sequence store.
+     */
+    public /*out*/ readonly s3Uri!: pulumi.Output<string>;
     /**
      * The store's ID.
      */
@@ -66,9 +92,21 @@ export class SequenceStore extends pulumi.CustomResource {
      */
     public readonly sseConfig!: pulumi.Output<outputs.omics.SequenceStoreSseConfig | undefined>;
     /**
+     * Status of the sequence store.
+     */
+    public /*out*/ readonly status!: pulumi.Output<enums.omics.SequenceStoreStatus>;
+    /**
+     * The status message of the sequence store.
+     */
+    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    /**
      * Tags for the store.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The last-updated time of the sequence store.
+     */
+    public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
      * Create a SequenceStore resource with the given unique name, arguments, and options.
@@ -81,26 +119,44 @@ export class SequenceStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["accessLogLocation"] = args ? args.accessLogLocation : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["eTagAlgorithmFamily"] = args ? args.eTagAlgorithmFamily : undefined;
             resourceInputs["fallbackLocation"] = args ? args.fallbackLocation : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["propagatedSetLevelTags"] = args ? args.propagatedSetLevelTags : undefined;
+            resourceInputs["s3AccessPolicy"] = args ? args.s3AccessPolicy : undefined;
             resourceInputs["sseConfig"] = args ? args.sseConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["s3AccessPointArn"] = undefined /*out*/;
+            resourceInputs["s3Uri"] = undefined /*out*/;
             resourceInputs["sequenceStoreId"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["updateTime"] = undefined /*out*/;
         } else {
+            resourceInputs["accessLogLocation"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["eTagAlgorithmFamily"] = undefined /*out*/;
             resourceInputs["fallbackLocation"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["propagatedSetLevelTags"] = undefined /*out*/;
+            resourceInputs["s3AccessPointArn"] = undefined /*out*/;
+            resourceInputs["s3AccessPolicy"] = undefined /*out*/;
+            resourceInputs["s3Uri"] = undefined /*out*/;
             resourceInputs["sequenceStoreId"] = undefined /*out*/;
             resourceInputs["sseConfig"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusMessage"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["description", "fallbackLocation", "name", "sseConfig", "tags.*"] };
+        const replaceOnChanges = { replaceOnChanges: ["eTagAlgorithmFamily", "sseConfig"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SequenceStore.__pulumiType, name, resourceInputs, opts);
     }
@@ -111,17 +167,35 @@ export class SequenceStore extends pulumi.CustomResource {
  */
 export interface SequenceStoreArgs {
     /**
+     * Location of the access logs.
+     */
+    accessLogLocation?: pulumi.Input<string>;
+    /**
      * A description for the store.
      */
     description?: pulumi.Input<string>;
     /**
-     * An S3 URI representing the bucket and folder to store failed read set uploads.
+     * The algorithm family of the ETag.
+     */
+    eTagAlgorithmFamily?: pulumi.Input<enums.omics.SequenceStoreETagAlgorithmFamily>;
+    /**
+     * An S3 location that is used to store files that have failed a direct upload.
      */
     fallbackLocation?: pulumi.Input<string>;
     /**
      * A name for the store.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+     */
+    propagatedSetLevelTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The resource policy that controls S3 access on the store
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Omics::SequenceStore` for more information about the expected schema for this property.
+     */
+    s3AccessPolicy?: any;
     /**
      * Server-side encryption (SSE) settings for the store.
      */

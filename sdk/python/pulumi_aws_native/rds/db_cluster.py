@@ -68,7 +68,6 @@ class DbClusterArgs:
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
-                 read_endpoint: Optional[pulumi.Input['DbClusterReadEndpointArgs']] = None,
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
                  restore_to_time: Optional[pulumi.Input[str]] = None,
                  restore_type: Optional[pulumi.Input[str]] = None,
@@ -109,7 +108,7 @@ class DbClusterArgs:
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] database_insights_mode: The mode of Database Insights to enable for the DB cluster.
                 If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-                Valid for Cluster Type: Aurora DB clusters only
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] database_name: The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*. 
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] db_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
@@ -262,7 +261,7 @@ class DbClusterArgs:
                 The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
                 If you don't specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS-account. Your AWS-account has a different default KMS key for each AWS-Region.
                 Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
-        :param pulumi.Input[int] performance_insights_retention_period: The number of days to retain Performance Insights data.
+        :param pulumi.Input[int] performance_insights_retention_period: The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
                 Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
                 Valid Values:
                  +   ``7`` 
@@ -307,12 +306,6 @@ class DbClusterArgs:
                 If ``DBSubnetGroupName`` is specified, and ``PubliclyAccessible`` isn't specified, the following applies:
                  +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB cluster is private.
                  +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.
-        :param pulumi.Input['DbClusterReadEndpointArgs'] read_endpoint: This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-                 +   ``CreateDBInstance`` 
-                 +   ``DescribeDBInstances`` 
-                 +   ``DeleteDBInstance`` 
-                 
-                For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
         :param pulumi.Input[str] replication_source_identifier: The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.
                 Valid for: Aurora DB clusters only
         :param pulumi.Input[str] restore_to_time: The date and time to restore the DB cluster to.
@@ -482,8 +475,6 @@ class DbClusterArgs:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
-        if read_endpoint is not None:
-            pulumi.set(__self__, "read_endpoint", read_endpoint)
         if replication_source_identifier is not None:
             pulumi.set(__self__, "replication_source_identifier", replication_source_identifier)
         if restore_to_time is not None:
@@ -628,7 +619,7 @@ class DbClusterArgs:
         """
         The mode of Database Insights to enable for the DB cluster.
          If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-         Valid for Cluster Type: Aurora DB clusters only
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "database_insights_mode")
 
@@ -1133,7 +1124,7 @@ class DbClusterArgs:
     @pulumi.getter(name="performanceInsightsRetentionPeriod")
     def performance_insights_retention_period(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of days to retain Performance Insights data.
+        The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
          Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
          Valid Values:
           +   ``7`` 
@@ -1228,23 +1219,6 @@ class DbClusterArgs:
     @publicly_accessible.setter
     def publicly_accessible(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "publicly_accessible", value)
-
-    @property
-    @pulumi.getter(name="readEndpoint")
-    def read_endpoint(self) -> Optional[pulumi.Input['DbClusterReadEndpointArgs']]:
-        """
-        This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-          +   ``CreateDBInstance`` 
-          +   ``DescribeDBInstances`` 
-          +   ``DeleteDBInstance`` 
-          
-         For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
-        """
-        return pulumi.get(self, "read_endpoint")
-
-    @read_endpoint.setter
-    def read_endpoint(self, value: Optional[pulumi.Input['DbClusterReadEndpointArgs']]):
-        pulumi.set(self, "read_endpoint", value)
 
     @property
     @pulumi.getter(name="replicationSourceIdentifier")
@@ -1518,7 +1492,6 @@ class DbCluster(pulumi.CustomResource):
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
-                 read_endpoint: Optional[pulumi.Input[Union['DbClusterReadEndpointArgs', 'DbClusterReadEndpointArgsDict']]] = None,
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
                  restore_to_time: Optional[pulumi.Input[str]] = None,
                  restore_type: Optional[pulumi.Input[str]] = None,
@@ -1579,7 +1552,7 @@ class DbCluster(pulumi.CustomResource):
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] database_insights_mode: The mode of Database Insights to enable for the DB cluster.
                 If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-                Valid for Cluster Type: Aurora DB clusters only
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] database_name: The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*. 
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] db_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
@@ -1732,7 +1705,7 @@ class DbCluster(pulumi.CustomResource):
                 The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
                 If you don't specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS-account. Your AWS-account has a different default KMS key for each AWS-Region.
                 Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
-        :param pulumi.Input[int] performance_insights_retention_period: The number of days to retain Performance Insights data.
+        :param pulumi.Input[int] performance_insights_retention_period: The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
                 Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
                 Valid Values:
                  +   ``7`` 
@@ -1777,12 +1750,6 @@ class DbCluster(pulumi.CustomResource):
                 If ``DBSubnetGroupName`` is specified, and ``PubliclyAccessible`` isn't specified, the following applies:
                  +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB cluster is private.
                  +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.
-        :param pulumi.Input[Union['DbClusterReadEndpointArgs', 'DbClusterReadEndpointArgsDict']] read_endpoint: This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-                 +   ``CreateDBInstance`` 
-                 +   ``DescribeDBInstances`` 
-                 +   ``DeleteDBInstance`` 
-                 
-                For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
         :param pulumi.Input[str] replication_source_identifier: The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.
                 Valid for: Aurora DB clusters only
         :param pulumi.Input[str] restore_to_time: The date and time to restore the DB cluster to.
@@ -1947,7 +1914,6 @@ class DbCluster(pulumi.CustomResource):
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
-                 read_endpoint: Optional[pulumi.Input[Union['DbClusterReadEndpointArgs', 'DbClusterReadEndpointArgsDict']]] = None,
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
                  restore_to_time: Optional[pulumi.Input[str]] = None,
                  restore_type: Optional[pulumi.Input[str]] = None,
@@ -2015,7 +1981,6 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["publicly_accessible"] = publicly_accessible
-            __props__.__dict__["read_endpoint"] = read_endpoint
             __props__.__dict__["replication_source_identifier"] = replication_source_identifier
             __props__.__dict__["restore_to_time"] = restore_to_time
             __props__.__dict__["restore_type"] = restore_type
@@ -2032,6 +1997,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["db_cluster_arn"] = None
             __props__.__dict__["db_cluster_resource_id"] = None
             __props__.__dict__["endpoint"] = None
+            __props__.__dict__["read_endpoint"] = None
             __props__.__dict__["storage_throughput"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZones[*]", "clusterScalabilityType", "databaseName", "dbClusterIdentifier", "dbSubnetGroupName", "dbSystemId", "engineMode", "kmsKeyId", "publiclyAccessible", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "sourceRegion", "storageEncrypted", "useLatestRestorableTime"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -2207,7 +2173,7 @@ class DbCluster(pulumi.CustomResource):
         """
         The mode of Database Insights to enable for the DB cluster.
          If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-         Valid for Cluster Type: Aurora DB clusters only
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "database_insights_mode")
 
@@ -2605,7 +2571,7 @@ class DbCluster(pulumi.CustomResource):
     @pulumi.getter(name="performanceInsightsRetentionPeriod")
     def performance_insights_retention_period(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of days to retain Performance Insights data.
+        The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
          Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
          Valid Values:
           +   ``7`` 
@@ -2683,7 +2649,7 @@ class DbCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readEndpoint")
-    def read_endpoint(self) -> pulumi.Output[Optional['outputs.DbClusterReadEndpoint']]:
+    def read_endpoint(self) -> pulumi.Output['outputs.DbClusterReadEndpoint']:
         """
         This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
           +   ``CreateDBInstance`` 

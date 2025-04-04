@@ -37,6 +37,8 @@ type LookupBranchResult struct {
 	Backend *BranchBackend `pulumi:"backend"`
 	// The build specification (build spec) for the branch.
 	BuildSpec *string `pulumi:"buildSpec"`
+	// The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+	ComputeRoleArn *string `pulumi:"computeRoleArn"`
 	// The description for the branch that is part of an Amplify app.
 	Description *string `pulumi:"description"`
 	// Enables auto building for the branch.
@@ -51,6 +53,10 @@ type LookupBranchResult struct {
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 	EnablePullRequestPreview *bool `pulumi:"enablePullRequestPreview"`
+	// Specifies whether the skew protection feature is enabled for the branch.
+	//
+	// Deployment skew protection is available to Amplify applications to eliminate version skew issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see [Skew protection for Amplify deployments](https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html) in the *Amplify User Guide* .
+	EnableSkewProtection *bool `pulumi:"enableSkewProtection"`
 	// The environment variables for the branch.
 	EnvironmentVariables []BranchEnvironmentVariable `pulumi:"environmentVariables"`
 	// The framework for the branch.
@@ -118,6 +124,11 @@ func (o LookupBranchResultOutput) BuildSpec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBranchResult) *string { return v.BuildSpec }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+func (o LookupBranchResultOutput) ComputeRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBranchResult) *string { return v.ComputeRoleArn }).(pulumi.StringPtrOutput)
+}
+
 // The description for the branch that is part of an Amplify app.
 func (o LookupBranchResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBranchResult) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -142,6 +153,13 @@ func (o LookupBranchResultOutput) EnablePerformanceMode() pulumi.BoolPtrOutput {
 // For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 func (o LookupBranchResultOutput) EnablePullRequestPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupBranchResult) *bool { return v.EnablePullRequestPreview }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether the skew protection feature is enabled for the branch.
+//
+// Deployment skew protection is available to Amplify applications to eliminate version skew issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see [Skew protection for Amplify deployments](https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html) in the *Amplify User Guide* .
+func (o LookupBranchResultOutput) EnableSkewProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBranchResult) *bool { return v.EnableSkewProtection }).(pulumi.BoolPtrOutput)
 }
 
 // The environment variables for the branch.

@@ -79,7 +79,7 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
      */
     public readonly contactPrePassDurationSeconds!: pulumi.Output<number | undefined>;
     /**
-     * List of Endpoint Details, containing address and port for each endpoint.
+     * List of Endpoint Details, containing address and port for each endpoint. All dataflow endpoints within a single dataflow endpoint group must be of the same type. You cannot mix AWS Ground Station Agent endpoints with Dataflow endpoints in the same group. If your use case requires both types of endpoints, you must create separate dataflow endpoint groups for each type.
      */
     public readonly endpointDetails!: pulumi.Output<outputs.groundstation.DataflowEndpointGroupEndpointDetails[]>;
     /**
@@ -135,7 +135,7 @@ export interface DataflowEndpointGroupArgs {
      */
     contactPrePassDurationSeconds?: pulumi.Input<number>;
     /**
-     * List of Endpoint Details, containing address and port for each endpoint.
+     * List of Endpoint Details, containing address and port for each endpoint. All dataflow endpoints within a single dataflow endpoint group must be of the same type. You cannot mix AWS Ground Station Agent endpoints with Dataflow endpoints in the same group. If your use case requires both types of endpoints, you must create separate dataflow endpoint groups for each type.
      */
     endpointDetails: pulumi.Input<pulumi.Input<inputs.groundstation.DataflowEndpointGroupEndpointDetailsArgs>[]>;
     /**

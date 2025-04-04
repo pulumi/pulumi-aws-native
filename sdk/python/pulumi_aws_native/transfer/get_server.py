@@ -156,7 +156,7 @@ class GetServerResult:
     @pulumi.getter(name="loggingRole")
     def logging_role(self) -> Optional[str]:
         """
-        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents. When set, you can view user activity in your CloudWatch logs.
+        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
         """
         return pulumi.get(self, "logging_role")
 

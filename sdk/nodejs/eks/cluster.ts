@@ -78,6 +78,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
+     * Force cluster version update
+     */
+    public readonly force!: pulumi.Output<boolean | undefined>;
+    /**
      * The Kubernetes network configuration for the cluster.
      */
     public readonly kubernetesNetworkConfig!: pulumi.Output<outputs.eks.ClusterKubernetesNetworkConfig | undefined>;
@@ -98,7 +102,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly outpostConfig!: pulumi.Output<outputs.eks.ClusterOutpostConfig | undefined>;
     /**
-     * The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
+     * The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this configuration after the cluster is created.
      */
     public readonly remoteNetworkConfig!: pulumi.Output<outputs.eks.ClusterRemoteNetworkConfig | undefined>;
     /**
@@ -153,6 +157,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["bootstrapSelfManagedAddons"] = args ? args.bootstrapSelfManagedAddons : undefined;
             resourceInputs["computeConfig"] = args ? args.computeConfig : undefined;
             resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
+            resourceInputs["force"] = args ? args.force : undefined;
             resourceInputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
             resourceInputs["logging"] = args ? args.logging : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -183,6 +188,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["encryptionConfig"] = undefined /*out*/;
             resourceInputs["encryptionConfigKeyArn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["force"] = undefined /*out*/;
             resourceInputs["kubernetesNetworkConfig"] = undefined /*out*/;
             resourceInputs["logging"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -198,7 +204,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["zonalShiftConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["accessConfig.bootstrapClusterCreatorAdminPermissions", "bootstrapSelfManagedAddons", "encryptionConfig[*]", "kubernetesNetworkConfig.ipFamily", "kubernetesNetworkConfig.serviceIpv4Cidr", "name", "outpostConfig", "remoteNetworkConfig", "roleArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["accessConfig.bootstrapClusterCreatorAdminPermissions", "bootstrapSelfManagedAddons", "encryptionConfig[*]", "kubernetesNetworkConfig.ipFamily", "kubernetesNetworkConfig.serviceIpv4Cidr", "name", "outpostConfig", "roleArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -225,6 +231,10 @@ export interface ClusterArgs {
      */
     encryptionConfig?: pulumi.Input<pulumi.Input<inputs.eks.ClusterEncryptionConfigArgs>[]>;
     /**
+     * Force cluster version update
+     */
+    force?: pulumi.Input<boolean>;
+    /**
      * The Kubernetes network configuration for the cluster.
      */
     kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfigArgs>;
@@ -241,7 +251,7 @@ export interface ClusterArgs {
      */
     outpostConfig?: pulumi.Input<inputs.eks.ClusterOutpostConfigArgs>;
     /**
-     * The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
+     * The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this configuration after the cluster is created.
      */
     remoteNetworkConfig?: pulumi.Input<inputs.eks.ClusterRemoteNetworkConfigArgs>;
     /**

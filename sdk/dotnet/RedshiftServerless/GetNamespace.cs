@@ -105,6 +105,10 @@ namespace Pulumi.AwsNative.RedshiftServerless
         /// The snapshot copy configurations for the namespace.
         /// </summary>
         public readonly ImmutableArray<Outputs.NamespaceSnapshotCopyConfiguration> SnapshotCopyConfigurations;
+        /// <summary>
+        /// The list of tags for the namespace.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetNamespaceResult(
@@ -126,7 +130,9 @@ namespace Pulumi.AwsNative.RedshiftServerless
 
             object? namespaceResourcePolicy,
 
-            ImmutableArray<Outputs.NamespaceSnapshotCopyConfiguration> snapshotCopyConfigurations)
+            ImmutableArray<Outputs.NamespaceSnapshotCopyConfiguration> snapshotCopyConfigurations,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AdminPasswordSecretKmsKeyId = adminPasswordSecretKmsKeyId;
             AdminUsername = adminUsername;
@@ -138,6 +144,7 @@ namespace Pulumi.AwsNative.RedshiftServerless
             NamespaceValue = @namespace;
             NamespaceResourcePolicy = namespaceResourcePolicy;
             SnapshotCopyConfigurations = snapshotCopyConfigurations;
+            Tags = tags;
         }
     }
 }

@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbInstanceResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, database_insights_mode=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_parameter_group_name=None, db_security_groups=None, dbi_resource_id=None, dedicated_log_volume=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, automatic_backup_replication_retention_period=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, database_insights_mode=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_parameter_group_name=None, db_security_groups=None, dbi_resource_id=None, dedicated_log_volume=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -39,6 +39,9 @@ class GetDbInstanceResult:
         if automatic_backup_replication_region and not isinstance(automatic_backup_replication_region, str):
             raise TypeError("Expected argument 'automatic_backup_replication_region' to be a str")
         pulumi.set(__self__, "automatic_backup_replication_region", automatic_backup_replication_region)
+        if automatic_backup_replication_retention_period and not isinstance(automatic_backup_replication_retention_period, int):
+            raise TypeError("Expected argument 'automatic_backup_replication_retention_period' to be a int")
+        pulumi.set(__self__, "automatic_backup_replication_retention_period", automatic_backup_replication_retention_period)
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
         pulumi.set(__self__, "availability_zone", availability_zone)
@@ -274,6 +277,16 @@ class GetDbInstanceResult:
         The AWS-Region associated with the automated backup.
         """
         return pulumi.get(self, "automatic_backup_replication_region")
+
+    @property
+    @pulumi.getter(name="automaticBackupReplicationRetentionPeriod")
+    def automatic_backup_replication_retention_period(self) -> Optional[int]:
+        """
+        The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
+
+        If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+        """
+        return pulumi.get(self, "automatic_backup_replication_retention_period")
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -758,7 +771,7 @@ class GetDbInstanceResult:
     @pulumi.getter(name="performanceInsightsRetentionPeriod")
     def performance_insights_retention_period(self) -> Optional[int]:
         """
-        The number of days to retain Performance Insights data.
+        The number of days to retain Performance Insights data. When creating a DB instance without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
          This setting doesn't apply to RDS Custom DB instances.
          Valid Values:
           +   ``7`` 
@@ -934,6 +947,7 @@ class AwaitableGetDbInstanceResult(GetDbInstanceResult):
             associated_roles=self.associated_roles,
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
             automatic_backup_replication_region=self.automatic_backup_replication_region,
+            automatic_backup_replication_retention_period=self.automatic_backup_replication_retention_period,
             availability_zone=self.availability_zone,
             backup_retention_period=self.backup_retention_period,
             ca_certificate_identifier=self.ca_certificate_identifier,
@@ -1028,6 +1042,7 @@ def get_db_instance(db_instance_identifier: Optional[str] = None,
         associated_roles=pulumi.get(__ret__, 'associated_roles'),
         auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
         automatic_backup_replication_region=pulumi.get(__ret__, 'automatic_backup_replication_region'),
+        automatic_backup_replication_retention_period=pulumi.get(__ret__, 'automatic_backup_replication_retention_period'),
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
         backup_retention_period=pulumi.get(__ret__, 'backup_retention_period'),
         ca_certificate_identifier=pulumi.get(__ret__, 'ca_certificate_identifier'),
@@ -1119,6 +1134,7 @@ def get_db_instance_output(db_instance_identifier: Optional[pulumi.Input[str]] =
         associated_roles=pulumi.get(__response__, 'associated_roles'),
         auto_minor_version_upgrade=pulumi.get(__response__, 'auto_minor_version_upgrade'),
         automatic_backup_replication_region=pulumi.get(__response__, 'automatic_backup_replication_region'),
+        automatic_backup_replication_retention_period=pulumi.get(__response__, 'automatic_backup_replication_retention_period'),
         availability_zone=pulumi.get(__response__, 'availability_zone'),
         backup_retention_period=pulumi.get(__response__, 'backup_retention_period'),
         ca_certificate_identifier=pulumi.get(__response__, 'ca_certificate_identifier'),

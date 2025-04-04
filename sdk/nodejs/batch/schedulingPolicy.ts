@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type schema for AWS::Batch::SchedulingPolicy
+ * Resource Type definition for AWS::Batch::SchedulingPolicy
  */
 export class SchedulingPolicy extends pulumi.CustomResource {
     /**

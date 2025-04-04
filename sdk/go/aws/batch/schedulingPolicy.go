@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type schema for AWS::Batch::SchedulingPolicy
+// Resource Type definition for AWS::Batch::SchedulingPolicy
 type SchedulingPolicy struct {
 	pulumi.CustomResourceState
 

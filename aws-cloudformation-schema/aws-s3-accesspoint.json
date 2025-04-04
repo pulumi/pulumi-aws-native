@@ -97,7 +97,7 @@
   "primaryIdentifier" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "s3:CreateAccessPoint", "s3:PutAccessPointPolicy", "s3:PutAccessPointPublicAccessBlock" ]
+      "permissions" : [ "s3:CreateAccessPoint", "s3:PutAccessPointPolicy", "s3:GetAccessPoint", "s3:PutAccessPointPublicAccessBlock" ]
     },
     "read" : {
       "permissions" : [ "s3:GetAccessPoint", "s3:GetAccessPointPolicy" ]

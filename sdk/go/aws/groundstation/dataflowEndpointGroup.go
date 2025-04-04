@@ -72,7 +72,7 @@ type DataflowEndpointGroup struct {
 	ContactPostPassDurationSeconds pulumi.IntPtrOutput `pulumi:"contactPostPassDurationSeconds"`
 	// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
 	ContactPrePassDurationSeconds pulumi.IntPtrOutput `pulumi:"contactPrePassDurationSeconds"`
-	// List of Endpoint Details, containing address and port for each endpoint.
+	// List of Endpoint Details, containing address and port for each endpoint. All dataflow endpoints within a single dataflow endpoint group must be of the same type. You cannot mix AWS Ground Station Agent endpoints with Dataflow endpoints in the same group. If your use case requires both types of endpoints, you must create separate dataflow endpoint groups for each type.
 	EndpointDetails DataflowEndpointGroupEndpointDetailsArrayOutput `pulumi:"endpointDetails"`
 	// Tags assigned to a resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -131,7 +131,7 @@ type dataflowEndpointGroupArgs struct {
 	ContactPostPassDurationSeconds *int `pulumi:"contactPostPassDurationSeconds"`
 	// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
 	ContactPrePassDurationSeconds *int `pulumi:"contactPrePassDurationSeconds"`
-	// List of Endpoint Details, containing address and port for each endpoint.
+	// List of Endpoint Details, containing address and port for each endpoint. All dataflow endpoints within a single dataflow endpoint group must be of the same type. You cannot mix AWS Ground Station Agent endpoints with Dataflow endpoints in the same group. If your use case requires both types of endpoints, you must create separate dataflow endpoint groups for each type.
 	EndpointDetails []DataflowEndpointGroupEndpointDetails `pulumi:"endpointDetails"`
 	// Tags assigned to a resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -143,7 +143,7 @@ type DataflowEndpointGroupArgs struct {
 	ContactPostPassDurationSeconds pulumi.IntPtrInput
 	// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
 	ContactPrePassDurationSeconds pulumi.IntPtrInput
-	// List of Endpoint Details, containing address and port for each endpoint.
+	// List of Endpoint Details, containing address and port for each endpoint. All dataflow endpoints within a single dataflow endpoint group must be of the same type. You cannot mix AWS Ground Station Agent endpoints with Dataflow endpoints in the same group. If your use case requires both types of endpoints, you must create separate dataflow endpoint groups for each type.
 	EndpointDetails DataflowEndpointGroupEndpointDetailsArrayInput
 	// Tags assigned to a resource.
 	Tags aws.TagArrayInput
@@ -206,7 +206,7 @@ func (o DataflowEndpointGroupOutput) ContactPrePassDurationSeconds() pulumi.IntP
 	return o.ApplyT(func(v *DataflowEndpointGroup) pulumi.IntPtrOutput { return v.ContactPrePassDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
-// List of Endpoint Details, containing address and port for each endpoint.
+// List of Endpoint Details, containing address and port for each endpoint. All dataflow endpoints within a single dataflow endpoint group must be of the same type. You cannot mix AWS Ground Station Agent endpoints with Dataflow endpoints in the same group. If your use case requires both types of endpoints, you must create separate dataflow endpoint groups for each type.
 func (o DataflowEndpointGroupOutput) EndpointDetails() DataflowEndpointGroupEndpointDetailsArrayOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroup) DataflowEndpointGroupEndpointDetailsArrayOutput {
 		return v.EndpointDetails

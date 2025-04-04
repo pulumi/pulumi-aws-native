@@ -54,6 +54,12 @@ namespace Pulumi.AwsNative.Amplify
         public Output<string?> BuildSpec { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+        /// </summary>
+        [Output("computeRoleArn")]
+        public Output<string?> ComputeRoleArn { get; private set; } = null!;
+
+        /// <summary>
         /// The description for the branch that is part of an Amplify app.
         /// </summary>
         [Output("description")]
@@ -82,6 +88,14 @@ namespace Pulumi.AwsNative.Amplify
         /// </summary>
         [Output("enablePullRequestPreview")]
         public Output<bool?> EnablePullRequestPreview { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the skew protection feature is enabled for the branch.
+        /// 
+        /// Deployment skew protection is available to Amplify applications to eliminate version skew issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see [Skew protection for Amplify deployments](https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html) in the *Amplify User Guide* .
+        /// </summary>
+        [Output("enableSkewProtection")]
+        public Output<bool?> EnableSkewProtection { get; private set; } = null!;
 
         /// <summary>
         /// The environment variables for the branch.
@@ -202,6 +216,12 @@ namespace Pulumi.AwsNative.Amplify
         public Input<string>? BuildSpec { get; set; }
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+        /// </summary>
+        [Input("computeRoleArn")]
+        public Input<string>? ComputeRoleArn { get; set; }
+
+        /// <summary>
         /// The description for the branch that is part of an Amplify app.
         /// </summary>
         [Input("description")]
@@ -230,6 +250,14 @@ namespace Pulumi.AwsNative.Amplify
         /// </summary>
         [Input("enablePullRequestPreview")]
         public Input<bool>? EnablePullRequestPreview { get; set; }
+
+        /// <summary>
+        /// Specifies whether the skew protection feature is enabled for the branch.
+        /// 
+        /// Deployment skew protection is available to Amplify applications to eliminate version skew issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see [Skew protection for Amplify deployments](https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html) in the *Amplify User Guide* .
+        /// </summary>
+        [Input("enableSkewProtection")]
+        public Input<bool>? EnableSkewProtection { get; set; }
 
         [Input("environmentVariables")]
         private InputList<Inputs.BranchEnvironmentVariableArgs>? _environmentVariables;

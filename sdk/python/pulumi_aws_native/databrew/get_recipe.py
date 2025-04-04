@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetRecipeResult',
@@ -24,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetRecipeResult:
-    def __init__(__self__, description=None, steps=None):
+    def __init__(__self__, description=None, steps=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if steps and not isinstance(steps, list):
             raise TypeError("Expected argument 'steps' to be a list")
         pulumi.set(__self__, "steps", steps)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -48,6 +52,14 @@ class GetRecipeResult:
         """
         return pulumi.get(self, "steps")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Metadata tags that have been applied to the recipe.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetRecipeResult(GetRecipeResult):
     # pylint: disable=using-constant-test
@@ -56,7 +68,8 @@ class AwaitableGetRecipeResult(GetRecipeResult):
             yield self
         return GetRecipeResult(
             description=self.description,
-            steps=self.steps)
+            steps=self.steps,
+            tags=self.tags)
 
 
 def get_recipe(name: Optional[str] = None,
@@ -74,7 +87,8 @@ def get_recipe(name: Optional[str] = None,
 
     return AwaitableGetRecipeResult(
         description=pulumi.get(__ret__, 'description'),
-        steps=pulumi.get(__ret__, 'steps'))
+        steps=pulumi.get(__ret__, 'steps'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_recipe_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecipeResult]:
     """
@@ -89,4 +103,5 @@ def get_recipe_output(name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:databrew:getRecipe', __args__, opts=opts, typ=GetRecipeResult)
     return __ret__.apply(lambda __response__: GetRecipeResult(
         description=pulumi.get(__response__, 'description'),
-        steps=pulumi.get(__response__, 'steps')))
+        steps=pulumi.get(__response__, 'steps'),
+        tags=pulumi.get(__response__, 'tags')))

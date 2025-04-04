@@ -1391,6 +1391,7 @@ _utilities.register(
   "mod": "datazone",
   "fqn": "pulumi_aws_native.datazone",
   "classes": {
+   "aws-native:datazone:Connection": "Connection",
    "aws-native:datazone:DataSource": "DataSource",
    "aws-native:datazone:Domain": "Domain",
    "aws-native:datazone:Environment": "Environment",
@@ -1538,6 +1539,11 @@ _utilities.register(
    "aws-native:ec2:PlacementGroup": "PlacementGroup",
    "aws-native:ec2:PrefixList": "PrefixList",
    "aws-native:ec2:Route": "Route",
+   "aws-native:ec2:RouteServer": "RouteServer",
+   "aws-native:ec2:RouteServerAssociation": "RouteServerAssociation",
+   "aws-native:ec2:RouteServerEndpoint": "RouteServerEndpoint",
+   "aws-native:ec2:RouteServerPeer": "RouteServerPeer",
+   "aws-native:ec2:RouteServerPropagation": "RouteServerPropagation",
    "aws-native:ec2:RouteTable": "RouteTable",
    "aws-native:ec2:SecurityGroup": "SecurityGroup",
    "aws-native:ec2:SecurityGroupEgress": "SecurityGroupEgress",
@@ -2084,6 +2090,7 @@ _utilities.register(
    "aws-native:iotsitewise:Asset": "Asset",
    "aws-native:iotsitewise:AssetModel": "AssetModel",
    "aws-native:iotsitewise:Dashboard": "Dashboard",
+   "aws-native:iotsitewise:Dataset": "Dataset",
    "aws-native:iotsitewise:Gateway": "Gateway",
    "aws-native:iotsitewise:Portal": "Portal",
    "aws-native:iotsitewise:Project": "Project"
@@ -2472,7 +2479,8 @@ _utilities.register(
   "mod": "neptune",
   "fqn": "pulumi_aws_native.neptune",
   "classes": {
-   "aws-native:neptune:DbCluster": "DbCluster"
+   "aws-native:neptune:DbCluster": "DbCluster",
+   "aws-native:neptune:DbSubnetGroup": "DbSubnetGroup"
   }
  },
  {

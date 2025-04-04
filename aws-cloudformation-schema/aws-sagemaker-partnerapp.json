@@ -29,6 +29,12 @@
       "maxLength" : 2048,
       "pattern" : "^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$"
     },
+    "KmsKeyId" : {
+      "type" : "string",
+      "description" : "The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.",
+      "maxLength" : 2048,
+      "pattern" : ".*"
+    },
     "Tier" : {
       "type" : "string",
       "description" : "The tier of the PartnerApp.",
@@ -148,7 +154,7 @@
     }
   },
   "required" : [ "Name", "Type", "AuthType", "ExecutionRoleArn", "Tier" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Type", "/properties/ExecutionRoleArn", "/properties/AuthType" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Type", "/properties/ExecutionRoleArn", "/properties/AuthType", "/properties/KmsKeyId" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/BaseUrl" ],
   "writeOnlyProperties" : [ "/properties/ClientToken" ],
   "deprecatedProperties" : [ "/properties/ClientToken" ],
@@ -156,14 +162,14 @@
   "replacementStrategy" : "delete_then_create",
   "handlers" : {
     "create" : {
-      "permissions" : [ "sagemaker:CreatePartnerApp", "sagemaker:DescribePartnerApp", "sagemaker:AddTags", "sagemaker:ListTags", "iam:PassRole" ],
+      "permissions" : [ "sagemaker:CreatePartnerApp", "sagemaker:DescribePartnerApp", "sagemaker:AddTags", "sagemaker:ListTags", "iam:PassRole", "kms:CreateGrant", "kms:DescribeKey" ],
       "timeoutInMinutes" : 180
     },
     "read" : {
       "permissions" : [ "sagemaker:DescribePartnerApp", "sagemaker:ListTags" ]
     },
     "update" : {
-      "permissions" : [ "sagemaker:UpdatePartnerApp", "sagemaker:DescribePartnerApp", "sagemaker:AddTags", "sagemaker:ListTags", "sagemaker:DeleteTags" ],
+      "permissions" : [ "sagemaker:UpdatePartnerApp", "sagemaker:DescribePartnerApp", "sagemaker:AddTags", "sagemaker:ListTags", "sagemaker:DeleteTags", "kms:DescribeKey" ],
       "timeoutInMinutes" : 180
     },
     "delete" : {

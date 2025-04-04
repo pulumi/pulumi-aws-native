@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DataSetCreateColumnsOperationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("columns", required: true)]
+        [Input("columns")]
         private InputList<Inputs.DataSetCalculatedColumnArgs>? _columns;
 
         /// <summary>

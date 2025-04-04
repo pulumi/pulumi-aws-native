@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch
 {
     /// <summary>
-    /// Resource Type schema for AWS::Batch::SchedulingPolicy
+    /// Resource Type definition for AWS::Batch::SchedulingPolicy
     /// </summary>
     [AwsNativeResourceType("aws-native:batch:SchedulingPolicy")]
     public partial class SchedulingPolicy : global::Pulumi.CustomResource

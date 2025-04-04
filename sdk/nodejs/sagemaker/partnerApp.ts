@@ -66,6 +66,10 @@ export class PartnerApp extends pulumi.CustomResource {
      */
     public readonly executionRoleArn!: pulumi.Output<string>;
     /**
+     * The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
+     */
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    /**
      * A collection of settings that specify the maintenance schedule for the PartnerApp.
      */
     public readonly maintenanceConfig!: pulumi.Output<outputs.sagemaker.PartnerAppMaintenanceConfig | undefined>;
@@ -114,6 +118,7 @@ export class PartnerApp extends pulumi.CustomResource {
             resourceInputs["clientToken"] = args ? args.clientToken : undefined;
             resourceInputs["enableIamSessionBasedIdentity"] = args ? args.enableIamSessionBasedIdentity : undefined;
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["maintenanceConfig"] = args ? args.maintenanceConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -129,6 +134,7 @@ export class PartnerApp extends pulumi.CustomResource {
             resourceInputs["clientToken"] = undefined /*out*/;
             resourceInputs["enableIamSessionBasedIdentity"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["maintenanceConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -136,7 +142,7 @@ export class PartnerApp extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["authType", "executionRoleArn", "name", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["authType", "executionRoleArn", "kmsKeyId", "name", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PartnerApp.__pulumiType, name, resourceInputs, opts);
     }
@@ -166,6 +172,10 @@ export interface PartnerAppArgs {
      * The execution role for the user.
      */
     executionRoleArn: pulumi.Input<string>;
+    /**
+     * The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
+     */
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * A collection of settings that specify the maintenance schedule for the PartnerApp.
      */

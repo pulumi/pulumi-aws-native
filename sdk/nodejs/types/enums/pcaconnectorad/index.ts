@@ -7,6 +7,9 @@ export const ConnectorVpcInformationIpAddressType = {
     Dualstack: "DUALSTACK",
 } as const;
 
+/**
+ * The VPC IP address type.
+ */
 export type ConnectorVpcInformationIpAddressType = (typeof ConnectorVpcInformationIpAddressType)[keyof typeof ConnectorVpcInformationIpAddressType];
 
 export const TemplateApplicationPolicyType = {

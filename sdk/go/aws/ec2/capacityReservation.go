@@ -23,7 +23,17 @@ type CapacityReservation struct {
 	// Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
 	AvailableInstanceCount pulumi.IntOutput `pulumi:"availableInstanceCount"`
 	// The ID of the Capacity Reservation.
-	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	AwsId                 pulumi.StringOutput                              `pulumi:"awsId"`
+	CapacityAllocationSet CapacityReservationCapacityAllocationArrayOutput `pulumi:"capacityAllocationSet"`
+	// The Amazon Resource Name (ARN) of the Capacity Reservation.
+	CapacityReservationArn pulumi.StringOutput `pulumi:"capacityReservationArn"`
+	// The ID of the Capacity Reservation Fleet to which the Capacity Reservation belongs. Only valid for Capacity Reservations that were created by a Capacity Reservation Fleet.
+	CapacityReservationFleetId pulumi.StringOutput            `pulumi:"capacityReservationFleetId"`
+	CommitmentInfo             CommitmentInfoPropertiesOutput `pulumi:"commitmentInfo"`
+	// The date and time at which the Capacity Reservation was created.
+	CreateDate pulumi.StringOutput `pulumi:"createDate"`
+	// The delivery method for a future-dated Capacity Reservation. `incremental` indicates that the requested capacity is delivered in addition to any running instances and reserved capacity that you have in your account at the requested date and time.
+	DeliveryPreference pulumi.StringOutput `pulumi:"deliveryPreference"`
 	// Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
 	EbsOptimized pulumi.BoolPtrOutput `pulumi:"ebsOptimized"`
 	// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
@@ -68,10 +78,30 @@ type CapacityReservation struct {
 	//
 	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
 	OutPostArn pulumi.StringPtrOutput `pulumi:"outPostArn"`
+	// The ID of the AWS account that owns the Capacity Reservation.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// > Not supported for future-dated Capacity Reservations.
 	//
 	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
 	PlacementGroupArn pulumi.StringPtrOutput `pulumi:"placementGroupArn"`
+	// The type of Capacity Reservation.
+	ReservationType pulumi.StringOutput `pulumi:"reservationType"`
+	// The date and time at which the Capacity Reservation was started.
+	StartDate pulumi.StringOutput `pulumi:"startDate"`
+	// The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:
+	//
+	// - `active` - The capacity is available for use.
+	// - `expired` - The Capacity Reservation expired automatically at the date and time specified in your reservation request. The reserved capacity is no longer available for your use.
+	// - `cancelled` - The Capacity Reservation was canceled. The reserved capacity is no longer available for your use.
+	// - `pending` - The Capacity Reservation request was successful but the capacity provisioning is still pending.
+	// - `failed` - The Capacity Reservation request has failed. A request can fail due to request parameters that are not valid, capacity constraints, or instance limit constraints. You can view a failed request for 60 minutes.
+	// - `scheduled` - ( *Future-dated Capacity Reservations* ) The future-dated Capacity Reservation request was approved and the Capacity Reservation is scheduled for delivery on the requested start date.
+	// - `payment-pending` - ( *Capacity Blocks* ) The upfront payment has not been processed yet.
+	// - `payment-failed` - ( *Capacity Blocks* ) The upfront payment was not processed in the 12-hour time frame. Your Capacity Block was released.
+	// - `assessing` - ( *Future-dated Capacity Reservations* ) Amazon EC2 is assessing your request for a future-dated Capacity Reservation.
+	// - `delayed` - ( *Future-dated Capacity Reservations* ) Amazon EC2 encountered a delay in provisioning the requested future-dated Capacity Reservation. Amazon EC2 is unable to deliver the requested capacity by the requested start date and time.
+	// - `unsupported` - ( *Future-dated Capacity Reservations* ) Amazon EC2 can't support the future-dated Capacity Reservation request due to capacity constraints. You can view unsupported requests for 30 days. The Capacity Reservation will not be delivered.
+	State pulumi.StringOutput `pulumi:"state"`
 	// The tags to apply to the Capacity Reservation during launch.
 	TagSpecifications CapacityReservationTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
 	// Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
@@ -338,6 +368,36 @@ func (o CapacityReservationOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+func (o CapacityReservationOutput) CapacityAllocationSet() CapacityReservationCapacityAllocationArrayOutput {
+	return o.ApplyT(func(v *CapacityReservation) CapacityReservationCapacityAllocationArrayOutput {
+		return v.CapacityAllocationSet
+	}).(CapacityReservationCapacityAllocationArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Capacity Reservation.
+func (o CapacityReservationOutput) CapacityReservationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.CapacityReservationArn }).(pulumi.StringOutput)
+}
+
+// The ID of the Capacity Reservation Fleet to which the Capacity Reservation belongs. Only valid for Capacity Reservations that were created by a Capacity Reservation Fleet.
+func (o CapacityReservationOutput) CapacityReservationFleetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.CapacityReservationFleetId }).(pulumi.StringOutput)
+}
+
+func (o CapacityReservationOutput) CommitmentInfo() CommitmentInfoPropertiesOutput {
+	return o.ApplyT(func(v *CapacityReservation) CommitmentInfoPropertiesOutput { return v.CommitmentInfo }).(CommitmentInfoPropertiesOutput)
+}
+
+// The date and time at which the Capacity Reservation was created.
+func (o CapacityReservationOutput) CreateDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.CreateDate }).(pulumi.StringOutput)
+}
+
+// The delivery method for a future-dated Capacity Reservation. `incremental` indicates that the requested capacity is delivered in addition to any running instances and reserved capacity that you have in your account at the requested date and time.
+func (o CapacityReservationOutput) DeliveryPreference() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.DeliveryPreference }).(pulumi.StringOutput)
+}
+
 // Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
 func (o CapacityReservationOutput) EbsOptimized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.BoolPtrOutput { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
@@ -409,11 +469,43 @@ func (o CapacityReservationOutput) OutPostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.OutPostArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the AWS account that owns the Capacity Reservation.
+func (o CapacityReservationOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
 // > Not supported for future-dated Capacity Reservations.
 //
 // The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
 func (o CapacityReservationOutput) PlacementGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.PlacementGroupArn }).(pulumi.StringPtrOutput)
+}
+
+// The type of Capacity Reservation.
+func (o CapacityReservationOutput) ReservationType() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.ReservationType }).(pulumi.StringOutput)
+}
+
+// The date and time at which the Capacity Reservation was started.
+func (o CapacityReservationOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.StartDate }).(pulumi.StringOutput)
+}
+
+// The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:
+//
+// - `active` - The capacity is available for use.
+// - `expired` - The Capacity Reservation expired automatically at the date and time specified in your reservation request. The reserved capacity is no longer available for your use.
+// - `cancelled` - The Capacity Reservation was canceled. The reserved capacity is no longer available for your use.
+// - `pending` - The Capacity Reservation request was successful but the capacity provisioning is still pending.
+// - `failed` - The Capacity Reservation request has failed. A request can fail due to request parameters that are not valid, capacity constraints, or instance limit constraints. You can view a failed request for 60 minutes.
+// - `scheduled` - ( *Future-dated Capacity Reservations* ) The future-dated Capacity Reservation request was approved and the Capacity Reservation is scheduled for delivery on the requested start date.
+// - `payment-pending` - ( *Capacity Blocks* ) The upfront payment has not been processed yet.
+// - `payment-failed` - ( *Capacity Blocks* ) The upfront payment was not processed in the 12-hour time frame. Your Capacity Block was released.
+// - `assessing` - ( *Future-dated Capacity Reservations* ) Amazon EC2 is assessing your request for a future-dated Capacity Reservation.
+// - `delayed` - ( *Future-dated Capacity Reservations* ) Amazon EC2 encountered a delay in provisioning the requested future-dated Capacity Reservation. Amazon EC2 is unable to deliver the requested capacity by the requested start date and time.
+// - `unsupported` - ( *Future-dated Capacity Reservations* ) Amazon EC2 can't support the future-dated Capacity Reservation request due to capacity constraints. You can view unsupported requests for 30 days. The Capacity Reservation will not be delivered.
+func (o CapacityReservationOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
 // The tags to apply to the Capacity Reservation during launch.

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -78,6 +79,8 @@ import (
 type Alias struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Alias ARN, the resource ID matches the AliasId value.
+	AliasArn pulumi.StringOutput `pulumi:"aliasArn"`
 	// Unique alias ID
 	AliasId pulumi.StringOutput `pulumi:"aliasId"`
 	// A human-readable description of the alias.
@@ -86,6 +89,8 @@ type Alias struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
 	RoutingStrategy AliasRoutingStrategyOutput `pulumi:"routingStrategy"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewAlias registers a new resource with the given unique name, arguments, and options.
@@ -137,6 +142,8 @@ type aliasArgs struct {
 	Name *string `pulumi:"name"`
 	// A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
 	RoutingStrategy AliasRoutingStrategy `pulumi:"routingStrategy"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Alias resource.
@@ -147,6 +154,8 @@ type AliasArgs struct {
 	Name pulumi.StringPtrInput
 	// A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
 	RoutingStrategy AliasRoutingStrategyInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayInput
 }
 
 func (AliasArgs) ElementType() reflect.Type {
@@ -186,6 +195,11 @@ func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return o
 }
 
+// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Alias ARN, the resource ID matches the AliasId value.
+func (o AliasOutput) AliasArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.AliasArn }).(pulumi.StringOutput)
+}
+
 // Unique alias ID
 func (o AliasOutput) AliasId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.AliasId }).(pulumi.StringOutput)
@@ -204,6 +218,11 @@ func (o AliasOutput) Name() pulumi.StringOutput {
 // A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
 func (o AliasOutput) RoutingStrategy() AliasRoutingStrategyOutput {
 	return o.ApplyT(func(v *Alias) AliasRoutingStrategyOutput { return v.RoutingStrategy }).(AliasRoutingStrategyOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o AliasOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Alias) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

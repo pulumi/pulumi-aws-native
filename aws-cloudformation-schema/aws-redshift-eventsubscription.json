@@ -1,6 +1,6 @@
 {
   "tagging" : {
-    "taggable" : true
+    "taggable" : false
   },
   "typeName" : "AWS::Redshift::EventSubscription",
   "readOnlyProperties" : [ "/properties/CustomerAwsId", "/properties/CustSubscriptionId", "/properties/Status", "/properties/SubscriptionCreationTime", "/properties/SourceIdsList", "/properties/EventCategoriesList" ],
