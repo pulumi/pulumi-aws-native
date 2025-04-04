@@ -222,7 +222,7 @@
   "required" : [ "NamespaceName" ],
   "readOnlyProperties" : [ "/properties/Namespace", "/properties/Namespace/NamespaceArn", "/properties/Namespace/NamespaceId", "/properties/Namespace/NamespaceName", "/properties/Namespace/AdminUsername", "/properties/Namespace/DbName", "/properties/Namespace/KmsKeyId", "/properties/Namespace/DefaultIamRoleArn", "/properties/Namespace/IamRoles", "/properties/Namespace/LogExports", "/properties/Namespace/Status", "/properties/Namespace/CreationDate" ],
   "writeOnlyProperties" : [ "/properties/AdminUserPassword", "/properties/FinalSnapshotName", "/properties/FinalSnapshotRetentionPeriod", "/properties/ManageAdminPassword", "/properties/RedshiftIdcApplicationArn" ],
-  "createOnlyProperties" : [ "/properties/NamespaceName", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/NamespaceName" ],
   "primaryIdentifier" : [ "/properties/NamespaceName" ],
   "handlers" : {
     "create" : {

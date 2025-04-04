@@ -1702,6 +1702,6 @@
     }
   },
   "readOnlyProperties" : [ "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/DeliveryStreamName", "/properties/DeliveryStreamType", "/properties/ElasticsearchDestinationConfiguration/VpcConfiguration", "/properties/AmazonopensearchserviceDestinationConfiguration/VpcConfiguration", "/properties/AmazonOpenSearchServerlessDestinationConfiguration/VpcConfiguration", "/properties/DatabaseSourceConfiguration", "/properties/KinesisStreamSourceConfiguration", "/properties/DirectPutSourceConfiguration", "/properties/MSKSourceConfiguration", "/properties/IcebergDestinationConfiguration", "/properties/SnowflakeDestinationConfiguration/SnowflakeVpcConfiguration" ],
+  "createOnlyProperties" : [ "/properties/DeliveryStreamName", "/properties/DeliveryStreamType", "/properties/ElasticsearchDestinationConfiguration/VpcConfiguration", "/properties/AmazonopensearchserviceDestinationConfiguration/VpcConfiguration", "/properties/AmazonOpenSearchServerlessDestinationConfiguration/VpcConfiguration", "/properties/DatabaseSourceConfiguration", "/properties/KinesisStreamSourceConfiguration", "/properties/DirectPutSourceConfiguration", "/properties/MSKSourceConfiguration", "/properties/IcebergDestinationConfiguration/CatalogConfiguration", "/properties/SnowflakeDestinationConfiguration/SnowflakeVpcConfiguration" ],
   "primaryIdentifier" : [ "/properties/DeliveryStreamName" ]
 }
