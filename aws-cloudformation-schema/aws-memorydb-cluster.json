@@ -42,6 +42,14 @@
     "DataTieringStatus" : {
       "type" : "string",
       "enum" : [ "true", "false" ]
+    },
+    "SupportedNetworkTypes" : {
+      "type" : "string",
+      "enum" : [ "ipv4", "ipv6", "dual_stack" ]
+    },
+    "SupportedIpDiscoveryTypes" : {
+      "type" : "string",
+      "enum" : [ "ipv4", "ipv6" ]
     }
   },
   "properties" : {
@@ -133,6 +141,16 @@
       "description" : "Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.",
       "$ref" : "#/definitions/DataTieringStatus"
     },
+    "NetworkType" : {
+      "type" : "object",
+      "description" : "Must be either ipv4 | ipv6 | dual_stack.",
+      "$ref" : "#/definitions/SupportedNetworkTypes"
+    },
+    "IpDiscovery" : {
+      "type" : "object",
+      "description" : "For clusters wth dual stack NetworkType, IpDiscovery controls the Ip protocol (ipv4 or ipv6) returned by the engine commands such as `cluster info` and `cluster nodes` which are used by clients to connect to the nodes in the cluster.",
+      "$ref" : "#/definitions/SupportedIpDiscoveryTypes"
+    },
     "KmsKeyId" : {
       "description" : "The ID of the KMS key used to encrypt the cluster.",
       "type" : "string"
@@ -196,12 +214,13 @@
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/Status", "/properties/ClusterEndpoint/Address", "/properties/ClusterEndpoint/Port", "/properties/ARN", "/properties/ParameterGroupStatus" ],
   "required" : [ "ClusterName", "NodeType", "ACLName" ],
-  "createOnlyProperties" : [ "/properties/ClusterName", "/properties/TLSEnabled", "/properties/DataTiering", "/properties/KmsKeyId", "/properties/Port", "/properties/SubnetGroupName", "/properties/SnapshotArns", "/properties/MultiRegionClusterName", "/properties/SnapshotName" ],
+  "createOnlyProperties" : [ "/properties/ClusterName", "/properties/TLSEnabled", "/properties/DataTiering", "/properties/KmsKeyId", "/properties/Port", "/properties/SubnetGroupName", "/properties/SnapshotArns", "/properties/MultiRegionClusterName", "/properties/SnapshotName", "/properties/NetworkType" ],
   "writeOnlyProperties" : [ "/properties/SnapshotArns", "/properties/SnapshotName", "/properties/MultiRegionClusterName", "/properties/FinalSnapshotName" ],
   "primaryIdentifier" : [ "/properties/ClusterName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "kms:DescribeKey", "kms:CreateGrant", "memorydb:CreateCluster", "memorydb:DescribeClusters", "memorydb:TagResource", "memorydb:ListTags" ]
+      "permissions" : [ "kms:DescribeKey", "kms:CreateGrant", "memorydb:CreateCluster", "memorydb:DescribeClusters", "memorydb:TagResource", "memorydb:ListTags", "iam:CreateServiceLinkedRole" ],
+      "timeoutInMinutes" : 720
     },
     "read" : {
       "permissions" : [ "memorydb:DescribeClusters", "memorydb:ListTags" ]

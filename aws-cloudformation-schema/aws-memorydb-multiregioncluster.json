@@ -104,7 +104,7 @@
   "primaryIdentifier" : [ "/properties/MultiRegionClusterName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "memorydb:CreateMultiRegionCluster", "memorydb:DescribeMultiRegionClusters", "memorydb:TagResource", "memorydb:ListTags" ],
+      "permissions" : [ "memorydb:CreateMultiRegionCluster", "memorydb:DescribeMultiRegionClusters", "memorydb:TagResource", "memorydb:ListTags", "iam:CreateServiceLinkedRole" ],
       "timeoutInMinutes" : 2160
     },
     "read" : {

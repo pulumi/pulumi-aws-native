@@ -58,6 +58,15 @@
     "ARN" : {
       "description" : "The Amazon Resource Name (ARN) of the subnet group.",
       "type" : "string"
+    },
+    "SupportedNetworkTypes" : {
+      "description" : "Supported network types would be a list of network types supported by subnet group and can be either [ipv4] or [ipv4, dual_stack] or [ipv6].",
+      "type" : "array",
+      "uniqueItems" : true,
+      "insertionOrder" : false,
+      "items" : {
+        "type" : "string"
+      }
     }
   },
   "tagging" : {
@@ -72,10 +81,10 @@
   "required" : [ "SubnetGroupName", "SubnetIds" ],
   "primaryIdentifier" : [ "/properties/SubnetGroupName" ],
   "createOnlyProperties" : [ "/properties/SubnetGroupName" ],
-  "readOnlyProperties" : [ "/properties/ARN" ],
+  "readOnlyProperties" : [ "/properties/ARN", "/properties/SupportedNetworkTypes" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "memorydb:CreateSubnetGroup", "memorydb:DescribeSubnetGroups", "memorydb:TagResource", "memorydb:ListTags" ]
+      "permissions" : [ "memorydb:CreateSubnetGroup", "memorydb:DescribeSubnetGroups", "memorydb:TagResource", "memorydb:ListTags", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "memorydb:DescribeSubnetGroups", "memorydb:ListTags" ]

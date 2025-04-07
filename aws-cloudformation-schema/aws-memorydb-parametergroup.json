@@ -74,7 +74,7 @@
   "primaryIdentifier" : [ "/properties/ParameterGroupName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "memorydb:CreateParameterGroup", "memorydb:DescribeParameterGroups", "memorydb:TagResource", "memorydb:ListTags" ]
+      "permissions" : [ "memorydb:CreateParameterGroup", "memorydb:DescribeParameterGroups", "memorydb:TagResource", "memorydb:ListTags", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "memorydb:DescribeParameterGroups", "memorydb:ListTags" ]

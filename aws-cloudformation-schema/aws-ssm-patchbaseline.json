@@ -255,7 +255,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "ssm:AddTagsToResource", "ssm:ListTagsForResource", "ssm:RemoveTagsFromResource" ]
   },
   "handlers" : {
     "create" : {

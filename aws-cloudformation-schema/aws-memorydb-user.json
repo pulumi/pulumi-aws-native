@@ -94,7 +94,7 @@
   "primaryIdentifier" : [ "/properties/UserName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "memorydb:CreateUser", "memorydb:DescribeUsers", "memorydb:TagResource", "memorydb:ListTags" ]
+      "permissions" : [ "memorydb:CreateUser", "memorydb:DescribeUsers", "memorydb:TagResource", "memorydb:ListTags", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "memorydb:DescribeUsers", "memorydb:ListTags" ]
