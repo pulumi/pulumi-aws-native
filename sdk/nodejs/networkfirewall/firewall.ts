@@ -46,6 +46,10 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
+     */
+    public readonly enabledAnalysisTypes!: pulumi.Output<enums.networkfirewall.FirewallEnabledAnalysisType[] | undefined>;
+    /**
      * The unique IDs of the firewall endpoints for all of the subnets that you attached to the firewall. The subnets are not listed in any particular order. For example: `["us-west-2c:vpce-111122223333", "us-west-2a:vpce-987654321098", "us-west-2b:vpce-012345678901"]` .
      */
     public /*out*/ readonly endpointIds!: pulumi.Output<string[]>;
@@ -112,6 +116,7 @@ export class Firewall extends pulumi.CustomResource {
             }
             resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabledAnalysisTypes"] = args ? args.enabledAnalysisTypes : undefined;
             resourceInputs["firewallName"] = args ? args.firewallName : undefined;
             resourceInputs["firewallPolicyArn"] = args ? args.firewallPolicyArn : undefined;
             resourceInputs["firewallPolicyChangeProtection"] = args ? args.firewallPolicyChangeProtection : undefined;
@@ -125,6 +130,7 @@ export class Firewall extends pulumi.CustomResource {
         } else {
             resourceInputs["deleteProtection"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enabledAnalysisTypes"] = undefined /*out*/;
             resourceInputs["endpointIds"] = undefined /*out*/;
             resourceInputs["firewallArn"] = undefined /*out*/;
             resourceInputs["firewallId"] = undefined /*out*/;
@@ -155,6 +161,10 @@ export interface FirewallArgs {
      * A description of the firewall.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
+     */
+    enabledAnalysisTypes?: pulumi.Input<pulumi.Input<enums.networkfirewall.FirewallEnabledAnalysisType>[]>;
     /**
      * The descriptive name of the firewall. You can't change the name of a firewall after you create it.
      */

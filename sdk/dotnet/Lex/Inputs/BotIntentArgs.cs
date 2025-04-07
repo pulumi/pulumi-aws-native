@@ -93,6 +93,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
         [Input("parentIntentSignature")]
         public Input<string>? ParentIntentSignature { get; set; }
 
+        [Input("qnAIntentConfiguration")]
+        public Input<Inputs.BotQnAIntentConfigurationArgs>? QnAIntentConfiguration { get; set; }
+
         [Input("sampleUtterances")]
         private InputList<Inputs.BotSampleUtteranceArgs>? _sampleUtterances;
 

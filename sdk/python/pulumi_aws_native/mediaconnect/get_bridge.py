@@ -74,7 +74,7 @@ class GetBridgeResult:
     @pulumi.getter(name="egressGatewayBridge")
     def egress_gateway_bridge(self) -> Optional['outputs.BridgeEgressGatewayBridge']:
         """
-        Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+        An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
         """
         return pulumi.get(self, "egress_gateway_bridge")
 
@@ -82,7 +82,7 @@ class GetBridgeResult:
     @pulumi.getter(name="ingressGatewayBridge")
     def ingress_gateway_bridge(self) -> Optional['outputs.BridgeIngressGatewayBridge']:
         """
-        Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+        An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
         """
         return pulumi.get(self, "ingress_gateway_bridge")
 

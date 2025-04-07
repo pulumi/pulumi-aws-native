@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainNameResult:
-    def __init__(__self__, domain_name_configurations=None, mutual_tls_authentication=None, regional_domain_name=None, regional_hosted_zone_id=None, tags=None):
+    def __init__(__self__, domain_name_arn=None, domain_name_configurations=None, mutual_tls_authentication=None, regional_domain_name=None, regional_hosted_zone_id=None, tags=None):
+        if domain_name_arn and not isinstance(domain_name_arn, str):
+            raise TypeError("Expected argument 'domain_name_arn' to be a str")
+        pulumi.set(__self__, "domain_name_arn", domain_name_arn)
         if domain_name_configurations and not isinstance(domain_name_configurations, list):
             raise TypeError("Expected argument 'domain_name_configurations' to be a list")
         pulumi.set(__self__, "domain_name_configurations", domain_name_configurations)
@@ -40,6 +43,14 @@ class GetDomainNameResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="domainNameArn")
+    def domain_name_arn(self) -> Optional[str]:
+        """
+        Represents an Amazon Resource Name (ARN).
+        """
+        return pulumi.get(self, "domain_name_arn")
 
     @property
     @pulumi.getter(name="domainNameConfigurations")
@@ -88,6 +99,7 @@ class AwaitableGetDomainNameResult(GetDomainNameResult):
         if False:
             yield self
         return GetDomainNameResult(
+            domain_name_arn=self.domain_name_arn,
             domain_name_configurations=self.domain_name_configurations,
             mutual_tls_authentication=self.mutual_tls_authentication,
             regional_domain_name=self.regional_domain_name,
@@ -110,6 +122,7 @@ def get_domain_name(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getDomainName', __args__, opts=opts, typ=GetDomainNameResult).value
 
     return AwaitableGetDomainNameResult(
+        domain_name_arn=pulumi.get(__ret__, 'domain_name_arn'),
         domain_name_configurations=pulumi.get(__ret__, 'domain_name_configurations'),
         mutual_tls_authentication=pulumi.get(__ret__, 'mutual_tls_authentication'),
         regional_domain_name=pulumi.get(__ret__, 'regional_domain_name'),
@@ -129,6 +142,7 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getDomainName', __args__, opts=opts, typ=GetDomainNameResult)
     return __ret__.apply(lambda __response__: GetDomainNameResult(
+        domain_name_arn=pulumi.get(__response__, 'domain_name_arn'),
         domain_name_configurations=pulumi.get(__response__, 'domain_name_configurations'),
         mutual_tls_authentication=pulumi.get(__response__, 'mutual_tls_authentication'),
         regional_domain_name=pulumi.get(__response__, 'regional_domain_name'),

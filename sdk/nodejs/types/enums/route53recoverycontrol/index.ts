@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ClusterNetworkType = {
+    Ipv4: "IPV4",
+    Dualstack: "DUALSTACK",
+} as const;
+
+/**
+ * Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+ */
+export type ClusterNetworkType = (typeof ClusterNetworkType)[keyof typeof ClusterNetworkType];
+
 export const ClusterStatus = {
     Pending: "PENDING",
     Deployed: "DEPLOYED",

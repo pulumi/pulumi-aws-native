@@ -1425,15 +1425,15 @@ if not MYPY:
     class DomainNodeConfigArgsDict(TypedDict):
         count: NotRequired[pulumi.Input[int]]
         """
-        The number of nodes of a particular node type in the cluster.
+        The number of nodes of a specific type within the cluster.
         """
         enabled: NotRequired[pulumi.Input[bool]]
         """
-        A boolean that indicates whether a particular node type is enabled or not.
+        A boolean value indicating whether a specific node type is active or inactive.
         """
         type: NotRequired[pulumi.Input[str]]
         """
-        The instance type of a particular node type in the cluster.
+        The instance type of a particular node within the cluster.
         """
 elif False:
     DomainNodeConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -1445,9 +1445,9 @@ class DomainNodeConfigArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] count: The number of nodes of a particular node type in the cluster.
-        :param pulumi.Input[bool] enabled: A boolean that indicates whether a particular node type is enabled or not.
-        :param pulumi.Input[str] type: The instance type of a particular node type in the cluster.
+        :param pulumi.Input[int] count: The number of nodes of a specific type within the cluster.
+        :param pulumi.Input[bool] enabled: A boolean value indicating whether a specific node type is active or inactive.
+        :param pulumi.Input[str] type: The instance type of a particular node within the cluster.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -1460,7 +1460,7 @@ class DomainNodeConfigArgs:
     @pulumi.getter
     def count(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of nodes of a particular node type in the cluster.
+        The number of nodes of a specific type within the cluster.
         """
         return pulumi.get(self, "count")
 
@@ -1472,7 +1472,7 @@ class DomainNodeConfigArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean that indicates whether a particular node type is enabled or not.
+        A boolean value indicating whether a specific node type is active or inactive.
         """
         return pulumi.get(self, "enabled")
 
@@ -1484,7 +1484,7 @@ class DomainNodeConfigArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type of a particular node type in the cluster.
+        The instance type of a particular node within the cluster.
         """
         return pulumi.get(self, "type")
 
@@ -1497,11 +1497,11 @@ if not MYPY:
     class DomainNodeOptionArgsDict(TypedDict):
         node_config: NotRequired[pulumi.Input['DomainNodeConfigArgsDict']]
         """
-        Container for specifying configuration of any node type.
+        Configuration options for defining the setup of any node type.
         """
         node_type: NotRequired[pulumi.Input['DomainNodeOptionNodeType']]
         """
-        Container for node type like coordinating.
+        Defines the type of node, such as coordinating nodes.
         """
 elif False:
     DomainNodeOptionArgsDict: TypeAlias = Mapping[str, Any]
@@ -1512,8 +1512,8 @@ class DomainNodeOptionArgs:
                  node_config: Optional[pulumi.Input['DomainNodeConfigArgs']] = None,
                  node_type: Optional[pulumi.Input['DomainNodeOptionNodeType']] = None):
         """
-        :param pulumi.Input['DomainNodeConfigArgs'] node_config: Container for specifying configuration of any node type.
-        :param pulumi.Input['DomainNodeOptionNodeType'] node_type: Container for node type like coordinating.
+        :param pulumi.Input['DomainNodeConfigArgs'] node_config: Configuration options for defining the setup of any node type.
+        :param pulumi.Input['DomainNodeOptionNodeType'] node_type: Defines the type of node, such as coordinating nodes.
         """
         if node_config is not None:
             pulumi.set(__self__, "node_config", node_config)
@@ -1524,7 +1524,7 @@ class DomainNodeOptionArgs:
     @pulumi.getter(name="nodeConfig")
     def node_config(self) -> Optional[pulumi.Input['DomainNodeConfigArgs']]:
         """
-        Container for specifying configuration of any node type.
+        Configuration options for defining the setup of any node type.
         """
         return pulumi.get(self, "node_config")
 
@@ -1536,7 +1536,7 @@ class DomainNodeOptionArgs:
     @pulumi.getter(name="nodeType")
     def node_type(self) -> Optional[pulumi.Input['DomainNodeOptionNodeType']]:
         """
-        Container for node type like coordinating.
+        Defines the type of node, such as coordinating nodes.
         """
         return pulumi.get(self, "node_type")
 

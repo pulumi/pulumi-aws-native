@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::GuardDuty::PublishingDestination
+// Resource Type definition for AWS::GuardDuty::PublishingDestination.
 type PublishingDestination struct {
 	pulumi.CustomResourceState
 

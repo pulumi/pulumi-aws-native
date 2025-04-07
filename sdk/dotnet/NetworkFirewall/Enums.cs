@@ -7,6 +7,37 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.NetworkFirewall
 {
+    /// <summary>
+    /// An analysis type.
+    /// </summary>
+    [EnumType]
+    public readonly struct FirewallEnabledAnalysisType : IEquatable<FirewallEnabledAnalysisType>
+    {
+        private readonly string _value;
+
+        private FirewallEnabledAnalysisType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallEnabledAnalysisType TlsSni { get; } = new FirewallEnabledAnalysisType("TLS_SNI");
+        public static FirewallEnabledAnalysisType HttpHost { get; } = new FirewallEnabledAnalysisType("HTTP_HOST");
+
+        public static bool operator ==(FirewallEnabledAnalysisType left, FirewallEnabledAnalysisType right) => left.Equals(right);
+        public static bool operator !=(FirewallEnabledAnalysisType left, FirewallEnabledAnalysisType right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallEnabledAnalysisType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallEnabledAnalysisType other && Equals(other);
+        public bool Equals(FirewallEnabledAnalysisType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct FirewallPolicyOverrideAction : IEquatable<FirewallPolicyOverrideAction>
     {

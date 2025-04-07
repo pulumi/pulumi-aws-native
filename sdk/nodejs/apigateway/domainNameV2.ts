@@ -54,7 +54,7 @@ export class DomainNameV2 extends pulumi.CustomResource {
      */
     public /*out*/ readonly domainNameId!: pulumi.Output<string>;
     /**
-     * The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
+     * The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
      */
     public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.DomainNameV2EndpointConfiguration | undefined>;
     /**
@@ -121,7 +121,7 @@ export interface DomainNameV2Args {
      */
     domainName?: pulumi.Input<string>;
     /**
-     * The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
+     * The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
      */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameV2EndpointConfigurationArgs>;
     /**

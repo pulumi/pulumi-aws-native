@@ -62,10 +62,6 @@ class PackageGroupRestrictionType(dict):
     def __init__(__self__, *,
                  restriction_mode: 'PackageGroupRestrictionTypeRestrictionMode',
                  repositories: Optional[Sequence[str]] = None):
-        """
-        :param 'PackageGroupRestrictionTypeRestrictionMode' restriction_mode: The package group origin restriction setting. When the value is `INHERIT` , the value is set to the value of the first parent package group which does not have a value of `INHERIT` .
-        :param Sequence[str] repositories: The repositories to add to the allowed repositories list. The allowed repositories list is used when the `RestrictionMode` is set to `ALLOW_SPECIFIC_REPOSITORIES` .
-        """
         pulumi.set(__self__, "restriction_mode", restriction_mode)
         if repositories is not None:
             pulumi.set(__self__, "repositories", repositories)
@@ -73,17 +69,11 @@ class PackageGroupRestrictionType(dict):
     @property
     @pulumi.getter(name="restrictionMode")
     def restriction_mode(self) -> 'PackageGroupRestrictionTypeRestrictionMode':
-        """
-        The package group origin restriction setting. When the value is `INHERIT` , the value is set to the value of the first parent package group which does not have a value of `INHERIT` .
-        """
         return pulumi.get(self, "restriction_mode")
 
     @property
     @pulumi.getter
     def repositories(self) -> Optional[Sequence[str]]:
-        """
-        The repositories to add to the allowed repositories list. The allowed repositories list is used when the `RestrictionMode` is set to `ALLOW_SPECIFIC_REPOSITORIES` .
-        """
         return pulumi.get(self, "repositories")
 
 

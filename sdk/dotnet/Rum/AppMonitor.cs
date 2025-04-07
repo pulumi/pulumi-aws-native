@@ -42,10 +42,22 @@ namespace Pulumi.AwsNative.Rum
         public Output<bool?> CwLogEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The top-level internet domain name for which your application has administrative authority.
+        /// A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+        /// </summary>
+        [Output("deobfuscationConfiguration")]
+        public Output<Outputs.AppMonitorDeobfuscationConfiguration?> DeobfuscationConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
         /// </summary>
         [Output("domain")]
-        public Output<string> Domain { get; private set; } = null!;
+        public Output<string?> Domain { get; private set; } = null!;
+
+        /// <summary>
+        /// The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+        /// </summary>
+        [Output("domainList")]
+        public Output<ImmutableArray<string>> DomainList { get; private set; } = null!;
 
         /// <summary>
         /// A name for the app monitor
@@ -53,6 +65,9 @@ namespace Pulumi.AwsNative.Rum
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
+        /// </summary>
         [Output("resourcePolicy")]
         public Output<Outputs.AppMonitorResourcePolicy?> ResourcePolicy { get; private set; } = null!;
 
@@ -78,7 +93,7 @@ namespace Pulumi.AwsNative.Rum
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AppMonitor(string name, AppMonitorArgs args, CustomResourceOptions? options = null)
+        public AppMonitor(string name, AppMonitorArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:rum:AppMonitor", name, args ?? new AppMonitorArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -140,10 +155,28 @@ namespace Pulumi.AwsNative.Rum
         public Input<bool>? CwLogEnabled { get; set; }
 
         /// <summary>
-        /// The top-level internet domain name for which your application has administrative authority.
+        /// A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
         /// </summary>
-        [Input("domain", required: true)]
-        public Input<string> Domain { get; set; } = null!;
+        [Input("deobfuscationConfiguration")]
+        public Input<Inputs.AppMonitorDeobfuscationConfigurationArgs>? DeobfuscationConfiguration { get; set; }
+
+        /// <summary>
+        /// The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+        /// </summary>
+        [Input("domain")]
+        public Input<string>? Domain { get; set; }
+
+        [Input("domainList")]
+        private InputList<string>? _domainList;
+
+        /// <summary>
+        /// The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+        /// </summary>
+        public InputList<string> DomainList
+        {
+            get => _domainList ?? (_domainList = new InputList<string>());
+            set => _domainList = value;
+        }
 
         /// <summary>
         /// A name for the app monitor
@@ -151,6 +184,9 @@ namespace Pulumi.AwsNative.Rum
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
+        /// </summary>
         [Input("resourcePolicy")]
         public Input<Inputs.AppMonitorResourcePolicyArgs>? ResourcePolicy { get; set; }
 

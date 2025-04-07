@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetCapacityReservationResult',
@@ -23,10 +24,28 @@ __all__ = [
 
 @pulumi.output_type
 class GetCapacityReservationResult:
-    def __init__(__self__, available_instance_count=None, end_date=None, end_date_type=None, id=None, instance_count=None, instance_match_criteria=None, total_instance_count=None):
+    def __init__(__self__, available_instance_count=None, capacity_allocation_set=None, capacity_reservation_arn=None, capacity_reservation_fleet_id=None, commitment_info=None, create_date=None, delivery_preference=None, end_date=None, end_date_type=None, id=None, instance_count=None, instance_match_criteria=None, owner_id=None, reservation_type=None, start_date=None, state=None, total_instance_count=None):
         if available_instance_count and not isinstance(available_instance_count, int):
             raise TypeError("Expected argument 'available_instance_count' to be a int")
         pulumi.set(__self__, "available_instance_count", available_instance_count)
+        if capacity_allocation_set and not isinstance(capacity_allocation_set, list):
+            raise TypeError("Expected argument 'capacity_allocation_set' to be a list")
+        pulumi.set(__self__, "capacity_allocation_set", capacity_allocation_set)
+        if capacity_reservation_arn and not isinstance(capacity_reservation_arn, str):
+            raise TypeError("Expected argument 'capacity_reservation_arn' to be a str")
+        pulumi.set(__self__, "capacity_reservation_arn", capacity_reservation_arn)
+        if capacity_reservation_fleet_id and not isinstance(capacity_reservation_fleet_id, str):
+            raise TypeError("Expected argument 'capacity_reservation_fleet_id' to be a str")
+        pulumi.set(__self__, "capacity_reservation_fleet_id", capacity_reservation_fleet_id)
+        if commitment_info and not isinstance(commitment_info, dict):
+            raise TypeError("Expected argument 'commitment_info' to be a dict")
+        pulumi.set(__self__, "commitment_info", commitment_info)
+        if create_date and not isinstance(create_date, str):
+            raise TypeError("Expected argument 'create_date' to be a str")
+        pulumi.set(__self__, "create_date", create_date)
+        if delivery_preference and not isinstance(delivery_preference, str):
+            raise TypeError("Expected argument 'delivery_preference' to be a str")
+        pulumi.set(__self__, "delivery_preference", delivery_preference)
         if end_date and not isinstance(end_date, str):
             raise TypeError("Expected argument 'end_date' to be a str")
         pulumi.set(__self__, "end_date", end_date)
@@ -42,6 +61,18 @@ class GetCapacityReservationResult:
         if instance_match_criteria and not isinstance(instance_match_criteria, str):
             raise TypeError("Expected argument 'instance_match_criteria' to be a str")
         pulumi.set(__self__, "instance_match_criteria", instance_match_criteria)
+        if owner_id and not isinstance(owner_id, str):
+            raise TypeError("Expected argument 'owner_id' to be a str")
+        pulumi.set(__self__, "owner_id", owner_id)
+        if reservation_type and not isinstance(reservation_type, str):
+            raise TypeError("Expected argument 'reservation_type' to be a str")
+        pulumi.set(__self__, "reservation_type", reservation_type)
+        if start_date and not isinstance(start_date, str):
+            raise TypeError("Expected argument 'start_date' to be a str")
+        pulumi.set(__self__, "start_date", start_date)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
         if total_instance_count and not isinstance(total_instance_count, int):
             raise TypeError("Expected argument 'total_instance_count' to be a int")
         pulumi.set(__self__, "total_instance_count", total_instance_count)
@@ -53,6 +84,48 @@ class GetCapacityReservationResult:
         Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
         """
         return pulumi.get(self, "available_instance_count")
+
+    @property
+    @pulumi.getter(name="capacityAllocationSet")
+    def capacity_allocation_set(self) -> Optional[Sequence['outputs.CapacityReservationCapacityAllocation']]:
+        return pulumi.get(self, "capacity_allocation_set")
+
+    @property
+    @pulumi.getter(name="capacityReservationArn")
+    def capacity_reservation_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Capacity Reservation.
+        """
+        return pulumi.get(self, "capacity_reservation_arn")
+
+    @property
+    @pulumi.getter(name="capacityReservationFleetId")
+    def capacity_reservation_fleet_id(self) -> Optional[str]:
+        """
+        The ID of the Capacity Reservation Fleet to which the Capacity Reservation belongs. Only valid for Capacity Reservations that were created by a Capacity Reservation Fleet.
+        """
+        return pulumi.get(self, "capacity_reservation_fleet_id")
+
+    @property
+    @pulumi.getter(name="commitmentInfo")
+    def commitment_info(self) -> Optional['outputs.CommitmentInfoProperties']:
+        return pulumi.get(self, "commitment_info")
+
+    @property
+    @pulumi.getter(name="createDate")
+    def create_date(self) -> Optional[str]:
+        """
+        The date and time at which the Capacity Reservation was created.
+        """
+        return pulumi.get(self, "create_date")
+
+    @property
+    @pulumi.getter(name="deliveryPreference")
+    def delivery_preference(self) -> Optional[str]:
+        """
+        The delivery method for a future-dated Capacity Reservation. `incremental` indicates that the requested capacity is delivered in addition to any running instances and reserved capacity that you have in your account at the requested date and time.
+        """
+        return pulumi.get(self, "delivery_preference")
 
     @property
     @pulumi.getter(name="endDate")
@@ -115,6 +188,50 @@ class GetCapacityReservationResult:
         return pulumi.get(self, "instance_match_criteria")
 
     @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> Optional[str]:
+        """
+        The ID of the AWS account that owns the Capacity Reservation.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter(name="reservationType")
+    def reservation_type(self) -> Optional[str]:
+        """
+        The type of Capacity Reservation.
+        """
+        return pulumi.get(self, "reservation_type")
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> Optional[str]:
+        """
+        The date and time at which the Capacity Reservation was started.
+        """
+        return pulumi.get(self, "start_date")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:
+
+        - `active` - The capacity is available for use.
+        - `expired` - The Capacity Reservation expired automatically at the date and time specified in your reservation request. The reserved capacity is no longer available for your use.
+        - `cancelled` - The Capacity Reservation was canceled. The reserved capacity is no longer available for your use.
+        - `pending` - The Capacity Reservation request was successful but the capacity provisioning is still pending.
+        - `failed` - The Capacity Reservation request has failed. A request can fail due to request parameters that are not valid, capacity constraints, or instance limit constraints. You can view a failed request for 60 minutes.
+        - `scheduled` - ( *Future-dated Capacity Reservations* ) The future-dated Capacity Reservation request was approved and the Capacity Reservation is scheduled for delivery on the requested start date.
+        - `payment-pending` - ( *Capacity Blocks* ) The upfront payment has not been processed yet.
+        - `payment-failed` - ( *Capacity Blocks* ) The upfront payment was not processed in the 12-hour time frame. Your Capacity Block was released.
+        - `assessing` - ( *Future-dated Capacity Reservations* ) Amazon EC2 is assessing your request for a future-dated Capacity Reservation.
+        - `delayed` - ( *Future-dated Capacity Reservations* ) Amazon EC2 encountered a delay in provisioning the requested future-dated Capacity Reservation. Amazon EC2 is unable to deliver the requested capacity by the requested start date and time.
+        - `unsupported` - ( *Future-dated Capacity Reservations* ) Amazon EC2 can't support the future-dated Capacity Reservation request due to capacity constraints. You can view unsupported requests for 30 days. The Capacity Reservation will not be delivered.
+        """
+        return pulumi.get(self, "state")
+
+    @property
     @pulumi.getter(name="totalInstanceCount")
     def total_instance_count(self) -> Optional[int]:
         """
@@ -130,11 +247,21 @@ class AwaitableGetCapacityReservationResult(GetCapacityReservationResult):
             yield self
         return GetCapacityReservationResult(
             available_instance_count=self.available_instance_count,
+            capacity_allocation_set=self.capacity_allocation_set,
+            capacity_reservation_arn=self.capacity_reservation_arn,
+            capacity_reservation_fleet_id=self.capacity_reservation_fleet_id,
+            commitment_info=self.commitment_info,
+            create_date=self.create_date,
+            delivery_preference=self.delivery_preference,
             end_date=self.end_date,
             end_date_type=self.end_date_type,
             id=self.id,
             instance_count=self.instance_count,
             instance_match_criteria=self.instance_match_criteria,
+            owner_id=self.owner_id,
+            reservation_type=self.reservation_type,
+            start_date=self.start_date,
+            state=self.state,
             total_instance_count=self.total_instance_count)
 
 
@@ -153,11 +280,21 @@ def get_capacity_reservation(id: Optional[str] = None,
 
     return AwaitableGetCapacityReservationResult(
         available_instance_count=pulumi.get(__ret__, 'available_instance_count'),
+        capacity_allocation_set=pulumi.get(__ret__, 'capacity_allocation_set'),
+        capacity_reservation_arn=pulumi.get(__ret__, 'capacity_reservation_arn'),
+        capacity_reservation_fleet_id=pulumi.get(__ret__, 'capacity_reservation_fleet_id'),
+        commitment_info=pulumi.get(__ret__, 'commitment_info'),
+        create_date=pulumi.get(__ret__, 'create_date'),
+        delivery_preference=pulumi.get(__ret__, 'delivery_preference'),
         end_date=pulumi.get(__ret__, 'end_date'),
         end_date_type=pulumi.get(__ret__, 'end_date_type'),
         id=pulumi.get(__ret__, 'id'),
         instance_count=pulumi.get(__ret__, 'instance_count'),
         instance_match_criteria=pulumi.get(__ret__, 'instance_match_criteria'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        reservation_type=pulumi.get(__ret__, 'reservation_type'),
+        start_date=pulumi.get(__ret__, 'start_date'),
+        state=pulumi.get(__ret__, 'state'),
         total_instance_count=pulumi.get(__ret__, 'total_instance_count'))
 def get_capacity_reservation_output(id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityReservationResult]:
@@ -173,9 +310,19 @@ def get_capacity_reservation_output(id: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getCapacityReservation', __args__, opts=opts, typ=GetCapacityReservationResult)
     return __ret__.apply(lambda __response__: GetCapacityReservationResult(
         available_instance_count=pulumi.get(__response__, 'available_instance_count'),
+        capacity_allocation_set=pulumi.get(__response__, 'capacity_allocation_set'),
+        capacity_reservation_arn=pulumi.get(__response__, 'capacity_reservation_arn'),
+        capacity_reservation_fleet_id=pulumi.get(__response__, 'capacity_reservation_fleet_id'),
+        commitment_info=pulumi.get(__response__, 'commitment_info'),
+        create_date=pulumi.get(__response__, 'create_date'),
+        delivery_preference=pulumi.get(__response__, 'delivery_preference'),
         end_date=pulumi.get(__response__, 'end_date'),
         end_date_type=pulumi.get(__response__, 'end_date_type'),
         id=pulumi.get(__response__, 'id'),
         instance_count=pulumi.get(__response__, 'instance_count'),
         instance_match_criteria=pulumi.get(__response__, 'instance_match_criteria'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        reservation_type=pulumi.get(__response__, 'reservation_type'),
+        start_date=pulumi.get(__response__, 'start_date'),
+        state=pulumi.get(__response__, 'state'),
         total_instance_count=pulumi.get(__response__, 'total_instance_count')))

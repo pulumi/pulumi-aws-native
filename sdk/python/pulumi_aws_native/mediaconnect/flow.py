@@ -24,9 +24,11 @@ class FlowArgs:
     def __init__(__self__, *,
                  source: pulumi.Input['FlowSourceArgs'],
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 flow_size: Optional[pulumi.Input['FlowSize']] = None,
                  maintenance: Optional[pulumi.Input['FlowMaintenanceArgs']] = None,
                  media_streams: Optional[pulumi.Input[Sequence[pulumi.Input['FlowMediaStreamArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 ndi_config: Optional[pulumi.Input['FlowNdiConfigArgs']] = None,
                  source_failover_config: Optional[pulumi.Input['FlowFailoverConfigArgs']] = None,
                  source_monitoring_config: Optional[pulumi.Input['FlowSourceMonitoringConfigArgs']] = None,
                  vpc_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['FlowVpcInterfaceArgs']]]] = None):
@@ -34,9 +36,11 @@ class FlowArgs:
         The set of arguments for constructing a Flow resource.
         :param pulumi.Input['FlowSourceArgs'] source: The source of the flow.
         :param pulumi.Input[str] availability_zone: The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
+        :param pulumi.Input['FlowSize'] flow_size: Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
         :param pulumi.Input['FlowMaintenanceArgs'] maintenance: The maintenance settings you want to use for the flow.
         :param pulumi.Input[Sequence[pulumi.Input['FlowMediaStreamArgs']]] media_streams: The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
         :param pulumi.Input[str] name: The name of the flow.
+        :param pulumi.Input['FlowNdiConfigArgs'] ndi_config: Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
         :param pulumi.Input['FlowFailoverConfigArgs'] source_failover_config: The source failover config of the flow.
         :param pulumi.Input['FlowSourceMonitoringConfigArgs'] source_monitoring_config: The source monitoring config of the flow.
         :param pulumi.Input[Sequence[pulumi.Input['FlowVpcInterfaceArgs']]] vpc_interfaces: The VPC interfaces that you added to this flow.
@@ -44,12 +48,16 @@ class FlowArgs:
         pulumi.set(__self__, "source", source)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if flow_size is not None:
+            pulumi.set(__self__, "flow_size", flow_size)
         if maintenance is not None:
             pulumi.set(__self__, "maintenance", maintenance)
         if media_streams is not None:
             pulumi.set(__self__, "media_streams", media_streams)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if ndi_config is not None:
+            pulumi.set(__self__, "ndi_config", ndi_config)
         if source_failover_config is not None:
             pulumi.set(__self__, "source_failover_config", source_failover_config)
         if source_monitoring_config is not None:
@@ -80,6 +88,18 @@ class FlowArgs:
     @availability_zone.setter
     def availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="flowSize")
+    def flow_size(self) -> Optional[pulumi.Input['FlowSize']]:
+        """
+        Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+        """
+        return pulumi.get(self, "flow_size")
+
+    @flow_size.setter
+    def flow_size(self, value: Optional[pulumi.Input['FlowSize']]):
+        pulumi.set(self, "flow_size", value)
 
     @property
     @pulumi.getter
@@ -116,6 +136,18 @@ class FlowArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ndiConfig")
+    def ndi_config(self) -> Optional[pulumi.Input['FlowNdiConfigArgs']]:
+        """
+        Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+        """
+        return pulumi.get(self, "ndi_config")
+
+    @ndi_config.setter
+    def ndi_config(self, value: Optional[pulumi.Input['FlowNdiConfigArgs']]):
+        pulumi.set(self, "ndi_config", value)
 
     @property
     @pulumi.getter(name="sourceFailoverConfig")
@@ -160,9 +192,11 @@ class Flow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 flow_size: Optional[pulumi.Input['FlowSize']] = None,
                  maintenance: Optional[pulumi.Input[Union['FlowMaintenanceArgs', 'FlowMaintenanceArgsDict']]] = None,
                  media_streams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowMediaStreamArgs', 'FlowMediaStreamArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 ndi_config: Optional[pulumi.Input[Union['FlowNdiConfigArgs', 'FlowNdiConfigArgsDict']]] = None,
                  source: Optional[pulumi.Input[Union['FlowSourceArgs', 'FlowSourceArgsDict']]] = None,
                  source_failover_config: Optional[pulumi.Input[Union['FlowFailoverConfigArgs', 'FlowFailoverConfigArgsDict']]] = None,
                  source_monitoring_config: Optional[pulumi.Input[Union['FlowSourceMonitoringConfigArgs', 'FlowSourceMonitoringConfigArgsDict']]] = None,
@@ -174,9 +208,11 @@ class Flow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
+        :param pulumi.Input['FlowSize'] flow_size: Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
         :param pulumi.Input[Union['FlowMaintenanceArgs', 'FlowMaintenanceArgsDict']] maintenance: The maintenance settings you want to use for the flow.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FlowMediaStreamArgs', 'FlowMediaStreamArgsDict']]]] media_streams: The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
         :param pulumi.Input[str] name: The name of the flow.
+        :param pulumi.Input[Union['FlowNdiConfigArgs', 'FlowNdiConfigArgsDict']] ndi_config: Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
         :param pulumi.Input[Union['FlowSourceArgs', 'FlowSourceArgsDict']] source: The source of the flow.
         :param pulumi.Input[Union['FlowFailoverConfigArgs', 'FlowFailoverConfigArgsDict']] source_failover_config: The source failover config of the flow.
         :param pulumi.Input[Union['FlowSourceMonitoringConfigArgs', 'FlowSourceMonitoringConfigArgsDict']] source_monitoring_config: The source monitoring config of the flow.
@@ -207,9 +243,11 @@ class Flow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 flow_size: Optional[pulumi.Input['FlowSize']] = None,
                  maintenance: Optional[pulumi.Input[Union['FlowMaintenanceArgs', 'FlowMaintenanceArgsDict']]] = None,
                  media_streams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowMediaStreamArgs', 'FlowMediaStreamArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 ndi_config: Optional[pulumi.Input[Union['FlowNdiConfigArgs', 'FlowNdiConfigArgsDict']]] = None,
                  source: Optional[pulumi.Input[Union['FlowSourceArgs', 'FlowSourceArgsDict']]] = None,
                  source_failover_config: Optional[pulumi.Input[Union['FlowFailoverConfigArgs', 'FlowFailoverConfigArgsDict']]] = None,
                  source_monitoring_config: Optional[pulumi.Input[Union['FlowSourceMonitoringConfigArgs', 'FlowSourceMonitoringConfigArgsDict']]] = None,
@@ -224,9 +262,11 @@ class Flow(pulumi.CustomResource):
             __props__ = FlowArgs.__new__(FlowArgs)
 
             __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["flow_size"] = flow_size
             __props__.__dict__["maintenance"] = maintenance
             __props__.__dict__["media_streams"] = media_streams
             __props__.__dict__["name"] = name
+            __props__.__dict__["ndi_config"] = ndi_config
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
@@ -236,6 +276,7 @@ class Flow(pulumi.CustomResource):
             __props__.__dict__["egress_ip"] = None
             __props__.__dict__["flow_arn"] = None
             __props__.__dict__["flow_availability_zone"] = None
+            __props__.__dict__["flow_ndi_machine_name"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZone", "name", "source.name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Flow, __self__).__init__(
@@ -264,9 +305,12 @@ class Flow(pulumi.CustomResource):
         __props__.__dict__["egress_ip"] = None
         __props__.__dict__["flow_arn"] = None
         __props__.__dict__["flow_availability_zone"] = None
+        __props__.__dict__["flow_ndi_machine_name"] = None
+        __props__.__dict__["flow_size"] = None
         __props__.__dict__["maintenance"] = None
         __props__.__dict__["media_streams"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["ndi_config"] = None
         __props__.__dict__["source"] = None
         __props__.__dict__["source_failover_config"] = None
         __props__.__dict__["source_monitoring_config"] = None
@@ -306,6 +350,22 @@ class Flow(pulumi.CustomResource):
         return pulumi.get(self, "flow_availability_zone")
 
     @property
+    @pulumi.getter(name="flowNdiMachineName")
+    def flow_ndi_machine_name(self) -> pulumi.Output[str]:
+        """
+        A prefix for the names of the NDI sources that the flow creates.(ReadOnly)
+        """
+        return pulumi.get(self, "flow_ndi_machine_name")
+
+    @property
+    @pulumi.getter(name="flowSize")
+    def flow_size(self) -> pulumi.Output[Optional['FlowSize']]:
+        """
+        Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+        """
+        return pulumi.get(self, "flow_size")
+
+    @property
     @pulumi.getter
     def maintenance(self) -> pulumi.Output[Optional['outputs.FlowMaintenance']]:
         """
@@ -328,6 +388,14 @@ class Flow(pulumi.CustomResource):
         The name of the flow.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ndiConfig")
+    def ndi_config(self) -> pulumi.Output[Optional['outputs.FlowNdiConfig']]:
+        """
+        Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+        """
+        return pulumi.get(self, "ndi_config")
 
     @property
     @pulumi.getter

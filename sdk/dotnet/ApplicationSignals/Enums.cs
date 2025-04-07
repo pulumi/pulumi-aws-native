@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AwsNative.ApplicationSignals
 {
     /// <summary>
-    /// Specifies the calendar interval unit.
+    /// Specifies the interval unit.
     /// </summary>
     [EnumType]
     public readonly struct ServiceLevelObjectiveDurationUnit : IEquatable<ServiceLevelObjectiveDurationUnit>
@@ -20,6 +20,8 @@ namespace Pulumi.AwsNative.ApplicationSignals
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static ServiceLevelObjectiveDurationUnit Minute { get; } = new ServiceLevelObjectiveDurationUnit("MINUTE");
+        public static ServiceLevelObjectiveDurationUnit Hour { get; } = new ServiceLevelObjectiveDurationUnit("HOUR");
         public static ServiceLevelObjectiveDurationUnit Day { get; } = new ServiceLevelObjectiveDurationUnit("DAY");
         public static ServiceLevelObjectiveDurationUnit Month { get; } = new ServiceLevelObjectiveDurationUnit("MONTH");
 

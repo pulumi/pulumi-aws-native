@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['DomainNameArgs', 'DomainName']
 
@@ -21,17 +23,21 @@ class DomainNameArgs:
     def __init__(__self__, *,
                  certificate_arn: pulumi.Input[str],
                  domain_name: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DomainName resource.
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
         :param pulumi.Input[str] domain_name: The domain name.
         :param pulumi.Input[str] description: The decription for your domain name.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of tags (key-value pairs) for this domain name.
         """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
         pulumi.set(__self__, "domain_name", domain_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -69,6 +75,18 @@ class DomainNameArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A set of tags (key-value pairs) for this domain name.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class DomainName(pulumi.CustomResource):
     @overload
@@ -78,6 +96,7 @@ class DomainName(pulumi.CustomResource):
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppSync::DomainName
@@ -87,6 +106,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
         :param pulumi.Input[str] description: The decription for your domain name.
         :param pulumi.Input[str] domain_name: The domain name.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A set of tags (key-value pairs) for this domain name.
         """
         ...
     @overload
@@ -115,6 +135,7 @@ class DomainName(pulumi.CustomResource):
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -131,7 +152,9 @@ class DomainName(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["app_sync_domain_name"] = None
+            __props__.__dict__["domain_name_arn"] = None
             __props__.__dict__["hosted_zone_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificateArn", "domainName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -161,7 +184,9 @@ class DomainName(pulumi.CustomResource):
         __props__.__dict__["certificate_arn"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["domain_name"] = None
+        __props__.__dict__["domain_name_arn"] = None
         __props__.__dict__["hosted_zone_id"] = None
+        __props__.__dict__["tags"] = None
         return DomainName(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -197,10 +222,26 @@ class DomainName(pulumi.CustomResource):
         return pulumi.get(self, "domain_name")
 
     @property
+    @pulumi.getter(name="domainNameArn")
+    def domain_name_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the Domain Name.
+        """
+        return pulumi.get(self, "domain_name_arn")
+
+    @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Output[str]:
         """
         The ID of your Amazon Route 53 hosted zone.
         """
         return pulumi.get(self, "hosted_zone_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A set of tags (key-value pairs) for this domain name.
+        """
+        return pulumi.get(self, "tags")
 

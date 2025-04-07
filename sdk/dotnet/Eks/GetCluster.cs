@@ -108,6 +108,10 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         public readonly string? OpenIdConnectIssuerUrl;
         /// <summary>
+        /// The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this configuration after the cluster is created.
+        /// </summary>
+        public readonly Outputs.ClusterRemoteNetworkConfig? RemoteNetworkConfig;
+        /// <summary>
         /// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
         /// </summary>
         public readonly Outputs.ClusterResourcesVpcConfig? ResourcesVpcConfig;
@@ -158,6 +162,8 @@ namespace Pulumi.AwsNative.Eks
 
             string? openIdConnectIssuerUrl,
 
+            Outputs.ClusterRemoteNetworkConfig? remoteNetworkConfig,
+
             Outputs.ClusterResourcesVpcConfig? resourcesVpcConfig,
 
             Outputs.ClusterStorageConfig? storageConfig,
@@ -181,6 +187,7 @@ namespace Pulumi.AwsNative.Eks
             KubernetesNetworkConfig = kubernetesNetworkConfig;
             Logging = logging;
             OpenIdConnectIssuerUrl = openIdConnectIssuerUrl;
+            RemoteNetworkConfig = remoteNetworkConfig;
             ResourcesVpcConfig = resourcesVpcConfig;
             StorageConfig = storageConfig;
             Tags = tags;

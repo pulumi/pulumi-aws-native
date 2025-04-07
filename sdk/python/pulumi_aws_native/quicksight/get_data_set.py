@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataSetResult:
-    def __init__(__self__, arn=None, column_groups=None, column_level_permission_rules=None, consumed_spice_capacity_in_bytes=None, created_time=None, data_set_refresh_properties=None, data_set_usage_configuration=None, dataset_parameters=None, import_mode=None, last_updated_time=None, logical_table_map=None, name=None, output_columns=None, performance_configuration=None, permissions=None, physical_table_map=None, row_level_permission_data_set=None, row_level_permission_tag_configuration=None, tags=None):
+    def __init__(__self__, arn=None, column_groups=None, column_level_permission_rules=None, consumed_spice_capacity_in_bytes=None, created_time=None, data_set_refresh_properties=None, data_set_usage_configuration=None, dataset_parameters=None, import_mode=None, last_updated_time=None, logical_table_map=None, name=None, output_columns=None, performance_configuration=None, permissions=None, physical_table_map=None, row_level_permission_data_set=None, row_level_permission_tag_configuration=None, tags=None, use_as=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -84,6 +84,9 @@ class GetDataSetResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if use_as and not isinstance(use_as, str):
+            raise TypeError("Expected argument 'use_as' to be a str")
+        pulumi.set(__self__, "use_as", use_as)
 
     @property
     @pulumi.getter
@@ -241,6 +244,14 @@ class GetDataSetResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="useAs")
+    def use_as(self) -> Optional['DataSetUseAs']:
+        """
+        The usage of the dataset.
+        """
+        return pulumi.get(self, "use_as")
+
 
 class AwaitableGetDataSetResult(GetDataSetResult):
     # pylint: disable=using-constant-test
@@ -266,7 +277,8 @@ class AwaitableGetDataSetResult(GetDataSetResult):
             physical_table_map=self.physical_table_map,
             row_level_permission_data_set=self.row_level_permission_data_set,
             row_level_permission_tag_configuration=self.row_level_permission_tag_configuration,
-            tags=self.tags)
+            tags=self.tags,
+            use_as=self.use_as)
 
 
 def get_data_set(aws_account_id: Optional[str] = None,
@@ -304,7 +316,8 @@ def get_data_set(aws_account_id: Optional[str] = None,
         physical_table_map=pulumi.get(__ret__, 'physical_table_map'),
         row_level_permission_data_set=pulumi.get(__ret__, 'row_level_permission_data_set'),
         row_level_permission_tag_configuration=pulumi.get(__ret__, 'row_level_permission_tag_configuration'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        use_as=pulumi.get(__ret__, 'use_as'))
 def get_data_set_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                         data_set_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSetResult]:
@@ -339,4 +352,5 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[str]] = None,
         physical_table_map=pulumi.get(__response__, 'physical_table_map'),
         row_level_permission_data_set=pulumi.get(__response__, 'row_level_permission_data_set'),
         row_level_permission_tag_configuration=pulumi.get(__response__, 'row_level_permission_tag_configuration'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        use_as=pulumi.get(__response__, 'use_as')))

@@ -67,6 +67,8 @@ namespace Pulumi.AwsNative.CleanRooms
 
         /// <summary>
         /// An indicator as to whether query logging has been enabled or disabled for the membership.
+        /// 
+        /// When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
         /// </summary>
         [Output("queryLogStatus")]
         public Output<Pulumi.AwsNative.CleanRooms.MembershipQueryLogStatus> QueryLogStatus { get; private set; } = null!;
@@ -146,6 +148,8 @@ namespace Pulumi.AwsNative.CleanRooms
 
         /// <summary>
         /// An indicator as to whether query logging has been enabled or disabled for the membership.
+        /// 
+        /// When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
         /// </summary>
         [Input("queryLogStatus", required: true)]
         public Input<Pulumi.AwsNative.CleanRooms.MembershipQueryLogStatus> QueryLogStatus { get; set; } = null!;

@@ -175,6 +175,172 @@ func (in *appMonitorCustomEventsStatusPtr) ToAppMonitorCustomEventsStatusPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(AppMonitorCustomEventsStatusPtrOutput)
 }
 
+// Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be DISABLED
+type AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus string
+
+const (
+	AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusEnabled  = AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus("ENABLED")
+	AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusDisabled = AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus("DISABLED")
+)
+
+func (AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus)(nil)).Elem()
+}
+
+func (e AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus) ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput() AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput {
+	return pulumi.ToOutput(e).(AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput)
+}
+
+func (e AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus) ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutputWithContext(ctx context.Context) AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput)
+}
+
+func (e AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus) ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput() AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput {
+	return e.ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutputWithContext(context.Background())
+}
+
+func (e AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus) ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutputWithContext(ctx context.Context) AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput {
+	return AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus(e).ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutputWithContext(ctx).ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutputWithContext(ctx)
+}
+
+func (e AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput struct{ *pulumi.OutputState }
+
+func (AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus)(nil)).Elem()
+}
+
+func (o AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput) ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput() AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput {
+	return o
+}
+
+func (o AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput) ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutputWithContext(ctx context.Context) AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput {
+	return o
+}
+
+func (o AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput) ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput() AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput {
+	return o.ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutputWithContext(context.Background())
+}
+
+func (o AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput) ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutputWithContext(ctx context.Context) AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus) *AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus {
+		return &v
+	}).(AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput)
+}
+
+func (o AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus)(nil)).Elem()
+}
+
+func (o AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput) ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput() AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput {
+	return o
+}
+
+func (o AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput) ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutputWithContext(ctx context.Context) AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput {
+	return o
+}
+
+func (o AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput) Elem() AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput {
+	return o.ApplyT(func(v *AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus) AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus {
+		if v != nil {
+			return *v
+		}
+		var ret AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus
+		return ret
+	}).(AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput)
+}
+
+func (o AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusInput is an input type that accepts values of the AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus enum
+// A concrete instance of `AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusInput` can be one of the following:
+//
+//	AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusEnabled
+//	AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusDisabled
+type AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusInput interface {
+	pulumi.Input
+
+	ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput() AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput
+	ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutputWithContext(context.Context) AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput
+}
+
+var appMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrType = reflect.TypeOf((**AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus)(nil)).Elem()
+
+type AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrInput interface {
+	pulumi.Input
+
+	ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput() AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput
+	ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutputWithContext(context.Context) AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput
+}
+
+type appMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtr string
+
+func AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtr(v string) AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrInput {
+	return (*appMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtr)(&v)
+}
+
+func (*appMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtr) ElementType() reflect.Type {
+	return appMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrType
+}
+
+func (in *appMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtr) ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput() AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput {
+	return pulumi.ToOutput(in).(AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput)
+}
+
+func (in *appMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtr) ToAppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutputWithContext(ctx context.Context) AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput)
+}
+
 // Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
 type AppMonitorMetricDestinationDestination string
 
@@ -556,6 +722,8 @@ func (o AppMonitorTelemetryArrayOutput) Index(i pulumi.IntInput) AppMonitorTelem
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorCustomEventsStatusInput)(nil)).Elem(), AppMonitorCustomEventsStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorCustomEventsStatusPtrInput)(nil)).Elem(), AppMonitorCustomEventsStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusInput)(nil)).Elem(), AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrInput)(nil)).Elem(), AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDestinationDestinationInput)(nil)).Elem(), AppMonitorMetricDestinationDestination("CloudWatch"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDestinationDestinationPtrInput)(nil)).Elem(), AppMonitorMetricDestinationDestination("CloudWatch"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorTelemetryInput)(nil)).Elem(), AppMonitorTelemetry("errors"))
@@ -563,6 +731,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorTelemetryArrayInput)(nil)).Elem(), AppMonitorTelemetryArray{})
 	pulumi.RegisterOutputType(AppMonitorCustomEventsStatusOutput{})
 	pulumi.RegisterOutputType(AppMonitorCustomEventsStatusPtrOutput{})
+	pulumi.RegisterOutputType(AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusOutput{})
+	pulumi.RegisterOutputType(AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput{})
 	pulumi.RegisterOutputType(AppMonitorMetricDestinationDestinationOutput{})
 	pulumi.RegisterOutputType(AppMonitorMetricDestinationDestinationPtrOutput{})
 	pulumi.RegisterOutputType(AppMonitorTelemetryOutput{})

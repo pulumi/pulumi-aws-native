@@ -34,6 +34,9 @@ export class Discovery extends pulumi.CustomResource {
         return obj['__pulumiType'] === Discovery.__pulumiType;
     }
 
+    /**
+     * The 12 digit AWS Account ID for the account.
+     */
     public /*out*/ readonly accountId!: pulumi.Output<string>;
 
     /**

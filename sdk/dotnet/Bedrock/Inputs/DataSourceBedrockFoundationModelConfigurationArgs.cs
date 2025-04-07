@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     public sealed class DataSourceBedrockFoundationModelConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The model's ARN.
+        /// The ARN of the foundation model to use for parsing.
         /// </summary>
         [Input("modelArn", required: true)]
         public Input<string> ModelArn { get; set; } = null!;

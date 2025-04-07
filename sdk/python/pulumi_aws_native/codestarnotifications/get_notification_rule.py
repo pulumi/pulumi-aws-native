@@ -111,7 +111,7 @@ class GetNotificationRuleResult:
     @pulumi.getter
     def targets(self) -> Optional[Sequence['outputs.NotificationRuleTarget']]:
         """
-        A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
+        A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
         """
         return pulumi.get(self, "targets")
 

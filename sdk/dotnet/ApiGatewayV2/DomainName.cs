@@ -23,6 +23,12 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public Output<string> DomainNameValue { get; private set; } = null!;
 
         /// <summary>
+        /// Represents an Amazon Resource Name (ARN).
+        /// </summary>
+        [Output("domainNameArn")]
+        public Output<string> DomainNameArn { get; private set; } = null!;
+
+        /// <summary>
         /// The domain name configurations.
         /// </summary>
         [Output("domainNameConfigurations")]

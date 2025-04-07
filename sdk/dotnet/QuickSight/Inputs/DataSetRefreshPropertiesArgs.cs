@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DataSetRefreshPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The failure configuration for a dataset.
+        /// </summary>
+        [Input("failureConfiguration")]
+        public Input<Inputs.DataSetRefreshFailureConfigurationArgs>? FailureConfiguration { get; set; }
+
+        /// <summary>
         /// The refresh configuration for a dataset.
         /// </summary>
         [Input("refreshConfiguration")]

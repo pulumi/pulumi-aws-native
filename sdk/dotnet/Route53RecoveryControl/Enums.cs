@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AwsNative.Route53RecoveryControl
 {
     /// <summary>
+    /// Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterNetworkType : IEquatable<ClusterNetworkType>
+    {
+        private readonly string _value;
+
+        private ClusterNetworkType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterNetworkType Ipv4 { get; } = new ClusterNetworkType("IPV4");
+        public static ClusterNetworkType Dualstack { get; } = new ClusterNetworkType("DUALSTACK");
+
+        public static bool operator ==(ClusterNetworkType left, ClusterNetworkType right) => left.Equals(right);
+        public static bool operator !=(ClusterNetworkType left, ClusterNetworkType right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterNetworkType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterNetworkType other && Equals(other);
+        public bool Equals(ClusterNetworkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
     /// </summary>
     [EnumType]

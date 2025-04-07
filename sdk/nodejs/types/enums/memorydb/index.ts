@@ -9,6 +9,21 @@ export const ClusterDataTieringStatus = {
 
 export type ClusterDataTieringStatus = (typeof ClusterDataTieringStatus)[keyof typeof ClusterDataTieringStatus];
 
+export const ClusterSupportedIpDiscoveryTypes = {
+    Ipv4: "ipv4",
+    Ipv6: "ipv6",
+} as const;
+
+export type ClusterSupportedIpDiscoveryTypes = (typeof ClusterSupportedIpDiscoveryTypes)[keyof typeof ClusterSupportedIpDiscoveryTypes];
+
+export const ClusterSupportedNetworkTypes = {
+    Ipv4: "ipv4",
+    Ipv6: "ipv6",
+    DualStack: "dual_stack",
+} as const;
+
+export type ClusterSupportedNetworkTypes = (typeof ClusterSupportedNetworkTypes)[keyof typeof ClusterSupportedNetworkTypes];
+
 export const MultiRegionClusterUpdateStrategy = {
     Coordinated: "COORDINATED",
     Uncoordinated: "UNCOORDINATED",

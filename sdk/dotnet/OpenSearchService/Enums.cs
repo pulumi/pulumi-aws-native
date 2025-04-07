@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.OpenSearchService
     }
 
     /// <summary>
-    /// Container for node type like coordinating.
+    /// Defines the type of node, such as coordinating nodes.
     /// </summary>
     [EnumType]
     public readonly struct DomainNodeOptionNodeType : IEquatable<DomainNodeOptionNodeType>

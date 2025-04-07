@@ -59,7 +59,7 @@ type Domain struct {
 	//
 	// If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
-	// Container for IAM Identity Center Option control for the domain.
+	// Configuration options for controlling IAM Identity Center integration within a domain.
 	IdentityCenterOptions DomainIdentityCenterOptionsPtrOutput `pulumi:"identityCenterOptions"`
 	// Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
@@ -159,7 +159,7 @@ type domainArgs struct {
 	//
 	// If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 	EngineVersion *string `pulumi:"engineVersion"`
-	// Container for IAM Identity Center Option control for the domain.
+	// Configuration options for controlling IAM Identity Center integration within a domain.
 	IdentityCenterOptions *DomainIdentityCenterOptions `pulumi:"identityCenterOptions"`
 	// Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
 	IpAddressType *string `pulumi:"ipAddressType"`
@@ -216,7 +216,7 @@ type DomainArgs struct {
 	//
 	// If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 	EngineVersion pulumi.StringPtrInput
-	// Container for IAM Identity Center Option control for the domain.
+	// Configuration options for controlling IAM Identity Center integration within a domain.
 	IdentityCenterOptions DomainIdentityCenterOptionsPtrInput
 	// Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
 	IpAddressType pulumi.StringPtrInput
@@ -367,7 +367,7 @@ func (o DomainOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
-// Container for IAM Identity Center Option control for the domain.
+// Configuration options for controlling IAM Identity Center integration within a domain.
 func (o DomainOutput) IdentityCenterOptions() DomainIdentityCenterOptionsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainIdentityCenterOptionsPtrOutput { return v.IdentityCenterOptions }).(DomainIdentityCenterOptionsPtrOutput)
 }

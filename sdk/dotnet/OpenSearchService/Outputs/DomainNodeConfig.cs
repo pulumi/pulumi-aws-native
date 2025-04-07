@@ -14,15 +14,15 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     public sealed class DomainNodeConfig
     {
         /// <summary>
-        /// The number of nodes of a particular node type in the cluster.
+        /// The number of nodes of a specific type within the cluster.
         /// </summary>
         public readonly int? Count;
         /// <summary>
-        /// A boolean that indicates whether a particular node type is enabled or not.
+        /// A boolean value indicating whether a specific node type is active or inactive.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// The instance type of a particular node type in the cluster.
+        /// The instance type of a particular node within the cluster.
         /// </summary>
         public readonly string? Type;
 

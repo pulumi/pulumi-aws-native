@@ -70,9 +70,25 @@ export class Workgroup extends pulumi.CustomResource {
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
+     * The recovery point id to restore from.
+     */
+    public readonly recoveryPointId!: pulumi.Output<string | undefined>;
+    /**
      * A list of security group IDs to associate with the workgroup.
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the snapshot to restore from.
+     */
+    public readonly snapshotArn!: pulumi.Output<string | undefined>;
+    /**
+     * The snapshot name to restore from.
+     */
+    public readonly snapshotName!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Web Services account that owns the snapshot.
+     */
+    public readonly snapshotOwnerAccount!: pulumi.Output<string | undefined>;
     /**
      * A list of subnet IDs the workgroup is associated with.
      */
@@ -82,9 +98,13 @@ export class Workgroup extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
+     * An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
+     */
+    public readonly trackName!: pulumi.Output<string | undefined>;
+    /**
      * Definition for workgroup resource
      */
-    public /*out*/ readonly workgroup!: pulumi.Output<outputs.redshiftserverless.Workgroup>;
+    public readonly workgroup!: pulumi.Output<outputs.redshiftserverless.Workgroup | undefined>;
     /**
      * The name of the workgroup.
      */
@@ -109,11 +129,16 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["pricePerformanceTarget"] = args ? args.pricePerformanceTarget : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["recoveryPointId"] = args ? args.recoveryPointId : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["snapshotArn"] = args ? args.snapshotArn : undefined;
+            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
+            resourceInputs["snapshotOwnerAccount"] = args ? args.snapshotOwnerAccount : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trackName"] = args ? args.trackName : undefined;
+            resourceInputs["workgroup"] = args ? args.workgroup : undefined;
             resourceInputs["workgroupName"] = args ? args.workgroupName : undefined;
-            resourceInputs["workgroup"] = undefined /*out*/;
         } else {
             resourceInputs["baseCapacity"] = undefined /*out*/;
             resourceInputs["configParameters"] = undefined /*out*/;
@@ -123,9 +148,14 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["pricePerformanceTarget"] = undefined /*out*/;
             resourceInputs["publiclyAccessible"] = undefined /*out*/;
+            resourceInputs["recoveryPointId"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
+            resourceInputs["snapshotArn"] = undefined /*out*/;
+            resourceInputs["snapshotName"] = undefined /*out*/;
+            resourceInputs["snapshotOwnerAccount"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["trackName"] = undefined /*out*/;
             resourceInputs["workgroup"] = undefined /*out*/;
             resourceInputs["workgroupName"] = undefined /*out*/;
         }
@@ -173,9 +203,25 @@ export interface WorkgroupArgs {
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
+     * The recovery point id to restore from.
+     */
+    recoveryPointId?: pulumi.Input<string>;
+    /**
      * A list of security group IDs to associate with the workgroup.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the snapshot to restore from.
+     */
+    snapshotArn?: pulumi.Input<string>;
+    /**
+     * The snapshot name to restore from.
+     */
+    snapshotName?: pulumi.Input<string>;
+    /**
+     * The Amazon Web Services account that owns the snapshot.
+     */
+    snapshotOwnerAccount?: pulumi.Input<string>;
     /**
      * A list of subnet IDs the workgroup is associated with.
      */
@@ -184,6 +230,14 @@ export interface WorkgroupArgs {
      * The map of the key-value pairs used to tag the workgroup.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
+     */
+    trackName?: pulumi.Input<string>;
+    /**
+     * Definition for workgroup resource
+     */
+    workgroup?: pulumi.Input<inputs.redshiftserverless.WorkgroupArgs>;
     /**
      * The name of the workgroup.
      */

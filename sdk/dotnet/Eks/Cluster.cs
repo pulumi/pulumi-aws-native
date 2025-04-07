@@ -76,6 +76,12 @@ namespace Pulumi.AwsNative.Eks
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// Force cluster version update
+        /// </summary>
+        [Output("force")]
+        public Output<bool?> Force { get; private set; } = null!;
+
+        /// <summary>
         /// The Kubernetes network configuration for the cluster.
         /// </summary>
         [Output("kubernetesNetworkConfig")]
@@ -106,7 +112,7 @@ namespace Pulumi.AwsNative.Eks
         public Output<Outputs.ClusterOutpostConfig?> OutpostConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
+        /// The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this configuration after the cluster is created.
         /// </summary>
         [Output("remoteNetworkConfig")]
         public Output<Outputs.ClusterRemoteNetworkConfig?> RemoteNetworkConfig { get; private set; } = null!;
@@ -187,7 +193,6 @@ namespace Pulumi.AwsNative.Eks
                     "kubernetesNetworkConfig.serviceIpv4Cidr",
                     "name",
                     "outpostConfig",
-                    "remoteNetworkConfig",
                     "roleArn",
                 },
             };
@@ -243,6 +248,12 @@ namespace Pulumi.AwsNative.Eks
         }
 
         /// <summary>
+        /// Force cluster version update
+        /// </summary>
+        [Input("force")]
+        public Input<bool>? Force { get; set; }
+
+        /// <summary>
         /// The Kubernetes network configuration for the cluster.
         /// </summary>
         [Input("kubernetesNetworkConfig")]
@@ -267,7 +278,7 @@ namespace Pulumi.AwsNative.Eks
         public Input<Inputs.ClusterOutpostConfigArgs>? OutpostConfig { get; set; }
 
         /// <summary>
-        /// The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
+        /// The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this configuration after the cluster is created.
         /// </summary>
         [Input("remoteNetworkConfig")]
         public Input<Inputs.ClusterRemoteNetworkConfigArgs>? RemoteNetworkConfig { get; set; }

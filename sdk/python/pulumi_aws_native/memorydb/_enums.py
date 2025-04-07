@@ -6,6 +6,8 @@ from enum import Enum
 
 __all__ = [
     'ClusterDataTieringStatus',
+    'ClusterSupportedIpDiscoveryTypes',
+    'ClusterSupportedNetworkTypes',
     'MultiRegionClusterUpdateStrategy',
     'UserAuthenticationModePropertiesType',
 ]
@@ -14,6 +16,17 @@ __all__ = [
 class ClusterDataTieringStatus(str, Enum):
     TRUE = "true"
     FALSE = "false"
+
+
+class ClusterSupportedIpDiscoveryTypes(str, Enum):
+    IPV4 = "ipv4"
+    IPV6 = "ipv6"
+
+
+class ClusterSupportedNetworkTypes(str, Enum):
+    IPV4 = "ipv4"
+    IPV6 = "ipv6"
+    DUAL_STACK = "dual_stack"
 
 
 class MultiRegionClusterUpdateStrategy(str, Enum):

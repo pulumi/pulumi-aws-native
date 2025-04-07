@@ -56,7 +56,7 @@ export class Environment extends pulumi.CustomResource {
      *
      * If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
      *
-     * *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` (latest)
+     * *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` (latest)
      */
     public readonly airflowVersion!: pulumi.Output<string | undefined>;
     /**
@@ -80,7 +80,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly endpointManagement!: pulumi.Output<enums.mwaa.EnvironmentEndpointManagement | undefined>;
     /**
-     * The environment class type. Valid values: `mw1.small` , `mw1.medium` , `mw1.large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
+     * The environment class type. Valid values: `mw1.micro` , `mw1.small` , `mw1.medium` , `mw1.large` , `mw1.1large` , and `mw1.2large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
      */
     public readonly environmentClass!: pulumi.Output<string | undefined>;
     /**
@@ -142,7 +142,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The number of schedulers that you want to run in your environment. Valid values:
      *
-     * - *v2* - Accepts between 2 to 5. Defaults to 2.
+     * - *v2* - For environments larger than mw1.micro, accepts values from 2 to 5. Defaults to 2 for all environment sizes except mw1.micro, which defaults to 1.
      * - *v1* - Accepts 1.
      */
     public readonly schedulers!: pulumi.Output<number | undefined>;
@@ -294,7 +294,7 @@ export interface EnvironmentArgs {
      *
      * If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
      *
-     * *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` (latest)
+     * *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` (latest)
      */
     airflowVersion?: pulumi.Input<string>;
     /**
@@ -306,7 +306,7 @@ export interface EnvironmentArgs {
      */
     endpointManagement?: pulumi.Input<enums.mwaa.EnvironmentEndpointManagement>;
     /**
-     * The environment class type. Valid values: `mw1.small` , `mw1.medium` , `mw1.large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
+     * The environment class type. Valid values: `mw1.micro` , `mw1.small` , `mw1.medium` , `mw1.large` , `mw1.1large` , and `mw1.2large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
      */
     environmentClass?: pulumi.Input<string>;
     /**
@@ -368,7 +368,7 @@ export interface EnvironmentArgs {
     /**
      * The number of schedulers that you want to run in your environment. Valid values:
      *
-     * - *v2* - Accepts between 2 to 5. Defaults to 2.
+     * - *v2* - For environments larger than mw1.micro, accepts values from 2 to 5. Defaults to 2 for all environment sizes except mw1.micro, which defaults to 1.
      * - *v1* - Accepts 1.
      */
     schedulers?: pulumi.Input<number>;

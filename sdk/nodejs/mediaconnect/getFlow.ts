@@ -38,6 +38,14 @@ export interface GetFlowResult {
      */
     readonly flowAvailabilityZone?: string;
     /**
+     * A prefix for the names of the NDI sources that the flow creates.(ReadOnly)
+     */
+    readonly flowNdiMachineName?: string;
+    /**
+     * Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+     */
+    readonly flowSize?: enums.mediaconnect.FlowSize;
+    /**
      * The maintenance settings you want to use for the flow.
      */
     readonly maintenance?: outputs.mediaconnect.FlowMaintenance;
@@ -45,6 +53,10 @@ export interface GetFlowResult {
      * The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
      */
     readonly mediaStreams?: outputs.mediaconnect.FlowMediaStream[];
+    /**
+     * Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+     */
+    readonly ndiConfig?: outputs.mediaconnect.FlowNdiConfig;
     /**
      * The source of the flow.
      */

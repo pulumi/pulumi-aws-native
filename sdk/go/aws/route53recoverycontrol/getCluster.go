@@ -32,6 +32,8 @@ type LookupClusterResult struct {
 	ClusterArn *string `pulumi:"clusterArn"`
 	// Endpoints for the cluster.
 	ClusterEndpoints []ClusterEndpoint `pulumi:"clusterEndpoints"`
+	// Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+	NetworkType *ClusterNetworkType `pulumi:"networkType"`
 	// Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
 	Status *ClusterStatus `pulumi:"status"`
 }
@@ -76,6 +78,11 @@ func (o LookupClusterResultOutput) ClusterArn() pulumi.StringPtrOutput {
 // Endpoints for the cluster.
 func (o LookupClusterResultOutput) ClusterEndpoints() ClusterEndpointArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []ClusterEndpoint { return v.ClusterEndpoints }).(ClusterEndpointArrayOutput)
+}
+
+// Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+func (o LookupClusterResultOutput) NetworkType() ClusterNetworkTypePtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterNetworkType { return v.NetworkType }).(ClusterNetworkTypePtrOutput)
 }
 
 // Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.

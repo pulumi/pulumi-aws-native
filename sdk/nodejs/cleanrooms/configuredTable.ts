@@ -42,7 +42,13 @@ export class ConfiguredTable extends pulumi.CustomResource {
      */
     public readonly allowedColumns!: pulumi.Output<string[]>;
     /**
-     * The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+     * The analysis method for the configured table.
+     *
+     * `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+     *
+     * `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+     *
+     * `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
      */
     public readonly analysisMethod!: pulumi.Output<enums.cleanrooms.ConfiguredTableAnalysisMethod>;
     /**
@@ -134,7 +140,13 @@ export interface ConfiguredTableArgs {
      */
     allowedColumns: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+     * The analysis method for the configured table.
+     *
+     * `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+     *
+     * `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+     *
+     * `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
      */
     analysisMethod: pulumi.Input<enums.cleanrooms.ConfiguredTableAnalysisMethod>;
     /**

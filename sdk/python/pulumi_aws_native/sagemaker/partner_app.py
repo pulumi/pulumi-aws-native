@@ -31,6 +31,7 @@ class PartnerAppArgs:
                  application_config: Optional[pulumi.Input['PartnerAppConfigArgs']] = None,
                  client_token: Optional[pulumi.Input[str]] = None,
                  enable_iam_session_based_identity: Optional[pulumi.Input[bool]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  maintenance_config: Optional[pulumi.Input['PartnerAppMaintenanceConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -43,6 +44,7 @@ class PartnerAppArgs:
         :param pulumi.Input['PartnerAppConfigArgs'] application_config: A collection of settings that specify the maintenance schedule for the PartnerApp.
         :param pulumi.Input[str] client_token: The client token for the PartnerApp.
         :param pulumi.Input[bool] enable_iam_session_based_identity: Enables IAM Session based Identity for PartnerApp.
+        :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
         :param pulumi.Input['PartnerAppMaintenanceConfigArgs'] maintenance_config: A collection of settings that specify the maintenance schedule for the PartnerApp.
         :param pulumi.Input[str] name: A name for the PartnerApp.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags to apply to the PartnerApp.
@@ -57,6 +59,8 @@ class PartnerAppArgs:
             pulumi.set(__self__, "client_token", client_token)
         if enable_iam_session_based_identity is not None:
             pulumi.set(__self__, "enable_iam_session_based_identity", enable_iam_session_based_identity)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if maintenance_config is not None:
             pulumi.set(__self__, "maintenance_config", maintenance_config)
         if name is not None:
@@ -149,6 +153,18 @@ class PartnerAppArgs:
         pulumi.set(self, "enable_iam_session_based_identity", value)
 
     @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
     @pulumi.getter(name="maintenanceConfig")
     def maintenance_config(self) -> Optional[pulumi.Input['PartnerAppMaintenanceConfigArgs']]:
         """
@@ -195,6 +211,7 @@ class PartnerApp(pulumi.CustomResource):
                  client_token: Optional[pulumi.Input[str]] = None,
                  enable_iam_session_based_identity: Optional[pulumi.Input[bool]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  maintenance_config: Optional[pulumi.Input[Union['PartnerAppMaintenanceConfigArgs', 'PartnerAppMaintenanceConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -211,6 +228,7 @@ class PartnerApp(pulumi.CustomResource):
         :param pulumi.Input[str] client_token: The client token for the PartnerApp.
         :param pulumi.Input[bool] enable_iam_session_based_identity: Enables IAM Session based Identity for PartnerApp.
         :param pulumi.Input[str] execution_role_arn: The execution role for the user.
+        :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
         :param pulumi.Input[Union['PartnerAppMaintenanceConfigArgs', 'PartnerAppMaintenanceConfigArgsDict']] maintenance_config: A collection of settings that specify the maintenance schedule for the PartnerApp.
         :param pulumi.Input[str] name: A name for the PartnerApp.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to apply to the PartnerApp.
@@ -246,6 +264,7 @@ class PartnerApp(pulumi.CustomResource):
                  client_token: Optional[pulumi.Input[str]] = None,
                  enable_iam_session_based_identity: Optional[pulumi.Input[bool]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  maintenance_config: Optional[pulumi.Input[Union['PartnerAppMaintenanceConfigArgs', 'PartnerAppMaintenanceConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -269,6 +288,7 @@ class PartnerApp(pulumi.CustomResource):
             if execution_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'execution_role_arn'")
             __props__.__dict__["execution_role_arn"] = execution_role_arn
+            __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["maintenance_config"] = maintenance_config
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
@@ -280,7 +300,7 @@ class PartnerApp(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
             __props__.__dict__["base_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["authType", "executionRoleArn", "name", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["authType", "executionRoleArn", "kmsKeyId", "name", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PartnerApp, __self__).__init__(
             'aws-native:sagemaker:PartnerApp',
@@ -311,6 +331,7 @@ class PartnerApp(pulumi.CustomResource):
         __props__.__dict__["client_token"] = None
         __props__.__dict__["enable_iam_session_based_identity"] = None
         __props__.__dict__["execution_role_arn"] = None
+        __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["maintenance_config"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
@@ -373,6 +394,14 @@ class PartnerApp(pulumi.CustomResource):
         The execution role for the user.
         """
         return pulumi.get(self, "execution_role_arn")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
+        """
+        return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="maintenanceConfig")

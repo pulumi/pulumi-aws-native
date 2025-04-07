@@ -70,7 +70,7 @@ type LookupDomainResult struct {
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The resource ID. For example, `123456789012/my-domain` .
 	Id *string `pulumi:"id"`
-	// Container for IAM Identity Center Option control for the domain.
+	// Configuration options for controlling IAM Identity Center integration within a domain.
 	IdentityCenterOptions *DomainIdentityCenterOptions `pulumi:"identityCenterOptions"`
 	// Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
 	IpAddressType *string `pulumi:"ipAddressType"`
@@ -212,7 +212,7 @@ func (o LookupDomainResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Container for IAM Identity Center Option control for the domain.
+// Configuration options for controlling IAM Identity Center integration within a domain.
 func (o LookupDomainResultOutput) IdentityCenterOptions() DomainIdentityCenterOptionsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainIdentityCenterOptions { return v.IdentityCenterOptions }).(DomainIdentityCenterOptionsPtrOutput)
 }

@@ -9,6 +9,16 @@ export const AppMonitorCustomEventsStatus = {
 
 export type AppMonitorCustomEventsStatus = (typeof AppMonitorCustomEventsStatus)[keyof typeof AppMonitorCustomEventsStatus];
 
+export const AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be DISABLED
+ */
+export type AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus = (typeof AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus)[keyof typeof AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus];
+
 export const AppMonitorMetricDestinationDestination = {
     CloudWatch: "CloudWatch",
     Evidently: "Evidently",

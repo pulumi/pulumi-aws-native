@@ -54,6 +54,14 @@ export class Flow extends pulumi.CustomResource {
      */
     public /*out*/ readonly flowAvailabilityZone!: pulumi.Output<string>;
     /**
+     * A prefix for the names of the NDI sources that the flow creates.(ReadOnly)
+     */
+    public /*out*/ readonly flowNdiMachineName!: pulumi.Output<string>;
+    /**
+     * Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+     */
+    public readonly flowSize!: pulumi.Output<enums.mediaconnect.FlowSize | undefined>;
+    /**
      * The maintenance settings you want to use for the flow.
      */
     public readonly maintenance!: pulumi.Output<outputs.mediaconnect.FlowMaintenance | undefined>;
@@ -65,6 +73,10 @@ export class Flow extends pulumi.CustomResource {
      * The name of the flow.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+     */
+    public readonly ndiConfig!: pulumi.Output<outputs.mediaconnect.FlowNdiConfig | undefined>;
     /**
      * The source of the flow.
      */
@@ -97,9 +109,11 @@ export class Flow extends pulumi.CustomResource {
                 throw new Error("Missing required property 'source'");
             }
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["flowSize"] = args ? args.flowSize : undefined;
             resourceInputs["maintenance"] = args ? args.maintenance : undefined;
             resourceInputs["mediaStreams"] = args ? args.mediaStreams : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ndiConfig"] = args ? args.ndiConfig : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["sourceFailoverConfig"] = args ? args.sourceFailoverConfig : undefined;
             resourceInputs["sourceMonitoringConfig"] = args ? args.sourceMonitoringConfig : undefined;
@@ -107,14 +121,18 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["egressIp"] = undefined /*out*/;
             resourceInputs["flowArn"] = undefined /*out*/;
             resourceInputs["flowAvailabilityZone"] = undefined /*out*/;
+            resourceInputs["flowNdiMachineName"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["egressIp"] = undefined /*out*/;
             resourceInputs["flowArn"] = undefined /*out*/;
             resourceInputs["flowAvailabilityZone"] = undefined /*out*/;
+            resourceInputs["flowNdiMachineName"] = undefined /*out*/;
+            resourceInputs["flowSize"] = undefined /*out*/;
             resourceInputs["maintenance"] = undefined /*out*/;
             resourceInputs["mediaStreams"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ndiConfig"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;
             resourceInputs["sourceFailoverConfig"] = undefined /*out*/;
             resourceInputs["sourceMonitoringConfig"] = undefined /*out*/;
@@ -136,6 +154,10 @@ export interface FlowArgs {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
+     * Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+     */
+    flowSize?: pulumi.Input<enums.mediaconnect.FlowSize>;
+    /**
      * The maintenance settings you want to use for the flow.
      */
     maintenance?: pulumi.Input<inputs.mediaconnect.FlowMaintenanceArgs>;
@@ -147,6 +169,10 @@ export interface FlowArgs {
      * The name of the flow.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+     */
+    ndiConfig?: pulumi.Input<inputs.mediaconnect.FlowNdiConfigArgs>;
     /**
      * The source of the flow.
      */

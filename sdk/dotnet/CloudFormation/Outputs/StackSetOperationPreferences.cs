@@ -63,8 +63,6 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
         public readonly Pulumi.AwsNative.CloudFormation.StackSetRegionConcurrencyType? RegionConcurrencyType;
         /// <summary>
         /// The order of the Regions where you want to perform the stack operation.
-        /// 
-        /// &gt; `RegionOrder` isn't followed if `AutoDeployment` is enabled.
         /// </summary>
         public readonly ImmutableArray<string> RegionOrder;
 

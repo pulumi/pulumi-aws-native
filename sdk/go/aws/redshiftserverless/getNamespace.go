@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -50,6 +51,8 @@ type LookupNamespaceResult struct {
 	NamespaceResourcePolicy interface{} `pulumi:"namespaceResourcePolicy"`
 	// The snapshot copy configurations for the namespace.
 	SnapshotCopyConfigurations []NamespaceSnapshotCopyConfiguration `pulumi:"snapshotCopyConfigurations"`
+	// The list of tags for the namespace.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupNamespaceOutput(ctx *pulumi.Context, args LookupNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceResultOutput {
@@ -136,6 +139,11 @@ func (o LookupNamespaceResultOutput) SnapshotCopyConfigurations() NamespaceSnaps
 	return o.ApplyT(func(v LookupNamespaceResult) []NamespaceSnapshotCopyConfiguration {
 		return v.SnapshotCopyConfigurations
 	}).(NamespaceSnapshotCopyConfigurationArrayOutput)
+}
+
+// The list of tags for the namespace.
+func (o LookupNamespaceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

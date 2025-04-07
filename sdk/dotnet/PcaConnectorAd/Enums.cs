@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.PcaConnectorAd
 {
+    /// <summary>
+    /// The VPC IP address type.
+    /// </summary>
     [EnumType]
     public readonly struct ConnectorVpcInformationIpAddressType : IEquatable<ConnectorVpcInformationIpAddressType>
     {

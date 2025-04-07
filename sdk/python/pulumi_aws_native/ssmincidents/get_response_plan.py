@@ -72,7 +72,7 @@ class GetResponsePlanResult:
     @pulumi.getter(name="chatChannel")
     def chat_channel(self) -> Optional['outputs.ResponsePlanChatChannel']:
         """
-        The AWS Chatbot chat channel used for collaboration during an incident.
+        The  chat channel used for collaboration during an incident.
         """
         return pulumi.get(self, "chat_channel")
 

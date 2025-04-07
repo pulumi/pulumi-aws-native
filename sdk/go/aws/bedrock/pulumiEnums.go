@@ -5569,6 +5569,170 @@ func (in *dataSourceConfluenceSourceConfigurationHostTypePtr) ToDataSourceConflu
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceConfluenceSourceConfigurationHostTypePtrOutput)
 }
 
+// Enrichment type to be used for the vector database.
+type DataSourceContextEnrichmentType string
+
+const (
+	DataSourceContextEnrichmentTypeBedrockFoundationModel = DataSourceContextEnrichmentType("BEDROCK_FOUNDATION_MODEL")
+)
+
+func (DataSourceContextEnrichmentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceContextEnrichmentType)(nil)).Elem()
+}
+
+func (e DataSourceContextEnrichmentType) ToDataSourceContextEnrichmentTypeOutput() DataSourceContextEnrichmentTypeOutput {
+	return pulumi.ToOutput(e).(DataSourceContextEnrichmentTypeOutput)
+}
+
+func (e DataSourceContextEnrichmentType) ToDataSourceContextEnrichmentTypeOutputWithContext(ctx context.Context) DataSourceContextEnrichmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceContextEnrichmentTypeOutput)
+}
+
+func (e DataSourceContextEnrichmentType) ToDataSourceContextEnrichmentTypePtrOutput() DataSourceContextEnrichmentTypePtrOutput {
+	return e.ToDataSourceContextEnrichmentTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceContextEnrichmentType) ToDataSourceContextEnrichmentTypePtrOutputWithContext(ctx context.Context) DataSourceContextEnrichmentTypePtrOutput {
+	return DataSourceContextEnrichmentType(e).ToDataSourceContextEnrichmentTypeOutputWithContext(ctx).ToDataSourceContextEnrichmentTypePtrOutputWithContext(ctx)
+}
+
+func (e DataSourceContextEnrichmentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceContextEnrichmentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceContextEnrichmentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceContextEnrichmentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceContextEnrichmentTypeOutput struct{ *pulumi.OutputState }
+
+func (DataSourceContextEnrichmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceContextEnrichmentType)(nil)).Elem()
+}
+
+func (o DataSourceContextEnrichmentTypeOutput) ToDataSourceContextEnrichmentTypeOutput() DataSourceContextEnrichmentTypeOutput {
+	return o
+}
+
+func (o DataSourceContextEnrichmentTypeOutput) ToDataSourceContextEnrichmentTypeOutputWithContext(ctx context.Context) DataSourceContextEnrichmentTypeOutput {
+	return o
+}
+
+func (o DataSourceContextEnrichmentTypeOutput) ToDataSourceContextEnrichmentTypePtrOutput() DataSourceContextEnrichmentTypePtrOutput {
+	return o.ToDataSourceContextEnrichmentTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceContextEnrichmentTypeOutput) ToDataSourceContextEnrichmentTypePtrOutputWithContext(ctx context.Context) DataSourceContextEnrichmentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceContextEnrichmentType) *DataSourceContextEnrichmentType {
+		return &v
+	}).(DataSourceContextEnrichmentTypePtrOutput)
+}
+
+func (o DataSourceContextEnrichmentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceContextEnrichmentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceContextEnrichmentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceContextEnrichmentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceContextEnrichmentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceContextEnrichmentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceContextEnrichmentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceContextEnrichmentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceContextEnrichmentType)(nil)).Elem()
+}
+
+func (o DataSourceContextEnrichmentTypePtrOutput) ToDataSourceContextEnrichmentTypePtrOutput() DataSourceContextEnrichmentTypePtrOutput {
+	return o
+}
+
+func (o DataSourceContextEnrichmentTypePtrOutput) ToDataSourceContextEnrichmentTypePtrOutputWithContext(ctx context.Context) DataSourceContextEnrichmentTypePtrOutput {
+	return o
+}
+
+func (o DataSourceContextEnrichmentTypePtrOutput) Elem() DataSourceContextEnrichmentTypeOutput {
+	return o.ApplyT(func(v *DataSourceContextEnrichmentType) DataSourceContextEnrichmentType {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceContextEnrichmentType
+		return ret
+	}).(DataSourceContextEnrichmentTypeOutput)
+}
+
+func (o DataSourceContextEnrichmentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceContextEnrichmentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceContextEnrichmentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceContextEnrichmentTypeInput is an input type that accepts values of the DataSourceContextEnrichmentType enum
+// A concrete instance of `DataSourceContextEnrichmentTypeInput` can be one of the following:
+//
+//	DataSourceContextEnrichmentTypeBedrockFoundationModel
+type DataSourceContextEnrichmentTypeInput interface {
+	pulumi.Input
+
+	ToDataSourceContextEnrichmentTypeOutput() DataSourceContextEnrichmentTypeOutput
+	ToDataSourceContextEnrichmentTypeOutputWithContext(context.Context) DataSourceContextEnrichmentTypeOutput
+}
+
+var dataSourceContextEnrichmentTypePtrType = reflect.TypeOf((**DataSourceContextEnrichmentType)(nil)).Elem()
+
+type DataSourceContextEnrichmentTypePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceContextEnrichmentTypePtrOutput() DataSourceContextEnrichmentTypePtrOutput
+	ToDataSourceContextEnrichmentTypePtrOutputWithContext(context.Context) DataSourceContextEnrichmentTypePtrOutput
+}
+
+type dataSourceContextEnrichmentTypePtr string
+
+func DataSourceContextEnrichmentTypePtr(v string) DataSourceContextEnrichmentTypePtrInput {
+	return (*dataSourceContextEnrichmentTypePtr)(&v)
+}
+
+func (*dataSourceContextEnrichmentTypePtr) ElementType() reflect.Type {
+	return dataSourceContextEnrichmentTypePtrType
+}
+
+func (in *dataSourceContextEnrichmentTypePtr) ToDataSourceContextEnrichmentTypePtrOutput() DataSourceContextEnrichmentTypePtrOutput {
+	return pulumi.ToOutput(in).(DataSourceContextEnrichmentTypePtrOutput)
+}
+
+func (in *dataSourceContextEnrichmentTypePtr) ToDataSourceContextEnrichmentTypePtrOutputWithContext(ctx context.Context) DataSourceContextEnrichmentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceContextEnrichmentTypePtrOutput)
+}
+
 // The crawl filter type.
 type DataSourceCrawlFilterConfigurationType string
 
@@ -5897,6 +6061,170 @@ func (in *dataSourceDataDeletionPolicyPtr) ToDataSourceDataDeletionPolicyPtrOutp
 
 func (in *dataSourceDataDeletionPolicyPtr) ToDataSourceDataDeletionPolicyPtrOutputWithContext(ctx context.Context) DataSourceDataDeletionPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceDataDeletionPolicyPtrOutput)
+}
+
+// Enrichment Strategy method.
+type DataSourceEnrichmentStrategyMethod string
+
+const (
+	DataSourceEnrichmentStrategyMethodChunkEntityExtraction = DataSourceEnrichmentStrategyMethod("CHUNK_ENTITY_EXTRACTION")
+)
+
+func (DataSourceEnrichmentStrategyMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceEnrichmentStrategyMethod)(nil)).Elem()
+}
+
+func (e DataSourceEnrichmentStrategyMethod) ToDataSourceEnrichmentStrategyMethodOutput() DataSourceEnrichmentStrategyMethodOutput {
+	return pulumi.ToOutput(e).(DataSourceEnrichmentStrategyMethodOutput)
+}
+
+func (e DataSourceEnrichmentStrategyMethod) ToDataSourceEnrichmentStrategyMethodOutputWithContext(ctx context.Context) DataSourceEnrichmentStrategyMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceEnrichmentStrategyMethodOutput)
+}
+
+func (e DataSourceEnrichmentStrategyMethod) ToDataSourceEnrichmentStrategyMethodPtrOutput() DataSourceEnrichmentStrategyMethodPtrOutput {
+	return e.ToDataSourceEnrichmentStrategyMethodPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceEnrichmentStrategyMethod) ToDataSourceEnrichmentStrategyMethodPtrOutputWithContext(ctx context.Context) DataSourceEnrichmentStrategyMethodPtrOutput {
+	return DataSourceEnrichmentStrategyMethod(e).ToDataSourceEnrichmentStrategyMethodOutputWithContext(ctx).ToDataSourceEnrichmentStrategyMethodPtrOutputWithContext(ctx)
+}
+
+func (e DataSourceEnrichmentStrategyMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceEnrichmentStrategyMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceEnrichmentStrategyMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceEnrichmentStrategyMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceEnrichmentStrategyMethodOutput struct{ *pulumi.OutputState }
+
+func (DataSourceEnrichmentStrategyMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceEnrichmentStrategyMethod)(nil)).Elem()
+}
+
+func (o DataSourceEnrichmentStrategyMethodOutput) ToDataSourceEnrichmentStrategyMethodOutput() DataSourceEnrichmentStrategyMethodOutput {
+	return o
+}
+
+func (o DataSourceEnrichmentStrategyMethodOutput) ToDataSourceEnrichmentStrategyMethodOutputWithContext(ctx context.Context) DataSourceEnrichmentStrategyMethodOutput {
+	return o
+}
+
+func (o DataSourceEnrichmentStrategyMethodOutput) ToDataSourceEnrichmentStrategyMethodPtrOutput() DataSourceEnrichmentStrategyMethodPtrOutput {
+	return o.ToDataSourceEnrichmentStrategyMethodPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceEnrichmentStrategyMethodOutput) ToDataSourceEnrichmentStrategyMethodPtrOutputWithContext(ctx context.Context) DataSourceEnrichmentStrategyMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceEnrichmentStrategyMethod) *DataSourceEnrichmentStrategyMethod {
+		return &v
+	}).(DataSourceEnrichmentStrategyMethodPtrOutput)
+}
+
+func (o DataSourceEnrichmentStrategyMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceEnrichmentStrategyMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceEnrichmentStrategyMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceEnrichmentStrategyMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceEnrichmentStrategyMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceEnrichmentStrategyMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceEnrichmentStrategyMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceEnrichmentStrategyMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceEnrichmentStrategyMethod)(nil)).Elem()
+}
+
+func (o DataSourceEnrichmentStrategyMethodPtrOutput) ToDataSourceEnrichmentStrategyMethodPtrOutput() DataSourceEnrichmentStrategyMethodPtrOutput {
+	return o
+}
+
+func (o DataSourceEnrichmentStrategyMethodPtrOutput) ToDataSourceEnrichmentStrategyMethodPtrOutputWithContext(ctx context.Context) DataSourceEnrichmentStrategyMethodPtrOutput {
+	return o
+}
+
+func (o DataSourceEnrichmentStrategyMethodPtrOutput) Elem() DataSourceEnrichmentStrategyMethodOutput {
+	return o.ApplyT(func(v *DataSourceEnrichmentStrategyMethod) DataSourceEnrichmentStrategyMethod {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceEnrichmentStrategyMethod
+		return ret
+	}).(DataSourceEnrichmentStrategyMethodOutput)
+}
+
+func (o DataSourceEnrichmentStrategyMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceEnrichmentStrategyMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceEnrichmentStrategyMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceEnrichmentStrategyMethodInput is an input type that accepts values of the DataSourceEnrichmentStrategyMethod enum
+// A concrete instance of `DataSourceEnrichmentStrategyMethodInput` can be one of the following:
+//
+//	DataSourceEnrichmentStrategyMethodChunkEntityExtraction
+type DataSourceEnrichmentStrategyMethodInput interface {
+	pulumi.Input
+
+	ToDataSourceEnrichmentStrategyMethodOutput() DataSourceEnrichmentStrategyMethodOutput
+	ToDataSourceEnrichmentStrategyMethodOutputWithContext(context.Context) DataSourceEnrichmentStrategyMethodOutput
+}
+
+var dataSourceEnrichmentStrategyMethodPtrType = reflect.TypeOf((**DataSourceEnrichmentStrategyMethod)(nil)).Elem()
+
+type DataSourceEnrichmentStrategyMethodPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceEnrichmentStrategyMethodPtrOutput() DataSourceEnrichmentStrategyMethodPtrOutput
+	ToDataSourceEnrichmentStrategyMethodPtrOutputWithContext(context.Context) DataSourceEnrichmentStrategyMethodPtrOutput
+}
+
+type dataSourceEnrichmentStrategyMethodPtr string
+
+func DataSourceEnrichmentStrategyMethodPtr(v string) DataSourceEnrichmentStrategyMethodPtrInput {
+	return (*dataSourceEnrichmentStrategyMethodPtr)(&v)
+}
+
+func (*dataSourceEnrichmentStrategyMethodPtr) ElementType() reflect.Type {
+	return dataSourceEnrichmentStrategyMethodPtrType
+}
+
+func (in *dataSourceEnrichmentStrategyMethodPtr) ToDataSourceEnrichmentStrategyMethodPtrOutput() DataSourceEnrichmentStrategyMethodPtrOutput {
+	return pulumi.ToOutput(in).(DataSourceEnrichmentStrategyMethodPtrOutput)
+}
+
+func (in *dataSourceEnrichmentStrategyMethodPtr) ToDataSourceEnrichmentStrategyMethodPtrOutputWithContext(ctx context.Context) DataSourceEnrichmentStrategyMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceEnrichmentStrategyMethodPtrOutput)
 }
 
 // Determine how will parsed content be stored.
@@ -6397,7 +6725,8 @@ func (in *dataSourceSalesforceSourceConfigurationAuthTypePtr) ToDataSourceSalesf
 type DataSourceSharePointSourceConfigurationAuthType string
 
 const (
-	DataSourceSharePointSourceConfigurationAuthTypeOauth2ClientCredentials = DataSourceSharePointSourceConfigurationAuthType("OAUTH2_CLIENT_CREDENTIALS")
+	DataSourceSharePointSourceConfigurationAuthTypeOauth2ClientCredentials                  = DataSourceSharePointSourceConfigurationAuthType("OAUTH2_CLIENT_CREDENTIALS")
+	DataSourceSharePointSourceConfigurationAuthTypeOauth2SharepointAppOnlyClientCredentials = DataSourceSharePointSourceConfigurationAuthType("OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS")
 )
 
 func (DataSourceSharePointSourceConfigurationAuthType) ElementType() reflect.Type {
@@ -6523,6 +6852,7 @@ func (o DataSourceSharePointSourceConfigurationAuthTypePtrOutput) ToStringPtrOut
 // A concrete instance of `DataSourceSharePointSourceConfigurationAuthTypeInput` can be one of the following:
 //
 //	DataSourceSharePointSourceConfigurationAuthTypeOauth2ClientCredentials
+//	DataSourceSharePointSourceConfigurationAuthTypeOauth2SharepointAppOnlyClientCredentials
 type DataSourceSharePointSourceConfigurationAuthTypeInput interface {
 	pulumi.Input
 
@@ -9243,6 +9573,217 @@ func (in *guardrailManagedWordsTypePtr) ToGuardrailManagedWordsTypePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(GuardrailManagedWordsTypePtrOutput)
 }
 
+// Modality for filters
+type GuardrailModality string
+
+const (
+	GuardrailModalityText  = GuardrailModality("TEXT")
+	GuardrailModalityImage = GuardrailModality("IMAGE")
+)
+
+func (GuardrailModality) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailModality)(nil)).Elem()
+}
+
+func (e GuardrailModality) ToGuardrailModalityOutput() GuardrailModalityOutput {
+	return pulumi.ToOutput(e).(GuardrailModalityOutput)
+}
+
+func (e GuardrailModality) ToGuardrailModalityOutputWithContext(ctx context.Context) GuardrailModalityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GuardrailModalityOutput)
+}
+
+func (e GuardrailModality) ToGuardrailModalityPtrOutput() GuardrailModalityPtrOutput {
+	return e.ToGuardrailModalityPtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailModality) ToGuardrailModalityPtrOutputWithContext(ctx context.Context) GuardrailModalityPtrOutput {
+	return GuardrailModality(e).ToGuardrailModalityOutputWithContext(ctx).ToGuardrailModalityPtrOutputWithContext(ctx)
+}
+
+func (e GuardrailModality) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailModality) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailModality) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailModality) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GuardrailModalityOutput struct{ *pulumi.OutputState }
+
+func (GuardrailModalityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailModality)(nil)).Elem()
+}
+
+func (o GuardrailModalityOutput) ToGuardrailModalityOutput() GuardrailModalityOutput {
+	return o
+}
+
+func (o GuardrailModalityOutput) ToGuardrailModalityOutputWithContext(ctx context.Context) GuardrailModalityOutput {
+	return o
+}
+
+func (o GuardrailModalityOutput) ToGuardrailModalityPtrOutput() GuardrailModalityPtrOutput {
+	return o.ToGuardrailModalityPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailModalityOutput) ToGuardrailModalityPtrOutputWithContext(ctx context.Context) GuardrailModalityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailModality) *GuardrailModality {
+		return &v
+	}).(GuardrailModalityPtrOutput)
+}
+
+func (o GuardrailModalityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GuardrailModalityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailModality) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GuardrailModalityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailModalityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailModality) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GuardrailModalityPtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailModalityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailModality)(nil)).Elem()
+}
+
+func (o GuardrailModalityPtrOutput) ToGuardrailModalityPtrOutput() GuardrailModalityPtrOutput {
+	return o
+}
+
+func (o GuardrailModalityPtrOutput) ToGuardrailModalityPtrOutputWithContext(ctx context.Context) GuardrailModalityPtrOutput {
+	return o
+}
+
+func (o GuardrailModalityPtrOutput) Elem() GuardrailModalityOutput {
+	return o.ApplyT(func(v *GuardrailModality) GuardrailModality {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailModality
+		return ret
+	}).(GuardrailModalityOutput)
+}
+
+func (o GuardrailModalityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailModalityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GuardrailModality) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GuardrailModalityInput is an input type that accepts values of the GuardrailModality enum
+// A concrete instance of `GuardrailModalityInput` can be one of the following:
+//
+//	GuardrailModalityText
+//	GuardrailModalityImage
+type GuardrailModalityInput interface {
+	pulumi.Input
+
+	ToGuardrailModalityOutput() GuardrailModalityOutput
+	ToGuardrailModalityOutputWithContext(context.Context) GuardrailModalityOutput
+}
+
+var guardrailModalityPtrType = reflect.TypeOf((**GuardrailModality)(nil)).Elem()
+
+type GuardrailModalityPtrInput interface {
+	pulumi.Input
+
+	ToGuardrailModalityPtrOutput() GuardrailModalityPtrOutput
+	ToGuardrailModalityPtrOutputWithContext(context.Context) GuardrailModalityPtrOutput
+}
+
+type guardrailModalityPtr string
+
+func GuardrailModalityPtr(v string) GuardrailModalityPtrInput {
+	return (*guardrailModalityPtr)(&v)
+}
+
+func (*guardrailModalityPtr) ElementType() reflect.Type {
+	return guardrailModalityPtrType
+}
+
+func (in *guardrailModalityPtr) ToGuardrailModalityPtrOutput() GuardrailModalityPtrOutput {
+	return pulumi.ToOutput(in).(GuardrailModalityPtrOutput)
+}
+
+func (in *guardrailModalityPtr) ToGuardrailModalityPtrOutputWithContext(ctx context.Context) GuardrailModalityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GuardrailModalityPtrOutput)
+}
+
+// GuardrailModalityArrayInput is an input type that accepts GuardrailModalityArray and GuardrailModalityArrayOutput values.
+// You can construct a concrete instance of `GuardrailModalityArrayInput` via:
+//
+//	GuardrailModalityArray{ GuardrailModalityArgs{...} }
+type GuardrailModalityArrayInput interface {
+	pulumi.Input
+
+	ToGuardrailModalityArrayOutput() GuardrailModalityArrayOutput
+	ToGuardrailModalityArrayOutputWithContext(context.Context) GuardrailModalityArrayOutput
+}
+
+type GuardrailModalityArray []GuardrailModality
+
+func (GuardrailModalityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailModality)(nil)).Elem()
+}
+
+func (i GuardrailModalityArray) ToGuardrailModalityArrayOutput() GuardrailModalityArrayOutput {
+	return i.ToGuardrailModalityArrayOutputWithContext(context.Background())
+}
+
+func (i GuardrailModalityArray) ToGuardrailModalityArrayOutputWithContext(ctx context.Context) GuardrailModalityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailModalityArrayOutput)
+}
+
+type GuardrailModalityArrayOutput struct{ *pulumi.OutputState }
+
+func (GuardrailModalityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailModality)(nil)).Elem()
+}
+
+func (o GuardrailModalityArrayOutput) ToGuardrailModalityArrayOutput() GuardrailModalityArrayOutput {
+	return o
+}
+
+func (o GuardrailModalityArrayOutput) ToGuardrailModalityArrayOutputWithContext(ctx context.Context) GuardrailModalityArrayOutput {
+	return o
+}
+
+func (o GuardrailModalityArrayOutput) Index(i pulumi.IntInput) GuardrailModalityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GuardrailModality {
+		return vs[0].([]GuardrailModality)[vs[1].(int)]
+	}).(GuardrailModalityOutput)
+}
+
 // The currently supported PII entities
 type GuardrailPiiEntityType string
 
@@ -11157,6 +11698,7 @@ const (
 	KnowledgeBaseStorageTypePinecone             = KnowledgeBaseStorageType("PINECONE")
 	KnowledgeBaseStorageTypeRds                  = KnowledgeBaseStorageType("RDS")
 	KnowledgeBaseStorageTypeMongoDbAtlas         = KnowledgeBaseStorageType("MONGO_DB_ATLAS")
+	KnowledgeBaseStorageTypeNeptuneAnalytics     = KnowledgeBaseStorageType("NEPTUNE_ANALYTICS")
 )
 
 func (KnowledgeBaseStorageType) ElementType() reflect.Type {
@@ -11285,6 +11827,7 @@ func (o KnowledgeBaseStorageTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 //	KnowledgeBaseStorageTypePinecone
 //	KnowledgeBaseStorageTypeRds
 //	KnowledgeBaseStorageTypeMongoDbAtlas
+//	KnowledgeBaseStorageTypeNeptuneAnalytics
 type KnowledgeBaseStorageTypeInput interface {
 	pulumi.Input
 
@@ -12483,10 +13026,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceSourceConfigurationAuthTypePtrInput)(nil)).Elem(), DataSourceConfluenceSourceConfigurationAuthType("BASIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceSourceConfigurationHostTypeInput)(nil)).Elem(), DataSourceConfluenceSourceConfigurationHostType("SAAS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfluenceSourceConfigurationHostTypePtrInput)(nil)).Elem(), DataSourceConfluenceSourceConfigurationHostType("SAAS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceContextEnrichmentTypeInput)(nil)).Elem(), DataSourceContextEnrichmentType("BEDROCK_FOUNDATION_MODEL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceContextEnrichmentTypePtrInput)(nil)).Elem(), DataSourceContextEnrichmentType("BEDROCK_FOUNDATION_MODEL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCrawlFilterConfigurationTypeInput)(nil)).Elem(), DataSourceCrawlFilterConfigurationType("PATTERN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCrawlFilterConfigurationTypePtrInput)(nil)).Elem(), DataSourceCrawlFilterConfigurationType("PATTERN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDataDeletionPolicyInput)(nil)).Elem(), DataSourceDataDeletionPolicy("RETAIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDataDeletionPolicyPtrInput)(nil)).Elem(), DataSourceDataDeletionPolicy("RETAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnrichmentStrategyMethodInput)(nil)).Elem(), DataSourceEnrichmentStrategyMethod("CHUNK_ENTITY_EXTRACTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnrichmentStrategyMethodPtrInput)(nil)).Elem(), DataSourceEnrichmentStrategyMethod("CHUNK_ENTITY_EXTRACTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingModalityInput)(nil)).Elem(), DataSourceParsingModality("MULTIMODAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingModalityPtrInput)(nil)).Elem(), DataSourceParsingModality("MULTIMODAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingStrategyInput)(nil)).Elem(), DataSourceParsingStrategy("BEDROCK_FOUNDATION_MODEL"))
@@ -12519,6 +13066,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailFilterStrengthPtrInput)(nil)).Elem(), GuardrailFilterStrength("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailManagedWordsTypeInput)(nil)).Elem(), GuardrailManagedWordsType("PROFANITY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailManagedWordsTypePtrInput)(nil)).Elem(), GuardrailManagedWordsType("PROFANITY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailModalityInput)(nil)).Elem(), GuardrailModality("TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailModalityPtrInput)(nil)).Elem(), GuardrailModality("TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailModalityArrayInput)(nil)).Elem(), GuardrailModalityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailPiiEntityTypeInput)(nil)).Elem(), GuardrailPiiEntityType("ADDRESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailPiiEntityTypePtrInput)(nil)).Elem(), GuardrailPiiEntityType("ADDRESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailSensitiveInformationActionInput)(nil)).Elem(), GuardrailSensitiveInformationAction("BLOCK"))
@@ -12628,10 +13178,14 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceConfluenceSourceConfigurationAuthTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceSourceConfigurationHostTypeOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceSourceConfigurationHostTypePtrOutput{})
+	pulumi.RegisterOutputType(DataSourceContextEnrichmentTypeOutput{})
+	pulumi.RegisterOutputType(DataSourceContextEnrichmentTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceCrawlFilterConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(DataSourceCrawlFilterConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDataDeletionPolicyOutput{})
 	pulumi.RegisterOutputType(DataSourceDataDeletionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceEnrichmentStrategyMethodOutput{})
+	pulumi.RegisterOutputType(DataSourceEnrichmentStrategyMethodPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceParsingModalityOutput{})
 	pulumi.RegisterOutputType(DataSourceParsingModalityPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceParsingStrategyOutput{})
@@ -12678,6 +13232,9 @@ func init() {
 	pulumi.RegisterOutputType(GuardrailFilterStrengthPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailManagedWordsTypeOutput{})
 	pulumi.RegisterOutputType(GuardrailManagedWordsTypePtrOutput{})
+	pulumi.RegisterOutputType(GuardrailModalityOutput{})
+	pulumi.RegisterOutputType(GuardrailModalityPtrOutput{})
+	pulumi.RegisterOutputType(GuardrailModalityArrayOutput{})
 	pulumi.RegisterOutputType(GuardrailPiiEntityTypeOutput{})
 	pulumi.RegisterOutputType(GuardrailPiiEntityTypePtrOutput{})
 	pulumi.RegisterOutputType(GuardrailSensitiveInformationActionOutput{})

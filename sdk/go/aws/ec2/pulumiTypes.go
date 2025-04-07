@@ -13,6 +13,57 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type CapacityReservationCapacityAllocation struct {
+	// The usage type. `used` indicates that the instance capacity is in use by instances that are running in the Capacity Reservation.
+	AllocationType *string `pulumi:"allocationType"`
+	// The amount of instance capacity associated with the usage. For example a value of `4` indicates that instance capacity for 4 instances is currently in use.
+	Count *int `pulumi:"count"`
+}
+
+type CapacityReservationCapacityAllocationOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationCapacityAllocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationCapacityAllocation)(nil)).Elem()
+}
+
+func (o CapacityReservationCapacityAllocationOutput) ToCapacityReservationCapacityAllocationOutput() CapacityReservationCapacityAllocationOutput {
+	return o
+}
+
+func (o CapacityReservationCapacityAllocationOutput) ToCapacityReservationCapacityAllocationOutputWithContext(ctx context.Context) CapacityReservationCapacityAllocationOutput {
+	return o
+}
+
+// The usage type. `used` indicates that the instance capacity is in use by instances that are running in the Capacity Reservation.
+func (o CapacityReservationCapacityAllocationOutput) AllocationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityReservationCapacityAllocation) *string { return v.AllocationType }).(pulumi.StringPtrOutput)
+}
+
+// The amount of instance capacity associated with the usage. For example a value of `4` indicates that instance capacity for 4 instances is currently in use.
+func (o CapacityReservationCapacityAllocationOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityReservationCapacityAllocation) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+type CapacityReservationCapacityAllocationArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationCapacityAllocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityReservationCapacityAllocation)(nil)).Elem()
+}
+
+func (o CapacityReservationCapacityAllocationArrayOutput) ToCapacityReservationCapacityAllocationArrayOutput() CapacityReservationCapacityAllocationArrayOutput {
+	return o
+}
+
+func (o CapacityReservationCapacityAllocationArrayOutput) ToCapacityReservationCapacityAllocationArrayOutputWithContext(ctx context.Context) CapacityReservationCapacityAllocationArrayOutput {
+	return o
+}
+
+func (o CapacityReservationCapacityAllocationArrayOutput) Index(i pulumi.IntInput) CapacityReservationCapacityAllocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityReservationCapacityAllocation {
+		return vs[0].([]CapacityReservationCapacityAllocation)[vs[1].(int)]
+	}).(CapacityReservationCapacityAllocationOutput)
+}
+
 type CapacityReservationFleetInstanceTypeSpecification struct {
 	// The Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you specify for the Fleet must use the same Availability Zone.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
@@ -603,6 +654,81 @@ func (o CapacityReservationTagSpecificationArrayOutput) Index(i pulumi.IntInput)
 type CarrierGatewayTag struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
+}
+
+type CommitmentInfoProperties struct {
+	// The date and time at which the commitment duration expires, in the ISO8601 format in the UTC time zone ( `YYYY-MM-DDThh:mm:ss.sssZ` ). You can't decrease the instance count or cancel the Capacity Reservation before this date and time.
+	CommitmentEndDate *string `pulumi:"commitmentEndDate"`
+	// The instance capacity that you committed to when you requested the future-dated Capacity Reservation.
+	CommittedInstanceCount *int `pulumi:"committedInstanceCount"`
+}
+
+type CommitmentInfoPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CommitmentInfoPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentInfoProperties)(nil)).Elem()
+}
+
+func (o CommitmentInfoPropertiesOutput) ToCommitmentInfoPropertiesOutput() CommitmentInfoPropertiesOutput {
+	return o
+}
+
+func (o CommitmentInfoPropertiesOutput) ToCommitmentInfoPropertiesOutputWithContext(ctx context.Context) CommitmentInfoPropertiesOutput {
+	return o
+}
+
+// The date and time at which the commitment duration expires, in the ISO8601 format in the UTC time zone ( `YYYY-MM-DDThh:mm:ss.sssZ` ). You can't decrease the instance count or cancel the Capacity Reservation before this date and time.
+func (o CommitmentInfoPropertiesOutput) CommitmentEndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommitmentInfoProperties) *string { return v.CommitmentEndDate }).(pulumi.StringPtrOutput)
+}
+
+// The instance capacity that you committed to when you requested the future-dated Capacity Reservation.
+func (o CommitmentInfoPropertiesOutput) CommittedInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CommitmentInfoProperties) *int { return v.CommittedInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+type CommitmentInfoPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CommitmentInfoPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommitmentInfoProperties)(nil)).Elem()
+}
+
+func (o CommitmentInfoPropertiesPtrOutput) ToCommitmentInfoPropertiesPtrOutput() CommitmentInfoPropertiesPtrOutput {
+	return o
+}
+
+func (o CommitmentInfoPropertiesPtrOutput) ToCommitmentInfoPropertiesPtrOutputWithContext(ctx context.Context) CommitmentInfoPropertiesPtrOutput {
+	return o
+}
+
+func (o CommitmentInfoPropertiesPtrOutput) Elem() CommitmentInfoPropertiesOutput {
+	return o.ApplyT(func(v *CommitmentInfoProperties) CommitmentInfoProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CommitmentInfoProperties
+		return ret
+	}).(CommitmentInfoPropertiesOutput)
+}
+
+// The date and time at which the commitment duration expires, in the ISO8601 format in the UTC time zone ( `YYYY-MM-DDThh:mm:ss.sssZ` ). You can't decrease the instance count or cancel the Capacity Reservation before this date and time.
+func (o CommitmentInfoPropertiesPtrOutput) CommitmentEndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommitmentInfoProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CommitmentEndDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The instance capacity that you committed to when you requested the future-dated Capacity Reservation.
+func (o CommitmentInfoPropertiesPtrOutput) CommittedInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CommitmentInfoProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CommittedInstanceCount
+	}).(pulumi.IntPtrOutput)
 }
 
 // The CPU options for the instance.
@@ -2807,7 +2933,6 @@ type Ec2FleetInstanceRequirementsRequest struct {
 	//
 	// - For instance types with FPGA accelerators, specify `fpga` .
 	// - For instance types with GPU accelerators, specify `gpu` .
-	// - For instance types with Inference accelerators, specify `inference` .
 	//
 	// Default: Any accelerator type
 	AcceleratorTypes []Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem `pulumi:"acceleratorTypes"`
@@ -3000,7 +3125,6 @@ type Ec2FleetInstanceRequirementsRequestArgs struct {
 	//
 	// - For instance types with FPGA accelerators, specify `fpga` .
 	// - For instance types with GPU accelerators, specify `gpu` .
-	// - For instance types with Inference accelerators, specify `inference` .
 	//
 	// Default: Any accelerator type
 	AcceleratorTypes Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput `pulumi:"acceleratorTypes"`
@@ -3278,7 +3402,6 @@ func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorTotalMemoryMiB() E
 //
 // - For instance types with FPGA accelerators, specify `fpga` .
 // - For instance types with GPU accelerators, specify `gpu` .
-// - For instance types with Inference accelerators, specify `inference` .
 //
 // Default: Any accelerator type
 func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorTypes() Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
@@ -3604,7 +3727,6 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorTotalMemoryMiB(
 //
 // - For instance types with FPGA accelerators, specify `fpga` .
 // - For instance types with GPU accelerators, specify `gpu` .
-// - For instance types with Inference accelerators, specify `inference` .
 //
 // Default: Any accelerator type
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorTypes() Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
@@ -7530,6 +7652,305 @@ func (o InstanceElasticInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput)
 	}).(InstanceElasticInferenceAcceleratorOutput)
 }
 
+// Specifies the ENA Express settings for the network interface that's attached to the instance.
+type InstanceEnaSrdSpecification struct {
+	// Specifies whether ENA Express is enabled for the network interface when you launch an instance.
+	EnaSrdEnabled *bool `pulumi:"enaSrdEnabled"`
+	// Configures ENA Express for UDP network traffic.
+	EnaSrdUdpSpecification *InstanceEnaSrdUdpSpecification `pulumi:"enaSrdUdpSpecification"`
+}
+
+// InstanceEnaSrdSpecificationInput is an input type that accepts InstanceEnaSrdSpecificationArgs and InstanceEnaSrdSpecificationOutput values.
+// You can construct a concrete instance of `InstanceEnaSrdSpecificationInput` via:
+//
+//	InstanceEnaSrdSpecificationArgs{...}
+type InstanceEnaSrdSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceEnaSrdSpecificationOutput() InstanceEnaSrdSpecificationOutput
+	ToInstanceEnaSrdSpecificationOutputWithContext(context.Context) InstanceEnaSrdSpecificationOutput
+}
+
+// Specifies the ENA Express settings for the network interface that's attached to the instance.
+type InstanceEnaSrdSpecificationArgs struct {
+	// Specifies whether ENA Express is enabled for the network interface when you launch an instance.
+	EnaSrdEnabled pulumi.BoolPtrInput `pulumi:"enaSrdEnabled"`
+	// Configures ENA Express for UDP network traffic.
+	EnaSrdUdpSpecification InstanceEnaSrdUdpSpecificationPtrInput `pulumi:"enaSrdUdpSpecification"`
+}
+
+func (InstanceEnaSrdSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEnaSrdSpecification)(nil)).Elem()
+}
+
+func (i InstanceEnaSrdSpecificationArgs) ToInstanceEnaSrdSpecificationOutput() InstanceEnaSrdSpecificationOutput {
+	return i.ToInstanceEnaSrdSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceEnaSrdSpecificationArgs) ToInstanceEnaSrdSpecificationOutputWithContext(ctx context.Context) InstanceEnaSrdSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnaSrdSpecificationOutput)
+}
+
+func (i InstanceEnaSrdSpecificationArgs) ToInstanceEnaSrdSpecificationPtrOutput() InstanceEnaSrdSpecificationPtrOutput {
+	return i.ToInstanceEnaSrdSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceEnaSrdSpecificationArgs) ToInstanceEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) InstanceEnaSrdSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnaSrdSpecificationOutput).ToInstanceEnaSrdSpecificationPtrOutputWithContext(ctx)
+}
+
+// InstanceEnaSrdSpecificationPtrInput is an input type that accepts InstanceEnaSrdSpecificationArgs, InstanceEnaSrdSpecificationPtr and InstanceEnaSrdSpecificationPtrOutput values.
+// You can construct a concrete instance of `InstanceEnaSrdSpecificationPtrInput` via:
+//
+//	        InstanceEnaSrdSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceEnaSrdSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToInstanceEnaSrdSpecificationPtrOutput() InstanceEnaSrdSpecificationPtrOutput
+	ToInstanceEnaSrdSpecificationPtrOutputWithContext(context.Context) InstanceEnaSrdSpecificationPtrOutput
+}
+
+type instanceEnaSrdSpecificationPtrType InstanceEnaSrdSpecificationArgs
+
+func InstanceEnaSrdSpecificationPtr(v *InstanceEnaSrdSpecificationArgs) InstanceEnaSrdSpecificationPtrInput {
+	return (*instanceEnaSrdSpecificationPtrType)(v)
+}
+
+func (*instanceEnaSrdSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEnaSrdSpecification)(nil)).Elem()
+}
+
+func (i *instanceEnaSrdSpecificationPtrType) ToInstanceEnaSrdSpecificationPtrOutput() InstanceEnaSrdSpecificationPtrOutput {
+	return i.ToInstanceEnaSrdSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceEnaSrdSpecificationPtrType) ToInstanceEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) InstanceEnaSrdSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnaSrdSpecificationPtrOutput)
+}
+
+// Specifies the ENA Express settings for the network interface that's attached to the instance.
+type InstanceEnaSrdSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceEnaSrdSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEnaSrdSpecification)(nil)).Elem()
+}
+
+func (o InstanceEnaSrdSpecificationOutput) ToInstanceEnaSrdSpecificationOutput() InstanceEnaSrdSpecificationOutput {
+	return o
+}
+
+func (o InstanceEnaSrdSpecificationOutput) ToInstanceEnaSrdSpecificationOutputWithContext(ctx context.Context) InstanceEnaSrdSpecificationOutput {
+	return o
+}
+
+func (o InstanceEnaSrdSpecificationOutput) ToInstanceEnaSrdSpecificationPtrOutput() InstanceEnaSrdSpecificationPtrOutput {
+	return o.ToInstanceEnaSrdSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceEnaSrdSpecificationOutput) ToInstanceEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) InstanceEnaSrdSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceEnaSrdSpecification) *InstanceEnaSrdSpecification {
+		return &v
+	}).(InstanceEnaSrdSpecificationPtrOutput)
+}
+
+// Specifies whether ENA Express is enabled for the network interface when you launch an instance.
+func (o InstanceEnaSrdSpecificationOutput) EnaSrdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceEnaSrdSpecification) *bool { return v.EnaSrdEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Configures ENA Express for UDP network traffic.
+func (o InstanceEnaSrdSpecificationOutput) EnaSrdUdpSpecification() InstanceEnaSrdUdpSpecificationPtrOutput {
+	return o.ApplyT(func(v InstanceEnaSrdSpecification) *InstanceEnaSrdUdpSpecification { return v.EnaSrdUdpSpecification }).(InstanceEnaSrdUdpSpecificationPtrOutput)
+}
+
+type InstanceEnaSrdSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceEnaSrdSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEnaSrdSpecification)(nil)).Elem()
+}
+
+func (o InstanceEnaSrdSpecificationPtrOutput) ToInstanceEnaSrdSpecificationPtrOutput() InstanceEnaSrdSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceEnaSrdSpecificationPtrOutput) ToInstanceEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) InstanceEnaSrdSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceEnaSrdSpecificationPtrOutput) Elem() InstanceEnaSrdSpecificationOutput {
+	return o.ApplyT(func(v *InstanceEnaSrdSpecification) InstanceEnaSrdSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceEnaSrdSpecification
+		return ret
+	}).(InstanceEnaSrdSpecificationOutput)
+}
+
+// Specifies whether ENA Express is enabled for the network interface when you launch an instance.
+func (o InstanceEnaSrdSpecificationPtrOutput) EnaSrdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceEnaSrdSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnaSrdEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Configures ENA Express for UDP network traffic.
+func (o InstanceEnaSrdSpecificationPtrOutput) EnaSrdUdpSpecification() InstanceEnaSrdUdpSpecificationPtrOutput {
+	return o.ApplyT(func(v *InstanceEnaSrdSpecification) *InstanceEnaSrdUdpSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.EnaSrdUdpSpecification
+	}).(InstanceEnaSrdUdpSpecificationPtrOutput)
+}
+
+// Contains ENA Express settings for UDP network traffic for the network interface that's attached to the instance.
+type InstanceEnaSrdUdpSpecification struct {
+	// Indicates whether UDP traffic uses ENA Express for your instance.
+	EnaSrdUdpEnabled *bool `pulumi:"enaSrdUdpEnabled"`
+}
+
+// InstanceEnaSrdUdpSpecificationInput is an input type that accepts InstanceEnaSrdUdpSpecificationArgs and InstanceEnaSrdUdpSpecificationOutput values.
+// You can construct a concrete instance of `InstanceEnaSrdUdpSpecificationInput` via:
+//
+//	InstanceEnaSrdUdpSpecificationArgs{...}
+type InstanceEnaSrdUdpSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceEnaSrdUdpSpecificationOutput() InstanceEnaSrdUdpSpecificationOutput
+	ToInstanceEnaSrdUdpSpecificationOutputWithContext(context.Context) InstanceEnaSrdUdpSpecificationOutput
+}
+
+// Contains ENA Express settings for UDP network traffic for the network interface that's attached to the instance.
+type InstanceEnaSrdUdpSpecificationArgs struct {
+	// Indicates whether UDP traffic uses ENA Express for your instance.
+	EnaSrdUdpEnabled pulumi.BoolPtrInput `pulumi:"enaSrdUdpEnabled"`
+}
+
+func (InstanceEnaSrdUdpSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (i InstanceEnaSrdUdpSpecificationArgs) ToInstanceEnaSrdUdpSpecificationOutput() InstanceEnaSrdUdpSpecificationOutput {
+	return i.ToInstanceEnaSrdUdpSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceEnaSrdUdpSpecificationArgs) ToInstanceEnaSrdUdpSpecificationOutputWithContext(ctx context.Context) InstanceEnaSrdUdpSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnaSrdUdpSpecificationOutput)
+}
+
+func (i InstanceEnaSrdUdpSpecificationArgs) ToInstanceEnaSrdUdpSpecificationPtrOutput() InstanceEnaSrdUdpSpecificationPtrOutput {
+	return i.ToInstanceEnaSrdUdpSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceEnaSrdUdpSpecificationArgs) ToInstanceEnaSrdUdpSpecificationPtrOutputWithContext(ctx context.Context) InstanceEnaSrdUdpSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnaSrdUdpSpecificationOutput).ToInstanceEnaSrdUdpSpecificationPtrOutputWithContext(ctx)
+}
+
+// InstanceEnaSrdUdpSpecificationPtrInput is an input type that accepts InstanceEnaSrdUdpSpecificationArgs, InstanceEnaSrdUdpSpecificationPtr and InstanceEnaSrdUdpSpecificationPtrOutput values.
+// You can construct a concrete instance of `InstanceEnaSrdUdpSpecificationPtrInput` via:
+//
+//	        InstanceEnaSrdUdpSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceEnaSrdUdpSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToInstanceEnaSrdUdpSpecificationPtrOutput() InstanceEnaSrdUdpSpecificationPtrOutput
+	ToInstanceEnaSrdUdpSpecificationPtrOutputWithContext(context.Context) InstanceEnaSrdUdpSpecificationPtrOutput
+}
+
+type instanceEnaSrdUdpSpecificationPtrType InstanceEnaSrdUdpSpecificationArgs
+
+func InstanceEnaSrdUdpSpecificationPtr(v *InstanceEnaSrdUdpSpecificationArgs) InstanceEnaSrdUdpSpecificationPtrInput {
+	return (*instanceEnaSrdUdpSpecificationPtrType)(v)
+}
+
+func (*instanceEnaSrdUdpSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (i *instanceEnaSrdUdpSpecificationPtrType) ToInstanceEnaSrdUdpSpecificationPtrOutput() InstanceEnaSrdUdpSpecificationPtrOutput {
+	return i.ToInstanceEnaSrdUdpSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceEnaSrdUdpSpecificationPtrType) ToInstanceEnaSrdUdpSpecificationPtrOutputWithContext(ctx context.Context) InstanceEnaSrdUdpSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnaSrdUdpSpecificationPtrOutput)
+}
+
+// Contains ENA Express settings for UDP network traffic for the network interface that's attached to the instance.
+type InstanceEnaSrdUdpSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceEnaSrdUdpSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (o InstanceEnaSrdUdpSpecificationOutput) ToInstanceEnaSrdUdpSpecificationOutput() InstanceEnaSrdUdpSpecificationOutput {
+	return o
+}
+
+func (o InstanceEnaSrdUdpSpecificationOutput) ToInstanceEnaSrdUdpSpecificationOutputWithContext(ctx context.Context) InstanceEnaSrdUdpSpecificationOutput {
+	return o
+}
+
+func (o InstanceEnaSrdUdpSpecificationOutput) ToInstanceEnaSrdUdpSpecificationPtrOutput() InstanceEnaSrdUdpSpecificationPtrOutput {
+	return o.ToInstanceEnaSrdUdpSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceEnaSrdUdpSpecificationOutput) ToInstanceEnaSrdUdpSpecificationPtrOutputWithContext(ctx context.Context) InstanceEnaSrdUdpSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceEnaSrdUdpSpecification) *InstanceEnaSrdUdpSpecification {
+		return &v
+	}).(InstanceEnaSrdUdpSpecificationPtrOutput)
+}
+
+// Indicates whether UDP traffic uses ENA Express for your instance.
+func (o InstanceEnaSrdUdpSpecificationOutput) EnaSrdUdpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceEnaSrdUdpSpecification) *bool { return v.EnaSrdUdpEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type InstanceEnaSrdUdpSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceEnaSrdUdpSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (o InstanceEnaSrdUdpSpecificationPtrOutput) ToInstanceEnaSrdUdpSpecificationPtrOutput() InstanceEnaSrdUdpSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceEnaSrdUdpSpecificationPtrOutput) ToInstanceEnaSrdUdpSpecificationPtrOutputWithContext(ctx context.Context) InstanceEnaSrdUdpSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceEnaSrdUdpSpecificationPtrOutput) Elem() InstanceEnaSrdUdpSpecificationOutput {
+	return o.ApplyT(func(v *InstanceEnaSrdUdpSpecification) InstanceEnaSrdUdpSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceEnaSrdUdpSpecification
+		return ret
+	}).(InstanceEnaSrdUdpSpecificationOutput)
+}
+
+// Indicates whether UDP traffic uses ENA Express for your instance.
+func (o InstanceEnaSrdUdpSpecificationPtrOutput) EnaSrdUdpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceEnaSrdUdpSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnaSrdUdpEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type InstanceIpv6Address struct {
 	// The IPv6 address.
 	Ipv6Address string `pulumi:"ipv6Address"`
@@ -7910,6 +8331,8 @@ type InstanceNetworkInterface struct {
 	Description *string `pulumi:"description"`
 	// The position of the network interface in the attachment order. A primary network interface has a device index of 0.
 	DeviceIndex string `pulumi:"deviceIndex"`
+	// Configures ENA Express for UDP network traffic.
+	EnaSrdSpecification *InstanceEnaSrdSpecification `pulumi:"enaSrdSpecification"`
 	// The IDs of the security groups for the network interface.
 	GroupSet []string `pulumi:"groupSet"`
 	// A number of IPv6 addresses to assign to the network interface.
@@ -7950,6 +8373,8 @@ type InstanceNetworkInterfaceArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The position of the network interface in the attachment order. A primary network interface has a device index of 0.
 	DeviceIndex pulumi.StringInput `pulumi:"deviceIndex"`
+	// Configures ENA Express for UDP network traffic.
+	EnaSrdSpecification InstanceEnaSrdSpecificationPtrInput `pulumi:"enaSrdSpecification"`
 	// The IDs of the security groups for the network interface.
 	GroupSet pulumi.StringArrayInput `pulumi:"groupSet"`
 	// A number of IPv6 addresses to assign to the network interface.
@@ -8042,6 +8467,11 @@ func (o InstanceNetworkInterfaceOutput) Description() pulumi.StringPtrOutput {
 // The position of the network interface in the attachment order. A primary network interface has a device index of 0.
 func (o InstanceNetworkInterfaceOutput) DeviceIndex() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) string { return v.DeviceIndex }).(pulumi.StringOutput)
+}
+
+// Configures ENA Express for UDP network traffic.
+func (o InstanceNetworkInterfaceOutput) EnaSrdSpecification() InstanceEnaSrdSpecificationPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *InstanceEnaSrdSpecification { return v.EnaSrdSpecification }).(InstanceEnaSrdSpecificationPtrOutput)
 }
 
 // The IDs of the security groups for the network interface.
@@ -22511,6 +22941,96 @@ func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) HostnameType() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair to associate with a resource.
+type RouteServerEndpointTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// BGP Options
+type RouteServerPeerBgpOptions struct {
+	// BGP ASN of the Route Server Peer
+	PeerAsn *int `pulumi:"peerAsn"`
+	// BGP Liveness Detection
+	PeerLivenessDetection *RouteServerPeerBgpOptionsPeerLivenessDetection `pulumi:"peerLivenessDetection"`
+}
+
+// RouteServerPeerBgpOptionsInput is an input type that accepts RouteServerPeerBgpOptionsArgs and RouteServerPeerBgpOptionsOutput values.
+// You can construct a concrete instance of `RouteServerPeerBgpOptionsInput` via:
+//
+//	RouteServerPeerBgpOptionsArgs{...}
+type RouteServerPeerBgpOptionsInput interface {
+	pulumi.Input
+
+	ToRouteServerPeerBgpOptionsOutput() RouteServerPeerBgpOptionsOutput
+	ToRouteServerPeerBgpOptionsOutputWithContext(context.Context) RouteServerPeerBgpOptionsOutput
+}
+
+// BGP Options
+type RouteServerPeerBgpOptionsArgs struct {
+	// BGP ASN of the Route Server Peer
+	PeerAsn pulumi.IntPtrInput `pulumi:"peerAsn"`
+	// BGP Liveness Detection
+	PeerLivenessDetection RouteServerPeerBgpOptionsPeerLivenessDetectionPtrInput `pulumi:"peerLivenessDetection"`
+}
+
+func (RouteServerPeerBgpOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerPeerBgpOptions)(nil)).Elem()
+}
+
+func (i RouteServerPeerBgpOptionsArgs) ToRouteServerPeerBgpOptionsOutput() RouteServerPeerBgpOptionsOutput {
+	return i.ToRouteServerPeerBgpOptionsOutputWithContext(context.Background())
+}
+
+func (i RouteServerPeerBgpOptionsArgs) ToRouteServerPeerBgpOptionsOutputWithContext(ctx context.Context) RouteServerPeerBgpOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerPeerBgpOptionsOutput)
+}
+
+// BGP Options
+type RouteServerPeerBgpOptionsOutput struct{ *pulumi.OutputState }
+
+func (RouteServerPeerBgpOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerPeerBgpOptions)(nil)).Elem()
+}
+
+func (o RouteServerPeerBgpOptionsOutput) ToRouteServerPeerBgpOptionsOutput() RouteServerPeerBgpOptionsOutput {
+	return o
+}
+
+func (o RouteServerPeerBgpOptionsOutput) ToRouteServerPeerBgpOptionsOutputWithContext(ctx context.Context) RouteServerPeerBgpOptionsOutput {
+	return o
+}
+
+// BGP ASN of the Route Server Peer
+func (o RouteServerPeerBgpOptionsOutput) PeerAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteServerPeerBgpOptions) *int { return v.PeerAsn }).(pulumi.IntPtrOutput)
+}
+
+// BGP Liveness Detection
+func (o RouteServerPeerBgpOptionsOutput) PeerLivenessDetection() RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput {
+	return o.ApplyT(func(v RouteServerPeerBgpOptions) *RouteServerPeerBgpOptionsPeerLivenessDetection {
+		return v.PeerLivenessDetection
+	}).(RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RouteServerPeerTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// A key-value pair to associate with a resource.
+type RouteServerTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 // Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type RouteTableTag struct {
 	// The tag key.
@@ -25193,7 +25713,6 @@ type SpotFleetInstanceRequirementsRequest struct {
 	//
 	// - For instance types with FPGA accelerators, specify `fpga` .
 	// - For instance types with GPU accelerators, specify `gpu` .
-	// - For instance types with Inference accelerators, specify `inference` .
 	//
 	// Default: Any accelerator type
 	AcceleratorTypes []SpotFleetInstanceRequirementsRequestAcceleratorTypesItem `pulumi:"acceleratorTypes"`
@@ -25386,7 +25905,6 @@ type SpotFleetInstanceRequirementsRequestArgs struct {
 	//
 	// - For instance types with FPGA accelerators, specify `fpga` .
 	// - For instance types with GPU accelerators, specify `gpu` .
-	// - For instance types with Inference accelerators, specify `inference` .
 	//
 	// Default: Any accelerator type
 	AcceleratorTypes SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput `pulumi:"acceleratorTypes"`
@@ -25664,7 +26182,6 @@ func (o SpotFleetInstanceRequirementsRequestOutput) AcceleratorTotalMemoryMiB() 
 //
 // - For instance types with FPGA accelerators, specify `fpga` .
 // - For instance types with GPU accelerators, specify `gpu` .
-// - For instance types with Inference accelerators, specify `inference` .
 //
 // Default: Any accelerator type
 func (o SpotFleetInstanceRequirementsRequestOutput) AcceleratorTypes() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
@@ -25990,7 +26507,6 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorTotalMemoryMiB
 //
 // - For instance types with FPGA accelerators, specify `fpga` .
 // - For instance types with GPU accelerators, specify `gpu` .
-// - For instance types with Inference accelerators, specify `inference` .
 //
 // Default: Any accelerator type
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorTypes() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
@@ -35078,6 +35594,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceElasticGpuSpecificationArrayInput)(nil)).Elem(), InstanceElasticGpuSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceElasticInferenceAcceleratorInput)(nil)).Elem(), InstanceElasticInferenceAcceleratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceElasticInferenceAcceleratorArrayInput)(nil)).Elem(), InstanceElasticInferenceAcceleratorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEnaSrdSpecificationInput)(nil)).Elem(), InstanceEnaSrdSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEnaSrdSpecificationPtrInput)(nil)).Elem(), InstanceEnaSrdSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEnaSrdUdpSpecificationInput)(nil)).Elem(), InstanceEnaSrdUdpSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEnaSrdUdpSpecificationPtrInput)(nil)).Elem(), InstanceEnaSrdUdpSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceIpv6AddressInput)(nil)).Elem(), InstanceIpv6AddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceIpv6AddressArrayInput)(nil)).Elem(), InstanceIpv6AddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLaunchTemplateSpecificationInput)(nil)).Elem(), InstanceLaunchTemplateSpecificationArgs{})
@@ -35229,6 +35749,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListEntryArrayInput)(nil)).Elem(), PrefixListEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNameOptionsOnLaunchPropertiesInput)(nil)).Elem(), PrivateDnsNameOptionsOnLaunchPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNameOptionsOnLaunchPropertiesPtrInput)(nil)).Elem(), PrivateDnsNameOptionsOnLaunchPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerPeerBgpOptionsInput)(nil)).Elem(), RouteServerPeerBgpOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupEgressTypeInput)(nil)).Elem(), SecurityGroupEgressTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupEgressTypeArrayInput)(nil)).Elem(), SecurityGroupEgressTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressTypeInput)(nil)).Elem(), SecurityGroupIngressTypeArgs{})
@@ -35361,6 +35882,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelLogOptionsSpecificationPtrInput)(nil)).Elem(), VpnConnectionVpnTunnelLogOptionsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationArrayInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationArray{})
+	pulumi.RegisterOutputType(CapacityReservationCapacityAllocationOutput{})
+	pulumi.RegisterOutputType(CapacityReservationCapacityAllocationArrayOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetInstanceTypeSpecificationOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetInstanceTypeSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetTagOutput{})
@@ -35371,6 +35894,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityReservationTagArrayOutput{})
 	pulumi.RegisterOutputType(CapacityReservationTagSpecificationOutput{})
 	pulumi.RegisterOutputType(CapacityReservationTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(CommitmentInfoPropertiesOutput{})
+	pulumi.RegisterOutputType(CommitmentInfoPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CpuOptionsPropertiesOutput{})
 	pulumi.RegisterOutputType(CpuOptionsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CreditSpecificationPropertiesOutput{})
@@ -35441,6 +35966,10 @@ func init() {
 	pulumi.RegisterOutputType(InstanceElasticGpuSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(InstanceElasticInferenceAcceleratorOutput{})
 	pulumi.RegisterOutputType(InstanceElasticInferenceAcceleratorArrayOutput{})
+	pulumi.RegisterOutputType(InstanceEnaSrdSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceEnaSrdSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(InstanceEnaSrdUdpSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceEnaSrdUdpSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(InstanceIpv6AddressOutput{})
 	pulumi.RegisterOutputType(InstanceIpv6AddressArrayOutput{})
 	pulumi.RegisterOutputType(InstanceLaunchTemplateSpecificationOutput{})
@@ -35622,6 +36151,7 @@ func init() {
 	pulumi.RegisterOutputType(PrefixListEntryArrayOutput{})
 	pulumi.RegisterOutputType(PrivateDnsNameOptionsOnLaunchPropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouteServerPeerBgpOptionsOutput{})
 	pulumi.RegisterOutputType(SecurityGroupEgressTypeOutput{})
 	pulumi.RegisterOutputType(SecurityGroupEgressTypeArrayOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressTypeOutput{})

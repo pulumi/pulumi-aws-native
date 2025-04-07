@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Oam.Outputs
     public sealed class LinkConfiguration
     {
         /// <summary>
-        /// Use this structure to filter which log groups are to share log events from this source account to the monitoring account.
+        /// Use this structure to filter which log groups are to send log events from the source account to the monitoring account.
         /// </summary>
         public readonly Outputs.LinkFilter? LogGroupConfiguration;
         /// <summary>

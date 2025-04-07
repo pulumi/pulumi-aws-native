@@ -35,6 +35,8 @@ type LookupSubnetGroupResult struct {
 	Description *string `pulumi:"description"`
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds []string `pulumi:"subnetIds"`
+	// Supported network types would be a list of network types supported by subnet group and can be either [ipv4] or [ipv4, dual_stack] or [ipv6].
+	SupportedNetworkTypes []string `pulumi:"supportedNetworkTypes"`
 	// An array of key-value pairs to apply to this subnet group.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -84,6 +86,11 @@ func (o LookupSubnetGroupResultOutput) Description() pulumi.StringPtrOutput {
 // A list of VPC subnet IDs for the subnet group.
 func (o LookupSubnetGroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// Supported network types would be a list of network types supported by subnet group and can be either [ipv4] or [ipv4, dual_stack] or [ipv6].
+func (o LookupSubnetGroupResultOutput) SupportedNetworkTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) []string { return v.SupportedNetworkTypes }).(pulumi.StringArrayOutput)
 }
 
 // An array of key-value pairs to apply to this subnet group.

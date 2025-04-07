@@ -5,6 +5,8 @@
 from enum import Enum
 
 __all__ = [
+    'ConnectionAuthenticationType',
+    'ConnectionOAuth2GrantType',
     'DataSourceEnableSetting',
     'DataSourceFilterExpressionType',
     'DataSourceStatus',
@@ -19,6 +21,24 @@ __all__ = [
     'UserProfileType',
     'UserProfileUserType',
 ]
+
+
+class ConnectionAuthenticationType(str, Enum):
+    """
+    Authentication Type
+    """
+    BASIC = "BASIC"
+    OAUTH2 = "OAUTH2"
+    CUSTOM = "CUSTOM"
+
+
+class ConnectionOAuth2GrantType(str, Enum):
+    """
+    OAuth2 Grant Type
+    """
+    AUTHORIZATION_CODE = "AUTHORIZATION_CODE"
+    CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS"
+    JWT_BEARER = "JWT_BEARER"
 
 
 class DataSourceEnableSetting(str, Enum):

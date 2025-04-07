@@ -13,19 +13,19 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
     public sealed class DomainNodeConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of nodes of a particular node type in the cluster.
+        /// The number of nodes of a specific type within the cluster.
         /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }
 
         /// <summary>
-        /// A boolean that indicates whether a particular node type is enabled or not.
+        /// A boolean value indicating whether a specific node type is active or inactive.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The instance type of a particular node type in the cluster.
+        /// The instance type of a particular node within the cluster.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -2693,11 +2693,11 @@ func (o DomainMasterUserOptionsPtrOutput) MasterUserPassword() pulumi.StringPtrO
 }
 
 type DomainNodeConfig struct {
-	// The number of nodes of a particular node type in the cluster.
+	// The number of nodes of a specific type within the cluster.
 	Count *int `pulumi:"count"`
-	// A boolean that indicates whether a particular node type is enabled or not.
+	// A boolean value indicating whether a specific node type is active or inactive.
 	Enabled *bool `pulumi:"enabled"`
-	// The instance type of a particular node type in the cluster.
+	// The instance type of a particular node within the cluster.
 	Type *string `pulumi:"type"`
 }
 
@@ -2713,11 +2713,11 @@ type DomainNodeConfigInput interface {
 }
 
 type DomainNodeConfigArgs struct {
-	// The number of nodes of a particular node type in the cluster.
+	// The number of nodes of a specific type within the cluster.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// A boolean that indicates whether a particular node type is enabled or not.
+	// A boolean value indicating whether a specific node type is active or inactive.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The instance type of a particular node type in the cluster.
+	// The instance type of a particular node within the cluster.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -2798,17 +2798,17 @@ func (o DomainNodeConfigOutput) ToDomainNodeConfigPtrOutputWithContext(ctx conte
 	}).(DomainNodeConfigPtrOutput)
 }
 
-// The number of nodes of a particular node type in the cluster.
+// The number of nodes of a specific type within the cluster.
 func (o DomainNodeConfigOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainNodeConfig) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// A boolean that indicates whether a particular node type is enabled or not.
+// A boolean value indicating whether a specific node type is active or inactive.
 func (o DomainNodeConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainNodeConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The instance type of a particular node type in the cluster.
+// The instance type of a particular node within the cluster.
 func (o DomainNodeConfigOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNodeConfig) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2837,7 +2837,7 @@ func (o DomainNodeConfigPtrOutput) Elem() DomainNodeConfigOutput {
 	}).(DomainNodeConfigOutput)
 }
 
-// The number of nodes of a particular node type in the cluster.
+// The number of nodes of a specific type within the cluster.
 func (o DomainNodeConfigPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainNodeConfig) *int {
 		if v == nil {
@@ -2847,7 +2847,7 @@ func (o DomainNodeConfigPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// A boolean that indicates whether a particular node type is enabled or not.
+// A boolean value indicating whether a specific node type is active or inactive.
 func (o DomainNodeConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainNodeConfig) *bool {
 		if v == nil {
@@ -2857,7 +2857,7 @@ func (o DomainNodeConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The instance type of a particular node type in the cluster.
+// The instance type of a particular node within the cluster.
 func (o DomainNodeConfigPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNodeConfig) *string {
 		if v == nil {
@@ -2868,9 +2868,9 @@ func (o DomainNodeConfigPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type DomainNodeOption struct {
-	// Container for specifying configuration of any node type.
+	// Configuration options for defining the setup of any node type.
 	NodeConfig *DomainNodeConfig `pulumi:"nodeConfig"`
-	// Container for node type like coordinating.
+	// Defines the type of node, such as coordinating nodes.
 	NodeType *DomainNodeOptionNodeType `pulumi:"nodeType"`
 }
 
@@ -2886,9 +2886,9 @@ type DomainNodeOptionInput interface {
 }
 
 type DomainNodeOptionArgs struct {
-	// Container for specifying configuration of any node type.
+	// Configuration options for defining the setup of any node type.
 	NodeConfig DomainNodeConfigPtrInput `pulumi:"nodeConfig"`
-	// Container for node type like coordinating.
+	// Defines the type of node, such as coordinating nodes.
 	NodeType DomainNodeOptionNodeTypePtrInput `pulumi:"nodeType"`
 }
 
@@ -2943,12 +2943,12 @@ func (o DomainNodeOptionOutput) ToDomainNodeOptionOutputWithContext(ctx context.
 	return o
 }
 
-// Container for specifying configuration of any node type.
+// Configuration options for defining the setup of any node type.
 func (o DomainNodeOptionOutput) NodeConfig() DomainNodeConfigPtrOutput {
 	return o.ApplyT(func(v DomainNodeOption) *DomainNodeConfig { return v.NodeConfig }).(DomainNodeConfigPtrOutput)
 }
 
-// Container for node type like coordinating.
+// Defines the type of node, such as coordinating nodes.
 func (o DomainNodeOptionOutput) NodeType() DomainNodeOptionNodeTypePtrOutput {
 	return o.ApplyT(func(v DomainNodeOption) *DomainNodeOptionNodeType { return v.NodeType }).(DomainNodeOptionNodeTypePtrOutput)
 }

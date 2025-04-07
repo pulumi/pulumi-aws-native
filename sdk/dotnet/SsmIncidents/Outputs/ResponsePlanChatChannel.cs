@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.SsmIncidents.Outputs
     public sealed class ResponsePlanChatChannel
     {
         /// <summary>
-        /// The Amazon SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
+        /// The Amazon SNS targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
         /// </summary>
         public readonly ImmutableArray<string> ChatbotSns;
 

@@ -989,6 +989,173 @@ func (in *referenceStoreEncryptionTypePtr) ToReferenceStoreEncryptionTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(ReferenceStoreEncryptionTypePtrOutput)
 }
 
+type SequenceStoreETagAlgorithmFamily string
+
+const (
+	SequenceStoreETagAlgorithmFamilyMd5up    = SequenceStoreETagAlgorithmFamily("MD5up")
+	SequenceStoreETagAlgorithmFamilySha256up = SequenceStoreETagAlgorithmFamily("SHA256up")
+	SequenceStoreETagAlgorithmFamilySha512up = SequenceStoreETagAlgorithmFamily("SHA512up")
+)
+
+func (SequenceStoreETagAlgorithmFamily) ElementType() reflect.Type {
+	return reflect.TypeOf((*SequenceStoreETagAlgorithmFamily)(nil)).Elem()
+}
+
+func (e SequenceStoreETagAlgorithmFamily) ToSequenceStoreETagAlgorithmFamilyOutput() SequenceStoreETagAlgorithmFamilyOutput {
+	return pulumi.ToOutput(e).(SequenceStoreETagAlgorithmFamilyOutput)
+}
+
+func (e SequenceStoreETagAlgorithmFamily) ToSequenceStoreETagAlgorithmFamilyOutputWithContext(ctx context.Context) SequenceStoreETagAlgorithmFamilyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SequenceStoreETagAlgorithmFamilyOutput)
+}
+
+func (e SequenceStoreETagAlgorithmFamily) ToSequenceStoreETagAlgorithmFamilyPtrOutput() SequenceStoreETagAlgorithmFamilyPtrOutput {
+	return e.ToSequenceStoreETagAlgorithmFamilyPtrOutputWithContext(context.Background())
+}
+
+func (e SequenceStoreETagAlgorithmFamily) ToSequenceStoreETagAlgorithmFamilyPtrOutputWithContext(ctx context.Context) SequenceStoreETagAlgorithmFamilyPtrOutput {
+	return SequenceStoreETagAlgorithmFamily(e).ToSequenceStoreETagAlgorithmFamilyOutputWithContext(ctx).ToSequenceStoreETagAlgorithmFamilyPtrOutputWithContext(ctx)
+}
+
+func (e SequenceStoreETagAlgorithmFamily) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SequenceStoreETagAlgorithmFamily) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SequenceStoreETagAlgorithmFamily) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SequenceStoreETagAlgorithmFamily) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SequenceStoreETagAlgorithmFamilyOutput struct{ *pulumi.OutputState }
+
+func (SequenceStoreETagAlgorithmFamilyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SequenceStoreETagAlgorithmFamily)(nil)).Elem()
+}
+
+func (o SequenceStoreETagAlgorithmFamilyOutput) ToSequenceStoreETagAlgorithmFamilyOutput() SequenceStoreETagAlgorithmFamilyOutput {
+	return o
+}
+
+func (o SequenceStoreETagAlgorithmFamilyOutput) ToSequenceStoreETagAlgorithmFamilyOutputWithContext(ctx context.Context) SequenceStoreETagAlgorithmFamilyOutput {
+	return o
+}
+
+func (o SequenceStoreETagAlgorithmFamilyOutput) ToSequenceStoreETagAlgorithmFamilyPtrOutput() SequenceStoreETagAlgorithmFamilyPtrOutput {
+	return o.ToSequenceStoreETagAlgorithmFamilyPtrOutputWithContext(context.Background())
+}
+
+func (o SequenceStoreETagAlgorithmFamilyOutput) ToSequenceStoreETagAlgorithmFamilyPtrOutputWithContext(ctx context.Context) SequenceStoreETagAlgorithmFamilyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SequenceStoreETagAlgorithmFamily) *SequenceStoreETagAlgorithmFamily {
+		return &v
+	}).(SequenceStoreETagAlgorithmFamilyPtrOutput)
+}
+
+func (o SequenceStoreETagAlgorithmFamilyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SequenceStoreETagAlgorithmFamilyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SequenceStoreETagAlgorithmFamily) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SequenceStoreETagAlgorithmFamilyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SequenceStoreETagAlgorithmFamilyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SequenceStoreETagAlgorithmFamily) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SequenceStoreETagAlgorithmFamilyPtrOutput struct{ *pulumi.OutputState }
+
+func (SequenceStoreETagAlgorithmFamilyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SequenceStoreETagAlgorithmFamily)(nil)).Elem()
+}
+
+func (o SequenceStoreETagAlgorithmFamilyPtrOutput) ToSequenceStoreETagAlgorithmFamilyPtrOutput() SequenceStoreETagAlgorithmFamilyPtrOutput {
+	return o
+}
+
+func (o SequenceStoreETagAlgorithmFamilyPtrOutput) ToSequenceStoreETagAlgorithmFamilyPtrOutputWithContext(ctx context.Context) SequenceStoreETagAlgorithmFamilyPtrOutput {
+	return o
+}
+
+func (o SequenceStoreETagAlgorithmFamilyPtrOutput) Elem() SequenceStoreETagAlgorithmFamilyOutput {
+	return o.ApplyT(func(v *SequenceStoreETagAlgorithmFamily) SequenceStoreETagAlgorithmFamily {
+		if v != nil {
+			return *v
+		}
+		var ret SequenceStoreETagAlgorithmFamily
+		return ret
+	}).(SequenceStoreETagAlgorithmFamilyOutput)
+}
+
+func (o SequenceStoreETagAlgorithmFamilyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SequenceStoreETagAlgorithmFamilyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SequenceStoreETagAlgorithmFamily) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SequenceStoreETagAlgorithmFamilyInput is an input type that accepts values of the SequenceStoreETagAlgorithmFamily enum
+// A concrete instance of `SequenceStoreETagAlgorithmFamilyInput` can be one of the following:
+//
+//	SequenceStoreETagAlgorithmFamilyMd5up
+//	SequenceStoreETagAlgorithmFamilySha256up
+//	SequenceStoreETagAlgorithmFamilySha512up
+type SequenceStoreETagAlgorithmFamilyInput interface {
+	pulumi.Input
+
+	ToSequenceStoreETagAlgorithmFamilyOutput() SequenceStoreETagAlgorithmFamilyOutput
+	ToSequenceStoreETagAlgorithmFamilyOutputWithContext(context.Context) SequenceStoreETagAlgorithmFamilyOutput
+}
+
+var sequenceStoreETagAlgorithmFamilyPtrType = reflect.TypeOf((**SequenceStoreETagAlgorithmFamily)(nil)).Elem()
+
+type SequenceStoreETagAlgorithmFamilyPtrInput interface {
+	pulumi.Input
+
+	ToSequenceStoreETagAlgorithmFamilyPtrOutput() SequenceStoreETagAlgorithmFamilyPtrOutput
+	ToSequenceStoreETagAlgorithmFamilyPtrOutputWithContext(context.Context) SequenceStoreETagAlgorithmFamilyPtrOutput
+}
+
+type sequenceStoreETagAlgorithmFamilyPtr string
+
+func SequenceStoreETagAlgorithmFamilyPtr(v string) SequenceStoreETagAlgorithmFamilyPtrInput {
+	return (*sequenceStoreETagAlgorithmFamilyPtr)(&v)
+}
+
+func (*sequenceStoreETagAlgorithmFamilyPtr) ElementType() reflect.Type {
+	return sequenceStoreETagAlgorithmFamilyPtrType
+}
+
+func (in *sequenceStoreETagAlgorithmFamilyPtr) ToSequenceStoreETagAlgorithmFamilyPtrOutput() SequenceStoreETagAlgorithmFamilyPtrOutput {
+	return pulumi.ToOutput(in).(SequenceStoreETagAlgorithmFamilyPtrOutput)
+}
+
+func (in *sequenceStoreETagAlgorithmFamilyPtr) ToSequenceStoreETagAlgorithmFamilyPtrOutputWithContext(ctx context.Context) SequenceStoreETagAlgorithmFamilyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SequenceStoreETagAlgorithmFamilyPtrOutput)
+}
+
 type SequenceStoreEncryptionType string
 
 const (
@@ -1150,6 +1317,99 @@ func (in *sequenceStoreEncryptionTypePtr) ToSequenceStoreEncryptionTypePtrOutput
 
 func (in *sequenceStoreEncryptionTypePtr) ToSequenceStoreEncryptionTypePtrOutputWithContext(ctx context.Context) SequenceStoreEncryptionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SequenceStoreEncryptionTypePtrOutput)
+}
+
+type SequenceStoreStatus string
+
+const (
+	SequenceStoreStatusCreating = SequenceStoreStatus("CREATING")
+	SequenceStoreStatusActive   = SequenceStoreStatus("ACTIVE")
+	SequenceStoreStatusUpdating = SequenceStoreStatus("UPDATING")
+	SequenceStoreStatusDeleting = SequenceStoreStatus("DELETING")
+	SequenceStoreStatusFailed   = SequenceStoreStatus("FAILED")
+)
+
+type SequenceStoreStatusOutput struct{ *pulumi.OutputState }
+
+func (SequenceStoreStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SequenceStoreStatus)(nil)).Elem()
+}
+
+func (o SequenceStoreStatusOutput) ToSequenceStoreStatusOutput() SequenceStoreStatusOutput {
+	return o
+}
+
+func (o SequenceStoreStatusOutput) ToSequenceStoreStatusOutputWithContext(ctx context.Context) SequenceStoreStatusOutput {
+	return o
+}
+
+func (o SequenceStoreStatusOutput) ToSequenceStoreStatusPtrOutput() SequenceStoreStatusPtrOutput {
+	return o.ToSequenceStoreStatusPtrOutputWithContext(context.Background())
+}
+
+func (o SequenceStoreStatusOutput) ToSequenceStoreStatusPtrOutputWithContext(ctx context.Context) SequenceStoreStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SequenceStoreStatus) *SequenceStoreStatus {
+		return &v
+	}).(SequenceStoreStatusPtrOutput)
+}
+
+func (o SequenceStoreStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SequenceStoreStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SequenceStoreStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SequenceStoreStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SequenceStoreStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SequenceStoreStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SequenceStoreStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (SequenceStoreStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SequenceStoreStatus)(nil)).Elem()
+}
+
+func (o SequenceStoreStatusPtrOutput) ToSequenceStoreStatusPtrOutput() SequenceStoreStatusPtrOutput {
+	return o
+}
+
+func (o SequenceStoreStatusPtrOutput) ToSequenceStoreStatusPtrOutputWithContext(ctx context.Context) SequenceStoreStatusPtrOutput {
+	return o
+}
+
+func (o SequenceStoreStatusPtrOutput) Elem() SequenceStoreStatusOutput {
+	return o.ApplyT(func(v *SequenceStoreStatus) SequenceStoreStatus {
+		if v != nil {
+			return *v
+		}
+		var ret SequenceStoreStatus
+		return ret
+	}).(SequenceStoreStatusOutput)
+}
+
+func (o SequenceStoreStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SequenceStoreStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SequenceStoreStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 type VariantStoreEncryptionType string
@@ -1932,6 +2192,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreStoreFormatPtrInput)(nil)).Elem(), AnnotationStoreStoreFormat("GFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceStoreEncryptionTypeInput)(nil)).Elem(), ReferenceStoreEncryptionType("KMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceStoreEncryptionTypePtrInput)(nil)).Elem(), ReferenceStoreEncryptionType("KMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SequenceStoreETagAlgorithmFamilyInput)(nil)).Elem(), SequenceStoreETagAlgorithmFamily("MD5up"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SequenceStoreETagAlgorithmFamilyPtrInput)(nil)).Elem(), SequenceStoreETagAlgorithmFamily("MD5up"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceStoreEncryptionTypeInput)(nil)).Elem(), SequenceStoreEncryptionType("KMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceStoreEncryptionTypePtrInput)(nil)).Elem(), SequenceStoreEncryptionType("KMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VariantStoreEncryptionTypeInput)(nil)).Elem(), VariantStoreEncryptionType("KMS"))
@@ -1953,8 +2215,12 @@ func init() {
 	pulumi.RegisterOutputType(AnnotationStoreStoreStatusPtrOutput{})
 	pulumi.RegisterOutputType(ReferenceStoreEncryptionTypeOutput{})
 	pulumi.RegisterOutputType(ReferenceStoreEncryptionTypePtrOutput{})
+	pulumi.RegisterOutputType(SequenceStoreETagAlgorithmFamilyOutput{})
+	pulumi.RegisterOutputType(SequenceStoreETagAlgorithmFamilyPtrOutput{})
 	pulumi.RegisterOutputType(SequenceStoreEncryptionTypeOutput{})
 	pulumi.RegisterOutputType(SequenceStoreEncryptionTypePtrOutput{})
+	pulumi.RegisterOutputType(SequenceStoreStatusOutput{})
+	pulumi.RegisterOutputType(SequenceStoreStatusPtrOutput{})
 	pulumi.RegisterOutputType(VariantStoreEncryptionTypeOutput{})
 	pulumi.RegisterOutputType(VariantStoreEncryptionTypePtrOutput{})
 	pulumi.RegisterOutputType(VariantStoreStoreStatusOutput{})

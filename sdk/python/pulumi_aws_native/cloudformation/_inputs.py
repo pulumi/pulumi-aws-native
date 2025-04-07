@@ -743,8 +743,6 @@ if not MYPY:
         region_order: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         The order of the Regions where you want to perform the stack operation.
-
-        > `RegionOrder` isn't followed if `AutoDeployment` is enabled.
         """
 elif False:
     StackSetOperationPreferencesArgsDict: TypeAlias = Mapping[str, Any]
@@ -789,8 +787,6 @@ class StackSetOperationPreferencesArgs:
                Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
         :param pulumi.Input['StackSetRegionConcurrencyType'] region_concurrency_type: The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] region_order: The order of the Regions where you want to perform the stack operation.
-               
-               > `RegionOrder` isn't followed if `AutoDeployment` is enabled.
         """
         if concurrency_mode is not None:
             pulumi.set(__self__, "concurrency_mode", concurrency_mode)
@@ -905,8 +901,6 @@ class StackSetOperationPreferencesArgs:
     def region_order(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The order of the Regions where you want to perform the stack operation.
-
-        > `RegionOrder` isn't followed if `AutoDeployment` is enabled.
         """
         return pulumi.get(self, "region_order")
 

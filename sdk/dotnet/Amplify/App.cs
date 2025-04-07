@@ -70,6 +70,12 @@ namespace Pulumi.AwsNative.Amplify
         public Output<Outputs.AppCacheConfig?> CacheConfig { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+        /// </summary>
+        [Output("computeRoleArn")]
+        public Output<string?> ComputeRoleArn { get; private set; } = null!;
+
+        /// <summary>
         /// The custom HTTP headers for an Amplify app.
         /// </summary>
         [Output("customHeaders")]
@@ -231,6 +237,12 @@ namespace Pulumi.AwsNative.Amplify
         /// </summary>
         [Input("cacheConfig")]
         public Input<Inputs.AppCacheConfigArgs>? CacheConfig { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+        /// </summary>
+        [Input("computeRoleArn")]
+        public Input<string>? ComputeRoleArn { get; set; }
 
         /// <summary>
         /// The custom HTTP headers for an Amplify app.

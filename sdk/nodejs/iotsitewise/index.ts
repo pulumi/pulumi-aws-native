@@ -25,6 +25,11 @@ export type Dashboard = import("./dashboard").Dashboard;
 export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
 utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
 
+export { DatasetArgs } from "./dataset";
+export type Dataset = import("./dataset").Dataset;
+export const Dataset: typeof import("./dataset").Dataset = null as any;
+utilities.lazyLoad(exports, ["Dataset"], () => require("./dataset"));
+
 export { GatewayArgs } from "./gateway";
 export type Gateway = import("./gateway").Gateway;
 export const Gateway: typeof import("./gateway").Gateway = null as any;
@@ -49,6 +54,11 @@ export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./
 export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
 export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
 utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
+
+export { GetDatasetArgs, GetDatasetResult, GetDatasetOutputArgs } from "./getDataset";
+export const getDataset: typeof import("./getDataset").getDataset = null as any;
+export const getDatasetOutput: typeof import("./getDataset").getDatasetOutput = null as any;
+utilities.lazyLoad(exports, ["getDataset","getDatasetOutput"], () => require("./getDataset"));
 
 export { GetGatewayArgs, GetGatewayResult, GetGatewayOutputArgs } from "./getGateway";
 export const getGateway: typeof import("./getGateway").getGateway = null as any;
@@ -91,6 +101,8 @@ const _module = {
                 return new AssetModel(name, <any>undefined, { urn })
             case "aws-native:iotsitewise:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
+            case "aws-native:iotsitewise:Dataset":
+                return new Dataset(name, <any>undefined, { urn })
             case "aws-native:iotsitewise:Gateway":
                 return new Gateway(name, <any>undefined, { urn })
             case "aws-native:iotsitewise:Portal":

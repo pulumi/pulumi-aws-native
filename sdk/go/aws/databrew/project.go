@@ -72,8 +72,8 @@ import (
 //					Size: pulumi.Int(500),
 //					Type: databrew.ProjectSampleTypeLastN,
 //				},
-//				Tags: aws.CreateOnlyTagArray{
-//					&aws.CreateOnlyTagArgs{
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
 //						Key:   pulumi.String("key00AtCreate"),
 //						Value: pulumi.String("value001AtCreate"),
 //					},
@@ -101,7 +101,7 @@ type Project struct {
 	// Sample
 	Sample ProjectSamplePtrOutput `pulumi:"sample"`
 	// Metadata tags that have been applied to the project.
-	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -122,7 +122,6 @@ func NewProject(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
-		"tags[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -169,7 +168,7 @@ type projectArgs struct {
 	// Sample
 	Sample *ProjectSample `pulumi:"sample"`
 	// Metadata tags that have been applied to the project.
-	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Project resource.
@@ -185,7 +184,7 @@ type ProjectArgs struct {
 	// Sample
 	Sample ProjectSamplePtrInput
 	// Metadata tags that have been applied to the project.
-	Tags aws.CreateOnlyTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -251,8 +250,8 @@ func (o ProjectOutput) Sample() ProjectSamplePtrOutput {
 }
 
 // Metadata tags that have been applied to the project.
-func (o ProjectOutput) Tags() aws.CreateOnlyTagArrayOutput {
-	return o.ApplyT(func(v *Project) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
+func (o ProjectOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Project) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

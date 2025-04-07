@@ -63,7 +63,7 @@ type LookupServerResult struct {
 	EndpointType *ServerEndpointType `pulumi:"endpointType"`
 	// Required when `IdentityProviderType` is set to `AWS_DIRECTORY_SERVICE` , `AWS _LAMBDA` or `API_GATEWAY` . Accepts an array containing all of the information required to use a directory in `AWS_DIRECTORY_SERVICE` or invoke a customer-supplied authentication API, including the API Gateway URL. Cannot be specified when `IdentityProviderType` is set to `SERVICE_MANAGED` .
 	IdentityProviderDetails *ServerIdentityProviderDetails `pulumi:"identityProviderDetails"`
-	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents. When set, you can view user activity in your CloudWatch logs.
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
 	LoggingRole *string `pulumi:"loggingRole"`
 	// Specifies a string to display when users connect to a server. This string is displayed after the user authenticates.
 	//
@@ -217,7 +217,7 @@ func (o LookupServerResultOutput) IdentityProviderDetails() ServerIdentityProvid
 	return o.ApplyT(func(v LookupServerResult) *ServerIdentityProviderDetails { return v.IdentityProviderDetails }).(ServerIdentityProviderDetailsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents. When set, you can view user activity in your CloudWatch logs.
+// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
 func (o LookupServerResultOutput) LoggingRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.LoggingRole }).(pulumi.StringPtrOutput)
 }

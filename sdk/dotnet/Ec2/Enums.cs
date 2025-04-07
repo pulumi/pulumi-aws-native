@@ -1386,6 +1386,68 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// BGP Liveness Detection
+    /// </summary>
+    [EnumType]
+    public readonly struct RouteServerPeerBgpOptionsPeerLivenessDetection : IEquatable<RouteServerPeerBgpOptionsPeerLivenessDetection>
+    {
+        private readonly string _value;
+
+        private RouteServerPeerBgpOptionsPeerLivenessDetection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouteServerPeerBgpOptionsPeerLivenessDetection Bfd { get; } = new RouteServerPeerBgpOptionsPeerLivenessDetection("bfd");
+        public static RouteServerPeerBgpOptionsPeerLivenessDetection BgpKeepalive { get; } = new RouteServerPeerBgpOptionsPeerLivenessDetection("bgp-keepalive");
+
+        public static bool operator ==(RouteServerPeerBgpOptionsPeerLivenessDetection left, RouteServerPeerBgpOptionsPeerLivenessDetection right) => left.Equals(right);
+        public static bool operator !=(RouteServerPeerBgpOptionsPeerLivenessDetection left, RouteServerPeerBgpOptionsPeerLivenessDetection right) => !left.Equals(right);
+
+        public static explicit operator string(RouteServerPeerBgpOptionsPeerLivenessDetection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouteServerPeerBgpOptionsPeerLivenessDetection other && Equals(other);
+        public bool Equals(RouteServerPeerBgpOptionsPeerLivenessDetection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether to enable persistent routes
+    /// </summary>
+    [EnumType]
+    public readonly struct RouteServerPersistRoutes : IEquatable<RouteServerPersistRoutes>
+    {
+        private readonly string _value;
+
+        private RouteServerPersistRoutes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouteServerPersistRoutes Enable { get; } = new RouteServerPersistRoutes("enable");
+        public static RouteServerPersistRoutes Disable { get; } = new RouteServerPersistRoutes("disable");
+
+        public static bool operator ==(RouteServerPersistRoutes left, RouteServerPersistRoutes right) => left.Equals(right);
+        public static bool operator !=(RouteServerPersistRoutes left, RouteServerPersistRoutes right) => !left.Equals(right);
+
+        public static explicit operator string(RouteServerPersistRoutes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouteServerPersistRoutes other && Equals(other);
+        public bool Equals(RouteServerPersistRoutes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct SecurityGroupVpcAssociationState : IEquatable<SecurityGroupVpcAssociationState>
     {

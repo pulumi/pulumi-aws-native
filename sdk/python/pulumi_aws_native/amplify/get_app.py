@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAppResult:
-    def __init__(__self__, app_id=None, app_name=None, arn=None, build_spec=None, cache_config=None, custom_headers=None, custom_rules=None, default_domain=None, description=None, enable_branch_auto_deletion=None, environment_variables=None, iam_service_role=None, name=None, platform=None, repository=None, tags=None):
+    def __init__(__self__, app_id=None, app_name=None, arn=None, build_spec=None, cache_config=None, compute_role_arn=None, custom_headers=None, custom_rules=None, default_domain=None, description=None, enable_branch_auto_deletion=None, environment_variables=None, iam_service_role=None, name=None, platform=None, repository=None, tags=None):
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         pulumi.set(__self__, "app_id", app_id)
@@ -42,6 +42,9 @@ class GetAppResult:
         if cache_config and not isinstance(cache_config, dict):
             raise TypeError("Expected argument 'cache_config' to be a dict")
         pulumi.set(__self__, "cache_config", cache_config)
+        if compute_role_arn and not isinstance(compute_role_arn, str):
+            raise TypeError("Expected argument 'compute_role_arn' to be a str")
+        pulumi.set(__self__, "compute_role_arn", compute_role_arn)
         if custom_headers and not isinstance(custom_headers, str):
             raise TypeError("Expected argument 'custom_headers' to be a str")
         pulumi.set(__self__, "custom_headers", custom_headers)
@@ -115,6 +118,14 @@ class GetAppResult:
         The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
         """
         return pulumi.get(self, "cache_config")
+
+    @property
+    @pulumi.getter(name="computeRoleArn")
+    def compute_role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+        """
+        return pulumi.get(self, "compute_role_arn")
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -220,6 +231,7 @@ class AwaitableGetAppResult(GetAppResult):
             arn=self.arn,
             build_spec=self.build_spec,
             cache_config=self.cache_config,
+            compute_role_arn=self.compute_role_arn,
             custom_headers=self.custom_headers,
             custom_rules=self.custom_rules,
             default_domain=self.default_domain,
@@ -252,6 +264,7 @@ def get_app(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         build_spec=pulumi.get(__ret__, 'build_spec'),
         cache_config=pulumi.get(__ret__, 'cache_config'),
+        compute_role_arn=pulumi.get(__ret__, 'compute_role_arn'),
         custom_headers=pulumi.get(__ret__, 'custom_headers'),
         custom_rules=pulumi.get(__ret__, 'custom_rules'),
         default_domain=pulumi.get(__ret__, 'default_domain'),
@@ -281,6 +294,7 @@ def get_app_output(arn: Optional[pulumi.Input[str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         build_spec=pulumi.get(__response__, 'build_spec'),
         cache_config=pulumi.get(__response__, 'cache_config'),
+        compute_role_arn=pulumi.get(__response__, 'compute_role_arn'),
         custom_headers=pulumi.get(__response__, 'custom_headers'),
         custom_rules=pulumi.get(__response__, 'custom_rules'),
         default_domain=pulumi.get(__response__, 'default_domain'),

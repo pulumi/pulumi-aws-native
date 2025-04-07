@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetDomainNameResult',
@@ -23,16 +24,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainNameResult:
-    def __init__(__self__, app_sync_domain_name=None, description=None, hosted_zone_id=None):
+    def __init__(__self__, app_sync_domain_name=None, description=None, domain_name_arn=None, hosted_zone_id=None, tags=None):
         if app_sync_domain_name and not isinstance(app_sync_domain_name, str):
             raise TypeError("Expected argument 'app_sync_domain_name' to be a str")
         pulumi.set(__self__, "app_sync_domain_name", app_sync_domain_name)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if domain_name_arn and not isinstance(domain_name_arn, str):
+            raise TypeError("Expected argument 'domain_name_arn' to be a str")
+        pulumi.set(__self__, "domain_name_arn", domain_name_arn)
         if hosted_zone_id and not isinstance(hosted_zone_id, str):
             raise TypeError("Expected argument 'hosted_zone_id' to be a str")
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="appSyncDomainName")
@@ -51,12 +58,28 @@ class GetDomainNameResult:
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="domainNameArn")
+    def domain_name_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the Domain Name.
+        """
+        return pulumi.get(self, "domain_name_arn")
+
+    @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[str]:
         """
         The ID of your Amazon Route 53 hosted zone.
         """
         return pulumi.get(self, "hosted_zone_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A set of tags (key-value pairs) for this domain name.
+        """
+        return pulumi.get(self, "tags")
 
 
 class AwaitableGetDomainNameResult(GetDomainNameResult):
@@ -67,7 +90,9 @@ class AwaitableGetDomainNameResult(GetDomainNameResult):
         return GetDomainNameResult(
             app_sync_domain_name=self.app_sync_domain_name,
             description=self.description,
-            hosted_zone_id=self.hosted_zone_id)
+            domain_name_arn=self.domain_name_arn,
+            hosted_zone_id=self.hosted_zone_id,
+            tags=self.tags)
 
 
 def get_domain_name(domain_name: Optional[str] = None,
@@ -86,7 +111,9 @@ def get_domain_name(domain_name: Optional[str] = None,
     return AwaitableGetDomainNameResult(
         app_sync_domain_name=pulumi.get(__ret__, 'app_sync_domain_name'),
         description=pulumi.get(__ret__, 'description'),
-        hosted_zone_id=pulumi.get(__ret__, 'hosted_zone_id'))
+        domain_name_arn=pulumi.get(__ret__, 'domain_name_arn'),
+        hosted_zone_id=pulumi.get(__ret__, 'hosted_zone_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainNameResult]:
     """
@@ -102,4 +129,6 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetDomainNameResult(
         app_sync_domain_name=pulumi.get(__response__, 'app_sync_domain_name'),
         description=pulumi.get(__response__, 'description'),
-        hosted_zone_id=pulumi.get(__response__, 'hosted_zone_id')))
+        domain_name_arn=pulumi.get(__response__, 'domain_name_arn'),
+        hosted_zone_id=pulumi.get(__response__, 'hosted_zone_id'),
+        tags=pulumi.get(__response__, 'tags')))

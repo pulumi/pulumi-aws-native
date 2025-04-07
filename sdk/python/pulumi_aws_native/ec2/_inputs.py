@@ -96,6 +96,10 @@ __all__ = [
     'InstanceElasticGpuSpecificationArgsDict',
     'InstanceElasticInferenceAcceleratorArgs',
     'InstanceElasticInferenceAcceleratorArgsDict',
+    'InstanceEnaSrdSpecificationArgs',
+    'InstanceEnaSrdSpecificationArgsDict',
+    'InstanceEnaSrdUdpSpecificationArgs',
+    'InstanceEnaSrdUdpSpecificationArgsDict',
     'InstanceIpv6AddressArgs',
     'InstanceIpv6AddressArgsDict',
     'InstanceLaunchTemplateSpecificationArgs',
@@ -248,6 +252,8 @@ __all__ = [
     'PrefixListEntryArgsDict',
     'PrivateDnsNameOptionsOnLaunchPropertiesArgs',
     'PrivateDnsNameOptionsOnLaunchPropertiesArgsDict',
+    'RouteServerPeerBgpOptionsArgs',
+    'RouteServerPeerBgpOptionsArgsDict',
     'SecurityGroupEgressArgs',
     'SecurityGroupEgressArgsDict',
     'SecurityGroupIngressArgs',
@@ -1721,7 +1727,6 @@ if not MYPY:
 
         - For instance types with FPGA accelerators, specify `fpga` .
         - For instance types with GPU accelerators, specify `gpu` .
-        - For instance types with Inference accelerators, specify `inference` .
 
         Default: Any accelerator type
         """
@@ -1968,7 +1973,6 @@ class Ec2FleetInstanceRequirementsRequestArgs:
                
                - For instance types with FPGA accelerators, specify `fpga` .
                - For instance types with GPU accelerators, specify `gpu` .
-               - For instance types with Inference accelerators, specify `inference` .
                
                Default: Any accelerator type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -2222,7 +2226,6 @@ class Ec2FleetInstanceRequirementsRequestArgs:
 
         - For instance types with FPGA accelerators, specify `fpga` .
         - For instance types with GPU accelerators, specify `gpu` .
-        - For instance types with Inference accelerators, specify `inference` .
 
         Default: Any accelerator type
         """
@@ -4329,6 +4332,98 @@ class InstanceElasticInferenceAcceleratorArgs:
 
 
 if not MYPY:
+    class InstanceEnaSrdSpecificationArgsDict(TypedDict):
+        """
+        Specifies the ENA Express settings for the network interface that's attached to the instance.
+        """
+        ena_srd_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether ENA Express is enabled for the network interface when you launch an instance.
+        """
+        ena_srd_udp_specification: NotRequired[pulumi.Input['InstanceEnaSrdUdpSpecificationArgsDict']]
+        """
+        Configures ENA Express for UDP network traffic.
+        """
+elif False:
+    InstanceEnaSrdSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InstanceEnaSrdSpecificationArgs:
+    def __init__(__self__, *,
+                 ena_srd_enabled: Optional[pulumi.Input[bool]] = None,
+                 ena_srd_udp_specification: Optional[pulumi.Input['InstanceEnaSrdUdpSpecificationArgs']] = None):
+        """
+        Specifies the ENA Express settings for the network interface that's attached to the instance.
+        :param pulumi.Input[bool] ena_srd_enabled: Specifies whether ENA Express is enabled for the network interface when you launch an instance.
+        :param pulumi.Input['InstanceEnaSrdUdpSpecificationArgs'] ena_srd_udp_specification: Configures ENA Express for UDP network traffic.
+        """
+        if ena_srd_enabled is not None:
+            pulumi.set(__self__, "ena_srd_enabled", ena_srd_enabled)
+        if ena_srd_udp_specification is not None:
+            pulumi.set(__self__, "ena_srd_udp_specification", ena_srd_udp_specification)
+
+    @property
+    @pulumi.getter(name="enaSrdEnabled")
+    def ena_srd_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether ENA Express is enabled for the network interface when you launch an instance.
+        """
+        return pulumi.get(self, "ena_srd_enabled")
+
+    @ena_srd_enabled.setter
+    def ena_srd_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ena_srd_enabled", value)
+
+    @property
+    @pulumi.getter(name="enaSrdUdpSpecification")
+    def ena_srd_udp_specification(self) -> Optional[pulumi.Input['InstanceEnaSrdUdpSpecificationArgs']]:
+        """
+        Configures ENA Express for UDP network traffic.
+        """
+        return pulumi.get(self, "ena_srd_udp_specification")
+
+    @ena_srd_udp_specification.setter
+    def ena_srd_udp_specification(self, value: Optional[pulumi.Input['InstanceEnaSrdUdpSpecificationArgs']]):
+        pulumi.set(self, "ena_srd_udp_specification", value)
+
+
+if not MYPY:
+    class InstanceEnaSrdUdpSpecificationArgsDict(TypedDict):
+        """
+        Contains ENA Express settings for UDP network traffic for the network interface that's attached to the instance.
+        """
+        ena_srd_udp_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether UDP traffic uses ENA Express for your instance.
+        """
+elif False:
+    InstanceEnaSrdUdpSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InstanceEnaSrdUdpSpecificationArgs:
+    def __init__(__self__, *,
+                 ena_srd_udp_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Contains ENA Express settings for UDP network traffic for the network interface that's attached to the instance.
+        :param pulumi.Input[bool] ena_srd_udp_enabled: Indicates whether UDP traffic uses ENA Express for your instance.
+        """
+        if ena_srd_udp_enabled is not None:
+            pulumi.set(__self__, "ena_srd_udp_enabled", ena_srd_udp_enabled)
+
+    @property
+    @pulumi.getter(name="enaSrdUdpEnabled")
+    def ena_srd_udp_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether UDP traffic uses ENA Express for your instance.
+        """
+        return pulumi.get(self, "ena_srd_udp_enabled")
+
+    @ena_srd_udp_enabled.setter
+    def ena_srd_udp_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ena_srd_udp_enabled", value)
+
+
+if not MYPY:
     class InstanceIpv6AddressArgsDict(TypedDict):
         ipv6_address: pulumi.Input[str]
         """
@@ -4484,6 +4579,10 @@ if not MYPY:
         """
         The description of the network interface.
         """
+        ena_srd_specification: NotRequired[pulumi.Input['InstanceEnaSrdSpecificationArgsDict']]
+        """
+        Configures ENA Express for UDP network traffic.
+        """
         group_set: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         The IDs of the security groups for the network interface.
@@ -4527,6 +4626,7 @@ class InstanceNetworkInterfaceArgs:
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 ena_srd_specification: Optional[pulumi.Input['InstanceEnaSrdSpecificationArgs']] = None,
                  group_set: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceIpv6AddressArgs']]]] = None,
@@ -4541,6 +4641,7 @@ class InstanceNetworkInterfaceArgs:
         :param pulumi.Input[bool] associate_public_ip_address: Indicates whether to assign a public IPv4 address to an instance you launch in a VPC.
         :param pulumi.Input[bool] delete_on_termination: If set to true, the interface is deleted when the instance is terminated.
         :param pulumi.Input[str] description: The description of the network interface.
+        :param pulumi.Input['InstanceEnaSrdSpecificationArgs'] ena_srd_specification: Configures ENA Express for UDP network traffic.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_set: The IDs of the security groups for the network interface.
         :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to assign to the network interface.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceIpv6AddressArgs']]] ipv6_addresses: The IPv6 addresses associated with the network interface.
@@ -4559,6 +4660,8 @@ class InstanceNetworkInterfaceArgs:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if ena_srd_specification is not None:
+            pulumi.set(__self__, "ena_srd_specification", ena_srd_specification)
         if group_set is not None:
             pulumi.set(__self__, "group_set", group_set)
         if ipv6_address_count is not None:
@@ -4635,6 +4738,18 @@ class InstanceNetworkInterfaceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="enaSrdSpecification")
+    def ena_srd_specification(self) -> Optional[pulumi.Input['InstanceEnaSrdSpecificationArgs']]:
+        """
+        Configures ENA Express for UDP network traffic.
+        """
+        return pulumi.get(self, "ena_srd_specification")
+
+    @ena_srd_specification.setter
+    def ena_srd_specification(self, value: Optional[pulumi.Input['InstanceEnaSrdSpecificationArgs']]):
+        pulumi.set(self, "ena_srd_specification", value)
 
     @property
     @pulumi.getter(name="groupSet")
@@ -10999,6 +11114,62 @@ class PrivateDnsNameOptionsOnLaunchPropertiesArgs:
 
 
 if not MYPY:
+    class RouteServerPeerBgpOptionsArgsDict(TypedDict):
+        """
+        BGP Options
+        """
+        peer_asn: NotRequired[pulumi.Input[int]]
+        """
+        BGP ASN of the Route Server Peer
+        """
+        peer_liveness_detection: NotRequired[pulumi.Input['RouteServerPeerBgpOptionsPeerLivenessDetection']]
+        """
+        BGP Liveness Detection
+        """
+elif False:
+    RouteServerPeerBgpOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RouteServerPeerBgpOptionsArgs:
+    def __init__(__self__, *,
+                 peer_asn: Optional[pulumi.Input[int]] = None,
+                 peer_liveness_detection: Optional[pulumi.Input['RouteServerPeerBgpOptionsPeerLivenessDetection']] = None):
+        """
+        BGP Options
+        :param pulumi.Input[int] peer_asn: BGP ASN of the Route Server Peer
+        :param pulumi.Input['RouteServerPeerBgpOptionsPeerLivenessDetection'] peer_liveness_detection: BGP Liveness Detection
+        """
+        if peer_asn is not None:
+            pulumi.set(__self__, "peer_asn", peer_asn)
+        if peer_liveness_detection is not None:
+            pulumi.set(__self__, "peer_liveness_detection", peer_liveness_detection)
+
+    @property
+    @pulumi.getter(name="peerAsn")
+    def peer_asn(self) -> Optional[pulumi.Input[int]]:
+        """
+        BGP ASN of the Route Server Peer
+        """
+        return pulumi.get(self, "peer_asn")
+
+    @peer_asn.setter
+    def peer_asn(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "peer_asn", value)
+
+    @property
+    @pulumi.getter(name="peerLivenessDetection")
+    def peer_liveness_detection(self) -> Optional[pulumi.Input['RouteServerPeerBgpOptionsPeerLivenessDetection']]:
+        """
+        BGP Liveness Detection
+        """
+        return pulumi.get(self, "peer_liveness_detection")
+
+    @peer_liveness_detection.setter
+    def peer_liveness_detection(self, value: Optional[pulumi.Input['RouteServerPeerBgpOptionsPeerLivenessDetection']]):
+        pulumi.set(self, "peer_liveness_detection", value)
+
+
+if not MYPY:
     class SecurityGroupEgressArgsDict(TypedDict):
         ip_protocol: pulumi.Input[str]
         """
@@ -12557,7 +12728,6 @@ if not MYPY:
 
         - For instance types with FPGA accelerators, specify `fpga` .
         - For instance types with GPU accelerators, specify `gpu` .
-        - For instance types with Inference accelerators, specify `inference` .
 
         Default: Any accelerator type
         """
@@ -12804,7 +12974,6 @@ class SpotFleetInstanceRequirementsRequestArgs:
                
                - For instance types with FPGA accelerators, specify `fpga` .
                - For instance types with GPU accelerators, specify `gpu` .
-               - For instance types with Inference accelerators, specify `inference` .
                
                Default: Any accelerator type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -13058,7 +13227,6 @@ class SpotFleetInstanceRequirementsRequestArgs:
 
         - For instance types with FPGA accelerators, specify `fpga` .
         - For instance types with GPU accelerators, specify `gpu` .
-        - For instance types with Inference accelerators, specify `inference` .
 
         Default: Any accelerator type
         """

@@ -11,26 +11,46 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Omics::SequenceStore Resource Type
+// Resource Type definition for AWS::Omics::SequenceStore
 type SequenceStore struct {
 	pulumi.CustomResourceState
 
+	// Location of the access logs.
+	AccessLogLocation pulumi.StringPtrOutput `pulumi:"accessLogLocation"`
 	// The store's ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// When the store was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// A description for the store.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// An S3 URI representing the bucket and folder to store failed read set uploads.
+	// The algorithm family of the ETag.
+	ETagAlgorithmFamily SequenceStoreETagAlgorithmFamilyPtrOutput `pulumi:"eTagAlgorithmFamily"`
+	// An S3 location that is used to store files that have failed a direct upload.
 	FallbackLocation pulumi.StringPtrOutput `pulumi:"fallbackLocation"`
 	// A name for the store.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+	PropagatedSetLevelTags pulumi.StringArrayOutput `pulumi:"propagatedSetLevelTags"`
+	// This is ARN of the access point associated with the S3 bucket storing read sets.
+	S3AccessPointArn pulumi.StringOutput `pulumi:"s3AccessPointArn"`
+	// The resource policy that controls S3 access on the store
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Omics::SequenceStore` for more information about the expected schema for this property.
+	S3AccessPolicy pulumi.AnyOutput `pulumi:"s3AccessPolicy"`
+	// The S3 URI of the sequence store.
+	S3Uri pulumi.StringOutput `pulumi:"s3Uri"`
 	// The store's ID.
 	SequenceStoreId pulumi.StringOutput `pulumi:"sequenceStoreId"`
 	// Server-side encryption (SSE) settings for the store.
 	SseConfig SequenceStoreSseConfigPtrOutput `pulumi:"sseConfig"`
+	// Status of the sequence store.
+	Status SequenceStoreStatusOutput `pulumi:"status"`
+	// The status message of the sequence store.
+	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
 	// Tags for the store.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The last-updated time of the sequence store.
+	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
 
 // NewSequenceStore registers a new resource with the given unique name, arguments, and options.
@@ -41,11 +61,8 @@ func NewSequenceStore(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"description",
-		"fallbackLocation",
-		"name",
+		"eTagAlgorithmFamily",
 		"sseConfig",
-		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -81,12 +98,22 @@ func (SequenceStoreState) ElementType() reflect.Type {
 }
 
 type sequenceStoreArgs struct {
+	// Location of the access logs.
+	AccessLogLocation *string `pulumi:"accessLogLocation"`
 	// A description for the store.
 	Description *string `pulumi:"description"`
-	// An S3 URI representing the bucket and folder to store failed read set uploads.
+	// The algorithm family of the ETag.
+	ETagAlgorithmFamily *SequenceStoreETagAlgorithmFamily `pulumi:"eTagAlgorithmFamily"`
+	// An S3 location that is used to store files that have failed a direct upload.
 	FallbackLocation *string `pulumi:"fallbackLocation"`
 	// A name for the store.
 	Name *string `pulumi:"name"`
+	// The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+	PropagatedSetLevelTags []string `pulumi:"propagatedSetLevelTags"`
+	// The resource policy that controls S3 access on the store
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Omics::SequenceStore` for more information about the expected schema for this property.
+	S3AccessPolicy interface{} `pulumi:"s3AccessPolicy"`
 	// Server-side encryption (SSE) settings for the store.
 	SseConfig *SequenceStoreSseConfig `pulumi:"sseConfig"`
 	// Tags for the store.
@@ -95,12 +122,22 @@ type sequenceStoreArgs struct {
 
 // The set of arguments for constructing a SequenceStore resource.
 type SequenceStoreArgs struct {
+	// Location of the access logs.
+	AccessLogLocation pulumi.StringPtrInput
 	// A description for the store.
 	Description pulumi.StringPtrInput
-	// An S3 URI representing the bucket and folder to store failed read set uploads.
+	// The algorithm family of the ETag.
+	ETagAlgorithmFamily SequenceStoreETagAlgorithmFamilyPtrInput
+	// An S3 location that is used to store files that have failed a direct upload.
 	FallbackLocation pulumi.StringPtrInput
 	// A name for the store.
 	Name pulumi.StringPtrInput
+	// The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+	PropagatedSetLevelTags pulumi.StringArrayInput
+	// The resource policy that controls S3 access on the store
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Omics::SequenceStore` for more information about the expected schema for this property.
+	S3AccessPolicy pulumi.Input
 	// Server-side encryption (SSE) settings for the store.
 	SseConfig SequenceStoreSseConfigPtrInput
 	// Tags for the store.
@@ -144,6 +181,11 @@ func (o SequenceStoreOutput) ToSequenceStoreOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Location of the access logs.
+func (o SequenceStoreOutput) AccessLogLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SequenceStore) pulumi.StringPtrOutput { return v.AccessLogLocation }).(pulumi.StringPtrOutput)
+}
+
 // The store's ARN.
 func (o SequenceStoreOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SequenceStore) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -159,7 +201,12 @@ func (o SequenceStoreOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SequenceStore) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// An S3 URI representing the bucket and folder to store failed read set uploads.
+// The algorithm family of the ETag.
+func (o SequenceStoreOutput) ETagAlgorithmFamily() SequenceStoreETagAlgorithmFamilyPtrOutput {
+	return o.ApplyT(func(v *SequenceStore) SequenceStoreETagAlgorithmFamilyPtrOutput { return v.ETagAlgorithmFamily }).(SequenceStoreETagAlgorithmFamilyPtrOutput)
+}
+
+// An S3 location that is used to store files that have failed a direct upload.
 func (o SequenceStoreOutput) FallbackLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SequenceStore) pulumi.StringPtrOutput { return v.FallbackLocation }).(pulumi.StringPtrOutput)
 }
@@ -167,6 +214,28 @@ func (o SequenceStoreOutput) FallbackLocation() pulumi.StringPtrOutput {
 // A name for the store.
 func (o SequenceStoreOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SequenceStore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+func (o SequenceStoreOutput) PropagatedSetLevelTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SequenceStore) pulumi.StringArrayOutput { return v.PropagatedSetLevelTags }).(pulumi.StringArrayOutput)
+}
+
+// This is ARN of the access point associated with the S3 bucket storing read sets.
+func (o SequenceStoreOutput) S3AccessPointArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SequenceStore) pulumi.StringOutput { return v.S3AccessPointArn }).(pulumi.StringOutput)
+}
+
+// The resource policy that controls S3 access on the store
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Omics::SequenceStore` for more information about the expected schema for this property.
+func (o SequenceStoreOutput) S3AccessPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *SequenceStore) pulumi.AnyOutput { return v.S3AccessPolicy }).(pulumi.AnyOutput)
+}
+
+// The S3 URI of the sequence store.
+func (o SequenceStoreOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v *SequenceStore) pulumi.StringOutput { return v.S3Uri }).(pulumi.StringOutput)
 }
 
 // The store's ID.
@@ -179,9 +248,24 @@ func (o SequenceStoreOutput) SseConfig() SequenceStoreSseConfigPtrOutput {
 	return o.ApplyT(func(v *SequenceStore) SequenceStoreSseConfigPtrOutput { return v.SseConfig }).(SequenceStoreSseConfigPtrOutput)
 }
 
+// Status of the sequence store.
+func (o SequenceStoreOutput) Status() SequenceStoreStatusOutput {
+	return o.ApplyT(func(v *SequenceStore) SequenceStoreStatusOutput { return v.Status }).(SequenceStoreStatusOutput)
+}
+
+// The status message of the sequence store.
+func (o SequenceStoreOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *SequenceStore) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
 // Tags for the store.
 func (o SequenceStoreOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SequenceStore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The last-updated time of the sequence store.
+func (o SequenceStoreOutput) UpdateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *SequenceStore) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
 }
 
 func init() {

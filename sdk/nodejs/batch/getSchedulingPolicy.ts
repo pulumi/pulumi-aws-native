@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type schema for AWS::Batch::SchedulingPolicy
+ * Resource Type definition for AWS::Batch::SchedulingPolicy
  */
 export function getSchedulingPolicy(args: GetSchedulingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSchedulingPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,7 +35,7 @@ export interface GetSchedulingPolicyResult {
     readonly fairsharePolicy?: outputs.batch.SchedulingPolicyFairsharePolicy;
 }
 /**
- * Resource Type schema for AWS::Batch::SchedulingPolicy
+ * Resource Type definition for AWS::Batch::SchedulingPolicy
  */
 export function getSchedulingPolicyOutput(args: GetSchedulingPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchedulingPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.DataSourceChunkingConfiguration? ChunkingConfiguration;
         /// <summary>
+        /// The context enrichment configuration used for ingestion of the data into the vector store.
+        /// </summary>
+        public readonly Outputs.DataSourceContextEnrichmentConfiguration? ContextEnrichmentConfiguration;
+        /// <summary>
         /// A custom document transformer for parsed data source documents.
         /// </summary>
         public readonly Outputs.DataSourceCustomTransformationConfiguration? CustomTransformationConfiguration;
@@ -33,11 +37,14 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         private DataSourceVectorIngestionConfiguration(
             Outputs.DataSourceChunkingConfiguration? chunkingConfiguration,
 
+            Outputs.DataSourceContextEnrichmentConfiguration? contextEnrichmentConfiguration,
+
             Outputs.DataSourceCustomTransformationConfiguration? customTransformationConfiguration,
 
             Outputs.DataSourceParsingConfiguration? parsingConfiguration)
         {
             ChunkingConfiguration = chunkingConfiguration;
+            ContextEnrichmentConfiguration = contextEnrichmentConfiguration;
             CustomTransformationConfiguration = customTransformationConfiguration;
             ParsingConfiguration = parsingConfiguration;
         }

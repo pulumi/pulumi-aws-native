@@ -16,8 +16,10 @@ __all__ = [
 
 class ServiceLevelObjectiveDurationUnit(str, Enum):
     """
-    Specifies the calendar interval unit.
+    Specifies the interval unit.
     """
+    MINUTE = "MINUTE"
+    HOUR = "HOUR"
     DAY = "DAY"
     MONTH = "MONTH"
 

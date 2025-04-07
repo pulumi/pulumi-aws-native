@@ -78,6 +78,12 @@ namespace Pulumi.AwsNative.MemoryDb
         public Output<string?> FinalSnapshotName { get; private set; } = null!;
 
         /// <summary>
+        /// For clusters wth dual stack NetworkType, IpDiscovery controls the Ip protocol (ipv4 or ipv6) returned by the engine commands such as `cluster info` and `cluster nodes` which are used by clients to connect to the nodes in the cluster.
+        /// </summary>
+        [Output("ipDiscovery")]
+        public Output<Pulumi.AwsNative.MemoryDb.ClusterSupportedIpDiscoveryTypes?> IpDiscovery { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the KMS key used to encrypt the cluster.
         /// </summary>
         [Output("kmsKeyId")]
@@ -94,6 +100,12 @@ namespace Pulumi.AwsNative.MemoryDb
         /// </summary>
         [Output("multiRegionClusterName")]
         public Output<string?> MultiRegionClusterName { get; private set; } = null!;
+
+        /// <summary>
+        /// Must be either ipv4 | ipv6 | dual_stack.
+        /// </summary>
+        [Output("networkType")]
+        public Output<Pulumi.AwsNative.MemoryDb.ClusterSupportedNetworkTypes?> NetworkType { get; private set; } = null!;
 
         /// <summary>
         /// The compute and memory capacity of the nodes in the cluster.
@@ -228,6 +240,7 @@ namespace Pulumi.AwsNative.MemoryDb
                     "dataTiering",
                     "kmsKeyId",
                     "multiRegionClusterName",
+                    "networkType",
                     "port",
                     "snapshotArns[*]",
                     "snapshotName",
@@ -313,6 +326,12 @@ namespace Pulumi.AwsNative.MemoryDb
         public Input<string>? FinalSnapshotName { get; set; }
 
         /// <summary>
+        /// For clusters wth dual stack NetworkType, IpDiscovery controls the Ip protocol (ipv4 or ipv6) returned by the engine commands such as `cluster info` and `cluster nodes` which are used by clients to connect to the nodes in the cluster.
+        /// </summary>
+        [Input("ipDiscovery")]
+        public Input<Pulumi.AwsNative.MemoryDb.ClusterSupportedIpDiscoveryTypes>? IpDiscovery { get; set; }
+
+        /// <summary>
         /// The ID of the KMS key used to encrypt the cluster.
         /// </summary>
         [Input("kmsKeyId")]
@@ -329,6 +348,12 @@ namespace Pulumi.AwsNative.MemoryDb
         /// </summary>
         [Input("multiRegionClusterName")]
         public Input<string>? MultiRegionClusterName { get; set; }
+
+        /// <summary>
+        /// Must be either ipv4 | ipv6 | dual_stack.
+        /// </summary>
+        [Input("networkType")]
+        public Input<Pulumi.AwsNative.MemoryDb.ClusterSupportedNetworkTypes>? NetworkType { get; set; }
 
         /// <summary>
         /// The compute and memory capacity of the nodes in the cluster.

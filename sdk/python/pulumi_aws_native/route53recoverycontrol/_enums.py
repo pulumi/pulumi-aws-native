@@ -5,12 +5,21 @@
 from enum import Enum
 
 __all__ = [
+    'ClusterNetworkType',
     'ClusterStatus',
     'ControlPanelStatus',
     'RoutingControlStatus',
     'SafetyRuleRuleType',
     'SafetyRuleStatus',
 ]
+
+
+class ClusterNetworkType(str, Enum):
+    """
+    Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+    """
+    IPV4 = "IPV4"
+    DUALSTACK = "DUALSTACK"
 
 
 class ClusterStatus(str, Enum):

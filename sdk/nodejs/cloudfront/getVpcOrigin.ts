@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudFront::VpcOrigin
+ * An Amazon CloudFront VPC origin.
  */
 export function getVpcOrigin(args: GetVpcOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcOriginResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,7 +46,7 @@ export interface GetVpcOriginResult {
      */
     readonly status?: string;
     /**
-     * A complex type that contains zero or more `Tag` elements.
+     * A complex type that contains zero or more ``Tag`` elements.
      */
     readonly tags?: outputs.Tag[];
     /**
@@ -55,7 +55,7 @@ export interface GetVpcOriginResult {
     readonly vpcOriginEndpointConfig?: outputs.cloudfront.VpcOriginEndpointConfig;
 }
 /**
- * Resource Type definition for AWS::CloudFront::VpcOrigin
+ * An Amazon CloudFront VPC origin.
  */
 export function getVpcOriginOutput(args: GetVpcOriginOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcOriginResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

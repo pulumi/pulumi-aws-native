@@ -34,6 +34,10 @@ export interface GetFirewallResult {
      */
     readonly description?: string;
     /**
+     * The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
+     */
+    readonly enabledAnalysisTypes?: enums.networkfirewall.FirewallEnabledAnalysisType[];
+    /**
      * The unique IDs of the firewall endpoints for all of the subnets that you attached to the firewall. The subnets are not listed in any particular order. For example: `["us-west-2c:vpce-111122223333", "us-west-2a:vpce-987654321098", "us-west-2b:vpce-012345678901"]` .
      */
     readonly endpointIds?: string[];

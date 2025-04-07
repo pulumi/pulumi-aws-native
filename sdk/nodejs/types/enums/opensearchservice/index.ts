@@ -17,7 +17,7 @@ export const DomainNodeOptionNodeType = {
 } as const;
 
 /**
- * Container for node type like coordinating.
+ * Defines the type of node, such as coordinating nodes.
  */
 export type DomainNodeOptionNodeType = (typeof DomainNodeOptionNodeType)[keyof typeof DomainNodeOptionNodeType];
 

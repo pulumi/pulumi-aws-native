@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string?> DomainNameValue { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoint configuration of this DomainName showing the endpoint types of the domain name.
+        /// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
         /// </summary>
         [Output("endpointConfiguration")]
         public Output<Outputs.DomainNameEndpointConfiguration?> EndpointConfiguration { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<string>? DomainNameValue { get; set; }
 
         /// <summary>
-        /// The endpoint configuration of this DomainName showing the endpoint types of the domain name.
+        /// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
         /// </summary>
         [Input("endpointConfiguration")]
         public Input<Inputs.DomainNameEndpointConfigurationArgs>? EndpointConfiguration { get; set; }

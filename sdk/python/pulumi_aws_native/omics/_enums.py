@@ -11,7 +11,9 @@ __all__ = [
     'AnnotationStoreStoreFormat',
     'AnnotationStoreStoreStatus',
     'ReferenceStoreEncryptionType',
+    'SequenceStoreETagAlgorithmFamily',
     'SequenceStoreEncryptionType',
+    'SequenceStoreStatus',
     'VariantStoreEncryptionType',
     'VariantStoreStoreStatus',
     'WorkflowAccelerators',
@@ -62,8 +64,22 @@ class ReferenceStoreEncryptionType(str, Enum):
     KMS = "KMS"
 
 
+class SequenceStoreETagAlgorithmFamily(str, Enum):
+    MD5UP = "MD5up"
+    SHA256UP = "SHA256up"
+    SHA512UP = "SHA512up"
+
+
 class SequenceStoreEncryptionType(str, Enum):
     KMS = "KMS"
+
+
+class SequenceStoreStatus(str, Enum):
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
 
 
 class VariantStoreEncryptionType(str, Enum):

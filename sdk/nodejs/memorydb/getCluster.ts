@@ -56,6 +56,10 @@ export interface GetClusterResult {
      */
     readonly engineVersion?: string;
     /**
+     * For clusters wth dual stack NetworkType, IpDiscovery controls the Ip protocol (ipv4 or ipv6) returned by the engine commands such as `cluster info` and `cluster nodes` which are used by clients to connect to the nodes in the cluster.
+     */
+    readonly ipDiscovery?: enums.memorydb.ClusterSupportedIpDiscoveryTypes;
+    /**
      * Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
      */
     readonly maintenanceWindow?: string;

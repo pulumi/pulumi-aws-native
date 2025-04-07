@@ -40,6 +40,8 @@ type Membership struct {
 	// The payment responsibilities accepted by the collaboration member.
 	PaymentConfiguration MembershipPaymentConfigurationPtrOutput `pulumi:"paymentConfiguration"`
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
+	//
+	// When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
 	QueryLogStatus MembershipQueryLogStatusOutput `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -102,6 +104,8 @@ type membershipArgs struct {
 	// The payment responsibilities accepted by the collaboration member.
 	PaymentConfiguration *MembershipPaymentConfiguration `pulumi:"paymentConfiguration"`
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
+	//
+	// When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
 	QueryLogStatus MembershipQueryLogStatus `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -116,6 +120,8 @@ type MembershipArgs struct {
 	// The payment responsibilities accepted by the collaboration member.
 	PaymentConfiguration MembershipPaymentConfigurationPtrInput
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
+	//
+	// When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
 	QueryLogStatus MembershipQueryLogStatusInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
 	Tags aws.TagArrayInput
@@ -204,6 +210,8 @@ func (o MembershipOutput) PaymentConfiguration() MembershipPaymentConfigurationP
 }
 
 // An indicator as to whether query logging has been enabled or disabled for the membership.
+//
+// When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
 func (o MembershipOutput) QueryLogStatus() MembershipQueryLogStatusOutput {
 	return o.ApplyT(func(v *Membership) MembershipQueryLogStatusOutput { return v.QueryLogStatus }).(MembershipQueryLogStatusOutput)
 }

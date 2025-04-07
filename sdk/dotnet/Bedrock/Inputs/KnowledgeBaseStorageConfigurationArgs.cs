@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         public Input<Inputs.KnowledgeBaseMongoDbAtlasConfigurationArgs>? MongoDbAtlasConfiguration { get; set; }
 
         /// <summary>
+        /// Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
+        /// </summary>
+        [Input("neptuneAnalyticsConfiguration")]
+        public Input<Inputs.KnowledgeBaseNeptuneAnalyticsConfigurationArgs>? NeptuneAnalyticsConfiguration { get; set; }
+
+        /// <summary>
         /// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
         /// </summary>
         [Input("opensearchServerlessConfiguration")]

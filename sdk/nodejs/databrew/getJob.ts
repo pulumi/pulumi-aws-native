@@ -86,6 +86,10 @@ export interface GetJobResult {
      */
     readonly roleArn?: string;
     /**
+     * Metadata tags that have been applied to the job.
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * Timeout
      */
     readonly timeout?: number;

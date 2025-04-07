@@ -53,6 +53,24 @@ export class CapacityReservation extends pulumi.CustomResource {
      * The ID of the Capacity Reservation.
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    public /*out*/ readonly capacityAllocationSet!: pulumi.Output<outputs.ec2.CapacityReservationCapacityAllocation[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the Capacity Reservation.
+     */
+    public /*out*/ readonly capacityReservationArn!: pulumi.Output<string>;
+    /**
+     * The ID of the Capacity Reservation Fleet to which the Capacity Reservation belongs. Only valid for Capacity Reservations that were created by a Capacity Reservation Fleet.
+     */
+    public /*out*/ readonly capacityReservationFleetId!: pulumi.Output<string>;
+    public /*out*/ readonly commitmentInfo!: pulumi.Output<outputs.ec2.CommitmentInfoProperties>;
+    /**
+     * The date and time at which the Capacity Reservation was created.
+     */
+    public /*out*/ readonly createDate!: pulumi.Output<string>;
+    /**
+     * The delivery method for a future-dated Capacity Reservation. `incremental` indicates that the requested capacity is delivered in addition to any running instances and reserved capacity that you have in your account at the requested date and time.
+     */
+    public /*out*/ readonly deliveryPreference!: pulumi.Output<string>;
     /**
      * Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
      */
@@ -116,11 +134,39 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     public readonly outPostArn!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the AWS account that owns the Capacity Reservation.
+     */
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
      * > Not supported for future-dated Capacity Reservations. 
      *
      * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
      */
     public readonly placementGroupArn!: pulumi.Output<string | undefined>;
+    /**
+     * The type of Capacity Reservation.
+     */
+    public /*out*/ readonly reservationType!: pulumi.Output<string>;
+    /**
+     * The date and time at which the Capacity Reservation was started.
+     */
+    public /*out*/ readonly startDate!: pulumi.Output<string>;
+    /**
+     * The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:
+     *
+     * - `active` - The capacity is available for use.
+     * - `expired` - The Capacity Reservation expired automatically at the date and time specified in your reservation request. The reserved capacity is no longer available for your use.
+     * - `cancelled` - The Capacity Reservation was canceled. The reserved capacity is no longer available for your use.
+     * - `pending` - The Capacity Reservation request was successful but the capacity provisioning is still pending.
+     * - `failed` - The Capacity Reservation request has failed. A request can fail due to request parameters that are not valid, capacity constraints, or instance limit constraints. You can view a failed request for 60 minutes.
+     * - `scheduled` - ( *Future-dated Capacity Reservations* ) The future-dated Capacity Reservation request was approved and the Capacity Reservation is scheduled for delivery on the requested start date.
+     * - `payment-pending` - ( *Capacity Blocks* ) The upfront payment has not been processed yet.
+     * - `payment-failed` - ( *Capacity Blocks* ) The upfront payment was not processed in the 12-hour time frame. Your Capacity Block was released.
+     * - `assessing` - ( *Future-dated Capacity Reservations* ) Amazon EC2 is assessing your request for a future-dated Capacity Reservation.
+     * - `delayed` - ( *Future-dated Capacity Reservations* ) Amazon EC2 encountered a delay in provisioning the requested future-dated Capacity Reservation. Amazon EC2 is unable to deliver the requested capacity by the requested start date and time.
+     * - `unsupported` - ( *Future-dated Capacity Reservations* ) Amazon EC2 can't support the future-dated Capacity Reservation request due to capacity constraints. You can view unsupported requests for 30 days. The Capacity Reservation will not be delivered.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * The tags to apply to the Capacity Reservation during launch.
      */
@@ -180,12 +226,28 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["unusedReservationBillingOwnerId"] = args ? args.unusedReservationBillingOwnerId : undefined;
             resourceInputs["availableInstanceCount"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["capacityAllocationSet"] = undefined /*out*/;
+            resourceInputs["capacityReservationArn"] = undefined /*out*/;
+            resourceInputs["capacityReservationFleetId"] = undefined /*out*/;
+            resourceInputs["commitmentInfo"] = undefined /*out*/;
+            resourceInputs["createDate"] = undefined /*out*/;
+            resourceInputs["deliveryPreference"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["reservationType"] = undefined /*out*/;
+            resourceInputs["startDate"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["totalInstanceCount"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["availabilityZoneId"] = undefined /*out*/;
             resourceInputs["availableInstanceCount"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["capacityAllocationSet"] = undefined /*out*/;
+            resourceInputs["capacityReservationArn"] = undefined /*out*/;
+            resourceInputs["capacityReservationFleetId"] = undefined /*out*/;
+            resourceInputs["commitmentInfo"] = undefined /*out*/;
+            resourceInputs["createDate"] = undefined /*out*/;
+            resourceInputs["deliveryPreference"] = undefined /*out*/;
             resourceInputs["ebsOptimized"] = undefined /*out*/;
             resourceInputs["endDate"] = undefined /*out*/;
             resourceInputs["endDateType"] = undefined /*out*/;
@@ -195,7 +257,11 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["instancePlatform"] = undefined /*out*/;
             resourceInputs["instanceType"] = undefined /*out*/;
             resourceInputs["outPostArn"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["placementGroupArn"] = undefined /*out*/;
+            resourceInputs["reservationType"] = undefined /*out*/;
+            resourceInputs["startDate"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tagSpecifications"] = undefined /*out*/;
             resourceInputs["tenancy"] = undefined /*out*/;
             resourceInputs["totalInstanceCount"] = undefined /*out*/;

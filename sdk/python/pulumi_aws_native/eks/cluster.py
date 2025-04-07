@@ -30,6 +30,7 @@ class ClusterArgs:
                  bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
                  compute_config: Optional[pulumi.Input['ClusterComputeConfigArgs']] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]]] = None,
+                 force: Optional[pulumi.Input[bool]] = None,
                  kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
                  logging: Optional[pulumi.Input['LoggingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -48,11 +49,12 @@ class ClusterArgs:
         :param pulumi.Input[bool] bootstrap_self_managed_addons: Set this value to false to avoid creating the default networking add-ons when the cluster is created.
         :param pulumi.Input['ClusterComputeConfigArgs'] compute_config: Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]] encryption_config: The encryption configuration for the cluster.
+        :param pulumi.Input[bool] force: Force cluster version update
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: The Kubernetes network configuration for the cluster.
         :param pulumi.Input['LoggingArgs'] logging: The logging configuration for your cluster.
         :param pulumi.Input[str] name: The unique name to give to your cluster.
         :param pulumi.Input['ClusterOutpostConfigArgs'] outpost_config: An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
-        :param pulumi.Input['ClusterRemoteNetworkConfigArgs'] remote_network_config: The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
+        :param pulumi.Input['ClusterRemoteNetworkConfigArgs'] remote_network_config: The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this configuration after the cluster is created.
         :param pulumi.Input['ClusterStorageConfigArgs'] storage_config: Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the *Amazon EKS User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['ClusterUpgradePolicyArgs'] upgrade_policy: This value indicates if extended support is enabled or disabled for the cluster.
@@ -71,6 +73,8 @@ class ClusterArgs:
             pulumi.set(__self__, "compute_config", compute_config)
         if encryption_config is not None:
             pulumi.set(__self__, "encryption_config", encryption_config)
+        if force is not None:
+            pulumi.set(__self__, "force", force)
         if kubernetes_network_config is not None:
             pulumi.set(__self__, "kubernetes_network_config", kubernetes_network_config)
         if logging is not None:
@@ -165,6 +169,18 @@ class ClusterArgs:
         pulumi.set(self, "encryption_config", value)
 
     @property
+    @pulumi.getter
+    def force(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Force cluster version update
+        """
+        return pulumi.get(self, "force")
+
+    @force.setter
+    def force(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force", value)
+
+    @property
     @pulumi.getter(name="kubernetesNetworkConfig")
     def kubernetes_network_config(self) -> Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']]:
         """
@@ -216,7 +232,7 @@ class ClusterArgs:
     @pulumi.getter(name="remoteNetworkConfig")
     def remote_network_config(self) -> Optional[pulumi.Input['ClusterRemoteNetworkConfigArgs']]:
         """
-        The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
+        The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this configuration after the cluster is created.
         """
         return pulumi.get(self, "remote_network_config")
 
@@ -296,6 +312,7 @@ class Cluster(pulumi.CustomResource):
                  bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
                  compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]]]] = None,
+                 force: Optional[pulumi.Input[bool]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
                  logging: Optional[pulumi.Input[Union['LoggingArgs', 'LoggingArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -318,11 +335,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] bootstrap_self_managed_addons: Set this value to false to avoid creating the default networking add-ons when the cluster is created.
         :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']] compute_config: Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]]] encryption_config: The encryption configuration for the cluster.
+        :param pulumi.Input[bool] force: Force cluster version update
         :param pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']] kubernetes_network_config: The Kubernetes network configuration for the cluster.
         :param pulumi.Input[Union['LoggingArgs', 'LoggingArgsDict']] logging: The logging configuration for your cluster.
         :param pulumi.Input[str] name: The unique name to give to your cluster.
         :param pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']] outpost_config: An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
-        :param pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']] remote_network_config: The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
+        :param pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']] remote_network_config: The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this configuration after the cluster is created.
         :param pulumi.Input[Union['ClusterResourcesVpcConfigArgs', 'ClusterResourcesVpcConfigArgsDict']] resources_vpc_config: The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         :param pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']] storage_config: Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the *Amazon EKS User Guide* .
@@ -361,6 +379,7 @@ class Cluster(pulumi.CustomResource):
                  bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
                  compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]]]] = None,
+                 force: Optional[pulumi.Input[bool]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
                  logging: Optional[pulumi.Input[Union['LoggingArgs', 'LoggingArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -386,6 +405,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
             __props__.__dict__["compute_config"] = compute_config
             __props__.__dict__["encryption_config"] = encryption_config
+            __props__.__dict__["force"] = force
             __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
             __props__.__dict__["logging"] = logging
             __props__.__dict__["name"] = name
@@ -409,7 +429,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["encryption_config_key_arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["open_id_connect_issuer_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accessConfig.bootstrapClusterCreatorAdminPermissions", "bootstrapSelfManagedAddons", "encryptionConfig[*]", "kubernetesNetworkConfig.ipFamily", "kubernetesNetworkConfig.serviceIpv4Cidr", "name", "outpostConfig", "remoteNetworkConfig", "roleArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accessConfig.bootstrapClusterCreatorAdminPermissions", "bootstrapSelfManagedAddons", "encryptionConfig[*]", "kubernetesNetworkConfig.ipFamily", "kubernetesNetworkConfig.serviceIpv4Cidr", "name", "outpostConfig", "roleArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:eks:Cluster',
@@ -443,6 +463,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["encryption_config"] = None
         __props__.__dict__["encryption_config_key_arn"] = None
         __props__.__dict__["endpoint"] = None
+        __props__.__dict__["force"] = None
         __props__.__dict__["kubernetes_network_config"] = None
         __props__.__dict__["logging"] = None
         __props__.__dict__["name"] = None
@@ -539,6 +560,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "endpoint")
 
     @property
+    @pulumi.getter
+    def force(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Force cluster version update
+        """
+        return pulumi.get(self, "force")
+
+    @property
     @pulumi.getter(name="kubernetesNetworkConfig")
     def kubernetes_network_config(self) -> pulumi.Output[Optional['outputs.ClusterKubernetesNetworkConfig']]:
         """
@@ -582,7 +611,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="remoteNetworkConfig")
     def remote_network_config(self) -> pulumi.Output[Optional['outputs.ClusterRemoteNetworkConfig']]:
         """
-        The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
+        The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this configuration after the cluster is created.
         """
         return pulumi.get(self, "remote_network_config")
 

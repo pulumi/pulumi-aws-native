@@ -84,7 +84,7 @@ class SchedulingPolicy(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Resource Type schema for AWS::Batch::SchedulingPolicy
+        Resource Type definition for AWS::Batch::SchedulingPolicy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -99,7 +99,7 @@ class SchedulingPolicy(pulumi.CustomResource):
                  args: Optional[SchedulingPolicyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type schema for AWS::Batch::SchedulingPolicy
+        Resource Type definition for AWS::Batch::SchedulingPolicy
 
         :param str resource_name: The name of the resource.
         :param SchedulingPolicyArgs args: The arguments to use to populate this resource's properties.

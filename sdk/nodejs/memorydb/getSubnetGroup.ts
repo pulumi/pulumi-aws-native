@@ -38,6 +38,10 @@ export interface GetSubnetGroupResult {
      */
     readonly subnetIds?: string[];
     /**
+     * Supported network types would be a list of network types supported by subnet group and can be either [ipv4] or [ipv4, dual_stack] or [ipv6].
+     */
+    readonly supportedNetworkTypes?: string[];
+    /**
      * An array of key-value pairs to apply to this subnet group.
      */
     readonly tags?: outputs.Tag[];

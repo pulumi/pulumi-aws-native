@@ -26,6 +26,10 @@ export interface GetAliasArgs {
 
 export interface GetAliasResult {
     /**
+     * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Alias ARN, the resource ID matches the AliasId value.
+     */
+    readonly aliasArn?: string;
+    /**
      * Unique alias ID
      */
     readonly aliasId?: string;
@@ -41,6 +45,10 @@ export interface GetAliasResult {
      * A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
      */
     readonly routingStrategy?: outputs.gamelift.AliasRoutingStrategy;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.

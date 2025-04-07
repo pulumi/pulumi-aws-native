@@ -6,12 +6,21 @@ from enum import Enum
 
 __all__ = [
     'AppMonitorCustomEventsStatus',
+    'AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus',
     'AppMonitorMetricDestinationDestination',
     'AppMonitorTelemetry',
 ]
 
 
 class AppMonitorCustomEventsStatus(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus(str, Enum):
+    """
+    Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be DISABLED
+    """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 

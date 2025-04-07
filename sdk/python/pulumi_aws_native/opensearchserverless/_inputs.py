@@ -319,6 +319,9 @@ class IndexPropertyMappingArgs:
 
 if not MYPY:
     class IndexSettingsIndexPropertiesArgsDict(TypedDict):
+        """
+        Index settings.
+        """
         knn: NotRequired[pulumi.Input[bool]]
         """
         Enable/disable k-nearest neighbor search capability
@@ -341,6 +344,7 @@ class IndexSettingsIndexPropertiesArgs:
                  knn_algo_param_ef_search: Optional[pulumi.Input[int]] = None,
                  refresh_interval: Optional[pulumi.Input[str]] = None):
         """
+        Index settings.
         :param pulumi.Input[bool] knn: Enable/disable k-nearest neighbor search capability
         :param pulumi.Input[int] knn_algo_param_ef_search: Size of the dynamic list for the nearest neighbors
         :param pulumi.Input[str] refresh_interval: How often to perform refresh operation (e.g. '1s', '5s')
@@ -392,6 +396,9 @@ class IndexSettingsIndexPropertiesArgs:
 if not MYPY:
     class IndexSettingsArgsDict(TypedDict):
         index: NotRequired[pulumi.Input['IndexSettingsIndexPropertiesArgsDict']]
+        """
+        Index settings.
+        """
 elif False:
     IndexSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -399,12 +406,18 @@ elif False:
 class IndexSettingsArgs:
     def __init__(__self__, *,
                  index: Optional[pulumi.Input['IndexSettingsIndexPropertiesArgs']] = None):
+        """
+        :param pulumi.Input['IndexSettingsIndexPropertiesArgs'] index: Index settings.
+        """
         if index is not None:
             pulumi.set(__self__, "index", index)
 
     @property
     @pulumi.getter
     def index(self) -> Optional[pulumi.Input['IndexSettingsIndexPropertiesArgs']]:
+        """
+        Index settings.
+        """
         return pulumi.get(self, "index")
 
     @index.setter

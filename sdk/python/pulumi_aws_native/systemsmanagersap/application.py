@@ -26,6 +26,7 @@ class ApplicationArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  application_type: pulumi.Input['ApplicationType'],
+                 components_info: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationComponentInfoArgs']]]] = None,
                  credentials: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCredentialArgs']]]] = None,
                  database_arn: Optional[pulumi.Input[str]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -36,6 +37,7 @@ class ApplicationArgs:
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] application_id: The ID of the application.
         :param pulumi.Input['ApplicationType'] application_type: The type of the application.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationComponentInfoArgs']]] components_info: This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationCredentialArgs']]] credentials: The credentials of the SAP application.
         :param pulumi.Input[str] database_arn: The ARN of the SAP HANA database
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instances: The Amazon EC2 instances on which your SAP application is running.
@@ -45,6 +47,8 @@ class ApplicationArgs:
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "application_type", application_type)
+        if components_info is not None:
+            pulumi.set(__self__, "components_info", components_info)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if database_arn is not None:
@@ -81,6 +85,18 @@ class ApplicationArgs:
     @application_type.setter
     def application_type(self, value: pulumi.Input['ApplicationType']):
         pulumi.set(self, "application_type", value)
+
+    @property
+    @pulumi.getter(name="componentsInfo")
+    def components_info(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationComponentInfoArgs']]]]:
+        """
+        This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
+        """
+        return pulumi.get(self, "components_info")
+
+    @components_info.setter
+    def components_info(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationComponentInfoArgs']]]]):
+        pulumi.set(self, "components_info", value)
 
     @property
     @pulumi.getter
@@ -162,6 +178,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  application_type: Optional[pulumi.Input['ApplicationType']] = None,
+                 components_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationComponentInfoArgs', 'ApplicationComponentInfoArgsDict']]]]] = None,
                  credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCredentialArgs', 'ApplicationCredentialArgsDict']]]]] = None,
                  database_arn: Optional[pulumi.Input[str]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -176,6 +193,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The ID of the application.
         :param pulumi.Input['ApplicationType'] application_type: The type of the application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationComponentInfoArgs', 'ApplicationComponentInfoArgsDict']]]] components_info: This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCredentialArgs', 'ApplicationCredentialArgsDict']]]] credentials: The credentials of the SAP application.
         :param pulumi.Input[str] database_arn: The ARN of the SAP HANA database
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instances: The Amazon EC2 instances on which your SAP application is running.
@@ -209,6 +227,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  application_type: Optional[pulumi.Input['ApplicationType']] = None,
+                 components_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationComponentInfoArgs', 'ApplicationComponentInfoArgsDict']]]]] = None,
                  credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCredentialArgs', 'ApplicationCredentialArgsDict']]]]] = None,
                  database_arn: Optional[pulumi.Input[str]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -230,6 +249,7 @@ class Application(pulumi.CustomResource):
             if application_type is None and not opts.urn:
                 raise TypeError("Missing required property 'application_type'")
             __props__.__dict__["application_type"] = application_type
+            __props__.__dict__["components_info"] = components_info
             __props__.__dict__["credentials"] = credentials
             __props__.__dict__["database_arn"] = database_arn
             __props__.__dict__["instances"] = instances
@@ -237,7 +257,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["sid"] = sid
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["credentials[*]", "databaseArn", "instances[*]", "sapInstanceNumber", "sid"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["componentsInfo[*]", "credentials[*]", "databaseArn", "instances[*]", "sapInstanceNumber", "sid"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Application, __self__).__init__(
             'aws-native:systemsmanagersap:Application',
@@ -264,6 +284,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["application_id"] = None
         __props__.__dict__["application_type"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["components_info"] = None
         __props__.__dict__["credentials"] = None
         __props__.__dict__["database_arn"] = None
         __props__.__dict__["instances"] = None
@@ -295,6 +316,14 @@ class Application(pulumi.CustomResource):
         The ARN of the SSM-SAP application
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="componentsInfo")
+    def components_info(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationComponentInfo']]]:
+        """
+        This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
+        """
+        return pulumi.get(self, "components_info")
 
     @property
     @pulumi.getter

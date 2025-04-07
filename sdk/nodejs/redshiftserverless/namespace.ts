@@ -106,7 +106,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * The list of tags for the namespace.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -156,7 +156,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["namespaceName", "tags[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["namespaceName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Namespace.__pulumiType, name, resourceInputs, opts);
     }
@@ -231,5 +231,5 @@ export interface NamespaceArgs {
     /**
      * The list of tags for the namespace.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

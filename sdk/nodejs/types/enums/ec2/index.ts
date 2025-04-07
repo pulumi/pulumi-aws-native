@@ -520,6 +520,26 @@ export const PrefixListAddressFamily = {
  */
 export type PrefixListAddressFamily = (typeof PrefixListAddressFamily)[keyof typeof PrefixListAddressFamily];
 
+export const RouteServerPeerBgpOptionsPeerLivenessDetection = {
+    Bfd: "bfd",
+    BgpKeepalive: "bgp-keepalive",
+} as const;
+
+/**
+ * BGP Liveness Detection
+ */
+export type RouteServerPeerBgpOptionsPeerLivenessDetection = (typeof RouteServerPeerBgpOptionsPeerLivenessDetection)[keyof typeof RouteServerPeerBgpOptionsPeerLivenessDetection];
+
+export const RouteServerPersistRoutes = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * Whether to enable persistent routes
+ */
+export type RouteServerPersistRoutes = (typeof RouteServerPersistRoutes)[keyof typeof RouteServerPersistRoutes];
+
 export const SecurityGroupVpcAssociationState = {
     Associating: "associating",
     Associated: "associated",

@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetJobResult:
-    def __init__(__self__, data_catalog_outputs=None, database_outputs=None, dataset_name=None, encryption_key_arn=None, encryption_mode=None, job_sample=None, log_subscription=None, max_capacity=None, max_retries=None, output_location=None, outputs=None, profile_configuration=None, project_name=None, recipe=None, role_arn=None, timeout=None, validation_configurations=None):
+    def __init__(__self__, data_catalog_outputs=None, database_outputs=None, dataset_name=None, encryption_key_arn=None, encryption_mode=None, job_sample=None, log_subscription=None, max_capacity=None, max_retries=None, output_location=None, outputs=None, profile_configuration=None, project_name=None, recipe=None, role_arn=None, tags=None, timeout=None, validation_configurations=None):
         if data_catalog_outputs and not isinstance(data_catalog_outputs, list):
             raise TypeError("Expected argument 'data_catalog_outputs' to be a list")
         pulumi.set(__self__, "data_catalog_outputs", data_catalog_outputs)
@@ -71,6 +72,9 @@ class GetJobResult:
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if timeout and not isinstance(timeout, int):
             raise TypeError("Expected argument 'timeout' to be a int")
         pulumi.set(__self__, "timeout", timeout)
@@ -200,6 +204,14 @@ class GetJobResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Metadata tags that have been applied to the job.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def timeout(self) -> Optional[int]:
         """
         Timeout
@@ -236,6 +248,7 @@ class AwaitableGetJobResult(GetJobResult):
             project_name=self.project_name,
             recipe=self.recipe,
             role_arn=self.role_arn,
+            tags=self.tags,
             timeout=self.timeout,
             validation_configurations=self.validation_configurations)
 
@@ -269,6 +282,7 @@ def get_job(name: Optional[str] = None,
         project_name=pulumi.get(__ret__, 'project_name'),
         recipe=pulumi.get(__ret__, 'recipe'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
+        tags=pulumi.get(__ret__, 'tags'),
         timeout=pulumi.get(__ret__, 'timeout'),
         validation_configurations=pulumi.get(__ret__, 'validation_configurations'))
 def get_job_output(name: Optional[pulumi.Input[str]] = None,
@@ -299,5 +313,6 @@ def get_job_output(name: Optional[pulumi.Input[str]] = None,
         project_name=pulumi.get(__response__, 'project_name'),
         recipe=pulumi.get(__response__, 'recipe'),
         role_arn=pulumi.get(__response__, 'role_arn'),
+        tags=pulumi.get(__response__, 'tags'),
         timeout=pulumi.get(__response__, 'timeout'),
         validation_configurations=pulumi.get(__response__, 'validation_configurations')))

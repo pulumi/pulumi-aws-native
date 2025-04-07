@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.IoT
     public static class GetJobTemplate
     {
         /// <summary>
-        /// Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
+        /// Resource Type definition for AWS::IoT::JobTemplate. Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
         /// </summary>
         public static Task<GetJobTemplateResult> InvokeAsync(GetJobTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobTemplateResult>("aws-native:iot:getJobTemplate", args ?? new GetJobTemplateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
+        /// Resource Type definition for AWS::IoT::JobTemplate. Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
         /// </summary>
         public static Output<GetJobTemplateResult> Invoke(GetJobTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobTemplateResult>("aws-native:iot:getJobTemplate", args ?? new GetJobTemplateInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
+        /// Resource Type definition for AWS::IoT::JobTemplate. Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
         /// </summary>
         public static Output<GetJobTemplateResult> Invoke(GetJobTemplateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobTemplateResult>("aws-native:iot:getJobTemplate", args ?? new GetJobTemplateInvokeArgs(), options.WithDefaults());

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     public sealed class DataSourceBedrockFoundationModelConfiguration
     {
         /// <summary>
-        /// The model's ARN.
+        /// The ARN of the foundation model to use for parsing.
         /// </summary>
         public readonly string ModelArn;
         /// <summary>

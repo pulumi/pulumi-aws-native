@@ -266,16 +266,20 @@ __all__ = [
     'DataSetColumnDataType',
     'DataSetColumnTagName',
     'DataSetDatasetParameterValueType',
+    'DataSetFileFormat',
     'DataSetGeoSpatialCountryCode',
     'DataSetGeoSpatialDataRole',
     'DataSetImportMode',
     'DataSetInputColumnDataType',
     'DataSetJoinType',
     'DataSetLookbackWindowSizeUnit',
+    'DataSetRefreshFailureAlertStatus',
     'DataSetRowLevelPermissionFormatVersion',
     'DataSetRowLevelPermissionPolicy',
     'DataSetStatus',
+    'DataSetTextQualifier',
     'DataSetTimeGranularity',
+    'DataSetUseAs',
     'DataSourceAuthenticationType',
     'DataSourceErrorInfoType',
     'DataSourceResourceStatus',
@@ -2038,6 +2042,15 @@ class DataSetDatasetParameterValueType(str, Enum):
     SINGLE_VALUED = "SINGLE_VALUED"
 
 
+class DataSetFileFormat(str, Enum):
+    CSV = "CSV"
+    TSV = "TSV"
+    CLF = "CLF"
+    ELF = "ELF"
+    XLSX = "XLSX"
+    JSON = "JSON"
+
+
 class DataSetGeoSpatialCountryCode(str, Enum):
     US = "US"
 
@@ -2084,6 +2097,11 @@ class DataSetLookbackWindowSizeUnit(str, Enum):
     WEEK = "WEEK"
 
 
+class DataSetRefreshFailureAlertStatus(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 class DataSetRowLevelPermissionFormatVersion(str, Enum):
     VERSION1 = "VERSION_1"
     VERSION2 = "VERSION_2"
@@ -2099,6 +2117,11 @@ class DataSetStatus(str, Enum):
     DISABLED = "DISABLED"
 
 
+class DataSetTextQualifier(str, Enum):
+    DOUBLE_QUOTE = "DOUBLE_QUOTE"
+    SINGLE_QUOTE = "SINGLE_QUOTE"
+
+
 class DataSetTimeGranularity(str, Enum):
     YEAR = "YEAR"
     QUARTER = "QUARTER"
@@ -2109,6 +2132,10 @@ class DataSetTimeGranularity(str, Enum):
     MINUTE = "MINUTE"
     SECOND = "SECOND"
     MILLISECOND = "MILLISECOND"
+
+
+class DataSetUseAs(str, Enum):
+    RLS_RULES = "RLS_RULES"
 
 
 class DataSourceAuthenticationType(str, Enum):

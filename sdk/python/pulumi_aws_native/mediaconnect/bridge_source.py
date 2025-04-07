@@ -29,9 +29,9 @@ class BridgeSourceInitArgs:
         """
         The set of arguments for constructing a BridgeSource resource.
         :param pulumi.Input[str] bridge_arn: The Amazon Resource Number (ARN) of the bridge.
-        :param pulumi.Input['BridgeSourceBridgeFlowSourceArgs'] flow_source: Add a flow source to an existing bridge.
+        :param pulumi.Input['BridgeSourceBridgeFlowSourceArgs'] flow_source: The source of the flow.
         :param pulumi.Input[str] name: The name of the source.
-        :param pulumi.Input['BridgeSourceBridgeNetworkSourceArgs'] network_source: Add a network source to an existing bridge.
+        :param pulumi.Input['BridgeSourceBridgeNetworkSourceArgs'] network_source: The source of the network.
         """
         pulumi.set(__self__, "bridge_arn", bridge_arn)
         if flow_source is not None:
@@ -57,7 +57,7 @@ class BridgeSourceInitArgs:
     @pulumi.getter(name="flowSource")
     def flow_source(self) -> Optional[pulumi.Input['BridgeSourceBridgeFlowSourceArgs']]:
         """
-        Add a flow source to an existing bridge.
+        The source of the flow.
         """
         return pulumi.get(self, "flow_source")
 
@@ -81,7 +81,7 @@ class BridgeSourceInitArgs:
     @pulumi.getter(name="networkSource")
     def network_source(self) -> Optional[pulumi.Input['BridgeSourceBridgeNetworkSourceArgs']]:
         """
-        Add a network source to an existing bridge.
+        The source of the network.
         """
         return pulumi.get(self, "network_source")
 
@@ -106,9 +106,9 @@ class BridgeSource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bridge_arn: The Amazon Resource Number (ARN) of the bridge.
-        :param pulumi.Input[Union['BridgeSourceBridgeFlowSourceArgs', 'BridgeSourceBridgeFlowSourceArgsDict']] flow_source: Add a flow source to an existing bridge.
+        :param pulumi.Input[Union['BridgeSourceBridgeFlowSourceArgs', 'BridgeSourceBridgeFlowSourceArgsDict']] flow_source: The source of the flow.
         :param pulumi.Input[str] name: The name of the source.
-        :param pulumi.Input[Union['BridgeSourceBridgeNetworkSourceArgs', 'BridgeSourceBridgeNetworkSourceArgsDict']] network_source: Add a network source to an existing bridge.
+        :param pulumi.Input[Union['BridgeSourceBridgeNetworkSourceArgs', 'BridgeSourceBridgeNetworkSourceArgsDict']] network_source: The source of the network.
         """
         ...
     @overload
@@ -195,7 +195,7 @@ class BridgeSource(pulumi.CustomResource):
     @pulumi.getter(name="flowSource")
     def flow_source(self) -> pulumi.Output[Optional['outputs.BridgeSourceBridgeFlowSource']]:
         """
-        Add a flow source to an existing bridge.
+        The source of the flow.
         """
         return pulumi.get(self, "flow_source")
 
@@ -211,7 +211,7 @@ class BridgeSource(pulumi.CustomResource):
     @pulumi.getter(name="networkSource")
     def network_source(self) -> pulumi.Output[Optional['outputs.BridgeSourceBridgeNetworkSource']]:
         """
-        Add a network source to an existing bridge.
+        The source of the network.
         """
         return pulumi.get(self, "network_source")
 

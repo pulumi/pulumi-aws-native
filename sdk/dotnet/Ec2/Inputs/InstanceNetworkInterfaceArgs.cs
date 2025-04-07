@@ -42,6 +42,12 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("deviceIndex", required: true)]
         public Input<string> DeviceIndex { get; set; } = null!;
 
+        /// <summary>
+        /// Configures ENA Express for UDP network traffic.
+        /// </summary>
+        [Input("enaSrdSpecification")]
+        public Input<Inputs.InstanceEnaSrdSpecificationArgs>? EnaSrdSpecification { get; set; }
+
         [Input("groupSet")]
         private InputList<string>? _groupSet;
 

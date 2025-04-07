@@ -40,10 +40,22 @@ namespace Pulumi.AwsNative.AppSync
         public Output<string> DomainNameValue { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the Domain Name.
+        /// </summary>
+        [Output("domainNameArn")]
+        public Output<string> DomainNameArn { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of your Amazon Route 53 hosted zone.
         /// </summary>
         [Output("hostedZoneId")]
         public Output<string> HostedZoneId { get; private set; } = null!;
+
+        /// <summary>
+        /// A set of tags (key-value pairs) for this domain name.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -112,6 +124,18 @@ namespace Pulumi.AwsNative.AppSync
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainNameValue { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A set of tags (key-value pairs) for this domain name.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public DomainNameArgs()
         {

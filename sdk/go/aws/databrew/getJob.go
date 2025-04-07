@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -58,6 +59,8 @@ type LookupJobResult struct {
 	Recipe *JobRecipe `pulumi:"recipe"`
 	// Role arn
 	RoleArn *string `pulumi:"roleArn"`
+	// Metadata tags that have been applied to the job.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Timeout
 	Timeout *int `pulumi:"timeout"`
 	// Data quality rules configuration
@@ -169,6 +172,11 @@ func (o LookupJobResultOutput) Recipe() JobRecipePtrOutput {
 // Role arn
 func (o LookupJobResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupJobResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Metadata tags that have been applied to the job.
+func (o LookupJobResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupJobResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Timeout

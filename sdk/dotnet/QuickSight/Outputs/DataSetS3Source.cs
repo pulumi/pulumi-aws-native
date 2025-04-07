@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Information about the format for the S3 source file or files.
         /// </summary>
-        public readonly object? UploadSettings;
+        public readonly Outputs.DataSetUploadSettings? UploadSettings;
 
         [OutputConstructor]
         private DataSetS3Source(
@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             ImmutableArray<Outputs.DataSetInputColumn> inputColumns,
 
-            object? uploadSettings)
+            Outputs.DataSetUploadSettings? uploadSettings)
         {
             DataSourceArn = dataSourceArn;
             InputColumns = inputColumns;

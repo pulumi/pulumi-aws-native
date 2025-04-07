@@ -13,13 +13,7 @@ namespace Pulumi.AwsNative.ControlTower.Outputs
     [OutputType]
     public sealed class EnabledBaselineParameter
     {
-        /// <summary>
-        /// A string denoting the parameter key.
-        /// </summary>
         public readonly string? Key;
-        /// <summary>
-        /// A low-level `Document` object of any type (for example, a Java Object).
-        /// </summary>
         public readonly object? Value;
 
         [OutputConstructor]

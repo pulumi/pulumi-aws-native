@@ -1772,7 +1772,6 @@ type ServiceAwsVpcConfiguration struct {
 	//  Consider the following when you set this value:
 	//   +  When you use ``create-service`` or ``update-service``, the default is ``DISABLED``.
 	//   +  When the service ``deploymentController`` is ``ECS``, the value must be ``DISABLED``.
-	//   +  When you use ``create-service`` or ``update-service``, the default is ``ENABLED``.
 	AssignPublicIp *ServiceAwsVpcConfigurationAssignPublicIp `pulumi:"assignPublicIp"`
 	// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified.
 	//   All specified security groups must be from the same VPC.
@@ -1799,7 +1798,6 @@ type ServiceAwsVpcConfigurationArgs struct {
 	//  Consider the following when you set this value:
 	//   +  When you use ``create-service`` or ``update-service``, the default is ``DISABLED``.
 	//   +  When the service ``deploymentController`` is ``ECS``, the value must be ``DISABLED``.
-	//   +  When you use ``create-service`` or ``update-service``, the default is ``ENABLED``.
 	AssignPublicIp ServiceAwsVpcConfigurationAssignPublicIpPtrInput `pulumi:"assignPublicIp"`
 	// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified.
 	//   All specified security groups must be from the same VPC.
@@ -1892,7 +1890,6 @@ func (o ServiceAwsVpcConfigurationOutput) ToServiceAwsVpcConfigurationPtrOutputW
 //	Consider the following when you set this value:
 //	 +  When you use ``create-service`` or ``update-service``, the default is ``DISABLED``.
 //	 +  When the service ``deploymentController`` is ``ECS``, the value must be ``DISABLED``.
-//	 +  When you use ``create-service`` or ``update-service``, the default is ``ENABLED``.
 func (o ServiceAwsVpcConfigurationOutput) AssignPublicIp() ServiceAwsVpcConfigurationAssignPublicIpPtrOutput {
 	return o.ApplyT(func(v ServiceAwsVpcConfiguration) *ServiceAwsVpcConfigurationAssignPublicIp { return v.AssignPublicIp }).(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput)
 }
@@ -1940,7 +1937,6 @@ func (o ServiceAwsVpcConfigurationPtrOutput) Elem() ServiceAwsVpcConfigurationOu
 //	Consider the following when you set this value:
 //	 +  When you use ``create-service`` or ``update-service``, the default is ``DISABLED``.
 //	 +  When the service ``deploymentController`` is ``ECS``, the value must be ``DISABLED``.
-//	 +  When you use ``create-service`` or ``update-service``, the default is ``ENABLED``.
 func (o ServiceAwsVpcConfigurationPtrOutput) AssignPublicIp() ServiceAwsVpcConfigurationAssignPublicIpPtrOutput {
 	return o.ApplyT(func(v *ServiceAwsVpcConfiguration) *ServiceAwsVpcConfigurationAssignPublicIp {
 		if v == nil {

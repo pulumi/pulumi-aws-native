@@ -34,10 +34,16 @@ type LookupFlowResult struct {
 	FlowArn *string `pulumi:"flowArn"`
 	// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)
 	FlowAvailabilityZone *string `pulumi:"flowAvailabilityZone"`
+	// A prefix for the names of the NDI sources that the flow creates.(ReadOnly)
+	FlowNdiMachineName *string `pulumi:"flowNdiMachineName"`
+	// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+	FlowSize *FlowSize `pulumi:"flowSize"`
 	// The maintenance settings you want to use for the flow.
 	Maintenance *FlowMaintenance `pulumi:"maintenance"`
 	// The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
 	MediaStreams []FlowMediaStream `pulumi:"mediaStreams"`
+	// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+	NdiConfig *FlowNdiConfig `pulumi:"ndiConfig"`
 	// The source of the flow.
 	Source *FlowSourceType `pulumi:"source"`
 	// The source failover config of the flow.
@@ -95,6 +101,16 @@ func (o LookupFlowResultOutput) FlowAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlowResult) *string { return v.FlowAvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// A prefix for the names of the NDI sources that the flow creates.(ReadOnly)
+func (o LookupFlowResultOutput) FlowNdiMachineName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFlowResult) *string { return v.FlowNdiMachineName }).(pulumi.StringPtrOutput)
+}
+
+// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+func (o LookupFlowResultOutput) FlowSize() FlowSizePtrOutput {
+	return o.ApplyT(func(v LookupFlowResult) *FlowSize { return v.FlowSize }).(FlowSizePtrOutput)
+}
+
 // The maintenance settings you want to use for the flow.
 func (o LookupFlowResultOutput) Maintenance() FlowMaintenancePtrOutput {
 	return o.ApplyT(func(v LookupFlowResult) *FlowMaintenance { return v.Maintenance }).(FlowMaintenancePtrOutput)
@@ -103,6 +119,11 @@ func (o LookupFlowResultOutput) Maintenance() FlowMaintenancePtrOutput {
 // The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
 func (o LookupFlowResultOutput) MediaStreams() FlowMediaStreamArrayOutput {
 	return o.ApplyT(func(v LookupFlowResult) []FlowMediaStream { return v.MediaStreams }).(FlowMediaStreamArrayOutput)
+}
+
+// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+func (o LookupFlowResultOutput) NdiConfig() FlowNdiConfigPtrOutput {
+	return o.ApplyT(func(v LookupFlowResult) *FlowNdiConfig { return v.NdiConfig }).(FlowNdiConfigPtrOutput)
 }
 
 // The source of the flow.

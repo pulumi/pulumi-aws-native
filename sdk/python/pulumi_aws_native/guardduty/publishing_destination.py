@@ -100,7 +100,7 @@ class PublishingDestination(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::GuardDuty::PublishingDestination
+        Resource Type definition for AWS::GuardDuty::PublishingDestination.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,7 +116,7 @@ class PublishingDestination(pulumi.CustomResource):
                  args: PublishingDestinationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::GuardDuty::PublishingDestination
+        Resource Type definition for AWS::GuardDuty::PublishingDestination.
 
         :param str resource_name: The name of the resource.
         :param PublishingDestinationArgs args: The arguments to use to populate this resource's properties.

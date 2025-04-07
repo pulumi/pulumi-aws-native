@@ -66,6 +66,12 @@ namespace Pulumi.AwsNative.GameLift
     public partial class Alias : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Alias ARN, the resource ID matches the AliasId value.
+        /// </summary>
+        [Output("aliasArn")]
+        public Output<string> AliasArn { get; private set; } = null!;
+
+        /// <summary>
         /// Unique alias ID
         /// </summary>
         [Output("aliasId")]
@@ -88,6 +94,12 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Output("routingStrategy")]
         public Output<Outputs.AliasRoutingStrategy> RoutingStrategy { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -151,6 +163,18 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Input("routingStrategy", required: true)]
         public Input<Inputs.AliasRoutingStrategyArgs> RoutingStrategy { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public AliasArgs()
         {

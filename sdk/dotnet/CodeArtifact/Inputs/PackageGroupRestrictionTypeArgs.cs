@@ -14,19 +14,12 @@ namespace Pulumi.AwsNative.CodeArtifact.Inputs
     {
         [Input("repositories")]
         private InputList<string>? _repositories;
-
-        /// <summary>
-        /// The repositories to add to the allowed repositories list. The allowed repositories list is used when the `RestrictionMode` is set to `ALLOW_SPECIFIC_REPOSITORIES` .
-        /// </summary>
         public InputList<string> Repositories
         {
             get => _repositories ?? (_repositories = new InputList<string>());
             set => _repositories = value;
         }
 
-        /// <summary>
-        /// The package group origin restriction setting. When the value is `INHERIT` , the value is set to the value of the first parent package group which does not have a value of `INHERIT` .
-        /// </summary>
         [Input("restrictionMode", required: true)]
         public Input<Pulumi.AwsNative.CodeArtifact.PackageGroupRestrictionTypeRestrictionMode> RestrictionMode { get; set; } = null!;
 

@@ -385,7 +385,8 @@
       "permissions" : [ "sagemaker:AddTags", "sagemaker:ListTags", "sagemaker:CreateInferenceComponent", "sagemaker:DescribeInferenceComponent" ]
     },
     "update" : {
-      "permissions" : [ "sagemaker:UpdateInferenceComponent", "sagemaker:UpdateInferenceComponentRuntimeConfig", "sagemaker:DescribeInferenceComponent", "sagemaker:AddTags", "sagemaker:ListTags", "sagemaker:DeleteTags" ]
+      "permissions" : [ "sagemaker:UpdateInferenceComponent", "sagemaker:UpdateInferenceComponentRuntimeConfig", "sagemaker:DescribeInferenceComponent", "sagemaker:AddTags", "sagemaker:ListTags", "sagemaker:DeleteTags" ],
+      "timeoutInMinutes" : 490
     },
     "delete" : {
       "permissions" : [ "sagemaker:DescribeInferenceComponent", "sagemaker:DeleteInferenceComponent", "sagemaker:DeleteTags" ]

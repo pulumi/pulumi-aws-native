@@ -46,6 +46,8 @@ type Collaboration struct {
 	// A human-readable identifier provided by the collaboration owner. Display names are not unique.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An indicator as to whether query logging has been enabled or disabled for the collaboration.
+	//
+	// When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
 	QueryLogStatus CollaborationQueryLogStatusOutput `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -138,6 +140,8 @@ type collaborationArgs struct {
 	// A human-readable identifier provided by the collaboration owner. Display names are not unique.
 	Name *string `pulumi:"name"`
 	// An indicator as to whether query logging has been enabled or disabled for the collaboration.
+	//
+	// When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
 	QueryLogStatus CollaborationQueryLogStatus `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -166,6 +170,8 @@ type CollaborationArgs struct {
 	// A human-readable identifier provided by the collaboration owner. Display names are not unique.
 	Name pulumi.StringPtrInput
 	// An indicator as to whether query logging has been enabled or disabled for the collaboration.
+	//
+	// When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
 	QueryLogStatus CollaborationQueryLogStatusInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags aws.TagArrayInput
@@ -272,6 +278,8 @@ func (o CollaborationOutput) Name() pulumi.StringOutput {
 }
 
 // An indicator as to whether query logging has been enabled or disabled for the collaboration.
+//
+// When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
 func (o CollaborationOutput) QueryLogStatus() CollaborationQueryLogStatusOutput {
 	return o.ApplyT(func(v *Collaboration) CollaborationQueryLogStatusOutput { return v.QueryLogStatus }).(CollaborationQueryLogStatusOutput)
 }

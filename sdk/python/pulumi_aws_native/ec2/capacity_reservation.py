@@ -475,6 +475,16 @@ class CapacityReservation(pulumi.CustomResource):
             __props__.__dict__["unused_reservation_billing_owner_id"] = unused_reservation_billing_owner_id
             __props__.__dict__["available_instance_count"] = None
             __props__.__dict__["aws_id"] = None
+            __props__.__dict__["capacity_allocation_set"] = None
+            __props__.__dict__["capacity_reservation_arn"] = None
+            __props__.__dict__["capacity_reservation_fleet_id"] = None
+            __props__.__dict__["commitment_info"] = None
+            __props__.__dict__["create_date"] = None
+            __props__.__dict__["delivery_preference"] = None
+            __props__.__dict__["owner_id"] = None
+            __props__.__dict__["reservation_type"] = None
+            __props__.__dict__["start_date"] = None
+            __props__.__dict__["state"] = None
             __props__.__dict__["total_instance_count"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZone", "availabilityZoneId", "ebsOptimized", "ephemeralStorage", "instancePlatform", "instanceType", "outPostArn", "placementGroupArn", "tagSpecifications[*]", "tenancy"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -504,6 +514,12 @@ class CapacityReservation(pulumi.CustomResource):
         __props__.__dict__["availability_zone_id"] = None
         __props__.__dict__["available_instance_count"] = None
         __props__.__dict__["aws_id"] = None
+        __props__.__dict__["capacity_allocation_set"] = None
+        __props__.__dict__["capacity_reservation_arn"] = None
+        __props__.__dict__["capacity_reservation_fleet_id"] = None
+        __props__.__dict__["commitment_info"] = None
+        __props__.__dict__["create_date"] = None
+        __props__.__dict__["delivery_preference"] = None
         __props__.__dict__["ebs_optimized"] = None
         __props__.__dict__["end_date"] = None
         __props__.__dict__["end_date_type"] = None
@@ -513,7 +529,11 @@ class CapacityReservation(pulumi.CustomResource):
         __props__.__dict__["instance_platform"] = None
         __props__.__dict__["instance_type"] = None
         __props__.__dict__["out_post_arn"] = None
+        __props__.__dict__["owner_id"] = None
         __props__.__dict__["placement_group_arn"] = None
+        __props__.__dict__["reservation_type"] = None
+        __props__.__dict__["start_date"] = None
+        __props__.__dict__["state"] = None
         __props__.__dict__["tag_specifications"] = None
         __props__.__dict__["tenancy"] = None
         __props__.__dict__["total_instance_count"] = None
@@ -551,6 +571,48 @@ class CapacityReservation(pulumi.CustomResource):
         The ID of the Capacity Reservation.
         """
         return pulumi.get(self, "aws_id")
+
+    @property
+    @pulumi.getter(name="capacityAllocationSet")
+    def capacity_allocation_set(self) -> pulumi.Output[Sequence['outputs.CapacityReservationCapacityAllocation']]:
+        return pulumi.get(self, "capacity_allocation_set")
+
+    @property
+    @pulumi.getter(name="capacityReservationArn")
+    def capacity_reservation_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Capacity Reservation.
+        """
+        return pulumi.get(self, "capacity_reservation_arn")
+
+    @property
+    @pulumi.getter(name="capacityReservationFleetId")
+    def capacity_reservation_fleet_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Capacity Reservation Fleet to which the Capacity Reservation belongs. Only valid for Capacity Reservations that were created by a Capacity Reservation Fleet.
+        """
+        return pulumi.get(self, "capacity_reservation_fleet_id")
+
+    @property
+    @pulumi.getter(name="commitmentInfo")
+    def commitment_info(self) -> pulumi.Output['outputs.CommitmentInfoProperties']:
+        return pulumi.get(self, "commitment_info")
+
+    @property
+    @pulumi.getter(name="createDate")
+    def create_date(self) -> pulumi.Output[str]:
+        """
+        The date and time at which the Capacity Reservation was created.
+        """
+        return pulumi.get(self, "create_date")
+
+    @property
+    @pulumi.getter(name="deliveryPreference")
+    def delivery_preference(self) -> pulumi.Output[str]:
+        """
+        The delivery method for a future-dated Capacity Reservation. `incremental` indicates that the requested capacity is delivered in addition to any running instances and reserved capacity that you have in your account at the requested date and time.
+        """
+        return pulumi.get(self, "delivery_preference")
 
     @property
     @pulumi.getter(name="ebsOptimized")
@@ -651,6 +713,14 @@ class CapacityReservation(pulumi.CustomResource):
         return pulumi.get(self, "out_post_arn")
 
     @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the AWS account that owns the Capacity Reservation.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @property
     @pulumi.getter(name="placementGroupArn")
     def placement_group_arn(self) -> pulumi.Output[Optional[str]]:
         """
@@ -659,6 +729,42 @@ class CapacityReservation(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
         """
         return pulumi.get(self, "placement_group_arn")
+
+    @property
+    @pulumi.getter(name="reservationType")
+    def reservation_type(self) -> pulumi.Output[str]:
+        """
+        The type of Capacity Reservation.
+        """
+        return pulumi.get(self, "reservation_type")
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> pulumi.Output[str]:
+        """
+        The date and time at which the Capacity Reservation was started.
+        """
+        return pulumi.get(self, "start_date")
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Output[str]:
+        """
+        The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:
+
+        - `active` - The capacity is available for use.
+        - `expired` - The Capacity Reservation expired automatically at the date and time specified in your reservation request. The reserved capacity is no longer available for your use.
+        - `cancelled` - The Capacity Reservation was canceled. The reserved capacity is no longer available for your use.
+        - `pending` - The Capacity Reservation request was successful but the capacity provisioning is still pending.
+        - `failed` - The Capacity Reservation request has failed. A request can fail due to request parameters that are not valid, capacity constraints, or instance limit constraints. You can view a failed request for 60 minutes.
+        - `scheduled` - ( *Future-dated Capacity Reservations* ) The future-dated Capacity Reservation request was approved and the Capacity Reservation is scheduled for delivery on the requested start date.
+        - `payment-pending` - ( *Capacity Blocks* ) The upfront payment has not been processed yet.
+        - `payment-failed` - ( *Capacity Blocks* ) The upfront payment was not processed in the 12-hour time frame. Your Capacity Block was released.
+        - `assessing` - ( *Future-dated Capacity Reservations* ) Amazon EC2 is assessing your request for a future-dated Capacity Reservation.
+        - `delayed` - ( *Future-dated Capacity Reservations* ) Amazon EC2 encountered a delay in provisioning the requested future-dated Capacity Reservation. Amazon EC2 is unable to deliver the requested capacity by the requested start date and time.
+        - `unsupported` - ( *Future-dated Capacity Reservations* ) Amazon EC2 can't support the future-dated Capacity Reservation request due to capacity constraints. You can view unsupported requests for 30 days. The Capacity Reservation will not be delivered.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="tagSpecifications")

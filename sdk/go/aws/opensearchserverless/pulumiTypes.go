@@ -526,6 +526,7 @@ func (o IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput) M() p
 }
 
 type IndexSettings struct {
+	// Index settings.
 	Index *IndexSettingsIndexProperties `pulumi:"index"`
 }
 
@@ -541,6 +542,7 @@ type IndexSettingsInput interface {
 }
 
 type IndexSettingsArgs struct {
+	// Index settings.
 	Index IndexSettingsIndexPropertiesPtrInput `pulumi:"index"`
 }
 
@@ -621,6 +623,7 @@ func (o IndexSettingsOutput) ToIndexSettingsPtrOutputWithContext(ctx context.Con
 	}).(IndexSettingsPtrOutput)
 }
 
+// Index settings.
 func (o IndexSettingsOutput) Index() IndexSettingsIndexPropertiesPtrOutput {
 	return o.ApplyT(func(v IndexSettings) *IndexSettingsIndexProperties { return v.Index }).(IndexSettingsIndexPropertiesPtrOutput)
 }
@@ -649,6 +652,7 @@ func (o IndexSettingsPtrOutput) Elem() IndexSettingsOutput {
 	}).(IndexSettingsOutput)
 }
 
+// Index settings.
 func (o IndexSettingsPtrOutput) Index() IndexSettingsIndexPropertiesPtrOutput {
 	return o.ApplyT(func(v *IndexSettings) *IndexSettingsIndexProperties {
 		if v == nil {
@@ -658,6 +662,7 @@ func (o IndexSettingsPtrOutput) Index() IndexSettingsIndexPropertiesPtrOutput {
 	}).(IndexSettingsIndexPropertiesPtrOutput)
 }
 
+// Index settings.
 type IndexSettingsIndexProperties struct {
 	// Enable/disable k-nearest neighbor search capability
 	Knn *bool `pulumi:"knn"`
@@ -678,6 +683,7 @@ type IndexSettingsIndexPropertiesInput interface {
 	ToIndexSettingsIndexPropertiesOutputWithContext(context.Context) IndexSettingsIndexPropertiesOutput
 }
 
+// Index settings.
 type IndexSettingsIndexPropertiesArgs struct {
 	// Enable/disable k-nearest neighbor search capability
 	Knn pulumi.BoolPtrInput `pulumi:"knn"`
@@ -740,6 +746,7 @@ func (i *indexSettingsIndexPropertiesPtrType) ToIndexSettingsIndexPropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(IndexSettingsIndexPropertiesPtrOutput)
 }
 
+// Index settings.
 type IndexSettingsIndexPropertiesOutput struct{ *pulumi.OutputState }
 
 func (IndexSettingsIndexPropertiesOutput) ElementType() reflect.Type {

@@ -487,6 +487,42 @@ const (
 	WorkgroupStatusDeleting  = WorkgroupStatus("DELETING")
 )
 
+func (WorkgroupStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupStatus)(nil)).Elem()
+}
+
+func (e WorkgroupStatus) ToWorkgroupStatusOutput() WorkgroupStatusOutput {
+	return pulumi.ToOutput(e).(WorkgroupStatusOutput)
+}
+
+func (e WorkgroupStatus) ToWorkgroupStatusOutputWithContext(ctx context.Context) WorkgroupStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkgroupStatusOutput)
+}
+
+func (e WorkgroupStatus) ToWorkgroupStatusPtrOutput() WorkgroupStatusPtrOutput {
+	return e.ToWorkgroupStatusPtrOutputWithContext(context.Background())
+}
+
+func (e WorkgroupStatus) ToWorkgroupStatusPtrOutputWithContext(ctx context.Context) WorkgroupStatusPtrOutput {
+	return WorkgroupStatus(e).ToWorkgroupStatusOutputWithContext(ctx).ToWorkgroupStatusPtrOutputWithContext(ctx)
+}
+
+func (e WorkgroupStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkgroupStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkgroupStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkgroupStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 type WorkgroupStatusOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupStatusOutput) ElementType() reflect.Type {
@@ -570,12 +606,55 @@ func (o WorkgroupStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
+// WorkgroupStatusInput is an input type that accepts values of the WorkgroupStatus enum
+// A concrete instance of `WorkgroupStatusInput` can be one of the following:
+//
+//	WorkgroupStatusCreating
+//	WorkgroupStatusAvailable
+//	WorkgroupStatusModifying
+//	WorkgroupStatusDeleting
+type WorkgroupStatusInput interface {
+	pulumi.Input
+
+	ToWorkgroupStatusOutput() WorkgroupStatusOutput
+	ToWorkgroupStatusOutputWithContext(context.Context) WorkgroupStatusOutput
+}
+
+var workgroupStatusPtrType = reflect.TypeOf((**WorkgroupStatus)(nil)).Elem()
+
+type WorkgroupStatusPtrInput interface {
+	pulumi.Input
+
+	ToWorkgroupStatusPtrOutput() WorkgroupStatusPtrOutput
+	ToWorkgroupStatusPtrOutputWithContext(context.Context) WorkgroupStatusPtrOutput
+}
+
+type workgroupStatusPtr string
+
+func WorkgroupStatusPtr(v string) WorkgroupStatusPtrInput {
+	return (*workgroupStatusPtr)(&v)
+}
+
+func (*workgroupStatusPtr) ElementType() reflect.Type {
+	return workgroupStatusPtrType
+}
+
+func (in *workgroupStatusPtr) ToWorkgroupStatusPtrOutput() WorkgroupStatusPtrOutput {
+	return pulumi.ToOutput(in).(WorkgroupStatusPtrOutput)
+}
+
+func (in *workgroupStatusPtr) ToWorkgroupStatusPtrOutputWithContext(ctx context.Context) WorkgroupStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkgroupStatusPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceLogExportInput)(nil)).Elem(), NamespaceLogExport("useractivitylog"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceLogExportPtrInput)(nil)).Elem(), NamespaceLogExport("useractivitylog"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceLogExportArrayInput)(nil)).Elem(), NamespaceLogExportArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupPerformanceTargetStatusInput)(nil)).Elem(), WorkgroupPerformanceTargetStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupPerformanceTargetStatusPtrInput)(nil)).Elem(), WorkgroupPerformanceTargetStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupStatusInput)(nil)).Elem(), WorkgroupStatus("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupStatusPtrInput)(nil)).Elem(), WorkgroupStatus("CREATING"))
 	pulumi.RegisterOutputType(NamespaceLogExportOutput{})
 	pulumi.RegisterOutputType(NamespaceLogExportPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceLogExportArrayOutput{})

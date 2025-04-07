@@ -79,6 +79,10 @@ namespace Pulumi.AwsNative.DataBrew
         /// Sample
         /// </summary>
         public readonly Outputs.ProjectSample? Sample;
+        /// <summary>
+        /// Metadata tags that have been applied to the project.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetProjectResult(
@@ -88,12 +92,15 @@ namespace Pulumi.AwsNative.DataBrew
 
             string? roleArn,
 
-            Outputs.ProjectSample? sample)
+            Outputs.ProjectSample? sample,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DatasetName = datasetName;
             RecipeName = recipeName;
             RoleArn = roleArn;
             Sample = sample;
+            Tags = tags;
         }
     }
 }

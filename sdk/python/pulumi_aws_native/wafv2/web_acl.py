@@ -31,6 +31,7 @@ class WebAclArgs:
                  captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
                  challenge_config: Optional[pulumi.Input['WebAclChallengeConfigArgs']] = None,
                  custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
+                 data_protection_config: Optional[pulumi.Input['WebAclDataProtectionConfigArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
@@ -39,7 +40,7 @@ class WebAclArgs:
         """
         The set of arguments for constructing a WebAcl resource.
         :param pulumi.Input['WebAclDefaultActionArgs'] default_action: The action to perform if none of the `Rules` contained in the `WebACL` match.
-        :param pulumi.Input['WebAclScope'] scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+        :param pulumi.Input['WebAclScope'] scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
                
                > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
                
@@ -59,6 +60,7 @@ class WebAclArgs:
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
                
                For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
+        :param pulumi.Input['WebAclDataProtectionConfigArgs'] data_protection_config: Collection of dataProtects.
         :param pulumi.Input[str] description: A description of the web ACL that helps with identification.
         :param pulumi.Input[str] name: The name of the web ACL. You cannot change the name of a web ACL after you create it.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: Collection of Rules.
@@ -78,6 +80,8 @@ class WebAclArgs:
             pulumi.set(__self__, "challenge_config", challenge_config)
         if custom_response_bodies is not None:
             pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
+        if data_protection_config is not None:
+            pulumi.set(__self__, "data_protection_config", data_protection_config)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -105,7 +109,7 @@ class WebAclArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input['WebAclScope']:
         """
-        Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+        Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 
         > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
 
@@ -188,6 +192,18 @@ class WebAclArgs:
         pulumi.set(self, "custom_response_bodies", value)
 
     @property
+    @pulumi.getter(name="dataProtectionConfig")
+    def data_protection_config(self) -> Optional[pulumi.Input['WebAclDataProtectionConfigArgs']]:
+        """
+        Collection of dataProtects.
+        """
+        return pulumi.get(self, "data_protection_config")
+
+    @data_protection_config.setter
+    def data_protection_config(self, value: Optional[pulumi.Input['WebAclDataProtectionConfigArgs']]):
+        pulumi.set(self, "data_protection_config", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -259,6 +275,7 @@ class WebAcl(pulumi.CustomResource):
                  captcha_config: Optional[pulumi.Input[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']]] = None,
                  challenge_config: Optional[pulumi.Input[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']]] = None,
                  custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict']]]]] = None,
+                 data_protection_config: Optional[pulumi.Input[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']]] = None,
                  default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -287,11 +304,12 @@ class WebAcl(pulumi.CustomResource):
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
                
                For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
+        :param pulumi.Input[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']] data_protection_config: Collection of dataProtects.
         :param pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']] default_action: The action to perform if none of the `Rules` contained in the `WebACL` match.
         :param pulumi.Input[str] description: A description of the web ACL that helps with identification.
         :param pulumi.Input[str] name: The name of the web ACL. You cannot change the name of a web ACL after you create it.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]] rules: Collection of Rules.
-        :param pulumi.Input['WebAclScope'] scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+        :param pulumi.Input['WebAclScope'] scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
                
                > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
                
@@ -330,6 +348,7 @@ class WebAcl(pulumi.CustomResource):
                  captcha_config: Optional[pulumi.Input[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']]] = None,
                  challenge_config: Optional[pulumi.Input[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']]] = None,
                  custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict']]]]] = None,
+                 data_protection_config: Optional[pulumi.Input[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']]] = None,
                  default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -351,6 +370,7 @@ class WebAcl(pulumi.CustomResource):
             __props__.__dict__["captcha_config"] = captcha_config
             __props__.__dict__["challenge_config"] = challenge_config
             __props__.__dict__["custom_response_bodies"] = custom_response_bodies
+            __props__.__dict__["data_protection_config"] = data_protection_config
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
             __props__.__dict__["default_action"] = default_action
@@ -400,6 +420,7 @@ class WebAcl(pulumi.CustomResource):
         __props__.__dict__["captcha_config"] = None
         __props__.__dict__["challenge_config"] = None
         __props__.__dict__["custom_response_bodies"] = None
+        __props__.__dict__["data_protection_config"] = None
         __props__.__dict__["default_action"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["label_namespace"] = None
@@ -480,6 +501,14 @@ class WebAcl(pulumi.CustomResource):
         return pulumi.get(self, "custom_response_bodies")
 
     @property
+    @pulumi.getter(name="dataProtectionConfig")
+    def data_protection_config(self) -> pulumi.Output[Optional['outputs.WebAclDataProtectionConfig']]:
+        """
+        Collection of dataProtects.
+        """
+        return pulumi.get(self, "data_protection_config")
+
+    @property
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> pulumi.Output['outputs.WebAclDefaultAction']:
         """
@@ -527,7 +556,7 @@ class WebAcl(pulumi.CustomResource):
     @pulumi.getter
     def scope(self) -> pulumi.Output['WebAclScope']:
         """
-        Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+        Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 
         > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
 

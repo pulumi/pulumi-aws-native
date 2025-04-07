@@ -68,7 +68,7 @@ class DomainArgs:
         :param pulumi.Input[str] engine_version: The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
                
                If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-        :param pulumi.Input['DomainIdentityCenterOptionsArgs'] identity_center_options: Container for IAM Identity Center Option control for the domain.
+        :param pulumi.Input['DomainIdentityCenterOptionsArgs'] identity_center_options: Configuration options for controlling IAM Identity Center integration within a domain.
         :param pulumi.Input[str] ip_address_type: Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
         :param pulumi.Input[Mapping[str, pulumi.Input['DomainLogPublishingOptionArgs']]] log_publishing_options: An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish. Each key needs a valid `LogPublishingOption` value. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
         :param pulumi.Input['DomainNodeToNodeEncryptionOptionsArgs'] node_to_node_encryption_options: Specifies whether node-to-node encryption is enabled. See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
@@ -257,7 +257,7 @@ class DomainArgs:
     @pulumi.getter(name="identityCenterOptions")
     def identity_center_options(self) -> Optional[pulumi.Input['DomainIdentityCenterOptionsArgs']]:
         """
-        Container for IAM Identity Center Option control for the domain.
+        Configuration options for controlling IAM Identity Center integration within a domain.
         """
         return pulumi.get(self, "identity_center_options")
 
@@ -426,7 +426,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
                
                If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-        :param pulumi.Input[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict']] identity_center_options: Container for IAM Identity Center Option control for the domain.
+        :param pulumi.Input[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict']] identity_center_options: Configuration options for controlling IAM Identity Center integration within a domain.
         :param pulumi.Input[str] ip_address_type: Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]] log_publishing_options: An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish. Each key needs a valid `LogPublishingOption` value. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
         :param pulumi.Input[Union['DomainNodeToNodeEncryptionOptionsArgs', 'DomainNodeToNodeEncryptionOptionsArgsDict']] node_to_node_encryption_options: Specifies whether node-to-node encryption is enabled. See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
@@ -712,7 +712,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="identityCenterOptions")
     def identity_center_options(self) -> pulumi.Output[Optional['outputs.DomainIdentityCenterOptions']]:
         """
-        Container for IAM Identity Center Option control for the domain.
+        Configuration options for controlling IAM Identity Center integration within a domain.
         """
         return pulumi.get(self, "identity_center_options")
 

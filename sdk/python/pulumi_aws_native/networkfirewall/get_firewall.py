@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetFirewallResult',
@@ -25,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetFirewallResult:
-    def __init__(__self__, delete_protection=None, description=None, endpoint_ids=None, firewall_arn=None, firewall_id=None, firewall_policy_arn=None, firewall_policy_change_protection=None, subnet_change_protection=None, subnet_mappings=None, tags=None):
+    def __init__(__self__, delete_protection=None, description=None, enabled_analysis_types=None, endpoint_ids=None, firewall_arn=None, firewall_id=None, firewall_policy_arn=None, firewall_policy_change_protection=None, subnet_change_protection=None, subnet_mappings=None, tags=None):
         if delete_protection and not isinstance(delete_protection, bool):
             raise TypeError("Expected argument 'delete_protection' to be a bool")
         pulumi.set(__self__, "delete_protection", delete_protection)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if enabled_analysis_types and not isinstance(enabled_analysis_types, list):
+            raise TypeError("Expected argument 'enabled_analysis_types' to be a list")
+        pulumi.set(__self__, "enabled_analysis_types", enabled_analysis_types)
         if endpoint_ids and not isinstance(endpoint_ids, list):
             raise TypeError("Expected argument 'endpoint_ids' to be a list")
         pulumi.set(__self__, "endpoint_ids", endpoint_ids)
@@ -72,6 +76,14 @@ class GetFirewallResult:
         A description of the firewall.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enabledAnalysisTypes")
+    def enabled_analysis_types(self) -> Optional[Sequence['FirewallEnabledAnalysisType']]:
+        """
+        The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
+        """
+        return pulumi.get(self, "enabled_analysis_types")
 
     @property
     @pulumi.getter(name="endpointIds")
@@ -150,6 +162,7 @@ class AwaitableGetFirewallResult(GetFirewallResult):
         return GetFirewallResult(
             delete_protection=self.delete_protection,
             description=self.description,
+            enabled_analysis_types=self.enabled_analysis_types,
             endpoint_ids=self.endpoint_ids,
             firewall_arn=self.firewall_arn,
             firewall_id=self.firewall_id,
@@ -176,6 +189,7 @@ def get_firewall(firewall_arn: Optional[str] = None,
     return AwaitableGetFirewallResult(
         delete_protection=pulumi.get(__ret__, 'delete_protection'),
         description=pulumi.get(__ret__, 'description'),
+        enabled_analysis_types=pulumi.get(__ret__, 'enabled_analysis_types'),
         endpoint_ids=pulumi.get(__ret__, 'endpoint_ids'),
         firewall_arn=pulumi.get(__ret__, 'firewall_arn'),
         firewall_id=pulumi.get(__ret__, 'firewall_id'),
@@ -199,6 +213,7 @@ def get_firewall_output(firewall_arn: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetFirewallResult(
         delete_protection=pulumi.get(__response__, 'delete_protection'),
         description=pulumi.get(__response__, 'description'),
+        enabled_analysis_types=pulumi.get(__response__, 'enabled_analysis_types'),
         endpoint_ids=pulumi.get(__response__, 'endpoint_ids'),
         firewall_arn=pulumi.get(__response__, 'firewall_arn'),
         firewall_id=pulumi.get(__response__, 'firewall_id'),

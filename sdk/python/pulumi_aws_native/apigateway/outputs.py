@@ -864,13 +864,42 @@ class DocumentationPartLocation(dict):
 
 @pulumi.output_type
 class DomainNameEndpointConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddressType":
+            suggest = "ip_address_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainNameEndpointConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainNameEndpointConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainNameEndpointConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 ip_address_type: Optional[str] = None,
                  types: Optional[Sequence[str]] = None):
         """
+        :param str ip_address_type: The IP address types that can invoke this DomainName. Use `ipv4` to allow only IPv4 addresses to invoke this DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke this DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported.
         :param Sequence[str] types: A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
         """
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if types is not None:
             pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[str]:
+        """
+        The IP address types that can invoke this DomainName. Use `ipv4` to allow only IPv4 addresses to invoke this DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke this DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported.
+        """
+        return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter
@@ -1348,7 +1377,9 @@ class RestApiEndpointConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "vpcEndpointIds":
+        if key == "ipAddressType":
+            suggest = "ip_address_type"
+        elif key == "vpcEndpointIds":
             suggest = "vpc_endpoint_ids"
 
         if suggest:
@@ -1363,18 +1394,30 @@ class RestApiEndpointConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 ip_address_type: Optional[str] = None,
                  types: Optional[Sequence[str]] = None,
                  vpc_endpoint_ids: Optional[Sequence[str]] = None):
         """
         The ``EndpointConfiguration`` property type specifies the endpoint types of a REST API.
          ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.
+        :param str ip_address_type: The IP address types that can invoke an API (RestApi). Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported.
         :param Sequence[str] types: A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
         :param Sequence[str] vpc_endpoint_ids: A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for `PRIVATE` endpoint type.
         """
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if types is not None:
             pulumi.set(__self__, "types", types)
         if vpc_endpoint_ids is not None:
             pulumi.set(__self__, "vpc_endpoint_ids", vpc_endpoint_ids)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[str]:
+        """
+        The IP address types that can invoke an API (RestApi). Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported.
+        """
+        return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter

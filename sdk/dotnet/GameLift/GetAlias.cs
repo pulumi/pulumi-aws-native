@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.GameLift
     public sealed class GetAliasResult
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Alias ARN, the resource ID matches the AliasId value.
+        /// </summary>
+        public readonly string? AliasArn;
+        /// <summary>
         /// Unique alias ID
         /// </summary>
         public readonly string? AliasId;
@@ -79,21 +83,31 @@ namespace Pulumi.AwsNative.GameLift
         /// A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
         /// </summary>
         public readonly Outputs.AliasRoutingStrategy? RoutingStrategy;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAliasResult(
+            string? aliasArn,
+
             string? aliasId,
 
             string? description,
 
             string? name,
 
-            Outputs.AliasRoutingStrategy? routingStrategy)
+            Outputs.AliasRoutingStrategy? routingStrategy,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            AliasArn = aliasArn;
             AliasId = aliasId;
             Description = description;
             Name = name;
             RoutingStrategy = routingStrategy;
+            Tags = tags;
         }
     }
 }

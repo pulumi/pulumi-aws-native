@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::GuardDuty::PublishingDestination
+ * Resource Type definition for AWS::GuardDuty::PublishingDestination.
  */
 export function getPublishingDestination(args: GetPublishingDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetPublishingDestinationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -56,7 +56,7 @@ export interface GetPublishingDestinationResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Type definition for AWS::GuardDuty::PublishingDestination
+ * Resource Type definition for AWS::GuardDuty::PublishingDestination.
  */
 export function getPublishingDestinationOutput(args: GetPublishingDestinationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublishingDestinationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

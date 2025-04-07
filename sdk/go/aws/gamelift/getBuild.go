@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,10 +29,14 @@ type LookupBuildArgs struct {
 }
 
 type LookupBuildResult struct {
+	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift build resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift build ARN, the resource ID matches the BuildId value.
+	BuildArn *string `pulumi:"buildArn"`
 	// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
 	BuildId *string `pulumi:"buildId"`
 	// A descriptive label that is associated with a build. Build names do not need to be unique.
 	Name *string `pulumi:"name"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Version information that is associated with this build. Version strings do not need to be unique.
 	Version *string `pulumi:"version"`
 }
@@ -68,6 +73,11 @@ func (o LookupBuildResultOutput) ToLookupBuildResultOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift build resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift build ARN, the resource ID matches the BuildId value.
+func (o LookupBuildResultOutput) BuildArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBuildResult) *string { return v.BuildArn }).(pulumi.StringPtrOutput)
+}
+
 // A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
 func (o LookupBuildResultOutput) BuildId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBuildResult) *string { return v.BuildId }).(pulumi.StringPtrOutput)
@@ -76,6 +86,11 @@ func (o LookupBuildResultOutput) BuildId() pulumi.StringPtrOutput {
 // A descriptive label that is associated with a build. Build names do not need to be unique.
 func (o LookupBuildResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBuildResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupBuildResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupBuildResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Version information that is associated with this build. Version strings do not need to be unique.

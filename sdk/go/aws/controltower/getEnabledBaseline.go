@@ -24,19 +24,16 @@ func LookupEnabledBaseline(ctx *pulumi.Context, args *LookupEnabledBaselineArgs,
 }
 
 type LookupEnabledBaselineArgs struct {
-	// The ARN of the `EnabledBaseline` resource.
 	EnabledBaselineIdentifier string `pulumi:"enabledBaselineIdentifier"`
 }
 
 type LookupEnabledBaselineResult struct {
 	// The enabled version of the `Baseline` .
-	BaselineVersion *string `pulumi:"baselineVersion"`
-	// The ARN of the `EnabledBaseline` resource.
+	BaselineVersion           *string `pulumi:"baselineVersion"`
 	EnabledBaselineIdentifier *string `pulumi:"enabledBaselineIdentifier"`
-	// Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
+	// Shows the parameters that are applied when enabling this `Baseline` .
 	Parameters []EnabledBaselineParameter `pulumi:"parameters"`
-	// Tags associated with input to `EnableBaseline` .
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags       []aws.Tag                  `pulumi:"tags"`
 }
 
 func LookupEnabledBaselineOutput(ctx *pulumi.Context, args LookupEnabledBaselineOutputArgs, opts ...pulumi.InvokeOption) LookupEnabledBaselineResultOutput {
@@ -49,7 +46,6 @@ func LookupEnabledBaselineOutput(ctx *pulumi.Context, args LookupEnabledBaseline
 }
 
 type LookupEnabledBaselineOutputArgs struct {
-	// The ARN of the `EnabledBaseline` resource.
 	EnabledBaselineIdentifier pulumi.StringInput `pulumi:"enabledBaselineIdentifier"`
 }
 
@@ -76,17 +72,15 @@ func (o LookupEnabledBaselineResultOutput) BaselineVersion() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupEnabledBaselineResult) *string { return v.BaselineVersion }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the `EnabledBaseline` resource.
 func (o LookupEnabledBaselineResultOutput) EnabledBaselineIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnabledBaselineResult) *string { return v.EnabledBaselineIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
+// Shows the parameters that are applied when enabling this `Baseline` .
 func (o LookupEnabledBaselineResultOutput) Parameters() EnabledBaselineParameterArrayOutput {
 	return o.ApplyT(func(v LookupEnabledBaselineResult) []EnabledBaselineParameter { return v.Parameters }).(EnabledBaselineParameterArrayOutput)
 }
 
-// Tags associated with input to `EnableBaseline` .
 func (o LookupEnabledBaselineResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupEnabledBaselineResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

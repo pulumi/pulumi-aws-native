@@ -2,6 +2,28 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ConnectionAuthenticationType = {
+    Basic: "BASIC",
+    Oauth2: "OAUTH2",
+    Custom: "CUSTOM",
+} as const;
+
+/**
+ * Authentication Type
+ */
+export type ConnectionAuthenticationType = (typeof ConnectionAuthenticationType)[keyof typeof ConnectionAuthenticationType];
+
+export const ConnectionOAuth2GrantType = {
+    AuthorizationCode: "AUTHORIZATION_CODE",
+    ClientCredentials: "CLIENT_CREDENTIALS",
+    JwtBearer: "JWT_BEARER",
+} as const;
+
+/**
+ * OAuth2 Grant Type
+ */
+export type ConnectionOAuth2GrantType = (typeof ConnectionOAuth2GrantType)[keyof typeof ConnectionOAuth2GrantType];
+
 export const DataSourceEnableSetting = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

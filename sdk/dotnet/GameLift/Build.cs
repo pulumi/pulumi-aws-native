@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.GameLift
     public partial class Build : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift build resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift build ARN, the resource ID matches the BuildId value.
+        /// </summary>
+        [Output("buildArn")]
+        public Output<string> BuildArn { get; private set; } = null!;
+
+        /// <summary>
         /// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
         /// </summary>
         [Output("buildId")]
@@ -44,6 +50,12 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Output("storageLocation")]
         public Output<Outputs.BuildStorageLocation?> StorageLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Version information that is associated with this build. Version strings do not need to be unique.
@@ -125,6 +137,18 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Input("storageLocation")]
         public Input<Inputs.BuildStorageLocationArgs>? StorageLocation { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Version information that is associated with this build. Version strings do not need to be unique.

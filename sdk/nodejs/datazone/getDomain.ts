@@ -62,6 +62,10 @@ export interface GetDomainResult {
      */
     readonly portalUrl?: string;
     /**
+     * The ID of the root domain in Amazon Datazone.
+     */
+    readonly rootDomainUnitId?: string;
+    /**
      * The service role of the domain that is created.
      */
     readonly serviceRole?: string;

@@ -46,11 +46,11 @@ export class Bridge extends pulumi.CustomResource {
      */
     public /*out*/ readonly bridgeState!: pulumi.Output<enums.mediaconnect.BridgeStateEnum>;
     /**
-     * Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+     * An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
      */
     public readonly egressGatewayBridge!: pulumi.Output<outputs.mediaconnect.BridgeEgressGatewayBridge | undefined>;
     /**
-     * Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+     * An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
      */
     public readonly ingressGatewayBridge!: pulumi.Output<outputs.mediaconnect.BridgeIngressGatewayBridge | undefined>;
     /**
@@ -121,11 +121,11 @@ export class Bridge extends pulumi.CustomResource {
  */
 export interface BridgeArgs {
     /**
-     * Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+     * An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
      */
     egressGatewayBridge?: pulumi.Input<inputs.mediaconnect.BridgeEgressGatewayBridgeArgs>;
     /**
-     * Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+     * An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
      */
     ingressGatewayBridge?: pulumi.Input<inputs.mediaconnect.BridgeIngressGatewayBridgeArgs>;
     /**

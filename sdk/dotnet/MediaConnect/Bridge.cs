@@ -28,13 +28,13 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<Pulumi.AwsNative.MediaConnect.BridgeStateEnum> BridgeState { get; private set; } = null!;
 
         /// <summary>
-        /// Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+        /// An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
         /// </summary>
         [Output("egressGatewayBridge")]
         public Output<Outputs.BridgeEgressGatewayBridge?> EgressGatewayBridge { get; private set; } = null!;
 
         /// <summary>
-        /// Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+        /// An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
         /// </summary>
         [Output("ingressGatewayBridge")]
         public Output<Outputs.BridgeIngressGatewayBridge?> IngressGatewayBridge { get; private set; } = null!;
@@ -115,13 +115,13 @@ namespace Pulumi.AwsNative.MediaConnect
     public sealed class BridgeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+        /// An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
         /// </summary>
         [Input("egressGatewayBridge")]
         public Input<Inputs.BridgeEgressGatewayBridgeArgs>? EgressGatewayBridge { get; set; }
 
         /// <summary>
-        /// Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+        /// An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
         /// </summary>
         [Input("ingressGatewayBridge")]
         public Input<Inputs.BridgeIngressGatewayBridgeArgs>? IngressGatewayBridge { get; set; }

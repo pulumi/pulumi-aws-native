@@ -139,7 +139,7 @@ class ConfigurationManagerConfigurationDefinition(dict):
                - Description: (Required) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
                - `TargetRegions`
                
-               - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
+               - Description: (Required) The AWS Regions to deploy the configuration to. For this type, the parameter only accepts a value of `AllRegions` .
                - **DevOps Guru (Type: AWS QuickSetupType-DevOpsGuru)** - - `AnalyseAllResources`
                
                - Description: (Optional) A boolean value that determines whether DevOps Guru analyzes all AWS CloudFormation stacks in the account. The default value is " `false` ".
@@ -259,7 +259,10 @@ class ConfigurationManagerConfigurationDefinition(dict):
                - Description: (Required) An array of JSON objects containing the information for the patch baselines to include in your patch policy.
                - `PatchBaselineUseDefault`
                
-               - Description: (Optional) A boolean value that determines whether the selected patch baselines are all AWS provided.
+               - Description: (Optional) A value that determines whether the selected patch baselines are all AWS provided. Supported values are `default` and `custom` .
+               - `PatchBaselineRegion`
+               
+               - Description: (Required) The AWS Region where the patch baseline exist.
                - `ConfigurationOptionsPatchOperation`
                
                - Description: (Optional) Determines whether target instances scan for available patches, or scan and install available patches. The valid values are `Scan` and `ScanAndInstall` . The default value for the parameter is `Scan` .
@@ -460,7 +463,7 @@ class ConfigurationManagerConfigurationDefinition(dict):
         - Description: (Required) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
         - `TargetRegions`
 
-        - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
+        - Description: (Required) The AWS Regions to deploy the configuration to. For this type, the parameter only accepts a value of `AllRegions` .
         - **DevOps Guru (Type: AWS QuickSetupType-DevOpsGuru)** - - `AnalyseAllResources`
 
         - Description: (Optional) A boolean value that determines whether DevOps Guru analyzes all AWS CloudFormation stacks in the account. The default value is " `false` ".
@@ -580,7 +583,10 @@ class ConfigurationManagerConfigurationDefinition(dict):
         - Description: (Required) An array of JSON objects containing the information for the patch baselines to include in your patch policy.
         - `PatchBaselineUseDefault`
 
-        - Description: (Optional) A boolean value that determines whether the selected patch baselines are all AWS provided.
+        - Description: (Optional) A value that determines whether the selected patch baselines are all AWS provided. Supported values are `default` and `custom` .
+        - `PatchBaselineRegion`
+
+        - Description: (Required) The AWS Region where the patch baseline exist.
         - `ConfigurationOptionsPatchOperation`
 
         - Description: (Optional) Determines whether target instances scan for available patches, or scan and install available patches. The valid values are `Scan` and `ScanAndInstall` . The default value for the parameter is `Scan` .

@@ -10,6 +10,217 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// An analysis type.
+type FirewallEnabledAnalysisType string
+
+const (
+	FirewallEnabledAnalysisTypeTlsSni   = FirewallEnabledAnalysisType("TLS_SNI")
+	FirewallEnabledAnalysisTypeHttpHost = FirewallEnabledAnalysisType("HTTP_HOST")
+)
+
+func (FirewallEnabledAnalysisType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallEnabledAnalysisType)(nil)).Elem()
+}
+
+func (e FirewallEnabledAnalysisType) ToFirewallEnabledAnalysisTypeOutput() FirewallEnabledAnalysisTypeOutput {
+	return pulumi.ToOutput(e).(FirewallEnabledAnalysisTypeOutput)
+}
+
+func (e FirewallEnabledAnalysisType) ToFirewallEnabledAnalysisTypeOutputWithContext(ctx context.Context) FirewallEnabledAnalysisTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FirewallEnabledAnalysisTypeOutput)
+}
+
+func (e FirewallEnabledAnalysisType) ToFirewallEnabledAnalysisTypePtrOutput() FirewallEnabledAnalysisTypePtrOutput {
+	return e.ToFirewallEnabledAnalysisTypePtrOutputWithContext(context.Background())
+}
+
+func (e FirewallEnabledAnalysisType) ToFirewallEnabledAnalysisTypePtrOutputWithContext(ctx context.Context) FirewallEnabledAnalysisTypePtrOutput {
+	return FirewallEnabledAnalysisType(e).ToFirewallEnabledAnalysisTypeOutputWithContext(ctx).ToFirewallEnabledAnalysisTypePtrOutputWithContext(ctx)
+}
+
+func (e FirewallEnabledAnalysisType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallEnabledAnalysisType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallEnabledAnalysisType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallEnabledAnalysisType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FirewallEnabledAnalysisTypeOutput struct{ *pulumi.OutputState }
+
+func (FirewallEnabledAnalysisTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallEnabledAnalysisType)(nil)).Elem()
+}
+
+func (o FirewallEnabledAnalysisTypeOutput) ToFirewallEnabledAnalysisTypeOutput() FirewallEnabledAnalysisTypeOutput {
+	return o
+}
+
+func (o FirewallEnabledAnalysisTypeOutput) ToFirewallEnabledAnalysisTypeOutputWithContext(ctx context.Context) FirewallEnabledAnalysisTypeOutput {
+	return o
+}
+
+func (o FirewallEnabledAnalysisTypeOutput) ToFirewallEnabledAnalysisTypePtrOutput() FirewallEnabledAnalysisTypePtrOutput {
+	return o.ToFirewallEnabledAnalysisTypePtrOutputWithContext(context.Background())
+}
+
+func (o FirewallEnabledAnalysisTypeOutput) ToFirewallEnabledAnalysisTypePtrOutputWithContext(ctx context.Context) FirewallEnabledAnalysisTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallEnabledAnalysisType) *FirewallEnabledAnalysisType {
+		return &v
+	}).(FirewallEnabledAnalysisTypePtrOutput)
+}
+
+func (o FirewallEnabledAnalysisTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FirewallEnabledAnalysisTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallEnabledAnalysisType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallEnabledAnalysisTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallEnabledAnalysisTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallEnabledAnalysisType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirewallEnabledAnalysisTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallEnabledAnalysisTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallEnabledAnalysisType)(nil)).Elem()
+}
+
+func (o FirewallEnabledAnalysisTypePtrOutput) ToFirewallEnabledAnalysisTypePtrOutput() FirewallEnabledAnalysisTypePtrOutput {
+	return o
+}
+
+func (o FirewallEnabledAnalysisTypePtrOutput) ToFirewallEnabledAnalysisTypePtrOutputWithContext(ctx context.Context) FirewallEnabledAnalysisTypePtrOutput {
+	return o
+}
+
+func (o FirewallEnabledAnalysisTypePtrOutput) Elem() FirewallEnabledAnalysisTypeOutput {
+	return o.ApplyT(func(v *FirewallEnabledAnalysisType) FirewallEnabledAnalysisType {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallEnabledAnalysisType
+		return ret
+	}).(FirewallEnabledAnalysisTypeOutput)
+}
+
+func (o FirewallEnabledAnalysisTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallEnabledAnalysisTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FirewallEnabledAnalysisType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FirewallEnabledAnalysisTypeInput is an input type that accepts values of the FirewallEnabledAnalysisType enum
+// A concrete instance of `FirewallEnabledAnalysisTypeInput` can be one of the following:
+//
+//	FirewallEnabledAnalysisTypeTlsSni
+//	FirewallEnabledAnalysisTypeHttpHost
+type FirewallEnabledAnalysisTypeInput interface {
+	pulumi.Input
+
+	ToFirewallEnabledAnalysisTypeOutput() FirewallEnabledAnalysisTypeOutput
+	ToFirewallEnabledAnalysisTypeOutputWithContext(context.Context) FirewallEnabledAnalysisTypeOutput
+}
+
+var firewallEnabledAnalysisTypePtrType = reflect.TypeOf((**FirewallEnabledAnalysisType)(nil)).Elem()
+
+type FirewallEnabledAnalysisTypePtrInput interface {
+	pulumi.Input
+
+	ToFirewallEnabledAnalysisTypePtrOutput() FirewallEnabledAnalysisTypePtrOutput
+	ToFirewallEnabledAnalysisTypePtrOutputWithContext(context.Context) FirewallEnabledAnalysisTypePtrOutput
+}
+
+type firewallEnabledAnalysisTypePtr string
+
+func FirewallEnabledAnalysisTypePtr(v string) FirewallEnabledAnalysisTypePtrInput {
+	return (*firewallEnabledAnalysisTypePtr)(&v)
+}
+
+func (*firewallEnabledAnalysisTypePtr) ElementType() reflect.Type {
+	return firewallEnabledAnalysisTypePtrType
+}
+
+func (in *firewallEnabledAnalysisTypePtr) ToFirewallEnabledAnalysisTypePtrOutput() FirewallEnabledAnalysisTypePtrOutput {
+	return pulumi.ToOutput(in).(FirewallEnabledAnalysisTypePtrOutput)
+}
+
+func (in *firewallEnabledAnalysisTypePtr) ToFirewallEnabledAnalysisTypePtrOutputWithContext(ctx context.Context) FirewallEnabledAnalysisTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FirewallEnabledAnalysisTypePtrOutput)
+}
+
+// FirewallEnabledAnalysisTypeArrayInput is an input type that accepts FirewallEnabledAnalysisTypeArray and FirewallEnabledAnalysisTypeArrayOutput values.
+// You can construct a concrete instance of `FirewallEnabledAnalysisTypeArrayInput` via:
+//
+//	FirewallEnabledAnalysisTypeArray{ FirewallEnabledAnalysisTypeArgs{...} }
+type FirewallEnabledAnalysisTypeArrayInput interface {
+	pulumi.Input
+
+	ToFirewallEnabledAnalysisTypeArrayOutput() FirewallEnabledAnalysisTypeArrayOutput
+	ToFirewallEnabledAnalysisTypeArrayOutputWithContext(context.Context) FirewallEnabledAnalysisTypeArrayOutput
+}
+
+type FirewallEnabledAnalysisTypeArray []FirewallEnabledAnalysisType
+
+func (FirewallEnabledAnalysisTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallEnabledAnalysisType)(nil)).Elem()
+}
+
+func (i FirewallEnabledAnalysisTypeArray) ToFirewallEnabledAnalysisTypeArrayOutput() FirewallEnabledAnalysisTypeArrayOutput {
+	return i.ToFirewallEnabledAnalysisTypeArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallEnabledAnalysisTypeArray) ToFirewallEnabledAnalysisTypeArrayOutputWithContext(ctx context.Context) FirewallEnabledAnalysisTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallEnabledAnalysisTypeArrayOutput)
+}
+
+type FirewallEnabledAnalysisTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallEnabledAnalysisTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallEnabledAnalysisType)(nil)).Elem()
+}
+
+func (o FirewallEnabledAnalysisTypeArrayOutput) ToFirewallEnabledAnalysisTypeArrayOutput() FirewallEnabledAnalysisTypeArrayOutput {
+	return o
+}
+
+func (o FirewallEnabledAnalysisTypeArrayOutput) ToFirewallEnabledAnalysisTypeArrayOutputWithContext(ctx context.Context) FirewallEnabledAnalysisTypeArrayOutput {
+	return o
+}
+
+func (o FirewallEnabledAnalysisTypeArrayOutput) Index(i pulumi.IntInput) FirewallEnabledAnalysisTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallEnabledAnalysisType {
+		return vs[0].([]FirewallEnabledAnalysisType)[vs[1].(int)]
+	}).(FirewallEnabledAnalysisTypeOutput)
+}
+
 type FirewallPolicyOverrideAction string
 
 const (
@@ -2657,6 +2868,9 @@ func (in *tlsInspectionConfigurationUnknownStatusActionPtr) ToTlsInspectionConfi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallEnabledAnalysisTypeInput)(nil)).Elem(), FirewallEnabledAnalysisType("TLS_SNI"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallEnabledAnalysisTypePtrInput)(nil)).Elem(), FirewallEnabledAnalysisType("TLS_SNI"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallEnabledAnalysisTypeArrayInput)(nil)).Elem(), FirewallEnabledAnalysisTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyOverrideActionInput)(nil)).Elem(), FirewallPolicyOverrideAction("DROP_TO_ALERT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyOverrideActionPtrInput)(nil)).Elem(), FirewallPolicyOverrideAction("DROP_TO_ALERT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleOrderInput)(nil)).Elem(), FirewallPolicyRuleOrder("DEFAULT_ACTION_ORDER"))
@@ -2689,6 +2903,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationRevokedStatusActionPtrInput)(nil)).Elem(), TlsInspectionConfigurationRevokedStatusAction("PASS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationUnknownStatusActionInput)(nil)).Elem(), TlsInspectionConfigurationUnknownStatusAction("PASS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationUnknownStatusActionPtrInput)(nil)).Elem(), TlsInspectionConfigurationUnknownStatusAction("PASS"))
+	pulumi.RegisterOutputType(FirewallEnabledAnalysisTypeOutput{})
+	pulumi.RegisterOutputType(FirewallEnabledAnalysisTypePtrOutput{})
+	pulumi.RegisterOutputType(FirewallEnabledAnalysisTypeArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyOverrideActionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyOverrideActionPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyRuleOrderOutput{})

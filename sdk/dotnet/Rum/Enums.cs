@@ -36,6 +36,37 @@ namespace Pulumi.AwsNative.Rum
     }
 
     /// <summary>
+    /// Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be DISABLED
+    /// </summary>
+    [EnumType]
+    public readonly struct AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus : IEquatable<AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus>
+    {
+        private readonly string _value;
+
+        private AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus Enabled { get; } = new AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus("ENABLED");
+        public static AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus Disabled { get; } = new AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus("DISABLED");
+
+        public static bool operator ==(AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus left, AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus right) => left.Equals(right);
+        public static bool operator !=(AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus left, AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus right) => !left.Equals(right);
+
+        public static explicit operator string(AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus other && Equals(other);
+        public bool Equals(AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
     /// </summary>
     [EnumType]

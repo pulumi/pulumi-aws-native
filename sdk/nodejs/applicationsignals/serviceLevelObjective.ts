@@ -57,6 +57,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      * Displays whether this is a period-based SLO or a request-based SLO.
      */
     public /*out*/ readonly evaluationType!: pulumi.Output<enums.applicationsignals.ServiceLevelObjectiveEvaluationType>;
+    public readonly exclusionWindows!: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveExclusionWindow[] | undefined>;
     /**
      * This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
      */
@@ -97,6 +98,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["burnRateConfigurations"] = args ? args.burnRateConfigurations : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["exclusionWindows"] = args ? args.exclusionWindows : undefined;
             resourceInputs["goal"] = args ? args.goal : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["requestBasedSli"] = args ? args.requestBasedSli : undefined;
@@ -112,6 +114,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["evaluationType"] = undefined /*out*/;
+            resourceInputs["exclusionWindows"] = undefined /*out*/;
             resourceInputs["goal"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -138,6 +141,7 @@ export interface ServiceLevelObjectiveArgs {
      * An optional description for this SLO. Default is 'No description'
      */
     description?: pulumi.Input<string>;
+    exclusionWindows?: pulumi.Input<pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveExclusionWindowArgs>[]>;
     /**
      * This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
      */

@@ -46,6 +46,10 @@ export interface GetAppResult {
      */
     readonly cacheConfig?: outputs.amplify.AppCacheConfig;
     /**
+     * The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+     */
+    readonly computeRoleArn?: string;
+    /**
      * The custom HTTP headers for an Amplify app.
      */
     readonly customHeaders?: string;

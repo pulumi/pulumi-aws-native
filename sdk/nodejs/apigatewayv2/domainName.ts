@@ -43,6 +43,10 @@ export class DomainName extends pulumi.CustomResource {
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
+     * Represents an Amazon Resource Name (ARN).
+     */
+    public /*out*/ readonly domainNameArn!: pulumi.Output<string>;
+    /**
      * The domain name configurations.
      */
     public readonly domainNameConfigurations!: pulumi.Output<outputs.apigatewayv2.DomainNameConfiguration[] | undefined>;
@@ -81,10 +85,12 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["domainNameConfigurations"] = args ? args.domainNameConfigurations : undefined;
             resourceInputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainNameArn"] = undefined /*out*/;
             resourceInputs["regionalDomainName"] = undefined /*out*/;
             resourceInputs["regionalHostedZoneId"] = undefined /*out*/;
         } else {
             resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["domainNameArn"] = undefined /*out*/;
             resourceInputs["domainNameConfigurations"] = undefined /*out*/;
             resourceInputs["mutualTlsAuthentication"] = undefined /*out*/;
             resourceInputs["regionalDomainName"] = undefined /*out*/;

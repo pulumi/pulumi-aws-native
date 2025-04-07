@@ -39,6 +39,36 @@ namespace Pulumi.AwsNative.Ec2
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        [Output("capacityAllocationSet")]
+        public Output<ImmutableArray<Outputs.CapacityReservationCapacityAllocation>> CapacityAllocationSet { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Capacity Reservation.
+        /// </summary>
+        [Output("capacityReservationArn")]
+        public Output<string> CapacityReservationArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Capacity Reservation Fleet to which the Capacity Reservation belongs. Only valid for Capacity Reservations that were created by a Capacity Reservation Fleet.
+        /// </summary>
+        [Output("capacityReservationFleetId")]
+        public Output<string> CapacityReservationFleetId { get; private set; } = null!;
+
+        [Output("commitmentInfo")]
+        public Output<Outputs.CommitmentInfoProperties> CommitmentInfo { get; private set; } = null!;
+
+        /// <summary>
+        /// The date and time at which the Capacity Reservation was created.
+        /// </summary>
+        [Output("createDate")]
+        public Output<string> CreateDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The delivery method for a future-dated Capacity Reservation. `incremental` indicates that the requested capacity is delivered in addition to any running instances and reserved capacity that you have in your account at the requested date and time.
+        /// </summary>
+        [Output("deliveryPreference")]
+        public Output<string> DeliveryPreference { get; private set; } = null!;
+
         /// <summary>
         /// Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
         /// </summary>
@@ -120,12 +150,48 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> OutPostArn { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the AWS account that owns the Capacity Reservation.
+        /// </summary>
+        [Output("ownerId")]
+        public Output<string> OwnerId { get; private set; } = null!;
+
+        /// <summary>
         /// &gt; Not supported for future-dated Capacity Reservations. 
         /// 
         /// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
         /// </summary>
         [Output("placementGroupArn")]
         public Output<string?> PlacementGroupArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of Capacity Reservation.
+        /// </summary>
+        [Output("reservationType")]
+        public Output<string> ReservationType { get; private set; } = null!;
+
+        /// <summary>
+        /// The date and time at which the Capacity Reservation was started.
+        /// </summary>
+        [Output("startDate")]
+        public Output<string> StartDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:
+        /// 
+        /// - `active` - The capacity is available for use.
+        /// - `expired` - The Capacity Reservation expired automatically at the date and time specified in your reservation request. The reserved capacity is no longer available for your use.
+        /// - `cancelled` - The Capacity Reservation was canceled. The reserved capacity is no longer available for your use.
+        /// - `pending` - The Capacity Reservation request was successful but the capacity provisioning is still pending.
+        /// - `failed` - The Capacity Reservation request has failed. A request can fail due to request parameters that are not valid, capacity constraints, or instance limit constraints. You can view a failed request for 60 minutes.
+        /// - `scheduled` - ( *Future-dated Capacity Reservations* ) The future-dated Capacity Reservation request was approved and the Capacity Reservation is scheduled for delivery on the requested start date.
+        /// - `payment-pending` - ( *Capacity Blocks* ) The upfront payment has not been processed yet.
+        /// - `payment-failed` - ( *Capacity Blocks* ) The upfront payment was not processed in the 12-hour time frame. Your Capacity Block was released.
+        /// - `assessing` - ( *Future-dated Capacity Reservations* ) Amazon EC2 is assessing your request for a future-dated Capacity Reservation.
+        /// - `delayed` - ( *Future-dated Capacity Reservations* ) Amazon EC2 encountered a delay in provisioning the requested future-dated Capacity Reservation. Amazon EC2 is unable to deliver the requested capacity by the requested start date and time.
+        /// - `unsupported` - ( *Future-dated Capacity Reservations* ) Amazon EC2 can't support the future-dated Capacity Reservation request due to capacity constraints. You can view unsupported requests for 30 days. The Capacity Reservation will not be delivered.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// The tags to apply to the Capacity Reservation during launch.

@@ -35,6 +35,63 @@ namespace Pulumi.AwsNative.MemoryDb
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ClusterSupportedIpDiscoveryTypes : IEquatable<ClusterSupportedIpDiscoveryTypes>
+    {
+        private readonly string _value;
+
+        private ClusterSupportedIpDiscoveryTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterSupportedIpDiscoveryTypes Ipv4 { get; } = new ClusterSupportedIpDiscoveryTypes("ipv4");
+        public static ClusterSupportedIpDiscoveryTypes Ipv6 { get; } = new ClusterSupportedIpDiscoveryTypes("ipv6");
+
+        public static bool operator ==(ClusterSupportedIpDiscoveryTypes left, ClusterSupportedIpDiscoveryTypes right) => left.Equals(right);
+        public static bool operator !=(ClusterSupportedIpDiscoveryTypes left, ClusterSupportedIpDiscoveryTypes right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterSupportedIpDiscoveryTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterSupportedIpDiscoveryTypes other && Equals(other);
+        public bool Equals(ClusterSupportedIpDiscoveryTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ClusterSupportedNetworkTypes : IEquatable<ClusterSupportedNetworkTypes>
+    {
+        private readonly string _value;
+
+        private ClusterSupportedNetworkTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterSupportedNetworkTypes Ipv4 { get; } = new ClusterSupportedNetworkTypes("ipv4");
+        public static ClusterSupportedNetworkTypes Ipv6 { get; } = new ClusterSupportedNetworkTypes("ipv6");
+        public static ClusterSupportedNetworkTypes DualStack { get; } = new ClusterSupportedNetworkTypes("dual_stack");
+
+        public static bool operator ==(ClusterSupportedNetworkTypes left, ClusterSupportedNetworkTypes right) => left.Equals(right);
+        public static bool operator !=(ClusterSupportedNetworkTypes left, ClusterSupportedNetworkTypes right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterSupportedNetworkTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterSupportedNetworkTypes other && Equals(other);
+        public bool Equals(ClusterSupportedNetworkTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// An enum string value that determines the update strategy for scaling. Possible values are 'COORDINATED' and 'UNCOORDINATED'. Default is 'COORDINATED'.
     /// </summary>

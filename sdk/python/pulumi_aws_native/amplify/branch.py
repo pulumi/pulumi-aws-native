@@ -29,10 +29,12 @@ class BranchArgs:
                  basic_auth_config: Optional[pulumi.Input['BranchBasicAuthConfigArgs']] = None,
                  branch_name: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
+                 compute_role_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_auto_build: Optional[pulumi.Input[bool]] = None,
                  enable_performance_mode: Optional[pulumi.Input[bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
+                 enable_skew_protection: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['BranchEnvironmentVariableArgs']]]] = None,
                  framework: Optional[pulumi.Input[str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
@@ -47,6 +49,7 @@ class BranchArgs:
         :param pulumi.Input['BranchBasicAuthConfigArgs'] basic_auth_config: The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         :param pulumi.Input[str] branch_name: The name for the branch.
         :param pulumi.Input[str] build_spec: The build specification (build spec) for the branch.
+        :param pulumi.Input[str] compute_role_arn: The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
         :param pulumi.Input[str] description: The description for the branch that is part of an Amplify app.
         :param pulumi.Input[bool] enable_auto_build: Enables auto building for the branch.
         :param pulumi.Input[bool] enable_performance_mode: Enables performance mode for the branch.
@@ -57,6 +60,9 @@ class BranchArgs:
                To provide backend support for your preview, Amplify automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
                
                For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
+        :param pulumi.Input[bool] enable_skew_protection: Specifies whether the skew protection feature is enabled for the branch.
+               
+               Deployment skew protection is available to Amplify applications to eliminate version skew issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see [Skew protection for Amplify deployments](https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html) in the *Amplify User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input['BranchEnvironmentVariableArgs']]] environment_variables: The environment variables for the branch.
         :param pulumi.Input[str] framework: The framework for the branch.
         :param pulumi.Input[str] pull_request_environment_name: If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI and mapped to this branch.
@@ -78,6 +84,8 @@ class BranchArgs:
             pulumi.set(__self__, "branch_name", branch_name)
         if build_spec is not None:
             pulumi.set(__self__, "build_spec", build_spec)
+        if compute_role_arn is not None:
+            pulumi.set(__self__, "compute_role_arn", compute_role_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enable_auto_build is not None:
@@ -86,6 +94,8 @@ class BranchArgs:
             pulumi.set(__self__, "enable_performance_mode", enable_performance_mode)
         if enable_pull_request_preview is not None:
             pulumi.set(__self__, "enable_pull_request_preview", enable_pull_request_preview)
+        if enable_skew_protection is not None:
+            pulumi.set(__self__, "enable_skew_protection", enable_skew_protection)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if framework is not None:
@@ -160,6 +170,18 @@ class BranchArgs:
         pulumi.set(self, "build_spec", value)
 
     @property
+    @pulumi.getter(name="computeRoleArn")
+    def compute_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+        """
+        return pulumi.get(self, "compute_role_arn")
+
+    @compute_role_arn.setter
+    def compute_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_role_arn", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -212,6 +234,20 @@ class BranchArgs:
     @enable_pull_request_preview.setter
     def enable_pull_request_preview(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_pull_request_preview", value)
+
+    @property
+    @pulumi.getter(name="enableSkewProtection")
+    def enable_skew_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the skew protection feature is enabled for the branch.
+
+        Deployment skew protection is available to Amplify applications to eliminate version skew issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see [Skew protection for Amplify deployments](https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html) in the *Amplify User Guide* .
+        """
+        return pulumi.get(self, "enable_skew_protection")
+
+    @enable_skew_protection.setter
+    def enable_skew_protection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_skew_protection", value)
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -290,10 +326,12 @@ class Branch(pulumi.CustomResource):
                  basic_auth_config: Optional[pulumi.Input[Union['BranchBasicAuthConfigArgs', 'BranchBasicAuthConfigArgsDict']]] = None,
                  branch_name: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
+                 compute_role_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_auto_build: Optional[pulumi.Input[bool]] = None,
                  enable_performance_mode: Optional[pulumi.Input[bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
+                 enable_skew_protection: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchEnvironmentVariableArgs', 'BranchEnvironmentVariableArgsDict']]]]] = None,
                  framework: Optional[pulumi.Input[str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
@@ -312,6 +350,7 @@ class Branch(pulumi.CustomResource):
         :param pulumi.Input[Union['BranchBasicAuthConfigArgs', 'BranchBasicAuthConfigArgsDict']] basic_auth_config: The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         :param pulumi.Input[str] branch_name: The name for the branch.
         :param pulumi.Input[str] build_spec: The build specification (build spec) for the branch.
+        :param pulumi.Input[str] compute_role_arn: The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
         :param pulumi.Input[str] description: The description for the branch that is part of an Amplify app.
         :param pulumi.Input[bool] enable_auto_build: Enables auto building for the branch.
         :param pulumi.Input[bool] enable_performance_mode: Enables performance mode for the branch.
@@ -322,6 +361,9 @@ class Branch(pulumi.CustomResource):
                To provide backend support for your preview, Amplify automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
                
                For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
+        :param pulumi.Input[bool] enable_skew_protection: Specifies whether the skew protection feature is enabled for the branch.
+               
+               Deployment skew protection is available to Amplify applications to eliminate version skew issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see [Skew protection for Amplify deployments](https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html) in the *Amplify User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input[Union['BranchEnvironmentVariableArgs', 'BranchEnvironmentVariableArgsDict']]]] environment_variables: The environment variables for the branch.
         :param pulumi.Input[str] framework: The framework for the branch.
         :param pulumi.Input[str] pull_request_environment_name: If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI and mapped to this branch.
@@ -363,10 +405,12 @@ class Branch(pulumi.CustomResource):
                  basic_auth_config: Optional[pulumi.Input[Union['BranchBasicAuthConfigArgs', 'BranchBasicAuthConfigArgsDict']]] = None,
                  branch_name: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
+                 compute_role_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_auto_build: Optional[pulumi.Input[bool]] = None,
                  enable_performance_mode: Optional[pulumi.Input[bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
+                 enable_skew_protection: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchEnvironmentVariableArgs', 'BranchEnvironmentVariableArgsDict']]]]] = None,
                  framework: Optional[pulumi.Input[str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
@@ -388,10 +432,12 @@ class Branch(pulumi.CustomResource):
             __props__.__dict__["basic_auth_config"] = basic_auth_config
             __props__.__dict__["branch_name"] = branch_name
             __props__.__dict__["build_spec"] = build_spec
+            __props__.__dict__["compute_role_arn"] = compute_role_arn
             __props__.__dict__["description"] = description
             __props__.__dict__["enable_auto_build"] = enable_auto_build
             __props__.__dict__["enable_performance_mode"] = enable_performance_mode
             __props__.__dict__["enable_pull_request_preview"] = enable_pull_request_preview
+            __props__.__dict__["enable_skew_protection"] = enable_skew_protection
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["framework"] = framework
             __props__.__dict__["pull_request_environment_name"] = pull_request_environment_name
@@ -428,10 +474,12 @@ class Branch(pulumi.CustomResource):
         __props__.__dict__["basic_auth_config"] = None
         __props__.__dict__["branch_name"] = None
         __props__.__dict__["build_spec"] = None
+        __props__.__dict__["compute_role_arn"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["enable_auto_build"] = None
         __props__.__dict__["enable_performance_mode"] = None
         __props__.__dict__["enable_pull_request_preview"] = None
+        __props__.__dict__["enable_skew_protection"] = None
         __props__.__dict__["environment_variables"] = None
         __props__.__dict__["framework"] = None
         __props__.__dict__["pull_request_environment_name"] = None
@@ -490,6 +538,14 @@ class Branch(pulumi.CustomResource):
         return pulumi.get(self, "build_spec")
 
     @property
+    @pulumi.getter(name="computeRoleArn")
+    def compute_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+        """
+        return pulumi.get(self, "compute_role_arn")
+
+    @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
@@ -526,6 +582,16 @@ class Branch(pulumi.CustomResource):
         For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
         """
         return pulumi.get(self, "enable_pull_request_preview")
+
+    @property
+    @pulumi.getter(name="enableSkewProtection")
+    def enable_skew_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the skew protection feature is enabled for the branch.
+
+        Deployment skew protection is available to Amplify applications to eliminate version skew issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see [Skew protection for Amplify deployments](https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html) in the *Amplify User Guide* .
+        """
+        return pulumi.get(self, "enable_skew_protection")
 
     @property
     @pulumi.getter(name="environmentVariables")

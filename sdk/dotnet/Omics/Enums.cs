@@ -187,6 +187,35 @@ namespace Pulumi.AwsNative.Omics
     }
 
     [EnumType]
+    public readonly struct SequenceStoreETagAlgorithmFamily : IEquatable<SequenceStoreETagAlgorithmFamily>
+    {
+        private readonly string _value;
+
+        private SequenceStoreETagAlgorithmFamily(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SequenceStoreETagAlgorithmFamily Md5up { get; } = new SequenceStoreETagAlgorithmFamily("MD5up");
+        public static SequenceStoreETagAlgorithmFamily Sha256up { get; } = new SequenceStoreETagAlgorithmFamily("SHA256up");
+        public static SequenceStoreETagAlgorithmFamily Sha512up { get; } = new SequenceStoreETagAlgorithmFamily("SHA512up");
+
+        public static bool operator ==(SequenceStoreETagAlgorithmFamily left, SequenceStoreETagAlgorithmFamily right) => left.Equals(right);
+        public static bool operator !=(SequenceStoreETagAlgorithmFamily left, SequenceStoreETagAlgorithmFamily right) => !left.Equals(right);
+
+        public static explicit operator string(SequenceStoreETagAlgorithmFamily value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SequenceStoreETagAlgorithmFamily other && Equals(other);
+        public bool Equals(SequenceStoreETagAlgorithmFamily other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct SequenceStoreEncryptionType : IEquatable<SequenceStoreEncryptionType>
     {
         private readonly string _value;
@@ -206,6 +235,37 @@ namespace Pulumi.AwsNative.Omics
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SequenceStoreEncryptionType other && Equals(other);
         public bool Equals(SequenceStoreEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SequenceStoreStatus : IEquatable<SequenceStoreStatus>
+    {
+        private readonly string _value;
+
+        private SequenceStoreStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SequenceStoreStatus Creating { get; } = new SequenceStoreStatus("CREATING");
+        public static SequenceStoreStatus Active { get; } = new SequenceStoreStatus("ACTIVE");
+        public static SequenceStoreStatus Updating { get; } = new SequenceStoreStatus("UPDATING");
+        public static SequenceStoreStatus Deleting { get; } = new SequenceStoreStatus("DELETING");
+        public static SequenceStoreStatus Failed { get; } = new SequenceStoreStatus("FAILED");
+
+        public static bool operator ==(SequenceStoreStatus left, SequenceStoreStatus right) => left.Equals(right);
+        public static bool operator !=(SequenceStoreStatus left, SequenceStoreStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SequenceStoreStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SequenceStoreStatus other && Equals(other);
+        public bool Equals(SequenceStoreStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

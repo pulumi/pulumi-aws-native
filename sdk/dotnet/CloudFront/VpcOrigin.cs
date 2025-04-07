@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
-    /// Resource Type definition for AWS::CloudFront::VpcOrigin
+    /// An Amazon CloudFront VPC origin.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:VpcOrigin")]
     public partial class VpcOrigin : global::Pulumi.CustomResource
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.CloudFront
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A complex type that contains zero or more `Tag` elements.
+        /// A complex type that contains zero or more ``Tag`` elements.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.CloudFront
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A complex type that contains zero or more `Tag` elements.
+        /// A complex type that contains zero or more ``Tag`` elements.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

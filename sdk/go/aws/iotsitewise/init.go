@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AssetModel{}
 	case "aws-native:iotsitewise:Dashboard":
 		r = &Dashboard{}
+	case "aws-native:iotsitewise:Dataset":
+		r = &Dataset{}
 	case "aws-native:iotsitewise:Gateway":
 		r = &Gateway{}
 	case "aws-native:iotsitewise:Portal":

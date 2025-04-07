@@ -21,6 +21,12 @@ type Configuration struct {
 	// The description of the configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
+	//
+	// When you update the `KafkaVersionsList` property, AWS CloudFormation recreates a new configuration with the updated property before deleting the old configuration. Such an update requires a [resource replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) . To successfully update `KafkaVersionsList` , you must also update the `Name` property in the same operation.
+	//
+	// If your configuration is attached with any clusters created using the AWS Management Console or AWS CLI , you'll need to manually delete the old configuration from the console after the update completes.
+	//
+	// For more information, see [Can’t update KafkaVersionsList in MSK configuration](https://docs.aws.amazon.com/msk/latest/developerguide/troubleshooting.html#troubleshoot-kafkaversionslist-cfn-update-failure) in the *Amazon MSK Developer Guide* .
 	KafkaVersionsList pulumi.StringArrayOutput `pulumi:"kafkaVersionsList"`
 	// Latest revision of the MSK configuration.
 	LatestRevision ConfigurationLatestRevisionPtrOutput `pulumi:"latestRevision"`
@@ -81,6 +87,12 @@ type configurationArgs struct {
 	// The description of the configuration.
 	Description *string `pulumi:"description"`
 	// The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
+	//
+	// When you update the `KafkaVersionsList` property, AWS CloudFormation recreates a new configuration with the updated property before deleting the old configuration. Such an update requires a [resource replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) . To successfully update `KafkaVersionsList` , you must also update the `Name` property in the same operation.
+	//
+	// If your configuration is attached with any clusters created using the AWS Management Console or AWS CLI , you'll need to manually delete the old configuration from the console after the update completes.
+	//
+	// For more information, see [Can’t update KafkaVersionsList in MSK configuration](https://docs.aws.amazon.com/msk/latest/developerguide/troubleshooting.html#troubleshoot-kafkaversionslist-cfn-update-failure) in the *Amazon MSK Developer Guide* .
 	KafkaVersionsList []string `pulumi:"kafkaVersionsList"`
 	// Latest revision of the MSK configuration.
 	LatestRevision *ConfigurationLatestRevision `pulumi:"latestRevision"`
@@ -95,6 +107,12 @@ type ConfigurationArgs struct {
 	// The description of the configuration.
 	Description pulumi.StringPtrInput
 	// The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
+	//
+	// When you update the `KafkaVersionsList` property, AWS CloudFormation recreates a new configuration with the updated property before deleting the old configuration. Such an update requires a [resource replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) . To successfully update `KafkaVersionsList` , you must also update the `Name` property in the same operation.
+	//
+	// If your configuration is attached with any clusters created using the AWS Management Console or AWS CLI , you'll need to manually delete the old configuration from the console after the update completes.
+	//
+	// For more information, see [Can’t update KafkaVersionsList in MSK configuration](https://docs.aws.amazon.com/msk/latest/developerguide/troubleshooting.html#troubleshoot-kafkaversionslist-cfn-update-failure) in the *Amazon MSK Developer Guide* .
 	KafkaVersionsList pulumi.StringArrayInput
 	// Latest revision of the MSK configuration.
 	LatestRevision ConfigurationLatestRevisionPtrInput
@@ -152,6 +170,12 @@ func (o ConfigurationOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
+//
+// When you update the `KafkaVersionsList` property, AWS CloudFormation recreates a new configuration with the updated property before deleting the old configuration. Such an update requires a [resource replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) . To successfully update `KafkaVersionsList` , you must also update the `Name` property in the same operation.
+//
+// If your configuration is attached with any clusters created using the AWS Management Console or AWS CLI , you'll need to manually delete the old configuration from the console after the update completes.
+//
+// For more information, see [Can’t update KafkaVersionsList in MSK configuration](https://docs.aws.amazon.com/msk/latest/developerguide/troubleshooting.html#troubleshoot-kafkaversionslist-cfn-update-failure) in the *Amazon MSK Developer Guide* .
 func (o ConfigurationOutput) KafkaVersionsList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringArrayOutput { return v.KafkaVersionsList }).(pulumi.StringArrayOutput)
 }

@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+        /// </summary>
+        [Output("networkType")]
+        public Output<Pulumi.AwsNative.Route53RecoveryControl.ClusterNetworkType?> NetworkType { get; private set; } = null!;
+
+        /// <summary>
         /// Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
         /// </summary>
         [Output("status")]
@@ -100,6 +106,12 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+        /// </summary>
+        [Input("networkType")]
+        public Input<Pulumi.AwsNative.Route53RecoveryControl.ClusterNetworkType>? NetworkType { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;

@@ -53,8 +53,8 @@ import (
 //						},
 //					},
 //				},
-//				Tags: aws.CreateOnlyTagArray{
-//					&aws.CreateOnlyTagArgs{
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
 //						Key:   pulumi.String("key00AtCreate"),
 //						Value: pulumi.String("value001AtCreate"),
 //					},
@@ -78,7 +78,7 @@ type Recipe struct {
 	// A list of steps that are defined by the recipe.
 	Steps RecipeStepArrayOutput `pulumi:"steps"`
 	// Metadata tags that have been applied to the recipe.
-	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewRecipe registers a new resource with the given unique name, arguments, and options.
@@ -93,7 +93,6 @@ func NewRecipe(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
-		"tags[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -136,7 +135,7 @@ type recipeArgs struct {
 	// A list of steps that are defined by the recipe.
 	Steps []RecipeStep `pulumi:"steps"`
 	// Metadata tags that have been applied to the recipe.
-	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Recipe resource.
@@ -148,7 +147,7 @@ type RecipeArgs struct {
 	// A list of steps that are defined by the recipe.
 	Steps RecipeStepArrayInput
 	// Metadata tags that have been applied to the recipe.
-	Tags aws.CreateOnlyTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (RecipeArgs) ElementType() reflect.Type {
@@ -204,8 +203,8 @@ func (o RecipeOutput) Steps() RecipeStepArrayOutput {
 }
 
 // Metadata tags that have been applied to the recipe.
-func (o RecipeOutput) Tags() aws.CreateOnlyTagArrayOutput {
-	return o.ApplyT(func(v *Recipe) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
+func (o RecipeOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Recipe) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -100,6 +100,10 @@ namespace Pulumi.AwsNative.KinesisFirehose
         /// </summary>
         public readonly Outputs.DeliveryStreamHttpEndpointDestinationConfiguration? HttpEndpointDestinationConfiguration;
         /// <summary>
+        /// Specifies the destination configure settings for Apache Iceberg Table.
+        /// </summary>
+        public readonly Outputs.DeliveryStreamIcebergDestinationConfiguration? IcebergDestinationConfiguration;
+        /// <summary>
         /// An Amazon Redshift destination for the delivery stream.
         /// 
         /// Conditional. You must specify only one destination configuration.
@@ -154,6 +158,8 @@ namespace Pulumi.AwsNative.KinesisFirehose
 
             Outputs.DeliveryStreamHttpEndpointDestinationConfiguration? httpEndpointDestinationConfiguration,
 
+            Outputs.DeliveryStreamIcebergDestinationConfiguration? icebergDestinationConfiguration,
+
             Outputs.DeliveryStreamRedshiftDestinationConfiguration? redshiftDestinationConfiguration,
 
             Outputs.DeliveryStreamS3DestinationConfiguration? s3DestinationConfiguration,
@@ -171,6 +177,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
             ElasticsearchDestinationConfiguration = elasticsearchDestinationConfiguration;
             ExtendedS3DestinationConfiguration = extendedS3DestinationConfiguration;
             HttpEndpointDestinationConfiguration = httpEndpointDestinationConfiguration;
+            IcebergDestinationConfiguration = icebergDestinationConfiguration;
             RedshiftDestinationConfiguration = redshiftDestinationConfiguration;
             S3DestinationConfiguration = s3DestinationConfiguration;
             SnowflakeDestinationConfiguration = snowflakeDestinationConfiguration;

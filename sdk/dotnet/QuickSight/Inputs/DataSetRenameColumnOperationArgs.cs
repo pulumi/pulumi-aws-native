@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// <summary>
         /// &lt;p&gt;The new name for the column.&lt;/p&gt;
         /// </summary>
-        [Input("newColumnName", required: true)]
-        public Input<string> NewColumnName { get; set; } = null!;
+        [Input("newColumnName")]
+        public Input<string>? NewColumnName { get; set; }
 
         public DataSetRenameColumnOperationArgs()
         {

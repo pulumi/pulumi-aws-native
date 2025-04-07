@@ -66,7 +66,7 @@ type DbCluster struct {
 	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
 	// The mode of Database Insights to enable for the DB cluster.
 	//  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-	//  Valid for Cluster Type: Aurora DB clusters only
+	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	DatabaseInsightsMode pulumi.StringPtrOutput `pulumi:"databaseInsightsMode"`
 	// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -256,7 +256,7 @@ type DbCluster struct {
 	//  If you don't specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS-account. Your AWS-account has a different default KMS key for each AWS-Region.
 	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	PerformanceInsightsKmsKeyId pulumi.StringPtrOutput `pulumi:"performanceInsightsKmsKeyId"`
-	// The number of days to retain Performance Insights data.
+	// The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
 	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	//  Valid Values:
 	//   +   ``7``
@@ -311,7 +311,7 @@ type DbCluster struct {
 	//   +   ``DeleteDBInstance``
 	//
 	//  For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
-	ReadEndpoint DbClusterReadEndpointPtrOutput `pulumi:"readEndpoint"`
+	ReadEndpoint DbClusterReadEndpointOutput `pulumi:"readEndpoint"`
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.
 	//  Valid for: Aurora DB clusters only
 	ReplicationSourceIdentifier pulumi.StringPtrOutput `pulumi:"replicationSourceIdentifier"`
@@ -501,7 +501,7 @@ type dbClusterArgs struct {
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// The mode of Database Insights to enable for the DB cluster.
 	//  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-	//  Valid for Cluster Type: Aurora DB clusters only
+	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	DatabaseInsightsMode *string `pulumi:"databaseInsightsMode"`
 	// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -686,7 +686,7 @@ type dbClusterArgs struct {
 	//  If you don't specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS-account. Your AWS-account has a different default KMS key for each AWS-Region.
 	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
-	// The number of days to retain Performance Insights data.
+	// The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
 	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	//  Valid Values:
 	//   +   ``7``
@@ -735,13 +735,6 @@ type dbClusterArgs struct {
 	//   +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB cluster is private.
 	//   +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-	//   +   ``CreateDBInstance``
-	//   +   ``DescribeDBInstances``
-	//   +   ``DeleteDBInstance``
-	//
-	//  For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
-	ReadEndpoint *DbClusterReadEndpoint `pulumi:"readEndpoint"`
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.
 	//  Valid for: Aurora DB clusters only
 	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
@@ -870,7 +863,7 @@ type DbClusterArgs struct {
 	CopyTagsToSnapshot pulumi.BoolPtrInput
 	// The mode of Database Insights to enable for the DB cluster.
 	//  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-	//  Valid for Cluster Type: Aurora DB clusters only
+	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	DatabaseInsightsMode pulumi.StringPtrInput
 	// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -1055,7 +1048,7 @@ type DbClusterArgs struct {
 	//  If you don't specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS-account. Your AWS-account has a different default KMS key for each AWS-Region.
 	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	PerformanceInsightsKmsKeyId pulumi.StringPtrInput
-	// The number of days to retain Performance Insights data.
+	// The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
 	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	//  Valid Values:
 	//   +   ``7``
@@ -1104,13 +1097,6 @@ type DbClusterArgs struct {
 	//   +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB cluster is private.
 	//   +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.
 	PubliclyAccessible pulumi.BoolPtrInput
-	// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-	//   +   ``CreateDBInstance``
-	//   +   ``DescribeDBInstances``
-	//   +   ``DeleteDBInstance``
-	//
-	//  For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
-	ReadEndpoint DbClusterReadEndpointPtrInput
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.
 	//  Valid for: Aurora DB clusters only
 	ReplicationSourceIdentifier pulumi.StringPtrInput
@@ -1306,7 +1292,7 @@ func (o DbClusterOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
 // The mode of Database Insights to enable for the DB cluster.
 //
 //	If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-//	Valid for Cluster Type: Aurora DB clusters only
+//	Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 func (o DbClusterOutput) DatabaseInsightsMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.DatabaseInsightsMode }).(pulumi.StringPtrOutput)
 }
@@ -1631,7 +1617,7 @@ func (o DbClusterOutput) PerformanceInsightsKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.PerformanceInsightsKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The number of days to retain Performance Insights data.
+// The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter “PerformanceInsightsRetentionPeriod“.
 //
 //	Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 //	Valid Values:
@@ -1709,8 +1695,8 @@ func (o DbClusterOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 //   - “DeleteDBInstance“
 //
 //     For the data structure that represents Amazon Aurora DB cluster endpoints, see “DBClusterEndpoint“.
-func (o DbClusterOutput) ReadEndpoint() DbClusterReadEndpointPtrOutput {
-	return o.ApplyT(func(v *DbCluster) DbClusterReadEndpointPtrOutput { return v.ReadEndpoint }).(DbClusterReadEndpointPtrOutput)
+func (o DbClusterOutput) ReadEndpoint() DbClusterReadEndpointOutput {
+	return o.ApplyT(func(v *DbCluster) DbClusterReadEndpointOutput { return v.ReadEndpoint }).(DbClusterReadEndpointOutput)
 }
 
 // The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.

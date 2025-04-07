@@ -64,9 +64,17 @@ namespace Pulumi.AwsNative.RedshiftServerless
     public sealed class GetWorkgroupResult
     {
         /// <summary>
+        /// The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
+        /// </summary>
+        public readonly int? BaseCapacity;
+        /// <summary>
         /// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
         /// </summary>
         public readonly bool? EnhancedVpcRouting;
+        /// <summary>
+        /// The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+        /// </summary>
+        public readonly int? MaxCapacity;
         /// <summary>
         /// The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
         /// </summary>
@@ -84,13 +92,21 @@ namespace Pulumi.AwsNative.RedshiftServerless
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
+        /// An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
+        /// </summary>
+        public readonly string? TrackName;
+        /// <summary>
         /// Definition for workgroup resource
         /// </summary>
         public readonly Outputs.Workgroup? WorkgroupValue;
 
         [OutputConstructor]
         private GetWorkgroupResult(
+            int? baseCapacity,
+
             bool? enhancedVpcRouting,
+
+            int? maxCapacity,
 
             int? port,
 
@@ -100,13 +116,18 @@ namespace Pulumi.AwsNative.RedshiftServerless
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
+            string? trackName,
+
             Outputs.Workgroup? workgroup)
         {
+            BaseCapacity = baseCapacity;
             EnhancedVpcRouting = enhancedVpcRouting;
+            MaxCapacity = maxCapacity;
             Port = port;
             PricePerformanceTarget = pricePerformanceTarget;
             PubliclyAccessible = publiclyAccessible;
             Tags = tags;
+            TrackName = trackName;
             WorkgroupValue = workgroup;
         }
     }

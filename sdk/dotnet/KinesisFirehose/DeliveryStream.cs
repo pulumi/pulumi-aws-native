@@ -192,7 +192,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
                     "deliveryStreamType",
                     "directPutSourceConfiguration",
                     "elasticsearchDestinationConfiguration.vpcConfiguration",
-                    "icebergDestinationConfiguration",
+                    "icebergDestinationConfiguration.catalogConfiguration",
                     "kinesisStreamSourceConfiguration",
                     "mskSourceConfiguration",
                     "snowflakeDestinationConfiguration.snowflakeVpcConfiguration",

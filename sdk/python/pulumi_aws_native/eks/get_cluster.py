@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, access_config=None, arn=None, certificate_authority_data=None, cluster_security_group_id=None, compute_config=None, encryption_config_key_arn=None, endpoint=None, id=None, kubernetes_network_config=None, logging=None, open_id_connect_issuer_url=None, resources_vpc_config=None, storage_config=None, tags=None, upgrade_policy=None, version=None, zonal_shift_config=None):
+    def __init__(__self__, access_config=None, arn=None, certificate_authority_data=None, cluster_security_group_id=None, compute_config=None, encryption_config_key_arn=None, endpoint=None, id=None, kubernetes_network_config=None, logging=None, open_id_connect_issuer_url=None, remote_network_config=None, resources_vpc_config=None, storage_config=None, tags=None, upgrade_policy=None, version=None, zonal_shift_config=None):
         if access_config and not isinstance(access_config, dict):
             raise TypeError("Expected argument 'access_config' to be a dict")
         pulumi.set(__self__, "access_config", access_config)
@@ -60,6 +60,9 @@ class GetClusterResult:
         if open_id_connect_issuer_url and not isinstance(open_id_connect_issuer_url, str):
             raise TypeError("Expected argument 'open_id_connect_issuer_url' to be a str")
         pulumi.set(__self__, "open_id_connect_issuer_url", open_id_connect_issuer_url)
+        if remote_network_config and not isinstance(remote_network_config, dict):
+            raise TypeError("Expected argument 'remote_network_config' to be a dict")
+        pulumi.set(__self__, "remote_network_config", remote_network_config)
         if resources_vpc_config and not isinstance(resources_vpc_config, dict):
             raise TypeError("Expected argument 'resources_vpc_config' to be a dict")
         pulumi.set(__self__, "resources_vpc_config", resources_vpc_config)
@@ -168,6 +171,14 @@ class GetClusterResult:
         return pulumi.get(self, "open_id_connect_issuer_url")
 
     @property
+    @pulumi.getter(name="remoteNetworkConfig")
+    def remote_network_config(self) -> Optional['outputs.ClusterRemoteNetworkConfig']:
+        """
+        The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this configuration after the cluster is created.
+        """
+        return pulumi.get(self, "remote_network_config")
+
+    @property
     @pulumi.getter(name="resourcesVpcConfig")
     def resources_vpc_config(self) -> Optional['outputs.ClusterResourcesVpcConfig']:
         """
@@ -235,6 +246,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             kubernetes_network_config=self.kubernetes_network_config,
             logging=self.logging,
             open_id_connect_issuer_url=self.open_id_connect_issuer_url,
+            remote_network_config=self.remote_network_config,
             resources_vpc_config=self.resources_vpc_config,
             storage_config=self.storage_config,
             tags=self.tags,
@@ -268,6 +280,7 @@ def get_cluster(name: Optional[str] = None,
         kubernetes_network_config=pulumi.get(__ret__, 'kubernetes_network_config'),
         logging=pulumi.get(__ret__, 'logging'),
         open_id_connect_issuer_url=pulumi.get(__ret__, 'open_id_connect_issuer_url'),
+        remote_network_config=pulumi.get(__ret__, 'remote_network_config'),
         resources_vpc_config=pulumi.get(__ret__, 'resources_vpc_config'),
         storage_config=pulumi.get(__ret__, 'storage_config'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -298,6 +311,7 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
         kubernetes_network_config=pulumi.get(__response__, 'kubernetes_network_config'),
         logging=pulumi.get(__response__, 'logging'),
         open_id_connect_issuer_url=pulumi.get(__response__, 'open_id_connect_issuer_url'),
+        remote_network_config=pulumi.get(__response__, 'remote_network_config'),
         resources_vpc_config=pulumi.get(__response__, 'resources_vpc_config'),
         storage_config=pulumi.get(__response__, 'storage_config'),
         tags=pulumi.get(__response__, 'tags'),

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -51,9 +54,17 @@ export class DomainName extends pulumi.CustomResource {
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
+     * The Amazon Resource Name (ARN) for the Domain Name.
+     */
+    public /*out*/ readonly domainNameArn!: pulumi.Output<string>;
+    /**
      * The ID of your Amazon Route 53 hosted zone.
      */
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
+    /**
+     * A set of tags (key-value pairs) for this domain name.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -75,14 +86,18 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["appSyncDomainName"] = undefined /*out*/;
+            resourceInputs["domainNameArn"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;
         } else {
             resourceInputs["appSyncDomainName"] = undefined /*out*/;
             resourceInputs["certificateArn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["domainNameArn"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["certificateArn", "domainName"] };
@@ -107,4 +122,8 @@ export interface DomainNameArgs {
      * The domain name.
      */
     domainName: pulumi.Input<string>;
+    /**
+     * A set of tags (key-value pairs) for this domain name.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

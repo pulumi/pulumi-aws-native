@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
+ * Resource Type definition for AWS::IoT::JobTemplate. Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
  */
 export function getJobTemplate(args: GetJobTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetJobTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -28,7 +28,7 @@ export interface GetJobTemplateResult {
     readonly arn?: string;
 }
 /**
- * Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
+ * Resource Type definition for AWS::IoT::JobTemplate. Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
  */
 export function getJobTemplateOutput(args: GetJobTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -17,11 +17,13 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CapacityReservationCapacityAllocation',
     'CapacityReservationFleetInstanceTypeSpecification',
     'CapacityReservationFleetTag',
     'CapacityReservationFleetTagSpecification',
     'CapacityReservationTag',
     'CapacityReservationTagSpecification',
+    'CommitmentInfoProperties',
     'CpuOptionsProperties',
     'CreditSpecificationProperties',
     'DestinationOptionsProperties',
@@ -57,6 +59,8 @@ __all__ = [
     'InstanceEbs',
     'InstanceElasticGpuSpecification',
     'InstanceElasticInferenceAccelerator',
+    'InstanceEnaSrdSpecification',
+    'InstanceEnaSrdUdpSpecification',
     'InstanceIpv6Address',
     'InstanceLaunchTemplateSpecification',
     'InstanceLicenseSpecification',
@@ -147,6 +151,7 @@ __all__ = [
     'OptionsProperties',
     'PrefixListEntry',
     'PrivateDnsNameOptionsOnLaunchProperties',
+    'RouteServerPeerBgpOptions',
     'SecurityGroupEgress',
     'SecurityGroupIngress',
     'SpotFleetAcceleratorCountRequest',
@@ -216,6 +221,54 @@ __all__ = [
     'VpnConnectionVpnTunnelLogOptionsSpecification',
     'VpnConnectionVpnTunnelOptionsSpecification',
 ]
+
+@pulumi.output_type
+class CapacityReservationCapacityAllocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocationType":
+            suggest = "allocation_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityReservationCapacityAllocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityReservationCapacityAllocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityReservationCapacityAllocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allocation_type: Optional[str] = None,
+                 count: Optional[int] = None):
+        """
+        :param str allocation_type: The usage type. `used` indicates that the instance capacity is in use by instances that are running in the Capacity Reservation.
+        :param int count: The amount of instance capacity associated with the usage. For example a value of `4` indicates that instance capacity for 4 instances is currently in use.
+        """
+        if allocation_type is not None:
+            pulumi.set(__self__, "allocation_type", allocation_type)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+
+    @property
+    @pulumi.getter(name="allocationType")
+    def allocation_type(self) -> Optional[str]:
+        """
+        The usage type. `used` indicates that the instance capacity is in use by instances that are running in the Capacity Reservation.
+        """
+        return pulumi.get(self, "allocation_type")
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        """
+        The amount of instance capacity associated with the usage. For example a value of `4` indicates that instance capacity for 4 instances is currently in use.
+        """
+        return pulumi.get(self, "count")
+
 
 @pulumi.output_type
 class CapacityReservationFleetInstanceTypeSpecification(dict):
@@ -493,6 +546,56 @@ class CapacityReservationTagSpecification(dict):
         The tags to apply to the resource.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class CommitmentInfoProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commitmentEndDate":
+            suggest = "commitment_end_date"
+        elif key == "committedInstanceCount":
+            suggest = "committed_instance_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CommitmentInfoProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CommitmentInfoProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CommitmentInfoProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 commitment_end_date: Optional[str] = None,
+                 committed_instance_count: Optional[int] = None):
+        """
+        :param str commitment_end_date: The date and time at which the commitment duration expires, in the ISO8601 format in the UTC time zone ( `YYYY-MM-DDThh:mm:ss.sssZ` ). You can't decrease the instance count or cancel the Capacity Reservation before this date and time.
+        :param int committed_instance_count: The instance capacity that you committed to when you requested the future-dated Capacity Reservation.
+        """
+        if commitment_end_date is not None:
+            pulumi.set(__self__, "commitment_end_date", commitment_end_date)
+        if committed_instance_count is not None:
+            pulumi.set(__self__, "committed_instance_count", committed_instance_count)
+
+    @property
+    @pulumi.getter(name="commitmentEndDate")
+    def commitment_end_date(self) -> Optional[str]:
+        """
+        The date and time at which the commitment duration expires, in the ISO8601 format in the UTC time zone ( `YYYY-MM-DDThh:mm:ss.sssZ` ). You can't decrease the instance count or cancel the Capacity Reservation before this date and time.
+        """
+        return pulumi.get(self, "commitment_end_date")
+
+    @property
+    @pulumi.getter(name="committedInstanceCount")
+    def committed_instance_count(self) -> Optional[int]:
+        """
+        The instance capacity that you committed to when you requested the future-dated Capacity Reservation.
+        """
+        return pulumi.get(self, "committed_instance_count")
 
 
 @pulumi.output_type
@@ -1341,7 +1444,6 @@ class Ec2FleetInstanceRequirementsRequest(dict):
                
                - For instance types with FPGA accelerators, specify `fpga` .
                - For instance types with GPU accelerators, specify `gpu` .
-               - For instance types with Inference accelerators, specify `inference` .
                
                Default: Any accelerator type
         :param Sequence[str] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -1579,7 +1681,6 @@ class Ec2FleetInstanceRequirementsRequest(dict):
 
         - For instance types with FPGA accelerators, specify `fpga` .
         - For instance types with GPU accelerators, specify `gpu` .
-        - For instance types with Inference accelerators, specify `inference` .
 
         Default: Any accelerator type
         """
@@ -3117,6 +3218,100 @@ class InstanceElasticInferenceAccelerator(dict):
 
 
 @pulumi.output_type
+class InstanceEnaSrdSpecification(dict):
+    """
+    Specifies the ENA Express settings for the network interface that's attached to the instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enaSrdEnabled":
+            suggest = "ena_srd_enabled"
+        elif key == "enaSrdUdpSpecification":
+            suggest = "ena_srd_udp_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceEnaSrdSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceEnaSrdSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceEnaSrdSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ena_srd_enabled: Optional[bool] = None,
+                 ena_srd_udp_specification: Optional['outputs.InstanceEnaSrdUdpSpecification'] = None):
+        """
+        Specifies the ENA Express settings for the network interface that's attached to the instance.
+        :param bool ena_srd_enabled: Specifies whether ENA Express is enabled for the network interface when you launch an instance.
+        :param 'InstanceEnaSrdUdpSpecification' ena_srd_udp_specification: Configures ENA Express for UDP network traffic.
+        """
+        if ena_srd_enabled is not None:
+            pulumi.set(__self__, "ena_srd_enabled", ena_srd_enabled)
+        if ena_srd_udp_specification is not None:
+            pulumi.set(__self__, "ena_srd_udp_specification", ena_srd_udp_specification)
+
+    @property
+    @pulumi.getter(name="enaSrdEnabled")
+    def ena_srd_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether ENA Express is enabled for the network interface when you launch an instance.
+        """
+        return pulumi.get(self, "ena_srd_enabled")
+
+    @property
+    @pulumi.getter(name="enaSrdUdpSpecification")
+    def ena_srd_udp_specification(self) -> Optional['outputs.InstanceEnaSrdUdpSpecification']:
+        """
+        Configures ENA Express for UDP network traffic.
+        """
+        return pulumi.get(self, "ena_srd_udp_specification")
+
+
+@pulumi.output_type
+class InstanceEnaSrdUdpSpecification(dict):
+    """
+    Contains ENA Express settings for UDP network traffic for the network interface that's attached to the instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enaSrdUdpEnabled":
+            suggest = "ena_srd_udp_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceEnaSrdUdpSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceEnaSrdUdpSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceEnaSrdUdpSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ena_srd_udp_enabled: Optional[bool] = None):
+        """
+        Contains ENA Express settings for UDP network traffic for the network interface that's attached to the instance.
+        :param bool ena_srd_udp_enabled: Indicates whether UDP traffic uses ENA Express for your instance.
+        """
+        if ena_srd_udp_enabled is not None:
+            pulumi.set(__self__, "ena_srd_udp_enabled", ena_srd_udp_enabled)
+
+    @property
+    @pulumi.getter(name="enaSrdUdpEnabled")
+    def ena_srd_udp_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether UDP traffic uses ENA Express for your instance.
+        """
+        return pulumi.get(self, "ena_srd_udp_enabled")
+
+
+@pulumi.output_type
 class InstanceIpv6Address(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3261,6 +3456,8 @@ class InstanceNetworkInterface(dict):
             suggest = "associate_public_ip_address"
         elif key == "deleteOnTermination":
             suggest = "delete_on_termination"
+        elif key == "enaSrdSpecification":
+            suggest = "ena_srd_specification"
         elif key == "groupSet":
             suggest = "group_set"
         elif key == "ipv6AddressCount":
@@ -3295,6 +3492,7 @@ class InstanceNetworkInterface(dict):
                  associate_public_ip_address: Optional[bool] = None,
                  delete_on_termination: Optional[bool] = None,
                  description: Optional[str] = None,
+                 ena_srd_specification: Optional['outputs.InstanceEnaSrdSpecification'] = None,
                  group_set: Optional[Sequence[str]] = None,
                  ipv6_address_count: Optional[int] = None,
                  ipv6_addresses: Optional[Sequence['outputs.InstanceIpv6Address']] = None,
@@ -3309,6 +3507,7 @@ class InstanceNetworkInterface(dict):
         :param bool associate_public_ip_address: Indicates whether to assign a public IPv4 address to an instance you launch in a VPC.
         :param bool delete_on_termination: If set to true, the interface is deleted when the instance is terminated.
         :param str description: The description of the network interface.
+        :param 'InstanceEnaSrdSpecification' ena_srd_specification: Configures ENA Express for UDP network traffic.
         :param Sequence[str] group_set: The IDs of the security groups for the network interface.
         :param int ipv6_address_count: A number of IPv6 addresses to assign to the network interface.
         :param Sequence['InstanceIpv6Address'] ipv6_addresses: The IPv6 addresses associated with the network interface.
@@ -3327,6 +3526,8 @@ class InstanceNetworkInterface(dict):
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if ena_srd_specification is not None:
+            pulumi.set(__self__, "ena_srd_specification", ena_srd_specification)
         if group_set is not None:
             pulumi.set(__self__, "group_set", group_set)
         if ipv6_address_count is not None:
@@ -3383,6 +3584,14 @@ class InstanceNetworkInterface(dict):
         The description of the network interface.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enaSrdSpecification")
+    def ena_srd_specification(self) -> Optional['outputs.InstanceEnaSrdSpecification']:
+        """
+        Configures ENA Express for UDP network traffic.
+        """
+        return pulumi.get(self, "ena_srd_specification")
 
     @property
     @pulumi.getter(name="groupSet")
@@ -10397,6 +10606,60 @@ class PrivateDnsNameOptionsOnLaunchProperties(dict):
 
 
 @pulumi.output_type
+class RouteServerPeerBgpOptions(dict):
+    """
+    BGP Options
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "peerAsn":
+            suggest = "peer_asn"
+        elif key == "peerLivenessDetection":
+            suggest = "peer_liveness_detection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteServerPeerBgpOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteServerPeerBgpOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteServerPeerBgpOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 peer_asn: Optional[int] = None,
+                 peer_liveness_detection: Optional['RouteServerPeerBgpOptionsPeerLivenessDetection'] = None):
+        """
+        BGP Options
+        :param int peer_asn: BGP ASN of the Route Server Peer
+        :param 'RouteServerPeerBgpOptionsPeerLivenessDetection' peer_liveness_detection: BGP Liveness Detection
+        """
+        if peer_asn is not None:
+            pulumi.set(__self__, "peer_asn", peer_asn)
+        if peer_liveness_detection is not None:
+            pulumi.set(__self__, "peer_liveness_detection", peer_liveness_detection)
+
+    @property
+    @pulumi.getter(name="peerAsn")
+    def peer_asn(self) -> Optional[int]:
+        """
+        BGP ASN of the Route Server Peer
+        """
+        return pulumi.get(self, "peer_asn")
+
+    @property
+    @pulumi.getter(name="peerLivenessDetection")
+    def peer_liveness_detection(self) -> Optional['RouteServerPeerBgpOptionsPeerLivenessDetection']:
+        """
+        BGP Liveness Detection
+        """
+        return pulumi.get(self, "peer_liveness_detection")
+
+
+@pulumi.output_type
 class SecurityGroupEgress(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -11648,7 +11911,6 @@ class SpotFleetInstanceRequirementsRequest(dict):
                
                - For instance types with FPGA accelerators, specify `fpga` .
                - For instance types with GPU accelerators, specify `gpu` .
-               - For instance types with Inference accelerators, specify `inference` .
                
                Default: Any accelerator type
         :param Sequence[str] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -11886,7 +12148,6 @@ class SpotFleetInstanceRequirementsRequest(dict):
 
         - For instance types with FPGA accelerators, specify `fpga` .
         - For instance types with GPU accelerators, specify `gpu` .
-        - For instance types with Inference accelerators, specify `inference` .
 
         Default: Any accelerator type
         """

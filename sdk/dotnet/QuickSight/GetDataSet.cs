@@ -155,6 +155,10 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The usage of the dataset.
+        /// </summary>
+        public readonly Pulumi.AwsNative.QuickSight.DataSetUseAs? UseAs;
 
         [OutputConstructor]
         private GetDataSetResult(
@@ -194,7 +198,9 @@ namespace Pulumi.AwsNative.QuickSight
 
             Outputs.DataSetRowLevelPermissionTagConfiguration? rowLevelPermissionTagConfiguration,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            Pulumi.AwsNative.QuickSight.DataSetUseAs? useAs)
         {
             Arn = arn;
             ColumnGroups = columnGroups;
@@ -215,6 +221,7 @@ namespace Pulumi.AwsNative.QuickSight
             RowLevelPermissionDataSet = rowLevelPermissionDataSet;
             RowLevelPermissionTagConfiguration = rowLevelPermissionTagConfiguration;
             Tags = tags;
+            UseAs = useAs;
         }
     }
 }

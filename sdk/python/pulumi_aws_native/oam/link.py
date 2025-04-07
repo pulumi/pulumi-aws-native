@@ -29,7 +29,7 @@ class LinkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Link resource.
-        :param pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]] resource_types: An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+        :param pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]] resource_types: An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` .
         :param pulumi.Input[str] sink_identifier: The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
         :param pulumi.Input[str] label_template: Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
                
@@ -54,7 +54,7 @@ class LinkArgs:
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]]:
         """
-        An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+        An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` .
         """
         return pulumi.get(self, "resource_types")
 
@@ -141,7 +141,7 @@ class Link(pulumi.CustomResource):
                - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
                - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
         :param pulumi.Input[Union['LinkConfigurationArgs', 'LinkConfigurationArgsDict']] link_configuration: Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
-        :param pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]] resource_types: An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+        :param pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]] resource_types: An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` .
         :param pulumi.Input[str] sink_identifier: The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the link
         """
@@ -269,7 +269,7 @@ class Link(pulumi.CustomResource):
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> pulumi.Output[Sequence['LinkResourceType']]:
         """
-        An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+        An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` .
         """
         return pulumi.get(self, "resource_types")
 

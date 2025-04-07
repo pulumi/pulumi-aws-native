@@ -38,6 +38,10 @@ export class Build extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift build resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift build ARN, the resource ID matches the BuildId value.
+     */
+    public /*out*/ readonly buildArn!: pulumi.Output<string>;
+    /**
      * A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
      */
     public /*out*/ readonly buildId!: pulumi.Output<string>;
@@ -58,6 +62,10 @@ export class Build extends pulumi.CustomResource {
      */
     public readonly storageLocation!: pulumi.Output<outputs.gamelift.BuildStorageLocation | undefined>;
     /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * Version information that is associated with this build. Version strings do not need to be unique.
      */
     public readonly version!: pulumi.Output<string | undefined>;
@@ -77,14 +85,18 @@ export class Build extends pulumi.CustomResource {
             resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
             resourceInputs["serverSdkVersion"] = args ? args.serverSdkVersion : undefined;
             resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["buildArn"] = undefined /*out*/;
             resourceInputs["buildId"] = undefined /*out*/;
         } else {
+            resourceInputs["buildArn"] = undefined /*out*/;
             resourceInputs["buildId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operatingSystem"] = undefined /*out*/;
             resourceInputs["serverSdkVersion"] = undefined /*out*/;
             resourceInputs["storageLocation"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -114,6 +126,10 @@ export interface BuildArgs {
      * Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
      */
     storageLocation?: pulumi.Input<inputs.gamelift.BuildStorageLocationArgs>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Version information that is associated with this build. Version strings do not need to be unique.
      */

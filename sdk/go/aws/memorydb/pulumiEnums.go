@@ -175,6 +175,338 @@ func (in *clusterDataTieringStatusPtr) ToClusterDataTieringStatusPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterDataTieringStatusPtrOutput)
 }
 
+type ClusterSupportedIpDiscoveryTypes string
+
+const (
+	ClusterSupportedIpDiscoveryTypesIpv4 = ClusterSupportedIpDiscoveryTypes("ipv4")
+	ClusterSupportedIpDiscoveryTypesIpv6 = ClusterSupportedIpDiscoveryTypes("ipv6")
+)
+
+func (ClusterSupportedIpDiscoveryTypes) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSupportedIpDiscoveryTypes)(nil)).Elem()
+}
+
+func (e ClusterSupportedIpDiscoveryTypes) ToClusterSupportedIpDiscoveryTypesOutput() ClusterSupportedIpDiscoveryTypesOutput {
+	return pulumi.ToOutput(e).(ClusterSupportedIpDiscoveryTypesOutput)
+}
+
+func (e ClusterSupportedIpDiscoveryTypes) ToClusterSupportedIpDiscoveryTypesOutputWithContext(ctx context.Context) ClusterSupportedIpDiscoveryTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterSupportedIpDiscoveryTypesOutput)
+}
+
+func (e ClusterSupportedIpDiscoveryTypes) ToClusterSupportedIpDiscoveryTypesPtrOutput() ClusterSupportedIpDiscoveryTypesPtrOutput {
+	return e.ToClusterSupportedIpDiscoveryTypesPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterSupportedIpDiscoveryTypes) ToClusterSupportedIpDiscoveryTypesPtrOutputWithContext(ctx context.Context) ClusterSupportedIpDiscoveryTypesPtrOutput {
+	return ClusterSupportedIpDiscoveryTypes(e).ToClusterSupportedIpDiscoveryTypesOutputWithContext(ctx).ToClusterSupportedIpDiscoveryTypesPtrOutputWithContext(ctx)
+}
+
+func (e ClusterSupportedIpDiscoveryTypes) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterSupportedIpDiscoveryTypes) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterSupportedIpDiscoveryTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterSupportedIpDiscoveryTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterSupportedIpDiscoveryTypesOutput struct{ *pulumi.OutputState }
+
+func (ClusterSupportedIpDiscoveryTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSupportedIpDiscoveryTypes)(nil)).Elem()
+}
+
+func (o ClusterSupportedIpDiscoveryTypesOutput) ToClusterSupportedIpDiscoveryTypesOutput() ClusterSupportedIpDiscoveryTypesOutput {
+	return o
+}
+
+func (o ClusterSupportedIpDiscoveryTypesOutput) ToClusterSupportedIpDiscoveryTypesOutputWithContext(ctx context.Context) ClusterSupportedIpDiscoveryTypesOutput {
+	return o
+}
+
+func (o ClusterSupportedIpDiscoveryTypesOutput) ToClusterSupportedIpDiscoveryTypesPtrOutput() ClusterSupportedIpDiscoveryTypesPtrOutput {
+	return o.ToClusterSupportedIpDiscoveryTypesPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSupportedIpDiscoveryTypesOutput) ToClusterSupportedIpDiscoveryTypesPtrOutputWithContext(ctx context.Context) ClusterSupportedIpDiscoveryTypesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSupportedIpDiscoveryTypes) *ClusterSupportedIpDiscoveryTypes {
+		return &v
+	}).(ClusterSupportedIpDiscoveryTypesPtrOutput)
+}
+
+func (o ClusterSupportedIpDiscoveryTypesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterSupportedIpDiscoveryTypesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSupportedIpDiscoveryTypes) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterSupportedIpDiscoveryTypesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSupportedIpDiscoveryTypesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSupportedIpDiscoveryTypes) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterSupportedIpDiscoveryTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSupportedIpDiscoveryTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSupportedIpDiscoveryTypes)(nil)).Elem()
+}
+
+func (o ClusterSupportedIpDiscoveryTypesPtrOutput) ToClusterSupportedIpDiscoveryTypesPtrOutput() ClusterSupportedIpDiscoveryTypesPtrOutput {
+	return o
+}
+
+func (o ClusterSupportedIpDiscoveryTypesPtrOutput) ToClusterSupportedIpDiscoveryTypesPtrOutputWithContext(ctx context.Context) ClusterSupportedIpDiscoveryTypesPtrOutput {
+	return o
+}
+
+func (o ClusterSupportedIpDiscoveryTypesPtrOutput) Elem() ClusterSupportedIpDiscoveryTypesOutput {
+	return o.ApplyT(func(v *ClusterSupportedIpDiscoveryTypes) ClusterSupportedIpDiscoveryTypes {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSupportedIpDiscoveryTypes
+		return ret
+	}).(ClusterSupportedIpDiscoveryTypesOutput)
+}
+
+func (o ClusterSupportedIpDiscoveryTypesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSupportedIpDiscoveryTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterSupportedIpDiscoveryTypes) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterSupportedIpDiscoveryTypesInput is an input type that accepts values of the ClusterSupportedIpDiscoveryTypes enum
+// A concrete instance of `ClusterSupportedIpDiscoveryTypesInput` can be one of the following:
+//
+//	ClusterSupportedIpDiscoveryTypesIpv4
+//	ClusterSupportedIpDiscoveryTypesIpv6
+type ClusterSupportedIpDiscoveryTypesInput interface {
+	pulumi.Input
+
+	ToClusterSupportedIpDiscoveryTypesOutput() ClusterSupportedIpDiscoveryTypesOutput
+	ToClusterSupportedIpDiscoveryTypesOutputWithContext(context.Context) ClusterSupportedIpDiscoveryTypesOutput
+}
+
+var clusterSupportedIpDiscoveryTypesPtrType = reflect.TypeOf((**ClusterSupportedIpDiscoveryTypes)(nil)).Elem()
+
+type ClusterSupportedIpDiscoveryTypesPtrInput interface {
+	pulumi.Input
+
+	ToClusterSupportedIpDiscoveryTypesPtrOutput() ClusterSupportedIpDiscoveryTypesPtrOutput
+	ToClusterSupportedIpDiscoveryTypesPtrOutputWithContext(context.Context) ClusterSupportedIpDiscoveryTypesPtrOutput
+}
+
+type clusterSupportedIpDiscoveryTypesPtr string
+
+func ClusterSupportedIpDiscoveryTypesPtr(v string) ClusterSupportedIpDiscoveryTypesPtrInput {
+	return (*clusterSupportedIpDiscoveryTypesPtr)(&v)
+}
+
+func (*clusterSupportedIpDiscoveryTypesPtr) ElementType() reflect.Type {
+	return clusterSupportedIpDiscoveryTypesPtrType
+}
+
+func (in *clusterSupportedIpDiscoveryTypesPtr) ToClusterSupportedIpDiscoveryTypesPtrOutput() ClusterSupportedIpDiscoveryTypesPtrOutput {
+	return pulumi.ToOutput(in).(ClusterSupportedIpDiscoveryTypesPtrOutput)
+}
+
+func (in *clusterSupportedIpDiscoveryTypesPtr) ToClusterSupportedIpDiscoveryTypesPtrOutputWithContext(ctx context.Context) ClusterSupportedIpDiscoveryTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterSupportedIpDiscoveryTypesPtrOutput)
+}
+
+type ClusterSupportedNetworkTypes string
+
+const (
+	ClusterSupportedNetworkTypesIpv4      = ClusterSupportedNetworkTypes("ipv4")
+	ClusterSupportedNetworkTypesIpv6      = ClusterSupportedNetworkTypes("ipv6")
+	ClusterSupportedNetworkTypesDualStack = ClusterSupportedNetworkTypes("dual_stack")
+)
+
+func (ClusterSupportedNetworkTypes) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSupportedNetworkTypes)(nil)).Elem()
+}
+
+func (e ClusterSupportedNetworkTypes) ToClusterSupportedNetworkTypesOutput() ClusterSupportedNetworkTypesOutput {
+	return pulumi.ToOutput(e).(ClusterSupportedNetworkTypesOutput)
+}
+
+func (e ClusterSupportedNetworkTypes) ToClusterSupportedNetworkTypesOutputWithContext(ctx context.Context) ClusterSupportedNetworkTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterSupportedNetworkTypesOutput)
+}
+
+func (e ClusterSupportedNetworkTypes) ToClusterSupportedNetworkTypesPtrOutput() ClusterSupportedNetworkTypesPtrOutput {
+	return e.ToClusterSupportedNetworkTypesPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterSupportedNetworkTypes) ToClusterSupportedNetworkTypesPtrOutputWithContext(ctx context.Context) ClusterSupportedNetworkTypesPtrOutput {
+	return ClusterSupportedNetworkTypes(e).ToClusterSupportedNetworkTypesOutputWithContext(ctx).ToClusterSupportedNetworkTypesPtrOutputWithContext(ctx)
+}
+
+func (e ClusterSupportedNetworkTypes) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterSupportedNetworkTypes) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterSupportedNetworkTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterSupportedNetworkTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterSupportedNetworkTypesOutput struct{ *pulumi.OutputState }
+
+func (ClusterSupportedNetworkTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSupportedNetworkTypes)(nil)).Elem()
+}
+
+func (o ClusterSupportedNetworkTypesOutput) ToClusterSupportedNetworkTypesOutput() ClusterSupportedNetworkTypesOutput {
+	return o
+}
+
+func (o ClusterSupportedNetworkTypesOutput) ToClusterSupportedNetworkTypesOutputWithContext(ctx context.Context) ClusterSupportedNetworkTypesOutput {
+	return o
+}
+
+func (o ClusterSupportedNetworkTypesOutput) ToClusterSupportedNetworkTypesPtrOutput() ClusterSupportedNetworkTypesPtrOutput {
+	return o.ToClusterSupportedNetworkTypesPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSupportedNetworkTypesOutput) ToClusterSupportedNetworkTypesPtrOutputWithContext(ctx context.Context) ClusterSupportedNetworkTypesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSupportedNetworkTypes) *ClusterSupportedNetworkTypes {
+		return &v
+	}).(ClusterSupportedNetworkTypesPtrOutput)
+}
+
+func (o ClusterSupportedNetworkTypesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterSupportedNetworkTypesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSupportedNetworkTypes) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterSupportedNetworkTypesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSupportedNetworkTypesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSupportedNetworkTypes) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterSupportedNetworkTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSupportedNetworkTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSupportedNetworkTypes)(nil)).Elem()
+}
+
+func (o ClusterSupportedNetworkTypesPtrOutput) ToClusterSupportedNetworkTypesPtrOutput() ClusterSupportedNetworkTypesPtrOutput {
+	return o
+}
+
+func (o ClusterSupportedNetworkTypesPtrOutput) ToClusterSupportedNetworkTypesPtrOutputWithContext(ctx context.Context) ClusterSupportedNetworkTypesPtrOutput {
+	return o
+}
+
+func (o ClusterSupportedNetworkTypesPtrOutput) Elem() ClusterSupportedNetworkTypesOutput {
+	return o.ApplyT(func(v *ClusterSupportedNetworkTypes) ClusterSupportedNetworkTypes {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSupportedNetworkTypes
+		return ret
+	}).(ClusterSupportedNetworkTypesOutput)
+}
+
+func (o ClusterSupportedNetworkTypesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSupportedNetworkTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterSupportedNetworkTypes) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterSupportedNetworkTypesInput is an input type that accepts values of the ClusterSupportedNetworkTypes enum
+// A concrete instance of `ClusterSupportedNetworkTypesInput` can be one of the following:
+//
+//	ClusterSupportedNetworkTypesIpv4
+//	ClusterSupportedNetworkTypesIpv6
+//	ClusterSupportedNetworkTypesDualStack
+type ClusterSupportedNetworkTypesInput interface {
+	pulumi.Input
+
+	ToClusterSupportedNetworkTypesOutput() ClusterSupportedNetworkTypesOutput
+	ToClusterSupportedNetworkTypesOutputWithContext(context.Context) ClusterSupportedNetworkTypesOutput
+}
+
+var clusterSupportedNetworkTypesPtrType = reflect.TypeOf((**ClusterSupportedNetworkTypes)(nil)).Elem()
+
+type ClusterSupportedNetworkTypesPtrInput interface {
+	pulumi.Input
+
+	ToClusterSupportedNetworkTypesPtrOutput() ClusterSupportedNetworkTypesPtrOutput
+	ToClusterSupportedNetworkTypesPtrOutputWithContext(context.Context) ClusterSupportedNetworkTypesPtrOutput
+}
+
+type clusterSupportedNetworkTypesPtr string
+
+func ClusterSupportedNetworkTypesPtr(v string) ClusterSupportedNetworkTypesPtrInput {
+	return (*clusterSupportedNetworkTypesPtr)(&v)
+}
+
+func (*clusterSupportedNetworkTypesPtr) ElementType() reflect.Type {
+	return clusterSupportedNetworkTypesPtrType
+}
+
+func (in *clusterSupportedNetworkTypesPtr) ToClusterSupportedNetworkTypesPtrOutput() ClusterSupportedNetworkTypesPtrOutput {
+	return pulumi.ToOutput(in).(ClusterSupportedNetworkTypesPtrOutput)
+}
+
+func (in *clusterSupportedNetworkTypesPtr) ToClusterSupportedNetworkTypesPtrOutputWithContext(ctx context.Context) ClusterSupportedNetworkTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterSupportedNetworkTypesPtrOutput)
+}
+
 // An enum string value that determines the update strategy for scaling. Possible values are 'COORDINATED' and 'UNCOORDINATED'. Default is 'COORDINATED'.
 type MultiRegionClusterUpdateStrategy string
 
@@ -510,12 +842,20 @@ func (in *userAuthenticationModePropertiesTypePtr) ToUserAuthenticationModePrope
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDataTieringStatusInput)(nil)).Elem(), ClusterDataTieringStatus("true"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDataTieringStatusPtrInput)(nil)).Elem(), ClusterDataTieringStatus("true"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSupportedIpDiscoveryTypesInput)(nil)).Elem(), ClusterSupportedIpDiscoveryTypes("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSupportedIpDiscoveryTypesPtrInput)(nil)).Elem(), ClusterSupportedIpDiscoveryTypes("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSupportedNetworkTypesInput)(nil)).Elem(), ClusterSupportedNetworkTypes("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSupportedNetworkTypesPtrInput)(nil)).Elem(), ClusterSupportedNetworkTypes("ipv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionClusterUpdateStrategyInput)(nil)).Elem(), MultiRegionClusterUpdateStrategy("COORDINATED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionClusterUpdateStrategyPtrInput)(nil)).Elem(), MultiRegionClusterUpdateStrategy("COORDINATED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModePropertiesTypeInput)(nil)).Elem(), UserAuthenticationModePropertiesType("password"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModePropertiesTypePtrInput)(nil)).Elem(), UserAuthenticationModePropertiesType("password"))
 	pulumi.RegisterOutputType(ClusterDataTieringStatusOutput{})
 	pulumi.RegisterOutputType(ClusterDataTieringStatusPtrOutput{})
+	pulumi.RegisterOutputType(ClusterSupportedIpDiscoveryTypesOutput{})
+	pulumi.RegisterOutputType(ClusterSupportedIpDiscoveryTypesPtrOutput{})
+	pulumi.RegisterOutputType(ClusterSupportedNetworkTypesOutput{})
+	pulumi.RegisterOutputType(ClusterSupportedNetworkTypesPtrOutput{})
 	pulumi.RegisterOutputType(MultiRegionClusterUpdateStrategyOutput{})
 	pulumi.RegisterOutputType(MultiRegionClusterUpdateStrategyPtrOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModePropertiesTypeOutput{})

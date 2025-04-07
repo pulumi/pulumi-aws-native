@@ -33,6 +33,7 @@ class WebAclAssociationArgs:
                - For an Amazon Cognito user pool: `arn: *partition* :cognito-idp: *region* : *account-id* :userpool/ *user-pool-id*`
                - For an AWS App Runner service: `arn: *partition* :apprunner: *region* : *account-id* :service/ *apprunner-service-name* / *apprunner-service-id*`
                - For an AWS Verified Access instance: `arn: *partition* :ec2: *region* : *account-id* :verified-access-instance/ *instance-id*`
+               - For an AWS Amplify instance: `arn: *partition* :amplify: *region* : *account-id* :apps/ *app-id*`
         :param pulumi.Input[str] web_acl_arn: The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -52,6 +53,7 @@ class WebAclAssociationArgs:
         - For an Amazon Cognito user pool: `arn: *partition* :cognito-idp: *region* : *account-id* :userpool/ *user-pool-id*`
         - For an AWS App Runner service: `arn: *partition* :apprunner: *region* : *account-id* :service/ *apprunner-service-name* / *apprunner-service-id*`
         - For an AWS Verified Access instance: `arn: *partition* :ec2: *region* : *account-id* :verified-access-instance/ *instance-id*`
+        - For an AWS Amplify instance: `arn: *partition* :amplify: *region* : *account-id* :apps/ *app-id*`
         """
         return pulumi.get(self, "resource_arn")
 
@@ -95,6 +97,7 @@ class WebAclAssociation(pulumi.CustomResource):
                - For an Amazon Cognito user pool: `arn: *partition* :cognito-idp: *region* : *account-id* :userpool/ *user-pool-id*`
                - For an AWS App Runner service: `arn: *partition* :apprunner: *region* : *account-id* :service/ *apprunner-service-name* / *apprunner-service-id*`
                - For an AWS Verified Access instance: `arn: *partition* :ec2: *region* : *account-id* :verified-access-instance/ *instance-id*`
+               - For an AWS Amplify instance: `arn: *partition* :amplify: *region* : *account-id* :apps/ *app-id*`
         :param pulumi.Input[str] web_acl_arn: The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
         """
         ...
@@ -180,6 +183,7 @@ class WebAclAssociation(pulumi.CustomResource):
         - For an Amazon Cognito user pool: `arn: *partition* :cognito-idp: *region* : *account-id* :userpool/ *user-pool-id*`
         - For an AWS App Runner service: `arn: *partition* :apprunner: *region* : *account-id* :service/ *apprunner-service-name* / *apprunner-service-id*`
         - For an AWS Verified Access instance: `arn: *partition* :ec2: *region* : *account-id* :verified-access-instance/ *instance-id*`
+        - For an AWS Amplify instance: `arn: *partition* :amplify: *region* : *account-id* :apps/ *app-id*`
         """
         return pulumi.get(self, "resource_arn")
 

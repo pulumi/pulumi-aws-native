@@ -117,6 +117,10 @@ class Region(str, Enum):
     """
     Europe (Paris)
     """
+    EUSC_DE_EAST1 = "eusc-de-east-1"
+    """
+    EU (Germany)
+    """
     IL_CENTRAL1 = "il-central-1"
     """
     Israel (Tel Aviv)

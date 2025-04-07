@@ -168,7 +168,7 @@ if not MYPY:
         """
         chatbot_sns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        The Amazon SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
+        The Amazon SNS targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
         """
 elif False:
     ResponsePlanChatChannelArgsDict: TypeAlias = Mapping[str, Any]
@@ -179,7 +179,7 @@ class ResponsePlanChatChannelArgs:
                  chatbot_sns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The chat channel configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] chatbot_sns: The Amazon SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] chatbot_sns: The Amazon SNS targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
         """
         if chatbot_sns is not None:
             pulumi.set(__self__, "chatbot_sns", chatbot_sns)
@@ -188,7 +188,7 @@ class ResponsePlanChatChannelArgs:
     @pulumi.getter(name="chatbotSns")
     def chatbot_sns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The Amazon SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
+        The Amazon SNS targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
         """
         return pulumi.get(self, "chatbot_sns")
 

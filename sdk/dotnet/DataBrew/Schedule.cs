@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.DataBrew
     ///         CronExpression = "cron(0 0/1 ? * * *)",
     ///         Tags = new[]
     ///         {
-    ///             new AwsNative.Inputs.CreateOnlyTagArgs
+    ///             new AwsNative.Inputs.TagArgs
     ///             {
     ///                 Key = "key00AtCreate",
     ///                 Value = "value001AtCreate",
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.DataBrew
         /// Metadata tags that have been applied to the schedule.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -98,7 +98,6 @@ namespace Pulumi.AwsNative.DataBrew
                 ReplaceOnChanges =
                 {
                     "name",
-                    "tags[*]",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -147,14 +146,14 @@ namespace Pulumi.AwsNative.DataBrew
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Metadata tags that have been applied to the schedule.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

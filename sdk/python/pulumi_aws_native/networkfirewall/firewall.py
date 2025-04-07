@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FirewallArgs', 'Firewall']
@@ -28,6 +29,7 @@ class FirewallArgs:
                  vpc_id: pulumi.Input[str],
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 enabled_analysis_types: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]] = None,
                  firewall_name: Optional[pulumi.Input[str]] = None,
                  firewall_policy_change_protection: Optional[pulumi.Input[bool]] = None,
                  subnet_change_protection: Optional[pulumi.Input[bool]] = None,
@@ -41,6 +43,7 @@ class FirewallArgs:
         :param pulumi.Input[str] vpc_id: The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
         :param pulumi.Input[bool] delete_protection: A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
         :param pulumi.Input[str] description: A description of the firewall.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]] enabled_analysis_types: The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
         :param pulumi.Input[str] firewall_name: The descriptive name of the firewall. You can't change the name of a firewall after you create it.
         :param pulumi.Input[bool] firewall_policy_change_protection: A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
         :param pulumi.Input[bool] subnet_change_protection: A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
@@ -55,6 +58,8 @@ class FirewallArgs:
             pulumi.set(__self__, "delete_protection", delete_protection)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enabled_analysis_types is not None:
+            pulumi.set(__self__, "enabled_analysis_types", enabled_analysis_types)
         if firewall_name is not None:
             pulumi.set(__self__, "firewall_name", firewall_name)
         if firewall_policy_change_protection is not None:
@@ -127,6 +132,18 @@ class FirewallArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="enabledAnalysisTypes")
+    def enabled_analysis_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]]:
+        """
+        The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
+        """
+        return pulumi.get(self, "enabled_analysis_types")
+
+    @enabled_analysis_types.setter
+    def enabled_analysis_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]]):
+        pulumi.set(self, "enabled_analysis_types", value)
+
+    @property
     @pulumi.getter(name="firewallName")
     def firewall_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -184,6 +201,7 @@ class Firewall(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 enabled_analysis_types: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]] = None,
                  firewall_name: Optional[pulumi.Input[str]] = None,
                  firewall_policy_arn: Optional[pulumi.Input[str]] = None,
                  firewall_policy_change_protection: Optional[pulumi.Input[bool]] = None,
@@ -199,6 +217,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_protection: A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
         :param pulumi.Input[str] description: A description of the firewall.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]] enabled_analysis_types: The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
         :param pulumi.Input[str] firewall_name: The descriptive name of the firewall. You can't change the name of a firewall after you create it.
         :param pulumi.Input[str] firewall_policy_arn: The Amazon Resource Name (ARN) of the firewall policy.
                
@@ -237,6 +256,7 @@ class Firewall(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 enabled_analysis_types: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]] = None,
                  firewall_name: Optional[pulumi.Input[str]] = None,
                  firewall_policy_arn: Optional[pulumi.Input[str]] = None,
                  firewall_policy_change_protection: Optional[pulumi.Input[bool]] = None,
@@ -255,6 +275,7 @@ class Firewall(pulumi.CustomResource):
 
             __props__.__dict__["delete_protection"] = delete_protection
             __props__.__dict__["description"] = description
+            __props__.__dict__["enabled_analysis_types"] = enabled_analysis_types
             __props__.__dict__["firewall_name"] = firewall_name
             if firewall_policy_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'firewall_policy_arn'")
@@ -297,6 +318,7 @@ class Firewall(pulumi.CustomResource):
 
         __props__.__dict__["delete_protection"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["enabled_analysis_types"] = None
         __props__.__dict__["endpoint_ids"] = None
         __props__.__dict__["firewall_arn"] = None
         __props__.__dict__["firewall_id"] = None
@@ -324,6 +346,14 @@ class Firewall(pulumi.CustomResource):
         A description of the firewall.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enabledAnalysisTypes")
+    def enabled_analysis_types(self) -> pulumi.Output[Optional[Sequence['FirewallEnabledAnalysisType']]]:
+        """
+        The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
+        """
+        return pulumi.get(self, "enabled_analysis_types")
 
     @property
     @pulumi.getter(name="endpointIds")

@@ -2886,6 +2886,7 @@ class DistributionOrigin(dict):
     An origin.
      An origin is the location where content is stored, and from which CloudFront gets content to serve to viewers. To specify an origin:
       +  Use ``S3OriginConfig`` to specify an Amazon S3 bucket that is not configured with static website hosting.
+      +  Use ``VpcOriginConfig`` to specify a VPC origin.
       +  Use ``CustomOriginConfig`` to specify all other kinds of origins, including:
       +  An Amazon S3 bucket that is configured with static website hosting
       +  An Elastic Load Balancing load balancer
@@ -2947,6 +2948,7 @@ class DistributionOrigin(dict):
         An origin.
          An origin is the location where content is stored, and from which CloudFront gets content to serve to viewers. To specify an origin:
           +  Use ``S3OriginConfig`` to specify an Amazon S3 bucket that is not configured with static website hosting.
+          +  Use ``VpcOriginConfig`` to specify a VPC origin.
           +  Use ``CustomOriginConfig`` to specify all other kinds of origins, including:
           +  An Amazon S3 bucket that is configured with static website hosting
           +  An Elastic Load Balancing load balancer
@@ -3724,6 +3726,9 @@ class DistributionViewerCertificate(dict):
 
 @pulumi.output_type
 class DistributionVpcOriginConfig(dict):
+    """
+    An Amazon CloudFront VPC origin configuration.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3750,13 +3755,12 @@ class DistributionVpcOriginConfig(dict):
                  origin_keepalive_timeout: Optional[int] = None,
                  origin_read_timeout: Optional[int] = None):
         """
+        An Amazon CloudFront VPC origin configuration.
         :param str vpc_origin_id: The VPC origin ID.
         :param int origin_keepalive_timeout: Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
-               
-               For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide* .
-        :param int origin_read_timeout: Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout* . The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-               
-               For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide* .
+                For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+        :param int origin_read_timeout: Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+                For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
         """
         pulumi.set(__self__, "vpc_origin_id", vpc_origin_id)
         if origin_keepalive_timeout is not None:
@@ -3777,8 +3781,7 @@ class DistributionVpcOriginConfig(dict):
     def origin_keepalive_timeout(self) -> Optional[int]:
         """
         Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
-
-        For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide* .
+         For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "origin_keepalive_timeout")
 
@@ -3786,9 +3789,8 @@ class DistributionVpcOriginConfig(dict):
     @pulumi.getter(name="originReadTimeout")
     def origin_read_timeout(self) -> Optional[int]:
         """
-        Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout* . The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-
-        For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide* .
+        Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+         For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "origin_read_timeout")
 
@@ -5683,6 +5685,9 @@ class ResponseHeadersPolicyXssProtection(dict):
 
 @pulumi.output_type
 class VpcOriginEndpointConfig(dict):
+    """
+    An Amazon CloudFront VPC origin endpoint configuration.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5714,10 +5719,11 @@ class VpcOriginEndpointConfig(dict):
                  origin_protocol_policy: Optional[str] = None,
                  origin_ssl_protocols: Optional[Sequence[str]] = None):
         """
+        An Amazon CloudFront VPC origin endpoint configuration.
         :param str arn: The ARN of the CloudFront VPC origin endpoint configuration.
         :param str name: The name of the CloudFront VPC origin endpoint configuration.
-        :param int http_port: The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is `80` .
-        :param int https_port: The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is `443` .
+        :param int http_port: The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is ``80``.
+        :param int https_port: The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is ``443``.
         :param str origin_protocol_policy: The origin protocol policy for the CloudFront VPC origin endpoint configuration.
         """
         pulumi.set(__self__, "arn", arn)
@@ -5751,7 +5757,7 @@ class VpcOriginEndpointConfig(dict):
     @pulumi.getter(name="httpPort")
     def http_port(self) -> Optional[int]:
         """
-        The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is `80` .
+        The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is ``80``.
         """
         return pulumi.get(self, "http_port")
 
@@ -5759,7 +5765,7 @@ class VpcOriginEndpointConfig(dict):
     @pulumi.getter(name="httpsPort")
     def https_port(self) -> Optional[int]:
         """
-        The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is `443` .
+        The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is ``443``.
         """
         return pulumi.get(self, "https_port")
 

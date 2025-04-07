@@ -137,7 +137,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Container for IAM Identity Center Option control for the domain.
+        /// Configuration options for controlling IAM Identity Center integration within a domain.
         /// </summary>
         public readonly Outputs.DomainIdentityCenterOptions? IdentityCenterOptions;
         /// <summary>

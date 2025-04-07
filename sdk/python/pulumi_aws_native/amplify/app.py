@@ -29,6 +29,7 @@ class AppArgs:
                  basic_auth_config: Optional[pulumi.Input['AppBasicAuthConfigArgs']] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
                  cache_config: Optional[pulumi.Input['AppCacheConfigArgs']] = None,
+                 compute_role_arn: Optional[pulumi.Input[str]] = None,
                  custom_headers: Optional[pulumi.Input[str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -53,6 +54,7 @@ class AppArgs:
         :param pulumi.Input['AppBasicAuthConfigArgs'] basic_auth_config: The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         :param pulumi.Input[str] build_spec: The build specification (build spec) for an Amplify app.
         :param pulumi.Input['AppCacheConfigArgs'] cache_config: The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
+        :param pulumi.Input[str] compute_role_arn: The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
         :param pulumi.Input[str] custom_headers: The custom HTTP headers for an Amplify app.
         :param pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]] custom_rules: The custom rewrite and redirect rules for an Amplify app.
         :param pulumi.Input[str] description: The description of the Amplify app.
@@ -85,6 +87,8 @@ class AppArgs:
             pulumi.set(__self__, "build_spec", build_spec)
         if cache_config is not None:
             pulumi.set(__self__, "cache_config", cache_config)
+        if compute_role_arn is not None:
+            pulumi.set(__self__, "compute_role_arn", compute_role_arn)
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
         if custom_rules is not None:
@@ -173,6 +177,18 @@ class AppArgs:
     @cache_config.setter
     def cache_config(self, value: Optional[pulumi.Input['AppCacheConfigArgs']]):
         pulumi.set(self, "cache_config", value)
+
+    @property
+    @pulumi.getter(name="computeRoleArn")
+    def compute_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+        """
+        return pulumi.get(self, "compute_role_arn")
+
+    @compute_role_arn.setter
+    def compute_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_role_arn", value)
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -327,6 +343,7 @@ class App(pulumi.CustomResource):
                  basic_auth_config: Optional[pulumi.Input[Union['AppBasicAuthConfigArgs', 'AppBasicAuthConfigArgsDict']]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
                  cache_config: Optional[pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']]] = None,
+                 compute_role_arn: Optional[pulumi.Input[str]] = None,
                  custom_headers: Optional[pulumi.Input[str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -355,6 +372,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[Union['AppBasicAuthConfigArgs', 'AppBasicAuthConfigArgsDict']] basic_auth_config: The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         :param pulumi.Input[str] build_spec: The build specification (build spec) for an Amplify app.
         :param pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']] cache_config: The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
+        :param pulumi.Input[str] compute_role_arn: The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
         :param pulumi.Input[str] custom_headers: The custom HTTP headers for an Amplify app.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]] custom_rules: The custom rewrite and redirect rules for an Amplify app.
         :param pulumi.Input[str] description: The description of the Amplify app.
@@ -406,6 +424,7 @@ class App(pulumi.CustomResource):
                  basic_auth_config: Optional[pulumi.Input[Union['AppBasicAuthConfigArgs', 'AppBasicAuthConfigArgsDict']]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
                  cache_config: Optional[pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']]] = None,
+                 compute_role_arn: Optional[pulumi.Input[str]] = None,
                  custom_headers: Optional[pulumi.Input[str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -431,6 +450,7 @@ class App(pulumi.CustomResource):
             __props__.__dict__["basic_auth_config"] = basic_auth_config
             __props__.__dict__["build_spec"] = build_spec
             __props__.__dict__["cache_config"] = cache_config
+            __props__.__dict__["compute_role_arn"] = compute_role_arn
             __props__.__dict__["custom_headers"] = custom_headers
             __props__.__dict__["custom_rules"] = custom_rules
             __props__.__dict__["description"] = description
@@ -476,6 +496,7 @@ class App(pulumi.CustomResource):
         __props__.__dict__["basic_auth_config"] = None
         __props__.__dict__["build_spec"] = None
         __props__.__dict__["cache_config"] = None
+        __props__.__dict__["compute_role_arn"] = None
         __props__.__dict__["custom_headers"] = None
         __props__.__dict__["custom_rules"] = None
         __props__.__dict__["default_domain"] = None
@@ -559,6 +580,14 @@ class App(pulumi.CustomResource):
         The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
         """
         return pulumi.get(self, "cache_config")
+
+    @property
+    @pulumi.getter(name="computeRoleArn")
+    def compute_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+        """
+        return pulumi.get(self, "compute_role_arn")
 
     @property
     @pulumi.getter(name="customHeaders")

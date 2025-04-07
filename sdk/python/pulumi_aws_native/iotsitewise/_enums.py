@@ -9,6 +9,8 @@ __all__ = [
     'AssetModelDataTypeSpec',
     'AssetModelTypeName',
     'AssetPropertyNotificationState',
+    'DatasetSourceSourceFormat',
+    'DatasetSourceSourceType',
     'GatewayGreengrassV2CoreDeviceOperatingSystem',
     'PortalType',
 ]
@@ -39,6 +41,20 @@ class AssetPropertyNotificationState(str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+class DatasetSourceSourceFormat(str, Enum):
+    """
+    The format of the dataset source associated with the dataset.
+    """
+    KNOWLEDGE_BASE = "KNOWLEDGE_BASE"
+
+
+class DatasetSourceSourceType(str, Enum):
+    """
+    The type of data source for the dataset.
+    """
+    KENDRA = "KENDRA"
 
 
 class GatewayGreengrassV2CoreDeviceOperatingSystem(str, Enum):

@@ -95,7 +95,7 @@ export interface GetDomainResult {
      */
     readonly id?: string;
     /**
-     * Container for IAM Identity Center Option control for the domain.
+     * Configuration options for controlling IAM Identity Center integration within a domain.
      */
     readonly identityCenterOptions?: outputs.opensearchservice.DomainIdentityCenterOptions;
     /**

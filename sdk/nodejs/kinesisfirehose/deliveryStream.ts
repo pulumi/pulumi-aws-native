@@ -197,7 +197,7 @@ export class DeliveryStream extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "databaseSourceConfiguration", "deliveryStreamName", "deliveryStreamType", "directPutSourceConfiguration", "elasticsearchDestinationConfiguration.vpcConfiguration", "icebergDestinationConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration", "snowflakeDestinationConfiguration.snowflakeVpcConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "databaseSourceConfiguration", "deliveryStreamName", "deliveryStreamType", "directPutSourceConfiguration", "elasticsearchDestinationConfiguration.vpcConfiguration", "icebergDestinationConfiguration.catalogConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration", "snowflakeDestinationConfiguration.snowflakeVpcConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeliveryStream.__pulumiType, name, resourceInputs, opts);
     }

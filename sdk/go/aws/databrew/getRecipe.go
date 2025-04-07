@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,6 +33,8 @@ type LookupRecipeResult struct {
 	Description *string `pulumi:"description"`
 	// A list of steps that are defined by the recipe.
 	Steps []RecipeStep `pulumi:"steps"`
+	// Metadata tags that have been applied to the recipe.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRecipeOutput(ctx *pulumi.Context, args LookupRecipeOutputArgs, opts ...pulumi.InvokeOption) LookupRecipeResultOutput {
@@ -74,6 +77,11 @@ func (o LookupRecipeResultOutput) Description() pulumi.StringPtrOutput {
 // A list of steps that are defined by the recipe.
 func (o LookupRecipeResultOutput) Steps() RecipeStepArrayOutput {
 	return o.ApplyT(func(v LookupRecipeResult) []RecipeStep { return v.Steps }).(RecipeStepArrayOutput)
+}
+
+// Metadata tags that have been applied to the recipe.
+func (o LookupRecipeResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRecipeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

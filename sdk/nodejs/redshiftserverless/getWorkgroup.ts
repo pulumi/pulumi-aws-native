@@ -26,9 +26,17 @@ export interface GetWorkgroupArgs {
 
 export interface GetWorkgroupResult {
     /**
+     * The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
+     */
+    readonly baseCapacity?: number;
+    /**
      * The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
      */
     readonly enhancedVpcRouting?: boolean;
+    /**
+     * The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+     */
+    readonly maxCapacity?: number;
     /**
      * The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
      */
@@ -45,6 +53,10 @@ export interface GetWorkgroupResult {
      * The map of the key-value pairs used to tag the workgroup.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
+     */
+    readonly trackName?: string;
     /**
      * Definition for workgroup resource
      */

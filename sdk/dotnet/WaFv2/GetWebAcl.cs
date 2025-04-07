@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.WaFv2
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+        /// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
         /// 
         /// &gt; For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
         /// 
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.WaFv2
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+        /// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
         /// 
         /// &gt; For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
         /// 
@@ -132,6 +132,10 @@ namespace Pulumi.AwsNative.WaFv2
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.WebAclCustomResponseBody>? CustomResponseBodies;
         /// <summary>
+        /// Collection of dataProtects.
+        /// </summary>
+        public readonly Outputs.WebAclDataProtectionConfig? DataProtectionConfig;
+        /// <summary>
         /// The action to perform if none of the `Rules` contained in the `WebACL` match.
         /// </summary>
         public readonly Outputs.WebAclDefaultAction? DefaultAction;
@@ -184,6 +188,8 @@ namespace Pulumi.AwsNative.WaFv2
 
             ImmutableDictionary<string, Outputs.WebAclCustomResponseBody>? customResponseBodies,
 
+            Outputs.WebAclDataProtectionConfig? dataProtectionConfig,
+
             Outputs.WebAclDefaultAction? defaultAction,
 
             string? description,
@@ -206,6 +212,7 @@ namespace Pulumi.AwsNative.WaFv2
             CaptchaConfig = captchaConfig;
             ChallengeConfig = challengeConfig;
             CustomResponseBodies = customResponseBodies;
+            DataProtectionConfig = dataProtectionConfig;
             DefaultAction = defaultAction;
             Description = description;
             Id = id;

@@ -22,6 +22,8 @@ type Cluster struct {
 	ClusterEndpoints ClusterEndpointArrayOutput `pulumi:"clusterEndpoints"`
 	// Name of a Cluster. You can use any non-white space character in the name
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+	NetworkType ClusterNetworkTypePtrOutput `pulumi:"networkType"`
 	// Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
 	Status ClusterStatusOutput `pulumi:"status"`
 	// A collection of tags associated with a resource
@@ -75,6 +77,8 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// Name of a Cluster. You can use any non-white space character in the name
 	Name *string `pulumi:"name"`
+	// Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+	NetworkType *ClusterNetworkType `pulumi:"networkType"`
 	// A collection of tags associated with a resource
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
@@ -83,6 +87,8 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// Name of a Cluster. You can use any non-white space character in the name
 	Name pulumi.StringPtrInput
+	// Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+	NetworkType ClusterNetworkTypePtrInput
 	// A collection of tags associated with a resource
 	Tags aws.CreateOnlyTagArrayInput
 }
@@ -137,6 +143,11 @@ func (o ClusterOutput) ClusterEndpoints() ClusterEndpointArrayOutput {
 // Name of a Cluster. You can use any non-white space character in the name
 func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+func (o ClusterOutput) NetworkType() ClusterNetworkTypePtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterNetworkTypePtrOutput { return v.NetworkType }).(ClusterNetworkTypePtrOutput)
 }
 
 // Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.

@@ -100,7 +100,7 @@ export class DomainName extends pulumi.CustomResource {
      */
     public readonly domainName!: pulumi.Output<string | undefined>;
     /**
-     * The endpoint configuration of this DomainName showing the endpoint types of the domain name.
+     * The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
      */
     public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.DomainNameEndpointConfiguration | undefined>;
     /**
@@ -189,7 +189,7 @@ export interface DomainNameArgs {
      */
     domainName?: pulumi.Input<string>;
     /**
-     * The endpoint configuration of this DomainName showing the endpoint types of the domain name.
+     * The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
      */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfigurationArgs>;
     /**

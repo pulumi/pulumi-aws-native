@@ -58,6 +58,9 @@ from .get_network_interface_attachment import *
 from .get_placement_group import *
 from .get_prefix_list import *
 from .get_route import *
+from .get_route_server import *
+from .get_route_server_endpoint import *
+from .get_route_server_peer import *
 from .get_route_table import *
 from .get_security_group import *
 from .get_security_group_egress import *
@@ -125,6 +128,11 @@ from .network_performance_metric_subscription import *
 from .placement_group import *
 from .prefix_list import *
 from .route import *
+from .route_server import *
+from .route_server_association import *
+from .route_server_endpoint import *
+from .route_server_peer import *
+from .route_server_propagation import *
 from .route_table import *
 from .security_group import *
 from .security_group_egress import *

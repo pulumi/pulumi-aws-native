@@ -1460,11 +1460,11 @@ func (o ListenerForwardConfigPtrOutput) TargetGroups() ListenerTargetGroupTupleA
 
 // The mutual authentication configuration information.
 type ListenerMutualAuthentication struct {
-	// Indicates whether trust store CA certificate names are advertised. The default value is ``off``.
+	// Indicates whether trust store CA certificate names are advertised.
 	AdvertiseTrustStoreCaNames *string `pulumi:"advertiseTrustStoreCaNames"`
 	// Indicates whether expired client certificates are ignored.
 	IgnoreClientCertificateExpiry *bool `pulumi:"ignoreClientCertificateExpiry"`
-	// The client certificate handling method. The possible values are ``off``, ``passthrough``, and ``verify``. The default value is ``off``.
+	// The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
 	Mode *string `pulumi:"mode"`
 	// The Amazon Resource Name (ARN) of the trust store.
 	TrustStoreArn *string `pulumi:"trustStoreArn"`
@@ -1483,11 +1483,11 @@ type ListenerMutualAuthenticationInput interface {
 
 // The mutual authentication configuration information.
 type ListenerMutualAuthenticationArgs struct {
-	// Indicates whether trust store CA certificate names are advertised. The default value is ``off``.
+	// Indicates whether trust store CA certificate names are advertised.
 	AdvertiseTrustStoreCaNames pulumi.StringPtrInput `pulumi:"advertiseTrustStoreCaNames"`
 	// Indicates whether expired client certificates are ignored.
 	IgnoreClientCertificateExpiry pulumi.BoolPtrInput `pulumi:"ignoreClientCertificateExpiry"`
-	// The client certificate handling method. The possible values are ``off``, ``passthrough``, and ``verify``. The default value is ``off``.
+	// The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// The Amazon Resource Name (ARN) of the trust store.
 	TrustStoreArn pulumi.StringPtrInput `pulumi:"trustStoreArn"`
@@ -1571,7 +1571,7 @@ func (o ListenerMutualAuthenticationOutput) ToListenerMutualAuthenticationPtrOut
 	}).(ListenerMutualAuthenticationPtrOutput)
 }
 
-// Indicates whether trust store CA certificate names are advertised. The default value is “off“.
+// Indicates whether trust store CA certificate names are advertised.
 func (o ListenerMutualAuthenticationOutput) AdvertiseTrustStoreCaNames() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerMutualAuthentication) *string { return v.AdvertiseTrustStoreCaNames }).(pulumi.StringPtrOutput)
 }
@@ -1581,7 +1581,7 @@ func (o ListenerMutualAuthenticationOutput) IgnoreClientCertificateExpiry() pulu
 	return o.ApplyT(func(v ListenerMutualAuthentication) *bool { return v.IgnoreClientCertificateExpiry }).(pulumi.BoolPtrOutput)
 }
 
-// The client certificate handling method. The possible values are “off“, “passthrough“, and “verify“. The default value is “off“.
+// The client certificate handling method. Options are “off“, “passthrough“ or “verify“. The default value is “off“.
 func (o ListenerMutualAuthenticationOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerMutualAuthentication) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -1615,7 +1615,7 @@ func (o ListenerMutualAuthenticationPtrOutput) Elem() ListenerMutualAuthenticati
 	}).(ListenerMutualAuthenticationOutput)
 }
 
-// Indicates whether trust store CA certificate names are advertised. The default value is “off“.
+// Indicates whether trust store CA certificate names are advertised.
 func (o ListenerMutualAuthenticationPtrOutput) AdvertiseTrustStoreCaNames() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerMutualAuthentication) *string {
 		if v == nil {
@@ -1635,7 +1635,7 @@ func (o ListenerMutualAuthenticationPtrOutput) IgnoreClientCertificateExpiry() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The client certificate handling method. The possible values are “off“, “passthrough“, and “verify“. The default value is “off“.
+// The client certificate handling method. Options are “off“, “passthrough“ or “verify“. The default value is “off“.
 func (o ListenerMutualAuthenticationPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerMutualAuthentication) *string {
 		if v == nil {

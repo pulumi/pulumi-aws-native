@@ -290,7 +290,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly identityProviderType!: pulumi.Output<enums.transfer.ServerIdentityProviderType | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents. When set, you can view user activity in your CloudWatch logs.
+     * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
      */
     public readonly loggingRole!: pulumi.Output<string | undefined>;
     /**
@@ -499,7 +499,7 @@ export interface ServerArgs {
      */
     identityProviderType?: pulumi.Input<enums.transfer.ServerIdentityProviderType>;
     /**
-     * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents. When set, you can view user activity in your CloudWatch logs.
+     * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
      */
     loggingRole?: pulumi.Input<string>;
     /**

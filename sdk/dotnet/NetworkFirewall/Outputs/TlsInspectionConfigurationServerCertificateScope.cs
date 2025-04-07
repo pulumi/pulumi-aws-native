@@ -25,8 +25,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TlsInspectionConfigurationAddress> Destinations;
         /// <summary>
-        /// The protocols to decrypt for inspection, specified using each protocol's assigned internet protocol number
-        /// (IANA). Network Firewall currently supports only TCP.
+        /// The protocols to inspect for, specified using the assigned internet protocol number (IANA) for each protocol. If not specified, this matches with any protocol.
+        /// 
+        /// Network Firewall currently supports only TCP.
         /// </summary>
         public readonly ImmutableArray<int> Protocols;
         /// <summary>

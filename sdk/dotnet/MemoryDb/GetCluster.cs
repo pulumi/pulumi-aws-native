@@ -94,6 +94,10 @@ namespace Pulumi.AwsNative.MemoryDb
         /// </summary>
         public readonly string? EngineVersion;
         /// <summary>
+        /// For clusters wth dual stack NetworkType, IpDiscovery controls the Ip protocol (ipv4 or ipv6) returned by the engine commands such as `cluster info` and `cluster nodes` which are used by clients to connect to the nodes in the cluster.
+        /// </summary>
+        public readonly Pulumi.AwsNative.MemoryDb.ClusterSupportedIpDiscoveryTypes? IpDiscovery;
+        /// <summary>
         /// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
         /// </summary>
         public readonly string? MaintenanceWindow;
@@ -162,6 +166,8 @@ namespace Pulumi.AwsNative.MemoryDb
 
             string? engineVersion,
 
+            Pulumi.AwsNative.MemoryDb.ClusterSupportedIpDiscoveryTypes? ipDiscovery,
+
             string? maintenanceWindow,
 
             string? nodeType,
@@ -195,6 +201,7 @@ namespace Pulumi.AwsNative.MemoryDb
             Description = description;
             Engine = engine;
             EngineVersion = engineVersion;
+            IpDiscovery = ipDiscovery;
             MaintenanceWindow = maintenanceWindow;
             NodeType = nodeType;
             NumReplicasPerShard = numReplicasPerShard;

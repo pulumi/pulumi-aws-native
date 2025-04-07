@@ -295,10 +295,14 @@ if not MYPY:
         on_failure: NotRequired[pulumi.Input['EventInvokeConfigOnFailureArgsDict']]
         """
         The destination configuration for failed invocations.
+
+        > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
         """
         on_success: NotRequired[pulumi.Input['EventInvokeConfigOnSuccessArgsDict']]
         """
         The destination configuration for successful invocations.
+
+        > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
         """
 elif False:
     EventInvokeConfigDestinationConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -311,7 +315,11 @@ class EventInvokeConfigDestinationConfigArgs:
         """
         A destination for events after they have been sent to a function for processing.
         :param pulumi.Input['EventInvokeConfigOnFailureArgs'] on_failure: The destination configuration for failed invocations.
+               
+               > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
         :param pulumi.Input['EventInvokeConfigOnSuccessArgs'] on_success: The destination configuration for successful invocations.
+               
+               > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
         """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
@@ -323,6 +331,8 @@ class EventInvokeConfigDestinationConfigArgs:
     def on_failure(self) -> Optional[pulumi.Input['EventInvokeConfigOnFailureArgs']]:
         """
         The destination configuration for failed invocations.
+
+        > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
         """
         return pulumi.get(self, "on_failure")
 
@@ -335,6 +345,8 @@ class EventInvokeConfigDestinationConfigArgs:
     def on_success(self) -> Optional[pulumi.Input['EventInvokeConfigOnSuccessArgs']]:
         """
         The destination configuration for successful invocations.
+
+        > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
         """
         return pulumi.get(self, "on_success")
 

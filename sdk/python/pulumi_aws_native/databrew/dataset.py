@@ -30,7 +30,7 @@ class DatasetArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  path_options: Optional[pulumi.Input['DatasetPathOptionsArgs']] = None,
                  source: Optional[pulumi.Input['DatasetSource']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Dataset resource.
         :param pulumi.Input['DatasetInputArgs'] input: Input
@@ -39,7 +39,7 @@ class DatasetArgs:
         :param pulumi.Input[str] name: Dataset name
         :param pulumi.Input['DatasetPathOptionsArgs'] path_options: PathOptions
         :param pulumi.Input['DatasetSource'] source: Source type of the dataset
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Metadata tags that have been applied to the dataset.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata tags that have been applied to the dataset.
         """
         pulumi.set(__self__, "input", input)
         if format is not None:
@@ -129,14 +129,14 @@ class DatasetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Metadata tags that have been applied to the dataset.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -151,7 +151,7 @@ class Dataset(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  path_options: Optional[pulumi.Input[Union['DatasetPathOptionsArgs', 'DatasetPathOptionsArgsDict']]] = None,
                  source: Optional[pulumi.Input['DatasetSource']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataBrew::Dataset.
@@ -191,7 +191,7 @@ class Dataset(pulumi.CustomResource):
         :param pulumi.Input[str] name: Dataset name
         :param pulumi.Input[Union['DatasetPathOptionsArgs', 'DatasetPathOptionsArgsDict']] path_options: PathOptions
         :param pulumi.Input['DatasetSource'] source: Source type of the dataset
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: Metadata tags that have been applied to the dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata tags that have been applied to the dataset.
         """
         ...
     @overload
@@ -250,7 +250,7 @@ class Dataset(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  path_options: Optional[pulumi.Input[Union['DatasetPathOptionsArgs', 'DatasetPathOptionsArgsDict']]] = None,
                  source: Optional[pulumi.Input['DatasetSource']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -269,7 +269,7 @@ class Dataset(pulumi.CustomResource):
             __props__.__dict__["path_options"] = path_options
             __props__.__dict__["source"] = source
             __props__.__dict__["tags"] = tags
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Dataset, __self__).__init__(
             'aws-native:databrew:Dataset',
@@ -352,7 +352,7 @@ class Dataset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Metadata tags that have been applied to the dataset.
         """

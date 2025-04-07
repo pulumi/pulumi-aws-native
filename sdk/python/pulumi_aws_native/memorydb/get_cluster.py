@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetClusterResult',
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, acl_name=None, arn=None, auto_minor_version_upgrade=None, cluster_endpoint=None, description=None, engine=None, engine_version=None, maintenance_window=None, node_type=None, num_replicas_per_shard=None, num_shards=None, parameter_group_name=None, parameter_group_status=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, sns_topic_arn=None, sns_topic_status=None, status=None, tags=None):
+    def __init__(__self__, acl_name=None, arn=None, auto_minor_version_upgrade=None, cluster_endpoint=None, description=None, engine=None, engine_version=None, ip_discovery=None, maintenance_window=None, node_type=None, num_replicas_per_shard=None, num_shards=None, parameter_group_name=None, parameter_group_status=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, sns_topic_arn=None, sns_topic_status=None, status=None, tags=None):
         if acl_name and not isinstance(acl_name, str):
             raise TypeError("Expected argument 'acl_name' to be a str")
         pulumi.set(__self__, "acl_name", acl_name)
@@ -47,6 +48,9 @@ class GetClusterResult:
         if engine_version and not isinstance(engine_version, str):
             raise TypeError("Expected argument 'engine_version' to be a str")
         pulumi.set(__self__, "engine_version", engine_version)
+        if ip_discovery and not isinstance(ip_discovery, str):
+            raise TypeError("Expected argument 'ip_discovery' to be a str")
+        pulumi.set(__self__, "ip_discovery", ip_discovery)
         if maintenance_window and not isinstance(maintenance_window, str):
             raise TypeError("Expected argument 'maintenance_window' to be a str")
         pulumi.set(__self__, "maintenance_window", maintenance_window)
@@ -144,6 +148,14 @@ class GetClusterResult:
         The Redis engine version used by the cluster.
         """
         return pulumi.get(self, "engine_version")
+
+    @property
+    @pulumi.getter(name="ipDiscovery")
+    def ip_discovery(self) -> Optional['ClusterSupportedIpDiscoveryTypes']:
+        """
+        For clusters wth dual stack NetworkType, IpDiscovery controls the Ip protocol (ipv4 or ipv6) returned by the engine commands such as `cluster info` and `cluster nodes` which are used by clients to connect to the nodes in the cluster.
+        """
+        return pulumi.get(self, "ip_discovery")
 
     @property
     @pulumi.getter(name="maintenanceWindow")
@@ -263,6 +275,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             description=self.description,
             engine=self.engine,
             engine_version=self.engine_version,
+            ip_discovery=self.ip_discovery,
             maintenance_window=self.maintenance_window,
             node_type=self.node_type,
             num_replicas_per_shard=self.num_replicas_per_shard,
@@ -299,6 +312,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         engine=pulumi.get(__ret__, 'engine'),
         engine_version=pulumi.get(__ret__, 'engine_version'),
+        ip_discovery=pulumi.get(__ret__, 'ip_discovery'),
         maintenance_window=pulumi.get(__ret__, 'maintenance_window'),
         node_type=pulumi.get(__ret__, 'node_type'),
         num_replicas_per_shard=pulumi.get(__ret__, 'num_replicas_per_shard'),
@@ -332,6 +346,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
         description=pulumi.get(__response__, 'description'),
         engine=pulumi.get(__response__, 'engine'),
         engine_version=pulumi.get(__response__, 'engine_version'),
+        ip_discovery=pulumi.get(__response__, 'ip_discovery'),
         maintenance_window=pulumi.get(__response__, 'maintenance_window'),
         node_type=pulumi.get(__response__, 'node_type'),
         num_replicas_per_shard=pulumi.get(__response__, 'num_replicas_per_shard'),

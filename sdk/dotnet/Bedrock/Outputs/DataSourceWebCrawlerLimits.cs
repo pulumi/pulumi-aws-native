@@ -17,13 +17,21 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     public sealed class DataSourceWebCrawlerLimits
     {
         /// <summary>
+        /// Maximum number of pages the crawler can crawl.
+        /// </summary>
+        public readonly int? MaxPages;
+        /// <summary>
         /// Rate of web URLs retrieved per minute.
         /// </summary>
         public readonly int? RateLimit;
 
         [OutputConstructor]
-        private DataSourceWebCrawlerLimits(int? rateLimit)
+        private DataSourceWebCrawlerLimits(
+            int? maxPages,
+
+            int? rateLimit)
         {
+            MaxPages = maxPages;
             RateLimit = rateLimit;
         }
     }

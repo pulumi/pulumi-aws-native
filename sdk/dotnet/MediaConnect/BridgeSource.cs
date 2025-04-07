@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<string> BridgeArn { get; private set; } = null!;
 
         /// <summary>
-        /// Add a flow source to an existing bridge.
+        /// The source of the flow.
         /// </summary>
         [Output("flowSource")]
         public Output<Outputs.BridgeSourceBridgeFlowSource?> FlowSource { get; private set; } = null!;
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Add a network source to an existing bridge.
+        /// The source of the network.
         /// </summary>
         [Output("networkSource")]
         public Output<Outputs.BridgeSourceBridgeNetworkSource?> NetworkSource { get; private set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public Input<string> BridgeArn { get; set; } = null!;
 
         /// <summary>
-        /// Add a flow source to an existing bridge.
+        /// The source of the flow.
         /// </summary>
         [Input("flowSource")]
         public Input<Inputs.BridgeSourceBridgeFlowSourceArgs>? FlowSource { get; set; }
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Add a network source to an existing bridge.
+        /// The source of the network.
         /// </summary>
         [Input("networkSource")]
         public Input<Inputs.BridgeSourceBridgeNetworkSourceArgs>? NetworkSource { get; set; }

@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CloudFront::VpcOrigin
+// An Amazon CloudFront VPC origin.
 type VpcOrigin struct {
 	pulumi.CustomResourceState
 
@@ -27,7 +27,7 @@ type VpcOrigin struct {
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// The VPC origin status.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A complex type that contains zero or more `Tag` elements.
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The VPC origin endpoint configuration.
 	VpcOriginEndpointConfig VpcOriginEndpointConfigOutput `pulumi:"vpcOriginEndpointConfig"`
@@ -76,7 +76,7 @@ func (VpcOriginState) ElementType() reflect.Type {
 }
 
 type vpcOriginArgs struct {
-	// A complex type that contains zero or more `Tag` elements.
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The VPC origin endpoint configuration.
 	VpcOriginEndpointConfig VpcOriginEndpointConfig `pulumi:"vpcOriginEndpointConfig"`
@@ -84,7 +84,7 @@ type vpcOriginArgs struct {
 
 // The set of arguments for constructing a VpcOrigin resource.
 type VpcOriginArgs struct {
-	// A complex type that contains zero or more `Tag` elements.
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags aws.TagArrayInput
 	// The VPC origin endpoint configuration.
 	VpcOriginEndpointConfig VpcOriginEndpointConfigInput
@@ -152,7 +152,7 @@ func (o VpcOriginOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcOrigin) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// A complex type that contains zero or more `Tag` elements.
+// A complex type that contains zero or more “Tag“ elements.
 func (o VpcOriginOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *VpcOrigin) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

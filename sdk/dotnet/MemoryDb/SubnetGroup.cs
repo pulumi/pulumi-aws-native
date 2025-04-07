@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.MemoryDb
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
+        /// Supported network types would be a list of network types supported by subnet group and can be either [ipv4] or [ipv4, dual_stack] or [ipv6].
+        /// </summary>
+        [Output("supportedNetworkTypes")]
+        public Output<ImmutableArray<string>> SupportedNetworkTypes { get; private set; } = null!;
+
+        /// <summary>
         /// An array of key-value pairs to apply to this subnet group.
         /// </summary>
         [Output("tags")]

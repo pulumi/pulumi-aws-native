@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// An Amazon CloudFront VPC origin endpoint configuration.
+    /// </summary>
     public sealed class VpcOriginEndpointConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -19,13 +22,13 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
-        /// The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is `80` .
+        /// The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is ``80``.
         /// </summary>
         [Input("httpPort")]
         public Input<int>? HttpPort { get; set; }
 
         /// <summary>
-        /// The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is `443` .
+        /// The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is ``443``.
         /// </summary>
         [Input("httpsPort")]
         public Input<int>? HttpsPort { get; set; }

@@ -50,6 +50,10 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
+     */
+    public readonly componentsInfo!: pulumi.Output<outputs.systemsmanagersap.ApplicationComponentInfo[] | undefined>;
+    /**
      * The credentials of the SAP application.
      */
     public readonly credentials!: pulumi.Output<outputs.systemsmanagersap.ApplicationCredential[] | undefined>;
@@ -93,6 +97,7 @@ export class Application extends pulumi.CustomResource {
             }
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
             resourceInputs["applicationType"] = args ? args.applicationType : undefined;
+            resourceInputs["componentsInfo"] = args ? args.componentsInfo : undefined;
             resourceInputs["credentials"] = args ? args.credentials : undefined;
             resourceInputs["databaseArn"] = args ? args.databaseArn : undefined;
             resourceInputs["instances"] = args ? args.instances : undefined;
@@ -104,6 +109,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["applicationType"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["componentsInfo"] = undefined /*out*/;
             resourceInputs["credentials"] = undefined /*out*/;
             resourceInputs["databaseArn"] = undefined /*out*/;
             resourceInputs["instances"] = undefined /*out*/;
@@ -112,7 +118,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["credentials[*]", "databaseArn", "instances[*]", "sapInstanceNumber", "sid"] };
+        const replaceOnChanges = { replaceOnChanges: ["componentsInfo[*]", "credentials[*]", "databaseArn", "instances[*]", "sapInstanceNumber", "sid"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }
@@ -130,6 +136,10 @@ export interface ApplicationArgs {
      * The type of the application.
      */
     applicationType: pulumi.Input<enums.systemsmanagersap.ApplicationType>;
+    /**
+     * This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
+     */
+    componentsInfo?: pulumi.Input<pulumi.Input<inputs.systemsmanagersap.ApplicationComponentInfoArgs>[]>;
     /**
      * The credentials of the SAP application.
      */

@@ -87,7 +87,7 @@ namespace Pulumi.AwsNative.GroundStation
         public Output<int?> ContactPrePassDurationSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// List of Endpoint Details, containing address and port for each endpoint.
+        /// List of Endpoint Details, containing address and port for each endpoint. All dataflow endpoints within a single dataflow endpoint group must be of the same type. You cannot mix AWS Ground Station Agent endpoints with Dataflow endpoints in the same group. If your use case requires both types of endpoints, you must create separate dataflow endpoint groups for each type.
         /// </summary>
         [Output("endpointDetails")]
         public Output<ImmutableArray<Outputs.DataflowEndpointGroupEndpointDetails>> EndpointDetails { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.AwsNative.GroundStation
         private InputList<Inputs.DataflowEndpointGroupEndpointDetailsArgs>? _endpointDetails;
 
         /// <summary>
-        /// List of Endpoint Details, containing address and port for each endpoint.
+        /// List of Endpoint Details, containing address and port for each endpoint. All dataflow endpoints within a single dataflow endpoint group must be of the same type. You cannot mix AWS Ground Station Agent endpoints with Dataflow endpoints in the same group. If your use case requires both types of endpoints, you must create separate dataflow endpoint groups for each type.
         /// </summary>
         public InputList<Inputs.DataflowEndpointGroupEndpointDetailsArgs> EndpointDetails
         {

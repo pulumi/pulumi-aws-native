@@ -33,6 +33,10 @@ export interface GetRecipeResult {
      * A list of steps that are defined by the recipe.
      */
     readonly steps?: outputs.databrew.RecipeStep[];
+    /**
+     * Metadata tags that have been applied to the recipe.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::DataBrew::Recipe.

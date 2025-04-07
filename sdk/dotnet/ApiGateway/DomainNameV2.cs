@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string> DomainNameId { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
+        /// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
         /// </summary>
         [Output("endpointConfiguration")]
         public Output<Outputs.DomainNameV2EndpointConfiguration?> EndpointConfiguration { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
+        /// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
         /// </summary>
         [Input("endpointConfiguration")]
         public Input<Inputs.DomainNameV2EndpointConfigurationArgs>? EndpointConfiguration { get; set; }

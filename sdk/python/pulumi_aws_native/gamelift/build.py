@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -26,6 +28,7 @@ class BuildArgs:
                  operating_system: Optional[pulumi.Input['BuildOperatingSystem']] = None,
                  server_sdk_version: Optional[pulumi.Input[str]] = None,
                  storage_location: Optional[pulumi.Input['BuildStorageLocationArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Build resource.
@@ -33,6 +36,7 @@ class BuildArgs:
         :param pulumi.Input['BuildOperatingSystem'] operating_system: The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
         :param pulumi.Input[str] server_sdk_version: A server SDK version you used when integrating your game server build with Amazon GameLift. By default Amazon GameLift sets this value to 4.0.2.
         :param pulumi.Input['BuildStorageLocationArgs'] storage_location: Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] version: Version information that is associated with this build. Version strings do not need to be unique.
         """
         if name is not None:
@@ -43,6 +47,8 @@ class BuildArgs:
             pulumi.set(__self__, "server_sdk_version", server_sdk_version)
         if storage_location is not None:
             pulumi.set(__self__, "storage_location", storage_location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -96,6 +102,18 @@ class BuildArgs:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
         Version information that is associated with this build. Version strings do not need to be unique.
@@ -116,6 +134,7 @@ class Build(pulumi.CustomResource):
                  operating_system: Optional[pulumi.Input['BuildOperatingSystem']] = None,
                  server_sdk_version: Optional[pulumi.Input[str]] = None,
                  storage_location: Optional[pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -127,6 +146,7 @@ class Build(pulumi.CustomResource):
         :param pulumi.Input['BuildOperatingSystem'] operating_system: The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
         :param pulumi.Input[str] server_sdk_version: A server SDK version you used when integrating your game server build with Amazon GameLift. By default Amazon GameLift sets this value to 4.0.2.
         :param pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']] storage_location: Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] version: Version information that is associated with this build. Version strings do not need to be unique.
         """
         ...
@@ -157,6 +177,7 @@ class Build(pulumi.CustomResource):
                  operating_system: Optional[pulumi.Input['BuildOperatingSystem']] = None,
                  server_sdk_version: Optional[pulumi.Input[str]] = None,
                  storage_location: Optional[pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -171,7 +192,9 @@ class Build(pulumi.CustomResource):
             __props__.__dict__["operating_system"] = operating_system
             __props__.__dict__["server_sdk_version"] = server_sdk_version
             __props__.__dict__["storage_location"] = storage_location
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
+            __props__.__dict__["build_arn"] = None
             __props__.__dict__["build_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["operatingSystem", "serverSdkVersion", "storageLocation"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -197,13 +220,23 @@ class Build(pulumi.CustomResource):
 
         __props__ = BuildArgs.__new__(BuildArgs)
 
+        __props__.__dict__["build_arn"] = None
         __props__.__dict__["build_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["operating_system"] = None
         __props__.__dict__["server_sdk_version"] = None
         __props__.__dict__["storage_location"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["version"] = None
         return Build(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="buildArn")
+    def build_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift build resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift build ARN, the resource ID matches the BuildId value.
+        """
+        return pulumi.get(self, "build_arn")
 
     @property
     @pulumi.getter(name="buildId")
@@ -244,6 +277,14 @@ class Build(pulumi.CustomResource):
         Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
         """
         return pulumi.get(self, "storage_location")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

@@ -33,7 +33,7 @@ type LookupResponsePlanResult struct {
 	Actions []ResponsePlanAction `pulumi:"actions"`
 	// The ARN of the response plan.
 	Arn *string `pulumi:"arn"`
-	// The AWS Chatbot chat channel used for collaboration during an incident.
+	// The  chat channel used for collaboration during an incident.
 	ChatChannel *ResponsePlanChatChannel `pulumi:"chatChannel"`
 	// The display name of the response plan.
 	DisplayName *string `pulumi:"displayName"`
@@ -89,7 +89,7 @@ func (o LookupResponsePlanResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Chatbot chat channel used for collaboration during an incident.
+// The  chat channel used for collaboration during an incident.
 func (o LookupResponsePlanResultOutput) ChatChannel() ResponsePlanChatChannelPtrOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) *ResponsePlanChatChannel { return v.ChatChannel }).(ResponsePlanChatChannelPtrOutput)
 }

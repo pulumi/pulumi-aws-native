@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetNamespaceResult:
-    def __init__(__self__, admin_password_secret_kms_key_id=None, admin_username=None, db_name=None, default_iam_role_arn=None, iam_roles=None, kms_key_id=None, log_exports=None, namespace=None, namespace_resource_policy=None, snapshot_copy_configurations=None):
+    def __init__(__self__, admin_password_secret_kms_key_id=None, admin_username=None, db_name=None, default_iam_role_arn=None, iam_roles=None, kms_key_id=None, log_exports=None, namespace=None, namespace_resource_policy=None, snapshot_copy_configurations=None, tags=None):
         if admin_password_secret_kms_key_id and not isinstance(admin_password_secret_kms_key_id, str):
             raise TypeError("Expected argument 'admin_password_secret_kms_key_id' to be a str")
         pulumi.set(__self__, "admin_password_secret_kms_key_id", admin_password_secret_kms_key_id)
@@ -56,6 +57,9 @@ class GetNamespaceResult:
         if snapshot_copy_configurations and not isinstance(snapshot_copy_configurations, list):
             raise TypeError("Expected argument 'snapshot_copy_configurations' to be a list")
         pulumi.set(__self__, "snapshot_copy_configurations", snapshot_copy_configurations)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="adminPasswordSecretKmsKeyId")
@@ -139,6 +143,14 @@ class GetNamespaceResult:
         """
         return pulumi.get(self, "snapshot_copy_configurations")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The list of tags for the namespace.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetNamespaceResult(GetNamespaceResult):
     # pylint: disable=using-constant-test
@@ -155,7 +167,8 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             log_exports=self.log_exports,
             namespace=self.namespace,
             namespace_resource_policy=self.namespace_resource_policy,
-            snapshot_copy_configurations=self.snapshot_copy_configurations)
+            snapshot_copy_configurations=self.snapshot_copy_configurations,
+            tags=self.tags)
 
 
 def get_namespace(namespace_name: Optional[str] = None,
@@ -181,7 +194,8 @@ def get_namespace(namespace_name: Optional[str] = None,
         log_exports=pulumi.get(__ret__, 'log_exports'),
         namespace=pulumi.get(__ret__, 'namespace'),
         namespace_resource_policy=pulumi.get(__ret__, 'namespace_resource_policy'),
-        snapshot_copy_configurations=pulumi.get(__ret__, 'snapshot_copy_configurations'))
+        snapshot_copy_configurations=pulumi.get(__ret__, 'snapshot_copy_configurations'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceResult]:
     """
@@ -204,4 +218,5 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
         log_exports=pulumi.get(__response__, 'log_exports'),
         namespace=pulumi.get(__response__, 'namespace'),
         namespace_resource_policy=pulumi.get(__response__, 'namespace_resource_policy'),
-        snapshot_copy_configurations=pulumi.get(__response__, 'snapshot_copy_configurations')))
+        snapshot_copy_configurations=pulumi.get(__response__, 'snapshot_copy_configurations'),
+        tags=pulumi.get(__response__, 'tags')))

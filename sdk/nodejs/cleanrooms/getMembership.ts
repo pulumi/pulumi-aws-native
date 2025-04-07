@@ -61,6 +61,8 @@ export interface GetMembershipResult {
     readonly paymentConfiguration?: outputs.cleanrooms.MembershipPaymentConfiguration;
     /**
      * An indicator as to whether query logging has been enabled or disabled for the membership.
+     *
+     * When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
      */
     readonly queryLogStatus?: enums.cleanrooms.MembershipQueryLogStatus;
     /**

@@ -1256,14 +1256,16 @@ class RuleGroupMatchAttributes(dict):
                  sources: Optional[Sequence['outputs.RuleGroupAddress']] = None,
                  tcp_flags: Optional[Sequence['outputs.RuleGroupTcpFlagField']] = None):
         """
-        :param Sequence['RuleGroupPortRange'] destination_ports: The destination ports to inspect for. If not specified, this matches with any destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+        :param Sequence['RuleGroupPortRange'] destination_ports: The destination port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
                
-               You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+               This setting is only used for protocols 6 (TCP) and 17 (UDP).
         :param Sequence['RuleGroupAddress'] destinations: The destination IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address.
-        :param Sequence[int] protocols: The protocols to inspect for, specified using each protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
-        :param Sequence['RuleGroupPortRange'] source_ports: The source ports to inspect for. If not specified, this matches with any source port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+        :param Sequence[int] protocols: The protocols to inspect for, specified using the assigned internet protocol number (IANA) for each protocol. If not specified, this matches with any protocol.
+        :param Sequence['RuleGroupPortRange'] source_ports: The source port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
                
-               You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+               If not specified, this matches with any source port.
+               
+               This setting is only used for protocols 6 (TCP) and 17 (UDP).
         :param Sequence['RuleGroupAddress'] sources: The source IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address.
         :param Sequence['RuleGroupTcpFlagField'] tcp_flags: The TCP flags and masks to inspect for. If not specified, this matches with any settings. This setting is only used for protocol 6 (TCP).
         """
@@ -1284,9 +1286,9 @@ class RuleGroupMatchAttributes(dict):
     @pulumi.getter(name="destinationPorts")
     def destination_ports(self) -> Optional[Sequence['outputs.RuleGroupPortRange']]:
         """
-        The destination ports to inspect for. If not specified, this matches with any destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+        The destination port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
 
-        You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+        This setting is only used for protocols 6 (TCP) and 17 (UDP).
         """
         return pulumi.get(self, "destination_ports")
 
@@ -1302,7 +1304,7 @@ class RuleGroupMatchAttributes(dict):
     @pulumi.getter
     def protocols(self) -> Optional[Sequence[int]]:
         """
-        The protocols to inspect for, specified using each protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+        The protocols to inspect for, specified using the assigned internet protocol number (IANA) for each protocol. If not specified, this matches with any protocol.
         """
         return pulumi.get(self, "protocols")
 
@@ -1310,9 +1312,11 @@ class RuleGroupMatchAttributes(dict):
     @pulumi.getter(name="sourcePorts")
     def source_ports(self) -> Optional[Sequence['outputs.RuleGroupPortRange']]:
         """
-        The source ports to inspect for. If not specified, this matches with any source port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+        The source port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
 
-        You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+        If not specified, this matches with any source port.
+
+        This setting is only used for protocols 6 (TCP) and 17 (UDP).
         """
         return pulumi.get(self, "source_ports")
 
@@ -2313,8 +2317,9 @@ class TlsInspectionConfigurationServerCertificateScope(dict):
                You can specify individual ports, for example `1994` , and you can specify port ranges, such as `1990:1994` .
         :param Sequence['TlsInspectionConfigurationAddress'] destinations: The destination IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
                matches with any destination address.
-        :param Sequence[int] protocols: The protocols to decrypt for inspection, specified using each protocol's assigned internet protocol number
-               (IANA). Network Firewall currently supports only TCP.
+        :param Sequence[int] protocols: The protocols to inspect for, specified using the assigned internet protocol number (IANA) for each protocol. If not specified, this matches with any protocol.
+               
+               Network Firewall currently supports only TCP.
         :param Sequence['TlsInspectionConfigurationPortRange'] source_ports: The source ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any source port.
                
                You can specify individual ports, for example `1994` , and you can specify port ranges, such as `1990:1994` .
@@ -2355,8 +2360,9 @@ class TlsInspectionConfigurationServerCertificateScope(dict):
     @pulumi.getter
     def protocols(self) -> Optional[Sequence[int]]:
         """
-        The protocols to decrypt for inspection, specified using each protocol's assigned internet protocol number
-        (IANA). Network Firewall currently supports only TCP.
+        The protocols to inspect for, specified using the assigned internet protocol number (IANA) for each protocol. If not specified, this matches with any protocol.
+
+        Network Firewall currently supports only TCP.
         """
         return pulumi.get(self, "protocols")
 

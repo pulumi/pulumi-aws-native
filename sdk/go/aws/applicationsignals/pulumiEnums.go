@@ -10,12 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies the calendar interval unit.
+// Specifies the interval unit.
 type ServiceLevelObjectiveDurationUnit string
 
 const (
-	ServiceLevelObjectiveDurationUnitDay   = ServiceLevelObjectiveDurationUnit("DAY")
-	ServiceLevelObjectiveDurationUnitMonth = ServiceLevelObjectiveDurationUnit("MONTH")
+	ServiceLevelObjectiveDurationUnitMinute = ServiceLevelObjectiveDurationUnit("MINUTE")
+	ServiceLevelObjectiveDurationUnitHour   = ServiceLevelObjectiveDurationUnit("HOUR")
+	ServiceLevelObjectiveDurationUnitDay    = ServiceLevelObjectiveDurationUnit("DAY")
+	ServiceLevelObjectiveDurationUnitMonth  = ServiceLevelObjectiveDurationUnit("MONTH")
 )
 
 func (ServiceLevelObjectiveDurationUnit) ElementType() reflect.Type {
@@ -140,6 +142,8 @@ func (o ServiceLevelObjectiveDurationUnitPtrOutput) ToStringPtrOutputWithContext
 // ServiceLevelObjectiveDurationUnitInput is an input type that accepts values of the ServiceLevelObjectiveDurationUnit enum
 // A concrete instance of `ServiceLevelObjectiveDurationUnitInput` can be one of the following:
 //
+//	ServiceLevelObjectiveDurationUnitMinute
+//	ServiceLevelObjectiveDurationUnitHour
 //	ServiceLevelObjectiveDurationUnitDay
 //	ServiceLevelObjectiveDurationUnitMonth
 type ServiceLevelObjectiveDurationUnitInput interface {
@@ -940,8 +944,8 @@ func (in *serviceLevelObjectiveSliMetricMetricTypePtr) ToServiceLevelObjectiveSl
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDurationUnitInput)(nil)).Elem(), ServiceLevelObjectiveDurationUnit("DAY"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDurationUnitPtrInput)(nil)).Elem(), ServiceLevelObjectiveDurationUnit("DAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDurationUnitInput)(nil)).Elem(), ServiceLevelObjectiveDurationUnit("MINUTE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDurationUnitPtrInput)(nil)).Elem(), ServiceLevelObjectiveDurationUnit("MINUTE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliComparisonOperatorInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliComparisonOperator("GreaterThanOrEqualTo"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliComparisonOperator("GreaterThanOrEqualTo"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliMetricMetricTypeInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliMetricMetricType("LATENCY"))

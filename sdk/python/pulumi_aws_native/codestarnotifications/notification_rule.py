@@ -37,13 +37,13 @@ class NotificationRuleArgs:
         :param pulumi.Input['NotificationRuleDetailType'] detail_type: The level of detail to include in the notifications for this resource. `BASIC` will include only the contents of the event as it would appear in Amazon CloudWatch. `FULL` will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_type_ids: A list of event types associated with this notification rule. For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
         :param pulumi.Input[str] resource: The Amazon Resource Name (ARN) of the resource to associate with the notification rule. Supported resources include pipelines in AWS CodePipeline , repositories in AWS CodeCommit , and build projects in AWS CodeBuild .
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]] targets: A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]] targets: A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
         :param pulumi.Input[str] created_by: The name or email alias of the person who created the notification rule.
         :param pulumi.Input[str] event_type_id: The event type associated with this notification rule. For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
         :param pulumi.Input[str] name: The name for the notification rule. Notification rule names must be unique in your AWS account .
         :param pulumi.Input['NotificationRuleStatus'] status: The status of the notification rule. The default value is `ENABLED` . If the status is set to `DISABLED` , notifications aren't sent for the notification rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to apply to this notification rule. Key names cannot start with " `aws` ".
-        :param pulumi.Input[str] target_address: The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.
+        :param pulumi.Input[str] target_address: The Amazon Resource Name (ARN) of the Amazon SNS topic or  client.
         """
         pulumi.set(__self__, "detail_type", detail_type)
         pulumi.set(__self__, "event_type_ids", event_type_ids)
@@ -102,7 +102,7 @@ class NotificationRuleArgs:
     @pulumi.getter
     def targets(self) -> pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]]:
         """
-        A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
+        A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
         """
         return pulumi.get(self, "targets")
 
@@ -174,7 +174,7 @@ class NotificationRuleArgs:
     @pulumi.getter(name="targetAddress")
     def target_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.
+        The Amazon Resource Name (ARN) of the Amazon SNS topic or  client.
         """
         return pulumi.get(self, "target_address")
 
@@ -212,8 +212,8 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource: The Amazon Resource Name (ARN) of the resource to associate with the notification rule. Supported resources include pipelines in AWS CodePipeline , repositories in AWS CodeCommit , and build projects in AWS CodeBuild .
         :param pulumi.Input['NotificationRuleStatus'] status: The status of the notification rule. The default value is `ENABLED` . If the status is set to `DISABLED` , notifications aren't sent for the notification rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to apply to this notification rule. Key names cannot start with " `aws` ".
-        :param pulumi.Input[str] target_address: The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]] targets: A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
+        :param pulumi.Input[str] target_address: The Amazon Resource Name (ARN) of the Amazon SNS topic or  client.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]] targets: A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
         """
         ...
     @overload
@@ -390,7 +390,7 @@ class NotificationRule(pulumi.CustomResource):
     @pulumi.getter(name="targetAddress")
     def target_address(self) -> pulumi.Output[Optional[str]]:
         """
-        The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.
+        The Amazon Resource Name (ARN) of the Amazon SNS topic or  client.
         """
         return pulumi.get(self, "target_address")
 
@@ -398,7 +398,7 @@ class NotificationRule(pulumi.CustomResource):
     @pulumi.getter
     def targets(self) -> pulumi.Output[Sequence['outputs.NotificationRuleTarget']]:
         """
-        A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
+        A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
         """
         return pulumi.get(self, "targets")
 

@@ -16,8 +16,83 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApplicationComponentInfo',
     'ApplicationCredential',
 ]
+
+@pulumi.output_type
+class ApplicationComponentInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentType":
+            suggest = "component_type"
+        elif key == "ec2InstanceId":
+            suggest = "ec2_instance_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationComponentInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationComponentInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationComponentInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 component_type: Optional['ApplicationComponentInfoComponentType'] = None,
+                 ec2_instance_id: Optional[str] = None,
+                 sid: Optional[str] = None):
+        """
+        :param 'ApplicationComponentInfoComponentType' component_type: This string is the type of the component.
+               
+               Accepted value is `WD` .
+        :param str ec2_instance_id: This is the Amazon EC2 instance on which your SAP component is running.
+               
+               Accepted values are alphanumeric.
+        :param str sid: This string is the SAP System ID of the component.
+               
+               Accepted values are alphanumeric.
+        """
+        if component_type is not None:
+            pulumi.set(__self__, "component_type", component_type)
+        if ec2_instance_id is not None:
+            pulumi.set(__self__, "ec2_instance_id", ec2_instance_id)
+        if sid is not None:
+            pulumi.set(__self__, "sid", sid)
+
+    @property
+    @pulumi.getter(name="componentType")
+    def component_type(self) -> Optional['ApplicationComponentInfoComponentType']:
+        """
+        This string is the type of the component.
+
+        Accepted value is `WD` .
+        """
+        return pulumi.get(self, "component_type")
+
+    @property
+    @pulumi.getter(name="ec2InstanceId")
+    def ec2_instance_id(self) -> Optional[str]:
+        """
+        This is the Amazon EC2 instance on which your SAP component is running.
+
+        Accepted values are alphanumeric.
+        """
+        return pulumi.get(self, "ec2_instance_id")
+
+    @property
+    @pulumi.getter
+    def sid(self) -> Optional[str]:
+        """
+        This string is the SAP System ID of the component.
+
+        Accepted values are alphanumeric.
+        """
+        return pulumi.get(self, "sid")
+
 
 @pulumi.output_type
 class ApplicationCredential(dict):

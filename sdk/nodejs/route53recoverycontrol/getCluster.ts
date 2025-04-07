@@ -34,6 +34,10 @@ export interface GetClusterResult {
      */
     readonly clusterEndpoints?: outputs.route53recoverycontrol.ClusterEndpoint[];
     /**
+     * Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+     */
+    readonly networkType?: enums.route53recoverycontrol.ClusterNetworkType;
+    /**
      * Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
      */
     readonly status?: enums.route53recoverycontrol.ClusterStatus;

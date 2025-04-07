@@ -77,8 +77,6 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
 
         /// <summary>
         /// The order of the Regions where you want to perform the stack operation.
-        /// 
-        /// &gt; `RegionOrder` isn't followed if `AutoDeployment` is enabled.
         /// </summary>
         public InputList<string> RegionOrder
         {

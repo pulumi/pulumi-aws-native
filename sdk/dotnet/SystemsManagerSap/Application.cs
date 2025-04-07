@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.SystemsManagerSap
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
+        /// </summary>
+        [Output("componentsInfo")]
+        public Output<ImmutableArray<Outputs.ApplicationComponentInfo>> ComponentsInfo { get; private set; } = null!;
+
+        /// <summary>
         /// The credentials of the SAP application.
         /// </summary>
         [Output("credentials")]
@@ -94,6 +100,7 @@ namespace Pulumi.AwsNative.SystemsManagerSap
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "componentsInfo[*]",
                     "credentials[*]",
                     "databaseArn",
                     "instances[*]",
@@ -133,6 +140,18 @@ namespace Pulumi.AwsNative.SystemsManagerSap
         /// </summary>
         [Input("applicationType", required: true)]
         public Input<Pulumi.AwsNative.SystemsManagerSap.ApplicationType> ApplicationType { get; set; } = null!;
+
+        [Input("componentsInfo")]
+        private InputList<Inputs.ApplicationComponentInfoArgs>? _componentsInfo;
+
+        /// <summary>
+        /// This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
+        /// </summary>
+        public InputList<Inputs.ApplicationComponentInfoArgs> ComponentsInfo
+        {
+            get => _componentsInfo ?? (_componentsInfo = new InputList<Inputs.ApplicationComponentInfoArgs>());
+            set => _componentsInfo = value;
+        }
 
         [Input("credentials")]
         private InputList<Inputs.ApplicationCredentialArgs>? _credentials;

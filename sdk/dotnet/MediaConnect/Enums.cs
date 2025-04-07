@@ -745,6 +745,37 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     /// <summary>
+    /// A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowNdiConfigNdiState : IEquatable<FlowNdiConfigNdiState>
+    {
+        private readonly string _value;
+
+        private FlowNdiConfigNdiState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowNdiConfigNdiState Enabled { get; } = new FlowNdiConfigNdiState("ENABLED");
+        public static FlowNdiConfigNdiState Disabled { get; } = new FlowNdiConfigNdiState("DISABLED");
+
+        public static bool operator ==(FlowNdiConfigNdiState left, FlowNdiConfigNdiState right) => left.Equals(right);
+        public static bool operator !=(FlowNdiConfigNdiState left, FlowNdiConfigNdiState right) => !left.Equals(right);
+
+        public static explicit operator string(FlowNdiConfigNdiState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowNdiConfigNdiState other && Equals(other);
+        public bool Equals(FlowNdiConfigNdiState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
     /// </summary>
     [EnumType]
@@ -925,6 +956,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public static FlowOutputProtocol SrtCaller { get; } = new FlowOutputProtocol("srt-caller");
         public static FlowOutputProtocol St2110Jpegxs { get; } = new FlowOutputProtocol("st2110-jpegxs");
         public static FlowOutputProtocol Cdi { get; } = new FlowOutputProtocol("cdi");
+        public static FlowOutputProtocol NdiSpeedHq { get; } = new FlowOutputProtocol("ndi-speed-hq");
 
         public static bool operator ==(FlowOutputProtocol left, FlowOutputProtocol right) => left.Equals(right);
         public static bool operator !=(FlowOutputProtocol left, FlowOutputProtocol right) => !left.Equals(right);
@@ -965,6 +997,37 @@ namespace Pulumi.AwsNative.MediaConnect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowSilentAudioState other && Equals(other);
         public bool Equals(FlowSilentAudioState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowSize : IEquatable<FlowSize>
+    {
+        private readonly string _value;
+
+        private FlowSize(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowSize Medium { get; } = new FlowSize("MEDIUM");
+        public static FlowSize Large { get; } = new FlowSize("LARGE");
+
+        public static bool operator ==(FlowSize left, FlowSize right) => left.Equals(right);
+        public static bool operator !=(FlowSize left, FlowSize right) => !left.Equals(right);
+
+        public static explicit operator string(FlowSize value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowSize other && Equals(other);
+        public bool Equals(FlowSize other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

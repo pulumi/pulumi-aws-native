@@ -52,6 +52,10 @@ __all__ = [
     'BotAudioLogSettingArgsDict',
     'BotAudioSpecificationArgs',
     'BotAudioSpecificationArgsDict',
+    'BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs',
+    'BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgsDict',
+    'BotBedrockModelSpecificationArgs',
+    'BotBedrockModelSpecificationArgsDict',
     'BotButtonArgs',
     'BotButtonArgsDict',
     'BotCloudWatchLogGroupLogDestinationArgs',
@@ -136,6 +140,20 @@ __all__ = [
     'BotPromptAttemptSpecificationArgsDict',
     'BotPromptSpecificationArgs',
     'BotPromptSpecificationArgsDict',
+    'BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs',
+    'BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgsDict',
+    'BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs',
+    'BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgsDict',
+    'BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs',
+    'BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgsDict',
+    'BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs',
+    'BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgsDict',
+    'BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs',
+    'BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgsDict',
+    'BotQnAIntentConfigurationArgs',
+    'BotQnAIntentConfigurationArgsDict',
+    'BotQnAKendraConfigurationArgs',
+    'BotQnAKendraConfigurationArgsDict',
     'BotReplicationArgs',
     'BotReplicationArgsDict',
     'BotResponseSpecificationArgs',
@@ -1028,6 +1046,157 @@ class BotAudioSpecificationArgs:
     @max_length_ms.setter
     def max_length_ms(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_length_ms", value)
+
+
+if not MYPY:
+    class BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgsDict(TypedDict):
+        """
+        The guardrail configuration in the Bedrock model specification details.
+        """
+        bedrock_guardrail_identifier: NotRequired[pulumi.Input[str]]
+        """
+        The unique guardrail id for the Bedrock guardrail configuration.
+        """
+        bedrock_guardrail_version: NotRequired[pulumi.Input[str]]
+        """
+        The guardrail version for the Bedrock guardrail configuration.
+        """
+elif False:
+    BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 bedrock_guardrail_identifier: Optional[pulumi.Input[str]] = None,
+                 bedrock_guardrail_version: Optional[pulumi.Input[str]] = None):
+        """
+        The guardrail configuration in the Bedrock model specification details.
+        :param pulumi.Input[str] bedrock_guardrail_identifier: The unique guardrail id for the Bedrock guardrail configuration.
+        :param pulumi.Input[str] bedrock_guardrail_version: The guardrail version for the Bedrock guardrail configuration.
+        """
+        if bedrock_guardrail_identifier is not None:
+            pulumi.set(__self__, "bedrock_guardrail_identifier", bedrock_guardrail_identifier)
+        if bedrock_guardrail_version is not None:
+            pulumi.set(__self__, "bedrock_guardrail_version", bedrock_guardrail_version)
+
+    @property
+    @pulumi.getter(name="bedrockGuardrailIdentifier")
+    def bedrock_guardrail_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique guardrail id for the Bedrock guardrail configuration.
+        """
+        return pulumi.get(self, "bedrock_guardrail_identifier")
+
+    @bedrock_guardrail_identifier.setter
+    def bedrock_guardrail_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bedrock_guardrail_identifier", value)
+
+    @property
+    @pulumi.getter(name="bedrockGuardrailVersion")
+    def bedrock_guardrail_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The guardrail version for the Bedrock guardrail configuration.
+        """
+        return pulumi.get(self, "bedrock_guardrail_version")
+
+    @bedrock_guardrail_version.setter
+    def bedrock_guardrail_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bedrock_guardrail_version", value)
+
+
+if not MYPY:
+    class BotBedrockModelSpecificationArgsDict(TypedDict):
+        """
+        Contains information about the Amazon Bedrock model used to interpret the prompt used in descriptive bot building.
+        """
+        model_arn: pulumi.Input[str]
+        """
+        The ARN of the foundation model used in descriptive bot building.
+        """
+        bedrock_guardrail_configuration: NotRequired[pulumi.Input['BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgsDict']]
+        """
+        The guardrail configuration in the Bedrock model specification details.
+        """
+        bedrock_model_custom_prompt: NotRequired[pulumi.Input[str]]
+        """
+        The custom prompt used in the Bedrock model specification details.
+        """
+        bedrock_trace_status: NotRequired[pulumi.Input['BotBedrockModelSpecificationBedrockTraceStatus']]
+        """
+        The Bedrock trace status in the Bedrock model specification details.
+        """
+elif False:
+    BotBedrockModelSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotBedrockModelSpecificationArgs:
+    def __init__(__self__, *,
+                 model_arn: pulumi.Input[str],
+                 bedrock_guardrail_configuration: Optional[pulumi.Input['BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs']] = None,
+                 bedrock_model_custom_prompt: Optional[pulumi.Input[str]] = None,
+                 bedrock_trace_status: Optional[pulumi.Input['BotBedrockModelSpecificationBedrockTraceStatus']] = None):
+        """
+        Contains information about the Amazon Bedrock model used to interpret the prompt used in descriptive bot building.
+        :param pulumi.Input[str] model_arn: The ARN of the foundation model used in descriptive bot building.
+        :param pulumi.Input['BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs'] bedrock_guardrail_configuration: The guardrail configuration in the Bedrock model specification details.
+        :param pulumi.Input[str] bedrock_model_custom_prompt: The custom prompt used in the Bedrock model specification details.
+        :param pulumi.Input['BotBedrockModelSpecificationBedrockTraceStatus'] bedrock_trace_status: The Bedrock trace status in the Bedrock model specification details.
+        """
+        pulumi.set(__self__, "model_arn", model_arn)
+        if bedrock_guardrail_configuration is not None:
+            pulumi.set(__self__, "bedrock_guardrail_configuration", bedrock_guardrail_configuration)
+        if bedrock_model_custom_prompt is not None:
+            pulumi.set(__self__, "bedrock_model_custom_prompt", bedrock_model_custom_prompt)
+        if bedrock_trace_status is not None:
+            pulumi.set(__self__, "bedrock_trace_status", bedrock_trace_status)
+
+    @property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the foundation model used in descriptive bot building.
+        """
+        return pulumi.get(self, "model_arn")
+
+    @model_arn.setter
+    def model_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "model_arn", value)
+
+    @property
+    @pulumi.getter(name="bedrockGuardrailConfiguration")
+    def bedrock_guardrail_configuration(self) -> Optional[pulumi.Input['BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs']]:
+        """
+        The guardrail configuration in the Bedrock model specification details.
+        """
+        return pulumi.get(self, "bedrock_guardrail_configuration")
+
+    @bedrock_guardrail_configuration.setter
+    def bedrock_guardrail_configuration(self, value: Optional[pulumi.Input['BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs']]):
+        pulumi.set(self, "bedrock_guardrail_configuration", value)
+
+    @property
+    @pulumi.getter(name="bedrockModelCustomPrompt")
+    def bedrock_model_custom_prompt(self) -> Optional[pulumi.Input[str]]:
+        """
+        The custom prompt used in the Bedrock model specification details.
+        """
+        return pulumi.get(self, "bedrock_model_custom_prompt")
+
+    @bedrock_model_custom_prompt.setter
+    def bedrock_model_custom_prompt(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bedrock_model_custom_prompt", value)
+
+    @property
+    @pulumi.getter(name="bedrockTraceStatus")
+    def bedrock_trace_status(self) -> Optional[pulumi.Input['BotBedrockModelSpecificationBedrockTraceStatus']]:
+        """
+        The Bedrock trace status in the Bedrock model specification details.
+        """
+        return pulumi.get(self, "bedrock_trace_status")
+
+    @bedrock_trace_status.setter
+    def bedrock_trace_status(self, value: Optional[pulumi.Input['BotBedrockModelSpecificationBedrockTraceStatus']]):
+        pulumi.set(self, "bedrock_trace_status", value)
 
 
 if not MYPY:
@@ -3204,6 +3373,7 @@ if not MYPY:
         """
         A unique identifier for the built-in intent to base this intent on.
         """
+        qn_a_intent_configuration: NotRequired[pulumi.Input['BotQnAIntentConfigurationArgsDict']]
         sample_utterances: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSampleUtteranceArgsDict']]]]
         """
         A sample utterance that invokes an intent or respond to a slot elicitation prompt.
@@ -3233,6 +3403,7 @@ class BotIntentArgs:
                  kendra_configuration: Optional[pulumi.Input['BotKendraConfigurationArgs']] = None,
                  output_contexts: Optional[pulumi.Input[Sequence[pulumi.Input['BotOutputContextArgs']]]] = None,
                  parent_intent_signature: Optional[pulumi.Input[str]] = None,
+                 qn_a_intent_configuration: Optional[pulumi.Input['BotQnAIntentConfigurationArgs']] = None,
                  sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input['BotSampleUtteranceArgs']]]] = None,
                  slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotPriorityArgs']]]] = None,
                  slots: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotArgs']]]] = None):
@@ -3274,6 +3445,8 @@ class BotIntentArgs:
             pulumi.set(__self__, "output_contexts", output_contexts)
         if parent_intent_signature is not None:
             pulumi.set(__self__, "parent_intent_signature", parent_intent_signature)
+        if qn_a_intent_configuration is not None:
+            pulumi.set(__self__, "qn_a_intent_configuration", qn_a_intent_configuration)
         if sample_utterances is not None:
             pulumi.set(__self__, "sample_utterances", sample_utterances)
         if slot_priorities is not None:
@@ -3412,6 +3585,15 @@ class BotIntentArgs:
     @parent_intent_signature.setter
     def parent_intent_signature(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parent_intent_signature", value)
+
+    @property
+    @pulumi.getter(name="qnAIntentConfiguration")
+    def qn_a_intent_configuration(self) -> Optional[pulumi.Input['BotQnAIntentConfigurationArgs']]:
+        return pulumi.get(self, "qn_a_intent_configuration")
+
+    @qn_a_intent_configuration.setter
+    def qn_a_intent_configuration(self, value: Optional[pulumi.Input['BotQnAIntentConfigurationArgs']]):
+        pulumi.set(self, "qn_a_intent_configuration", value)
 
     @property
     @pulumi.getter(name="sampleUtterances")
@@ -4564,6 +4746,499 @@ class BotPromptSpecificationArgs:
     @prompt_attempts_specification.setter
     def prompt_attempts_specification(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['BotPromptAttemptSpecificationArgs']]]]):
         pulumi.set(self, "prompt_attempts_specification", value)
+
+
+if not MYPY:
+    class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgsDict(TypedDict):
+        """
+        Contains the names of the fields used for an exact response to the user.
+        """
+        answer_field: NotRequired[pulumi.Input[str]]
+        """
+        The answer field used for an exact response from Bedrock Knowledge Store.
+        """
+elif False:
+    BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs:
+    def __init__(__self__, *,
+                 answer_field: Optional[pulumi.Input[str]] = None):
+        """
+        Contains the names of the fields used for an exact response to the user.
+        :param pulumi.Input[str] answer_field: The answer field used for an exact response from Bedrock Knowledge Store.
+        """
+        if answer_field is not None:
+            pulumi.set(__self__, "answer_field", answer_field)
+
+    @property
+    @pulumi.getter(name="answerField")
+    def answer_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The answer field used for an exact response from Bedrock Knowledge Store.
+        """
+        return pulumi.get(self, "answer_field")
+
+    @answer_field.setter
+    def answer_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "answer_field", value)
+
+
+if not MYPY:
+    class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgsDict(TypedDict):
+        """
+        Contains details about the configuration of a Amazon Bedrock knowledge base.
+        """
+        bedrock_knowledge_base_arn: NotRequired[pulumi.Input[str]]
+        """
+        The base ARN of the knowledge base used.
+        """
+        bkb_exact_response_fields: NotRequired[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgsDict']]
+        """
+        Contains the names of the fields used for an exact response to the user.
+        """
+        exact_response: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether to return an exact response, or to return an answer generated by the model, using the fields you specify from the database.
+        """
+elif False:
+    BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 bedrock_knowledge_base_arn: Optional[pulumi.Input[str]] = None,
+                 bkb_exact_response_fields: Optional[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs']] = None,
+                 exact_response: Optional[pulumi.Input[bool]] = None):
+        """
+        Contains details about the configuration of a Amazon Bedrock knowledge base.
+        :param pulumi.Input[str] bedrock_knowledge_base_arn: The base ARN of the knowledge base used.
+        :param pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs'] bkb_exact_response_fields: Contains the names of the fields used for an exact response to the user.
+        :param pulumi.Input[bool] exact_response: Specifies whether to return an exact response, or to return an answer generated by the model, using the fields you specify from the database.
+        """
+        if bedrock_knowledge_base_arn is not None:
+            pulumi.set(__self__, "bedrock_knowledge_base_arn", bedrock_knowledge_base_arn)
+        if bkb_exact_response_fields is not None:
+            pulumi.set(__self__, "bkb_exact_response_fields", bkb_exact_response_fields)
+        if exact_response is not None:
+            pulumi.set(__self__, "exact_response", exact_response)
+
+    @property
+    @pulumi.getter(name="bedrockKnowledgeBaseArn")
+    def bedrock_knowledge_base_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The base ARN of the knowledge base used.
+        """
+        return pulumi.get(self, "bedrock_knowledge_base_arn")
+
+    @bedrock_knowledge_base_arn.setter
+    def bedrock_knowledge_base_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bedrock_knowledge_base_arn", value)
+
+    @property
+    @pulumi.getter(name="bkbExactResponseFields")
+    def bkb_exact_response_fields(self) -> Optional[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs']]:
+        """
+        Contains the names of the fields used for an exact response to the user.
+        """
+        return pulumi.get(self, "bkb_exact_response_fields")
+
+    @bkb_exact_response_fields.setter
+    def bkb_exact_response_fields(self, value: Optional[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs']]):
+        pulumi.set(self, "bkb_exact_response_fields", value)
+
+    @property
+    @pulumi.getter(name="exactResponse")
+    def exact_response(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to return an exact response, or to return an answer generated by the model, using the fields you specify from the database.
+        """
+        return pulumi.get(self, "exact_response")
+
+    @exact_response.setter
+    def exact_response(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exact_response", value)
+
+
+if not MYPY:
+    class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgsDict(TypedDict):
+        """
+        Contains the names of the fields used for an exact response to the user.
+        """
+        answer_field: NotRequired[pulumi.Input[str]]
+        """
+        The name of the field that contains the answer to the query made to the OpenSearch Service database.
+        """
+        question_field: NotRequired[pulumi.Input[str]]
+        """
+        The name of the field that contains the query made to the OpenSearch Service database.
+        """
+elif False:
+    BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs:
+    def __init__(__self__, *,
+                 answer_field: Optional[pulumi.Input[str]] = None,
+                 question_field: Optional[pulumi.Input[str]] = None):
+        """
+        Contains the names of the fields used for an exact response to the user.
+        :param pulumi.Input[str] answer_field: The name of the field that contains the answer to the query made to the OpenSearch Service database.
+        :param pulumi.Input[str] question_field: The name of the field that contains the query made to the OpenSearch Service database.
+        """
+        if answer_field is not None:
+            pulumi.set(__self__, "answer_field", answer_field)
+        if question_field is not None:
+            pulumi.set(__self__, "question_field", question_field)
+
+    @property
+    @pulumi.getter(name="answerField")
+    def answer_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the field that contains the answer to the query made to the OpenSearch Service database.
+        """
+        return pulumi.get(self, "answer_field")
+
+    @answer_field.setter
+    def answer_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "answer_field", value)
+
+    @property
+    @pulumi.getter(name="questionField")
+    def question_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the field that contains the query made to the OpenSearch Service database.
+        """
+        return pulumi.get(self, "question_field")
+
+    @question_field.setter
+    def question_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "question_field", value)
+
+
+if not MYPY:
+    class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgsDict(TypedDict):
+        """
+        Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
+        """
+        domain_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint of the Amazon OpenSearch Service domain.
+        """
+        exact_response: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether to return an exact response or to return an answer generated by the model using the fields you specify from the database.
+        """
+        exact_response_fields: NotRequired[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgsDict']]
+        """
+        Contains the names of the fields used for an exact response to the user.
+        """
+        include_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of fields to include
+        """
+        index_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Amazon OpenSearch Service index.
+        """
+elif False:
+    BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 domain_endpoint: Optional[pulumi.Input[str]] = None,
+                 exact_response: Optional[pulumi.Input[bool]] = None,
+                 exact_response_fields: Optional[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs']] = None,
+                 include_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 index_name: Optional[pulumi.Input[str]] = None):
+        """
+        Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
+        :param pulumi.Input[str] domain_endpoint: The endpoint of the Amazon OpenSearch Service domain.
+        :param pulumi.Input[bool] exact_response: Specifies whether to return an exact response or to return an answer generated by the model using the fields you specify from the database.
+        :param pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs'] exact_response_fields: Contains the names of the fields used for an exact response to the user.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include_fields: List of fields to include
+        :param pulumi.Input[str] index_name: The name of the Amazon OpenSearch Service index.
+        """
+        if domain_endpoint is not None:
+            pulumi.set(__self__, "domain_endpoint", domain_endpoint)
+        if exact_response is not None:
+            pulumi.set(__self__, "exact_response", exact_response)
+        if exact_response_fields is not None:
+            pulumi.set(__self__, "exact_response_fields", exact_response_fields)
+        if include_fields is not None:
+            pulumi.set(__self__, "include_fields", include_fields)
+        if index_name is not None:
+            pulumi.set(__self__, "index_name", index_name)
+
+    @property
+    @pulumi.getter(name="domainEndpoint")
+    def domain_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint of the Amazon OpenSearch Service domain.
+        """
+        return pulumi.get(self, "domain_endpoint")
+
+    @domain_endpoint.setter
+    def domain_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_endpoint", value)
+
+    @property
+    @pulumi.getter(name="exactResponse")
+    def exact_response(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to return an exact response or to return an answer generated by the model using the fields you specify from the database.
+        """
+        return pulumi.get(self, "exact_response")
+
+    @exact_response.setter
+    def exact_response(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exact_response", value)
+
+    @property
+    @pulumi.getter(name="exactResponseFields")
+    def exact_response_fields(self) -> Optional[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs']]:
+        """
+        Contains the names of the fields used for an exact response to the user.
+        """
+        return pulumi.get(self, "exact_response_fields")
+
+    @exact_response_fields.setter
+    def exact_response_fields(self, value: Optional[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs']]):
+        pulumi.set(self, "exact_response_fields", value)
+
+    @property
+    @pulumi.getter(name="includeFields")
+    def include_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of fields to include
+        """
+        return pulumi.get(self, "include_fields")
+
+    @include_fields.setter
+    def include_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "include_fields", value)
+
+    @property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Amazon OpenSearch Service index.
+        """
+        return pulumi.get(self, "index_name")
+
+    @index_name.setter
+    def index_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "index_name", value)
+
+
+if not MYPY:
+    class BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgsDict(TypedDict):
+        """
+        Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+        """
+        bedrock_knowledge_store_configuration: NotRequired[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgsDict']]
+        """
+        Contains details about the configuration of a Amazon Bedrock knowledge base.
+        """
+        kendra_configuration: NotRequired[pulumi.Input['BotQnAKendraConfigurationArgsDict']]
+        opensearch_configuration: NotRequired[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgsDict']]
+        """
+        Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
+        """
+elif False:
+    BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 bedrock_knowledge_store_configuration: Optional[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs']] = None,
+                 kendra_configuration: Optional[pulumi.Input['BotQnAKendraConfigurationArgs']] = None,
+                 opensearch_configuration: Optional[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs']] = None):
+        """
+        Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+        :param pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs'] bedrock_knowledge_store_configuration: Contains details about the configuration of a Amazon Bedrock knowledge base.
+        :param pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs'] opensearch_configuration: Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
+        """
+        if bedrock_knowledge_store_configuration is not None:
+            pulumi.set(__self__, "bedrock_knowledge_store_configuration", bedrock_knowledge_store_configuration)
+        if kendra_configuration is not None:
+            pulumi.set(__self__, "kendra_configuration", kendra_configuration)
+        if opensearch_configuration is not None:
+            pulumi.set(__self__, "opensearch_configuration", opensearch_configuration)
+
+    @property
+    @pulumi.getter(name="bedrockKnowledgeStoreConfiguration")
+    def bedrock_knowledge_store_configuration(self) -> Optional[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs']]:
+        """
+        Contains details about the configuration of a Amazon Bedrock knowledge base.
+        """
+        return pulumi.get(self, "bedrock_knowledge_store_configuration")
+
+    @bedrock_knowledge_store_configuration.setter
+    def bedrock_knowledge_store_configuration(self, value: Optional[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs']]):
+        pulumi.set(self, "bedrock_knowledge_store_configuration", value)
+
+    @property
+    @pulumi.getter(name="kendraConfiguration")
+    def kendra_configuration(self) -> Optional[pulumi.Input['BotQnAKendraConfigurationArgs']]:
+        return pulumi.get(self, "kendra_configuration")
+
+    @kendra_configuration.setter
+    def kendra_configuration(self, value: Optional[pulumi.Input['BotQnAKendraConfigurationArgs']]):
+        pulumi.set(self, "kendra_configuration", value)
+
+    @property
+    @pulumi.getter(name="opensearchConfiguration")
+    def opensearch_configuration(self) -> Optional[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs']]:
+        """
+        Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
+        """
+        return pulumi.get(self, "opensearch_configuration")
+
+    @opensearch_configuration.setter
+    def opensearch_configuration(self, value: Optional[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs']]):
+        pulumi.set(self, "opensearch_configuration", value)
+
+
+if not MYPY:
+    class BotQnAIntentConfigurationArgsDict(TypedDict):
+        """
+        Details about the the configuration of the built-in Amazon.QnAIntent.
+        """
+        bedrock_model_configuration: pulumi.Input['BotBedrockModelSpecificationArgsDict']
+        data_source_configuration: pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgsDict']
+        """
+        Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+        """
+elif False:
+    BotQnAIntentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotQnAIntentConfigurationArgs:
+    def __init__(__self__, *,
+                 bedrock_model_configuration: pulumi.Input['BotBedrockModelSpecificationArgs'],
+                 data_source_configuration: pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs']):
+        """
+        Details about the the configuration of the built-in Amazon.QnAIntent.
+        :param pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs'] data_source_configuration: Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+        """
+        pulumi.set(__self__, "bedrock_model_configuration", bedrock_model_configuration)
+        pulumi.set(__self__, "data_source_configuration", data_source_configuration)
+
+    @property
+    @pulumi.getter(name="bedrockModelConfiguration")
+    def bedrock_model_configuration(self) -> pulumi.Input['BotBedrockModelSpecificationArgs']:
+        return pulumi.get(self, "bedrock_model_configuration")
+
+    @bedrock_model_configuration.setter
+    def bedrock_model_configuration(self, value: pulumi.Input['BotBedrockModelSpecificationArgs']):
+        pulumi.set(self, "bedrock_model_configuration", value)
+
+    @property
+    @pulumi.getter(name="dataSourceConfiguration")
+    def data_source_configuration(self) -> pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs']:
+        """
+        Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+        """
+        return pulumi.get(self, "data_source_configuration")
+
+    @data_source_configuration.setter
+    def data_source_configuration(self, value: pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs']):
+        pulumi.set(self, "data_source_configuration", value)
+
+
+if not MYPY:
+    class BotQnAKendraConfigurationArgsDict(TypedDict):
+        """
+        Contains details about the configuration of the Amazon Kendra index used for the AMAZON.QnAIntent.
+        """
+        exact_response: pulumi.Input[bool]
+        """
+        Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results.
+        """
+        kendra_index: pulumi.Input[str]
+        """
+        The ARN of the Amazon Kendra index to use.
+        """
+        query_filter_string_enabled: pulumi.Input[bool]
+        """
+        Specifies whether to enable an Amazon Kendra filter string or not.
+        """
+        query_filter_string: NotRequired[pulumi.Input[str]]
+        """
+        Contains the Amazon Kendra filter string to use if enabled.
+        """
+elif False:
+    BotQnAKendraConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotQnAKendraConfigurationArgs:
+    def __init__(__self__, *,
+                 exact_response: pulumi.Input[bool],
+                 kendra_index: pulumi.Input[str],
+                 query_filter_string_enabled: pulumi.Input[bool],
+                 query_filter_string: Optional[pulumi.Input[str]] = None):
+        """
+        Contains details about the configuration of the Amazon Kendra index used for the AMAZON.QnAIntent.
+        :param pulumi.Input[bool] exact_response: Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results.
+        :param pulumi.Input[str] kendra_index: The ARN of the Amazon Kendra index to use.
+        :param pulumi.Input[bool] query_filter_string_enabled: Specifies whether to enable an Amazon Kendra filter string or not.
+        :param pulumi.Input[str] query_filter_string: Contains the Amazon Kendra filter string to use if enabled.
+        """
+        pulumi.set(__self__, "exact_response", exact_response)
+        pulumi.set(__self__, "kendra_index", kendra_index)
+        pulumi.set(__self__, "query_filter_string_enabled", query_filter_string_enabled)
+        if query_filter_string is not None:
+            pulumi.set(__self__, "query_filter_string", query_filter_string)
+
+    @property
+    @pulumi.getter(name="exactResponse")
+    def exact_response(self) -> pulumi.Input[bool]:
+        """
+        Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results.
+        """
+        return pulumi.get(self, "exact_response")
+
+    @exact_response.setter
+    def exact_response(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "exact_response", value)
+
+    @property
+    @pulumi.getter(name="kendraIndex")
+    def kendra_index(self) -> pulumi.Input[str]:
+        """
+        The ARN of the Amazon Kendra index to use.
+        """
+        return pulumi.get(self, "kendra_index")
+
+    @kendra_index.setter
+    def kendra_index(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kendra_index", value)
+
+    @property
+    @pulumi.getter(name="queryFilterStringEnabled")
+    def query_filter_string_enabled(self) -> pulumi.Input[bool]:
+        """
+        Specifies whether to enable an Amazon Kendra filter string or not.
+        """
+        return pulumi.get(self, "query_filter_string_enabled")
+
+    @query_filter_string_enabled.setter
+    def query_filter_string_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "query_filter_string_enabled", value)
+
+    @property
+    @pulumi.getter(name="queryFilterString")
+    def query_filter_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        Contains the Amazon Kendra filter string to use if enabled.
+        """
+        return pulumi.get(self, "query_filter_string")
+
+    @query_filter_string.setter
+    def query_filter_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_filter_string", value)
 
 
 if not MYPY:

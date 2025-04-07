@@ -154,6 +154,7 @@ class DomainName(pulumi.CustomResource):
             __props__.__dict__["domain_name_configurations"] = domain_name_configurations
             __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["domain_name_arn"] = None
             __props__.__dict__["regional_domain_name"] = None
             __props__.__dict__["regional_hosted_zone_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainName"])
@@ -181,6 +182,7 @@ class DomainName(pulumi.CustomResource):
         __props__ = DomainNameArgs.__new__(DomainNameArgs)
 
         __props__.__dict__["domain_name"] = None
+        __props__.__dict__["domain_name_arn"] = None
         __props__.__dict__["domain_name_configurations"] = None
         __props__.__dict__["mutual_tls_authentication"] = None
         __props__.__dict__["regional_domain_name"] = None
@@ -195,6 +197,14 @@ class DomainName(pulumi.CustomResource):
         The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
         """
         return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="domainNameArn")
+    def domain_name_arn(self) -> pulumi.Output[str]:
+        """
+        Represents an Amazon Resource Name (ARN).
+        """
+        return pulumi.get(self, "domain_name_arn")
 
     @property
     @pulumi.getter(name="domainNameConfigurations")

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -15,6 +16,8 @@ import (
 type Build struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift build resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift build ARN, the resource ID matches the BuildId value.
+	BuildArn pulumi.StringOutput `pulumi:"buildArn"`
 	// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
 	BuildId pulumi.StringOutput `pulumi:"buildId"`
 	// A descriptive label that is associated with a build. Build names do not need to be unique.
@@ -25,6 +28,8 @@ type Build struct {
 	ServerSdkVersion pulumi.StringPtrOutput `pulumi:"serverSdkVersion"`
 	// Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
 	StorageLocation BuildStorageLocationPtrOutput `pulumi:"storageLocation"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Version information that is associated with this build. Version strings do not need to be unique.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
@@ -83,6 +88,8 @@ type buildArgs struct {
 	ServerSdkVersion *string `pulumi:"serverSdkVersion"`
 	// Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
 	StorageLocation *BuildStorageLocation `pulumi:"storageLocation"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Version information that is associated with this build. Version strings do not need to be unique.
 	Version *string `pulumi:"version"`
 }
@@ -97,6 +104,8 @@ type BuildArgs struct {
 	ServerSdkVersion pulumi.StringPtrInput
 	// Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
 	StorageLocation BuildStorageLocationPtrInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayInput
 	// Version information that is associated with this build. Version strings do not need to be unique.
 	Version pulumi.StringPtrInput
 }
@@ -138,6 +147,11 @@ func (o BuildOutput) ToBuildOutputWithContext(ctx context.Context) BuildOutput {
 	return o
 }
 
+// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift build resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift build ARN, the resource ID matches the BuildId value.
+func (o BuildOutput) BuildArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Build) pulumi.StringOutput { return v.BuildArn }).(pulumi.StringOutput)
+}
+
 // A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
 func (o BuildOutput) BuildId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Build) pulumi.StringOutput { return v.BuildId }).(pulumi.StringOutput)
@@ -161,6 +175,11 @@ func (o BuildOutput) ServerSdkVersion() pulumi.StringPtrOutput {
 // Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
 func (o BuildOutput) StorageLocation() BuildStorageLocationPtrOutput {
 	return o.ApplyT(func(v *Build) BuildStorageLocationPtrOutput { return v.StorageLocation }).(BuildStorageLocationPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o BuildOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Build) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Version information that is associated with this build. Version strings do not need to be unique.

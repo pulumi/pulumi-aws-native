@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.SsmIncidents
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// The AWS Chatbot chat channel used for collaboration during an incident.
+        /// The  chat channel used for collaboration during an incident.
         /// </summary>
         public readonly Outputs.ResponsePlanChatChannel? ChatChannel;
         /// <summary>

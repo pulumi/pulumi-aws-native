@@ -23,10 +23,12 @@ func LookupDiscovery(ctx *pulumi.Context, args *LookupDiscoveryArgs, opts ...pul
 }
 
 type LookupDiscoveryArgs struct {
+	// The 12 digit AWS Account ID for the account.
 	AccountId string `pulumi:"accountId"`
 }
 
 type LookupDiscoveryResult struct {
+	// The 12 digit AWS Account ID for the account.
 	AccountId *string `pulumi:"accountId"`
 }
 
@@ -40,6 +42,7 @@ func LookupDiscoveryOutput(ctx *pulumi.Context, args LookupDiscoveryOutputArgs, 
 }
 
 type LookupDiscoveryOutputArgs struct {
+	// The 12 digit AWS Account ID for the account.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 }
 
@@ -61,6 +64,7 @@ func (o LookupDiscoveryResultOutput) ToLookupDiscoveryResultOutputWithContext(ct
 	return o
 }
 
+// The 12 digit AWS Account ID for the account.
 func (o LookupDiscoveryResultOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDiscoveryResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }

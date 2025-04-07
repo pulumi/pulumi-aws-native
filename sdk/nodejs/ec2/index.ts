@@ -265,6 +265,21 @@ export const getRoute: typeof import("./getRoute").getRoute = null as any;
 export const getRouteOutput: typeof import("./getRoute").getRouteOutput = null as any;
 utilities.lazyLoad(exports, ["getRoute","getRouteOutput"], () => require("./getRoute"));
 
+export { GetRouteServerArgs, GetRouteServerResult, GetRouteServerOutputArgs } from "./getRouteServer";
+export const getRouteServer: typeof import("./getRouteServer").getRouteServer = null as any;
+export const getRouteServerOutput: typeof import("./getRouteServer").getRouteServerOutput = null as any;
+utilities.lazyLoad(exports, ["getRouteServer","getRouteServerOutput"], () => require("./getRouteServer"));
+
+export { GetRouteServerEndpointArgs, GetRouteServerEndpointResult, GetRouteServerEndpointOutputArgs } from "./getRouteServerEndpoint";
+export const getRouteServerEndpoint: typeof import("./getRouteServerEndpoint").getRouteServerEndpoint = null as any;
+export const getRouteServerEndpointOutput: typeof import("./getRouteServerEndpoint").getRouteServerEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getRouteServerEndpoint","getRouteServerEndpointOutput"], () => require("./getRouteServerEndpoint"));
+
+export { GetRouteServerPeerArgs, GetRouteServerPeerResult, GetRouteServerPeerOutputArgs } from "./getRouteServerPeer";
+export const getRouteServerPeer: typeof import("./getRouteServerPeer").getRouteServerPeer = null as any;
+export const getRouteServerPeerOutput: typeof import("./getRouteServerPeer").getRouteServerPeerOutput = null as any;
+utilities.lazyLoad(exports, ["getRouteServerPeer","getRouteServerPeerOutput"], () => require("./getRouteServerPeer"));
+
 export { GetRouteTableArgs, GetRouteTableResult, GetRouteTableOutputArgs } from "./getRouteTable";
 export const getRouteTable: typeof import("./getRouteTable").getRouteTable = null as any;
 export const getRouteTableOutput: typeof import("./getRouteTable").getRouteTableOutput = null as any;
@@ -600,6 +615,31 @@ export type Route = import("./route").Route;
 export const Route: typeof import("./route").Route = null as any;
 utilities.lazyLoad(exports, ["Route"], () => require("./route"));
 
+export { RouteServerArgs } from "./routeServer";
+export type RouteServer = import("./routeServer").RouteServer;
+export const RouteServer: typeof import("./routeServer").RouteServer = null as any;
+utilities.lazyLoad(exports, ["RouteServer"], () => require("./routeServer"));
+
+export { RouteServerAssociationArgs } from "./routeServerAssociation";
+export type RouteServerAssociation = import("./routeServerAssociation").RouteServerAssociation;
+export const RouteServerAssociation: typeof import("./routeServerAssociation").RouteServerAssociation = null as any;
+utilities.lazyLoad(exports, ["RouteServerAssociation"], () => require("./routeServerAssociation"));
+
+export { RouteServerEndpointArgs } from "./routeServerEndpoint";
+export type RouteServerEndpoint = import("./routeServerEndpoint").RouteServerEndpoint;
+export const RouteServerEndpoint: typeof import("./routeServerEndpoint").RouteServerEndpoint = null as any;
+utilities.lazyLoad(exports, ["RouteServerEndpoint"], () => require("./routeServerEndpoint"));
+
+export { RouteServerPeerArgs } from "./routeServerPeer";
+export type RouteServerPeer = import("./routeServerPeer").RouteServerPeer;
+export const RouteServerPeer: typeof import("./routeServerPeer").RouteServerPeer = null as any;
+utilities.lazyLoad(exports, ["RouteServerPeer"], () => require("./routeServerPeer"));
+
+export { RouteServerPropagationArgs } from "./routeServerPropagation";
+export type RouteServerPropagation = import("./routeServerPropagation").RouteServerPropagation;
+export const RouteServerPropagation: typeof import("./routeServerPropagation").RouteServerPropagation = null as any;
+utilities.lazyLoad(exports, ["RouteServerPropagation"], () => require("./routeServerPropagation"));
+
 export { RouteTableArgs } from "./routeTable";
 export type RouteTable = import("./routeTable").RouteTable;
 export const RouteTable: typeof import("./routeTable").RouteTable = null as any;
@@ -910,6 +950,16 @@ const _module = {
                 return new PrefixList(name, <any>undefined, { urn })
             case "aws-native:ec2:Route":
                 return new Route(name, <any>undefined, { urn })
+            case "aws-native:ec2:RouteServer":
+                return new RouteServer(name, <any>undefined, { urn })
+            case "aws-native:ec2:RouteServerAssociation":
+                return new RouteServerAssociation(name, <any>undefined, { urn })
+            case "aws-native:ec2:RouteServerEndpoint":
+                return new RouteServerEndpoint(name, <any>undefined, { urn })
+            case "aws-native:ec2:RouteServerPeer":
+                return new RouteServerPeer(name, <any>undefined, { urn })
+            case "aws-native:ec2:RouteServerPropagation":
+                return new RouteServerPropagation(name, <any>undefined, { urn })
             case "aws-native:ec2:RouteTable":
                 return new RouteTable(name, <any>undefined, { urn })
             case "aws-native:ec2:SecurityGroup":

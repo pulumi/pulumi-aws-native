@@ -71,15 +71,22 @@ namespace Pulumi.AwsNative.DataBrew
         /// A list of steps that are defined by the recipe.
         /// </summary>
         public readonly ImmutableArray<Outputs.RecipeStep> Steps;
+        /// <summary>
+        /// Metadata tags that have been applied to the recipe.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRecipeResult(
             string? description,
 
-            ImmutableArray<Outputs.RecipeStep> steps)
+            ImmutableArray<Outputs.RecipeStep> steps,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             Steps = steps;
+            Tags = tags;
         }
     }
 }

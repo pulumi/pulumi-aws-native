@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Container for IAM Identity Center Option control for the domain.
+        /// Configuration options for controlling IAM Identity Center integration within a domain.
         /// </summary>
         [Output("identityCenterOptions")]
         public Output<Outputs.DomainIdentityCenterOptions?> IdentityCenterOptions { get; private set; } = null!;
@@ -310,7 +310,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// Container for IAM Identity Center Option control for the domain.
+        /// Configuration options for controlling IAM Identity Center integration within a domain.
         /// </summary>
         [Input("identityCenterOptions")]
         public Input<Inputs.DomainIdentityCenterOptionsArgs>? IdentityCenterOptions { get; set; }

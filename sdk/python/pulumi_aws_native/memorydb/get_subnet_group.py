@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetSubnetGroupResult:
-    def __init__(__self__, arn=None, description=None, subnet_ids=None, tags=None):
+    def __init__(__self__, arn=None, description=None, subnet_ids=None, supported_network_types=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -34,6 +34,9 @@ class GetSubnetGroupResult:
         if subnet_ids and not isinstance(subnet_ids, list):
             raise TypeError("Expected argument 'subnet_ids' to be a list")
         pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if supported_network_types and not isinstance(supported_network_types, list):
+            raise TypeError("Expected argument 'supported_network_types' to be a list")
+        pulumi.set(__self__, "supported_network_types", supported_network_types)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -63,6 +66,14 @@ class GetSubnetGroupResult:
         return pulumi.get(self, "subnet_ids")
 
     @property
+    @pulumi.getter(name="supportedNetworkTypes")
+    def supported_network_types(self) -> Optional[Sequence[str]]:
+        """
+        Supported network types would be a list of network types supported by subnet group and can be either [ipv4] or [ipv4, dual_stack] or [ipv6].
+        """
+        return pulumi.get(self, "supported_network_types")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -80,6 +91,7 @@ class AwaitableGetSubnetGroupResult(GetSubnetGroupResult):
             arn=self.arn,
             description=self.description,
             subnet_ids=self.subnet_ids,
+            supported_network_types=self.supported_network_types,
             tags=self.tags)
 
 
@@ -100,6 +112,7 @@ def get_subnet_group(subnet_group_name: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        supported_network_types=pulumi.get(__ret__, 'supported_network_types'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_subnet_group_output(subnet_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetGroupResult]:
@@ -117,4 +130,5 @@ def get_subnet_group_output(subnet_group_name: Optional[pulumi.Input[str]] = Non
         arn=pulumi.get(__response__, 'arn'),
         description=pulumi.get(__response__, 'description'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        supported_network_types=pulumi.get(__response__, 'supported_network_types'),
         tags=pulumi.get(__response__, 'tags')))

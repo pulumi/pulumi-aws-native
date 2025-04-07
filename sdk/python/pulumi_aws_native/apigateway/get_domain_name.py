@@ -90,7 +90,7 @@ class GetDomainNameResult:
     @pulumi.getter(name="endpointConfiguration")
     def endpoint_configuration(self) -> Optional['outputs.DomainNameEndpointConfiguration']:
         """
-        The endpoint configuration of this DomainName showing the endpoint types of the domain name.
+        The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
         """
         return pulumi.get(self, "endpoint_configuration")
 

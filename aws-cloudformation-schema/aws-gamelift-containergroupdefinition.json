@@ -444,19 +444,20 @@
   "required" : [ "Name", "OperatingSystem", "TotalMemoryLimitMebibytes", "TotalVcpuLimit" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/ContainerGroupType" ],
   "readOnlyProperties" : [ "/properties/ContainerGroupDefinitionArn", "/properties/CreationTime", "/properties/VersionNumber", "/properties/Status", "/properties/StatusReason" ],
+  "writeOnlyProperties" : [ "/properties/SourceVersionNumber" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "gamelift:CreateContainerGroupDefinition", "gamelift:DescribeContainerGroupDefinition", "gamelift:ListTagsForResource", "gamelift:TagResource", "ecr:BatchCheckLayerAvailability", "ecr:BatchGetImage", "ecr:GetDownloadUrlForLayer", "ecr:DescribeImages" ]
+      "permissions" : [ "gamelift:CreateContainerGroupDefinition", "gamelift:DescribeContainerGroupDefinition", "gamelift:ListTagsForResource", "gamelift:TagResource", "ecr:BatchCheckLayerAvailability", "ecr:BatchGetImage", "ecr:GetDownloadUrlForLayer", "ecr:DescribeImages", "ecr:GetAuthorizationToken" ]
     },
     "read" : {
       "permissions" : [ "gamelift:DescribeContainerGroupDefinition", "gamelift:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "gamelift:UpdateContainerGroupDefinition", "gamelift:ListTagsForResource", "gamelift:TagResource", "gamelift:UntagResource" ]
+      "permissions" : [ "gamelift:DescribeContainerGroupDefinition", "gamelift:UpdateContainerGroupDefinition", "gamelift:ListTagsForResource", "gamelift:TagResource", "gamelift:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "gamelift:DescribeContainerGroupDefinition", "gamelift:DeleteContainerGroupDefinition" ]
+      "permissions" : [ "gamelift:DeleteContainerGroupDefinition" ]
     },
     "list" : {
       "permissions" : [ "gamelift:ListContainerGroupDefinitions" ]

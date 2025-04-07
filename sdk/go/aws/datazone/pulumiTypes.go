@@ -13,6 +13,5030 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Athena Properties Input
+type ConnectionAthenaPropertiesInput struct {
+	WorkgroupName string `pulumi:"workgroupName"`
+}
+
+// ConnectionAthenaPropertiesInputInput is an input type that accepts ConnectionAthenaPropertiesInputArgs and ConnectionAthenaPropertiesInputOutput values.
+// You can construct a concrete instance of `ConnectionAthenaPropertiesInputInput` via:
+//
+//	ConnectionAthenaPropertiesInputArgs{...}
+type ConnectionAthenaPropertiesInputInput interface {
+	pulumi.Input
+
+	ToConnectionAthenaPropertiesInputOutput() ConnectionAthenaPropertiesInputOutput
+	ToConnectionAthenaPropertiesInputOutputWithContext(context.Context) ConnectionAthenaPropertiesInputOutput
+}
+
+// Athena Properties Input
+type ConnectionAthenaPropertiesInputArgs struct {
+	WorkgroupName pulumi.StringInput `pulumi:"workgroupName"`
+}
+
+func (ConnectionAthenaPropertiesInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAthenaPropertiesInput)(nil)).Elem()
+}
+
+func (i ConnectionAthenaPropertiesInputArgs) ToConnectionAthenaPropertiesInputOutput() ConnectionAthenaPropertiesInputOutput {
+	return i.ToConnectionAthenaPropertiesInputOutputWithContext(context.Background())
+}
+
+func (i ConnectionAthenaPropertiesInputArgs) ToConnectionAthenaPropertiesInputOutputWithContext(ctx context.Context) ConnectionAthenaPropertiesInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAthenaPropertiesInputOutput)
+}
+
+func (i ConnectionAthenaPropertiesInputArgs) ToConnectionAthenaPropertiesInputPtrOutput() ConnectionAthenaPropertiesInputPtrOutput {
+	return i.ToConnectionAthenaPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionAthenaPropertiesInputArgs) ToConnectionAthenaPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionAthenaPropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAthenaPropertiesInputOutput).ToConnectionAthenaPropertiesInputPtrOutputWithContext(ctx)
+}
+
+// ConnectionAthenaPropertiesInputPtrInput is an input type that accepts ConnectionAthenaPropertiesInputArgs, ConnectionAthenaPropertiesInputPtr and ConnectionAthenaPropertiesInputPtrOutput values.
+// You can construct a concrete instance of `ConnectionAthenaPropertiesInputPtrInput` via:
+//
+//	        ConnectionAthenaPropertiesInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionAthenaPropertiesInputPtrInput interface {
+	pulumi.Input
+
+	ToConnectionAthenaPropertiesInputPtrOutput() ConnectionAthenaPropertiesInputPtrOutput
+	ToConnectionAthenaPropertiesInputPtrOutputWithContext(context.Context) ConnectionAthenaPropertiesInputPtrOutput
+}
+
+type connectionAthenaPropertiesInputPtrType ConnectionAthenaPropertiesInputArgs
+
+func ConnectionAthenaPropertiesInputPtr(v *ConnectionAthenaPropertiesInputArgs) ConnectionAthenaPropertiesInputPtrInput {
+	return (*connectionAthenaPropertiesInputPtrType)(v)
+}
+
+func (*connectionAthenaPropertiesInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAthenaPropertiesInput)(nil)).Elem()
+}
+
+func (i *connectionAthenaPropertiesInputPtrType) ToConnectionAthenaPropertiesInputPtrOutput() ConnectionAthenaPropertiesInputPtrOutput {
+	return i.ToConnectionAthenaPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionAthenaPropertiesInputPtrType) ToConnectionAthenaPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionAthenaPropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAthenaPropertiesInputPtrOutput)
+}
+
+// Athena Properties Input
+type ConnectionAthenaPropertiesInputOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAthenaPropertiesInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAthenaPropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionAthenaPropertiesInputOutput) ToConnectionAthenaPropertiesInputOutput() ConnectionAthenaPropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionAthenaPropertiesInputOutput) ToConnectionAthenaPropertiesInputOutputWithContext(ctx context.Context) ConnectionAthenaPropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionAthenaPropertiesInputOutput) ToConnectionAthenaPropertiesInputPtrOutput() ConnectionAthenaPropertiesInputPtrOutput {
+	return o.ToConnectionAthenaPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAthenaPropertiesInputOutput) ToConnectionAthenaPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionAthenaPropertiesInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAthenaPropertiesInput) *ConnectionAthenaPropertiesInput {
+		return &v
+	}).(ConnectionAthenaPropertiesInputPtrOutput)
+}
+
+func (o ConnectionAthenaPropertiesInputOutput) WorkgroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionAthenaPropertiesInput) string { return v.WorkgroupName }).(pulumi.StringOutput)
+}
+
+type ConnectionAthenaPropertiesInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAthenaPropertiesInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAthenaPropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionAthenaPropertiesInputPtrOutput) ToConnectionAthenaPropertiesInputPtrOutput() ConnectionAthenaPropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionAthenaPropertiesInputPtrOutput) ToConnectionAthenaPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionAthenaPropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionAthenaPropertiesInputPtrOutput) Elem() ConnectionAthenaPropertiesInputOutput {
+	return o.ApplyT(func(v *ConnectionAthenaPropertiesInput) ConnectionAthenaPropertiesInput {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionAthenaPropertiesInput
+		return ret
+	}).(ConnectionAthenaPropertiesInputOutput)
+}
+
+func (o ConnectionAthenaPropertiesInputPtrOutput) WorkgroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAthenaPropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkgroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Authentication Configuration Input
+type ConnectionAuthenticationConfigurationInput struct {
+	AuthenticationType              *ConnectionAuthenticationType             `pulumi:"authenticationType"`
+	BasicAuthenticationCredentials  *ConnectionBasicAuthenticationCredentials `pulumi:"basicAuthenticationCredentials"`
+	CustomAuthenticationCredentials map[string]string                         `pulumi:"customAuthenticationCredentials"`
+	KmsKeyArn                       *string                                   `pulumi:"kmsKeyArn"`
+	OAuth2Properties                *ConnectionOAuth2Properties               `pulumi:"oAuth2Properties"`
+	SecretArn                       *string                                   `pulumi:"secretArn"`
+}
+
+// ConnectionAuthenticationConfigurationInputInput is an input type that accepts ConnectionAuthenticationConfigurationInputArgs and ConnectionAuthenticationConfigurationInputOutput values.
+// You can construct a concrete instance of `ConnectionAuthenticationConfigurationInputInput` via:
+//
+//	ConnectionAuthenticationConfigurationInputArgs{...}
+type ConnectionAuthenticationConfigurationInputInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationConfigurationInputOutput() ConnectionAuthenticationConfigurationInputOutput
+	ToConnectionAuthenticationConfigurationInputOutputWithContext(context.Context) ConnectionAuthenticationConfigurationInputOutput
+}
+
+// Authentication Configuration Input
+type ConnectionAuthenticationConfigurationInputArgs struct {
+	AuthenticationType              ConnectionAuthenticationTypePtrInput             `pulumi:"authenticationType"`
+	BasicAuthenticationCredentials  ConnectionBasicAuthenticationCredentialsPtrInput `pulumi:"basicAuthenticationCredentials"`
+	CustomAuthenticationCredentials pulumi.StringMapInput                            `pulumi:"customAuthenticationCredentials"`
+	KmsKeyArn                       pulumi.StringPtrInput                            `pulumi:"kmsKeyArn"`
+	OAuth2Properties                ConnectionOAuth2PropertiesPtrInput               `pulumi:"oAuth2Properties"`
+	SecretArn                       pulumi.StringPtrInput                            `pulumi:"secretArn"`
+}
+
+func (ConnectionAuthenticationConfigurationInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationConfigurationInput)(nil)).Elem()
+}
+
+func (i ConnectionAuthenticationConfigurationInputArgs) ToConnectionAuthenticationConfigurationInputOutput() ConnectionAuthenticationConfigurationInputOutput {
+	return i.ToConnectionAuthenticationConfigurationInputOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthenticationConfigurationInputArgs) ToConnectionAuthenticationConfigurationInputOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationInputOutput)
+}
+
+func (i ConnectionAuthenticationConfigurationInputArgs) ToConnectionAuthenticationConfigurationInputPtrOutput() ConnectionAuthenticationConfigurationInputPtrOutput {
+	return i.ToConnectionAuthenticationConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthenticationConfigurationInputArgs) ToConnectionAuthenticationConfigurationInputPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationInputOutput).ToConnectionAuthenticationConfigurationInputPtrOutputWithContext(ctx)
+}
+
+// ConnectionAuthenticationConfigurationInputPtrInput is an input type that accepts ConnectionAuthenticationConfigurationInputArgs, ConnectionAuthenticationConfigurationInputPtr and ConnectionAuthenticationConfigurationInputPtrOutput values.
+// You can construct a concrete instance of `ConnectionAuthenticationConfigurationInputPtrInput` via:
+//
+//	        ConnectionAuthenticationConfigurationInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionAuthenticationConfigurationInputPtrInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationConfigurationInputPtrOutput() ConnectionAuthenticationConfigurationInputPtrOutput
+	ToConnectionAuthenticationConfigurationInputPtrOutputWithContext(context.Context) ConnectionAuthenticationConfigurationInputPtrOutput
+}
+
+type connectionAuthenticationConfigurationInputPtrType ConnectionAuthenticationConfigurationInputArgs
+
+func ConnectionAuthenticationConfigurationInputPtr(v *ConnectionAuthenticationConfigurationInputArgs) ConnectionAuthenticationConfigurationInputPtrInput {
+	return (*connectionAuthenticationConfigurationInputPtrType)(v)
+}
+
+func (*connectionAuthenticationConfigurationInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthenticationConfigurationInput)(nil)).Elem()
+}
+
+func (i *connectionAuthenticationConfigurationInputPtrType) ToConnectionAuthenticationConfigurationInputPtrOutput() ConnectionAuthenticationConfigurationInputPtrOutput {
+	return i.ToConnectionAuthenticationConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionAuthenticationConfigurationInputPtrType) ToConnectionAuthenticationConfigurationInputPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationInputPtrOutput)
+}
+
+// Authentication Configuration Input
+type ConnectionAuthenticationConfigurationInputOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationConfigurationInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationConfigurationInput)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationConfigurationInputOutput) ToConnectionAuthenticationConfigurationInputOutput() ConnectionAuthenticationConfigurationInputOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationInputOutput) ToConnectionAuthenticationConfigurationInputOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationInputOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationInputOutput) ToConnectionAuthenticationConfigurationInputPtrOutput() ConnectionAuthenticationConfigurationInputPtrOutput {
+	return o.ToConnectionAuthenticationConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAuthenticationConfigurationInputOutput) ToConnectionAuthenticationConfigurationInputPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAuthenticationConfigurationInput) *ConnectionAuthenticationConfigurationInput {
+		return &v
+	}).(ConnectionAuthenticationConfigurationInputPtrOutput)
+}
+
+func (o ConnectionAuthenticationConfigurationInputOutput) AuthenticationType() ConnectionAuthenticationTypePtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationInput) *ConnectionAuthenticationType {
+		return v.AuthenticationType
+	}).(ConnectionAuthenticationTypePtrOutput)
+}
+
+func (o ConnectionAuthenticationConfigurationInputOutput) BasicAuthenticationCredentials() ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationInput) *ConnectionBasicAuthenticationCredentials {
+		return v.BasicAuthenticationCredentials
+	}).(ConnectionBasicAuthenticationCredentialsPtrOutput)
+}
+
+func (o ConnectionAuthenticationConfigurationInputOutput) CustomAuthenticationCredentials() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationInput) map[string]string {
+		return v.CustomAuthenticationCredentials
+	}).(pulumi.StringMapOutput)
+}
+
+func (o ConnectionAuthenticationConfigurationInputOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationInput) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionAuthenticationConfigurationInputOutput) OAuth2Properties() ConnectionOAuth2PropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationInput) *ConnectionOAuth2Properties {
+		return v.OAuth2Properties
+	}).(ConnectionOAuth2PropertiesPtrOutput)
+}
+
+func (o ConnectionAuthenticationConfigurationInputOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationInput) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionAuthenticationConfigurationInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationConfigurationInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthenticationConfigurationInput)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationConfigurationInputPtrOutput) ToConnectionAuthenticationConfigurationInputPtrOutput() ConnectionAuthenticationConfigurationInputPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationInputPtrOutput) ToConnectionAuthenticationConfigurationInputPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationInputPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationInputPtrOutput) Elem() ConnectionAuthenticationConfigurationInputOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationInput) ConnectionAuthenticationConfigurationInput {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionAuthenticationConfigurationInput
+		return ret
+	}).(ConnectionAuthenticationConfigurationInputOutput)
+}
+
+func (o ConnectionAuthenticationConfigurationInputPtrOutput) AuthenticationType() ConnectionAuthenticationTypePtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationInput) *ConnectionAuthenticationType {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationType
+	}).(ConnectionAuthenticationTypePtrOutput)
+}
+
+func (o ConnectionAuthenticationConfigurationInputPtrOutput) BasicAuthenticationCredentials() ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationInput) *ConnectionBasicAuthenticationCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.BasicAuthenticationCredentials
+	}).(ConnectionBasicAuthenticationCredentialsPtrOutput)
+}
+
+func (o ConnectionAuthenticationConfigurationInputPtrOutput) CustomAuthenticationCredentials() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationInput) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomAuthenticationCredentials
+	}).(pulumi.StringMapOutput)
+}
+
+func (o ConnectionAuthenticationConfigurationInputPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionAuthenticationConfigurationInputPtrOutput) OAuth2Properties() ConnectionOAuth2PropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationInput) *ConnectionOAuth2Properties {
+		if v == nil {
+			return nil
+		}
+		return v.OAuth2Properties
+	}).(ConnectionOAuth2PropertiesPtrOutput)
+}
+
+func (o ConnectionAuthenticationConfigurationInputPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Authorization Code Properties
+type ConnectionAuthorizationCodeProperties struct {
+	AuthorizationCode *string `pulumi:"authorizationCode"`
+	RedirectUri       *string `pulumi:"redirectUri"`
+}
+
+// ConnectionAuthorizationCodePropertiesInput is an input type that accepts ConnectionAuthorizationCodePropertiesArgs and ConnectionAuthorizationCodePropertiesOutput values.
+// You can construct a concrete instance of `ConnectionAuthorizationCodePropertiesInput` via:
+//
+//	ConnectionAuthorizationCodePropertiesArgs{...}
+type ConnectionAuthorizationCodePropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionAuthorizationCodePropertiesOutput() ConnectionAuthorizationCodePropertiesOutput
+	ToConnectionAuthorizationCodePropertiesOutputWithContext(context.Context) ConnectionAuthorizationCodePropertiesOutput
+}
+
+// Authorization Code Properties
+type ConnectionAuthorizationCodePropertiesArgs struct {
+	AuthorizationCode pulumi.StringPtrInput `pulumi:"authorizationCode"`
+	RedirectUri       pulumi.StringPtrInput `pulumi:"redirectUri"`
+}
+
+func (ConnectionAuthorizationCodePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthorizationCodeProperties)(nil)).Elem()
+}
+
+func (i ConnectionAuthorizationCodePropertiesArgs) ToConnectionAuthorizationCodePropertiesOutput() ConnectionAuthorizationCodePropertiesOutput {
+	return i.ToConnectionAuthorizationCodePropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthorizationCodePropertiesArgs) ToConnectionAuthorizationCodePropertiesOutputWithContext(ctx context.Context) ConnectionAuthorizationCodePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthorizationCodePropertiesOutput)
+}
+
+func (i ConnectionAuthorizationCodePropertiesArgs) ToConnectionAuthorizationCodePropertiesPtrOutput() ConnectionAuthorizationCodePropertiesPtrOutput {
+	return i.ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthorizationCodePropertiesArgs) ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(ctx context.Context) ConnectionAuthorizationCodePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthorizationCodePropertiesOutput).ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionAuthorizationCodePropertiesPtrInput is an input type that accepts ConnectionAuthorizationCodePropertiesArgs, ConnectionAuthorizationCodePropertiesPtr and ConnectionAuthorizationCodePropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionAuthorizationCodePropertiesPtrInput` via:
+//
+//	        ConnectionAuthorizationCodePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionAuthorizationCodePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionAuthorizationCodePropertiesPtrOutput() ConnectionAuthorizationCodePropertiesPtrOutput
+	ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(context.Context) ConnectionAuthorizationCodePropertiesPtrOutput
+}
+
+type connectionAuthorizationCodePropertiesPtrType ConnectionAuthorizationCodePropertiesArgs
+
+func ConnectionAuthorizationCodePropertiesPtr(v *ConnectionAuthorizationCodePropertiesArgs) ConnectionAuthorizationCodePropertiesPtrInput {
+	return (*connectionAuthorizationCodePropertiesPtrType)(v)
+}
+
+func (*connectionAuthorizationCodePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthorizationCodeProperties)(nil)).Elem()
+}
+
+func (i *connectionAuthorizationCodePropertiesPtrType) ToConnectionAuthorizationCodePropertiesPtrOutput() ConnectionAuthorizationCodePropertiesPtrOutput {
+	return i.ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionAuthorizationCodePropertiesPtrType) ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(ctx context.Context) ConnectionAuthorizationCodePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthorizationCodePropertiesPtrOutput)
+}
+
+// Authorization Code Properties
+type ConnectionAuthorizationCodePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthorizationCodePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthorizationCodeProperties)(nil)).Elem()
+}
+
+func (o ConnectionAuthorizationCodePropertiesOutput) ToConnectionAuthorizationCodePropertiesOutput() ConnectionAuthorizationCodePropertiesOutput {
+	return o
+}
+
+func (o ConnectionAuthorizationCodePropertiesOutput) ToConnectionAuthorizationCodePropertiesOutputWithContext(ctx context.Context) ConnectionAuthorizationCodePropertiesOutput {
+	return o
+}
+
+func (o ConnectionAuthorizationCodePropertiesOutput) ToConnectionAuthorizationCodePropertiesPtrOutput() ConnectionAuthorizationCodePropertiesPtrOutput {
+	return o.ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAuthorizationCodePropertiesOutput) ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(ctx context.Context) ConnectionAuthorizationCodePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAuthorizationCodeProperties) *ConnectionAuthorizationCodeProperties {
+		return &v
+	}).(ConnectionAuthorizationCodePropertiesPtrOutput)
+}
+
+func (o ConnectionAuthorizationCodePropertiesOutput) AuthorizationCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthorizationCodeProperties) *string { return v.AuthorizationCode }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionAuthorizationCodePropertiesOutput) RedirectUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthorizationCodeProperties) *string { return v.RedirectUri }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionAuthorizationCodePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthorizationCodePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthorizationCodeProperties)(nil)).Elem()
+}
+
+func (o ConnectionAuthorizationCodePropertiesPtrOutput) ToConnectionAuthorizationCodePropertiesPtrOutput() ConnectionAuthorizationCodePropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthorizationCodePropertiesPtrOutput) ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(ctx context.Context) ConnectionAuthorizationCodePropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthorizationCodePropertiesPtrOutput) Elem() ConnectionAuthorizationCodePropertiesOutput {
+	return o.ApplyT(func(v *ConnectionAuthorizationCodeProperties) ConnectionAuthorizationCodeProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionAuthorizationCodeProperties
+		return ret
+	}).(ConnectionAuthorizationCodePropertiesOutput)
+}
+
+func (o ConnectionAuthorizationCodePropertiesPtrOutput) AuthorizationCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthorizationCodeProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationCode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionAuthorizationCodePropertiesPtrOutput) RedirectUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthorizationCodeProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RedirectUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Location of project
+type ConnectionAwsLocation struct {
+	// The access role of a connection.
+	AccessRole *string `pulumi:"accessRole"`
+	// The account ID of a connection.
+	AwsAccountId *string `pulumi:"awsAccountId"`
+	// The Region of a connection.
+	AwsRegion *string `pulumi:"awsRegion"`
+	// The IAM connection ID of a connection.
+	IamConnectionId *string `pulumi:"iamConnectionId"`
+}
+
+// ConnectionAwsLocationInput is an input type that accepts ConnectionAwsLocationArgs and ConnectionAwsLocationOutput values.
+// You can construct a concrete instance of `ConnectionAwsLocationInput` via:
+//
+//	ConnectionAwsLocationArgs{...}
+type ConnectionAwsLocationInput interface {
+	pulumi.Input
+
+	ToConnectionAwsLocationOutput() ConnectionAwsLocationOutput
+	ToConnectionAwsLocationOutputWithContext(context.Context) ConnectionAwsLocationOutput
+}
+
+// AWS Location of project
+type ConnectionAwsLocationArgs struct {
+	// The access role of a connection.
+	AccessRole pulumi.StringPtrInput `pulumi:"accessRole"`
+	// The account ID of a connection.
+	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
+	// The Region of a connection.
+	AwsRegion pulumi.StringPtrInput `pulumi:"awsRegion"`
+	// The IAM connection ID of a connection.
+	IamConnectionId pulumi.StringPtrInput `pulumi:"iamConnectionId"`
+}
+
+func (ConnectionAwsLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAwsLocation)(nil)).Elem()
+}
+
+func (i ConnectionAwsLocationArgs) ToConnectionAwsLocationOutput() ConnectionAwsLocationOutput {
+	return i.ToConnectionAwsLocationOutputWithContext(context.Background())
+}
+
+func (i ConnectionAwsLocationArgs) ToConnectionAwsLocationOutputWithContext(ctx context.Context) ConnectionAwsLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAwsLocationOutput)
+}
+
+func (i ConnectionAwsLocationArgs) ToConnectionAwsLocationPtrOutput() ConnectionAwsLocationPtrOutput {
+	return i.ToConnectionAwsLocationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionAwsLocationArgs) ToConnectionAwsLocationPtrOutputWithContext(ctx context.Context) ConnectionAwsLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAwsLocationOutput).ToConnectionAwsLocationPtrOutputWithContext(ctx)
+}
+
+// ConnectionAwsLocationPtrInput is an input type that accepts ConnectionAwsLocationArgs, ConnectionAwsLocationPtr and ConnectionAwsLocationPtrOutput values.
+// You can construct a concrete instance of `ConnectionAwsLocationPtrInput` via:
+//
+//	        ConnectionAwsLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionAwsLocationPtrInput interface {
+	pulumi.Input
+
+	ToConnectionAwsLocationPtrOutput() ConnectionAwsLocationPtrOutput
+	ToConnectionAwsLocationPtrOutputWithContext(context.Context) ConnectionAwsLocationPtrOutput
+}
+
+type connectionAwsLocationPtrType ConnectionAwsLocationArgs
+
+func ConnectionAwsLocationPtr(v *ConnectionAwsLocationArgs) ConnectionAwsLocationPtrInput {
+	return (*connectionAwsLocationPtrType)(v)
+}
+
+func (*connectionAwsLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAwsLocation)(nil)).Elem()
+}
+
+func (i *connectionAwsLocationPtrType) ToConnectionAwsLocationPtrOutput() ConnectionAwsLocationPtrOutput {
+	return i.ToConnectionAwsLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionAwsLocationPtrType) ToConnectionAwsLocationPtrOutputWithContext(ctx context.Context) ConnectionAwsLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAwsLocationPtrOutput)
+}
+
+// AWS Location of project
+type ConnectionAwsLocationOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAwsLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAwsLocation)(nil)).Elem()
+}
+
+func (o ConnectionAwsLocationOutput) ToConnectionAwsLocationOutput() ConnectionAwsLocationOutput {
+	return o
+}
+
+func (o ConnectionAwsLocationOutput) ToConnectionAwsLocationOutputWithContext(ctx context.Context) ConnectionAwsLocationOutput {
+	return o
+}
+
+func (o ConnectionAwsLocationOutput) ToConnectionAwsLocationPtrOutput() ConnectionAwsLocationPtrOutput {
+	return o.ToConnectionAwsLocationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAwsLocationOutput) ToConnectionAwsLocationPtrOutputWithContext(ctx context.Context) ConnectionAwsLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAwsLocation) *ConnectionAwsLocation {
+		return &v
+	}).(ConnectionAwsLocationPtrOutput)
+}
+
+// The access role of a connection.
+func (o ConnectionAwsLocationOutput) AccessRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAwsLocation) *string { return v.AccessRole }).(pulumi.StringPtrOutput)
+}
+
+// The account ID of a connection.
+func (o ConnectionAwsLocationOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAwsLocation) *string { return v.AwsAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The Region of a connection.
+func (o ConnectionAwsLocationOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAwsLocation) *string { return v.AwsRegion }).(pulumi.StringPtrOutput)
+}
+
+// The IAM connection ID of a connection.
+func (o ConnectionAwsLocationOutput) IamConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAwsLocation) *string { return v.IamConnectionId }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionAwsLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAwsLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAwsLocation)(nil)).Elem()
+}
+
+func (o ConnectionAwsLocationPtrOutput) ToConnectionAwsLocationPtrOutput() ConnectionAwsLocationPtrOutput {
+	return o
+}
+
+func (o ConnectionAwsLocationPtrOutput) ToConnectionAwsLocationPtrOutputWithContext(ctx context.Context) ConnectionAwsLocationPtrOutput {
+	return o
+}
+
+func (o ConnectionAwsLocationPtrOutput) Elem() ConnectionAwsLocationOutput {
+	return o.ApplyT(func(v *ConnectionAwsLocation) ConnectionAwsLocation {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionAwsLocation
+		return ret
+	}).(ConnectionAwsLocationOutput)
+}
+
+// The access role of a connection.
+func (o ConnectionAwsLocationPtrOutput) AccessRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAwsLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// The account ID of a connection.
+func (o ConnectionAwsLocationPtrOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAwsLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Region of a connection.
+func (o ConnectionAwsLocationPtrOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAwsLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IAM connection ID of a connection.
+func (o ConnectionAwsLocationPtrOutput) IamConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAwsLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IamConnectionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Basic Authentication Credentials
+type ConnectionBasicAuthenticationCredentials struct {
+	Password *string `pulumi:"password"`
+	UserName *string `pulumi:"userName"`
+}
+
+// ConnectionBasicAuthenticationCredentialsInput is an input type that accepts ConnectionBasicAuthenticationCredentialsArgs and ConnectionBasicAuthenticationCredentialsOutput values.
+// You can construct a concrete instance of `ConnectionBasicAuthenticationCredentialsInput` via:
+//
+//	ConnectionBasicAuthenticationCredentialsArgs{...}
+type ConnectionBasicAuthenticationCredentialsInput interface {
+	pulumi.Input
+
+	ToConnectionBasicAuthenticationCredentialsOutput() ConnectionBasicAuthenticationCredentialsOutput
+	ToConnectionBasicAuthenticationCredentialsOutputWithContext(context.Context) ConnectionBasicAuthenticationCredentialsOutput
+}
+
+// Basic Authentication Credentials
+type ConnectionBasicAuthenticationCredentialsArgs struct {
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	UserName pulumi.StringPtrInput `pulumi:"userName"`
+}
+
+func (ConnectionBasicAuthenticationCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionBasicAuthenticationCredentials)(nil)).Elem()
+}
+
+func (i ConnectionBasicAuthenticationCredentialsArgs) ToConnectionBasicAuthenticationCredentialsOutput() ConnectionBasicAuthenticationCredentialsOutput {
+	return i.ToConnectionBasicAuthenticationCredentialsOutputWithContext(context.Background())
+}
+
+func (i ConnectionBasicAuthenticationCredentialsArgs) ToConnectionBasicAuthenticationCredentialsOutputWithContext(ctx context.Context) ConnectionBasicAuthenticationCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionBasicAuthenticationCredentialsOutput)
+}
+
+func (i ConnectionBasicAuthenticationCredentialsArgs) ToConnectionBasicAuthenticationCredentialsPtrOutput() ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return i.ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionBasicAuthenticationCredentialsArgs) ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(ctx context.Context) ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionBasicAuthenticationCredentialsOutput).ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(ctx)
+}
+
+// ConnectionBasicAuthenticationCredentialsPtrInput is an input type that accepts ConnectionBasicAuthenticationCredentialsArgs, ConnectionBasicAuthenticationCredentialsPtr and ConnectionBasicAuthenticationCredentialsPtrOutput values.
+// You can construct a concrete instance of `ConnectionBasicAuthenticationCredentialsPtrInput` via:
+//
+//	        ConnectionBasicAuthenticationCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionBasicAuthenticationCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToConnectionBasicAuthenticationCredentialsPtrOutput() ConnectionBasicAuthenticationCredentialsPtrOutput
+	ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(context.Context) ConnectionBasicAuthenticationCredentialsPtrOutput
+}
+
+type connectionBasicAuthenticationCredentialsPtrType ConnectionBasicAuthenticationCredentialsArgs
+
+func ConnectionBasicAuthenticationCredentialsPtr(v *ConnectionBasicAuthenticationCredentialsArgs) ConnectionBasicAuthenticationCredentialsPtrInput {
+	return (*connectionBasicAuthenticationCredentialsPtrType)(v)
+}
+
+func (*connectionBasicAuthenticationCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionBasicAuthenticationCredentials)(nil)).Elem()
+}
+
+func (i *connectionBasicAuthenticationCredentialsPtrType) ToConnectionBasicAuthenticationCredentialsPtrOutput() ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return i.ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionBasicAuthenticationCredentialsPtrType) ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(ctx context.Context) ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionBasicAuthenticationCredentialsPtrOutput)
+}
+
+// Basic Authentication Credentials
+type ConnectionBasicAuthenticationCredentialsOutput struct{ *pulumi.OutputState }
+
+func (ConnectionBasicAuthenticationCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionBasicAuthenticationCredentials)(nil)).Elem()
+}
+
+func (o ConnectionBasicAuthenticationCredentialsOutput) ToConnectionBasicAuthenticationCredentialsOutput() ConnectionBasicAuthenticationCredentialsOutput {
+	return o
+}
+
+func (o ConnectionBasicAuthenticationCredentialsOutput) ToConnectionBasicAuthenticationCredentialsOutputWithContext(ctx context.Context) ConnectionBasicAuthenticationCredentialsOutput {
+	return o
+}
+
+func (o ConnectionBasicAuthenticationCredentialsOutput) ToConnectionBasicAuthenticationCredentialsPtrOutput() ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return o.ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionBasicAuthenticationCredentialsOutput) ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(ctx context.Context) ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionBasicAuthenticationCredentials) *ConnectionBasicAuthenticationCredentials {
+		return &v
+	}).(ConnectionBasicAuthenticationCredentialsPtrOutput)
+}
+
+func (o ConnectionBasicAuthenticationCredentialsOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionBasicAuthenticationCredentials) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionBasicAuthenticationCredentialsOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionBasicAuthenticationCredentials) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionBasicAuthenticationCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionBasicAuthenticationCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionBasicAuthenticationCredentials)(nil)).Elem()
+}
+
+func (o ConnectionBasicAuthenticationCredentialsPtrOutput) ToConnectionBasicAuthenticationCredentialsPtrOutput() ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return o
+}
+
+func (o ConnectionBasicAuthenticationCredentialsPtrOutput) ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(ctx context.Context) ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return o
+}
+
+func (o ConnectionBasicAuthenticationCredentialsPtrOutput) Elem() ConnectionBasicAuthenticationCredentialsOutput {
+	return o.ApplyT(func(v *ConnectionBasicAuthenticationCredentials) ConnectionBasicAuthenticationCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionBasicAuthenticationCredentials
+		return ret
+	}).(ConnectionBasicAuthenticationCredentialsOutput)
+}
+
+func (o ConnectionBasicAuthenticationCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionBasicAuthenticationCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionBasicAuthenticationCredentialsPtrOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionBasicAuthenticationCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Glue Connection Input
+type ConnectionGlueConnectionInput struct {
+	AthenaProperties               map[string]string                           `pulumi:"athenaProperties"`
+	AuthenticationConfiguration    *ConnectionAuthenticationConfigurationInput `pulumi:"authenticationConfiguration"`
+	ConnectionProperties           map[string]string                           `pulumi:"connectionProperties"`
+	ConnectionType                 *string                                     `pulumi:"connectionType"`
+	Description                    *string                                     `pulumi:"description"`
+	MatchCriteria                  *string                                     `pulumi:"matchCriteria"`
+	Name                           *string                                     `pulumi:"name"`
+	PhysicalConnectionRequirements *ConnectionPhysicalConnectionRequirements   `pulumi:"physicalConnectionRequirements"`
+	PythonProperties               map[string]string                           `pulumi:"pythonProperties"`
+	SparkProperties                map[string]string                           `pulumi:"sparkProperties"`
+	ValidateCredentials            *bool                                       `pulumi:"validateCredentials"`
+	ValidateForComputeEnvironments []string                                    `pulumi:"validateForComputeEnvironments"`
+}
+
+// ConnectionGlueConnectionInputInput is an input type that accepts ConnectionGlueConnectionInputArgs and ConnectionGlueConnectionInputOutput values.
+// You can construct a concrete instance of `ConnectionGlueConnectionInputInput` via:
+//
+//	ConnectionGlueConnectionInputArgs{...}
+type ConnectionGlueConnectionInputInput interface {
+	pulumi.Input
+
+	ToConnectionGlueConnectionInputOutput() ConnectionGlueConnectionInputOutput
+	ToConnectionGlueConnectionInputOutputWithContext(context.Context) ConnectionGlueConnectionInputOutput
+}
+
+// Glue Connection Input
+type ConnectionGlueConnectionInputArgs struct {
+	AthenaProperties               pulumi.StringMapInput                              `pulumi:"athenaProperties"`
+	AuthenticationConfiguration    ConnectionAuthenticationConfigurationInputPtrInput `pulumi:"authenticationConfiguration"`
+	ConnectionProperties           pulumi.StringMapInput                              `pulumi:"connectionProperties"`
+	ConnectionType                 pulumi.StringPtrInput                              `pulumi:"connectionType"`
+	Description                    pulumi.StringPtrInput                              `pulumi:"description"`
+	MatchCriteria                  pulumi.StringPtrInput                              `pulumi:"matchCriteria"`
+	Name                           pulumi.StringPtrInput                              `pulumi:"name"`
+	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrInput   `pulumi:"physicalConnectionRequirements"`
+	PythonProperties               pulumi.StringMapInput                              `pulumi:"pythonProperties"`
+	SparkProperties                pulumi.StringMapInput                              `pulumi:"sparkProperties"`
+	ValidateCredentials            pulumi.BoolPtrInput                                `pulumi:"validateCredentials"`
+	ValidateForComputeEnvironments pulumi.StringArrayInput                            `pulumi:"validateForComputeEnvironments"`
+}
+
+func (ConnectionGlueConnectionInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionGlueConnectionInput)(nil)).Elem()
+}
+
+func (i ConnectionGlueConnectionInputArgs) ToConnectionGlueConnectionInputOutput() ConnectionGlueConnectionInputOutput {
+	return i.ToConnectionGlueConnectionInputOutputWithContext(context.Background())
+}
+
+func (i ConnectionGlueConnectionInputArgs) ToConnectionGlueConnectionInputOutputWithContext(ctx context.Context) ConnectionGlueConnectionInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGlueConnectionInputOutput)
+}
+
+func (i ConnectionGlueConnectionInputArgs) ToConnectionGlueConnectionInputPtrOutput() ConnectionGlueConnectionInputPtrOutput {
+	return i.ToConnectionGlueConnectionInputPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionGlueConnectionInputArgs) ToConnectionGlueConnectionInputPtrOutputWithContext(ctx context.Context) ConnectionGlueConnectionInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGlueConnectionInputOutput).ToConnectionGlueConnectionInputPtrOutputWithContext(ctx)
+}
+
+// ConnectionGlueConnectionInputPtrInput is an input type that accepts ConnectionGlueConnectionInputArgs, ConnectionGlueConnectionInputPtr and ConnectionGlueConnectionInputPtrOutput values.
+// You can construct a concrete instance of `ConnectionGlueConnectionInputPtrInput` via:
+//
+//	        ConnectionGlueConnectionInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionGlueConnectionInputPtrInput interface {
+	pulumi.Input
+
+	ToConnectionGlueConnectionInputPtrOutput() ConnectionGlueConnectionInputPtrOutput
+	ToConnectionGlueConnectionInputPtrOutputWithContext(context.Context) ConnectionGlueConnectionInputPtrOutput
+}
+
+type connectionGlueConnectionInputPtrType ConnectionGlueConnectionInputArgs
+
+func ConnectionGlueConnectionInputPtr(v *ConnectionGlueConnectionInputArgs) ConnectionGlueConnectionInputPtrInput {
+	return (*connectionGlueConnectionInputPtrType)(v)
+}
+
+func (*connectionGlueConnectionInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionGlueConnectionInput)(nil)).Elem()
+}
+
+func (i *connectionGlueConnectionInputPtrType) ToConnectionGlueConnectionInputPtrOutput() ConnectionGlueConnectionInputPtrOutput {
+	return i.ToConnectionGlueConnectionInputPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionGlueConnectionInputPtrType) ToConnectionGlueConnectionInputPtrOutputWithContext(ctx context.Context) ConnectionGlueConnectionInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGlueConnectionInputPtrOutput)
+}
+
+// Glue Connection Input
+type ConnectionGlueConnectionInputOutput struct{ *pulumi.OutputState }
+
+func (ConnectionGlueConnectionInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionGlueConnectionInput)(nil)).Elem()
+}
+
+func (o ConnectionGlueConnectionInputOutput) ToConnectionGlueConnectionInputOutput() ConnectionGlueConnectionInputOutput {
+	return o
+}
+
+func (o ConnectionGlueConnectionInputOutput) ToConnectionGlueConnectionInputOutputWithContext(ctx context.Context) ConnectionGlueConnectionInputOutput {
+	return o
+}
+
+func (o ConnectionGlueConnectionInputOutput) ToConnectionGlueConnectionInputPtrOutput() ConnectionGlueConnectionInputPtrOutput {
+	return o.ToConnectionGlueConnectionInputPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionGlueConnectionInputOutput) ToConnectionGlueConnectionInputPtrOutputWithContext(ctx context.Context) ConnectionGlueConnectionInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionGlueConnectionInput) *ConnectionGlueConnectionInput {
+		return &v
+	}).(ConnectionGlueConnectionInputPtrOutput)
+}
+
+func (o ConnectionGlueConnectionInputOutput) AthenaProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectionGlueConnectionInput) map[string]string { return v.AthenaProperties }).(pulumi.StringMapOutput)
+}
+
+func (o ConnectionGlueConnectionInputOutput) AuthenticationConfiguration() ConnectionAuthenticationConfigurationInputPtrOutput {
+	return o.ApplyT(func(v ConnectionGlueConnectionInput) *ConnectionAuthenticationConfigurationInput {
+		return v.AuthenticationConfiguration
+	}).(ConnectionAuthenticationConfigurationInputPtrOutput)
+}
+
+func (o ConnectionGlueConnectionInputOutput) ConnectionProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectionGlueConnectionInput) map[string]string { return v.ConnectionProperties }).(pulumi.StringMapOutput)
+}
+
+func (o ConnectionGlueConnectionInputOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionGlueConnectionInput) *string { return v.ConnectionType }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionGlueConnectionInputOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionGlueConnectionInput) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionGlueConnectionInputOutput) MatchCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionGlueConnectionInput) *string { return v.MatchCriteria }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionGlueConnectionInputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionGlueConnectionInput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionGlueConnectionInputOutput) PhysicalConnectionRequirements() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o.ApplyT(func(v ConnectionGlueConnectionInput) *ConnectionPhysicalConnectionRequirements {
+		return v.PhysicalConnectionRequirements
+	}).(ConnectionPhysicalConnectionRequirementsPtrOutput)
+}
+
+func (o ConnectionGlueConnectionInputOutput) PythonProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectionGlueConnectionInput) map[string]string { return v.PythonProperties }).(pulumi.StringMapOutput)
+}
+
+func (o ConnectionGlueConnectionInputOutput) SparkProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectionGlueConnectionInput) map[string]string { return v.SparkProperties }).(pulumi.StringMapOutput)
+}
+
+func (o ConnectionGlueConnectionInputOutput) ValidateCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectionGlueConnectionInput) *bool { return v.ValidateCredentials }).(pulumi.BoolPtrOutput)
+}
+
+func (o ConnectionGlueConnectionInputOutput) ValidateForComputeEnvironments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectionGlueConnectionInput) []string { return v.ValidateForComputeEnvironments }).(pulumi.StringArrayOutput)
+}
+
+type ConnectionGlueConnectionInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionGlueConnectionInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionGlueConnectionInput)(nil)).Elem()
+}
+
+func (o ConnectionGlueConnectionInputPtrOutput) ToConnectionGlueConnectionInputPtrOutput() ConnectionGlueConnectionInputPtrOutput {
+	return o
+}
+
+func (o ConnectionGlueConnectionInputPtrOutput) ToConnectionGlueConnectionInputPtrOutputWithContext(ctx context.Context) ConnectionGlueConnectionInputPtrOutput {
+	return o
+}
+
+func (o ConnectionGlueConnectionInputPtrOutput) Elem() ConnectionGlueConnectionInputOutput {
+	return o.ApplyT(func(v *ConnectionGlueConnectionInput) ConnectionGlueConnectionInput {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionGlueConnectionInput
+		return ret
+	}).(ConnectionGlueConnectionInputOutput)
+}
+
+func (o ConnectionGlueConnectionInputPtrOutput) AthenaProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConnectionGlueConnectionInput) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AthenaProperties
+	}).(pulumi.StringMapOutput)
+}
+
+func (o ConnectionGlueConnectionInputPtrOutput) AuthenticationConfiguration() ConnectionAuthenticationConfigurationInputPtrOutput {
+	return o.ApplyT(func(v *ConnectionGlueConnectionInput) *ConnectionAuthenticationConfigurationInput {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationConfiguration
+	}).(ConnectionAuthenticationConfigurationInputPtrOutput)
+}
+
+func (o ConnectionGlueConnectionInputPtrOutput) ConnectionProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConnectionGlueConnectionInput) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionProperties
+	}).(pulumi.StringMapOutput)
+}
+
+func (o ConnectionGlueConnectionInputPtrOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionGlueConnectionInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionGlueConnectionInputPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionGlueConnectionInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionGlueConnectionInputPtrOutput) MatchCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionGlueConnectionInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchCriteria
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionGlueConnectionInputPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionGlueConnectionInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionGlueConnectionInputPtrOutput) PhysicalConnectionRequirements() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o.ApplyT(func(v *ConnectionGlueConnectionInput) *ConnectionPhysicalConnectionRequirements {
+		if v == nil {
+			return nil
+		}
+		return v.PhysicalConnectionRequirements
+	}).(ConnectionPhysicalConnectionRequirementsPtrOutput)
+}
+
+func (o ConnectionGlueConnectionInputPtrOutput) PythonProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConnectionGlueConnectionInput) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.PythonProperties
+	}).(pulumi.StringMapOutput)
+}
+
+func (o ConnectionGlueConnectionInputPtrOutput) SparkProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConnectionGlueConnectionInput) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.SparkProperties
+	}).(pulumi.StringMapOutput)
+}
+
+func (o ConnectionGlueConnectionInputPtrOutput) ValidateCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConnectionGlueConnectionInput) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ValidateCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ConnectionGlueConnectionInputPtrOutput) ValidateForComputeEnvironments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectionGlueConnectionInput) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidateForComputeEnvironments
+	}).(pulumi.StringArrayOutput)
+}
+
+// Glue OAuth2 Credentials
+type ConnectionGlueOAuth2Credentials struct {
+	AccessToken                              *string `pulumi:"accessToken"`
+	JwtToken                                 *string `pulumi:"jwtToken"`
+	RefreshToken                             *string `pulumi:"refreshToken"`
+	UserManagedClientApplicationClientSecret *string `pulumi:"userManagedClientApplicationClientSecret"`
+}
+
+// ConnectionGlueOAuth2CredentialsInput is an input type that accepts ConnectionGlueOAuth2CredentialsArgs and ConnectionGlueOAuth2CredentialsOutput values.
+// You can construct a concrete instance of `ConnectionGlueOAuth2CredentialsInput` via:
+//
+//	ConnectionGlueOAuth2CredentialsArgs{...}
+type ConnectionGlueOAuth2CredentialsInput interface {
+	pulumi.Input
+
+	ToConnectionGlueOAuth2CredentialsOutput() ConnectionGlueOAuth2CredentialsOutput
+	ToConnectionGlueOAuth2CredentialsOutputWithContext(context.Context) ConnectionGlueOAuth2CredentialsOutput
+}
+
+// Glue OAuth2 Credentials
+type ConnectionGlueOAuth2CredentialsArgs struct {
+	AccessToken                              pulumi.StringPtrInput `pulumi:"accessToken"`
+	JwtToken                                 pulumi.StringPtrInput `pulumi:"jwtToken"`
+	RefreshToken                             pulumi.StringPtrInput `pulumi:"refreshToken"`
+	UserManagedClientApplicationClientSecret pulumi.StringPtrInput `pulumi:"userManagedClientApplicationClientSecret"`
+}
+
+func (ConnectionGlueOAuth2CredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionGlueOAuth2Credentials)(nil)).Elem()
+}
+
+func (i ConnectionGlueOAuth2CredentialsArgs) ToConnectionGlueOAuth2CredentialsOutput() ConnectionGlueOAuth2CredentialsOutput {
+	return i.ToConnectionGlueOAuth2CredentialsOutputWithContext(context.Background())
+}
+
+func (i ConnectionGlueOAuth2CredentialsArgs) ToConnectionGlueOAuth2CredentialsOutputWithContext(ctx context.Context) ConnectionGlueOAuth2CredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGlueOAuth2CredentialsOutput)
+}
+
+func (i ConnectionGlueOAuth2CredentialsArgs) ToConnectionGlueOAuth2CredentialsPtrOutput() ConnectionGlueOAuth2CredentialsPtrOutput {
+	return i.ToConnectionGlueOAuth2CredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionGlueOAuth2CredentialsArgs) ToConnectionGlueOAuth2CredentialsPtrOutputWithContext(ctx context.Context) ConnectionGlueOAuth2CredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGlueOAuth2CredentialsOutput).ToConnectionGlueOAuth2CredentialsPtrOutputWithContext(ctx)
+}
+
+// ConnectionGlueOAuth2CredentialsPtrInput is an input type that accepts ConnectionGlueOAuth2CredentialsArgs, ConnectionGlueOAuth2CredentialsPtr and ConnectionGlueOAuth2CredentialsPtrOutput values.
+// You can construct a concrete instance of `ConnectionGlueOAuth2CredentialsPtrInput` via:
+//
+//	        ConnectionGlueOAuth2CredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionGlueOAuth2CredentialsPtrInput interface {
+	pulumi.Input
+
+	ToConnectionGlueOAuth2CredentialsPtrOutput() ConnectionGlueOAuth2CredentialsPtrOutput
+	ToConnectionGlueOAuth2CredentialsPtrOutputWithContext(context.Context) ConnectionGlueOAuth2CredentialsPtrOutput
+}
+
+type connectionGlueOAuth2CredentialsPtrType ConnectionGlueOAuth2CredentialsArgs
+
+func ConnectionGlueOAuth2CredentialsPtr(v *ConnectionGlueOAuth2CredentialsArgs) ConnectionGlueOAuth2CredentialsPtrInput {
+	return (*connectionGlueOAuth2CredentialsPtrType)(v)
+}
+
+func (*connectionGlueOAuth2CredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionGlueOAuth2Credentials)(nil)).Elem()
+}
+
+func (i *connectionGlueOAuth2CredentialsPtrType) ToConnectionGlueOAuth2CredentialsPtrOutput() ConnectionGlueOAuth2CredentialsPtrOutput {
+	return i.ToConnectionGlueOAuth2CredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionGlueOAuth2CredentialsPtrType) ToConnectionGlueOAuth2CredentialsPtrOutputWithContext(ctx context.Context) ConnectionGlueOAuth2CredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGlueOAuth2CredentialsPtrOutput)
+}
+
+// Glue OAuth2 Credentials
+type ConnectionGlueOAuth2CredentialsOutput struct{ *pulumi.OutputState }
+
+func (ConnectionGlueOAuth2CredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionGlueOAuth2Credentials)(nil)).Elem()
+}
+
+func (o ConnectionGlueOAuth2CredentialsOutput) ToConnectionGlueOAuth2CredentialsOutput() ConnectionGlueOAuth2CredentialsOutput {
+	return o
+}
+
+func (o ConnectionGlueOAuth2CredentialsOutput) ToConnectionGlueOAuth2CredentialsOutputWithContext(ctx context.Context) ConnectionGlueOAuth2CredentialsOutput {
+	return o
+}
+
+func (o ConnectionGlueOAuth2CredentialsOutput) ToConnectionGlueOAuth2CredentialsPtrOutput() ConnectionGlueOAuth2CredentialsPtrOutput {
+	return o.ToConnectionGlueOAuth2CredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionGlueOAuth2CredentialsOutput) ToConnectionGlueOAuth2CredentialsPtrOutputWithContext(ctx context.Context) ConnectionGlueOAuth2CredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionGlueOAuth2Credentials) *ConnectionGlueOAuth2Credentials {
+		return &v
+	}).(ConnectionGlueOAuth2CredentialsPtrOutput)
+}
+
+func (o ConnectionGlueOAuth2CredentialsOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionGlueOAuth2Credentials) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionGlueOAuth2CredentialsOutput) JwtToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionGlueOAuth2Credentials) *string { return v.JwtToken }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionGlueOAuth2CredentialsOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionGlueOAuth2Credentials) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionGlueOAuth2CredentialsOutput) UserManagedClientApplicationClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionGlueOAuth2Credentials) *string { return v.UserManagedClientApplicationClientSecret }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionGlueOAuth2CredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionGlueOAuth2CredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionGlueOAuth2Credentials)(nil)).Elem()
+}
+
+func (o ConnectionGlueOAuth2CredentialsPtrOutput) ToConnectionGlueOAuth2CredentialsPtrOutput() ConnectionGlueOAuth2CredentialsPtrOutput {
+	return o
+}
+
+func (o ConnectionGlueOAuth2CredentialsPtrOutput) ToConnectionGlueOAuth2CredentialsPtrOutputWithContext(ctx context.Context) ConnectionGlueOAuth2CredentialsPtrOutput {
+	return o
+}
+
+func (o ConnectionGlueOAuth2CredentialsPtrOutput) Elem() ConnectionGlueOAuth2CredentialsOutput {
+	return o.ApplyT(func(v *ConnectionGlueOAuth2Credentials) ConnectionGlueOAuth2Credentials {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionGlueOAuth2Credentials
+		return ret
+	}).(ConnectionGlueOAuth2CredentialsOutput)
+}
+
+func (o ConnectionGlueOAuth2CredentialsPtrOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionGlueOAuth2Credentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionGlueOAuth2CredentialsPtrOutput) JwtToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionGlueOAuth2Credentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JwtToken
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionGlueOAuth2CredentialsPtrOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionGlueOAuth2Credentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionGlueOAuth2CredentialsPtrOutput) UserManagedClientApplicationClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionGlueOAuth2Credentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserManagedClientApplicationClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Glue Properties Input
+type ConnectionGluePropertiesInput struct {
+	GlueConnectionInput *ConnectionGlueConnectionInput `pulumi:"glueConnectionInput"`
+}
+
+// ConnectionGluePropertiesInputInput is an input type that accepts ConnectionGluePropertiesInputArgs and ConnectionGluePropertiesInputOutput values.
+// You can construct a concrete instance of `ConnectionGluePropertiesInputInput` via:
+//
+//	ConnectionGluePropertiesInputArgs{...}
+type ConnectionGluePropertiesInputInput interface {
+	pulumi.Input
+
+	ToConnectionGluePropertiesInputOutput() ConnectionGluePropertiesInputOutput
+	ToConnectionGluePropertiesInputOutputWithContext(context.Context) ConnectionGluePropertiesInputOutput
+}
+
+// Glue Properties Input
+type ConnectionGluePropertiesInputArgs struct {
+	GlueConnectionInput ConnectionGlueConnectionInputPtrInput `pulumi:"glueConnectionInput"`
+}
+
+func (ConnectionGluePropertiesInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionGluePropertiesInput)(nil)).Elem()
+}
+
+func (i ConnectionGluePropertiesInputArgs) ToConnectionGluePropertiesInputOutput() ConnectionGluePropertiesInputOutput {
+	return i.ToConnectionGluePropertiesInputOutputWithContext(context.Background())
+}
+
+func (i ConnectionGluePropertiesInputArgs) ToConnectionGluePropertiesInputOutputWithContext(ctx context.Context) ConnectionGluePropertiesInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGluePropertiesInputOutput)
+}
+
+func (i ConnectionGluePropertiesInputArgs) ToConnectionGluePropertiesInputPtrOutput() ConnectionGluePropertiesInputPtrOutput {
+	return i.ToConnectionGluePropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionGluePropertiesInputArgs) ToConnectionGluePropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionGluePropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGluePropertiesInputOutput).ToConnectionGluePropertiesInputPtrOutputWithContext(ctx)
+}
+
+// ConnectionGluePropertiesInputPtrInput is an input type that accepts ConnectionGluePropertiesInputArgs, ConnectionGluePropertiesInputPtr and ConnectionGluePropertiesInputPtrOutput values.
+// You can construct a concrete instance of `ConnectionGluePropertiesInputPtrInput` via:
+//
+//	        ConnectionGluePropertiesInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionGluePropertiesInputPtrInput interface {
+	pulumi.Input
+
+	ToConnectionGluePropertiesInputPtrOutput() ConnectionGluePropertiesInputPtrOutput
+	ToConnectionGluePropertiesInputPtrOutputWithContext(context.Context) ConnectionGluePropertiesInputPtrOutput
+}
+
+type connectionGluePropertiesInputPtrType ConnectionGluePropertiesInputArgs
+
+func ConnectionGluePropertiesInputPtr(v *ConnectionGluePropertiesInputArgs) ConnectionGluePropertiesInputPtrInput {
+	return (*connectionGluePropertiesInputPtrType)(v)
+}
+
+func (*connectionGluePropertiesInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionGluePropertiesInput)(nil)).Elem()
+}
+
+func (i *connectionGluePropertiesInputPtrType) ToConnectionGluePropertiesInputPtrOutput() ConnectionGluePropertiesInputPtrOutput {
+	return i.ToConnectionGluePropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionGluePropertiesInputPtrType) ToConnectionGluePropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionGluePropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGluePropertiesInputPtrOutput)
+}
+
+// Glue Properties Input
+type ConnectionGluePropertiesInputOutput struct{ *pulumi.OutputState }
+
+func (ConnectionGluePropertiesInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionGluePropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionGluePropertiesInputOutput) ToConnectionGluePropertiesInputOutput() ConnectionGluePropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionGluePropertiesInputOutput) ToConnectionGluePropertiesInputOutputWithContext(ctx context.Context) ConnectionGluePropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionGluePropertiesInputOutput) ToConnectionGluePropertiesInputPtrOutput() ConnectionGluePropertiesInputPtrOutput {
+	return o.ToConnectionGluePropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionGluePropertiesInputOutput) ToConnectionGluePropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionGluePropertiesInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionGluePropertiesInput) *ConnectionGluePropertiesInput {
+		return &v
+	}).(ConnectionGluePropertiesInputPtrOutput)
+}
+
+func (o ConnectionGluePropertiesInputOutput) GlueConnectionInput() ConnectionGlueConnectionInputPtrOutput {
+	return o.ApplyT(func(v ConnectionGluePropertiesInput) *ConnectionGlueConnectionInput { return v.GlueConnectionInput }).(ConnectionGlueConnectionInputPtrOutput)
+}
+
+type ConnectionGluePropertiesInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionGluePropertiesInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionGluePropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionGluePropertiesInputPtrOutput) ToConnectionGluePropertiesInputPtrOutput() ConnectionGluePropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionGluePropertiesInputPtrOutput) ToConnectionGluePropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionGluePropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionGluePropertiesInputPtrOutput) Elem() ConnectionGluePropertiesInputOutput {
+	return o.ApplyT(func(v *ConnectionGluePropertiesInput) ConnectionGluePropertiesInput {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionGluePropertiesInput
+		return ret
+	}).(ConnectionGluePropertiesInputOutput)
+}
+
+func (o ConnectionGluePropertiesInputPtrOutput) GlueConnectionInput() ConnectionGlueConnectionInputPtrOutput {
+	return o.ApplyT(func(v *ConnectionGluePropertiesInput) *ConnectionGlueConnectionInput {
+		if v == nil {
+			return nil
+		}
+		return v.GlueConnectionInput
+	}).(ConnectionGlueConnectionInputPtrOutput)
+}
+
+// HyperPod Properties Input
+type ConnectionHyperPodPropertiesInput struct {
+	ClusterName string `pulumi:"clusterName"`
+}
+
+// ConnectionHyperPodPropertiesInputInput is an input type that accepts ConnectionHyperPodPropertiesInputArgs and ConnectionHyperPodPropertiesInputOutput values.
+// You can construct a concrete instance of `ConnectionHyperPodPropertiesInputInput` via:
+//
+//	ConnectionHyperPodPropertiesInputArgs{...}
+type ConnectionHyperPodPropertiesInputInput interface {
+	pulumi.Input
+
+	ToConnectionHyperPodPropertiesInputOutput() ConnectionHyperPodPropertiesInputOutput
+	ToConnectionHyperPodPropertiesInputOutputWithContext(context.Context) ConnectionHyperPodPropertiesInputOutput
+}
+
+// HyperPod Properties Input
+type ConnectionHyperPodPropertiesInputArgs struct {
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+}
+
+func (ConnectionHyperPodPropertiesInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionHyperPodPropertiesInput)(nil)).Elem()
+}
+
+func (i ConnectionHyperPodPropertiesInputArgs) ToConnectionHyperPodPropertiesInputOutput() ConnectionHyperPodPropertiesInputOutput {
+	return i.ToConnectionHyperPodPropertiesInputOutputWithContext(context.Background())
+}
+
+func (i ConnectionHyperPodPropertiesInputArgs) ToConnectionHyperPodPropertiesInputOutputWithContext(ctx context.Context) ConnectionHyperPodPropertiesInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionHyperPodPropertiesInputOutput)
+}
+
+func (i ConnectionHyperPodPropertiesInputArgs) ToConnectionHyperPodPropertiesInputPtrOutput() ConnectionHyperPodPropertiesInputPtrOutput {
+	return i.ToConnectionHyperPodPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionHyperPodPropertiesInputArgs) ToConnectionHyperPodPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionHyperPodPropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionHyperPodPropertiesInputOutput).ToConnectionHyperPodPropertiesInputPtrOutputWithContext(ctx)
+}
+
+// ConnectionHyperPodPropertiesInputPtrInput is an input type that accepts ConnectionHyperPodPropertiesInputArgs, ConnectionHyperPodPropertiesInputPtr and ConnectionHyperPodPropertiesInputPtrOutput values.
+// You can construct a concrete instance of `ConnectionHyperPodPropertiesInputPtrInput` via:
+//
+//	        ConnectionHyperPodPropertiesInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionHyperPodPropertiesInputPtrInput interface {
+	pulumi.Input
+
+	ToConnectionHyperPodPropertiesInputPtrOutput() ConnectionHyperPodPropertiesInputPtrOutput
+	ToConnectionHyperPodPropertiesInputPtrOutputWithContext(context.Context) ConnectionHyperPodPropertiesInputPtrOutput
+}
+
+type connectionHyperPodPropertiesInputPtrType ConnectionHyperPodPropertiesInputArgs
+
+func ConnectionHyperPodPropertiesInputPtr(v *ConnectionHyperPodPropertiesInputArgs) ConnectionHyperPodPropertiesInputPtrInput {
+	return (*connectionHyperPodPropertiesInputPtrType)(v)
+}
+
+func (*connectionHyperPodPropertiesInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionHyperPodPropertiesInput)(nil)).Elem()
+}
+
+func (i *connectionHyperPodPropertiesInputPtrType) ToConnectionHyperPodPropertiesInputPtrOutput() ConnectionHyperPodPropertiesInputPtrOutput {
+	return i.ToConnectionHyperPodPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionHyperPodPropertiesInputPtrType) ToConnectionHyperPodPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionHyperPodPropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionHyperPodPropertiesInputPtrOutput)
+}
+
+// HyperPod Properties Input
+type ConnectionHyperPodPropertiesInputOutput struct{ *pulumi.OutputState }
+
+func (ConnectionHyperPodPropertiesInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionHyperPodPropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionHyperPodPropertiesInputOutput) ToConnectionHyperPodPropertiesInputOutput() ConnectionHyperPodPropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionHyperPodPropertiesInputOutput) ToConnectionHyperPodPropertiesInputOutputWithContext(ctx context.Context) ConnectionHyperPodPropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionHyperPodPropertiesInputOutput) ToConnectionHyperPodPropertiesInputPtrOutput() ConnectionHyperPodPropertiesInputPtrOutput {
+	return o.ToConnectionHyperPodPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionHyperPodPropertiesInputOutput) ToConnectionHyperPodPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionHyperPodPropertiesInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionHyperPodPropertiesInput) *ConnectionHyperPodPropertiesInput {
+		return &v
+	}).(ConnectionHyperPodPropertiesInputPtrOutput)
+}
+
+func (o ConnectionHyperPodPropertiesInputOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionHyperPodPropertiesInput) string { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+type ConnectionHyperPodPropertiesInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionHyperPodPropertiesInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionHyperPodPropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionHyperPodPropertiesInputPtrOutput) ToConnectionHyperPodPropertiesInputPtrOutput() ConnectionHyperPodPropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionHyperPodPropertiesInputPtrOutput) ToConnectionHyperPodPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionHyperPodPropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionHyperPodPropertiesInputPtrOutput) Elem() ConnectionHyperPodPropertiesInputOutput {
+	return o.ApplyT(func(v *ConnectionHyperPodPropertiesInput) ConnectionHyperPodPropertiesInput {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionHyperPodPropertiesInput
+		return ret
+	}).(ConnectionHyperPodPropertiesInputOutput)
+}
+
+func (o ConnectionHyperPodPropertiesInputPtrOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionHyperPodPropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterName
+	}).(pulumi.StringPtrOutput)
+}
+
+// IAM Properties Input
+type ConnectionIamPropertiesInput struct {
+	GlueLineageSyncEnabled *bool `pulumi:"glueLineageSyncEnabled"`
+}
+
+// ConnectionIamPropertiesInputInput is an input type that accepts ConnectionIamPropertiesInputArgs and ConnectionIamPropertiesInputOutput values.
+// You can construct a concrete instance of `ConnectionIamPropertiesInputInput` via:
+//
+//	ConnectionIamPropertiesInputArgs{...}
+type ConnectionIamPropertiesInputInput interface {
+	pulumi.Input
+
+	ToConnectionIamPropertiesInputOutput() ConnectionIamPropertiesInputOutput
+	ToConnectionIamPropertiesInputOutputWithContext(context.Context) ConnectionIamPropertiesInputOutput
+}
+
+// IAM Properties Input
+type ConnectionIamPropertiesInputArgs struct {
+	GlueLineageSyncEnabled pulumi.BoolPtrInput `pulumi:"glueLineageSyncEnabled"`
+}
+
+func (ConnectionIamPropertiesInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionIamPropertiesInput)(nil)).Elem()
+}
+
+func (i ConnectionIamPropertiesInputArgs) ToConnectionIamPropertiesInputOutput() ConnectionIamPropertiesInputOutput {
+	return i.ToConnectionIamPropertiesInputOutputWithContext(context.Background())
+}
+
+func (i ConnectionIamPropertiesInputArgs) ToConnectionIamPropertiesInputOutputWithContext(ctx context.Context) ConnectionIamPropertiesInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionIamPropertiesInputOutput)
+}
+
+func (i ConnectionIamPropertiesInputArgs) ToConnectionIamPropertiesInputPtrOutput() ConnectionIamPropertiesInputPtrOutput {
+	return i.ToConnectionIamPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionIamPropertiesInputArgs) ToConnectionIamPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionIamPropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionIamPropertiesInputOutput).ToConnectionIamPropertiesInputPtrOutputWithContext(ctx)
+}
+
+// ConnectionIamPropertiesInputPtrInput is an input type that accepts ConnectionIamPropertiesInputArgs, ConnectionIamPropertiesInputPtr and ConnectionIamPropertiesInputPtrOutput values.
+// You can construct a concrete instance of `ConnectionIamPropertiesInputPtrInput` via:
+//
+//	        ConnectionIamPropertiesInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionIamPropertiesInputPtrInput interface {
+	pulumi.Input
+
+	ToConnectionIamPropertiesInputPtrOutput() ConnectionIamPropertiesInputPtrOutput
+	ToConnectionIamPropertiesInputPtrOutputWithContext(context.Context) ConnectionIamPropertiesInputPtrOutput
+}
+
+type connectionIamPropertiesInputPtrType ConnectionIamPropertiesInputArgs
+
+func ConnectionIamPropertiesInputPtr(v *ConnectionIamPropertiesInputArgs) ConnectionIamPropertiesInputPtrInput {
+	return (*connectionIamPropertiesInputPtrType)(v)
+}
+
+func (*connectionIamPropertiesInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionIamPropertiesInput)(nil)).Elem()
+}
+
+func (i *connectionIamPropertiesInputPtrType) ToConnectionIamPropertiesInputPtrOutput() ConnectionIamPropertiesInputPtrOutput {
+	return i.ToConnectionIamPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionIamPropertiesInputPtrType) ToConnectionIamPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionIamPropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionIamPropertiesInputPtrOutput)
+}
+
+// IAM Properties Input
+type ConnectionIamPropertiesInputOutput struct{ *pulumi.OutputState }
+
+func (ConnectionIamPropertiesInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionIamPropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionIamPropertiesInputOutput) ToConnectionIamPropertiesInputOutput() ConnectionIamPropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionIamPropertiesInputOutput) ToConnectionIamPropertiesInputOutputWithContext(ctx context.Context) ConnectionIamPropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionIamPropertiesInputOutput) ToConnectionIamPropertiesInputPtrOutput() ConnectionIamPropertiesInputPtrOutput {
+	return o.ToConnectionIamPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionIamPropertiesInputOutput) ToConnectionIamPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionIamPropertiesInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionIamPropertiesInput) *ConnectionIamPropertiesInput {
+		return &v
+	}).(ConnectionIamPropertiesInputPtrOutput)
+}
+
+func (o ConnectionIamPropertiesInputOutput) GlueLineageSyncEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectionIamPropertiesInput) *bool { return v.GlueLineageSyncEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type ConnectionIamPropertiesInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionIamPropertiesInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionIamPropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionIamPropertiesInputPtrOutput) ToConnectionIamPropertiesInputPtrOutput() ConnectionIamPropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionIamPropertiesInputPtrOutput) ToConnectionIamPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionIamPropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionIamPropertiesInputPtrOutput) Elem() ConnectionIamPropertiesInputOutput {
+	return o.ApplyT(func(v *ConnectionIamPropertiesInput) ConnectionIamPropertiesInput {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionIamPropertiesInput
+		return ret
+	}).(ConnectionIamPropertiesInputOutput)
+}
+
+func (o ConnectionIamPropertiesInputPtrOutput) GlueLineageSyncEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConnectionIamPropertiesInput) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.GlueLineageSyncEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Lineage Sync Schedule
+type ConnectionLineageSyncSchedule struct {
+	Schedule *string `pulumi:"schedule"`
+}
+
+// ConnectionLineageSyncScheduleInput is an input type that accepts ConnectionLineageSyncScheduleArgs and ConnectionLineageSyncScheduleOutput values.
+// You can construct a concrete instance of `ConnectionLineageSyncScheduleInput` via:
+//
+//	ConnectionLineageSyncScheduleArgs{...}
+type ConnectionLineageSyncScheduleInput interface {
+	pulumi.Input
+
+	ToConnectionLineageSyncScheduleOutput() ConnectionLineageSyncScheduleOutput
+	ToConnectionLineageSyncScheduleOutputWithContext(context.Context) ConnectionLineageSyncScheduleOutput
+}
+
+// Lineage Sync Schedule
+type ConnectionLineageSyncScheduleArgs struct {
+	Schedule pulumi.StringPtrInput `pulumi:"schedule"`
+}
+
+func (ConnectionLineageSyncScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionLineageSyncSchedule)(nil)).Elem()
+}
+
+func (i ConnectionLineageSyncScheduleArgs) ToConnectionLineageSyncScheduleOutput() ConnectionLineageSyncScheduleOutput {
+	return i.ToConnectionLineageSyncScheduleOutputWithContext(context.Background())
+}
+
+func (i ConnectionLineageSyncScheduleArgs) ToConnectionLineageSyncScheduleOutputWithContext(ctx context.Context) ConnectionLineageSyncScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionLineageSyncScheduleOutput)
+}
+
+func (i ConnectionLineageSyncScheduleArgs) ToConnectionLineageSyncSchedulePtrOutput() ConnectionLineageSyncSchedulePtrOutput {
+	return i.ToConnectionLineageSyncSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionLineageSyncScheduleArgs) ToConnectionLineageSyncSchedulePtrOutputWithContext(ctx context.Context) ConnectionLineageSyncSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionLineageSyncScheduleOutput).ToConnectionLineageSyncSchedulePtrOutputWithContext(ctx)
+}
+
+// ConnectionLineageSyncSchedulePtrInput is an input type that accepts ConnectionLineageSyncScheduleArgs, ConnectionLineageSyncSchedulePtr and ConnectionLineageSyncSchedulePtrOutput values.
+// You can construct a concrete instance of `ConnectionLineageSyncSchedulePtrInput` via:
+//
+//	        ConnectionLineageSyncScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionLineageSyncSchedulePtrInput interface {
+	pulumi.Input
+
+	ToConnectionLineageSyncSchedulePtrOutput() ConnectionLineageSyncSchedulePtrOutput
+	ToConnectionLineageSyncSchedulePtrOutputWithContext(context.Context) ConnectionLineageSyncSchedulePtrOutput
+}
+
+type connectionLineageSyncSchedulePtrType ConnectionLineageSyncScheduleArgs
+
+func ConnectionLineageSyncSchedulePtr(v *ConnectionLineageSyncScheduleArgs) ConnectionLineageSyncSchedulePtrInput {
+	return (*connectionLineageSyncSchedulePtrType)(v)
+}
+
+func (*connectionLineageSyncSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionLineageSyncSchedule)(nil)).Elem()
+}
+
+func (i *connectionLineageSyncSchedulePtrType) ToConnectionLineageSyncSchedulePtrOutput() ConnectionLineageSyncSchedulePtrOutput {
+	return i.ToConnectionLineageSyncSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *connectionLineageSyncSchedulePtrType) ToConnectionLineageSyncSchedulePtrOutputWithContext(ctx context.Context) ConnectionLineageSyncSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionLineageSyncSchedulePtrOutput)
+}
+
+// Lineage Sync Schedule
+type ConnectionLineageSyncScheduleOutput struct{ *pulumi.OutputState }
+
+func (ConnectionLineageSyncScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionLineageSyncSchedule)(nil)).Elem()
+}
+
+func (o ConnectionLineageSyncScheduleOutput) ToConnectionLineageSyncScheduleOutput() ConnectionLineageSyncScheduleOutput {
+	return o
+}
+
+func (o ConnectionLineageSyncScheduleOutput) ToConnectionLineageSyncScheduleOutputWithContext(ctx context.Context) ConnectionLineageSyncScheduleOutput {
+	return o
+}
+
+func (o ConnectionLineageSyncScheduleOutput) ToConnectionLineageSyncSchedulePtrOutput() ConnectionLineageSyncSchedulePtrOutput {
+	return o.ToConnectionLineageSyncSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionLineageSyncScheduleOutput) ToConnectionLineageSyncSchedulePtrOutputWithContext(ctx context.Context) ConnectionLineageSyncSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionLineageSyncSchedule) *ConnectionLineageSyncSchedule {
+		return &v
+	}).(ConnectionLineageSyncSchedulePtrOutput)
+}
+
+func (o ConnectionLineageSyncScheduleOutput) Schedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionLineageSyncSchedule) *string { return v.Schedule }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionLineageSyncSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionLineageSyncSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionLineageSyncSchedule)(nil)).Elem()
+}
+
+func (o ConnectionLineageSyncSchedulePtrOutput) ToConnectionLineageSyncSchedulePtrOutput() ConnectionLineageSyncSchedulePtrOutput {
+	return o
+}
+
+func (o ConnectionLineageSyncSchedulePtrOutput) ToConnectionLineageSyncSchedulePtrOutputWithContext(ctx context.Context) ConnectionLineageSyncSchedulePtrOutput {
+	return o
+}
+
+func (o ConnectionLineageSyncSchedulePtrOutput) Elem() ConnectionLineageSyncScheduleOutput {
+	return o.ApplyT(func(v *ConnectionLineageSyncSchedule) ConnectionLineageSyncSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionLineageSyncSchedule
+		return ret
+	}).(ConnectionLineageSyncScheduleOutput)
+}
+
+func (o ConnectionLineageSyncSchedulePtrOutput) Schedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionLineageSyncSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Schedule
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth2 Client Application
+type ConnectionOAuth2ClientApplication struct {
+	AwsManagedClientApplicationReference *string `pulumi:"awsManagedClientApplicationReference"`
+	UserManagedClientApplicationClientId *string `pulumi:"userManagedClientApplicationClientId"`
+}
+
+// ConnectionOAuth2ClientApplicationInput is an input type that accepts ConnectionOAuth2ClientApplicationArgs and ConnectionOAuth2ClientApplicationOutput values.
+// You can construct a concrete instance of `ConnectionOAuth2ClientApplicationInput` via:
+//
+//	ConnectionOAuth2ClientApplicationArgs{...}
+type ConnectionOAuth2ClientApplicationInput interface {
+	pulumi.Input
+
+	ToConnectionOAuth2ClientApplicationOutput() ConnectionOAuth2ClientApplicationOutput
+	ToConnectionOAuth2ClientApplicationOutputWithContext(context.Context) ConnectionOAuth2ClientApplicationOutput
+}
+
+// OAuth2 Client Application
+type ConnectionOAuth2ClientApplicationArgs struct {
+	AwsManagedClientApplicationReference pulumi.StringPtrInput `pulumi:"awsManagedClientApplicationReference"`
+	UserManagedClientApplicationClientId pulumi.StringPtrInput `pulumi:"userManagedClientApplicationClientId"`
+}
+
+func (ConnectionOAuth2ClientApplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionOAuth2ClientApplication)(nil)).Elem()
+}
+
+func (i ConnectionOAuth2ClientApplicationArgs) ToConnectionOAuth2ClientApplicationOutput() ConnectionOAuth2ClientApplicationOutput {
+	return i.ToConnectionOAuth2ClientApplicationOutputWithContext(context.Background())
+}
+
+func (i ConnectionOAuth2ClientApplicationArgs) ToConnectionOAuth2ClientApplicationOutputWithContext(ctx context.Context) ConnectionOAuth2ClientApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuth2ClientApplicationOutput)
+}
+
+func (i ConnectionOAuth2ClientApplicationArgs) ToConnectionOAuth2ClientApplicationPtrOutput() ConnectionOAuth2ClientApplicationPtrOutput {
+	return i.ToConnectionOAuth2ClientApplicationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionOAuth2ClientApplicationArgs) ToConnectionOAuth2ClientApplicationPtrOutputWithContext(ctx context.Context) ConnectionOAuth2ClientApplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuth2ClientApplicationOutput).ToConnectionOAuth2ClientApplicationPtrOutputWithContext(ctx)
+}
+
+// ConnectionOAuth2ClientApplicationPtrInput is an input type that accepts ConnectionOAuth2ClientApplicationArgs, ConnectionOAuth2ClientApplicationPtr and ConnectionOAuth2ClientApplicationPtrOutput values.
+// You can construct a concrete instance of `ConnectionOAuth2ClientApplicationPtrInput` via:
+//
+//	        ConnectionOAuth2ClientApplicationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionOAuth2ClientApplicationPtrInput interface {
+	pulumi.Input
+
+	ToConnectionOAuth2ClientApplicationPtrOutput() ConnectionOAuth2ClientApplicationPtrOutput
+	ToConnectionOAuth2ClientApplicationPtrOutputWithContext(context.Context) ConnectionOAuth2ClientApplicationPtrOutput
+}
+
+type connectionOAuth2ClientApplicationPtrType ConnectionOAuth2ClientApplicationArgs
+
+func ConnectionOAuth2ClientApplicationPtr(v *ConnectionOAuth2ClientApplicationArgs) ConnectionOAuth2ClientApplicationPtrInput {
+	return (*connectionOAuth2ClientApplicationPtrType)(v)
+}
+
+func (*connectionOAuth2ClientApplicationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionOAuth2ClientApplication)(nil)).Elem()
+}
+
+func (i *connectionOAuth2ClientApplicationPtrType) ToConnectionOAuth2ClientApplicationPtrOutput() ConnectionOAuth2ClientApplicationPtrOutput {
+	return i.ToConnectionOAuth2ClientApplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionOAuth2ClientApplicationPtrType) ToConnectionOAuth2ClientApplicationPtrOutputWithContext(ctx context.Context) ConnectionOAuth2ClientApplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuth2ClientApplicationPtrOutput)
+}
+
+// OAuth2 Client Application
+type ConnectionOAuth2ClientApplicationOutput struct{ *pulumi.OutputState }
+
+func (ConnectionOAuth2ClientApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionOAuth2ClientApplication)(nil)).Elem()
+}
+
+func (o ConnectionOAuth2ClientApplicationOutput) ToConnectionOAuth2ClientApplicationOutput() ConnectionOAuth2ClientApplicationOutput {
+	return o
+}
+
+func (o ConnectionOAuth2ClientApplicationOutput) ToConnectionOAuth2ClientApplicationOutputWithContext(ctx context.Context) ConnectionOAuth2ClientApplicationOutput {
+	return o
+}
+
+func (o ConnectionOAuth2ClientApplicationOutput) ToConnectionOAuth2ClientApplicationPtrOutput() ConnectionOAuth2ClientApplicationPtrOutput {
+	return o.ToConnectionOAuth2ClientApplicationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionOAuth2ClientApplicationOutput) ToConnectionOAuth2ClientApplicationPtrOutputWithContext(ctx context.Context) ConnectionOAuth2ClientApplicationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionOAuth2ClientApplication) *ConnectionOAuth2ClientApplication {
+		return &v
+	}).(ConnectionOAuth2ClientApplicationPtrOutput)
+}
+
+func (o ConnectionOAuth2ClientApplicationOutput) AwsManagedClientApplicationReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2ClientApplication) *string { return v.AwsManagedClientApplicationReference }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionOAuth2ClientApplicationOutput) UserManagedClientApplicationClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2ClientApplication) *string { return v.UserManagedClientApplicationClientId }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionOAuth2ClientApplicationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionOAuth2ClientApplicationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionOAuth2ClientApplication)(nil)).Elem()
+}
+
+func (o ConnectionOAuth2ClientApplicationPtrOutput) ToConnectionOAuth2ClientApplicationPtrOutput() ConnectionOAuth2ClientApplicationPtrOutput {
+	return o
+}
+
+func (o ConnectionOAuth2ClientApplicationPtrOutput) ToConnectionOAuth2ClientApplicationPtrOutputWithContext(ctx context.Context) ConnectionOAuth2ClientApplicationPtrOutput {
+	return o
+}
+
+func (o ConnectionOAuth2ClientApplicationPtrOutput) Elem() ConnectionOAuth2ClientApplicationOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2ClientApplication) ConnectionOAuth2ClientApplication {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionOAuth2ClientApplication
+		return ret
+	}).(ConnectionOAuth2ClientApplicationOutput)
+}
+
+func (o ConnectionOAuth2ClientApplicationPtrOutput) AwsManagedClientApplicationReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2ClientApplication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsManagedClientApplicationReference
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionOAuth2ClientApplicationPtrOutput) UserManagedClientApplicationClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2ClientApplication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserManagedClientApplicationClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth2 Properties
+type ConnectionOAuth2Properties struct {
+	AuthorizationCodeProperties *ConnectionAuthorizationCodeProperties `pulumi:"authorizationCodeProperties"`
+	OAuth2ClientApplication     *ConnectionOAuth2ClientApplication     `pulumi:"oAuth2ClientApplication"`
+	OAuth2Credentials           *ConnectionGlueOAuth2Credentials       `pulumi:"oAuth2Credentials"`
+	OAuth2GrantType             *ConnectionOAuth2GrantType             `pulumi:"oAuth2GrantType"`
+	TokenUrl                    *string                                `pulumi:"tokenUrl"`
+	TokenUrlParametersMap       map[string]string                      `pulumi:"tokenUrlParametersMap"`
+}
+
+// ConnectionOAuth2PropertiesInput is an input type that accepts ConnectionOAuth2PropertiesArgs and ConnectionOAuth2PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionOAuth2PropertiesInput` via:
+//
+//	ConnectionOAuth2PropertiesArgs{...}
+type ConnectionOAuth2PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionOAuth2PropertiesOutput() ConnectionOAuth2PropertiesOutput
+	ToConnectionOAuth2PropertiesOutputWithContext(context.Context) ConnectionOAuth2PropertiesOutput
+}
+
+// OAuth2 Properties
+type ConnectionOAuth2PropertiesArgs struct {
+	AuthorizationCodeProperties ConnectionAuthorizationCodePropertiesPtrInput `pulumi:"authorizationCodeProperties"`
+	OAuth2ClientApplication     ConnectionOAuth2ClientApplicationPtrInput     `pulumi:"oAuth2ClientApplication"`
+	OAuth2Credentials           ConnectionGlueOAuth2CredentialsPtrInput       `pulumi:"oAuth2Credentials"`
+	OAuth2GrantType             ConnectionOAuth2GrantTypePtrInput             `pulumi:"oAuth2GrantType"`
+	TokenUrl                    pulumi.StringPtrInput                         `pulumi:"tokenUrl"`
+	TokenUrlParametersMap       pulumi.StringMapInput                         `pulumi:"tokenUrlParametersMap"`
+}
+
+func (ConnectionOAuth2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionOAuth2Properties)(nil)).Elem()
+}
+
+func (i ConnectionOAuth2PropertiesArgs) ToConnectionOAuth2PropertiesOutput() ConnectionOAuth2PropertiesOutput {
+	return i.ToConnectionOAuth2PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionOAuth2PropertiesArgs) ToConnectionOAuth2PropertiesOutputWithContext(ctx context.Context) ConnectionOAuth2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuth2PropertiesOutput)
+}
+
+func (i ConnectionOAuth2PropertiesArgs) ToConnectionOAuth2PropertiesPtrOutput() ConnectionOAuth2PropertiesPtrOutput {
+	return i.ToConnectionOAuth2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionOAuth2PropertiesArgs) ToConnectionOAuth2PropertiesPtrOutputWithContext(ctx context.Context) ConnectionOAuth2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuth2PropertiesOutput).ToConnectionOAuth2PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionOAuth2PropertiesPtrInput is an input type that accepts ConnectionOAuth2PropertiesArgs, ConnectionOAuth2PropertiesPtr and ConnectionOAuth2PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionOAuth2PropertiesPtrInput` via:
+//
+//	        ConnectionOAuth2PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionOAuth2PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionOAuth2PropertiesPtrOutput() ConnectionOAuth2PropertiesPtrOutput
+	ToConnectionOAuth2PropertiesPtrOutputWithContext(context.Context) ConnectionOAuth2PropertiesPtrOutput
+}
+
+type connectionOAuth2PropertiesPtrType ConnectionOAuth2PropertiesArgs
+
+func ConnectionOAuth2PropertiesPtr(v *ConnectionOAuth2PropertiesArgs) ConnectionOAuth2PropertiesPtrInput {
+	return (*connectionOAuth2PropertiesPtrType)(v)
+}
+
+func (*connectionOAuth2PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionOAuth2Properties)(nil)).Elem()
+}
+
+func (i *connectionOAuth2PropertiesPtrType) ToConnectionOAuth2PropertiesPtrOutput() ConnectionOAuth2PropertiesPtrOutput {
+	return i.ToConnectionOAuth2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionOAuth2PropertiesPtrType) ToConnectionOAuth2PropertiesPtrOutputWithContext(ctx context.Context) ConnectionOAuth2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuth2PropertiesPtrOutput)
+}
+
+// OAuth2 Properties
+type ConnectionOAuth2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionOAuth2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionOAuth2Properties)(nil)).Elem()
+}
+
+func (o ConnectionOAuth2PropertiesOutput) ToConnectionOAuth2PropertiesOutput() ConnectionOAuth2PropertiesOutput {
+	return o
+}
+
+func (o ConnectionOAuth2PropertiesOutput) ToConnectionOAuth2PropertiesOutputWithContext(ctx context.Context) ConnectionOAuth2PropertiesOutput {
+	return o
+}
+
+func (o ConnectionOAuth2PropertiesOutput) ToConnectionOAuth2PropertiesPtrOutput() ConnectionOAuth2PropertiesPtrOutput {
+	return o.ToConnectionOAuth2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionOAuth2PropertiesOutput) ToConnectionOAuth2PropertiesPtrOutputWithContext(ctx context.Context) ConnectionOAuth2PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionOAuth2Properties) *ConnectionOAuth2Properties {
+		return &v
+	}).(ConnectionOAuth2PropertiesPtrOutput)
+}
+
+func (o ConnectionOAuth2PropertiesOutput) AuthorizationCodeProperties() ConnectionAuthorizationCodePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2Properties) *ConnectionAuthorizationCodeProperties {
+		return v.AuthorizationCodeProperties
+	}).(ConnectionAuthorizationCodePropertiesPtrOutput)
+}
+
+func (o ConnectionOAuth2PropertiesOutput) OAuth2ClientApplication() ConnectionOAuth2ClientApplicationPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2Properties) *ConnectionOAuth2ClientApplication {
+		return v.OAuth2ClientApplication
+	}).(ConnectionOAuth2ClientApplicationPtrOutput)
+}
+
+func (o ConnectionOAuth2PropertiesOutput) OAuth2Credentials() ConnectionGlueOAuth2CredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2Properties) *ConnectionGlueOAuth2Credentials { return v.OAuth2Credentials }).(ConnectionGlueOAuth2CredentialsPtrOutput)
+}
+
+func (o ConnectionOAuth2PropertiesOutput) OAuth2GrantType() ConnectionOAuth2GrantTypePtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2Properties) *ConnectionOAuth2GrantType { return v.OAuth2GrantType }).(ConnectionOAuth2GrantTypePtrOutput)
+}
+
+func (o ConnectionOAuth2PropertiesOutput) TokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2Properties) *string { return v.TokenUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionOAuth2PropertiesOutput) TokenUrlParametersMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectionOAuth2Properties) map[string]string { return v.TokenUrlParametersMap }).(pulumi.StringMapOutput)
+}
+
+type ConnectionOAuth2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionOAuth2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionOAuth2Properties)(nil)).Elem()
+}
+
+func (o ConnectionOAuth2PropertiesPtrOutput) ToConnectionOAuth2PropertiesPtrOutput() ConnectionOAuth2PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionOAuth2PropertiesPtrOutput) ToConnectionOAuth2PropertiesPtrOutputWithContext(ctx context.Context) ConnectionOAuth2PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionOAuth2PropertiesPtrOutput) Elem() ConnectionOAuth2PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Properties) ConnectionOAuth2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionOAuth2Properties
+		return ret
+	}).(ConnectionOAuth2PropertiesOutput)
+}
+
+func (o ConnectionOAuth2PropertiesPtrOutput) AuthorizationCodeProperties() ConnectionAuthorizationCodePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Properties) *ConnectionAuthorizationCodeProperties {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationCodeProperties
+	}).(ConnectionAuthorizationCodePropertiesPtrOutput)
+}
+
+func (o ConnectionOAuth2PropertiesPtrOutput) OAuth2ClientApplication() ConnectionOAuth2ClientApplicationPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Properties) *ConnectionOAuth2ClientApplication {
+		if v == nil {
+			return nil
+		}
+		return v.OAuth2ClientApplication
+	}).(ConnectionOAuth2ClientApplicationPtrOutput)
+}
+
+func (o ConnectionOAuth2PropertiesPtrOutput) OAuth2Credentials() ConnectionGlueOAuth2CredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Properties) *ConnectionGlueOAuth2Credentials {
+		if v == nil {
+			return nil
+		}
+		return v.OAuth2Credentials
+	}).(ConnectionGlueOAuth2CredentialsPtrOutput)
+}
+
+func (o ConnectionOAuth2PropertiesPtrOutput) OAuth2GrantType() ConnectionOAuth2GrantTypePtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Properties) *ConnectionOAuth2GrantType {
+		if v == nil {
+			return nil
+		}
+		return v.OAuth2GrantType
+	}).(ConnectionOAuth2GrantTypePtrOutput)
+}
+
+func (o ConnectionOAuth2PropertiesPtrOutput) TokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionOAuth2PropertiesPtrOutput) TokenUrlParametersMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Properties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenUrlParametersMap
+	}).(pulumi.StringMapOutput)
+}
+
+// Physical Connection Requirements
+type ConnectionPhysicalConnectionRequirements struct {
+	AvailabilityZone    *string  `pulumi:"availabilityZone"`
+	SecurityGroupIdList []string `pulumi:"securityGroupIdList"`
+	SubnetId            *string  `pulumi:"subnetId"`
+	SubnetIdList        []string `pulumi:"subnetIdList"`
+}
+
+// ConnectionPhysicalConnectionRequirementsInput is an input type that accepts ConnectionPhysicalConnectionRequirementsArgs and ConnectionPhysicalConnectionRequirementsOutput values.
+// You can construct a concrete instance of `ConnectionPhysicalConnectionRequirementsInput` via:
+//
+//	ConnectionPhysicalConnectionRequirementsArgs{...}
+type ConnectionPhysicalConnectionRequirementsInput interface {
+	pulumi.Input
+
+	ToConnectionPhysicalConnectionRequirementsOutput() ConnectionPhysicalConnectionRequirementsOutput
+	ToConnectionPhysicalConnectionRequirementsOutputWithContext(context.Context) ConnectionPhysicalConnectionRequirementsOutput
+}
+
+// Physical Connection Requirements
+type ConnectionPhysicalConnectionRequirementsArgs struct {
+	AvailabilityZone    pulumi.StringPtrInput   `pulumi:"availabilityZone"`
+	SecurityGroupIdList pulumi.StringArrayInput `pulumi:"securityGroupIdList"`
+	SubnetId            pulumi.StringPtrInput   `pulumi:"subnetId"`
+	SubnetIdList        pulumi.StringArrayInput `pulumi:"subnetIdList"`
+}
+
+func (ConnectionPhysicalConnectionRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPhysicalConnectionRequirements)(nil)).Elem()
+}
+
+func (i ConnectionPhysicalConnectionRequirementsArgs) ToConnectionPhysicalConnectionRequirementsOutput() ConnectionPhysicalConnectionRequirementsOutput {
+	return i.ToConnectionPhysicalConnectionRequirementsOutputWithContext(context.Background())
+}
+
+func (i ConnectionPhysicalConnectionRequirementsArgs) ToConnectionPhysicalConnectionRequirementsOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPhysicalConnectionRequirementsOutput)
+}
+
+func (i ConnectionPhysicalConnectionRequirementsArgs) ToConnectionPhysicalConnectionRequirementsPtrOutput() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return i.ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionPhysicalConnectionRequirementsArgs) ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPhysicalConnectionRequirementsOutput).ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(ctx)
+}
+
+// ConnectionPhysicalConnectionRequirementsPtrInput is an input type that accepts ConnectionPhysicalConnectionRequirementsArgs, ConnectionPhysicalConnectionRequirementsPtr and ConnectionPhysicalConnectionRequirementsPtrOutput values.
+// You can construct a concrete instance of `ConnectionPhysicalConnectionRequirementsPtrInput` via:
+//
+//	        ConnectionPhysicalConnectionRequirementsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionPhysicalConnectionRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToConnectionPhysicalConnectionRequirementsPtrOutput() ConnectionPhysicalConnectionRequirementsPtrOutput
+	ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(context.Context) ConnectionPhysicalConnectionRequirementsPtrOutput
+}
+
+type connectionPhysicalConnectionRequirementsPtrType ConnectionPhysicalConnectionRequirementsArgs
+
+func ConnectionPhysicalConnectionRequirementsPtr(v *ConnectionPhysicalConnectionRequirementsArgs) ConnectionPhysicalConnectionRequirementsPtrInput {
+	return (*connectionPhysicalConnectionRequirementsPtrType)(v)
+}
+
+func (*connectionPhysicalConnectionRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPhysicalConnectionRequirements)(nil)).Elem()
+}
+
+func (i *connectionPhysicalConnectionRequirementsPtrType) ToConnectionPhysicalConnectionRequirementsPtrOutput() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return i.ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPhysicalConnectionRequirementsPtrType) ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPhysicalConnectionRequirementsPtrOutput)
+}
+
+// Physical Connection Requirements
+type ConnectionPhysicalConnectionRequirementsOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPhysicalConnectionRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPhysicalConnectionRequirements)(nil)).Elem()
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConnectionRequirementsOutput() ConnectionPhysicalConnectionRequirementsOutput {
+	return o
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConnectionRequirementsOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsOutput {
+	return o
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConnectionRequirementsPtrOutput() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o.ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPhysicalConnectionRequirements) *ConnectionPhysicalConnectionRequirements {
+		return &v
+	}).(ConnectionPhysicalConnectionRequirementsPtrOutput)
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) SecurityGroupIdList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) []string { return v.SecurityGroupIdList }).(pulumi.StringArrayOutput)
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) SubnetIdList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) []string { return v.SubnetIdList }).(pulumi.StringArrayOutput)
+}
+
+type ConnectionPhysicalConnectionRequirementsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPhysicalConnectionRequirementsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPhysicalConnectionRequirements)(nil)).Elem()
+}
+
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) ToConnectionPhysicalConnectionRequirementsPtrOutput() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o
+}
+
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o
+}
+
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) Elem() ConnectionPhysicalConnectionRequirementsOutput {
+	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) ConnectionPhysicalConnectionRequirements {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionPhysicalConnectionRequirements
+		return ret
+	}).(ConnectionPhysicalConnectionRequirementsOutput)
+}
+
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) SecurityGroupIdList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIdList
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) SubnetIdList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIdList
+	}).(pulumi.StringArrayOutput)
+}
+
+type ConnectionPropertiesInput0Properties struct {
+	AthenaProperties ConnectionAthenaPropertiesInput `pulumi:"athenaProperties"`
+}
+
+// ConnectionPropertiesInput0PropertiesInput is an input type that accepts ConnectionPropertiesInput0PropertiesArgs and ConnectionPropertiesInput0PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput0PropertiesInput` via:
+//
+//	ConnectionPropertiesInput0PropertiesArgs{...}
+type ConnectionPropertiesInput0PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput0PropertiesOutput() ConnectionPropertiesInput0PropertiesOutput
+	ToConnectionPropertiesInput0PropertiesOutputWithContext(context.Context) ConnectionPropertiesInput0PropertiesOutput
+}
+
+type ConnectionPropertiesInput0PropertiesArgs struct {
+	AthenaProperties ConnectionAthenaPropertiesInputInput `pulumi:"athenaProperties"`
+}
+
+func (ConnectionPropertiesInput0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput0Properties)(nil)).Elem()
+}
+
+func (i ConnectionPropertiesInput0PropertiesArgs) ToConnectionPropertiesInput0PropertiesOutput() ConnectionPropertiesInput0PropertiesOutput {
+	return i.ToConnectionPropertiesInput0PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput0PropertiesArgs) ToConnectionPropertiesInput0PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput0PropertiesOutput)
+}
+
+func (i ConnectionPropertiesInput0PropertiesArgs) ToConnectionPropertiesInput0PropertiesPtrOutput() ConnectionPropertiesInput0PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput0PropertiesArgs) ToConnectionPropertiesInput0PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput0PropertiesOutput).ToConnectionPropertiesInput0PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionPropertiesInput0PropertiesPtrInput is an input type that accepts ConnectionPropertiesInput0PropertiesArgs, ConnectionPropertiesInput0PropertiesPtr and ConnectionPropertiesInput0PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput0PropertiesPtrInput` via:
+//
+//	        ConnectionPropertiesInput0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionPropertiesInput0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput0PropertiesPtrOutput() ConnectionPropertiesInput0PropertiesPtrOutput
+	ToConnectionPropertiesInput0PropertiesPtrOutputWithContext(context.Context) ConnectionPropertiesInput0PropertiesPtrOutput
+}
+
+type connectionPropertiesInput0PropertiesPtrType ConnectionPropertiesInput0PropertiesArgs
+
+func ConnectionPropertiesInput0PropertiesPtr(v *ConnectionPropertiesInput0PropertiesArgs) ConnectionPropertiesInput0PropertiesPtrInput {
+	return (*connectionPropertiesInput0PropertiesPtrType)(v)
+}
+
+func (*connectionPropertiesInput0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput0Properties)(nil)).Elem()
+}
+
+func (i *connectionPropertiesInput0PropertiesPtrType) ToConnectionPropertiesInput0PropertiesPtrOutput() ConnectionPropertiesInput0PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPropertiesInput0PropertiesPtrType) ToConnectionPropertiesInput0PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput0PropertiesPtrOutput)
+}
+
+type ConnectionPropertiesInput0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput0Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput0PropertiesOutput) ToConnectionPropertiesInput0PropertiesOutput() ConnectionPropertiesInput0PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput0PropertiesOutput) ToConnectionPropertiesInput0PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput0PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput0PropertiesOutput) ToConnectionPropertiesInput0PropertiesPtrOutput() ConnectionPropertiesInput0PropertiesPtrOutput {
+	return o.ToConnectionPropertiesInput0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionPropertiesInput0PropertiesOutput) ToConnectionPropertiesInput0PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPropertiesInput0Properties) *ConnectionPropertiesInput0Properties {
+		return &v
+	}).(ConnectionPropertiesInput0PropertiesPtrOutput)
+}
+
+func (o ConnectionPropertiesInput0PropertiesOutput) AthenaProperties() ConnectionAthenaPropertiesInputOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInput0Properties) ConnectionAthenaPropertiesInput {
+		return v.AthenaProperties
+	}).(ConnectionAthenaPropertiesInputOutput)
+}
+
+type ConnectionPropertiesInput0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput0Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput0PropertiesPtrOutput) ToConnectionPropertiesInput0PropertiesPtrOutput() ConnectionPropertiesInput0PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput0PropertiesPtrOutput) ToConnectionPropertiesInput0PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput0PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput0PropertiesPtrOutput) Elem() ConnectionPropertiesInput0PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput0Properties) ConnectionPropertiesInput0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionPropertiesInput0Properties
+		return ret
+	}).(ConnectionPropertiesInput0PropertiesOutput)
+}
+
+func (o ConnectionPropertiesInput0PropertiesPtrOutput) AthenaProperties() ConnectionAthenaPropertiesInputPtrOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput0Properties) *ConnectionAthenaPropertiesInput {
+		if v == nil {
+			return nil
+		}
+		return &v.AthenaProperties
+	}).(ConnectionAthenaPropertiesInputPtrOutput)
+}
+
+type ConnectionPropertiesInput1Properties struct {
+	GlueProperties ConnectionGluePropertiesInput `pulumi:"glueProperties"`
+}
+
+// ConnectionPropertiesInput1PropertiesInput is an input type that accepts ConnectionPropertiesInput1PropertiesArgs and ConnectionPropertiesInput1PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput1PropertiesInput` via:
+//
+//	ConnectionPropertiesInput1PropertiesArgs{...}
+type ConnectionPropertiesInput1PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput1PropertiesOutput() ConnectionPropertiesInput1PropertiesOutput
+	ToConnectionPropertiesInput1PropertiesOutputWithContext(context.Context) ConnectionPropertiesInput1PropertiesOutput
+}
+
+type ConnectionPropertiesInput1PropertiesArgs struct {
+	GlueProperties ConnectionGluePropertiesInputInput `pulumi:"glueProperties"`
+}
+
+func (ConnectionPropertiesInput1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput1Properties)(nil)).Elem()
+}
+
+func (i ConnectionPropertiesInput1PropertiesArgs) ToConnectionPropertiesInput1PropertiesOutput() ConnectionPropertiesInput1PropertiesOutput {
+	return i.ToConnectionPropertiesInput1PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput1PropertiesArgs) ToConnectionPropertiesInput1PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput1PropertiesOutput)
+}
+
+func (i ConnectionPropertiesInput1PropertiesArgs) ToConnectionPropertiesInput1PropertiesPtrOutput() ConnectionPropertiesInput1PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput1PropertiesArgs) ToConnectionPropertiesInput1PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput1PropertiesOutput).ToConnectionPropertiesInput1PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionPropertiesInput1PropertiesPtrInput is an input type that accepts ConnectionPropertiesInput1PropertiesArgs, ConnectionPropertiesInput1PropertiesPtr and ConnectionPropertiesInput1PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput1PropertiesPtrInput` via:
+//
+//	        ConnectionPropertiesInput1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionPropertiesInput1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput1PropertiesPtrOutput() ConnectionPropertiesInput1PropertiesPtrOutput
+	ToConnectionPropertiesInput1PropertiesPtrOutputWithContext(context.Context) ConnectionPropertiesInput1PropertiesPtrOutput
+}
+
+type connectionPropertiesInput1PropertiesPtrType ConnectionPropertiesInput1PropertiesArgs
+
+func ConnectionPropertiesInput1PropertiesPtr(v *ConnectionPropertiesInput1PropertiesArgs) ConnectionPropertiesInput1PropertiesPtrInput {
+	return (*connectionPropertiesInput1PropertiesPtrType)(v)
+}
+
+func (*connectionPropertiesInput1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput1Properties)(nil)).Elem()
+}
+
+func (i *connectionPropertiesInput1PropertiesPtrType) ToConnectionPropertiesInput1PropertiesPtrOutput() ConnectionPropertiesInput1PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPropertiesInput1PropertiesPtrType) ToConnectionPropertiesInput1PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput1PropertiesPtrOutput)
+}
+
+type ConnectionPropertiesInput1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput1Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput1PropertiesOutput) ToConnectionPropertiesInput1PropertiesOutput() ConnectionPropertiesInput1PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput1PropertiesOutput) ToConnectionPropertiesInput1PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput1PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput1PropertiesOutput) ToConnectionPropertiesInput1PropertiesPtrOutput() ConnectionPropertiesInput1PropertiesPtrOutput {
+	return o.ToConnectionPropertiesInput1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionPropertiesInput1PropertiesOutput) ToConnectionPropertiesInput1PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPropertiesInput1Properties) *ConnectionPropertiesInput1Properties {
+		return &v
+	}).(ConnectionPropertiesInput1PropertiesPtrOutput)
+}
+
+func (o ConnectionPropertiesInput1PropertiesOutput) GlueProperties() ConnectionGluePropertiesInputOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInput1Properties) ConnectionGluePropertiesInput { return v.GlueProperties }).(ConnectionGluePropertiesInputOutput)
+}
+
+type ConnectionPropertiesInput1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput1Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput1PropertiesPtrOutput) ToConnectionPropertiesInput1PropertiesPtrOutput() ConnectionPropertiesInput1PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput1PropertiesPtrOutput) ToConnectionPropertiesInput1PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput1PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput1PropertiesPtrOutput) Elem() ConnectionPropertiesInput1PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput1Properties) ConnectionPropertiesInput1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionPropertiesInput1Properties
+		return ret
+	}).(ConnectionPropertiesInput1PropertiesOutput)
+}
+
+func (o ConnectionPropertiesInput1PropertiesPtrOutput) GlueProperties() ConnectionGluePropertiesInputPtrOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput1Properties) *ConnectionGluePropertiesInput {
+		if v == nil {
+			return nil
+		}
+		return &v.GlueProperties
+	}).(ConnectionGluePropertiesInputPtrOutput)
+}
+
+type ConnectionPropertiesInput2Properties struct {
+	HyperPodProperties ConnectionHyperPodPropertiesInput `pulumi:"hyperPodProperties"`
+}
+
+// ConnectionPropertiesInput2PropertiesInput is an input type that accepts ConnectionPropertiesInput2PropertiesArgs and ConnectionPropertiesInput2PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput2PropertiesInput` via:
+//
+//	ConnectionPropertiesInput2PropertiesArgs{...}
+type ConnectionPropertiesInput2PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput2PropertiesOutput() ConnectionPropertiesInput2PropertiesOutput
+	ToConnectionPropertiesInput2PropertiesOutputWithContext(context.Context) ConnectionPropertiesInput2PropertiesOutput
+}
+
+type ConnectionPropertiesInput2PropertiesArgs struct {
+	HyperPodProperties ConnectionHyperPodPropertiesInputInput `pulumi:"hyperPodProperties"`
+}
+
+func (ConnectionPropertiesInput2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput2Properties)(nil)).Elem()
+}
+
+func (i ConnectionPropertiesInput2PropertiesArgs) ToConnectionPropertiesInput2PropertiesOutput() ConnectionPropertiesInput2PropertiesOutput {
+	return i.ToConnectionPropertiesInput2PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput2PropertiesArgs) ToConnectionPropertiesInput2PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput2PropertiesOutput)
+}
+
+func (i ConnectionPropertiesInput2PropertiesArgs) ToConnectionPropertiesInput2PropertiesPtrOutput() ConnectionPropertiesInput2PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput2PropertiesArgs) ToConnectionPropertiesInput2PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput2PropertiesOutput).ToConnectionPropertiesInput2PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionPropertiesInput2PropertiesPtrInput is an input type that accepts ConnectionPropertiesInput2PropertiesArgs, ConnectionPropertiesInput2PropertiesPtr and ConnectionPropertiesInput2PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput2PropertiesPtrInput` via:
+//
+//	        ConnectionPropertiesInput2PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionPropertiesInput2PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput2PropertiesPtrOutput() ConnectionPropertiesInput2PropertiesPtrOutput
+	ToConnectionPropertiesInput2PropertiesPtrOutputWithContext(context.Context) ConnectionPropertiesInput2PropertiesPtrOutput
+}
+
+type connectionPropertiesInput2PropertiesPtrType ConnectionPropertiesInput2PropertiesArgs
+
+func ConnectionPropertiesInput2PropertiesPtr(v *ConnectionPropertiesInput2PropertiesArgs) ConnectionPropertiesInput2PropertiesPtrInput {
+	return (*connectionPropertiesInput2PropertiesPtrType)(v)
+}
+
+func (*connectionPropertiesInput2PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput2Properties)(nil)).Elem()
+}
+
+func (i *connectionPropertiesInput2PropertiesPtrType) ToConnectionPropertiesInput2PropertiesPtrOutput() ConnectionPropertiesInput2PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPropertiesInput2PropertiesPtrType) ToConnectionPropertiesInput2PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput2PropertiesPtrOutput)
+}
+
+type ConnectionPropertiesInput2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput2Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput2PropertiesOutput) ToConnectionPropertiesInput2PropertiesOutput() ConnectionPropertiesInput2PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput2PropertiesOutput) ToConnectionPropertiesInput2PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput2PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput2PropertiesOutput) ToConnectionPropertiesInput2PropertiesPtrOutput() ConnectionPropertiesInput2PropertiesPtrOutput {
+	return o.ToConnectionPropertiesInput2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionPropertiesInput2PropertiesOutput) ToConnectionPropertiesInput2PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput2PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPropertiesInput2Properties) *ConnectionPropertiesInput2Properties {
+		return &v
+	}).(ConnectionPropertiesInput2PropertiesPtrOutput)
+}
+
+func (o ConnectionPropertiesInput2PropertiesOutput) HyperPodProperties() ConnectionHyperPodPropertiesInputOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInput2Properties) ConnectionHyperPodPropertiesInput {
+		return v.HyperPodProperties
+	}).(ConnectionHyperPodPropertiesInputOutput)
+}
+
+type ConnectionPropertiesInput2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput2Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput2PropertiesPtrOutput) ToConnectionPropertiesInput2PropertiesPtrOutput() ConnectionPropertiesInput2PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput2PropertiesPtrOutput) ToConnectionPropertiesInput2PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput2PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput2PropertiesPtrOutput) Elem() ConnectionPropertiesInput2PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput2Properties) ConnectionPropertiesInput2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionPropertiesInput2Properties
+		return ret
+	}).(ConnectionPropertiesInput2PropertiesOutput)
+}
+
+func (o ConnectionPropertiesInput2PropertiesPtrOutput) HyperPodProperties() ConnectionHyperPodPropertiesInputPtrOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput2Properties) *ConnectionHyperPodPropertiesInput {
+		if v == nil {
+			return nil
+		}
+		return &v.HyperPodProperties
+	}).(ConnectionHyperPodPropertiesInputPtrOutput)
+}
+
+type ConnectionPropertiesInput3Properties struct {
+	IamProperties ConnectionIamPropertiesInput `pulumi:"iamProperties"`
+}
+
+// ConnectionPropertiesInput3PropertiesInput is an input type that accepts ConnectionPropertiesInput3PropertiesArgs and ConnectionPropertiesInput3PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput3PropertiesInput` via:
+//
+//	ConnectionPropertiesInput3PropertiesArgs{...}
+type ConnectionPropertiesInput3PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput3PropertiesOutput() ConnectionPropertiesInput3PropertiesOutput
+	ToConnectionPropertiesInput3PropertiesOutputWithContext(context.Context) ConnectionPropertiesInput3PropertiesOutput
+}
+
+type ConnectionPropertiesInput3PropertiesArgs struct {
+	IamProperties ConnectionIamPropertiesInputInput `pulumi:"iamProperties"`
+}
+
+func (ConnectionPropertiesInput3PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput3Properties)(nil)).Elem()
+}
+
+func (i ConnectionPropertiesInput3PropertiesArgs) ToConnectionPropertiesInput3PropertiesOutput() ConnectionPropertiesInput3PropertiesOutput {
+	return i.ToConnectionPropertiesInput3PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput3PropertiesArgs) ToConnectionPropertiesInput3PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput3PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput3PropertiesOutput)
+}
+
+func (i ConnectionPropertiesInput3PropertiesArgs) ToConnectionPropertiesInput3PropertiesPtrOutput() ConnectionPropertiesInput3PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput3PropertiesArgs) ToConnectionPropertiesInput3PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput3PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput3PropertiesOutput).ToConnectionPropertiesInput3PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionPropertiesInput3PropertiesPtrInput is an input type that accepts ConnectionPropertiesInput3PropertiesArgs, ConnectionPropertiesInput3PropertiesPtr and ConnectionPropertiesInput3PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput3PropertiesPtrInput` via:
+//
+//	        ConnectionPropertiesInput3PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionPropertiesInput3PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput3PropertiesPtrOutput() ConnectionPropertiesInput3PropertiesPtrOutput
+	ToConnectionPropertiesInput3PropertiesPtrOutputWithContext(context.Context) ConnectionPropertiesInput3PropertiesPtrOutput
+}
+
+type connectionPropertiesInput3PropertiesPtrType ConnectionPropertiesInput3PropertiesArgs
+
+func ConnectionPropertiesInput3PropertiesPtr(v *ConnectionPropertiesInput3PropertiesArgs) ConnectionPropertiesInput3PropertiesPtrInput {
+	return (*connectionPropertiesInput3PropertiesPtrType)(v)
+}
+
+func (*connectionPropertiesInput3PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput3Properties)(nil)).Elem()
+}
+
+func (i *connectionPropertiesInput3PropertiesPtrType) ToConnectionPropertiesInput3PropertiesPtrOutput() ConnectionPropertiesInput3PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPropertiesInput3PropertiesPtrType) ToConnectionPropertiesInput3PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput3PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput3PropertiesPtrOutput)
+}
+
+type ConnectionPropertiesInput3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput3Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput3PropertiesOutput) ToConnectionPropertiesInput3PropertiesOutput() ConnectionPropertiesInput3PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput3PropertiesOutput) ToConnectionPropertiesInput3PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput3PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput3PropertiesOutput) ToConnectionPropertiesInput3PropertiesPtrOutput() ConnectionPropertiesInput3PropertiesPtrOutput {
+	return o.ToConnectionPropertiesInput3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionPropertiesInput3PropertiesOutput) ToConnectionPropertiesInput3PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput3PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPropertiesInput3Properties) *ConnectionPropertiesInput3Properties {
+		return &v
+	}).(ConnectionPropertiesInput3PropertiesPtrOutput)
+}
+
+func (o ConnectionPropertiesInput3PropertiesOutput) IamProperties() ConnectionIamPropertiesInputOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInput3Properties) ConnectionIamPropertiesInput { return v.IamProperties }).(ConnectionIamPropertiesInputOutput)
+}
+
+type ConnectionPropertiesInput3PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput3PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput3Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput3PropertiesPtrOutput) ToConnectionPropertiesInput3PropertiesPtrOutput() ConnectionPropertiesInput3PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput3PropertiesPtrOutput) ToConnectionPropertiesInput3PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput3PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput3PropertiesPtrOutput) Elem() ConnectionPropertiesInput3PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput3Properties) ConnectionPropertiesInput3Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionPropertiesInput3Properties
+		return ret
+	}).(ConnectionPropertiesInput3PropertiesOutput)
+}
+
+func (o ConnectionPropertiesInput3PropertiesPtrOutput) IamProperties() ConnectionIamPropertiesInputPtrOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput3Properties) *ConnectionIamPropertiesInput {
+		if v == nil {
+			return nil
+		}
+		return &v.IamProperties
+	}).(ConnectionIamPropertiesInputPtrOutput)
+}
+
+type ConnectionPropertiesInput4Properties struct {
+	RedshiftProperties ConnectionRedshiftPropertiesInput `pulumi:"redshiftProperties"`
+}
+
+// ConnectionPropertiesInput4PropertiesInput is an input type that accepts ConnectionPropertiesInput4PropertiesArgs and ConnectionPropertiesInput4PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput4PropertiesInput` via:
+//
+//	ConnectionPropertiesInput4PropertiesArgs{...}
+type ConnectionPropertiesInput4PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput4PropertiesOutput() ConnectionPropertiesInput4PropertiesOutput
+	ToConnectionPropertiesInput4PropertiesOutputWithContext(context.Context) ConnectionPropertiesInput4PropertiesOutput
+}
+
+type ConnectionPropertiesInput4PropertiesArgs struct {
+	RedshiftProperties ConnectionRedshiftPropertiesInputInput `pulumi:"redshiftProperties"`
+}
+
+func (ConnectionPropertiesInput4PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput4Properties)(nil)).Elem()
+}
+
+func (i ConnectionPropertiesInput4PropertiesArgs) ToConnectionPropertiesInput4PropertiesOutput() ConnectionPropertiesInput4PropertiesOutput {
+	return i.ToConnectionPropertiesInput4PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput4PropertiesArgs) ToConnectionPropertiesInput4PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput4PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput4PropertiesOutput)
+}
+
+func (i ConnectionPropertiesInput4PropertiesArgs) ToConnectionPropertiesInput4PropertiesPtrOutput() ConnectionPropertiesInput4PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput4PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput4PropertiesArgs) ToConnectionPropertiesInput4PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput4PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput4PropertiesOutput).ToConnectionPropertiesInput4PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionPropertiesInput4PropertiesPtrInput is an input type that accepts ConnectionPropertiesInput4PropertiesArgs, ConnectionPropertiesInput4PropertiesPtr and ConnectionPropertiesInput4PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput4PropertiesPtrInput` via:
+//
+//	        ConnectionPropertiesInput4PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionPropertiesInput4PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput4PropertiesPtrOutput() ConnectionPropertiesInput4PropertiesPtrOutput
+	ToConnectionPropertiesInput4PropertiesPtrOutputWithContext(context.Context) ConnectionPropertiesInput4PropertiesPtrOutput
+}
+
+type connectionPropertiesInput4PropertiesPtrType ConnectionPropertiesInput4PropertiesArgs
+
+func ConnectionPropertiesInput4PropertiesPtr(v *ConnectionPropertiesInput4PropertiesArgs) ConnectionPropertiesInput4PropertiesPtrInput {
+	return (*connectionPropertiesInput4PropertiesPtrType)(v)
+}
+
+func (*connectionPropertiesInput4PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput4Properties)(nil)).Elem()
+}
+
+func (i *connectionPropertiesInput4PropertiesPtrType) ToConnectionPropertiesInput4PropertiesPtrOutput() ConnectionPropertiesInput4PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput4PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPropertiesInput4PropertiesPtrType) ToConnectionPropertiesInput4PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput4PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput4PropertiesPtrOutput)
+}
+
+type ConnectionPropertiesInput4PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput4PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput4Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput4PropertiesOutput) ToConnectionPropertiesInput4PropertiesOutput() ConnectionPropertiesInput4PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput4PropertiesOutput) ToConnectionPropertiesInput4PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput4PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput4PropertiesOutput) ToConnectionPropertiesInput4PropertiesPtrOutput() ConnectionPropertiesInput4PropertiesPtrOutput {
+	return o.ToConnectionPropertiesInput4PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionPropertiesInput4PropertiesOutput) ToConnectionPropertiesInput4PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput4PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPropertiesInput4Properties) *ConnectionPropertiesInput4Properties {
+		return &v
+	}).(ConnectionPropertiesInput4PropertiesPtrOutput)
+}
+
+func (o ConnectionPropertiesInput4PropertiesOutput) RedshiftProperties() ConnectionRedshiftPropertiesInputOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInput4Properties) ConnectionRedshiftPropertiesInput {
+		return v.RedshiftProperties
+	}).(ConnectionRedshiftPropertiesInputOutput)
+}
+
+type ConnectionPropertiesInput4PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput4PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput4Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput4PropertiesPtrOutput) ToConnectionPropertiesInput4PropertiesPtrOutput() ConnectionPropertiesInput4PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput4PropertiesPtrOutput) ToConnectionPropertiesInput4PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput4PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput4PropertiesPtrOutput) Elem() ConnectionPropertiesInput4PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput4Properties) ConnectionPropertiesInput4Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionPropertiesInput4Properties
+		return ret
+	}).(ConnectionPropertiesInput4PropertiesOutput)
+}
+
+func (o ConnectionPropertiesInput4PropertiesPtrOutput) RedshiftProperties() ConnectionRedshiftPropertiesInputPtrOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput4Properties) *ConnectionRedshiftPropertiesInput {
+		if v == nil {
+			return nil
+		}
+		return &v.RedshiftProperties
+	}).(ConnectionRedshiftPropertiesInputPtrOutput)
+}
+
+type ConnectionPropertiesInput5Properties struct {
+	SparkEmrProperties ConnectionSparkEmrPropertiesInput `pulumi:"sparkEmrProperties"`
+}
+
+// ConnectionPropertiesInput5PropertiesInput is an input type that accepts ConnectionPropertiesInput5PropertiesArgs and ConnectionPropertiesInput5PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput5PropertiesInput` via:
+//
+//	ConnectionPropertiesInput5PropertiesArgs{...}
+type ConnectionPropertiesInput5PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput5PropertiesOutput() ConnectionPropertiesInput5PropertiesOutput
+	ToConnectionPropertiesInput5PropertiesOutputWithContext(context.Context) ConnectionPropertiesInput5PropertiesOutput
+}
+
+type ConnectionPropertiesInput5PropertiesArgs struct {
+	SparkEmrProperties ConnectionSparkEmrPropertiesInputInput `pulumi:"sparkEmrProperties"`
+}
+
+func (ConnectionPropertiesInput5PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput5Properties)(nil)).Elem()
+}
+
+func (i ConnectionPropertiesInput5PropertiesArgs) ToConnectionPropertiesInput5PropertiesOutput() ConnectionPropertiesInput5PropertiesOutput {
+	return i.ToConnectionPropertiesInput5PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput5PropertiesArgs) ToConnectionPropertiesInput5PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput5PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput5PropertiesOutput)
+}
+
+func (i ConnectionPropertiesInput5PropertiesArgs) ToConnectionPropertiesInput5PropertiesPtrOutput() ConnectionPropertiesInput5PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput5PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput5PropertiesArgs) ToConnectionPropertiesInput5PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput5PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput5PropertiesOutput).ToConnectionPropertiesInput5PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionPropertiesInput5PropertiesPtrInput is an input type that accepts ConnectionPropertiesInput5PropertiesArgs, ConnectionPropertiesInput5PropertiesPtr and ConnectionPropertiesInput5PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput5PropertiesPtrInput` via:
+//
+//	        ConnectionPropertiesInput5PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionPropertiesInput5PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput5PropertiesPtrOutput() ConnectionPropertiesInput5PropertiesPtrOutput
+	ToConnectionPropertiesInput5PropertiesPtrOutputWithContext(context.Context) ConnectionPropertiesInput5PropertiesPtrOutput
+}
+
+type connectionPropertiesInput5PropertiesPtrType ConnectionPropertiesInput5PropertiesArgs
+
+func ConnectionPropertiesInput5PropertiesPtr(v *ConnectionPropertiesInput5PropertiesArgs) ConnectionPropertiesInput5PropertiesPtrInput {
+	return (*connectionPropertiesInput5PropertiesPtrType)(v)
+}
+
+func (*connectionPropertiesInput5PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput5Properties)(nil)).Elem()
+}
+
+func (i *connectionPropertiesInput5PropertiesPtrType) ToConnectionPropertiesInput5PropertiesPtrOutput() ConnectionPropertiesInput5PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput5PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPropertiesInput5PropertiesPtrType) ToConnectionPropertiesInput5PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput5PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput5PropertiesPtrOutput)
+}
+
+type ConnectionPropertiesInput5PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput5PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput5Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput5PropertiesOutput) ToConnectionPropertiesInput5PropertiesOutput() ConnectionPropertiesInput5PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput5PropertiesOutput) ToConnectionPropertiesInput5PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput5PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput5PropertiesOutput) ToConnectionPropertiesInput5PropertiesPtrOutput() ConnectionPropertiesInput5PropertiesPtrOutput {
+	return o.ToConnectionPropertiesInput5PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionPropertiesInput5PropertiesOutput) ToConnectionPropertiesInput5PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput5PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPropertiesInput5Properties) *ConnectionPropertiesInput5Properties {
+		return &v
+	}).(ConnectionPropertiesInput5PropertiesPtrOutput)
+}
+
+func (o ConnectionPropertiesInput5PropertiesOutput) SparkEmrProperties() ConnectionSparkEmrPropertiesInputOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInput5Properties) ConnectionSparkEmrPropertiesInput {
+		return v.SparkEmrProperties
+	}).(ConnectionSparkEmrPropertiesInputOutput)
+}
+
+type ConnectionPropertiesInput5PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput5PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput5Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput5PropertiesPtrOutput) ToConnectionPropertiesInput5PropertiesPtrOutput() ConnectionPropertiesInput5PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput5PropertiesPtrOutput) ToConnectionPropertiesInput5PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput5PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput5PropertiesPtrOutput) Elem() ConnectionPropertiesInput5PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput5Properties) ConnectionPropertiesInput5Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionPropertiesInput5Properties
+		return ret
+	}).(ConnectionPropertiesInput5PropertiesOutput)
+}
+
+func (o ConnectionPropertiesInput5PropertiesPtrOutput) SparkEmrProperties() ConnectionSparkEmrPropertiesInputPtrOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput5Properties) *ConnectionSparkEmrPropertiesInput {
+		if v == nil {
+			return nil
+		}
+		return &v.SparkEmrProperties
+	}).(ConnectionSparkEmrPropertiesInputPtrOutput)
+}
+
+type ConnectionPropertiesInput6Properties struct {
+	SparkGlueProperties ConnectionSparkGluePropertiesInput `pulumi:"sparkGlueProperties"`
+}
+
+// ConnectionPropertiesInput6PropertiesInput is an input type that accepts ConnectionPropertiesInput6PropertiesArgs and ConnectionPropertiesInput6PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput6PropertiesInput` via:
+//
+//	ConnectionPropertiesInput6PropertiesArgs{...}
+type ConnectionPropertiesInput6PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput6PropertiesOutput() ConnectionPropertiesInput6PropertiesOutput
+	ToConnectionPropertiesInput6PropertiesOutputWithContext(context.Context) ConnectionPropertiesInput6PropertiesOutput
+}
+
+type ConnectionPropertiesInput6PropertiesArgs struct {
+	SparkGlueProperties ConnectionSparkGluePropertiesInputInput `pulumi:"sparkGlueProperties"`
+}
+
+func (ConnectionPropertiesInput6PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput6Properties)(nil)).Elem()
+}
+
+func (i ConnectionPropertiesInput6PropertiesArgs) ToConnectionPropertiesInput6PropertiesOutput() ConnectionPropertiesInput6PropertiesOutput {
+	return i.ToConnectionPropertiesInput6PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput6PropertiesArgs) ToConnectionPropertiesInput6PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput6PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput6PropertiesOutput)
+}
+
+func (i ConnectionPropertiesInput6PropertiesArgs) ToConnectionPropertiesInput6PropertiesPtrOutput() ConnectionPropertiesInput6PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput6PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput6PropertiesArgs) ToConnectionPropertiesInput6PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput6PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput6PropertiesOutput).ToConnectionPropertiesInput6PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionPropertiesInput6PropertiesPtrInput is an input type that accepts ConnectionPropertiesInput6PropertiesArgs, ConnectionPropertiesInput6PropertiesPtr and ConnectionPropertiesInput6PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput6PropertiesPtrInput` via:
+//
+//	        ConnectionPropertiesInput6PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionPropertiesInput6PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput6PropertiesPtrOutput() ConnectionPropertiesInput6PropertiesPtrOutput
+	ToConnectionPropertiesInput6PropertiesPtrOutputWithContext(context.Context) ConnectionPropertiesInput6PropertiesPtrOutput
+}
+
+type connectionPropertiesInput6PropertiesPtrType ConnectionPropertiesInput6PropertiesArgs
+
+func ConnectionPropertiesInput6PropertiesPtr(v *ConnectionPropertiesInput6PropertiesArgs) ConnectionPropertiesInput6PropertiesPtrInput {
+	return (*connectionPropertiesInput6PropertiesPtrType)(v)
+}
+
+func (*connectionPropertiesInput6PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput6Properties)(nil)).Elem()
+}
+
+func (i *connectionPropertiesInput6PropertiesPtrType) ToConnectionPropertiesInput6PropertiesPtrOutput() ConnectionPropertiesInput6PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput6PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPropertiesInput6PropertiesPtrType) ToConnectionPropertiesInput6PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput6PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput6PropertiesPtrOutput)
+}
+
+type ConnectionPropertiesInput6PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput6PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput6Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput6PropertiesOutput) ToConnectionPropertiesInput6PropertiesOutput() ConnectionPropertiesInput6PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput6PropertiesOutput) ToConnectionPropertiesInput6PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput6PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput6PropertiesOutput) ToConnectionPropertiesInput6PropertiesPtrOutput() ConnectionPropertiesInput6PropertiesPtrOutput {
+	return o.ToConnectionPropertiesInput6PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionPropertiesInput6PropertiesOutput) ToConnectionPropertiesInput6PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput6PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPropertiesInput6Properties) *ConnectionPropertiesInput6Properties {
+		return &v
+	}).(ConnectionPropertiesInput6PropertiesPtrOutput)
+}
+
+func (o ConnectionPropertiesInput6PropertiesOutput) SparkGlueProperties() ConnectionSparkGluePropertiesInputOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInput6Properties) ConnectionSparkGluePropertiesInput {
+		return v.SparkGlueProperties
+	}).(ConnectionSparkGluePropertiesInputOutput)
+}
+
+type ConnectionPropertiesInput6PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput6PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput6Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput6PropertiesPtrOutput) ToConnectionPropertiesInput6PropertiesPtrOutput() ConnectionPropertiesInput6PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput6PropertiesPtrOutput) ToConnectionPropertiesInput6PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput6PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput6PropertiesPtrOutput) Elem() ConnectionPropertiesInput6PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput6Properties) ConnectionPropertiesInput6Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionPropertiesInput6Properties
+		return ret
+	}).(ConnectionPropertiesInput6PropertiesOutput)
+}
+
+func (o ConnectionPropertiesInput6PropertiesPtrOutput) SparkGlueProperties() ConnectionSparkGluePropertiesInputPtrOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput6Properties) *ConnectionSparkGluePropertiesInput {
+		if v == nil {
+			return nil
+		}
+		return &v.SparkGlueProperties
+	}).(ConnectionSparkGluePropertiesInputPtrOutput)
+}
+
+type ConnectionRedshiftCredentials0Properties struct {
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// ConnectionRedshiftCredentials0PropertiesInput is an input type that accepts ConnectionRedshiftCredentials0PropertiesArgs and ConnectionRedshiftCredentials0PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionRedshiftCredentials0PropertiesInput` via:
+//
+//	ConnectionRedshiftCredentials0PropertiesArgs{...}
+type ConnectionRedshiftCredentials0PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionRedshiftCredentials0PropertiesOutput() ConnectionRedshiftCredentials0PropertiesOutput
+	ToConnectionRedshiftCredentials0PropertiesOutputWithContext(context.Context) ConnectionRedshiftCredentials0PropertiesOutput
+}
+
+type ConnectionRedshiftCredentials0PropertiesArgs struct {
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (ConnectionRedshiftCredentials0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionRedshiftCredentials0Properties)(nil)).Elem()
+}
+
+func (i ConnectionRedshiftCredentials0PropertiesArgs) ToConnectionRedshiftCredentials0PropertiesOutput() ConnectionRedshiftCredentials0PropertiesOutput {
+	return i.ToConnectionRedshiftCredentials0PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionRedshiftCredentials0PropertiesArgs) ToConnectionRedshiftCredentials0PropertiesOutputWithContext(ctx context.Context) ConnectionRedshiftCredentials0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftCredentials0PropertiesOutput)
+}
+
+func (i ConnectionRedshiftCredentials0PropertiesArgs) ToConnectionRedshiftCredentials0PropertiesPtrOutput() ConnectionRedshiftCredentials0PropertiesPtrOutput {
+	return i.ToConnectionRedshiftCredentials0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionRedshiftCredentials0PropertiesArgs) ToConnectionRedshiftCredentials0PropertiesPtrOutputWithContext(ctx context.Context) ConnectionRedshiftCredentials0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftCredentials0PropertiesOutput).ToConnectionRedshiftCredentials0PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionRedshiftCredentials0PropertiesPtrInput is an input type that accepts ConnectionRedshiftCredentials0PropertiesArgs, ConnectionRedshiftCredentials0PropertiesPtr and ConnectionRedshiftCredentials0PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionRedshiftCredentials0PropertiesPtrInput` via:
+//
+//	        ConnectionRedshiftCredentials0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionRedshiftCredentials0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionRedshiftCredentials0PropertiesPtrOutput() ConnectionRedshiftCredentials0PropertiesPtrOutput
+	ToConnectionRedshiftCredentials0PropertiesPtrOutputWithContext(context.Context) ConnectionRedshiftCredentials0PropertiesPtrOutput
+}
+
+type connectionRedshiftCredentials0PropertiesPtrType ConnectionRedshiftCredentials0PropertiesArgs
+
+func ConnectionRedshiftCredentials0PropertiesPtr(v *ConnectionRedshiftCredentials0PropertiesArgs) ConnectionRedshiftCredentials0PropertiesPtrInput {
+	return (*connectionRedshiftCredentials0PropertiesPtrType)(v)
+}
+
+func (*connectionRedshiftCredentials0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionRedshiftCredentials0Properties)(nil)).Elem()
+}
+
+func (i *connectionRedshiftCredentials0PropertiesPtrType) ToConnectionRedshiftCredentials0PropertiesPtrOutput() ConnectionRedshiftCredentials0PropertiesPtrOutput {
+	return i.ToConnectionRedshiftCredentials0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionRedshiftCredentials0PropertiesPtrType) ToConnectionRedshiftCredentials0PropertiesPtrOutputWithContext(ctx context.Context) ConnectionRedshiftCredentials0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftCredentials0PropertiesPtrOutput)
+}
+
+type ConnectionRedshiftCredentials0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionRedshiftCredentials0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionRedshiftCredentials0Properties)(nil)).Elem()
+}
+
+func (o ConnectionRedshiftCredentials0PropertiesOutput) ToConnectionRedshiftCredentials0PropertiesOutput() ConnectionRedshiftCredentials0PropertiesOutput {
+	return o
+}
+
+func (o ConnectionRedshiftCredentials0PropertiesOutput) ToConnectionRedshiftCredentials0PropertiesOutputWithContext(ctx context.Context) ConnectionRedshiftCredentials0PropertiesOutput {
+	return o
+}
+
+func (o ConnectionRedshiftCredentials0PropertiesOutput) ToConnectionRedshiftCredentials0PropertiesPtrOutput() ConnectionRedshiftCredentials0PropertiesPtrOutput {
+	return o.ToConnectionRedshiftCredentials0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionRedshiftCredentials0PropertiesOutput) ToConnectionRedshiftCredentials0PropertiesPtrOutputWithContext(ctx context.Context) ConnectionRedshiftCredentials0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionRedshiftCredentials0Properties) *ConnectionRedshiftCredentials0Properties {
+		return &v
+	}).(ConnectionRedshiftCredentials0PropertiesPtrOutput)
+}
+
+func (o ConnectionRedshiftCredentials0PropertiesOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionRedshiftCredentials0Properties) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type ConnectionRedshiftCredentials0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionRedshiftCredentials0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionRedshiftCredentials0Properties)(nil)).Elem()
+}
+
+func (o ConnectionRedshiftCredentials0PropertiesPtrOutput) ToConnectionRedshiftCredentials0PropertiesPtrOutput() ConnectionRedshiftCredentials0PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionRedshiftCredentials0PropertiesPtrOutput) ToConnectionRedshiftCredentials0PropertiesPtrOutputWithContext(ctx context.Context) ConnectionRedshiftCredentials0PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionRedshiftCredentials0PropertiesPtrOutput) Elem() ConnectionRedshiftCredentials0PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftCredentials0Properties) ConnectionRedshiftCredentials0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionRedshiftCredentials0Properties
+		return ret
+	}).(ConnectionRedshiftCredentials0PropertiesOutput)
+}
+
+func (o ConnectionRedshiftCredentials0PropertiesPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftCredentials0Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionRedshiftCredentials1Properties struct {
+	UsernamePassword ConnectionUsernamePassword `pulumi:"usernamePassword"`
+}
+
+// ConnectionRedshiftCredentials1PropertiesInput is an input type that accepts ConnectionRedshiftCredentials1PropertiesArgs and ConnectionRedshiftCredentials1PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionRedshiftCredentials1PropertiesInput` via:
+//
+//	ConnectionRedshiftCredentials1PropertiesArgs{...}
+type ConnectionRedshiftCredentials1PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionRedshiftCredentials1PropertiesOutput() ConnectionRedshiftCredentials1PropertiesOutput
+	ToConnectionRedshiftCredentials1PropertiesOutputWithContext(context.Context) ConnectionRedshiftCredentials1PropertiesOutput
+}
+
+type ConnectionRedshiftCredentials1PropertiesArgs struct {
+	UsernamePassword ConnectionUsernamePasswordInput `pulumi:"usernamePassword"`
+}
+
+func (ConnectionRedshiftCredentials1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionRedshiftCredentials1Properties)(nil)).Elem()
+}
+
+func (i ConnectionRedshiftCredentials1PropertiesArgs) ToConnectionRedshiftCredentials1PropertiesOutput() ConnectionRedshiftCredentials1PropertiesOutput {
+	return i.ToConnectionRedshiftCredentials1PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionRedshiftCredentials1PropertiesArgs) ToConnectionRedshiftCredentials1PropertiesOutputWithContext(ctx context.Context) ConnectionRedshiftCredentials1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftCredentials1PropertiesOutput)
+}
+
+func (i ConnectionRedshiftCredentials1PropertiesArgs) ToConnectionRedshiftCredentials1PropertiesPtrOutput() ConnectionRedshiftCredentials1PropertiesPtrOutput {
+	return i.ToConnectionRedshiftCredentials1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionRedshiftCredentials1PropertiesArgs) ToConnectionRedshiftCredentials1PropertiesPtrOutputWithContext(ctx context.Context) ConnectionRedshiftCredentials1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftCredentials1PropertiesOutput).ToConnectionRedshiftCredentials1PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionRedshiftCredentials1PropertiesPtrInput is an input type that accepts ConnectionRedshiftCredentials1PropertiesArgs, ConnectionRedshiftCredentials1PropertiesPtr and ConnectionRedshiftCredentials1PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionRedshiftCredentials1PropertiesPtrInput` via:
+//
+//	        ConnectionRedshiftCredentials1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionRedshiftCredentials1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionRedshiftCredentials1PropertiesPtrOutput() ConnectionRedshiftCredentials1PropertiesPtrOutput
+	ToConnectionRedshiftCredentials1PropertiesPtrOutputWithContext(context.Context) ConnectionRedshiftCredentials1PropertiesPtrOutput
+}
+
+type connectionRedshiftCredentials1PropertiesPtrType ConnectionRedshiftCredentials1PropertiesArgs
+
+func ConnectionRedshiftCredentials1PropertiesPtr(v *ConnectionRedshiftCredentials1PropertiesArgs) ConnectionRedshiftCredentials1PropertiesPtrInput {
+	return (*connectionRedshiftCredentials1PropertiesPtrType)(v)
+}
+
+func (*connectionRedshiftCredentials1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionRedshiftCredentials1Properties)(nil)).Elem()
+}
+
+func (i *connectionRedshiftCredentials1PropertiesPtrType) ToConnectionRedshiftCredentials1PropertiesPtrOutput() ConnectionRedshiftCredentials1PropertiesPtrOutput {
+	return i.ToConnectionRedshiftCredentials1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionRedshiftCredentials1PropertiesPtrType) ToConnectionRedshiftCredentials1PropertiesPtrOutputWithContext(ctx context.Context) ConnectionRedshiftCredentials1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftCredentials1PropertiesPtrOutput)
+}
+
+type ConnectionRedshiftCredentials1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionRedshiftCredentials1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionRedshiftCredentials1Properties)(nil)).Elem()
+}
+
+func (o ConnectionRedshiftCredentials1PropertiesOutput) ToConnectionRedshiftCredentials1PropertiesOutput() ConnectionRedshiftCredentials1PropertiesOutput {
+	return o
+}
+
+func (o ConnectionRedshiftCredentials1PropertiesOutput) ToConnectionRedshiftCredentials1PropertiesOutputWithContext(ctx context.Context) ConnectionRedshiftCredentials1PropertiesOutput {
+	return o
+}
+
+func (o ConnectionRedshiftCredentials1PropertiesOutput) ToConnectionRedshiftCredentials1PropertiesPtrOutput() ConnectionRedshiftCredentials1PropertiesPtrOutput {
+	return o.ToConnectionRedshiftCredentials1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionRedshiftCredentials1PropertiesOutput) ToConnectionRedshiftCredentials1PropertiesPtrOutputWithContext(ctx context.Context) ConnectionRedshiftCredentials1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionRedshiftCredentials1Properties) *ConnectionRedshiftCredentials1Properties {
+		return &v
+	}).(ConnectionRedshiftCredentials1PropertiesPtrOutput)
+}
+
+func (o ConnectionRedshiftCredentials1PropertiesOutput) UsernamePassword() ConnectionUsernamePasswordOutput {
+	return o.ApplyT(func(v ConnectionRedshiftCredentials1Properties) ConnectionUsernamePassword { return v.UsernamePassword }).(ConnectionUsernamePasswordOutput)
+}
+
+type ConnectionRedshiftCredentials1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionRedshiftCredentials1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionRedshiftCredentials1Properties)(nil)).Elem()
+}
+
+func (o ConnectionRedshiftCredentials1PropertiesPtrOutput) ToConnectionRedshiftCredentials1PropertiesPtrOutput() ConnectionRedshiftCredentials1PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionRedshiftCredentials1PropertiesPtrOutput) ToConnectionRedshiftCredentials1PropertiesPtrOutputWithContext(ctx context.Context) ConnectionRedshiftCredentials1PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionRedshiftCredentials1PropertiesPtrOutput) Elem() ConnectionRedshiftCredentials1PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftCredentials1Properties) ConnectionRedshiftCredentials1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionRedshiftCredentials1Properties
+		return ret
+	}).(ConnectionRedshiftCredentials1PropertiesOutput)
+}
+
+func (o ConnectionRedshiftCredentials1PropertiesPtrOutput) UsernamePassword() ConnectionUsernamePasswordPtrOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftCredentials1Properties) *ConnectionUsernamePassword {
+		if v == nil {
+			return nil
+		}
+		return &v.UsernamePassword
+	}).(ConnectionUsernamePasswordPtrOutput)
+}
+
+// Redshift Lineage Sync Configuration Input
+type ConnectionRedshiftLineageSyncConfigurationInput struct {
+	Enabled  *bool                          `pulumi:"enabled"`
+	Schedule *ConnectionLineageSyncSchedule `pulumi:"schedule"`
+}
+
+// ConnectionRedshiftLineageSyncConfigurationInputInput is an input type that accepts ConnectionRedshiftLineageSyncConfigurationInputArgs and ConnectionRedshiftLineageSyncConfigurationInputOutput values.
+// You can construct a concrete instance of `ConnectionRedshiftLineageSyncConfigurationInputInput` via:
+//
+//	ConnectionRedshiftLineageSyncConfigurationInputArgs{...}
+type ConnectionRedshiftLineageSyncConfigurationInputInput interface {
+	pulumi.Input
+
+	ToConnectionRedshiftLineageSyncConfigurationInputOutput() ConnectionRedshiftLineageSyncConfigurationInputOutput
+	ToConnectionRedshiftLineageSyncConfigurationInputOutputWithContext(context.Context) ConnectionRedshiftLineageSyncConfigurationInputOutput
+}
+
+// Redshift Lineage Sync Configuration Input
+type ConnectionRedshiftLineageSyncConfigurationInputArgs struct {
+	Enabled  pulumi.BoolPtrInput                   `pulumi:"enabled"`
+	Schedule ConnectionLineageSyncSchedulePtrInput `pulumi:"schedule"`
+}
+
+func (ConnectionRedshiftLineageSyncConfigurationInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionRedshiftLineageSyncConfigurationInput)(nil)).Elem()
+}
+
+func (i ConnectionRedshiftLineageSyncConfigurationInputArgs) ToConnectionRedshiftLineageSyncConfigurationInputOutput() ConnectionRedshiftLineageSyncConfigurationInputOutput {
+	return i.ToConnectionRedshiftLineageSyncConfigurationInputOutputWithContext(context.Background())
+}
+
+func (i ConnectionRedshiftLineageSyncConfigurationInputArgs) ToConnectionRedshiftLineageSyncConfigurationInputOutputWithContext(ctx context.Context) ConnectionRedshiftLineageSyncConfigurationInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftLineageSyncConfigurationInputOutput)
+}
+
+func (i ConnectionRedshiftLineageSyncConfigurationInputArgs) ToConnectionRedshiftLineageSyncConfigurationInputPtrOutput() ConnectionRedshiftLineageSyncConfigurationInputPtrOutput {
+	return i.ToConnectionRedshiftLineageSyncConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionRedshiftLineageSyncConfigurationInputArgs) ToConnectionRedshiftLineageSyncConfigurationInputPtrOutputWithContext(ctx context.Context) ConnectionRedshiftLineageSyncConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftLineageSyncConfigurationInputOutput).ToConnectionRedshiftLineageSyncConfigurationInputPtrOutputWithContext(ctx)
+}
+
+// ConnectionRedshiftLineageSyncConfigurationInputPtrInput is an input type that accepts ConnectionRedshiftLineageSyncConfigurationInputArgs, ConnectionRedshiftLineageSyncConfigurationInputPtr and ConnectionRedshiftLineageSyncConfigurationInputPtrOutput values.
+// You can construct a concrete instance of `ConnectionRedshiftLineageSyncConfigurationInputPtrInput` via:
+//
+//	        ConnectionRedshiftLineageSyncConfigurationInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionRedshiftLineageSyncConfigurationInputPtrInput interface {
+	pulumi.Input
+
+	ToConnectionRedshiftLineageSyncConfigurationInputPtrOutput() ConnectionRedshiftLineageSyncConfigurationInputPtrOutput
+	ToConnectionRedshiftLineageSyncConfigurationInputPtrOutputWithContext(context.Context) ConnectionRedshiftLineageSyncConfigurationInputPtrOutput
+}
+
+type connectionRedshiftLineageSyncConfigurationInputPtrType ConnectionRedshiftLineageSyncConfigurationInputArgs
+
+func ConnectionRedshiftLineageSyncConfigurationInputPtr(v *ConnectionRedshiftLineageSyncConfigurationInputArgs) ConnectionRedshiftLineageSyncConfigurationInputPtrInput {
+	return (*connectionRedshiftLineageSyncConfigurationInputPtrType)(v)
+}
+
+func (*connectionRedshiftLineageSyncConfigurationInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionRedshiftLineageSyncConfigurationInput)(nil)).Elem()
+}
+
+func (i *connectionRedshiftLineageSyncConfigurationInputPtrType) ToConnectionRedshiftLineageSyncConfigurationInputPtrOutput() ConnectionRedshiftLineageSyncConfigurationInputPtrOutput {
+	return i.ToConnectionRedshiftLineageSyncConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionRedshiftLineageSyncConfigurationInputPtrType) ToConnectionRedshiftLineageSyncConfigurationInputPtrOutputWithContext(ctx context.Context) ConnectionRedshiftLineageSyncConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftLineageSyncConfigurationInputPtrOutput)
+}
+
+// Redshift Lineage Sync Configuration Input
+type ConnectionRedshiftLineageSyncConfigurationInputOutput struct{ *pulumi.OutputState }
+
+func (ConnectionRedshiftLineageSyncConfigurationInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionRedshiftLineageSyncConfigurationInput)(nil)).Elem()
+}
+
+func (o ConnectionRedshiftLineageSyncConfigurationInputOutput) ToConnectionRedshiftLineageSyncConfigurationInputOutput() ConnectionRedshiftLineageSyncConfigurationInputOutput {
+	return o
+}
+
+func (o ConnectionRedshiftLineageSyncConfigurationInputOutput) ToConnectionRedshiftLineageSyncConfigurationInputOutputWithContext(ctx context.Context) ConnectionRedshiftLineageSyncConfigurationInputOutput {
+	return o
+}
+
+func (o ConnectionRedshiftLineageSyncConfigurationInputOutput) ToConnectionRedshiftLineageSyncConfigurationInputPtrOutput() ConnectionRedshiftLineageSyncConfigurationInputPtrOutput {
+	return o.ToConnectionRedshiftLineageSyncConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionRedshiftLineageSyncConfigurationInputOutput) ToConnectionRedshiftLineageSyncConfigurationInputPtrOutputWithContext(ctx context.Context) ConnectionRedshiftLineageSyncConfigurationInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionRedshiftLineageSyncConfigurationInput) *ConnectionRedshiftLineageSyncConfigurationInput {
+		return &v
+	}).(ConnectionRedshiftLineageSyncConfigurationInputPtrOutput)
+}
+
+func (o ConnectionRedshiftLineageSyncConfigurationInputOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectionRedshiftLineageSyncConfigurationInput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ConnectionRedshiftLineageSyncConfigurationInputOutput) Schedule() ConnectionLineageSyncSchedulePtrOutput {
+	return o.ApplyT(func(v ConnectionRedshiftLineageSyncConfigurationInput) *ConnectionLineageSyncSchedule {
+		return v.Schedule
+	}).(ConnectionLineageSyncSchedulePtrOutput)
+}
+
+type ConnectionRedshiftLineageSyncConfigurationInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionRedshiftLineageSyncConfigurationInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionRedshiftLineageSyncConfigurationInput)(nil)).Elem()
+}
+
+func (o ConnectionRedshiftLineageSyncConfigurationInputPtrOutput) ToConnectionRedshiftLineageSyncConfigurationInputPtrOutput() ConnectionRedshiftLineageSyncConfigurationInputPtrOutput {
+	return o
+}
+
+func (o ConnectionRedshiftLineageSyncConfigurationInputPtrOutput) ToConnectionRedshiftLineageSyncConfigurationInputPtrOutputWithContext(ctx context.Context) ConnectionRedshiftLineageSyncConfigurationInputPtrOutput {
+	return o
+}
+
+func (o ConnectionRedshiftLineageSyncConfigurationInputPtrOutput) Elem() ConnectionRedshiftLineageSyncConfigurationInputOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftLineageSyncConfigurationInput) ConnectionRedshiftLineageSyncConfigurationInput {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionRedshiftLineageSyncConfigurationInput
+		return ret
+	}).(ConnectionRedshiftLineageSyncConfigurationInputOutput)
+}
+
+func (o ConnectionRedshiftLineageSyncConfigurationInputPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftLineageSyncConfigurationInput) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ConnectionRedshiftLineageSyncConfigurationInputPtrOutput) Schedule() ConnectionLineageSyncSchedulePtrOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftLineageSyncConfigurationInput) *ConnectionLineageSyncSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.Schedule
+	}).(ConnectionLineageSyncSchedulePtrOutput)
+}
+
+// Redshift Properties Input
+type ConnectionRedshiftPropertiesInput struct {
+	Credentials  interface{}                                      `pulumi:"credentials"`
+	DatabaseName *string                                          `pulumi:"databaseName"`
+	Host         *string                                          `pulumi:"host"`
+	LineageSync  *ConnectionRedshiftLineageSyncConfigurationInput `pulumi:"lineageSync"`
+	Port         *float64                                         `pulumi:"port"`
+	Storage      interface{}                                      `pulumi:"storage"`
+}
+
+// ConnectionRedshiftPropertiesInputInput is an input type that accepts ConnectionRedshiftPropertiesInputArgs and ConnectionRedshiftPropertiesInputOutput values.
+// You can construct a concrete instance of `ConnectionRedshiftPropertiesInputInput` via:
+//
+//	ConnectionRedshiftPropertiesInputArgs{...}
+type ConnectionRedshiftPropertiesInputInput interface {
+	pulumi.Input
+
+	ToConnectionRedshiftPropertiesInputOutput() ConnectionRedshiftPropertiesInputOutput
+	ToConnectionRedshiftPropertiesInputOutputWithContext(context.Context) ConnectionRedshiftPropertiesInputOutput
+}
+
+// Redshift Properties Input
+type ConnectionRedshiftPropertiesInputArgs struct {
+	Credentials  pulumi.Input                                            `pulumi:"credentials"`
+	DatabaseName pulumi.StringPtrInput                                   `pulumi:"databaseName"`
+	Host         pulumi.StringPtrInput                                   `pulumi:"host"`
+	LineageSync  ConnectionRedshiftLineageSyncConfigurationInputPtrInput `pulumi:"lineageSync"`
+	Port         pulumi.Float64PtrInput                                  `pulumi:"port"`
+	Storage      pulumi.Input                                            `pulumi:"storage"`
+}
+
+func (ConnectionRedshiftPropertiesInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionRedshiftPropertiesInput)(nil)).Elem()
+}
+
+func (i ConnectionRedshiftPropertiesInputArgs) ToConnectionRedshiftPropertiesInputOutput() ConnectionRedshiftPropertiesInputOutput {
+	return i.ToConnectionRedshiftPropertiesInputOutputWithContext(context.Background())
+}
+
+func (i ConnectionRedshiftPropertiesInputArgs) ToConnectionRedshiftPropertiesInputOutputWithContext(ctx context.Context) ConnectionRedshiftPropertiesInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftPropertiesInputOutput)
+}
+
+func (i ConnectionRedshiftPropertiesInputArgs) ToConnectionRedshiftPropertiesInputPtrOutput() ConnectionRedshiftPropertiesInputPtrOutput {
+	return i.ToConnectionRedshiftPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionRedshiftPropertiesInputArgs) ToConnectionRedshiftPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionRedshiftPropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftPropertiesInputOutput).ToConnectionRedshiftPropertiesInputPtrOutputWithContext(ctx)
+}
+
+// ConnectionRedshiftPropertiesInputPtrInput is an input type that accepts ConnectionRedshiftPropertiesInputArgs, ConnectionRedshiftPropertiesInputPtr and ConnectionRedshiftPropertiesInputPtrOutput values.
+// You can construct a concrete instance of `ConnectionRedshiftPropertiesInputPtrInput` via:
+//
+//	        ConnectionRedshiftPropertiesInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionRedshiftPropertiesInputPtrInput interface {
+	pulumi.Input
+
+	ToConnectionRedshiftPropertiesInputPtrOutput() ConnectionRedshiftPropertiesInputPtrOutput
+	ToConnectionRedshiftPropertiesInputPtrOutputWithContext(context.Context) ConnectionRedshiftPropertiesInputPtrOutput
+}
+
+type connectionRedshiftPropertiesInputPtrType ConnectionRedshiftPropertiesInputArgs
+
+func ConnectionRedshiftPropertiesInputPtr(v *ConnectionRedshiftPropertiesInputArgs) ConnectionRedshiftPropertiesInputPtrInput {
+	return (*connectionRedshiftPropertiesInputPtrType)(v)
+}
+
+func (*connectionRedshiftPropertiesInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionRedshiftPropertiesInput)(nil)).Elem()
+}
+
+func (i *connectionRedshiftPropertiesInputPtrType) ToConnectionRedshiftPropertiesInputPtrOutput() ConnectionRedshiftPropertiesInputPtrOutput {
+	return i.ToConnectionRedshiftPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionRedshiftPropertiesInputPtrType) ToConnectionRedshiftPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionRedshiftPropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftPropertiesInputPtrOutput)
+}
+
+// Redshift Properties Input
+type ConnectionRedshiftPropertiesInputOutput struct{ *pulumi.OutputState }
+
+func (ConnectionRedshiftPropertiesInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionRedshiftPropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionRedshiftPropertiesInputOutput) ToConnectionRedshiftPropertiesInputOutput() ConnectionRedshiftPropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionRedshiftPropertiesInputOutput) ToConnectionRedshiftPropertiesInputOutputWithContext(ctx context.Context) ConnectionRedshiftPropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionRedshiftPropertiesInputOutput) ToConnectionRedshiftPropertiesInputPtrOutput() ConnectionRedshiftPropertiesInputPtrOutput {
+	return o.ToConnectionRedshiftPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionRedshiftPropertiesInputOutput) ToConnectionRedshiftPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionRedshiftPropertiesInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionRedshiftPropertiesInput) *ConnectionRedshiftPropertiesInput {
+		return &v
+	}).(ConnectionRedshiftPropertiesInputPtrOutput)
+}
+
+func (o ConnectionRedshiftPropertiesInputOutput) Credentials() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConnectionRedshiftPropertiesInput) interface{} { return v.Credentials }).(pulumi.AnyOutput)
+}
+
+func (o ConnectionRedshiftPropertiesInputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionRedshiftPropertiesInput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionRedshiftPropertiesInputOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionRedshiftPropertiesInput) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionRedshiftPropertiesInputOutput) LineageSync() ConnectionRedshiftLineageSyncConfigurationInputPtrOutput {
+	return o.ApplyT(func(v ConnectionRedshiftPropertiesInput) *ConnectionRedshiftLineageSyncConfigurationInput {
+		return v.LineageSync
+	}).(ConnectionRedshiftLineageSyncConfigurationInputPtrOutput)
+}
+
+func (o ConnectionRedshiftPropertiesInputOutput) Port() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConnectionRedshiftPropertiesInput) *float64 { return v.Port }).(pulumi.Float64PtrOutput)
+}
+
+func (o ConnectionRedshiftPropertiesInputOutput) Storage() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConnectionRedshiftPropertiesInput) interface{} { return v.Storage }).(pulumi.AnyOutput)
+}
+
+type ConnectionRedshiftPropertiesInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionRedshiftPropertiesInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionRedshiftPropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionRedshiftPropertiesInputPtrOutput) ToConnectionRedshiftPropertiesInputPtrOutput() ConnectionRedshiftPropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionRedshiftPropertiesInputPtrOutput) ToConnectionRedshiftPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionRedshiftPropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionRedshiftPropertiesInputPtrOutput) Elem() ConnectionRedshiftPropertiesInputOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftPropertiesInput) ConnectionRedshiftPropertiesInput {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionRedshiftPropertiesInput
+		return ret
+	}).(ConnectionRedshiftPropertiesInputOutput)
+}
+
+func (o ConnectionRedshiftPropertiesInputPtrOutput) Credentials() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftPropertiesInput) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Credentials
+	}).(pulumi.AnyOutput)
+}
+
+func (o ConnectionRedshiftPropertiesInputPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftPropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionRedshiftPropertiesInputPtrOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftPropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Host
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionRedshiftPropertiesInputPtrOutput) LineageSync() ConnectionRedshiftLineageSyncConfigurationInputPtrOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftPropertiesInput) *ConnectionRedshiftLineageSyncConfigurationInput {
+		if v == nil {
+			return nil
+		}
+		return v.LineageSync
+	}).(ConnectionRedshiftLineageSyncConfigurationInputPtrOutput)
+}
+
+func (o ConnectionRedshiftPropertiesInputPtrOutput) Port() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftPropertiesInput) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o ConnectionRedshiftPropertiesInputPtrOutput) Storage() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftPropertiesInput) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Storage
+	}).(pulumi.AnyOutput)
+}
+
+type ConnectionRedshiftStorageProperties0Properties struct {
+	ClusterName string `pulumi:"clusterName"`
+}
+
+// ConnectionRedshiftStorageProperties0PropertiesInput is an input type that accepts ConnectionRedshiftStorageProperties0PropertiesArgs and ConnectionRedshiftStorageProperties0PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionRedshiftStorageProperties0PropertiesInput` via:
+//
+//	ConnectionRedshiftStorageProperties0PropertiesArgs{...}
+type ConnectionRedshiftStorageProperties0PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionRedshiftStorageProperties0PropertiesOutput() ConnectionRedshiftStorageProperties0PropertiesOutput
+	ToConnectionRedshiftStorageProperties0PropertiesOutputWithContext(context.Context) ConnectionRedshiftStorageProperties0PropertiesOutput
+}
+
+type ConnectionRedshiftStorageProperties0PropertiesArgs struct {
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+}
+
+func (ConnectionRedshiftStorageProperties0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionRedshiftStorageProperties0Properties)(nil)).Elem()
+}
+
+func (i ConnectionRedshiftStorageProperties0PropertiesArgs) ToConnectionRedshiftStorageProperties0PropertiesOutput() ConnectionRedshiftStorageProperties0PropertiesOutput {
+	return i.ToConnectionRedshiftStorageProperties0PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionRedshiftStorageProperties0PropertiesArgs) ToConnectionRedshiftStorageProperties0PropertiesOutputWithContext(ctx context.Context) ConnectionRedshiftStorageProperties0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftStorageProperties0PropertiesOutput)
+}
+
+func (i ConnectionRedshiftStorageProperties0PropertiesArgs) ToConnectionRedshiftStorageProperties0PropertiesPtrOutput() ConnectionRedshiftStorageProperties0PropertiesPtrOutput {
+	return i.ToConnectionRedshiftStorageProperties0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionRedshiftStorageProperties0PropertiesArgs) ToConnectionRedshiftStorageProperties0PropertiesPtrOutputWithContext(ctx context.Context) ConnectionRedshiftStorageProperties0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftStorageProperties0PropertiesOutput).ToConnectionRedshiftStorageProperties0PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionRedshiftStorageProperties0PropertiesPtrInput is an input type that accepts ConnectionRedshiftStorageProperties0PropertiesArgs, ConnectionRedshiftStorageProperties0PropertiesPtr and ConnectionRedshiftStorageProperties0PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionRedshiftStorageProperties0PropertiesPtrInput` via:
+//
+//	        ConnectionRedshiftStorageProperties0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionRedshiftStorageProperties0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionRedshiftStorageProperties0PropertiesPtrOutput() ConnectionRedshiftStorageProperties0PropertiesPtrOutput
+	ToConnectionRedshiftStorageProperties0PropertiesPtrOutputWithContext(context.Context) ConnectionRedshiftStorageProperties0PropertiesPtrOutput
+}
+
+type connectionRedshiftStorageProperties0PropertiesPtrType ConnectionRedshiftStorageProperties0PropertiesArgs
+
+func ConnectionRedshiftStorageProperties0PropertiesPtr(v *ConnectionRedshiftStorageProperties0PropertiesArgs) ConnectionRedshiftStorageProperties0PropertiesPtrInput {
+	return (*connectionRedshiftStorageProperties0PropertiesPtrType)(v)
+}
+
+func (*connectionRedshiftStorageProperties0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionRedshiftStorageProperties0Properties)(nil)).Elem()
+}
+
+func (i *connectionRedshiftStorageProperties0PropertiesPtrType) ToConnectionRedshiftStorageProperties0PropertiesPtrOutput() ConnectionRedshiftStorageProperties0PropertiesPtrOutput {
+	return i.ToConnectionRedshiftStorageProperties0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionRedshiftStorageProperties0PropertiesPtrType) ToConnectionRedshiftStorageProperties0PropertiesPtrOutputWithContext(ctx context.Context) ConnectionRedshiftStorageProperties0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftStorageProperties0PropertiesPtrOutput)
+}
+
+type ConnectionRedshiftStorageProperties0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionRedshiftStorageProperties0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionRedshiftStorageProperties0Properties)(nil)).Elem()
+}
+
+func (o ConnectionRedshiftStorageProperties0PropertiesOutput) ToConnectionRedshiftStorageProperties0PropertiesOutput() ConnectionRedshiftStorageProperties0PropertiesOutput {
+	return o
+}
+
+func (o ConnectionRedshiftStorageProperties0PropertiesOutput) ToConnectionRedshiftStorageProperties0PropertiesOutputWithContext(ctx context.Context) ConnectionRedshiftStorageProperties0PropertiesOutput {
+	return o
+}
+
+func (o ConnectionRedshiftStorageProperties0PropertiesOutput) ToConnectionRedshiftStorageProperties0PropertiesPtrOutput() ConnectionRedshiftStorageProperties0PropertiesPtrOutput {
+	return o.ToConnectionRedshiftStorageProperties0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionRedshiftStorageProperties0PropertiesOutput) ToConnectionRedshiftStorageProperties0PropertiesPtrOutputWithContext(ctx context.Context) ConnectionRedshiftStorageProperties0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionRedshiftStorageProperties0Properties) *ConnectionRedshiftStorageProperties0Properties {
+		return &v
+	}).(ConnectionRedshiftStorageProperties0PropertiesPtrOutput)
+}
+
+func (o ConnectionRedshiftStorageProperties0PropertiesOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionRedshiftStorageProperties0Properties) string { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+type ConnectionRedshiftStorageProperties0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionRedshiftStorageProperties0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionRedshiftStorageProperties0Properties)(nil)).Elem()
+}
+
+func (o ConnectionRedshiftStorageProperties0PropertiesPtrOutput) ToConnectionRedshiftStorageProperties0PropertiesPtrOutput() ConnectionRedshiftStorageProperties0PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionRedshiftStorageProperties0PropertiesPtrOutput) ToConnectionRedshiftStorageProperties0PropertiesPtrOutputWithContext(ctx context.Context) ConnectionRedshiftStorageProperties0PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionRedshiftStorageProperties0PropertiesPtrOutput) Elem() ConnectionRedshiftStorageProperties0PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftStorageProperties0Properties) ConnectionRedshiftStorageProperties0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionRedshiftStorageProperties0Properties
+		return ret
+	}).(ConnectionRedshiftStorageProperties0PropertiesOutput)
+}
+
+func (o ConnectionRedshiftStorageProperties0PropertiesPtrOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftStorageProperties0Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionRedshiftStorageProperties1Properties struct {
+	WorkgroupName string `pulumi:"workgroupName"`
+}
+
+// ConnectionRedshiftStorageProperties1PropertiesInput is an input type that accepts ConnectionRedshiftStorageProperties1PropertiesArgs and ConnectionRedshiftStorageProperties1PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionRedshiftStorageProperties1PropertiesInput` via:
+//
+//	ConnectionRedshiftStorageProperties1PropertiesArgs{...}
+type ConnectionRedshiftStorageProperties1PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionRedshiftStorageProperties1PropertiesOutput() ConnectionRedshiftStorageProperties1PropertiesOutput
+	ToConnectionRedshiftStorageProperties1PropertiesOutputWithContext(context.Context) ConnectionRedshiftStorageProperties1PropertiesOutput
+}
+
+type ConnectionRedshiftStorageProperties1PropertiesArgs struct {
+	WorkgroupName pulumi.StringInput `pulumi:"workgroupName"`
+}
+
+func (ConnectionRedshiftStorageProperties1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionRedshiftStorageProperties1Properties)(nil)).Elem()
+}
+
+func (i ConnectionRedshiftStorageProperties1PropertiesArgs) ToConnectionRedshiftStorageProperties1PropertiesOutput() ConnectionRedshiftStorageProperties1PropertiesOutput {
+	return i.ToConnectionRedshiftStorageProperties1PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionRedshiftStorageProperties1PropertiesArgs) ToConnectionRedshiftStorageProperties1PropertiesOutputWithContext(ctx context.Context) ConnectionRedshiftStorageProperties1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftStorageProperties1PropertiesOutput)
+}
+
+func (i ConnectionRedshiftStorageProperties1PropertiesArgs) ToConnectionRedshiftStorageProperties1PropertiesPtrOutput() ConnectionRedshiftStorageProperties1PropertiesPtrOutput {
+	return i.ToConnectionRedshiftStorageProperties1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionRedshiftStorageProperties1PropertiesArgs) ToConnectionRedshiftStorageProperties1PropertiesPtrOutputWithContext(ctx context.Context) ConnectionRedshiftStorageProperties1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftStorageProperties1PropertiesOutput).ToConnectionRedshiftStorageProperties1PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionRedshiftStorageProperties1PropertiesPtrInput is an input type that accepts ConnectionRedshiftStorageProperties1PropertiesArgs, ConnectionRedshiftStorageProperties1PropertiesPtr and ConnectionRedshiftStorageProperties1PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionRedshiftStorageProperties1PropertiesPtrInput` via:
+//
+//	        ConnectionRedshiftStorageProperties1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionRedshiftStorageProperties1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionRedshiftStorageProperties1PropertiesPtrOutput() ConnectionRedshiftStorageProperties1PropertiesPtrOutput
+	ToConnectionRedshiftStorageProperties1PropertiesPtrOutputWithContext(context.Context) ConnectionRedshiftStorageProperties1PropertiesPtrOutput
+}
+
+type connectionRedshiftStorageProperties1PropertiesPtrType ConnectionRedshiftStorageProperties1PropertiesArgs
+
+func ConnectionRedshiftStorageProperties1PropertiesPtr(v *ConnectionRedshiftStorageProperties1PropertiesArgs) ConnectionRedshiftStorageProperties1PropertiesPtrInput {
+	return (*connectionRedshiftStorageProperties1PropertiesPtrType)(v)
+}
+
+func (*connectionRedshiftStorageProperties1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionRedshiftStorageProperties1Properties)(nil)).Elem()
+}
+
+func (i *connectionRedshiftStorageProperties1PropertiesPtrType) ToConnectionRedshiftStorageProperties1PropertiesPtrOutput() ConnectionRedshiftStorageProperties1PropertiesPtrOutput {
+	return i.ToConnectionRedshiftStorageProperties1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionRedshiftStorageProperties1PropertiesPtrType) ToConnectionRedshiftStorageProperties1PropertiesPtrOutputWithContext(ctx context.Context) ConnectionRedshiftStorageProperties1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRedshiftStorageProperties1PropertiesPtrOutput)
+}
+
+type ConnectionRedshiftStorageProperties1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionRedshiftStorageProperties1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionRedshiftStorageProperties1Properties)(nil)).Elem()
+}
+
+func (o ConnectionRedshiftStorageProperties1PropertiesOutput) ToConnectionRedshiftStorageProperties1PropertiesOutput() ConnectionRedshiftStorageProperties1PropertiesOutput {
+	return o
+}
+
+func (o ConnectionRedshiftStorageProperties1PropertiesOutput) ToConnectionRedshiftStorageProperties1PropertiesOutputWithContext(ctx context.Context) ConnectionRedshiftStorageProperties1PropertiesOutput {
+	return o
+}
+
+func (o ConnectionRedshiftStorageProperties1PropertiesOutput) ToConnectionRedshiftStorageProperties1PropertiesPtrOutput() ConnectionRedshiftStorageProperties1PropertiesPtrOutput {
+	return o.ToConnectionRedshiftStorageProperties1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionRedshiftStorageProperties1PropertiesOutput) ToConnectionRedshiftStorageProperties1PropertiesPtrOutputWithContext(ctx context.Context) ConnectionRedshiftStorageProperties1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionRedshiftStorageProperties1Properties) *ConnectionRedshiftStorageProperties1Properties {
+		return &v
+	}).(ConnectionRedshiftStorageProperties1PropertiesPtrOutput)
+}
+
+func (o ConnectionRedshiftStorageProperties1PropertiesOutput) WorkgroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionRedshiftStorageProperties1Properties) string { return v.WorkgroupName }).(pulumi.StringOutput)
+}
+
+type ConnectionRedshiftStorageProperties1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionRedshiftStorageProperties1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionRedshiftStorageProperties1Properties)(nil)).Elem()
+}
+
+func (o ConnectionRedshiftStorageProperties1PropertiesPtrOutput) ToConnectionRedshiftStorageProperties1PropertiesPtrOutput() ConnectionRedshiftStorageProperties1PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionRedshiftStorageProperties1PropertiesPtrOutput) ToConnectionRedshiftStorageProperties1PropertiesPtrOutputWithContext(ctx context.Context) ConnectionRedshiftStorageProperties1PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionRedshiftStorageProperties1PropertiesPtrOutput) Elem() ConnectionRedshiftStorageProperties1PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftStorageProperties1Properties) ConnectionRedshiftStorageProperties1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionRedshiftStorageProperties1Properties
+		return ret
+	}).(ConnectionRedshiftStorageProperties1PropertiesOutput)
+}
+
+func (o ConnectionRedshiftStorageProperties1PropertiesPtrOutput) WorkgroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionRedshiftStorageProperties1Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkgroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Spark EMR Properties Input.
+type ConnectionSparkEmrPropertiesInput struct {
+	ComputeArn               *string `pulumi:"computeArn"`
+	InstanceProfileArn       *string `pulumi:"instanceProfileArn"`
+	JavaVirtualEnv           *string `pulumi:"javaVirtualEnv"`
+	LogUri                   *string `pulumi:"logUri"`
+	PythonVirtualEnv         *string `pulumi:"pythonVirtualEnv"`
+	RuntimeRole              *string `pulumi:"runtimeRole"`
+	TrustedCertificatesS3Uri *string `pulumi:"trustedCertificatesS3Uri"`
+}
+
+// ConnectionSparkEmrPropertiesInputInput is an input type that accepts ConnectionSparkEmrPropertiesInputArgs and ConnectionSparkEmrPropertiesInputOutput values.
+// You can construct a concrete instance of `ConnectionSparkEmrPropertiesInputInput` via:
+//
+//	ConnectionSparkEmrPropertiesInputArgs{...}
+type ConnectionSparkEmrPropertiesInputInput interface {
+	pulumi.Input
+
+	ToConnectionSparkEmrPropertiesInputOutput() ConnectionSparkEmrPropertiesInputOutput
+	ToConnectionSparkEmrPropertiesInputOutputWithContext(context.Context) ConnectionSparkEmrPropertiesInputOutput
+}
+
+// Spark EMR Properties Input.
+type ConnectionSparkEmrPropertiesInputArgs struct {
+	ComputeArn               pulumi.StringPtrInput `pulumi:"computeArn"`
+	InstanceProfileArn       pulumi.StringPtrInput `pulumi:"instanceProfileArn"`
+	JavaVirtualEnv           pulumi.StringPtrInput `pulumi:"javaVirtualEnv"`
+	LogUri                   pulumi.StringPtrInput `pulumi:"logUri"`
+	PythonVirtualEnv         pulumi.StringPtrInput `pulumi:"pythonVirtualEnv"`
+	RuntimeRole              pulumi.StringPtrInput `pulumi:"runtimeRole"`
+	TrustedCertificatesS3Uri pulumi.StringPtrInput `pulumi:"trustedCertificatesS3Uri"`
+}
+
+func (ConnectionSparkEmrPropertiesInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionSparkEmrPropertiesInput)(nil)).Elem()
+}
+
+func (i ConnectionSparkEmrPropertiesInputArgs) ToConnectionSparkEmrPropertiesInputOutput() ConnectionSparkEmrPropertiesInputOutput {
+	return i.ToConnectionSparkEmrPropertiesInputOutputWithContext(context.Background())
+}
+
+func (i ConnectionSparkEmrPropertiesInputArgs) ToConnectionSparkEmrPropertiesInputOutputWithContext(ctx context.Context) ConnectionSparkEmrPropertiesInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionSparkEmrPropertiesInputOutput)
+}
+
+func (i ConnectionSparkEmrPropertiesInputArgs) ToConnectionSparkEmrPropertiesInputPtrOutput() ConnectionSparkEmrPropertiesInputPtrOutput {
+	return i.ToConnectionSparkEmrPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionSparkEmrPropertiesInputArgs) ToConnectionSparkEmrPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionSparkEmrPropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionSparkEmrPropertiesInputOutput).ToConnectionSparkEmrPropertiesInputPtrOutputWithContext(ctx)
+}
+
+// ConnectionSparkEmrPropertiesInputPtrInput is an input type that accepts ConnectionSparkEmrPropertiesInputArgs, ConnectionSparkEmrPropertiesInputPtr and ConnectionSparkEmrPropertiesInputPtrOutput values.
+// You can construct a concrete instance of `ConnectionSparkEmrPropertiesInputPtrInput` via:
+//
+//	        ConnectionSparkEmrPropertiesInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionSparkEmrPropertiesInputPtrInput interface {
+	pulumi.Input
+
+	ToConnectionSparkEmrPropertiesInputPtrOutput() ConnectionSparkEmrPropertiesInputPtrOutput
+	ToConnectionSparkEmrPropertiesInputPtrOutputWithContext(context.Context) ConnectionSparkEmrPropertiesInputPtrOutput
+}
+
+type connectionSparkEmrPropertiesInputPtrType ConnectionSparkEmrPropertiesInputArgs
+
+func ConnectionSparkEmrPropertiesInputPtr(v *ConnectionSparkEmrPropertiesInputArgs) ConnectionSparkEmrPropertiesInputPtrInput {
+	return (*connectionSparkEmrPropertiesInputPtrType)(v)
+}
+
+func (*connectionSparkEmrPropertiesInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionSparkEmrPropertiesInput)(nil)).Elem()
+}
+
+func (i *connectionSparkEmrPropertiesInputPtrType) ToConnectionSparkEmrPropertiesInputPtrOutput() ConnectionSparkEmrPropertiesInputPtrOutput {
+	return i.ToConnectionSparkEmrPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionSparkEmrPropertiesInputPtrType) ToConnectionSparkEmrPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionSparkEmrPropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionSparkEmrPropertiesInputPtrOutput)
+}
+
+// Spark EMR Properties Input.
+type ConnectionSparkEmrPropertiesInputOutput struct{ *pulumi.OutputState }
+
+func (ConnectionSparkEmrPropertiesInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionSparkEmrPropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionSparkEmrPropertiesInputOutput) ToConnectionSparkEmrPropertiesInputOutput() ConnectionSparkEmrPropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionSparkEmrPropertiesInputOutput) ToConnectionSparkEmrPropertiesInputOutputWithContext(ctx context.Context) ConnectionSparkEmrPropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionSparkEmrPropertiesInputOutput) ToConnectionSparkEmrPropertiesInputPtrOutput() ConnectionSparkEmrPropertiesInputPtrOutput {
+	return o.ToConnectionSparkEmrPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionSparkEmrPropertiesInputOutput) ToConnectionSparkEmrPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionSparkEmrPropertiesInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionSparkEmrPropertiesInput) *ConnectionSparkEmrPropertiesInput {
+		return &v
+	}).(ConnectionSparkEmrPropertiesInputPtrOutput)
+}
+
+func (o ConnectionSparkEmrPropertiesInputOutput) ComputeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSparkEmrPropertiesInput) *string { return v.ComputeArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkEmrPropertiesInputOutput) InstanceProfileArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSparkEmrPropertiesInput) *string { return v.InstanceProfileArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkEmrPropertiesInputOutput) JavaVirtualEnv() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSparkEmrPropertiesInput) *string { return v.JavaVirtualEnv }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkEmrPropertiesInputOutput) LogUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSparkEmrPropertiesInput) *string { return v.LogUri }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkEmrPropertiesInputOutput) PythonVirtualEnv() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSparkEmrPropertiesInput) *string { return v.PythonVirtualEnv }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkEmrPropertiesInputOutput) RuntimeRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSparkEmrPropertiesInput) *string { return v.RuntimeRole }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkEmrPropertiesInputOutput) TrustedCertificatesS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSparkEmrPropertiesInput) *string { return v.TrustedCertificatesS3Uri }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionSparkEmrPropertiesInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionSparkEmrPropertiesInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionSparkEmrPropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionSparkEmrPropertiesInputPtrOutput) ToConnectionSparkEmrPropertiesInputPtrOutput() ConnectionSparkEmrPropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionSparkEmrPropertiesInputPtrOutput) ToConnectionSparkEmrPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionSparkEmrPropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionSparkEmrPropertiesInputPtrOutput) Elem() ConnectionSparkEmrPropertiesInputOutput {
+	return o.ApplyT(func(v *ConnectionSparkEmrPropertiesInput) ConnectionSparkEmrPropertiesInput {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionSparkEmrPropertiesInput
+		return ret
+	}).(ConnectionSparkEmrPropertiesInputOutput)
+}
+
+func (o ConnectionSparkEmrPropertiesInputPtrOutput) ComputeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSparkEmrPropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkEmrPropertiesInputPtrOutput) InstanceProfileArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSparkEmrPropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceProfileArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkEmrPropertiesInputPtrOutput) JavaVirtualEnv() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSparkEmrPropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JavaVirtualEnv
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkEmrPropertiesInputPtrOutput) LogUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSparkEmrPropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogUri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkEmrPropertiesInputPtrOutput) PythonVirtualEnv() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSparkEmrPropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PythonVirtualEnv
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkEmrPropertiesInputPtrOutput) RuntimeRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSparkEmrPropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeRole
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkEmrPropertiesInputPtrOutput) TrustedCertificatesS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSparkEmrPropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedCertificatesS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Spark Glue Args.
+type ConnectionSparkGlueArgs struct {
+	Connection *string `pulumi:"connection"`
+}
+
+// ConnectionSparkGlueArgsInput is an input type that accepts ConnectionSparkGlueArgsArgs and ConnectionSparkGlueArgsOutput values.
+// You can construct a concrete instance of `ConnectionSparkGlueArgsInput` via:
+//
+//	ConnectionSparkGlueArgsArgs{...}
+type ConnectionSparkGlueArgsInput interface {
+	pulumi.Input
+
+	ToConnectionSparkGlueArgsOutput() ConnectionSparkGlueArgsOutput
+	ToConnectionSparkGlueArgsOutputWithContext(context.Context) ConnectionSparkGlueArgsOutput
+}
+
+// Spark Glue Args.
+type ConnectionSparkGlueArgsArgs struct {
+	Connection pulumi.StringPtrInput `pulumi:"connection"`
+}
+
+func (ConnectionSparkGlueArgsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionSparkGlueArgs)(nil)).Elem()
+}
+
+func (i ConnectionSparkGlueArgsArgs) ToConnectionSparkGlueArgsOutput() ConnectionSparkGlueArgsOutput {
+	return i.ToConnectionSparkGlueArgsOutputWithContext(context.Background())
+}
+
+func (i ConnectionSparkGlueArgsArgs) ToConnectionSparkGlueArgsOutputWithContext(ctx context.Context) ConnectionSparkGlueArgsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionSparkGlueArgsOutput)
+}
+
+func (i ConnectionSparkGlueArgsArgs) ToConnectionSparkGlueArgsPtrOutput() ConnectionSparkGlueArgsPtrOutput {
+	return i.ToConnectionSparkGlueArgsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionSparkGlueArgsArgs) ToConnectionSparkGlueArgsPtrOutputWithContext(ctx context.Context) ConnectionSparkGlueArgsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionSparkGlueArgsOutput).ToConnectionSparkGlueArgsPtrOutputWithContext(ctx)
+}
+
+// ConnectionSparkGlueArgsPtrInput is an input type that accepts ConnectionSparkGlueArgsArgs, ConnectionSparkGlueArgsPtr and ConnectionSparkGlueArgsPtrOutput values.
+// You can construct a concrete instance of `ConnectionSparkGlueArgsPtrInput` via:
+//
+//	        ConnectionSparkGlueArgsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionSparkGlueArgsPtrInput interface {
+	pulumi.Input
+
+	ToConnectionSparkGlueArgsPtrOutput() ConnectionSparkGlueArgsPtrOutput
+	ToConnectionSparkGlueArgsPtrOutputWithContext(context.Context) ConnectionSparkGlueArgsPtrOutput
+}
+
+type connectionSparkGlueArgsPtrType ConnectionSparkGlueArgsArgs
+
+func ConnectionSparkGlueArgsPtr(v *ConnectionSparkGlueArgsArgs) ConnectionSparkGlueArgsPtrInput {
+	return (*connectionSparkGlueArgsPtrType)(v)
+}
+
+func (*connectionSparkGlueArgsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionSparkGlueArgs)(nil)).Elem()
+}
+
+func (i *connectionSparkGlueArgsPtrType) ToConnectionSparkGlueArgsPtrOutput() ConnectionSparkGlueArgsPtrOutput {
+	return i.ToConnectionSparkGlueArgsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionSparkGlueArgsPtrType) ToConnectionSparkGlueArgsPtrOutputWithContext(ctx context.Context) ConnectionSparkGlueArgsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionSparkGlueArgsPtrOutput)
+}
+
+// Spark Glue Args.
+type ConnectionSparkGlueArgsOutput struct{ *pulumi.OutputState }
+
+func (ConnectionSparkGlueArgsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionSparkGlueArgs)(nil)).Elem()
+}
+
+func (o ConnectionSparkGlueArgsOutput) ToConnectionSparkGlueArgsOutput() ConnectionSparkGlueArgsOutput {
+	return o
+}
+
+func (o ConnectionSparkGlueArgsOutput) ToConnectionSparkGlueArgsOutputWithContext(ctx context.Context) ConnectionSparkGlueArgsOutput {
+	return o
+}
+
+func (o ConnectionSparkGlueArgsOutput) ToConnectionSparkGlueArgsPtrOutput() ConnectionSparkGlueArgsPtrOutput {
+	return o.ToConnectionSparkGlueArgsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionSparkGlueArgsOutput) ToConnectionSparkGlueArgsPtrOutputWithContext(ctx context.Context) ConnectionSparkGlueArgsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionSparkGlueArgs) *ConnectionSparkGlueArgs {
+		return &v
+	}).(ConnectionSparkGlueArgsPtrOutput)
+}
+
+func (o ConnectionSparkGlueArgsOutput) Connection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSparkGlueArgs) *string { return v.Connection }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionSparkGlueArgsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionSparkGlueArgsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionSparkGlueArgs)(nil)).Elem()
+}
+
+func (o ConnectionSparkGlueArgsPtrOutput) ToConnectionSparkGlueArgsPtrOutput() ConnectionSparkGlueArgsPtrOutput {
+	return o
+}
+
+func (o ConnectionSparkGlueArgsPtrOutput) ToConnectionSparkGlueArgsPtrOutputWithContext(ctx context.Context) ConnectionSparkGlueArgsPtrOutput {
+	return o
+}
+
+func (o ConnectionSparkGlueArgsPtrOutput) Elem() ConnectionSparkGlueArgsOutput {
+	return o.ApplyT(func(v *ConnectionSparkGlueArgs) ConnectionSparkGlueArgs {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionSparkGlueArgs
+		return ret
+	}).(ConnectionSparkGlueArgsOutput)
+}
+
+func (o ConnectionSparkGlueArgsPtrOutput) Connection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSparkGlueArgs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Connection
+	}).(pulumi.StringPtrOutput)
+}
+
+// Spark Glue Properties Input.
+type ConnectionSparkGluePropertiesInput struct {
+	AdditionalArgs     *ConnectionSparkGlueArgs `pulumi:"additionalArgs"`
+	GlueConnectionName *string                  `pulumi:"glueConnectionName"`
+	GlueVersion        *string                  `pulumi:"glueVersion"`
+	IdleTimeout        *float64                 `pulumi:"idleTimeout"`
+	JavaVirtualEnv     *string                  `pulumi:"javaVirtualEnv"`
+	NumberOfWorkers    *float64                 `pulumi:"numberOfWorkers"`
+	PythonVirtualEnv   *string                  `pulumi:"pythonVirtualEnv"`
+	WorkerType         *string                  `pulumi:"workerType"`
+}
+
+// ConnectionSparkGluePropertiesInputInput is an input type that accepts ConnectionSparkGluePropertiesInputArgs and ConnectionSparkGluePropertiesInputOutput values.
+// You can construct a concrete instance of `ConnectionSparkGluePropertiesInputInput` via:
+//
+//	ConnectionSparkGluePropertiesInputArgs{...}
+type ConnectionSparkGluePropertiesInputInput interface {
+	pulumi.Input
+
+	ToConnectionSparkGluePropertiesInputOutput() ConnectionSparkGluePropertiesInputOutput
+	ToConnectionSparkGluePropertiesInputOutputWithContext(context.Context) ConnectionSparkGluePropertiesInputOutput
+}
+
+// Spark Glue Properties Input.
+type ConnectionSparkGluePropertiesInputArgs struct {
+	AdditionalArgs     ConnectionSparkGlueArgsPtrInput `pulumi:"additionalArgs"`
+	GlueConnectionName pulumi.StringPtrInput           `pulumi:"glueConnectionName"`
+	GlueVersion        pulumi.StringPtrInput           `pulumi:"glueVersion"`
+	IdleTimeout        pulumi.Float64PtrInput          `pulumi:"idleTimeout"`
+	JavaVirtualEnv     pulumi.StringPtrInput           `pulumi:"javaVirtualEnv"`
+	NumberOfWorkers    pulumi.Float64PtrInput          `pulumi:"numberOfWorkers"`
+	PythonVirtualEnv   pulumi.StringPtrInput           `pulumi:"pythonVirtualEnv"`
+	WorkerType         pulumi.StringPtrInput           `pulumi:"workerType"`
+}
+
+func (ConnectionSparkGluePropertiesInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionSparkGluePropertiesInput)(nil)).Elem()
+}
+
+func (i ConnectionSparkGluePropertiesInputArgs) ToConnectionSparkGluePropertiesInputOutput() ConnectionSparkGluePropertiesInputOutput {
+	return i.ToConnectionSparkGluePropertiesInputOutputWithContext(context.Background())
+}
+
+func (i ConnectionSparkGluePropertiesInputArgs) ToConnectionSparkGluePropertiesInputOutputWithContext(ctx context.Context) ConnectionSparkGluePropertiesInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionSparkGluePropertiesInputOutput)
+}
+
+func (i ConnectionSparkGluePropertiesInputArgs) ToConnectionSparkGluePropertiesInputPtrOutput() ConnectionSparkGluePropertiesInputPtrOutput {
+	return i.ToConnectionSparkGluePropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionSparkGluePropertiesInputArgs) ToConnectionSparkGluePropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionSparkGluePropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionSparkGluePropertiesInputOutput).ToConnectionSparkGluePropertiesInputPtrOutputWithContext(ctx)
+}
+
+// ConnectionSparkGluePropertiesInputPtrInput is an input type that accepts ConnectionSparkGluePropertiesInputArgs, ConnectionSparkGluePropertiesInputPtr and ConnectionSparkGluePropertiesInputPtrOutput values.
+// You can construct a concrete instance of `ConnectionSparkGluePropertiesInputPtrInput` via:
+//
+//	        ConnectionSparkGluePropertiesInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionSparkGluePropertiesInputPtrInput interface {
+	pulumi.Input
+
+	ToConnectionSparkGluePropertiesInputPtrOutput() ConnectionSparkGluePropertiesInputPtrOutput
+	ToConnectionSparkGluePropertiesInputPtrOutputWithContext(context.Context) ConnectionSparkGluePropertiesInputPtrOutput
+}
+
+type connectionSparkGluePropertiesInputPtrType ConnectionSparkGluePropertiesInputArgs
+
+func ConnectionSparkGluePropertiesInputPtr(v *ConnectionSparkGluePropertiesInputArgs) ConnectionSparkGluePropertiesInputPtrInput {
+	return (*connectionSparkGluePropertiesInputPtrType)(v)
+}
+
+func (*connectionSparkGluePropertiesInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionSparkGluePropertiesInput)(nil)).Elem()
+}
+
+func (i *connectionSparkGluePropertiesInputPtrType) ToConnectionSparkGluePropertiesInputPtrOutput() ConnectionSparkGluePropertiesInputPtrOutput {
+	return i.ToConnectionSparkGluePropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionSparkGluePropertiesInputPtrType) ToConnectionSparkGluePropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionSparkGluePropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionSparkGluePropertiesInputPtrOutput)
+}
+
+// Spark Glue Properties Input.
+type ConnectionSparkGluePropertiesInputOutput struct{ *pulumi.OutputState }
+
+func (ConnectionSparkGluePropertiesInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionSparkGluePropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionSparkGluePropertiesInputOutput) ToConnectionSparkGluePropertiesInputOutput() ConnectionSparkGluePropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionSparkGluePropertiesInputOutput) ToConnectionSparkGluePropertiesInputOutputWithContext(ctx context.Context) ConnectionSparkGluePropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionSparkGluePropertiesInputOutput) ToConnectionSparkGluePropertiesInputPtrOutput() ConnectionSparkGluePropertiesInputPtrOutput {
+	return o.ToConnectionSparkGluePropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionSparkGluePropertiesInputOutput) ToConnectionSparkGluePropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionSparkGluePropertiesInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionSparkGluePropertiesInput) *ConnectionSparkGluePropertiesInput {
+		return &v
+	}).(ConnectionSparkGluePropertiesInputPtrOutput)
+}
+
+func (o ConnectionSparkGluePropertiesInputOutput) AdditionalArgs() ConnectionSparkGlueArgsPtrOutput {
+	return o.ApplyT(func(v ConnectionSparkGluePropertiesInput) *ConnectionSparkGlueArgs { return v.AdditionalArgs }).(ConnectionSparkGlueArgsPtrOutput)
+}
+
+func (o ConnectionSparkGluePropertiesInputOutput) GlueConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSparkGluePropertiesInput) *string { return v.GlueConnectionName }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkGluePropertiesInputOutput) GlueVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSparkGluePropertiesInput) *string { return v.GlueVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkGluePropertiesInputOutput) IdleTimeout() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConnectionSparkGluePropertiesInput) *float64 { return v.IdleTimeout }).(pulumi.Float64PtrOutput)
+}
+
+func (o ConnectionSparkGluePropertiesInputOutput) JavaVirtualEnv() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSparkGluePropertiesInput) *string { return v.JavaVirtualEnv }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkGluePropertiesInputOutput) NumberOfWorkers() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConnectionSparkGluePropertiesInput) *float64 { return v.NumberOfWorkers }).(pulumi.Float64PtrOutput)
+}
+
+func (o ConnectionSparkGluePropertiesInputOutput) PythonVirtualEnv() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSparkGluePropertiesInput) *string { return v.PythonVirtualEnv }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkGluePropertiesInputOutput) WorkerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSparkGluePropertiesInput) *string { return v.WorkerType }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionSparkGluePropertiesInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionSparkGluePropertiesInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionSparkGluePropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionSparkGluePropertiesInputPtrOutput) ToConnectionSparkGluePropertiesInputPtrOutput() ConnectionSparkGluePropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionSparkGluePropertiesInputPtrOutput) ToConnectionSparkGluePropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionSparkGluePropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionSparkGluePropertiesInputPtrOutput) Elem() ConnectionSparkGluePropertiesInputOutput {
+	return o.ApplyT(func(v *ConnectionSparkGluePropertiesInput) ConnectionSparkGluePropertiesInput {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionSparkGluePropertiesInput
+		return ret
+	}).(ConnectionSparkGluePropertiesInputOutput)
+}
+
+func (o ConnectionSparkGluePropertiesInputPtrOutput) AdditionalArgs() ConnectionSparkGlueArgsPtrOutput {
+	return o.ApplyT(func(v *ConnectionSparkGluePropertiesInput) *ConnectionSparkGlueArgs {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalArgs
+	}).(ConnectionSparkGlueArgsPtrOutput)
+}
+
+func (o ConnectionSparkGluePropertiesInputPtrOutput) GlueConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSparkGluePropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GlueConnectionName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkGluePropertiesInputPtrOutput) GlueVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSparkGluePropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GlueVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkGluePropertiesInputPtrOutput) IdleTimeout() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConnectionSparkGluePropertiesInput) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeout
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o ConnectionSparkGluePropertiesInputPtrOutput) JavaVirtualEnv() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSparkGluePropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JavaVirtualEnv
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkGluePropertiesInputPtrOutput) NumberOfWorkers() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConnectionSparkGluePropertiesInput) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfWorkers
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o ConnectionSparkGluePropertiesInputPtrOutput) PythonVirtualEnv() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSparkGluePropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PythonVirtualEnv
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkGluePropertiesInputPtrOutput) WorkerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSparkGluePropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkerType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username and password to be used for authentication.
+type ConnectionUsernamePassword struct {
+	Password string `pulumi:"password"`
+	Username string `pulumi:"username"`
+}
+
+// ConnectionUsernamePasswordInput is an input type that accepts ConnectionUsernamePasswordArgs and ConnectionUsernamePasswordOutput values.
+// You can construct a concrete instance of `ConnectionUsernamePasswordInput` via:
+//
+//	ConnectionUsernamePasswordArgs{...}
+type ConnectionUsernamePasswordInput interface {
+	pulumi.Input
+
+	ToConnectionUsernamePasswordOutput() ConnectionUsernamePasswordOutput
+	ToConnectionUsernamePasswordOutputWithContext(context.Context) ConnectionUsernamePasswordOutput
+}
+
+// The username and password to be used for authentication.
+type ConnectionUsernamePasswordArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (ConnectionUsernamePasswordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionUsernamePassword)(nil)).Elem()
+}
+
+func (i ConnectionUsernamePasswordArgs) ToConnectionUsernamePasswordOutput() ConnectionUsernamePasswordOutput {
+	return i.ToConnectionUsernamePasswordOutputWithContext(context.Background())
+}
+
+func (i ConnectionUsernamePasswordArgs) ToConnectionUsernamePasswordOutputWithContext(ctx context.Context) ConnectionUsernamePasswordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionUsernamePasswordOutput)
+}
+
+func (i ConnectionUsernamePasswordArgs) ToConnectionUsernamePasswordPtrOutput() ConnectionUsernamePasswordPtrOutput {
+	return i.ToConnectionUsernamePasswordPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionUsernamePasswordArgs) ToConnectionUsernamePasswordPtrOutputWithContext(ctx context.Context) ConnectionUsernamePasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionUsernamePasswordOutput).ToConnectionUsernamePasswordPtrOutputWithContext(ctx)
+}
+
+// ConnectionUsernamePasswordPtrInput is an input type that accepts ConnectionUsernamePasswordArgs, ConnectionUsernamePasswordPtr and ConnectionUsernamePasswordPtrOutput values.
+// You can construct a concrete instance of `ConnectionUsernamePasswordPtrInput` via:
+//
+//	        ConnectionUsernamePasswordArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionUsernamePasswordPtrInput interface {
+	pulumi.Input
+
+	ToConnectionUsernamePasswordPtrOutput() ConnectionUsernamePasswordPtrOutput
+	ToConnectionUsernamePasswordPtrOutputWithContext(context.Context) ConnectionUsernamePasswordPtrOutput
+}
+
+type connectionUsernamePasswordPtrType ConnectionUsernamePasswordArgs
+
+func ConnectionUsernamePasswordPtr(v *ConnectionUsernamePasswordArgs) ConnectionUsernamePasswordPtrInput {
+	return (*connectionUsernamePasswordPtrType)(v)
+}
+
+func (*connectionUsernamePasswordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionUsernamePassword)(nil)).Elem()
+}
+
+func (i *connectionUsernamePasswordPtrType) ToConnectionUsernamePasswordPtrOutput() ConnectionUsernamePasswordPtrOutput {
+	return i.ToConnectionUsernamePasswordPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionUsernamePasswordPtrType) ToConnectionUsernamePasswordPtrOutputWithContext(ctx context.Context) ConnectionUsernamePasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionUsernamePasswordPtrOutput)
+}
+
+// The username and password to be used for authentication.
+type ConnectionUsernamePasswordOutput struct{ *pulumi.OutputState }
+
+func (ConnectionUsernamePasswordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionUsernamePassword)(nil)).Elem()
+}
+
+func (o ConnectionUsernamePasswordOutput) ToConnectionUsernamePasswordOutput() ConnectionUsernamePasswordOutput {
+	return o
+}
+
+func (o ConnectionUsernamePasswordOutput) ToConnectionUsernamePasswordOutputWithContext(ctx context.Context) ConnectionUsernamePasswordOutput {
+	return o
+}
+
+func (o ConnectionUsernamePasswordOutput) ToConnectionUsernamePasswordPtrOutput() ConnectionUsernamePasswordPtrOutput {
+	return o.ToConnectionUsernamePasswordPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionUsernamePasswordOutput) ToConnectionUsernamePasswordPtrOutputWithContext(ctx context.Context) ConnectionUsernamePasswordPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionUsernamePassword) *ConnectionUsernamePassword {
+		return &v
+	}).(ConnectionUsernamePasswordPtrOutput)
+}
+
+func (o ConnectionUsernamePasswordOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionUsernamePassword) string { return v.Password }).(pulumi.StringOutput)
+}
+
+func (o ConnectionUsernamePasswordOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionUsernamePassword) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type ConnectionUsernamePasswordPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionUsernamePasswordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionUsernamePassword)(nil)).Elem()
+}
+
+func (o ConnectionUsernamePasswordPtrOutput) ToConnectionUsernamePasswordPtrOutput() ConnectionUsernamePasswordPtrOutput {
+	return o
+}
+
+func (o ConnectionUsernamePasswordPtrOutput) ToConnectionUsernamePasswordPtrOutputWithContext(ctx context.Context) ConnectionUsernamePasswordPtrOutput {
+	return o
+}
+
+func (o ConnectionUsernamePasswordPtrOutput) Elem() ConnectionUsernamePasswordOutput {
+	return o.ApplyT(func(v *ConnectionUsernamePassword) ConnectionUsernamePassword {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionUsernamePassword
+		return ret
+	}).(ConnectionUsernamePasswordOutput)
+}
+
+func (o ConnectionUsernamePasswordPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionUsernamePassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionUsernamePasswordPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionUsernamePassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
 type DataSourceConfigurationInput0Properties struct {
 	GlueRunConfiguration *DataSourceGlueRunConfigurationInput `pulumi:"glueRunConfiguration"`
@@ -3408,6 +8432,68 @@ func (o UserProfileSsoUserProfileDetailsPtrOutput) Username() pulumi.StringPtrOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAthenaPropertiesInputInput)(nil)).Elem(), ConnectionAthenaPropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAthenaPropertiesInputPtrInput)(nil)).Elem(), ConnectionAthenaPropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationConfigurationInputInput)(nil)).Elem(), ConnectionAuthenticationConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationConfigurationInputPtrInput)(nil)).Elem(), ConnectionAuthenticationConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthorizationCodePropertiesInput)(nil)).Elem(), ConnectionAuthorizationCodePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthorizationCodePropertiesPtrInput)(nil)).Elem(), ConnectionAuthorizationCodePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAwsLocationInput)(nil)).Elem(), ConnectionAwsLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAwsLocationPtrInput)(nil)).Elem(), ConnectionAwsLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionBasicAuthenticationCredentialsInput)(nil)).Elem(), ConnectionBasicAuthenticationCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionBasicAuthenticationCredentialsPtrInput)(nil)).Elem(), ConnectionBasicAuthenticationCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionGlueConnectionInputInput)(nil)).Elem(), ConnectionGlueConnectionInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionGlueConnectionInputPtrInput)(nil)).Elem(), ConnectionGlueConnectionInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionGlueOAuth2CredentialsInput)(nil)).Elem(), ConnectionGlueOAuth2CredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionGlueOAuth2CredentialsPtrInput)(nil)).Elem(), ConnectionGlueOAuth2CredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionGluePropertiesInputInput)(nil)).Elem(), ConnectionGluePropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionGluePropertiesInputPtrInput)(nil)).Elem(), ConnectionGluePropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionHyperPodPropertiesInputInput)(nil)).Elem(), ConnectionHyperPodPropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionHyperPodPropertiesInputPtrInput)(nil)).Elem(), ConnectionHyperPodPropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionIamPropertiesInputInput)(nil)).Elem(), ConnectionIamPropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionIamPropertiesInputPtrInput)(nil)).Elem(), ConnectionIamPropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionLineageSyncScheduleInput)(nil)).Elem(), ConnectionLineageSyncScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionLineageSyncSchedulePtrInput)(nil)).Elem(), ConnectionLineageSyncScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuth2ClientApplicationInput)(nil)).Elem(), ConnectionOAuth2ClientApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuth2ClientApplicationPtrInput)(nil)).Elem(), ConnectionOAuth2ClientApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuth2PropertiesInput)(nil)).Elem(), ConnectionOAuth2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuth2PropertiesPtrInput)(nil)).Elem(), ConnectionOAuth2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPhysicalConnectionRequirementsInput)(nil)).Elem(), ConnectionPhysicalConnectionRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPhysicalConnectionRequirementsPtrInput)(nil)).Elem(), ConnectionPhysicalConnectionRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput0PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput0PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput1PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput1PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput2PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput2PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput3PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput3PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput4PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput4PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput4PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput4PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput5PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput5PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput5PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput5PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput6PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput6PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput6PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput6PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftCredentials0PropertiesInput)(nil)).Elem(), ConnectionRedshiftCredentials0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftCredentials0PropertiesPtrInput)(nil)).Elem(), ConnectionRedshiftCredentials0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftCredentials1PropertiesInput)(nil)).Elem(), ConnectionRedshiftCredentials1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftCredentials1PropertiesPtrInput)(nil)).Elem(), ConnectionRedshiftCredentials1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftLineageSyncConfigurationInputInput)(nil)).Elem(), ConnectionRedshiftLineageSyncConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftLineageSyncConfigurationInputPtrInput)(nil)).Elem(), ConnectionRedshiftLineageSyncConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftPropertiesInputInput)(nil)).Elem(), ConnectionRedshiftPropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftPropertiesInputPtrInput)(nil)).Elem(), ConnectionRedshiftPropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftStorageProperties0PropertiesInput)(nil)).Elem(), ConnectionRedshiftStorageProperties0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftStorageProperties0PropertiesPtrInput)(nil)).Elem(), ConnectionRedshiftStorageProperties0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftStorageProperties1PropertiesInput)(nil)).Elem(), ConnectionRedshiftStorageProperties1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftStorageProperties1PropertiesPtrInput)(nil)).Elem(), ConnectionRedshiftStorageProperties1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionSparkEmrPropertiesInputInput)(nil)).Elem(), ConnectionSparkEmrPropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionSparkEmrPropertiesInputPtrInput)(nil)).Elem(), ConnectionSparkEmrPropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionSparkGlueArgsInput)(nil)).Elem(), ConnectionSparkGlueArgsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionSparkGlueArgsPtrInput)(nil)).Elem(), ConnectionSparkGlueArgsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionSparkGluePropertiesInputInput)(nil)).Elem(), ConnectionSparkGluePropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionSparkGluePropertiesInputPtrInput)(nil)).Elem(), ConnectionSparkGluePropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionUsernamePasswordInput)(nil)).Elem(), ConnectionUsernamePasswordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionUsernamePasswordPtrInput)(nil)).Elem(), ConnectionUsernamePasswordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput0PropertiesInput)(nil)).Elem(), DataSourceConfigurationInput0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput0PropertiesPtrInput)(nil)).Elem(), DataSourceConfigurationInput0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput1PropertiesInput)(nil)).Elem(), DataSourceConfigurationInput1PropertiesArgs{})
@@ -3454,6 +8540,68 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipMember1PropertiesInput)(nil)).Elem(), ProjectMembershipMember1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTargetFormInput)(nil)).Elem(), SubscriptionTargetFormArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTargetFormArrayInput)(nil)).Elem(), SubscriptionTargetFormArray{})
+	pulumi.RegisterOutputType(ConnectionAthenaPropertiesInputOutput{})
+	pulumi.RegisterOutputType(ConnectionAthenaPropertiesInputPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthenticationConfigurationInputOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthenticationConfigurationInputPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthorizationCodePropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthorizationCodePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionAwsLocationOutput{})
+	pulumi.RegisterOutputType(ConnectionAwsLocationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionBasicAuthenticationCredentialsOutput{})
+	pulumi.RegisterOutputType(ConnectionBasicAuthenticationCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionGlueConnectionInputOutput{})
+	pulumi.RegisterOutputType(ConnectionGlueConnectionInputPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionGlueOAuth2CredentialsOutput{})
+	pulumi.RegisterOutputType(ConnectionGlueOAuth2CredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionGluePropertiesInputOutput{})
+	pulumi.RegisterOutputType(ConnectionGluePropertiesInputPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionHyperPodPropertiesInputOutput{})
+	pulumi.RegisterOutputType(ConnectionHyperPodPropertiesInputPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionIamPropertiesInputOutput{})
+	pulumi.RegisterOutputType(ConnectionIamPropertiesInputPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionLineageSyncScheduleOutput{})
+	pulumi.RegisterOutputType(ConnectionLineageSyncSchedulePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionOAuth2ClientApplicationOutput{})
+	pulumi.RegisterOutputType(ConnectionOAuth2ClientApplicationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionOAuth2PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionOAuth2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionPhysicalConnectionRequirementsOutput{})
+	pulumi.RegisterOutputType(ConnectionPhysicalConnectionRequirementsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput0PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput1PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput2PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput3PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput3PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput4PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput4PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput5PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput5PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput6PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput6PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionRedshiftCredentials0PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionRedshiftCredentials0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionRedshiftCredentials1PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionRedshiftCredentials1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionRedshiftLineageSyncConfigurationInputOutput{})
+	pulumi.RegisterOutputType(ConnectionRedshiftLineageSyncConfigurationInputPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionRedshiftPropertiesInputOutput{})
+	pulumi.RegisterOutputType(ConnectionRedshiftPropertiesInputPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionRedshiftStorageProperties0PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionRedshiftStorageProperties0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionRedshiftStorageProperties1PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionRedshiftStorageProperties1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionSparkEmrPropertiesInputOutput{})
+	pulumi.RegisterOutputType(ConnectionSparkEmrPropertiesInputPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionSparkGlueArgsOutput{})
+	pulumi.RegisterOutputType(ConnectionSparkGlueArgsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionSparkGluePropertiesInputOutput{})
+	pulumi.RegisterOutputType(ConnectionSparkGluePropertiesInputPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionUsernamePasswordOutput{})
+	pulumi.RegisterOutputType(ConnectionUsernamePasswordPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationInput0PropertiesOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationInput0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationInput1PropertiesOutput{})

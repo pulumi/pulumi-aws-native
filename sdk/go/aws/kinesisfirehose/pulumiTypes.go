@@ -10477,8 +10477,7 @@ type DeliveryStreamSnowflakeDestinationConfiguration struct {
 	// `"kinesisStreamName" : "streamname", "kinesisShardId" : "Id", "kinesisPartitionKey" : "key", "kinesisSequenceNumber" : "1234", "subsequenceNumber" : "2334", "IngestionTime" : "timestamp" }`
 	MetaDataColumnName *string `pulumi:"metaDataColumnName"`
 	// The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
-	PrivateKey *string `pulumi:"privateKey"`
-	// Specifies configuration for Snowflake.
+	PrivateKey              *string                                `pulumi:"privateKey"`
 	ProcessingConfiguration *DeliveryStreamProcessingConfiguration `pulumi:"processingConfiguration"`
 	// The time period where Firehose will retry sending data to the chosen HTTP endpoint.
 	RetryOptions *DeliveryStreamSnowflakeRetryOptions `pulumi:"retryOptions"`
@@ -10537,8 +10536,7 @@ type DeliveryStreamSnowflakeDestinationConfigurationArgs struct {
 	// `"kinesisStreamName" : "streamname", "kinesisShardId" : "Id", "kinesisPartitionKey" : "key", "kinesisSequenceNumber" : "1234", "subsequenceNumber" : "2334", "IngestionTime" : "timestamp" }`
 	MetaDataColumnName pulumi.StringPtrInput `pulumi:"metaDataColumnName"`
 	// The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
-	PrivateKey pulumi.StringPtrInput `pulumi:"privateKey"`
-	// Specifies configuration for Snowflake.
+	PrivateKey              pulumi.StringPtrInput                         `pulumi:"privateKey"`
 	ProcessingConfiguration DeliveryStreamProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// The time period where Firehose will retry sending data to the chosen HTTP endpoint.
 	RetryOptions DeliveryStreamSnowflakeRetryOptionsPtrInput `pulumi:"retryOptions"`
@@ -10696,7 +10694,6 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) PrivateKey() pulu
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *string { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
-// Specifies configuration for Snowflake.
 func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		return v.ProcessingConfiguration
@@ -10885,7 +10882,6 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) PrivateKey() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies configuration for Snowflake.
 func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		if v == nil {

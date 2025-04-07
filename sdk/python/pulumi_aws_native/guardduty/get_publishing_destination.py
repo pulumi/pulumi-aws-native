@@ -112,7 +112,7 @@ def get_publishing_destination(detector_id: Optional[str] = None,
                                id: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublishingDestinationResult:
     """
-    Resource Type definition for AWS::GuardDuty::PublishingDestination
+    Resource Type definition for AWS::GuardDuty::PublishingDestination.
 
 
     :param str detector_id: The ID of the GuardDuty detector associated with the publishing destination.
@@ -135,7 +135,7 @@ def get_publishing_destination_output(detector_id: Optional[pulumi.Input[str]] =
                                       id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublishingDestinationResult]:
     """
-    Resource Type definition for AWS::GuardDuty::PublishingDestination
+    Resource Type definition for AWS::GuardDuty::PublishingDestination.
 
 
     :param str detector_id: The ID of the GuardDuty detector associated with the publishing destination.

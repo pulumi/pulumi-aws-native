@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetProjectResult:
-    def __init__(__self__, dataset_name=None, recipe_name=None, role_arn=None, sample=None):
+    def __init__(__self__, dataset_name=None, recipe_name=None, role_arn=None, sample=None, tags=None):
         if dataset_name and not isinstance(dataset_name, str):
             raise TypeError("Expected argument 'dataset_name' to be a str")
         pulumi.set(__self__, "dataset_name", dataset_name)
@@ -38,6 +39,9 @@ class GetProjectResult:
         if sample and not isinstance(sample, dict):
             raise TypeError("Expected argument 'sample' to be a dict")
         pulumi.set(__self__, "sample", sample)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="datasetName")
@@ -71,6 +75,14 @@ class GetProjectResult:
         """
         return pulumi.get(self, "sample")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Metadata tags that have been applied to the project.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetProjectResult(GetProjectResult):
     # pylint: disable=using-constant-test
@@ -81,7 +93,8 @@ class AwaitableGetProjectResult(GetProjectResult):
             dataset_name=self.dataset_name,
             recipe_name=self.recipe_name,
             role_arn=self.role_arn,
-            sample=self.sample)
+            sample=self.sample,
+            tags=self.tags)
 
 
 def get_project(name: Optional[str] = None,
@@ -101,7 +114,8 @@ def get_project(name: Optional[str] = None,
         dataset_name=pulumi.get(__ret__, 'dataset_name'),
         recipe_name=pulumi.get(__ret__, 'recipe_name'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
-        sample=pulumi.get(__ret__, 'sample'))
+        sample=pulumi.get(__ret__, 'sample'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_project_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
@@ -118,4 +132,5 @@ def get_project_output(name: Optional[pulumi.Input[str]] = None,
         dataset_name=pulumi.get(__response__, 'dataset_name'),
         recipe_name=pulumi.get(__response__, 'recipe_name'),
         role_arn=pulumi.get(__response__, 'role_arn'),
-        sample=pulumi.get(__response__, 'sample')))
+        sample=pulumi.get(__response__, 'sample'),
+        tags=pulumi.get(__response__, 'tags')))

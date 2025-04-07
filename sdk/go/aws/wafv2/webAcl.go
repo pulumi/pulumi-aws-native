@@ -43,6 +43,8 @@ type WebAcl struct {
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 	CustomResponseBodies WebAclCustomResponseBodyMapOutput `pulumi:"customResponseBodies"`
+	// Collection of dataProtects.
+	DataProtectionConfig WebAclDataProtectionConfigPtrOutput `pulumi:"dataProtectionConfig"`
 	// The action to perform if none of the `Rules` contained in the `WebACL` match.
 	DefaultAction WebAclDefaultActionOutput `pulumi:"defaultAction"`
 	// A description of the web ACL that helps with identification.
@@ -57,7 +59,7 @@ type WebAcl struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Collection of Rules.
 	Rules WebAclRuleArrayOutput `pulumi:"rules"`
-	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 	//
 	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	//
@@ -145,6 +147,8 @@ type webAclArgs struct {
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 	CustomResponseBodies map[string]WebAclCustomResponseBody `pulumi:"customResponseBodies"`
+	// Collection of dataProtects.
+	DataProtectionConfig *WebAclDataProtectionConfig `pulumi:"dataProtectionConfig"`
 	// The action to perform if none of the `Rules` contained in the `WebACL` match.
 	DefaultAction WebAclDefaultAction `pulumi:"defaultAction"`
 	// A description of the web ACL that helps with identification.
@@ -153,7 +157,7 @@ type webAclArgs struct {
 	Name *string `pulumi:"name"`
 	// Collection of Rules.
 	Rules []WebAclRule `pulumi:"rules"`
-	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 	//
 	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	//
@@ -189,6 +193,8 @@ type WebAclArgs struct {
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 	CustomResponseBodies WebAclCustomResponseBodyMapInput
+	// Collection of dataProtects.
+	DataProtectionConfig WebAclDataProtectionConfigPtrInput
 	// The action to perform if none of the `Rules` contained in the `WebACL` match.
 	DefaultAction WebAclDefaultActionInput
 	// A description of the web ACL that helps with identification.
@@ -197,7 +203,7 @@ type WebAclArgs struct {
 	Name pulumi.StringPtrInput
 	// Collection of Rules.
 	Rules WebAclRuleArrayInput
-	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 	//
 	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	//
@@ -297,6 +303,11 @@ func (o WebAclOutput) CustomResponseBodies() WebAclCustomResponseBodyMapOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclCustomResponseBodyMapOutput { return v.CustomResponseBodies }).(WebAclCustomResponseBodyMapOutput)
 }
 
+// Collection of dataProtects.
+func (o WebAclOutput) DataProtectionConfig() WebAclDataProtectionConfigPtrOutput {
+	return o.ApplyT(func(v *WebAcl) WebAclDataProtectionConfigPtrOutput { return v.DataProtectionConfig }).(WebAclDataProtectionConfigPtrOutput)
+}
+
 // The action to perform if none of the `Rules` contained in the `WebACL` match.
 func (o WebAclOutput) DefaultAction() WebAclDefaultActionOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclDefaultActionOutput { return v.DefaultAction }).(WebAclDefaultActionOutput)
@@ -326,7 +337,7 @@ func (o WebAclOutput) Rules() WebAclRuleArrayOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclRuleArrayOutput { return v.Rules }).(WebAclRuleArrayOutput)
 }
 
-// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 //
 // > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 //

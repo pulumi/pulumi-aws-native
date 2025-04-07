@@ -81,7 +81,7 @@ type LookupDbClusterResult struct {
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// The mode of Database Insights to enable for the DB cluster.
 	//  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-	//  Valid for Cluster Type: Aurora DB clusters only
+	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	DatabaseInsightsMode *string `pulumi:"databaseInsightsMode"`
 	// The Amazon Resource Name (ARN) for the DB cluster.
 	DbClusterArn *string `pulumi:"dbClusterArn"`
@@ -228,7 +228,7 @@ type LookupDbClusterResult struct {
 	//  If you don't specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS-account. Your AWS-account has a different default KMS key for each AWS-Region.
 	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
-	// The number of days to retain Performance Insights data.
+	// The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
 	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	//  Valid Values:
 	//   +   ``7``
@@ -402,7 +402,7 @@ func (o LookupDbClusterResultOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
 // The mode of Database Insights to enable for the DB cluster.
 //
 //	If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
-//	Valid for Cluster Type: Aurora DB clusters only
+//	Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 func (o LookupDbClusterResultOutput) DatabaseInsightsMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.DatabaseInsightsMode }).(pulumi.StringPtrOutput)
 }
@@ -653,7 +653,7 @@ func (o LookupDbClusterResultOutput) PerformanceInsightsKmsKeyId() pulumi.String
 	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.PerformanceInsightsKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The number of days to retain Performance Insights data.
+// The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter “PerformanceInsightsRetentionPeriod“.
 //
 //	Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 //	Valid Values:

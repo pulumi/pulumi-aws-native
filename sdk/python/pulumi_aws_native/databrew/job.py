@@ -41,7 +41,7 @@ class JobArgs:
                  profile_configuration: Optional[pulumi.Input['JobProfileConfigurationArgs']] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  recipe: Optional[pulumi.Input['JobRecipeArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  validation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JobValidationConfigurationArgs']]]] = None):
         """
@@ -63,7 +63,7 @@ class JobArgs:
         :param pulumi.Input['JobProfileConfigurationArgs'] profile_configuration: Profile Job configuration
         :param pulumi.Input[str] project_name: Project name
         :param pulumi.Input['JobRecipeArgs'] recipe: A series of data transformation steps that the job runs.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Metadata tags that have been applied to the job.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata tags that have been applied to the job.
         :param pulumi.Input[int] timeout: Timeout
         :param pulumi.Input[Sequence[pulumi.Input['JobValidationConfigurationArgs']]] validation_configurations: Data quality rules configuration
         """
@@ -312,14 +312,14 @@ class JobArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Metadata tags that have been applied to the job.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -368,7 +368,7 @@ class Job(pulumi.CustomResource):
                  project_name: Optional[pulumi.Input[str]] = None,
                  recipe: Optional[pulumi.Input[Union['JobRecipeArgs', 'JobRecipeArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input['JobType']] = None,
                  validation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobValidationConfigurationArgs', 'JobValidationConfigurationArgsDict']]]]] = None,
@@ -420,7 +420,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] project_name: Project name
         :param pulumi.Input[Union['JobRecipeArgs', 'JobRecipeArgsDict']] recipe: A series of data transformation steps that the job runs.
         :param pulumi.Input[str] role_arn: Role arn
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: Metadata tags that have been applied to the job.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata tags that have been applied to the job.
         :param pulumi.Input[int] timeout: Timeout
         :param pulumi.Input['JobType'] type: Job type
         :param pulumi.Input[Sequence[pulumi.Input[Union['JobValidationConfigurationArgs', 'JobValidationConfigurationArgsDict']]]] validation_configurations: Data quality rules configuration
@@ -491,7 +491,7 @@ class Job(pulumi.CustomResource):
                  project_name: Optional[pulumi.Input[str]] = None,
                  recipe: Optional[pulumi.Input[Union['JobRecipeArgs', 'JobRecipeArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input['JobType']] = None,
                  validation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobValidationConfigurationArgs', 'JobValidationConfigurationArgsDict']]]]] = None,
@@ -528,7 +528,7 @@ class Job(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["validation_configurations"] = validation_configurations
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags[*]", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Job, __self__).__init__(
             'aws-native:databrew:Job',
@@ -704,7 +704,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Metadata tags that have been applied to the job.
         """

@@ -10,11 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Omics
 {
     /// <summary>
-    /// Definition of AWS::Omics::SequenceStore Resource Type
+    /// Resource Type definition for AWS::Omics::SequenceStore
     /// </summary>
     [AwsNativeResourceType("aws-native:omics:SequenceStore")]
     public partial class SequenceStore : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Location of the access logs.
+        /// </summary>
+        [Output("accessLogLocation")]
+        public Output<string?> AccessLogLocation { get; private set; } = null!;
+
         /// <summary>
         /// The store's ARN.
         /// </summary>
@@ -34,7 +40,13 @@ namespace Pulumi.AwsNative.Omics
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An S3 URI representing the bucket and folder to store failed read set uploads.
+        /// The algorithm family of the ETag.
+        /// </summary>
+        [Output("eTagAlgorithmFamily")]
+        public Output<Pulumi.AwsNative.Omics.SequenceStoreETagAlgorithmFamily?> ETagAlgorithmFamily { get; private set; } = null!;
+
+        /// <summary>
+        /// An S3 location that is used to store files that have failed a direct upload.
         /// </summary>
         [Output("fallbackLocation")]
         public Output<string?> FallbackLocation { get; private set; } = null!;
@@ -44,6 +56,32 @@ namespace Pulumi.AwsNative.Omics
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+        /// </summary>
+        [Output("propagatedSetLevelTags")]
+        public Output<ImmutableArray<string>> PropagatedSetLevelTags { get; private set; } = null!;
+
+        /// <summary>
+        /// This is ARN of the access point associated with the S3 bucket storing read sets.
+        /// </summary>
+        [Output("s3AccessPointArn")]
+        public Output<string> S3AccessPointArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource policy that controls S3 access on the store
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Omics::SequenceStore` for more information about the expected schema for this property.
+        /// </summary>
+        [Output("s3AccessPolicy")]
+        public Output<object?> S3AccessPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// The S3 URI of the sequence store.
+        /// </summary>
+        [Output("s3Uri")]
+        public Output<string> S3Uri { get; private set; } = null!;
 
         /// <summary>
         /// The store's ID.
@@ -58,10 +96,28 @@ namespace Pulumi.AwsNative.Omics
         public Output<Outputs.SequenceStoreSseConfig?> SseConfig { get; private set; } = null!;
 
         /// <summary>
+        /// Status of the sequence store.
+        /// </summary>
+        [Output("status")]
+        public Output<Pulumi.AwsNative.Omics.SequenceStoreStatus> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The status message of the sequence store.
+        /// </summary>
+        [Output("statusMessage")]
+        public Output<string> StatusMessage { get; private set; } = null!;
+
+        /// <summary>
         /// Tags for the store.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The last-updated time of the sequence store.
+        /// </summary>
+        [Output("updateTime")]
+        public Output<string> UpdateTime { get; private set; } = null!;
 
 
         /// <summary>
@@ -88,11 +144,8 @@ namespace Pulumi.AwsNative.Omics
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "description",
-                    "fallbackLocation",
-                    "name",
+                    "eTagAlgorithmFamily",
                     "sseConfig",
-                    "tags.*",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,13 +170,25 @@ namespace Pulumi.AwsNative.Omics
     public sealed class SequenceStoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Location of the access logs.
+        /// </summary>
+        [Input("accessLogLocation")]
+        public Input<string>? AccessLogLocation { get; set; }
+
+        /// <summary>
         /// A description for the store.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An S3 URI representing the bucket and folder to store failed read set uploads.
+        /// The algorithm family of the ETag.
+        /// </summary>
+        [Input("eTagAlgorithmFamily")]
+        public Input<Pulumi.AwsNative.Omics.SequenceStoreETagAlgorithmFamily>? ETagAlgorithmFamily { get; set; }
+
+        /// <summary>
+        /// An S3 location that is used to store files that have failed a direct upload.
         /// </summary>
         [Input("fallbackLocation")]
         public Input<string>? FallbackLocation { get; set; }
@@ -133,6 +198,26 @@ namespace Pulumi.AwsNative.Omics
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("propagatedSetLevelTags")]
+        private InputList<string>? _propagatedSetLevelTags;
+
+        /// <summary>
+        /// The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+        /// </summary>
+        public InputList<string> PropagatedSetLevelTags
+        {
+            get => _propagatedSetLevelTags ?? (_propagatedSetLevelTags = new InputList<string>());
+            set => _propagatedSetLevelTags = value;
+        }
+
+        /// <summary>
+        /// The resource policy that controls S3 access on the store
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Omics::SequenceStore` for more information about the expected schema for this property.
+        /// </summary>
+        [Input("s3AccessPolicy")]
+        public Input<object>? S3AccessPolicy { get; set; }
 
         /// <summary>
         /// Server-side encryption (SSE) settings for the store.

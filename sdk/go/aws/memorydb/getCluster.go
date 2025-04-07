@@ -45,6 +45,8 @@ type LookupClusterResult struct {
 	Engine *string `pulumi:"engine"`
 	// The Redis engine version used by the cluster.
 	EngineVersion *string `pulumi:"engineVersion"`
+	// For clusters wth dual stack NetworkType, IpDiscovery controls the Ip protocol (ipv4 or ipv6) returned by the engine commands such as `cluster info` and `cluster nodes` which are used by clients to connect to the nodes in the cluster.
+	IpDiscovery *ClusterSupportedIpDiscoveryTypes `pulumi:"ipDiscovery"`
 	// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// The compute and memory capacity of the nodes in the cluster.
@@ -140,6 +142,11 @@ func (o LookupClusterResultOutput) Engine() pulumi.StringPtrOutput {
 // The Redis engine version used by the cluster.
 func (o LookupClusterResultOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
+}
+
+// For clusters wth dual stack NetworkType, IpDiscovery controls the Ip protocol (ipv4 or ipv6) returned by the engine commands such as `cluster info` and `cluster nodes` which are used by clients to connect to the nodes in the cluster.
+func (o LookupClusterResultOutput) IpDiscovery() ClusterSupportedIpDiscoveryTypesPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterSupportedIpDiscoveryTypes { return v.IpDiscovery }).(ClusterSupportedIpDiscoveryTypesPtrOutput)
 }
 
 // Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.

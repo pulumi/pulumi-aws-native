@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudFront::VpcOrigin
+ * An Amazon CloudFront VPC origin.
  */
 export class VpcOrigin extends pulumi.CustomResource {
     /**
@@ -58,7 +58,7 @@ export class VpcOrigin extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * A complex type that contains zero or more `Tag` elements.
+     * A complex type that contains zero or more ``Tag`` elements.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -106,7 +106,7 @@ export class VpcOrigin extends pulumi.CustomResource {
  */
 export interface VpcOriginArgs {
     /**
-     * A complex type that contains zero or more `Tag` elements.
+     * A complex type that contains zero or more ``Tag`` elements.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

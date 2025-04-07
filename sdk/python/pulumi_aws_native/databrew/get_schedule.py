@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetScheduleResult',
@@ -23,13 +24,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetScheduleResult:
-    def __init__(__self__, cron_expression=None, job_names=None):
+    def __init__(__self__, cron_expression=None, job_names=None, tags=None):
         if cron_expression and not isinstance(cron_expression, str):
             raise TypeError("Expected argument 'cron_expression' to be a str")
         pulumi.set(__self__, "cron_expression", cron_expression)
         if job_names and not isinstance(job_names, list):
             raise TypeError("Expected argument 'job_names' to be a list")
         pulumi.set(__self__, "job_names", job_names)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="cronExpression")
@@ -47,6 +51,14 @@ class GetScheduleResult:
         """
         return pulumi.get(self, "job_names")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Metadata tags that have been applied to the schedule.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetScheduleResult(GetScheduleResult):
     # pylint: disable=using-constant-test
@@ -55,7 +67,8 @@ class AwaitableGetScheduleResult(GetScheduleResult):
             yield self
         return GetScheduleResult(
             cron_expression=self.cron_expression,
-            job_names=self.job_names)
+            job_names=self.job_names,
+            tags=self.tags)
 
 
 def get_schedule(name: Optional[str] = None,
@@ -73,7 +86,8 @@ def get_schedule(name: Optional[str] = None,
 
     return AwaitableGetScheduleResult(
         cron_expression=pulumi.get(__ret__, 'cron_expression'),
-        job_names=pulumi.get(__ret__, 'job_names'))
+        job_names=pulumi.get(__ret__, 'job_names'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_schedule_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduleResult]:
     """
@@ -88,4 +102,5 @@ def get_schedule_output(name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:databrew:getSchedule', __args__, opts=opts, typ=GetScheduleResult)
     return __ret__.apply(lambda __response__: GetScheduleResult(
         cron_expression=pulumi.get(__response__, 'cron_expression'),
-        job_names=pulumi.get(__response__, 'job_names')))
+        job_names=pulumi.get(__response__, 'job_names'),
+        tags=pulumi.get(__response__, 'tags')))

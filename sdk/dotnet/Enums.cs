@@ -125,6 +125,10 @@ namespace Pulumi.AwsNative
         /// </summary>
         public static Region EuWest3 { get; } = new Region("eu-west-3");
         /// <summary>
+        /// EU (Germany)
+        /// </summary>
+        public static Region EuscDeEast1 { get; } = new Region("eusc-de-east-1");
+        /// <summary>
         /// Israel (Tel Aviv)
         /// </summary>
         public static Region IlCentral1 { get; } = new Region("il-central-1");

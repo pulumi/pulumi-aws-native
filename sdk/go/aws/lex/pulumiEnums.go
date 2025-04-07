@@ -266,6 +266,172 @@ func (in *botAudioRecognitionStrategyPtr) ToBotAudioRecognitionStrategyPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(BotAudioRecognitionStrategyPtrOutput)
 }
 
+// The Bedrock trace status in the Bedrock model specification details.
+type BotBedrockModelSpecificationBedrockTraceStatus string
+
+const (
+	BotBedrockModelSpecificationBedrockTraceStatusEnabled  = BotBedrockModelSpecificationBedrockTraceStatus("ENABLED")
+	BotBedrockModelSpecificationBedrockTraceStatusDisabled = BotBedrockModelSpecificationBedrockTraceStatus("DISABLED")
+)
+
+func (BotBedrockModelSpecificationBedrockTraceStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotBedrockModelSpecificationBedrockTraceStatus)(nil)).Elem()
+}
+
+func (e BotBedrockModelSpecificationBedrockTraceStatus) ToBotBedrockModelSpecificationBedrockTraceStatusOutput() BotBedrockModelSpecificationBedrockTraceStatusOutput {
+	return pulumi.ToOutput(e).(BotBedrockModelSpecificationBedrockTraceStatusOutput)
+}
+
+func (e BotBedrockModelSpecificationBedrockTraceStatus) ToBotBedrockModelSpecificationBedrockTraceStatusOutputWithContext(ctx context.Context) BotBedrockModelSpecificationBedrockTraceStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BotBedrockModelSpecificationBedrockTraceStatusOutput)
+}
+
+func (e BotBedrockModelSpecificationBedrockTraceStatus) ToBotBedrockModelSpecificationBedrockTraceStatusPtrOutput() BotBedrockModelSpecificationBedrockTraceStatusPtrOutput {
+	return e.ToBotBedrockModelSpecificationBedrockTraceStatusPtrOutputWithContext(context.Background())
+}
+
+func (e BotBedrockModelSpecificationBedrockTraceStatus) ToBotBedrockModelSpecificationBedrockTraceStatusPtrOutputWithContext(ctx context.Context) BotBedrockModelSpecificationBedrockTraceStatusPtrOutput {
+	return BotBedrockModelSpecificationBedrockTraceStatus(e).ToBotBedrockModelSpecificationBedrockTraceStatusOutputWithContext(ctx).ToBotBedrockModelSpecificationBedrockTraceStatusPtrOutputWithContext(ctx)
+}
+
+func (e BotBedrockModelSpecificationBedrockTraceStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotBedrockModelSpecificationBedrockTraceStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotBedrockModelSpecificationBedrockTraceStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BotBedrockModelSpecificationBedrockTraceStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BotBedrockModelSpecificationBedrockTraceStatusOutput struct{ *pulumi.OutputState }
+
+func (BotBedrockModelSpecificationBedrockTraceStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotBedrockModelSpecificationBedrockTraceStatus)(nil)).Elem()
+}
+
+func (o BotBedrockModelSpecificationBedrockTraceStatusOutput) ToBotBedrockModelSpecificationBedrockTraceStatusOutput() BotBedrockModelSpecificationBedrockTraceStatusOutput {
+	return o
+}
+
+func (o BotBedrockModelSpecificationBedrockTraceStatusOutput) ToBotBedrockModelSpecificationBedrockTraceStatusOutputWithContext(ctx context.Context) BotBedrockModelSpecificationBedrockTraceStatusOutput {
+	return o
+}
+
+func (o BotBedrockModelSpecificationBedrockTraceStatusOutput) ToBotBedrockModelSpecificationBedrockTraceStatusPtrOutput() BotBedrockModelSpecificationBedrockTraceStatusPtrOutput {
+	return o.ToBotBedrockModelSpecificationBedrockTraceStatusPtrOutputWithContext(context.Background())
+}
+
+func (o BotBedrockModelSpecificationBedrockTraceStatusOutput) ToBotBedrockModelSpecificationBedrockTraceStatusPtrOutputWithContext(ctx context.Context) BotBedrockModelSpecificationBedrockTraceStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotBedrockModelSpecificationBedrockTraceStatus) *BotBedrockModelSpecificationBedrockTraceStatus {
+		return &v
+	}).(BotBedrockModelSpecificationBedrockTraceStatusPtrOutput)
+}
+
+func (o BotBedrockModelSpecificationBedrockTraceStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BotBedrockModelSpecificationBedrockTraceStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotBedrockModelSpecificationBedrockTraceStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BotBedrockModelSpecificationBedrockTraceStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotBedrockModelSpecificationBedrockTraceStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotBedrockModelSpecificationBedrockTraceStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BotBedrockModelSpecificationBedrockTraceStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (BotBedrockModelSpecificationBedrockTraceStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotBedrockModelSpecificationBedrockTraceStatus)(nil)).Elem()
+}
+
+func (o BotBedrockModelSpecificationBedrockTraceStatusPtrOutput) ToBotBedrockModelSpecificationBedrockTraceStatusPtrOutput() BotBedrockModelSpecificationBedrockTraceStatusPtrOutput {
+	return o
+}
+
+func (o BotBedrockModelSpecificationBedrockTraceStatusPtrOutput) ToBotBedrockModelSpecificationBedrockTraceStatusPtrOutputWithContext(ctx context.Context) BotBedrockModelSpecificationBedrockTraceStatusPtrOutput {
+	return o
+}
+
+func (o BotBedrockModelSpecificationBedrockTraceStatusPtrOutput) Elem() BotBedrockModelSpecificationBedrockTraceStatusOutput {
+	return o.ApplyT(func(v *BotBedrockModelSpecificationBedrockTraceStatus) BotBedrockModelSpecificationBedrockTraceStatus {
+		if v != nil {
+			return *v
+		}
+		var ret BotBedrockModelSpecificationBedrockTraceStatus
+		return ret
+	}).(BotBedrockModelSpecificationBedrockTraceStatusOutput)
+}
+
+func (o BotBedrockModelSpecificationBedrockTraceStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotBedrockModelSpecificationBedrockTraceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BotBedrockModelSpecificationBedrockTraceStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BotBedrockModelSpecificationBedrockTraceStatusInput is an input type that accepts values of the BotBedrockModelSpecificationBedrockTraceStatus enum
+// A concrete instance of `BotBedrockModelSpecificationBedrockTraceStatusInput` can be one of the following:
+//
+//	BotBedrockModelSpecificationBedrockTraceStatusEnabled
+//	BotBedrockModelSpecificationBedrockTraceStatusDisabled
+type BotBedrockModelSpecificationBedrockTraceStatusInput interface {
+	pulumi.Input
+
+	ToBotBedrockModelSpecificationBedrockTraceStatusOutput() BotBedrockModelSpecificationBedrockTraceStatusOutput
+	ToBotBedrockModelSpecificationBedrockTraceStatusOutputWithContext(context.Context) BotBedrockModelSpecificationBedrockTraceStatusOutput
+}
+
+var botBedrockModelSpecificationBedrockTraceStatusPtrType = reflect.TypeOf((**BotBedrockModelSpecificationBedrockTraceStatus)(nil)).Elem()
+
+type BotBedrockModelSpecificationBedrockTraceStatusPtrInput interface {
+	pulumi.Input
+
+	ToBotBedrockModelSpecificationBedrockTraceStatusPtrOutput() BotBedrockModelSpecificationBedrockTraceStatusPtrOutput
+	ToBotBedrockModelSpecificationBedrockTraceStatusPtrOutputWithContext(context.Context) BotBedrockModelSpecificationBedrockTraceStatusPtrOutput
+}
+
+type botBedrockModelSpecificationBedrockTraceStatusPtr string
+
+func BotBedrockModelSpecificationBedrockTraceStatusPtr(v string) BotBedrockModelSpecificationBedrockTraceStatusPtrInput {
+	return (*botBedrockModelSpecificationBedrockTraceStatusPtr)(&v)
+}
+
+func (*botBedrockModelSpecificationBedrockTraceStatusPtr) ElementType() reflect.Type {
+	return botBedrockModelSpecificationBedrockTraceStatusPtrType
+}
+
+func (in *botBedrockModelSpecificationBedrockTraceStatusPtr) ToBotBedrockModelSpecificationBedrockTraceStatusPtrOutput() BotBedrockModelSpecificationBedrockTraceStatusPtrOutput {
+	return pulumi.ToOutput(in).(BotBedrockModelSpecificationBedrockTraceStatusPtrOutput)
+}
+
+func (in *botBedrockModelSpecificationBedrockTraceStatusPtr) ToBotBedrockModelSpecificationBedrockTraceStatusPtrOutputWithContext(ctx context.Context) BotBedrockModelSpecificationBedrockTraceStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BotBedrockModelSpecificationBedrockTraceStatusPtrOutput)
+}
+
 // The possible values of actions that the conversation can take.
 type BotDialogActionType string
 
@@ -1278,8 +1444,10 @@ func (in *botSlotValueResolutionStrategyPtr) ToBotSlotValueResolutionStrategyPtr
 type BotVoiceSettingsEngine string
 
 const (
-	BotVoiceSettingsEngineStandard = BotVoiceSettingsEngine("standard")
-	BotVoiceSettingsEngineNeural   = BotVoiceSettingsEngine("neural")
+	BotVoiceSettingsEngineStandard   = BotVoiceSettingsEngine("standard")
+	BotVoiceSettingsEngineNeural     = BotVoiceSettingsEngine("neural")
+	BotVoiceSettingsEngineLongForm   = BotVoiceSettingsEngine("long-form")
+	BotVoiceSettingsEngineGenerative = BotVoiceSettingsEngine("generative")
 )
 
 func (BotVoiceSettingsEngine) ElementType() reflect.Type {
@@ -1406,6 +1574,8 @@ func (o BotVoiceSettingsEnginePtrOutput) ToStringPtrOutputWithContext(ctx contex
 //
 //	BotVoiceSettingsEngineStandard
 //	BotVoiceSettingsEngineNeural
+//	BotVoiceSettingsEngineLongForm
+//	BotVoiceSettingsEngineGenerative
 type BotVoiceSettingsEngineInput interface {
 	pulumi.Input
 
@@ -1443,6 +1613,8 @@ func (in *botVoiceSettingsEnginePtr) ToBotVoiceSettingsEnginePtrOutputWithContex
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioRecognitionStrategyInput)(nil)).Elem(), BotAudioRecognitionStrategy("UseSlotValuesAsCustomVocabulary"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioRecognitionStrategyPtrInput)(nil)).Elem(), BotAudioRecognitionStrategy("UseSlotValuesAsCustomVocabulary"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BotBedrockModelSpecificationBedrockTraceStatusInput)(nil)).Elem(), BotBedrockModelSpecificationBedrockTraceStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BotBedrockModelSpecificationBedrockTraceStatusPtrInput)(nil)).Elem(), BotBedrockModelSpecificationBedrockTraceStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotDialogActionTypeInput)(nil)).Elem(), BotDialogActionType("CloseIntent"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotDialogActionTypePtrInput)(nil)).Elem(), BotDialogActionType("CloseIntent"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotMessageSelectionStrategyInput)(nil)).Elem(), BotMessageSelectionStrategy("Random"))
@@ -1461,6 +1633,8 @@ func init() {
 	pulumi.RegisterOutputType(BotAliasStatusPtrOutput{})
 	pulumi.RegisterOutputType(BotAudioRecognitionStrategyOutput{})
 	pulumi.RegisterOutputType(BotAudioRecognitionStrategyPtrOutput{})
+	pulumi.RegisterOutputType(BotBedrockModelSpecificationBedrockTraceStatusOutput{})
+	pulumi.RegisterOutputType(BotBedrockModelSpecificationBedrockTraceStatusPtrOutput{})
 	pulumi.RegisterOutputType(BotDialogActionTypeOutput{})
 	pulumi.RegisterOutputType(BotDialogActionTypePtrOutput{})
 	pulumi.RegisterOutputType(BotMessageSelectionStrategyOutput{})

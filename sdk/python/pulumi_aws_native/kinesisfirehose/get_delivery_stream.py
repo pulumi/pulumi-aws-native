@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeliveryStreamResult:
-    def __init__(__self__, amazon_open_search_serverless_destination_configuration=None, amazonopensearchservice_destination_configuration=None, arn=None, delivery_stream_encryption_configuration_input=None, elasticsearch_destination_configuration=None, extended_s3_destination_configuration=None, http_endpoint_destination_configuration=None, redshift_destination_configuration=None, s3_destination_configuration=None, snowflake_destination_configuration=None, splunk_destination_configuration=None, tags=None):
+    def __init__(__self__, amazon_open_search_serverless_destination_configuration=None, amazonopensearchservice_destination_configuration=None, arn=None, delivery_stream_encryption_configuration_input=None, elasticsearch_destination_configuration=None, extended_s3_destination_configuration=None, http_endpoint_destination_configuration=None, iceberg_destination_configuration=None, redshift_destination_configuration=None, s3_destination_configuration=None, snowflake_destination_configuration=None, splunk_destination_configuration=None, tags=None):
         if amazon_open_search_serverless_destination_configuration and not isinstance(amazon_open_search_serverless_destination_configuration, dict):
             raise TypeError("Expected argument 'amazon_open_search_serverless_destination_configuration' to be a dict")
         pulumi.set(__self__, "amazon_open_search_serverless_destination_configuration", amazon_open_search_serverless_destination_configuration)
@@ -48,6 +48,9 @@ class GetDeliveryStreamResult:
         if http_endpoint_destination_configuration and not isinstance(http_endpoint_destination_configuration, dict):
             raise TypeError("Expected argument 'http_endpoint_destination_configuration' to be a dict")
         pulumi.set(__self__, "http_endpoint_destination_configuration", http_endpoint_destination_configuration)
+        if iceberg_destination_configuration and not isinstance(iceberg_destination_configuration, dict):
+            raise TypeError("Expected argument 'iceberg_destination_configuration' to be a dict")
+        pulumi.set(__self__, "iceberg_destination_configuration", iceberg_destination_configuration)
         if redshift_destination_configuration and not isinstance(redshift_destination_configuration, dict):
             raise TypeError("Expected argument 'redshift_destination_configuration' to be a dict")
         pulumi.set(__self__, "redshift_destination_configuration", redshift_destination_configuration)
@@ -129,6 +132,14 @@ class GetDeliveryStreamResult:
         return pulumi.get(self, "http_endpoint_destination_configuration")
 
     @property
+    @pulumi.getter(name="icebergDestinationConfiguration")
+    def iceberg_destination_configuration(self) -> Optional['outputs.DeliveryStreamIcebergDestinationConfiguration']:
+        """
+        Specifies the destination configure settings for Apache Iceberg Table.
+        """
+        return pulumi.get(self, "iceberg_destination_configuration")
+
+    @property
     @pulumi.getter(name="redshiftDestinationConfiguration")
     def redshift_destination_configuration(self) -> Optional['outputs.DeliveryStreamRedshiftDestinationConfiguration']:
         """
@@ -200,6 +211,7 @@ class AwaitableGetDeliveryStreamResult(GetDeliveryStreamResult):
             elasticsearch_destination_configuration=self.elasticsearch_destination_configuration,
             extended_s3_destination_configuration=self.extended_s3_destination_configuration,
             http_endpoint_destination_configuration=self.http_endpoint_destination_configuration,
+            iceberg_destination_configuration=self.iceberg_destination_configuration,
             redshift_destination_configuration=self.redshift_destination_configuration,
             s3_destination_configuration=self.s3_destination_configuration,
             snowflake_destination_configuration=self.snowflake_destination_configuration,
@@ -228,6 +240,7 @@ def get_delivery_stream(delivery_stream_name: Optional[str] = None,
         elasticsearch_destination_configuration=pulumi.get(__ret__, 'elasticsearch_destination_configuration'),
         extended_s3_destination_configuration=pulumi.get(__ret__, 'extended_s3_destination_configuration'),
         http_endpoint_destination_configuration=pulumi.get(__ret__, 'http_endpoint_destination_configuration'),
+        iceberg_destination_configuration=pulumi.get(__ret__, 'iceberg_destination_configuration'),
         redshift_destination_configuration=pulumi.get(__ret__, 'redshift_destination_configuration'),
         s3_destination_configuration=pulumi.get(__ret__, 's3_destination_configuration'),
         snowflake_destination_configuration=pulumi.get(__ret__, 'snowflake_destination_configuration'),
@@ -253,6 +266,7 @@ def get_delivery_stream_output(delivery_stream_name: Optional[pulumi.Input[str]]
         elasticsearch_destination_configuration=pulumi.get(__response__, 'elasticsearch_destination_configuration'),
         extended_s3_destination_configuration=pulumi.get(__response__, 'extended_s3_destination_configuration'),
         http_endpoint_destination_configuration=pulumi.get(__response__, 'http_endpoint_destination_configuration'),
+        iceberg_destination_configuration=pulumi.get(__response__, 'iceberg_destination_configuration'),
         redshift_destination_configuration=pulumi.get(__response__, 'redshift_destination_configuration'),
         s3_destination_configuration=pulumi.get(__response__, 's3_destination_configuration'),
         snowflake_destination_configuration=pulumi.get(__response__, 'snowflake_destination_configuration'),

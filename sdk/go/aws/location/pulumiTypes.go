@@ -21,18 +21,38 @@ type ApiKeyRestrictions struct {
 	// - *Map actions*
 	//
 	// - `geo:GetMap*` - Allows all actions needed for map rendering.
+	// - *Enhanced Maps actions*
+	//
+	// - `geo-maps:GetTile` - Allows getting map tiles for rendering.
+	// - `geo-maps:GetStaticMap` - Allows getting static map images.
 	// - *Place actions*
 	//
-	// - `geo:SearchPlaceIndexForText` - Allows geocoding.
-	// - `geo:SearchPlaceIndexForPosition` - Allows reverse geocoding.
-	// - `geo:SearchPlaceIndexForSuggestions` - Allows generating suggestions from text.
-	// - `geo:GetPlace` - Allows finding a place by place ID.
+	// - `geo:SearchPlaceIndexForText` - Allows finding geo coordinates of a known place.
+	// - `geo:SearchPlaceIndexForPosition` - Allows getting nearest address to geo coordinates.
+	// - `geo:SearchPlaceIndexForSuggestions` - Allows suggestions based on an incomplete or misspelled query.
+	// - `geo:GetPlace` - Allows getting details of a place.
+	// - *Enhanced Places actions*
+	//
+	// - `geo-places:Autcomplete` - Allows auto-completion of search text.
+	// - `geo-places:Geocode` - Allows finding geo coordinates of a known place.
+	// - `geo-places:GetPlace` - Allows getting details of a place.
+	// - `geo-places:ReverseGeocode` - Allows getting nearest address to geo coordinates.
+	// - `geo-places:SearchNearby` - Allows category based places search around geo coordinates.
+	// - `geo-places:SearchText` - Allows place or address search based on free-form text.
+	// - `geo-places:Suggest` - Allows suggestions based on an incomplete or misspelled query.
 	// - *Route actions*
 	//
 	// - `geo:CalculateRoute` - Allows point to point routing.
-	// - `geo:CalculateRouteMatrix` - Allows calculating a matrix of routes.
+	// - `geo:CalculateRouteMatrix` - Allows matrix routing.
+	// - *Enhanced Routes actions*
 	//
-	// > You must use these strings exactly. For example, to provide access to map rendering, the only valid action is `geo:GetMap*` as an input to the list. `["geo:GetMap*"]` is valid but `["geo:GetMapTile"]` is not. Similarly, you cannot use `["geo:SearchPlaceIndexFor*"]` - you must list each of the Place actions separately.
+	// - `geo-routes:CalculateIsolines` - Allows isoline calculation.
+	// - `geo-routes:CalculateRoutes` - Allows point to point routing.
+	// - `geo-routes:CalculateRouteMatrix` - Allows matrix routing.
+	// - `geo-routes:OptimizeWaypoints` - Allows computing the best sequence of waypoints.
+	// - `geo-routes:SnapToRoads` - Allows snapping GPS points to a likely route.
+	//
+	// > You must use these strings exactly. For example, to provide access to map rendering, the only valid action is `geo:GetMap*` as an input to the list. `["geo:GetMap*"]` is valid but `["geo:GetTile"]` is not. Similarly, you cannot use `["geo:SearchPlaceIndexFor*"]` - you must list each of the Place actions separately.
 	AllowActions []string `pulumi:"allowActions"`
 	// An optional list of allowed HTTP referers for which requests must originate from. Requests using this API key from other domains will not be allowed.
 	//
@@ -77,18 +97,38 @@ type ApiKeyRestrictionsArgs struct {
 	// - *Map actions*
 	//
 	// - `geo:GetMap*` - Allows all actions needed for map rendering.
+	// - *Enhanced Maps actions*
+	//
+	// - `geo-maps:GetTile` - Allows getting map tiles for rendering.
+	// - `geo-maps:GetStaticMap` - Allows getting static map images.
 	// - *Place actions*
 	//
-	// - `geo:SearchPlaceIndexForText` - Allows geocoding.
-	// - `geo:SearchPlaceIndexForPosition` - Allows reverse geocoding.
-	// - `geo:SearchPlaceIndexForSuggestions` - Allows generating suggestions from text.
-	// - `geo:GetPlace` - Allows finding a place by place ID.
+	// - `geo:SearchPlaceIndexForText` - Allows finding geo coordinates of a known place.
+	// - `geo:SearchPlaceIndexForPosition` - Allows getting nearest address to geo coordinates.
+	// - `geo:SearchPlaceIndexForSuggestions` - Allows suggestions based on an incomplete or misspelled query.
+	// - `geo:GetPlace` - Allows getting details of a place.
+	// - *Enhanced Places actions*
+	//
+	// - `geo-places:Autcomplete` - Allows auto-completion of search text.
+	// - `geo-places:Geocode` - Allows finding geo coordinates of a known place.
+	// - `geo-places:GetPlace` - Allows getting details of a place.
+	// - `geo-places:ReverseGeocode` - Allows getting nearest address to geo coordinates.
+	// - `geo-places:SearchNearby` - Allows category based places search around geo coordinates.
+	// - `geo-places:SearchText` - Allows place or address search based on free-form text.
+	// - `geo-places:Suggest` - Allows suggestions based on an incomplete or misspelled query.
 	// - *Route actions*
 	//
 	// - `geo:CalculateRoute` - Allows point to point routing.
-	// - `geo:CalculateRouteMatrix` - Allows calculating a matrix of routes.
+	// - `geo:CalculateRouteMatrix` - Allows matrix routing.
+	// - *Enhanced Routes actions*
 	//
-	// > You must use these strings exactly. For example, to provide access to map rendering, the only valid action is `geo:GetMap*` as an input to the list. `["geo:GetMap*"]` is valid but `["geo:GetMapTile"]` is not. Similarly, you cannot use `["geo:SearchPlaceIndexFor*"]` - you must list each of the Place actions separately.
+	// - `geo-routes:CalculateIsolines` - Allows isoline calculation.
+	// - `geo-routes:CalculateRoutes` - Allows point to point routing.
+	// - `geo-routes:CalculateRouteMatrix` - Allows matrix routing.
+	// - `geo-routes:OptimizeWaypoints` - Allows computing the best sequence of waypoints.
+	// - `geo-routes:SnapToRoads` - Allows snapping GPS points to a likely route.
+	//
+	// > You must use these strings exactly. For example, to provide access to map rendering, the only valid action is `geo:GetMap*` as an input to the list. `["geo:GetMap*"]` is valid but `["geo:GetTile"]` is not. Similarly, you cannot use `["geo:SearchPlaceIndexFor*"]` - you must list each of the Place actions separately.
 	AllowActions pulumi.StringArrayInput `pulumi:"allowActions"`
 	// An optional list of allowed HTTP referers for which requests must originate from. Requests using this API key from other domains will not be allowed.
 	//
@@ -147,18 +187,38 @@ func (o ApiKeyRestrictionsOutput) ToApiKeyRestrictionsOutputWithContext(ctx cont
 // - *Map actions*
 //
 // - `geo:GetMap*` - Allows all actions needed for map rendering.
+// - *Enhanced Maps actions*
+//
+// - `geo-maps:GetTile` - Allows getting map tiles for rendering.
+// - `geo-maps:GetStaticMap` - Allows getting static map images.
 // - *Place actions*
 //
-// - `geo:SearchPlaceIndexForText` - Allows geocoding.
-// - `geo:SearchPlaceIndexForPosition` - Allows reverse geocoding.
-// - `geo:SearchPlaceIndexForSuggestions` - Allows generating suggestions from text.
-// - `geo:GetPlace` - Allows finding a place by place ID.
+// - `geo:SearchPlaceIndexForText` - Allows finding geo coordinates of a known place.
+// - `geo:SearchPlaceIndexForPosition` - Allows getting nearest address to geo coordinates.
+// - `geo:SearchPlaceIndexForSuggestions` - Allows suggestions based on an incomplete or misspelled query.
+// - `geo:GetPlace` - Allows getting details of a place.
+// - *Enhanced Places actions*
+//
+// - `geo-places:Autcomplete` - Allows auto-completion of search text.
+// - `geo-places:Geocode` - Allows finding geo coordinates of a known place.
+// - `geo-places:GetPlace` - Allows getting details of a place.
+// - `geo-places:ReverseGeocode` - Allows getting nearest address to geo coordinates.
+// - `geo-places:SearchNearby` - Allows category based places search around geo coordinates.
+// - `geo-places:SearchText` - Allows place or address search based on free-form text.
+// - `geo-places:Suggest` - Allows suggestions based on an incomplete or misspelled query.
 // - *Route actions*
 //
 // - `geo:CalculateRoute` - Allows point to point routing.
-// - `geo:CalculateRouteMatrix` - Allows calculating a matrix of routes.
+// - `geo:CalculateRouteMatrix` - Allows matrix routing.
+// - *Enhanced Routes actions*
 //
-// > You must use these strings exactly. For example, to provide access to map rendering, the only valid action is `geo:GetMap*` as an input to the list. `["geo:GetMap*"]` is valid but `["geo:GetMapTile"]` is not. Similarly, you cannot use `["geo:SearchPlaceIndexFor*"]` - you must list each of the Place actions separately.
+// - `geo-routes:CalculateIsolines` - Allows isoline calculation.
+// - `geo-routes:CalculateRoutes` - Allows point to point routing.
+// - `geo-routes:CalculateRouteMatrix` - Allows matrix routing.
+// - `geo-routes:OptimizeWaypoints` - Allows computing the best sequence of waypoints.
+// - `geo-routes:SnapToRoads` - Allows snapping GPS points to a likely route.
+//
+// > You must use these strings exactly. For example, to provide access to map rendering, the only valid action is `geo:GetMap*` as an input to the list. `["geo:GetMap*"]` is valid but `["geo:GetTile"]` is not. Similarly, you cannot use `["geo:SearchPlaceIndexFor*"]` - you must list each of the Place actions separately.
 func (o ApiKeyRestrictionsOutput) AllowActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiKeyRestrictions) []string { return v.AllowActions }).(pulumi.StringArrayOutput)
 }
@@ -222,18 +282,38 @@ func (o ApiKeyRestrictionsPtrOutput) Elem() ApiKeyRestrictionsOutput {
 // - *Map actions*
 //
 // - `geo:GetMap*` - Allows all actions needed for map rendering.
+// - *Enhanced Maps actions*
+//
+// - `geo-maps:GetTile` - Allows getting map tiles for rendering.
+// - `geo-maps:GetStaticMap` - Allows getting static map images.
 // - *Place actions*
 //
-// - `geo:SearchPlaceIndexForText` - Allows geocoding.
-// - `geo:SearchPlaceIndexForPosition` - Allows reverse geocoding.
-// - `geo:SearchPlaceIndexForSuggestions` - Allows generating suggestions from text.
-// - `geo:GetPlace` - Allows finding a place by place ID.
+// - `geo:SearchPlaceIndexForText` - Allows finding geo coordinates of a known place.
+// - `geo:SearchPlaceIndexForPosition` - Allows getting nearest address to geo coordinates.
+// - `geo:SearchPlaceIndexForSuggestions` - Allows suggestions based on an incomplete or misspelled query.
+// - `geo:GetPlace` - Allows getting details of a place.
+// - *Enhanced Places actions*
+//
+// - `geo-places:Autcomplete` - Allows auto-completion of search text.
+// - `geo-places:Geocode` - Allows finding geo coordinates of a known place.
+// - `geo-places:GetPlace` - Allows getting details of a place.
+// - `geo-places:ReverseGeocode` - Allows getting nearest address to geo coordinates.
+// - `geo-places:SearchNearby` - Allows category based places search around geo coordinates.
+// - `geo-places:SearchText` - Allows place or address search based on free-form text.
+// - `geo-places:Suggest` - Allows suggestions based on an incomplete or misspelled query.
 // - *Route actions*
 //
 // - `geo:CalculateRoute` - Allows point to point routing.
-// - `geo:CalculateRouteMatrix` - Allows calculating a matrix of routes.
+// - `geo:CalculateRouteMatrix` - Allows matrix routing.
+// - *Enhanced Routes actions*
 //
-// > You must use these strings exactly. For example, to provide access to map rendering, the only valid action is `geo:GetMap*` as an input to the list. `["geo:GetMap*"]` is valid but `["geo:GetMapTile"]` is not. Similarly, you cannot use `["geo:SearchPlaceIndexFor*"]` - you must list each of the Place actions separately.
+// - `geo-routes:CalculateIsolines` - Allows isoline calculation.
+// - `geo-routes:CalculateRoutes` - Allows point to point routing.
+// - `geo-routes:CalculateRouteMatrix` - Allows matrix routing.
+// - `geo-routes:OptimizeWaypoints` - Allows computing the best sequence of waypoints.
+// - `geo-routes:SnapToRoads` - Allows snapping GPS points to a likely route.
+//
+// > You must use these strings exactly. For example, to provide access to map rendering, the only valid action is `geo:GetMap*` as an input to the list. `["geo:GetMap*"]` is valid but `["geo:GetTile"]` is not. Similarly, you cannot use `["geo:SearchPlaceIndexFor*"]` - you must list each of the Place actions separately.
 func (o ApiKeyRestrictionsPtrOutput) AllowActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiKeyRestrictions) []string {
 		if v == nil {

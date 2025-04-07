@@ -28,6 +28,7 @@ __all__ = [
     'FlowMediaStreamMediaStreamType',
     'FlowMediaStreamSourceConfigurationEncodingName',
     'FlowMediaStreamVideoFormat',
+    'FlowNdiConfigNdiState',
     'FlowOutputEncodingParametersEncoderProfile',
     'FlowOutputEncryptionAlgorithm',
     'FlowOutputEncryptionKeyType',
@@ -35,6 +36,7 @@ __all__ = [
     'FlowOutputOutputStatus',
     'FlowOutputProtocol',
     'FlowSilentAudioState',
+    'FlowSize',
     'FlowSourceEncryptionAlgorithm',
     'FlowSourceEncryptionKeyType',
     'FlowSourceMonitoringConfigContentQualityAnalysisState',
@@ -253,6 +255,14 @@ class FlowMediaStreamVideoFormat(str, Enum):
     FLOW_MEDIA_STREAM_VIDEO_FORMAT_480P = "480p"
 
 
+class FlowNdiConfigNdiState(str, Enum):
+    """
+    A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 class FlowOutputEncodingParametersEncoderProfile(str, Enum):
     """
     A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
@@ -310,6 +320,7 @@ class FlowOutputProtocol(str, Enum):
     SRT_CALLER = "srt-caller"
     ST2110_JPEGXS = "st2110-jpegxs"
     CDI = "cdi"
+    NDI_SPEED_HQ = "ndi-speed-hq"
 
 
 class FlowSilentAudioState(str, Enum):
@@ -318,6 +329,14 @@ class FlowSilentAudioState(str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+class FlowSize(str, Enum):
+    """
+    Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+    """
+    MEDIUM = "MEDIUM"
+    LARGE = "LARGE"
 
 
 class FlowSourceEncryptionAlgorithm(str, Enum):

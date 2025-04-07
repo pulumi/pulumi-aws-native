@@ -10,11 +10,13 @@ from .access_policy import *
 from .asset import *
 from .asset_model import *
 from .dashboard import *
+from .dataset import *
 from .gateway import *
 from .get_access_policy import *
 from .get_asset import *
 from .get_asset_model import *
 from .get_dashboard import *
+from .get_dataset import *
 from .get_gateway import *
 from .get_portal import *
 from .get_project import *

@@ -62,6 +62,10 @@ export interface GetDeliveryStreamResult {
      */
     readonly httpEndpointDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfiguration;
     /**
+     * Specifies the destination configure settings for Apache Iceberg Table.
+     */
+    readonly icebergDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamIcebergDestinationConfiguration;
+    /**
      * An Amazon Redshift destination for the delivery stream.
      *
      * Conditional. You must specify only one destination configuration.

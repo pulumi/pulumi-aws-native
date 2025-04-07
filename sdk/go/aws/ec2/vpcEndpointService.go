@@ -30,6 +30,8 @@ type VpcEndpointService struct {
 	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
 	// Specify which Ip Address types are supported for VPC endpoint service.
 	SupportedIpAddressTypes VpcEndpointServiceIpAddressTypeArrayOutput `pulumi:"supportedIpAddressTypes"`
+	// The Regions from which service consumers can access the service.
+	SupportedRegions pulumi.StringArrayOutput `pulumi:"supportedRegions"`
 	// The tags to add to the VPC endpoint service.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -86,6 +88,8 @@ type vpcEndpointServiceArgs struct {
 	PayerResponsibility *string `pulumi:"payerResponsibility"`
 	// Specify which Ip Address types are supported for VPC endpoint service.
 	SupportedIpAddressTypes []VpcEndpointServiceIpAddressType `pulumi:"supportedIpAddressTypes"`
+	// The Regions from which service consumers can access the service.
+	SupportedRegions []string `pulumi:"supportedRegions"`
 	// The tags to add to the VPC endpoint service.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -104,6 +108,8 @@ type VpcEndpointServiceArgs struct {
 	PayerResponsibility pulumi.StringPtrInput
 	// Specify which Ip Address types are supported for VPC endpoint service.
 	SupportedIpAddressTypes VpcEndpointServiceIpAddressTypeArrayInput
+	// The Regions from which service consumers can access the service.
+	SupportedRegions pulumi.StringArrayInput
 	// The tags to add to the VPC endpoint service.
 	Tags aws.TagArrayInput
 }
@@ -180,6 +186,11 @@ func (o VpcEndpointServiceOutput) SupportedIpAddressTypes() VpcEndpointServiceIp
 	return o.ApplyT(func(v *VpcEndpointService) VpcEndpointServiceIpAddressTypeArrayOutput {
 		return v.SupportedIpAddressTypes
 	}).(VpcEndpointServiceIpAddressTypeArrayOutput)
+}
+
+// The Regions from which service consumers can access the service.
+func (o VpcEndpointServiceOutput) SupportedRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringArrayOutput { return v.SupportedRegions }).(pulumi.StringArrayOutput)
 }
 
 // The tags to add to the VPC endpoint service.

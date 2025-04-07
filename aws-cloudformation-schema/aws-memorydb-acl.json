@@ -76,7 +76,7 @@
   "primaryIdentifier" : [ "/properties/ACLName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "memorydb:CreateACL", "memorydb:DescribeACLs", "memorydb:TagResource", "memorydb:ListTags" ]
+      "permissions" : [ "memorydb:CreateACL", "memorydb:DescribeACLs", "memorydb:TagResource", "memorydb:ListTags", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "memorydb:DescribeACLs", "memorydb:ListTags" ]

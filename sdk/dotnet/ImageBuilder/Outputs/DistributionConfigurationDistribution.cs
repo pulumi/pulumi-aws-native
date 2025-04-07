@@ -40,10 +40,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// region
         /// </summary>
         public readonly string Region;
-        /// <summary>
-        /// The SSM parameter configurations to use for AMI distribution.
-        /// </summary>
-        public readonly ImmutableArray<object> SsmParameterConfigurations;
 
         [OutputConstructor]
         private DistributionConfigurationDistribution(
@@ -57,9 +53,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 
             ImmutableArray<string> licenseConfigurationArns,
 
-            string region,
-
-            ImmutableArray<object> ssmParameterConfigurations)
+            string region)
         {
             AmiDistributionConfiguration = amiDistributionConfiguration;
             ContainerDistributionConfiguration = containerDistributionConfiguration;
@@ -67,7 +61,6 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
             LaunchTemplateConfigurations = launchTemplateConfigurations;
             LicenseConfigurationArns = licenseConfigurationArns;
             Region = region;
-            SsmParameterConfigurations = ssmParameterConfigurations;
         }
     }
 }

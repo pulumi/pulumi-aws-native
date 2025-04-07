@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,6 +37,8 @@ type LookupProjectResult struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// Sample
 	Sample *ProjectSample `pulumi:"sample"`
+	// Metadata tags that have been applied to the project.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts ...pulumi.InvokeOption) LookupProjectResultOutput {
@@ -88,6 +91,11 @@ func (o LookupProjectResultOutput) RoleArn() pulumi.StringPtrOutput {
 // Sample
 func (o LookupProjectResultOutput) Sample() ProjectSamplePtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *ProjectSample { return v.Sample }).(ProjectSamplePtrOutput)
+}
+
+// Metadata tags that have been applied to the project.
+func (o LookupProjectResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupProjectResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

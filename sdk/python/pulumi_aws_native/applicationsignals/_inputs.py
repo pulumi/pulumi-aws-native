@@ -22,6 +22,8 @@ __all__ = [
     'ServiceLevelObjectiveCalendarIntervalArgsDict',
     'ServiceLevelObjectiveDimensionArgs',
     'ServiceLevelObjectiveDimensionArgsDict',
+    'ServiceLevelObjectiveExclusionWindowArgs',
+    'ServiceLevelObjectiveExclusionWindowArgsDict',
     'ServiceLevelObjectiveGoalArgs',
     'ServiceLevelObjectiveGoalArgsDict',
     'ServiceLevelObjectiveIntervalArgs',
@@ -34,6 +36,8 @@ __all__ = [
     'ServiceLevelObjectiveMetricArgsDict',
     'ServiceLevelObjectiveMonitoredRequestCountMetricArgs',
     'ServiceLevelObjectiveMonitoredRequestCountMetricArgsDict',
+    'ServiceLevelObjectiveRecurrenceRuleArgs',
+    'ServiceLevelObjectiveRecurrenceRuleArgsDict',
     'ServiceLevelObjectiveRequestBasedSliMetricArgs',
     'ServiceLevelObjectiveRequestBasedSliMetricArgsDict',
     'ServiceLevelObjectiveRequestBasedSliArgs',
@@ -44,6 +48,8 @@ __all__ = [
     'ServiceLevelObjectiveSliMetricArgsDict',
     'ServiceLevelObjectiveSliArgs',
     'ServiceLevelObjectiveSliArgsDict',
+    'ServiceLevelObjectiveWindowArgs',
+    'ServiceLevelObjectiveWindowArgsDict',
 ]
 
 MYPY = False
@@ -215,6 +221,87 @@ class ServiceLevelObjectiveDimensionArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class ServiceLevelObjectiveExclusionWindowArgsDict(TypedDict):
+        """
+        This object defines a time exclusion window for this SLO. The time exclusion window is used to exclude breaching data points from affecting attainment rate, error budget, and burn rate metrics.
+        """
+        window: pulumi.Input['ServiceLevelObjectiveWindowArgsDict']
+        reason: NotRequired[pulumi.Input[str]]
+        """
+        An optional reason for scheduling this time exclusion window. Default is 'No reason'.
+        """
+        recurrence_rule: NotRequired[pulumi.Input['ServiceLevelObjectiveRecurrenceRuleArgsDict']]
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        The time you want the exclusion window to start at. Note that time exclusion windows can only be scheduled in the future, not the past.
+        """
+elif False:
+    ServiceLevelObjectiveExclusionWindowArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceLevelObjectiveExclusionWindowArgs:
+    def __init__(__self__, *,
+                 window: pulumi.Input['ServiceLevelObjectiveWindowArgs'],
+                 reason: Optional[pulumi.Input[str]] = None,
+                 recurrence_rule: Optional[pulumi.Input['ServiceLevelObjectiveRecurrenceRuleArgs']] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        This object defines a time exclusion window for this SLO. The time exclusion window is used to exclude breaching data points from affecting attainment rate, error budget, and burn rate metrics.
+        :param pulumi.Input[str] reason: An optional reason for scheduling this time exclusion window. Default is 'No reason'.
+        :param pulumi.Input[str] start_time: The time you want the exclusion window to start at. Note that time exclusion windows can only be scheduled in the future, not the past.
+        """
+        pulumi.set(__self__, "window", window)
+        if reason is not None:
+            pulumi.set(__self__, "reason", reason)
+        if recurrence_rule is not None:
+            pulumi.set(__self__, "recurrence_rule", recurrence_rule)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter
+    def window(self) -> pulumi.Input['ServiceLevelObjectiveWindowArgs']:
+        return pulumi.get(self, "window")
+
+    @window.setter
+    def window(self, value: pulumi.Input['ServiceLevelObjectiveWindowArgs']):
+        pulumi.set(self, "window", value)
+
+    @property
+    @pulumi.getter
+    def reason(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional reason for scheduling this time exclusion window. Default is 'No reason'.
+        """
+        return pulumi.get(self, "reason")
+
+    @reason.setter
+    def reason(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reason", value)
+
+    @property
+    @pulumi.getter(name="recurrenceRule")
+    def recurrence_rule(self) -> Optional[pulumi.Input['ServiceLevelObjectiveRecurrenceRuleArgs']]:
+        return pulumi.get(self, "recurrence_rule")
+
+    @recurrence_rule.setter
+    def recurrence_rule(self, value: Optional[pulumi.Input['ServiceLevelObjectiveRecurrenceRuleArgs']]):
+        pulumi.set(self, "recurrence_rule", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time you want the exclusion window to start at. Note that time exclusion windows can only be scheduled in the future, not the past.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
 
 
 if not MYPY:
@@ -696,6 +783,41 @@ class ServiceLevelObjectiveMonitoredRequestCountMetricArgs:
 
 
 if not MYPY:
+    class ServiceLevelObjectiveRecurrenceRuleArgsDict(TypedDict):
+        """
+        This object defines how often to repeat a time exclusion window.
+        """
+        expression: pulumi.Input[str]
+        """
+        A cron or rate expression denoting how often to repeat this exclusion window.
+        """
+elif False:
+    ServiceLevelObjectiveRecurrenceRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceLevelObjectiveRecurrenceRuleArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[str]):
+        """
+        This object defines how often to repeat a time exclusion window.
+        :param pulumi.Input[str] expression: A cron or rate expression denoting how often to repeat this exclusion window.
+        """
+        pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[str]:
+        """
+        A cron or rate expression denoting how often to repeat this exclusion window.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[str]):
+        pulumi.set(self, "expression", value)
+
+
+if not MYPY:
     class ServiceLevelObjectiveRequestBasedSliMetricArgsDict(TypedDict):
         """
         This structure contains the information about the metric that is used for a request-based SLO.
@@ -709,6 +831,7 @@ if not MYPY:
         - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
         - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
         - `Environment` specifies the location where this object is hosted, or what it belongs to.
+        - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
         """
         metric_type: NotRequired[pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricMetricType']]
         """
@@ -746,6 +869,7 @@ class ServiceLevelObjectiveRequestBasedSliMetricArgs:
                - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
                - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
                - `Environment` specifies the location where this object is hosted, or what it belongs to.
+               - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
         :param pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricMetricType'] metric_type: If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
         :param pulumi.Input['ServiceLevelObjectiveMonitoredRequestCountMetricArgs'] monitored_request_count_metric: Use this structure to define the metric that you want to use as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` will be divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
         :param pulumi.Input[str] operation_name: If the SLO monitors a specific operation of the service, this field displays that operation name.
@@ -773,6 +897,7 @@ class ServiceLevelObjectiveRequestBasedSliMetricArgs:
         - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
         - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
         - `Environment` specifies the location where this object is hosted, or what it belongs to.
+        - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
         """
         return pulumi.get(self, "key_attributes")
 
@@ -1189,5 +1314,45 @@ class ServiceLevelObjectiveSliArgs:
     @sli_metric.setter
     def sli_metric(self, value: pulumi.Input['ServiceLevelObjectiveSliMetricArgs']):
         pulumi.set(self, "sli_metric", value)
+
+
+if not MYPY:
+    class ServiceLevelObjectiveWindowArgsDict(TypedDict):
+        """
+        This object defines the length of time an exclusion window should span.
+        """
+        duration: pulumi.Input[int]
+        duration_unit: pulumi.Input['ServiceLevelObjectiveDurationUnit']
+elif False:
+    ServiceLevelObjectiveWindowArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceLevelObjectiveWindowArgs:
+    def __init__(__self__, *,
+                 duration: pulumi.Input[int],
+                 duration_unit: pulumi.Input['ServiceLevelObjectiveDurationUnit']):
+        """
+        This object defines the length of time an exclusion window should span.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "duration_unit", duration_unit)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[int]):
+        pulumi.set(self, "duration", value)
+
+    @property
+    @pulumi.getter(name="durationUnit")
+    def duration_unit(self) -> pulumi.Input['ServiceLevelObjectiveDurationUnit']:
+        return pulumi.get(self, "duration_unit")
+
+    @duration_unit.setter
+    def duration_unit(self, value: pulumi.Input['ServiceLevelObjectiveDurationUnit']):
+        pulumi.set(self, "duration_unit", value)
 
 

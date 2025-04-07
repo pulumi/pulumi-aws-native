@@ -111,6 +111,12 @@ export interface GetDbInstanceResult {
      */
     readonly automaticBackupReplicationRegion?: string;
     /**
+     * The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
+     *
+     * If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+     */
+    readonly automaticBackupReplicationRetentionPeriod?: number;
+    /**
      * The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
      *  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
      *  Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.
@@ -438,7 +444,7 @@ export interface GetDbInstanceResult {
      */
     readonly performanceInsightsKmsKeyId?: string;
     /**
-     * The number of days to retain Performance Insights data.
+     * The number of days to retain Performance Insights data. When creating a DB instance without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
      *  This setting doesn't apply to RDS Custom DB instances.
      *  Valid Values:
      *   +   ``7`` 

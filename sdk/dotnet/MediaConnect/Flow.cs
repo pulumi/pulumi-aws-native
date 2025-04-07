@@ -40,6 +40,18 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<string> FlowAvailabilityZone { get; private set; } = null!;
 
         /// <summary>
+        /// A prefix for the names of the NDI sources that the flow creates.(ReadOnly)
+        /// </summary>
+        [Output("flowNdiMachineName")]
+        public Output<string> FlowNdiMachineName { get; private set; } = null!;
+
+        /// <summary>
+        /// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+        /// </summary>
+        [Output("flowSize")]
+        public Output<Pulumi.AwsNative.MediaConnect.FlowSize?> FlowSize { get; private set; } = null!;
+
+        /// <summary>
         /// The maintenance settings you want to use for the flow.
         /// </summary>
         [Output("maintenance")]
@@ -56,6 +68,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+        /// </summary>
+        [Output("ndiConfig")]
+        public Output<Outputs.FlowNdiConfig?> NdiConfig { get; private set; } = null!;
 
         /// <summary>
         /// The source of the flow.
@@ -139,6 +157,12 @@ namespace Pulumi.AwsNative.MediaConnect
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
+        /// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+        /// </summary>
+        [Input("flowSize")]
+        public Input<Pulumi.AwsNative.MediaConnect.FlowSize>? FlowSize { get; set; }
+
+        /// <summary>
         /// The maintenance settings you want to use for the flow.
         /// </summary>
         [Input("maintenance")]
@@ -161,6 +185,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+        /// </summary>
+        [Input("ndiConfig")]
+        public Input<Inputs.FlowNdiConfigArgs>? NdiConfig { get; set; }
 
         /// <summary>
         /// The source of the flow.

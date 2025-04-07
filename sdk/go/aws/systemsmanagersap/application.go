@@ -23,6 +23,8 @@ type Application struct {
 	ApplicationType ApplicationTypeOutput `pulumi:"applicationType"`
 	// The ARN of the SSM-SAP application
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
+	ComponentsInfo ApplicationComponentInfoArrayOutput `pulumi:"componentsInfo"`
 	// The credentials of the SAP application.
 	Credentials ApplicationCredentialArrayOutput `pulumi:"credentials"`
 	// The ARN of the SAP HANA database
@@ -51,6 +53,7 @@ func NewApplication(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ApplicationType'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"componentsInfo[*]",
 		"credentials[*]",
 		"databaseArn",
 		"instances[*]",
@@ -95,6 +98,8 @@ type applicationArgs struct {
 	ApplicationId string `pulumi:"applicationId"`
 	// The type of the application.
 	ApplicationType ApplicationType `pulumi:"applicationType"`
+	// This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
+	ComponentsInfo []ApplicationComponentInfo `pulumi:"componentsInfo"`
 	// The credentials of the SAP application.
 	Credentials []ApplicationCredential `pulumi:"credentials"`
 	// The ARN of the SAP HANA database
@@ -115,6 +120,8 @@ type ApplicationArgs struct {
 	ApplicationId pulumi.StringInput
 	// The type of the application.
 	ApplicationType ApplicationTypeInput
+	// This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
+	ComponentsInfo ApplicationComponentInfoArrayInput
 	// The credentials of the SAP application.
 	Credentials ApplicationCredentialArrayInput
 	// The ARN of the SAP HANA database
@@ -179,6 +186,11 @@ func (o ApplicationOutput) ApplicationType() ApplicationTypeOutput {
 // The ARN of the SSM-SAP application
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
+func (o ApplicationOutput) ComponentsInfo() ApplicationComponentInfoArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationComponentInfoArrayOutput { return v.ComponentsInfo }).(ApplicationComponentInfoArrayOutput)
 }
 
 // The credentials of the SAP application.

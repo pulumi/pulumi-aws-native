@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:datazone:Connection":
+		r = &Connection{}
 	case "aws-native:datazone:DataSource":
 		r = &DataSource{}
 	case "aws-native:datazone:Domain":

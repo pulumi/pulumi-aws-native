@@ -78,6 +78,10 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly customResponseBodies!: pulumi.Output<{[key: string]: outputs.wafv2.WebAclCustomResponseBody} | undefined>;
     /**
+     * Collection of dataProtects.
+     */
+    public readonly dataProtectionConfig!: pulumi.Output<outputs.wafv2.WebAclDataProtectionConfig | undefined>;
+    /**
      * The action to perform if none of the `Rules` contained in the `WebACL` match.
      */
     public readonly defaultAction!: pulumi.Output<outputs.wafv2.WebAclDefaultAction>;
@@ -102,7 +106,7 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly rules!: pulumi.Output<outputs.wafv2.WebAclRule[] | undefined>;
     /**
-     * Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+     * Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
      *
      * > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
      *
@@ -148,6 +152,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["captchaConfig"] = args ? args.captchaConfig : undefined;
             resourceInputs["challengeConfig"] = args ? args.challengeConfig : undefined;
             resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
+            resourceInputs["dataProtectionConfig"] = args ? args.dataProtectionConfig : undefined;
             resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -168,6 +173,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["captchaConfig"] = undefined /*out*/;
             resourceInputs["challengeConfig"] = undefined /*out*/;
             resourceInputs["customResponseBodies"] = undefined /*out*/;
+            resourceInputs["dataProtectionConfig"] = undefined /*out*/;
             resourceInputs["defaultAction"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["labelNamespace"] = undefined /*out*/;
@@ -216,6 +222,10 @@ export interface WebAclArgs {
      */
     customResponseBodies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.wafv2.WebAclCustomResponseBodyArgs>}>;
     /**
+     * Collection of dataProtects.
+     */
+    dataProtectionConfig?: pulumi.Input<inputs.wafv2.WebAclDataProtectionConfigArgs>;
+    /**
      * The action to perform if none of the `Rules` contained in the `WebACL` match.
      */
     defaultAction: pulumi.Input<inputs.wafv2.WebAclDefaultActionArgs>;
@@ -232,7 +242,7 @@ export interface WebAclArgs {
      */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleArgs>[]>;
     /**
-     * Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+     * Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
      *
      * > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
      *

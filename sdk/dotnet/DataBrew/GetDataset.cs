@@ -83,6 +83,10 @@ namespace Pulumi.AwsNative.DataBrew
         /// Source type of the dataset
         /// </summary>
         public readonly Pulumi.AwsNative.DataBrew.DatasetSource? Source;
+        /// <summary>
+        /// Metadata tags that have been applied to the dataset.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDatasetResult(
@@ -94,13 +98,16 @@ namespace Pulumi.AwsNative.DataBrew
 
             Outputs.DatasetPathOptions? pathOptions,
 
-            Pulumi.AwsNative.DataBrew.DatasetSource? source)
+            Pulumi.AwsNative.DataBrew.DatasetSource? source,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Format = format;
             FormatOptions = formatOptions;
             Input = input;
             PathOptions = pathOptions;
             Source = source;
+            Tags = tags;
         }
     }
 }

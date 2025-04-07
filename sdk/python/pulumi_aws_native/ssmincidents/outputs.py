@@ -184,7 +184,7 @@ class ResponsePlanChatChannel(dict):
                  chatbot_sns: Optional[Sequence[str]] = None):
         """
         The chat channel configuration.
-        :param Sequence[str] chatbot_sns: The Amazon SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
+        :param Sequence[str] chatbot_sns: The Amazon SNS targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
         """
         if chatbot_sns is not None:
             pulumi.set(__self__, "chatbot_sns", chatbot_sns)
@@ -193,7 +193,7 @@ class ResponsePlanChatChannel(dict):
     @pulumi.getter(name="chatbotSns")
     def chatbot_sns(self) -> Optional[Sequence[str]]:
         """
-        The Amazon SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
+        The Amazon SNS targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
         """
         return pulumi.get(self, "chatbot_sns")
 

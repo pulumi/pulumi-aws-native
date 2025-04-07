@@ -42,7 +42,7 @@ export class BridgeSource extends pulumi.CustomResource {
      */
     public readonly bridgeArn!: pulumi.Output<string>;
     /**
-     * Add a flow source to an existing bridge.
+     * The source of the flow.
      */
     public readonly flowSource!: pulumi.Output<outputs.mediaconnect.BridgeSourceBridgeFlowSource | undefined>;
     /**
@@ -50,7 +50,7 @@ export class BridgeSource extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Add a network source to an existing bridge.
+     * The source of the network.
      */
     public readonly networkSource!: pulumi.Output<outputs.mediaconnect.BridgeSourceBridgeNetworkSource | undefined>;
 
@@ -94,7 +94,7 @@ export interface BridgeSourceArgs {
      */
     bridgeArn: pulumi.Input<string>;
     /**
-     * Add a flow source to an existing bridge.
+     * The source of the flow.
      */
     flowSource?: pulumi.Input<inputs.mediaconnect.BridgeSourceBridgeFlowSourceArgs>;
     /**
@@ -102,7 +102,7 @@ export interface BridgeSourceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Add a network source to an existing bridge.
+     * The source of the network.
      */
     networkSource?: pulumi.Input<inputs.mediaconnect.BridgeSourceBridgeNetworkSourceArgs>;
 }

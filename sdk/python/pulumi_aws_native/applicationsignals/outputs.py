@@ -20,17 +20,20 @@ __all__ = [
     'ServiceLevelObjectiveBurnRateConfiguration',
     'ServiceLevelObjectiveCalendarInterval',
     'ServiceLevelObjectiveDimension',
+    'ServiceLevelObjectiveExclusionWindow',
     'ServiceLevelObjectiveGoal',
     'ServiceLevelObjectiveInterval',
     'ServiceLevelObjectiveMetric',
     'ServiceLevelObjectiveMetricDataQuery',
     'ServiceLevelObjectiveMetricStat',
     'ServiceLevelObjectiveMonitoredRequestCountMetric',
+    'ServiceLevelObjectiveRecurrenceRule',
     'ServiceLevelObjectiveRequestBasedSli',
     'ServiceLevelObjectiveRequestBasedSliMetric',
     'ServiceLevelObjectiveRollingInterval',
     'ServiceLevelObjectiveSli',
     'ServiceLevelObjectiveSliMetric',
+    'ServiceLevelObjectiveWindow',
 ]
 
 @pulumi.output_type
@@ -172,6 +175,75 @@ class ServiceLevelObjectiveDimension(dict):
         The value of the dimension. Dimension values must contain only ASCII characters and must include at least one non-whitespace character. ASCII control characters are not supported as part of dimension values
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ServiceLevelObjectiveExclusionWindow(dict):
+    """
+    This object defines a time exclusion window for this SLO. The time exclusion window is used to exclude breaching data points from affecting attainment rate, error budget, and burn rate metrics.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recurrenceRule":
+            suggest = "recurrence_rule"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLevelObjectiveExclusionWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLevelObjectiveExclusionWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLevelObjectiveExclusionWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 window: 'outputs.ServiceLevelObjectiveWindow',
+                 reason: Optional[str] = None,
+                 recurrence_rule: Optional['outputs.ServiceLevelObjectiveRecurrenceRule'] = None,
+                 start_time: Optional[str] = None):
+        """
+        This object defines a time exclusion window for this SLO. The time exclusion window is used to exclude breaching data points from affecting attainment rate, error budget, and burn rate metrics.
+        :param str reason: An optional reason for scheduling this time exclusion window. Default is 'No reason'.
+        :param str start_time: The time you want the exclusion window to start at. Note that time exclusion windows can only be scheduled in the future, not the past.
+        """
+        pulumi.set(__self__, "window", window)
+        if reason is not None:
+            pulumi.set(__self__, "reason", reason)
+        if recurrence_rule is not None:
+            pulumi.set(__self__, "recurrence_rule", recurrence_rule)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter
+    def window(self) -> 'outputs.ServiceLevelObjectiveWindow':
+        return pulumi.get(self, "window")
+
+    @property
+    @pulumi.getter
+    def reason(self) -> Optional[str]:
+        """
+        An optional reason for scheduling this time exclusion window. Default is 'No reason'.
+        """
+        return pulumi.get(self, "reason")
+
+    @property
+    @pulumi.getter(name="recurrenceRule")
+    def recurrence_rule(self) -> Optional['outputs.ServiceLevelObjectiveRecurrenceRule']:
+        return pulumi.get(self, "recurrence_rule")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        The time you want the exclusion window to start at. Note that time exclusion windows can only be scheduled in the future, not the past.
+        """
+        return pulumi.get(self, "start_time")
 
 
 @pulumi.output_type
@@ -566,6 +638,28 @@ class ServiceLevelObjectiveMonitoredRequestCountMetric(dict):
 
 
 @pulumi.output_type
+class ServiceLevelObjectiveRecurrenceRule(dict):
+    """
+    This object defines how often to repeat a time exclusion window.
+    """
+    def __init__(__self__, *,
+                 expression: str):
+        """
+        This object defines how often to repeat a time exclusion window.
+        :param str expression: A cron or rate expression denoting how often to repeat this exclusion window.
+        """
+        pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        """
+        A cron or rate expression denoting how often to repeat this exclusion window.
+        """
+        return pulumi.get(self, "expression")
+
+
+@pulumi.output_type
 class ServiceLevelObjectiveRequestBasedSli(dict):
     """
     This structure contains information about the performance metric that a request-based SLO monitors.
@@ -677,6 +771,7 @@ class ServiceLevelObjectiveRequestBasedSliMetric(dict):
                - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
                - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
                - `Environment` specifies the location where this object is hosted, or what it belongs to.
+               - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
         :param 'ServiceLevelObjectiveRequestBasedSliMetricMetricType' metric_type: If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
         :param 'ServiceLevelObjectiveMonitoredRequestCountMetric' monitored_request_count_metric: Use this structure to define the metric that you want to use as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` will be divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
         :param str operation_name: If the SLO monitors a specific operation of the service, this field displays that operation name.
@@ -704,6 +799,7 @@ class ServiceLevelObjectiveRequestBasedSliMetric(dict):
         - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
         - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
         - `Environment` specifies the location where this object is hosted, or what it belongs to.
+        - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
         """
         return pulumi.get(self, "key_attributes")
 
@@ -977,5 +1073,47 @@ class ServiceLevelObjectiveSliMetric(dict):
         The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic
         """
         return pulumi.get(self, "statistic")
+
+
+@pulumi.output_type
+class ServiceLevelObjectiveWindow(dict):
+    """
+    This object defines the length of time an exclusion window should span.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationUnit":
+            suggest = "duration_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLevelObjectiveWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLevelObjectiveWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLevelObjectiveWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration: int,
+                 duration_unit: 'ServiceLevelObjectiveDurationUnit'):
+        """
+        This object defines the length of time an exclusion window should span.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "duration_unit", duration_unit)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> int:
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter(name="durationUnit")
+    def duration_unit(self) -> 'ServiceLevelObjectiveDurationUnit':
+        return pulumi.get(self, "duration_unit")
 
 

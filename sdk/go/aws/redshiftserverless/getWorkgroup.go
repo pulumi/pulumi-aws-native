@@ -29,8 +29,12 @@ type LookupWorkgroupArgs struct {
 }
 
 type LookupWorkgroupResult struct {
+	// The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
+	BaseCapacity *int `pulumi:"baseCapacity"`
 	// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
 	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
+	// The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+	MaxCapacity *int `pulumi:"maxCapacity"`
 	// The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
 	Port *int `pulumi:"port"`
 	// A property that represents the price performance target settings for the workgroup.
@@ -39,6 +43,8 @@ type LookupWorkgroupResult struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// The map of the key-value pairs used to tag the workgroup.
 	Tags []aws.Tag `pulumi:"tags"`
+	// An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
+	TrackName *string `pulumi:"trackName"`
 	// Definition for workgroup resource
 	Workgroup *WorkgroupType `pulumi:"workgroup"`
 }
@@ -75,9 +81,19 @@ func (o LookupWorkgroupResultOutput) ToLookupWorkgroupResultOutputWithContext(ct
 	return o
 }
 
+// The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
+func (o LookupWorkgroupResultOutput) BaseCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupWorkgroupResult) *int { return v.BaseCapacity }).(pulumi.IntPtrOutput)
+}
+
 // The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
 func (o LookupWorkgroupResultOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupWorkgroupResult) *bool { return v.EnhancedVpcRouting }).(pulumi.BoolPtrOutput)
+}
+
+// The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+func (o LookupWorkgroupResultOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupWorkgroupResult) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
 }
 
 // The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
@@ -98,6 +114,11 @@ func (o LookupWorkgroupResultOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 // The map of the key-value pairs used to tag the workgroup.
 func (o LookupWorkgroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupWorkgroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
+func (o LookupWorkgroupResultOutput) TrackName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkgroupResult) *string { return v.TrackName }).(pulumi.StringPtrOutput)
 }
 
 // Definition for workgroup resource

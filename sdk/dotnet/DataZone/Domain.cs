@@ -82,6 +82,12 @@ namespace Pulumi.AwsNative.DataZone
         public Output<string> PortalUrl { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the root domain in Amazon Datazone.
+        /// </summary>
+        [Output("rootDomainUnitId")]
+        public Output<string> RootDomainUnitId { get; private set; } = null!;
+
+        /// <summary>
         /// The service role of the domain that is created.
         /// </summary>
         [Output("serviceRole")]

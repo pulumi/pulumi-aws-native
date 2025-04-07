@@ -136,6 +136,12 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly automaticBackupReplicationRegion!: pulumi.Output<string | undefined>;
     /**
+     * The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
+     *
+     * If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+     */
+    public readonly automaticBackupReplicationRetentionPeriod!: pulumi.Output<number | undefined>;
+    /**
      * The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
      *  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
      *  Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.
@@ -164,7 +170,7 @@ export class DbInstance extends pulumi.CustomResource {
     /**
      * The details of the DB instance's server certificate.
      */
-    public readonly certificateDetails!: pulumi.Output<outputs.rds.DbInstanceCertificateDetails | undefined>;
+    public /*out*/ readonly certificateDetails!: pulumi.Output<outputs.rds.DbInstanceCertificateDetails>;
     /**
      * Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.
      *  By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
@@ -333,7 +339,7 @@ export class DbInstance extends pulumi.CustomResource {
     public readonly dbSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
      * A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC. 
-     *  If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
+     *  If you don't specify a DB subnet group, RDS uses the default DB subnet group if one exists. If a default DB subnet group does not exist, and you don't specify a ``DBSubnetGroupName``, the DB instance fails to launch. 
      *  For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
      *  This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
      */
@@ -437,7 +443,7 @@ export class DbInstance extends pulumi.CustomResource {
      * The connection endpoint for the DB instance.
      *   The endpoint might not be shown for instances with the status of ``creating``.
      */
-    public readonly endpoint!: pulumi.Output<outputs.rds.DbInstanceEndpoint | undefined>;
+    public /*out*/ readonly endpoint!: pulumi.Output<outputs.rds.DbInstanceEndpoint>;
     /**
      * The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.
      *  This property is required when creating a DB instance.
@@ -658,7 +664,7 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly performanceInsightsKmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * The number of days to retain Performance Insights data.
+     * The number of days to retain Performance Insights data. When creating a DB instance without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
      *  This setting doesn't apply to RDS Custom DB instances.
      *  Valid Values:
      *   +   ``7`` 
@@ -851,10 +857,10 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["automaticBackupReplicationKmsKeyId"] = args ? args.automaticBackupReplicationKmsKeyId : undefined;
             resourceInputs["automaticBackupReplicationRegion"] = args ? args.automaticBackupReplicationRegion : undefined;
+            resourceInputs["automaticBackupReplicationRetentionPeriod"] = args ? args.automaticBackupReplicationRetentionPeriod : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
             resourceInputs["caCertificateIdentifier"] = args ? args.caCertificateIdentifier : undefined;
-            resourceInputs["certificateDetails"] = args ? args.certificateDetails : undefined;
             resourceInputs["certificateRotationRestart"] = args ? args.certificateRotationRestart : undefined;
             resourceInputs["characterSetName"] = args ? args.characterSetName : undefined;
             resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
@@ -881,7 +887,6 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["enableCloudwatchLogsExports"] = args ? args.enableCloudwatchLogsExports : undefined;
             resourceInputs["enableIamDatabaseAuthentication"] = args ? args.enableIamDatabaseAuthentication : undefined;
             resourceInputs["enablePerformanceInsights"] = args ? args.enablePerformanceInsights : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineLifecycleSupport"] = args ? args.engineLifecycleSupport : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
@@ -924,9 +929,11 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["useDefaultProcessorFeatures"] = args ? args.useDefaultProcessorFeatures : undefined;
             resourceInputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
             resourceInputs["vpcSecurityGroups"] = args ? args.vpcSecurityGroups : undefined;
+            resourceInputs["certificateDetails"] = undefined /*out*/;
             resourceInputs["databaseInsightsMode"] = undefined /*out*/;
             resourceInputs["dbInstanceArn"] = undefined /*out*/;
             resourceInputs["dbiResourceId"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
         } else {
             resourceInputs["allocatedStorage"] = undefined /*out*/;
             resourceInputs["allowMajorVersionUpgrade"] = undefined /*out*/;
@@ -935,6 +942,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["automaticBackupReplicationKmsKeyId"] = undefined /*out*/;
             resourceInputs["automaticBackupReplicationRegion"] = undefined /*out*/;
+            resourceInputs["automaticBackupReplicationRetentionPeriod"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["backupRetentionPeriod"] = undefined /*out*/;
             resourceInputs["caCertificateIdentifier"] = undefined /*out*/;
@@ -1102,6 +1110,12 @@ export interface DbInstanceArgs {
      */
     automaticBackupReplicationRegion?: pulumi.Input<string>;
     /**
+     * The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
+     *
+     * If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+     */
+    automaticBackupReplicationRetentionPeriod?: pulumi.Input<number>;
+    /**
      * The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
      *  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
      *  Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.
@@ -1127,10 +1141,6 @@ export interface DbInstanceArgs {
      *  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
      */
     caCertificateIdentifier?: pulumi.Input<string>;
-    /**
-     * The details of the DB instance's server certificate.
-     */
-    certificateDetails?: pulumi.Input<inputs.rds.DbInstanceCertificateDetailsArgs>;
     /**
      * Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.
      *  By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
@@ -1291,7 +1301,7 @@ export interface DbInstanceArgs {
     dbSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC. 
-     *  If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
+     *  If you don't specify a DB subnet group, RDS uses the default DB subnet group if one exists. If a default DB subnet group does not exist, and you don't specify a ``DBSubnetGroupName``, the DB instance fails to launch. 
      *  For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
      *  This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
      */
@@ -1387,11 +1397,6 @@ export interface DbInstanceArgs {
      *  This setting doesn't apply to RDS Custom DB instances.
      */
     enablePerformanceInsights?: pulumi.Input<boolean>;
-    /**
-     * The connection endpoint for the DB instance.
-     *   The endpoint might not be shown for instances with the status of ``creating``.
-     */
-    endpoint?: pulumi.Input<inputs.rds.DbInstanceEndpointArgs>;
     /**
      * The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.
      *  This property is required when creating a DB instance.
@@ -1612,7 +1617,7 @@ export interface DbInstanceArgs {
      */
     performanceInsightsKmsKeyId?: pulumi.Input<string>;
     /**
-     * The number of days to retain Performance Insights data.
+     * The number of days to retain Performance Insights data. When creating a DB instance without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
      *  This setting doesn't apply to RDS Custom DB instances.
      *  Valid Values:
      *   +   ``7`` 

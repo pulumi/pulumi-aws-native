@@ -40,6 +40,10 @@ export interface GetBranchResult {
      */
     readonly buildSpec?: string;
     /**
+     * The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
+     */
+    readonly computeRoleArn?: string;
+    /**
      * The description for the branch that is part of an Amplify app.
      */
     readonly description?: string;
@@ -61,6 +65,12 @@ export interface GetBranchResult {
      * For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
      */
     readonly enablePullRequestPreview?: boolean;
+    /**
+     * Specifies whether the skew protection feature is enabled for the branch.
+     *
+     * Deployment skew protection is available to Amplify applications to eliminate version skew issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see [Skew protection for Amplify deployments](https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html) in the *Amplify User Guide* .
+     */
+    readonly enableSkewProtection?: boolean;
     /**
      * The environment variables for the branch.
      */

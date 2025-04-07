@@ -111,7 +111,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
-     * Container for IAM Identity Center Option control for the domain.
+     * Configuration options for controlling IAM Identity Center integration within a domain.
      */
     public readonly identityCenterOptions!: pulumi.Output<outputs.opensearchservice.DomainIdentityCenterOptions | undefined>;
     /**
@@ -282,7 +282,7 @@ export interface DomainArgs {
      */
     engineVersion?: pulumi.Input<string>;
     /**
-     * Container for IAM Identity Center Option control for the domain.
+     * Configuration options for controlling IAM Identity Center integration within a domain.
      */
     identityCenterOptions?: pulumi.Input<inputs.opensearchservice.DomainIdentityCenterOptionsArgs>;
     /**

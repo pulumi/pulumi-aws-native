@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.SsmIncidents
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Chatbot chat channel used for collaboration during an incident.
+        /// The  chat channel used for collaboration during an incident.
         /// </summary>
         [Output("chatChannel")]
         public Output<Outputs.ResponsePlanChatChannel?> ChatChannel { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.AwsNative.SsmIncidents
         }
 
         /// <summary>
-        /// The AWS Chatbot chat channel used for collaboration during an incident.
+        /// The  chat channel used for collaboration during an incident.
         /// </summary>
         [Input("chatChannel")]
         public Input<Inputs.ResponsePlanChatChannelArgs>? ChatChannel { get; set; }

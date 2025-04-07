@@ -63,7 +63,6 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// 
         /// - For instance types with FPGA accelerators, specify `fpga` .
         /// - For instance types with GPU accelerators, specify `gpu` .
-        /// - For instance types with Inference accelerators, specify `inference` .
         /// 
         /// Default: Any accelerator type
         /// </summary>

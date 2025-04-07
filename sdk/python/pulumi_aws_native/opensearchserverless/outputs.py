@@ -235,17 +235,26 @@ class IndexPropertyMappingMethodPropertiesParametersProperties(dict):
 class IndexSettings(dict):
     def __init__(__self__, *,
                  index: Optional['outputs.IndexSettingsIndexProperties'] = None):
+        """
+        :param 'IndexSettingsIndexProperties' index: Index settings.
+        """
         if index is not None:
             pulumi.set(__self__, "index", index)
 
     @property
     @pulumi.getter
     def index(self) -> Optional['outputs.IndexSettingsIndexProperties']:
+        """
+        Index settings.
+        """
         return pulumi.get(self, "index")
 
 
 @pulumi.output_type
 class IndexSettingsIndexProperties(dict):
+    """
+    Index settings.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -270,6 +279,7 @@ class IndexSettingsIndexProperties(dict):
                  knn_algo_param_ef_search: Optional[int] = None,
                  refresh_interval: Optional[str] = None):
         """
+        Index settings.
         :param bool knn: Enable/disable k-nearest neighbor search capability
         :param int knn_algo_param_ef_search: Size of the dynamic list for the nearest neighbors
         :param str refresh_interval: How often to perform refresh operation (e.g. '1s', '5s')

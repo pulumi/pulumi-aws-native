@@ -7,9 +7,6 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.CodeArtifact
 {
-    /// <summary>
-    /// The package group origin restriction setting. When the value is `INHERIT` , the value is set to the value of the first parent package group which does not have a value of `INHERIT` .
-    /// </summary>
     [EnumType]
     public readonly struct PackageGroupRestrictionTypeRestrictionMode : IEquatable<PackageGroupRestrictionTypeRestrictionMode>
     {

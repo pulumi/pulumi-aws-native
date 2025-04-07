@@ -73,6 +73,8 @@ type LookupDataSetResult struct {
 	RowLevelPermissionTagConfiguration *DataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags []aws.Tag `pulumi:"tags"`
+	// The usage of the dataset.
+	UseAs *DataSetUseAs `pulumi:"useAs"`
 }
 
 func LookupDataSetOutput(ctx *pulumi.Context, args LookupDataSetOutputArgs, opts ...pulumi.InvokeOption) LookupDataSetResultOutput {
@@ -211,6 +213,11 @@ func (o LookupDataSetResultOutput) RowLevelPermissionTagConfiguration() DataSetR
 // <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 func (o LookupDataSetResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDataSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The usage of the dataset.
+func (o LookupDataSetResultOutput) UseAs() DataSetUseAsPtrOutput {
+	return o.ApplyT(func(v LookupDataSetResult) *DataSetUseAs { return v.UseAs }).(DataSetUseAsPtrOutput)
 }
 
 func init() {

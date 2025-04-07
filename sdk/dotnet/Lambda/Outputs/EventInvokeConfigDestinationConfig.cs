@@ -18,10 +18,14 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     {
         /// <summary>
         /// The destination configuration for failed invocations.
+        /// 
+        /// &gt; When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
         /// </summary>
         public readonly Outputs.EventInvokeConfigOnFailure? OnFailure;
         /// <summary>
         /// The destination configuration for successful invocations.
+        /// 
+        /// &gt; When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
         /// </summary>
         public readonly Outputs.EventInvokeConfigOnSuccess? OnSuccess;
 

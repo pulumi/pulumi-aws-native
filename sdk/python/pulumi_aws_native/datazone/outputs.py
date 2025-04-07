@@ -17,6 +17,37 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ConnectionAthenaPropertiesInput',
+    'ConnectionAuthenticationConfigurationInput',
+    'ConnectionAuthorizationCodeProperties',
+    'ConnectionAwsLocation',
+    'ConnectionBasicAuthenticationCredentials',
+    'ConnectionGlueConnectionInput',
+    'ConnectionGlueOAuth2Credentials',
+    'ConnectionGluePropertiesInput',
+    'ConnectionHyperPodPropertiesInput',
+    'ConnectionIamPropertiesInput',
+    'ConnectionLineageSyncSchedule',
+    'ConnectionOAuth2ClientApplication',
+    'ConnectionOAuth2Properties',
+    'ConnectionPhysicalConnectionRequirements',
+    'ConnectionPropertiesInput0Properties',
+    'ConnectionPropertiesInput1Properties',
+    'ConnectionPropertiesInput2Properties',
+    'ConnectionPropertiesInput3Properties',
+    'ConnectionPropertiesInput4Properties',
+    'ConnectionPropertiesInput5Properties',
+    'ConnectionPropertiesInput6Properties',
+    'ConnectionRedshiftCredentials0Properties',
+    'ConnectionRedshiftCredentials1Properties',
+    'ConnectionRedshiftLineageSyncConfigurationInput',
+    'ConnectionRedshiftPropertiesInput',
+    'ConnectionRedshiftStorageProperties0Properties',
+    'ConnectionRedshiftStorageProperties1Properties',
+    'ConnectionSparkEmrPropertiesInput',
+    'ConnectionSparkGlueArgs',
+    'ConnectionSparkGluePropertiesInput',
+    'ConnectionUsernamePassword',
     'DataSourceConfigurationInput0Properties',
     'DataSourceConfigurationInput1Properties',
     'DataSourceConfigurationInput2Properties',
@@ -46,6 +77,1501 @@ __all__ = [
     'UserProfileIamUserProfileDetails',
     'UserProfileSsoUserProfileDetails',
 ]
+
+@pulumi.output_type
+class ConnectionAthenaPropertiesInput(dict):
+    """
+    Athena Properties Input
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workgroupName":
+            suggest = "workgroup_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionAthenaPropertiesInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionAthenaPropertiesInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionAthenaPropertiesInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 workgroup_name: str):
+        """
+        Athena Properties Input
+        """
+        pulumi.set(__self__, "workgroup_name", workgroup_name)
+
+    @property
+    @pulumi.getter(name="workgroupName")
+    def workgroup_name(self) -> str:
+        return pulumi.get(self, "workgroup_name")
+
+
+@pulumi.output_type
+class ConnectionAuthenticationConfigurationInput(dict):
+    """
+    Authentication Configuration Input
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "basicAuthenticationCredentials":
+            suggest = "basic_authentication_credentials"
+        elif key == "customAuthenticationCredentials":
+            suggest = "custom_authentication_credentials"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+        elif key == "oAuth2Properties":
+            suggest = "o_auth2_properties"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionAuthenticationConfigurationInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionAuthenticationConfigurationInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionAuthenticationConfigurationInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_type: Optional['ConnectionAuthenticationType'] = None,
+                 basic_authentication_credentials: Optional['outputs.ConnectionBasicAuthenticationCredentials'] = None,
+                 custom_authentication_credentials: Optional[Mapping[str, str]] = None,
+                 kms_key_arn: Optional[str] = None,
+                 o_auth2_properties: Optional['outputs.ConnectionOAuth2Properties'] = None,
+                 secret_arn: Optional[str] = None):
+        """
+        Authentication Configuration Input
+        """
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
+        if basic_authentication_credentials is not None:
+            pulumi.set(__self__, "basic_authentication_credentials", basic_authentication_credentials)
+        if custom_authentication_credentials is not None:
+            pulumi.set(__self__, "custom_authentication_credentials", custom_authentication_credentials)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if o_auth2_properties is not None:
+            pulumi.set(__self__, "o_auth2_properties", o_auth2_properties)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional['ConnectionAuthenticationType']:
+        return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="basicAuthenticationCredentials")
+    def basic_authentication_credentials(self) -> Optional['outputs.ConnectionBasicAuthenticationCredentials']:
+        return pulumi.get(self, "basic_authentication_credentials")
+
+    @property
+    @pulumi.getter(name="customAuthenticationCredentials")
+    def custom_authentication_credentials(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "custom_authentication_credentials")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @property
+    @pulumi.getter(name="oAuth2Properties")
+    def o_auth2_properties(self) -> Optional['outputs.ConnectionOAuth2Properties']:
+        return pulumi.get(self, "o_auth2_properties")
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[str]:
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class ConnectionAuthorizationCodeProperties(dict):
+    """
+    Authorization Code Properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationCode":
+            suggest = "authorization_code"
+        elif key == "redirectUri":
+            suggest = "redirect_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionAuthorizationCodeProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionAuthorizationCodeProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionAuthorizationCodeProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_code: Optional[str] = None,
+                 redirect_uri: Optional[str] = None):
+        """
+        Authorization Code Properties
+        """
+        if authorization_code is not None:
+            pulumi.set(__self__, "authorization_code", authorization_code)
+        if redirect_uri is not None:
+            pulumi.set(__self__, "redirect_uri", redirect_uri)
+
+    @property
+    @pulumi.getter(name="authorizationCode")
+    def authorization_code(self) -> Optional[str]:
+        return pulumi.get(self, "authorization_code")
+
+    @property
+    @pulumi.getter(name="redirectUri")
+    def redirect_uri(self) -> Optional[str]:
+        return pulumi.get(self, "redirect_uri")
+
+
+@pulumi.output_type
+class ConnectionAwsLocation(dict):
+    """
+    AWS Location of project
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessRole":
+            suggest = "access_role"
+        elif key == "awsAccountId":
+            suggest = "aws_account_id"
+        elif key == "awsRegion":
+            suggest = "aws_region"
+        elif key == "iamConnectionId":
+            suggest = "iam_connection_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionAwsLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionAwsLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionAwsLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_role: Optional[str] = None,
+                 aws_account_id: Optional[str] = None,
+                 aws_region: Optional[str] = None,
+                 iam_connection_id: Optional[str] = None):
+        """
+        AWS Location of project
+        :param str access_role: The access role of a connection.
+        :param str aws_account_id: The account ID of a connection.
+        :param str aws_region: The Region of a connection.
+        :param str iam_connection_id: The IAM connection ID of a connection.
+        """
+        if access_role is not None:
+            pulumi.set(__self__, "access_role", access_role)
+        if aws_account_id is not None:
+            pulumi.set(__self__, "aws_account_id", aws_account_id)
+        if aws_region is not None:
+            pulumi.set(__self__, "aws_region", aws_region)
+        if iam_connection_id is not None:
+            pulumi.set(__self__, "iam_connection_id", iam_connection_id)
+
+    @property
+    @pulumi.getter(name="accessRole")
+    def access_role(self) -> Optional[str]:
+        """
+        The access role of a connection.
+        """
+        return pulumi.get(self, "access_role")
+
+    @property
+    @pulumi.getter(name="awsAccountId")
+    def aws_account_id(self) -> Optional[str]:
+        """
+        The account ID of a connection.
+        """
+        return pulumi.get(self, "aws_account_id")
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> Optional[str]:
+        """
+        The Region of a connection.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @property
+    @pulumi.getter(name="iamConnectionId")
+    def iam_connection_id(self) -> Optional[str]:
+        """
+        The IAM connection ID of a connection.
+        """
+        return pulumi.get(self, "iam_connection_id")
+
+
+@pulumi.output_type
+class ConnectionBasicAuthenticationCredentials(dict):
+    """
+    Basic Authentication Credentials
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionBasicAuthenticationCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionBasicAuthenticationCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionBasicAuthenticationCredentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 password: Optional[str] = None,
+                 user_name: Optional[str] = None):
+        """
+        Basic Authentication Credentials
+        """
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[str]:
+        return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
+class ConnectionGlueConnectionInput(dict):
+    """
+    Glue Connection Input
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "athenaProperties":
+            suggest = "athena_properties"
+        elif key == "authenticationConfiguration":
+            suggest = "authentication_configuration"
+        elif key == "connectionProperties":
+            suggest = "connection_properties"
+        elif key == "connectionType":
+            suggest = "connection_type"
+        elif key == "matchCriteria":
+            suggest = "match_criteria"
+        elif key == "physicalConnectionRequirements":
+            suggest = "physical_connection_requirements"
+        elif key == "pythonProperties":
+            suggest = "python_properties"
+        elif key == "sparkProperties":
+            suggest = "spark_properties"
+        elif key == "validateCredentials":
+            suggest = "validate_credentials"
+        elif key == "validateForComputeEnvironments":
+            suggest = "validate_for_compute_environments"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionGlueConnectionInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionGlueConnectionInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionGlueConnectionInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 athena_properties: Optional[Mapping[str, str]] = None,
+                 authentication_configuration: Optional['outputs.ConnectionAuthenticationConfigurationInput'] = None,
+                 connection_properties: Optional[Mapping[str, str]] = None,
+                 connection_type: Optional[str] = None,
+                 description: Optional[str] = None,
+                 match_criteria: Optional[str] = None,
+                 name: Optional[str] = None,
+                 physical_connection_requirements: Optional['outputs.ConnectionPhysicalConnectionRequirements'] = None,
+                 python_properties: Optional[Mapping[str, str]] = None,
+                 spark_properties: Optional[Mapping[str, str]] = None,
+                 validate_credentials: Optional[bool] = None,
+                 validate_for_compute_environments: Optional[Sequence[str]] = None):
+        """
+        Glue Connection Input
+        """
+        if athena_properties is not None:
+            pulumi.set(__self__, "athena_properties", athena_properties)
+        if authentication_configuration is not None:
+            pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+        if connection_properties is not None:
+            pulumi.set(__self__, "connection_properties", connection_properties)
+        if connection_type is not None:
+            pulumi.set(__self__, "connection_type", connection_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if match_criteria is not None:
+            pulumi.set(__self__, "match_criteria", match_criteria)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if physical_connection_requirements is not None:
+            pulumi.set(__self__, "physical_connection_requirements", physical_connection_requirements)
+        if python_properties is not None:
+            pulumi.set(__self__, "python_properties", python_properties)
+        if spark_properties is not None:
+            pulumi.set(__self__, "spark_properties", spark_properties)
+        if validate_credentials is not None:
+            pulumi.set(__self__, "validate_credentials", validate_credentials)
+        if validate_for_compute_environments is not None:
+            pulumi.set(__self__, "validate_for_compute_environments", validate_for_compute_environments)
+
+    @property
+    @pulumi.getter(name="athenaProperties")
+    def athena_properties(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "athena_properties")
+
+    @property
+    @pulumi.getter(name="authenticationConfiguration")
+    def authentication_configuration(self) -> Optional['outputs.ConnectionAuthenticationConfigurationInput']:
+        return pulumi.get(self, "authentication_configuration")
+
+    @property
+    @pulumi.getter(name="connectionProperties")
+    def connection_properties(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "connection_properties")
+
+    @property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> Optional[str]:
+        return pulumi.get(self, "connection_type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="matchCriteria")
+    def match_criteria(self) -> Optional[str]:
+        return pulumi.get(self, "match_criteria")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="physicalConnectionRequirements")
+    def physical_connection_requirements(self) -> Optional['outputs.ConnectionPhysicalConnectionRequirements']:
+        return pulumi.get(self, "physical_connection_requirements")
+
+    @property
+    @pulumi.getter(name="pythonProperties")
+    def python_properties(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "python_properties")
+
+    @property
+    @pulumi.getter(name="sparkProperties")
+    def spark_properties(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "spark_properties")
+
+    @property
+    @pulumi.getter(name="validateCredentials")
+    def validate_credentials(self) -> Optional[bool]:
+        return pulumi.get(self, "validate_credentials")
+
+    @property
+    @pulumi.getter(name="validateForComputeEnvironments")
+    def validate_for_compute_environments(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "validate_for_compute_environments")
+
+
+@pulumi.output_type
+class ConnectionGlueOAuth2Credentials(dict):
+    """
+    Glue OAuth2 Credentials
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+        elif key == "jwtToken":
+            suggest = "jwt_token"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
+        elif key == "userManagedClientApplicationClientSecret":
+            suggest = "user_managed_client_application_client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionGlueOAuth2Credentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionGlueOAuth2Credentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionGlueOAuth2Credentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_token: Optional[str] = None,
+                 jwt_token: Optional[str] = None,
+                 refresh_token: Optional[str] = None,
+                 user_managed_client_application_client_secret: Optional[str] = None):
+        """
+        Glue OAuth2 Credentials
+        """
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+        if jwt_token is not None:
+            pulumi.set(__self__, "jwt_token", jwt_token)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
+        if user_managed_client_application_client_secret is not None:
+            pulumi.set(__self__, "user_managed_client_application_client_secret", user_managed_client_application_client_secret)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        return pulumi.get(self, "access_token")
+
+    @property
+    @pulumi.getter(name="jwtToken")
+    def jwt_token(self) -> Optional[str]:
+        return pulumi.get(self, "jwt_token")
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[str]:
+        return pulumi.get(self, "refresh_token")
+
+    @property
+    @pulumi.getter(name="userManagedClientApplicationClientSecret")
+    def user_managed_client_application_client_secret(self) -> Optional[str]:
+        return pulumi.get(self, "user_managed_client_application_client_secret")
+
+
+@pulumi.output_type
+class ConnectionGluePropertiesInput(dict):
+    """
+    Glue Properties Input
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "glueConnectionInput":
+            suggest = "glue_connection_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionGluePropertiesInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionGluePropertiesInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionGluePropertiesInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 glue_connection_input: Optional['outputs.ConnectionGlueConnectionInput'] = None):
+        """
+        Glue Properties Input
+        """
+        if glue_connection_input is not None:
+            pulumi.set(__self__, "glue_connection_input", glue_connection_input)
+
+    @property
+    @pulumi.getter(name="glueConnectionInput")
+    def glue_connection_input(self) -> Optional['outputs.ConnectionGlueConnectionInput']:
+        return pulumi.get(self, "glue_connection_input")
+
+
+@pulumi.output_type
+class ConnectionHyperPodPropertiesInput(dict):
+    """
+    HyperPod Properties Input
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterName":
+            suggest = "cluster_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionHyperPodPropertiesInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionHyperPodPropertiesInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionHyperPodPropertiesInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_name: str):
+        """
+        HyperPod Properties Input
+        """
+        pulumi.set(__self__, "cluster_name", cluster_name)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> str:
+        return pulumi.get(self, "cluster_name")
+
+
+@pulumi.output_type
+class ConnectionIamPropertiesInput(dict):
+    """
+    IAM Properties Input
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "glueLineageSyncEnabled":
+            suggest = "glue_lineage_sync_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionIamPropertiesInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionIamPropertiesInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionIamPropertiesInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 glue_lineage_sync_enabled: Optional[bool] = None):
+        """
+        IAM Properties Input
+        """
+        if glue_lineage_sync_enabled is not None:
+            pulumi.set(__self__, "glue_lineage_sync_enabled", glue_lineage_sync_enabled)
+
+    @property
+    @pulumi.getter(name="glueLineageSyncEnabled")
+    def glue_lineage_sync_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "glue_lineage_sync_enabled")
+
+
+@pulumi.output_type
+class ConnectionLineageSyncSchedule(dict):
+    """
+    Lineage Sync Schedule
+    """
+    def __init__(__self__, *,
+                 schedule: Optional[str] = None):
+        """
+        Lineage Sync Schedule
+        """
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[str]:
+        return pulumi.get(self, "schedule")
+
+
+@pulumi.output_type
+class ConnectionOAuth2ClientApplication(dict):
+    """
+    OAuth2 Client Application
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsManagedClientApplicationReference":
+            suggest = "aws_managed_client_application_reference"
+        elif key == "userManagedClientApplicationClientId":
+            suggest = "user_managed_client_application_client_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionOAuth2ClientApplication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionOAuth2ClientApplication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionOAuth2ClientApplication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_managed_client_application_reference: Optional[str] = None,
+                 user_managed_client_application_client_id: Optional[str] = None):
+        """
+        OAuth2 Client Application
+        """
+        if aws_managed_client_application_reference is not None:
+            pulumi.set(__self__, "aws_managed_client_application_reference", aws_managed_client_application_reference)
+        if user_managed_client_application_client_id is not None:
+            pulumi.set(__self__, "user_managed_client_application_client_id", user_managed_client_application_client_id)
+
+    @property
+    @pulumi.getter(name="awsManagedClientApplicationReference")
+    def aws_managed_client_application_reference(self) -> Optional[str]:
+        return pulumi.get(self, "aws_managed_client_application_reference")
+
+    @property
+    @pulumi.getter(name="userManagedClientApplicationClientId")
+    def user_managed_client_application_client_id(self) -> Optional[str]:
+        return pulumi.get(self, "user_managed_client_application_client_id")
+
+
+@pulumi.output_type
+class ConnectionOAuth2Properties(dict):
+    """
+    OAuth2 Properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationCodeProperties":
+            suggest = "authorization_code_properties"
+        elif key == "oAuth2ClientApplication":
+            suggest = "o_auth2_client_application"
+        elif key == "oAuth2Credentials":
+            suggest = "o_auth2_credentials"
+        elif key == "oAuth2GrantType":
+            suggest = "o_auth2_grant_type"
+        elif key == "tokenUrl":
+            suggest = "token_url"
+        elif key == "tokenUrlParametersMap":
+            suggest = "token_url_parameters_map"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionOAuth2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionOAuth2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionOAuth2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_code_properties: Optional['outputs.ConnectionAuthorizationCodeProperties'] = None,
+                 o_auth2_client_application: Optional['outputs.ConnectionOAuth2ClientApplication'] = None,
+                 o_auth2_credentials: Optional['outputs.ConnectionGlueOAuth2Credentials'] = None,
+                 o_auth2_grant_type: Optional['ConnectionOAuth2GrantType'] = None,
+                 token_url: Optional[str] = None,
+                 token_url_parameters_map: Optional[Mapping[str, str]] = None):
+        """
+        OAuth2 Properties
+        """
+        if authorization_code_properties is not None:
+            pulumi.set(__self__, "authorization_code_properties", authorization_code_properties)
+        if o_auth2_client_application is not None:
+            pulumi.set(__self__, "o_auth2_client_application", o_auth2_client_application)
+        if o_auth2_credentials is not None:
+            pulumi.set(__self__, "o_auth2_credentials", o_auth2_credentials)
+        if o_auth2_grant_type is not None:
+            pulumi.set(__self__, "o_auth2_grant_type", o_auth2_grant_type)
+        if token_url is not None:
+            pulumi.set(__self__, "token_url", token_url)
+        if token_url_parameters_map is not None:
+            pulumi.set(__self__, "token_url_parameters_map", token_url_parameters_map)
+
+    @property
+    @pulumi.getter(name="authorizationCodeProperties")
+    def authorization_code_properties(self) -> Optional['outputs.ConnectionAuthorizationCodeProperties']:
+        return pulumi.get(self, "authorization_code_properties")
+
+    @property
+    @pulumi.getter(name="oAuth2ClientApplication")
+    def o_auth2_client_application(self) -> Optional['outputs.ConnectionOAuth2ClientApplication']:
+        return pulumi.get(self, "o_auth2_client_application")
+
+    @property
+    @pulumi.getter(name="oAuth2Credentials")
+    def o_auth2_credentials(self) -> Optional['outputs.ConnectionGlueOAuth2Credentials']:
+        return pulumi.get(self, "o_auth2_credentials")
+
+    @property
+    @pulumi.getter(name="oAuth2GrantType")
+    def o_auth2_grant_type(self) -> Optional['ConnectionOAuth2GrantType']:
+        return pulumi.get(self, "o_auth2_grant_type")
+
+    @property
+    @pulumi.getter(name="tokenUrl")
+    def token_url(self) -> Optional[str]:
+        return pulumi.get(self, "token_url")
+
+    @property
+    @pulumi.getter(name="tokenUrlParametersMap")
+    def token_url_parameters_map(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "token_url_parameters_map")
+
+
+@pulumi.output_type
+class ConnectionPhysicalConnectionRequirements(dict):
+    """
+    Physical Connection Requirements
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZone":
+            suggest = "availability_zone"
+        elif key == "securityGroupIdList":
+            suggest = "security_group_id_list"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "subnetIdList":
+            suggest = "subnet_id_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPhysicalConnectionRequirements. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPhysicalConnectionRequirements.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPhysicalConnectionRequirements.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_zone: Optional[str] = None,
+                 security_group_id_list: Optional[Sequence[str]] = None,
+                 subnet_id: Optional[str] = None,
+                 subnet_id_list: Optional[Sequence[str]] = None):
+        """
+        Physical Connection Requirements
+        """
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if security_group_id_list is not None:
+            pulumi.set(__self__, "security_group_id_list", security_group_id_list)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if subnet_id_list is not None:
+            pulumi.set(__self__, "subnet_id_list", subnet_id_list)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[str]:
+        return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="securityGroupIdList")
+    def security_group_id_list(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "security_group_id_list")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="subnetIdList")
+    def subnet_id_list(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "subnet_id_list")
+
+
+@pulumi.output_type
+class ConnectionPropertiesInput0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "athenaProperties":
+            suggest = "athena_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesInput0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPropertiesInput0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPropertiesInput0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 athena_properties: 'outputs.ConnectionAthenaPropertiesInput'):
+        pulumi.set(__self__, "athena_properties", athena_properties)
+
+    @property
+    @pulumi.getter(name="athenaProperties")
+    def athena_properties(self) -> 'outputs.ConnectionAthenaPropertiesInput':
+        return pulumi.get(self, "athena_properties")
+
+
+@pulumi.output_type
+class ConnectionPropertiesInput1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "glueProperties":
+            suggest = "glue_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesInput1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPropertiesInput1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPropertiesInput1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 glue_properties: 'outputs.ConnectionGluePropertiesInput'):
+        pulumi.set(__self__, "glue_properties", glue_properties)
+
+    @property
+    @pulumi.getter(name="glueProperties")
+    def glue_properties(self) -> 'outputs.ConnectionGluePropertiesInput':
+        return pulumi.get(self, "glue_properties")
+
+
+@pulumi.output_type
+class ConnectionPropertiesInput2Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hyperPodProperties":
+            suggest = "hyper_pod_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesInput2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPropertiesInput2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPropertiesInput2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hyper_pod_properties: 'outputs.ConnectionHyperPodPropertiesInput'):
+        pulumi.set(__self__, "hyper_pod_properties", hyper_pod_properties)
+
+    @property
+    @pulumi.getter(name="hyperPodProperties")
+    def hyper_pod_properties(self) -> 'outputs.ConnectionHyperPodPropertiesInput':
+        return pulumi.get(self, "hyper_pod_properties")
+
+
+@pulumi.output_type
+class ConnectionPropertiesInput3Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iamProperties":
+            suggest = "iam_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesInput3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPropertiesInput3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPropertiesInput3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iam_properties: 'outputs.ConnectionIamPropertiesInput'):
+        pulumi.set(__self__, "iam_properties", iam_properties)
+
+    @property
+    @pulumi.getter(name="iamProperties")
+    def iam_properties(self) -> 'outputs.ConnectionIamPropertiesInput':
+        return pulumi.get(self, "iam_properties")
+
+
+@pulumi.output_type
+class ConnectionPropertiesInput4Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "redshiftProperties":
+            suggest = "redshift_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesInput4Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPropertiesInput4Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPropertiesInput4Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 redshift_properties: 'outputs.ConnectionRedshiftPropertiesInput'):
+        pulumi.set(__self__, "redshift_properties", redshift_properties)
+
+    @property
+    @pulumi.getter(name="redshiftProperties")
+    def redshift_properties(self) -> 'outputs.ConnectionRedshiftPropertiesInput':
+        return pulumi.get(self, "redshift_properties")
+
+
+@pulumi.output_type
+class ConnectionPropertiesInput5Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sparkEmrProperties":
+            suggest = "spark_emr_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesInput5Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPropertiesInput5Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPropertiesInput5Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 spark_emr_properties: 'outputs.ConnectionSparkEmrPropertiesInput'):
+        pulumi.set(__self__, "spark_emr_properties", spark_emr_properties)
+
+    @property
+    @pulumi.getter(name="sparkEmrProperties")
+    def spark_emr_properties(self) -> 'outputs.ConnectionSparkEmrPropertiesInput':
+        return pulumi.get(self, "spark_emr_properties")
+
+
+@pulumi.output_type
+class ConnectionPropertiesInput6Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sparkGlueProperties":
+            suggest = "spark_glue_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesInput6Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPropertiesInput6Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPropertiesInput6Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 spark_glue_properties: 'outputs.ConnectionSparkGluePropertiesInput'):
+        pulumi.set(__self__, "spark_glue_properties", spark_glue_properties)
+
+    @property
+    @pulumi.getter(name="sparkGlueProperties")
+    def spark_glue_properties(self) -> 'outputs.ConnectionSparkGluePropertiesInput':
+        return pulumi.get(self, "spark_glue_properties")
+
+
+@pulumi.output_type
+class ConnectionRedshiftCredentials0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionRedshiftCredentials0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionRedshiftCredentials0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionRedshiftCredentials0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_arn: str):
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> str:
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class ConnectionRedshiftCredentials1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "usernamePassword":
+            suggest = "username_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionRedshiftCredentials1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionRedshiftCredentials1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionRedshiftCredentials1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 username_password: 'outputs.ConnectionUsernamePassword'):
+        pulumi.set(__self__, "username_password", username_password)
+
+    @property
+    @pulumi.getter(name="usernamePassword")
+    def username_password(self) -> 'outputs.ConnectionUsernamePassword':
+        return pulumi.get(self, "username_password")
+
+
+@pulumi.output_type
+class ConnectionRedshiftLineageSyncConfigurationInput(dict):
+    """
+    Redshift Lineage Sync Configuration Input
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 schedule: Optional['outputs.ConnectionLineageSyncSchedule'] = None):
+        """
+        Redshift Lineage Sync Configuration Input
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.ConnectionLineageSyncSchedule']:
+        return pulumi.get(self, "schedule")
+
+
+@pulumi.output_type
+class ConnectionRedshiftPropertiesInput(dict):
+    """
+    Redshift Properties Input
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "lineageSync":
+            suggest = "lineage_sync"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionRedshiftPropertiesInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionRedshiftPropertiesInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionRedshiftPropertiesInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 credentials: Optional[Any] = None,
+                 database_name: Optional[str] = None,
+                 host: Optional[str] = None,
+                 lineage_sync: Optional['outputs.ConnectionRedshiftLineageSyncConfigurationInput'] = None,
+                 port: Optional[float] = None,
+                 storage: Optional[Any] = None):
+        """
+        Redshift Properties Input
+        """
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if lineage_sync is not None:
+            pulumi.set(__self__, "lineage_sync", lineage_sync)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if storage is not None:
+            pulumi.set(__self__, "storage", storage)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[Any]:
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter(name="lineageSync")
+    def lineage_sync(self) -> Optional['outputs.ConnectionRedshiftLineageSyncConfigurationInput']:
+        return pulumi.get(self, "lineage_sync")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[float]:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def storage(self) -> Optional[Any]:
+        return pulumi.get(self, "storage")
+
+
+@pulumi.output_type
+class ConnectionRedshiftStorageProperties0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterName":
+            suggest = "cluster_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionRedshiftStorageProperties0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionRedshiftStorageProperties0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionRedshiftStorageProperties0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_name: str):
+        pulumi.set(__self__, "cluster_name", cluster_name)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> str:
+        return pulumi.get(self, "cluster_name")
+
+
+@pulumi.output_type
+class ConnectionRedshiftStorageProperties1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workgroupName":
+            suggest = "workgroup_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionRedshiftStorageProperties1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionRedshiftStorageProperties1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionRedshiftStorageProperties1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 workgroup_name: str):
+        pulumi.set(__self__, "workgroup_name", workgroup_name)
+
+    @property
+    @pulumi.getter(name="workgroupName")
+    def workgroup_name(self) -> str:
+        return pulumi.get(self, "workgroup_name")
+
+
+@pulumi.output_type
+class ConnectionSparkEmrPropertiesInput(dict):
+    """
+    Spark EMR Properties Input.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeArn":
+            suggest = "compute_arn"
+        elif key == "instanceProfileArn":
+            suggest = "instance_profile_arn"
+        elif key == "javaVirtualEnv":
+            suggest = "java_virtual_env"
+        elif key == "logUri":
+            suggest = "log_uri"
+        elif key == "pythonVirtualEnv":
+            suggest = "python_virtual_env"
+        elif key == "runtimeRole":
+            suggest = "runtime_role"
+        elif key == "trustedCertificatesS3Uri":
+            suggest = "trusted_certificates_s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionSparkEmrPropertiesInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionSparkEmrPropertiesInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionSparkEmrPropertiesInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_arn: Optional[str] = None,
+                 instance_profile_arn: Optional[str] = None,
+                 java_virtual_env: Optional[str] = None,
+                 log_uri: Optional[str] = None,
+                 python_virtual_env: Optional[str] = None,
+                 runtime_role: Optional[str] = None,
+                 trusted_certificates_s3_uri: Optional[str] = None):
+        """
+        Spark EMR Properties Input.
+        """
+        if compute_arn is not None:
+            pulumi.set(__self__, "compute_arn", compute_arn)
+        if instance_profile_arn is not None:
+            pulumi.set(__self__, "instance_profile_arn", instance_profile_arn)
+        if java_virtual_env is not None:
+            pulumi.set(__self__, "java_virtual_env", java_virtual_env)
+        if log_uri is not None:
+            pulumi.set(__self__, "log_uri", log_uri)
+        if python_virtual_env is not None:
+            pulumi.set(__self__, "python_virtual_env", python_virtual_env)
+        if runtime_role is not None:
+            pulumi.set(__self__, "runtime_role", runtime_role)
+        if trusted_certificates_s3_uri is not None:
+            pulumi.set(__self__, "trusted_certificates_s3_uri", trusted_certificates_s3_uri)
+
+    @property
+    @pulumi.getter(name="computeArn")
+    def compute_arn(self) -> Optional[str]:
+        return pulumi.get(self, "compute_arn")
+
+    @property
+    @pulumi.getter(name="instanceProfileArn")
+    def instance_profile_arn(self) -> Optional[str]:
+        return pulumi.get(self, "instance_profile_arn")
+
+    @property
+    @pulumi.getter(name="javaVirtualEnv")
+    def java_virtual_env(self) -> Optional[str]:
+        return pulumi.get(self, "java_virtual_env")
+
+    @property
+    @pulumi.getter(name="logUri")
+    def log_uri(self) -> Optional[str]:
+        return pulumi.get(self, "log_uri")
+
+    @property
+    @pulumi.getter(name="pythonVirtualEnv")
+    def python_virtual_env(self) -> Optional[str]:
+        return pulumi.get(self, "python_virtual_env")
+
+    @property
+    @pulumi.getter(name="runtimeRole")
+    def runtime_role(self) -> Optional[str]:
+        return pulumi.get(self, "runtime_role")
+
+    @property
+    @pulumi.getter(name="trustedCertificatesS3Uri")
+    def trusted_certificates_s3_uri(self) -> Optional[str]:
+        return pulumi.get(self, "trusted_certificates_s3_uri")
+
+
+@pulumi.output_type
+class ConnectionSparkGlueArgs(dict):
+    """
+    Spark Glue Args.
+    """
+    def __init__(__self__, *,
+                 connection: Optional[str] = None):
+        """
+        Spark Glue Args.
+        """
+        if connection is not None:
+            pulumi.set(__self__, "connection", connection)
+
+    @property
+    @pulumi.getter
+    def connection(self) -> Optional[str]:
+        return pulumi.get(self, "connection")
+
+
+@pulumi.output_type
+class ConnectionSparkGluePropertiesInput(dict):
+    """
+    Spark Glue Properties Input.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalArgs":
+            suggest = "additional_args"
+        elif key == "glueConnectionName":
+            suggest = "glue_connection_name"
+        elif key == "glueVersion":
+            suggest = "glue_version"
+        elif key == "idleTimeout":
+            suggest = "idle_timeout"
+        elif key == "javaVirtualEnv":
+            suggest = "java_virtual_env"
+        elif key == "numberOfWorkers":
+            suggest = "number_of_workers"
+        elif key == "pythonVirtualEnv":
+            suggest = "python_virtual_env"
+        elif key == "workerType":
+            suggest = "worker_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionSparkGluePropertiesInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionSparkGluePropertiesInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionSparkGluePropertiesInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_args: Optional['outputs.ConnectionSparkGlueArgs'] = None,
+                 glue_connection_name: Optional[str] = None,
+                 glue_version: Optional[str] = None,
+                 idle_timeout: Optional[float] = None,
+                 java_virtual_env: Optional[str] = None,
+                 number_of_workers: Optional[float] = None,
+                 python_virtual_env: Optional[str] = None,
+                 worker_type: Optional[str] = None):
+        """
+        Spark Glue Properties Input.
+        """
+        if additional_args is not None:
+            pulumi.set(__self__, "additional_args", additional_args)
+        if glue_connection_name is not None:
+            pulumi.set(__self__, "glue_connection_name", glue_connection_name)
+        if glue_version is not None:
+            pulumi.set(__self__, "glue_version", glue_version)
+        if idle_timeout is not None:
+            pulumi.set(__self__, "idle_timeout", idle_timeout)
+        if java_virtual_env is not None:
+            pulumi.set(__self__, "java_virtual_env", java_virtual_env)
+        if number_of_workers is not None:
+            pulumi.set(__self__, "number_of_workers", number_of_workers)
+        if python_virtual_env is not None:
+            pulumi.set(__self__, "python_virtual_env", python_virtual_env)
+        if worker_type is not None:
+            pulumi.set(__self__, "worker_type", worker_type)
+
+    @property
+    @pulumi.getter(name="additionalArgs")
+    def additional_args(self) -> Optional['outputs.ConnectionSparkGlueArgs']:
+        return pulumi.get(self, "additional_args")
+
+    @property
+    @pulumi.getter(name="glueConnectionName")
+    def glue_connection_name(self) -> Optional[str]:
+        return pulumi.get(self, "glue_connection_name")
+
+    @property
+    @pulumi.getter(name="glueVersion")
+    def glue_version(self) -> Optional[str]:
+        return pulumi.get(self, "glue_version")
+
+    @property
+    @pulumi.getter(name="idleTimeout")
+    def idle_timeout(self) -> Optional[float]:
+        return pulumi.get(self, "idle_timeout")
+
+    @property
+    @pulumi.getter(name="javaVirtualEnv")
+    def java_virtual_env(self) -> Optional[str]:
+        return pulumi.get(self, "java_virtual_env")
+
+    @property
+    @pulumi.getter(name="numberOfWorkers")
+    def number_of_workers(self) -> Optional[float]:
+        return pulumi.get(self, "number_of_workers")
+
+    @property
+    @pulumi.getter(name="pythonVirtualEnv")
+    def python_virtual_env(self) -> Optional[str]:
+        return pulumi.get(self, "python_virtual_env")
+
+    @property
+    @pulumi.getter(name="workerType")
+    def worker_type(self) -> Optional[str]:
+        return pulumi.get(self, "worker_type")
+
+
+@pulumi.output_type
+class ConnectionUsernamePassword(dict):
+    """
+    The username and password to be used for authentication.
+    """
+    def __init__(__self__, *,
+                 password: str,
+                 username: str):
+        """
+        The username and password to be used for authentication.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        return pulumi.get(self, "username")
+
 
 @pulumi.output_type
 class DataSourceConfigurationInput0Properties(dict):

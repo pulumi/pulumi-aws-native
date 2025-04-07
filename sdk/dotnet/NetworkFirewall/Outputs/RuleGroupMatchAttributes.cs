@@ -14,9 +14,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     public sealed class RuleGroupMatchAttributes
     {
         /// <summary>
-        /// The destination ports to inspect for. If not specified, this matches with any destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+        /// The destination port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
         /// 
-        /// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+        /// This setting is only used for protocols 6 (TCP) and 17 (UDP).
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupPortRange> DestinationPorts;
         /// <summary>
@@ -24,13 +24,15 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupAddress> Destinations;
         /// <summary>
-        /// The protocols to inspect for, specified using each protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+        /// The protocols to inspect for, specified using the assigned internet protocol number (IANA) for each protocol. If not specified, this matches with any protocol.
         /// </summary>
         public readonly ImmutableArray<int> Protocols;
         /// <summary>
-        /// The source ports to inspect for. If not specified, this matches with any source port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+        /// The source port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
         /// 
-        /// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+        /// If not specified, this matches with any source port.
+        /// 
+        /// This setting is only used for protocols 6 (TCP) and 17 (UDP).
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupPortRange> SourcePorts;
         /// <summary>

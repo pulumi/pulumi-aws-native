@@ -26,10 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkgroupResult:
-    def __init__(__self__, enhanced_vpc_routing=None, port=None, price_performance_target=None, publicly_accessible=None, tags=None, workgroup=None):
+    def __init__(__self__, base_capacity=None, enhanced_vpc_routing=None, max_capacity=None, port=None, price_performance_target=None, publicly_accessible=None, tags=None, track_name=None, workgroup=None):
+        if base_capacity and not isinstance(base_capacity, int):
+            raise TypeError("Expected argument 'base_capacity' to be a int")
+        pulumi.set(__self__, "base_capacity", base_capacity)
         if enhanced_vpc_routing and not isinstance(enhanced_vpc_routing, bool):
             raise TypeError("Expected argument 'enhanced_vpc_routing' to be a bool")
         pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
+        if max_capacity and not isinstance(max_capacity, int):
+            raise TypeError("Expected argument 'max_capacity' to be a int")
+        pulumi.set(__self__, "max_capacity", max_capacity)
         if port and not isinstance(port, int):
             raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
@@ -42,9 +48,20 @@ class GetWorkgroupResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if track_name and not isinstance(track_name, str):
+            raise TypeError("Expected argument 'track_name' to be a str")
+        pulumi.set(__self__, "track_name", track_name)
         if workgroup and not isinstance(workgroup, dict):
             raise TypeError("Expected argument 'workgroup' to be a dict")
         pulumi.set(__self__, "workgroup", workgroup)
+
+    @property
+    @pulumi.getter(name="baseCapacity")
+    def base_capacity(self) -> Optional[int]:
+        """
+        The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
+        """
+        return pulumi.get(self, "base_capacity")
 
     @property
     @pulumi.getter(name="enhancedVpcRouting")
@@ -53,6 +70,14 @@ class GetWorkgroupResult:
         The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
         """
         return pulumi.get(self, "enhanced_vpc_routing")
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> Optional[int]:
+        """
+        The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+        """
+        return pulumi.get(self, "max_capacity")
 
     @property
     @pulumi.getter
@@ -87,6 +112,14 @@ class GetWorkgroupResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="trackName")
+    def track_name(self) -> Optional[str]:
+        """
+        An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
+        """
+        return pulumi.get(self, "track_name")
+
+    @property
     @pulumi.getter
     def workgroup(self) -> Optional['outputs.Workgroup']:
         """
@@ -101,11 +134,14 @@ class AwaitableGetWorkgroupResult(GetWorkgroupResult):
         if False:
             yield self
         return GetWorkgroupResult(
+            base_capacity=self.base_capacity,
             enhanced_vpc_routing=self.enhanced_vpc_routing,
+            max_capacity=self.max_capacity,
             port=self.port,
             price_performance_target=self.price_performance_target,
             publicly_accessible=self.publicly_accessible,
             tags=self.tags,
+            track_name=self.track_name,
             workgroup=self.workgroup)
 
 
@@ -123,11 +159,14 @@ def get_workgroup(workgroup_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:redshiftserverless:getWorkgroup', __args__, opts=opts, typ=GetWorkgroupResult).value
 
     return AwaitableGetWorkgroupResult(
+        base_capacity=pulumi.get(__ret__, 'base_capacity'),
         enhanced_vpc_routing=pulumi.get(__ret__, 'enhanced_vpc_routing'),
+        max_capacity=pulumi.get(__ret__, 'max_capacity'),
         port=pulumi.get(__ret__, 'port'),
         price_performance_target=pulumi.get(__ret__, 'price_performance_target'),
         publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
         tags=pulumi.get(__ret__, 'tags'),
+        track_name=pulumi.get(__ret__, 'track_name'),
         workgroup=pulumi.get(__ret__, 'workgroup'))
 def get_workgroup_output(workgroup_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkgroupResult]:
@@ -142,9 +181,12 @@ def get_workgroup_output(workgroup_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:redshiftserverless:getWorkgroup', __args__, opts=opts, typ=GetWorkgroupResult)
     return __ret__.apply(lambda __response__: GetWorkgroupResult(
+        base_capacity=pulumi.get(__response__, 'base_capacity'),
         enhanced_vpc_routing=pulumi.get(__response__, 'enhanced_vpc_routing'),
+        max_capacity=pulumi.get(__response__, 'max_capacity'),
         port=pulumi.get(__response__, 'port'),
         price_performance_target=pulumi.get(__response__, 'price_performance_target'),
         publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
         tags=pulumi.get(__response__, 'tags'),
+        track_name=pulumi.get(__response__, 'track_name'),
         workgroup=pulumi.get(__response__, 'workgroup')))

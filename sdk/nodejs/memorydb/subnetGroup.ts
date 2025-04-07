@@ -54,6 +54,10 @@ export class SubnetGroup extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
+     * Supported network types would be a list of network types supported by subnet group and can be either [ipv4] or [ipv4, dual_stack] or [ipv6].
+     */
+    public /*out*/ readonly supportedNetworkTypes!: pulumi.Output<string[]>;
+    /**
      * An array of key-value pairs to apply to this subnet group.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -77,11 +81,13 @@ export class SubnetGroup extends pulumi.CustomResource {
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["supportedNetworkTypes"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["subnetGroupName"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
+            resourceInputs["supportedNetworkTypes"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

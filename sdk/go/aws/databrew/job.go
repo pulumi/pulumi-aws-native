@@ -43,8 +43,8 @@ import (
 //					Bucket: pulumi.String("test-output"),
 //					Key:    pulumi.String("job-output.json"),
 //				},
-//				Tags: aws.CreateOnlyTagArray{
-//					&aws.CreateOnlyTagArgs{
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
 //						Key:   pulumi.String("key00AtCreate"),
 //						Value: pulumi.String("value001AtCreate"),
 //					},
@@ -94,7 +94,7 @@ type Job struct {
 	// Role arn
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Metadata tags that have been applied to the job.
-	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Timeout
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// Job type
@@ -118,7 +118,6 @@ func NewJob(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
-		"tags[*]",
 		"type",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -188,7 +187,7 @@ type jobArgs struct {
 	// Role arn
 	RoleArn string `pulumi:"roleArn"`
 	// Metadata tags that have been applied to the job.
-	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Timeout
 	Timeout *int `pulumi:"timeout"`
 	// Job type
@@ -232,7 +231,7 @@ type JobArgs struct {
 	// Role arn
 	RoleArn pulumi.StringInput
 	// Metadata tags that have been applied to the job.
-	Tags aws.CreateOnlyTagArrayInput
+	Tags aws.TagArrayInput
 	// Timeout
 	Timeout pulumi.IntPtrInput
 	// Job type
@@ -359,8 +358,8 @@ func (o JobOutput) RoleArn() pulumi.StringOutput {
 }
 
 // Metadata tags that have been applied to the job.
-func (o JobOutput) Tags() aws.CreateOnlyTagArrayOutput {
-	return o.ApplyT(func(v *Job) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
+func (o JobOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Job) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Timeout

@@ -72,11 +72,11 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public readonly Pulumi.AwsNative.MediaConnect.BridgeStateEnum? BridgeState;
         /// <summary>
-        /// Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+        /// An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
         /// </summary>
         public readonly Outputs.BridgeEgressGatewayBridge? EgressGatewayBridge;
         /// <summary>
-        /// Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+        /// An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
         /// </summary>
         public readonly Outputs.BridgeIngressGatewayBridge? IngressGatewayBridge;
         /// <summary>

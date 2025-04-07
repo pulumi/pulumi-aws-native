@@ -41,6 +41,8 @@ type LookupVpcEndpointServiceResult struct {
 	ServiceId *string `pulumi:"serviceId"`
 	// Specify which Ip Address types are supported for VPC endpoint service.
 	SupportedIpAddressTypes []VpcEndpointServiceIpAddressType `pulumi:"supportedIpAddressTypes"`
+	// The Regions from which service consumers can access the service.
+	SupportedRegions []string `pulumi:"supportedRegions"`
 	// The tags to add to the VPC endpoint service.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -107,6 +109,11 @@ func (o LookupVpcEndpointServiceResultOutput) SupportedIpAddressTypes() VpcEndpo
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) []VpcEndpointServiceIpAddressType {
 		return v.SupportedIpAddressTypes
 	}).(VpcEndpointServiceIpAddressTypeArrayOutput)
+}
+
+// The Regions from which service consumers can access the service.
+func (o LookupVpcEndpointServiceResultOutput) SupportedRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) []string { return v.SupportedRegions }).(pulumi.StringArrayOutput)
 }
 
 // The tags to add to the VPC endpoint service.

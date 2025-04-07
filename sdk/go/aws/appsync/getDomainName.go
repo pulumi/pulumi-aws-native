@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,8 +33,12 @@ type LookupDomainNameResult struct {
 	AppSyncDomainName *string `pulumi:"appSyncDomainName"`
 	// The decription for your domain name.
 	Description *string `pulumi:"description"`
+	// The Amazon Resource Name (ARN) for the Domain Name.
+	DomainNameArn *string `pulumi:"domainNameArn"`
 	// The ID of your Amazon Route 53 hosted zone.
 	HostedZoneId *string `pulumi:"hostedZoneId"`
+	// A set of tags (key-value pairs) for this domain name.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDomainNameOutput(ctx *pulumi.Context, args LookupDomainNameOutputArgs, opts ...pulumi.InvokeOption) LookupDomainNameResultOutput {
@@ -78,9 +83,19 @@ func (o LookupDomainNameResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the Domain Name.
+func (o LookupDomainNameResultOutput) DomainNameArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.DomainNameArn }).(pulumi.StringPtrOutput)
+}
+
 // The ID of your Amazon Route 53 hosted zone.
 func (o LookupDomainNameResultOutput) HostedZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
+}
+
+// A set of tags (key-value pairs) for this domain name.
+func (o LookupDomainNameResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

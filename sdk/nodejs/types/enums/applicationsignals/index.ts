@@ -3,12 +3,14 @@
 
 
 export const ServiceLevelObjectiveDurationUnit = {
+    Minute: "MINUTE",
+    Hour: "HOUR",
     Day: "DAY",
     Month: "MONTH",
 } as const;
 
 /**
- * Specifies the calendar interval unit.
+ * Specifies the interval unit.
  */
 export type ServiceLevelObjectiveDurationUnit = (typeof ServiceLevelObjectiveDurationUnit)[keyof typeof ServiceLevelObjectiveDurationUnit];
 

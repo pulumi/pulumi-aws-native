@@ -1059,6 +1059,36 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Enrichment type to be used for the vector database.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSourceContextEnrichmentType : IEquatable<DataSourceContextEnrichmentType>
+    {
+        private readonly string _value;
+
+        private DataSourceContextEnrichmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceContextEnrichmentType BedrockFoundationModel { get; } = new DataSourceContextEnrichmentType("BEDROCK_FOUNDATION_MODEL");
+
+        public static bool operator ==(DataSourceContextEnrichmentType left, DataSourceContextEnrichmentType right) => left.Equals(right);
+        public static bool operator !=(DataSourceContextEnrichmentType left, DataSourceContextEnrichmentType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceContextEnrichmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceContextEnrichmentType other && Equals(other);
+        public bool Equals(DataSourceContextEnrichmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The crawl filter type.
     /// </summary>
     [EnumType]
@@ -1112,6 +1142,36 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSourceDataDeletionPolicy other && Equals(other);
         public bool Equals(DataSourceDataDeletionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enrichment Strategy method.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSourceEnrichmentStrategyMethod : IEquatable<DataSourceEnrichmentStrategyMethod>
+    {
+        private readonly string _value;
+
+        private DataSourceEnrichmentStrategyMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceEnrichmentStrategyMethod ChunkEntityExtraction { get; } = new DataSourceEnrichmentStrategyMethod("CHUNK_ENTITY_EXTRACTION");
+
+        public static bool operator ==(DataSourceEnrichmentStrategyMethod left, DataSourceEnrichmentStrategyMethod right) => left.Equals(right);
+        public static bool operator !=(DataSourceEnrichmentStrategyMethod left, DataSourceEnrichmentStrategyMethod right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceEnrichmentStrategyMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceEnrichmentStrategyMethod other && Equals(other);
+        public bool Equals(DataSourceEnrichmentStrategyMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1224,6 +1284,7 @@ namespace Pulumi.AwsNative.Bedrock
         }
 
         public static DataSourceSharePointSourceConfigurationAuthType Oauth2ClientCredentials { get; } = new DataSourceSharePointSourceConfigurationAuthType("OAUTH2_CLIENT_CREDENTIALS");
+        public static DataSourceSharePointSourceConfigurationAuthType Oauth2SharepointAppOnlyClientCredentials { get; } = new DataSourceSharePointSourceConfigurationAuthType("OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS");
 
         public static bool operator ==(DataSourceSharePointSourceConfigurationAuthType left, DataSourceSharePointSourceConfigurationAuthType right) => left.Equals(right);
         public static bool operator !=(DataSourceSharePointSourceConfigurationAuthType left, DataSourceSharePointSourceConfigurationAuthType right) => !left.Equals(right);
@@ -1867,6 +1928,37 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Modality for filters
+    /// </summary>
+    [EnumType]
+    public readonly struct GuardrailModality : IEquatable<GuardrailModality>
+    {
+        private readonly string _value;
+
+        private GuardrailModality(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardrailModality Text { get; } = new GuardrailModality("TEXT");
+        public static GuardrailModality Image { get; } = new GuardrailModality("IMAGE");
+
+        public static bool operator ==(GuardrailModality left, GuardrailModality right) => left.Equals(right);
+        public static bool operator !=(GuardrailModality left, GuardrailModality right) => !left.Equals(right);
+
+        public static explicit operator string(GuardrailModality value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardrailModality other && Equals(other);
+        public bool Equals(GuardrailModality other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The currently supported PII entities
     /// </summary>
     [EnumType]
@@ -2291,6 +2383,7 @@ namespace Pulumi.AwsNative.Bedrock
         public static KnowledgeBaseStorageType Pinecone { get; } = new KnowledgeBaseStorageType("PINECONE");
         public static KnowledgeBaseStorageType Rds { get; } = new KnowledgeBaseStorageType("RDS");
         public static KnowledgeBaseStorageType MongoDbAtlas { get; } = new KnowledgeBaseStorageType("MONGO_DB_ATLAS");
+        public static KnowledgeBaseStorageType NeptuneAnalytics { get; } = new KnowledgeBaseStorageType("NEPTUNE_ANALYTICS");
 
         public static bool operator ==(KnowledgeBaseStorageType left, KnowledgeBaseStorageType right) => left.Equals(right);
         public static bool operator !=(KnowledgeBaseStorageType left, KnowledgeBaseStorageType right) => !left.Equals(right);

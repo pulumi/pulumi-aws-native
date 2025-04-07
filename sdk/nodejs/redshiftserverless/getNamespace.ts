@@ -67,6 +67,10 @@ export interface GetNamespaceResult {
      * The snapshot copy configurations for the namespace.
      */
     readonly snapshotCopyConfigurations?: outputs.redshiftserverless.NamespaceSnapshotCopyConfiguration[];
+    /**
+     * The list of tags for the namespace.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::RedshiftServerless::Namespace Resource Type

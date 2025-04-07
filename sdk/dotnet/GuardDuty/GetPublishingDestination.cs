@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.GuardDuty
     public static class GetPublishingDestination
     {
         /// <summary>
-        /// Resource Type definition for AWS::GuardDuty::PublishingDestination
+        /// Resource Type definition for AWS::GuardDuty::PublishingDestination.
         /// </summary>
         public static Task<GetPublishingDestinationResult> InvokeAsync(GetPublishingDestinationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublishingDestinationResult>("aws-native:guardduty:getPublishingDestination", args ?? new GetPublishingDestinationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::GuardDuty::PublishingDestination
+        /// Resource Type definition for AWS::GuardDuty::PublishingDestination.
         /// </summary>
         public static Output<GetPublishingDestinationResult> Invoke(GetPublishingDestinationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublishingDestinationResult>("aws-native:guardduty:getPublishingDestination", args ?? new GetPublishingDestinationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::GuardDuty::PublishingDestination
+        /// Resource Type definition for AWS::GuardDuty::PublishingDestination.
         /// </summary>
         public static Output<GetPublishingDestinationResult> Invoke(GetPublishingDestinationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublishingDestinationResult>("aws-native:guardduty:getPublishingDestination", args ?? new GetPublishingDestinationInvokeArgs(), options.WithDefaults());

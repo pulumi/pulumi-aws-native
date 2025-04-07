@@ -1142,9 +1142,9 @@ class DomainNodeConfig(dict):
                  enabled: Optional[bool] = None,
                  type: Optional[str] = None):
         """
-        :param int count: The number of nodes of a particular node type in the cluster.
-        :param bool enabled: A boolean that indicates whether a particular node type is enabled or not.
-        :param str type: The instance type of a particular node type in the cluster.
+        :param int count: The number of nodes of a specific type within the cluster.
+        :param bool enabled: A boolean value indicating whether a specific node type is active or inactive.
+        :param str type: The instance type of a particular node within the cluster.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -1157,7 +1157,7 @@ class DomainNodeConfig(dict):
     @pulumi.getter
     def count(self) -> Optional[int]:
         """
-        The number of nodes of a particular node type in the cluster.
+        The number of nodes of a specific type within the cluster.
         """
         return pulumi.get(self, "count")
 
@@ -1165,7 +1165,7 @@ class DomainNodeConfig(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        A boolean that indicates whether a particular node type is enabled or not.
+        A boolean value indicating whether a specific node type is active or inactive.
         """
         return pulumi.get(self, "enabled")
 
@@ -1173,7 +1173,7 @@ class DomainNodeConfig(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The instance type of a particular node type in the cluster.
+        The instance type of a particular node within the cluster.
         """
         return pulumi.get(self, "type")
 
@@ -1203,8 +1203,8 @@ class DomainNodeOption(dict):
                  node_config: Optional['outputs.DomainNodeConfig'] = None,
                  node_type: Optional['DomainNodeOptionNodeType'] = None):
         """
-        :param 'DomainNodeConfig' node_config: Container for specifying configuration of any node type.
-        :param 'DomainNodeOptionNodeType' node_type: Container for node type like coordinating.
+        :param 'DomainNodeConfig' node_config: Configuration options for defining the setup of any node type.
+        :param 'DomainNodeOptionNodeType' node_type: Defines the type of node, such as coordinating nodes.
         """
         if node_config is not None:
             pulumi.set(__self__, "node_config", node_config)
@@ -1215,7 +1215,7 @@ class DomainNodeOption(dict):
     @pulumi.getter(name="nodeConfig")
     def node_config(self) -> Optional['outputs.DomainNodeConfig']:
         """
-        Container for specifying configuration of any node type.
+        Configuration options for defining the setup of any node type.
         """
         return pulumi.get(self, "node_config")
 
@@ -1223,7 +1223,7 @@ class DomainNodeOption(dict):
     @pulumi.getter(name="nodeType")
     def node_type(self) -> Optional['DomainNodeOptionNodeType']:
         """
-        Container for node type like coordinating.
+        Defines the type of node, such as coordinating nodes.
         """
         return pulumi.get(self, "node_type")
 

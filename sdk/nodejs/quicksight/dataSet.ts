@@ -137,6 +137,10 @@ export class DataSet extends pulumi.CustomResource {
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The usage of the dataset.
+     */
+    public readonly useAs!: pulumi.Output<enums.quicksight.DataSetUseAs | undefined>;
 
     /**
      * Create a DataSet resource with the given unique name, arguments, and options.
@@ -168,6 +172,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["rowLevelPermissionDataSet"] = args ? args.rowLevelPermissionDataSet : undefined;
             resourceInputs["rowLevelPermissionTagConfiguration"] = args ? args.rowLevelPermissionTagConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["useAs"] = args ? args.useAs : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["consumedSpiceCapacityInBytes"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
@@ -198,6 +203,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["rowLevelPermissionDataSet"] = undefined /*out*/;
             resourceInputs["rowLevelPermissionTagConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["useAs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["awsAccountId", "dataSetId"] };
@@ -288,4 +294,8 @@ export interface DataSetArgs {
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The usage of the dataset.
+     */
+    useAs?: pulumi.Input<enums.quicksight.DataSetUseAs>;
 }

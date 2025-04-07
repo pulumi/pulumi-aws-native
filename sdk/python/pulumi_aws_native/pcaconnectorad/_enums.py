@@ -20,6 +20,9 @@ __all__ = [
 
 
 class ConnectorVpcInformationIpAddressType(str, Enum):
+    """
+    The VPC IP address type.
+    """
     IPV4 = "IPV4"
     DUALSTACK = "DUALSTACK"
 

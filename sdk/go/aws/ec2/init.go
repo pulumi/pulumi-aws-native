@@ -103,6 +103,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PrefixList{}
 	case "aws-native:ec2:Route":
 		r = &Route{}
+	case "aws-native:ec2:RouteServer":
+		r = &RouteServer{}
+	case "aws-native:ec2:RouteServerAssociation":
+		r = &RouteServerAssociation{}
+	case "aws-native:ec2:RouteServerEndpoint":
+		r = &RouteServerEndpoint{}
+	case "aws-native:ec2:RouteServerPeer":
+		r = &RouteServerPeer{}
+	case "aws-native:ec2:RouteServerPropagation":
+		r = &RouteServerPropagation{}
 	case "aws-native:ec2:RouteTable":
 		r = &RouteTable{}
 	case "aws-native:ec2:SecurityGroup":

@@ -34,6 +34,10 @@ type FlowOutputResource struct {
 	MinLatency pulumi.IntPtrOutput `pulumi:"minLatency"`
 	// The name of the output. This value must be unique within the current flow.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
+	NdiProgramName pulumi.StringPtrOutput `pulumi:"ndiProgramName"`
+	// A quality setting for the NDI Speed HQ encoder.
+	NdiSpeedHqQuality pulumi.IntPtrOutput `pulumi:"ndiSpeedHqQuality"`
 	// The ARN of the output.
 	OutputArn pulumi.StringOutput `pulumi:"outputArn"`
 	// An indication of whether the output should transmit data or not.
@@ -120,6 +124,10 @@ type flowOutputResourceArgs struct {
 	MinLatency *int `pulumi:"minLatency"`
 	// The name of the output. This value must be unique within the current flow.
 	Name *string `pulumi:"name"`
+	// A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
+	NdiProgramName *string `pulumi:"ndiProgramName"`
+	// A quality setting for the NDI Speed HQ encoder.
+	NdiSpeedHqQuality *int `pulumi:"ndiSpeedHqQuality"`
 	// An indication of whether the output should transmit data or not.
 	OutputStatus *FlowOutputOutputStatus `pulumi:"outputStatus"`
 	// The port to use when content is distributed to this output.
@@ -156,6 +164,10 @@ type FlowOutputResourceArgs struct {
 	MinLatency pulumi.IntPtrInput
 	// The name of the output. This value must be unique within the current flow.
 	Name pulumi.StringPtrInput
+	// A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
+	NdiProgramName pulumi.StringPtrInput
+	// A quality setting for the NDI Speed HQ encoder.
+	NdiSpeedHqQuality pulumi.IntPtrInput
 	// An indication of whether the output should transmit data or not.
 	OutputStatus FlowOutputOutputStatusPtrInput
 	// The port to use when content is distributed to this output.
@@ -254,6 +266,16 @@ func (o FlowOutputResourceOutput) MinLatency() pulumi.IntPtrOutput {
 // The name of the output. This value must be unique within the current flow.
 func (o FlowOutputResourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowOutputResource) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
+func (o FlowOutputResourceOutput) NdiProgramName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) pulumi.StringPtrOutput { return v.NdiProgramName }).(pulumi.StringPtrOutput)
+}
+
+// A quality setting for the NDI Speed HQ encoder.
+func (o FlowOutputResourceOutput) NdiSpeedHqQuality() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) pulumi.IntPtrOutput { return v.NdiSpeedHqQuality }).(pulumi.IntPtrOutput)
 }
 
 // The ARN of the output.

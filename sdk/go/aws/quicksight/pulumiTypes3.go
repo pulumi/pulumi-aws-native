@@ -13,6 +13,405 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateLocalNavigationConfiguration struct {
+	// The sheet that is targeted for navigation in the same analysis.
+	TargetSheetId string `pulumi:"targetSheetId"`
+}
+
+// TemplateLocalNavigationConfigurationInput is an input type that accepts TemplateLocalNavigationConfigurationArgs and TemplateLocalNavigationConfigurationOutput values.
+// You can construct a concrete instance of `TemplateLocalNavigationConfigurationInput` via:
+//
+//	TemplateLocalNavigationConfigurationArgs{...}
+type TemplateLocalNavigationConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateLocalNavigationConfigurationOutput() TemplateLocalNavigationConfigurationOutput
+	ToTemplateLocalNavigationConfigurationOutputWithContext(context.Context) TemplateLocalNavigationConfigurationOutput
+}
+
+type TemplateLocalNavigationConfigurationArgs struct {
+	// The sheet that is targeted for navigation in the same analysis.
+	TargetSheetId pulumi.StringInput `pulumi:"targetSheetId"`
+}
+
+func (TemplateLocalNavigationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateLocalNavigationConfiguration)(nil)).Elem()
+}
+
+func (i TemplateLocalNavigationConfigurationArgs) ToTemplateLocalNavigationConfigurationOutput() TemplateLocalNavigationConfigurationOutput {
+	return i.ToTemplateLocalNavigationConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateLocalNavigationConfigurationArgs) ToTemplateLocalNavigationConfigurationOutputWithContext(ctx context.Context) TemplateLocalNavigationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLocalNavigationConfigurationOutput)
+}
+
+func (i TemplateLocalNavigationConfigurationArgs) ToTemplateLocalNavigationConfigurationPtrOutput() TemplateLocalNavigationConfigurationPtrOutput {
+	return i.ToTemplateLocalNavigationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateLocalNavigationConfigurationArgs) ToTemplateLocalNavigationConfigurationPtrOutputWithContext(ctx context.Context) TemplateLocalNavigationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLocalNavigationConfigurationOutput).ToTemplateLocalNavigationConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateLocalNavigationConfigurationPtrInput is an input type that accepts TemplateLocalNavigationConfigurationArgs, TemplateLocalNavigationConfigurationPtr and TemplateLocalNavigationConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateLocalNavigationConfigurationPtrInput` via:
+//
+//	        TemplateLocalNavigationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateLocalNavigationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateLocalNavigationConfigurationPtrOutput() TemplateLocalNavigationConfigurationPtrOutput
+	ToTemplateLocalNavigationConfigurationPtrOutputWithContext(context.Context) TemplateLocalNavigationConfigurationPtrOutput
+}
+
+type templateLocalNavigationConfigurationPtrType TemplateLocalNavigationConfigurationArgs
+
+func TemplateLocalNavigationConfigurationPtr(v *TemplateLocalNavigationConfigurationArgs) TemplateLocalNavigationConfigurationPtrInput {
+	return (*templateLocalNavigationConfigurationPtrType)(v)
+}
+
+func (*templateLocalNavigationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateLocalNavigationConfiguration)(nil)).Elem()
+}
+
+func (i *templateLocalNavigationConfigurationPtrType) ToTemplateLocalNavigationConfigurationPtrOutput() TemplateLocalNavigationConfigurationPtrOutput {
+	return i.ToTemplateLocalNavigationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateLocalNavigationConfigurationPtrType) ToTemplateLocalNavigationConfigurationPtrOutputWithContext(ctx context.Context) TemplateLocalNavigationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLocalNavigationConfigurationPtrOutput)
+}
+
+type TemplateLocalNavigationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateLocalNavigationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateLocalNavigationConfiguration)(nil)).Elem()
+}
+
+func (o TemplateLocalNavigationConfigurationOutput) ToTemplateLocalNavigationConfigurationOutput() TemplateLocalNavigationConfigurationOutput {
+	return o
+}
+
+func (o TemplateLocalNavigationConfigurationOutput) ToTemplateLocalNavigationConfigurationOutputWithContext(ctx context.Context) TemplateLocalNavigationConfigurationOutput {
+	return o
+}
+
+func (o TemplateLocalNavigationConfigurationOutput) ToTemplateLocalNavigationConfigurationPtrOutput() TemplateLocalNavigationConfigurationPtrOutput {
+	return o.ToTemplateLocalNavigationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateLocalNavigationConfigurationOutput) ToTemplateLocalNavigationConfigurationPtrOutputWithContext(ctx context.Context) TemplateLocalNavigationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateLocalNavigationConfiguration) *TemplateLocalNavigationConfiguration {
+		return &v
+	}).(TemplateLocalNavigationConfigurationPtrOutput)
+}
+
+// The sheet that is targeted for navigation in the same analysis.
+func (o TemplateLocalNavigationConfigurationOutput) TargetSheetId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateLocalNavigationConfiguration) string { return v.TargetSheetId }).(pulumi.StringOutput)
+}
+
+type TemplateLocalNavigationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateLocalNavigationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateLocalNavigationConfiguration)(nil)).Elem()
+}
+
+func (o TemplateLocalNavigationConfigurationPtrOutput) ToTemplateLocalNavigationConfigurationPtrOutput() TemplateLocalNavigationConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateLocalNavigationConfigurationPtrOutput) ToTemplateLocalNavigationConfigurationPtrOutputWithContext(ctx context.Context) TemplateLocalNavigationConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateLocalNavigationConfigurationPtrOutput) Elem() TemplateLocalNavigationConfigurationOutput {
+	return o.ApplyT(func(v *TemplateLocalNavigationConfiguration) TemplateLocalNavigationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateLocalNavigationConfiguration
+		return ret
+	}).(TemplateLocalNavigationConfigurationOutput)
+}
+
+// The sheet that is targeted for navigation in the same analysis.
+func (o TemplateLocalNavigationConfigurationPtrOutput) TargetSheetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateLocalNavigationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetSheetId
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateLongFormatText struct {
+	// Plain text format.
+	PlainText *string `pulumi:"plainText"`
+	// Rich text. Examples of rich text include bold, underline, and italics.
+	RichText *string `pulumi:"richText"`
+}
+
+// TemplateLongFormatTextInput is an input type that accepts TemplateLongFormatTextArgs and TemplateLongFormatTextOutput values.
+// You can construct a concrete instance of `TemplateLongFormatTextInput` via:
+//
+//	TemplateLongFormatTextArgs{...}
+type TemplateLongFormatTextInput interface {
+	pulumi.Input
+
+	ToTemplateLongFormatTextOutput() TemplateLongFormatTextOutput
+	ToTemplateLongFormatTextOutputWithContext(context.Context) TemplateLongFormatTextOutput
+}
+
+type TemplateLongFormatTextArgs struct {
+	// Plain text format.
+	PlainText pulumi.StringPtrInput `pulumi:"plainText"`
+	// Rich text. Examples of rich text include bold, underline, and italics.
+	RichText pulumi.StringPtrInput `pulumi:"richText"`
+}
+
+func (TemplateLongFormatTextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateLongFormatText)(nil)).Elem()
+}
+
+func (i TemplateLongFormatTextArgs) ToTemplateLongFormatTextOutput() TemplateLongFormatTextOutput {
+	return i.ToTemplateLongFormatTextOutputWithContext(context.Background())
+}
+
+func (i TemplateLongFormatTextArgs) ToTemplateLongFormatTextOutputWithContext(ctx context.Context) TemplateLongFormatTextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLongFormatTextOutput)
+}
+
+func (i TemplateLongFormatTextArgs) ToTemplateLongFormatTextPtrOutput() TemplateLongFormatTextPtrOutput {
+	return i.ToTemplateLongFormatTextPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateLongFormatTextArgs) ToTemplateLongFormatTextPtrOutputWithContext(ctx context.Context) TemplateLongFormatTextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLongFormatTextOutput).ToTemplateLongFormatTextPtrOutputWithContext(ctx)
+}
+
+// TemplateLongFormatTextPtrInput is an input type that accepts TemplateLongFormatTextArgs, TemplateLongFormatTextPtr and TemplateLongFormatTextPtrOutput values.
+// You can construct a concrete instance of `TemplateLongFormatTextPtrInput` via:
+//
+//	        TemplateLongFormatTextArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateLongFormatTextPtrInput interface {
+	pulumi.Input
+
+	ToTemplateLongFormatTextPtrOutput() TemplateLongFormatTextPtrOutput
+	ToTemplateLongFormatTextPtrOutputWithContext(context.Context) TemplateLongFormatTextPtrOutput
+}
+
+type templateLongFormatTextPtrType TemplateLongFormatTextArgs
+
+func TemplateLongFormatTextPtr(v *TemplateLongFormatTextArgs) TemplateLongFormatTextPtrInput {
+	return (*templateLongFormatTextPtrType)(v)
+}
+
+func (*templateLongFormatTextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateLongFormatText)(nil)).Elem()
+}
+
+func (i *templateLongFormatTextPtrType) ToTemplateLongFormatTextPtrOutput() TemplateLongFormatTextPtrOutput {
+	return i.ToTemplateLongFormatTextPtrOutputWithContext(context.Background())
+}
+
+func (i *templateLongFormatTextPtrType) ToTemplateLongFormatTextPtrOutputWithContext(ctx context.Context) TemplateLongFormatTextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLongFormatTextPtrOutput)
+}
+
+type TemplateLongFormatTextOutput struct{ *pulumi.OutputState }
+
+func (TemplateLongFormatTextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateLongFormatText)(nil)).Elem()
+}
+
+func (o TemplateLongFormatTextOutput) ToTemplateLongFormatTextOutput() TemplateLongFormatTextOutput {
+	return o
+}
+
+func (o TemplateLongFormatTextOutput) ToTemplateLongFormatTextOutputWithContext(ctx context.Context) TemplateLongFormatTextOutput {
+	return o
+}
+
+func (o TemplateLongFormatTextOutput) ToTemplateLongFormatTextPtrOutput() TemplateLongFormatTextPtrOutput {
+	return o.ToTemplateLongFormatTextPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateLongFormatTextOutput) ToTemplateLongFormatTextPtrOutputWithContext(ctx context.Context) TemplateLongFormatTextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateLongFormatText) *TemplateLongFormatText {
+		return &v
+	}).(TemplateLongFormatTextPtrOutput)
+}
+
+// Plain text format.
+func (o TemplateLongFormatTextOutput) PlainText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateLongFormatText) *string { return v.PlainText }).(pulumi.StringPtrOutput)
+}
+
+// Rich text. Examples of rich text include bold, underline, and italics.
+func (o TemplateLongFormatTextOutput) RichText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateLongFormatText) *string { return v.RichText }).(pulumi.StringPtrOutput)
+}
+
+type TemplateLongFormatTextPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateLongFormatTextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateLongFormatText)(nil)).Elem()
+}
+
+func (o TemplateLongFormatTextPtrOutput) ToTemplateLongFormatTextPtrOutput() TemplateLongFormatTextPtrOutput {
+	return o
+}
+
+func (o TemplateLongFormatTextPtrOutput) ToTemplateLongFormatTextPtrOutputWithContext(ctx context.Context) TemplateLongFormatTextPtrOutput {
+	return o
+}
+
+func (o TemplateLongFormatTextPtrOutput) Elem() TemplateLongFormatTextOutput {
+	return o.ApplyT(func(v *TemplateLongFormatText) TemplateLongFormatText {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateLongFormatText
+		return ret
+	}).(TemplateLongFormatTextOutput)
+}
+
+// Plain text format.
+func (o TemplateLongFormatTextPtrOutput) PlainText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateLongFormatText) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PlainText
+	}).(pulumi.StringPtrOutput)
+}
+
+// Rich text. Examples of rich text include bold, underline, and italics.
+func (o TemplateLongFormatTextPtrOutput) RichText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateLongFormatText) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RichText
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateMappedDataSetParameter struct {
+	// A unique name that identifies a dataset within the analysis or dashboard.
+	DataSetIdentifier string `pulumi:"dataSetIdentifier"`
+	// The name of the dataset parameter.
+	DataSetParameterName string `pulumi:"dataSetParameterName"`
+}
+
+// TemplateMappedDataSetParameterInput is an input type that accepts TemplateMappedDataSetParameterArgs and TemplateMappedDataSetParameterOutput values.
+// You can construct a concrete instance of `TemplateMappedDataSetParameterInput` via:
+//
+//	TemplateMappedDataSetParameterArgs{...}
+type TemplateMappedDataSetParameterInput interface {
+	pulumi.Input
+
+	ToTemplateMappedDataSetParameterOutput() TemplateMappedDataSetParameterOutput
+	ToTemplateMappedDataSetParameterOutputWithContext(context.Context) TemplateMappedDataSetParameterOutput
+}
+
+type TemplateMappedDataSetParameterArgs struct {
+	// A unique name that identifies a dataset within the analysis or dashboard.
+	DataSetIdentifier pulumi.StringInput `pulumi:"dataSetIdentifier"`
+	// The name of the dataset parameter.
+	DataSetParameterName pulumi.StringInput `pulumi:"dataSetParameterName"`
+}
+
+func (TemplateMappedDataSetParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateMappedDataSetParameter)(nil)).Elem()
+}
+
+func (i TemplateMappedDataSetParameterArgs) ToTemplateMappedDataSetParameterOutput() TemplateMappedDataSetParameterOutput {
+	return i.ToTemplateMappedDataSetParameterOutputWithContext(context.Background())
+}
+
+func (i TemplateMappedDataSetParameterArgs) ToTemplateMappedDataSetParameterOutputWithContext(ctx context.Context) TemplateMappedDataSetParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMappedDataSetParameterOutput)
+}
+
+// TemplateMappedDataSetParameterArrayInput is an input type that accepts TemplateMappedDataSetParameterArray and TemplateMappedDataSetParameterArrayOutput values.
+// You can construct a concrete instance of `TemplateMappedDataSetParameterArrayInput` via:
+//
+//	TemplateMappedDataSetParameterArray{ TemplateMappedDataSetParameterArgs{...} }
+type TemplateMappedDataSetParameterArrayInput interface {
+	pulumi.Input
+
+	ToTemplateMappedDataSetParameterArrayOutput() TemplateMappedDataSetParameterArrayOutput
+	ToTemplateMappedDataSetParameterArrayOutputWithContext(context.Context) TemplateMappedDataSetParameterArrayOutput
+}
+
+type TemplateMappedDataSetParameterArray []TemplateMappedDataSetParameterInput
+
+func (TemplateMappedDataSetParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateMappedDataSetParameter)(nil)).Elem()
+}
+
+func (i TemplateMappedDataSetParameterArray) ToTemplateMappedDataSetParameterArrayOutput() TemplateMappedDataSetParameterArrayOutput {
+	return i.ToTemplateMappedDataSetParameterArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateMappedDataSetParameterArray) ToTemplateMappedDataSetParameterArrayOutputWithContext(ctx context.Context) TemplateMappedDataSetParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateMappedDataSetParameterArrayOutput)
+}
+
+type TemplateMappedDataSetParameterOutput struct{ *pulumi.OutputState }
+
+func (TemplateMappedDataSetParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateMappedDataSetParameter)(nil)).Elem()
+}
+
+func (o TemplateMappedDataSetParameterOutput) ToTemplateMappedDataSetParameterOutput() TemplateMappedDataSetParameterOutput {
+	return o
+}
+
+func (o TemplateMappedDataSetParameterOutput) ToTemplateMappedDataSetParameterOutputWithContext(ctx context.Context) TemplateMappedDataSetParameterOutput {
+	return o
+}
+
+// A unique name that identifies a dataset within the analysis or dashboard.
+func (o TemplateMappedDataSetParameterOutput) DataSetIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateMappedDataSetParameter) string { return v.DataSetIdentifier }).(pulumi.StringOutput)
+}
+
+// The name of the dataset parameter.
+func (o TemplateMappedDataSetParameterOutput) DataSetParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateMappedDataSetParameter) string { return v.DataSetParameterName }).(pulumi.StringOutput)
+}
+
+type TemplateMappedDataSetParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateMappedDataSetParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateMappedDataSetParameter)(nil)).Elem()
+}
+
+func (o TemplateMappedDataSetParameterArrayOutput) ToTemplateMappedDataSetParameterArrayOutput() TemplateMappedDataSetParameterArrayOutput {
+	return o
+}
+
+func (o TemplateMappedDataSetParameterArrayOutput) ToTemplateMappedDataSetParameterArrayOutputWithContext(ctx context.Context) TemplateMappedDataSetParameterArrayOutput {
+	return o
+}
+
+func (o TemplateMappedDataSetParameterArrayOutput) Index(i pulumi.IntInput) TemplateMappedDataSetParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateMappedDataSetParameter {
+		return vs[0].([]TemplateMappedDataSetParameter)[vs[1].(int)]
+	}).(TemplateMappedDataSetParameterOutput)
+}
+
 type TemplateMaximumLabelType struct {
 	// The visibility of the maximum label.
 	Visibility interface{} `pulumi:"visibility"`
@@ -48413,6 +48812,12 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLocalNavigationConfigurationInput)(nil)).Elem(), TemplateLocalNavigationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLocalNavigationConfigurationPtrInput)(nil)).Elem(), TemplateLocalNavigationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLongFormatTextInput)(nil)).Elem(), TemplateLongFormatTextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLongFormatTextPtrInput)(nil)).Elem(), TemplateLongFormatTextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMappedDataSetParameterInput)(nil)).Elem(), TemplateMappedDataSetParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMappedDataSetParameterArrayInput)(nil)).Elem(), TemplateMappedDataSetParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMaximumLabelTypeInput)(nil)).Elem(), TemplateMaximumLabelTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMaximumLabelTypePtrInput)(nil)).Elem(), TemplateMaximumLabelTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMaximumMinimumComputationInput)(nil)).Elem(), TemplateMaximumMinimumComputationArgs{})
@@ -48949,6 +49354,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateLocalNavigationConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateLocalNavigationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateLongFormatTextOutput{})
+	pulumi.RegisterOutputType(TemplateLongFormatTextPtrOutput{})
+	pulumi.RegisterOutputType(TemplateMappedDataSetParameterOutput{})
+	pulumi.RegisterOutputType(TemplateMappedDataSetParameterArrayOutput{})
 	pulumi.RegisterOutputType(TemplateMaximumLabelTypeOutput{})
 	pulumi.RegisterOutputType(TemplateMaximumLabelTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateMaximumMinimumComputationOutput{})

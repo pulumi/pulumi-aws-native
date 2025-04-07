@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,6 +33,8 @@ type LookupScheduleResult struct {
 	CronExpression *string `pulumi:"cronExpression"`
 	// A list of jobs to be run, according to the schedule.
 	JobNames []string `pulumi:"jobNames"`
+	// Metadata tags that have been applied to the schedule.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupScheduleOutput(ctx *pulumi.Context, args LookupScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupScheduleResultOutput {
@@ -74,6 +77,11 @@ func (o LookupScheduleResultOutput) CronExpression() pulumi.StringPtrOutput {
 // A list of jobs to be run, according to the schedule.
 func (o LookupScheduleResultOutput) JobNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupScheduleResult) []string { return v.JobNames }).(pulumi.StringArrayOutput)
+}
+
+// Metadata tags that have been applied to the schedule.
+func (o LookupScheduleResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupScheduleResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

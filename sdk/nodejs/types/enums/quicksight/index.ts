@@ -2124,6 +2124,17 @@ export const DataSetDatasetParameterValueType = {
 
 export type DataSetDatasetParameterValueType = (typeof DataSetDatasetParameterValueType)[keyof typeof DataSetDatasetParameterValueType];
 
+export const DataSetFileFormat = {
+    Csv: "CSV",
+    Tsv: "TSV",
+    Clf: "CLF",
+    Elf: "ELF",
+    Xlsx: "XLSX",
+    Json: "JSON",
+} as const;
+
+export type DataSetFileFormat = (typeof DataSetFileFormat)[keyof typeof DataSetFileFormat];
+
 export const DataSetGeoSpatialCountryCode = {
     Us: "US",
 } as const;
@@ -2182,6 +2193,13 @@ export const DataSetLookbackWindowSizeUnit = {
 
 export type DataSetLookbackWindowSizeUnit = (typeof DataSetLookbackWindowSizeUnit)[keyof typeof DataSetLookbackWindowSizeUnit];
 
+export const DataSetRefreshFailureAlertStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type DataSetRefreshFailureAlertStatus = (typeof DataSetRefreshFailureAlertStatus)[keyof typeof DataSetRefreshFailureAlertStatus];
+
 export const DataSetRowLevelPermissionFormatVersion = {
     Version1: "VERSION_1",
     Version2: "VERSION_2",
@@ -2203,6 +2221,13 @@ export const DataSetStatus = {
 
 export type DataSetStatus = (typeof DataSetStatus)[keyof typeof DataSetStatus];
 
+export const DataSetTextQualifier = {
+    DoubleQuote: "DOUBLE_QUOTE",
+    SingleQuote: "SINGLE_QUOTE",
+} as const;
+
+export type DataSetTextQualifier = (typeof DataSetTextQualifier)[keyof typeof DataSetTextQualifier];
+
 export const DataSetTimeGranularity = {
     Year: "YEAR",
     Quarter: "QUARTER",
@@ -2216,6 +2241,12 @@ export const DataSetTimeGranularity = {
 } as const;
 
 export type DataSetTimeGranularity = (typeof DataSetTimeGranularity)[keyof typeof DataSetTimeGranularity];
+
+export const DataSetUseAs = {
+    RlsRules: "RLS_RULES",
+} as const;
+
+export type DataSetUseAs = (typeof DataSetUseAs)[keyof typeof DataSetUseAs];
 
 export const DataSourceAuthenticationType = {
     Password: "PASSWORD",

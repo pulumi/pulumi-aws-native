@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:neptune:DbCluster":
 		r = &DbCluster{}
+	case "aws-native:neptune:DbSubnetGroup":
+		r = &DbSubnetGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

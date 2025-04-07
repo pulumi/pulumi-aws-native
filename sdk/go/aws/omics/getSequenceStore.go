@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Omics::SequenceStore Resource Type
+// Resource Type definition for AWS::Omics::SequenceStore
 func LookupSequenceStore(ctx *pulumi.Context, args *LookupSequenceStoreArgs, opts ...pulumi.InvokeOption) (*LookupSequenceStoreResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSequenceStoreResult
@@ -28,12 +28,38 @@ type LookupSequenceStoreArgs struct {
 }
 
 type LookupSequenceStoreResult struct {
+	// Location of the access logs.
+	AccessLogLocation *string `pulumi:"accessLogLocation"`
 	// The store's ARN.
 	Arn *string `pulumi:"arn"`
 	// When the store was created.
 	CreationTime *string `pulumi:"creationTime"`
+	// A description for the store.
+	Description *string `pulumi:"description"`
+	// An S3 location that is used to store files that have failed a direct upload.
+	FallbackLocation *string `pulumi:"fallbackLocation"`
+	// A name for the store.
+	Name *string `pulumi:"name"`
+	// The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+	PropagatedSetLevelTags []string `pulumi:"propagatedSetLevelTags"`
+	// This is ARN of the access point associated with the S3 bucket storing read sets.
+	S3AccessPointArn *string `pulumi:"s3AccessPointArn"`
+	// The resource policy that controls S3 access on the store
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Omics::SequenceStore` for more information about the expected schema for this property.
+	S3AccessPolicy interface{} `pulumi:"s3AccessPolicy"`
+	// The S3 URI of the sequence store.
+	S3Uri *string `pulumi:"s3Uri"`
 	// The store's ID.
 	SequenceStoreId *string `pulumi:"sequenceStoreId"`
+	// Status of the sequence store.
+	Status *SequenceStoreStatus `pulumi:"status"`
+	// The status message of the sequence store.
+	StatusMessage *string `pulumi:"statusMessage"`
+	// Tags for the store.
+	Tags map[string]string `pulumi:"tags"`
+	// The last-updated time of the sequence store.
+	UpdateTime *string `pulumi:"updateTime"`
 }
 
 func LookupSequenceStoreOutput(ctx *pulumi.Context, args LookupSequenceStoreOutputArgs, opts ...pulumi.InvokeOption) LookupSequenceStoreResultOutput {
@@ -68,6 +94,11 @@ func (o LookupSequenceStoreResultOutput) ToLookupSequenceStoreResultOutputWithCo
 	return o
 }
 
+// Location of the access logs.
+func (o LookupSequenceStoreResultOutput) AccessLogLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSequenceStoreResult) *string { return v.AccessLogLocation }).(pulumi.StringPtrOutput)
+}
+
 // The store's ARN.
 func (o LookupSequenceStoreResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSequenceStoreResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
@@ -78,9 +109,66 @@ func (o LookupSequenceStoreResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSequenceStoreResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// A description for the store.
+func (o LookupSequenceStoreResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSequenceStoreResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// An S3 location that is used to store files that have failed a direct upload.
+func (o LookupSequenceStoreResultOutput) FallbackLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSequenceStoreResult) *string { return v.FallbackLocation }).(pulumi.StringPtrOutput)
+}
+
+// A name for the store.
+func (o LookupSequenceStoreResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSequenceStoreResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
+func (o LookupSequenceStoreResultOutput) PropagatedSetLevelTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSequenceStoreResult) []string { return v.PropagatedSetLevelTags }).(pulumi.StringArrayOutput)
+}
+
+// This is ARN of the access point associated with the S3 bucket storing read sets.
+func (o LookupSequenceStoreResultOutput) S3AccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSequenceStoreResult) *string { return v.S3AccessPointArn }).(pulumi.StringPtrOutput)
+}
+
+// The resource policy that controls S3 access on the store
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Omics::SequenceStore` for more information about the expected schema for this property.
+func (o LookupSequenceStoreResultOutput) S3AccessPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupSequenceStoreResult) interface{} { return v.S3AccessPolicy }).(pulumi.AnyOutput)
+}
+
+// The S3 URI of the sequence store.
+func (o LookupSequenceStoreResultOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSequenceStoreResult) *string { return v.S3Uri }).(pulumi.StringPtrOutput)
+}
+
 // The store's ID.
 func (o LookupSequenceStoreResultOutput) SequenceStoreId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSequenceStoreResult) *string { return v.SequenceStoreId }).(pulumi.StringPtrOutput)
+}
+
+// Status of the sequence store.
+func (o LookupSequenceStoreResultOutput) Status() SequenceStoreStatusPtrOutput {
+	return o.ApplyT(func(v LookupSequenceStoreResult) *SequenceStoreStatus { return v.Status }).(SequenceStoreStatusPtrOutput)
+}
+
+// The status message of the sequence store.
+func (o LookupSequenceStoreResultOutput) StatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSequenceStoreResult) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
+}
+
+// Tags for the store.
+func (o LookupSequenceStoreResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSequenceStoreResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The last-updated time of the sequence store.
+func (o LookupSequenceStoreResultOutput) UpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSequenceStoreResult) *string { return v.UpdateTime }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -153,6 +153,7 @@ class SubnetGroup(pulumi.CustomResource):
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["supported_network_types"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["subnetGroupName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SubnetGroup, __self__).__init__(
@@ -181,6 +182,7 @@ class SubnetGroup(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["subnet_group_name"] = None
         __props__.__dict__["subnet_ids"] = None
+        __props__.__dict__["supported_network_types"] = None
         __props__.__dict__["tags"] = None
         return SubnetGroup(resource_name, opts=opts, __props__=__props__)
 
@@ -215,6 +217,14 @@ class SubnetGroup(pulumi.CustomResource):
         A list of VPC subnet IDs for the subnet group.
         """
         return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="supportedNetworkTypes")
+    def supported_network_types(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Supported network types would be a list of network types supported by subnet group and can be either [ipv4] or [ipv4, dual_stack] or [ipv6].
+        """
+        return pulumi.get(self, "supported_network_types")
 
     @property
     @pulumi.getter

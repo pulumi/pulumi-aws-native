@@ -1875,6 +1875,370 @@ func (o BotAudioSpecificationPtrOutput) MaxLengthMs() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Contains information about the Amazon Bedrock model used to interpret the prompt used in descriptive bot building.
+type BotBedrockModelSpecification struct {
+	// The guardrail configuration in the Bedrock model specification details.
+	BedrockGuardrailConfiguration *BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties `pulumi:"bedrockGuardrailConfiguration"`
+	// The custom prompt used in the Bedrock model specification details.
+	BedrockModelCustomPrompt *string `pulumi:"bedrockModelCustomPrompt"`
+	// The Bedrock trace status in the Bedrock model specification details.
+	BedrockTraceStatus *BotBedrockModelSpecificationBedrockTraceStatus `pulumi:"bedrockTraceStatus"`
+	// The ARN of the foundation model used in descriptive bot building.
+	ModelArn string `pulumi:"modelArn"`
+}
+
+// BotBedrockModelSpecificationInput is an input type that accepts BotBedrockModelSpecificationArgs and BotBedrockModelSpecificationOutput values.
+// You can construct a concrete instance of `BotBedrockModelSpecificationInput` via:
+//
+//	BotBedrockModelSpecificationArgs{...}
+type BotBedrockModelSpecificationInput interface {
+	pulumi.Input
+
+	ToBotBedrockModelSpecificationOutput() BotBedrockModelSpecificationOutput
+	ToBotBedrockModelSpecificationOutputWithContext(context.Context) BotBedrockModelSpecificationOutput
+}
+
+// Contains information about the Amazon Bedrock model used to interpret the prompt used in descriptive bot building.
+type BotBedrockModelSpecificationArgs struct {
+	// The guardrail configuration in the Bedrock model specification details.
+	BedrockGuardrailConfiguration BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrInput `pulumi:"bedrockGuardrailConfiguration"`
+	// The custom prompt used in the Bedrock model specification details.
+	BedrockModelCustomPrompt pulumi.StringPtrInput `pulumi:"bedrockModelCustomPrompt"`
+	// The Bedrock trace status in the Bedrock model specification details.
+	BedrockTraceStatus BotBedrockModelSpecificationBedrockTraceStatusPtrInput `pulumi:"bedrockTraceStatus"`
+	// The ARN of the foundation model used in descriptive bot building.
+	ModelArn pulumi.StringInput `pulumi:"modelArn"`
+}
+
+func (BotBedrockModelSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotBedrockModelSpecification)(nil)).Elem()
+}
+
+func (i BotBedrockModelSpecificationArgs) ToBotBedrockModelSpecificationOutput() BotBedrockModelSpecificationOutput {
+	return i.ToBotBedrockModelSpecificationOutputWithContext(context.Background())
+}
+
+func (i BotBedrockModelSpecificationArgs) ToBotBedrockModelSpecificationOutputWithContext(ctx context.Context) BotBedrockModelSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotBedrockModelSpecificationOutput)
+}
+
+func (i BotBedrockModelSpecificationArgs) ToBotBedrockModelSpecificationPtrOutput() BotBedrockModelSpecificationPtrOutput {
+	return i.ToBotBedrockModelSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i BotBedrockModelSpecificationArgs) ToBotBedrockModelSpecificationPtrOutputWithContext(ctx context.Context) BotBedrockModelSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotBedrockModelSpecificationOutput).ToBotBedrockModelSpecificationPtrOutputWithContext(ctx)
+}
+
+// BotBedrockModelSpecificationPtrInput is an input type that accepts BotBedrockModelSpecificationArgs, BotBedrockModelSpecificationPtr and BotBedrockModelSpecificationPtrOutput values.
+// You can construct a concrete instance of `BotBedrockModelSpecificationPtrInput` via:
+//
+//	        BotBedrockModelSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotBedrockModelSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToBotBedrockModelSpecificationPtrOutput() BotBedrockModelSpecificationPtrOutput
+	ToBotBedrockModelSpecificationPtrOutputWithContext(context.Context) BotBedrockModelSpecificationPtrOutput
+}
+
+type botBedrockModelSpecificationPtrType BotBedrockModelSpecificationArgs
+
+func BotBedrockModelSpecificationPtr(v *BotBedrockModelSpecificationArgs) BotBedrockModelSpecificationPtrInput {
+	return (*botBedrockModelSpecificationPtrType)(v)
+}
+
+func (*botBedrockModelSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotBedrockModelSpecification)(nil)).Elem()
+}
+
+func (i *botBedrockModelSpecificationPtrType) ToBotBedrockModelSpecificationPtrOutput() BotBedrockModelSpecificationPtrOutput {
+	return i.ToBotBedrockModelSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *botBedrockModelSpecificationPtrType) ToBotBedrockModelSpecificationPtrOutputWithContext(ctx context.Context) BotBedrockModelSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotBedrockModelSpecificationPtrOutput)
+}
+
+// Contains information about the Amazon Bedrock model used to interpret the prompt used in descriptive bot building.
+type BotBedrockModelSpecificationOutput struct{ *pulumi.OutputState }
+
+func (BotBedrockModelSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotBedrockModelSpecification)(nil)).Elem()
+}
+
+func (o BotBedrockModelSpecificationOutput) ToBotBedrockModelSpecificationOutput() BotBedrockModelSpecificationOutput {
+	return o
+}
+
+func (o BotBedrockModelSpecificationOutput) ToBotBedrockModelSpecificationOutputWithContext(ctx context.Context) BotBedrockModelSpecificationOutput {
+	return o
+}
+
+func (o BotBedrockModelSpecificationOutput) ToBotBedrockModelSpecificationPtrOutput() BotBedrockModelSpecificationPtrOutput {
+	return o.ToBotBedrockModelSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o BotBedrockModelSpecificationOutput) ToBotBedrockModelSpecificationPtrOutputWithContext(ctx context.Context) BotBedrockModelSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotBedrockModelSpecification) *BotBedrockModelSpecification {
+		return &v
+	}).(BotBedrockModelSpecificationPtrOutput)
+}
+
+// The guardrail configuration in the Bedrock model specification details.
+func (o BotBedrockModelSpecificationOutput) BedrockGuardrailConfiguration() BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v BotBedrockModelSpecification) *BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties {
+		return v.BedrockGuardrailConfiguration
+	}).(BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput)
+}
+
+// The custom prompt used in the Bedrock model specification details.
+func (o BotBedrockModelSpecificationOutput) BedrockModelCustomPrompt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotBedrockModelSpecification) *string { return v.BedrockModelCustomPrompt }).(pulumi.StringPtrOutput)
+}
+
+// The Bedrock trace status in the Bedrock model specification details.
+func (o BotBedrockModelSpecificationOutput) BedrockTraceStatus() BotBedrockModelSpecificationBedrockTraceStatusPtrOutput {
+	return o.ApplyT(func(v BotBedrockModelSpecification) *BotBedrockModelSpecificationBedrockTraceStatus {
+		return v.BedrockTraceStatus
+	}).(BotBedrockModelSpecificationBedrockTraceStatusPtrOutput)
+}
+
+// The ARN of the foundation model used in descriptive bot building.
+func (o BotBedrockModelSpecificationOutput) ModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v BotBedrockModelSpecification) string { return v.ModelArn }).(pulumi.StringOutput)
+}
+
+type BotBedrockModelSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (BotBedrockModelSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotBedrockModelSpecification)(nil)).Elem()
+}
+
+func (o BotBedrockModelSpecificationPtrOutput) ToBotBedrockModelSpecificationPtrOutput() BotBedrockModelSpecificationPtrOutput {
+	return o
+}
+
+func (o BotBedrockModelSpecificationPtrOutput) ToBotBedrockModelSpecificationPtrOutputWithContext(ctx context.Context) BotBedrockModelSpecificationPtrOutput {
+	return o
+}
+
+func (o BotBedrockModelSpecificationPtrOutput) Elem() BotBedrockModelSpecificationOutput {
+	return o.ApplyT(func(v *BotBedrockModelSpecification) BotBedrockModelSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret BotBedrockModelSpecification
+		return ret
+	}).(BotBedrockModelSpecificationOutput)
+}
+
+// The guardrail configuration in the Bedrock model specification details.
+func (o BotBedrockModelSpecificationPtrOutput) BedrockGuardrailConfiguration() BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotBedrockModelSpecification) *BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockGuardrailConfiguration
+	}).(BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput)
+}
+
+// The custom prompt used in the Bedrock model specification details.
+func (o BotBedrockModelSpecificationPtrOutput) BedrockModelCustomPrompt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotBedrockModelSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockModelCustomPrompt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Bedrock trace status in the Bedrock model specification details.
+func (o BotBedrockModelSpecificationPtrOutput) BedrockTraceStatus() BotBedrockModelSpecificationBedrockTraceStatusPtrOutput {
+	return o.ApplyT(func(v *BotBedrockModelSpecification) *BotBedrockModelSpecificationBedrockTraceStatus {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockTraceStatus
+	}).(BotBedrockModelSpecificationBedrockTraceStatusPtrOutput)
+}
+
+// The ARN of the foundation model used in descriptive bot building.
+func (o BotBedrockModelSpecificationPtrOutput) ModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotBedrockModelSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The guardrail configuration in the Bedrock model specification details.
+type BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties struct {
+	// The unique guardrail id for the Bedrock guardrail configuration.
+	BedrockGuardrailIdentifier *string `pulumi:"bedrockGuardrailIdentifier"`
+	// The guardrail version for the Bedrock guardrail configuration.
+	BedrockGuardrailVersion *string `pulumi:"bedrockGuardrailVersion"`
+}
+
+// BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesInput is an input type that accepts BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs and BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesInput` via:
+//
+//	BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs{...}
+type BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput() BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput
+	ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutputWithContext(context.Context) BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput
+}
+
+// The guardrail configuration in the Bedrock model specification details.
+type BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs struct {
+	// The unique guardrail id for the Bedrock guardrail configuration.
+	BedrockGuardrailIdentifier pulumi.StringPtrInput `pulumi:"bedrockGuardrailIdentifier"`
+	// The guardrail version for the Bedrock guardrail configuration.
+	BedrockGuardrailVersion pulumi.StringPtrInput `pulumi:"bedrockGuardrailVersion"`
+}
+
+func (BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties)(nil)).Elem()
+}
+
+func (i BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs) ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput() BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput {
+	return i.ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs) ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutputWithContext(ctx context.Context) BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput)
+}
+
+func (i BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs) ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput() BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput {
+	return i.ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs) ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput).ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrInput is an input type that accepts BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs, BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtr and BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrInput` via:
+//
+//	        BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput() BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput
+	ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutputWithContext(context.Context) BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput
+}
+
+type botBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrType BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs
+
+func BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtr(v *BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs) BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrInput {
+	return (*botBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrType)(v)
+}
+
+func (*botBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties)(nil)).Elem()
+}
+
+func (i *botBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrType) ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput() BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput {
+	return i.ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *botBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrType) ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput)
+}
+
+// The guardrail configuration in the Bedrock model specification details.
+type BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties)(nil)).Elem()
+}
+
+func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput) ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput() BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput {
+	return o
+}
+
+func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput) ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutputWithContext(ctx context.Context) BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput {
+	return o
+}
+
+func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput) ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput() BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput {
+	return o.ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput) ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties) *BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties {
+		return &v
+	}).(BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput)
+}
+
+// The unique guardrail id for the Bedrock guardrail configuration.
+func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput) BedrockGuardrailIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties) *string {
+		return v.BedrockGuardrailIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The guardrail version for the Bedrock guardrail configuration.
+func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput) BedrockGuardrailVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties) *string {
+		return v.BedrockGuardrailVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties)(nil)).Elem()
+}
+
+func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput) ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput() BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput) ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput) Elem() BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties) BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties
+		return ret
+	}).(BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput)
+}
+
+// The unique guardrail id for the Bedrock guardrail configuration.
+func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput) BedrockGuardrailIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockGuardrailIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The guardrail version for the Bedrock guardrail configuration.
+func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput) BedrockGuardrailVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockGuardrailVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 // A button to use on a response card used to gather slot values from a user.
 type BotButton struct {
 	// The text that appears on the button.
@@ -5910,7 +6274,8 @@ type BotIntent struct {
 	// A list of contexts that the intent activates when it is fulfilled.
 	OutputContexts []BotOutputContext `pulumi:"outputContexts"`
 	// A unique identifier for the built-in intent to base this intent on.
-	ParentIntentSignature *string `pulumi:"parentIntentSignature"`
+	ParentIntentSignature  *string                    `pulumi:"parentIntentSignature"`
+	QnAIntentConfiguration *BotQnAIntentConfiguration `pulumi:"qnAIntentConfiguration"`
 	// A sample utterance that invokes an intent or respond to a slot elicitation prompt.
 	SampleUtterances []BotSampleUtterance `pulumi:"sampleUtterances"`
 	// Indicates the priority for slots. Amazon Lex prompts the user for slot values in priority order.
@@ -5953,7 +6318,8 @@ type BotIntentArgs struct {
 	// A list of contexts that the intent activates when it is fulfilled.
 	OutputContexts BotOutputContextArrayInput `pulumi:"outputContexts"`
 	// A unique identifier for the built-in intent to base this intent on.
-	ParentIntentSignature pulumi.StringPtrInput `pulumi:"parentIntentSignature"`
+	ParentIntentSignature  pulumi.StringPtrInput             `pulumi:"parentIntentSignature"`
+	QnAIntentConfiguration BotQnAIntentConfigurationPtrInput `pulumi:"qnAIntentConfiguration"`
 	// A sample utterance that invokes an intent or respond to a slot elicitation prompt.
 	SampleUtterances BotSampleUtteranceArrayInput `pulumi:"sampleUtterances"`
 	// Indicates the priority for slots. Amazon Lex prompts the user for slot values in priority order.
@@ -6067,6 +6433,10 @@ func (o BotIntentOutput) OutputContexts() BotOutputContextArrayOutput {
 // A unique identifier for the built-in intent to base this intent on.
 func (o BotIntentOutput) ParentIntentSignature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotIntent) *string { return v.ParentIntentSignature }).(pulumi.StringPtrOutput)
+}
+
+func (o BotIntentOutput) QnAIntentConfiguration() BotQnAIntentConfigurationPtrOutput {
+	return o.ApplyT(func(v BotIntent) *BotQnAIntentConfiguration { return v.QnAIntentConfiguration }).(BotQnAIntentConfigurationPtrOutput)
 }
 
 // A sample utterance that invokes an intent or respond to a slot elicitation prompt.
@@ -8897,6 +9267,1255 @@ func (o BotPromptSpecificationPtrOutput) PromptAttemptsSpecification() BotPrompt
 		}
 		return v.PromptAttemptsSpecification
 	}).(BotPromptAttemptSpecificationMapOutput)
+}
+
+// Details about the the configuration of the built-in Amazon.QnAIntent.
+type BotQnAIntentConfiguration struct {
+	BedrockModelConfiguration BotBedrockModelSpecification `pulumi:"bedrockModelConfiguration"`
+	// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+	DataSourceConfiguration BotQnAIntentConfigurationDataSourceConfigurationProperties `pulumi:"dataSourceConfiguration"`
+}
+
+// BotQnAIntentConfigurationInput is an input type that accepts BotQnAIntentConfigurationArgs and BotQnAIntentConfigurationOutput values.
+// You can construct a concrete instance of `BotQnAIntentConfigurationInput` via:
+//
+//	BotQnAIntentConfigurationArgs{...}
+type BotQnAIntentConfigurationInput interface {
+	pulumi.Input
+
+	ToBotQnAIntentConfigurationOutput() BotQnAIntentConfigurationOutput
+	ToBotQnAIntentConfigurationOutputWithContext(context.Context) BotQnAIntentConfigurationOutput
+}
+
+// Details about the the configuration of the built-in Amazon.QnAIntent.
+type BotQnAIntentConfigurationArgs struct {
+	BedrockModelConfiguration BotBedrockModelSpecificationInput `pulumi:"bedrockModelConfiguration"`
+	// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+	DataSourceConfiguration BotQnAIntentConfigurationDataSourceConfigurationPropertiesInput `pulumi:"dataSourceConfiguration"`
+}
+
+func (BotQnAIntentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQnAIntentConfiguration)(nil)).Elem()
+}
+
+func (i BotQnAIntentConfigurationArgs) ToBotQnAIntentConfigurationOutput() BotQnAIntentConfigurationOutput {
+	return i.ToBotQnAIntentConfigurationOutputWithContext(context.Background())
+}
+
+func (i BotQnAIntentConfigurationArgs) ToBotQnAIntentConfigurationOutputWithContext(ctx context.Context) BotQnAIntentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationOutput)
+}
+
+func (i BotQnAIntentConfigurationArgs) ToBotQnAIntentConfigurationPtrOutput() BotQnAIntentConfigurationPtrOutput {
+	return i.ToBotQnAIntentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i BotQnAIntentConfigurationArgs) ToBotQnAIntentConfigurationPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationOutput).ToBotQnAIntentConfigurationPtrOutputWithContext(ctx)
+}
+
+// BotQnAIntentConfigurationPtrInput is an input type that accepts BotQnAIntentConfigurationArgs, BotQnAIntentConfigurationPtr and BotQnAIntentConfigurationPtrOutput values.
+// You can construct a concrete instance of `BotQnAIntentConfigurationPtrInput` via:
+//
+//	        BotQnAIntentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotQnAIntentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBotQnAIntentConfigurationPtrOutput() BotQnAIntentConfigurationPtrOutput
+	ToBotQnAIntentConfigurationPtrOutputWithContext(context.Context) BotQnAIntentConfigurationPtrOutput
+}
+
+type botQnAIntentConfigurationPtrType BotQnAIntentConfigurationArgs
+
+func BotQnAIntentConfigurationPtr(v *BotQnAIntentConfigurationArgs) BotQnAIntentConfigurationPtrInput {
+	return (*botQnAIntentConfigurationPtrType)(v)
+}
+
+func (*botQnAIntentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQnAIntentConfiguration)(nil)).Elem()
+}
+
+func (i *botQnAIntentConfigurationPtrType) ToBotQnAIntentConfigurationPtrOutput() BotQnAIntentConfigurationPtrOutput {
+	return i.ToBotQnAIntentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *botQnAIntentConfigurationPtrType) ToBotQnAIntentConfigurationPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationPtrOutput)
+}
+
+// Details about the the configuration of the built-in Amazon.QnAIntent.
+type BotQnAIntentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BotQnAIntentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQnAIntentConfiguration)(nil)).Elem()
+}
+
+func (o BotQnAIntentConfigurationOutput) ToBotQnAIntentConfigurationOutput() BotQnAIntentConfigurationOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationOutput) ToBotQnAIntentConfigurationOutputWithContext(ctx context.Context) BotQnAIntentConfigurationOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationOutput) ToBotQnAIntentConfigurationPtrOutput() BotQnAIntentConfigurationPtrOutput {
+	return o.ToBotQnAIntentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BotQnAIntentConfigurationOutput) ToBotQnAIntentConfigurationPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotQnAIntentConfiguration) *BotQnAIntentConfiguration {
+		return &v
+	}).(BotQnAIntentConfigurationPtrOutput)
+}
+
+func (o BotQnAIntentConfigurationOutput) BedrockModelConfiguration() BotBedrockModelSpecificationOutput {
+	return o.ApplyT(func(v BotQnAIntentConfiguration) BotBedrockModelSpecification { return v.BedrockModelConfiguration }).(BotBedrockModelSpecificationOutput)
+}
+
+// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+func (o BotQnAIntentConfigurationOutput) DataSourceConfiguration() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput {
+	return o.ApplyT(func(v BotQnAIntentConfiguration) BotQnAIntentConfigurationDataSourceConfigurationProperties {
+		return v.DataSourceConfiguration
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput)
+}
+
+type BotQnAIntentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (BotQnAIntentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQnAIntentConfiguration)(nil)).Elem()
+}
+
+func (o BotQnAIntentConfigurationPtrOutput) ToBotQnAIntentConfigurationPtrOutput() BotQnAIntentConfigurationPtrOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationPtrOutput) ToBotQnAIntentConfigurationPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationPtrOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationPtrOutput) Elem() BotQnAIntentConfigurationOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfiguration) BotQnAIntentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BotQnAIntentConfiguration
+		return ret
+	}).(BotQnAIntentConfigurationOutput)
+}
+
+func (o BotQnAIntentConfigurationPtrOutput) BedrockModelConfiguration() BotBedrockModelSpecificationPtrOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfiguration) *BotBedrockModelSpecification {
+		if v == nil {
+			return nil
+		}
+		return &v.BedrockModelConfiguration
+	}).(BotBedrockModelSpecificationPtrOutput)
+}
+
+// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+func (o BotQnAIntentConfigurationPtrOutput) DataSourceConfiguration() BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfiguration) *BotQnAIntentConfigurationDataSourceConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSourceConfiguration
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput)
+}
+
+// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+type BotQnAIntentConfigurationDataSourceConfigurationProperties struct {
+	// Contains details about the configuration of a Amazon Bedrock knowledge base.
+	BedrockKnowledgeStoreConfiguration *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties `pulumi:"bedrockKnowledgeStoreConfiguration"`
+	KendraConfiguration                *BotQnAKendraConfiguration                                                                              `pulumi:"kendraConfiguration"`
+	// Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
+	OpensearchConfiguration *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties `pulumi:"opensearchConfiguration"`
+}
+
+// BotQnAIntentConfigurationDataSourceConfigurationPropertiesInput is an input type that accepts BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs and BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `BotQnAIntentConfigurationDataSourceConfigurationPropertiesInput` via:
+//
+//	BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs{...}
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOutputWithContext(context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput
+}
+
+// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs struct {
+	// Contains details about the configuration of a Amazon Bedrock knowledge base.
+	BedrockKnowledgeStoreConfiguration BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrInput `pulumi:"bedrockKnowledgeStoreConfiguration"`
+	KendraConfiguration                BotQnAKendraConfigurationPtrInput                                                                              `pulumi:"kendraConfiguration"`
+	// Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
+	OpensearchConfiguration BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrInput `pulumi:"opensearchConfiguration"`
+}
+
+func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationProperties)(nil)).Elem()
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput {
+	return i.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput)
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput {
+	return i.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput).ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrInput is an input type that accepts BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs, BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtr and BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrInput` via:
+//
+//	        BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutputWithContext(context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput
+}
+
+type botQnAIntentConfigurationDataSourceConfigurationPropertiesPtrType BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs
+
+func BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtr(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs) BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrInput {
+	return (*botQnAIntentConfigurationDataSourceConfigurationPropertiesPtrType)(v)
+}
+
+func (*botQnAIntentConfigurationDataSourceConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQnAIntentConfigurationDataSourceConfigurationProperties)(nil)).Elem()
+}
+
+func (i *botQnAIntentConfigurationDataSourceConfigurationPropertiesPtrType) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput {
+	return i.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *botQnAIntentConfigurationDataSourceConfigurationPropertiesPtrType) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput)
+}
+
+// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationProperties)(nil)).Elem()
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput {
+	return o.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotQnAIntentConfigurationDataSourceConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationProperties {
+		return &v
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput)
+}
+
+// Contains details about the configuration of a Amazon Bedrock knowledge base.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput) BedrockKnowledgeStoreConfiguration() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties {
+		return v.BedrockKnowledgeStoreConfiguration
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput)
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput) KendraConfiguration() BotQnAKendraConfigurationPtrOutput {
+	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationProperties) *BotQnAKendraConfiguration {
+		return v.KendraConfiguration
+	}).(BotQnAKendraConfigurationPtrOutput)
+}
+
+// Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput) OpensearchConfiguration() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties {
+		return v.OpensearchConfiguration
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput)
+}
+
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQnAIntentConfigurationDataSourceConfigurationProperties)(nil)).Elem()
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput) Elem() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationProperties) BotQnAIntentConfigurationDataSourceConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotQnAIntentConfigurationDataSourceConfigurationProperties
+		return ret
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput)
+}
+
+// Contains details about the configuration of a Amazon Bedrock knowledge base.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput) BedrockKnowledgeStoreConfiguration() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockKnowledgeStoreConfiguration
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput)
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput) KendraConfiguration() BotQnAKendraConfigurationPtrOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationProperties) *BotQnAKendraConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.KendraConfiguration
+	}).(BotQnAKendraConfigurationPtrOutput)
+}
+
+// Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput) OpensearchConfiguration() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.OpensearchConfiguration
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput)
+}
+
+// Contains details about the configuration of a Amazon Bedrock knowledge base.
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties struct {
+	// The base ARN of the knowledge base used.
+	BedrockKnowledgeBaseArn *string `pulumi:"bedrockKnowledgeBaseArn"`
+	// Contains the names of the fields used for an exact response to the user.
+	BkbExactResponseFields *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties `pulumi:"bkbExactResponseFields"`
+	// Specifies whether to return an exact response, or to return an answer generated by the model, using the fields you specify from the database.
+	ExactResponse *bool `pulumi:"exactResponse"`
+}
+
+// BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesInput is an input type that accepts BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs and BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesInput` via:
+//
+//	BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs{...}
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutputWithContext(context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput
+}
+
+// Contains details about the configuration of a Amazon Bedrock knowledge base.
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs struct {
+	// The base ARN of the knowledge base used.
+	BedrockKnowledgeBaseArn pulumi.StringPtrInput `pulumi:"bedrockKnowledgeBaseArn"`
+	// Contains the names of the fields used for an exact response to the user.
+	BkbExactResponseFields BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrInput `pulumi:"bkbExactResponseFields"`
+	// Specifies whether to return an exact response, or to return an answer generated by the model, using the fields you specify from the database.
+	ExactResponse pulumi.BoolPtrInput `pulumi:"exactResponse"`
+}
+
+func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties)(nil)).Elem()
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput {
+	return i.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput)
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput {
+	return i.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput).ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrInput is an input type that accepts BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs, BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtr and BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrInput` via:
+//
+//	        BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutputWithContext(context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput
+}
+
+type botQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrType BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs
+
+func BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtr(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrInput {
+	return (*botQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrType)(v)
+}
+
+func (*botQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties)(nil)).Elem()
+}
+
+func (i *botQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrType) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput {
+	return i.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *botQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrType) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput)
+}
+
+// Contains details about the configuration of a Amazon Bedrock knowledge base.
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties)(nil)).Elem()
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput {
+	return o.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties {
+		return &v
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput)
+}
+
+// The base ARN of the knowledge base used.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput) BedrockKnowledgeBaseArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties) *string {
+		return v.BedrockKnowledgeBaseArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains the names of the fields used for an exact response to the user.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput) BkbExactResponseFields() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput {
+	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties {
+		return v.BkbExactResponseFields
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput)
+}
+
+// Specifies whether to return an exact response, or to return an answer generated by the model, using the fields you specify from the database.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput) ExactResponse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties) *bool {
+		return v.ExactResponse
+	}).(pulumi.BoolPtrOutput)
+}
+
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties)(nil)).Elem()
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput) Elem() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties
+		return ret
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput)
+}
+
+// The base ARN of the knowledge base used.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput) BedrockKnowledgeBaseArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockKnowledgeBaseArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains the names of the fields used for an exact response to the user.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput) BkbExactResponseFields() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.BkbExactResponseFields
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput)
+}
+
+// Specifies whether to return an exact response, or to return an answer generated by the model, using the fields you specify from the database.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput) ExactResponse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExactResponse
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Contains the names of the fields used for an exact response to the user.
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties struct {
+	// The answer field used for an exact response from Bedrock Knowledge Store.
+	AnswerField *string `pulumi:"answerField"`
+}
+
+// BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesInput is an input type that accepts BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs and BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput values.
+// You can construct a concrete instance of `BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesInput` via:
+//
+//	BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs{...}
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesInput interface {
+	pulumi.Input
+
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutputWithContext(context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput
+}
+
+// Contains the names of the fields used for an exact response to the user.
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs struct {
+	// The answer field used for an exact response from Bedrock Knowledge Store.
+	AnswerField pulumi.StringPtrInput `pulumi:"answerField"`
+}
+
+func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties)(nil)).Elem()
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput {
+	return i.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutputWithContext(context.Background())
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput)
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput {
+	return i.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput).ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutputWithContext(ctx)
+}
+
+// BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrInput is an input type that accepts BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs, BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtr and BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput values.
+// You can construct a concrete instance of `BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrInput` via:
+//
+//	        BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutputWithContext(context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput
+}
+
+type botQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrType BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs
+
+func BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtr(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrInput {
+	return (*botQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrType)(v)
+}
+
+func (*botQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties)(nil)).Elem()
+}
+
+func (i *botQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrType) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput {
+	return i.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *botQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrType) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput)
+}
+
+// Contains the names of the fields used for an exact response to the user.
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties)(nil)).Elem()
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput {
+	return o.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties {
+		return &v
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput)
+}
+
+// The answer field used for an exact response from Bedrock Knowledge Store.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput) AnswerField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties) *string {
+		return v.AnswerField
+	}).(pulumi.StringPtrOutput)
+}
+
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties)(nil)).Elem()
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput) Elem() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties
+		return ret
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput)
+}
+
+// The answer field used for an exact response from Bedrock Knowledge Store.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput) AnswerField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AnswerField
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties struct {
+	// The endpoint of the Amazon OpenSearch Service domain.
+	DomainEndpoint *string `pulumi:"domainEndpoint"`
+	// Specifies whether to return an exact response or to return an answer generated by the model using the fields you specify from the database.
+	ExactResponse *bool `pulumi:"exactResponse"`
+	// Contains the names of the fields used for an exact response to the user.
+	ExactResponseFields *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties `pulumi:"exactResponseFields"`
+	// List of fields to include
+	IncludeFields []string `pulumi:"includeFields"`
+	// The name of the Amazon OpenSearch Service index.
+	IndexName *string `pulumi:"indexName"`
+}
+
+// BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesInput is an input type that accepts BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs and BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesInput` via:
+//
+//	BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs{...}
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutputWithContext(context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput
+}
+
+// Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs struct {
+	// The endpoint of the Amazon OpenSearch Service domain.
+	DomainEndpoint pulumi.StringPtrInput `pulumi:"domainEndpoint"`
+	// Specifies whether to return an exact response or to return an answer generated by the model using the fields you specify from the database.
+	ExactResponse pulumi.BoolPtrInput `pulumi:"exactResponse"`
+	// Contains the names of the fields used for an exact response to the user.
+	ExactResponseFields BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrInput `pulumi:"exactResponseFields"`
+	// List of fields to include
+	IncludeFields pulumi.StringArrayInput `pulumi:"includeFields"`
+	// The name of the Amazon OpenSearch Service index.
+	IndexName pulumi.StringPtrInput `pulumi:"indexName"`
+}
+
+func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties)(nil)).Elem()
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput {
+	return i.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput)
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput {
+	return i.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput).ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrInput is an input type that accepts BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs, BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtr and BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrInput` via:
+//
+//	        BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutputWithContext(context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput
+}
+
+type botQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrType BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs
+
+func BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtr(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrInput {
+	return (*botQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrType)(v)
+}
+
+func (*botQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties)(nil)).Elem()
+}
+
+func (i *botQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrType) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput {
+	return i.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *botQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrType) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput)
+}
+
+// Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties)(nil)).Elem()
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput {
+	return o.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties {
+		return &v
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput)
+}
+
+// The endpoint of the Amazon OpenSearch Service domain.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput) DomainEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) *string {
+		return v.DomainEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to return an exact response or to return an answer generated by the model using the fields you specify from the database.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput) ExactResponse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) *bool {
+		return v.ExactResponse
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Contains the names of the fields used for an exact response to the user.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput) ExactResponseFields() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput {
+	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties {
+		return v.ExactResponseFields
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput)
+}
+
+// List of fields to include
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput) IncludeFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) []string {
+		return v.IncludeFields
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the Amazon OpenSearch Service index.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput) IndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) *string {
+		return v.IndexName
+	}).(pulumi.StringPtrOutput)
+}
+
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties)(nil)).Elem()
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput) Elem() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties
+		return ret
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput)
+}
+
+// The endpoint of the Amazon OpenSearch Service domain.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput) DomainEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to return an exact response or to return an answer generated by the model using the fields you specify from the database.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput) ExactResponse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExactResponse
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Contains the names of the fields used for an exact response to the user.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput) ExactResponseFields() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ExactResponseFields
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput)
+}
+
+// List of fields to include
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput) IncludeFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeFields
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the Amazon OpenSearch Service index.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput) IndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IndexName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains the names of the fields used for an exact response to the user.
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties struct {
+	// The name of the field that contains the answer to the query made to the OpenSearch Service database.
+	AnswerField *string `pulumi:"answerField"`
+	// The name of the field that contains the query made to the OpenSearch Service database.
+	QuestionField *string `pulumi:"questionField"`
+}
+
+// BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesInput is an input type that accepts BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs and BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput values.
+// You can construct a concrete instance of `BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesInput` via:
+//
+//	BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs{...}
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesInput interface {
+	pulumi.Input
+
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutputWithContext(context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput
+}
+
+// Contains the names of the fields used for an exact response to the user.
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs struct {
+	// The name of the field that contains the answer to the query made to the OpenSearch Service database.
+	AnswerField pulumi.StringPtrInput `pulumi:"answerField"`
+	// The name of the field that contains the query made to the OpenSearch Service database.
+	QuestionField pulumi.StringPtrInput `pulumi:"questionField"`
+}
+
+func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties)(nil)).Elem()
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput {
+	return i.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutputWithContext(context.Background())
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput)
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput {
+	return i.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput).ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutputWithContext(ctx)
+}
+
+// BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrInput is an input type that accepts BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs, BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtr and BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput values.
+// You can construct a concrete instance of `BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrInput` via:
+//
+//	        BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput
+	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutputWithContext(context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput
+}
+
+type botQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrType BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs
+
+func BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtr(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrInput {
+	return (*botQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrType)(v)
+}
+
+func (*botQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties)(nil)).Elem()
+}
+
+func (i *botQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrType) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput {
+	return i.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *botQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrType) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput)
+}
+
+// Contains the names of the fields used for an exact response to the user.
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties)(nil)).Elem()
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput {
+	return o.ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties {
+		return &v
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput)
+}
+
+// The name of the field that contains the answer to the query made to the OpenSearch Service database.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput) AnswerField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties) *string {
+		return v.AnswerField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field that contains the query made to the OpenSearch Service database.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput) QuestionField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties) *string {
+		return v.QuestionField
+	}).(pulumi.StringPtrOutput)
+}
+
+type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties)(nil)).Elem()
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput) ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutputWithContext(ctx context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput {
+	return o
+}
+
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput) Elem() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties
+		return ret
+	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput)
+}
+
+// The name of the field that contains the answer to the query made to the OpenSearch Service database.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput) AnswerField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AnswerField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field that contains the query made to the OpenSearch Service database.
+func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput) QuestionField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QuestionField
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains details about the configuration of the Amazon Kendra index used for the AMAZON.QnAIntent.
+type BotQnAKendraConfiguration struct {
+	// Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results.
+	ExactResponse bool `pulumi:"exactResponse"`
+	// The ARN of the Amazon Kendra index to use.
+	KendraIndex string `pulumi:"kendraIndex"`
+	// Contains the Amazon Kendra filter string to use if enabled.
+	QueryFilterString *string `pulumi:"queryFilterString"`
+	// Specifies whether to enable an Amazon Kendra filter string or not.
+	QueryFilterStringEnabled bool `pulumi:"queryFilterStringEnabled"`
+}
+
+// BotQnAKendraConfigurationInput is an input type that accepts BotQnAKendraConfigurationArgs and BotQnAKendraConfigurationOutput values.
+// You can construct a concrete instance of `BotQnAKendraConfigurationInput` via:
+//
+//	BotQnAKendraConfigurationArgs{...}
+type BotQnAKendraConfigurationInput interface {
+	pulumi.Input
+
+	ToBotQnAKendraConfigurationOutput() BotQnAKendraConfigurationOutput
+	ToBotQnAKendraConfigurationOutputWithContext(context.Context) BotQnAKendraConfigurationOutput
+}
+
+// Contains details about the configuration of the Amazon Kendra index used for the AMAZON.QnAIntent.
+type BotQnAKendraConfigurationArgs struct {
+	// Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results.
+	ExactResponse pulumi.BoolInput `pulumi:"exactResponse"`
+	// The ARN of the Amazon Kendra index to use.
+	KendraIndex pulumi.StringInput `pulumi:"kendraIndex"`
+	// Contains the Amazon Kendra filter string to use if enabled.
+	QueryFilterString pulumi.StringPtrInput `pulumi:"queryFilterString"`
+	// Specifies whether to enable an Amazon Kendra filter string or not.
+	QueryFilterStringEnabled pulumi.BoolInput `pulumi:"queryFilterStringEnabled"`
+}
+
+func (BotQnAKendraConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQnAKendraConfiguration)(nil)).Elem()
+}
+
+func (i BotQnAKendraConfigurationArgs) ToBotQnAKendraConfigurationOutput() BotQnAKendraConfigurationOutput {
+	return i.ToBotQnAKendraConfigurationOutputWithContext(context.Background())
+}
+
+func (i BotQnAKendraConfigurationArgs) ToBotQnAKendraConfigurationOutputWithContext(ctx context.Context) BotQnAKendraConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAKendraConfigurationOutput)
+}
+
+func (i BotQnAKendraConfigurationArgs) ToBotQnAKendraConfigurationPtrOutput() BotQnAKendraConfigurationPtrOutput {
+	return i.ToBotQnAKendraConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i BotQnAKendraConfigurationArgs) ToBotQnAKendraConfigurationPtrOutputWithContext(ctx context.Context) BotQnAKendraConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAKendraConfigurationOutput).ToBotQnAKendraConfigurationPtrOutputWithContext(ctx)
+}
+
+// BotQnAKendraConfigurationPtrInput is an input type that accepts BotQnAKendraConfigurationArgs, BotQnAKendraConfigurationPtr and BotQnAKendraConfigurationPtrOutput values.
+// You can construct a concrete instance of `BotQnAKendraConfigurationPtrInput` via:
+//
+//	        BotQnAKendraConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotQnAKendraConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBotQnAKendraConfigurationPtrOutput() BotQnAKendraConfigurationPtrOutput
+	ToBotQnAKendraConfigurationPtrOutputWithContext(context.Context) BotQnAKendraConfigurationPtrOutput
+}
+
+type botQnAKendraConfigurationPtrType BotQnAKendraConfigurationArgs
+
+func BotQnAKendraConfigurationPtr(v *BotQnAKendraConfigurationArgs) BotQnAKendraConfigurationPtrInput {
+	return (*botQnAKendraConfigurationPtrType)(v)
+}
+
+func (*botQnAKendraConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQnAKendraConfiguration)(nil)).Elem()
+}
+
+func (i *botQnAKendraConfigurationPtrType) ToBotQnAKendraConfigurationPtrOutput() BotQnAKendraConfigurationPtrOutput {
+	return i.ToBotQnAKendraConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *botQnAKendraConfigurationPtrType) ToBotQnAKendraConfigurationPtrOutputWithContext(ctx context.Context) BotQnAKendraConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQnAKendraConfigurationPtrOutput)
+}
+
+// Contains details about the configuration of the Amazon Kendra index used for the AMAZON.QnAIntent.
+type BotQnAKendraConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BotQnAKendraConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQnAKendraConfiguration)(nil)).Elem()
+}
+
+func (o BotQnAKendraConfigurationOutput) ToBotQnAKendraConfigurationOutput() BotQnAKendraConfigurationOutput {
+	return o
+}
+
+func (o BotQnAKendraConfigurationOutput) ToBotQnAKendraConfigurationOutputWithContext(ctx context.Context) BotQnAKendraConfigurationOutput {
+	return o
+}
+
+func (o BotQnAKendraConfigurationOutput) ToBotQnAKendraConfigurationPtrOutput() BotQnAKendraConfigurationPtrOutput {
+	return o.ToBotQnAKendraConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BotQnAKendraConfigurationOutput) ToBotQnAKendraConfigurationPtrOutputWithContext(ctx context.Context) BotQnAKendraConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotQnAKendraConfiguration) *BotQnAKendraConfiguration {
+		return &v
+	}).(BotQnAKendraConfigurationPtrOutput)
+}
+
+// Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results.
+func (o BotQnAKendraConfigurationOutput) ExactResponse() pulumi.BoolOutput {
+	return o.ApplyT(func(v BotQnAKendraConfiguration) bool { return v.ExactResponse }).(pulumi.BoolOutput)
+}
+
+// The ARN of the Amazon Kendra index to use.
+func (o BotQnAKendraConfigurationOutput) KendraIndex() pulumi.StringOutput {
+	return o.ApplyT(func(v BotQnAKendraConfiguration) string { return v.KendraIndex }).(pulumi.StringOutput)
+}
+
+// Contains the Amazon Kendra filter string to use if enabled.
+func (o BotQnAKendraConfigurationOutput) QueryFilterString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotQnAKendraConfiguration) *string { return v.QueryFilterString }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to enable an Amazon Kendra filter string or not.
+func (o BotQnAKendraConfigurationOutput) QueryFilterStringEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BotQnAKendraConfiguration) bool { return v.QueryFilterStringEnabled }).(pulumi.BoolOutput)
+}
+
+type BotQnAKendraConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (BotQnAKendraConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQnAKendraConfiguration)(nil)).Elem()
+}
+
+func (o BotQnAKendraConfigurationPtrOutput) ToBotQnAKendraConfigurationPtrOutput() BotQnAKendraConfigurationPtrOutput {
+	return o
+}
+
+func (o BotQnAKendraConfigurationPtrOutput) ToBotQnAKendraConfigurationPtrOutputWithContext(ctx context.Context) BotQnAKendraConfigurationPtrOutput {
+	return o
+}
+
+func (o BotQnAKendraConfigurationPtrOutput) Elem() BotQnAKendraConfigurationOutput {
+	return o.ApplyT(func(v *BotQnAKendraConfiguration) BotQnAKendraConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BotQnAKendraConfiguration
+		return ret
+	}).(BotQnAKendraConfigurationOutput)
+}
+
+// Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results.
+func (o BotQnAKendraConfigurationPtrOutput) ExactResponse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BotQnAKendraConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ExactResponse
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the Amazon Kendra index to use.
+func (o BotQnAKendraConfigurationPtrOutput) KendraIndex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotQnAKendraConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KendraIndex
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains the Amazon Kendra filter string to use if enabled.
+func (o BotQnAKendraConfigurationPtrOutput) QueryFilterString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotQnAKendraConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryFilterString
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to enable an Amazon Kendra filter string or not.
+func (o BotQnAKendraConfigurationPtrOutput) QueryFilterStringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BotQnAKendraConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryFilterStringEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Parameter used to create a replication of the source bot in the secondary region.
@@ -13638,6 +15257,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioLogSettingArrayInput)(nil)).Elem(), BotAudioLogSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioSpecificationInput)(nil)).Elem(), BotAudioSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioSpecificationPtrInput)(nil)).Elem(), BotAudioSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotBedrockModelSpecificationInput)(nil)).Elem(), BotBedrockModelSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotBedrockModelSpecificationPtrInput)(nil)).Elem(), BotBedrockModelSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesInput)(nil)).Elem(), BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrInput)(nil)).Elem(), BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotButtonInput)(nil)).Elem(), BotButtonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotButtonArrayInput)(nil)).Elem(), BotButtonArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotCloudWatchLogGroupLogDestinationInput)(nil)).Elem(), BotCloudWatchLogGroupLogDestinationArgs{})
@@ -13720,6 +15343,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotPromptAttemptSpecificationMapInput)(nil)).Elem(), BotPromptAttemptSpecificationMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotPromptSpecificationInput)(nil)).Elem(), BotPromptSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotPromptSpecificationPtrInput)(nil)).Elem(), BotPromptSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQnAIntentConfigurationInput)(nil)).Elem(), BotQnAIntentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQnAIntentConfigurationPtrInput)(nil)).Elem(), BotQnAIntentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesInput)(nil)).Elem(), BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrInput)(nil)).Elem(), BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesInput)(nil)).Elem(), BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrInput)(nil)).Elem(), BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesInput)(nil)).Elem(), BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrInput)(nil)).Elem(), BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesInput)(nil)).Elem(), BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrInput)(nil)).Elem(), BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesInput)(nil)).Elem(), BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrInput)(nil)).Elem(), BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQnAKendraConfigurationInput)(nil)).Elem(), BotQnAKendraConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQnAKendraConfigurationPtrInput)(nil)).Elem(), BotQnAKendraConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotReplicationInput)(nil)).Elem(), BotReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotReplicationPtrInput)(nil)).Elem(), BotReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotResponseSpecificationInput)(nil)).Elem(), BotResponseSpecificationArgs{})
@@ -13814,6 +15451,10 @@ func init() {
 	pulumi.RegisterOutputType(BotAudioLogSettingArrayOutput{})
 	pulumi.RegisterOutputType(BotAudioSpecificationOutput{})
 	pulumi.RegisterOutputType(BotAudioSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(BotBedrockModelSpecificationOutput{})
+	pulumi.RegisterOutputType(BotBedrockModelSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BotButtonOutput{})
 	pulumi.RegisterOutputType(BotButtonArrayOutput{})
 	pulumi.RegisterOutputType(BotCloudWatchLogGroupLogDestinationOutput{})
@@ -13896,6 +15537,20 @@ func init() {
 	pulumi.RegisterOutputType(BotPromptAttemptSpecificationMapOutput{})
 	pulumi.RegisterOutputType(BotPromptSpecificationOutput{})
 	pulumi.RegisterOutputType(BotPromptSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(BotQnAIntentConfigurationOutput{})
+	pulumi.RegisterOutputType(BotQnAIntentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput{})
+	pulumi.RegisterOutputType(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput{})
+	pulumi.RegisterOutputType(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BotQnAKendraConfigurationOutput{})
+	pulumi.RegisterOutputType(BotQnAKendraConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BotReplicationOutput{})
 	pulumi.RegisterOutputType(BotReplicationPtrOutput{})
 	pulumi.RegisterOutputType(BotResponseSpecificationOutput{})
