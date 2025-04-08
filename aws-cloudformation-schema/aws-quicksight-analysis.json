@@ -3608,6 +3608,25 @@
         }
       }
     },
+    "TransposedTableOption" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ColumnWidth" : {
+          "description" : "String based length that is composed of value and unit in px",
+          "type" : "string"
+        },
+        "ColumnIndex" : {
+          "maximum" : 9999,
+          "type" : "number",
+          "minimum" : 0
+        },
+        "ColumnType" : {
+          "$ref" : "#/definitions/TransposedColumnType"
+        }
+      },
+      "required" : [ "ColumnType" ]
+    },
     "AxisBinding" : {
       "type" : "string",
       "enum" : [ "PRIMARY_YAXIS", "SECONDARY_YAXIS" ]
@@ -6075,6 +6094,10 @@
           "$ref" : "#/definitions/ChartAxisLabelOptions"
         }
       }
+    },
+    "TransposedColumnType" : {
+      "type" : "string",
+      "enum" : [ "ROW_HEADER_COLUMN", "VALUE_COLUMN" ]
     },
     "FilterListControl" : {
       "additionalProperties" : false,
@@ -8970,6 +8993,14 @@
         },
         "PinnedFieldOptions" : {
           "$ref" : "#/definitions/TablePinnedFieldOptions"
+        },
+        "TransposedTableOptions" : {
+          "minItems" : 0,
+          "maxItems" : 10001,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/TransposedTableOption"
+          }
         },
         "SelectedFieldOptions" : {
           "minItems" : 0,

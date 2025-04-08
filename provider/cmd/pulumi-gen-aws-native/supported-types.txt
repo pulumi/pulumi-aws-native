@@ -272,6 +272,7 @@ AWS::DMS::DataProvider
 AWS::DMS::InstanceProfile
 AWS::DMS::MigrationProject
 AWS::DMS::ReplicationConfig
+AWS::DSQL::Cluster
 AWS::DataBrew::Dataset
 AWS::DataBrew::Job
 AWS::DataBrew::Project

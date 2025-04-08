@@ -70,8 +70,12 @@
   "createOnlyProperties" : [ "/properties/KeyName", "/properties/KeyType", "/properties/KeyFormat", "/properties/PublicKeyMaterial", "/properties/Tags" ],
   "writeOnlyProperties" : [ "/properties/KeyFormat" ],
   "readOnlyProperties" : [ "/properties/KeyPairId", "/properties/KeyFingerprint" ],
+  "propertyTransform" : {
+    "/properties/PublicKeyMaterial" : "$join([PublicKeyMaterial, \"\n\"])"
+  },
   "tagging" : {
     "taggable" : true,
+    "tagOnCreate" : true,
     "tagUpdatable" : false,
     "cloudFormationSystemTags" : false,
     "tagProperty" : "/properties/Tags",
