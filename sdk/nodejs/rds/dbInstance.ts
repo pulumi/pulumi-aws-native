@@ -136,9 +136,8 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly automaticBackupReplicationRegion!: pulumi.Output<string | undefined>;
     /**
-     * The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
-     *
-     * If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+     * The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the ``AutomaticBackupReplicationRegion`` parameter. 
+     *  If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
      */
     public readonly automaticBackupReplicationRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
@@ -167,9 +166,6 @@ export class DbInstance extends pulumi.CustomResource {
      *  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
      */
     public readonly caCertificateIdentifier!: pulumi.Output<string | undefined>;
-    /**
-     * The details of the DB instance's server certificate.
-     */
     public /*out*/ readonly certificateDetails!: pulumi.Output<outputs.rds.DbInstanceCertificateDetails>;
     /**
      * Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.
@@ -439,10 +435,6 @@ export class DbInstance extends pulumi.CustomResource {
      *  This setting doesn't apply to RDS Custom DB instances.
      */
     public readonly enablePerformanceInsights!: pulumi.Output<boolean | undefined>;
-    /**
-     * The connection endpoint for the DB instance.
-     *   The endpoint might not be shown for instances with the status of ``creating``.
-     */
     public /*out*/ readonly endpoint!: pulumi.Output<outputs.rds.DbInstanceEndpoint>;
     /**
      * The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.
@@ -1110,9 +1102,8 @@ export interface DbInstanceArgs {
      */
     automaticBackupReplicationRegion?: pulumi.Input<string>;
     /**
-     * The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
-     *
-     * If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+     * The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the ``AutomaticBackupReplicationRegion`` parameter. 
+     *  If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
      */
     automaticBackupReplicationRetentionPeriod?: pulumi.Input<number>;
     /**

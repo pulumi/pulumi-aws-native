@@ -121,6 +121,7 @@ __all__ = [
     'AnalysisTooltipTitleType',
     'AnalysisTopBottomComputationType',
     'AnalysisTopBottomSortOrder',
+    'AnalysisTransposedColumnType',
     'AnalysisUrlTargetConfiguration',
     'AnalysisValidationStrategyMode',
     'AnalysisValueWhenUnsetOption',
@@ -249,6 +250,7 @@ __all__ = [
     'DashboardTooltipTitleType',
     'DashboardTopBottomComputationType',
     'DashboardTopBottomSortOrder',
+    'DashboardTransposedColumnType',
     'DashboardUiState',
     'DashboardUrlTargetConfiguration',
     'DashboardValidationStrategyMode',
@@ -402,6 +404,7 @@ __all__ = [
     'TemplateTooltipTitleType',
     'TemplateTopBottomComputationType',
     'TemplateTopBottomSortOrder',
+    'TemplateTransposedColumnType',
     'TemplateUrlTargetConfiguration',
     'TemplateValidationStrategyMode',
     'TemplateValueWhenUnsetOption',
@@ -1162,6 +1165,11 @@ class AnalysisTopBottomComputationType(str, Enum):
 class AnalysisTopBottomSortOrder(str, Enum):
     PERCENT_DIFFERENCE = "PERCENT_DIFFERENCE"
     ABSOLUTE_DIFFERENCE = "ABSOLUTE_DIFFERENCE"
+
+
+class AnalysisTransposedColumnType(str, Enum):
+    ROW_HEADER_COLUMN = "ROW_HEADER_COLUMN"
+    VALUE_COLUMN = "VALUE_COLUMN"
 
 
 class AnalysisUrlTargetConfiguration(str, Enum):
@@ -1948,6 +1956,11 @@ class DashboardTopBottomComputationType(str, Enum):
 class DashboardTopBottomSortOrder(str, Enum):
     PERCENT_DIFFERENCE = "PERCENT_DIFFERENCE"
     ABSOLUTE_DIFFERENCE = "ABSOLUTE_DIFFERENCE"
+
+
+class DashboardTransposedColumnType(str, Enum):
+    ROW_HEADER_COLUMN = "ROW_HEADER_COLUMN"
+    VALUE_COLUMN = "VALUE_COLUMN"
 
 
 class DashboardUiState(str, Enum):
@@ -2948,6 +2961,11 @@ class TemplateTopBottomComputationType(str, Enum):
 class TemplateTopBottomSortOrder(str, Enum):
     PERCENT_DIFFERENCE = "PERCENT_DIFFERENCE"
     ABSOLUTE_DIFFERENCE = "ABSOLUTE_DIFFERENCE"
+
+
+class TemplateTransposedColumnType(str, Enum):
+    ROW_HEADER_COLUMN = "ROW_HEADER_COLUMN"
+    VALUE_COLUMN = "VALUE_COLUMN"
 
 
 class TemplateUrlTargetConfiguration(str, Enum):

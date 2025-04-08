@@ -25,6 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The field options to be configured to a table.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardTableFieldOption> SelectedFieldOptions;
+        public readonly ImmutableArray<Outputs.DashboardTransposedTableOption> TransposedTableOptions;
 
         [OutputConstructor]
         private DashboardTableFieldOptions(
@@ -32,11 +33,14 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardTablePinnedFieldOptions? pinnedFieldOptions,
 
-            ImmutableArray<Outputs.DashboardTableFieldOption> selectedFieldOptions)
+            ImmutableArray<Outputs.DashboardTableFieldOption> selectedFieldOptions,
+
+            ImmutableArray<Outputs.DashboardTransposedTableOption> transposedTableOptions)
         {
             Order = order;
             PinnedFieldOptions = pinnedFieldOptions;
             SelectedFieldOptions = selectedFieldOptions;
+            TransposedTableOptions = transposedTableOptions;
         }
     }
 }

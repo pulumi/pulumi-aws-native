@@ -19429,6 +19429,171 @@ func (in *analysisTopBottomSortOrderPtr) ToAnalysisTopBottomSortOrderPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTopBottomSortOrderPtrOutput)
 }
 
+type AnalysisTransposedColumnType string
+
+const (
+	AnalysisTransposedColumnTypeRowHeaderColumn = AnalysisTransposedColumnType("ROW_HEADER_COLUMN")
+	AnalysisTransposedColumnTypeValueColumn     = AnalysisTransposedColumnType("VALUE_COLUMN")
+)
+
+func (AnalysisTransposedColumnType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTransposedColumnType)(nil)).Elem()
+}
+
+func (e AnalysisTransposedColumnType) ToAnalysisTransposedColumnTypeOutput() AnalysisTransposedColumnTypeOutput {
+	return pulumi.ToOutput(e).(AnalysisTransposedColumnTypeOutput)
+}
+
+func (e AnalysisTransposedColumnType) ToAnalysisTransposedColumnTypeOutputWithContext(ctx context.Context) AnalysisTransposedColumnTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisTransposedColumnTypeOutput)
+}
+
+func (e AnalysisTransposedColumnType) ToAnalysisTransposedColumnTypePtrOutput() AnalysisTransposedColumnTypePtrOutput {
+	return e.ToAnalysisTransposedColumnTypePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisTransposedColumnType) ToAnalysisTransposedColumnTypePtrOutputWithContext(ctx context.Context) AnalysisTransposedColumnTypePtrOutput {
+	return AnalysisTransposedColumnType(e).ToAnalysisTransposedColumnTypeOutputWithContext(ctx).ToAnalysisTransposedColumnTypePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisTransposedColumnType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisTransposedColumnType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisTransposedColumnType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisTransposedColumnType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisTransposedColumnTypeOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTransposedColumnTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTransposedColumnType)(nil)).Elem()
+}
+
+func (o AnalysisTransposedColumnTypeOutput) ToAnalysisTransposedColumnTypeOutput() AnalysisTransposedColumnTypeOutput {
+	return o
+}
+
+func (o AnalysisTransposedColumnTypeOutput) ToAnalysisTransposedColumnTypeOutputWithContext(ctx context.Context) AnalysisTransposedColumnTypeOutput {
+	return o
+}
+
+func (o AnalysisTransposedColumnTypeOutput) ToAnalysisTransposedColumnTypePtrOutput() AnalysisTransposedColumnTypePtrOutput {
+	return o.ToAnalysisTransposedColumnTypePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTransposedColumnTypeOutput) ToAnalysisTransposedColumnTypePtrOutputWithContext(ctx context.Context) AnalysisTransposedColumnTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTransposedColumnType) *AnalysisTransposedColumnType {
+		return &v
+	}).(AnalysisTransposedColumnTypePtrOutput)
+}
+
+func (o AnalysisTransposedColumnTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisTransposedColumnTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisTransposedColumnType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisTransposedColumnTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTransposedColumnTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisTransposedColumnType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisTransposedColumnTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTransposedColumnTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTransposedColumnType)(nil)).Elem()
+}
+
+func (o AnalysisTransposedColumnTypePtrOutput) ToAnalysisTransposedColumnTypePtrOutput() AnalysisTransposedColumnTypePtrOutput {
+	return o
+}
+
+func (o AnalysisTransposedColumnTypePtrOutput) ToAnalysisTransposedColumnTypePtrOutputWithContext(ctx context.Context) AnalysisTransposedColumnTypePtrOutput {
+	return o
+}
+
+func (o AnalysisTransposedColumnTypePtrOutput) Elem() AnalysisTransposedColumnTypeOutput {
+	return o.ApplyT(func(v *AnalysisTransposedColumnType) AnalysisTransposedColumnType {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTransposedColumnType
+		return ret
+	}).(AnalysisTransposedColumnTypeOutput)
+}
+
+func (o AnalysisTransposedColumnTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTransposedColumnTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisTransposedColumnType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisTransposedColumnTypeInput is an input type that accepts values of the AnalysisTransposedColumnType enum
+// A concrete instance of `AnalysisTransposedColumnTypeInput` can be one of the following:
+//
+//	AnalysisTransposedColumnTypeRowHeaderColumn
+//	AnalysisTransposedColumnTypeValueColumn
+type AnalysisTransposedColumnTypeInput interface {
+	pulumi.Input
+
+	ToAnalysisTransposedColumnTypeOutput() AnalysisTransposedColumnTypeOutput
+	ToAnalysisTransposedColumnTypeOutputWithContext(context.Context) AnalysisTransposedColumnTypeOutput
+}
+
+var analysisTransposedColumnTypePtrType = reflect.TypeOf((**AnalysisTransposedColumnType)(nil)).Elem()
+
+type AnalysisTransposedColumnTypePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTransposedColumnTypePtrOutput() AnalysisTransposedColumnTypePtrOutput
+	ToAnalysisTransposedColumnTypePtrOutputWithContext(context.Context) AnalysisTransposedColumnTypePtrOutput
+}
+
+type analysisTransposedColumnTypePtr string
+
+func AnalysisTransposedColumnTypePtr(v string) AnalysisTransposedColumnTypePtrInput {
+	return (*analysisTransposedColumnTypePtr)(&v)
+}
+
+func (*analysisTransposedColumnTypePtr) ElementType() reflect.Type {
+	return analysisTransposedColumnTypePtrType
+}
+
+func (in *analysisTransposedColumnTypePtr) ToAnalysisTransposedColumnTypePtrOutput() AnalysisTransposedColumnTypePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisTransposedColumnTypePtrOutput)
+}
+
+func (in *analysisTransposedColumnTypePtr) ToAnalysisTransposedColumnTypePtrOutputWithContext(ctx context.Context) AnalysisTransposedColumnTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTransposedColumnTypePtrOutput)
+}
+
 type AnalysisUrlTargetConfiguration string
 
 const (
@@ -40671,6 +40836,171 @@ func (in *dashboardTopBottomSortOrderPtr) ToDashboardTopBottomSortOrderPtrOutput
 
 func (in *dashboardTopBottomSortOrderPtr) ToDashboardTopBottomSortOrderPtrOutputWithContext(ctx context.Context) DashboardTopBottomSortOrderPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardTopBottomSortOrderPtrOutput)
+}
+
+type DashboardTransposedColumnType string
+
+const (
+	DashboardTransposedColumnTypeRowHeaderColumn = DashboardTransposedColumnType("ROW_HEADER_COLUMN")
+	DashboardTransposedColumnTypeValueColumn     = DashboardTransposedColumnType("VALUE_COLUMN")
+)
+
+func (DashboardTransposedColumnType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardTransposedColumnType)(nil)).Elem()
+}
+
+func (e DashboardTransposedColumnType) ToDashboardTransposedColumnTypeOutput() DashboardTransposedColumnTypeOutput {
+	return pulumi.ToOutput(e).(DashboardTransposedColumnTypeOutput)
+}
+
+func (e DashboardTransposedColumnType) ToDashboardTransposedColumnTypeOutputWithContext(ctx context.Context) DashboardTransposedColumnTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardTransposedColumnTypeOutput)
+}
+
+func (e DashboardTransposedColumnType) ToDashboardTransposedColumnTypePtrOutput() DashboardTransposedColumnTypePtrOutput {
+	return e.ToDashboardTransposedColumnTypePtrOutputWithContext(context.Background())
+}
+
+func (e DashboardTransposedColumnType) ToDashboardTransposedColumnTypePtrOutputWithContext(ctx context.Context) DashboardTransposedColumnTypePtrOutput {
+	return DashboardTransposedColumnType(e).ToDashboardTransposedColumnTypeOutputWithContext(ctx).ToDashboardTransposedColumnTypePtrOutputWithContext(ctx)
+}
+
+func (e DashboardTransposedColumnType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardTransposedColumnType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardTransposedColumnType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardTransposedColumnType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardTransposedColumnTypeOutput struct{ *pulumi.OutputState }
+
+func (DashboardTransposedColumnTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardTransposedColumnType)(nil)).Elem()
+}
+
+func (o DashboardTransposedColumnTypeOutput) ToDashboardTransposedColumnTypeOutput() DashboardTransposedColumnTypeOutput {
+	return o
+}
+
+func (o DashboardTransposedColumnTypeOutput) ToDashboardTransposedColumnTypeOutputWithContext(ctx context.Context) DashboardTransposedColumnTypeOutput {
+	return o
+}
+
+func (o DashboardTransposedColumnTypeOutput) ToDashboardTransposedColumnTypePtrOutput() DashboardTransposedColumnTypePtrOutput {
+	return o.ToDashboardTransposedColumnTypePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardTransposedColumnTypeOutput) ToDashboardTransposedColumnTypePtrOutputWithContext(ctx context.Context) DashboardTransposedColumnTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardTransposedColumnType) *DashboardTransposedColumnType {
+		return &v
+	}).(DashboardTransposedColumnTypePtrOutput)
+}
+
+func (o DashboardTransposedColumnTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardTransposedColumnTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardTransposedColumnType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardTransposedColumnTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardTransposedColumnTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardTransposedColumnType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardTransposedColumnTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardTransposedColumnTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardTransposedColumnType)(nil)).Elem()
+}
+
+func (o DashboardTransposedColumnTypePtrOutput) ToDashboardTransposedColumnTypePtrOutput() DashboardTransposedColumnTypePtrOutput {
+	return o
+}
+
+func (o DashboardTransposedColumnTypePtrOutput) ToDashboardTransposedColumnTypePtrOutputWithContext(ctx context.Context) DashboardTransposedColumnTypePtrOutput {
+	return o
+}
+
+func (o DashboardTransposedColumnTypePtrOutput) Elem() DashboardTransposedColumnTypeOutput {
+	return o.ApplyT(func(v *DashboardTransposedColumnType) DashboardTransposedColumnType {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardTransposedColumnType
+		return ret
+	}).(DashboardTransposedColumnTypeOutput)
+}
+
+func (o DashboardTransposedColumnTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardTransposedColumnTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardTransposedColumnType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardTransposedColumnTypeInput is an input type that accepts values of the DashboardTransposedColumnType enum
+// A concrete instance of `DashboardTransposedColumnTypeInput` can be one of the following:
+//
+//	DashboardTransposedColumnTypeRowHeaderColumn
+//	DashboardTransposedColumnTypeValueColumn
+type DashboardTransposedColumnTypeInput interface {
+	pulumi.Input
+
+	ToDashboardTransposedColumnTypeOutput() DashboardTransposedColumnTypeOutput
+	ToDashboardTransposedColumnTypeOutputWithContext(context.Context) DashboardTransposedColumnTypeOutput
+}
+
+var dashboardTransposedColumnTypePtrType = reflect.TypeOf((**DashboardTransposedColumnType)(nil)).Elem()
+
+type DashboardTransposedColumnTypePtrInput interface {
+	pulumi.Input
+
+	ToDashboardTransposedColumnTypePtrOutput() DashboardTransposedColumnTypePtrOutput
+	ToDashboardTransposedColumnTypePtrOutputWithContext(context.Context) DashboardTransposedColumnTypePtrOutput
+}
+
+type dashboardTransposedColumnTypePtr string
+
+func DashboardTransposedColumnTypePtr(v string) DashboardTransposedColumnTypePtrInput {
+	return (*dashboardTransposedColumnTypePtr)(&v)
+}
+
+func (*dashboardTransposedColumnTypePtr) ElementType() reflect.Type {
+	return dashboardTransposedColumnTypePtrType
+}
+
+func (in *dashboardTransposedColumnTypePtr) ToDashboardTransposedColumnTypePtrOutput() DashboardTransposedColumnTypePtrOutput {
+	return pulumi.ToOutput(in).(DashboardTransposedColumnTypePtrOutput)
+}
+
+func (in *dashboardTransposedColumnTypePtr) ToDashboardTransposedColumnTypePtrOutputWithContext(ctx context.Context) DashboardTransposedColumnTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardTransposedColumnTypePtrOutput)
 }
 
 type DashboardUiState string
@@ -66186,6 +66516,171 @@ func (in *templateTopBottomSortOrderPtr) ToTemplateTopBottomSortOrderPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateTopBottomSortOrderPtrOutput)
 }
 
+type TemplateTransposedColumnType string
+
+const (
+	TemplateTransposedColumnTypeRowHeaderColumn = TemplateTransposedColumnType("ROW_HEADER_COLUMN")
+	TemplateTransposedColumnTypeValueColumn     = TemplateTransposedColumnType("VALUE_COLUMN")
+)
+
+func (TemplateTransposedColumnType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTransposedColumnType)(nil)).Elem()
+}
+
+func (e TemplateTransposedColumnType) ToTemplateTransposedColumnTypeOutput() TemplateTransposedColumnTypeOutput {
+	return pulumi.ToOutput(e).(TemplateTransposedColumnTypeOutput)
+}
+
+func (e TemplateTransposedColumnType) ToTemplateTransposedColumnTypeOutputWithContext(ctx context.Context) TemplateTransposedColumnTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateTransposedColumnTypeOutput)
+}
+
+func (e TemplateTransposedColumnType) ToTemplateTransposedColumnTypePtrOutput() TemplateTransposedColumnTypePtrOutput {
+	return e.ToTemplateTransposedColumnTypePtrOutputWithContext(context.Background())
+}
+
+func (e TemplateTransposedColumnType) ToTemplateTransposedColumnTypePtrOutputWithContext(ctx context.Context) TemplateTransposedColumnTypePtrOutput {
+	return TemplateTransposedColumnType(e).ToTemplateTransposedColumnTypeOutputWithContext(ctx).ToTemplateTransposedColumnTypePtrOutputWithContext(ctx)
+}
+
+func (e TemplateTransposedColumnType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateTransposedColumnType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateTransposedColumnType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateTransposedColumnType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateTransposedColumnTypeOutput struct{ *pulumi.OutputState }
+
+func (TemplateTransposedColumnTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTransposedColumnType)(nil)).Elem()
+}
+
+func (o TemplateTransposedColumnTypeOutput) ToTemplateTransposedColumnTypeOutput() TemplateTransposedColumnTypeOutput {
+	return o
+}
+
+func (o TemplateTransposedColumnTypeOutput) ToTemplateTransposedColumnTypeOutputWithContext(ctx context.Context) TemplateTransposedColumnTypeOutput {
+	return o
+}
+
+func (o TemplateTransposedColumnTypeOutput) ToTemplateTransposedColumnTypePtrOutput() TemplateTransposedColumnTypePtrOutput {
+	return o.ToTemplateTransposedColumnTypePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTransposedColumnTypeOutput) ToTemplateTransposedColumnTypePtrOutputWithContext(ctx context.Context) TemplateTransposedColumnTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTransposedColumnType) *TemplateTransposedColumnType {
+		return &v
+	}).(TemplateTransposedColumnTypePtrOutput)
+}
+
+func (o TemplateTransposedColumnTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateTransposedColumnTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateTransposedColumnType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateTransposedColumnTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTransposedColumnTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateTransposedColumnType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateTransposedColumnTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTransposedColumnTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTransposedColumnType)(nil)).Elem()
+}
+
+func (o TemplateTransposedColumnTypePtrOutput) ToTemplateTransposedColumnTypePtrOutput() TemplateTransposedColumnTypePtrOutput {
+	return o
+}
+
+func (o TemplateTransposedColumnTypePtrOutput) ToTemplateTransposedColumnTypePtrOutputWithContext(ctx context.Context) TemplateTransposedColumnTypePtrOutput {
+	return o
+}
+
+func (o TemplateTransposedColumnTypePtrOutput) Elem() TemplateTransposedColumnTypeOutput {
+	return o.ApplyT(func(v *TemplateTransposedColumnType) TemplateTransposedColumnType {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTransposedColumnType
+		return ret
+	}).(TemplateTransposedColumnTypeOutput)
+}
+
+func (o TemplateTransposedColumnTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTransposedColumnTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateTransposedColumnType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateTransposedColumnTypeInput is an input type that accepts values of the TemplateTransposedColumnType enum
+// A concrete instance of `TemplateTransposedColumnTypeInput` can be one of the following:
+//
+//	TemplateTransposedColumnTypeRowHeaderColumn
+//	TemplateTransposedColumnTypeValueColumn
+type TemplateTransposedColumnTypeInput interface {
+	pulumi.Input
+
+	ToTemplateTransposedColumnTypeOutput() TemplateTransposedColumnTypeOutput
+	ToTemplateTransposedColumnTypeOutputWithContext(context.Context) TemplateTransposedColumnTypeOutput
+}
+
+var templateTransposedColumnTypePtrType = reflect.TypeOf((**TemplateTransposedColumnType)(nil)).Elem()
+
+type TemplateTransposedColumnTypePtrInput interface {
+	pulumi.Input
+
+	ToTemplateTransposedColumnTypePtrOutput() TemplateTransposedColumnTypePtrOutput
+	ToTemplateTransposedColumnTypePtrOutputWithContext(context.Context) TemplateTransposedColumnTypePtrOutput
+}
+
+type templateTransposedColumnTypePtr string
+
+func TemplateTransposedColumnTypePtr(v string) TemplateTransposedColumnTypePtrInput {
+	return (*templateTransposedColumnTypePtr)(&v)
+}
+
+func (*templateTransposedColumnTypePtr) ElementType() reflect.Type {
+	return templateTransposedColumnTypePtrType
+}
+
+func (in *templateTransposedColumnTypePtr) ToTemplateTransposedColumnTypePtrOutput() TemplateTransposedColumnTypePtrOutput {
+	return pulumi.ToOutput(in).(TemplateTransposedColumnTypePtrOutput)
+}
+
+func (in *templateTransposedColumnTypePtr) ToTemplateTransposedColumnTypePtrOutputWithContext(ctx context.Context) TemplateTransposedColumnTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateTransposedColumnTypePtrOutput)
+}
+
 type TemplateUrlTargetConfiguration string
 
 const (
@@ -72360,6 +72855,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTopBottomComputationTypePtrInput)(nil)).Elem(), AnalysisTopBottomComputationType("TOP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTopBottomSortOrderInput)(nil)).Elem(), AnalysisTopBottomSortOrder("PERCENT_DIFFERENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTopBottomSortOrderPtrInput)(nil)).Elem(), AnalysisTopBottomSortOrder("PERCENT_DIFFERENCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTransposedColumnTypeInput)(nil)).Elem(), AnalysisTransposedColumnType("ROW_HEADER_COLUMN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTransposedColumnTypePtrInput)(nil)).Elem(), AnalysisTransposedColumnType("ROW_HEADER_COLUMN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisUrlTargetConfigurationInput)(nil)).Elem(), AnalysisUrlTargetConfiguration("NEW_TAB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisUrlTargetConfigurationPtrInput)(nil)).Elem(), AnalysisUrlTargetConfiguration("NEW_TAB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisValidationStrategyModeInput)(nil)).Elem(), AnalysisValidationStrategyMode("STRICT"))
@@ -72612,6 +73109,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTopBottomComputationTypePtrInput)(nil)).Elem(), DashboardTopBottomComputationType("TOP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTopBottomSortOrderInput)(nil)).Elem(), DashboardTopBottomSortOrder("PERCENT_DIFFERENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTopBottomSortOrderPtrInput)(nil)).Elem(), DashboardTopBottomSortOrder("PERCENT_DIFFERENCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTransposedColumnTypeInput)(nil)).Elem(), DashboardTransposedColumnType("ROW_HEADER_COLUMN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTransposedColumnTypePtrInput)(nil)).Elem(), DashboardTransposedColumnType("ROW_HEADER_COLUMN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardUiStateInput)(nil)).Elem(), DashboardUiState("EXPANDED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardUiStatePtrInput)(nil)).Elem(), DashboardUiState("EXPANDED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardUrlTargetConfigurationInput)(nil)).Elem(), DashboardUrlTargetConfiguration("NEW_TAB"))
@@ -72913,6 +73412,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTopBottomComputationTypePtrInput)(nil)).Elem(), TemplateTopBottomComputationType("TOP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTopBottomSortOrderInput)(nil)).Elem(), TemplateTopBottomSortOrder("PERCENT_DIFFERENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTopBottomSortOrderPtrInput)(nil)).Elem(), TemplateTopBottomSortOrder("PERCENT_DIFFERENCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTransposedColumnTypeInput)(nil)).Elem(), TemplateTransposedColumnType("ROW_HEADER_COLUMN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTransposedColumnTypePtrInput)(nil)).Elem(), TemplateTransposedColumnType("ROW_HEADER_COLUMN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateUrlTargetConfigurationInput)(nil)).Elem(), TemplateUrlTargetConfiguration("NEW_TAB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateUrlTargetConfigurationPtrInput)(nil)).Elem(), TemplateUrlTargetConfiguration("NEW_TAB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateValidationStrategyModeInput)(nil)).Elem(), TemplateValidationStrategyMode("STRICT"))
@@ -73210,6 +73711,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisTopBottomComputationTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTopBottomSortOrderOutput{})
 	pulumi.RegisterOutputType(AnalysisTopBottomSortOrderPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisTransposedColumnTypeOutput{})
+	pulumi.RegisterOutputType(AnalysisTransposedColumnTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisUrlTargetConfigurationOutput{})
 	pulumi.RegisterOutputType(AnalysisUrlTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisValidationStrategyModeOutput{})
@@ -73466,6 +73969,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardTopBottomComputationTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardTopBottomSortOrderOutput{})
 	pulumi.RegisterOutputType(DashboardTopBottomSortOrderPtrOutput{})
+	pulumi.RegisterOutputType(DashboardTransposedColumnTypeOutput{})
+	pulumi.RegisterOutputType(DashboardTransposedColumnTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardUiStateOutput{})
 	pulumi.RegisterOutputType(DashboardUiStatePtrOutput{})
 	pulumi.RegisterOutputType(DashboardUrlTargetConfigurationOutput{})
@@ -73773,6 +74278,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateTopBottomComputationTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateTopBottomSortOrderOutput{})
 	pulumi.RegisterOutputType(TemplateTopBottomSortOrderPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTransposedColumnTypeOutput{})
+	pulumi.RegisterOutputType(TemplateTransposedColumnTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateUrlTargetConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateUrlTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateValidationStrategyModeOutput{})

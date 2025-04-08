@@ -813,6 +813,7 @@ export const KnowledgeBaseStorageType = {
     Rds: "RDS",
     MongoDbAtlas: "MONGO_DB_ATLAS",
     NeptuneAnalytics: "NEPTUNE_ANALYTICS",
+    OpensearchManagedCluster: "OPENSEARCH_MANAGED_CLUSTER",
 } as const;
 
 /**

@@ -956,6 +956,13 @@ export const AnalysisTopBottomSortOrder = {
 
 export type AnalysisTopBottomSortOrder = (typeof AnalysisTopBottomSortOrder)[keyof typeof AnalysisTopBottomSortOrder];
 
+export const AnalysisTransposedColumnType = {
+    RowHeaderColumn: "ROW_HEADER_COLUMN",
+    ValueColumn: "VALUE_COLUMN",
+} as const;
+
+export type AnalysisTransposedColumnType = (typeof AnalysisTransposedColumnType)[keyof typeof AnalysisTransposedColumnType];
+
 export const AnalysisUrlTargetConfiguration = {
     NewTab: "NEW_TAB",
     NewWindow: "NEW_WINDOW",
@@ -1997,6 +2004,13 @@ export const DashboardTopBottomSortOrder = {
 } as const;
 
 export type DashboardTopBottomSortOrder = (typeof DashboardTopBottomSortOrder)[keyof typeof DashboardTopBottomSortOrder];
+
+export const DashboardTransposedColumnType = {
+    RowHeaderColumn: "ROW_HEADER_COLUMN",
+    ValueColumn: "VALUE_COLUMN",
+} as const;
+
+export type DashboardTransposedColumnType = (typeof DashboardTransposedColumnType)[keyof typeof DashboardTransposedColumnType];
 
 export const DashboardUiState = {
     Expanded: "EXPANDED",
@@ -3303,6 +3317,13 @@ export const TemplateTopBottomSortOrder = {
 } as const;
 
 export type TemplateTopBottomSortOrder = (typeof TemplateTopBottomSortOrder)[keyof typeof TemplateTopBottomSortOrder];
+
+export const TemplateTransposedColumnType = {
+    RowHeaderColumn: "ROW_HEADER_COLUMN",
+    ValueColumn: "VALUE_COLUMN",
+} as const;
+
+export type TemplateTransposedColumnType = (typeof TemplateTransposedColumnType)[keyof typeof TemplateTransposedColumnType];
 
 export const TemplateUrlTargetConfiguration = {
     NewTab: "NEW_TAB",

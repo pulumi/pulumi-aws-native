@@ -107,9 +107,8 @@ type LookupDbInstanceResult struct {
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// The AWS-Region associated with the automated backup.
 	AutomaticBackupReplicationRegion *string `pulumi:"automaticBackupReplicationRegion"`
-	// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
-	//
-	// If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+	// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the ``AutomaticBackupReplicationRegion`` parameter.
+	//  If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
 	AutomaticBackupReplicationRetentionPeriod *int `pulumi:"automaticBackupReplicationRetentionPeriod"`
 	// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
 	//  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
@@ -130,9 +129,8 @@ type LookupDbInstanceResult struct {
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
 	// The identifier of the CA certificate for this DB instance.
 	//  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
-	CaCertificateIdentifier *string `pulumi:"caCertificateIdentifier"`
-	// The details of the DB instance's server certificate.
-	CertificateDetails *DbInstanceCertificateDetails `pulumi:"certificateDetails"`
+	CaCertificateIdentifier *string                       `pulumi:"caCertificateIdentifier"`
+	CertificateDetails      *DbInstanceCertificateDetails `pulumi:"certificateDetails"`
 	// Specifies whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
 	//  This setting doesn't apply to Amazon Aurora DB instances. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
@@ -243,10 +241,8 @@ type LookupDbInstanceResult struct {
 	EnableIamDatabaseAuthentication *bool `pulumi:"enableIamDatabaseAuthentication"`
 	// Specifies whether to enable Performance Insights for the DB instance. For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html) in the *Amazon RDS User Guide*.
 	//  This setting doesn't apply to RDS Custom DB instances.
-	EnablePerformanceInsights *bool `pulumi:"enablePerformanceInsights"`
-	// The connection endpoint for the DB instance.
-	//   The endpoint might not be shown for instances with the status of ``creating``.
-	Endpoint *DbInstanceEndpoint `pulumi:"endpoint"`
+	EnablePerformanceInsights *bool               `pulumi:"enablePerformanceInsights"`
+	Endpoint                  *DbInstanceEndpoint `pulumi:"endpoint"`
 	// The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.
 	//  This property is required when creating a DB instance.
 	//   You can convert an Oracle database from the non-CDB architecture to the container database (CDB) architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` to ``oracle-ee-cdb`` or from ``oracle-se2`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.
@@ -554,9 +550,9 @@ func (o LookupDbInstanceResultOutput) AutomaticBackupReplicationRegion() pulumi.
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.AutomaticBackupReplicationRegion }).(pulumi.StringPtrOutput)
 }
 
-// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
+// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the “AutomaticBackupReplicationRegion“ parameter.
 //
-// If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+//	If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
 func (o LookupDbInstanceResultOutput) AutomaticBackupReplicationRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *int { return v.AutomaticBackupReplicationRetentionPeriod }).(pulumi.IntPtrOutput)
 }
@@ -593,7 +589,6 @@ func (o LookupDbInstanceResultOutput) CaCertificateIdentifier() pulumi.StringPtr
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.CaCertificateIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The details of the DB instance's server certificate.
 func (o LookupDbInstanceResultOutput) CertificateDetails() DbInstanceCertificateDetailsPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *DbInstanceCertificateDetails { return v.CertificateDetails }).(DbInstanceCertificateDetailsPtrOutput)
 }
@@ -780,9 +775,6 @@ func (o LookupDbInstanceResultOutput) EnablePerformanceInsights() pulumi.BoolPtr
 	return o.ApplyT(func(v LookupDbInstanceResult) *bool { return v.EnablePerformanceInsights }).(pulumi.BoolPtrOutput)
 }
 
-// The connection endpoint for the DB instance.
-//
-//	The endpoint might not be shown for instances with the status of ``creating``.
 func (o LookupDbInstanceResultOutput) Endpoint() DbInstanceEndpointPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *DbInstanceEndpoint { return v.Endpoint }).(DbInstanceEndpointPtrOutput)
 }

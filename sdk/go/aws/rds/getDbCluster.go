@@ -263,14 +263,8 @@ type LookupDbClusterResult struct {
 	//  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
 	//  Constraints: Minimum 30-minute window.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
-	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
-	// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-	//   +   ``CreateDBInstance``
-	//   +   ``DescribeDBInstances``
-	//   +   ``DeleteDBInstance``
-	//
-	//  For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
-	ReadEndpoint *DbClusterReadEndpoint `pulumi:"readEndpoint"`
+	PreferredMaintenanceWindow *string                `pulumi:"preferredMaintenanceWindow"`
+	ReadEndpoint               *DbClusterReadEndpoint `pulumi:"readEndpoint"`
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.
 	//  Valid for: Aurora DB clusters only
 	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
@@ -705,15 +699,6 @@ func (o LookupDbClusterResultOutput) PreferredMaintenanceWindow() pulumi.StringP
 	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
-// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-//
-//   - “CreateDBInstance“
-//
-//   - “DescribeDBInstances“
-//
-//   - “DeleteDBInstance“
-//
-//     For the data structure that represents Amazon Aurora DB cluster endpoints, see “DBClusterEndpoint“.
 func (o LookupDbClusterResultOutput) ReadEndpoint() DbClusterReadEndpointPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *DbClusterReadEndpoint { return v.ReadEndpoint }).(DbClusterReadEndpointPtrOutput)
 }

@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = ['ResolverQueryLoggingConfigArgs', 'ResolverQueryLoggingConfig']
@@ -21,16 +23,20 @@ __all__ = ['ResolverQueryLoggingConfigArgs', 'ResolverQueryLoggingConfig']
 class ResolverQueryLoggingConfigArgs:
     def __init__(__self__, *,
                  destination_arn: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a ResolverQueryLoggingConfig resource.
         :param pulumi.Input[str] destination_arn: destination arn
         :param pulumi.Input[str] name: ResolverQueryLogConfigName
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if destination_arn is not None:
             pulumi.set(__self__, "destination_arn", destination_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -56,6 +62,18 @@ class ResolverQueryLoggingConfigArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class ResolverQueryLoggingConfig(pulumi.CustomResource):
     @overload
@@ -64,6 +82,7 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.
@@ -72,6 +91,7 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_arn: destination arn
         :param pulumi.Input[str] name: ResolverQueryLogConfigName
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -99,6 +119,7 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -110,6 +131,7 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
 
             __props__.__dict__["destination_arn"] = destination_arn
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["association_count"] = None
             __props__.__dict__["aws_id"] = None
@@ -118,7 +140,7 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["share_status"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destinationArn", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destinationArn", "name", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResolverQueryLoggingConfig, __self__).__init__(
             'aws-native:route53resolver:ResolverQueryLoggingConfig',
@@ -152,6 +174,7 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
         __props__.__dict__["owner_id"] = None
         __props__.__dict__["share_status"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["tags"] = None
         return ResolverQueryLoggingConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -233,4 +256,12 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
         ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 

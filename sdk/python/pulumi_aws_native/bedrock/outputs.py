@@ -230,6 +230,8 @@ __all__ = [
     'KnowledgeBaseMongoDbAtlasFieldMapping',
     'KnowledgeBaseNeptuneAnalyticsConfiguration',
     'KnowledgeBaseNeptuneAnalyticsFieldMapping',
+    'KnowledgeBaseOpenSearchManagedClusterConfiguration',
+    'KnowledgeBaseOpenSearchManagedClusterFieldMapping',
     'KnowledgeBaseOpenSearchServerlessConfiguration',
     'KnowledgeBaseOpenSearchServerlessFieldMapping',
     'KnowledgeBasePineconeConfiguration',
@@ -9223,6 +9225,145 @@ class KnowledgeBaseNeptuneAnalyticsFieldMapping(dict):
 
 
 @pulumi.output_type
+class KnowledgeBaseOpenSearchManagedClusterConfiguration(dict):
+    """
+    Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainArn":
+            suggest = "domain_arn"
+        elif key == "domainEndpoint":
+            suggest = "domain_endpoint"
+        elif key == "fieldMapping":
+            suggest = "field_mapping"
+        elif key == "vectorIndexName":
+            suggest = "vector_index_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseOpenSearchManagedClusterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseOpenSearchManagedClusterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseOpenSearchManagedClusterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_arn: str,
+                 domain_endpoint: str,
+                 field_mapping: 'outputs.KnowledgeBaseOpenSearchManagedClusterFieldMapping',
+                 vector_index_name: str):
+        """
+        Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+        :param str domain_arn: The Amazon Resource Name (ARN) of the OpenSearch domain.
+        :param str domain_endpoint: The endpoint URL the OpenSearch domain.
+        :param str vector_index_name: The name of the vector store.
+        """
+        pulumi.set(__self__, "domain_arn", domain_arn)
+        pulumi.set(__self__, "domain_endpoint", domain_endpoint)
+        pulumi.set(__self__, "field_mapping", field_mapping)
+        pulumi.set(__self__, "vector_index_name", vector_index_name)
+
+    @property
+    @pulumi.getter(name="domainArn")
+    def domain_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the OpenSearch domain.
+        """
+        return pulumi.get(self, "domain_arn")
+
+    @property
+    @pulumi.getter(name="domainEndpoint")
+    def domain_endpoint(self) -> str:
+        """
+        The endpoint URL the OpenSearch domain.
+        """
+        return pulumi.get(self, "domain_endpoint")
+
+    @property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> 'outputs.KnowledgeBaseOpenSearchManagedClusterFieldMapping':
+        return pulumi.get(self, "field_mapping")
+
+    @property
+    @pulumi.getter(name="vectorIndexName")
+    def vector_index_name(self) -> str:
+        """
+        The name of the vector store.
+        """
+        return pulumi.get(self, "vector_index_name")
+
+
+@pulumi.output_type
+class KnowledgeBaseOpenSearchManagedClusterFieldMapping(dict):
+    """
+    A mapping of Bedrock Knowledge Base fields to OpenSearch Managed Cluster field names
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metadataField":
+            suggest = "metadata_field"
+        elif key == "textField":
+            suggest = "text_field"
+        elif key == "vectorField":
+            suggest = "vector_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseOpenSearchManagedClusterFieldMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseOpenSearchManagedClusterFieldMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseOpenSearchManagedClusterFieldMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metadata_field: str,
+                 text_field: str,
+                 vector_field: str):
+        """
+        A mapping of Bedrock Knowledge Base fields to OpenSearch Managed Cluster field names
+        :param str metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        :param str text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        :param str vector_field: The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+        pulumi.set(__self__, "metadata_field", metadata_field)
+        pulumi.set(__self__, "text_field", text_field)
+        pulumi.set(__self__, "vector_field", vector_field)
+
+    @property
+    @pulumi.getter(name="metadataField")
+    def metadata_field(self) -> str:
+        """
+        The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        return pulumi.get(self, "metadata_field")
+
+    @property
+    @pulumi.getter(name="textField")
+    def text_field(self) -> str:
+        """
+        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        return pulumi.get(self, "text_field")
+
+    @property
+    @pulumi.getter(name="vectorField")
+    def vector_field(self) -> str:
+        """
+        The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+        return pulumi.get(self, "vector_field")
+
+
+@pulumi.output_type
 class KnowledgeBaseOpenSearchServerlessConfiguration(dict):
     """
     Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
@@ -10392,6 +10533,8 @@ class KnowledgeBaseStorageConfiguration(dict):
             suggest = "mongo_db_atlas_configuration"
         elif key == "neptuneAnalyticsConfiguration":
             suggest = "neptune_analytics_configuration"
+        elif key == "opensearchManagedClusterConfiguration":
+            suggest = "opensearch_managed_cluster_configuration"
         elif key == "opensearchServerlessConfiguration":
             suggest = "opensearch_serverless_configuration"
         elif key == "pineconeConfiguration":
@@ -10414,6 +10557,7 @@ class KnowledgeBaseStorageConfiguration(dict):
                  type: 'KnowledgeBaseStorageType',
                  mongo_db_atlas_configuration: Optional['outputs.KnowledgeBaseMongoDbAtlasConfiguration'] = None,
                  neptune_analytics_configuration: Optional['outputs.KnowledgeBaseNeptuneAnalyticsConfiguration'] = None,
+                 opensearch_managed_cluster_configuration: Optional['outputs.KnowledgeBaseOpenSearchManagedClusterConfiguration'] = None,
                  opensearch_serverless_configuration: Optional['outputs.KnowledgeBaseOpenSearchServerlessConfiguration'] = None,
                  pinecone_configuration: Optional['outputs.KnowledgeBasePineconeConfiguration'] = None,
                  rds_configuration: Optional['outputs.KnowledgeBaseRdsConfiguration'] = None):
@@ -10431,6 +10575,8 @@ class KnowledgeBaseStorageConfiguration(dict):
             pulumi.set(__self__, "mongo_db_atlas_configuration", mongo_db_atlas_configuration)
         if neptune_analytics_configuration is not None:
             pulumi.set(__self__, "neptune_analytics_configuration", neptune_analytics_configuration)
+        if opensearch_managed_cluster_configuration is not None:
+            pulumi.set(__self__, "opensearch_managed_cluster_configuration", opensearch_managed_cluster_configuration)
         if opensearch_serverless_configuration is not None:
             pulumi.set(__self__, "opensearch_serverless_configuration", opensearch_serverless_configuration)
         if pinecone_configuration is not None:
@@ -10461,6 +10607,11 @@ class KnowledgeBaseStorageConfiguration(dict):
         Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
         """
         return pulumi.get(self, "neptune_analytics_configuration")
+
+    @property
+    @pulumi.getter(name="opensearchManagedClusterConfiguration")
+    def opensearch_managed_cluster_configuration(self) -> Optional['outputs.KnowledgeBaseOpenSearchManagedClusterConfiguration']:
+        return pulumi.get(self, "opensearch_managed_cluster_configuration")
 
     @property
     @pulumi.getter(name="opensearchServerlessConfiguration")

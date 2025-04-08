@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,6 +36,8 @@ type ResolverQueryLoggingConfig struct {
 	ShareStatus ResolverQueryLoggingConfigShareStatusOutput `pulumi:"shareStatus"`
 	// ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.
 	Status ResolverQueryLoggingConfigStatusOutput `pulumi:"status"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewResolverQueryLoggingConfig registers a new resource with the given unique name, arguments, and options.
@@ -47,6 +50,7 @@ func NewResolverQueryLoggingConfig(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"destinationArn",
 		"name",
+		"tags[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -86,6 +90,8 @@ type resolverQueryLoggingConfigArgs struct {
 	DestinationArn *string `pulumi:"destinationArn"`
 	// ResolverQueryLogConfigName
 	Name *string `pulumi:"name"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResolverQueryLoggingConfig resource.
@@ -94,6 +100,8 @@ type ResolverQueryLoggingConfigArgs struct {
 	DestinationArn pulumi.StringPtrInput
 	// ResolverQueryLogConfigName
 	Name pulumi.StringPtrInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (ResolverQueryLoggingConfigArgs) ElementType() reflect.Type {
@@ -181,6 +189,11 @@ func (o ResolverQueryLoggingConfigOutput) ShareStatus() ResolverQueryLoggingConf
 // ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.
 func (o ResolverQueryLoggingConfigOutput) Status() ResolverQueryLoggingConfigStatusOutput {
 	return o.ApplyT(func(v *ResolverQueryLoggingConfig) ResolverQueryLoggingConfigStatusOutput { return v.Status }).(ResolverQueryLoggingConfigStatusOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o ResolverQueryLoggingConfigOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfig) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

@@ -75,6 +75,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         [Output("status")]
         public Output<Pulumi.AwsNative.Route53Resolver.ResolverQueryLoggingConfigStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ResolverQueryLoggingConfig resource with the given unique name, arguments, and options.
@@ -102,6 +108,7 @@ namespace Pulumi.AwsNative.Route53Resolver
                 {
                     "destinationArn",
                     "name",
+                    "tags[*]",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,6 +143,18 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
+            set => _tags = value;
+        }
 
         public ResolverQueryLoggingConfigArgs()
         {

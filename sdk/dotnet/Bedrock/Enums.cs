@@ -2384,6 +2384,7 @@ namespace Pulumi.AwsNative.Bedrock
         public static KnowledgeBaseStorageType Rds { get; } = new KnowledgeBaseStorageType("RDS");
         public static KnowledgeBaseStorageType MongoDbAtlas { get; } = new KnowledgeBaseStorageType("MONGO_DB_ATLAS");
         public static KnowledgeBaseStorageType NeptuneAnalytics { get; } = new KnowledgeBaseStorageType("NEPTUNE_ANALYTICS");
+        public static KnowledgeBaseStorageType OpensearchManagedCluster { get; } = new KnowledgeBaseStorageType("OPENSEARCH_MANAGED_CLUSTER");
 
         public static bool operator ==(KnowledgeBaseStorageType left, KnowledgeBaseStorageType right) => left.Equals(right);
         public static bool operator !=(KnowledgeBaseStorageType left, KnowledgeBaseStorageType right) => !left.Equals(right);

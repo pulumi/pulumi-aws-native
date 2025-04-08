@@ -19,6 +19,7 @@ from ._enums import *
 __all__ = [
     'ServiceLevelObjectiveBurnRateConfiguration',
     'ServiceLevelObjectiveCalendarInterval',
+    'ServiceLevelObjectiveDependencyConfig',
     'ServiceLevelObjectiveDimension',
     'ServiceLevelObjectiveExclusionWindow',
     'ServiceLevelObjectiveGoal',
@@ -142,6 +143,70 @@ class ServiceLevelObjectiveCalendarInterval(dict):
         As soon as one calendar interval ends, another automatically begins.
         """
         return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class ServiceLevelObjectiveDependencyConfig(dict):
+    """
+    Configuration for identifying a dependency and its operation
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependencyKeyAttributes":
+            suggest = "dependency_key_attributes"
+        elif key == "dependencyOperationName":
+            suggest = "dependency_operation_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLevelObjectiveDependencyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLevelObjectiveDependencyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLevelObjectiveDependencyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dependency_key_attributes: Mapping[str, str],
+                 dependency_operation_name: str):
+        """
+        Configuration for identifying a dependency and its operation
+        :param Mapping[str, str] dependency_key_attributes: This is a string-to-string map. It can include the following fields.
+               
+               - `Type` designates the type of object this is.
+               - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+               - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+               - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+               - `Environment` specifies the location where this object is hosted, or what it belongs to.
+        :param str dependency_operation_name: When the SLO monitors a specific operation of the dependency, this field specifies the name of that operation in the dependency.
+        """
+        pulumi.set(__self__, "dependency_key_attributes", dependency_key_attributes)
+        pulumi.set(__self__, "dependency_operation_name", dependency_operation_name)
+
+    @property
+    @pulumi.getter(name="dependencyKeyAttributes")
+    def dependency_key_attributes(self) -> Mapping[str, str]:
+        """
+        This is a string-to-string map. It can include the following fields.
+
+        - `Type` designates the type of object this is.
+        - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+        - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+        - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+        - `Environment` specifies the location where this object is hosted, or what it belongs to.
+        """
+        return pulumi.get(self, "dependency_key_attributes")
+
+    @property
+    @pulumi.getter(name="dependencyOperationName")
+    def dependency_operation_name(self) -> str:
+        """
+        When the SLO monitors a specific operation of the dependency, this field specifies the name of that operation in the dependency.
+        """
+        return pulumi.get(self, "dependency_operation_name")
 
 
 @pulumi.output_type
@@ -734,7 +799,9 @@ class ServiceLevelObjectiveRequestBasedSliMetric(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "keyAttributes":
+        if key == "dependencyConfig":
+            suggest = "dependency_config"
+        elif key == "keyAttributes":
             suggest = "key_attributes"
         elif key == "metricType":
             suggest = "metric_type"
@@ -757,6 +824,7 @@ class ServiceLevelObjectiveRequestBasedSliMetric(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 dependency_config: Optional['outputs.ServiceLevelObjectiveDependencyConfig'] = None,
                  key_attributes: Optional[Mapping[str, str]] = None,
                  metric_type: Optional['ServiceLevelObjectiveRequestBasedSliMetricMetricType'] = None,
                  monitored_request_count_metric: Optional['outputs.ServiceLevelObjectiveMonitoredRequestCountMetric'] = None,
@@ -777,6 +845,8 @@ class ServiceLevelObjectiveRequestBasedSliMetric(dict):
         :param str operation_name: If the SLO monitors a specific operation of the service, this field displays that operation name.
         :param Sequence['ServiceLevelObjectiveMetricDataQuery'] total_request_count_metric: This structure defines the metric that is used as the "total requests" number for a request-based SLO. The number observed for this metric is divided by the number of "good requests" or "bad requests" that is observed for the metric defined in `MonitoredRequestCountMetric`.
         """
+        if dependency_config is not None:
+            pulumi.set(__self__, "dependency_config", dependency_config)
         if key_attributes is not None:
             pulumi.set(__self__, "key_attributes", key_attributes)
         if metric_type is not None:
@@ -787,6 +857,11 @@ class ServiceLevelObjectiveRequestBasedSliMetric(dict):
             pulumi.set(__self__, "operation_name", operation_name)
         if total_request_count_metric is not None:
             pulumi.set(__self__, "total_request_count_metric", total_request_count_metric)
+
+    @property
+    @pulumi.getter(name="dependencyConfig")
+    def dependency_config(self) -> Optional['outputs.ServiceLevelObjectiveDependencyConfig']:
+        return pulumi.get(self, "dependency_config")
 
     @property
     @pulumi.getter(name="keyAttributes")
@@ -959,7 +1034,9 @@ class ServiceLevelObjectiveSliMetric(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "keyAttributes":
+        if key == "dependencyConfig":
+            suggest = "dependency_config"
+        elif key == "keyAttributes":
             suggest = "key_attributes"
         elif key == "metricDataQueries":
             suggest = "metric_data_queries"
@@ -982,6 +1059,7 @@ class ServiceLevelObjectiveSliMetric(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 dependency_config: Optional['outputs.ServiceLevelObjectiveDependencyConfig'] = None,
                  key_attributes: Optional[Mapping[str, str]] = None,
                  metric_data_queries: Optional[Sequence['outputs.ServiceLevelObjectiveMetricDataQuery']] = None,
                  metric_type: Optional['ServiceLevelObjectiveSliMetricMetricType'] = None,
@@ -1005,6 +1083,8 @@ class ServiceLevelObjectiveSliMetric(dict):
         :param int period_seconds: The number of seconds to use as the period for SLO evaluation. Your application's performance is compared to the SLI during each period. For each period, the application is determined to have either achieved or not achieved the necessary performance.
         :param str statistic: The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic
         """
+        if dependency_config is not None:
+            pulumi.set(__self__, "dependency_config", dependency_config)
         if key_attributes is not None:
             pulumi.set(__self__, "key_attributes", key_attributes)
         if metric_data_queries is not None:
@@ -1017,6 +1097,11 @@ class ServiceLevelObjectiveSliMetric(dict):
             pulumi.set(__self__, "period_seconds", period_seconds)
         if statistic is not None:
             pulumi.set(__self__, "statistic", statistic)
+
+    @property
+    @pulumi.getter(name="dependencyConfig")
+    def dependency_config(self) -> Optional['outputs.ServiceLevelObjectiveDependencyConfig']:
+        return pulumi.get(self, "dependency_config")
 
     @property
     @pulumi.getter(name="keyAttributes")

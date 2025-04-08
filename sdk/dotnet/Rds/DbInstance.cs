@@ -128,9 +128,8 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> AutomaticBackupReplicationRegion { get; private set; } = null!;
 
         /// <summary>
-        /// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
-        /// 
-        /// If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+        /// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the ``AutomaticBackupReplicationRegion`` parameter. 
+        ///  If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
         /// </summary>
         [Output("automaticBackupReplicationRetentionPeriod")]
         public Output<int?> AutomaticBackupReplicationRetentionPeriod { get; private set; } = null!;
@@ -167,9 +166,6 @@ namespace Pulumi.AwsNative.Rds
         [Output("caCertificateIdentifier")]
         public Output<string?> CaCertificateIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// The details of the DB instance's server certificate.
-        /// </summary>
         [Output("certificateDetails")]
         public Output<Outputs.DbInstanceCertificateDetails> CertificateDetails { get; private set; } = null!;
 
@@ -499,10 +495,6 @@ namespace Pulumi.AwsNative.Rds
         [Output("enablePerformanceInsights")]
         public Output<bool?> EnablePerformanceInsights { get; private set; } = null!;
 
-        /// <summary>
-        /// The connection endpoint for the DB instance.
-        ///   The endpoint might not be shown for instances with the status of ``creating``.
-        /// </summary>
         [Output("endpoint")]
         public Output<Outputs.DbInstanceEndpoint> Endpoint { get; private set; } = null!;
 
@@ -1144,9 +1136,8 @@ namespace Pulumi.AwsNative.Rds
         public Input<string>? AutomaticBackupReplicationRegion { get; set; }
 
         /// <summary>
-        /// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
-        /// 
-        /// If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+        /// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the ``AutomaticBackupReplicationRegion`` parameter. 
+        ///  If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
         /// </summary>
         [Input("automaticBackupReplicationRetentionPeriod")]
         public Input<int>? AutomaticBackupReplicationRetentionPeriod { get; set; }

@@ -301,6 +301,189 @@ func (o ServiceLevelObjectiveCalendarIntervalPtrOutput) StartTime() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// Configuration for identifying a dependency and its operation
+type ServiceLevelObjectiveDependencyConfig struct {
+	// This is a string-to-string map. It can include the following fields.
+	//
+	// - `Type` designates the type of object this is.
+	// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+	// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+	// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+	// - `Environment` specifies the location where this object is hosted, or what it belongs to.
+	DependencyKeyAttributes map[string]string `pulumi:"dependencyKeyAttributes"`
+	// When the SLO monitors a specific operation of the dependency, this field specifies the name of that operation in the dependency.
+	DependencyOperationName string `pulumi:"dependencyOperationName"`
+}
+
+// ServiceLevelObjectiveDependencyConfigInput is an input type that accepts ServiceLevelObjectiveDependencyConfigArgs and ServiceLevelObjectiveDependencyConfigOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveDependencyConfigInput` via:
+//
+//	ServiceLevelObjectiveDependencyConfigArgs{...}
+type ServiceLevelObjectiveDependencyConfigInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveDependencyConfigOutput() ServiceLevelObjectiveDependencyConfigOutput
+	ToServiceLevelObjectiveDependencyConfigOutputWithContext(context.Context) ServiceLevelObjectiveDependencyConfigOutput
+}
+
+// Configuration for identifying a dependency and its operation
+type ServiceLevelObjectiveDependencyConfigArgs struct {
+	// This is a string-to-string map. It can include the following fields.
+	//
+	// - `Type` designates the type of object this is.
+	// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+	// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+	// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+	// - `Environment` specifies the location where this object is hosted, or what it belongs to.
+	DependencyKeyAttributes pulumi.StringMapInput `pulumi:"dependencyKeyAttributes"`
+	// When the SLO monitors a specific operation of the dependency, this field specifies the name of that operation in the dependency.
+	DependencyOperationName pulumi.StringInput `pulumi:"dependencyOperationName"`
+}
+
+func (ServiceLevelObjectiveDependencyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveDependencyConfig)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveDependencyConfigArgs) ToServiceLevelObjectiveDependencyConfigOutput() ServiceLevelObjectiveDependencyConfigOutput {
+	return i.ToServiceLevelObjectiveDependencyConfigOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveDependencyConfigArgs) ToServiceLevelObjectiveDependencyConfigOutputWithContext(ctx context.Context) ServiceLevelObjectiveDependencyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveDependencyConfigOutput)
+}
+
+func (i ServiceLevelObjectiveDependencyConfigArgs) ToServiceLevelObjectiveDependencyConfigPtrOutput() ServiceLevelObjectiveDependencyConfigPtrOutput {
+	return i.ToServiceLevelObjectiveDependencyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveDependencyConfigArgs) ToServiceLevelObjectiveDependencyConfigPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveDependencyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveDependencyConfigOutput).ToServiceLevelObjectiveDependencyConfigPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveDependencyConfigPtrInput is an input type that accepts ServiceLevelObjectiveDependencyConfigArgs, ServiceLevelObjectiveDependencyConfigPtr and ServiceLevelObjectiveDependencyConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveDependencyConfigPtrInput` via:
+//
+//	        ServiceLevelObjectiveDependencyConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveDependencyConfigPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveDependencyConfigPtrOutput() ServiceLevelObjectiveDependencyConfigPtrOutput
+	ToServiceLevelObjectiveDependencyConfigPtrOutputWithContext(context.Context) ServiceLevelObjectiveDependencyConfigPtrOutput
+}
+
+type serviceLevelObjectiveDependencyConfigPtrType ServiceLevelObjectiveDependencyConfigArgs
+
+func ServiceLevelObjectiveDependencyConfigPtr(v *ServiceLevelObjectiveDependencyConfigArgs) ServiceLevelObjectiveDependencyConfigPtrInput {
+	return (*serviceLevelObjectiveDependencyConfigPtrType)(v)
+}
+
+func (*serviceLevelObjectiveDependencyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveDependencyConfig)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveDependencyConfigPtrType) ToServiceLevelObjectiveDependencyConfigPtrOutput() ServiceLevelObjectiveDependencyConfigPtrOutput {
+	return i.ToServiceLevelObjectiveDependencyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveDependencyConfigPtrType) ToServiceLevelObjectiveDependencyConfigPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveDependencyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveDependencyConfigPtrOutput)
+}
+
+// Configuration for identifying a dependency and its operation
+type ServiceLevelObjectiveDependencyConfigOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveDependencyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveDependencyConfig)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveDependencyConfigOutput) ToServiceLevelObjectiveDependencyConfigOutput() ServiceLevelObjectiveDependencyConfigOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveDependencyConfigOutput) ToServiceLevelObjectiveDependencyConfigOutputWithContext(ctx context.Context) ServiceLevelObjectiveDependencyConfigOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveDependencyConfigOutput) ToServiceLevelObjectiveDependencyConfigPtrOutput() ServiceLevelObjectiveDependencyConfigPtrOutput {
+	return o.ToServiceLevelObjectiveDependencyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveDependencyConfigOutput) ToServiceLevelObjectiveDependencyConfigPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveDependencyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveDependencyConfig) *ServiceLevelObjectiveDependencyConfig {
+		return &v
+	}).(ServiceLevelObjectiveDependencyConfigPtrOutput)
+}
+
+// This is a string-to-string map. It can include the following fields.
+//
+// - `Type` designates the type of object this is.
+// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+// - `Environment` specifies the location where this object is hosted, or what it belongs to.
+func (o ServiceLevelObjectiveDependencyConfigOutput) DependencyKeyAttributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveDependencyConfig) map[string]string { return v.DependencyKeyAttributes }).(pulumi.StringMapOutput)
+}
+
+// When the SLO monitors a specific operation of the dependency, this field specifies the name of that operation in the dependency.
+func (o ServiceLevelObjectiveDependencyConfigOutput) DependencyOperationName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveDependencyConfig) string { return v.DependencyOperationName }).(pulumi.StringOutput)
+}
+
+type ServiceLevelObjectiveDependencyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveDependencyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveDependencyConfig)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveDependencyConfigPtrOutput) ToServiceLevelObjectiveDependencyConfigPtrOutput() ServiceLevelObjectiveDependencyConfigPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveDependencyConfigPtrOutput) ToServiceLevelObjectiveDependencyConfigPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveDependencyConfigPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveDependencyConfigPtrOutput) Elem() ServiceLevelObjectiveDependencyConfigOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveDependencyConfig) ServiceLevelObjectiveDependencyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveDependencyConfig
+		return ret
+	}).(ServiceLevelObjectiveDependencyConfigOutput)
+}
+
+// This is a string-to-string map. It can include the following fields.
+//
+// - `Type` designates the type of object this is.
+// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+// - `Environment` specifies the location where this object is hosted, or what it belongs to.
+func (o ServiceLevelObjectiveDependencyConfigPtrOutput) DependencyKeyAttributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveDependencyConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.DependencyKeyAttributes
+	}).(pulumi.StringMapOutput)
+}
+
+// When the SLO monitors a specific operation of the dependency, this field specifies the name of that operation in the dependency.
+func (o ServiceLevelObjectiveDependencyConfigPtrOutput) DependencyOperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveDependencyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DependencyOperationName
+	}).(pulumi.StringPtrOutput)
+}
+
 // A dimension is a name/value pair that is part of the identity of a metric. Because dimensions are part of the unique identifier for a metric, whenever you add a unique name/value pair to one of your metrics, you are creating a new variation of that metric. For example, many Amazon EC2 metrics publish `InstanceId` as a dimension name, and the actual instance ID as the value for that dimension. You can assign up to 30 dimensions to a metric.
 type ServiceLevelObjectiveDimension struct {
 	// The name of the dimension. Dimension names must contain only ASCII characters, must include at least one non-whitespace character, and cannot start with a colon (:). ASCII control characters are not supported as part of dimension names.
@@ -1884,6 +2067,7 @@ func (o ServiceLevelObjectiveRequestBasedSliPtrOutput) RequestBasedSliMetric() S
 
 // This structure contains the information about the metric that is used for a request-based SLO.
 type ServiceLevelObjectiveRequestBasedSliMetric struct {
+	DependencyConfig *ServiceLevelObjectiveDependencyConfig `pulumi:"dependencyConfig"`
 	// This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
 	//
 	// - `Type` designates the type of object that this SLO is related to.
@@ -1916,6 +2100,7 @@ type ServiceLevelObjectiveRequestBasedSliMetricInput interface {
 
 // This structure contains the information about the metric that is used for a request-based SLO.
 type ServiceLevelObjectiveRequestBasedSliMetricArgs struct {
+	DependencyConfig ServiceLevelObjectiveDependencyConfigPtrInput `pulumi:"dependencyConfig"`
 	// This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
 	//
 	// - `Type` designates the type of object that this SLO is related to.
@@ -2013,6 +2198,12 @@ func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) ToServiceLevelObjectiv
 	}).(ServiceLevelObjectiveRequestBasedSliMetricPtrOutput)
 }
 
+func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) DependencyConfig() ServiceLevelObjectiveDependencyConfigPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveRequestBasedSliMetric) *ServiceLevelObjectiveDependencyConfig {
+		return v.DependencyConfig
+	}).(ServiceLevelObjectiveDependencyConfigPtrOutput)
+}
+
 // This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
 //
 // - `Type` designates the type of object that this SLO is related to.
@@ -2073,6 +2264,15 @@ func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) Elem() ServiceLevel
 		var ret ServiceLevelObjectiveRequestBasedSliMetric
 		return ret
 	}).(ServiceLevelObjectiveRequestBasedSliMetricOutput)
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) DependencyConfig() ServiceLevelObjectiveDependencyConfigPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSliMetric) *ServiceLevelObjectiveDependencyConfig {
+		if v == nil {
+			return nil
+		}
+		return v.DependencyConfig
+	}).(ServiceLevelObjectiveDependencyConfigPtrOutput)
 }
 
 // This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
@@ -2473,6 +2673,7 @@ func (o ServiceLevelObjectiveSliPtrOutput) SliMetric() ServiceLevelObjectiveSliM
 
 // A structure that contains information about the metric that the SLO monitors.
 type ServiceLevelObjectiveSliMetric struct {
+	DependencyConfig *ServiceLevelObjectiveDependencyConfig `pulumi:"dependencyConfig"`
 	// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
 	//
 	// This is a string-to-string map. It can include the following fields.
@@ -2508,6 +2709,7 @@ type ServiceLevelObjectiveSliMetricInput interface {
 
 // A structure that contains information about the metric that the SLO monitors.
 type ServiceLevelObjectiveSliMetricArgs struct {
+	DependencyConfig ServiceLevelObjectiveDependencyConfigPtrInput `pulumi:"dependencyConfig"`
 	// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
 	//
 	// This is a string-to-string map. It can include the following fields.
@@ -2608,6 +2810,12 @@ func (o ServiceLevelObjectiveSliMetricOutput) ToServiceLevelObjectiveSliMetricPt
 	}).(ServiceLevelObjectiveSliMetricPtrOutput)
 }
 
+func (o ServiceLevelObjectiveSliMetricOutput) DependencyConfig() ServiceLevelObjectiveDependencyConfigPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliMetric) *ServiceLevelObjectiveDependencyConfig {
+		return v.DependencyConfig
+	}).(ServiceLevelObjectiveDependencyConfigPtrOutput)
+}
+
 // If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
 //
 // This is a string-to-string map. It can include the following fields.
@@ -2670,6 +2878,15 @@ func (o ServiceLevelObjectiveSliMetricPtrOutput) Elem() ServiceLevelObjectiveSli
 		var ret ServiceLevelObjectiveSliMetric
 		return ret
 	}).(ServiceLevelObjectiveSliMetricOutput)
+}
+
+func (o ServiceLevelObjectiveSliMetricPtrOutput) DependencyConfig() ServiceLevelObjectiveDependencyConfigPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliMetric) *ServiceLevelObjectiveDependencyConfig {
+		if v == nil {
+			return nil
+		}
+		return v.DependencyConfig
+	}).(ServiceLevelObjectiveDependencyConfigPtrOutput)
 }
 
 // If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
@@ -2810,6 +3027,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveBurnRateConfigurationArrayInput)(nil)).Elem(), ServiceLevelObjectiveBurnRateConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveCalendarIntervalInput)(nil)).Elem(), ServiceLevelObjectiveCalendarIntervalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveCalendarIntervalPtrInput)(nil)).Elem(), ServiceLevelObjectiveCalendarIntervalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDependencyConfigInput)(nil)).Elem(), ServiceLevelObjectiveDependencyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDependencyConfigPtrInput)(nil)).Elem(), ServiceLevelObjectiveDependencyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDimensionInput)(nil)).Elem(), ServiceLevelObjectiveDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDimensionArrayInput)(nil)).Elem(), ServiceLevelObjectiveDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveExclusionWindowInput)(nil)).Elem(), ServiceLevelObjectiveExclusionWindowArgs{})
@@ -2843,6 +3062,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceLevelObjectiveBurnRateConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveCalendarIntervalOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveCalendarIntervalPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveDependencyConfigOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveDependencyConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveDimensionOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveDimensionArrayOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveExclusionWindowOutput{})

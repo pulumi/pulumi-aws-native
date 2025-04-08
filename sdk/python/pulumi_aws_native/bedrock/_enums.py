@@ -757,6 +757,7 @@ class KnowledgeBaseStorageType(str, Enum):
     RDS = "RDS"
     MONGO_DB_ATLAS = "MONGO_DB_ATLAS"
     NEPTUNE_ANALYTICS = "NEPTUNE_ANALYTICS"
+    OPENSEARCH_MANAGED_CLUSTER = "OPENSEARCH_MANAGED_CLUSTER"
 
 
 class KnowledgeBaseSupplementalDataStorageLocationType(str, Enum):

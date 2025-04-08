@@ -2650,14 +2650,6 @@ class DbCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="readEndpoint")
     def read_endpoint(self) -> pulumi.Output['outputs.DbClusterReadEndpoint']:
-        """
-        This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-          +   ``CreateDBInstance`` 
-          +   ``DescribeDBInstances`` 
-          +   ``DeleteDBInstance`` 
-          
-         For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
-        """
         return pulumi.get(self, "read_endpoint")
 
     @property

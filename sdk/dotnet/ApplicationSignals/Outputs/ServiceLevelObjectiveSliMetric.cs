@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
     [OutputType]
     public sealed class ServiceLevelObjectiveSliMetric
     {
+        public readonly Outputs.ServiceLevelObjectiveDependencyConfig? DependencyConfig;
         /// <summary>
         /// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
         /// 
@@ -51,6 +52,8 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
 
         [OutputConstructor]
         private ServiceLevelObjectiveSliMetric(
+            Outputs.ServiceLevelObjectiveDependencyConfig? dependencyConfig,
+
             ImmutableDictionary<string, string>? keyAttributes,
 
             ImmutableArray<Outputs.ServiceLevelObjectiveMetricDataQuery> metricDataQueries,
@@ -63,6 +66,7 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
 
             string? statistic)
         {
+            DependencyConfig = dependencyConfig;
             KeyAttributes = keyAttributes;
             MetricDataQueries = metricDataQueries;
             MetricType = metricType;

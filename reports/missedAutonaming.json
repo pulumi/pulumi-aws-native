@@ -3771,6 +3771,21 @@
       }
     }
   },
+  "aws-native:dsql:Cluster": {
+    "cfTypeName": "AWS::DSQL::Cluster",
+    "properties": {
+      "deletionProtectionEnabled": {
+        "type": "boolean",
+        "description": "Whether deletion protection is enabled in this cluster."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      }
+    }
+  },
   "aws-native:ec2:CapacityReservation": {
     "cfTypeName": "AWS::EC2::CapacityReservation",
     "properties": {
@@ -11525,7 +11540,7 @@
       },
       "automaticBackupReplicationRetentionPeriod": {
         "type": "integer",
-        "description": "The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.\n\nIf not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35."
+        "description": "The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the ``AutomaticBackupReplicationRegion`` parameter. \n If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35."
       },
       "availabilityZone": {
         "type": "string",

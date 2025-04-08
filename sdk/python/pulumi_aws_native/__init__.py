@@ -154,6 +154,8 @@ if typing.TYPE_CHECKING:
     dms = __dms
     import pulumi_aws_native.docdbelastic as __docdbelastic
     docdbelastic = __docdbelastic
+    import pulumi_aws_native.dsql as __dsql
+    dsql = __dsql
     import pulumi_aws_native.dynamodb as __dynamodb
     dynamodb = __dynamodb
     import pulumi_aws_native.ec2 as __ec2
@@ -535,6 +537,7 @@ else:
     directoryservice = _utilities.lazy_import('pulumi_aws_native.directoryservice')
     dms = _utilities.lazy_import('pulumi_aws_native.dms')
     docdbelastic = _utilities.lazy_import('pulumi_aws_native.docdbelastic')
+    dsql = _utilities.lazy_import('pulumi_aws_native.dsql')
     dynamodb = _utilities.lazy_import('pulumi_aws_native.dynamodb')
     ec2 = _utilities.lazy_import('pulumi_aws_native.ec2')
     ecr = _utilities.lazy_import('pulumi_aws_native.ecr')
@@ -1482,6 +1485,14 @@ _utilities.register(
   "fqn": "pulumi_aws_native.docdbelastic",
   "classes": {
    "aws-native:docdbelastic:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "dsql",
+  "fqn": "pulumi_aws_native.dsql",
+  "classes": {
+   "aws-native:dsql:Cluster": "Cluster"
   }
  },
  {

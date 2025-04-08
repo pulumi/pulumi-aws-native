@@ -3398,6 +3398,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisTransposedColumnType : IEquatable<AnalysisTransposedColumnType>
+    {
+        private readonly string _value;
+
+        private AnalysisTransposedColumnType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisTransposedColumnType RowHeaderColumn { get; } = new AnalysisTransposedColumnType("ROW_HEADER_COLUMN");
+        public static AnalysisTransposedColumnType ValueColumn { get; } = new AnalysisTransposedColumnType("VALUE_COLUMN");
+
+        public static bool operator ==(AnalysisTransposedColumnType left, AnalysisTransposedColumnType right) => left.Equals(right);
+        public static bool operator !=(AnalysisTransposedColumnType left, AnalysisTransposedColumnType right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisTransposedColumnType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisTransposedColumnType other && Equals(other);
+        public bool Equals(AnalysisTransposedColumnType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisUrlTargetConfiguration : IEquatable<AnalysisUrlTargetConfiguration>
     {
         private readonly string _value;
@@ -7120,6 +7148,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DashboardTopBottomSortOrder other && Equals(other);
         public bool Equals(DashboardTopBottomSortOrder other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardTransposedColumnType : IEquatable<DashboardTransposedColumnType>
+    {
+        private readonly string _value;
+
+        private DashboardTransposedColumnType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardTransposedColumnType RowHeaderColumn { get; } = new DashboardTransposedColumnType("ROW_HEADER_COLUMN");
+        public static DashboardTransposedColumnType ValueColumn { get; } = new DashboardTransposedColumnType("VALUE_COLUMN");
+
+        public static bool operator ==(DashboardTransposedColumnType left, DashboardTransposedColumnType right) => left.Equals(right);
+        public static bool operator !=(DashboardTransposedColumnType left, DashboardTransposedColumnType right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardTransposedColumnType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardTransposedColumnType other && Equals(other);
+        public bool Equals(DashboardTransposedColumnType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -11639,6 +11695,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateTopBottomSortOrder other && Equals(other);
         public bool Equals(TemplateTopBottomSortOrder other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateTransposedColumnType : IEquatable<TemplateTransposedColumnType>
+    {
+        private readonly string _value;
+
+        private TemplateTransposedColumnType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateTransposedColumnType RowHeaderColumn { get; } = new TemplateTransposedColumnType("ROW_HEADER_COLUMN");
+        public static TemplateTransposedColumnType ValueColumn { get; } = new TemplateTransposedColumnType("VALUE_COLUMN");
+
+        public static bool operator ==(TemplateTransposedColumnType left, TemplateTransposedColumnType right) => left.Equals(right);
+        public static bool operator !=(TemplateTransposedColumnType left, TemplateTransposedColumnType right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateTransposedColumnType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateTransposedColumnType other && Equals(other);
+        public bool Equals(TemplateTransposedColumnType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

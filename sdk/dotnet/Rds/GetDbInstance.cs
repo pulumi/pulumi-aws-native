@@ -191,9 +191,8 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly string? AutomaticBackupReplicationRegion;
         /// <summary>
-        /// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
-        /// 
-        /// If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+        /// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the ``AutomaticBackupReplicationRegion`` parameter. 
+        ///  If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
         /// </summary>
         public readonly int? AutomaticBackupReplicationRetentionPeriod;
         /// <summary>
@@ -222,9 +221,6 @@ namespace Pulumi.AwsNative.Rds
         ///  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
         /// </summary>
         public readonly string? CaCertificateIdentifier;
-        /// <summary>
-        /// The details of the DB instance's server certificate.
-        /// </summary>
         public readonly Outputs.DbInstanceCertificateDetails? CertificateDetails;
         /// <summary>
         /// Specifies whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
@@ -375,10 +371,6 @@ namespace Pulumi.AwsNative.Rds
         ///  This setting doesn't apply to RDS Custom DB instances.
         /// </summary>
         public readonly bool? EnablePerformanceInsights;
-        /// <summary>
-        /// The connection endpoint for the DB instance.
-        ///   The endpoint might not be shown for instances with the status of ``creating``.
-        /// </summary>
         public readonly Outputs.DbInstanceEndpoint? Endpoint;
         /// <summary>
         /// The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.

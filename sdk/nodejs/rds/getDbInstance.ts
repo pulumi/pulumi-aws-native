@@ -111,9 +111,8 @@ export interface GetDbInstanceResult {
      */
     readonly automaticBackupReplicationRegion?: string;
     /**
-     * The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
-     *
-     * If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+     * The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the ``AutomaticBackupReplicationRegion`` parameter. 
+     *  If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
      */
     readonly automaticBackupReplicationRetentionPeriod?: number;
     /**
@@ -142,9 +141,6 @@ export interface GetDbInstanceResult {
      *  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
      */
     readonly caCertificateIdentifier?: string;
-    /**
-     * The details of the DB instance's server certificate.
-     */
     readonly certificateDetails?: outputs.rds.DbInstanceCertificateDetails;
     /**
      * Specifies whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
@@ -295,10 +291,6 @@ export interface GetDbInstanceResult {
      *  This setting doesn't apply to RDS Custom DB instances.
      */
     readonly enablePerformanceInsights?: boolean;
-    /**
-     * The connection endpoint for the DB instance.
-     *   The endpoint might not be shown for instances with the status of ``creating``.
-     */
     readonly endpoint?: outputs.rds.DbInstanceEndpoint;
     /**
      * The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.

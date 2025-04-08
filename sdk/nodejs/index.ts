@@ -131,6 +131,7 @@ import * as devopsguru from "./devopsguru";
 import * as directoryservice from "./directoryservice";
 import * as dms from "./dms";
 import * as docdbelastic from "./docdbelastic";
+import * as dsql from "./dsql";
 import * as dynamodb from "./dynamodb";
 import * as ec2 from "./ec2";
 import * as ecr from "./ecr";
@@ -357,6 +358,7 @@ export {
     directoryservice,
     dms,
     docdbelastic,
+    dsql,
     dynamodb,
     ec2,
     ecr,

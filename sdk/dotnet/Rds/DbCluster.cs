@@ -494,14 +494,6 @@ namespace Pulumi.AwsNative.Rds
         [Output("publiclyAccessible")]
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
 
-        /// <summary>
-        /// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-        ///   +   ``CreateDBInstance`` 
-        ///   +   ``DescribeDBInstances`` 
-        ///   +   ``DeleteDBInstance`` 
-        ///   
-        ///  For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
-        /// </summary>
         [Output("readEndpoint")]
         public Output<Outputs.DbClusterReadEndpoint> ReadEndpoint { get; private set; } = null!;
 

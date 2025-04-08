@@ -30,12 +30,68 @@
     "KnowledgeBaseStorageType" : {
       "type" : "string",
       "description" : "The storage type of a knowledge base.",
-      "enum" : [ "OPENSEARCH_SERVERLESS", "PINECONE", "RDS", "MONGO_DB_ATLAS", "NEPTUNE_ANALYTICS" ]
+      "enum" : [ "OPENSEARCH_SERVERLESS", "PINECONE", "RDS", "MONGO_DB_ATLAS", "NEPTUNE_ANALYTICS", "OPENSEARCH_MANAGED_CLUSTER" ]
     },
     "KnowledgeBaseType" : {
       "type" : "string",
       "description" : "The type of a knowledge base.",
       "enum" : [ "VECTOR", "KENDRA", "SQL" ]
+    },
+    "OpenSearchManagedClusterConfiguration" : {
+      "type" : "object",
+      "description" : "Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.",
+      "properties" : {
+        "DomainArn" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "pattern" : "^arn:aws(|-cn|-us-gov|-iso):es:[a-z]{2}(-gov)?-[a-z]+-\\d{1}:\\d{12}:domain/[a-z][a-z0-9-]{3,28}$",
+          "description" : "The Amazon Resource Name (ARN) of the OpenSearch domain."
+        },
+        "DomainEndpoint" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "pattern" : "^https://.*$",
+          "description" : "The endpoint URL the OpenSearch domain."
+        },
+        "VectorIndexName" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "minLength" : 1,
+          "pattern" : "^(?![\\-_+.])[a-z0-9][a-z0-9\\-_\\.]*$",
+          "description" : "The name of the vector store."
+        },
+        "FieldMapping" : {
+          "$ref" : "#/definitions/OpenSearchManagedClusterFieldMapping"
+        }
+      },
+      "required" : [ "DomainArn", "DomainEndpoint", "VectorIndexName", "FieldMapping" ],
+      "additionalProperties" : false
+    },
+    "OpenSearchManagedClusterFieldMapping" : {
+      "type" : "object",
+      "description" : "A mapping of Bedrock Knowledge Base fields to OpenSearch Managed Cluster field names",
+      "properties" : {
+        "VectorField" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "pattern" : "^.*$",
+          "description" : "The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources."
+        },
+        "TextField" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "pattern" : "^.*$",
+          "description" : "The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose."
+        },
+        "MetadataField" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "pattern" : "^.*$",
+          "description" : "The name of the field in which Amazon Bedrock stores metadata about the vector store."
+        }
+      },
+      "required" : [ "MetadataField", "TextField", "VectorField" ],
+      "additionalProperties" : false
     },
     "OpenSearchServerlessConfiguration" : {
       "type" : "object",
@@ -384,6 +440,9 @@
         },
         "NeptuneAnalyticsConfiguration" : {
           "$ref" : "#/definitions/NeptuneAnalyticsConfiguration"
+        },
+        "OpensearchManagedClusterConfiguration" : {
+          "$ref" : "#/definitions/OpenSearchManagedClusterConfiguration"
         }
       },
       "required" : [ "Type" ],
@@ -397,6 +456,8 @@
         "required" : [ "NeptuneAnalyticsConfiguration" ]
       }, {
         "required" : [ "MongoDbAtlasConfiguration" ]
+      }, {
+        "required" : [ "OpensearchManagedClusterConfiguration" ]
       } ],
       "additionalProperties" : false
     },

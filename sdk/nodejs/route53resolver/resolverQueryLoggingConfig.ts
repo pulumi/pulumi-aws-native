@@ -77,6 +77,10 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
      * ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.
      */
     public /*out*/ readonly status!: pulumi.Output<enums.route53resolver.ResolverQueryLoggingConfigStatus>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a ResolverQueryLoggingConfig resource with the given unique name, arguments, and options.
@@ -91,6 +95,7 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationCount"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -110,9 +115,10 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["shareStatus"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["destinationArn", "name"] };
+        const replaceOnChanges = { replaceOnChanges: ["destinationArn", "name", "tags[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResolverQueryLoggingConfig.__pulumiType, name, resourceInputs, opts);
     }
@@ -130,4 +136,8 @@ export interface ResolverQueryLoggingConfigArgs {
      * ResolverQueryLogConfigName
      */
     name?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

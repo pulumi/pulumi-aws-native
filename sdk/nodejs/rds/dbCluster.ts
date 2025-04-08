@@ -420,14 +420,6 @@ export class DbCluster extends pulumi.CustomResource {
      *   +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
-    /**
-     * This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-     *   +   ``CreateDBInstance`` 
-     *   +   ``DescribeDBInstances`` 
-     *   +   ``DeleteDBInstance`` 
-     *   
-     *  For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
-     */
     public /*out*/ readonly readEndpoint!: pulumi.Output<outputs.rds.DbClusterReadEndpoint>;
     /**
      * The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.

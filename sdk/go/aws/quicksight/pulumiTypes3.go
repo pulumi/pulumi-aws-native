@@ -13,6 +13,280 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateListControlSelectAllOptions struct {
+	// The visibility configuration of the `Select all` options in a list control.
+	Visibility interface{} `pulumi:"visibility"`
+}
+
+// TemplateListControlSelectAllOptionsInput is an input type that accepts TemplateListControlSelectAllOptionsArgs and TemplateListControlSelectAllOptionsOutput values.
+// You can construct a concrete instance of `TemplateListControlSelectAllOptionsInput` via:
+//
+//	TemplateListControlSelectAllOptionsArgs{...}
+type TemplateListControlSelectAllOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateListControlSelectAllOptionsOutput() TemplateListControlSelectAllOptionsOutput
+	ToTemplateListControlSelectAllOptionsOutputWithContext(context.Context) TemplateListControlSelectAllOptionsOutput
+}
+
+type TemplateListControlSelectAllOptionsArgs struct {
+	// The visibility configuration of the `Select all` options in a list control.
+	Visibility pulumi.Input `pulumi:"visibility"`
+}
+
+func (TemplateListControlSelectAllOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateListControlSelectAllOptions)(nil)).Elem()
+}
+
+func (i TemplateListControlSelectAllOptionsArgs) ToTemplateListControlSelectAllOptionsOutput() TemplateListControlSelectAllOptionsOutput {
+	return i.ToTemplateListControlSelectAllOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateListControlSelectAllOptionsArgs) ToTemplateListControlSelectAllOptionsOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSelectAllOptionsOutput)
+}
+
+func (i TemplateListControlSelectAllOptionsArgs) ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput {
+	return i.ToTemplateListControlSelectAllOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateListControlSelectAllOptionsArgs) ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSelectAllOptionsOutput).ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateListControlSelectAllOptionsPtrInput is an input type that accepts TemplateListControlSelectAllOptionsArgs, TemplateListControlSelectAllOptionsPtr and TemplateListControlSelectAllOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateListControlSelectAllOptionsPtrInput` via:
+//
+//	        TemplateListControlSelectAllOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateListControlSelectAllOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput
+	ToTemplateListControlSelectAllOptionsPtrOutputWithContext(context.Context) TemplateListControlSelectAllOptionsPtrOutput
+}
+
+type templateListControlSelectAllOptionsPtrType TemplateListControlSelectAllOptionsArgs
+
+func TemplateListControlSelectAllOptionsPtr(v *TemplateListControlSelectAllOptionsArgs) TemplateListControlSelectAllOptionsPtrInput {
+	return (*templateListControlSelectAllOptionsPtrType)(v)
+}
+
+func (*templateListControlSelectAllOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateListControlSelectAllOptions)(nil)).Elem()
+}
+
+func (i *templateListControlSelectAllOptionsPtrType) ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput {
+	return i.ToTemplateListControlSelectAllOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateListControlSelectAllOptionsPtrType) ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSelectAllOptionsPtrOutput)
+}
+
+type TemplateListControlSelectAllOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateListControlSelectAllOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateListControlSelectAllOptions)(nil)).Elem()
+}
+
+func (o TemplateListControlSelectAllOptionsOutput) ToTemplateListControlSelectAllOptionsOutput() TemplateListControlSelectAllOptionsOutput {
+	return o
+}
+
+func (o TemplateListControlSelectAllOptionsOutput) ToTemplateListControlSelectAllOptionsOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsOutput {
+	return o
+}
+
+func (o TemplateListControlSelectAllOptionsOutput) ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput {
+	return o.ToTemplateListControlSelectAllOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateListControlSelectAllOptionsOutput) ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateListControlSelectAllOptions) *TemplateListControlSelectAllOptions {
+		return &v
+	}).(TemplateListControlSelectAllOptionsPtrOutput)
+}
+
+// The visibility configuration of the `Select all` options in a list control.
+func (o TemplateListControlSelectAllOptionsOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateListControlSelectAllOptions) interface{} { return v.Visibility }).(pulumi.AnyOutput)
+}
+
+type TemplateListControlSelectAllOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateListControlSelectAllOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateListControlSelectAllOptions)(nil)).Elem()
+}
+
+func (o TemplateListControlSelectAllOptionsPtrOutput) ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateListControlSelectAllOptionsPtrOutput) ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateListControlSelectAllOptionsPtrOutput) Elem() TemplateListControlSelectAllOptionsOutput {
+	return o.ApplyT(func(v *TemplateListControlSelectAllOptions) TemplateListControlSelectAllOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateListControlSelectAllOptions
+		return ret
+	}).(TemplateListControlSelectAllOptionsOutput)
+}
+
+// The visibility configuration of the `Select all` options in a list control.
+func (o TemplateListControlSelectAllOptionsPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateListControlSelectAllOptions) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Visibility
+	}).(pulumi.AnyOutput)
+}
+
+type TemplateLoadingAnimation struct {
+	// The visibility configuration of `LoadingAnimation` .
+	Visibility interface{} `pulumi:"visibility"`
+}
+
+// TemplateLoadingAnimationInput is an input type that accepts TemplateLoadingAnimationArgs and TemplateLoadingAnimationOutput values.
+// You can construct a concrete instance of `TemplateLoadingAnimationInput` via:
+//
+//	TemplateLoadingAnimationArgs{...}
+type TemplateLoadingAnimationInput interface {
+	pulumi.Input
+
+	ToTemplateLoadingAnimationOutput() TemplateLoadingAnimationOutput
+	ToTemplateLoadingAnimationOutputWithContext(context.Context) TemplateLoadingAnimationOutput
+}
+
+type TemplateLoadingAnimationArgs struct {
+	// The visibility configuration of `LoadingAnimation` .
+	Visibility pulumi.Input `pulumi:"visibility"`
+}
+
+func (TemplateLoadingAnimationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateLoadingAnimation)(nil)).Elem()
+}
+
+func (i TemplateLoadingAnimationArgs) ToTemplateLoadingAnimationOutput() TemplateLoadingAnimationOutput {
+	return i.ToTemplateLoadingAnimationOutputWithContext(context.Background())
+}
+
+func (i TemplateLoadingAnimationArgs) ToTemplateLoadingAnimationOutputWithContext(ctx context.Context) TemplateLoadingAnimationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLoadingAnimationOutput)
+}
+
+func (i TemplateLoadingAnimationArgs) ToTemplateLoadingAnimationPtrOutput() TemplateLoadingAnimationPtrOutput {
+	return i.ToTemplateLoadingAnimationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateLoadingAnimationArgs) ToTemplateLoadingAnimationPtrOutputWithContext(ctx context.Context) TemplateLoadingAnimationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLoadingAnimationOutput).ToTemplateLoadingAnimationPtrOutputWithContext(ctx)
+}
+
+// TemplateLoadingAnimationPtrInput is an input type that accepts TemplateLoadingAnimationArgs, TemplateLoadingAnimationPtr and TemplateLoadingAnimationPtrOutput values.
+// You can construct a concrete instance of `TemplateLoadingAnimationPtrInput` via:
+//
+//	        TemplateLoadingAnimationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateLoadingAnimationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateLoadingAnimationPtrOutput() TemplateLoadingAnimationPtrOutput
+	ToTemplateLoadingAnimationPtrOutputWithContext(context.Context) TemplateLoadingAnimationPtrOutput
+}
+
+type templateLoadingAnimationPtrType TemplateLoadingAnimationArgs
+
+func TemplateLoadingAnimationPtr(v *TemplateLoadingAnimationArgs) TemplateLoadingAnimationPtrInput {
+	return (*templateLoadingAnimationPtrType)(v)
+}
+
+func (*templateLoadingAnimationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateLoadingAnimation)(nil)).Elem()
+}
+
+func (i *templateLoadingAnimationPtrType) ToTemplateLoadingAnimationPtrOutput() TemplateLoadingAnimationPtrOutput {
+	return i.ToTemplateLoadingAnimationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateLoadingAnimationPtrType) ToTemplateLoadingAnimationPtrOutputWithContext(ctx context.Context) TemplateLoadingAnimationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLoadingAnimationPtrOutput)
+}
+
+type TemplateLoadingAnimationOutput struct{ *pulumi.OutputState }
+
+func (TemplateLoadingAnimationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateLoadingAnimation)(nil)).Elem()
+}
+
+func (o TemplateLoadingAnimationOutput) ToTemplateLoadingAnimationOutput() TemplateLoadingAnimationOutput {
+	return o
+}
+
+func (o TemplateLoadingAnimationOutput) ToTemplateLoadingAnimationOutputWithContext(ctx context.Context) TemplateLoadingAnimationOutput {
+	return o
+}
+
+func (o TemplateLoadingAnimationOutput) ToTemplateLoadingAnimationPtrOutput() TemplateLoadingAnimationPtrOutput {
+	return o.ToTemplateLoadingAnimationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateLoadingAnimationOutput) ToTemplateLoadingAnimationPtrOutputWithContext(ctx context.Context) TemplateLoadingAnimationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateLoadingAnimation) *TemplateLoadingAnimation {
+		return &v
+	}).(TemplateLoadingAnimationPtrOutput)
+}
+
+// The visibility configuration of `LoadingAnimation` .
+func (o TemplateLoadingAnimationOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateLoadingAnimation) interface{} { return v.Visibility }).(pulumi.AnyOutput)
+}
+
+type TemplateLoadingAnimationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateLoadingAnimationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateLoadingAnimation)(nil)).Elem()
+}
+
+func (o TemplateLoadingAnimationPtrOutput) ToTemplateLoadingAnimationPtrOutput() TemplateLoadingAnimationPtrOutput {
+	return o
+}
+
+func (o TemplateLoadingAnimationPtrOutput) ToTemplateLoadingAnimationPtrOutputWithContext(ctx context.Context) TemplateLoadingAnimationPtrOutput {
+	return o
+}
+
+func (o TemplateLoadingAnimationPtrOutput) Elem() TemplateLoadingAnimationOutput {
+	return o.ApplyT(func(v *TemplateLoadingAnimation) TemplateLoadingAnimation {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateLoadingAnimation
+		return ret
+	}).(TemplateLoadingAnimationOutput)
+}
+
+// The visibility configuration of `LoadingAnimation` .
+func (o TemplateLoadingAnimationPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateLoadingAnimation) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Visibility
+	}).(pulumi.AnyOutput)
+}
+
 type TemplateLocalNavigationConfiguration struct {
 	// The sheet that is targeted for navigation in the same analysis.
 	TargetSheetId string `pulumi:"targetSheetId"`
@@ -29078,7 +29352,8 @@ type TemplateTableFieldOptions struct {
 	// The settings for the pinned columns of a table visual.
 	PinnedFieldOptions *TemplateTablePinnedFieldOptions `pulumi:"pinnedFieldOptions"`
 	// The field options to be configured to a table.
-	SelectedFieldOptions []TemplateTableFieldOption `pulumi:"selectedFieldOptions"`
+	SelectedFieldOptions   []TemplateTableFieldOption      `pulumi:"selectedFieldOptions"`
+	TransposedTableOptions []TemplateTransposedTableOption `pulumi:"transposedTableOptions"`
 }
 
 // TemplateTableFieldOptionsInput is an input type that accepts TemplateTableFieldOptionsArgs and TemplateTableFieldOptionsOutput values.
@@ -29098,7 +29373,8 @@ type TemplateTableFieldOptionsArgs struct {
 	// The settings for the pinned columns of a table visual.
 	PinnedFieldOptions TemplateTablePinnedFieldOptionsPtrInput `pulumi:"pinnedFieldOptions"`
 	// The field options to be configured to a table.
-	SelectedFieldOptions TemplateTableFieldOptionArrayInput `pulumi:"selectedFieldOptions"`
+	SelectedFieldOptions   TemplateTableFieldOptionArrayInput      `pulumi:"selectedFieldOptions"`
+	TransposedTableOptions TemplateTransposedTableOptionArrayInput `pulumi:"transposedTableOptions"`
 }
 
 func (TemplateTableFieldOptionsArgs) ElementType() reflect.Type {
@@ -29193,6 +29469,10 @@ func (o TemplateTableFieldOptionsOutput) SelectedFieldOptions() TemplateTableFie
 	return o.ApplyT(func(v TemplateTableFieldOptions) []TemplateTableFieldOption { return v.SelectedFieldOptions }).(TemplateTableFieldOptionArrayOutput)
 }
 
+func (o TemplateTableFieldOptionsOutput) TransposedTableOptions() TemplateTransposedTableOptionArrayOutput {
+	return o.ApplyT(func(v TemplateTableFieldOptions) []TemplateTransposedTableOption { return v.TransposedTableOptions }).(TemplateTransposedTableOptionArrayOutput)
+}
+
 type TemplateTableFieldOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (TemplateTableFieldOptionsPtrOutput) ElementType() reflect.Type {
@@ -29245,6 +29525,15 @@ func (o TemplateTableFieldOptionsPtrOutput) SelectedFieldOptions() TemplateTable
 		}
 		return v.SelectedFieldOptions
 	}).(TemplateTableFieldOptionArrayOutput)
+}
+
+func (o TemplateTableFieldOptionsPtrOutput) TransposedTableOptions() TemplateTransposedTableOptionArrayOutput {
+	return o.ApplyT(func(v *TemplateTableFieldOptions) []TemplateTransposedTableOption {
+		if v == nil {
+			return nil
+		}
+		return v.TransposedTableOptions
+	}).(TemplateTransposedTableOptionArrayOutput)
 }
 
 type TemplateTableFieldUrlConfiguration struct {
@@ -34896,6 +35185,115 @@ func (o TemplateTotalOptionsPtrOutput) TotalsVisibility() pulumi.AnyOutput {
 		}
 		return v.TotalsVisibility
 	}).(pulumi.AnyOutput)
+}
+
+type TemplateTransposedTableOption struct {
+	ColumnIndex *float64                     `pulumi:"columnIndex"`
+	ColumnType  TemplateTransposedColumnType `pulumi:"columnType"`
+	// String based length that is composed of value and unit in px
+	ColumnWidth *string `pulumi:"columnWidth"`
+}
+
+// TemplateTransposedTableOptionInput is an input type that accepts TemplateTransposedTableOptionArgs and TemplateTransposedTableOptionOutput values.
+// You can construct a concrete instance of `TemplateTransposedTableOptionInput` via:
+//
+//	TemplateTransposedTableOptionArgs{...}
+type TemplateTransposedTableOptionInput interface {
+	pulumi.Input
+
+	ToTemplateTransposedTableOptionOutput() TemplateTransposedTableOptionOutput
+	ToTemplateTransposedTableOptionOutputWithContext(context.Context) TemplateTransposedTableOptionOutput
+}
+
+type TemplateTransposedTableOptionArgs struct {
+	ColumnIndex pulumi.Float64PtrInput            `pulumi:"columnIndex"`
+	ColumnType  TemplateTransposedColumnTypeInput `pulumi:"columnType"`
+	// String based length that is composed of value and unit in px
+	ColumnWidth pulumi.StringPtrInput `pulumi:"columnWidth"`
+}
+
+func (TemplateTransposedTableOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTransposedTableOption)(nil)).Elem()
+}
+
+func (i TemplateTransposedTableOptionArgs) ToTemplateTransposedTableOptionOutput() TemplateTransposedTableOptionOutput {
+	return i.ToTemplateTransposedTableOptionOutputWithContext(context.Background())
+}
+
+func (i TemplateTransposedTableOptionArgs) ToTemplateTransposedTableOptionOutputWithContext(ctx context.Context) TemplateTransposedTableOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTransposedTableOptionOutput)
+}
+
+// TemplateTransposedTableOptionArrayInput is an input type that accepts TemplateTransposedTableOptionArray and TemplateTransposedTableOptionArrayOutput values.
+// You can construct a concrete instance of `TemplateTransposedTableOptionArrayInput` via:
+//
+//	TemplateTransposedTableOptionArray{ TemplateTransposedTableOptionArgs{...} }
+type TemplateTransposedTableOptionArrayInput interface {
+	pulumi.Input
+
+	ToTemplateTransposedTableOptionArrayOutput() TemplateTransposedTableOptionArrayOutput
+	ToTemplateTransposedTableOptionArrayOutputWithContext(context.Context) TemplateTransposedTableOptionArrayOutput
+}
+
+type TemplateTransposedTableOptionArray []TemplateTransposedTableOptionInput
+
+func (TemplateTransposedTableOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateTransposedTableOption)(nil)).Elem()
+}
+
+func (i TemplateTransposedTableOptionArray) ToTemplateTransposedTableOptionArrayOutput() TemplateTransposedTableOptionArrayOutput {
+	return i.ToTemplateTransposedTableOptionArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateTransposedTableOptionArray) ToTemplateTransposedTableOptionArrayOutputWithContext(ctx context.Context) TemplateTransposedTableOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTransposedTableOptionArrayOutput)
+}
+
+type TemplateTransposedTableOptionOutput struct{ *pulumi.OutputState }
+
+func (TemplateTransposedTableOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTransposedTableOption)(nil)).Elem()
+}
+
+func (o TemplateTransposedTableOptionOutput) ToTemplateTransposedTableOptionOutput() TemplateTransposedTableOptionOutput {
+	return o
+}
+
+func (o TemplateTransposedTableOptionOutput) ToTemplateTransposedTableOptionOutputWithContext(ctx context.Context) TemplateTransposedTableOptionOutput {
+	return o
+}
+
+func (o TemplateTransposedTableOptionOutput) ColumnIndex() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TemplateTransposedTableOption) *float64 { return v.ColumnIndex }).(pulumi.Float64PtrOutput)
+}
+
+func (o TemplateTransposedTableOptionOutput) ColumnType() TemplateTransposedColumnTypeOutput {
+	return o.ApplyT(func(v TemplateTransposedTableOption) TemplateTransposedColumnType { return v.ColumnType }).(TemplateTransposedColumnTypeOutput)
+}
+
+// String based length that is composed of value and unit in px
+func (o TemplateTransposedTableOptionOutput) ColumnWidth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateTransposedTableOption) *string { return v.ColumnWidth }).(pulumi.StringPtrOutput)
+}
+
+type TemplateTransposedTableOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateTransposedTableOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateTransposedTableOption)(nil)).Elem()
+}
+
+func (o TemplateTransposedTableOptionArrayOutput) ToTemplateTransposedTableOptionArrayOutput() TemplateTransposedTableOptionArrayOutput {
+	return o
+}
+
+func (o TemplateTransposedTableOptionArrayOutput) ToTemplateTransposedTableOptionArrayOutputWithContext(ctx context.Context) TemplateTransposedTableOptionArrayOutput {
+	return o
+}
+
+func (o TemplateTransposedTableOptionArrayOutput) Index(i pulumi.IntInput) TemplateTransposedTableOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateTransposedTableOption {
+		return vs[0].([]TemplateTransposedTableOption)[vs[1].(int)]
+	}).(TemplateTransposedTableOptionOutput)
 }
 
 type TemplateTreeMapAggregatedFieldWells struct {
@@ -48812,6 +49210,10 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSelectAllOptionsInput)(nil)).Elem(), TemplateListControlSelectAllOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSelectAllOptionsPtrInput)(nil)).Elem(), TemplateListControlSelectAllOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLoadingAnimationInput)(nil)).Elem(), TemplateLoadingAnimationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLoadingAnimationPtrInput)(nil)).Elem(), TemplateLoadingAnimationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLocalNavigationConfigurationInput)(nil)).Elem(), TemplateLocalNavigationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLocalNavigationConfigurationPtrInput)(nil)).Elem(), TemplateLocalNavigationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLongFormatTextInput)(nil)).Elem(), TemplateLongFormatTextArgs{})
@@ -49207,6 +49609,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTotalAggregationOptionArrayInput)(nil)).Elem(), TemplateTotalAggregationOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTotalOptionsInput)(nil)).Elem(), TemplateTotalOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTotalOptionsPtrInput)(nil)).Elem(), TemplateTotalOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTransposedTableOptionInput)(nil)).Elem(), TemplateTransposedTableOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTransposedTableOptionArrayInput)(nil)).Elem(), TemplateTransposedTableOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTreeMapAggregatedFieldWellsInput)(nil)).Elem(), TemplateTreeMapAggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTreeMapAggregatedFieldWellsPtrInput)(nil)).Elem(), TemplateTreeMapAggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTreeMapConfigurationInput)(nil)).Elem(), TemplateTreeMapConfigurationArgs{})
@@ -49354,6 +49758,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateListControlSelectAllOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateListControlSelectAllOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateLoadingAnimationOutput{})
+	pulumi.RegisterOutputType(TemplateLoadingAnimationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateLocalNavigationConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateLocalNavigationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateLongFormatTextOutput{})
@@ -49751,6 +50159,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateTotalAggregationOptionArrayOutput{})
 	pulumi.RegisterOutputType(TemplateTotalOptionsOutput{})
 	pulumi.RegisterOutputType(TemplateTotalOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTransposedTableOptionOutput{})
+	pulumi.RegisterOutputType(TemplateTransposedTableOptionArrayOutput{})
 	pulumi.RegisterOutputType(TemplateTreeMapAggregatedFieldWellsOutput{})
 	pulumi.RegisterOutputType(TemplateTreeMapAggregatedFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTreeMapConfigurationOutput{})

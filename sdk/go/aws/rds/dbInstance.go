@@ -101,9 +101,8 @@ type DbInstance struct {
 	AutomaticBackupReplicationKmsKeyId pulumi.StringPtrOutput `pulumi:"automaticBackupReplicationKmsKeyId"`
 	// The AWS-Region associated with the automated backup.
 	AutomaticBackupReplicationRegion pulumi.StringPtrOutput `pulumi:"automaticBackupReplicationRegion"`
-	// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
-	//
-	// If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+	// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the ``AutomaticBackupReplicationRegion`` parameter.
+	//  If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
 	AutomaticBackupReplicationRetentionPeriod pulumi.IntPtrOutput `pulumi:"automaticBackupReplicationRetentionPeriod"`
 	// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
 	//  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
@@ -124,9 +123,8 @@ type DbInstance struct {
 	BackupRetentionPeriod pulumi.IntPtrOutput `pulumi:"backupRetentionPeriod"`
 	// The identifier of the CA certificate for this DB instance.
 	//  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
-	CaCertificateIdentifier pulumi.StringPtrOutput `pulumi:"caCertificateIdentifier"`
-	// The details of the DB instance's server certificate.
-	CertificateDetails DbInstanceCertificateDetailsOutput `pulumi:"certificateDetails"`
+	CaCertificateIdentifier pulumi.StringPtrOutput             `pulumi:"caCertificateIdentifier"`
+	CertificateDetails      DbInstanceCertificateDetailsOutput `pulumi:"certificateDetails"`
 	// Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.
 	//  By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
 	//   Set this parameter only if you are *not* using SSL/TLS to connect to the DB instance.
@@ -336,10 +334,8 @@ type DbInstance struct {
 	EnableIamDatabaseAuthentication pulumi.BoolPtrOutput `pulumi:"enableIamDatabaseAuthentication"`
 	// Specifies whether to enable Performance Insights for the DB instance. For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html) in the *Amazon RDS User Guide*.
 	//  This setting doesn't apply to RDS Custom DB instances.
-	EnablePerformanceInsights pulumi.BoolPtrOutput `pulumi:"enablePerformanceInsights"`
-	// The connection endpoint for the DB instance.
-	//   The endpoint might not be shown for instances with the status of ``creating``.
-	Endpoint DbInstanceEndpointOutput `pulumi:"endpoint"`
+	EnablePerformanceInsights pulumi.BoolPtrOutput     `pulumi:"enablePerformanceInsights"`
+	Endpoint                  DbInstanceEndpointOutput `pulumi:"endpoint"`
 	// The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.
 	//  This property is required when creating a DB instance.
 	//   You can convert an Oracle database from the non-CDB architecture to the container database (CDB) architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` to ``oracle-ee-cdb`` or from ``oracle-se2`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.
@@ -776,9 +772,8 @@ type dbInstanceArgs struct {
 	AutomaticBackupReplicationKmsKeyId *string `pulumi:"automaticBackupReplicationKmsKeyId"`
 	// The AWS-Region associated with the automated backup.
 	AutomaticBackupReplicationRegion *string `pulumi:"automaticBackupReplicationRegion"`
-	// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
-	//
-	// If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+	// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the ``AutomaticBackupReplicationRegion`` parameter.
+	//  If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
 	AutomaticBackupReplicationRetentionPeriod *int `pulumi:"automaticBackupReplicationRetentionPeriod"`
 	// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
 	//  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
@@ -1386,9 +1381,8 @@ type DbInstanceArgs struct {
 	AutomaticBackupReplicationKmsKeyId pulumi.StringPtrInput
 	// The AWS-Region associated with the automated backup.
 	AutomaticBackupReplicationRegion pulumi.StringPtrInput
-	// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
-	//
-	// If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+	// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the ``AutomaticBackupReplicationRegion`` parameter.
+	//  If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
 	AutomaticBackupReplicationRetentionPeriod pulumi.IntPtrInput
 	// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
 	//  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
@@ -2056,9 +2050,9 @@ func (o DbInstanceOutput) AutomaticBackupReplicationRegion() pulumi.StringPtrOut
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.AutomaticBackupReplicationRegion }).(pulumi.StringPtrOutput)
 }
 
-// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
+// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the “AutomaticBackupReplicationRegion“ parameter.
 //
-// If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+//	If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
 func (o DbInstanceOutput) AutomaticBackupReplicationRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.IntPtrOutput { return v.AutomaticBackupReplicationRetentionPeriod }).(pulumi.IntPtrOutput)
 }
@@ -2095,7 +2089,6 @@ func (o DbInstanceOutput) CaCertificateIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.CaCertificateIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The details of the DB instance's server certificate.
 func (o DbInstanceOutput) CertificateDetails() DbInstanceCertificateDetailsOutput {
 	return o.ApplyT(func(v *DbInstance) DbInstanceCertificateDetailsOutput { return v.CertificateDetails }).(DbInstanceCertificateDetailsOutput)
 }
@@ -2420,9 +2413,6 @@ func (o DbInstanceOutput) EnablePerformanceInsights() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.BoolPtrOutput { return v.EnablePerformanceInsights }).(pulumi.BoolPtrOutput)
 }
 
-// The connection endpoint for the DB instance.
-//
-//	The endpoint might not be shown for instances with the status of ``creating``.
 func (o DbInstanceOutput) Endpoint() DbInstanceEndpointOutput {
 	return o.ApplyT(func(v *DbInstance) DbInstanceEndpointOutput { return v.Endpoint }).(DbInstanceEndpointOutput)
 }

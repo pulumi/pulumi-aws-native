@@ -304,14 +304,8 @@ type DbCluster struct {
 	//  If ``DBSubnetGroupName`` is specified, and ``PubliclyAccessible`` isn't specified, the following applies:
 	//   +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB cluster is private.
 	//   +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.
-	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
-	// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-	//   +   ``CreateDBInstance``
-	//   +   ``DescribeDBInstances``
-	//   +   ``DeleteDBInstance``
-	//
-	//  For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
-	ReadEndpoint DbClusterReadEndpointOutput `pulumi:"readEndpoint"`
+	PubliclyAccessible pulumi.BoolPtrOutput        `pulumi:"publiclyAccessible"`
+	ReadEndpoint       DbClusterReadEndpointOutput `pulumi:"readEndpoint"`
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.
 	//  Valid for: Aurora DB clusters only
 	ReplicationSourceIdentifier pulumi.StringPtrOutput `pulumi:"replicationSourceIdentifier"`
@@ -1686,15 +1680,6 @@ func (o DbClusterOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
 
-// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-//
-//   - “CreateDBInstance“
-//
-//   - “DescribeDBInstances“
-//
-//   - “DeleteDBInstance“
-//
-//     For the data structure that represents Amazon Aurora DB cluster endpoints, see “DBClusterEndpoint“.
 func (o DbClusterOutput) ReadEndpoint() DbClusterReadEndpointOutput {
 	return o.ApplyT(func(v *DbCluster) DbClusterReadEndpointOutput { return v.ReadEndpoint }).(DbClusterReadEndpointOutput)
 }

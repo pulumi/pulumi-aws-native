@@ -11694,11 +11694,12 @@ func (o KnowledgeBaseStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 type KnowledgeBaseStorageType string
 
 const (
-	KnowledgeBaseStorageTypeOpensearchServerless = KnowledgeBaseStorageType("OPENSEARCH_SERVERLESS")
-	KnowledgeBaseStorageTypePinecone             = KnowledgeBaseStorageType("PINECONE")
-	KnowledgeBaseStorageTypeRds                  = KnowledgeBaseStorageType("RDS")
-	KnowledgeBaseStorageTypeMongoDbAtlas         = KnowledgeBaseStorageType("MONGO_DB_ATLAS")
-	KnowledgeBaseStorageTypeNeptuneAnalytics     = KnowledgeBaseStorageType("NEPTUNE_ANALYTICS")
+	KnowledgeBaseStorageTypeOpensearchServerless     = KnowledgeBaseStorageType("OPENSEARCH_SERVERLESS")
+	KnowledgeBaseStorageTypePinecone                 = KnowledgeBaseStorageType("PINECONE")
+	KnowledgeBaseStorageTypeRds                      = KnowledgeBaseStorageType("RDS")
+	KnowledgeBaseStorageTypeMongoDbAtlas             = KnowledgeBaseStorageType("MONGO_DB_ATLAS")
+	KnowledgeBaseStorageTypeNeptuneAnalytics         = KnowledgeBaseStorageType("NEPTUNE_ANALYTICS")
+	KnowledgeBaseStorageTypeOpensearchManagedCluster = KnowledgeBaseStorageType("OPENSEARCH_MANAGED_CLUSTER")
 )
 
 func (KnowledgeBaseStorageType) ElementType() reflect.Type {
@@ -11828,6 +11829,7 @@ func (o KnowledgeBaseStorageTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 //	KnowledgeBaseStorageTypeRds
 //	KnowledgeBaseStorageTypeMongoDbAtlas
 //	KnowledgeBaseStorageTypeNeptuneAnalytics
+//	KnowledgeBaseStorageTypeOpensearchManagedCluster
 type KnowledgeBaseStorageTypeInput interface {
 	pulumi.Input
 

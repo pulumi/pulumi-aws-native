@@ -42,6 +42,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _selectedFieldOptions = value;
         }
 
+        [Input("transposedTableOptions")]
+        private InputList<Inputs.DashboardTransposedTableOptionArgs>? _transposedTableOptions;
+        public InputList<Inputs.DashboardTransposedTableOptionArgs> TransposedTableOptions
+        {
+            get => _transposedTableOptions ?? (_transposedTableOptions = new InputList<Inputs.DashboardTransposedTableOptionArgs>());
+            set => _transposedTableOptions = value;
+        }
+
         public DashboardTableFieldOptionsArgs()
         {
         }

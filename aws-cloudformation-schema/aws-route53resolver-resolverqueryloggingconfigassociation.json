@@ -41,6 +41,9 @@
       "maxLength" : 40
     }
   },
+  "tagging" : {
+    "taggable" : false
+  },
   "primaryIdentifier" : [ "/properties/Id" ],
   "createOnlyProperties" : [ "/properties/ResolverQueryLogConfigId", "/properties/ResourceId" ],
   "readOnlyProperties" : [ "/properties/Status", "/properties/Error", "/properties/ErrorMessage", "/properties/CreationTime", "/properties/Id" ],

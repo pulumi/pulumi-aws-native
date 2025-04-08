@@ -409,14 +409,6 @@ namespace Pulumi.AwsNative.Rds
         ///  Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </summary>
         public readonly string? PreferredMaintenanceWindow;
-        /// <summary>
-        /// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-        ///   +   ``CreateDBInstance`` 
-        ///   +   ``DescribeDBInstances`` 
-        ///   +   ``DeleteDBInstance`` 
-        ///   
-        ///  For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
-        /// </summary>
         public readonly Outputs.DbClusterReadEndpoint? ReadEndpoint;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.

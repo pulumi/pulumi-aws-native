@@ -27310,6 +27310,379 @@ func (o KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput) TextField() pulumi.S
 }
 
 // Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+type KnowledgeBaseOpenSearchManagedClusterConfiguration struct {
+	// The Amazon Resource Name (ARN) of the OpenSearch domain.
+	DomainArn string `pulumi:"domainArn"`
+	// The endpoint URL the OpenSearch domain.
+	DomainEndpoint string                                            `pulumi:"domainEndpoint"`
+	FieldMapping   KnowledgeBaseOpenSearchManagedClusterFieldMapping `pulumi:"fieldMapping"`
+	// The name of the vector store.
+	VectorIndexName string `pulumi:"vectorIndexName"`
+}
+
+// KnowledgeBaseOpenSearchManagedClusterConfigurationInput is an input type that accepts KnowledgeBaseOpenSearchManagedClusterConfigurationArgs and KnowledgeBaseOpenSearchManagedClusterConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseOpenSearchManagedClusterConfigurationInput` via:
+//
+//	KnowledgeBaseOpenSearchManagedClusterConfigurationArgs{...}
+type KnowledgeBaseOpenSearchManagedClusterConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseOpenSearchManagedClusterConfigurationOutput() KnowledgeBaseOpenSearchManagedClusterConfigurationOutput
+	ToKnowledgeBaseOpenSearchManagedClusterConfigurationOutputWithContext(context.Context) KnowledgeBaseOpenSearchManagedClusterConfigurationOutput
+}
+
+// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+type KnowledgeBaseOpenSearchManagedClusterConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of the OpenSearch domain.
+	DomainArn pulumi.StringInput `pulumi:"domainArn"`
+	// The endpoint URL the OpenSearch domain.
+	DomainEndpoint pulumi.StringInput                                     `pulumi:"domainEndpoint"`
+	FieldMapping   KnowledgeBaseOpenSearchManagedClusterFieldMappingInput `pulumi:"fieldMapping"`
+	// The name of the vector store.
+	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
+}
+
+func (KnowledgeBaseOpenSearchManagedClusterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseOpenSearchManagedClusterConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseOpenSearchManagedClusterConfigurationArgs) ToKnowledgeBaseOpenSearchManagedClusterConfigurationOutput() KnowledgeBaseOpenSearchManagedClusterConfigurationOutput {
+	return i.ToKnowledgeBaseOpenSearchManagedClusterConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseOpenSearchManagedClusterConfigurationArgs) ToKnowledgeBaseOpenSearchManagedClusterConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseOpenSearchManagedClusterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseOpenSearchManagedClusterConfigurationOutput)
+}
+
+func (i KnowledgeBaseOpenSearchManagedClusterConfigurationArgs) ToKnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput() KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput {
+	return i.ToKnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseOpenSearchManagedClusterConfigurationArgs) ToKnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseOpenSearchManagedClusterConfigurationOutput).ToKnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseOpenSearchManagedClusterConfigurationPtrInput is an input type that accepts KnowledgeBaseOpenSearchManagedClusterConfigurationArgs, KnowledgeBaseOpenSearchManagedClusterConfigurationPtr and KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseOpenSearchManagedClusterConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseOpenSearchManagedClusterConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseOpenSearchManagedClusterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput() KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput
+	ToKnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput
+}
+
+type knowledgeBaseOpenSearchManagedClusterConfigurationPtrType KnowledgeBaseOpenSearchManagedClusterConfigurationArgs
+
+func KnowledgeBaseOpenSearchManagedClusterConfigurationPtr(v *KnowledgeBaseOpenSearchManagedClusterConfigurationArgs) KnowledgeBaseOpenSearchManagedClusterConfigurationPtrInput {
+	return (*knowledgeBaseOpenSearchManagedClusterConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseOpenSearchManagedClusterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseOpenSearchManagedClusterConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseOpenSearchManagedClusterConfigurationPtrType) ToKnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput() KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput {
+	return i.ToKnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseOpenSearchManagedClusterConfigurationPtrType) ToKnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput)
+}
+
+// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+type KnowledgeBaseOpenSearchManagedClusterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseOpenSearchManagedClusterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseOpenSearchManagedClusterConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseOpenSearchManagedClusterConfigurationOutput) ToKnowledgeBaseOpenSearchManagedClusterConfigurationOutput() KnowledgeBaseOpenSearchManagedClusterConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseOpenSearchManagedClusterConfigurationOutput) ToKnowledgeBaseOpenSearchManagedClusterConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseOpenSearchManagedClusterConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseOpenSearchManagedClusterConfigurationOutput) ToKnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput() KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput {
+	return o.ToKnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseOpenSearchManagedClusterConfigurationOutput) ToKnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseOpenSearchManagedClusterConfiguration) *KnowledgeBaseOpenSearchManagedClusterConfiguration {
+		return &v
+	}).(KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the OpenSearch domain.
+func (o KnowledgeBaseOpenSearchManagedClusterConfigurationOutput) DomainArn() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseOpenSearchManagedClusterConfiguration) string { return v.DomainArn }).(pulumi.StringOutput)
+}
+
+// The endpoint URL the OpenSearch domain.
+func (o KnowledgeBaseOpenSearchManagedClusterConfigurationOutput) DomainEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseOpenSearchManagedClusterConfiguration) string { return v.DomainEndpoint }).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseOpenSearchManagedClusterConfigurationOutput) FieldMapping() KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput {
+	return o.ApplyT(func(v KnowledgeBaseOpenSearchManagedClusterConfiguration) KnowledgeBaseOpenSearchManagedClusterFieldMapping {
+		return v.FieldMapping
+	}).(KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput)
+}
+
+// The name of the vector store.
+func (o KnowledgeBaseOpenSearchManagedClusterConfigurationOutput) VectorIndexName() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseOpenSearchManagedClusterConfiguration) string { return v.VectorIndexName }).(pulumi.StringOutput)
+}
+
+type KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseOpenSearchManagedClusterConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput) ToKnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput() KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput) ToKnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput) Elem() KnowledgeBaseOpenSearchManagedClusterConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseOpenSearchManagedClusterConfiguration) KnowledgeBaseOpenSearchManagedClusterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseOpenSearchManagedClusterConfiguration
+		return ret
+	}).(KnowledgeBaseOpenSearchManagedClusterConfigurationOutput)
+}
+
+// The Amazon Resource Name (ARN) of the OpenSearch domain.
+func (o KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput) DomainArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseOpenSearchManagedClusterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The endpoint URL the OpenSearch domain.
+func (o KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput) DomainEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseOpenSearchManagedClusterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput) FieldMapping() KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseOpenSearchManagedClusterConfiguration) *KnowledgeBaseOpenSearchManagedClusterFieldMapping {
+		if v == nil {
+			return nil
+		}
+		return &v.FieldMapping
+	}).(KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput)
+}
+
+// The name of the vector store.
+func (o KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput) VectorIndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseOpenSearchManagedClusterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VectorIndexName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A mapping of Bedrock Knowledge Base fields to OpenSearch Managed Cluster field names
+type KnowledgeBaseOpenSearchManagedClusterFieldMapping struct {
+	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField string `pulumi:"metadataField"`
+	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField string `pulumi:"textField"`
+	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	VectorField string `pulumi:"vectorField"`
+}
+
+// KnowledgeBaseOpenSearchManagedClusterFieldMappingInput is an input type that accepts KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs and KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput values.
+// You can construct a concrete instance of `KnowledgeBaseOpenSearchManagedClusterFieldMappingInput` via:
+//
+//	KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs{...}
+type KnowledgeBaseOpenSearchManagedClusterFieldMappingInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseOpenSearchManagedClusterFieldMappingOutput() KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput
+	ToKnowledgeBaseOpenSearchManagedClusterFieldMappingOutputWithContext(context.Context) KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput
+}
+
+// A mapping of Bedrock Knowledge Base fields to OpenSearch Managed Cluster field names
+type KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs struct {
+	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	MetadataField pulumi.StringInput `pulumi:"metadataField"`
+	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	TextField pulumi.StringInput `pulumi:"textField"`
+	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	VectorField pulumi.StringInput `pulumi:"vectorField"`
+}
+
+func (KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseOpenSearchManagedClusterFieldMapping)(nil)).Elem()
+}
+
+func (i KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs) ToKnowledgeBaseOpenSearchManagedClusterFieldMappingOutput() KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput {
+	return i.ToKnowledgeBaseOpenSearchManagedClusterFieldMappingOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs) ToKnowledgeBaseOpenSearchManagedClusterFieldMappingOutputWithContext(ctx context.Context) KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput)
+}
+
+func (i KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs) ToKnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput() KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput {
+	return i.ToKnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs) ToKnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutputWithContext(ctx context.Context) KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput).ToKnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrInput is an input type that accepts KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs, KnowledgeBaseOpenSearchManagedClusterFieldMappingPtr and KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrInput` via:
+//
+//	        KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput() KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput
+	ToKnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutputWithContext(context.Context) KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput
+}
+
+type knowledgeBaseOpenSearchManagedClusterFieldMappingPtrType KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs
+
+func KnowledgeBaseOpenSearchManagedClusterFieldMappingPtr(v *KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs) KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrInput {
+	return (*knowledgeBaseOpenSearchManagedClusterFieldMappingPtrType)(v)
+}
+
+func (*knowledgeBaseOpenSearchManagedClusterFieldMappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseOpenSearchManagedClusterFieldMapping)(nil)).Elem()
+}
+
+func (i *knowledgeBaseOpenSearchManagedClusterFieldMappingPtrType) ToKnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput() KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput {
+	return i.ToKnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseOpenSearchManagedClusterFieldMappingPtrType) ToKnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutputWithContext(ctx context.Context) KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput)
+}
+
+// A mapping of Bedrock Knowledge Base fields to OpenSearch Managed Cluster field names
+type KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseOpenSearchManagedClusterFieldMapping)(nil)).Elem()
+}
+
+func (o KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput) ToKnowledgeBaseOpenSearchManagedClusterFieldMappingOutput() KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput {
+	return o
+}
+
+func (o KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput) ToKnowledgeBaseOpenSearchManagedClusterFieldMappingOutputWithContext(ctx context.Context) KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput {
+	return o
+}
+
+func (o KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput) ToKnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput() KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput {
+	return o.ToKnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput) ToKnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutputWithContext(ctx context.Context) KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseOpenSearchManagedClusterFieldMapping) *KnowledgeBaseOpenSearchManagedClusterFieldMapping {
+		return &v
+	}).(KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput) MetadataField() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseOpenSearchManagedClusterFieldMapping) string { return v.MetadataField }).(pulumi.StringOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput) TextField() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseOpenSearchManagedClusterFieldMapping) string { return v.TextField }).(pulumi.StringOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+func (o KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput) VectorField() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseOpenSearchManagedClusterFieldMapping) string { return v.VectorField }).(pulumi.StringOutput)
+}
+
+type KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseOpenSearchManagedClusterFieldMapping)(nil)).Elem()
+}
+
+func (o KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput) ToKnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput() KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput) ToKnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutputWithContext(ctx context.Context) KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput) Elem() KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput {
+	return o.ApplyT(func(v *KnowledgeBaseOpenSearchManagedClusterFieldMapping) KnowledgeBaseOpenSearchManagedClusterFieldMapping {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseOpenSearchManagedClusterFieldMapping
+		return ret
+	}).(KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+func (o KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput) MetadataField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseOpenSearchManagedClusterFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetadataField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+func (o KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput) TextField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseOpenSearchManagedClusterFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TextField
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+func (o KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput) VectorField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseOpenSearchManagedClusterFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VectorField
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 type KnowledgeBaseOpenSearchServerlessConfiguration struct {
 	// The ARN of the OpenSearch Service vector store.
 	CollectionArn string `pulumi:"collectionArn"`
@@ -30706,7 +31079,8 @@ type KnowledgeBaseStorageConfiguration struct {
 	// Contains the storage configuration of the knowledge base in MongoDB Atlas.
 	MongoDbAtlasConfiguration *KnowledgeBaseMongoDbAtlasConfiguration `pulumi:"mongoDbAtlasConfiguration"`
 	// Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
-	NeptuneAnalyticsConfiguration *KnowledgeBaseNeptuneAnalyticsConfiguration `pulumi:"neptuneAnalyticsConfiguration"`
+	NeptuneAnalyticsConfiguration         *KnowledgeBaseNeptuneAnalyticsConfiguration         `pulumi:"neptuneAnalyticsConfiguration"`
+	OpensearchManagedClusterConfiguration *KnowledgeBaseOpenSearchManagedClusterConfiguration `pulumi:"opensearchManagedClusterConfiguration"`
 	// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 	OpensearchServerlessConfiguration *KnowledgeBaseOpenSearchServerlessConfiguration `pulumi:"opensearchServerlessConfiguration"`
 	// Contains the storage configuration of the knowledge base in Pinecone.
@@ -30733,7 +31107,8 @@ type KnowledgeBaseStorageConfigurationArgs struct {
 	// Contains the storage configuration of the knowledge base in MongoDB Atlas.
 	MongoDbAtlasConfiguration KnowledgeBaseMongoDbAtlasConfigurationPtrInput `pulumi:"mongoDbAtlasConfiguration"`
 	// Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
-	NeptuneAnalyticsConfiguration KnowledgeBaseNeptuneAnalyticsConfigurationPtrInput `pulumi:"neptuneAnalyticsConfiguration"`
+	NeptuneAnalyticsConfiguration         KnowledgeBaseNeptuneAnalyticsConfigurationPtrInput         `pulumi:"neptuneAnalyticsConfiguration"`
+	OpensearchManagedClusterConfiguration KnowledgeBaseOpenSearchManagedClusterConfigurationPtrInput `pulumi:"opensearchManagedClusterConfiguration"`
 	// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 	OpensearchServerlessConfiguration KnowledgeBaseOpenSearchServerlessConfigurationPtrInput `pulumi:"opensearchServerlessConfiguration"`
 	// Contains the storage configuration of the knowledge base in Pinecone.
@@ -30836,6 +31211,12 @@ func (o KnowledgeBaseStorageConfigurationOutput) NeptuneAnalyticsConfiguration()
 	}).(KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput)
 }
 
+func (o KnowledgeBaseStorageConfigurationOutput) OpensearchManagedClusterConfiguration() KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseStorageConfiguration) *KnowledgeBaseOpenSearchManagedClusterConfiguration {
+		return v.OpensearchManagedClusterConfiguration
+	}).(KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput)
+}
+
 // Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 func (o KnowledgeBaseStorageConfigurationOutput) OpensearchServerlessConfiguration() KnowledgeBaseOpenSearchServerlessConfigurationPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseStorageConfiguration) *KnowledgeBaseOpenSearchServerlessConfiguration {
@@ -30902,6 +31283,15 @@ func (o KnowledgeBaseStorageConfigurationPtrOutput) NeptuneAnalyticsConfiguratio
 		}
 		return v.NeptuneAnalyticsConfiguration
 	}).(KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseStorageConfigurationPtrOutput) OpensearchManagedClusterConfiguration() KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseStorageConfiguration) *KnowledgeBaseOpenSearchManagedClusterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.OpensearchManagedClusterConfiguration
+	}).(KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput)
 }
 
 // Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
@@ -36250,6 +36640,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseNeptuneAnalyticsConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseNeptuneAnalyticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseNeptuneAnalyticsFieldMappingInput)(nil)).Elem(), KnowledgeBaseNeptuneAnalyticsFieldMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseNeptuneAnalyticsFieldMappingPtrInput)(nil)).Elem(), KnowledgeBaseNeptuneAnalyticsFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseOpenSearchManagedClusterConfigurationInput)(nil)).Elem(), KnowledgeBaseOpenSearchManagedClusterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseOpenSearchManagedClusterConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseOpenSearchManagedClusterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseOpenSearchManagedClusterFieldMappingInput)(nil)).Elem(), KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrInput)(nil)).Elem(), KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseOpenSearchServerlessConfigurationInput)(nil)).Elem(), KnowledgeBaseOpenSearchServerlessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseOpenSearchServerlessConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseOpenSearchServerlessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseOpenSearchServerlessFieldMappingInput)(nil)).Elem(), KnowledgeBaseOpenSearchServerlessFieldMappingArgs{})
@@ -36771,6 +37165,10 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseNeptuneAnalyticsFieldMappingOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseNeptuneAnalyticsFieldMappingPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseOpenSearchManagedClusterConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseOpenSearchServerlessConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseOpenSearchServerlessConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseOpenSearchServerlessFieldMappingOutput{})

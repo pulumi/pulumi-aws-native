@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
     [OutputType]
     public sealed class ServiceLevelObjectiveRequestBasedSliMetric
     {
+        public readonly Outputs.ServiceLevelObjectiveDependencyConfig? DependencyConfig;
         /// <summary>
         /// This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
         /// 
@@ -46,6 +47,8 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
 
         [OutputConstructor]
         private ServiceLevelObjectiveRequestBasedSliMetric(
+            Outputs.ServiceLevelObjectiveDependencyConfig? dependencyConfig,
+
             ImmutableDictionary<string, string>? keyAttributes,
 
             Pulumi.AwsNative.ApplicationSignals.ServiceLevelObjectiveRequestBasedSliMetricMetricType? metricType,
@@ -56,6 +59,7 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
 
             ImmutableArray<Outputs.ServiceLevelObjectiveMetricDataQuery> totalRequestCountMetric)
         {
+            DependencyConfig = dependencyConfig;
             KeyAttributes = keyAttributes;
             MetricType = metricType;
             MonitoredRequestCountMetric = monitoredRequestCountMetric;

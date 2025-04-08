@@ -282,9 +282,8 @@ class GetDbInstanceResult:
     @pulumi.getter(name="automaticBackupReplicationRetentionPeriod")
     def automatic_backup_replication_retention_period(self) -> Optional[int]:
         """
-        The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the `AutomaticBackupReplicationRegion` parameter.
-
-        If not specified, this parameter defaults to the value of the `BackupRetentionPeriod` parameter. The maximum allowed value is 35.
+        The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the ``AutomaticBackupReplicationRegion`` parameter. 
+         If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
         """
         return pulumi.get(self, "automatic_backup_replication_retention_period")
 
@@ -329,9 +328,6 @@ class GetDbInstanceResult:
     @property
     @pulumi.getter(name="certificateDetails")
     def certificate_details(self) -> Optional['outputs.DbInstanceCertificateDetails']:
-        """
-        The details of the DB instance's server certificate.
-        """
         return pulumi.get(self, "certificate_details")
 
     @property
@@ -562,10 +558,6 @@ class GetDbInstanceResult:
     @property
     @pulumi.getter
     def endpoint(self) -> Optional['outputs.DbInstanceEndpoint']:
-        """
-        The connection endpoint for the DB instance.
-          The endpoint might not be shown for instances with the status of ``creating``.
-        """
         return pulumi.get(self, "endpoint")
 
     @property

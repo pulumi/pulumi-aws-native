@@ -24,6 +24,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
         /// </summary>
         public readonly Outputs.KnowledgeBaseNeptuneAnalyticsConfiguration? NeptuneAnalyticsConfiguration;
+        public readonly Outputs.KnowledgeBaseOpenSearchManagedClusterConfiguration? OpensearchManagedClusterConfiguration;
         /// <summary>
         /// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
         /// </summary>
@@ -47,6 +48,8 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
             Outputs.KnowledgeBaseNeptuneAnalyticsConfiguration? neptuneAnalyticsConfiguration,
 
+            Outputs.KnowledgeBaseOpenSearchManagedClusterConfiguration? opensearchManagedClusterConfiguration,
+
             Outputs.KnowledgeBaseOpenSearchServerlessConfiguration? opensearchServerlessConfiguration,
 
             Outputs.KnowledgeBasePineconeConfiguration? pineconeConfiguration,
@@ -57,6 +60,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         {
             MongoDbAtlasConfiguration = mongoDbAtlasConfiguration;
             NeptuneAnalyticsConfiguration = neptuneAnalyticsConfiguration;
+            OpensearchManagedClusterConfiguration = opensearchManagedClusterConfiguration;
             OpensearchServerlessConfiguration = opensearchServerlessConfiguration;
             PineconeConfiguration = pineconeConfiguration;
             RdsConfiguration = rdsConfiguration;
