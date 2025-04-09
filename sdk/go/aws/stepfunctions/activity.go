@@ -106,7 +106,9 @@ type Activity struct {
 	// - brackets `< > { } [ ]`
 	// - wildcard characters `? *`
 	// - special characters ` " # % \ ^ | ~  ` $ & , ; : /`
-	// - control characters ( `U+0000-001F` , `U+007F-009F` )
+	// - control characters ( `U+0000-001F` , `U+007F-009F` , `U+FFFE-FFFF` )
+	// - surrogates ( `U+D800-DFFF` )
+	// - invalid characters ( `U+10FFFF` )
 	//
 	// To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -175,7 +177,9 @@ type activityArgs struct {
 	// - brackets `< > { } [ ]`
 	// - wildcard characters `? *`
 	// - special characters ` " # % \ ^ | ~  ` $ & , ; : /`
-	// - control characters ( `U+0000-001F` , `U+007F-009F` )
+	// - control characters ( `U+0000-001F` , `U+007F-009F` , `U+FFFE-FFFF` )
+	// - surrogates ( `U+D800-DFFF` )
+	// - invalid characters ( `U+10FFFF` )
 	//
 	// To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
 	Name *string `pulumi:"name"`
@@ -201,7 +205,9 @@ type ActivityArgs struct {
 	// - brackets `< > { } [ ]`
 	// - wildcard characters `? *`
 	// - special characters ` " # % \ ^ | ~  ` $ & , ; : /`
-	// - control characters ( `U+0000-001F` , `U+007F-009F` )
+	// - control characters ( `U+0000-001F` , `U+007F-009F` , `U+FFFE-FFFF` )
+	// - surrogates ( `U+D800-DFFF` )
+	// - invalid characters ( `U+10FFFF` )
 	//
 	// To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
 	Name pulumi.StringPtrInput
@@ -270,7 +276,9 @@ func (o ActivityOutput) EncryptionConfiguration() ActivityEncryptionConfiguratio
 // - brackets `< > { } [ ]`
 // - wildcard characters `? *`
 // - special characters ` " # % \ ^ | ~  ` $ & , ; : /`
-// - control characters ( `U+0000-001F` , `U+007F-009F` )
+// - control characters ( `U+0000-001F` , `U+007F-009F` , `U+FFFE-FFFF` )
+// - surrogates ( `U+D800-DFFF` )
+// - invalid characters ( `U+10FFFF` )
 //
 // To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
 func (o ActivityOutput) Name() pulumi.StringOutput {

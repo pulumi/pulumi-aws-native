@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetExtensionAssociationResult',
@@ -23,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetExtensionAssociationResult:
-    def __init__(__self__, arn=None, extension_arn=None, id=None, parameters=None, resource_arn=None):
+    def __init__(__self__, arn=None, extension_arn=None, id=None, parameters=None, resource_arn=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +40,9 @@ class GetExtensionAssociationResult:
         if resource_arn and not isinstance(resource_arn, str):
             raise TypeError("Expected argument 'resource_arn' to be a str")
         pulumi.set(__self__, "resource_arn", resource_arn)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -80,6 +84,14 @@ class GetExtensionAssociationResult:
         """
         return pulumi.get(self, "resource_arn")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetExtensionAssociationResult(GetExtensionAssociationResult):
     # pylint: disable=using-constant-test
@@ -91,7 +103,8 @@ class AwaitableGetExtensionAssociationResult(GetExtensionAssociationResult):
             extension_arn=self.extension_arn,
             id=self.id,
             parameters=self.parameters,
-            resource_arn=self.resource_arn)
+            resource_arn=self.resource_arn,
+            tags=self.tags)
 
 
 def get_extension_association(id: Optional[str] = None,
@@ -112,7 +125,8 @@ def get_extension_association(id: Optional[str] = None,
         extension_arn=pulumi.get(__ret__, 'extension_arn'),
         id=pulumi.get(__ret__, 'id'),
         parameters=pulumi.get(__ret__, 'parameters'),
-        resource_arn=pulumi.get(__ret__, 'resource_arn'))
+        resource_arn=pulumi.get(__ret__, 'resource_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_extension_association_output(id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionAssociationResult]:
     """
@@ -130,4 +144,5 @@ def get_extension_association_output(id: Optional[pulumi.Input[str]] = None,
         extension_arn=pulumi.get(__response__, 'extension_arn'),
         id=pulumi.get(__response__, 'id'),
         parameters=pulumi.get(__response__, 'parameters'),
-        resource_arn=pulumi.get(__response__, 'resource_arn')))
+        resource_arn=pulumi.get(__response__, 'resource_arn'),
+        tags=pulumi.get(__response__, 'tags')))

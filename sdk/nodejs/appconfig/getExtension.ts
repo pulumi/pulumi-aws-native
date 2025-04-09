@@ -46,6 +46,10 @@ export interface GetExtensionResult {
      */
     readonly parameters?: {[key: string]: outputs.appconfig.ExtensionParameter};
     /**
+     * An array of key-value tags to apply to this resource.
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * The extension version number.
      */
     readonly versionNumber?: number;

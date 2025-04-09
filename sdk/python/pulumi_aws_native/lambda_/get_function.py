@@ -26,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetFunctionResult:
-    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storage=None, file_system_configs=None, handler=None, image_config=None, kms_key_arn=None, layers=None, logging_config=None, memory_size=None, recursive_loop=None, reserved_concurrent_executions=None, role=None, runtime=None, runtime_management_config=None, snap_start_response=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, code=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storage=None, file_system_configs=None, handler=None, image_config=None, kms_key_arn=None, layers=None, logging_config=None, memory_size=None, recursive_loop=None, reserved_concurrent_executions=None, role=None, runtime=None, runtime_management_config=None, snap_start_response=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if code and not isinstance(code, dict):
+            raise TypeError("Expected argument 'code' to be a dict")
+        pulumi.set(__self__, "code", code)
         if code_signing_config_arn and not isinstance(code_signing_config_arn, str):
             raise TypeError("Expected argument 'code_signing_config_arn' to be a str")
         pulumi.set(__self__, "code_signing_config_arn", code_signing_config_arn)
@@ -115,6 +118,17 @@ class GetFunctionResult:
         The Amazon Resource Name (ARN) of the function.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional['outputs.FunctionCode']:
+        """
+        The code for the function. You can define your function code in multiple ways:
+          +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
+          +  For .zip deployment packages, you can alternatively define the function code inline in the ``ZipFile`` property. This method works only for Node.js and Python functions.
+          +  For container images, specify the URI of your container image in the ECR registry in the ``ImageUri`` property.
+        """
+        return pulumi.get(self, "code")
 
     @property
     @pulumi.getter(name="codeSigningConfigArn")
@@ -310,6 +324,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
         return GetFunctionResult(
             architectures=self.architectures,
             arn=self.arn,
+            code=self.code,
             code_signing_config_arn=self.code_signing_config_arn,
             dead_letter_config=self.dead_letter_config,
             description=self.description,
@@ -357,6 +372,7 @@ def get_function(function_name: Optional[str] = None,
     return AwaitableGetFunctionResult(
         architectures=pulumi.get(__ret__, 'architectures'),
         arn=pulumi.get(__ret__, 'arn'),
+        code=pulumi.get(__ret__, 'code'),
         code_signing_config_arn=pulumi.get(__ret__, 'code_signing_config_arn'),
         dead_letter_config=pulumi.get(__ret__, 'dead_letter_config'),
         description=pulumi.get(__ret__, 'description'),
@@ -401,6 +417,7 @@ def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetFunctionResult(
         architectures=pulumi.get(__response__, 'architectures'),
         arn=pulumi.get(__response__, 'arn'),
+        code=pulumi.get(__response__, 'code'),
         code_signing_config_arn=pulumi.get(__response__, 'code_signing_config_arn'),
         dead_letter_config=pulumi.get(__response__, 'dead_letter_config'),
         description=pulumi.get(__response__, 'description'),

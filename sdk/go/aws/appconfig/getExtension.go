@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,6 +39,8 @@ type LookupExtensionResult struct {
 	Id *string `pulumi:"id"`
 	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
 	Parameters map[string]ExtensionParameter `pulumi:"parameters"`
+	// An array of key-value tags to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The extension version number.
 	VersionNumber *int `pulumi:"versionNumber"`
 }
@@ -97,6 +100,11 @@ func (o LookupExtensionResultOutput) Id() pulumi.StringPtrOutput {
 // The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
 func (o LookupExtensionResultOutput) Parameters() ExtensionParameterMapOutput {
 	return o.ApplyT(func(v LookupExtensionResult) map[string]ExtensionParameter { return v.Parameters }).(ExtensionParameterMapOutput)
+}
+
+// An array of key-value tags to apply to this resource.
+func (o LookupExtensionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupExtensionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The extension version number.

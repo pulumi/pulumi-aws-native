@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.AppConfig
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -97,7 +97,6 @@ namespace Pulumi.AwsNative.AppConfig
                     "extensionIdentifier",
                     "extensionVersionNumber",
                     "resourceIdentifier",
-                    "tags[*]",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -152,14 +151,14 @@ namespace Pulumi.AwsNative.AppConfig
         public Input<string>? ResourceIdentifier { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
