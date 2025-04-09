@@ -36,7 +36,7 @@
     "Tags" : {
       "description" : "An array of key-value pairs to apply to this resource.",
       "type" : "array",
-      "uniqueItems" : false,
+      "uniqueItems" : true,
       "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/Tag"
@@ -67,15 +67,15 @@
   },
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/ResourceArn", "/properties/ExtensionArn" ],
-  "createOnlyProperties" : [ "/properties/ExtensionIdentifier", "/properties/ResourceIdentifier", "/properties/ExtensionVersionNumber", "/properties/Tags", "/properties/Tags/*/Key", "/properties/Tags/*/Value" ],
-  "writeOnlyProperties" : [ "/properties/ExtensionIdentifier", "/properties/ResourceIdentifier", "/properties/Tags", "/properties/Tags/*/Key", "/properties/Tags/*/Value" ],
+  "createOnlyProperties" : [ "/properties/ExtensionIdentifier", "/properties/ResourceIdentifier", "/properties/ExtensionVersionNumber" ],
+  "writeOnlyProperties" : [ "/properties/ExtensionIdentifier", "/properties/ResourceIdentifier" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "appconfig:CreateExtensionAssociation", "appconfig:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "appconfig:GetExtensionAssociation" ]
+      "permissions" : [ "appconfig:GetExtensionAssociation", "appconfig:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "appconfig:UpdateExtensionAssociation", "appconfig:TagResource", "appconfig:UntagResource" ]
