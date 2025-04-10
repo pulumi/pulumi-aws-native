@@ -13,15 +13,24 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class DataSourceMediaExtractionConfiguration
     {
+        public readonly Outputs.DataSourceAudioExtractionConfiguration? AudioExtractionConfiguration;
         /// <summary>
         /// The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
         /// </summary>
         public readonly Outputs.DataSourceImageExtractionConfiguration? ImageExtractionConfiguration;
+        public readonly Outputs.DataSourceVideoExtractionConfiguration? VideoExtractionConfiguration;
 
         [OutputConstructor]
-        private DataSourceMediaExtractionConfiguration(Outputs.DataSourceImageExtractionConfiguration? imageExtractionConfiguration)
+        private DataSourceMediaExtractionConfiguration(
+            Outputs.DataSourceAudioExtractionConfiguration? audioExtractionConfiguration,
+
+            Outputs.DataSourceImageExtractionConfiguration? imageExtractionConfiguration,
+
+            Outputs.DataSourceVideoExtractionConfiguration? videoExtractionConfiguration)
         {
+            AudioExtractionConfiguration = audioExtractionConfiguration;
             ImageExtractionConfiguration = imageExtractionConfiguration;
+            VideoExtractionConfiguration = videoExtractionConfiguration;
         }
     }
 }

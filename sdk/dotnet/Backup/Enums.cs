@@ -62,32 +62,4 @@ namespace Pulumi.AwsNative.Backup
 
         public override string ToString() => _value;
     }
-
-    [EnumType]
-    public readonly struct RestoreTestingPlanRestoreTestingScheduleStatus : IEquatable<RestoreTestingPlanRestoreTestingScheduleStatus>
-    {
-        private readonly string _value;
-
-        private RestoreTestingPlanRestoreTestingScheduleStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RestoreTestingPlanRestoreTestingScheduleStatus Active { get; } = new RestoreTestingPlanRestoreTestingScheduleStatus("ACTIVE");
-        public static RestoreTestingPlanRestoreTestingScheduleStatus Suspended { get; } = new RestoreTestingPlanRestoreTestingScheduleStatus("SUSPENDED");
-
-        public static bool operator ==(RestoreTestingPlanRestoreTestingScheduleStatus left, RestoreTestingPlanRestoreTestingScheduleStatus right) => left.Equals(right);
-        public static bool operator !=(RestoreTestingPlanRestoreTestingScheduleStatus left, RestoreTestingPlanRestoreTestingScheduleStatus right) => !left.Equals(right);
-
-        public static explicit operator string(RestoreTestingPlanRestoreTestingScheduleStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RestoreTestingPlanRestoreTestingScheduleStatus other && Equals(other);
-        public bool Equals(RestoreTestingPlanRestoreTestingScheduleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
 }

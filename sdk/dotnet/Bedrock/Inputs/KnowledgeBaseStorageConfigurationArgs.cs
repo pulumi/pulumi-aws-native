@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("neptuneAnalyticsConfiguration")]
         public Input<Inputs.KnowledgeBaseNeptuneAnalyticsConfigurationArgs>? NeptuneAnalyticsConfiguration { get; set; }
 
+        /// <summary>
+        /// Contains details about the storage configuration of the knowledge base in OpenSearch Managed Cluster. For more information, see [Create a vector index in Amazon OpenSearch Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html) .
+        /// </summary>
         [Input("opensearchManagedClusterConfiguration")]
         public Input<Inputs.KnowledgeBaseOpenSearchManagedClusterConfigurationArgs>? OpensearchManagedClusterConfiguration { get; set; }
 

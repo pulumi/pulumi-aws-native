@@ -46,10 +46,13 @@ type AnalysisTemplate struct {
 	// The identifier for a membership resource.
 	MembershipIdentifier pulumi.StringOutput `pulumi:"membershipIdentifier"`
 	// The name of the analysis template.
-	Name   pulumi.StringOutput                  `pulumi:"name"`
-	Schema AnalysisTemplateAnalysisSchemaOutput `pulumi:"schema"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The entire schema object.
+	Schema AnalysisTemplateAnalysisSchemaPtrOutput `pulumi:"schema"`
 	// The source of the analysis template.
-	Source AnalysisTemplateAnalysisSourceOutput `pulumi:"source"`
+	Source pulumi.AnyOutput `pulumi:"source"`
+	// The source metadata for the analysis template.
+	SourceMetadata AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput `pulumi:"sourceMetadata"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -75,6 +78,7 @@ func NewAnalysisTemplate(ctx *pulumi.Context,
 		"format",
 		"membershipIdentifier",
 		"name",
+		"schema",
 		"source",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -121,8 +125,12 @@ type analysisTemplateArgs struct {
 	MembershipIdentifier string `pulumi:"membershipIdentifier"`
 	// The name of the analysis template.
 	Name *string `pulumi:"name"`
+	// The entire schema object.
+	Schema *AnalysisTemplateAnalysisSchema `pulumi:"schema"`
 	// The source of the analysis template.
-	Source AnalysisTemplateAnalysisSource `pulumi:"source"`
+	Source interface{} `pulumi:"source"`
+	// The source metadata for the analysis template.
+	SourceMetadata *AnalysisTemplateAnalysisSourceMetadataProperties `pulumi:"sourceMetadata"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -139,8 +147,12 @@ type AnalysisTemplateArgs struct {
 	MembershipIdentifier pulumi.StringInput
 	// The name of the analysis template.
 	Name pulumi.StringPtrInput
+	// The entire schema object.
+	Schema AnalysisTemplateAnalysisSchemaPtrInput
 	// The source of the analysis template.
-	Source AnalysisTemplateAnalysisSourceInput
+	Source pulumi.Input
+	// The source metadata for the analysis template.
+	SourceMetadata AnalysisTemplateAnalysisSourceMetadataPropertiesPtrInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
 	Tags aws.TagArrayInput
 }
@@ -242,13 +254,21 @@ func (o AnalysisTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalysisTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o AnalysisTemplateOutput) Schema() AnalysisTemplateAnalysisSchemaOutput {
-	return o.ApplyT(func(v *AnalysisTemplate) AnalysisTemplateAnalysisSchemaOutput { return v.Schema }).(AnalysisTemplateAnalysisSchemaOutput)
+// The entire schema object.
+func (o AnalysisTemplateOutput) Schema() AnalysisTemplateAnalysisSchemaPtrOutput {
+	return o.ApplyT(func(v *AnalysisTemplate) AnalysisTemplateAnalysisSchemaPtrOutput { return v.Schema }).(AnalysisTemplateAnalysisSchemaPtrOutput)
 }
 
 // The source of the analysis template.
-func (o AnalysisTemplateOutput) Source() AnalysisTemplateAnalysisSourceOutput {
-	return o.ApplyT(func(v *AnalysisTemplate) AnalysisTemplateAnalysisSourceOutput { return v.Source }).(AnalysisTemplateAnalysisSourceOutput)
+func (o AnalysisTemplateOutput) Source() pulumi.AnyOutput {
+	return o.ApplyT(func(v *AnalysisTemplate) pulumi.AnyOutput { return v.Source }).(pulumi.AnyOutput)
+}
+
+// The source metadata for the analysis template.
+func (o AnalysisTemplateOutput) SourceMetadata() AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput {
+	return o.ApplyT(func(v *AnalysisTemplate) AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput {
+		return v.SourceMetadata
+	}).(AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput)
 }
 
 // An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.

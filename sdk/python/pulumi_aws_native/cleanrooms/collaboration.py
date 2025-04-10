@@ -33,6 +33,7 @@ class CollaborationArgs:
                  creator_ml_member_abilities: Optional[pulumi.Input['CollaborationMlMemberAbilitiesArgs']] = None,
                  creator_payment_configuration: Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']] = None,
                  data_encryption_metadata: Optional[pulumi.Input['CollaborationDataEncryptionMetadataArgs']] = None,
+                 job_log_status: Optional[pulumi.Input['CollaborationJobLogStatus']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -50,6 +51,9 @@ class CollaborationArgs:
         :param pulumi.Input['CollaborationMlMemberAbilitiesArgs'] creator_ml_member_abilities: The ML member abilities for a collaboration member.
         :param pulumi.Input['CollaborationPaymentConfigurationArgs'] creator_payment_configuration: An object representing the collaboration member's payment responsibilities set by the collaboration creator.
         :param pulumi.Input['CollaborationDataEncryptionMetadataArgs'] data_encryption_metadata: The settings for client-side encryption for cryptographic computing.
+        :param pulumi.Input['CollaborationJobLogStatus'] job_log_status: An indicator as to whether job logging has been enabled or disabled for the collaboration.
+               
+               When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
         :param pulumi.Input[str] name: A human-readable identifier provided by the collaboration owner. Display names are not unique.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
@@ -66,6 +70,8 @@ class CollaborationArgs:
             pulumi.set(__self__, "creator_payment_configuration", creator_payment_configuration)
         if data_encryption_metadata is not None:
             pulumi.set(__self__, "data_encryption_metadata", data_encryption_metadata)
+        if job_log_status is not None:
+            pulumi.set(__self__, "job_log_status", job_log_status)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -184,6 +190,20 @@ class CollaborationArgs:
         pulumi.set(self, "data_encryption_metadata", value)
 
     @property
+    @pulumi.getter(name="jobLogStatus")
+    def job_log_status(self) -> Optional[pulumi.Input['CollaborationJobLogStatus']]:
+        """
+        An indicator as to whether job logging has been enabled or disabled for the collaboration.
+
+        When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+        """
+        return pulumi.get(self, "job_log_status")
+
+    @job_log_status.setter
+    def job_log_status(self, value: Optional[pulumi.Input['CollaborationJobLogStatus']]):
+        pulumi.set(self, "job_log_status", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -220,6 +240,7 @@ class Collaboration(pulumi.CustomResource):
                  creator_payment_configuration: Optional[pulumi.Input[Union['CollaborationPaymentConfigurationArgs', 'CollaborationPaymentConfigurationArgsDict']]] = None,
                  data_encryption_metadata: Optional[pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 job_log_status: Optional[pulumi.Input['CollaborationJobLogStatus']] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberSpecificationArgs', 'CollaborationMemberSpecificationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query_log_status: Optional[pulumi.Input['CollaborationQueryLogStatus']] = None,
@@ -239,6 +260,9 @@ class Collaboration(pulumi.CustomResource):
         :param pulumi.Input[Union['CollaborationPaymentConfigurationArgs', 'CollaborationPaymentConfigurationArgsDict']] creator_payment_configuration: An object representing the collaboration member's payment responsibilities set by the collaboration creator.
         :param pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']] data_encryption_metadata: The settings for client-side encryption for cryptographic computing.
         :param pulumi.Input[str] description: A description of the collaboration provided by the collaboration owner.
+        :param pulumi.Input['CollaborationJobLogStatus'] job_log_status: An indicator as to whether job logging has been enabled or disabled for the collaboration.
+               
+               When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
         :param pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberSpecificationArgs', 'CollaborationMemberSpecificationArgsDict']]]] members: A list of initial members, not including the creator. This list is immutable.
         :param pulumi.Input[str] name: A human-readable identifier provided by the collaboration owner. Display names are not unique.
         :param pulumi.Input['CollaborationQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the collaboration.
@@ -277,6 +301,7 @@ class Collaboration(pulumi.CustomResource):
                  creator_payment_configuration: Optional[pulumi.Input[Union['CollaborationPaymentConfigurationArgs', 'CollaborationPaymentConfigurationArgsDict']]] = None,
                  data_encryption_metadata: Optional[pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 job_log_status: Optional[pulumi.Input['CollaborationJobLogStatus']] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberSpecificationArgs', 'CollaborationMemberSpecificationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query_log_status: Optional[pulumi.Input['CollaborationQueryLogStatus']] = None,
@@ -303,6 +328,7 @@ class Collaboration(pulumi.CustomResource):
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
+            __props__.__dict__["job_log_status"] = job_log_status
             if members is None and not opts.urn:
                 raise TypeError("Missing required property 'members'")
             __props__.__dict__["members"] = members
@@ -313,7 +339,7 @@ class Collaboration(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["collaboration_identifier"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["analyticsEngine", "creatorDisplayName", "creatorMemberAbilities[*]", "creatorMlMemberAbilities", "creatorPaymentConfiguration", "dataEncryptionMetadata", "members[*]", "queryLogStatus"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["analyticsEngine", "creatorDisplayName", "creatorMemberAbilities[*]", "creatorMlMemberAbilities", "creatorPaymentConfiguration", "dataEncryptionMetadata", "jobLogStatus", "members[*]", "queryLogStatus"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Collaboration, __self__).__init__(
             'aws-native:cleanrooms:Collaboration',
@@ -346,6 +372,7 @@ class Collaboration(pulumi.CustomResource):
         __props__.__dict__["creator_payment_configuration"] = None
         __props__.__dict__["data_encryption_metadata"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["job_log_status"] = None
         __props__.__dict__["members"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["query_log_status"] = None
@@ -429,6 +456,16 @@ class Collaboration(pulumi.CustomResource):
         A description of the collaboration provided by the collaboration owner.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="jobLogStatus")
+    def job_log_status(self) -> pulumi.Output[Optional['CollaborationJobLogStatus']]:
+        """
+        An indicator as to whether job logging has been enabled or disabled for the collaboration.
+
+        When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+        """
+        return pulumi.get(self, "job_log_status")
 
     @property
     @pulumi.getter

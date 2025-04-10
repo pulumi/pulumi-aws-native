@@ -41,6 +41,13 @@ export interface GetFunctionResult {
      */
     readonly arn?: string;
     /**
+     * The code for the function. You can define your function code in multiple ways:
+     *   +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
+     *   +  For .zip deployment packages, you can alternatively define the function code inline in the ``ZipFile`` property. This method works only for Node.js and Python functions.
+     *   +  For container images, specify the URI of your container image in the ECR registry in the ``ImageUri`` property.
+     */
+    readonly code?: outputs.lambda.FunctionCode;
+    /**
      * To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
      */
     readonly codeSigningConfigArn?: string;

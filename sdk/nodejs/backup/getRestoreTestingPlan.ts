@@ -42,10 +42,6 @@ export interface GetRestoreTestingPlanResult {
      */
     readonly scheduleExpressionTimezone?: string;
     /**
-     * This parameter is not currently supported.
-     */
-    readonly scheduleStatus?: enums.backup.RestoreTestingPlanRestoreTestingScheduleStatus;
-    /**
      * Defaults to 24 hours.
      *
      * A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).

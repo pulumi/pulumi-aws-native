@@ -8599,7 +8599,8 @@ type DashboardTableFieldOptions struct {
 	// The settings for the pinned columns of a table visual.
 	PinnedFieldOptions *DashboardTablePinnedFieldOptions `pulumi:"pinnedFieldOptions"`
 	// The field options to be configured to a table.
-	SelectedFieldOptions   []DashboardTableFieldOption      `pulumi:"selectedFieldOptions"`
+	SelectedFieldOptions []DashboardTableFieldOption `pulumi:"selectedFieldOptions"`
+	// The `TableOptions` of a transposed table.
 	TransposedTableOptions []DashboardTransposedTableOption `pulumi:"transposedTableOptions"`
 }
 
@@ -8620,7 +8621,8 @@ type DashboardTableFieldOptionsArgs struct {
 	// The settings for the pinned columns of a table visual.
 	PinnedFieldOptions DashboardTablePinnedFieldOptionsPtrInput `pulumi:"pinnedFieldOptions"`
 	// The field options to be configured to a table.
-	SelectedFieldOptions   DashboardTableFieldOptionArrayInput      `pulumi:"selectedFieldOptions"`
+	SelectedFieldOptions DashboardTableFieldOptionArrayInput `pulumi:"selectedFieldOptions"`
+	// The `TableOptions` of a transposed table.
 	TransposedTableOptions DashboardTransposedTableOptionArrayInput `pulumi:"transposedTableOptions"`
 }
 
@@ -8716,6 +8718,7 @@ func (o DashboardTableFieldOptionsOutput) SelectedFieldOptions() DashboardTableF
 	return o.ApplyT(func(v DashboardTableFieldOptions) []DashboardTableFieldOption { return v.SelectedFieldOptions }).(DashboardTableFieldOptionArrayOutput)
 }
 
+// The `TableOptions` of a transposed table.
 func (o DashboardTableFieldOptionsOutput) TransposedTableOptions() DashboardTransposedTableOptionArrayOutput {
 	return o.ApplyT(func(v DashboardTableFieldOptions) []DashboardTransposedTableOption { return v.TransposedTableOptions }).(DashboardTransposedTableOptionArrayOutput)
 }
@@ -8774,6 +8777,7 @@ func (o DashboardTableFieldOptionsPtrOutput) SelectedFieldOptions() DashboardTab
 	}).(DashboardTableFieldOptionArrayOutput)
 }
 
+// The `TableOptions` of a transposed table.
 func (o DashboardTableFieldOptionsPtrOutput) TransposedTableOptions() DashboardTransposedTableOptionArrayOutput {
 	return o.ApplyT(func(v *DashboardTableFieldOptions) []DashboardTransposedTableOption {
 		if v == nil {
@@ -14441,8 +14445,13 @@ func (o DashboardTotalOptionsPtrOutput) TotalsVisibility() DashboardVisibilityPt
 }
 
 type DashboardTransposedTableOption struct {
-	ColumnIndex *float64                      `pulumi:"columnIndex"`
-	ColumnType  DashboardTransposedColumnType `pulumi:"columnType"`
+	// The index of a columns in a transposed table. The index range is 0-9999.
+	ColumnIndex *float64 `pulumi:"columnIndex"`
+	// The column type of the column in a transposed table. Choose one of the following options:
+	//
+	// - `ROW_HEADER_COLUMN` : Refers to the leftmost column of the row header in the transposed table.
+	// - `VALUE_COLUMN` : Refers to all value columns in the transposed table.
+	ColumnType DashboardTransposedColumnType `pulumi:"columnType"`
 	// String based length that is composed of value and unit in px
 	ColumnWidth *string `pulumi:"columnWidth"`
 }
@@ -14459,8 +14468,13 @@ type DashboardTransposedTableOptionInput interface {
 }
 
 type DashboardTransposedTableOptionArgs struct {
-	ColumnIndex pulumi.Float64PtrInput             `pulumi:"columnIndex"`
-	ColumnType  DashboardTransposedColumnTypeInput `pulumi:"columnType"`
+	// The index of a columns in a transposed table. The index range is 0-9999.
+	ColumnIndex pulumi.Float64PtrInput `pulumi:"columnIndex"`
+	// The column type of the column in a transposed table. Choose one of the following options:
+	//
+	// - `ROW_HEADER_COLUMN` : Refers to the leftmost column of the row header in the transposed table.
+	// - `VALUE_COLUMN` : Refers to all value columns in the transposed table.
+	ColumnType DashboardTransposedColumnTypeInput `pulumi:"columnType"`
 	// String based length that is composed of value and unit in px
 	ColumnWidth pulumi.StringPtrInput `pulumi:"columnWidth"`
 }
@@ -14516,10 +14530,15 @@ func (o DashboardTransposedTableOptionOutput) ToDashboardTransposedTableOptionOu
 	return o
 }
 
+// The index of a columns in a transposed table. The index range is 0-9999.
 func (o DashboardTransposedTableOptionOutput) ColumnIndex() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DashboardTransposedTableOption) *float64 { return v.ColumnIndex }).(pulumi.Float64PtrOutput)
 }
 
+// The column type of the column in a transposed table. Choose one of the following options:
+//
+// - `ROW_HEADER_COLUMN` : Refers to the leftmost column of the row header in the transposed table.
+// - `VALUE_COLUMN` : Refers to all value columns in the transposed table.
 func (o DashboardTransposedTableOptionOutput) ColumnType() DashboardTransposedColumnTypeOutput {
 	return o.ApplyT(func(v DashboardTransposedTableOption) DashboardTransposedColumnType { return v.ColumnType }).(DashboardTransposedColumnTypeOutput)
 }

@@ -9,6 +9,7 @@ __all__ = [
     'AnalysisTemplateFormat',
     'CollaborationAnalyticsEngine',
     'CollaborationCustomMlMemberAbility',
+    'CollaborationJobLogStatus',
     'CollaborationMemberAbility',
     'CollaborationQueryLogStatus',
     'ConfiguredTableAdditionalAnalyses',
@@ -20,8 +21,10 @@ __all__ = [
     'ConfiguredTableJoinOperator',
     'ConfiguredTableJoinRequiredOption',
     'ConfiguredTableScalarFunctions',
+    'ConfiguredTableSelectedAnalysisMethod',
     'IdMappingTableInputSourceType',
     'IdNamespaceAssociationInputReferencePropertiesIdNamespaceType',
+    'MembershipJobLogStatus',
     'MembershipQueryLogStatus',
     'MembershipResultFormat',
     'PrivacyBudgetTemplateAutoRefresh',
@@ -68,6 +71,7 @@ class AnalysisTemplateFormat(str, Enum):
     The format of the analysis template.
     """
     SQL = "SQL"
+    PYSPARK10 = "PYSPARK_1_0"
 
 
 class CollaborationAnalyticsEngine(str, Enum):
@@ -80,8 +84,14 @@ class CollaborationCustomMlMemberAbility(str, Enum):
     CAN_RECEIVE_INFERENCE_OUTPUT = "CAN_RECEIVE_INFERENCE_OUTPUT"
 
 
+class CollaborationJobLogStatus(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 class CollaborationMemberAbility(str, Enum):
     CAN_QUERY = "CAN_QUERY"
+    CAN_RUN_JOB = "CAN_RUN_JOB"
     CAN_RECEIVE_RESULTS = "CAN_RECEIVE_RESULTS"
 
 
@@ -110,6 +120,8 @@ class ConfiguredTableAggregationType(str, Enum):
 
 class ConfiguredTableAnalysisMethod(str, Enum):
     DIRECT_QUERY = "DIRECT_QUERY"
+    DIRECT_JOB = "DIRECT_JOB"
+    MULTIPLE = "MULTIPLE"
 
 
 class ConfiguredTableAnalysisRuleType(str, Enum):
@@ -160,6 +172,11 @@ class ConfiguredTableScalarFunctions(str, Enum):
     TRIM = "TRIM"
 
 
+class ConfiguredTableSelectedAnalysisMethod(str, Enum):
+    DIRECT_QUERY = "DIRECT_QUERY"
+    DIRECT_JOB = "DIRECT_JOB"
+
+
 class IdMappingTableInputSourceType(str, Enum):
     """
     The type of the input source of the ID mapping table.
@@ -174,6 +191,11 @@ class IdNamespaceAssociationInputReferencePropertiesIdNamespaceType(str, Enum):
     """
     SOURCE = "SOURCE"
     TARGET = "TARGET"
+
+
+class MembershipJobLogStatus(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class MembershipQueryLogStatus(str, Enum):

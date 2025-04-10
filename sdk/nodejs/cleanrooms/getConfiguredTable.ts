@@ -28,6 +28,16 @@ export interface GetConfiguredTableArgs {
 
 export interface GetConfiguredTableResult {
     /**
+     * The analysis method for the configured table.
+     *
+     * `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+     *
+     * `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+     *
+     * `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
+     */
+    readonly analysisMethod?: enums.cleanrooms.ConfiguredTableAnalysisMethod;
+    /**
      * The analysis rule that was created for the configured table.
      */
     readonly analysisRules?: outputs.cleanrooms.ConfiguredTableAnalysisRule[];
@@ -51,6 +61,10 @@ export interface GetConfiguredTableResult {
      * A name for the configured table.
      */
     readonly name?: string;
+    /**
+     * The selected analysis methods for the configured table.
+     */
+    readonly selectedAnalysisMethods?: enums.cleanrooms.ConfiguredTableSelectedAnalysisMethod[];
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */

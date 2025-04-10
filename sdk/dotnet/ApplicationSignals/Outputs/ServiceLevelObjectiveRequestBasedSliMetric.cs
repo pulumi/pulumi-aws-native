@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
     [OutputType]
     public sealed class ServiceLevelObjectiveRequestBasedSliMetric
     {
+        /// <summary>
+        /// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
+        /// </summary>
         public readonly Outputs.ServiceLevelObjectiveDependencyConfig? DependencyConfig;
         /// <summary>
         /// This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.

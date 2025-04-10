@@ -30,6 +30,7 @@ class ConfiguredTableArgs:
                  analysis_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAnalysisRuleArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 selected_analysis_methods: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableSelectedAnalysisMethod']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ConfiguredTable resource.
@@ -45,6 +46,7 @@ class ConfiguredTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAnalysisRuleArgs']]] analysis_rules: The analysis rule that was created for the configured table.
         :param pulumi.Input[str] description: A description for the configured table.
         :param pulumi.Input[str] name: A name for the configured table.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfiguredTableSelectedAnalysisMethod']]] selected_analysis_methods: The selected analysis methods for the configured table.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
         pulumi.set(__self__, "allowed_columns", allowed_columns)
@@ -56,6 +58,8 @@ class ConfiguredTableArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if selected_analysis_methods is not None:
+            pulumi.set(__self__, "selected_analysis_methods", selected_analysis_methods)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -138,6 +142,18 @@ class ConfiguredTableArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="selectedAnalysisMethods")
+    def selected_analysis_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableSelectedAnalysisMethod']]]]:
+        """
+        The selected analysis methods for the configured table.
+        """
+        return pulumi.get(self, "selected_analysis_methods")
+
+    @selected_analysis_methods.setter
+    def selected_analysis_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableSelectedAnalysisMethod']]]]):
+        pulumi.set(self, "selected_analysis_methods", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -160,6 +176,7 @@ class ConfiguredTable(pulumi.CustomResource):
                  analysis_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfiguredTableAnalysisRuleArgs', 'ConfiguredTableAnalysisRuleArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 selected_analysis_methods: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableSelectedAnalysisMethod']]]] = None,
                  table_reference: Optional[pulumi.Input[Union[Union['ConfiguredTableTableReference0PropertiesArgs', 'ConfiguredTableTableReference0PropertiesArgsDict'], Union['ConfiguredTableTableReference1PropertiesArgs', 'ConfiguredTableTableReference1PropertiesArgsDict'], Union['ConfiguredTableTableReference2PropertiesArgs', 'ConfiguredTableTableReference2PropertiesArgsDict']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -179,6 +196,7 @@ class ConfiguredTable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConfiguredTableAnalysisRuleArgs', 'ConfiguredTableAnalysisRuleArgsDict']]]] analysis_rules: The analysis rule that was created for the configured table.
         :param pulumi.Input[str] description: A description for the configured table.
         :param pulumi.Input[str] name: A name for the configured table.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfiguredTableSelectedAnalysisMethod']]] selected_analysis_methods: The selected analysis methods for the configured table.
         :param pulumi.Input[Union[Union['ConfiguredTableTableReference0PropertiesArgs', 'ConfiguredTableTableReference0PropertiesArgsDict'], Union['ConfiguredTableTableReference1PropertiesArgs', 'ConfiguredTableTableReference1PropertiesArgsDict'], Union['ConfiguredTableTableReference2PropertiesArgs', 'ConfiguredTableTableReference2PropertiesArgsDict']]] table_reference: The table that this configured table represents.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
@@ -211,6 +229,7 @@ class ConfiguredTable(pulumi.CustomResource):
                  analysis_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfiguredTableAnalysisRuleArgs', 'ConfiguredTableAnalysisRuleArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 selected_analysis_methods: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableSelectedAnalysisMethod']]]] = None,
                  table_reference: Optional[pulumi.Input[Union[Union['ConfiguredTableTableReference0PropertiesArgs', 'ConfiguredTableTableReference0PropertiesArgsDict'], Union['ConfiguredTableTableReference1PropertiesArgs', 'ConfiguredTableTableReference1PropertiesArgsDict'], Union['ConfiguredTableTableReference2PropertiesArgs', 'ConfiguredTableTableReference2PropertiesArgsDict']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -231,13 +250,14 @@ class ConfiguredTable(pulumi.CustomResource):
             __props__.__dict__["analysis_rules"] = analysis_rules
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["selected_analysis_methods"] = selected_analysis_methods
             if table_reference is None and not opts.urn:
                 raise TypeError("Missing required property 'table_reference'")
             __props__.__dict__["table_reference"] = table_reference
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["configured_table_identifier"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allowedColumns[*]", "analysisMethod", "tableReference"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allowedColumns[*]", "tableReference"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConfiguredTable, __self__).__init__(
             'aws-native:cleanrooms:ConfiguredTable',
@@ -268,6 +288,7 @@ class ConfiguredTable(pulumi.CustomResource):
         __props__.__dict__["configured_table_identifier"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["selected_analysis_methods"] = None
         __props__.__dict__["table_reference"] = None
         __props__.__dict__["tags"] = None
         return ConfiguredTable(resource_name, opts=opts, __props__=__props__)
@@ -337,6 +358,14 @@ class ConfiguredTable(pulumi.CustomResource):
         A name for the configured table.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="selectedAnalysisMethods")
+    def selected_analysis_methods(self) -> pulumi.Output[Optional[Sequence['ConfiguredTableSelectedAnalysisMethod']]]:
+        """
+        The selected analysis methods for the configured table.
+        """
+        return pulumi.get(self, "selected_analysis_methods")
 
     @property
     @pulumi.getter(name="tableReference")

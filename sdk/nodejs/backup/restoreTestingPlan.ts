@@ -58,10 +58,6 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
      */
     public readonly scheduleExpressionTimezone!: pulumi.Output<string | undefined>;
     /**
-     * This parameter is not currently supported.
-     */
-    public readonly scheduleStatus!: pulumi.Output<enums.backup.RestoreTestingPlanRestoreTestingScheduleStatus | undefined>;
-    /**
      * Defaults to 24 hours.
      *
      * A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
@@ -93,7 +89,6 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
             resourceInputs["restoreTestingPlanName"] = args ? args.restoreTestingPlanName : undefined;
             resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
             resourceInputs["scheduleExpressionTimezone"] = args ? args.scheduleExpressionTimezone : undefined;
-            resourceInputs["scheduleStatus"] = args ? args.scheduleStatus : undefined;
             resourceInputs["startWindowHours"] = args ? args.startWindowHours : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["restoreTestingPlanArn"] = undefined /*out*/;
@@ -103,7 +98,6 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
             resourceInputs["restoreTestingPlanName"] = undefined /*out*/;
             resourceInputs["scheduleExpression"] = undefined /*out*/;
             resourceInputs["scheduleExpressionTimezone"] = undefined /*out*/;
-            resourceInputs["scheduleStatus"] = undefined /*out*/;
             resourceInputs["startWindowHours"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -134,10 +128,6 @@ export interface RestoreTestingPlanArgs {
      * Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
      */
     scheduleExpressionTimezone?: pulumi.Input<string>;
-    /**
-     * This parameter is not currently supported.
-     */
-    scheduleStatus?: pulumi.Input<enums.backup.RestoreTestingPlanRestoreTestingScheduleStatus>;
     /**
      * Defaults to 24 hours.
      *

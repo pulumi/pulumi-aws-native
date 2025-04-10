@@ -44,7 +44,7 @@
     "Tags" : {
       "description" : "An array of key-value tags to apply to this resource.",
       "type" : "array",
-      "uniqueItems" : false,
+      "uniqueItems" : true,
       "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/Tag"
@@ -136,16 +136,16 @@
   },
   "additionalProperties" : false,
   "required" : [ "Name", "Actions" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Tags", "/properties/Tags/*/Key", "/properties/Tags/*/Value" ],
+  "createOnlyProperties" : [ "/properties/Name" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/VersionNumber" ],
-  "writeOnlyProperties" : [ "/properties/LatestVersionNumber", "/properties/Tags", "/properties/Tags/*/Key", "/properties/Tags/*/Value" ],
+  "writeOnlyProperties" : [ "/properties/LatestVersionNumber" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "appconfig:CreateExtension", "appconfig:TagResource", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "appconfig:GetExtension" ]
+      "permissions" : [ "appconfig:GetExtension", "appconfig:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "appconfig:UpdateExtension", "appconfig:TagResource", "appconfig:UntagResource" ]

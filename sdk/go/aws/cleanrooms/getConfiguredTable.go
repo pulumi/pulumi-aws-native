@@ -31,6 +31,14 @@ type LookupConfiguredTableArgs struct {
 }
 
 type LookupConfiguredTableResult struct {
+	// The analysis method for the configured table.
+	//
+	// `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+	//
+	// `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+	//
+	// `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
+	AnalysisMethod *ConfiguredTableAnalysisMethod `pulumi:"analysisMethod"`
 	// The analysis rule that was created for the configured table.
 	AnalysisRules []ConfiguredTableAnalysisRule `pulumi:"analysisRules"`
 	// Returns the Amazon Resource Name (ARN) of the specified configured table.
@@ -45,6 +53,8 @@ type LookupConfiguredTableResult struct {
 	Description *string `pulumi:"description"`
 	// A name for the configured table.
 	Name *string `pulumi:"name"`
+	// The selected analysis methods for the configured table.
+	SelectedAnalysisMethods []ConfiguredTableSelectedAnalysisMethod `pulumi:"selectedAnalysisMethods"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -83,6 +93,17 @@ func (o LookupConfiguredTableResultOutput) ToLookupConfiguredTableResultOutputWi
 	return o
 }
 
+// The analysis method for the configured table.
+//
+// `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+//
+// `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+//
+// `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
+func (o LookupConfiguredTableResultOutput) AnalysisMethod() ConfiguredTableAnalysisMethodPtrOutput {
+	return o.ApplyT(func(v LookupConfiguredTableResult) *ConfiguredTableAnalysisMethod { return v.AnalysisMethod }).(ConfiguredTableAnalysisMethodPtrOutput)
+}
+
 // The analysis rule that was created for the configured table.
 func (o LookupConfiguredTableResultOutput) AnalysisRules() ConfiguredTableAnalysisRuleArrayOutput {
 	return o.ApplyT(func(v LookupConfiguredTableResult) []ConfiguredTableAnalysisRule { return v.AnalysisRules }).(ConfiguredTableAnalysisRuleArrayOutput)
@@ -110,6 +131,13 @@ func (o LookupConfiguredTableResultOutput) Description() pulumi.StringPtrOutput 
 // A name for the configured table.
 func (o LookupConfiguredTableResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfiguredTableResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The selected analysis methods for the configured table.
+func (o LookupConfiguredTableResultOutput) SelectedAnalysisMethods() ConfiguredTableSelectedAnalysisMethodArrayOutput {
+	return o.ApplyT(func(v LookupConfiguredTableResult) []ConfiguredTableSelectedAnalysisMethod {
+		return v.SelectedAnalysisMethods
+	}).(ConfiguredTableSelectedAnalysisMethodArrayOutput)
 }
 
 // An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.

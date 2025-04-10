@@ -10,17 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CleanRooms.Inputs
 {
 
-    public sealed class AnalysisTemplateAnalysisSourceArgs : global::Pulumi.ResourceArgs
+    public sealed class AnalysisTemplateAnalysisSource0PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The query text.
-        /// </summary>
         [Input("text", required: true)]
         public Input<string> Text { get; set; } = null!;
 
-        public AnalysisTemplateAnalysisSourceArgs()
+        public AnalysisTemplateAnalysisSource0PropertiesArgs()
         {
         }
-        public static new AnalysisTemplateAnalysisSourceArgs Empty => new AnalysisTemplateAnalysisSourceArgs();
+        public static new AnalysisTemplateAnalysisSource0PropertiesArgs Empty => new AnalysisTemplateAnalysisSource0PropertiesArgs();
     }
 }

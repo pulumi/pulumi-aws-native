@@ -31,6 +31,7 @@ __all__ = [
     'DataAccessorDocumentAttributeValue1Properties',
     'DataAccessorDocumentAttributeValue2Properties',
     'DataAccessorDocumentAttributeValue3Properties',
+    'DataSourceAudioExtractionConfiguration',
     'DataSourceDocumentAttributeCondition',
     'DataSourceDocumentAttributeTarget',
     'DataSourceDocumentAttributeValue0Properties',
@@ -42,6 +43,7 @@ __all__ = [
     'DataSourceImageExtractionConfiguration',
     'DataSourceInlineDocumentEnrichmentConfiguration',
     'DataSourceMediaExtractionConfiguration',
+    'DataSourceVideoExtractionConfiguration',
     'DataSourceVpcConfiguration',
     'IndexCapacityConfiguration',
     'IndexDocumentAttributeConfiguration',
@@ -684,6 +686,35 @@ class DataAccessorDocumentAttributeValue3Properties(dict):
 
 
 @pulumi.output_type
+class DataSourceAudioExtractionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioExtractionStatus":
+            suggest = "audio_extraction_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceAudioExtractionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceAudioExtractionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceAudioExtractionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_extraction_status: 'DataSourceAudioExtractionStatus'):
+        pulumi.set(__self__, "audio_extraction_status", audio_extraction_status)
+
+    @property
+    @pulumi.getter(name="audioExtractionStatus")
+    def audio_extraction_status(self) -> 'DataSourceAudioExtractionStatus':
+        return pulumi.get(self, "audio_extraction_status")
+
+
+@pulumi.output_type
 class DataSourceDocumentAttributeCondition(dict):
     def __init__(__self__, *,
                  key: str,
@@ -1161,8 +1192,12 @@ class DataSourceMediaExtractionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "imageExtractionConfiguration":
+        if key == "audioExtractionConfiguration":
+            suggest = "audio_extraction_configuration"
+        elif key == "imageExtractionConfiguration":
             suggest = "image_extraction_configuration"
+        elif key == "videoExtractionConfiguration":
+            suggest = "video_extraction_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataSourceMediaExtractionConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -1176,12 +1211,23 @@ class DataSourceMediaExtractionConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 image_extraction_configuration: Optional['outputs.DataSourceImageExtractionConfiguration'] = None):
+                 audio_extraction_configuration: Optional['outputs.DataSourceAudioExtractionConfiguration'] = None,
+                 image_extraction_configuration: Optional['outputs.DataSourceImageExtractionConfiguration'] = None,
+                 video_extraction_configuration: Optional['outputs.DataSourceVideoExtractionConfiguration'] = None):
         """
         :param 'DataSourceImageExtractionConfiguration' image_extraction_configuration: The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
         """
+        if audio_extraction_configuration is not None:
+            pulumi.set(__self__, "audio_extraction_configuration", audio_extraction_configuration)
         if image_extraction_configuration is not None:
             pulumi.set(__self__, "image_extraction_configuration", image_extraction_configuration)
+        if video_extraction_configuration is not None:
+            pulumi.set(__self__, "video_extraction_configuration", video_extraction_configuration)
+
+    @property
+    @pulumi.getter(name="audioExtractionConfiguration")
+    def audio_extraction_configuration(self) -> Optional['outputs.DataSourceAudioExtractionConfiguration']:
+        return pulumi.get(self, "audio_extraction_configuration")
 
     @property
     @pulumi.getter(name="imageExtractionConfiguration")
@@ -1190,6 +1236,40 @@ class DataSourceMediaExtractionConfiguration(dict):
         The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
         """
         return pulumi.get(self, "image_extraction_configuration")
+
+    @property
+    @pulumi.getter(name="videoExtractionConfiguration")
+    def video_extraction_configuration(self) -> Optional['outputs.DataSourceVideoExtractionConfiguration']:
+        return pulumi.get(self, "video_extraction_configuration")
+
+
+@pulumi.output_type
+class DataSourceVideoExtractionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "videoExtractionStatus":
+            suggest = "video_extraction_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceVideoExtractionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceVideoExtractionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceVideoExtractionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 video_extraction_status: 'DataSourceVideoExtractionStatus'):
+        pulumi.set(__self__, "video_extraction_status", video_extraction_status)
+
+    @property
+    @pulumi.getter(name="videoExtractionStatus")
+    def video_extraction_status(self) -> 'DataSourceVideoExtractionStatus':
+        return pulumi.get(self, "video_extraction_status")
 
 
 @pulumi.output_type

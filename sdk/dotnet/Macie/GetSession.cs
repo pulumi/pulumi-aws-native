@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.Macie
     public sealed class GetSessionResult
     {
         /// <summary>
+        /// The status of automated sensitive data discovery for the Macie session.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Macie.SessionAutomatedDiscoveryStatus? AutomatedDiscoveryStatus;
+        /// <summary>
         /// AWS account ID of customer
         /// </summary>
         public readonly string? AwsAccountId;
@@ -82,6 +86,8 @@ namespace Pulumi.AwsNative.Macie
 
         [OutputConstructor]
         private GetSessionResult(
+            Pulumi.AwsNative.Macie.SessionAutomatedDiscoveryStatus? automatedDiscoveryStatus,
+
             string? awsAccountId,
 
             Pulumi.AwsNative.Macie.SessionFindingPublishingFrequency? findingPublishingFrequency,
@@ -90,6 +96,7 @@ namespace Pulumi.AwsNative.Macie
 
             Pulumi.AwsNative.Macie.SessionStatus? status)
         {
+            AutomatedDiscoveryStatus = automatedDiscoveryStatus;
             AwsAccountId = awsAccountId;
             FindingPublishingFrequency = findingPublishingFrequency;
             ServiceRole = serviceRole;

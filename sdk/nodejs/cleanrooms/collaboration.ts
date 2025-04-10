@@ -80,6 +80,12 @@ export class Collaboration extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
+     * An indicator as to whether job logging has been enabled or disabled for the collaboration.
+     *
+     * When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+     */
+    public readonly jobLogStatus!: pulumi.Output<enums.cleanrooms.CollaborationJobLogStatus | undefined>;
+    /**
      * A list of initial members, not including the creator. This list is immutable.
      */
     public readonly members!: pulumi.Output<outputs.cleanrooms.CollaborationMemberSpecification[]>;
@@ -131,6 +137,7 @@ export class Collaboration extends pulumi.CustomResource {
             resourceInputs["creatorPaymentConfiguration"] = args ? args.creatorPaymentConfiguration : undefined;
             resourceInputs["dataEncryptionMetadata"] = args ? args.dataEncryptionMetadata : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["jobLogStatus"] = args ? args.jobLogStatus : undefined;
             resourceInputs["members"] = args ? args.members : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["queryLogStatus"] = args ? args.queryLogStatus : undefined;
@@ -147,13 +154,14 @@ export class Collaboration extends pulumi.CustomResource {
             resourceInputs["creatorPaymentConfiguration"] = undefined /*out*/;
             resourceInputs["dataEncryptionMetadata"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["jobLogStatus"] = undefined /*out*/;
             resourceInputs["members"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["queryLogStatus"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["analyticsEngine", "creatorDisplayName", "creatorMemberAbilities[*]", "creatorMlMemberAbilities", "creatorPaymentConfiguration", "dataEncryptionMetadata", "members[*]", "queryLogStatus"] };
+        const replaceOnChanges = { replaceOnChanges: ["analyticsEngine", "creatorDisplayName", "creatorMemberAbilities[*]", "creatorMlMemberAbilities", "creatorPaymentConfiguration", "dataEncryptionMetadata", "jobLogStatus", "members[*]", "queryLogStatus"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Collaboration.__pulumiType, name, resourceInputs, opts);
     }
@@ -193,6 +201,12 @@ export interface CollaborationArgs {
      * A description of the collaboration provided by the collaboration owner.
      */
     description: pulumi.Input<string>;
+    /**
+     * An indicator as to whether job logging has been enabled or disabled for the collaboration.
+     *
+     * When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+     */
+    jobLogStatus?: pulumi.Input<enums.cleanrooms.CollaborationJobLogStatus>;
     /**
      * A list of initial members, not including the creator. This list is immutable.
      */
