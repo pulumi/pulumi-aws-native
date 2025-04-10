@@ -573,7 +573,7 @@
   "primaryIdentifier" : [ "/properties/DomainName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "es:CreateDomain", "es:DescribeDomain", "es:AddTags", "es:ListTags" ]
+      "permissions" : [ "es:CreateDomain", "es:DescribeDomain", "es:AddTags", "es:ListTags", "es:DescribeDomainChangeProgress" ]
     },
     "read" : {
       "permissions" : [ "es:DescribeDomain", "es:ListTags" ]
