@@ -13,7 +13,16 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTransposedTableOption
     {
+        /// <summary>
+        /// The index of a columns in a transposed table. The index range is 0-9999.
+        /// </summary>
         public readonly double? ColumnIndex;
+        /// <summary>
+        /// The column type of the column in a transposed table. Choose one of the following options:
+        /// 
+        /// - `ROW_HEADER_COLUMN` : Refers to the leftmost column of the row header in the transposed table.
+        /// - `VALUE_COLUMN` : Refers to all value columns in the transposed table.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardTransposedColumnType ColumnType;
         /// <summary>
         /// String based length that is composed of value and unit in px

@@ -15,6 +15,8 @@ import (
 type Session struct {
 	pulumi.CustomResourceState
 
+	// The status of automated sensitive data discovery for the Macie session.
+	AutomatedDiscoveryStatus SessionAutomatedDiscoveryStatusOutput `pulumi:"automatedDiscoveryStatus"`
 	// AWS account ID of customer
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// A enumeration value that specifies how frequently finding updates are published.
@@ -114,6 +116,11 @@ func (o SessionOutput) ToSessionOutput() SessionOutput {
 
 func (o SessionOutput) ToSessionOutputWithContext(ctx context.Context) SessionOutput {
 	return o
+}
+
+// The status of automated sensitive data discovery for the Macie session.
+func (o SessionOutput) AutomatedDiscoveryStatus() SessionAutomatedDiscoveryStatusOutput {
+	return o.ApplyT(func(v *Session) SessionAutomatedDiscoveryStatusOutput { return v.AutomatedDiscoveryStatus }).(SessionAutomatedDiscoveryStatusOutput)
 }
 
 // AWS account ID of customer

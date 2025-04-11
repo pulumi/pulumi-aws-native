@@ -26,6 +26,10 @@ export interface GetSessionArgs {
 
 export interface GetSessionResult {
     /**
+     * The status of automated sensitive data discovery for the Macie session.
+     */
+    readonly automatedDiscoveryStatus?: enums.macie.SessionAutomatedDiscoveryStatus;
+    /**
      * AWS account ID of customer
      */
     readonly awsAccountId?: string;

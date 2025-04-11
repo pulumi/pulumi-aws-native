@@ -41,6 +41,10 @@ type Collaboration struct {
 	DataEncryptionMetadata CollaborationDataEncryptionMetadataPtrOutput `pulumi:"dataEncryptionMetadata"`
 	// A description of the collaboration provided by the collaboration owner.
 	Description pulumi.StringOutput `pulumi:"description"`
+	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
+	//
+	// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+	JobLogStatus CollaborationJobLogStatusPtrOutput `pulumi:"jobLogStatus"`
 	// A list of initial members, not including the creator. This list is immutable.
 	Members CollaborationMemberSpecificationArrayOutput `pulumi:"members"`
 	// A human-readable identifier provided by the collaboration owner. Display names are not unique.
@@ -82,6 +86,7 @@ func NewCollaboration(ctx *pulumi.Context,
 		"creatorMlMemberAbilities",
 		"creatorPaymentConfiguration",
 		"dataEncryptionMetadata",
+		"jobLogStatus",
 		"members[*]",
 		"queryLogStatus",
 	})
@@ -135,6 +140,10 @@ type collaborationArgs struct {
 	DataEncryptionMetadata *CollaborationDataEncryptionMetadata `pulumi:"dataEncryptionMetadata"`
 	// A description of the collaboration provided by the collaboration owner.
 	Description string `pulumi:"description"`
+	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
+	//
+	// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+	JobLogStatus *CollaborationJobLogStatus `pulumi:"jobLogStatus"`
 	// A list of initial members, not including the creator. This list is immutable.
 	Members []CollaborationMemberSpecification `pulumi:"members"`
 	// A human-readable identifier provided by the collaboration owner. Display names are not unique.
@@ -165,6 +174,10 @@ type CollaborationArgs struct {
 	DataEncryptionMetadata CollaborationDataEncryptionMetadataPtrInput
 	// A description of the collaboration provided by the collaboration owner.
 	Description pulumi.StringInput
+	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
+	//
+	// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+	JobLogStatus CollaborationJobLogStatusPtrInput
 	// A list of initial members, not including the creator. This list is immutable.
 	Members CollaborationMemberSpecificationArrayInput
 	// A human-readable identifier provided by the collaboration owner. Display names are not unique.
@@ -265,6 +278,13 @@ func (o CollaborationOutput) DataEncryptionMetadata() CollaborationDataEncryptio
 // A description of the collaboration provided by the collaboration owner.
 func (o CollaborationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// An indicator as to whether job logging has been enabled or disabled for the collaboration.
+//
+// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+func (o CollaborationOutput) JobLogStatus() CollaborationJobLogStatusPtrOutput {
+	return o.ApplyT(func(v *Collaboration) CollaborationJobLogStatusPtrOutput { return v.JobLogStatus }).(CollaborationJobLogStatusPtrOutput)
 }
 
 // A list of initial members, not including the creator. This list is immutable.

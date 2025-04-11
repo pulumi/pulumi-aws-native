@@ -46,9 +46,19 @@ export interface GetMembershipResult {
      */
     readonly collaborationCreatorAccountId?: string;
     /**
+     * The default job result configuration for the membership.
+     */
+    readonly defaultJobResultConfiguration?: outputs.cleanrooms.MembershipProtectedJobResultConfiguration;
+    /**
      * The default protected query result configuration as specified by the member who can receive results.
      */
     readonly defaultResultConfiguration?: outputs.cleanrooms.MembershipProtectedQueryResultConfiguration;
+    /**
+     * An indicator as to whether job logging has been enabled or disabled for the collaboration.
+     *
+     * When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+     */
+    readonly jobLogStatus?: enums.cleanrooms.MembershipJobLogStatus;
     /**
      * Returns the unique identifier of the specified membership.
      *

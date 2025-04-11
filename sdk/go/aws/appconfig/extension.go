@@ -51,8 +51,8 @@ import (
 //						Description: pulumi.String("My test parameter"),
 //					},
 //				},
-//				Tags: aws.CreateOnlyTagArray{
-//					&aws.CreateOnlyTagArgs{
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
 //						Key:   pulumi.String("Ext"),
 //						Value: pulumi.String("Test"),
 //					},
@@ -84,7 +84,7 @@ type Extension struct {
 	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
 	Parameters ExtensionParameterMapOutput `pulumi:"parameters"`
 	// An array of key-value tags to apply to this resource.
-	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The extension version number.
 	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
 }
@@ -101,7 +101,6 @@ func NewExtension(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
-		"tags[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -148,7 +147,7 @@ type extensionArgs struct {
 	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
 	Parameters map[string]ExtensionParameter `pulumi:"parameters"`
 	// An array of key-value tags to apply to this resource.
-	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Extension resource.
@@ -164,7 +163,7 @@ type ExtensionArgs struct {
 	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
 	Parameters ExtensionParameterMapInput
 	// An array of key-value tags to apply to this resource.
-	Tags aws.CreateOnlyTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ExtensionArgs) ElementType() reflect.Type {
@@ -240,8 +239,8 @@ func (o ExtensionOutput) Parameters() ExtensionParameterMapOutput {
 }
 
 // An array of key-value tags to apply to this resource.
-func (o ExtensionOutput) Tags() aws.CreateOnlyTagArrayOutput {
-	return o.ApplyT(func(v *Extension) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
+func (o ExtensionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Extension) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The extension version number.

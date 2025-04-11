@@ -36,6 +36,7 @@ class ServiceLevelObjectiveArgs:
         The set of arguments for constructing a ServiceLevelObjective resource.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveBurnRateConfigurationArgs']]] burn_rate_configurations: Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
         :param pulumi.Input[str] description: An optional description for this SLO. Default is 'No description'
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveExclusionWindowArgs']]] exclusion_windows: The time window to be excluded from the SLO performance metrics.
         :param pulumi.Input['ServiceLevelObjectiveGoalArgs'] goal: This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
         :param pulumi.Input[str] name: The name of this SLO.
         :param pulumi.Input['ServiceLevelObjectiveRequestBasedSliArgs'] request_based_sli: A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
@@ -88,6 +89,9 @@ class ServiceLevelObjectiveArgs:
     @property
     @pulumi.getter(name="exclusionWindows")
     def exclusion_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveExclusionWindowArgs']]]]:
+        """
+        The time window to be excluded from the SLO performance metrics.
+        """
         return pulumi.get(self, "exclusion_windows")
 
     @exclusion_windows.setter
@@ -178,6 +182,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveBurnRateConfigurationArgs', 'ServiceLevelObjectiveBurnRateConfigurationArgsDict']]]] burn_rate_configurations: Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
         :param pulumi.Input[str] description: An optional description for this SLO. Default is 'No description'
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveExclusionWindowArgs', 'ServiceLevelObjectiveExclusionWindowArgsDict']]]] exclusion_windows: The time window to be excluded from the SLO performance metrics.
         :param pulumi.Input[Union['ServiceLevelObjectiveGoalArgs', 'ServiceLevelObjectiveGoalArgsDict']] goal: This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
         :param pulumi.Input[str] name: The name of this SLO.
         :param pulumi.Input[Union['ServiceLevelObjectiveRequestBasedSliArgs', 'ServiceLevelObjectiveRequestBasedSliArgsDict']] request_based_sli: A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
@@ -320,6 +325,9 @@ class ServiceLevelObjective(pulumi.CustomResource):
     @property
     @pulumi.getter(name="exclusionWindows")
     def exclusion_windows(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceLevelObjectiveExclusionWindow']]]:
+        """
+        The time window to be excluded from the SLO performance metrics.
+        """
         return pulumi.get(self, "exclusion_windows")
 
     @property

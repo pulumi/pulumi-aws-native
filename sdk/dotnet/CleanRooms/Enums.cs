@@ -78,6 +78,7 @@ namespace Pulumi.AwsNative.CleanRooms
         }
 
         public static AnalysisTemplateFormat Sql { get; } = new AnalysisTemplateFormat("SQL");
+        public static AnalysisTemplateFormat Pyspark10 { get; } = new AnalysisTemplateFormat("PYSPARK_1_0");
 
         public static bool operator ==(AnalysisTemplateFormat left, AnalysisTemplateFormat right) => left.Equals(right);
         public static bool operator !=(AnalysisTemplateFormat left, AnalysisTemplateFormat right) => !left.Equals(right);
@@ -151,6 +152,34 @@ namespace Pulumi.AwsNative.CleanRooms
     }
 
     [EnumType]
+    public readonly struct CollaborationJobLogStatus : IEquatable<CollaborationJobLogStatus>
+    {
+        private readonly string _value;
+
+        private CollaborationJobLogStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CollaborationJobLogStatus Enabled { get; } = new CollaborationJobLogStatus("ENABLED");
+        public static CollaborationJobLogStatus Disabled { get; } = new CollaborationJobLogStatus("DISABLED");
+
+        public static bool operator ==(CollaborationJobLogStatus left, CollaborationJobLogStatus right) => left.Equals(right);
+        public static bool operator !=(CollaborationJobLogStatus left, CollaborationJobLogStatus right) => !left.Equals(right);
+
+        public static explicit operator string(CollaborationJobLogStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CollaborationJobLogStatus other && Equals(other);
+        public bool Equals(CollaborationJobLogStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct CollaborationMemberAbility : IEquatable<CollaborationMemberAbility>
     {
         private readonly string _value;
@@ -161,6 +190,7 @@ namespace Pulumi.AwsNative.CleanRooms
         }
 
         public static CollaborationMemberAbility CanQuery { get; } = new CollaborationMemberAbility("CAN_QUERY");
+        public static CollaborationMemberAbility CanRunJob { get; } = new CollaborationMemberAbility("CAN_RUN_JOB");
         public static CollaborationMemberAbility CanReceiveResults { get; } = new CollaborationMemberAbility("CAN_RECEIVE_RESULTS");
 
         public static bool operator ==(CollaborationMemberAbility left, CollaborationMemberAbility right) => left.Equals(right);
@@ -304,6 +334,8 @@ namespace Pulumi.AwsNative.CleanRooms
         }
 
         public static ConfiguredTableAnalysisMethod DirectQuery { get; } = new ConfiguredTableAnalysisMethod("DIRECT_QUERY");
+        public static ConfiguredTableAnalysisMethod DirectJob { get; } = new ConfiguredTableAnalysisMethod("DIRECT_JOB");
+        public static ConfiguredTableAnalysisMethod Multiple { get; } = new ConfiguredTableAnalysisMethod("MULTIPLE");
 
         public static bool operator ==(ConfiguredTableAnalysisMethod left, ConfiguredTableAnalysisMethod right) => left.Equals(right);
         public static bool operator !=(ConfiguredTableAnalysisMethod left, ConfiguredTableAnalysisMethod right) => !left.Equals(right);
@@ -483,6 +515,34 @@ namespace Pulumi.AwsNative.CleanRooms
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ConfiguredTableSelectedAnalysisMethod : IEquatable<ConfiguredTableSelectedAnalysisMethod>
+    {
+        private readonly string _value;
+
+        private ConfiguredTableSelectedAnalysisMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfiguredTableSelectedAnalysisMethod DirectQuery { get; } = new ConfiguredTableSelectedAnalysisMethod("DIRECT_QUERY");
+        public static ConfiguredTableSelectedAnalysisMethod DirectJob { get; } = new ConfiguredTableSelectedAnalysisMethod("DIRECT_JOB");
+
+        public static bool operator ==(ConfiguredTableSelectedAnalysisMethod left, ConfiguredTableSelectedAnalysisMethod right) => left.Equals(right);
+        public static bool operator !=(ConfiguredTableSelectedAnalysisMethod left, ConfiguredTableSelectedAnalysisMethod right) => !left.Equals(right);
+
+        public static explicit operator string(ConfiguredTableSelectedAnalysisMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfiguredTableSelectedAnalysisMethod other && Equals(other);
+        public bool Equals(ConfiguredTableSelectedAnalysisMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The type of the input source of the ID mapping table.
     /// </summary>
@@ -538,6 +598,34 @@ namespace Pulumi.AwsNative.CleanRooms
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IdNamespaceAssociationInputReferencePropertiesIdNamespaceType other && Equals(other);
         public bool Equals(IdNamespaceAssociationInputReferencePropertiesIdNamespaceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct MembershipJobLogStatus : IEquatable<MembershipJobLogStatus>
+    {
+        private readonly string _value;
+
+        private MembershipJobLogStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MembershipJobLogStatus Enabled { get; } = new MembershipJobLogStatus("ENABLED");
+        public static MembershipJobLogStatus Disabled { get; } = new MembershipJobLogStatus("DISABLED");
+
+        public static bool operator ==(MembershipJobLogStatus left, MembershipJobLogStatus right) => left.Equals(right);
+        public static bool operator !=(MembershipJobLogStatus left, MembershipJobLogStatus right) => !left.Equals(right);
+
+        public static explicit operator string(MembershipJobLogStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MembershipJobLogStatus other && Equals(other);
+        public bool Equals(MembershipJobLogStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

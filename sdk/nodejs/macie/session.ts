@@ -38,6 +38,10 @@ export class Session extends pulumi.CustomResource {
     }
 
     /**
+     * The status of automated sensitive data discovery for the Macie session.
+     */
+    public /*out*/ readonly automatedDiscoveryStatus!: pulumi.Output<enums.macie.SessionAutomatedDiscoveryStatus>;
+    /**
      * AWS account ID of customer
      */
     public /*out*/ readonly awsAccountId!: pulumi.Output<string>;
@@ -67,9 +71,11 @@ export class Session extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["automatedDiscoveryStatus"] = undefined /*out*/;
             resourceInputs["awsAccountId"] = undefined /*out*/;
             resourceInputs["serviceRole"] = undefined /*out*/;
         } else {
+            resourceInputs["automatedDiscoveryStatus"] = undefined /*out*/;
             resourceInputs["awsAccountId"] = undefined /*out*/;
             resourceInputs["findingPublishingFrequency"] = undefined /*out*/;
             resourceInputs["serviceRole"] = undefined /*out*/;

@@ -15,10 +15,3 @@ export const RestoreTestingPlanRestoreTestingRecoveryPointType = {
 } as const;
 
 export type RestoreTestingPlanRestoreTestingRecoveryPointType = (typeof RestoreTestingPlanRestoreTestingRecoveryPointType)[keyof typeof RestoreTestingPlanRestoreTestingRecoveryPointType];
-
-export const RestoreTestingPlanRestoreTestingScheduleStatus = {
-    Active: "ACTIVE",
-    Suspended: "SUSPENDED",
-} as const;
-
-export type RestoreTestingPlanRestoreTestingScheduleStatus = (typeof RestoreTestingPlanRestoreTestingScheduleStatus)[keyof typeof RestoreTestingPlanRestoreTestingScheduleStatus];

@@ -272,6 +272,97 @@ func (in *findingsFilterFindingFilterActionPtr) ToFindingsFilterFindingFilterAct
 	return pulumi.ToOutputWithContext(ctx, in).(FindingsFilterFindingFilterActionPtrOutput)
 }
 
+// The status of automated sensitive data discovery for the Macie session.
+type SessionAutomatedDiscoveryStatus string
+
+const (
+	SessionAutomatedDiscoveryStatusEnabled  = SessionAutomatedDiscoveryStatus("ENABLED")
+	SessionAutomatedDiscoveryStatusDisabled = SessionAutomatedDiscoveryStatus("DISABLED")
+)
+
+type SessionAutomatedDiscoveryStatusOutput struct{ *pulumi.OutputState }
+
+func (SessionAutomatedDiscoveryStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionAutomatedDiscoveryStatus)(nil)).Elem()
+}
+
+func (o SessionAutomatedDiscoveryStatusOutput) ToSessionAutomatedDiscoveryStatusOutput() SessionAutomatedDiscoveryStatusOutput {
+	return o
+}
+
+func (o SessionAutomatedDiscoveryStatusOutput) ToSessionAutomatedDiscoveryStatusOutputWithContext(ctx context.Context) SessionAutomatedDiscoveryStatusOutput {
+	return o
+}
+
+func (o SessionAutomatedDiscoveryStatusOutput) ToSessionAutomatedDiscoveryStatusPtrOutput() SessionAutomatedDiscoveryStatusPtrOutput {
+	return o.ToSessionAutomatedDiscoveryStatusPtrOutputWithContext(context.Background())
+}
+
+func (o SessionAutomatedDiscoveryStatusOutput) ToSessionAutomatedDiscoveryStatusPtrOutputWithContext(ctx context.Context) SessionAutomatedDiscoveryStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SessionAutomatedDiscoveryStatus) *SessionAutomatedDiscoveryStatus {
+		return &v
+	}).(SessionAutomatedDiscoveryStatusPtrOutput)
+}
+
+func (o SessionAutomatedDiscoveryStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SessionAutomatedDiscoveryStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SessionAutomatedDiscoveryStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SessionAutomatedDiscoveryStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SessionAutomatedDiscoveryStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SessionAutomatedDiscoveryStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SessionAutomatedDiscoveryStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (SessionAutomatedDiscoveryStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionAutomatedDiscoveryStatus)(nil)).Elem()
+}
+
+func (o SessionAutomatedDiscoveryStatusPtrOutput) ToSessionAutomatedDiscoveryStatusPtrOutput() SessionAutomatedDiscoveryStatusPtrOutput {
+	return o
+}
+
+func (o SessionAutomatedDiscoveryStatusPtrOutput) ToSessionAutomatedDiscoveryStatusPtrOutputWithContext(ctx context.Context) SessionAutomatedDiscoveryStatusPtrOutput {
+	return o
+}
+
+func (o SessionAutomatedDiscoveryStatusPtrOutput) Elem() SessionAutomatedDiscoveryStatusOutput {
+	return o.ApplyT(func(v *SessionAutomatedDiscoveryStatus) SessionAutomatedDiscoveryStatus {
+		if v != nil {
+			return *v
+		}
+		var ret SessionAutomatedDiscoveryStatus
+		return ret
+	}).(SessionAutomatedDiscoveryStatusOutput)
+}
+
+func (o SessionAutomatedDiscoveryStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SessionAutomatedDiscoveryStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SessionAutomatedDiscoveryStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // A enumeration value that specifies how frequently finding updates are published.
 type SessionFindingPublishingFrequency string
 
@@ -617,6 +708,8 @@ func init() {
 	pulumi.RegisterOutputType(AllowListStatusPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingFilterActionOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingFilterActionPtrOutput{})
+	pulumi.RegisterOutputType(SessionAutomatedDiscoveryStatusOutput{})
+	pulumi.RegisterOutputType(SessionAutomatedDiscoveryStatusPtrOutput{})
 	pulumi.RegisterOutputType(SessionFindingPublishingFrequencyOutput{})
 	pulumi.RegisterOutputType(SessionFindingPublishingFrequencyPtrOutput{})
 	pulumi.RegisterOutputType(SessionStatusOutput{})

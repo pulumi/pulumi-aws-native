@@ -113,7 +113,10 @@ namespace Pulumi.AwsNative.CleanRooms
         /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
         /// </summary>
         public readonly string? MembershipArn;
-        public readonly Outputs.AnalysisTemplateAnalysisSchema? Schema;
+        /// <summary>
+        /// The source metadata for the analysis template.
+        /// </summary>
+        public readonly Outputs.AnalysisTemplateAnalysisSourceMetadataProperties? SourceMetadata;
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
         /// </summary>
@@ -133,7 +136,7 @@ namespace Pulumi.AwsNative.CleanRooms
 
             string? membershipArn,
 
-            Outputs.AnalysisTemplateAnalysisSchema? schema,
+            Outputs.AnalysisTemplateAnalysisSourceMetadataProperties? sourceMetadata,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
@@ -143,7 +146,7 @@ namespace Pulumi.AwsNative.CleanRooms
             CollaborationIdentifier = collaborationIdentifier;
             Description = description;
             MembershipArn = membershipArn;
-            Schema = schema;
+            SourceMetadata = sourceMetadata;
             Tags = tags;
         }
     }

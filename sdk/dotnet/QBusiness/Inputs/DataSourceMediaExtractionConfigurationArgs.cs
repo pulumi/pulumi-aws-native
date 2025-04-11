@@ -13,10 +13,22 @@ namespace Pulumi.AwsNative.QBusiness.Inputs
     public sealed class DataSourceMediaExtractionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration settings for extracting and processing audio content from media files.
+        /// </summary>
+        [Input("audioExtractionConfiguration")]
+        public Input<Inputs.DataSourceAudioExtractionConfigurationArgs>? AudioExtractionConfiguration { get; set; }
+
+        /// <summary>
         /// The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
         /// </summary>
         [Input("imageExtractionConfiguration")]
         public Input<Inputs.DataSourceImageExtractionConfigurationArgs>? ImageExtractionConfiguration { get; set; }
+
+        /// <summary>
+        /// Configuration settings for extracting and processing video content from media files.
+        /// </summary>
+        [Input("videoExtractionConfiguration")]
+        public Input<Inputs.DataSourceVideoExtractionConfigurationArgs>? VideoExtractionConfiguration { get; set; }
 
         public DataSourceMediaExtractionConfigurationArgs()
         {

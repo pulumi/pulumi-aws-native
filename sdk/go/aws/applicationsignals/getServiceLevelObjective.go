@@ -38,7 +38,8 @@ type LookupServiceLevelObjectiveResult struct {
 	// An optional description for this SLO. Default is 'No description'
 	Description *string `pulumi:"description"`
 	// Displays whether this is a period-based SLO or a request-based SLO.
-	EvaluationType   *ServiceLevelObjectiveEvaluationType   `pulumi:"evaluationType"`
+	EvaluationType *ServiceLevelObjectiveEvaluationType `pulumi:"evaluationType"`
+	// The time window to be excluded from the SLO performance metrics.
 	ExclusionWindows []ServiceLevelObjectiveExclusionWindow `pulumi:"exclusionWindows"`
 	// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
 	Goal *ServiceLevelObjectiveGoal `pulumi:"goal"`
@@ -115,6 +116,7 @@ func (o LookupServiceLevelObjectiveResultOutput) EvaluationType() ServiceLevelOb
 	}).(ServiceLevelObjectiveEvaluationTypePtrOutput)
 }
 
+// The time window to be excluded from the SLO performance metrics.
 func (o LookupServiceLevelObjectiveResultOutput) ExclusionWindows() ServiceLevelObjectiveExclusionWindowArrayOutput {
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) []ServiceLevelObjectiveExclusionWindow {
 		return v.ExclusionWindows

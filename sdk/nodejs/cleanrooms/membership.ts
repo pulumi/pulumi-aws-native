@@ -60,9 +60,19 @@ export class Membership extends pulumi.CustomResource {
      */
     public readonly collaborationIdentifier!: pulumi.Output<string>;
     /**
+     * The default job result configuration for the membership.
+     */
+    public readonly defaultJobResultConfiguration!: pulumi.Output<outputs.cleanrooms.MembershipProtectedJobResultConfiguration | undefined>;
+    /**
      * The default protected query result configuration as specified by the member who can receive results.
      */
     public readonly defaultResultConfiguration!: pulumi.Output<outputs.cleanrooms.MembershipProtectedQueryResultConfiguration | undefined>;
+    /**
+     * An indicator as to whether job logging has been enabled or disabled for the collaboration.
+     *
+     * When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+     */
+    public readonly jobLogStatus!: pulumi.Output<enums.cleanrooms.MembershipJobLogStatus | undefined>;
     /**
      * Returns the unique identifier of the specified membership.
      *
@@ -102,7 +112,9 @@ export class Membership extends pulumi.CustomResource {
                 throw new Error("Missing required property 'queryLogStatus'");
             }
             resourceInputs["collaborationIdentifier"] = args ? args.collaborationIdentifier : undefined;
+            resourceInputs["defaultJobResultConfiguration"] = args ? args.defaultJobResultConfiguration : undefined;
             resourceInputs["defaultResultConfiguration"] = args ? args.defaultResultConfiguration : undefined;
+            resourceInputs["jobLogStatus"] = args ? args.jobLogStatus : undefined;
             resourceInputs["paymentConfiguration"] = args ? args.paymentConfiguration : undefined;
             resourceInputs["queryLogStatus"] = args ? args.queryLogStatus : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -115,7 +127,9 @@ export class Membership extends pulumi.CustomResource {
             resourceInputs["collaborationArn"] = undefined /*out*/;
             resourceInputs["collaborationCreatorAccountId"] = undefined /*out*/;
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;
+            resourceInputs["defaultJobResultConfiguration"] = undefined /*out*/;
             resourceInputs["defaultResultConfiguration"] = undefined /*out*/;
+            resourceInputs["jobLogStatus"] = undefined /*out*/;
             resourceInputs["membershipIdentifier"] = undefined /*out*/;
             resourceInputs["paymentConfiguration"] = undefined /*out*/;
             resourceInputs["queryLogStatus"] = undefined /*out*/;
@@ -137,9 +151,19 @@ export interface MembershipArgs {
      */
     collaborationIdentifier: pulumi.Input<string>;
     /**
+     * The default job result configuration for the membership.
+     */
+    defaultJobResultConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipProtectedJobResultConfigurationArgs>;
+    /**
      * The default protected query result configuration as specified by the member who can receive results.
      */
     defaultResultConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipProtectedQueryResultConfigurationArgs>;
+    /**
+     * An indicator as to whether job logging has been enabled or disabled for the collaboration.
+     *
+     * When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+     */
+    jobLogStatus?: pulumi.Input<enums.cleanrooms.MembershipJobLogStatus>;
     /**
      * The payment responsibilities accepted by the collaboration member.
      */

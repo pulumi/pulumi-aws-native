@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The field options to be configured to a table.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardTableFieldOption> SelectedFieldOptions;
+        /// <summary>
+        /// The `TableOptions` of a transposed table.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardTransposedTableOption> TransposedTableOptions;
 
         [OutputConstructor]

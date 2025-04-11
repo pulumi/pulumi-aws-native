@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,6 +39,8 @@ type LookupExtensionAssociationResult struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The ARNs of applications, configuration profiles, or environments defined in the association.
 	ResourceArn *string `pulumi:"resourceArn"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupExtensionAssociationOutput(ctx *pulumi.Context, args LookupExtensionAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupExtensionAssociationResultOutput {
@@ -95,6 +98,11 @@ func (o LookupExtensionAssociationResultOutput) Parameters() pulumi.StringMapOut
 // The ARNs of applications, configuration profiles, or environments defined in the association.
 func (o LookupExtensionAssociationResultOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExtensionAssociationResult) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupExtensionAssociationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupExtensionAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -92,6 +92,13 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The code for the function. You can define your function code in multiple ways:
+        ///   +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
+        ///   +  For .zip deployment packages, you can alternatively define the function code inline in the ``ZipFile`` property. This method works only for Node.js and Python functions.
+        ///   +  For container images, specify the URI of your container image in the ECR registry in the ``ImageUri`` property.
+        /// </summary>
+        public readonly Outputs.FunctionCode? Code;
+        /// <summary>
         /// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         /// </summary>
         public readonly string? CodeSigningConfigArn;
@@ -195,6 +202,8 @@ namespace Pulumi.AwsNative.Lambda
 
             string? arn,
 
+            Outputs.FunctionCode? code,
+
             string? codeSigningConfigArn,
 
             Outputs.FunctionDeadLetterConfig? deadLetterConfig,
@@ -241,6 +250,7 @@ namespace Pulumi.AwsNative.Lambda
         {
             Architectures = architectures;
             Arn = arn;
+            Code = code;
             CodeSigningConfigArn = codeSigningConfigArn;
             DeadLetterConfig = deadLetterConfig;
             Description = description;

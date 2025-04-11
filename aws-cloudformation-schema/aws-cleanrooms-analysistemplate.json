@@ -48,16 +48,117 @@
       "required" : [ "ReferencedTables" ]
     },
     "AnalysisSource" : {
+      "oneOf" : [ {
+        "type" : "object",
+        "title" : "Text",
+        "properties" : {
+          "Text" : {
+            "type" : "string",
+            "maxLength" : 90000,
+            "minLength" : 0
+          }
+        },
+        "required" : [ "Text" ],
+        "additionalProperties" : false
+      }, {
+        "type" : "object",
+        "title" : "Artifacts",
+        "properties" : {
+          "Artifacts" : {
+            "$ref" : "#/definitions/AnalysisTemplateArtifacts"
+          }
+        },
+        "required" : [ "Artifacts" ],
+        "additionalProperties" : false
+      } ]
+    },
+    "AnalysisTemplateArtifacts" : {
       "type" : "object",
-      "additionalProperties" : false,
       "properties" : {
-        "Text" : {
+        "EntryPoint" : {
+          "$ref" : "#/definitions/AnalysisTemplateArtifact"
+        },
+        "AdditionalArtifacts" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "$ref" : "#/definitions/AnalysisTemplateArtifact"
+          },
+          "maxItems" : 1,
+          "minItems" : 1
+        },
+        "RoleArn" : {
           "type" : "string",
-          "minLength" : 0,
-          "maxLength" : 15000
+          "maxLength" : 512,
+          "minLength" : 32
         }
       },
-      "required" : [ "Text" ]
+      "required" : [ "EntryPoint", "RoleArn" ],
+      "additionalProperties" : false
+    },
+    "AnalysisTemplateArtifact" : {
+      "type" : "object",
+      "properties" : {
+        "Location" : {
+          "$ref" : "#/definitions/S3Location"
+        }
+      },
+      "required" : [ "Location" ],
+      "additionalProperties" : false
+    },
+    "S3Location" : {
+      "type" : "object",
+      "properties" : {
+        "Bucket" : {
+          "type" : "string",
+          "maxLength" : 63,
+          "minLength" : 3
+        },
+        "Key" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Bucket", "Key" ],
+      "additionalProperties" : false
+    },
+    "AnalysisSourceMetadata" : {
+      "oneOf" : [ {
+        "type" : "object",
+        "title" : "Artifacts",
+        "properties" : {
+          "Artifacts" : {
+            "$ref" : "#/definitions/AnalysisTemplateArtifactMetadata"
+          }
+        },
+        "required" : [ "Artifacts" ],
+        "additionalProperties" : false
+      } ]
+    },
+    "AnalysisTemplateArtifactMetadata" : {
+      "type" : "object",
+      "properties" : {
+        "EntryPointHash" : {
+          "$ref" : "#/definitions/Hash"
+        },
+        "AdditionalArtifactHashes" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "$ref" : "#/definitions/Hash"
+          }
+        }
+      },
+      "required" : [ "EntryPointHash" ],
+      "additionalProperties" : false
+    },
+    "Hash" : {
+      "type" : "object",
+      "properties" : {
+        "Sha256" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
     },
     "Tag" : {
       "type" : "object",
@@ -142,14 +243,17 @@
     "Source" : {
       "$ref" : "#/definitions/AnalysisSource"
     },
+    "SourceMetadata" : {
+      "$ref" : "#/definitions/AnalysisSourceMetadata"
+    },
     "Format" : {
       "type" : "string",
-      "enum" : [ "SQL" ]
+      "enum" : [ "SQL", "PYSPARK_1_0" ]
     }
   },
   "required" : [ "Source", "Format", "Name", "MembershipIdentifier" ],
-  "readOnlyProperties" : [ "/properties/CollaborationArn", "/properties/CollaborationIdentifier", "/properties/AnalysisTemplateIdentifier", "/properties/Schema", "/properties/Arn", "/properties/MembershipArn" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/MembershipIdentifier", "/properties/Source", "/properties/Source/Text", "/properties/Format", "/properties/AnalysisParameters", "/properties/AnalysisParameters/Name", "/properties/AnalysisParameters/Type", "/properties/AnalysisParameters/DefaultValue" ],
+  "readOnlyProperties" : [ "/properties/CollaborationArn", "/properties/CollaborationIdentifier", "/properties/AnalysisTemplateIdentifier", "/properties/Arn", "/properties/MembershipArn" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/MembershipIdentifier", "/properties/Source", "/properties/Format", "/properties/AnalysisParameters", "/properties/Schema" ],
   "primaryIdentifier" : [ "/properties/AnalysisTemplateIdentifier", "/properties/MembershipIdentifier" ],
   "replacementStrategy" : "delete_then_create",
   "tagging" : {
@@ -163,7 +267,7 @@
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-cleanrooms",
   "handlers" : {
     "create" : {
-      "permissions" : [ "cleanrooms:CreateAnalysisTemplate", "cleanrooms:ListTagsForResource", "cleanrooms:TagResource", "cleanrooms:GetAnalysisTemplate", "cleanrooms:ListAnalysisTemplates" ]
+      "permissions" : [ "cleanrooms:CreateAnalysisTemplate", "cleanrooms:ListTagsForResource", "cleanrooms:TagResource", "cleanrooms:GetAnalysisTemplate", "cleanrooms:ListAnalysisTemplates", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "cleanrooms:GetAnalysisTemplate", "cleanrooms:ListTagsForResource" ]

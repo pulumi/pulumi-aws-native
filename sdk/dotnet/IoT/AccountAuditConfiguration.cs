@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.IoT
         /// 
         /// You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
         /// 
-        /// For more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
+        /// For more information on available audit checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
         /// </summary>
         [Output("auditCheckConfigurations")]
         public Output<Outputs.AccountAuditConfigurationAuditCheckConfigurations> AuditCheckConfigurations { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.AwsNative.IoT
         /// 
         /// You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
         /// 
-        /// For more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
+        /// For more information on available audit checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
         /// </summary>
         [Input("auditCheckConfigurations", required: true)]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationsArgs> AuditCheckConfigurations { get; set; } = null!;

@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetExtensionResult',
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetExtensionResult:
-    def __init__(__self__, actions=None, arn=None, description=None, id=None, parameters=None, version_number=None):
+    def __init__(__self__, actions=None, arn=None, description=None, id=None, parameters=None, tags=None, version_number=None):
         if actions and not isinstance(actions, dict):
             raise TypeError("Expected argument 'actions' to be a dict")
         pulumi.set(__self__, "actions", actions)
@@ -40,6 +41,9 @@ class GetExtensionResult:
         if parameters and not isinstance(parameters, dict):
             raise TypeError("Expected argument 'parameters' to be a dict")
         pulumi.set(__self__, "parameters", parameters)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if version_number and not isinstance(version_number, int):
             raise TypeError("Expected argument 'version_number' to be a int")
         pulumi.set(__self__, "version_number", version_number)
@@ -85,6 +89,14 @@ class GetExtensionResult:
         return pulumi.get(self, "parameters")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value tags to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> Optional[int]:
         """
@@ -104,6 +116,7 @@ class AwaitableGetExtensionResult(GetExtensionResult):
             description=self.description,
             id=self.id,
             parameters=self.parameters,
+            tags=self.tags,
             version_number=self.version_number)
 
 
@@ -126,6 +139,7 @@ def get_extension(id: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         parameters=pulumi.get(__ret__, 'parameters'),
+        tags=pulumi.get(__ret__, 'tags'),
         version_number=pulumi.get(__ret__, 'version_number'))
 def get_extension_output(id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionResult]:
@@ -145,4 +159,5 @@ def get_extension_output(id: Optional[pulumi.Input[str]] = None,
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         parameters=pulumi.get(__response__, 'parameters'),
+        tags=pulumi.get(__response__, 'tags'),
         version_number=pulumi.get(__response__, 'version_number')))

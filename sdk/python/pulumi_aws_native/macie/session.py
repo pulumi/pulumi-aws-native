@@ -110,6 +110,7 @@ class Session(pulumi.CustomResource):
 
             __props__.__dict__["finding_publishing_frequency"] = finding_publishing_frequency
             __props__.__dict__["status"] = status
+            __props__.__dict__["automated_discovery_status"] = None
             __props__.__dict__["aws_account_id"] = None
             __props__.__dict__["service_role"] = None
         super(Session, __self__).__init__(
@@ -134,11 +135,20 @@ class Session(pulumi.CustomResource):
 
         __props__ = SessionArgs.__new__(SessionArgs)
 
+        __props__.__dict__["automated_discovery_status"] = None
         __props__.__dict__["aws_account_id"] = None
         __props__.__dict__["finding_publishing_frequency"] = None
         __props__.__dict__["service_role"] = None
         __props__.__dict__["status"] = None
         return Session(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="automatedDiscoveryStatus")
+    def automated_discovery_status(self) -> pulumi.Output['SessionAutomatedDiscoveryStatus']:
+        """
+        The status of automated sensitive data discovery for the Macie session.
+        """
+        return pulumi.get(self, "automated_discovery_status")
 
     @property
     @pulumi.getter(name="awsAccountId")

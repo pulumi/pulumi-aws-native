@@ -25,6 +25,16 @@ export const FindingsFilterFindingFilterAction = {
 
 export type FindingsFilterFindingFilterAction = (typeof FindingsFilterFindingFilterAction)[keyof typeof FindingsFilterFindingFilterAction];
 
+export const SessionAutomatedDiscoveryStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The status of automated sensitive data discovery for the Macie session.
+ */
+export type SessionAutomatedDiscoveryStatus = (typeof SessionAutomatedDiscoveryStatus)[keyof typeof SessionAutomatedDiscoveryStatus];
+
 export const SessionFindingPublishingFrequency = {
     FifteenMinutes: "FIFTEEN_MINUTES",
     OneHour: "ONE_HOUR",
