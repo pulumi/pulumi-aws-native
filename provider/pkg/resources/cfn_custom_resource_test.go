@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"strings"
@@ -992,7 +993,7 @@ func TestCfnCustomResource_Update_PhysicalResourceIDChange(t *testing.T) {
 					bucketName,
 					matchesBucketKeyPrefix(bucketKeyPrefix),
 					expectedTimeout,
-				).Return(nil, fmt.Errorf(tt.deleteError))
+				).Return(nil, errors.New(tt.deleteError))
 			} else {
 				mockS3Client.EXPECT().WaitForObject(
 					gomock.Any(),

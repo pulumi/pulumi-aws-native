@@ -729,7 +729,7 @@ func (ctx *cfSchemaContext) markCreateOnlyPropertyOnType(propName, typeRef strin
 	ref := strings.TrimPrefix(typeRef, "#/types/")
 	propType, ok := ctx.pkg.Types[ref]
 	if !ok {
-		return errors.Errorf("Could not find referencedType: " + typeRef)
+		return errors.New("Could not find referencedType: " + typeRef)
 	}
 
 	propertyName := naming.ToSdkName(propName)
