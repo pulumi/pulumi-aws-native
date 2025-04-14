@@ -10,16 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Details about the the configuration of the built-in Amazon.QnAIntent.
-    /// </summary>
     public sealed class BotQnAIntentConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("bedrockModelConfiguration", required: true)]
         public Input<Inputs.BotBedrockModelSpecificationArgs> BedrockModelConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+        /// Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
         /// </summary>
         [Input("dataSourceConfiguration", required: true)]
         public Input<Inputs.BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs> DataSourceConfiguration { get; set; } = null!;

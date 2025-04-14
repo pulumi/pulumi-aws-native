@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("domainEndpoint", required: true)]
         public Input<string> DomainEndpoint { get; set; } = null!;
 
+        /// <summary>
+        /// Contains the names of the fields to which to map information about the vector store.
+        /// </summary>
         [Input("fieldMapping", required: true)]
         public Input<Inputs.KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs> FieldMapping { get; set; } = null!;
 

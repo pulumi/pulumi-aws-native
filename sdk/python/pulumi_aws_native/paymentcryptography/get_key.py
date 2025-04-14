@@ -26,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetKeyResult:
-    def __init__(__self__, enabled=None, exportable=None, key_attributes=None, key_check_value_algorithm=None, key_identifier=None, key_origin=None, key_state=None, tags=None):
+    def __init__(__self__, derive_key_usage=None, enabled=None, exportable=None, key_attributes=None, key_check_value_algorithm=None, key_identifier=None, key_origin=None, key_state=None, tags=None):
+        if derive_key_usage and not isinstance(derive_key_usage, str):
+            raise TypeError("Expected argument 'derive_key_usage' to be a str")
+        pulumi.set(__self__, "derive_key_usage", derive_key_usage)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
@@ -51,6 +54,11 @@ class GetKeyResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="deriveKeyUsage")
+    def derive_key_usage(self) -> Optional['KeyDeriveKeyUsage']:
+        return pulumi.get(self, "derive_key_usage")
 
     @property
     @pulumi.getter
@@ -119,6 +127,7 @@ class AwaitableGetKeyResult(GetKeyResult):
         if False:
             yield self
         return GetKeyResult(
+            derive_key_usage=self.derive_key_usage,
             enabled=self.enabled,
             exportable=self.exportable,
             key_attributes=self.key_attributes,
@@ -140,6 +149,7 @@ def get_key(key_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:paymentcryptography:getKey', __args__, opts=opts, typ=GetKeyResult).value
 
     return AwaitableGetKeyResult(
+        derive_key_usage=pulumi.get(__ret__, 'derive_key_usage'),
         enabled=pulumi.get(__ret__, 'enabled'),
         exportable=pulumi.get(__ret__, 'exportable'),
         key_attributes=pulumi.get(__ret__, 'key_attributes'),
@@ -158,6 +168,7 @@ def get_key_output(key_identifier: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:paymentcryptography:getKey', __args__, opts=opts, typ=GetKeyResult)
     return __ret__.apply(lambda __response__: GetKeyResult(
+        derive_key_usage=pulumi.get(__response__, 'derive_key_usage'),
         enabled=pulumi.get(__response__, 'enabled'),
         exportable=pulumi.get(__response__, 'exportable'),
         key_attributes=pulumi.get(__response__, 'key_attributes'),

@@ -178,7 +178,7 @@ if not MYPY:
         """
         dependency_key_attributes: pulumi.Input[Mapping[str, pulumi.Input[str]]]
         """
-        This is a string-to-string map. It can include the following fields.
+        If this SLO is related to a metric collected by Application Signals, you must use this field to specify which dependency the SLO metric is related to.
 
         - `Type` designates the type of object this is.
         - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
@@ -200,7 +200,7 @@ class ServiceLevelObjectiveDependencyConfigArgs:
                  dependency_operation_name: pulumi.Input[str]):
         """
         Configuration for identifying a dependency and its operation
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] dependency_key_attributes: This is a string-to-string map. It can include the following fields.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] dependency_key_attributes: If this SLO is related to a metric collected by Application Signals, you must use this field to specify which dependency the SLO metric is related to.
                
                - `Type` designates the type of object this is.
                - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
@@ -216,7 +216,7 @@ class ServiceLevelObjectiveDependencyConfigArgs:
     @pulumi.getter(name="dependencyKeyAttributes")
     def dependency_key_attributes(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         """
-        This is a string-to-string map. It can include the following fields.
+        If this SLO is related to a metric collected by Application Signals, you must use this field to specify which dependency the SLO metric is related to.
 
         - `Type` designates the type of object this is.
         - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
@@ -897,6 +897,9 @@ if not MYPY:
         This structure contains the information about the metric that is used for a request-based SLO.
         """
         dependency_config: NotRequired[pulumi.Input['ServiceLevelObjectiveDependencyConfigArgsDict']]
+        """
+        Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
+        """
         key_attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
         This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
@@ -938,6 +941,7 @@ class ServiceLevelObjectiveRequestBasedSliMetricArgs:
                  total_request_count_metric: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]] = None):
         """
         This structure contains the information about the metric that is used for a request-based SLO.
+        :param pulumi.Input['ServiceLevelObjectiveDependencyConfigArgs'] dependency_config: Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] key_attributes: This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
                
                - `Type` designates the type of object that this SLO is related to.
@@ -967,6 +971,9 @@ class ServiceLevelObjectiveRequestBasedSliMetricArgs:
     @property
     @pulumi.getter(name="dependencyConfig")
     def dependency_config(self) -> Optional[pulumi.Input['ServiceLevelObjectiveDependencyConfigArgs']]:
+        """
+        Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
+        """
         return pulumi.get(self, "dependency_config")
 
     @dependency_config.setter
@@ -1176,6 +1183,9 @@ if not MYPY:
         A structure that contains information about the metric that the SLO monitors.
         """
         dependency_config: NotRequired[pulumi.Input['ServiceLevelObjectiveDependencyConfigArgsDict']]
+        """
+        Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
+        """
         key_attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
         If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
@@ -1223,6 +1233,7 @@ class ServiceLevelObjectiveSliMetricArgs:
                  statistic: Optional[pulumi.Input[str]] = None):
         """
         A structure that contains information about the metric that the SLO monitors.
+        :param pulumi.Input['ServiceLevelObjectiveDependencyConfigArgs'] dependency_config: Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] key_attributes: If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
                
                This is a string-to-string map. It can include the following fields.
@@ -1256,6 +1267,9 @@ class ServiceLevelObjectiveSliMetricArgs:
     @property
     @pulumi.getter(name="dependencyConfig")
     def dependency_config(self) -> Optional[pulumi.Input['ServiceLevelObjectiveDependencyConfigArgs']]:
+        """
+        Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
+        """
         return pulumi.get(self, "dependency_config")
 
     @dependency_config.setter

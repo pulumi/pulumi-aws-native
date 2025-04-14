@@ -62,6 +62,7 @@ type VpcEndpoint struct {
 	ServiceName pulumi.StringPtrOutput `pulumi:"serviceName"`
 	// The Amazon Resource Name (ARN) of the service network.
 	ServiceNetworkArn pulumi.StringPtrOutput `pulumi:"serviceNetworkArn"`
+	ServiceRegion     pulumi.StringPtrOutput `pulumi:"serviceRegion"`
 	// The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// The tags to associate with the endpoint.
@@ -87,6 +88,7 @@ func NewVpcEndpoint(ctx *pulumi.Context,
 		"resourceConfigurationArn",
 		"serviceName",
 		"serviceNetworkArn",
+		"serviceRegion",
 		"vpcEndpointType",
 		"vpcId",
 	})
@@ -149,6 +151,7 @@ type vpcEndpointArgs struct {
 	ServiceName *string `pulumi:"serviceName"`
 	// The Amazon Resource Name (ARN) of the service network.
 	ServiceNetworkArn *string `pulumi:"serviceNetworkArn"`
+	ServiceRegion     *string `pulumi:"serviceRegion"`
 	// The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// The tags to associate with the endpoint.
@@ -187,6 +190,7 @@ type VpcEndpointArgs struct {
 	ServiceName pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the service network.
 	ServiceNetworkArn pulumi.StringPtrInput
+	ServiceRegion     pulumi.StringPtrInput
 	// The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
 	SubnetIds pulumi.StringArrayInput
 	// The tags to associate with the endpoint.
@@ -313,6 +317,10 @@ func (o VpcEndpointOutput) ServiceName() pulumi.StringPtrOutput {
 // The Amazon Resource Name (ARN) of the service network.
 func (o VpcEndpointOutput) ServiceNetworkArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringPtrOutput { return v.ServiceNetworkArn }).(pulumi.StringPtrOutput)
+}
+
+func (o VpcEndpointOutput) ServiceRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringPtrOutput { return v.ServiceRegion }).(pulumi.StringPtrOutput)
 }
 
 // The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.

@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Provides an expression that evaluates to true or false.
-    /// </summary>
     [OutputType]
     public sealed class BotCondition
     {
-        /// <summary>
-        /// The expression string that is evaluated.
-        /// </summary>
         public readonly string ExpressionString;
 
         [OutputConstructor]

@@ -112,6 +112,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("serviceNetworkArn")]
         public Output<string?> ServiceNetworkArn { get; private set; } = null!;
 
+        [Output("serviceRegion")]
+        public Output<string?> ServiceRegion { get; private set; } = null!;
+
         /// <summary>
         /// The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
         /// </summary>
@@ -165,6 +168,7 @@ namespace Pulumi.AwsNative.Ec2
                     "resourceConfigurationArn",
                     "serviceName",
                     "serviceNetworkArn",
+                    "serviceRegion",
                     "vpcEndpointType",
                     "vpcId",
                 },
@@ -262,6 +266,9 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("serviceNetworkArn")]
         public Input<string>? ServiceNetworkArn { get; set; }
+
+        [Input("serviceRegion")]
+        public Input<string>? ServiceRegion { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;

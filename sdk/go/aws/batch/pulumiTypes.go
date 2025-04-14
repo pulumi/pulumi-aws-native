@@ -1927,7 +1927,8 @@ func (o JobDefinitionConsumableResourceRequirementArrayOutput) Index(i pulumi.In
 
 type JobDefinitionContainerProperties struct {
 	// The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
-	Command []string `pulumi:"command"`
+	Command              []string `pulumi:"command"`
+	EnableExecuteCommand *bool    `pulumi:"enableExecuteCommand"`
 	// The environment variables to pass to a container. This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 	//
 	// > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
@@ -2009,7 +2010,8 @@ type JobDefinitionContainerPropertiesInput interface {
 
 type JobDefinitionContainerPropertiesArgs struct {
 	// The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
-	Command pulumi.StringArrayInput `pulumi:"command"`
+	Command              pulumi.StringArrayInput `pulumi:"command"`
+	EnableExecuteCommand pulumi.BoolPtrInput     `pulumi:"enableExecuteCommand"`
 	// The environment variables to pass to a container. This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 	//
 	// > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
@@ -2158,6 +2160,10 @@ func (o JobDefinitionContainerPropertiesOutput) ToJobDefinitionContainerProperti
 // The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
 func (o JobDefinitionContainerPropertiesOutput) Command() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobDefinitionContainerProperties) []string { return v.Command }).(pulumi.StringArrayOutput)
+}
+
+func (o JobDefinitionContainerPropertiesOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionContainerProperties) *bool { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
 }
 
 // The environment variables to pass to a container. This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
@@ -2329,6 +2335,15 @@ func (o JobDefinitionContainerPropertiesPtrOutput) Command() pulumi.StringArrayO
 		}
 		return v.Command
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o JobDefinitionContainerPropertiesPtrOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionContainerProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableExecuteCommand
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The environment variables to pass to a container. This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
@@ -2965,7 +2980,8 @@ func (o JobDefinitionEcsPropertiesPtrOutput) TaskProperties() JobDefinitionEcsTa
 
 type JobDefinitionEcsTaskProperties struct {
 	// This object is a list of containers.
-	Containers []JobDefinitionTaskContainerProperties `pulumi:"containers"`
+	Containers           []JobDefinitionTaskContainerProperties `pulumi:"containers"`
+	EnableExecuteCommand *bool                                  `pulumi:"enableExecuteCommand"`
 	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate .
 	EphemeralStorage *JobDefinitionEphemeralStorage `pulumi:"ephemeralStorage"`
 	// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
@@ -3015,7 +3031,8 @@ type JobDefinitionEcsTaskPropertiesInput interface {
 
 type JobDefinitionEcsTaskPropertiesArgs struct {
 	// This object is a list of containers.
-	Containers JobDefinitionTaskContainerPropertiesArrayInput `pulumi:"containers"`
+	Containers           JobDefinitionTaskContainerPropertiesArrayInput `pulumi:"containers"`
+	EnableExecuteCommand pulumi.BoolPtrInput                            `pulumi:"enableExecuteCommand"`
 	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate .
 	EphemeralStorage JobDefinitionEphemeralStoragePtrInput `pulumi:"ephemeralStorage"`
 	// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
@@ -3106,6 +3123,10 @@ func (o JobDefinitionEcsTaskPropertiesOutput) ToJobDefinitionEcsTaskPropertiesOu
 // This object is a list of containers.
 func (o JobDefinitionEcsTaskPropertiesOutput) Containers() JobDefinitionTaskContainerPropertiesArrayOutput {
 	return o.ApplyT(func(v JobDefinitionEcsTaskProperties) []JobDefinitionTaskContainerProperties { return v.Containers }).(JobDefinitionTaskContainerPropertiesArrayOutput)
+}
+
+func (o JobDefinitionEcsTaskPropertiesOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEcsTaskProperties) *bool { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
 }
 
 // The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate .
@@ -7298,7 +7319,8 @@ func (o JobDefinitionMountPointArrayOutput) Index(i pulumi.IntInput) JobDefiniti
 
 type JobDefinitionMultiNodeContainerProperties struct {
 	// The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
-	Command []string `pulumi:"command"`
+	Command              []string `pulumi:"command"`
+	EnableExecuteCommand *bool    `pulumi:"enableExecuteCommand"`
 	// The environment variables to pass to a container. This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 	//
 	// > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
@@ -7384,7 +7406,8 @@ type JobDefinitionMultiNodeContainerPropertiesInput interface {
 
 type JobDefinitionMultiNodeContainerPropertiesArgs struct {
 	// The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
-	Command pulumi.StringArrayInput `pulumi:"command"`
+	Command              pulumi.StringArrayInput `pulumi:"command"`
+	EnableExecuteCommand pulumi.BoolPtrInput     `pulumi:"enableExecuteCommand"`
 	// The environment variables to pass to a container. This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 	//
 	// > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
@@ -7537,6 +7560,10 @@ func (o JobDefinitionMultiNodeContainerPropertiesOutput) ToJobDefinitionMultiNod
 // The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
 func (o JobDefinitionMultiNodeContainerPropertiesOutput) Command() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) []string { return v.Command }).(pulumi.StringArrayOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) *bool { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
 }
 
 // The environment variables to pass to a container. This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
@@ -7713,6 +7740,15 @@ func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) Command() pulumi.Str
 		}
 		return v.Command
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableExecuteCommand
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The environment variables to pass to a container. This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
@@ -8094,7 +8130,8 @@ func (o JobDefinitionMultiNodeEcsPropertiesPtrOutput) TaskProperties() JobDefini
 
 type JobDefinitionMultiNodeEcsTaskProperties struct {
 	// This object is a list of containers.
-	Containers []JobDefinitionTaskContainerProperties `pulumi:"containers"`
+	Containers           []JobDefinitionTaskContainerProperties `pulumi:"containers"`
+	EnableExecuteCommand *bool                                  `pulumi:"enableExecuteCommand"`
 	// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// The IPC resource namespace to use for the containers in the task. The valid values are `host` , `task` , or `none` .
@@ -8136,7 +8173,8 @@ type JobDefinitionMultiNodeEcsTaskPropertiesInput interface {
 
 type JobDefinitionMultiNodeEcsTaskPropertiesArgs struct {
 	// This object is a list of containers.
-	Containers JobDefinitionTaskContainerPropertiesArrayInput `pulumi:"containers"`
+	Containers           JobDefinitionTaskContainerPropertiesArrayInput `pulumi:"containers"`
+	EnableExecuteCommand pulumi.BoolPtrInput                            `pulumi:"enableExecuteCommand"`
 	// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
 	ExecutionRoleArn pulumi.StringPtrInput `pulumi:"executionRoleArn"`
 	// The IPC resource namespace to use for the containers in the task. The valid values are `host` , `task` , or `none` .
@@ -8221,6 +8259,10 @@ func (o JobDefinitionMultiNodeEcsTaskPropertiesOutput) Containers() JobDefinitio
 	return o.ApplyT(func(v JobDefinitionMultiNodeEcsTaskProperties) []JobDefinitionTaskContainerProperties {
 		return v.Containers
 	}).(JobDefinitionTaskContainerPropertiesArrayOutput)
+}
+
+func (o JobDefinitionMultiNodeEcsTaskPropertiesOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeEcsTaskProperties) *bool { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
@@ -9676,7 +9718,8 @@ type JobDefinitionTaskContainerProperties struct {
 	// If the essential parameter of a container is marked as `true` , and that container fails or stops for any reason, all other containers that are part of the task are stopped. If the `essential` parameter of a container is marked as false, its failure doesn't affect the rest of the containers in a task. If this parameter is omitted, a container is assumed to be essential.
 	//
 	// All jobs must have at least one essential container. If you have an application that's composed of multiple containers, group containers that are used for a common purpose into components, and separate the different components into multiple task definitions. For more information, see [Application Architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html) in the *Amazon Elastic Container Service Developer Guide* .
-	Essential *bool `pulumi:"essential"`
+	Essential             *bool                                                                `pulumi:"essential"`
+	FirelensConfiguration *JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties `pulumi:"firelensConfiguration"`
 	// The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either `repository-url/image:tag` or `repository-url/image@digest` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `IMAGE` parameter of the [*docker run*](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	Image string `pulumi:"image"`
 	// Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information, see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html) .
@@ -9763,7 +9806,8 @@ type JobDefinitionTaskContainerPropertiesArgs struct {
 	// If the essential parameter of a container is marked as `true` , and that container fails or stops for any reason, all other containers that are part of the task are stopped. If the `essential` parameter of a container is marked as false, its failure doesn't affect the rest of the containers in a task. If this parameter is omitted, a container is assumed to be essential.
 	//
 	// All jobs must have at least one essential container. If you have an application that's composed of multiple containers, group containers that are used for a common purpose into components, and separate the different components into multiple task definitions. For more information, see [Application Architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html) in the *Amazon Elastic Container Service Developer Guide* .
-	Essential pulumi.BoolPtrInput `pulumi:"essential"`
+	Essential             pulumi.BoolPtrInput                                                         `pulumi:"essential"`
+	FirelensConfiguration JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrInput `pulumi:"firelensConfiguration"`
 	// The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either `repository-url/image:tag` or `repository-url/image@digest` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `IMAGE` parameter of the [*docker run*](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	Image pulumi.StringInput `pulumi:"image"`
 	// Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information, see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html) .
@@ -9904,6 +9948,12 @@ func (o JobDefinitionTaskContainerPropertiesOutput) Essential() pulumi.BoolPtrOu
 	return o.ApplyT(func(v JobDefinitionTaskContainerProperties) *bool { return v.Essential }).(pulumi.BoolPtrOutput)
 }
 
+func (o JobDefinitionTaskContainerPropertiesOutput) FirelensConfiguration() JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v JobDefinitionTaskContainerProperties) *JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties {
+		return v.FirelensConfiguration
+	}).(JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput)
+}
+
 // The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either `repository-url/image:tag` or `repository-url/image@digest` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `IMAGE` parameter of the [*docker run*](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 func (o JobDefinitionTaskContainerPropertiesOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionTaskContainerProperties) string { return v.Image }).(pulumi.StringOutput)
@@ -10023,6 +10073,156 @@ func (o JobDefinitionTaskContainerPropertiesArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionTaskContainerProperties {
 		return vs[0].([]JobDefinitionTaskContainerProperties)[vs[1].(int)]
 	}).(JobDefinitionTaskContainerPropertiesOutput)
+}
+
+type JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties struct {
+	Options map[string]string `pulumi:"options"`
+	Type    string            `pulumi:"type"`
+}
+
+// JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesInput is an input type that accepts JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesArgs and JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesInput` via:
+//
+//	JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesArgs{...}
+type JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput() JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput
+	ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutputWithContext(context.Context) JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput
+}
+
+type JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesArgs struct {
+	Options pulumi.StringMapInput `pulumi:"options"`
+	Type    pulumi.StringInput    `pulumi:"type"`
+}
+
+func (JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties)(nil)).Elem()
+}
+
+func (i JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesArgs) ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput() JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput {
+	return i.ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesArgs) ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutputWithContext(ctx context.Context) JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput)
+}
+
+func (i JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesArgs) ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput() JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput {
+	return i.ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesArgs) ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput).ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrInput is an input type that accepts JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesArgs, JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtr and JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrInput` via:
+//
+//	        JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput() JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput
+	ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutputWithContext(context.Context) JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput
+}
+
+type jobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrType JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesArgs
+
+func JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtr(v *JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesArgs) JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrInput {
+	return (*jobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrType)(v)
+}
+
+func (*jobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties)(nil)).Elem()
+}
+
+func (i *jobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrType) ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput() JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput {
+	return i.ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrType) ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput)
+}
+
+type JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties)(nil)).Elem()
+}
+
+func (o JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput) ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput() JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput {
+	return o
+}
+
+func (o JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput) ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutputWithContext(ctx context.Context) JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput {
+	return o
+}
+
+func (o JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput) ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput() JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput {
+	return o.ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput) ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties) *JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties {
+		return &v
+	}).(JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput)
+}
+
+func (o JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties) map[string]string {
+		return v.Options
+	}).(pulumi.StringMapOutput)
+}
+
+func (o JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties)(nil)).Elem()
+}
+
+func (o JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput) ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput() JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput) ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput) Elem() JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties) JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties
+		return ret
+	}).(JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput)
+}
+
+func (o JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Options
+	}).(pulumi.StringMapOutput)
+}
+
+func (o JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type JobDefinitionTmpfs struct {
@@ -11047,6 +11247,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTaskContainerDependencyArrayInput)(nil)).Elem(), JobDefinitionTaskContainerDependencyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTaskContainerPropertiesInput)(nil)).Elem(), JobDefinitionTaskContainerPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTaskContainerPropertiesArrayInput)(nil)).Elem(), JobDefinitionTaskContainerPropertiesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesInput)(nil)).Elem(), JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrInput)(nil)).Elem(), JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTmpfsInput)(nil)).Elem(), JobDefinitionTmpfsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTmpfsArrayInput)(nil)).Elem(), JobDefinitionTmpfsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionUlimitInput)(nil)).Elem(), JobDefinitionUlimitArgs{})
@@ -11161,6 +11363,8 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionTaskContainerDependencyArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTaskContainerPropertiesOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTaskContainerPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTmpfsOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTmpfsArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionUlimitOutput{})

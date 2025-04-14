@@ -37,9 +37,6 @@ namespace Pulumi.AwsNative.Lex
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// Enables using slot values as a custom vocabulary when recognizing user utterances.
-    /// </summary>
     [EnumType]
     public readonly struct BotAudioRecognitionStrategy : IEquatable<BotAudioRecognitionStrategy>
     {
@@ -67,9 +64,6 @@ namespace Pulumi.AwsNative.Lex
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The Bedrock trace status in the Bedrock model specification details.
-    /// </summary>
     [EnumType]
     public readonly struct BotBedrockModelSpecificationBedrockTraceStatus : IEquatable<BotBedrockModelSpecificationBedrockTraceStatus>
     {
@@ -98,9 +92,6 @@ namespace Pulumi.AwsNative.Lex
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The possible values of actions that the conversation can take.
-    /// </summary>
     [EnumType]
     public readonly struct BotDialogActionType : IEquatable<BotDialogActionType>
     {
@@ -136,9 +127,6 @@ namespace Pulumi.AwsNative.Lex
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// Indicates how a message is selected from a message group among retries.
-    /// </summary>
     [EnumType]
     public readonly struct BotMessageSelectionStrategy : IEquatable<BotMessageSelectionStrategy>
     {
@@ -226,9 +214,6 @@ namespace Pulumi.AwsNative.Lex
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The different shapes that a slot can be in during a conversation.
-    /// </summary>
     [EnumType]
     public readonly struct BotSlotShape : IEquatable<BotSlotShape>
     {
@@ -269,6 +254,7 @@ namespace Pulumi.AwsNative.Lex
 
         public static BotSlotValueResolutionStrategy OriginalValue { get; } = new BotSlotValueResolutionStrategy("ORIGINAL_VALUE");
         public static BotSlotValueResolutionStrategy TopResolution { get; } = new BotSlotValueResolutionStrategy("TOP_RESOLUTION");
+        public static BotSlotValueResolutionStrategy Concatenation { get; } = new BotSlotValueResolutionStrategy("CONCATENATION");
 
         public static bool operator ==(BotSlotValueResolutionStrategy left, BotSlotValueResolutionStrategy right) => left.Equals(right);
         public static bool operator !=(BotSlotValueResolutionStrategy left, BotSlotValueResolutionStrategy right) => !left.Equals(right);
@@ -286,7 +272,9 @@ namespace Pulumi.AwsNative.Lex
     }
 
     /// <summary>
-    /// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+    /// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .
+    /// 
+    /// If you do not specify a value, the default is `standard` .
     /// </summary>
     [EnumType]
     public readonly struct BotVoiceSettingsEngine : IEquatable<BotVoiceSettingsEngine>

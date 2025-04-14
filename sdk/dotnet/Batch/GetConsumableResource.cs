@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Batch
     public static class GetConsumableResource
     {
         /// <summary>
-        /// Resource Type schema for AWS::Batch::ConsumableResource
+        /// Resource Type definition for AWS::Batch::ConsumableResource
         /// </summary>
         public static Task<GetConsumableResourceResult> InvokeAsync(GetConsumableResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConsumableResourceResult>("aws-native:batch:getConsumableResource", args ?? new GetConsumableResourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type schema for AWS::Batch::ConsumableResource
+        /// Resource Type definition for AWS::Batch::ConsumableResource
         /// </summary>
         public static Output<GetConsumableResourceResult> Invoke(GetConsumableResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsumableResourceResult>("aws-native:batch:getConsumableResource", args ?? new GetConsumableResourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type schema for AWS::Batch::ConsumableResource
+        /// Resource Type definition for AWS::Batch::ConsumableResource
         /// </summary>
         public static Output<GetConsumableResourceResult> Invoke(GetConsumableResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsumableResourceResult>("aws-native:batch:getConsumableResource", args ?? new GetConsumableResourceInvokeArgs(), options.WithDefaults());

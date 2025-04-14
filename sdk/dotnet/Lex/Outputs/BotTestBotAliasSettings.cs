@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Configuring the test bot alias settings for a given bot
-    /// </summary>
     [OutputType]
     public sealed class BotTestBotAliasSettings
     {
@@ -29,7 +26,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+        /// Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
         /// </summary>
         public readonly Outputs.BotTestBotAliasSettingsSentimentAnalysisSettingsProperties? SentimentAnalysisSettings;
 

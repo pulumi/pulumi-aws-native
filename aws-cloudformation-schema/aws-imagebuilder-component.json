@@ -79,7 +79,7 @@
   } ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Type", "/properties/Encrypted" ],
-  "writeOnlyProperties" : [ "/properties/Data", "/properties/Uri", "/properties/Platform" ],
+  "writeOnlyProperties" : [ "/properties/Data", "/properties/Uri" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/Version", "/properties/ChangeDescription", "/properties/Description", "/properties/Platform", "/properties/Data", "/properties/Uri", "/properties/KmsKeyId", "/properties/SupportedOsVersions", "/properties/Tags" ],
   "tagging" : {
     "taggable" : true,

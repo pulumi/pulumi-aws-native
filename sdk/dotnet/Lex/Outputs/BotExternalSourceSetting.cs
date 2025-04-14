@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Provides information about the external source of the slot type's definition.
-    /// </summary>
     [OutputType]
     public sealed class BotExternalSourceSetting
     {

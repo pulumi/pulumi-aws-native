@@ -10,13 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// The value to set in a slot.
-    /// </summary>
     public sealed class BotSlotValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The value that Amazon Lex determines for the slot.
+        /// The value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the `resolvedValues` list.
         /// </summary>
         [Input("interpretedValue")]
         public Input<string>? InterpretedValue { get; set; }

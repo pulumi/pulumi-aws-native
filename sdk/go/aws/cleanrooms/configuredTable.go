@@ -41,6 +41,8 @@ type ConfiguredTable struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A name for the configured table.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The selected analysis methods for the configured table.
+	SelectedAnalysisMethods ConfiguredTableSelectedAnalysisMethodArrayOutput `pulumi:"selectedAnalysisMethods"`
 	// The table that this configured table represents.
 	TableReference pulumi.AnyOutput `pulumi:"tableReference"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
@@ -65,7 +67,6 @@ func NewConfiguredTable(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"allowedColumns[*]",
-		"analysisMethod",
 		"tableReference",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -118,6 +119,8 @@ type configuredTableArgs struct {
 	Description *string `pulumi:"description"`
 	// A name for the configured table.
 	Name *string `pulumi:"name"`
+	// The selected analysis methods for the configured table.
+	SelectedAnalysisMethods []ConfiguredTableSelectedAnalysisMethod `pulumi:"selectedAnalysisMethods"`
 	// The table that this configured table represents.
 	TableReference interface{} `pulumi:"tableReference"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
@@ -142,6 +145,8 @@ type ConfiguredTableArgs struct {
 	Description pulumi.StringPtrInput
 	// A name for the configured table.
 	Name pulumi.StringPtrInput
+	// The selected analysis methods for the configured table.
+	SelectedAnalysisMethods ConfiguredTableSelectedAnalysisMethodArrayInput
 	// The table that this configured table represents.
 	TableReference pulumi.Input
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
@@ -228,6 +233,13 @@ func (o ConfiguredTableOutput) Description() pulumi.StringPtrOutput {
 // A name for the configured table.
 func (o ConfiguredTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The selected analysis methods for the configured table.
+func (o ConfiguredTableOutput) SelectedAnalysisMethods() ConfiguredTableSelectedAnalysisMethodArrayOutput {
+	return o.ApplyT(func(v *ConfiguredTable) ConfiguredTableSelectedAnalysisMethodArrayOutput {
+		return v.SelectedAnalysisMethods
+	}).(ConfiguredTableSelectedAnalysisMethodArrayOutput)
 }
 
 // The table that this configured table represents.

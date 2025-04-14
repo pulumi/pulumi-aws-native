@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Represents an action that the user wants to perform.
-    /// </summary>
     public sealed class BotIntentArgs : global::Pulumi.ResourceArgs
     {
+        [Input("bedrockAgentIntentConfiguration")]
+        public Input<Inputs.BotBedrockAgentIntentConfigurationArgs>? BedrockAgentIntentConfiguration { get; set; }
+
         /// <summary>
         /// Description of thr intent.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public Input<Inputs.BotKendraConfigurationArgs>? KendraConfiguration { get; set; }
 
         /// <summary>
-        /// The name of the intent.
+        /// The name of the intent. Intent names must be unique within the locale that contains the intent and can't match the name of any built-in intent.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -93,6 +93,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
         [Input("parentIntentSignature")]
         public Input<string>? ParentIntentSignature { get; set; }
 
+        [Input("qInConnectIntentConfiguration")]
+        public Input<Inputs.BotQInConnectIntentConfigurationArgs>? QInConnectIntentConfiguration { get; set; }
+
         [Input("qnAIntentConfiguration")]
         public Input<Inputs.BotQnAIntentConfigurationArgs>? QnAIntentConfiguration { get; set; }
 
@@ -100,7 +103,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         private InputList<Inputs.BotSampleUtteranceArgs>? _sampleUtterances;
 
         /// <summary>
-        /// A sample utterance that invokes an intent or respond to a slot elicitation prompt.
+        /// A list of utterances that a user might say to signal the intent.
         /// </summary>
         public InputList<Inputs.BotSampleUtteranceArgs> SampleUtterances
         {
@@ -124,7 +127,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         private InputList<Inputs.BotSlotArgs>? _slots;
 
         /// <summary>
-        /// List of slots
+        /// A list of slots that the intent requires for fulfillment.
         /// </summary>
         public InputList<Inputs.BotSlotArgs> Slots
         {

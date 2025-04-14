@@ -15331,6 +15331,9 @@ class VerifiedAccessTrustProviderOidcOptions(dict):
 
 @pulumi.output_type
 class VpcEndpointDnsOptionsSpecification(dict):
+    """
+    Describes the DNS options for an endpoint.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15354,6 +15357,7 @@ class VpcEndpointDnsOptionsSpecification(dict):
                  dns_record_ip_type: Optional['VpcEndpointDnsOptionsSpecificationDnsRecordIpType'] = None,
                  private_dns_only_for_inbound_resolver_endpoint: Optional['VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint'] = None):
         """
+        Describes the DNS options for an endpoint.
         :param 'VpcEndpointDnsOptionsSpecificationDnsRecordIpType' dns_record_ip_type: The DNS records created for the endpoint.
         :param 'VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint' private_dns_only_for_inbound_resolver_endpoint: Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
         """

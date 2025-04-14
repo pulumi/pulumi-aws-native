@@ -44,6 +44,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("transposedTableOptions")]
         private InputList<Inputs.TemplateTransposedTableOptionArgs>? _transposedTableOptions;
+
+        /// <summary>
+        /// The `TableOptions` of a transposed table.
+        /// </summary>
         public InputList<Inputs.TemplateTransposedTableOptionArgs> TransposedTableOptions
         {
             get => _transposedTableOptions ?? (_transposedTableOptions = new InputList<Inputs.TemplateTransposedTableOptionArgs>());

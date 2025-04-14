@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// A custom, extended built-in or a grammar slot type.
-    /// </summary>
     public sealed class BotSlotTypeArgs : global::Pulumi.ResourceArgs
     {
+        [Input("compositeSlotTypeSetting")]
+        public Input<Inputs.BotCompositeSlotTypeSettingArgs>? CompositeSlotTypeSetting { get; set; }
+
         /// <summary>
         /// A description of the slot type. Use the description to help identify the slot type in lists.
         /// </summary>

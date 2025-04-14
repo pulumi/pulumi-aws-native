@@ -68,6 +68,12 @@ namespace Pulumi.AwsNative.CleanRooms
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The selected analysis methods for the configured table.
+        /// </summary>
+        [Output("selectedAnalysisMethods")]
+        public Output<ImmutableArray<Pulumi.AwsNative.CleanRooms.ConfiguredTableSelectedAnalysisMethod>> SelectedAnalysisMethods { get; private set; } = null!;
+
+        /// <summary>
         /// The table that this configured table represents.
         /// </summary>
         [Output("tableReference")]
@@ -105,7 +111,6 @@ namespace Pulumi.AwsNative.CleanRooms
                 ReplaceOnChanges =
                 {
                     "allowedColumns[*]",
-                    "analysisMethod",
                     "tableReference",
                 },
             };
@@ -177,6 +182,18 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("selectedAnalysisMethods")]
+        private InputList<Pulumi.AwsNative.CleanRooms.ConfiguredTableSelectedAnalysisMethod>? _selectedAnalysisMethods;
+
+        /// <summary>
+        /// The selected analysis methods for the configured table.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.CleanRooms.ConfiguredTableSelectedAnalysisMethod> SelectedAnalysisMethods
+        {
+            get => _selectedAnalysisMethods ?? (_selectedAnalysisMethods = new InputList<Pulumi.AwsNative.CleanRooms.ConfiguredTableSelectedAnalysisMethod>());
+            set => _selectedAnalysisMethods = value;
+        }
 
         /// <summary>
         /// The table that this configured table represents.

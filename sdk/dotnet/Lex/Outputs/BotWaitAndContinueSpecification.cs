@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// The prompts that Amazon Lex uses while a bot is waiting for customer input.
-    /// </summary>
     [OutputType]
     public sealed class BotWaitAndContinueSpecification
     {
@@ -21,11 +18,11 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly Outputs.BotResponseSpecification ContinueResponse;
         /// <summary>
-        /// Specifies whether the bot will wait for a user to respond.
+        /// Specifies whether the bot will wait for a user to respond. When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
         /// </summary>
         public readonly bool? IsActive;
         /// <summary>
-        /// The response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+        /// A response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
         /// </summary>
         public readonly Outputs.BotStillWaitingResponseSpecification? StillWaitingResponse;
         /// <summary>

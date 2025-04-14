@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// A map of slot names and their overridden values.
-    /// </summary>
     public sealed class BotSlotValueOverrideMapArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

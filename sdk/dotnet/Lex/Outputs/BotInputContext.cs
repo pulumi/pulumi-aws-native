@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// InputContext specified for the intent.
-    /// </summary>
     [OutputType]
     public sealed class BotInputContext
     {
-        /// <summary>
-        /// The name of the context.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

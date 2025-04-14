@@ -26,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetConfiguredTableResult:
-    def __init__(__self__, analysis_rules=None, arn=None, configured_table_identifier=None, description=None, name=None, tags=None):
+    def __init__(__self__, analysis_method=None, analysis_rules=None, arn=None, configured_table_identifier=None, description=None, name=None, selected_analysis_methods=None, tags=None):
+        if analysis_method and not isinstance(analysis_method, str):
+            raise TypeError("Expected argument 'analysis_method' to be a str")
+        pulumi.set(__self__, "analysis_method", analysis_method)
         if analysis_rules and not isinstance(analysis_rules, list):
             raise TypeError("Expected argument 'analysis_rules' to be a list")
         pulumi.set(__self__, "analysis_rules", analysis_rules)
@@ -42,9 +45,26 @@ class GetConfiguredTableResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if selected_analysis_methods and not isinstance(selected_analysis_methods, list):
+            raise TypeError("Expected argument 'selected_analysis_methods' to be a list")
+        pulumi.set(__self__, "selected_analysis_methods", selected_analysis_methods)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="analysisMethod")
+    def analysis_method(self) -> Optional['ConfiguredTableAnalysisMethod']:
+        """
+        The analysis method for the configured table.
+
+        `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+
+        `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+
+        `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
+        """
+        return pulumi.get(self, "analysis_method")
 
     @property
     @pulumi.getter(name="analysisRules")
@@ -91,6 +111,14 @@ class GetConfiguredTableResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="selectedAnalysisMethods")
+    def selected_analysis_methods(self) -> Optional[Sequence['ConfiguredTableSelectedAnalysisMethod']]:
+        """
+        The selected analysis methods for the configured table.
+        """
+        return pulumi.get(self, "selected_analysis_methods")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -105,11 +133,13 @@ class AwaitableGetConfiguredTableResult(GetConfiguredTableResult):
         if False:
             yield self
         return GetConfiguredTableResult(
+            analysis_method=self.analysis_method,
             analysis_rules=self.analysis_rules,
             arn=self.arn,
             configured_table_identifier=self.configured_table_identifier,
             description=self.description,
             name=self.name,
+            selected_analysis_methods=self.selected_analysis_methods,
             tags=self.tags)
 
 
@@ -129,11 +159,13 @@ def get_configured_table(configured_table_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cleanrooms:getConfiguredTable', __args__, opts=opts, typ=GetConfiguredTableResult).value
 
     return AwaitableGetConfiguredTableResult(
+        analysis_method=pulumi.get(__ret__, 'analysis_method'),
         analysis_rules=pulumi.get(__ret__, 'analysis_rules'),
         arn=pulumi.get(__ret__, 'arn'),
         configured_table_identifier=pulumi.get(__ret__, 'configured_table_identifier'),
         description=pulumi.get(__ret__, 'description'),
         name=pulumi.get(__ret__, 'name'),
+        selected_analysis_methods=pulumi.get(__ret__, 'selected_analysis_methods'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_configured_table_output(configured_table_identifier: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfiguredTableResult]:
@@ -150,9 +182,11 @@ def get_configured_table_output(configured_table_identifier: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getConfiguredTable', __args__, opts=opts, typ=GetConfiguredTableResult)
     return __ret__.apply(lambda __response__: GetConfiguredTableResult(
+        analysis_method=pulumi.get(__response__, 'analysis_method'),
         analysis_rules=pulumi.get(__response__, 'analysis_rules'),
         arn=pulumi.get(__response__, 'arn'),
         configured_table_identifier=pulumi.get(__response__, 'configured_table_identifier'),
         description=pulumi.get(__response__, 'description'),
         name=pulumi.get(__response__, 'name'),
+        selected_analysis_methods=pulumi.get(__response__, 'selected_analysis_methods'),
         tags=pulumi.get(__response__, 'tags')))

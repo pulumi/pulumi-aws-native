@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// A message in a custom format defined by the client application.
-    /// </summary>
     [OutputType]
     public sealed class BotCustomPayload
     {
-        /// <summary>
-        /// The string that is sent to your application.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

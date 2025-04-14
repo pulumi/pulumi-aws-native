@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ApplicationSignals.Inputs
     /// </summary>
     public sealed class ServiceLevelObjectiveRequestBasedSliMetricArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
+        /// </summary>
         [Input("dependencyConfig")]
         public Input<Inputs.ServiceLevelObjectiveDependencyConfigArgs>? DependencyConfig { get; set; }
 

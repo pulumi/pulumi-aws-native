@@ -13,7 +13,6 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// Provides settings that enable advanced recognition settings for slot values.
 type BotAdvancedRecognitionSetting struct {
 	// Enables using the slot values as a custom vocabulary for recognizing user utterances.
 	AudioRecognitionStrategy *BotAudioRecognitionStrategy `pulumi:"audioRecognitionStrategy"`
@@ -30,7 +29,6 @@ type BotAdvancedRecognitionSettingInput interface {
 	ToBotAdvancedRecognitionSettingOutputWithContext(context.Context) BotAdvancedRecognitionSettingOutput
 }
 
-// Provides settings that enable advanced recognition settings for slot values.
 type BotAdvancedRecognitionSettingArgs struct {
 	// Enables using the slot values as a custom vocabulary for recognizing user utterances.
 	AudioRecognitionStrategy BotAudioRecognitionStrategyPtrInput `pulumi:"audioRecognitionStrategy"`
@@ -89,7 +87,6 @@ func (i *botAdvancedRecognitionSettingPtrType) ToBotAdvancedRecognitionSettingPt
 	return pulumi.ToOutputWithContext(ctx, i).(BotAdvancedRecognitionSettingPtrOutput)
 }
 
-// Provides settings that enable advanced recognition settings for slot values.
 type BotAdvancedRecognitionSettingOutput struct{ *pulumi.OutputState }
 
 func (BotAdvancedRecognitionSettingOutput) ElementType() reflect.Type {
@@ -1327,12 +1324,9 @@ func (o BotAliasTextLogSettingArrayOutput) Index(i pulumi.IntInput) BotAliasText
 	}).(BotAliasTextLogSettingOutput)
 }
 
-// Specifies the allowed input types.
 type BotAllowedInputTypes struct {
-	// Indicates whether audio input is allowed.
 	AllowAudioInput bool `pulumi:"allowAudioInput"`
-	// Indicates whether DTMF input is allowed.
-	AllowDtmfInput bool `pulumi:"allowDtmfInput"`
+	AllowDtmfInput  bool `pulumi:"allowDtmfInput"`
 }
 
 // BotAllowedInputTypesInput is an input type that accepts BotAllowedInputTypesArgs and BotAllowedInputTypesOutput values.
@@ -1346,12 +1340,9 @@ type BotAllowedInputTypesInput interface {
 	ToBotAllowedInputTypesOutputWithContext(context.Context) BotAllowedInputTypesOutput
 }
 
-// Specifies the allowed input types.
 type BotAllowedInputTypesArgs struct {
-	// Indicates whether audio input is allowed.
 	AllowAudioInput pulumi.BoolInput `pulumi:"allowAudioInput"`
-	// Indicates whether DTMF input is allowed.
-	AllowDtmfInput pulumi.BoolInput `pulumi:"allowDtmfInput"`
+	AllowDtmfInput  pulumi.BoolInput `pulumi:"allowDtmfInput"`
 }
 
 func (BotAllowedInputTypesArgs) ElementType() reflect.Type {
@@ -1366,7 +1357,6 @@ func (i BotAllowedInputTypesArgs) ToBotAllowedInputTypesOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BotAllowedInputTypesOutput)
 }
 
-// Specifies the allowed input types.
 type BotAllowedInputTypesOutput struct{ *pulumi.OutputState }
 
 func (BotAllowedInputTypesOutput) ElementType() reflect.Type {
@@ -1381,22 +1371,18 @@ func (o BotAllowedInputTypesOutput) ToBotAllowedInputTypesOutputWithContext(ctx 
 	return o
 }
 
-// Indicates whether audio input is allowed.
 func (o BotAllowedInputTypesOutput) AllowAudioInput() pulumi.BoolOutput {
 	return o.ApplyT(func(v BotAllowedInputTypes) bool { return v.AllowAudioInput }).(pulumi.BoolOutput)
 }
 
-// Indicates whether DTMF input is allowed.
 func (o BotAllowedInputTypesOutput) AllowDtmfInput() pulumi.BoolOutput {
 	return o.ApplyT(func(v BotAllowedInputTypes) bool { return v.AllowDtmfInput }).(pulumi.BoolOutput)
 }
 
-// Specifies the audio and DTMF input specification.
 type BotAudioAndDtmfInputSpecification struct {
 	AudioSpecification *BotAudioSpecification `pulumi:"audioSpecification"`
 	DtmfSpecification  *BotDtmfSpecification  `pulumi:"dtmfSpecification"`
-	// Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
-	StartTimeoutMs int `pulumi:"startTimeoutMs"`
+	StartTimeoutMs     int                    `pulumi:"startTimeoutMs"`
 }
 
 // BotAudioAndDtmfInputSpecificationInput is an input type that accepts BotAudioAndDtmfInputSpecificationArgs and BotAudioAndDtmfInputSpecificationOutput values.
@@ -1410,12 +1396,10 @@ type BotAudioAndDtmfInputSpecificationInput interface {
 	ToBotAudioAndDtmfInputSpecificationOutputWithContext(context.Context) BotAudioAndDtmfInputSpecificationOutput
 }
 
-// Specifies the audio and DTMF input specification.
 type BotAudioAndDtmfInputSpecificationArgs struct {
 	AudioSpecification BotAudioSpecificationPtrInput `pulumi:"audioSpecification"`
 	DtmfSpecification  BotDtmfSpecificationPtrInput  `pulumi:"dtmfSpecification"`
-	// Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
-	StartTimeoutMs pulumi.IntInput `pulumi:"startTimeoutMs"`
+	StartTimeoutMs     pulumi.IntInput               `pulumi:"startTimeoutMs"`
 }
 
 func (BotAudioAndDtmfInputSpecificationArgs) ElementType() reflect.Type {
@@ -1471,7 +1455,6 @@ func (i *botAudioAndDtmfInputSpecificationPtrType) ToBotAudioAndDtmfInputSpecifi
 	return pulumi.ToOutputWithContext(ctx, i).(BotAudioAndDtmfInputSpecificationPtrOutput)
 }
 
-// Specifies the audio and DTMF input specification.
 type BotAudioAndDtmfInputSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotAudioAndDtmfInputSpecificationOutput) ElementType() reflect.Type {
@@ -1504,7 +1487,6 @@ func (o BotAudioAndDtmfInputSpecificationOutput) DtmfSpecification() BotDtmfSpec
 	return o.ApplyT(func(v BotAudioAndDtmfInputSpecification) *BotDtmfSpecification { return v.DtmfSpecification }).(BotDtmfSpecificationPtrOutput)
 }
 
-// Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
 func (o BotAudioAndDtmfInputSpecificationOutput) StartTimeoutMs() pulumi.IntOutput {
 	return o.ApplyT(func(v BotAudioAndDtmfInputSpecification) int { return v.StartTimeoutMs }).(pulumi.IntOutput)
 }
@@ -1551,7 +1533,6 @@ func (o BotAudioAndDtmfInputSpecificationPtrOutput) DtmfSpecification() BotDtmfS
 	}).(BotDtmfSpecificationPtrOutput)
 }
 
-// Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
 func (o BotAudioAndDtmfInputSpecificationPtrOutput) StartTimeoutMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BotAudioAndDtmfInputSpecification) *int {
 		if v == nil {
@@ -1561,7 +1542,6 @@ func (o BotAudioAndDtmfInputSpecificationPtrOutput) StartTimeoutMs() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// The location of audio log files collected when conversation logging is enabled for a bot.
 type BotAudioLogDestination struct {
 	S3Bucket BotS3BucketLogDestination `pulumi:"s3Bucket"`
 }
@@ -1577,7 +1557,6 @@ type BotAudioLogDestinationInput interface {
 	ToBotAudioLogDestinationOutputWithContext(context.Context) BotAudioLogDestinationOutput
 }
 
-// The location of audio log files collected when conversation logging is enabled for a bot.
 type BotAudioLogDestinationArgs struct {
 	S3Bucket BotS3BucketLogDestinationInput `pulumi:"s3Bucket"`
 }
@@ -1594,7 +1573,6 @@ func (i BotAudioLogDestinationArgs) ToBotAudioLogDestinationOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BotAudioLogDestinationOutput)
 }
 
-// The location of audio log files collected when conversation logging is enabled for a bot.
 type BotAudioLogDestinationOutput struct{ *pulumi.OutputState }
 
 func (BotAudioLogDestinationOutput) ElementType() reflect.Type {
@@ -1613,7 +1591,6 @@ func (o BotAudioLogDestinationOutput) S3Bucket() BotS3BucketLogDestinationOutput
 	return o.ApplyT(func(v BotAudioLogDestination) BotS3BucketLogDestination { return v.S3Bucket }).(BotS3BucketLogDestinationOutput)
 }
 
-// Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
 type BotAudioLogSetting struct {
 	Destination BotAudioLogDestination `pulumi:"destination"`
 	Enabled     bool                   `pulumi:"enabled"`
@@ -1630,7 +1607,6 @@ type BotAudioLogSettingInput interface {
 	ToBotAudioLogSettingOutputWithContext(context.Context) BotAudioLogSettingOutput
 }
 
-// Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
 type BotAudioLogSettingArgs struct {
 	Destination BotAudioLogDestinationInput `pulumi:"destination"`
 	Enabled     pulumi.BoolInput            `pulumi:"enabled"`
@@ -1673,7 +1649,6 @@ func (i BotAudioLogSettingArray) ToBotAudioLogSettingArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BotAudioLogSettingArrayOutput)
 }
 
-// Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
 type BotAudioLogSettingOutput struct{ *pulumi.OutputState }
 
 func (BotAudioLogSettingOutput) ElementType() reflect.Type {
@@ -1716,12 +1691,9 @@ func (o BotAudioLogSettingArrayOutput) Index(i pulumi.IntInput) BotAudioLogSetti
 	}).(BotAudioLogSettingOutput)
 }
 
-// Specifies the audio input specifications.
 type BotAudioSpecification struct {
-	// Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
 	EndTimeoutMs int `pulumi:"endTimeoutMs"`
-	// Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
-	MaxLengthMs int `pulumi:"maxLengthMs"`
+	MaxLengthMs  int `pulumi:"maxLengthMs"`
 }
 
 // BotAudioSpecificationInput is an input type that accepts BotAudioSpecificationArgs and BotAudioSpecificationOutput values.
@@ -1735,12 +1707,9 @@ type BotAudioSpecificationInput interface {
 	ToBotAudioSpecificationOutputWithContext(context.Context) BotAudioSpecificationOutput
 }
 
-// Specifies the audio input specifications.
 type BotAudioSpecificationArgs struct {
-	// Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
 	EndTimeoutMs pulumi.IntInput `pulumi:"endTimeoutMs"`
-	// Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
-	MaxLengthMs pulumi.IntInput `pulumi:"maxLengthMs"`
+	MaxLengthMs  pulumi.IntInput `pulumi:"maxLengthMs"`
 }
 
 func (BotAudioSpecificationArgs) ElementType() reflect.Type {
@@ -1796,7 +1765,6 @@ func (i *botAudioSpecificationPtrType) ToBotAudioSpecificationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(BotAudioSpecificationPtrOutput)
 }
 
-// Specifies the audio input specifications.
 type BotAudioSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotAudioSpecificationOutput) ElementType() reflect.Type {
@@ -1821,12 +1789,10 @@ func (o BotAudioSpecificationOutput) ToBotAudioSpecificationPtrOutputWithContext
 	}).(BotAudioSpecificationPtrOutput)
 }
 
-// Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
 func (o BotAudioSpecificationOutput) EndTimeoutMs() pulumi.IntOutput {
 	return o.ApplyT(func(v BotAudioSpecification) int { return v.EndTimeoutMs }).(pulumi.IntOutput)
 }
 
-// Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
 func (o BotAudioSpecificationOutput) MaxLengthMs() pulumi.IntOutput {
 	return o.ApplyT(func(v BotAudioSpecification) int { return v.MaxLengthMs }).(pulumi.IntOutput)
 }
@@ -1855,7 +1821,6 @@ func (o BotAudioSpecificationPtrOutput) Elem() BotAudioSpecificationOutput {
 	}).(BotAudioSpecificationOutput)
 }
 
-// Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
 func (o BotAudioSpecificationPtrOutput) EndTimeoutMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BotAudioSpecification) *int {
 		if v == nil {
@@ -1865,7 +1830,6 @@ func (o BotAudioSpecificationPtrOutput) EndTimeoutMs() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
 func (o BotAudioSpecificationPtrOutput) MaxLengthMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BotAudioSpecification) *int {
 		if v == nil {
@@ -1875,14 +1839,466 @@ func (o BotAudioSpecificationPtrOutput) MaxLengthMs() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Contains information about the Amazon Bedrock model used to interpret the prompt used in descriptive bot building.
+type BotBedrockAgentIntentConfiguration struct {
+	BedrockAgentConfiguration                    *BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties                    `pulumi:"bedrockAgentConfiguration"`
+	BedrockAgentIntentKnowledgeBaseConfiguration *BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties `pulumi:"bedrockAgentIntentKnowledgeBaseConfiguration"`
+}
+
+// BotBedrockAgentIntentConfigurationInput is an input type that accepts BotBedrockAgentIntentConfigurationArgs and BotBedrockAgentIntentConfigurationOutput values.
+// You can construct a concrete instance of `BotBedrockAgentIntentConfigurationInput` via:
+//
+//	BotBedrockAgentIntentConfigurationArgs{...}
+type BotBedrockAgentIntentConfigurationInput interface {
+	pulumi.Input
+
+	ToBotBedrockAgentIntentConfigurationOutput() BotBedrockAgentIntentConfigurationOutput
+	ToBotBedrockAgentIntentConfigurationOutputWithContext(context.Context) BotBedrockAgentIntentConfigurationOutput
+}
+
+type BotBedrockAgentIntentConfigurationArgs struct {
+	BedrockAgentConfiguration                    BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrInput                    `pulumi:"bedrockAgentConfiguration"`
+	BedrockAgentIntentKnowledgeBaseConfiguration BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrInput `pulumi:"bedrockAgentIntentKnowledgeBaseConfiguration"`
+}
+
+func (BotBedrockAgentIntentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotBedrockAgentIntentConfiguration)(nil)).Elem()
+}
+
+func (i BotBedrockAgentIntentConfigurationArgs) ToBotBedrockAgentIntentConfigurationOutput() BotBedrockAgentIntentConfigurationOutput {
+	return i.ToBotBedrockAgentIntentConfigurationOutputWithContext(context.Background())
+}
+
+func (i BotBedrockAgentIntentConfigurationArgs) ToBotBedrockAgentIntentConfigurationOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotBedrockAgentIntentConfigurationOutput)
+}
+
+func (i BotBedrockAgentIntentConfigurationArgs) ToBotBedrockAgentIntentConfigurationPtrOutput() BotBedrockAgentIntentConfigurationPtrOutput {
+	return i.ToBotBedrockAgentIntentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i BotBedrockAgentIntentConfigurationArgs) ToBotBedrockAgentIntentConfigurationPtrOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotBedrockAgentIntentConfigurationOutput).ToBotBedrockAgentIntentConfigurationPtrOutputWithContext(ctx)
+}
+
+// BotBedrockAgentIntentConfigurationPtrInput is an input type that accepts BotBedrockAgentIntentConfigurationArgs, BotBedrockAgentIntentConfigurationPtr and BotBedrockAgentIntentConfigurationPtrOutput values.
+// You can construct a concrete instance of `BotBedrockAgentIntentConfigurationPtrInput` via:
+//
+//	        BotBedrockAgentIntentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotBedrockAgentIntentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBotBedrockAgentIntentConfigurationPtrOutput() BotBedrockAgentIntentConfigurationPtrOutput
+	ToBotBedrockAgentIntentConfigurationPtrOutputWithContext(context.Context) BotBedrockAgentIntentConfigurationPtrOutput
+}
+
+type botBedrockAgentIntentConfigurationPtrType BotBedrockAgentIntentConfigurationArgs
+
+func BotBedrockAgentIntentConfigurationPtr(v *BotBedrockAgentIntentConfigurationArgs) BotBedrockAgentIntentConfigurationPtrInput {
+	return (*botBedrockAgentIntentConfigurationPtrType)(v)
+}
+
+func (*botBedrockAgentIntentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotBedrockAgentIntentConfiguration)(nil)).Elem()
+}
+
+func (i *botBedrockAgentIntentConfigurationPtrType) ToBotBedrockAgentIntentConfigurationPtrOutput() BotBedrockAgentIntentConfigurationPtrOutput {
+	return i.ToBotBedrockAgentIntentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *botBedrockAgentIntentConfigurationPtrType) ToBotBedrockAgentIntentConfigurationPtrOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotBedrockAgentIntentConfigurationPtrOutput)
+}
+
+type BotBedrockAgentIntentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BotBedrockAgentIntentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotBedrockAgentIntentConfiguration)(nil)).Elem()
+}
+
+func (o BotBedrockAgentIntentConfigurationOutput) ToBotBedrockAgentIntentConfigurationOutput() BotBedrockAgentIntentConfigurationOutput {
+	return o
+}
+
+func (o BotBedrockAgentIntentConfigurationOutput) ToBotBedrockAgentIntentConfigurationOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationOutput {
+	return o
+}
+
+func (o BotBedrockAgentIntentConfigurationOutput) ToBotBedrockAgentIntentConfigurationPtrOutput() BotBedrockAgentIntentConfigurationPtrOutput {
+	return o.ToBotBedrockAgentIntentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BotBedrockAgentIntentConfigurationOutput) ToBotBedrockAgentIntentConfigurationPtrOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotBedrockAgentIntentConfiguration) *BotBedrockAgentIntentConfiguration {
+		return &v
+	}).(BotBedrockAgentIntentConfigurationPtrOutput)
+}
+
+func (o BotBedrockAgentIntentConfigurationOutput) BedrockAgentConfiguration() BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v BotBedrockAgentIntentConfiguration) *BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties {
+		return v.BedrockAgentConfiguration
+	}).(BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput)
+}
+
+func (o BotBedrockAgentIntentConfigurationOutput) BedrockAgentIntentKnowledgeBaseConfiguration() BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v BotBedrockAgentIntentConfiguration) *BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties {
+		return v.BedrockAgentIntentKnowledgeBaseConfiguration
+	}).(BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput)
+}
+
+type BotBedrockAgentIntentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (BotBedrockAgentIntentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotBedrockAgentIntentConfiguration)(nil)).Elem()
+}
+
+func (o BotBedrockAgentIntentConfigurationPtrOutput) ToBotBedrockAgentIntentConfigurationPtrOutput() BotBedrockAgentIntentConfigurationPtrOutput {
+	return o
+}
+
+func (o BotBedrockAgentIntentConfigurationPtrOutput) ToBotBedrockAgentIntentConfigurationPtrOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationPtrOutput {
+	return o
+}
+
+func (o BotBedrockAgentIntentConfigurationPtrOutput) Elem() BotBedrockAgentIntentConfigurationOutput {
+	return o.ApplyT(func(v *BotBedrockAgentIntentConfiguration) BotBedrockAgentIntentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BotBedrockAgentIntentConfiguration
+		return ret
+	}).(BotBedrockAgentIntentConfigurationOutput)
+}
+
+func (o BotBedrockAgentIntentConfigurationPtrOutput) BedrockAgentConfiguration() BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotBedrockAgentIntentConfiguration) *BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockAgentConfiguration
+	}).(BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput)
+}
+
+func (o BotBedrockAgentIntentConfigurationPtrOutput) BedrockAgentIntentKnowledgeBaseConfiguration() BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotBedrockAgentIntentConfiguration) *BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockAgentIntentKnowledgeBaseConfiguration
+	}).(BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput)
+}
+
+type BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties struct {
+	BedrockAgentAliasId *string `pulumi:"bedrockAgentAliasId"`
+	BedrockAgentId      *string `pulumi:"bedrockAgentId"`
+}
+
+// BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesInput is an input type that accepts BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgs and BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesInput` via:
+//
+//	BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgs{...}
+type BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput() BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput
+	ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutputWithContext(context.Context) BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput
+}
+
+type BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgs struct {
+	BedrockAgentAliasId pulumi.StringPtrInput `pulumi:"bedrockAgentAliasId"`
+	BedrockAgentId      pulumi.StringPtrInput `pulumi:"bedrockAgentId"`
+}
+
+func (BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties)(nil)).Elem()
+}
+
+func (i BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgs) ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput() BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput {
+	return i.ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgs) ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput)
+}
+
+func (i BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgs) ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput() BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput {
+	return i.ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgs) ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput).ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrInput is an input type that accepts BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgs, BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtr and BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrInput` via:
+//
+//	        BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput() BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput
+	ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutputWithContext(context.Context) BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput
+}
+
+type botBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrType BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgs
+
+func BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtr(v *BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgs) BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrInput {
+	return (*botBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrType)(v)
+}
+
+func (*botBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties)(nil)).Elem()
+}
+
+func (i *botBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrType) ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput() BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput {
+	return i.ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *botBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrType) ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput)
+}
+
+type BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties)(nil)).Elem()
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput) ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput() BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput {
+	return o
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput) ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput {
+	return o
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput) ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput() BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput {
+	return o.ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput) ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties) *BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties {
+		return &v
+	}).(BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput)
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput) BedrockAgentAliasId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties) *string {
+		return v.BedrockAgentAliasId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput) BedrockAgentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties) *string {
+		return v.BedrockAgentId
+	}).(pulumi.StringPtrOutput)
+}
+
+type BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties)(nil)).Elem()
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput) ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput() BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput) ToBotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput) Elem() BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties) BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties
+		return ret
+	}).(BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput)
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput) BedrockAgentAliasId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockAgentAliasId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput) BedrockAgentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockAgentId
+	}).(pulumi.StringPtrOutput)
+}
+
+type BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties struct {
+	BedrockKnowledgeBaseArn   string                       `pulumi:"bedrockKnowledgeBaseArn"`
+	BedrockModelConfiguration BotBedrockModelSpecification `pulumi:"bedrockModelConfiguration"`
+}
+
+// BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesInput is an input type that accepts BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgs and BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesInput` via:
+//
+//	BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgs{...}
+type BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput() BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput
+	ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutputWithContext(context.Context) BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput
+}
+
+type BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgs struct {
+	BedrockKnowledgeBaseArn   pulumi.StringInput                `pulumi:"bedrockKnowledgeBaseArn"`
+	BedrockModelConfiguration BotBedrockModelSpecificationInput `pulumi:"bedrockModelConfiguration"`
+}
+
+func (BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties)(nil)).Elem()
+}
+
+func (i BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgs) ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput() BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput {
+	return i.ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgs) ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput)
+}
+
+func (i BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgs) ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput() BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput {
+	return i.ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgs) ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput).ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrInput is an input type that accepts BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgs, BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtr and BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrInput` via:
+//
+//	        BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput() BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput
+	ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutputWithContext(context.Context) BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput
+}
+
+type botBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrType BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgs
+
+func BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtr(v *BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgs) BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrInput {
+	return (*botBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrType)(v)
+}
+
+func (*botBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties)(nil)).Elem()
+}
+
+func (i *botBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrType) ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput() BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput {
+	return i.ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *botBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrType) ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput)
+}
+
+type BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties)(nil)).Elem()
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput) ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput() BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput {
+	return o
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput) ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput {
+	return o
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput) ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput() BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput {
+	return o.ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput) ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties) *BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties {
+		return &v
+	}).(BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput)
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput) BedrockKnowledgeBaseArn() pulumi.StringOutput {
+	return o.ApplyT(func(v BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties) string {
+		return v.BedrockKnowledgeBaseArn
+	}).(pulumi.StringOutput)
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput) BedrockModelConfiguration() BotBedrockModelSpecificationOutput {
+	return o.ApplyT(func(v BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties) BotBedrockModelSpecification {
+		return v.BedrockModelConfiguration
+	}).(BotBedrockModelSpecificationOutput)
+}
+
+type BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties)(nil)).Elem()
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput) ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput() BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput) ToBotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput) Elem() BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties) BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties
+		return ret
+	}).(BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput)
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput) BedrockKnowledgeBaseArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BedrockKnowledgeBaseArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput) BedrockModelConfiguration() BotBedrockModelSpecificationPtrOutput {
+	return o.ApplyT(func(v *BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties) *BotBedrockModelSpecification {
+		if v == nil {
+			return nil
+		}
+		return &v.BedrockModelConfiguration
+	}).(BotBedrockModelSpecificationPtrOutput)
+}
+
 type BotBedrockModelSpecification struct {
-	// The guardrail configuration in the Bedrock model specification details.
 	BedrockGuardrailConfiguration *BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties `pulumi:"bedrockGuardrailConfiguration"`
-	// The custom prompt used in the Bedrock model specification details.
-	BedrockModelCustomPrompt *string `pulumi:"bedrockModelCustomPrompt"`
-	// The Bedrock trace status in the Bedrock model specification details.
-	BedrockTraceStatus *BotBedrockModelSpecificationBedrockTraceStatus `pulumi:"bedrockTraceStatus"`
+	BedrockModelCustomPrompt      *string                                                              `pulumi:"bedrockModelCustomPrompt"`
+	BedrockTraceStatus            *BotBedrockModelSpecificationBedrockTraceStatus                      `pulumi:"bedrockTraceStatus"`
 	// The ARN of the foundation model used in descriptive bot building.
 	ModelArn string `pulumi:"modelArn"`
 }
@@ -1898,14 +2314,10 @@ type BotBedrockModelSpecificationInput interface {
 	ToBotBedrockModelSpecificationOutputWithContext(context.Context) BotBedrockModelSpecificationOutput
 }
 
-// Contains information about the Amazon Bedrock model used to interpret the prompt used in descriptive bot building.
 type BotBedrockModelSpecificationArgs struct {
-	// The guardrail configuration in the Bedrock model specification details.
 	BedrockGuardrailConfiguration BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrInput `pulumi:"bedrockGuardrailConfiguration"`
-	// The custom prompt used in the Bedrock model specification details.
-	BedrockModelCustomPrompt pulumi.StringPtrInput `pulumi:"bedrockModelCustomPrompt"`
-	// The Bedrock trace status in the Bedrock model specification details.
-	BedrockTraceStatus BotBedrockModelSpecificationBedrockTraceStatusPtrInput `pulumi:"bedrockTraceStatus"`
+	BedrockModelCustomPrompt      pulumi.StringPtrInput                                                       `pulumi:"bedrockModelCustomPrompt"`
+	BedrockTraceStatus            BotBedrockModelSpecificationBedrockTraceStatusPtrInput                      `pulumi:"bedrockTraceStatus"`
 	// The ARN of the foundation model used in descriptive bot building.
 	ModelArn pulumi.StringInput `pulumi:"modelArn"`
 }
@@ -1963,7 +2375,6 @@ func (i *botBedrockModelSpecificationPtrType) ToBotBedrockModelSpecificationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BotBedrockModelSpecificationPtrOutput)
 }
 
-// Contains information about the Amazon Bedrock model used to interpret the prompt used in descriptive bot building.
 type BotBedrockModelSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotBedrockModelSpecificationOutput) ElementType() reflect.Type {
@@ -1988,19 +2399,16 @@ func (o BotBedrockModelSpecificationOutput) ToBotBedrockModelSpecificationPtrOut
 	}).(BotBedrockModelSpecificationPtrOutput)
 }
 
-// The guardrail configuration in the Bedrock model specification details.
 func (o BotBedrockModelSpecificationOutput) BedrockGuardrailConfiguration() BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v BotBedrockModelSpecification) *BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties {
 		return v.BedrockGuardrailConfiguration
 	}).(BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput)
 }
 
-// The custom prompt used in the Bedrock model specification details.
 func (o BotBedrockModelSpecificationOutput) BedrockModelCustomPrompt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotBedrockModelSpecification) *string { return v.BedrockModelCustomPrompt }).(pulumi.StringPtrOutput)
 }
 
-// The Bedrock trace status in the Bedrock model specification details.
 func (o BotBedrockModelSpecificationOutput) BedrockTraceStatus() BotBedrockModelSpecificationBedrockTraceStatusPtrOutput {
 	return o.ApplyT(func(v BotBedrockModelSpecification) *BotBedrockModelSpecificationBedrockTraceStatus {
 		return v.BedrockTraceStatus
@@ -2036,7 +2444,6 @@ func (o BotBedrockModelSpecificationPtrOutput) Elem() BotBedrockModelSpecificati
 	}).(BotBedrockModelSpecificationOutput)
 }
 
-// The guardrail configuration in the Bedrock model specification details.
 func (o BotBedrockModelSpecificationPtrOutput) BedrockGuardrailConfiguration() BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v *BotBedrockModelSpecification) *BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties {
 		if v == nil {
@@ -2046,7 +2453,6 @@ func (o BotBedrockModelSpecificationPtrOutput) BedrockGuardrailConfiguration() B
 	}).(BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput)
 }
 
-// The custom prompt used in the Bedrock model specification details.
 func (o BotBedrockModelSpecificationPtrOutput) BedrockModelCustomPrompt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotBedrockModelSpecification) *string {
 		if v == nil {
@@ -2056,7 +2462,6 @@ func (o BotBedrockModelSpecificationPtrOutput) BedrockModelCustomPrompt() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Bedrock trace status in the Bedrock model specification details.
 func (o BotBedrockModelSpecificationPtrOutput) BedrockTraceStatus() BotBedrockModelSpecificationBedrockTraceStatusPtrOutput {
 	return o.ApplyT(func(v *BotBedrockModelSpecification) *BotBedrockModelSpecificationBedrockTraceStatus {
 		if v == nil {
@@ -2076,12 +2481,9 @@ func (o BotBedrockModelSpecificationPtrOutput) ModelArn() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The guardrail configuration in the Bedrock model specification details.
 type BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties struct {
-	// The unique guardrail id for the Bedrock guardrail configuration.
 	BedrockGuardrailIdentifier *string `pulumi:"bedrockGuardrailIdentifier"`
-	// The guardrail version for the Bedrock guardrail configuration.
-	BedrockGuardrailVersion *string `pulumi:"bedrockGuardrailVersion"`
+	BedrockGuardrailVersion    *string `pulumi:"bedrockGuardrailVersion"`
 }
 
 // BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesInput is an input type that accepts BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs and BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput values.
@@ -2095,12 +2497,9 @@ type BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesInput in
 	ToBotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutputWithContext(context.Context) BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput
 }
 
-// The guardrail configuration in the Bedrock model specification details.
 type BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs struct {
-	// The unique guardrail id for the Bedrock guardrail configuration.
 	BedrockGuardrailIdentifier pulumi.StringPtrInput `pulumi:"bedrockGuardrailIdentifier"`
-	// The guardrail version for the Bedrock guardrail configuration.
-	BedrockGuardrailVersion pulumi.StringPtrInput `pulumi:"bedrockGuardrailVersion"`
+	BedrockGuardrailVersion    pulumi.StringPtrInput `pulumi:"bedrockGuardrailVersion"`
 }
 
 func (BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs) ElementType() reflect.Type {
@@ -2156,7 +2555,6 @@ func (i *botBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrT
 	return pulumi.ToOutputWithContext(ctx, i).(BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput)
 }
 
-// The guardrail configuration in the Bedrock model specification details.
 type BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -2181,14 +2579,12 @@ func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutpu
 	}).(BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput)
 }
 
-// The unique guardrail id for the Bedrock guardrail configuration.
 func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput) BedrockGuardrailIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties) *string {
 		return v.BedrockGuardrailIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
-// The guardrail version for the Bedrock guardrail configuration.
 func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput) BedrockGuardrailVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties) *string {
 		return v.BedrockGuardrailVersion
@@ -2219,7 +2615,6 @@ func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOu
 	}).(BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput)
 }
 
-// The unique guardrail id for the Bedrock guardrail configuration.
 func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput) BedrockGuardrailIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties) *string {
 		if v == nil {
@@ -2229,7 +2624,6 @@ func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The guardrail version for the Bedrock guardrail configuration.
 func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOutput) BedrockGuardrailVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties) *string {
 		if v == nil {
@@ -2239,11 +2633,8 @@ func (o BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A button to use on a response card used to gather slot values from a user.
 type BotButton struct {
-	// The text that appears on the button.
-	Text string `pulumi:"text"`
-	// The value returned to Amazon Lex when the user chooses this button.
+	Text  string `pulumi:"text"`
 	Value string `pulumi:"value"`
 }
 
@@ -2258,11 +2649,8 @@ type BotButtonInput interface {
 	ToBotButtonOutputWithContext(context.Context) BotButtonOutput
 }
 
-// A button to use on a response card used to gather slot values from a user.
 type BotButtonArgs struct {
-	// The text that appears on the button.
-	Text pulumi.StringInput `pulumi:"text"`
-	// The value returned to Amazon Lex when the user chooses this button.
+	Text  pulumi.StringInput `pulumi:"text"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2303,7 +2691,6 @@ func (i BotButtonArray) ToBotButtonArrayOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BotButtonArrayOutput)
 }
 
-// A button to use on a response card used to gather slot values from a user.
 type BotButtonOutput struct{ *pulumi.OutputState }
 
 func (BotButtonOutput) ElementType() reflect.Type {
@@ -2318,12 +2705,10 @@ func (o BotButtonOutput) ToBotButtonOutputWithContext(ctx context.Context) BotBu
 	return o
 }
 
-// The text that appears on the button.
 func (o BotButtonOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v BotButton) string { return v.Text }).(pulumi.StringOutput)
 }
 
-// The value returned to Amazon Lex when the user chooses this button.
 func (o BotButtonOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v BotButton) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2349,10 +2734,8 @@ func (o BotButtonArrayOutput) Index(i pulumi.IntInput) BotButtonOutput {
 }
 
 type BotCloudWatchLogGroupLogDestination struct {
-	// A string used to identify the groupArn for the Cloudwatch Log Group
 	CloudWatchLogGroupArn string `pulumi:"cloudWatchLogGroupArn"`
-	// A string containing the value for the Log Prefix
-	LogPrefix string `pulumi:"logPrefix"`
+	LogPrefix             string `pulumi:"logPrefix"`
 }
 
 // BotCloudWatchLogGroupLogDestinationInput is an input type that accepts BotCloudWatchLogGroupLogDestinationArgs and BotCloudWatchLogGroupLogDestinationOutput values.
@@ -2367,10 +2750,8 @@ type BotCloudWatchLogGroupLogDestinationInput interface {
 }
 
 type BotCloudWatchLogGroupLogDestinationArgs struct {
-	// A string used to identify the groupArn for the Cloudwatch Log Group
 	CloudWatchLogGroupArn pulumi.StringInput `pulumi:"cloudWatchLogGroupArn"`
-	// A string containing the value for the Log Prefix
-	LogPrefix pulumi.StringInput `pulumi:"logPrefix"`
+	LogPrefix             pulumi.StringInput `pulumi:"logPrefix"`
 }
 
 func (BotCloudWatchLogGroupLogDestinationArgs) ElementType() reflect.Type {
@@ -2399,24 +2780,152 @@ func (o BotCloudWatchLogGroupLogDestinationOutput) ToBotCloudWatchLogGroupLogDes
 	return o
 }
 
-// A string used to identify the groupArn for the Cloudwatch Log Group
 func (o BotCloudWatchLogGroupLogDestinationOutput) CloudWatchLogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BotCloudWatchLogGroupLogDestination) string { return v.CloudWatchLogGroupArn }).(pulumi.StringOutput)
 }
 
-// A string containing the value for the Log Prefix
 func (o BotCloudWatchLogGroupLogDestinationOutput) LogPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v BotCloudWatchLogGroupLogDestination) string { return v.LogPrefix }).(pulumi.StringOutput)
 }
 
-// Contains information about code hooks that Amazon Lex calls during a conversation.
 type BotCodeHookSpecification struct {
 	LambdaCodeHook BotLambdaCodeHook `pulumi:"lambdaCodeHook"`
 }
 
-// Provides an expression that evaluates to true or false.
+type BotCompositeSlotTypeSetting struct {
+	SubSlots []BotSubSlotTypeComposition `pulumi:"subSlots"`
+}
+
+// BotCompositeSlotTypeSettingInput is an input type that accepts BotCompositeSlotTypeSettingArgs and BotCompositeSlotTypeSettingOutput values.
+// You can construct a concrete instance of `BotCompositeSlotTypeSettingInput` via:
+//
+//	BotCompositeSlotTypeSettingArgs{...}
+type BotCompositeSlotTypeSettingInput interface {
+	pulumi.Input
+
+	ToBotCompositeSlotTypeSettingOutput() BotCompositeSlotTypeSettingOutput
+	ToBotCompositeSlotTypeSettingOutputWithContext(context.Context) BotCompositeSlotTypeSettingOutput
+}
+
+type BotCompositeSlotTypeSettingArgs struct {
+	SubSlots BotSubSlotTypeCompositionArrayInput `pulumi:"subSlots"`
+}
+
+func (BotCompositeSlotTypeSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotCompositeSlotTypeSetting)(nil)).Elem()
+}
+
+func (i BotCompositeSlotTypeSettingArgs) ToBotCompositeSlotTypeSettingOutput() BotCompositeSlotTypeSettingOutput {
+	return i.ToBotCompositeSlotTypeSettingOutputWithContext(context.Background())
+}
+
+func (i BotCompositeSlotTypeSettingArgs) ToBotCompositeSlotTypeSettingOutputWithContext(ctx context.Context) BotCompositeSlotTypeSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotCompositeSlotTypeSettingOutput)
+}
+
+func (i BotCompositeSlotTypeSettingArgs) ToBotCompositeSlotTypeSettingPtrOutput() BotCompositeSlotTypeSettingPtrOutput {
+	return i.ToBotCompositeSlotTypeSettingPtrOutputWithContext(context.Background())
+}
+
+func (i BotCompositeSlotTypeSettingArgs) ToBotCompositeSlotTypeSettingPtrOutputWithContext(ctx context.Context) BotCompositeSlotTypeSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotCompositeSlotTypeSettingOutput).ToBotCompositeSlotTypeSettingPtrOutputWithContext(ctx)
+}
+
+// BotCompositeSlotTypeSettingPtrInput is an input type that accepts BotCompositeSlotTypeSettingArgs, BotCompositeSlotTypeSettingPtr and BotCompositeSlotTypeSettingPtrOutput values.
+// You can construct a concrete instance of `BotCompositeSlotTypeSettingPtrInput` via:
+//
+//	        BotCompositeSlotTypeSettingArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotCompositeSlotTypeSettingPtrInput interface {
+	pulumi.Input
+
+	ToBotCompositeSlotTypeSettingPtrOutput() BotCompositeSlotTypeSettingPtrOutput
+	ToBotCompositeSlotTypeSettingPtrOutputWithContext(context.Context) BotCompositeSlotTypeSettingPtrOutput
+}
+
+type botCompositeSlotTypeSettingPtrType BotCompositeSlotTypeSettingArgs
+
+func BotCompositeSlotTypeSettingPtr(v *BotCompositeSlotTypeSettingArgs) BotCompositeSlotTypeSettingPtrInput {
+	return (*botCompositeSlotTypeSettingPtrType)(v)
+}
+
+func (*botCompositeSlotTypeSettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotCompositeSlotTypeSetting)(nil)).Elem()
+}
+
+func (i *botCompositeSlotTypeSettingPtrType) ToBotCompositeSlotTypeSettingPtrOutput() BotCompositeSlotTypeSettingPtrOutput {
+	return i.ToBotCompositeSlotTypeSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *botCompositeSlotTypeSettingPtrType) ToBotCompositeSlotTypeSettingPtrOutputWithContext(ctx context.Context) BotCompositeSlotTypeSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotCompositeSlotTypeSettingPtrOutput)
+}
+
+type BotCompositeSlotTypeSettingOutput struct{ *pulumi.OutputState }
+
+func (BotCompositeSlotTypeSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotCompositeSlotTypeSetting)(nil)).Elem()
+}
+
+func (o BotCompositeSlotTypeSettingOutput) ToBotCompositeSlotTypeSettingOutput() BotCompositeSlotTypeSettingOutput {
+	return o
+}
+
+func (o BotCompositeSlotTypeSettingOutput) ToBotCompositeSlotTypeSettingOutputWithContext(ctx context.Context) BotCompositeSlotTypeSettingOutput {
+	return o
+}
+
+func (o BotCompositeSlotTypeSettingOutput) ToBotCompositeSlotTypeSettingPtrOutput() BotCompositeSlotTypeSettingPtrOutput {
+	return o.ToBotCompositeSlotTypeSettingPtrOutputWithContext(context.Background())
+}
+
+func (o BotCompositeSlotTypeSettingOutput) ToBotCompositeSlotTypeSettingPtrOutputWithContext(ctx context.Context) BotCompositeSlotTypeSettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotCompositeSlotTypeSetting) *BotCompositeSlotTypeSetting {
+		return &v
+	}).(BotCompositeSlotTypeSettingPtrOutput)
+}
+
+func (o BotCompositeSlotTypeSettingOutput) SubSlots() BotSubSlotTypeCompositionArrayOutput {
+	return o.ApplyT(func(v BotCompositeSlotTypeSetting) []BotSubSlotTypeComposition { return v.SubSlots }).(BotSubSlotTypeCompositionArrayOutput)
+}
+
+type BotCompositeSlotTypeSettingPtrOutput struct{ *pulumi.OutputState }
+
+func (BotCompositeSlotTypeSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotCompositeSlotTypeSetting)(nil)).Elem()
+}
+
+func (o BotCompositeSlotTypeSettingPtrOutput) ToBotCompositeSlotTypeSettingPtrOutput() BotCompositeSlotTypeSettingPtrOutput {
+	return o
+}
+
+func (o BotCompositeSlotTypeSettingPtrOutput) ToBotCompositeSlotTypeSettingPtrOutputWithContext(ctx context.Context) BotCompositeSlotTypeSettingPtrOutput {
+	return o
+}
+
+func (o BotCompositeSlotTypeSettingPtrOutput) Elem() BotCompositeSlotTypeSettingOutput {
+	return o.ApplyT(func(v *BotCompositeSlotTypeSetting) BotCompositeSlotTypeSetting {
+		if v != nil {
+			return *v
+		}
+		var ret BotCompositeSlotTypeSetting
+		return ret
+	}).(BotCompositeSlotTypeSettingOutput)
+}
+
+func (o BotCompositeSlotTypeSettingPtrOutput) SubSlots() BotSubSlotTypeCompositionArrayOutput {
+	return o.ApplyT(func(v *BotCompositeSlotTypeSetting) []BotSubSlotTypeComposition {
+		if v == nil {
+			return nil
+		}
+		return v.SubSlots
+	}).(BotSubSlotTypeCompositionArrayOutput)
+}
+
 type BotCondition struct {
-	// The expression string that is evaluated.
 	ExpressionString string `pulumi:"expressionString"`
 }
 
@@ -2431,9 +2940,7 @@ type BotConditionInput interface {
 	ToBotConditionOutputWithContext(context.Context) BotConditionOutput
 }
 
-// Provides an expression that evaluates to true or false.
 type BotConditionArgs struct {
-	// The expression string that is evaluated.
 	ExpressionString pulumi.StringInput `pulumi:"expressionString"`
 }
 
@@ -2449,7 +2956,6 @@ func (i BotConditionArgs) ToBotConditionOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BotConditionOutput)
 }
 
-// Provides an expression that evaluates to true or false.
 type BotConditionOutput struct{ *pulumi.OutputState }
 
 func (BotConditionOutput) ElementType() reflect.Type {
@@ -2464,21 +2970,15 @@ func (o BotConditionOutput) ToBotConditionOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The expression string that is evaluated.
 func (o BotConditionOutput) ExpressionString() pulumi.StringOutput {
 	return o.ApplyT(func(v BotCondition) string { return v.ExpressionString }).(pulumi.StringOutput)
 }
 
-// A set of actions that Amazon Lex should run if the condition is matched.
 type BotConditionalBranch struct {
-	// Contains the expression to evaluate. If the condition is true, the branch's actions are taken.
-	Condition BotCondition `pulumi:"condition"`
-	// The name of the branch.
-	Name string `pulumi:"name"`
-	// The next step in the conversation.
-	NextStep BotDialogState `pulumi:"nextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
-	Response *BotResponseSpecification `pulumi:"response"`
+	Condition BotCondition              `pulumi:"condition"`
+	Name      string                    `pulumi:"name"`
+	NextStep  BotDialogState            `pulumi:"nextStep"`
+	Response  *BotResponseSpecification `pulumi:"response"`
 }
 
 // BotConditionalBranchInput is an input type that accepts BotConditionalBranchArgs and BotConditionalBranchOutput values.
@@ -2492,16 +2992,11 @@ type BotConditionalBranchInput interface {
 	ToBotConditionalBranchOutputWithContext(context.Context) BotConditionalBranchOutput
 }
 
-// A set of actions that Amazon Lex should run if the condition is matched.
 type BotConditionalBranchArgs struct {
-	// Contains the expression to evaluate. If the condition is true, the branch's actions are taken.
-	Condition BotConditionInput `pulumi:"condition"`
-	// The name of the branch.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The next step in the conversation.
-	NextStep BotDialogStateInput `pulumi:"nextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
-	Response BotResponseSpecificationPtrInput `pulumi:"response"`
+	Condition BotConditionInput                `pulumi:"condition"`
+	Name      pulumi.StringInput               `pulumi:"name"`
+	NextStep  BotDialogStateInput              `pulumi:"nextStep"`
+	Response  BotResponseSpecificationPtrInput `pulumi:"response"`
 }
 
 func (BotConditionalBranchArgs) ElementType() reflect.Type {
@@ -2541,7 +3036,6 @@ func (i BotConditionalBranchArray) ToBotConditionalBranchArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BotConditionalBranchArrayOutput)
 }
 
-// A set of actions that Amazon Lex should run if the condition is matched.
 type BotConditionalBranchOutput struct{ *pulumi.OutputState }
 
 func (BotConditionalBranchOutput) ElementType() reflect.Type {
@@ -2556,22 +3050,18 @@ func (o BotConditionalBranchOutput) ToBotConditionalBranchOutputWithContext(ctx 
 	return o
 }
 
-// Contains the expression to evaluate. If the condition is true, the branch's actions are taken.
 func (o BotConditionalBranchOutput) Condition() BotConditionOutput {
 	return o.ApplyT(func(v BotConditionalBranch) BotCondition { return v.Condition }).(BotConditionOutput)
 }
 
-// The name of the branch.
 func (o BotConditionalBranchOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BotConditionalBranch) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The next step in the conversation.
 func (o BotConditionalBranchOutput) NextStep() BotDialogStateOutput {
 	return o.ApplyT(func(v BotConditionalBranch) BotDialogState { return v.NextStep }).(BotDialogStateOutput)
 }
 
-// Specifies a list of message groups that Amazon Lex uses to respond the user input.
 func (o BotConditionalBranchOutput) Response() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v BotConditionalBranch) *BotResponseSpecification { return v.Response }).(BotResponseSpecificationPtrOutput)
 }
@@ -2596,13 +3086,12 @@ func (o BotConditionalBranchArrayOutput) Index(i pulumi.IntInput) BotConditional
 	}).(BotConditionalBranchOutput)
 }
 
-// Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
 type BotConditionalSpecification struct {
 	// A list of conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true.
 	ConditionalBranches []BotConditionalBranch `pulumi:"conditionalBranches"`
 	// The conditional branch that should be followed when the conditions for other branches are not satisfied. A conditional branch is made up of a condition, a response and a next step.
 	DefaultBranch BotDefaultConditionalBranch `pulumi:"defaultBranch"`
-	// Determines whether a conditional branch is active. When active is false, the conditions are not evaluated.
+	// Determines whether a conditional branch is active. When `IsActive` is false, the conditions are not evaluated.
 	IsActive bool `pulumi:"isActive"`
 }
 
@@ -2617,13 +3106,12 @@ type BotConditionalSpecificationInput interface {
 	ToBotConditionalSpecificationOutputWithContext(context.Context) BotConditionalSpecificationOutput
 }
 
-// Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
 type BotConditionalSpecificationArgs struct {
 	// A list of conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true.
 	ConditionalBranches BotConditionalBranchArrayInput `pulumi:"conditionalBranches"`
 	// The conditional branch that should be followed when the conditions for other branches are not satisfied. A conditional branch is made up of a condition, a response and a next step.
 	DefaultBranch BotDefaultConditionalBranchInput `pulumi:"defaultBranch"`
-	// Determines whether a conditional branch is active. When active is false, the conditions are not evaluated.
+	// Determines whether a conditional branch is active. When `IsActive` is false, the conditions are not evaluated.
 	IsActive pulumi.BoolInput `pulumi:"isActive"`
 }
 
@@ -2680,7 +3168,6 @@ func (i *botConditionalSpecificationPtrType) ToBotConditionalSpecificationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(BotConditionalSpecificationPtrOutput)
 }
 
-// Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
 type BotConditionalSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotConditionalSpecificationOutput) ElementType() reflect.Type {
@@ -2715,7 +3202,7 @@ func (o BotConditionalSpecificationOutput) DefaultBranch() BotDefaultConditional
 	return o.ApplyT(func(v BotConditionalSpecification) BotDefaultConditionalBranch { return v.DefaultBranch }).(BotDefaultConditionalBranchOutput)
 }
 
-// Determines whether a conditional branch is active. When active is false, the conditions are not evaluated.
+// Determines whether a conditional branch is active. When `IsActive` is false, the conditions are not evaluated.
 func (o BotConditionalSpecificationOutput) IsActive() pulumi.BoolOutput {
 	return o.ApplyT(func(v BotConditionalSpecification) bool { return v.IsActive }).(pulumi.BoolOutput)
 }
@@ -2764,7 +3251,7 @@ func (o BotConditionalSpecificationPtrOutput) DefaultBranch() BotDefaultConditio
 	}).(BotDefaultConditionalBranchPtrOutput)
 }
 
-// Determines whether a conditional branch is active. When active is false, the conditions are not evaluated.
+// Determines whether a conditional branch is active. When `IsActive` is false, the conditions are not evaluated.
 func (o BotConditionalSpecificationPtrOutput) IsActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BotConditionalSpecification) *bool {
 		if v == nil {
@@ -2774,7 +3261,6 @@ func (o BotConditionalSpecificationPtrOutput) IsActive() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Contains information about code hooks that Amazon Lex calls during a conversation.
 type BotConversationLogSettings struct {
 	// The Amazon S3 settings for logging audio to an S3 bucket.
 	AudioLogSettings []BotAudioLogSetting `pulumi:"audioLogSettings"`
@@ -2793,7 +3279,6 @@ type BotConversationLogSettingsInput interface {
 	ToBotConversationLogSettingsOutputWithContext(context.Context) BotConversationLogSettingsOutput
 }
 
-// Contains information about code hooks that Amazon Lex calls during a conversation.
 type BotConversationLogSettingsArgs struct {
 	// The Amazon S3 settings for logging audio to an S3 bucket.
 	AudioLogSettings BotAudioLogSettingArrayInput `pulumi:"audioLogSettings"`
@@ -2854,7 +3339,6 @@ func (i *botConversationLogSettingsPtrType) ToBotConversationLogSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BotConversationLogSettingsPtrOutput)
 }
 
-// Contains information about code hooks that Amazon Lex calls during a conversation.
 type BotConversationLogSettingsOutput struct{ *pulumi.OutputState }
 
 func (BotConversationLogSettingsOutput) ElementType() reflect.Type {
@@ -2933,9 +3417,7 @@ func (o BotConversationLogSettingsPtrOutput) TextLogSettings() BotTextLogSetting
 	}).(BotTextLogSettingArrayOutput)
 }
 
-// A message in a custom format defined by the client application.
 type BotCustomPayload struct {
-	// The string that is sent to your application.
 	Value string `pulumi:"value"`
 }
 
@@ -2950,9 +3432,7 @@ type BotCustomPayloadInput interface {
 	ToBotCustomPayloadOutputWithContext(context.Context) BotCustomPayloadOutput
 }
 
-// A message in a custom format defined by the client application.
 type BotCustomPayloadArgs struct {
-	// The string that is sent to your application.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3009,7 +3489,6 @@ func (i *botCustomPayloadPtrType) ToBotCustomPayloadPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(BotCustomPayloadPtrOutput)
 }
 
-// A message in a custom format defined by the client application.
 type BotCustomPayloadOutput struct{ *pulumi.OutputState }
 
 func (BotCustomPayloadOutput) ElementType() reflect.Type {
@@ -3034,7 +3513,6 @@ func (o BotCustomPayloadOutput) ToBotCustomPayloadPtrOutputWithContext(ctx conte
 	}).(BotCustomPayloadPtrOutput)
 }
 
-// The string that is sent to your application.
 func (o BotCustomPayloadOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v BotCustomPayload) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3063,7 +3541,6 @@ func (o BotCustomPayloadPtrOutput) Elem() BotCustomPayloadOutput {
 	}).(BotCustomPayloadOutput)
 }
 
-// The string that is sent to your application.
 func (o BotCustomPayloadPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotCustomPayload) *string {
 		if v == nil {
@@ -3073,7 +3550,6 @@ func (o BotCustomPayloadPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A custom vocabulary is a list of specific phrases that you want Amazon Lex V2 to recognize in the audio input.
 type BotCustomVocabulary struct {
 	// Specifies a list of words that you expect to be used during a conversation with your bot.
 	CustomVocabularyItems []BotCustomVocabularyItem `pulumi:"customVocabularyItems"`
@@ -3090,7 +3566,6 @@ type BotCustomVocabularyInput interface {
 	ToBotCustomVocabularyOutputWithContext(context.Context) BotCustomVocabularyOutput
 }
 
-// A custom vocabulary is a list of specific phrases that you want Amazon Lex V2 to recognize in the audio input.
 type BotCustomVocabularyArgs struct {
 	// Specifies a list of words that you expect to be used during a conversation with your bot.
 	CustomVocabularyItems BotCustomVocabularyItemArrayInput `pulumi:"customVocabularyItems"`
@@ -3149,7 +3624,6 @@ func (i *botCustomVocabularyPtrType) ToBotCustomVocabularyPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(BotCustomVocabularyPtrOutput)
 }
 
-// A custom vocabulary is a list of specific phrases that you want Amazon Lex V2 to recognize in the audio input.
 type BotCustomVocabularyOutput struct{ *pulumi.OutputState }
 
 func (BotCustomVocabularyOutput) ElementType() reflect.Type {
@@ -3213,14 +3687,10 @@ func (o BotCustomVocabularyPtrOutput) CustomVocabularyItems() BotCustomVocabular
 	}).(BotCustomVocabularyItemArrayOutput)
 }
 
-// A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
 type BotCustomVocabularyItem struct {
-	// Defines how you want your phrase to look in your transcription output.
 	DisplayAs *string `pulumi:"displayAs"`
-	// Phrase that should be recognized.
-	Phrase string `pulumi:"phrase"`
-	// The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
-	Weight *int `pulumi:"weight"`
+	Phrase    string  `pulumi:"phrase"`
+	Weight    *int    `pulumi:"weight"`
 }
 
 // BotCustomVocabularyItemInput is an input type that accepts BotCustomVocabularyItemArgs and BotCustomVocabularyItemOutput values.
@@ -3234,14 +3704,10 @@ type BotCustomVocabularyItemInput interface {
 	ToBotCustomVocabularyItemOutputWithContext(context.Context) BotCustomVocabularyItemOutput
 }
 
-// A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
 type BotCustomVocabularyItemArgs struct {
-	// Defines how you want your phrase to look in your transcription output.
 	DisplayAs pulumi.StringPtrInput `pulumi:"displayAs"`
-	// Phrase that should be recognized.
-	Phrase pulumi.StringInput `pulumi:"phrase"`
-	// The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
+	Phrase    pulumi.StringInput    `pulumi:"phrase"`
+	Weight    pulumi.IntPtrInput    `pulumi:"weight"`
 }
 
 func (BotCustomVocabularyItemArgs) ElementType() reflect.Type {
@@ -3281,7 +3747,6 @@ func (i BotCustomVocabularyItemArray) ToBotCustomVocabularyItemArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BotCustomVocabularyItemArrayOutput)
 }
 
-// A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
 type BotCustomVocabularyItemOutput struct{ *pulumi.OutputState }
 
 func (BotCustomVocabularyItemOutput) ElementType() reflect.Type {
@@ -3296,17 +3761,14 @@ func (o BotCustomVocabularyItemOutput) ToBotCustomVocabularyItemOutputWithContex
 	return o
 }
 
-// Defines how you want your phrase to look in your transcription output.
 func (o BotCustomVocabularyItemOutput) DisplayAs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotCustomVocabularyItem) *string { return v.DisplayAs }).(pulumi.StringPtrOutput)
 }
 
-// Phrase that should be recognized.
 func (o BotCustomVocabularyItemOutput) Phrase() pulumi.StringOutput {
 	return o.ApplyT(func(v BotCustomVocabularyItem) string { return v.Phrase }).(pulumi.StringOutput)
 }
 
-// The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
 func (o BotCustomVocabularyItemOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BotCustomVocabularyItem) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -3331,7 +3793,6 @@ func (o BotCustomVocabularyItemArrayOutput) Index(i pulumi.IntInput) BotCustomVo
 	}).(BotCustomVocabularyItemOutput)
 }
 
-// A set of actions that Amazon Lex should run if none of the other conditions are met.
 type BotDefaultConditionalBranch struct {
 	// The next step in the conversation.
 	NextStep *BotDialogState `pulumi:"nextStep"`
@@ -3350,7 +3811,6 @@ type BotDefaultConditionalBranchInput interface {
 	ToBotDefaultConditionalBranchOutputWithContext(context.Context) BotDefaultConditionalBranchOutput
 }
 
-// A set of actions that Amazon Lex should run if none of the other conditions are met.
 type BotDefaultConditionalBranchArgs struct {
 	// The next step in the conversation.
 	NextStep BotDialogStatePtrInput `pulumi:"nextStep"`
@@ -3411,7 +3871,6 @@ func (i *botDefaultConditionalBranchPtrType) ToBotDefaultConditionalBranchPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(BotDefaultConditionalBranchPtrOutput)
 }
 
-// A set of actions that Amazon Lex should run if none of the other conditions are met.
 type BotDefaultConditionalBranchOutput struct{ *pulumi.OutputState }
 
 func (BotDefaultConditionalBranchOutput) ElementType() reflect.Type {
@@ -3490,9 +3949,8 @@ func (o BotDefaultConditionalBranchPtrOutput) Response() BotResponseSpecificatio
 	}).(BotResponseSpecificationPtrOutput)
 }
 
-// Defines the action that the bot executes at runtime when the conversation reaches this step.
 type BotDialogAction struct {
-	// If the dialog action is ElicitSlot, defines the slot to elicit from the user.
+	// If the dialog action is `ElicitSlot` , defines the slot to elicit from the user.
 	SlotToElicit *string `pulumi:"slotToElicit"`
 	// When true the next message for the intent is not used.
 	SuppressNextMessage *bool `pulumi:"suppressNextMessage"`
@@ -3511,9 +3969,8 @@ type BotDialogActionInput interface {
 	ToBotDialogActionOutputWithContext(context.Context) BotDialogActionOutput
 }
 
-// Defines the action that the bot executes at runtime when the conversation reaches this step.
 type BotDialogActionArgs struct {
-	// If the dialog action is ElicitSlot, defines the slot to elicit from the user.
+	// If the dialog action is `ElicitSlot` , defines the slot to elicit from the user.
 	SlotToElicit pulumi.StringPtrInput `pulumi:"slotToElicit"`
 	// When true the next message for the intent is not used.
 	SuppressNextMessage pulumi.BoolPtrInput `pulumi:"suppressNextMessage"`
@@ -3574,7 +4031,6 @@ func (i *botDialogActionPtrType) ToBotDialogActionPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(BotDialogActionPtrOutput)
 }
 
-// Defines the action that the bot executes at runtime when the conversation reaches this step.
 type BotDialogActionOutput struct{ *pulumi.OutputState }
 
 func (BotDialogActionOutput) ElementType() reflect.Type {
@@ -3599,7 +4055,7 @@ func (o BotDialogActionOutput) ToBotDialogActionPtrOutputWithContext(ctx context
 	}).(BotDialogActionPtrOutput)
 }
 
-// If the dialog action is ElicitSlot, defines the slot to elicit from the user.
+// If the dialog action is `ElicitSlot` , defines the slot to elicit from the user.
 func (o BotDialogActionOutput) SlotToElicit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotDialogAction) *string { return v.SlotToElicit }).(pulumi.StringPtrOutput)
 }
@@ -3638,7 +4094,7 @@ func (o BotDialogActionPtrOutput) Elem() BotDialogActionOutput {
 	}).(BotDialogActionOutput)
 }
 
-// If the dialog action is ElicitSlot, defines the slot to elicit from the user.
+// If the dialog action is `ElicitSlot` , defines the slot to elicit from the user.
 func (o BotDialogActionPtrOutput) SlotToElicit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotDialogAction) *string {
 		if v == nil {
@@ -3668,7 +4124,6 @@ func (o BotDialogActionPtrOutput) Type() BotDialogActionTypePtrOutput {
 	}).(BotDialogActionTypePtrOutput)
 }
 
-// Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
 type BotDialogCodeHookInvocationSetting struct {
 	// Indicates whether a Lambda function should be invoked for the dialog.
 	EnableCodeHookInvocation bool `pulumi:"enableCodeHookInvocation"`
@@ -3691,7 +4146,6 @@ type BotDialogCodeHookInvocationSettingInput interface {
 	ToBotDialogCodeHookInvocationSettingOutputWithContext(context.Context) BotDialogCodeHookInvocationSettingOutput
 }
 
-// Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
 type BotDialogCodeHookInvocationSettingArgs struct {
 	// Indicates whether a Lambda function should be invoked for the dialog.
 	EnableCodeHookInvocation pulumi.BoolInput `pulumi:"enableCodeHookInvocation"`
@@ -3756,7 +4210,6 @@ func (i *botDialogCodeHookInvocationSettingPtrType) ToBotDialogCodeHookInvocatio
 	return pulumi.ToOutputWithContext(ctx, i).(BotDialogCodeHookInvocationSettingPtrOutput)
 }
 
-// Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
 type BotDialogCodeHookInvocationSettingOutput struct{ *pulumi.OutputState }
 
 func (BotDialogCodeHookInvocationSettingOutput) ElementType() reflect.Type {
@@ -3867,7 +4320,6 @@ func (o BotDialogCodeHookInvocationSettingPtrOutput) PostCodeHookSpecification()
 	}).(BotPostDialogCodeHookInvocationSpecificationPtrOutput)
 }
 
-// Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
 type BotDialogCodeHookSetting struct {
 	// Enables the dialog code hook so that it processes user requests.
 	Enabled bool `pulumi:"enabled"`
@@ -3884,7 +4336,6 @@ type BotDialogCodeHookSettingInput interface {
 	ToBotDialogCodeHookSettingOutputWithContext(context.Context) BotDialogCodeHookSettingOutput
 }
 
-// Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
 type BotDialogCodeHookSettingArgs struct {
 	// Enables the dialog code hook so that it processes user requests.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -3943,7 +4394,6 @@ func (i *botDialogCodeHookSettingPtrType) ToBotDialogCodeHookSettingPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BotDialogCodeHookSettingPtrOutput)
 }
 
-// Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
 type BotDialogCodeHookSettingOutput struct{ *pulumi.OutputState }
 
 func (BotDialogCodeHookSettingOutput) ElementType() reflect.Type {
@@ -4007,13 +4457,12 @@ func (o BotDialogCodeHookSettingPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The current state of the conversation with the user.
 type BotDialogState struct {
 	// Defines the action that the bot executes at runtime when the conversation reaches this step.
 	DialogAction *BotDialogAction `pulumi:"dialogAction"`
 	// Override settings to configure the intent state.
 	Intent *BotIntentOverride `pulumi:"intent"`
-	// List of session attributes to be applied when the conversation reaches this step.
+	// Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
 	SessionAttributes []BotSessionAttribute `pulumi:"sessionAttributes"`
 }
 
@@ -4028,13 +4477,12 @@ type BotDialogStateInput interface {
 	ToBotDialogStateOutputWithContext(context.Context) BotDialogStateOutput
 }
 
-// The current state of the conversation with the user.
 type BotDialogStateArgs struct {
 	// Defines the action that the bot executes at runtime when the conversation reaches this step.
 	DialogAction BotDialogActionPtrInput `pulumi:"dialogAction"`
 	// Override settings to configure the intent state.
 	Intent BotIntentOverridePtrInput `pulumi:"intent"`
-	// List of session attributes to be applied when the conversation reaches this step.
+	// Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
 	SessionAttributes BotSessionAttributeArrayInput `pulumi:"sessionAttributes"`
 }
 
@@ -4091,7 +4539,6 @@ func (i *botDialogStatePtrType) ToBotDialogStatePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(BotDialogStatePtrOutput)
 }
 
-// The current state of the conversation with the user.
 type BotDialogStateOutput struct{ *pulumi.OutputState }
 
 func (BotDialogStateOutput) ElementType() reflect.Type {
@@ -4126,7 +4573,7 @@ func (o BotDialogStateOutput) Intent() BotIntentOverridePtrOutput {
 	return o.ApplyT(func(v BotDialogState) *BotIntentOverride { return v.Intent }).(BotIntentOverridePtrOutput)
 }
 
-// List of session attributes to be applied when the conversation reaches this step.
+// Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
 func (o BotDialogStateOutput) SessionAttributes() BotSessionAttributeArrayOutput {
 	return o.ApplyT(func(v BotDialogState) []BotSessionAttribute { return v.SessionAttributes }).(BotSessionAttributeArrayOutput)
 }
@@ -4175,7 +4622,7 @@ func (o BotDialogStatePtrOutput) Intent() BotIntentOverridePtrOutput {
 	}).(BotIntentOverridePtrOutput)
 }
 
-// List of session attributes to be applied when the conversation reaches this step.
+// Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
 func (o BotDialogStatePtrOutput) SessionAttributes() BotSessionAttributeArrayOutput {
 	return o.ApplyT(func(v *BotDialogState) []BotSessionAttribute {
 		if v == nil {
@@ -4185,16 +4632,11 @@ func (o BotDialogStatePtrOutput) SessionAttributes() BotSessionAttributeArrayOut
 	}).(BotSessionAttributeArrayOutput)
 }
 
-// Specifies the settings on DTMF input.
 type BotDtmfSpecification struct {
-	// The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
 	DeletionCharacter string `pulumi:"deletionCharacter"`
-	// The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
-	EndCharacter string `pulumi:"endCharacter"`
-	// How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
-	EndTimeoutMs int `pulumi:"endTimeoutMs"`
-	// The maximum number of DTMF digits allowed in an utterance.
-	MaxLength int `pulumi:"maxLength"`
+	EndCharacter      string `pulumi:"endCharacter"`
+	EndTimeoutMs      int    `pulumi:"endTimeoutMs"`
+	MaxLength         int    `pulumi:"maxLength"`
 }
 
 // BotDtmfSpecificationInput is an input type that accepts BotDtmfSpecificationArgs and BotDtmfSpecificationOutput values.
@@ -4208,16 +4650,11 @@ type BotDtmfSpecificationInput interface {
 	ToBotDtmfSpecificationOutputWithContext(context.Context) BotDtmfSpecificationOutput
 }
 
-// Specifies the settings on DTMF input.
 type BotDtmfSpecificationArgs struct {
-	// The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
 	DeletionCharacter pulumi.StringInput `pulumi:"deletionCharacter"`
-	// The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
-	EndCharacter pulumi.StringInput `pulumi:"endCharacter"`
-	// How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
-	EndTimeoutMs pulumi.IntInput `pulumi:"endTimeoutMs"`
-	// The maximum number of DTMF digits allowed in an utterance.
-	MaxLength pulumi.IntInput `pulumi:"maxLength"`
+	EndCharacter      pulumi.StringInput `pulumi:"endCharacter"`
+	EndTimeoutMs      pulumi.IntInput    `pulumi:"endTimeoutMs"`
+	MaxLength         pulumi.IntInput    `pulumi:"maxLength"`
 }
 
 func (BotDtmfSpecificationArgs) ElementType() reflect.Type {
@@ -4273,7 +4710,6 @@ func (i *botDtmfSpecificationPtrType) ToBotDtmfSpecificationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BotDtmfSpecificationPtrOutput)
 }
 
-// Specifies the settings on DTMF input.
 type BotDtmfSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotDtmfSpecificationOutput) ElementType() reflect.Type {
@@ -4298,22 +4734,18 @@ func (o BotDtmfSpecificationOutput) ToBotDtmfSpecificationPtrOutputWithContext(c
 	}).(BotDtmfSpecificationPtrOutput)
 }
 
-// The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
 func (o BotDtmfSpecificationOutput) DeletionCharacter() pulumi.StringOutput {
 	return o.ApplyT(func(v BotDtmfSpecification) string { return v.DeletionCharacter }).(pulumi.StringOutput)
 }
 
-// The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
 func (o BotDtmfSpecificationOutput) EndCharacter() pulumi.StringOutput {
 	return o.ApplyT(func(v BotDtmfSpecification) string { return v.EndCharacter }).(pulumi.StringOutput)
 }
 
-// How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
 func (o BotDtmfSpecificationOutput) EndTimeoutMs() pulumi.IntOutput {
 	return o.ApplyT(func(v BotDtmfSpecification) int { return v.EndTimeoutMs }).(pulumi.IntOutput)
 }
 
-// The maximum number of DTMF digits allowed in an utterance.
 func (o BotDtmfSpecificationOutput) MaxLength() pulumi.IntOutput {
 	return o.ApplyT(func(v BotDtmfSpecification) int { return v.MaxLength }).(pulumi.IntOutput)
 }
@@ -4342,7 +4774,6 @@ func (o BotDtmfSpecificationPtrOutput) Elem() BotDtmfSpecificationOutput {
 	}).(BotDtmfSpecificationOutput)
 }
 
-// The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
 func (o BotDtmfSpecificationPtrOutput) DeletionCharacter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotDtmfSpecification) *string {
 		if v == nil {
@@ -4352,7 +4783,6 @@ func (o BotDtmfSpecificationPtrOutput) DeletionCharacter() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
 func (o BotDtmfSpecificationPtrOutput) EndCharacter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotDtmfSpecification) *string {
 		if v == nil {
@@ -4362,7 +4792,6 @@ func (o BotDtmfSpecificationPtrOutput) EndCharacter() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
 func (o BotDtmfSpecificationPtrOutput) EndTimeoutMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BotDtmfSpecification) *int {
 		if v == nil {
@@ -4372,7 +4801,6 @@ func (o BotDtmfSpecificationPtrOutput) EndTimeoutMs() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of DTMF digits allowed in an utterance.
 func (o BotDtmfSpecificationPtrOutput) MaxLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BotDtmfSpecification) *int {
 		if v == nil {
@@ -4382,7 +4810,6 @@ func (o BotDtmfSpecificationPtrOutput) MaxLength() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Settings that specify the dialog code hook that is called by Amazon Lex between eliciting slot values.
 type BotElicitationCodeHookInvocationSetting struct {
 	// Indicates whether a Lambda function should be invoked for the dialog.
 	EnableCodeHookInvocation bool `pulumi:"enableCodeHookInvocation"`
@@ -4401,7 +4828,6 @@ type BotElicitationCodeHookInvocationSettingInput interface {
 	ToBotElicitationCodeHookInvocationSettingOutputWithContext(context.Context) BotElicitationCodeHookInvocationSettingOutput
 }
 
-// Settings that specify the dialog code hook that is called by Amazon Lex between eliciting slot values.
 type BotElicitationCodeHookInvocationSettingArgs struct {
 	// Indicates whether a Lambda function should be invoked for the dialog.
 	EnableCodeHookInvocation pulumi.BoolInput `pulumi:"enableCodeHookInvocation"`
@@ -4462,7 +4888,6 @@ func (i *botElicitationCodeHookInvocationSettingPtrType) ToBotElicitationCodeHoo
 	return pulumi.ToOutputWithContext(ctx, i).(BotElicitationCodeHookInvocationSettingPtrOutput)
 }
 
-// Settings that specify the dialog code hook that is called by Amazon Lex between eliciting slot values.
 type BotElicitationCodeHookInvocationSettingOutput struct{ *pulumi.OutputState }
 
 func (BotElicitationCodeHookInvocationSettingOutput) ElementType() reflect.Type {
@@ -4541,7 +4966,6 @@ func (o BotElicitationCodeHookInvocationSettingPtrOutput) InvocationLabel() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provides information about the external source of the slot type's definition.
 type BotExternalSourceSetting struct {
 	// Settings required for a slot type based on a grammar that you provide.
 	GrammarSlotTypeSetting *BotGrammarSlotTypeSetting `pulumi:"grammarSlotTypeSetting"`
@@ -4558,7 +4982,6 @@ type BotExternalSourceSettingInput interface {
 	ToBotExternalSourceSettingOutputWithContext(context.Context) BotExternalSourceSettingOutput
 }
 
-// Provides information about the external source of the slot type's definition.
 type BotExternalSourceSettingArgs struct {
 	// Settings required for a slot type based on a grammar that you provide.
 	GrammarSlotTypeSetting BotGrammarSlotTypeSettingPtrInput `pulumi:"grammarSlotTypeSetting"`
@@ -4617,7 +5040,6 @@ func (i *botExternalSourceSettingPtrType) ToBotExternalSourceSettingPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BotExternalSourceSettingPtrOutput)
 }
 
-// Provides information about the external source of the slot type's definition.
 type BotExternalSourceSettingOutput struct{ *pulumi.OutputState }
 
 func (BotExternalSourceSettingOutput) ElementType() reflect.Type {
@@ -4681,13 +5103,12 @@ func (o BotExternalSourceSettingPtrOutput) GrammarSlotTypeSetting() BotGrammarSl
 	}).(BotGrammarSlotTypeSettingPtrOutput)
 }
 
-// Settings that determine if a Lambda function should be invoked to fulfill a specific intent.
 type BotFulfillmentCodeHookSetting struct {
 	// Indicates whether a Lambda function should be invoked to fulfill a specific intent.
 	Enabled bool `pulumi:"enabled"`
 	// Provides settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations.
 	FulfillmentUpdatesSpecification *BotFulfillmentUpdatesSpecification `pulumi:"fulfillmentUpdatesSpecification"`
-	// Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
+	// Determines whether the fulfillment code hook is used. When `active` is false, the code hook doesn't run.
 	IsActive *bool `pulumi:"isActive"`
 	// Provides settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations.
 	PostFulfillmentStatusSpecification *BotPostFulfillmentStatusSpecification `pulumi:"postFulfillmentStatusSpecification"`
@@ -4704,13 +5125,12 @@ type BotFulfillmentCodeHookSettingInput interface {
 	ToBotFulfillmentCodeHookSettingOutputWithContext(context.Context) BotFulfillmentCodeHookSettingOutput
 }
 
-// Settings that determine if a Lambda function should be invoked to fulfill a specific intent.
 type BotFulfillmentCodeHookSettingArgs struct {
 	// Indicates whether a Lambda function should be invoked to fulfill a specific intent.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Provides settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations.
 	FulfillmentUpdatesSpecification BotFulfillmentUpdatesSpecificationPtrInput `pulumi:"fulfillmentUpdatesSpecification"`
-	// Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
+	// Determines whether the fulfillment code hook is used. When `active` is false, the code hook doesn't run.
 	IsActive pulumi.BoolPtrInput `pulumi:"isActive"`
 	// Provides settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations.
 	PostFulfillmentStatusSpecification BotPostFulfillmentStatusSpecificationPtrInput `pulumi:"postFulfillmentStatusSpecification"`
@@ -4769,7 +5189,6 @@ func (i *botFulfillmentCodeHookSettingPtrType) ToBotFulfillmentCodeHookSettingPt
 	return pulumi.ToOutputWithContext(ctx, i).(BotFulfillmentCodeHookSettingPtrOutput)
 }
 
-// Settings that determine if a Lambda function should be invoked to fulfill a specific intent.
 type BotFulfillmentCodeHookSettingOutput struct{ *pulumi.OutputState }
 
 func (BotFulfillmentCodeHookSettingOutput) ElementType() reflect.Type {
@@ -4806,7 +5225,7 @@ func (o BotFulfillmentCodeHookSettingOutput) FulfillmentUpdatesSpecification() B
 	}).(BotFulfillmentUpdatesSpecificationPtrOutput)
 }
 
-// Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
+// Determines whether the fulfillment code hook is used. When `active` is false, the code hook doesn't run.
 func (o BotFulfillmentCodeHookSettingOutput) IsActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotFulfillmentCodeHookSetting) *bool { return v.IsActive }).(pulumi.BoolPtrOutput)
 }
@@ -4862,7 +5281,7 @@ func (o BotFulfillmentCodeHookSettingPtrOutput) FulfillmentUpdatesSpecification(
 	}).(BotFulfillmentUpdatesSpecificationPtrOutput)
 }
 
-// Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
+// Determines whether the fulfillment code hook is used. When `active` is false, the code hook doesn't run.
 func (o BotFulfillmentCodeHookSettingPtrOutput) IsActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BotFulfillmentCodeHookSetting) *bool {
 		if v == nil {
@@ -4882,7 +5301,6 @@ func (o BotFulfillmentCodeHookSettingPtrOutput) PostFulfillmentStatusSpecificati
 	}).(BotPostFulfillmentStatusSpecificationPtrOutput)
 }
 
-// Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
 type BotFulfillmentStartResponseSpecification struct {
 	// Determines whether the user can interrupt the start message while it is playing.
 	AllowInterrupt *bool `pulumi:"allowInterrupt"`
@@ -4903,7 +5321,6 @@ type BotFulfillmentStartResponseSpecificationInput interface {
 	ToBotFulfillmentStartResponseSpecificationOutputWithContext(context.Context) BotFulfillmentStartResponseSpecificationOutput
 }
 
-// Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
 type BotFulfillmentStartResponseSpecificationArgs struct {
 	// Determines whether the user can interrupt the start message while it is playing.
 	AllowInterrupt pulumi.BoolPtrInput `pulumi:"allowInterrupt"`
@@ -4966,7 +5383,6 @@ func (i *botFulfillmentStartResponseSpecificationPtrType) ToBotFulfillmentStartR
 	return pulumi.ToOutputWithContext(ctx, i).(BotFulfillmentStartResponseSpecificationPtrOutput)
 }
 
-// Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
 type BotFulfillmentStartResponseSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotFulfillmentStartResponseSpecificationOutput) ElementType() reflect.Type {
@@ -5060,7 +5476,6 @@ func (o BotFulfillmentStartResponseSpecificationPtrOutput) MessageGroups() BotMe
 	}).(BotMessageGroupArrayOutput)
 }
 
-// Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
 type BotFulfillmentUpdateResponseSpecification struct {
 	// Determines whether the user can interrupt an update message while it is playing.
 	AllowInterrupt *bool `pulumi:"allowInterrupt"`
@@ -5081,7 +5496,6 @@ type BotFulfillmentUpdateResponseSpecificationInput interface {
 	ToBotFulfillmentUpdateResponseSpecificationOutputWithContext(context.Context) BotFulfillmentUpdateResponseSpecificationOutput
 }
 
-// Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
 type BotFulfillmentUpdateResponseSpecificationArgs struct {
 	// Determines whether the user can interrupt an update message while it is playing.
 	AllowInterrupt pulumi.BoolPtrInput `pulumi:"allowInterrupt"`
@@ -5144,7 +5558,6 @@ func (i *botFulfillmentUpdateResponseSpecificationPtrType) ToBotFulfillmentUpdat
 	return pulumi.ToOutputWithContext(ctx, i).(BotFulfillmentUpdateResponseSpecificationPtrOutput)
 }
 
-// Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
 type BotFulfillmentUpdateResponseSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotFulfillmentUpdateResponseSpecificationOutput) ElementType() reflect.Type {
@@ -5238,9 +5651,10 @@ func (o BotFulfillmentUpdateResponseSpecificationPtrOutput) MessageGroups() BotM
 	}).(BotMessageGroupArrayOutput)
 }
 
-// Provides information for updating the user on the progress of fulfilling an intent.
 type BotFulfillmentUpdatesSpecification struct {
 	// Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
+	//
+	// If the `active` field is set to true, the `startResponse` , `updateResponse` , and `timeoutInSeconds` fields are required.
 	Active bool `pulumi:"active"`
 	// Provides configuration information for the message sent to users when the fulfillment Lambda functions starts running.
 	StartResponse *BotFulfillmentStartResponseSpecification `pulumi:"startResponse"`
@@ -5261,9 +5675,10 @@ type BotFulfillmentUpdatesSpecificationInput interface {
 	ToBotFulfillmentUpdatesSpecificationOutputWithContext(context.Context) BotFulfillmentUpdatesSpecificationOutput
 }
 
-// Provides information for updating the user on the progress of fulfilling an intent.
 type BotFulfillmentUpdatesSpecificationArgs struct {
 	// Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
+	//
+	// If the `active` field is set to true, the `startResponse` , `updateResponse` , and `timeoutInSeconds` fields are required.
 	Active pulumi.BoolInput `pulumi:"active"`
 	// Provides configuration information for the message sent to users when the fulfillment Lambda functions starts running.
 	StartResponse BotFulfillmentStartResponseSpecificationPtrInput `pulumi:"startResponse"`
@@ -5326,7 +5741,6 @@ func (i *botFulfillmentUpdatesSpecificationPtrType) ToBotFulfillmentUpdatesSpeci
 	return pulumi.ToOutputWithContext(ctx, i).(BotFulfillmentUpdatesSpecificationPtrOutput)
 }
 
-// Provides information for updating the user on the progress of fulfilling an intent.
 type BotFulfillmentUpdatesSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotFulfillmentUpdatesSpecificationOutput) ElementType() reflect.Type {
@@ -5352,6 +5766,8 @@ func (o BotFulfillmentUpdatesSpecificationOutput) ToBotFulfillmentUpdatesSpecifi
 }
 
 // Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
+//
+// If the `active` field is set to true, the `startResponse` , `updateResponse` , and `timeoutInSeconds` fields are required.
 func (o BotFulfillmentUpdatesSpecificationOutput) Active() pulumi.BoolOutput {
 	return o.ApplyT(func(v BotFulfillmentUpdatesSpecification) bool { return v.Active }).(pulumi.BoolOutput)
 }
@@ -5400,6 +5816,8 @@ func (o BotFulfillmentUpdatesSpecificationPtrOutput) Elem() BotFulfillmentUpdate
 }
 
 // Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
+//
+// If the `active` field is set to true, the `startResponse` , `updateResponse` , and `timeoutInSeconds` fields are required.
 func (o BotFulfillmentUpdatesSpecificationPtrOutput) Active() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BotFulfillmentUpdatesSpecification) *bool {
 		if v == nil {
@@ -5439,7 +5857,6 @@ func (o BotFulfillmentUpdatesSpecificationPtrOutput) UpdateResponse() BotFulfill
 	}).(BotFulfillmentUpdateResponseSpecificationPtrOutput)
 }
 
-// Settings required for a slot type based on a grammar that you provide.
 type BotGrammarSlotTypeSetting struct {
 	// The source of the grammar used to create the slot type.
 	Source *BotGrammarSlotTypeSource `pulumi:"source"`
@@ -5456,7 +5873,6 @@ type BotGrammarSlotTypeSettingInput interface {
 	ToBotGrammarSlotTypeSettingOutputWithContext(context.Context) BotGrammarSlotTypeSettingOutput
 }
 
-// Settings required for a slot type based on a grammar that you provide.
 type BotGrammarSlotTypeSettingArgs struct {
 	// The source of the grammar used to create the slot type.
 	Source BotGrammarSlotTypeSourcePtrInput `pulumi:"source"`
@@ -5515,7 +5931,6 @@ func (i *botGrammarSlotTypeSettingPtrType) ToBotGrammarSlotTypeSettingPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BotGrammarSlotTypeSettingPtrOutput)
 }
 
-// Settings required for a slot type based on a grammar that you provide.
 type BotGrammarSlotTypeSettingOutput struct{ *pulumi.OutputState }
 
 func (BotGrammarSlotTypeSettingOutput) ElementType() reflect.Type {
@@ -5579,13 +5994,12 @@ func (o BotGrammarSlotTypeSettingPtrOutput) Source() BotGrammarSlotTypeSourcePtr
 	}).(BotGrammarSlotTypeSourcePtrOutput)
 }
 
-// Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
 type BotGrammarSlotTypeSource struct {
-	// The Amazon KMS key required to decrypt the contents of the grammar, if any.
+	// The AWS KMS key required to decrypt the contents of the grammar, if any.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The name of the S3 bucket that contains the grammar source.
+	// The name of the Amazon S3 bucket that contains the grammar source.
 	S3BucketName string `pulumi:"s3BucketName"`
-	// The path to the grammar in the S3 bucket.
+	// The path to the grammar in the Amazon S3 bucket.
 	S3ObjectKey string `pulumi:"s3ObjectKey"`
 }
 
@@ -5600,13 +6014,12 @@ type BotGrammarSlotTypeSourceInput interface {
 	ToBotGrammarSlotTypeSourceOutputWithContext(context.Context) BotGrammarSlotTypeSourceOutput
 }
 
-// Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
 type BotGrammarSlotTypeSourceArgs struct {
-	// The Amazon KMS key required to decrypt the contents of the grammar, if any.
+	// The AWS KMS key required to decrypt the contents of the grammar, if any.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// The name of the S3 bucket that contains the grammar source.
+	// The name of the Amazon S3 bucket that contains the grammar source.
 	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
-	// The path to the grammar in the S3 bucket.
+	// The path to the grammar in the Amazon S3 bucket.
 	S3ObjectKey pulumi.StringInput `pulumi:"s3ObjectKey"`
 }
 
@@ -5663,7 +6076,6 @@ func (i *botGrammarSlotTypeSourcePtrType) ToBotGrammarSlotTypeSourcePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BotGrammarSlotTypeSourcePtrOutput)
 }
 
-// Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
 type BotGrammarSlotTypeSourceOutput struct{ *pulumi.OutputState }
 
 func (BotGrammarSlotTypeSourceOutput) ElementType() reflect.Type {
@@ -5688,17 +6100,17 @@ func (o BotGrammarSlotTypeSourceOutput) ToBotGrammarSlotTypeSourcePtrOutputWithC
 	}).(BotGrammarSlotTypeSourcePtrOutput)
 }
 
-// The Amazon KMS key required to decrypt the contents of the grammar, if any.
+// The AWS KMS key required to decrypt the contents of the grammar, if any.
 func (o BotGrammarSlotTypeSourceOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotGrammarSlotTypeSource) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The name of the S3 bucket that contains the grammar source.
+// The name of the Amazon S3 bucket that contains the grammar source.
 func (o BotGrammarSlotTypeSourceOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v BotGrammarSlotTypeSource) string { return v.S3BucketName }).(pulumi.StringOutput)
 }
 
-// The path to the grammar in the S3 bucket.
+// The path to the grammar in the Amazon S3 bucket.
 func (o BotGrammarSlotTypeSourceOutput) S3ObjectKey() pulumi.StringOutput {
 	return o.ApplyT(func(v BotGrammarSlotTypeSource) string { return v.S3ObjectKey }).(pulumi.StringOutput)
 }
@@ -5727,7 +6139,7 @@ func (o BotGrammarSlotTypeSourcePtrOutput) Elem() BotGrammarSlotTypeSourceOutput
 	}).(BotGrammarSlotTypeSourceOutput)
 }
 
-// The Amazon KMS key required to decrypt the contents of the grammar, if any.
+// The AWS KMS key required to decrypt the contents of the grammar, if any.
 func (o BotGrammarSlotTypeSourcePtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotGrammarSlotTypeSource) *string {
 		if v == nil {
@@ -5737,7 +6149,7 @@ func (o BotGrammarSlotTypeSourcePtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the S3 bucket that contains the grammar source.
+// The name of the Amazon S3 bucket that contains the grammar source.
 func (o BotGrammarSlotTypeSourcePtrOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotGrammarSlotTypeSource) *string {
 		if v == nil {
@@ -5747,7 +6159,7 @@ func (o BotGrammarSlotTypeSourcePtrOutput) S3BucketName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path to the grammar in the S3 bucket.
+// The path to the grammar in the Amazon S3 bucket.
 func (o BotGrammarSlotTypeSourcePtrOutput) S3ObjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotGrammarSlotTypeSource) *string {
 		if v == nil {
@@ -5757,16 +6169,11 @@ func (o BotGrammarSlotTypeSourcePtrOutput) S3ObjectKey() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message that defines a response card that the client application can show to the user.
 type BotImageResponseCard struct {
-	// A list of buttons that should be displayed on the response card.
-	Buttons []BotButton `pulumi:"buttons"`
-	// The URL of an image to display on the response card.
-	ImageUrl *string `pulumi:"imageUrl"`
-	// The subtitle to display on the response card.
-	Subtitle *string `pulumi:"subtitle"`
-	// The title to display on the response card.
-	Title string `pulumi:"title"`
+	Buttons  []BotButton `pulumi:"buttons"`
+	ImageUrl *string     `pulumi:"imageUrl"`
+	Subtitle *string     `pulumi:"subtitle"`
+	Title    string      `pulumi:"title"`
 }
 
 // BotImageResponseCardInput is an input type that accepts BotImageResponseCardArgs and BotImageResponseCardOutput values.
@@ -5780,16 +6187,11 @@ type BotImageResponseCardInput interface {
 	ToBotImageResponseCardOutputWithContext(context.Context) BotImageResponseCardOutput
 }
 
-// A message that defines a response card that the client application can show to the user.
 type BotImageResponseCardArgs struct {
-	// A list of buttons that should be displayed on the response card.
-	Buttons BotButtonArrayInput `pulumi:"buttons"`
-	// The URL of an image to display on the response card.
+	Buttons  BotButtonArrayInput   `pulumi:"buttons"`
 	ImageUrl pulumi.StringPtrInput `pulumi:"imageUrl"`
-	// The subtitle to display on the response card.
 	Subtitle pulumi.StringPtrInput `pulumi:"subtitle"`
-	// The title to display on the response card.
-	Title pulumi.StringInput `pulumi:"title"`
+	Title    pulumi.StringInput    `pulumi:"title"`
 }
 
 func (BotImageResponseCardArgs) ElementType() reflect.Type {
@@ -5845,7 +6247,6 @@ func (i *botImageResponseCardPtrType) ToBotImageResponseCardPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BotImageResponseCardPtrOutput)
 }
 
-// A message that defines a response card that the client application can show to the user.
 type BotImageResponseCardOutput struct{ *pulumi.OutputState }
 
 func (BotImageResponseCardOutput) ElementType() reflect.Type {
@@ -5870,22 +6271,18 @@ func (o BotImageResponseCardOutput) ToBotImageResponseCardPtrOutputWithContext(c
 	}).(BotImageResponseCardPtrOutput)
 }
 
-// A list of buttons that should be displayed on the response card.
 func (o BotImageResponseCardOutput) Buttons() BotButtonArrayOutput {
 	return o.ApplyT(func(v BotImageResponseCard) []BotButton { return v.Buttons }).(BotButtonArrayOutput)
 }
 
-// The URL of an image to display on the response card.
 func (o BotImageResponseCardOutput) ImageUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotImageResponseCard) *string { return v.ImageUrl }).(pulumi.StringPtrOutput)
 }
 
-// The subtitle to display on the response card.
 func (o BotImageResponseCardOutput) Subtitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotImageResponseCard) *string { return v.Subtitle }).(pulumi.StringPtrOutput)
 }
 
-// The title to display on the response card.
 func (o BotImageResponseCardOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v BotImageResponseCard) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -5914,7 +6311,6 @@ func (o BotImageResponseCardPtrOutput) Elem() BotImageResponseCardOutput {
 	}).(BotImageResponseCardOutput)
 }
 
-// A list of buttons that should be displayed on the response card.
 func (o BotImageResponseCardPtrOutput) Buttons() BotButtonArrayOutput {
 	return o.ApplyT(func(v *BotImageResponseCard) []BotButton {
 		if v == nil {
@@ -5924,7 +6320,6 @@ func (o BotImageResponseCardPtrOutput) Buttons() BotButtonArrayOutput {
 	}).(BotButtonArrayOutput)
 }
 
-// The URL of an image to display on the response card.
 func (o BotImageResponseCardPtrOutput) ImageUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotImageResponseCard) *string {
 		if v == nil {
@@ -5934,7 +6329,6 @@ func (o BotImageResponseCardPtrOutput) ImageUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subtitle to display on the response card.
 func (o BotImageResponseCardPtrOutput) Subtitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotImageResponseCard) *string {
 		if v == nil {
@@ -5944,7 +6338,6 @@ func (o BotImageResponseCardPtrOutput) Subtitle() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The title to display on the response card.
 func (o BotImageResponseCardPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotImageResponseCard) *string {
 		if v == nil {
@@ -5954,7 +6347,6 @@ func (o BotImageResponseCardPtrOutput) Title() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
 type BotInitialResponseSetting struct {
 	// Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
 	CodeHook *BotDialogCodeHookInvocationSetting `pulumi:"codeHook"`
@@ -5977,7 +6369,6 @@ type BotInitialResponseSettingInput interface {
 	ToBotInitialResponseSettingOutputWithContext(context.Context) BotInitialResponseSettingOutput
 }
 
-// Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
 type BotInitialResponseSettingArgs struct {
 	// Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
 	CodeHook BotDialogCodeHookInvocationSettingPtrInput `pulumi:"codeHook"`
@@ -6042,7 +6433,6 @@ func (i *botInitialResponseSettingPtrType) ToBotInitialResponseSettingPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BotInitialResponseSettingPtrOutput)
 }
 
-// Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
 type BotInitialResponseSettingOutput struct{ *pulumi.OutputState }
 
 func (BotInitialResponseSettingOutput) ElementType() reflect.Type {
@@ -6151,9 +6541,7 @@ func (o BotInitialResponseSettingPtrOutput) NextStep() BotDialogStatePtrOutput {
 	}).(BotDialogStatePtrOutput)
 }
 
-// InputContext specified for the intent.
 type BotInputContext struct {
-	// The name of the context.
 	Name string `pulumi:"name"`
 }
 
@@ -6168,9 +6556,7 @@ type BotInputContextInput interface {
 	ToBotInputContextOutputWithContext(context.Context) BotInputContextOutput
 }
 
-// InputContext specified for the intent.
 type BotInputContextArgs struct {
-	// The name of the context.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -6211,7 +6597,6 @@ func (i BotInputContextArray) ToBotInputContextArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BotInputContextArrayOutput)
 }
 
-// InputContext specified for the intent.
 type BotInputContextOutput struct{ *pulumi.OutputState }
 
 func (BotInputContextOutput) ElementType() reflect.Type {
@@ -6226,7 +6611,6 @@ func (o BotInputContextOutput) ToBotInputContextOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the context.
 func (o BotInputContextOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BotInputContext) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6251,8 +6635,8 @@ func (o BotInputContextArrayOutput) Index(i pulumi.IntInput) BotInputContextOutp
 	}).(BotInputContextOutput)
 }
 
-// Represents an action that the user wants to perform.
 type BotIntent struct {
+	BedrockAgentIntentConfiguration *BotBedrockAgentIntentConfiguration `pulumi:"bedrockAgentIntentConfiguration"`
 	// Description of thr intent.
 	Description *string `pulumi:"description"`
 	// Specifies that Amazon Lex invokes the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction.
@@ -6269,18 +6653,19 @@ type BotIntent struct {
 	IntentConfirmationSetting *BotIntentConfirmationSetting `pulumi:"intentConfirmationSetting"`
 	// Provides configuration information for the `AMAZON.KendraSearchIntent` intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra index and returns documents from the index that match the user's utterance.
 	KendraConfiguration *BotKendraConfiguration `pulumi:"kendraConfiguration"`
-	// The name of the intent.
+	// The name of the intent. Intent names must be unique within the locale that contains the intent and can't match the name of any built-in intent.
 	Name string `pulumi:"name"`
 	// A list of contexts that the intent activates when it is fulfilled.
 	OutputContexts []BotOutputContext `pulumi:"outputContexts"`
 	// A unique identifier for the built-in intent to base this intent on.
-	ParentIntentSignature  *string                    `pulumi:"parentIntentSignature"`
-	QnAIntentConfiguration *BotQnAIntentConfiguration `pulumi:"qnAIntentConfiguration"`
-	// A sample utterance that invokes an intent or respond to a slot elicitation prompt.
+	ParentIntentSignature         *string                           `pulumi:"parentIntentSignature"`
+	QInConnectIntentConfiguration *BotQInConnectIntentConfiguration `pulumi:"qInConnectIntentConfiguration"`
+	QnAIntentConfiguration        *BotQnAIntentConfiguration        `pulumi:"qnAIntentConfiguration"`
+	// A list of utterances that a user might say to signal the intent.
 	SampleUtterances []BotSampleUtterance `pulumi:"sampleUtterances"`
 	// Indicates the priority for slots. Amazon Lex prompts the user for slot values in priority order.
 	SlotPriorities []BotSlotPriority `pulumi:"slotPriorities"`
-	// List of slots
+	// A list of slots that the intent requires for fulfillment.
 	Slots []BotSlot `pulumi:"slots"`
 }
 
@@ -6295,8 +6680,8 @@ type BotIntentInput interface {
 	ToBotIntentOutputWithContext(context.Context) BotIntentOutput
 }
 
-// Represents an action that the user wants to perform.
 type BotIntentArgs struct {
+	BedrockAgentIntentConfiguration BotBedrockAgentIntentConfigurationPtrInput `pulumi:"bedrockAgentIntentConfiguration"`
 	// Description of thr intent.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Specifies that Amazon Lex invokes the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction.
@@ -6313,18 +6698,19 @@ type BotIntentArgs struct {
 	IntentConfirmationSetting BotIntentConfirmationSettingPtrInput `pulumi:"intentConfirmationSetting"`
 	// Provides configuration information for the `AMAZON.KendraSearchIntent` intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra index and returns documents from the index that match the user's utterance.
 	KendraConfiguration BotKendraConfigurationPtrInput `pulumi:"kendraConfiguration"`
-	// The name of the intent.
+	// The name of the intent. Intent names must be unique within the locale that contains the intent and can't match the name of any built-in intent.
 	Name pulumi.StringInput `pulumi:"name"`
 	// A list of contexts that the intent activates when it is fulfilled.
 	OutputContexts BotOutputContextArrayInput `pulumi:"outputContexts"`
 	// A unique identifier for the built-in intent to base this intent on.
-	ParentIntentSignature  pulumi.StringPtrInput             `pulumi:"parentIntentSignature"`
-	QnAIntentConfiguration BotQnAIntentConfigurationPtrInput `pulumi:"qnAIntentConfiguration"`
-	// A sample utterance that invokes an intent or respond to a slot elicitation prompt.
+	ParentIntentSignature         pulumi.StringPtrInput                    `pulumi:"parentIntentSignature"`
+	QInConnectIntentConfiguration BotQInConnectIntentConfigurationPtrInput `pulumi:"qInConnectIntentConfiguration"`
+	QnAIntentConfiguration        BotQnAIntentConfigurationPtrInput        `pulumi:"qnAIntentConfiguration"`
+	// A list of utterances that a user might say to signal the intent.
 	SampleUtterances BotSampleUtteranceArrayInput `pulumi:"sampleUtterances"`
 	// Indicates the priority for slots. Amazon Lex prompts the user for slot values in priority order.
 	SlotPriorities BotSlotPriorityArrayInput `pulumi:"slotPriorities"`
-	// List of slots
+	// A list of slots that the intent requires for fulfillment.
 	Slots BotSlotArrayInput `pulumi:"slots"`
 }
 
@@ -6365,7 +6751,6 @@ func (i BotIntentArray) ToBotIntentArrayOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BotIntentArrayOutput)
 }
 
-// Represents an action that the user wants to perform.
 type BotIntentOutput struct{ *pulumi.OutputState }
 
 func (BotIntentOutput) ElementType() reflect.Type {
@@ -6378,6 +6763,10 @@ func (o BotIntentOutput) ToBotIntentOutput() BotIntentOutput {
 
 func (o BotIntentOutput) ToBotIntentOutputWithContext(ctx context.Context) BotIntentOutput {
 	return o
+}
+
+func (o BotIntentOutput) BedrockAgentIntentConfiguration() BotBedrockAgentIntentConfigurationPtrOutput {
+	return o.ApplyT(func(v BotIntent) *BotBedrockAgentIntentConfiguration { return v.BedrockAgentIntentConfiguration }).(BotBedrockAgentIntentConfigurationPtrOutput)
 }
 
 // Description of thr intent.
@@ -6420,7 +6809,7 @@ func (o BotIntentOutput) KendraConfiguration() BotKendraConfigurationPtrOutput {
 	return o.ApplyT(func(v BotIntent) *BotKendraConfiguration { return v.KendraConfiguration }).(BotKendraConfigurationPtrOutput)
 }
 
-// The name of the intent.
+// The name of the intent. Intent names must be unique within the locale that contains the intent and can't match the name of any built-in intent.
 func (o BotIntentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BotIntent) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6435,11 +6824,15 @@ func (o BotIntentOutput) ParentIntentSignature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotIntent) *string { return v.ParentIntentSignature }).(pulumi.StringPtrOutput)
 }
 
+func (o BotIntentOutput) QInConnectIntentConfiguration() BotQInConnectIntentConfigurationPtrOutput {
+	return o.ApplyT(func(v BotIntent) *BotQInConnectIntentConfiguration { return v.QInConnectIntentConfiguration }).(BotQInConnectIntentConfigurationPtrOutput)
+}
+
 func (o BotIntentOutput) QnAIntentConfiguration() BotQnAIntentConfigurationPtrOutput {
 	return o.ApplyT(func(v BotIntent) *BotQnAIntentConfiguration { return v.QnAIntentConfiguration }).(BotQnAIntentConfigurationPtrOutput)
 }
 
-// A sample utterance that invokes an intent or respond to a slot elicitation prompt.
+// A list of utterances that a user might say to signal the intent.
 func (o BotIntentOutput) SampleUtterances() BotSampleUtteranceArrayOutput {
 	return o.ApplyT(func(v BotIntent) []BotSampleUtterance { return v.SampleUtterances }).(BotSampleUtteranceArrayOutput)
 }
@@ -6449,7 +6842,7 @@ func (o BotIntentOutput) SlotPriorities() BotSlotPriorityArrayOutput {
 	return o.ApplyT(func(v BotIntent) []BotSlotPriority { return v.SlotPriorities }).(BotSlotPriorityArrayOutput)
 }
 
-// List of slots
+// A list of slots that the intent requires for fulfillment.
 func (o BotIntentOutput) Slots() BotSlotArrayOutput {
 	return o.ApplyT(func(v BotIntent) []BotSlot { return v.Slots }).(BotSlotArrayOutput)
 }
@@ -6474,13 +6867,12 @@ func (o BotIntentArrayOutput) Index(i pulumi.IntInput) BotIntentOutput {
 	}).(BotIntentOutput)
 }
 
-// Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
 type BotIntentClosingSetting struct {
 	// The response that Amazon Lex sends to the user when the intent is complete.
 	ClosingResponse *BotResponseSpecification `pulumi:"closingResponse"`
-	// A list of conditional branches associated with the intent's closing response. These branches are executed when the nextStep attribute is set to EvalutateConditional.
+	// A list of conditional branches associated with the intent's closing response. These branches are executed when the `nextStep` attribute is set to `EvalutateConditional` .
 	Conditional *BotConditionalSpecification `pulumi:"conditional"`
-	// Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the active field isn't specified, the default is true.
+	// Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the `IsActive` field isn't specified, the default is true.
 	IsActive *bool `pulumi:"isActive"`
 	// Specifies the next step that the bot executes after playing the intent's closing response.
 	NextStep *BotDialogState `pulumi:"nextStep"`
@@ -6497,13 +6889,12 @@ type BotIntentClosingSettingInput interface {
 	ToBotIntentClosingSettingOutputWithContext(context.Context) BotIntentClosingSettingOutput
 }
 
-// Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
 type BotIntentClosingSettingArgs struct {
 	// The response that Amazon Lex sends to the user when the intent is complete.
 	ClosingResponse BotResponseSpecificationPtrInput `pulumi:"closingResponse"`
-	// A list of conditional branches associated with the intent's closing response. These branches are executed when the nextStep attribute is set to EvalutateConditional.
+	// A list of conditional branches associated with the intent's closing response. These branches are executed when the `nextStep` attribute is set to `EvalutateConditional` .
 	Conditional BotConditionalSpecificationPtrInput `pulumi:"conditional"`
-	// Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the active field isn't specified, the default is true.
+	// Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the `IsActive` field isn't specified, the default is true.
 	IsActive pulumi.BoolPtrInput `pulumi:"isActive"`
 	// Specifies the next step that the bot executes after playing the intent's closing response.
 	NextStep BotDialogStatePtrInput `pulumi:"nextStep"`
@@ -6562,7 +6953,6 @@ func (i *botIntentClosingSettingPtrType) ToBotIntentClosingSettingPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BotIntentClosingSettingPtrOutput)
 }
 
-// Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
 type BotIntentClosingSettingOutput struct{ *pulumi.OutputState }
 
 func (BotIntentClosingSettingOutput) ElementType() reflect.Type {
@@ -6592,12 +6982,12 @@ func (o BotIntentClosingSettingOutput) ClosingResponse() BotResponseSpecificatio
 	return o.ApplyT(func(v BotIntentClosingSetting) *BotResponseSpecification { return v.ClosingResponse }).(BotResponseSpecificationPtrOutput)
 }
 
-// A list of conditional branches associated with the intent's closing response. These branches are executed when the nextStep attribute is set to EvalutateConditional.
+// A list of conditional branches associated with the intent's closing response. These branches are executed when the `nextStep` attribute is set to `EvalutateConditional` .
 func (o BotIntentClosingSettingOutput) Conditional() BotConditionalSpecificationPtrOutput {
 	return o.ApplyT(func(v BotIntentClosingSetting) *BotConditionalSpecification { return v.Conditional }).(BotConditionalSpecificationPtrOutput)
 }
 
-// Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the active field isn't specified, the default is true.
+// Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the `IsActive` field isn't specified, the default is true.
 func (o BotIntentClosingSettingOutput) IsActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotIntentClosingSetting) *bool { return v.IsActive }).(pulumi.BoolPtrOutput)
 }
@@ -6641,7 +7031,7 @@ func (o BotIntentClosingSettingPtrOutput) ClosingResponse() BotResponseSpecifica
 	}).(BotResponseSpecificationPtrOutput)
 }
 
-// A list of conditional branches associated with the intent's closing response. These branches are executed when the nextStep attribute is set to EvalutateConditional.
+// A list of conditional branches associated with the intent's closing response. These branches are executed when the `nextStep` attribute is set to `EvalutateConditional` .
 func (o BotIntentClosingSettingPtrOutput) Conditional() BotConditionalSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotIntentClosingSetting) *BotConditionalSpecification {
 		if v == nil {
@@ -6651,7 +7041,7 @@ func (o BotIntentClosingSettingPtrOutput) Conditional() BotConditionalSpecificat
 	}).(BotConditionalSpecificationPtrOutput)
 }
 
-// Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the active field isn't specified, the default is true.
+// Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the `IsActive` field isn't specified, the default is true.
 func (o BotIntentClosingSettingPtrOutput) IsActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BotIntentClosingSetting) *bool {
 		if v == nil {
@@ -6671,9 +7061,8 @@ func (o BotIntentClosingSettingPtrOutput) NextStep() BotDialogStatePtrOutput {
 	}).(BotDialogStatePtrOutput)
 }
 
-// Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
 type BotIntentConfirmationSetting struct {
-	// The DialogCodeHookInvocationSetting object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is InvokeDialogCodeHook.
+	// The `DialogCodeHookInvocationSetting` object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `InvokeDialogCodeHook` .
 	CodeHook *BotDialogCodeHookInvocationSetting `pulumi:"codeHook"`
 	// A list of conditional branches to evaluate after the intent is closed.
 	ConfirmationConditional *BotConditionalSpecification `pulumi:"confirmationConditional"`
@@ -6685,19 +7074,21 @@ type BotIntentConfirmationSetting struct {
 	DeclinationConditional *BotConditionalSpecification `pulumi:"declinationConditional"`
 	// Specifies the next step that the bot executes when the customer declines the intent.
 	DeclinationNextStep *BotDialogState `pulumi:"declinationNextStep"`
-	// When the user answers "no" to the question defined in promptSpecification, Amazon Lex responds with this response to acknowledge that the intent was canceled.
+	// When the user answers "no" to the question defined in `promptSpecification` , Amazon Lex responds with this response to acknowledge that the intent was canceled.
 	DeclinationResponse *BotResponseSpecification `pulumi:"declinationResponse"`
-	// The DialogCodeHookInvocationSetting used when the code hook is invoked during confirmation prompt retries.
+	// The `DialogCodeHookInvocationSetting` used when the code hook is invoked during confirmation prompt retries.
 	ElicitationCodeHook *BotElicitationCodeHookInvocationSetting `pulumi:"elicitationCodeHook"`
 	// Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
 	FailureConditional *BotConditionalSpecification `pulumi:"failureConditional"`
 	// The next step to take in the conversation if the confirmation step fails.
 	FailureNextStep *BotDialogState `pulumi:"failureNextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// Specifies a list of message groups that Amazon Lex uses to respond the user input when the intent confirmation fails.
 	FailureResponse *BotResponseSpecification `pulumi:"failureResponse"`
-	// Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the active field isn't specified, the default is true.
+	// Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the `IsActive` field isn't specified, the default is true.
 	IsActive *bool `pulumi:"isActive"`
 	// Prompts the user to confirm the intent. This question should have a yes or no answer.
+	//
+	// Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
 	PromptSpecification BotPromptSpecification `pulumi:"promptSpecification"`
 }
 
@@ -6712,9 +7103,8 @@ type BotIntentConfirmationSettingInput interface {
 	ToBotIntentConfirmationSettingOutputWithContext(context.Context) BotIntentConfirmationSettingOutput
 }
 
-// Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
 type BotIntentConfirmationSettingArgs struct {
-	// The DialogCodeHookInvocationSetting object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is InvokeDialogCodeHook.
+	// The `DialogCodeHookInvocationSetting` object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `InvokeDialogCodeHook` .
 	CodeHook BotDialogCodeHookInvocationSettingPtrInput `pulumi:"codeHook"`
 	// A list of conditional branches to evaluate after the intent is closed.
 	ConfirmationConditional BotConditionalSpecificationPtrInput `pulumi:"confirmationConditional"`
@@ -6726,19 +7116,21 @@ type BotIntentConfirmationSettingArgs struct {
 	DeclinationConditional BotConditionalSpecificationPtrInput `pulumi:"declinationConditional"`
 	// Specifies the next step that the bot executes when the customer declines the intent.
 	DeclinationNextStep BotDialogStatePtrInput `pulumi:"declinationNextStep"`
-	// When the user answers "no" to the question defined in promptSpecification, Amazon Lex responds with this response to acknowledge that the intent was canceled.
+	// When the user answers "no" to the question defined in `promptSpecification` , Amazon Lex responds with this response to acknowledge that the intent was canceled.
 	DeclinationResponse BotResponseSpecificationPtrInput `pulumi:"declinationResponse"`
-	// The DialogCodeHookInvocationSetting used when the code hook is invoked during confirmation prompt retries.
+	// The `DialogCodeHookInvocationSetting` used when the code hook is invoked during confirmation prompt retries.
 	ElicitationCodeHook BotElicitationCodeHookInvocationSettingPtrInput `pulumi:"elicitationCodeHook"`
 	// Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
 	FailureConditional BotConditionalSpecificationPtrInput `pulumi:"failureConditional"`
 	// The next step to take in the conversation if the confirmation step fails.
 	FailureNextStep BotDialogStatePtrInput `pulumi:"failureNextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// Specifies a list of message groups that Amazon Lex uses to respond the user input when the intent confirmation fails.
 	FailureResponse BotResponseSpecificationPtrInput `pulumi:"failureResponse"`
-	// Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the active field isn't specified, the default is true.
+	// Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the `IsActive` field isn't specified, the default is true.
 	IsActive pulumi.BoolPtrInput `pulumi:"isActive"`
 	// Prompts the user to confirm the intent. This question should have a yes or no answer.
+	//
+	// Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
 	PromptSpecification BotPromptSpecificationInput `pulumi:"promptSpecification"`
 }
 
@@ -6795,7 +7187,6 @@ func (i *botIntentConfirmationSettingPtrType) ToBotIntentConfirmationSettingPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BotIntentConfirmationSettingPtrOutput)
 }
 
-// Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
 type BotIntentConfirmationSettingOutput struct{ *pulumi.OutputState }
 
 func (BotIntentConfirmationSettingOutput) ElementType() reflect.Type {
@@ -6820,7 +7211,7 @@ func (o BotIntentConfirmationSettingOutput) ToBotIntentConfirmationSettingPtrOut
 	}).(BotIntentConfirmationSettingPtrOutput)
 }
 
-// The DialogCodeHookInvocationSetting object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is InvokeDialogCodeHook.
+// The `DialogCodeHookInvocationSetting` object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `InvokeDialogCodeHook` .
 func (o BotIntentConfirmationSettingOutput) CodeHook() BotDialogCodeHookInvocationSettingPtrOutput {
 	return o.ApplyT(func(v BotIntentConfirmationSetting) *BotDialogCodeHookInvocationSetting { return v.CodeHook }).(BotDialogCodeHookInvocationSettingPtrOutput)
 }
@@ -6850,12 +7241,12 @@ func (o BotIntentConfirmationSettingOutput) DeclinationNextStep() BotDialogState
 	return o.ApplyT(func(v BotIntentConfirmationSetting) *BotDialogState { return v.DeclinationNextStep }).(BotDialogStatePtrOutput)
 }
 
-// When the user answers "no" to the question defined in promptSpecification, Amazon Lex responds with this response to acknowledge that the intent was canceled.
+// When the user answers "no" to the question defined in `promptSpecification` , Amazon Lex responds with this response to acknowledge that the intent was canceled.
 func (o BotIntentConfirmationSettingOutput) DeclinationResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v BotIntentConfirmationSetting) *BotResponseSpecification { return v.DeclinationResponse }).(BotResponseSpecificationPtrOutput)
 }
 
-// The DialogCodeHookInvocationSetting used when the code hook is invoked during confirmation prompt retries.
+// The `DialogCodeHookInvocationSetting` used when the code hook is invoked during confirmation prompt retries.
 func (o BotIntentConfirmationSettingOutput) ElicitationCodeHook() BotElicitationCodeHookInvocationSettingPtrOutput {
 	return o.ApplyT(func(v BotIntentConfirmationSetting) *BotElicitationCodeHookInvocationSetting {
 		return v.ElicitationCodeHook
@@ -6872,17 +7263,19 @@ func (o BotIntentConfirmationSettingOutput) FailureNextStep() BotDialogStatePtrO
 	return o.ApplyT(func(v BotIntentConfirmationSetting) *BotDialogState { return v.FailureNextStep }).(BotDialogStatePtrOutput)
 }
 
-// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+// Specifies a list of message groups that Amazon Lex uses to respond the user input when the intent confirmation fails.
 func (o BotIntentConfirmationSettingOutput) FailureResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v BotIntentConfirmationSetting) *BotResponseSpecification { return v.FailureResponse }).(BotResponseSpecificationPtrOutput)
 }
 
-// Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the active field isn't specified, the default is true.
+// Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the `IsActive` field isn't specified, the default is true.
 func (o BotIntentConfirmationSettingOutput) IsActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotIntentConfirmationSetting) *bool { return v.IsActive }).(pulumi.BoolPtrOutput)
 }
 
 // Prompts the user to confirm the intent. This question should have a yes or no answer.
+//
+// Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
 func (o BotIntentConfirmationSettingOutput) PromptSpecification() BotPromptSpecificationOutput {
 	return o.ApplyT(func(v BotIntentConfirmationSetting) BotPromptSpecification { return v.PromptSpecification }).(BotPromptSpecificationOutput)
 }
@@ -6911,7 +7304,7 @@ func (o BotIntentConfirmationSettingPtrOutput) Elem() BotIntentConfirmationSetti
 	}).(BotIntentConfirmationSettingOutput)
 }
 
-// The DialogCodeHookInvocationSetting object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is InvokeDialogCodeHook.
+// The `DialogCodeHookInvocationSetting` object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `InvokeDialogCodeHook` .
 func (o BotIntentConfirmationSettingPtrOutput) CodeHook() BotDialogCodeHookInvocationSettingPtrOutput {
 	return o.ApplyT(func(v *BotIntentConfirmationSetting) *BotDialogCodeHookInvocationSetting {
 		if v == nil {
@@ -6971,7 +7364,7 @@ func (o BotIntentConfirmationSettingPtrOutput) DeclinationNextStep() BotDialogSt
 	}).(BotDialogStatePtrOutput)
 }
 
-// When the user answers "no" to the question defined in promptSpecification, Amazon Lex responds with this response to acknowledge that the intent was canceled.
+// When the user answers "no" to the question defined in `promptSpecification` , Amazon Lex responds with this response to acknowledge that the intent was canceled.
 func (o BotIntentConfirmationSettingPtrOutput) DeclinationResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotIntentConfirmationSetting) *BotResponseSpecification {
 		if v == nil {
@@ -6981,7 +7374,7 @@ func (o BotIntentConfirmationSettingPtrOutput) DeclinationResponse() BotResponse
 	}).(BotResponseSpecificationPtrOutput)
 }
 
-// The DialogCodeHookInvocationSetting used when the code hook is invoked during confirmation prompt retries.
+// The `DialogCodeHookInvocationSetting` used when the code hook is invoked during confirmation prompt retries.
 func (o BotIntentConfirmationSettingPtrOutput) ElicitationCodeHook() BotElicitationCodeHookInvocationSettingPtrOutput {
 	return o.ApplyT(func(v *BotIntentConfirmationSetting) *BotElicitationCodeHookInvocationSetting {
 		if v == nil {
@@ -7011,7 +7404,7 @@ func (o BotIntentConfirmationSettingPtrOutput) FailureNextStep() BotDialogStateP
 	}).(BotDialogStatePtrOutput)
 }
 
-// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+// Specifies a list of message groups that Amazon Lex uses to respond the user input when the intent confirmation fails.
 func (o BotIntentConfirmationSettingPtrOutput) FailureResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotIntentConfirmationSetting) *BotResponseSpecification {
 		if v == nil {
@@ -7021,7 +7414,7 @@ func (o BotIntentConfirmationSettingPtrOutput) FailureResponse() BotResponseSpec
 	}).(BotResponseSpecificationPtrOutput)
 }
 
-// Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the active field isn't specified, the default is true.
+// Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the `IsActive` field isn't specified, the default is true.
 func (o BotIntentConfirmationSettingPtrOutput) IsActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BotIntentConfirmationSetting) *bool {
 		if v == nil {
@@ -7032,6 +7425,8 @@ func (o BotIntentConfirmationSettingPtrOutput) IsActive() pulumi.BoolPtrOutput {
 }
 
 // Prompts the user to confirm the intent. This question should have a yes or no answer.
+//
+// Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
 func (o BotIntentConfirmationSettingPtrOutput) PromptSpecification() BotPromptSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotIntentConfirmationSetting) *BotPromptSpecification {
 		if v == nil {
@@ -7041,11 +7436,10 @@ func (o BotIntentConfirmationSettingPtrOutput) PromptSpecification() BotPromptSp
 	}).(BotPromptSpecificationPtrOutput)
 }
 
-// Override settings to configure the intent state.
 type BotIntentOverride struct {
 	// The name of the intent. Only required when you're switching intents.
 	Name *string `pulumi:"name"`
-	// A map of all of the slot value overrides for the intent.
+	// A map of all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden.
 	Slots []BotSlotValueOverrideMap `pulumi:"slots"`
 }
 
@@ -7060,11 +7454,10 @@ type BotIntentOverrideInput interface {
 	ToBotIntentOverrideOutputWithContext(context.Context) BotIntentOverrideOutput
 }
 
-// Override settings to configure the intent state.
 type BotIntentOverrideArgs struct {
 	// The name of the intent. Only required when you're switching intents.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A map of all of the slot value overrides for the intent.
+	// A map of all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden.
 	Slots BotSlotValueOverrideMapArrayInput `pulumi:"slots"`
 }
 
@@ -7121,7 +7514,6 @@ func (i *botIntentOverridePtrType) ToBotIntentOverridePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(BotIntentOverridePtrOutput)
 }
 
-// Override settings to configure the intent state.
 type BotIntentOverrideOutput struct{ *pulumi.OutputState }
 
 func (BotIntentOverrideOutput) ElementType() reflect.Type {
@@ -7151,7 +7543,7 @@ func (o BotIntentOverrideOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotIntentOverride) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// A map of all of the slot value overrides for the intent.
+// A map of all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden.
 func (o BotIntentOverrideOutput) Slots() BotSlotValueOverrideMapArrayOutput {
 	return o.ApplyT(func(v BotIntentOverride) []BotSlotValueOverrideMap { return v.Slots }).(BotSlotValueOverrideMapArrayOutput)
 }
@@ -7190,7 +7582,7 @@ func (o BotIntentOverridePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A map of all of the slot value overrides for the intent.
+// A map of all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden.
 func (o BotIntentOverridePtrOutput) Slots() BotSlotValueOverrideMapArrayOutput {
 	return o.ApplyT(func(v *BotIntentOverride) []BotSlotValueOverrideMap {
 		if v == nil {
@@ -7200,13 +7592,12 @@ func (o BotIntentOverridePtrOutput) Slots() BotSlotValueOverrideMapArrayOutput {
 	}).(BotSlotValueOverrideMapArrayOutput)
 }
 
-// Configuration for searching a Amazon Kendra index specified for the intent.
 type BotKendraConfiguration struct {
 	// The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the `AMAZON.KendraSearchIntent` intent to search. The index must be in the same account and Region as the Amazon Lex bot.
 	KendraIndex string `pulumi:"kendraIndex"`
 	// A query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html) .
 	QueryFilterString *string `pulumi:"queryFilterString"`
-	// Determines whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
+	// Determines whether the `AMAZON.KendraSearchIntent` intent uses a custom query string to query the Amazon Kendra index.
 	QueryFilterStringEnabled *bool `pulumi:"queryFilterStringEnabled"`
 }
 
@@ -7221,13 +7612,12 @@ type BotKendraConfigurationInput interface {
 	ToBotKendraConfigurationOutputWithContext(context.Context) BotKendraConfigurationOutput
 }
 
-// Configuration for searching a Amazon Kendra index specified for the intent.
 type BotKendraConfigurationArgs struct {
 	// The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the `AMAZON.KendraSearchIntent` intent to search. The index must be in the same account and Region as the Amazon Lex bot.
 	KendraIndex pulumi.StringInput `pulumi:"kendraIndex"`
 	// A query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html) .
 	QueryFilterString pulumi.StringPtrInput `pulumi:"queryFilterString"`
-	// Determines whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
+	// Determines whether the `AMAZON.KendraSearchIntent` intent uses a custom query string to query the Amazon Kendra index.
 	QueryFilterStringEnabled pulumi.BoolPtrInput `pulumi:"queryFilterStringEnabled"`
 }
 
@@ -7284,7 +7674,6 @@ func (i *botKendraConfigurationPtrType) ToBotKendraConfigurationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BotKendraConfigurationPtrOutput)
 }
 
-// Configuration for searching a Amazon Kendra index specified for the intent.
 type BotKendraConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BotKendraConfigurationOutput) ElementType() reflect.Type {
@@ -7319,7 +7708,7 @@ func (o BotKendraConfigurationOutput) QueryFilterString() pulumi.StringPtrOutput
 	return o.ApplyT(func(v BotKendraConfiguration) *string { return v.QueryFilterString }).(pulumi.StringPtrOutput)
 }
 
-// Determines whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
+// Determines whether the `AMAZON.KendraSearchIntent` intent uses a custom query string to query the Amazon Kendra index.
 func (o BotKendraConfigurationOutput) QueryFilterStringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotKendraConfiguration) *bool { return v.QueryFilterStringEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -7368,7 +7757,7 @@ func (o BotKendraConfigurationPtrOutput) QueryFilterString() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
+// Determines whether the `AMAZON.KendraSearchIntent` intent uses a custom query string to query the Amazon Kendra index.
 func (o BotKendraConfigurationPtrOutput) QueryFilterStringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BotKendraConfiguration) *bool {
 		if v == nil {
@@ -7378,27 +7767,23 @@ func (o BotKendraConfigurationPtrOutput) QueryFilterStringEnabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Contains information about code hooks that Amazon Lex calls during a conversation.
 type BotLambdaCodeHook struct {
-	// The version of the request-response that you want Amazon Lex to use to invoke your Lambda function.
 	CodeHookInterfaceVersion string `pulumi:"codeHookInterfaceVersion"`
-	// The Amazon Resource Name (ARN) of the Lambda function.
-	LambdaArn string `pulumi:"lambdaArn"`
+	LambdaArn                string `pulumi:"lambdaArn"`
 }
 
-// A locale in the bot, which contains the intents and slot types that the bot uses in conversations with users in the specified language and locale.
 type BotLocale struct {
 	// Specifies a custom vocabulary to use with a specific locale.
 	CustomVocabulary *BotCustomVocabulary `pulumi:"customVocabulary"`
 	// A description of the bot locale. Use this to help identify the bot locale in lists.
 	Description *string `pulumi:"description"`
-	// List of intents
+	// One or more intents defined for the locale.
 	Intents []BotIntent `pulumi:"intents"`
 	// The identifier of the language and locale that the bot will be used in. The string must match one of the supported locales.
 	LocaleId string `pulumi:"localeId"`
 	// Determines the threshold where Amazon Lex will insert the `AMAZON.FallbackIntent` , `AMAZON.KendraSearchIntent` , or both when returning alternative intents. You must configure an `AMAZON.FallbackIntent` . `AMAZON.KendraSearchIntent` is only inserted if it is configured for the bot.
 	NluConfidenceThreshold float64 `pulumi:"nluConfidenceThreshold"`
-	// List of SlotTypes
+	// One or more slot types defined for the locale.
 	SlotTypes []BotSlotType `pulumi:"slotTypes"`
 	// Defines settings for using an Amazon Polly voice to communicate with a user.
 	//
@@ -7422,19 +7807,18 @@ type BotLocaleInput interface {
 	ToBotLocaleOutputWithContext(context.Context) BotLocaleOutput
 }
 
-// A locale in the bot, which contains the intents and slot types that the bot uses in conversations with users in the specified language and locale.
 type BotLocaleArgs struct {
 	// Specifies a custom vocabulary to use with a specific locale.
 	CustomVocabulary BotCustomVocabularyPtrInput `pulumi:"customVocabulary"`
 	// A description of the bot locale. Use this to help identify the bot locale in lists.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// List of intents
+	// One or more intents defined for the locale.
 	Intents BotIntentArrayInput `pulumi:"intents"`
 	// The identifier of the language and locale that the bot will be used in. The string must match one of the supported locales.
 	LocaleId pulumi.StringInput `pulumi:"localeId"`
 	// Determines the threshold where Amazon Lex will insert the `AMAZON.FallbackIntent` , `AMAZON.KendraSearchIntent` , or both when returning alternative intents. You must configure an `AMAZON.FallbackIntent` . `AMAZON.KendraSearchIntent` is only inserted if it is configured for the bot.
 	NluConfidenceThreshold pulumi.Float64Input `pulumi:"nluConfidenceThreshold"`
-	// List of SlotTypes
+	// One or more slot types defined for the locale.
 	SlotTypes BotSlotTypeArrayInput `pulumi:"slotTypes"`
 	// Defines settings for using an Amazon Polly voice to communicate with a user.
 	//
@@ -7484,7 +7868,6 @@ func (i BotLocaleArray) ToBotLocaleArrayOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BotLocaleArrayOutput)
 }
 
-// A locale in the bot, which contains the intents and slot types that the bot uses in conversations with users in the specified language and locale.
 type BotLocaleOutput struct{ *pulumi.OutputState }
 
 func (BotLocaleOutput) ElementType() reflect.Type {
@@ -7509,7 +7892,7 @@ func (o BotLocaleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotLocale) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// List of intents
+// One or more intents defined for the locale.
 func (o BotLocaleOutput) Intents() BotIntentArrayOutput {
 	return o.ApplyT(func(v BotLocale) []BotIntent { return v.Intents }).(BotIntentArrayOutput)
 }
@@ -7524,7 +7907,7 @@ func (o BotLocaleOutput) NluConfidenceThreshold() pulumi.Float64Output {
 	return o.ApplyT(func(v BotLocale) float64 { return v.NluConfidenceThreshold }).(pulumi.Float64Output)
 }
 
-// List of SlotTypes
+// One or more slot types defined for the locale.
 func (o BotLocaleOutput) SlotTypes() BotSlotTypeArrayOutput {
 	return o.ApplyT(func(v BotLocale) []BotSlotType { return v.SlotTypes }).(BotSlotTypeArrayOutput)
 }
@@ -7561,7 +7944,6 @@ func (o BotLocaleArrayOutput) Index(i pulumi.IntInput) BotLocaleOutput {
 	}).(BotLocaleOutput)
 }
 
-// The primary message that Amazon Lex should send to the user.
 type BotMessage struct {
 	CustomPayload     *BotCustomPayload     `pulumi:"customPayload"`
 	ImageResponseCard *BotImageResponseCard `pulumi:"imageResponseCard"`
@@ -7580,7 +7962,6 @@ type BotMessageInput interface {
 	ToBotMessageOutputWithContext(context.Context) BotMessageOutput
 }
 
-// The primary message that Amazon Lex should send to the user.
 type BotMessageArgs struct {
 	CustomPayload     BotCustomPayloadPtrInput     `pulumi:"customPayload"`
 	ImageResponseCard BotImageResponseCardPtrInput `pulumi:"imageResponseCard"`
@@ -7625,7 +8006,6 @@ func (i BotMessageArray) ToBotMessageArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BotMessageArrayOutput)
 }
 
-// The primary message that Amazon Lex should send to the user.
 type BotMessageOutput struct{ *pulumi.OutputState }
 
 func (BotMessageOutput) ElementType() reflect.Type {
@@ -7676,10 +8056,8 @@ func (o BotMessageArrayOutput) Index(i pulumi.IntInput) BotMessageOutput {
 	}).(BotMessageOutput)
 }
 
-// One or more messages that Amazon Lex can send to the user.
 type BotMessageGroup struct {
-	Message BotMessage `pulumi:"message"`
-	// Message variations to send to the user.
+	Message    BotMessage   `pulumi:"message"`
 	Variations []BotMessage `pulumi:"variations"`
 }
 
@@ -7694,10 +8072,8 @@ type BotMessageGroupInput interface {
 	ToBotMessageGroupOutputWithContext(context.Context) BotMessageGroupOutput
 }
 
-// One or more messages that Amazon Lex can send to the user.
 type BotMessageGroupArgs struct {
-	Message BotMessageInput `pulumi:"message"`
-	// Message variations to send to the user.
+	Message    BotMessageInput      `pulumi:"message"`
 	Variations BotMessageArrayInput `pulumi:"variations"`
 }
 
@@ -7738,7 +8114,6 @@ func (i BotMessageGroupArray) ToBotMessageGroupArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BotMessageGroupArrayOutput)
 }
 
-// One or more messages that Amazon Lex can send to the user.
 type BotMessageGroupOutput struct{ *pulumi.OutputState }
 
 func (BotMessageGroupOutput) ElementType() reflect.Type {
@@ -7757,7 +8132,6 @@ func (o BotMessageGroupOutput) Message() BotMessageOutput {
 	return o.ApplyT(func(v BotMessageGroup) BotMessage { return v.Message }).(BotMessageOutput)
 }
 
-// Message variations to send to the user.
 func (o BotMessageGroupOutput) Variations() BotMessageArrayOutput {
 	return o.ApplyT(func(v BotMessageGroup) []BotMessage { return v.Variations }).(BotMessageArrayOutput)
 }
@@ -7782,7 +8156,6 @@ func (o BotMessageGroupArrayOutput) Index(i pulumi.IntInput) BotMessageGroupOutp
 	}).(BotMessageGroupOutput)
 }
 
-// Indicates whether a slot can return multiple values.
 type BotMultipleValuesSetting struct {
 	// Indicates whether a slot can return multiple values. When `true` , the slot may return more than one value in a response. When `false` , the slot returns only a single value.
 	//
@@ -7803,7 +8176,6 @@ type BotMultipleValuesSettingInput interface {
 	ToBotMultipleValuesSettingOutputWithContext(context.Context) BotMultipleValuesSettingOutput
 }
 
-// Indicates whether a slot can return multiple values.
 type BotMultipleValuesSettingArgs struct {
 	// Indicates whether a slot can return multiple values. When `true` , the slot may return more than one value in a response. When `false` , the slot returns only a single value.
 	//
@@ -7866,7 +8238,6 @@ func (i *botMultipleValuesSettingPtrType) ToBotMultipleValuesSettingPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BotMultipleValuesSettingPtrOutput)
 }
 
-// Indicates whether a slot can return multiple values.
 type BotMultipleValuesSettingOutput struct{ *pulumi.OutputState }
 
 func (BotMultipleValuesSettingOutput) ElementType() reflect.Type {
@@ -7938,7 +8309,6 @@ func (o BotMultipleValuesSettingPtrOutput) AllowMultipleValues() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Determines whether Amazon Lex obscures slot values in conversation logs.
 type BotObfuscationSetting struct {
 	// Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
 	ObfuscationSettingType BotObfuscationSettingObfuscationSettingType `pulumi:"obfuscationSettingType"`
@@ -7955,7 +8325,6 @@ type BotObfuscationSettingInput interface {
 	ToBotObfuscationSettingOutputWithContext(context.Context) BotObfuscationSettingOutput
 }
 
-// Determines whether Amazon Lex obscures slot values in conversation logs.
 type BotObfuscationSettingArgs struct {
 	// Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
 	ObfuscationSettingType BotObfuscationSettingObfuscationSettingTypeInput `pulumi:"obfuscationSettingType"`
@@ -8014,7 +8383,6 @@ func (i *botObfuscationSettingPtrType) ToBotObfuscationSettingPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(BotObfuscationSettingPtrOutput)
 }
 
-// Determines whether Amazon Lex obscures slot values in conversation logs.
 type BotObfuscationSettingOutput struct{ *pulumi.OutputState }
 
 func (BotObfuscationSettingOutput) ElementType() reflect.Type {
@@ -8080,7 +8448,6 @@ func (o BotObfuscationSettingPtrOutput) ObfuscationSettingType() BotObfuscationS
 	}).(BotObfuscationSettingObfuscationSettingTypePtrOutput)
 }
 
-// A session context that is activated when an intent is fulfilled.
 type BotOutputContext struct {
 	Name                string `pulumi:"name"`
 	TimeToLiveInSeconds int    `pulumi:"timeToLiveInSeconds"`
@@ -8098,7 +8465,6 @@ type BotOutputContextInput interface {
 	ToBotOutputContextOutputWithContext(context.Context) BotOutputContextOutput
 }
 
-// A session context that is activated when an intent is fulfilled.
 type BotOutputContextArgs struct {
 	Name                pulumi.StringInput `pulumi:"name"`
 	TimeToLiveInSeconds pulumi.IntInput    `pulumi:"timeToLiveInSeconds"`
@@ -8142,7 +8508,6 @@ func (i BotOutputContextArray) ToBotOutputContextArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BotOutputContextArrayOutput)
 }
 
-// A session context that is activated when an intent is fulfilled.
 type BotOutputContextOutput struct{ *pulumi.OutputState }
 
 func (BotOutputContextOutput) ElementType() reflect.Type {
@@ -8189,9 +8554,7 @@ func (o BotOutputContextArrayOutput) Index(i pulumi.IntInput) BotOutputContextOu
 	}).(BotOutputContextOutput)
 }
 
-// A message in plain text format.
 type BotPlainTextMessage struct {
-	// The message to send to the user.
 	Value string `pulumi:"value"`
 }
 
@@ -8206,9 +8569,7 @@ type BotPlainTextMessageInput interface {
 	ToBotPlainTextMessageOutputWithContext(context.Context) BotPlainTextMessageOutput
 }
 
-// A message in plain text format.
 type BotPlainTextMessageArgs struct {
-	// The message to send to the user.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -8265,7 +8626,6 @@ func (i *botPlainTextMessagePtrType) ToBotPlainTextMessagePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(BotPlainTextMessagePtrOutput)
 }
 
-// A message in plain text format.
 type BotPlainTextMessageOutput struct{ *pulumi.OutputState }
 
 func (BotPlainTextMessageOutput) ElementType() reflect.Type {
@@ -8290,7 +8650,6 @@ func (o BotPlainTextMessageOutput) ToBotPlainTextMessagePtrOutputWithContext(ctx
 	}).(BotPlainTextMessagePtrOutput)
 }
 
-// The message to send to the user.
 func (o BotPlainTextMessageOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v BotPlainTextMessage) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -8319,7 +8678,6 @@ func (o BotPlainTextMessagePtrOutput) Elem() BotPlainTextMessageOutput {
 	}).(BotPlainTextMessageOutput)
 }
 
-// The message to send to the user.
 func (o BotPlainTextMessagePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotPlainTextMessage) *string {
 		if v == nil {
@@ -8329,25 +8687,24 @@ func (o BotPlainTextMessagePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies next steps to run after the dialog code hook finishes.
 type BotPostDialogCodeHookInvocationSpecification struct {
-	// A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+	// A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 	FailureConditional *BotConditionalSpecification `pulumi:"failureConditional"`
-	// Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+	// Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 	FailureNextStep *BotDialogState `pulumi:"failureNextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// Specifies a list of message groups that Amazon Lex uses to respond the user input when the code hook fails.
 	FailureResponse *BotResponseSpecification `pulumi:"failureResponse"`
 	// A list of conditional branches to evaluate after the dialog code hook finishes successfully.
 	SuccessConditional *BotConditionalSpecification `pulumi:"successConditional"`
 	// Specifics the next step the bot runs after the dialog code hook finishes successfully.
 	SuccessNextStep *BotDialogState `pulumi:"successNextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// Specifies a list of message groups that Amazon Lex uses to respond when the code hook succeeds.
 	SuccessResponse *BotResponseSpecification `pulumi:"successResponse"`
 	// A list of conditional branches to evaluate if the code hook times out.
 	TimeoutConditional *BotConditionalSpecification `pulumi:"timeoutConditional"`
 	// Specifies the next step that the bot runs when the code hook times out.
 	TimeoutNextStep *BotDialogState `pulumi:"timeoutNextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// Specifies a list of message groups that Amazon Lex uses to respond to the user input when the code hook times out.
 	TimeoutResponse *BotResponseSpecification `pulumi:"timeoutResponse"`
 }
 
@@ -8362,25 +8719,24 @@ type BotPostDialogCodeHookInvocationSpecificationInput interface {
 	ToBotPostDialogCodeHookInvocationSpecificationOutputWithContext(context.Context) BotPostDialogCodeHookInvocationSpecificationOutput
 }
 
-// Specifies next steps to run after the dialog code hook finishes.
 type BotPostDialogCodeHookInvocationSpecificationArgs struct {
-	// A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+	// A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 	FailureConditional BotConditionalSpecificationPtrInput `pulumi:"failureConditional"`
-	// Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+	// Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 	FailureNextStep BotDialogStatePtrInput `pulumi:"failureNextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// Specifies a list of message groups that Amazon Lex uses to respond the user input when the code hook fails.
 	FailureResponse BotResponseSpecificationPtrInput `pulumi:"failureResponse"`
 	// A list of conditional branches to evaluate after the dialog code hook finishes successfully.
 	SuccessConditional BotConditionalSpecificationPtrInput `pulumi:"successConditional"`
 	// Specifics the next step the bot runs after the dialog code hook finishes successfully.
 	SuccessNextStep BotDialogStatePtrInput `pulumi:"successNextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// Specifies a list of message groups that Amazon Lex uses to respond when the code hook succeeds.
 	SuccessResponse BotResponseSpecificationPtrInput `pulumi:"successResponse"`
 	// A list of conditional branches to evaluate if the code hook times out.
 	TimeoutConditional BotConditionalSpecificationPtrInput `pulumi:"timeoutConditional"`
 	// Specifies the next step that the bot runs when the code hook times out.
 	TimeoutNextStep BotDialogStatePtrInput `pulumi:"timeoutNextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// Specifies a list of message groups that Amazon Lex uses to respond to the user input when the code hook times out.
 	TimeoutResponse BotResponseSpecificationPtrInput `pulumi:"timeoutResponse"`
 }
 
@@ -8437,7 +8793,6 @@ func (i *botPostDialogCodeHookInvocationSpecificationPtrType) ToBotPostDialogCod
 	return pulumi.ToOutputWithContext(ctx, i).(BotPostDialogCodeHookInvocationSpecificationPtrOutput)
 }
 
-// Specifies next steps to run after the dialog code hook finishes.
 type BotPostDialogCodeHookInvocationSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotPostDialogCodeHookInvocationSpecificationOutput) ElementType() reflect.Type {
@@ -8462,19 +8817,19 @@ func (o BotPostDialogCodeHookInvocationSpecificationOutput) ToBotPostDialogCodeH
 	}).(BotPostDialogCodeHookInvocationSpecificationPtrOutput)
 }
 
-// A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+// A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 func (o BotPostDialogCodeHookInvocationSpecificationOutput) FailureConditional() BotConditionalSpecificationPtrOutput {
 	return o.ApplyT(func(v BotPostDialogCodeHookInvocationSpecification) *BotConditionalSpecification {
 		return v.FailureConditional
 	}).(BotConditionalSpecificationPtrOutput)
 }
 
-// Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+// Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 func (o BotPostDialogCodeHookInvocationSpecificationOutput) FailureNextStep() BotDialogStatePtrOutput {
 	return o.ApplyT(func(v BotPostDialogCodeHookInvocationSpecification) *BotDialogState { return v.FailureNextStep }).(BotDialogStatePtrOutput)
 }
 
-// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+// Specifies a list of message groups that Amazon Lex uses to respond the user input when the code hook fails.
 func (o BotPostDialogCodeHookInvocationSpecificationOutput) FailureResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v BotPostDialogCodeHookInvocationSpecification) *BotResponseSpecification {
 		return v.FailureResponse
@@ -8493,7 +8848,7 @@ func (o BotPostDialogCodeHookInvocationSpecificationOutput) SuccessNextStep() Bo
 	return o.ApplyT(func(v BotPostDialogCodeHookInvocationSpecification) *BotDialogState { return v.SuccessNextStep }).(BotDialogStatePtrOutput)
 }
 
-// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+// Specifies a list of message groups that Amazon Lex uses to respond when the code hook succeeds.
 func (o BotPostDialogCodeHookInvocationSpecificationOutput) SuccessResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v BotPostDialogCodeHookInvocationSpecification) *BotResponseSpecification {
 		return v.SuccessResponse
@@ -8512,7 +8867,7 @@ func (o BotPostDialogCodeHookInvocationSpecificationOutput) TimeoutNextStep() Bo
 	return o.ApplyT(func(v BotPostDialogCodeHookInvocationSpecification) *BotDialogState { return v.TimeoutNextStep }).(BotDialogStatePtrOutput)
 }
 
-// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+// Specifies a list of message groups that Amazon Lex uses to respond to the user input when the code hook times out.
 func (o BotPostDialogCodeHookInvocationSpecificationOutput) TimeoutResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v BotPostDialogCodeHookInvocationSpecification) *BotResponseSpecification {
 		return v.TimeoutResponse
@@ -8543,7 +8898,7 @@ func (o BotPostDialogCodeHookInvocationSpecificationPtrOutput) Elem() BotPostDia
 	}).(BotPostDialogCodeHookInvocationSpecificationOutput)
 }
 
-// A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+// A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 func (o BotPostDialogCodeHookInvocationSpecificationPtrOutput) FailureConditional() BotConditionalSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotPostDialogCodeHookInvocationSpecification) *BotConditionalSpecification {
 		if v == nil {
@@ -8553,7 +8908,7 @@ func (o BotPostDialogCodeHookInvocationSpecificationPtrOutput) FailureConditiona
 	}).(BotConditionalSpecificationPtrOutput)
 }
 
-// Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+// Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 func (o BotPostDialogCodeHookInvocationSpecificationPtrOutput) FailureNextStep() BotDialogStatePtrOutput {
 	return o.ApplyT(func(v *BotPostDialogCodeHookInvocationSpecification) *BotDialogState {
 		if v == nil {
@@ -8563,7 +8918,7 @@ func (o BotPostDialogCodeHookInvocationSpecificationPtrOutput) FailureNextStep()
 	}).(BotDialogStatePtrOutput)
 }
 
-// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+// Specifies a list of message groups that Amazon Lex uses to respond the user input when the code hook fails.
 func (o BotPostDialogCodeHookInvocationSpecificationPtrOutput) FailureResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotPostDialogCodeHookInvocationSpecification) *BotResponseSpecification {
 		if v == nil {
@@ -8593,7 +8948,7 @@ func (o BotPostDialogCodeHookInvocationSpecificationPtrOutput) SuccessNextStep()
 	}).(BotDialogStatePtrOutput)
 }
 
-// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+// Specifies a list of message groups that Amazon Lex uses to respond when the code hook succeeds.
 func (o BotPostDialogCodeHookInvocationSpecificationPtrOutput) SuccessResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotPostDialogCodeHookInvocationSpecification) *BotResponseSpecification {
 		if v == nil {
@@ -8623,7 +8978,7 @@ func (o BotPostDialogCodeHookInvocationSpecificationPtrOutput) TimeoutNextStep()
 	}).(BotDialogStatePtrOutput)
 }
 
-// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+// Specifies a list of message groups that Amazon Lex uses to respond to the user input when the code hook times out.
 func (o BotPostDialogCodeHookInvocationSpecificationPtrOutput) TimeoutResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotPostDialogCodeHookInvocationSpecification) *BotResponseSpecification {
 		if v == nil {
@@ -8633,25 +8988,24 @@ func (o BotPostDialogCodeHookInvocationSpecificationPtrOutput) TimeoutResponse()
 	}).(BotResponseSpecificationPtrOutput)
 }
 
-// Provides a setting that determines whether the post-fulfillment response is sent to the user.
 type BotPostFulfillmentStatusSpecification struct {
-	// A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+	// A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 	FailureConditional *BotConditionalSpecification `pulumi:"failureConditional"`
-	// Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+	// Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 	FailureNextStep *BotDialogState `pulumi:"failureNextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't successful.
 	FailureResponse *BotResponseSpecification `pulumi:"failureResponse"`
 	// A list of conditional branches to evaluate after the fulfillment code hook finishes successfully.
 	SuccessConditional *BotConditionalSpecification `pulumi:"successConditional"`
 	// Specifies the next step in the conversation that Amazon Lex invokes when the fulfillment code hook completes successfully.
 	SuccessNextStep *BotDialogState `pulumi:"successNextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// Specifies a list of message groups that Amazon Lex uses to respond when the fulfillment is successful.
 	SuccessResponse *BotResponseSpecification `pulumi:"successResponse"`
 	// A list of conditional branches to evaluate if the fulfillment code hook times out.
 	TimeoutConditional *BotConditionalSpecification `pulumi:"timeoutConditional"`
 	// Specifies the next step that the bot runs when the fulfillment code hook times out.
 	TimeoutNextStep *BotDialogState `pulumi:"timeoutNextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't completed within the timeout period.
 	TimeoutResponse *BotResponseSpecification `pulumi:"timeoutResponse"`
 }
 
@@ -8666,25 +9020,24 @@ type BotPostFulfillmentStatusSpecificationInput interface {
 	ToBotPostFulfillmentStatusSpecificationOutputWithContext(context.Context) BotPostFulfillmentStatusSpecificationOutput
 }
 
-// Provides a setting that determines whether the post-fulfillment response is sent to the user.
 type BotPostFulfillmentStatusSpecificationArgs struct {
-	// A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+	// A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 	FailureConditional BotConditionalSpecificationPtrInput `pulumi:"failureConditional"`
-	// Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+	// Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 	FailureNextStep BotDialogStatePtrInput `pulumi:"failureNextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't successful.
 	FailureResponse BotResponseSpecificationPtrInput `pulumi:"failureResponse"`
 	// A list of conditional branches to evaluate after the fulfillment code hook finishes successfully.
 	SuccessConditional BotConditionalSpecificationPtrInput `pulumi:"successConditional"`
 	// Specifies the next step in the conversation that Amazon Lex invokes when the fulfillment code hook completes successfully.
 	SuccessNextStep BotDialogStatePtrInput `pulumi:"successNextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// Specifies a list of message groups that Amazon Lex uses to respond when the fulfillment is successful.
 	SuccessResponse BotResponseSpecificationPtrInput `pulumi:"successResponse"`
 	// A list of conditional branches to evaluate if the fulfillment code hook times out.
 	TimeoutConditional BotConditionalSpecificationPtrInput `pulumi:"timeoutConditional"`
 	// Specifies the next step that the bot runs when the fulfillment code hook times out.
 	TimeoutNextStep BotDialogStatePtrInput `pulumi:"timeoutNextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't completed within the timeout period.
 	TimeoutResponse BotResponseSpecificationPtrInput `pulumi:"timeoutResponse"`
 }
 
@@ -8741,7 +9094,6 @@ func (i *botPostFulfillmentStatusSpecificationPtrType) ToBotPostFulfillmentStatu
 	return pulumi.ToOutputWithContext(ctx, i).(BotPostFulfillmentStatusSpecificationPtrOutput)
 }
 
-// Provides a setting that determines whether the post-fulfillment response is sent to the user.
 type BotPostFulfillmentStatusSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotPostFulfillmentStatusSpecificationOutput) ElementType() reflect.Type {
@@ -8766,19 +9118,19 @@ func (o BotPostFulfillmentStatusSpecificationOutput) ToBotPostFulfillmentStatusS
 	}).(BotPostFulfillmentStatusSpecificationPtrOutput)
 }
 
-// A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+// A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 func (o BotPostFulfillmentStatusSpecificationOutput) FailureConditional() BotConditionalSpecificationPtrOutput {
 	return o.ApplyT(func(v BotPostFulfillmentStatusSpecification) *BotConditionalSpecification {
 		return v.FailureConditional
 	}).(BotConditionalSpecificationPtrOutput)
 }
 
-// Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+// Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 func (o BotPostFulfillmentStatusSpecificationOutput) FailureNextStep() BotDialogStatePtrOutput {
 	return o.ApplyT(func(v BotPostFulfillmentStatusSpecification) *BotDialogState { return v.FailureNextStep }).(BotDialogStatePtrOutput)
 }
 
-// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+// Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't successful.
 func (o BotPostFulfillmentStatusSpecificationOutput) FailureResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v BotPostFulfillmentStatusSpecification) *BotResponseSpecification { return v.FailureResponse }).(BotResponseSpecificationPtrOutput)
 }
@@ -8795,7 +9147,7 @@ func (o BotPostFulfillmentStatusSpecificationOutput) SuccessNextStep() BotDialog
 	return o.ApplyT(func(v BotPostFulfillmentStatusSpecification) *BotDialogState { return v.SuccessNextStep }).(BotDialogStatePtrOutput)
 }
 
-// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+// Specifies a list of message groups that Amazon Lex uses to respond when the fulfillment is successful.
 func (o BotPostFulfillmentStatusSpecificationOutput) SuccessResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v BotPostFulfillmentStatusSpecification) *BotResponseSpecification { return v.SuccessResponse }).(BotResponseSpecificationPtrOutput)
 }
@@ -8812,7 +9164,7 @@ func (o BotPostFulfillmentStatusSpecificationOutput) TimeoutNextStep() BotDialog
 	return o.ApplyT(func(v BotPostFulfillmentStatusSpecification) *BotDialogState { return v.TimeoutNextStep }).(BotDialogStatePtrOutput)
 }
 
-// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+// Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't completed within the timeout period.
 func (o BotPostFulfillmentStatusSpecificationOutput) TimeoutResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v BotPostFulfillmentStatusSpecification) *BotResponseSpecification { return v.TimeoutResponse }).(BotResponseSpecificationPtrOutput)
 }
@@ -8841,7 +9193,7 @@ func (o BotPostFulfillmentStatusSpecificationPtrOutput) Elem() BotPostFulfillmen
 	}).(BotPostFulfillmentStatusSpecificationOutput)
 }
 
-// A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+// A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 func (o BotPostFulfillmentStatusSpecificationPtrOutput) FailureConditional() BotConditionalSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotPostFulfillmentStatusSpecification) *BotConditionalSpecification {
 		if v == nil {
@@ -8851,7 +9203,7 @@ func (o BotPostFulfillmentStatusSpecificationPtrOutput) FailureConditional() Bot
 	}).(BotConditionalSpecificationPtrOutput)
 }
 
-// Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+// Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
 func (o BotPostFulfillmentStatusSpecificationPtrOutput) FailureNextStep() BotDialogStatePtrOutput {
 	return o.ApplyT(func(v *BotPostFulfillmentStatusSpecification) *BotDialogState {
 		if v == nil {
@@ -8861,7 +9213,7 @@ func (o BotPostFulfillmentStatusSpecificationPtrOutput) FailureNextStep() BotDia
 	}).(BotDialogStatePtrOutput)
 }
 
-// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+// Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't successful.
 func (o BotPostFulfillmentStatusSpecificationPtrOutput) FailureResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotPostFulfillmentStatusSpecification) *BotResponseSpecification {
 		if v == nil {
@@ -8891,7 +9243,7 @@ func (o BotPostFulfillmentStatusSpecificationPtrOutput) SuccessNextStep() BotDia
 	}).(BotDialogStatePtrOutput)
 }
 
-// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+// Specifies a list of message groups that Amazon Lex uses to respond when the fulfillment is successful.
 func (o BotPostFulfillmentStatusSpecificationPtrOutput) SuccessResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotPostFulfillmentStatusSpecification) *BotResponseSpecification {
 		if v == nil {
@@ -8921,7 +9273,7 @@ func (o BotPostFulfillmentStatusSpecificationPtrOutput) TimeoutNextStep() BotDia
 	}).(BotDialogStatePtrOutput)
 }
 
-// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+// Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't completed within the timeout period.
 func (o BotPostFulfillmentStatusSpecificationPtrOutput) TimeoutResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotPostFulfillmentStatusSpecification) *BotResponseSpecification {
 		if v == nil {
@@ -8931,9 +9283,7 @@ func (o BotPostFulfillmentStatusSpecificationPtrOutput) TimeoutResponse() BotRes
 	}).(BotResponseSpecificationPtrOutput)
 }
 
-// Specifies the settings on a prompt attempt.
 type BotPromptAttemptSpecification struct {
-	// Indicates whether the user can interrupt a speech prompt attempt from the bot.
 	AllowInterrupt                 *bool                              `pulumi:"allowInterrupt"`
 	AllowedInputTypes              BotAllowedInputTypes               `pulumi:"allowedInputTypes"`
 	AudioAndDtmfInputSpecification *BotAudioAndDtmfInputSpecification `pulumi:"audioAndDtmfInputSpecification"`
@@ -8951,9 +9301,7 @@ type BotPromptAttemptSpecificationInput interface {
 	ToBotPromptAttemptSpecificationOutputWithContext(context.Context) BotPromptAttemptSpecificationOutput
 }
 
-// Specifies the settings on a prompt attempt.
 type BotPromptAttemptSpecificationArgs struct {
-	// Indicates whether the user can interrupt a speech prompt attempt from the bot.
 	AllowInterrupt                 pulumi.BoolPtrInput                       `pulumi:"allowInterrupt"`
 	AllowedInputTypes              BotAllowedInputTypesInput                 `pulumi:"allowedInputTypes"`
 	AudioAndDtmfInputSpecification BotAudioAndDtmfInputSpecificationPtrInput `pulumi:"audioAndDtmfInputSpecification"`
@@ -8997,7 +9345,6 @@ func (i BotPromptAttemptSpecificationMap) ToBotPromptAttemptSpecificationMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BotPromptAttemptSpecificationMapOutput)
 }
 
-// Specifies the settings on a prompt attempt.
 type BotPromptAttemptSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotPromptAttemptSpecificationOutput) ElementType() reflect.Type {
@@ -9012,7 +9359,6 @@ func (o BotPromptAttemptSpecificationOutput) ToBotPromptAttemptSpecificationOutp
 	return o
 }
 
-// Indicates whether the user can interrupt a speech prompt attempt from the bot.
 func (o BotPromptAttemptSpecificationOutput) AllowInterrupt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotPromptAttemptSpecification) *bool { return v.AllowInterrupt }).(pulumi.BoolPtrOutput)
 }
@@ -9051,7 +9397,6 @@ func (o BotPromptAttemptSpecificationMapOutput) MapIndex(k pulumi.StringInput) B
 	}).(BotPromptAttemptSpecificationOutput)
 }
 
-// Prompts the user to confirm the intent.
 type BotPromptSpecification struct {
 	// Indicates whether the user can interrupt a speech prompt from the bot.
 	AllowInterrupt *bool `pulumi:"allowInterrupt"`
@@ -9076,7 +9421,6 @@ type BotPromptSpecificationInput interface {
 	ToBotPromptSpecificationOutputWithContext(context.Context) BotPromptSpecificationOutput
 }
 
-// Prompts the user to confirm the intent.
 type BotPromptSpecificationArgs struct {
 	// Indicates whether the user can interrupt a speech prompt from the bot.
 	AllowInterrupt pulumi.BoolPtrInput `pulumi:"allowInterrupt"`
@@ -9143,7 +9487,6 @@ func (i *botPromptSpecificationPtrType) ToBotPromptSpecificationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BotPromptSpecificationPtrOutput)
 }
 
-// Prompts the user to confirm the intent.
 type BotPromptSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotPromptSpecificationOutput) ElementType() reflect.Type {
@@ -9269,10 +9612,279 @@ func (o BotPromptSpecificationPtrOutput) PromptAttemptsSpecification() BotPrompt
 	}).(BotPromptAttemptSpecificationMapOutput)
 }
 
-// Details about the the configuration of the built-in Amazon.QnAIntent.
+type BotQInConnectIntentConfiguration struct {
+	QInConnectAssistantConfiguration *BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties `pulumi:"qInConnectAssistantConfiguration"`
+}
+
+// BotQInConnectIntentConfigurationInput is an input type that accepts BotQInConnectIntentConfigurationArgs and BotQInConnectIntentConfigurationOutput values.
+// You can construct a concrete instance of `BotQInConnectIntentConfigurationInput` via:
+//
+//	BotQInConnectIntentConfigurationArgs{...}
+type BotQInConnectIntentConfigurationInput interface {
+	pulumi.Input
+
+	ToBotQInConnectIntentConfigurationOutput() BotQInConnectIntentConfigurationOutput
+	ToBotQInConnectIntentConfigurationOutputWithContext(context.Context) BotQInConnectIntentConfigurationOutput
+}
+
+type BotQInConnectIntentConfigurationArgs struct {
+	QInConnectAssistantConfiguration BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrInput `pulumi:"qInConnectAssistantConfiguration"`
+}
+
+func (BotQInConnectIntentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQInConnectIntentConfiguration)(nil)).Elem()
+}
+
+func (i BotQInConnectIntentConfigurationArgs) ToBotQInConnectIntentConfigurationOutput() BotQInConnectIntentConfigurationOutput {
+	return i.ToBotQInConnectIntentConfigurationOutputWithContext(context.Background())
+}
+
+func (i BotQInConnectIntentConfigurationArgs) ToBotQInConnectIntentConfigurationOutputWithContext(ctx context.Context) BotQInConnectIntentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQInConnectIntentConfigurationOutput)
+}
+
+func (i BotQInConnectIntentConfigurationArgs) ToBotQInConnectIntentConfigurationPtrOutput() BotQInConnectIntentConfigurationPtrOutput {
+	return i.ToBotQInConnectIntentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i BotQInConnectIntentConfigurationArgs) ToBotQInConnectIntentConfigurationPtrOutputWithContext(ctx context.Context) BotQInConnectIntentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQInConnectIntentConfigurationOutput).ToBotQInConnectIntentConfigurationPtrOutputWithContext(ctx)
+}
+
+// BotQInConnectIntentConfigurationPtrInput is an input type that accepts BotQInConnectIntentConfigurationArgs, BotQInConnectIntentConfigurationPtr and BotQInConnectIntentConfigurationPtrOutput values.
+// You can construct a concrete instance of `BotQInConnectIntentConfigurationPtrInput` via:
+//
+//	        BotQInConnectIntentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotQInConnectIntentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBotQInConnectIntentConfigurationPtrOutput() BotQInConnectIntentConfigurationPtrOutput
+	ToBotQInConnectIntentConfigurationPtrOutputWithContext(context.Context) BotQInConnectIntentConfigurationPtrOutput
+}
+
+type botQInConnectIntentConfigurationPtrType BotQInConnectIntentConfigurationArgs
+
+func BotQInConnectIntentConfigurationPtr(v *BotQInConnectIntentConfigurationArgs) BotQInConnectIntentConfigurationPtrInput {
+	return (*botQInConnectIntentConfigurationPtrType)(v)
+}
+
+func (*botQInConnectIntentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQInConnectIntentConfiguration)(nil)).Elem()
+}
+
+func (i *botQInConnectIntentConfigurationPtrType) ToBotQInConnectIntentConfigurationPtrOutput() BotQInConnectIntentConfigurationPtrOutput {
+	return i.ToBotQInConnectIntentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *botQInConnectIntentConfigurationPtrType) ToBotQInConnectIntentConfigurationPtrOutputWithContext(ctx context.Context) BotQInConnectIntentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQInConnectIntentConfigurationPtrOutput)
+}
+
+type BotQInConnectIntentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BotQInConnectIntentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQInConnectIntentConfiguration)(nil)).Elem()
+}
+
+func (o BotQInConnectIntentConfigurationOutput) ToBotQInConnectIntentConfigurationOutput() BotQInConnectIntentConfigurationOutput {
+	return o
+}
+
+func (o BotQInConnectIntentConfigurationOutput) ToBotQInConnectIntentConfigurationOutputWithContext(ctx context.Context) BotQInConnectIntentConfigurationOutput {
+	return o
+}
+
+func (o BotQInConnectIntentConfigurationOutput) ToBotQInConnectIntentConfigurationPtrOutput() BotQInConnectIntentConfigurationPtrOutput {
+	return o.ToBotQInConnectIntentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BotQInConnectIntentConfigurationOutput) ToBotQInConnectIntentConfigurationPtrOutputWithContext(ctx context.Context) BotQInConnectIntentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotQInConnectIntentConfiguration) *BotQInConnectIntentConfiguration {
+		return &v
+	}).(BotQInConnectIntentConfigurationPtrOutput)
+}
+
+func (o BotQInConnectIntentConfigurationOutput) QInConnectAssistantConfiguration() BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v BotQInConnectIntentConfiguration) *BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties {
+		return v.QInConnectAssistantConfiguration
+	}).(BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput)
+}
+
+type BotQInConnectIntentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (BotQInConnectIntentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQInConnectIntentConfiguration)(nil)).Elem()
+}
+
+func (o BotQInConnectIntentConfigurationPtrOutput) ToBotQInConnectIntentConfigurationPtrOutput() BotQInConnectIntentConfigurationPtrOutput {
+	return o
+}
+
+func (o BotQInConnectIntentConfigurationPtrOutput) ToBotQInConnectIntentConfigurationPtrOutputWithContext(ctx context.Context) BotQInConnectIntentConfigurationPtrOutput {
+	return o
+}
+
+func (o BotQInConnectIntentConfigurationPtrOutput) Elem() BotQInConnectIntentConfigurationOutput {
+	return o.ApplyT(func(v *BotQInConnectIntentConfiguration) BotQInConnectIntentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BotQInConnectIntentConfiguration
+		return ret
+	}).(BotQInConnectIntentConfigurationOutput)
+}
+
+func (o BotQInConnectIntentConfigurationPtrOutput) QInConnectAssistantConfiguration() BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotQInConnectIntentConfiguration) *BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.QInConnectAssistantConfiguration
+	}).(BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput)
+}
+
+type BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties struct {
+	AssistantArn string `pulumi:"assistantArn"`
+}
+
+// BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesInput is an input type that accepts BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgs and BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesInput` via:
+//
+//	BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgs{...}
+type BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput() BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput
+	ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutputWithContext(context.Context) BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput
+}
+
+type BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgs struct {
+	AssistantArn pulumi.StringInput `pulumi:"assistantArn"`
+}
+
+func (BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties)(nil)).Elem()
+}
+
+func (i BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgs) ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput() BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput {
+	return i.ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgs) ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutputWithContext(ctx context.Context) BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput)
+}
+
+func (i BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgs) ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput() BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput {
+	return i.ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgs) ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput).ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrInput is an input type that accepts BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgs, BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtr and BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrInput` via:
+//
+//	        BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput() BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput
+	ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutputWithContext(context.Context) BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput
+}
+
+type botQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrType BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgs
+
+func BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtr(v *BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgs) BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrInput {
+	return (*botQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrType)(v)
+}
+
+func (*botQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties)(nil)).Elem()
+}
+
+func (i *botQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrType) ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput() BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput {
+	return i.ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *botQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrType) ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput)
+}
+
+type BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties)(nil)).Elem()
+}
+
+func (o BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput) ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput() BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput {
+	return o
+}
+
+func (o BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput) ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutputWithContext(ctx context.Context) BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput {
+	return o
+}
+
+func (o BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput) ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput() BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput {
+	return o.ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput) ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties) *BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties {
+		return &v
+	}).(BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput)
+}
+
+func (o BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput) AssistantArn() pulumi.StringOutput {
+	return o.ApplyT(func(v BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties) string {
+		return v.AssistantArn
+	}).(pulumi.StringOutput)
+}
+
+type BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties)(nil)).Elem()
+}
+
+func (o BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput) ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput() BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput) ToBotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput) Elem() BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties) BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties
+		return ret
+	}).(BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput)
+}
+
+func (o BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput) AssistantArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AssistantArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type BotQnAIntentConfiguration struct {
 	BedrockModelConfiguration BotBedrockModelSpecification `pulumi:"bedrockModelConfiguration"`
-	// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+	// Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
 	DataSourceConfiguration BotQnAIntentConfigurationDataSourceConfigurationProperties `pulumi:"dataSourceConfiguration"`
 }
 
@@ -9287,10 +9899,9 @@ type BotQnAIntentConfigurationInput interface {
 	ToBotQnAIntentConfigurationOutputWithContext(context.Context) BotQnAIntentConfigurationOutput
 }
 
-// Details about the the configuration of the built-in Amazon.QnAIntent.
 type BotQnAIntentConfigurationArgs struct {
 	BedrockModelConfiguration BotBedrockModelSpecificationInput `pulumi:"bedrockModelConfiguration"`
-	// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+	// Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
 	DataSourceConfiguration BotQnAIntentConfigurationDataSourceConfigurationPropertiesInput `pulumi:"dataSourceConfiguration"`
 }
 
@@ -9347,7 +9958,6 @@ func (i *botQnAIntentConfigurationPtrType) ToBotQnAIntentConfigurationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationPtrOutput)
 }
 
-// Details about the the configuration of the built-in Amazon.QnAIntent.
 type BotQnAIntentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BotQnAIntentConfigurationOutput) ElementType() reflect.Type {
@@ -9376,7 +9986,7 @@ func (o BotQnAIntentConfigurationOutput) BedrockModelConfiguration() BotBedrockM
 	return o.ApplyT(func(v BotQnAIntentConfiguration) BotBedrockModelSpecification { return v.BedrockModelConfiguration }).(BotBedrockModelSpecificationOutput)
 }
 
-// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+// Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
 func (o BotQnAIntentConfigurationOutput) DataSourceConfiguration() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput {
 	return o.ApplyT(func(v BotQnAIntentConfiguration) BotQnAIntentConfigurationDataSourceConfigurationProperties {
 		return v.DataSourceConfiguration
@@ -9416,7 +10026,7 @@ func (o BotQnAIntentConfigurationPtrOutput) BedrockModelConfiguration() BotBedro
 	}).(BotBedrockModelSpecificationPtrOutput)
 }
 
-// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+// Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
 func (o BotQnAIntentConfigurationPtrOutput) DataSourceConfiguration() BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v *BotQnAIntentConfiguration) *BotQnAIntentConfigurationDataSourceConfigurationProperties {
 		if v == nil {
@@ -9426,13 +10036,11 @@ func (o BotQnAIntentConfigurationPtrOutput) DataSourceConfiguration() BotQnAInte
 	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput)
 }
 
-// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+// Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
 type BotQnAIntentConfigurationDataSourceConfigurationProperties struct {
-	// Contains details about the configuration of a Amazon Bedrock knowledge base.
 	BedrockKnowledgeStoreConfiguration *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties `pulumi:"bedrockKnowledgeStoreConfiguration"`
 	KendraConfiguration                *BotQnAKendraConfiguration                                                                              `pulumi:"kendraConfiguration"`
-	// Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
-	OpensearchConfiguration *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties `pulumi:"opensearchConfiguration"`
+	OpensearchConfiguration            *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties            `pulumi:"opensearchConfiguration"`
 }
 
 // BotQnAIntentConfigurationDataSourceConfigurationPropertiesInput is an input type that accepts BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs and BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput values.
@@ -9446,13 +10054,11 @@ type BotQnAIntentConfigurationDataSourceConfigurationPropertiesInput interface {
 	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOutputWithContext(context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput
 }
 
-// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+// Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
 type BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs struct {
-	// Contains details about the configuration of a Amazon Bedrock knowledge base.
 	BedrockKnowledgeStoreConfiguration BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrInput `pulumi:"bedrockKnowledgeStoreConfiguration"`
 	KendraConfiguration                BotQnAKendraConfigurationPtrInput                                                                              `pulumi:"kendraConfiguration"`
-	// Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
-	OpensearchConfiguration BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrInput `pulumi:"opensearchConfiguration"`
+	OpensearchConfiguration            BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrInput            `pulumi:"opensearchConfiguration"`
 }
 
 func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs) ElementType() reflect.Type {
@@ -9508,7 +10114,7 @@ func (i *botQnAIntentConfigurationDataSourceConfigurationPropertiesPtrType) ToBo
 	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput)
 }
 
-// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+// Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
 type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -9533,7 +10139,6 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput) ToBotQ
 	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput)
 }
 
-// Contains details about the configuration of a Amazon Bedrock knowledge base.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput) BedrockKnowledgeStoreConfiguration() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties {
 		return v.BedrockKnowledgeStoreConfiguration
@@ -9546,7 +10151,6 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput) Kendra
 	}).(BotQnAKendraConfigurationPtrOutput)
 }
 
-// Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput) OpensearchConfiguration() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties {
 		return v.OpensearchConfiguration
@@ -9577,7 +10181,6 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput) Ele
 	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput)
 }
 
-// Contains details about the configuration of a Amazon Bedrock knowledge base.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput) BedrockKnowledgeStoreConfiguration() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties {
 		if v == nil {
@@ -9596,7 +10199,6 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput) Ken
 	}).(BotQnAKendraConfigurationPtrOutput)
 }
 
-// Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput) OpensearchConfiguration() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties {
 		if v == nil {
@@ -9606,14 +10208,10 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesPtrOutput) Ope
 	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput)
 }
 
-// Contains details about the configuration of a Amazon Bedrock knowledge base.
 type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties struct {
-	// The base ARN of the knowledge base used.
-	BedrockKnowledgeBaseArn *string `pulumi:"bedrockKnowledgeBaseArn"`
-	// Contains the names of the fields used for an exact response to the user.
-	BkbExactResponseFields *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties `pulumi:"bkbExactResponseFields"`
-	// Specifies whether to return an exact response, or to return an answer generated by the model, using the fields you specify from the database.
-	ExactResponse *bool `pulumi:"exactResponse"`
+	BedrockKnowledgeBaseArn *string                                                                                                                                 `pulumi:"bedrockKnowledgeBaseArn"`
+	BkbExactResponseFields  *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties `pulumi:"bkbExactResponseFields"`
+	ExactResponse           *bool                                                                                                                                   `pulumi:"exactResponse"`
 }
 
 // BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesInput is an input type that accepts BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs and BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput values.
@@ -9627,14 +10225,10 @@ type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeS
 	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutputWithContext(context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput
 }
 
-// Contains details about the configuration of a Amazon Bedrock knowledge base.
 type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs struct {
-	// The base ARN of the knowledge base used.
-	BedrockKnowledgeBaseArn pulumi.StringPtrInput `pulumi:"bedrockKnowledgeBaseArn"`
-	// Contains the names of the fields used for an exact response to the user.
-	BkbExactResponseFields BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrInput `pulumi:"bkbExactResponseFields"`
-	// Specifies whether to return an exact response, or to return an answer generated by the model, using the fields you specify from the database.
-	ExactResponse pulumi.BoolPtrInput `pulumi:"exactResponse"`
+	BedrockKnowledgeBaseArn pulumi.StringPtrInput                                                                                                                          `pulumi:"bedrockKnowledgeBaseArn"`
+	BkbExactResponseFields  BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrInput `pulumi:"bkbExactResponseFields"`
+	ExactResponse           pulumi.BoolPtrInput                                                                                                                            `pulumi:"exactResponse"`
 }
 
 func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs) ElementType() reflect.Type {
@@ -9690,7 +10284,6 @@ func (i *botQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowle
 	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput)
 }
 
-// Contains details about the configuration of a Amazon Bedrock knowledge base.
 type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -9715,21 +10308,18 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowled
 	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput)
 }
 
-// The base ARN of the knowledge base used.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput) BedrockKnowledgeBaseArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties) *string {
 		return v.BedrockKnowledgeBaseArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the names of the fields used for an exact response to the user.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput) BkbExactResponseFields() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput {
 	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties {
 		return v.BkbExactResponseFields
 	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput)
 }
 
-// Specifies whether to return an exact response, or to return an answer generated by the model, using the fields you specify from the database.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput) ExactResponse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties) *bool {
 		return v.ExactResponse
@@ -9760,7 +10350,6 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowled
 	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesOutput)
 }
 
-// The base ARN of the knowledge base used.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput) BedrockKnowledgeBaseArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties) *string {
 		if v == nil {
@@ -9770,7 +10359,6 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowled
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the names of the fields used for an exact response to the user.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput) BkbExactResponseFields() BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput {
 	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties {
 		if v == nil {
@@ -9780,7 +10368,6 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowled
 	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput)
 }
 
-// Specifies whether to return an exact response, or to return an answer generated by the model, using the fields you specify from the database.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesPtrOutput) ExactResponse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties) *bool {
 		if v == nil {
@@ -9790,9 +10377,7 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Contains the names of the fields used for an exact response to the user.
 type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties struct {
-	// The answer field used for an exact response from Bedrock Knowledge Store.
 	AnswerField *string `pulumi:"answerField"`
 }
 
@@ -9807,9 +10392,7 @@ type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeS
 	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutputWithContext(context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput
 }
 
-// Contains the names of the fields used for an exact response to the user.
 type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs struct {
-	// The answer field used for an exact response from Bedrock Knowledge Store.
 	AnswerField pulumi.StringPtrInput `pulumi:"answerField"`
 }
 
@@ -9866,7 +10449,6 @@ func (i *botQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowle
 	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput)
 }
 
-// Contains the names of the fields used for an exact response to the user.
 type BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput) ElementType() reflect.Type {
@@ -9891,7 +10473,6 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowled
 	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput)
 }
 
-// The answer field used for an exact response from Bedrock Knowledge Store.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput) AnswerField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties) *string {
 		return v.AnswerField
@@ -9922,7 +10503,6 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowled
 	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesOutput)
 }
 
-// The answer field used for an exact response from Bedrock Knowledge Store.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesPtrOutput) AnswerField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties) *string {
 		if v == nil {
@@ -9932,18 +10512,12 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowled
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
 type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties struct {
-	// The endpoint of the Amazon OpenSearch Service domain.
-	DomainEndpoint *string `pulumi:"domainEndpoint"`
-	// Specifies whether to return an exact response or to return an answer generated by the model using the fields you specify from the database.
-	ExactResponse *bool `pulumi:"exactResponse"`
-	// Contains the names of the fields used for an exact response to the user.
+	DomainEndpoint      *string                                                                                                                   `pulumi:"domainEndpoint"`
+	ExactResponse       *bool                                                                                                                     `pulumi:"exactResponse"`
 	ExactResponseFields *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties `pulumi:"exactResponseFields"`
-	// List of fields to include
-	IncludeFields []string `pulumi:"includeFields"`
-	// The name of the Amazon OpenSearch Service index.
-	IndexName *string `pulumi:"indexName"`
+	IncludeFields       []string                                                                                                                  `pulumi:"includeFields"`
+	IndexName           *string                                                                                                                   `pulumi:"indexName"`
 }
 
 // BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesInput is an input type that accepts BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs and BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput values.
@@ -9957,18 +10531,12 @@ type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigu
 	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutputWithContext(context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput
 }
 
-// Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
 type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs struct {
-	// The endpoint of the Amazon OpenSearch Service domain.
-	DomainEndpoint pulumi.StringPtrInput `pulumi:"domainEndpoint"`
-	// Specifies whether to return an exact response or to return an answer generated by the model using the fields you specify from the database.
-	ExactResponse pulumi.BoolPtrInput `pulumi:"exactResponse"`
-	// Contains the names of the fields used for an exact response to the user.
+	DomainEndpoint      pulumi.StringPtrInput                                                                                                            `pulumi:"domainEndpoint"`
+	ExactResponse       pulumi.BoolPtrInput                                                                                                              `pulumi:"exactResponse"`
 	ExactResponseFields BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrInput `pulumi:"exactResponseFields"`
-	// List of fields to include
-	IncludeFields pulumi.StringArrayInput `pulumi:"includeFields"`
-	// The name of the Amazon OpenSearch Service index.
-	IndexName pulumi.StringPtrInput `pulumi:"indexName"`
+	IncludeFields       pulumi.StringArrayInput                                                                                                          `pulumi:"includeFields"`
+	IndexName           pulumi.StringPtrInput                                                                                                            `pulumi:"indexName"`
 }
 
 func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs) ElementType() reflect.Type {
@@ -10024,7 +10592,6 @@ func (i *botQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchCon
 	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput)
 }
 
-// Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
 type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -10049,35 +10616,30 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConf
 	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput)
 }
 
-// The endpoint of the Amazon OpenSearch Service domain.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput) DomainEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) *string {
 		return v.DomainEndpoint
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to return an exact response or to return an answer generated by the model using the fields you specify from the database.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput) ExactResponse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) *bool {
 		return v.ExactResponse
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Contains the names of the fields used for an exact response to the user.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput) ExactResponseFields() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput {
 	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties {
 		return v.ExactResponseFields
 	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput)
 }
 
-// List of fields to include
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput) IncludeFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) []string {
 		return v.IncludeFields
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name of the Amazon OpenSearch Service index.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput) IndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) *string {
 		return v.IndexName
@@ -10108,7 +10670,6 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConf
 	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesOutput)
 }
 
-// The endpoint of the Amazon OpenSearch Service domain.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput) DomainEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) *string {
 		if v == nil {
@@ -10118,7 +10679,6 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConf
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to return an exact response or to return an answer generated by the model using the fields you specify from the database.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput) ExactResponse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) *bool {
 		if v == nil {
@@ -10128,7 +10688,6 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConf
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Contains the names of the fields used for an exact response to the user.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput) ExactResponseFields() BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput {
 	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties {
 		if v == nil {
@@ -10138,7 +10697,6 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConf
 	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput)
 }
 
-// List of fields to include
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput) IncludeFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) []string {
 		if v == nil {
@@ -10148,7 +10706,6 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConf
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name of the Amazon OpenSearch Service index.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesPtrOutput) IndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties) *string {
 		if v == nil {
@@ -10158,11 +10715,8 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConf
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the names of the fields used for an exact response to the user.
 type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties struct {
-	// The name of the field that contains the answer to the query made to the OpenSearch Service database.
-	AnswerField *string `pulumi:"answerField"`
-	// The name of the field that contains the query made to the OpenSearch Service database.
+	AnswerField   *string `pulumi:"answerField"`
 	QuestionField *string `pulumi:"questionField"`
 }
 
@@ -10177,11 +10731,8 @@ type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigu
 	ToBotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutputWithContext(context.Context) BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput
 }
 
-// Contains the names of the fields used for an exact response to the user.
 type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs struct {
-	// The name of the field that contains the answer to the query made to the OpenSearch Service database.
-	AnswerField pulumi.StringPtrInput `pulumi:"answerField"`
-	// The name of the field that contains the query made to the OpenSearch Service database.
+	AnswerField   pulumi.StringPtrInput `pulumi:"answerField"`
 	QuestionField pulumi.StringPtrInput `pulumi:"questionField"`
 }
 
@@ -10238,7 +10789,6 @@ func (i *botQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchCon
 	return pulumi.ToOutputWithContext(ctx, i).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput)
 }
 
-// Contains the names of the fields used for an exact response to the user.
 type BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput) ElementType() reflect.Type {
@@ -10263,14 +10813,12 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConf
 	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput)
 }
 
-// The name of the field that contains the answer to the query made to the OpenSearch Service database.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput) AnswerField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties) *string {
 		return v.AnswerField
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the field that contains the query made to the OpenSearch Service database.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput) QuestionField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties) *string {
 		return v.QuestionField
@@ -10301,7 +10849,6 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConf
 	}).(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesOutput)
 }
 
-// The name of the field that contains the answer to the query made to the OpenSearch Service database.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput) AnswerField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties) *string {
 		if v == nil {
@@ -10311,7 +10858,6 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConf
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the field that contains the query made to the OpenSearch Service database.
 func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesPtrOutput) QuestionField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties) *string {
 		if v == nil {
@@ -10321,13 +10867,12 @@ func (o BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConf
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains details about the configuration of the Amazon Kendra index used for the AMAZON.QnAIntent.
 type BotQnAKendraConfiguration struct {
-	// Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results.
+	// Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results. To use this feature, you must first add FAQ questions to your index by following the steps at [Adding frequently asked questions (FAQs) to an index](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html) .
 	ExactResponse bool `pulumi:"exactResponse"`
 	// The ARN of the Amazon Kendra index to use.
 	KendraIndex string `pulumi:"kendraIndex"`
-	// Contains the Amazon Kendra filter string to use if enabled.
+	// Contains the Amazon Kendra filter string to use if enabled. For more information on the Amazon Kendra search filter JSON format, see [Using document attributes to filter search results](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html#search-filtering) .
 	QueryFilterString *string `pulumi:"queryFilterString"`
 	// Specifies whether to enable an Amazon Kendra filter string or not.
 	QueryFilterStringEnabled bool `pulumi:"queryFilterStringEnabled"`
@@ -10344,13 +10889,12 @@ type BotQnAKendraConfigurationInput interface {
 	ToBotQnAKendraConfigurationOutputWithContext(context.Context) BotQnAKendraConfigurationOutput
 }
 
-// Contains details about the configuration of the Amazon Kendra index used for the AMAZON.QnAIntent.
 type BotQnAKendraConfigurationArgs struct {
-	// Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results.
+	// Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results. To use this feature, you must first add FAQ questions to your index by following the steps at [Adding frequently asked questions (FAQs) to an index](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html) .
 	ExactResponse pulumi.BoolInput `pulumi:"exactResponse"`
 	// The ARN of the Amazon Kendra index to use.
 	KendraIndex pulumi.StringInput `pulumi:"kendraIndex"`
-	// Contains the Amazon Kendra filter string to use if enabled.
+	// Contains the Amazon Kendra filter string to use if enabled. For more information on the Amazon Kendra search filter JSON format, see [Using document attributes to filter search results](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html#search-filtering) .
 	QueryFilterString pulumi.StringPtrInput `pulumi:"queryFilterString"`
 	// Specifies whether to enable an Amazon Kendra filter string or not.
 	QueryFilterStringEnabled pulumi.BoolInput `pulumi:"queryFilterStringEnabled"`
@@ -10409,7 +10953,6 @@ func (i *botQnAKendraConfigurationPtrType) ToBotQnAKendraConfigurationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BotQnAKendraConfigurationPtrOutput)
 }
 
-// Contains details about the configuration of the Amazon Kendra index used for the AMAZON.QnAIntent.
 type BotQnAKendraConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BotQnAKendraConfigurationOutput) ElementType() reflect.Type {
@@ -10434,7 +10977,7 @@ func (o BotQnAKendraConfigurationOutput) ToBotQnAKendraConfigurationPtrOutputWit
 	}).(BotQnAKendraConfigurationPtrOutput)
 }
 
-// Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results.
+// Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results. To use this feature, you must first add FAQ questions to your index by following the steps at [Adding frequently asked questions (FAQs) to an index](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html) .
 func (o BotQnAKendraConfigurationOutput) ExactResponse() pulumi.BoolOutput {
 	return o.ApplyT(func(v BotQnAKendraConfiguration) bool { return v.ExactResponse }).(pulumi.BoolOutput)
 }
@@ -10444,7 +10987,7 @@ func (o BotQnAKendraConfigurationOutput) KendraIndex() pulumi.StringOutput {
 	return o.ApplyT(func(v BotQnAKendraConfiguration) string { return v.KendraIndex }).(pulumi.StringOutput)
 }
 
-// Contains the Amazon Kendra filter string to use if enabled.
+// Contains the Amazon Kendra filter string to use if enabled. For more information on the Amazon Kendra search filter JSON format, see [Using document attributes to filter search results](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html#search-filtering) .
 func (o BotQnAKendraConfigurationOutput) QueryFilterString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotQnAKendraConfiguration) *string { return v.QueryFilterString }).(pulumi.StringPtrOutput)
 }
@@ -10478,7 +11021,7 @@ func (o BotQnAKendraConfigurationPtrOutput) Elem() BotQnAKendraConfigurationOutp
 	}).(BotQnAKendraConfigurationOutput)
 }
 
-// Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results.
+// Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results. To use this feature, you must first add FAQ questions to your index by following the steps at [Adding frequently asked questions (FAQs) to an index](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html) .
 func (o BotQnAKendraConfigurationPtrOutput) ExactResponse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BotQnAKendraConfiguration) *bool {
 		if v == nil {
@@ -10498,7 +11041,7 @@ func (o BotQnAKendraConfigurationPtrOutput) KendraIndex() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the Amazon Kendra filter string to use if enabled.
+// Contains the Amazon Kendra filter string to use if enabled. For more information on the Amazon Kendra search filter JSON format, see [Using document attributes to filter search results](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html#search-filtering) .
 func (o BotQnAKendraConfigurationPtrOutput) QueryFilterString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotQnAKendraConfiguration) *string {
 		if v == nil {
@@ -10518,9 +11061,7 @@ func (o BotQnAKendraConfigurationPtrOutput) QueryFilterStringEnabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Parameter used to create a replication of the source bot in the secondary region.
 type BotReplication struct {
-	// List of secondary regions for bot replication.
 	ReplicaRegions []string `pulumi:"replicaRegions"`
 }
 
@@ -10535,9 +11076,7 @@ type BotReplicationInput interface {
 	ToBotReplicationOutputWithContext(context.Context) BotReplicationOutput
 }
 
-// Parameter used to create a replication of the source bot in the secondary region.
 type BotReplicationArgs struct {
-	// List of secondary regions for bot replication.
 	ReplicaRegions pulumi.StringArrayInput `pulumi:"replicaRegions"`
 }
 
@@ -10594,7 +11133,6 @@ func (i *botReplicationPtrType) ToBotReplicationPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(BotReplicationPtrOutput)
 }
 
-// Parameter used to create a replication of the source bot in the secondary region.
 type BotReplicationOutput struct{ *pulumi.OutputState }
 
 func (BotReplicationOutput) ElementType() reflect.Type {
@@ -10619,7 +11157,6 @@ func (o BotReplicationOutput) ToBotReplicationPtrOutputWithContext(ctx context.C
 	}).(BotReplicationPtrOutput)
 }
 
-// List of secondary regions for bot replication.
 func (o BotReplicationOutput) ReplicaRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BotReplication) []string { return v.ReplicaRegions }).(pulumi.StringArrayOutput)
 }
@@ -10648,7 +11185,6 @@ func (o BotReplicationPtrOutput) Elem() BotReplicationOutput {
 	}).(BotReplicationOutput)
 }
 
-// List of secondary regions for bot replication.
 func (o BotReplicationPtrOutput) ReplicaRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BotReplication) []string {
 		if v == nil {
@@ -10658,9 +11194,8 @@ func (o BotReplicationPtrOutput) ReplicaRegions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of message groups that Amazon Lex uses to respond the user input.
 type BotResponseSpecification struct {
-	// Indicates whether the user can interrupt a speech prompt from the bot.
+	// Indicates whether the user can interrupt a speech response from Amazon Lex.
 	AllowInterrupt *bool `pulumi:"allowInterrupt"`
 	// A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime.
 	MessageGroupsList []BotMessageGroup `pulumi:"messageGroupsList"`
@@ -10677,9 +11212,8 @@ type BotResponseSpecificationInput interface {
 	ToBotResponseSpecificationOutputWithContext(context.Context) BotResponseSpecificationOutput
 }
 
-// A list of message groups that Amazon Lex uses to respond the user input.
 type BotResponseSpecificationArgs struct {
-	// Indicates whether the user can interrupt a speech prompt from the bot.
+	// Indicates whether the user can interrupt a speech response from Amazon Lex.
 	AllowInterrupt pulumi.BoolPtrInput `pulumi:"allowInterrupt"`
 	// A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime.
 	MessageGroupsList BotMessageGroupArrayInput `pulumi:"messageGroupsList"`
@@ -10738,7 +11272,6 @@ func (i *botResponseSpecificationPtrType) ToBotResponseSpecificationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BotResponseSpecificationPtrOutput)
 }
 
-// A list of message groups that Amazon Lex uses to respond the user input.
 type BotResponseSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotResponseSpecificationOutput) ElementType() reflect.Type {
@@ -10763,7 +11296,7 @@ func (o BotResponseSpecificationOutput) ToBotResponseSpecificationPtrOutputWithC
 	}).(BotResponseSpecificationPtrOutput)
 }
 
-// Indicates whether the user can interrupt a speech prompt from the bot.
+// Indicates whether the user can interrupt a speech response from Amazon Lex.
 func (o BotResponseSpecificationOutput) AllowInterrupt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotResponseSpecification) *bool { return v.AllowInterrupt }).(pulumi.BoolPtrOutput)
 }
@@ -10797,7 +11330,7 @@ func (o BotResponseSpecificationPtrOutput) Elem() BotResponseSpecificationOutput
 	}).(BotResponseSpecificationOutput)
 }
 
-// Indicates whether the user can interrupt a speech prompt from the bot.
+// Indicates whether the user can interrupt a speech response from Amazon Lex.
 func (o BotResponseSpecificationPtrOutput) AllowInterrupt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BotResponseSpecification) *bool {
 		if v == nil {
@@ -10817,14 +11350,10 @@ func (o BotResponseSpecificationPtrOutput) MessageGroupsList() BotMessageGroupAr
 	}).(BotMessageGroupArrayOutput)
 }
 
-// Specifies an Amazon S3 bucket for logging audio conversations
 type BotS3BucketLogDestination struct {
-	// The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The Amazon S3 key of the deployment package.
-	LogPrefix string `pulumi:"logPrefix"`
-	// The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
-	S3BucketArn string `pulumi:"s3BucketArn"`
+	KmsKeyArn   *string `pulumi:"kmsKeyArn"`
+	LogPrefix   string  `pulumi:"logPrefix"`
+	S3BucketArn string  `pulumi:"s3BucketArn"`
 }
 
 // BotS3BucketLogDestinationInput is an input type that accepts BotS3BucketLogDestinationArgs and BotS3BucketLogDestinationOutput values.
@@ -10838,14 +11367,10 @@ type BotS3BucketLogDestinationInput interface {
 	ToBotS3BucketLogDestinationOutputWithContext(context.Context) BotS3BucketLogDestinationOutput
 }
 
-// Specifies an Amazon S3 bucket for logging audio conversations
 type BotS3BucketLogDestinationArgs struct {
-	// The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
-	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// The Amazon S3 key of the deployment package.
-	LogPrefix pulumi.StringInput `pulumi:"logPrefix"`
-	// The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
-	S3BucketArn pulumi.StringInput `pulumi:"s3BucketArn"`
+	KmsKeyArn   pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	LogPrefix   pulumi.StringInput    `pulumi:"logPrefix"`
+	S3BucketArn pulumi.StringInput    `pulumi:"s3BucketArn"`
 }
 
 func (BotS3BucketLogDestinationArgs) ElementType() reflect.Type {
@@ -10860,7 +11385,6 @@ func (i BotS3BucketLogDestinationArgs) ToBotS3BucketLogDestinationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BotS3BucketLogDestinationOutput)
 }
 
-// Specifies an Amazon S3 bucket for logging audio conversations
 type BotS3BucketLogDestinationOutput struct{ *pulumi.OutputState }
 
 func (BotS3BucketLogDestinationOutput) ElementType() reflect.Type {
@@ -10875,28 +11399,24 @@ func (o BotS3BucketLogDestinationOutput) ToBotS3BucketLogDestinationOutputWithCo
 	return o
 }
 
-// The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
 func (o BotS3BucketLogDestinationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotS3BucketLogDestination) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon S3 key of the deployment package.
 func (o BotS3BucketLogDestinationOutput) LogPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v BotS3BucketLogDestination) string { return v.LogPrefix }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
 func (o BotS3BucketLogDestinationOutput) S3BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BotS3BucketLogDestination) string { return v.S3BucketArn }).(pulumi.StringOutput)
 }
 
-// S3 location of bot definitions zip file, if it's not defined inline in CloudFormation.
 type BotS3Location struct {
-	// An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+	// The S3 bucket name.
 	S3Bucket string `pulumi:"s3Bucket"`
-	// The Amazon S3 key of the deployment package.
+	// The path and file name to the object in the S3 bucket.
 	S3ObjectKey string `pulumi:"s3ObjectKey"`
-	// For versioned objects, the version of the deployment package object to use. If not specified, the current object version will be used.
+	// The version of the object in the S3 bucket.
 	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
 }
 
@@ -10911,13 +11431,12 @@ type BotS3LocationInput interface {
 	ToBotS3LocationOutputWithContext(context.Context) BotS3LocationOutput
 }
 
-// S3 location of bot definitions zip file, if it's not defined inline in CloudFormation.
 type BotS3LocationArgs struct {
-	// An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+	// The S3 bucket name.
 	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
-	// The Amazon S3 key of the deployment package.
+	// The path and file name to the object in the S3 bucket.
 	S3ObjectKey pulumi.StringInput `pulumi:"s3ObjectKey"`
-	// For versioned objects, the version of the deployment package object to use. If not specified, the current object version will be used.
+	// The version of the object in the S3 bucket.
 	S3ObjectVersion pulumi.StringPtrInput `pulumi:"s3ObjectVersion"`
 }
 
@@ -10974,7 +11493,6 @@ func (i *botS3LocationPtrType) ToBotS3LocationPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BotS3LocationPtrOutput)
 }
 
-// S3 location of bot definitions zip file, if it's not defined inline in CloudFormation.
 type BotS3LocationOutput struct{ *pulumi.OutputState }
 
 func (BotS3LocationOutput) ElementType() reflect.Type {
@@ -10999,17 +11517,17 @@ func (o BotS3LocationOutput) ToBotS3LocationPtrOutputWithContext(ctx context.Con
 	}).(BotS3LocationPtrOutput)
 }
 
-// An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+// The S3 bucket name.
 func (o BotS3LocationOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v BotS3Location) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
-// The Amazon S3 key of the deployment package.
+// The path and file name to the object in the S3 bucket.
 func (o BotS3LocationOutput) S3ObjectKey() pulumi.StringOutput {
 	return o.ApplyT(func(v BotS3Location) string { return v.S3ObjectKey }).(pulumi.StringOutput)
 }
 
-// For versioned objects, the version of the deployment package object to use. If not specified, the current object version will be used.
+// The version of the object in the S3 bucket.
 func (o BotS3LocationOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotS3Location) *string { return v.S3ObjectVersion }).(pulumi.StringPtrOutput)
 }
@@ -11038,7 +11556,7 @@ func (o BotS3LocationPtrOutput) Elem() BotS3LocationOutput {
 	}).(BotS3LocationOutput)
 }
 
-// An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+// The S3 bucket name.
 func (o BotS3LocationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotS3Location) *string {
 		if v == nil {
@@ -11048,7 +11566,7 @@ func (o BotS3LocationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon S3 key of the deployment package.
+// The path and file name to the object in the S3 bucket.
 func (o BotS3LocationPtrOutput) S3ObjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotS3Location) *string {
 		if v == nil {
@@ -11058,7 +11576,7 @@ func (o BotS3LocationPtrOutput) S3ObjectKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// For versioned objects, the version of the deployment package object to use. If not specified, the current object version will be used.
+// The version of the object in the S3 bucket.
 func (o BotS3LocationPtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotS3Location) *string {
 		if v == nil {
@@ -11068,7 +11586,6 @@ func (o BotS3LocationPtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A sample utterance that invokes an intent or respond to a slot elicitation prompt.
 type BotSampleUtterance struct {
 	Utterance string `pulumi:"utterance"`
 }
@@ -11084,7 +11601,6 @@ type BotSampleUtteranceInput interface {
 	ToBotSampleUtteranceOutputWithContext(context.Context) BotSampleUtteranceOutput
 }
 
-// A sample utterance that invokes an intent or respond to a slot elicitation prompt.
 type BotSampleUtteranceArgs struct {
 	Utterance pulumi.StringInput `pulumi:"utterance"`
 }
@@ -11126,7 +11642,6 @@ func (i BotSampleUtteranceArray) ToBotSampleUtteranceArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BotSampleUtteranceArrayOutput)
 }
 
-// A sample utterance that invokes an intent or respond to a slot elicitation prompt.
 type BotSampleUtteranceOutput struct{ *pulumi.OutputState }
 
 func (BotSampleUtteranceOutput) ElementType() reflect.Type {
@@ -11165,9 +11680,7 @@ func (o BotSampleUtteranceArrayOutput) Index(i pulumi.IntInput) BotSampleUtteran
 	}).(BotSampleUtteranceOutput)
 }
 
-// Defines one of the values for a slot type.
 type BotSampleValue struct {
-	// The value that can be used for a slot type.
 	Value string `pulumi:"value"`
 }
 
@@ -11182,9 +11695,7 @@ type BotSampleValueInput interface {
 	ToBotSampleValueOutputWithContext(context.Context) BotSampleValueOutput
 }
 
-// Defines one of the values for a slot type.
 type BotSampleValueArgs struct {
-	// The value that can be used for a slot type.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -11225,7 +11736,6 @@ func (i BotSampleValueArray) ToBotSampleValueArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(BotSampleValueArrayOutput)
 }
 
-// Defines one of the values for a slot type.
 type BotSampleValueOutput struct{ *pulumi.OutputState }
 
 func (BotSampleValueOutput) ElementType() reflect.Type {
@@ -11240,7 +11750,6 @@ func (o BotSampleValueOutput) ToBotSampleValueOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The value that can be used for a slot type.
 func (o BotSampleValueOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v BotSampleValue) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -11265,7 +11774,6 @@ func (o BotSampleValueArrayOutput) Index(i pulumi.IntInput) BotSampleValueOutput
 	}).(BotSampleValueOutput)
 }
 
-// Key/value pair representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
 type BotSessionAttribute struct {
 	// The name of the session attribute.
 	Key string `pulumi:"key"`
@@ -11284,7 +11792,6 @@ type BotSessionAttributeInput interface {
 	ToBotSessionAttributeOutputWithContext(context.Context) BotSessionAttributeOutput
 }
 
-// Key/value pair representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
 type BotSessionAttributeArgs struct {
 	// The name of the session attribute.
 	Key pulumi.StringInput `pulumi:"key"`
@@ -11329,7 +11836,6 @@ func (i BotSessionAttributeArray) ToBotSessionAttributeArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BotSessionAttributeArrayOutput)
 }
 
-// Key/value pair representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
 type BotSessionAttributeOutput struct{ *pulumi.OutputState }
 
 func (BotSessionAttributeOutput) ElementType() reflect.Type {
@@ -11374,7 +11880,6 @@ func (o BotSessionAttributeArrayOutput) Index(i pulumi.IntInput) BotSessionAttri
 	}).(BotSessionAttributeOutput)
 }
 
-// A slot is a variable needed to fulfill an intent, where an intent can require zero or more slots.
 type BotSlot struct {
 	// The description of the slot.
 	Description *string `pulumi:"description"`
@@ -11406,7 +11911,6 @@ type BotSlotInput interface {
 	ToBotSlotOutputWithContext(context.Context) BotSlotOutput
 }
 
-// A slot is a variable needed to fulfill an intent, where an intent can require zero or more slots.
 type BotSlotArgs struct {
 	// The description of the slot.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -11464,7 +11968,6 @@ func (i BotSlotArray) ToBotSlotArrayOutputWithContext(ctx context.Context) BotSl
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotArrayOutput)
 }
 
-// A slot is a variable needed to fulfill an intent, where an intent can require zero or more slots.
 type BotSlotOutput struct{ *pulumi.OutputState }
 
 func (BotSlotOutput) ElementType() reflect.Type {
@@ -11534,7 +12037,6 @@ func (o BotSlotArrayOutput) Index(i pulumi.IntInput) BotSlotOutput {
 	}).(BotSlotOutput)
 }
 
-// Settings used when Amazon Lex successfully captures a slot value from a user.
 type BotSlotCaptureSetting struct {
 	// A list of conditional branches to evaluate after the slot value is captured.
 	CaptureConditional *BotConditionalSpecification `pulumi:"captureConditional"`
@@ -11550,7 +12052,7 @@ type BotSlotCaptureSetting struct {
 	FailureConditional *BotConditionalSpecification `pulumi:"failureConditional"`
 	// Specifies the next step that the bot runs when the slot value code is not recognized.
 	FailureNextStep *BotDialogState `pulumi:"failureNextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// Specifies a list of message groups that Amazon Lex uses to respond the user input when the slot fails to be captured.
 	FailureResponse *BotResponseSpecification `pulumi:"failureResponse"`
 }
 
@@ -11565,7 +12067,6 @@ type BotSlotCaptureSettingInput interface {
 	ToBotSlotCaptureSettingOutputWithContext(context.Context) BotSlotCaptureSettingOutput
 }
 
-// Settings used when Amazon Lex successfully captures a slot value from a user.
 type BotSlotCaptureSettingArgs struct {
 	// A list of conditional branches to evaluate after the slot value is captured.
 	CaptureConditional BotConditionalSpecificationPtrInput `pulumi:"captureConditional"`
@@ -11581,7 +12082,7 @@ type BotSlotCaptureSettingArgs struct {
 	FailureConditional BotConditionalSpecificationPtrInput `pulumi:"failureConditional"`
 	// Specifies the next step that the bot runs when the slot value code is not recognized.
 	FailureNextStep BotDialogStatePtrInput `pulumi:"failureNextStep"`
-	// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+	// Specifies a list of message groups that Amazon Lex uses to respond the user input when the slot fails to be captured.
 	FailureResponse BotResponseSpecificationPtrInput `pulumi:"failureResponse"`
 }
 
@@ -11638,7 +12139,6 @@ func (i *botSlotCaptureSettingPtrType) ToBotSlotCaptureSettingPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotCaptureSettingPtrOutput)
 }
 
-// Settings used when Amazon Lex successfully captures a slot value from a user.
 type BotSlotCaptureSettingOutput struct{ *pulumi.OutputState }
 
 func (BotSlotCaptureSettingOutput) ElementType() reflect.Type {
@@ -11698,7 +12198,7 @@ func (o BotSlotCaptureSettingOutput) FailureNextStep() BotDialogStatePtrOutput {
 	return o.ApplyT(func(v BotSlotCaptureSetting) *BotDialogState { return v.FailureNextStep }).(BotDialogStatePtrOutput)
 }
 
-// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+// Specifies a list of message groups that Amazon Lex uses to respond the user input when the slot fails to be captured.
 func (o BotSlotCaptureSettingOutput) FailureResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v BotSlotCaptureSetting) *BotResponseSpecification { return v.FailureResponse }).(BotResponseSpecificationPtrOutput)
 }
@@ -11797,7 +12297,7 @@ func (o BotSlotCaptureSettingPtrOutput) FailureNextStep() BotDialogStatePtrOutpu
 	}).(BotDialogStatePtrOutput)
 }
 
-// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+// Specifies a list of message groups that Amazon Lex uses to respond the user input when the slot fails to be captured.
 func (o BotSlotCaptureSettingPtrOutput) FailureResponse() BotResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotSlotCaptureSetting) *BotResponseSpecification {
 		if v == nil {
@@ -11807,7 +12307,6 @@ func (o BotSlotCaptureSettingPtrOutput) FailureResponse() BotResponseSpecificati
 	}).(BotResponseSpecificationPtrOutput)
 }
 
-// The default value to use when a user doesn't provide a value for a slot.
 type BotSlotDefaultValue struct {
 	// The default value to use when a user doesn't provide a value for a slot.
 	DefaultValue string `pulumi:"defaultValue"`
@@ -11824,7 +12323,6 @@ type BotSlotDefaultValueInput interface {
 	ToBotSlotDefaultValueOutputWithContext(context.Context) BotSlotDefaultValueOutput
 }
 
-// The default value to use when a user doesn't provide a value for a slot.
 type BotSlotDefaultValueArgs struct {
 	// The default value to use when a user doesn't provide a value for a slot.
 	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
@@ -11867,7 +12365,6 @@ func (i BotSlotDefaultValueArray) ToBotSlotDefaultValueArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotDefaultValueArrayOutput)
 }
 
-// The default value to use when a user doesn't provide a value for a slot.
 type BotSlotDefaultValueOutput struct{ *pulumi.OutputState }
 
 func (BotSlotDefaultValueOutput) ElementType() reflect.Type {
@@ -11907,9 +12404,8 @@ func (o BotSlotDefaultValueArrayOutput) Index(i pulumi.IntInput) BotSlotDefaultV
 	}).(BotSlotDefaultValueOutput)
 }
 
-// A list of values that Amazon Lex should use as the default value for a slot.
 type BotSlotDefaultValueSpecification struct {
-	// A list of slot default values
+	// A list of default values. Amazon Lex chooses the default value to use in the order that they are presented in the list.
 	DefaultValueList []BotSlotDefaultValue `pulumi:"defaultValueList"`
 }
 
@@ -11924,9 +12420,8 @@ type BotSlotDefaultValueSpecificationInput interface {
 	ToBotSlotDefaultValueSpecificationOutputWithContext(context.Context) BotSlotDefaultValueSpecificationOutput
 }
 
-// A list of values that Amazon Lex should use as the default value for a slot.
 type BotSlotDefaultValueSpecificationArgs struct {
-	// A list of slot default values
+	// A list of default values. Amazon Lex chooses the default value to use in the order that they are presented in the list.
 	DefaultValueList BotSlotDefaultValueArrayInput `pulumi:"defaultValueList"`
 }
 
@@ -11983,7 +12478,6 @@ func (i *botSlotDefaultValueSpecificationPtrType) ToBotSlotDefaultValueSpecifica
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotDefaultValueSpecificationPtrOutput)
 }
 
-// A list of values that Amazon Lex should use as the default value for a slot.
 type BotSlotDefaultValueSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotSlotDefaultValueSpecificationOutput) ElementType() reflect.Type {
@@ -12008,7 +12502,7 @@ func (o BotSlotDefaultValueSpecificationOutput) ToBotSlotDefaultValueSpecificati
 	}).(BotSlotDefaultValueSpecificationPtrOutput)
 }
 
-// A list of slot default values
+// A list of default values. Amazon Lex chooses the default value to use in the order that they are presented in the list.
 func (o BotSlotDefaultValueSpecificationOutput) DefaultValueList() BotSlotDefaultValueArrayOutput {
 	return o.ApplyT(func(v BotSlotDefaultValueSpecification) []BotSlotDefaultValue { return v.DefaultValueList }).(BotSlotDefaultValueArrayOutput)
 }
@@ -12037,7 +12531,7 @@ func (o BotSlotDefaultValueSpecificationPtrOutput) Elem() BotSlotDefaultValueSpe
 	}).(BotSlotDefaultValueSpecificationOutput)
 }
 
-// A list of slot default values
+// A list of default values. Amazon Lex chooses the default value to use in the order that they are presented in the list.
 func (o BotSlotDefaultValueSpecificationPtrOutput) DefaultValueList() BotSlotDefaultValueArrayOutput {
 	return o.ApplyT(func(v *BotSlotDefaultValueSpecification) []BotSlotDefaultValue {
 		if v == nil {
@@ -12047,10 +12541,8 @@ func (o BotSlotDefaultValueSpecificationPtrOutput) DefaultValueList() BotSlotDef
 	}).(BotSlotDefaultValueArrayOutput)
 }
 
-// The priority that Amazon Lex should use when eliciting slot values from a user.
 type BotSlotPriority struct {
-	Priority int `pulumi:"priority"`
-	// The name of the slot.
+	Priority int    `pulumi:"priority"`
 	SlotName string `pulumi:"slotName"`
 }
 
@@ -12065,10 +12557,8 @@ type BotSlotPriorityInput interface {
 	ToBotSlotPriorityOutputWithContext(context.Context) BotSlotPriorityOutput
 }
 
-// The priority that Amazon Lex should use when eliciting slot values from a user.
 type BotSlotPriorityArgs struct {
-	Priority pulumi.IntInput `pulumi:"priority"`
-	// The name of the slot.
+	Priority pulumi.IntInput    `pulumi:"priority"`
 	SlotName pulumi.StringInput `pulumi:"slotName"`
 }
 
@@ -12109,7 +12599,6 @@ func (i BotSlotPriorityArray) ToBotSlotPriorityArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotPriorityArrayOutput)
 }
 
-// The priority that Amazon Lex should use when eliciting slot values from a user.
 type BotSlotPriorityOutput struct{ *pulumi.OutputState }
 
 func (BotSlotPriorityOutput) ElementType() reflect.Type {
@@ -12128,7 +12617,6 @@ func (o BotSlotPriorityOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v BotSlotPriority) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The name of the slot.
 func (o BotSlotPriorityOutput) SlotName() pulumi.StringOutput {
 	return o.ApplyT(func(v BotSlotPriority) string { return v.SlotName }).(pulumi.StringOutput)
 }
@@ -12153,8 +12641,8 @@ func (o BotSlotPriorityArrayOutput) Index(i pulumi.IntInput) BotSlotPriorityOutp
 	}).(BotSlotPriorityOutput)
 }
 
-// A custom, extended built-in or a grammar slot type.
 type BotSlotType struct {
+	CompositeSlotTypeSetting *BotCompositeSlotTypeSetting `pulumi:"compositeSlotTypeSetting"`
 	// A description of the slot type. Use the description to help identify the slot type in lists.
 	Description *string `pulumi:"description"`
 	// Sets the type of external information used to create the slot type.
@@ -12187,8 +12675,8 @@ type BotSlotTypeInput interface {
 	ToBotSlotTypeOutputWithContext(context.Context) BotSlotTypeOutput
 }
 
-// A custom, extended built-in or a grammar slot type.
 type BotSlotTypeArgs struct {
+	CompositeSlotTypeSetting BotCompositeSlotTypeSettingPtrInput `pulumi:"compositeSlotTypeSetting"`
 	// A description of the slot type. Use the description to help identify the slot type in lists.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Sets the type of external information used to create the slot type.
@@ -12247,7 +12735,6 @@ func (i BotSlotTypeArray) ToBotSlotTypeArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotTypeArrayOutput)
 }
 
-// A custom, extended built-in or a grammar slot type.
 type BotSlotTypeOutput struct{ *pulumi.OutputState }
 
 func (BotSlotTypeOutput) ElementType() reflect.Type {
@@ -12260,6 +12747,10 @@ func (o BotSlotTypeOutput) ToBotSlotTypeOutput() BotSlotTypeOutput {
 
 func (o BotSlotTypeOutput) ToBotSlotTypeOutputWithContext(ctx context.Context) BotSlotTypeOutput {
 	return o
+}
+
+func (o BotSlotTypeOutput) CompositeSlotTypeSetting() BotCompositeSlotTypeSettingPtrOutput {
+	return o.ApplyT(func(v BotSlotType) *BotCompositeSlotTypeSetting { return v.CompositeSlotTypeSetting }).(BotCompositeSlotTypeSettingPtrOutput)
 }
 
 // A description of the slot type. Use the description to help identify the slot type in lists.
@@ -12319,7 +12810,6 @@ func (o BotSlotTypeArrayOutput) Index(i pulumi.IntInput) BotSlotTypeOutput {
 	}).(BotSlotTypeOutput)
 }
 
-// Value that the slot type can take.
 type BotSlotTypeValue struct {
 	SampleValue BotSampleValue   `pulumi:"sampleValue"`
 	Synonyms    []BotSampleValue `pulumi:"synonyms"`
@@ -12336,7 +12826,6 @@ type BotSlotTypeValueInput interface {
 	ToBotSlotTypeValueOutputWithContext(context.Context) BotSlotTypeValueOutput
 }
 
-// Value that the slot type can take.
 type BotSlotTypeValueArgs struct {
 	SampleValue BotSampleValueInput      `pulumi:"sampleValue"`
 	Synonyms    BotSampleValueArrayInput `pulumi:"synonyms"`
@@ -12379,7 +12868,6 @@ func (i BotSlotTypeValueArray) ToBotSlotTypeValueArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotTypeValueArrayOutput)
 }
 
-// Value that the slot type can take.
 type BotSlotTypeValueOutput struct{ *pulumi.OutputState }
 
 func (BotSlotTypeValueOutput) ElementType() reflect.Type {
@@ -12422,9 +12910,8 @@ func (o BotSlotTypeValueArrayOutput) Index(i pulumi.IntInput) BotSlotTypeValueOu
 	}).(BotSlotTypeValueOutput)
 }
 
-// The value to set in a slot.
 type BotSlotValue struct {
-	// The value that Amazon Lex determines for the slot.
+	// The value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the `resolvedValues` list.
 	InterpretedValue *string `pulumi:"interpretedValue"`
 }
 
@@ -12439,9 +12926,8 @@ type BotSlotValueInput interface {
 	ToBotSlotValueOutputWithContext(context.Context) BotSlotValueOutput
 }
 
-// The value to set in a slot.
 type BotSlotValueArgs struct {
-	// The value that Amazon Lex determines for the slot.
+	// The value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the `resolvedValues` list.
 	InterpretedValue pulumi.StringPtrInput `pulumi:"interpretedValue"`
 }
 
@@ -12498,7 +12984,6 @@ func (i *botSlotValuePtrType) ToBotSlotValuePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValuePtrOutput)
 }
 
-// The value to set in a slot.
 type BotSlotValueOutput struct{ *pulumi.OutputState }
 
 func (BotSlotValueOutput) ElementType() reflect.Type {
@@ -12523,7 +13008,7 @@ func (o BotSlotValueOutput) ToBotSlotValuePtrOutputWithContext(ctx context.Conte
 	}).(BotSlotValuePtrOutput)
 }
 
-// The value that Amazon Lex determines for the slot.
+// The value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the `resolvedValues` list.
 func (o BotSlotValueOutput) InterpretedValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotSlotValue) *string { return v.InterpretedValue }).(pulumi.StringPtrOutput)
 }
@@ -12552,7 +13037,7 @@ func (o BotSlotValuePtrOutput) Elem() BotSlotValueOutput {
 	}).(BotSlotValueOutput)
 }
 
-// The value that Amazon Lex determines for the slot.
+// The value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the `resolvedValues` list.
 func (o BotSlotValuePtrOutput) InterpretedValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotSlotValue) *string {
 		if v == nil {
@@ -12562,15 +13047,14 @@ func (o BotSlotValuePtrOutput) InterpretedValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings that you can use for eliciting a slot value.
 type BotSlotValueElicitationSetting struct {
-	// A list of default values for a slot.
+	// A list of default values for a slot. Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
 	DefaultValueSpecification *BotSlotDefaultValueSpecification `pulumi:"defaultValueSpecification"`
 	// The prompt that Amazon Lex uses to elicit the slot value from the user.
 	PromptSpecification *BotPromptSpecification `pulumi:"promptSpecification"`
-	// If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy.
+	// If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This is optional. In most cases, Amazon Lex is capable of understanding user utterances.
 	SampleUtterances []BotSampleUtterance `pulumi:"sampleUtterances"`
-	// Specifies the next stage in the conversation after capturing the slot.
+	// Specifies the settings that Amazon Lex uses when a slot value is successfully entered by a user.
 	SlotCaptureSetting *BotSlotCaptureSetting `pulumi:"slotCaptureSetting"`
 	// Specifies whether the slot is required or optional.
 	SlotConstraint BotSlotConstraint `pulumi:"slotConstraint"`
@@ -12589,15 +13073,14 @@ type BotSlotValueElicitationSettingInput interface {
 	ToBotSlotValueElicitationSettingOutputWithContext(context.Context) BotSlotValueElicitationSettingOutput
 }
 
-// Settings that you can use for eliciting a slot value.
 type BotSlotValueElicitationSettingArgs struct {
-	// A list of default values for a slot.
+	// A list of default values for a slot. Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
 	DefaultValueSpecification BotSlotDefaultValueSpecificationPtrInput `pulumi:"defaultValueSpecification"`
 	// The prompt that Amazon Lex uses to elicit the slot value from the user.
 	PromptSpecification BotPromptSpecificationPtrInput `pulumi:"promptSpecification"`
-	// If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy.
+	// If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This is optional. In most cases, Amazon Lex is capable of understanding user utterances.
 	SampleUtterances BotSampleUtteranceArrayInput `pulumi:"sampleUtterances"`
-	// Specifies the next stage in the conversation after capturing the slot.
+	// Specifies the settings that Amazon Lex uses when a slot value is successfully entered by a user.
 	SlotCaptureSetting BotSlotCaptureSettingPtrInput `pulumi:"slotCaptureSetting"`
 	// Specifies whether the slot is required or optional.
 	SlotConstraint BotSlotConstraintInput `pulumi:"slotConstraint"`
@@ -12617,7 +13100,6 @@ func (i BotSlotValueElicitationSettingArgs) ToBotSlotValueElicitationSettingOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueElicitationSettingOutput)
 }
 
-// Settings that you can use for eliciting a slot value.
 type BotSlotValueElicitationSettingOutput struct{ *pulumi.OutputState }
 
 func (BotSlotValueElicitationSettingOutput) ElementType() reflect.Type {
@@ -12632,7 +13114,7 @@ func (o BotSlotValueElicitationSettingOutput) ToBotSlotValueElicitationSettingOu
 	return o
 }
 
-// A list of default values for a slot.
+// A list of default values for a slot. Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
 func (o BotSlotValueElicitationSettingOutput) DefaultValueSpecification() BotSlotDefaultValueSpecificationPtrOutput {
 	return o.ApplyT(func(v BotSlotValueElicitationSetting) *BotSlotDefaultValueSpecification {
 		return v.DefaultValueSpecification
@@ -12644,12 +13126,12 @@ func (o BotSlotValueElicitationSettingOutput) PromptSpecification() BotPromptSpe
 	return o.ApplyT(func(v BotSlotValueElicitationSetting) *BotPromptSpecification { return v.PromptSpecification }).(BotPromptSpecificationPtrOutput)
 }
 
-// If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy.
+// If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This is optional. In most cases, Amazon Lex is capable of understanding user utterances.
 func (o BotSlotValueElicitationSettingOutput) SampleUtterances() BotSampleUtteranceArrayOutput {
 	return o.ApplyT(func(v BotSlotValueElicitationSetting) []BotSampleUtterance { return v.SampleUtterances }).(BotSampleUtteranceArrayOutput)
 }
 
-// Specifies the next stage in the conversation after capturing the slot.
+// Specifies the settings that Amazon Lex uses when a slot value is successfully entered by a user.
 func (o BotSlotValueElicitationSettingOutput) SlotCaptureSetting() BotSlotCaptureSettingPtrOutput {
 	return o.ApplyT(func(v BotSlotValueElicitationSetting) *BotSlotCaptureSetting { return v.SlotCaptureSetting }).(BotSlotCaptureSettingPtrOutput)
 }
@@ -12666,9 +13148,8 @@ func (o BotSlotValueElicitationSettingOutput) WaitAndContinueSpecification() Bot
 	}).(BotWaitAndContinueSpecificationPtrOutput)
 }
 
-// The slot values that Amazon Lex uses when it sets slot values in a dialog step.
 type BotSlotValueOverride struct {
-	// When the shape value is List, it indicates that the values field contains a list of slot values. When the value is Scalar, it indicates that the value field contains a single value.
+	// When the shape value is `List` , it indicates that the `values` field contains a list of slot values. When the value is `Scalar` , it indicates that the `value` field contains a single value.
 	Shape *BotSlotShape `pulumi:"shape"`
 	// The current value of the slot.
 	Value *BotSlotValue `pulumi:"value"`
@@ -12687,9 +13168,8 @@ type BotSlotValueOverrideInput interface {
 	ToBotSlotValueOverrideOutputWithContext(context.Context) BotSlotValueOverrideOutput
 }
 
-// The slot values that Amazon Lex uses when it sets slot values in a dialog step.
 type BotSlotValueOverrideArgs struct {
-	// When the shape value is List, it indicates that the values field contains a list of slot values. When the value is Scalar, it indicates that the value field contains a single value.
+	// When the shape value is `List` , it indicates that the `values` field contains a list of slot values. When the value is `Scalar` , it indicates that the `value` field contains a single value.
 	Shape BotSlotShapePtrInput `pulumi:"shape"`
 	// The current value of the slot.
 	Value BotSlotValuePtrInput `pulumi:"value"`
@@ -12775,7 +13255,6 @@ func (i BotSlotValueOverrideArray) ToBotSlotValueOverrideArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueOverrideArrayOutput)
 }
 
-// The slot values that Amazon Lex uses when it sets slot values in a dialog step.
 type BotSlotValueOverrideOutput struct{ *pulumi.OutputState }
 
 func (BotSlotValueOverrideOutput) ElementType() reflect.Type {
@@ -12800,7 +13279,7 @@ func (o BotSlotValueOverrideOutput) ToBotSlotValueOverridePtrOutputWithContext(c
 	}).(BotSlotValueOverridePtrOutput)
 }
 
-// When the shape value is List, it indicates that the values field contains a list of slot values. When the value is Scalar, it indicates that the value field contains a single value.
+// When the shape value is `List` , it indicates that the `values` field contains a list of slot values. When the value is `Scalar` , it indicates that the `value` field contains a single value.
 func (o BotSlotValueOverrideOutput) Shape() BotSlotShapePtrOutput {
 	return o.ApplyT(func(v BotSlotValueOverride) *BotSlotShape { return v.Shape }).(BotSlotShapePtrOutput)
 }
@@ -12839,7 +13318,7 @@ func (o BotSlotValueOverridePtrOutput) Elem() BotSlotValueOverrideOutput {
 	}).(BotSlotValueOverrideOutput)
 }
 
-// When the shape value is List, it indicates that the values field contains a list of slot values. When the value is Scalar, it indicates that the value field contains a single value.
+// When the shape value is `List` , it indicates that the `values` field contains a list of slot values. When the value is `Scalar` , it indicates that the `value` field contains a single value.
 func (o BotSlotValueOverridePtrOutput) Shape() BotSlotShapePtrOutput {
 	return o.ApplyT(func(v *BotSlotValueOverride) *BotSlotShape {
 		if v == nil {
@@ -12889,7 +13368,6 @@ func (o BotSlotValueOverrideArrayOutput) Index(i pulumi.IntInput) BotSlotValueOv
 	}).(BotSlotValueOverrideOutput)
 }
 
-// A map of slot names and their overridden values.
 type BotSlotValueOverrideMap struct {
 	// The name of the slot.
 	SlotName *string `pulumi:"slotName"`
@@ -12908,7 +13386,6 @@ type BotSlotValueOverrideMapInput interface {
 	ToBotSlotValueOverrideMapOutputWithContext(context.Context) BotSlotValueOverrideMapOutput
 }
 
-// A map of slot names and their overridden values.
 type BotSlotValueOverrideMapArgs struct {
 	// The name of the slot.
 	SlotName pulumi.StringPtrInput `pulumi:"slotName"`
@@ -12953,7 +13430,6 @@ func (i BotSlotValueOverrideMapArray) ToBotSlotValueOverrideMapArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueOverrideMapArrayOutput)
 }
 
-// A map of slot names and their overridden values.
 type BotSlotValueOverrideMapOutput struct{ *pulumi.OutputState }
 
 func (BotSlotValueOverrideMapOutput) ElementType() reflect.Type {
@@ -12998,9 +13474,21 @@ func (o BotSlotValueOverrideMapArrayOutput) Index(i pulumi.IntInput) BotSlotValu
 	}).(BotSlotValueOverrideMapOutput)
 }
 
-// A regular expression used to validate the value of a slot.
 type BotSlotValueRegexFilter struct {
-	// Regex pattern
+	// A regular expression used to validate the value of a slot.
+	//
+	// Use a standard regular expression. Amazon Lex supports the following characters in the regular expression:
+	//
+	// - A-Z, a-z
+	// - 0-9
+	// - Unicode characters ("\⁠u<Unicode>")
+	//
+	// Represent Unicode characters with four digits, for example "\⁠u0041" or "\⁠u005A".
+	//
+	// The following regular expression operators are not supported:
+	//
+	// - Infinite repeaters: *, +, or {x,} with no upper bound.
+	// - Wild card (.)
 	Pattern string `pulumi:"pattern"`
 }
 
@@ -13015,9 +13503,21 @@ type BotSlotValueRegexFilterInput interface {
 	ToBotSlotValueRegexFilterOutputWithContext(context.Context) BotSlotValueRegexFilterOutput
 }
 
-// A regular expression used to validate the value of a slot.
 type BotSlotValueRegexFilterArgs struct {
-	// Regex pattern
+	// A regular expression used to validate the value of a slot.
+	//
+	// Use a standard regular expression. Amazon Lex supports the following characters in the regular expression:
+	//
+	// - A-Z, a-z
+	// - 0-9
+	// - Unicode characters ("\⁠u<Unicode>")
+	//
+	// Represent Unicode characters with four digits, for example "\⁠u0041" or "\⁠u005A".
+	//
+	// The following regular expression operators are not supported:
+	//
+	// - Infinite repeaters: *, +, or {x,} with no upper bound.
+	// - Wild card (.)
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
 
@@ -13074,7 +13574,6 @@ func (i *botSlotValueRegexFilterPtrType) ToBotSlotValueRegexFilterPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueRegexFilterPtrOutput)
 }
 
-// A regular expression used to validate the value of a slot.
 type BotSlotValueRegexFilterOutput struct{ *pulumi.OutputState }
 
 func (BotSlotValueRegexFilterOutput) ElementType() reflect.Type {
@@ -13099,7 +13598,20 @@ func (o BotSlotValueRegexFilterOutput) ToBotSlotValueRegexFilterPtrOutputWithCon
 	}).(BotSlotValueRegexFilterPtrOutput)
 }
 
-// Regex pattern
+// A regular expression used to validate the value of a slot.
+//
+// Use a standard regular expression. Amazon Lex supports the following characters in the regular expression:
+//
+// - A-Z, a-z
+// - 0-9
+// - Unicode characters ("\⁠u<Unicode>")
+//
+// Represent Unicode characters with four digits, for example "\⁠u0041" or "\⁠u005A".
+//
+// The following regular expression operators are not supported:
+//
+// - Infinite repeaters: *, +, or {x,} with no upper bound.
+// - Wild card (.)
 func (o BotSlotValueRegexFilterOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v BotSlotValueRegexFilter) string { return v.Pattern }).(pulumi.StringOutput)
 }
@@ -13128,7 +13640,20 @@ func (o BotSlotValueRegexFilterPtrOutput) Elem() BotSlotValueRegexFilterOutput {
 	}).(BotSlotValueRegexFilterOutput)
 }
 
-// Regex pattern
+// A regular expression used to validate the value of a slot.
+//
+// Use a standard regular expression. Amazon Lex supports the following characters in the regular expression:
+//
+// - A-Z, a-z
+// - 0-9
+// - Unicode characters ("\⁠u<Unicode>")
+//
+// Represent Unicode characters with four digits, for example "\⁠u0041" or "\⁠u005A".
+//
+// The following regular expression operators are not supported:
+//
+// - Infinite repeaters: *, +, or {x,} with no upper bound.
+// - Wild card (.)
 func (o BotSlotValueRegexFilterPtrOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotSlotValueRegexFilter) *string {
 		if v == nil {
@@ -13138,7 +13663,6 @@ func (o BotSlotValueRegexFilterPtrOutput) Pattern() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains settings used by Amazon Lex to select a slot value.
 type BotSlotValueSelectionSetting struct {
 	// Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
 	AdvancedRecognitionSetting *BotAdvancedRecognitionSetting `pulumi:"advancedRecognitionSetting"`
@@ -13164,7 +13688,6 @@ type BotSlotValueSelectionSettingInput interface {
 	ToBotSlotValueSelectionSettingOutputWithContext(context.Context) BotSlotValueSelectionSettingOutput
 }
 
-// Contains settings used by Amazon Lex to select a slot value.
 type BotSlotValueSelectionSettingArgs struct {
 	// Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
 	AdvancedRecognitionSetting BotAdvancedRecognitionSettingPtrInput `pulumi:"advancedRecognitionSetting"`
@@ -13232,7 +13755,6 @@ func (i *botSlotValueSelectionSettingPtrType) ToBotSlotValueSelectionSettingPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueSelectionSettingPtrOutput)
 }
 
-// Contains settings used by Amazon Lex to select a slot value.
 type BotSlotValueSelectionSettingOutput struct{ *pulumi.OutputState }
 
 func (BotSlotValueSelectionSettingOutput) ElementType() reflect.Type {
@@ -13338,9 +13860,7 @@ func (o BotSlotValueSelectionSettingPtrOutput) ResolutionStrategy() BotSlotValue
 	}).(BotSlotValueResolutionStrategyPtrOutput)
 }
 
-// A message in Speech Synthesis Markup Language (SSML).
 type BotSsmlMessage struct {
-	// The SSML text that defines the prompt.
 	Value string `pulumi:"value"`
 }
 
@@ -13355,9 +13875,7 @@ type BotSsmlMessageInput interface {
 	ToBotSsmlMessageOutputWithContext(context.Context) BotSsmlMessageOutput
 }
 
-// A message in Speech Synthesis Markup Language (SSML).
 type BotSsmlMessageArgs struct {
-	// The SSML text that defines the prompt.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -13414,7 +13932,6 @@ func (i *botSsmlMessagePtrType) ToBotSsmlMessagePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(BotSsmlMessagePtrOutput)
 }
 
-// A message in Speech Synthesis Markup Language (SSML).
 type BotSsmlMessageOutput struct{ *pulumi.OutputState }
 
 func (BotSsmlMessageOutput) ElementType() reflect.Type {
@@ -13439,7 +13956,6 @@ func (o BotSsmlMessageOutput) ToBotSsmlMessagePtrOutputWithContext(ctx context.C
 	}).(BotSsmlMessagePtrOutput)
 }
 
-// The SSML text that defines the prompt.
 func (o BotSsmlMessageOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v BotSsmlMessage) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -13468,7 +13984,6 @@ func (o BotSsmlMessagePtrOutput) Elem() BotSsmlMessageOutput {
 	}).(BotSsmlMessageOutput)
 }
 
-// The SSML text that defines the prompt.
 func (o BotSsmlMessagePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotSsmlMessage) *string {
 		if v == nil {
@@ -13478,9 +13993,8 @@ func (o BotSsmlMessagePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// StillWaitingResponseSpecification.
 type BotStillWaitingResponseSpecification struct {
-	// Indicates whether the user can interrupt a speech prompt from the bot.
+	// Indicates that the user can interrupt the response by speaking while the message is being played.
 	AllowInterrupt *bool `pulumi:"allowInterrupt"`
 	// How often a message should be sent to the user. Minimum of 1 second, maximum of 5 minutes.
 	FrequencyInSeconds int `pulumi:"frequencyInSeconds"`
@@ -13501,9 +14015,8 @@ type BotStillWaitingResponseSpecificationInput interface {
 	ToBotStillWaitingResponseSpecificationOutputWithContext(context.Context) BotStillWaitingResponseSpecificationOutput
 }
 
-// StillWaitingResponseSpecification.
 type BotStillWaitingResponseSpecificationArgs struct {
-	// Indicates whether the user can interrupt a speech prompt from the bot.
+	// Indicates that the user can interrupt the response by speaking while the message is being played.
 	AllowInterrupt pulumi.BoolPtrInput `pulumi:"allowInterrupt"`
 	// How often a message should be sent to the user. Minimum of 1 second, maximum of 5 minutes.
 	FrequencyInSeconds pulumi.IntInput `pulumi:"frequencyInSeconds"`
@@ -13566,7 +14079,6 @@ func (i *botStillWaitingResponseSpecificationPtrType) ToBotStillWaitingResponseS
 	return pulumi.ToOutputWithContext(ctx, i).(BotStillWaitingResponseSpecificationPtrOutput)
 }
 
-// StillWaitingResponseSpecification.
 type BotStillWaitingResponseSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotStillWaitingResponseSpecificationOutput) ElementType() reflect.Type {
@@ -13591,7 +14103,7 @@ func (o BotStillWaitingResponseSpecificationOutput) ToBotStillWaitingResponseSpe
 	}).(BotStillWaitingResponseSpecificationPtrOutput)
 }
 
-// Indicates whether the user can interrupt a speech prompt from the bot.
+// Indicates that the user can interrupt the response by speaking while the message is being played.
 func (o BotStillWaitingResponseSpecificationOutput) AllowInterrupt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotStillWaitingResponseSpecification) *bool { return v.AllowInterrupt }).(pulumi.BoolPtrOutput)
 }
@@ -13635,7 +14147,7 @@ func (o BotStillWaitingResponseSpecificationPtrOutput) Elem() BotStillWaitingRes
 	}).(BotStillWaitingResponseSpecificationOutput)
 }
 
-// Indicates whether the user can interrupt a speech prompt from the bot.
+// Indicates that the user can interrupt the response by speaking while the message is being played.
 func (o BotStillWaitingResponseSpecificationPtrOutput) AllowInterrupt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BotStillWaitingResponseSpecification) *bool {
 		if v == nil {
@@ -13675,11 +14187,108 @@ func (o BotStillWaitingResponseSpecificationPtrOutput) TimeoutInSeconds() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// A key-value pair for tagging Lex resources
+type BotSubSlotTypeComposition struct {
+	Name       string `pulumi:"name"`
+	SlotTypeId string `pulumi:"slotTypeId"`
+}
+
+// BotSubSlotTypeCompositionInput is an input type that accepts BotSubSlotTypeCompositionArgs and BotSubSlotTypeCompositionOutput values.
+// You can construct a concrete instance of `BotSubSlotTypeCompositionInput` via:
+//
+//	BotSubSlotTypeCompositionArgs{...}
+type BotSubSlotTypeCompositionInput interface {
+	pulumi.Input
+
+	ToBotSubSlotTypeCompositionOutput() BotSubSlotTypeCompositionOutput
+	ToBotSubSlotTypeCompositionOutputWithContext(context.Context) BotSubSlotTypeCompositionOutput
+}
+
+type BotSubSlotTypeCompositionArgs struct {
+	Name       pulumi.StringInput `pulumi:"name"`
+	SlotTypeId pulumi.StringInput `pulumi:"slotTypeId"`
+}
+
+func (BotSubSlotTypeCompositionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotSubSlotTypeComposition)(nil)).Elem()
+}
+
+func (i BotSubSlotTypeCompositionArgs) ToBotSubSlotTypeCompositionOutput() BotSubSlotTypeCompositionOutput {
+	return i.ToBotSubSlotTypeCompositionOutputWithContext(context.Background())
+}
+
+func (i BotSubSlotTypeCompositionArgs) ToBotSubSlotTypeCompositionOutputWithContext(ctx context.Context) BotSubSlotTypeCompositionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotSubSlotTypeCompositionOutput)
+}
+
+// BotSubSlotTypeCompositionArrayInput is an input type that accepts BotSubSlotTypeCompositionArray and BotSubSlotTypeCompositionArrayOutput values.
+// You can construct a concrete instance of `BotSubSlotTypeCompositionArrayInput` via:
+//
+//	BotSubSlotTypeCompositionArray{ BotSubSlotTypeCompositionArgs{...} }
+type BotSubSlotTypeCompositionArrayInput interface {
+	pulumi.Input
+
+	ToBotSubSlotTypeCompositionArrayOutput() BotSubSlotTypeCompositionArrayOutput
+	ToBotSubSlotTypeCompositionArrayOutputWithContext(context.Context) BotSubSlotTypeCompositionArrayOutput
+}
+
+type BotSubSlotTypeCompositionArray []BotSubSlotTypeCompositionInput
+
+func (BotSubSlotTypeCompositionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotSubSlotTypeComposition)(nil)).Elem()
+}
+
+func (i BotSubSlotTypeCompositionArray) ToBotSubSlotTypeCompositionArrayOutput() BotSubSlotTypeCompositionArrayOutput {
+	return i.ToBotSubSlotTypeCompositionArrayOutputWithContext(context.Background())
+}
+
+func (i BotSubSlotTypeCompositionArray) ToBotSubSlotTypeCompositionArrayOutputWithContext(ctx context.Context) BotSubSlotTypeCompositionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotSubSlotTypeCompositionArrayOutput)
+}
+
+type BotSubSlotTypeCompositionOutput struct{ *pulumi.OutputState }
+
+func (BotSubSlotTypeCompositionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotSubSlotTypeComposition)(nil)).Elem()
+}
+
+func (o BotSubSlotTypeCompositionOutput) ToBotSubSlotTypeCompositionOutput() BotSubSlotTypeCompositionOutput {
+	return o
+}
+
+func (o BotSubSlotTypeCompositionOutput) ToBotSubSlotTypeCompositionOutputWithContext(ctx context.Context) BotSubSlotTypeCompositionOutput {
+	return o
+}
+
+func (o BotSubSlotTypeCompositionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BotSubSlotTypeComposition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o BotSubSlotTypeCompositionOutput) SlotTypeId() pulumi.StringOutput {
+	return o.ApplyT(func(v BotSubSlotTypeComposition) string { return v.SlotTypeId }).(pulumi.StringOutput)
+}
+
+type BotSubSlotTypeCompositionArrayOutput struct{ *pulumi.OutputState }
+
+func (BotSubSlotTypeCompositionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotSubSlotTypeComposition)(nil)).Elem()
+}
+
+func (o BotSubSlotTypeCompositionArrayOutput) ToBotSubSlotTypeCompositionArrayOutput() BotSubSlotTypeCompositionArrayOutput {
+	return o
+}
+
+func (o BotSubSlotTypeCompositionArrayOutput) ToBotSubSlotTypeCompositionArrayOutputWithContext(ctx context.Context) BotSubSlotTypeCompositionArrayOutput {
+	return o
+}
+
+func (o BotSubSlotTypeCompositionArrayOutput) Index(i pulumi.IntInput) BotSubSlotTypeCompositionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotSubSlotTypeComposition {
+		return vs[0].([]BotSubSlotTypeComposition)[vs[1].(int)]
+	}).(BotSubSlotTypeCompositionOutput)
+}
+
 type BotTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -13694,11 +14303,8 @@ type BotTagInput interface {
 	ToBotTagOutputWithContext(context.Context) BotTagOutput
 }
 
-// A key-value pair for tagging Lex resources
 type BotTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -13739,7 +14345,6 @@ func (i BotTagArray) ToBotTagArrayOutputWithContext(ctx context.Context) BotTagA
 	return pulumi.ToOutputWithContext(ctx, i).(BotTagArrayOutput)
 }
 
-// A key-value pair for tagging Lex resources
 type BotTagOutput struct{ *pulumi.OutputState }
 
 func (BotTagOutput) ElementType() reflect.Type {
@@ -13754,12 +14359,10 @@ func (o BotTagOutput) ToBotTagOutputWithContext(ctx context.Context) BotTagOutpu
 	return o
 }
 
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o BotTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BotTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o BotTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v BotTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -13784,7 +14387,6 @@ func (o BotTagArrayOutput) Index(i pulumi.IntInput) BotTagOutput {
 	}).(BotTagOutput)
 }
 
-// Configuring the test bot alias settings for a given bot
 type BotTestBotAliasSettings struct {
 	// Specifies settings that are unique to a locale. For example, you can use a different Lambda function depending on the bot's locale.
 	BotAliasLocaleSettings []BotAliasLocaleSettingsItem `pulumi:"botAliasLocaleSettings"`
@@ -13792,7 +14394,7 @@ type BotTestBotAliasSettings struct {
 	ConversationLogSettings *BotConversationLogSettings `pulumi:"conversationLogSettings"`
 	// Specifies a description for the test bot alias.
 	Description *string `pulumi:"description"`
-	// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+	// Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
 	SentimentAnalysisSettings *BotTestBotAliasSettingsSentimentAnalysisSettingsProperties `pulumi:"sentimentAnalysisSettings"`
 }
 
@@ -13807,7 +14409,6 @@ type BotTestBotAliasSettingsInput interface {
 	ToBotTestBotAliasSettingsOutputWithContext(context.Context) BotTestBotAliasSettingsOutput
 }
 
-// Configuring the test bot alias settings for a given bot
 type BotTestBotAliasSettingsArgs struct {
 	// Specifies settings that are unique to a locale. For example, you can use a different Lambda function depending on the bot's locale.
 	BotAliasLocaleSettings BotAliasLocaleSettingsItemArrayInput `pulumi:"botAliasLocaleSettings"`
@@ -13815,7 +14416,7 @@ type BotTestBotAliasSettingsArgs struct {
 	ConversationLogSettings BotConversationLogSettingsPtrInput `pulumi:"conversationLogSettings"`
 	// Specifies a description for the test bot alias.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+	// Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
 	SentimentAnalysisSettings BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrInput `pulumi:"sentimentAnalysisSettings"`
 }
 
@@ -13872,7 +14473,6 @@ func (i *botTestBotAliasSettingsPtrType) ToBotTestBotAliasSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BotTestBotAliasSettingsPtrOutput)
 }
 
-// Configuring the test bot alias settings for a given bot
 type BotTestBotAliasSettingsOutput struct{ *pulumi.OutputState }
 
 func (BotTestBotAliasSettingsOutput) ElementType() reflect.Type {
@@ -13912,7 +14512,7 @@ func (o BotTestBotAliasSettingsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotTestBotAliasSettings) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+// Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
 func (o BotTestBotAliasSettingsOutput) SentimentAnalysisSettings() BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput {
 	return o.ApplyT(func(v BotTestBotAliasSettings) *BotTestBotAliasSettingsSentimentAnalysisSettingsProperties {
 		return v.SentimentAnalysisSettings
@@ -13973,7 +14573,7 @@ func (o BotTestBotAliasSettingsPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+// Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
 func (o BotTestBotAliasSettingsPtrOutput) SentimentAnalysisSettings() BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput {
 	return o.ApplyT(func(v *BotTestBotAliasSettings) *BotTestBotAliasSettingsSentimentAnalysisSettingsProperties {
 		if v == nil {
@@ -13983,9 +14583,8 @@ func (o BotTestBotAliasSettingsPtrOutput) SentimentAnalysisSettings() BotTestBot
 	}).(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput)
 }
 
-// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+// Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
 type BotTestBotAliasSettingsSentimentAnalysisSettingsProperties struct {
-	// Enable to call Amazon Comprehend for Sentiment natively within Lex
 	DetectSentiment bool `pulumi:"detectSentiment"`
 }
 
@@ -14000,9 +14599,8 @@ type BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesInput interface {
 	ToBotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutputWithContext(context.Context) BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput
 }
 
-// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+// Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
 type BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs struct {
-	// Enable to call Amazon Comprehend for Sentiment natively within Lex
 	DetectSentiment pulumi.BoolInput `pulumi:"detectSentiment"`
 }
 
@@ -14059,7 +14657,7 @@ func (i *botTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrType) ToBo
 	return pulumi.ToOutputWithContext(ctx, i).(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput)
 }
 
-// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+// Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
 type BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput) ElementType() reflect.Type {
@@ -14084,7 +14682,6 @@ func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput) ToBotT
 	}).(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput)
 }
 
-// Enable to call Amazon Comprehend for Sentiment natively within Lex
 func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput) DetectSentiment() pulumi.BoolOutput {
 	return o.ApplyT(func(v BotTestBotAliasSettingsSentimentAnalysisSettingsProperties) bool { return v.DetectSentiment }).(pulumi.BoolOutput)
 }
@@ -14113,7 +14710,6 @@ func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput) Ele
 	}).(BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesOutput)
 }
 
-// Enable to call Amazon Comprehend for Sentiment natively within Lex
 func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput) DetectSentiment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BotTestBotAliasSettingsSentimentAnalysisSettingsProperties) *bool {
 		if v == nil {
@@ -14123,9 +14719,7 @@ func (o BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesPtrOutput) Det
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the text input specifications.
 type BotTextInputSpecification struct {
-	// Time for which a bot waits before re-prompting a customer for text input.
 	StartTimeoutMs int `pulumi:"startTimeoutMs"`
 }
 
@@ -14140,9 +14734,7 @@ type BotTextInputSpecificationInput interface {
 	ToBotTextInputSpecificationOutputWithContext(context.Context) BotTextInputSpecificationOutput
 }
 
-// Specifies the text input specifications.
 type BotTextInputSpecificationArgs struct {
-	// Time for which a bot waits before re-prompting a customer for text input.
 	StartTimeoutMs pulumi.IntInput `pulumi:"startTimeoutMs"`
 }
 
@@ -14199,7 +14791,6 @@ func (i *botTextInputSpecificationPtrType) ToBotTextInputSpecificationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BotTextInputSpecificationPtrOutput)
 }
 
-// Specifies the text input specifications.
 type BotTextInputSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotTextInputSpecificationOutput) ElementType() reflect.Type {
@@ -14224,7 +14815,6 @@ func (o BotTextInputSpecificationOutput) ToBotTextInputSpecificationPtrOutputWit
 	}).(BotTextInputSpecificationPtrOutput)
 }
 
-// Time for which a bot waits before re-prompting a customer for text input.
 func (o BotTextInputSpecificationOutput) StartTimeoutMs() pulumi.IntOutput {
 	return o.ApplyT(func(v BotTextInputSpecification) int { return v.StartTimeoutMs }).(pulumi.IntOutput)
 }
@@ -14253,7 +14843,6 @@ func (o BotTextInputSpecificationPtrOutput) Elem() BotTextInputSpecificationOutp
 	}).(BotTextInputSpecificationOutput)
 }
 
-// Time for which a bot waits before re-prompting a customer for text input.
 func (o BotTextInputSpecificationPtrOutput) StartTimeoutMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BotTextInputSpecification) *int {
 		if v == nil {
@@ -14263,7 +14852,6 @@ func (o BotTextInputSpecificationPtrOutput) StartTimeoutMs() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
 type BotTextLogDestination struct {
 	CloudWatch BotCloudWatchLogGroupLogDestination `pulumi:"cloudWatch"`
 }
@@ -14279,7 +14867,6 @@ type BotTextLogDestinationInput interface {
 	ToBotTextLogDestinationOutputWithContext(context.Context) BotTextLogDestinationOutput
 }
 
-// Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
 type BotTextLogDestinationArgs struct {
 	CloudWatch BotCloudWatchLogGroupLogDestinationInput `pulumi:"cloudWatch"`
 }
@@ -14296,7 +14883,6 @@ func (i BotTextLogDestinationArgs) ToBotTextLogDestinationOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BotTextLogDestinationOutput)
 }
 
-// Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
 type BotTextLogDestinationOutput struct{ *pulumi.OutputState }
 
 func (BotTextLogDestinationOutput) ElementType() reflect.Type {
@@ -14315,7 +14901,6 @@ func (o BotTextLogDestinationOutput) CloudWatch() BotCloudWatchLogGroupLogDestin
 	return o.ApplyT(func(v BotTextLogDestination) BotCloudWatchLogGroupLogDestination { return v.CloudWatch }).(BotCloudWatchLogGroupLogDestinationOutput)
 }
 
-// Contains information about code hooks that Amazon Lex calls during a conversation.
 type BotTextLogSetting struct {
 	Destination BotTextLogDestination `pulumi:"destination"`
 	Enabled     bool                  `pulumi:"enabled"`
@@ -14332,7 +14917,6 @@ type BotTextLogSettingInput interface {
 	ToBotTextLogSettingOutputWithContext(context.Context) BotTextLogSettingOutput
 }
 
-// Contains information about code hooks that Amazon Lex calls during a conversation.
 type BotTextLogSettingArgs struct {
 	Destination BotTextLogDestinationInput `pulumi:"destination"`
 	Enabled     pulumi.BoolInput           `pulumi:"enabled"`
@@ -14375,7 +14959,6 @@ func (i BotTextLogSettingArray) ToBotTextLogSettingArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BotTextLogSettingArrayOutput)
 }
 
-// Contains information about code hooks that Amazon Lex calls during a conversation.
 type BotTextLogSettingOutput struct{ *pulumi.OutputState }
 
 func (BotTextLogSettingOutput) ElementType() reflect.Type {
@@ -14570,11 +15153,12 @@ func (o BotVersionLocaleSpecificationArrayOutput) Index(i pulumi.IntInput) BotVe
 	}).(BotVersionLocaleSpecificationOutput)
 }
 
-// Settings for using an Amazon Polly voice to communicate with a user.
 type BotVoiceSettings struct {
-	// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+	// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .
+	//
+	// If you do not specify a value, the default is `standard` .
 	Engine *BotVoiceSettingsEngine `pulumi:"engine"`
-	// The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+	// The identifier of the Amazon Polly voice to use.
 	VoiceId string `pulumi:"voiceId"`
 }
 
@@ -14589,11 +15173,12 @@ type BotVoiceSettingsInput interface {
 	ToBotVoiceSettingsOutputWithContext(context.Context) BotVoiceSettingsOutput
 }
 
-// Settings for using an Amazon Polly voice to communicate with a user.
 type BotVoiceSettingsArgs struct {
-	// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+	// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .
+	//
+	// If you do not specify a value, the default is `standard` .
 	Engine BotVoiceSettingsEnginePtrInput `pulumi:"engine"`
-	// The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+	// The identifier of the Amazon Polly voice to use.
 	VoiceId pulumi.StringInput `pulumi:"voiceId"`
 }
 
@@ -14650,7 +15235,6 @@ func (i *botVoiceSettingsPtrType) ToBotVoiceSettingsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(BotVoiceSettingsPtrOutput)
 }
 
-// Settings for using an Amazon Polly voice to communicate with a user.
 type BotVoiceSettingsOutput struct{ *pulumi.OutputState }
 
 func (BotVoiceSettingsOutput) ElementType() reflect.Type {
@@ -14675,12 +15259,14 @@ func (o BotVoiceSettingsOutput) ToBotVoiceSettingsPtrOutputWithContext(ctx conte
 	}).(BotVoiceSettingsPtrOutput)
 }
 
-// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .
+//
+// If you do not specify a value, the default is `standard` .
 func (o BotVoiceSettingsOutput) Engine() BotVoiceSettingsEnginePtrOutput {
 	return o.ApplyT(func(v BotVoiceSettings) *BotVoiceSettingsEngine { return v.Engine }).(BotVoiceSettingsEnginePtrOutput)
 }
 
-// The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+// The identifier of the Amazon Polly voice to use.
 func (o BotVoiceSettingsOutput) VoiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v BotVoiceSettings) string { return v.VoiceId }).(pulumi.StringOutput)
 }
@@ -14709,7 +15295,9 @@ func (o BotVoiceSettingsPtrOutput) Elem() BotVoiceSettingsOutput {
 	}).(BotVoiceSettingsOutput)
 }
 
-// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .
+//
+// If you do not specify a value, the default is `standard` .
 func (o BotVoiceSettingsPtrOutput) Engine() BotVoiceSettingsEnginePtrOutput {
 	return o.ApplyT(func(v *BotVoiceSettings) *BotVoiceSettingsEngine {
 		if v == nil {
@@ -14719,7 +15307,7 @@ func (o BotVoiceSettingsPtrOutput) Engine() BotVoiceSettingsEnginePtrOutput {
 	}).(BotVoiceSettingsEnginePtrOutput)
 }
 
-// The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+// The identifier of the Amazon Polly voice to use.
 func (o BotVoiceSettingsPtrOutput) VoiceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotVoiceSettings) *string {
 		if v == nil {
@@ -14729,13 +15317,12 @@ func (o BotVoiceSettingsPtrOutput) VoiceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The prompts that Amazon Lex uses while a bot is waiting for customer input.
 type BotWaitAndContinueSpecification struct {
 	// The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
 	ContinueResponse BotResponseSpecification `pulumi:"continueResponse"`
-	// Specifies whether the bot will wait for a user to respond.
+	// Specifies whether the bot will wait for a user to respond. When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
 	IsActive *bool `pulumi:"isActive"`
-	// The response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+	// A response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
 	StillWaitingResponse *BotStillWaitingResponseSpecification `pulumi:"stillWaitingResponse"`
 	// The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
 	WaitingResponse BotResponseSpecification `pulumi:"waitingResponse"`
@@ -14752,13 +15339,12 @@ type BotWaitAndContinueSpecificationInput interface {
 	ToBotWaitAndContinueSpecificationOutputWithContext(context.Context) BotWaitAndContinueSpecificationOutput
 }
 
-// The prompts that Amazon Lex uses while a bot is waiting for customer input.
 type BotWaitAndContinueSpecificationArgs struct {
 	// The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
 	ContinueResponse BotResponseSpecificationInput `pulumi:"continueResponse"`
-	// Specifies whether the bot will wait for a user to respond.
+	// Specifies whether the bot will wait for a user to respond. When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
 	IsActive pulumi.BoolPtrInput `pulumi:"isActive"`
-	// The response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+	// A response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
 	StillWaitingResponse BotStillWaitingResponseSpecificationPtrInput `pulumi:"stillWaitingResponse"`
 	// The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
 	WaitingResponse BotResponseSpecificationInput `pulumi:"waitingResponse"`
@@ -14817,7 +15403,6 @@ func (i *botWaitAndContinueSpecificationPtrType) ToBotWaitAndContinueSpecificati
 	return pulumi.ToOutputWithContext(ctx, i).(BotWaitAndContinueSpecificationPtrOutput)
 }
 
-// The prompts that Amazon Lex uses while a bot is waiting for customer input.
 type BotWaitAndContinueSpecificationOutput struct{ *pulumi.OutputState }
 
 func (BotWaitAndContinueSpecificationOutput) ElementType() reflect.Type {
@@ -14847,12 +15432,12 @@ func (o BotWaitAndContinueSpecificationOutput) ContinueResponse() BotResponseSpe
 	return o.ApplyT(func(v BotWaitAndContinueSpecification) BotResponseSpecification { return v.ContinueResponse }).(BotResponseSpecificationOutput)
 }
 
-// Specifies whether the bot will wait for a user to respond.
+// Specifies whether the bot will wait for a user to respond. When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
 func (o BotWaitAndContinueSpecificationOutput) IsActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotWaitAndContinueSpecification) *bool { return v.IsActive }).(pulumi.BoolPtrOutput)
 }
 
-// The response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+// A response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
 func (o BotWaitAndContinueSpecificationOutput) StillWaitingResponse() BotStillWaitingResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v BotWaitAndContinueSpecification) *BotStillWaitingResponseSpecification {
 		return v.StillWaitingResponse
@@ -14898,7 +15483,7 @@ func (o BotWaitAndContinueSpecificationPtrOutput) ContinueResponse() BotResponse
 	}).(BotResponseSpecificationPtrOutput)
 }
 
-// Specifies whether the bot will wait for a user to respond.
+// Specifies whether the bot will wait for a user to respond. When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
 func (o BotWaitAndContinueSpecificationPtrOutput) IsActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BotWaitAndContinueSpecification) *bool {
 		if v == nil {
@@ -14908,7 +15493,7 @@ func (o BotWaitAndContinueSpecificationPtrOutput) IsActive() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+// A response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
 func (o BotWaitAndContinueSpecificationPtrOutput) StillWaitingResponse() BotStillWaitingResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotWaitAndContinueSpecification) *BotStillWaitingResponseSpecification {
 		if v == nil {
@@ -14928,7 +15513,7 @@ func (o BotWaitAndContinueSpecificationPtrOutput) WaitingResponse() BotResponseS
 	}).(BotResponseSpecificationPtrOutput)
 }
 
-// Data privacy setting of the Bot.
+// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 type DataPrivacyProperties struct {
 	// For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying `true` or `false` in the `childDirected` field. By specifying `true` in the `childDirected` field, you confirm that your use of Amazon Lex *is* related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying `false` in the `childDirected` field, you confirm that your use of Amazon Lex *is not* related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the `childDirected` field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the [Amazon Lex FAQ](https://docs.aws.amazon.com/lex/faqs#data-security) .
 	ChildDirected bool `pulumi:"childDirected"`
@@ -14945,7 +15530,7 @@ type DataPrivacyPropertiesInput interface {
 	ToDataPrivacyPropertiesOutputWithContext(context.Context) DataPrivacyPropertiesOutput
 }
 
-// Data privacy setting of the Bot.
+// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 type DataPrivacyPropertiesArgs struct {
 	// For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying `true` or `false` in the `childDirected` field. By specifying `true` in the `childDirected` field, you confirm that your use of Amazon Lex *is* related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying `false` in the `childDirected` field, you confirm that your use of Amazon Lex *is not* related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the `childDirected` field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the [Amazon Lex FAQ](https://docs.aws.amazon.com/lex/faqs#data-security) .
 	ChildDirected pulumi.BoolInput `pulumi:"childDirected"`
@@ -14963,7 +15548,7 @@ func (i DataPrivacyPropertiesArgs) ToDataPrivacyPropertiesOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DataPrivacyPropertiesOutput)
 }
 
-// Data privacy setting of the Bot.
+// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 type DataPrivacyPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DataPrivacyPropertiesOutput) ElementType() reflect.Type {
@@ -15257,6 +15842,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioLogSettingArrayInput)(nil)).Elem(), BotAudioLogSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioSpecificationInput)(nil)).Elem(), BotAudioSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioSpecificationPtrInput)(nil)).Elem(), BotAudioSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotBedrockAgentIntentConfigurationInput)(nil)).Elem(), BotBedrockAgentIntentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotBedrockAgentIntentConfigurationPtrInput)(nil)).Elem(), BotBedrockAgentIntentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesInput)(nil)).Elem(), BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrInput)(nil)).Elem(), BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesInput)(nil)).Elem(), BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrInput)(nil)).Elem(), BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotBedrockModelSpecificationInput)(nil)).Elem(), BotBedrockModelSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotBedrockModelSpecificationPtrInput)(nil)).Elem(), BotBedrockModelSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesInput)(nil)).Elem(), BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs{})
@@ -15264,6 +15855,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotButtonInput)(nil)).Elem(), BotButtonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotButtonArrayInput)(nil)).Elem(), BotButtonArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotCloudWatchLogGroupLogDestinationInput)(nil)).Elem(), BotCloudWatchLogGroupLogDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotCompositeSlotTypeSettingInput)(nil)).Elem(), BotCompositeSlotTypeSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotCompositeSlotTypeSettingPtrInput)(nil)).Elem(), BotCompositeSlotTypeSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotConditionInput)(nil)).Elem(), BotConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotConditionalBranchInput)(nil)).Elem(), BotConditionalBranchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotConditionalBranchArrayInput)(nil)).Elem(), BotConditionalBranchArray{})
@@ -15343,6 +15936,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotPromptAttemptSpecificationMapInput)(nil)).Elem(), BotPromptAttemptSpecificationMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotPromptSpecificationInput)(nil)).Elem(), BotPromptSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotPromptSpecificationPtrInput)(nil)).Elem(), BotPromptSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQInConnectIntentConfigurationInput)(nil)).Elem(), BotQInConnectIntentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQInConnectIntentConfigurationPtrInput)(nil)).Elem(), BotQInConnectIntentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesInput)(nil)).Elem(), BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrInput)(nil)).Elem(), BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotQnAIntentConfigurationInput)(nil)).Elem(), BotQnAIntentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotQnAIntentConfigurationPtrInput)(nil)).Elem(), BotQnAIntentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotQnAIntentConfigurationDataSourceConfigurationPropertiesInput)(nil)).Elem(), BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs{})
@@ -15400,6 +15997,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSsmlMessagePtrInput)(nil)).Elem(), BotSsmlMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotStillWaitingResponseSpecificationInput)(nil)).Elem(), BotStillWaitingResponseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotStillWaitingResponseSpecificationPtrInput)(nil)).Elem(), BotStillWaitingResponseSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotSubSlotTypeCompositionInput)(nil)).Elem(), BotSubSlotTypeCompositionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotSubSlotTypeCompositionArrayInput)(nil)).Elem(), BotSubSlotTypeCompositionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotTagInput)(nil)).Elem(), BotTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotTagArrayInput)(nil)).Elem(), BotTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotTestBotAliasSettingsInput)(nil)).Elem(), BotTestBotAliasSettingsArgs{})
@@ -15451,6 +16050,12 @@ func init() {
 	pulumi.RegisterOutputType(BotAudioLogSettingArrayOutput{})
 	pulumi.RegisterOutputType(BotAudioSpecificationOutput{})
 	pulumi.RegisterOutputType(BotAudioSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(BotBedrockAgentIntentConfigurationOutput{})
+	pulumi.RegisterOutputType(BotBedrockAgentIntentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BotBedrockModelSpecificationOutput{})
 	pulumi.RegisterOutputType(BotBedrockModelSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesOutput{})
@@ -15458,6 +16063,8 @@ func init() {
 	pulumi.RegisterOutputType(BotButtonOutput{})
 	pulumi.RegisterOutputType(BotButtonArrayOutput{})
 	pulumi.RegisterOutputType(BotCloudWatchLogGroupLogDestinationOutput{})
+	pulumi.RegisterOutputType(BotCompositeSlotTypeSettingOutput{})
+	pulumi.RegisterOutputType(BotCompositeSlotTypeSettingPtrOutput{})
 	pulumi.RegisterOutputType(BotConditionOutput{})
 	pulumi.RegisterOutputType(BotConditionalBranchOutput{})
 	pulumi.RegisterOutputType(BotConditionalBranchArrayOutput{})
@@ -15537,6 +16144,10 @@ func init() {
 	pulumi.RegisterOutputType(BotPromptAttemptSpecificationMapOutput{})
 	pulumi.RegisterOutputType(BotPromptSpecificationOutput{})
 	pulumi.RegisterOutputType(BotPromptSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(BotQInConnectIntentConfigurationOutput{})
+	pulumi.RegisterOutputType(BotQInConnectIntentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BotQnAIntentConfigurationOutput{})
 	pulumi.RegisterOutputType(BotQnAIntentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BotQnAIntentConfigurationDataSourceConfigurationPropertiesOutput{})
@@ -15594,6 +16205,8 @@ func init() {
 	pulumi.RegisterOutputType(BotSsmlMessagePtrOutput{})
 	pulumi.RegisterOutputType(BotStillWaitingResponseSpecificationOutput{})
 	pulumi.RegisterOutputType(BotStillWaitingResponseSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(BotSubSlotTypeCompositionOutput{})
+	pulumi.RegisterOutputType(BotSubSlotTypeCompositionArrayOutput{})
 	pulumi.RegisterOutputType(BotTagOutput{})
 	pulumi.RegisterOutputType(BotTagArrayOutput{})
 	pulumi.RegisterOutputType(BotTestBotAliasSettingsOutput{})

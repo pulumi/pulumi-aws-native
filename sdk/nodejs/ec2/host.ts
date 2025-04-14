@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -70,6 +73,10 @@ export class Host extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
      */
     public readonly outpostArn!: pulumi.Output<string | undefined>;
+    /**
+     * Any tags assigned to the Host.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Host resource with the given unique name, arguments, and options.
@@ -93,6 +100,7 @@ export class Host extends pulumi.CustomResource {
             resourceInputs["instanceFamily"] = args ? args.instanceFamily : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["hostId"] = undefined /*out*/;
         } else {
             resourceInputs["assetId"] = undefined /*out*/;
@@ -104,6 +112,7 @@ export class Host extends pulumi.CustomResource {
             resourceInputs["instanceFamily"] = undefined /*out*/;
             resourceInputs["instanceType"] = undefined /*out*/;
             resourceInputs["outpostArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["assetId", "availabilityZone", "instanceFamily", "instanceType", "outpostArn"] };
@@ -148,4 +157,8 @@ export interface HostArgs {
      * The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
      */
     outpostArn?: pulumi.Input<string>;
+    /**
+     * Any tags assigned to the Host.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

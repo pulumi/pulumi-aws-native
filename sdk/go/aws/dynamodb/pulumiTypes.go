@@ -5310,7 +5310,7 @@ func (o TablePointInTimeRecoverySpecificationPtrOutput) RecoveryPeriodInDays() p
 // Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 type TableProjection struct {
 	// Represents the non-key attribute names which will be projected into the index.
-	//  For local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the local secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+	//  For global and local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of ``INCLUDE``. You still can specify the ProjectionType of ``ALL`` to project all attributes from the source table, even if the table has more than 100 attributes.
 	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
 	// The set of attributes that are projected into the index:
 	//   +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
@@ -5335,7 +5335,7 @@ type TableProjectionInput interface {
 // Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 type TableProjectionArgs struct {
 	// Represents the non-key attribute names which will be projected into the index.
-	//  For local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the local secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+	//  For global and local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of ``INCLUDE``. You still can specify the ProjectionType of ``ALL`` to project all attributes from the source table, even if the table has more than 100 attributes.
 	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
 	// The set of attributes that are projected into the index:
 	//   +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
@@ -5375,7 +5375,7 @@ func (o TableProjectionOutput) ToTableProjectionOutputWithContext(ctx context.Co
 
 // Represents the non-key attribute names which will be projected into the index.
 //
-//	For local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the local secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+//	For global and local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of ``INCLUDE``. You still can specify the ProjectionType of ``ALL`` to project all attributes from the source table, even if the table has more than 100 attributes.
 func (o TableProjectionOutput) NonKeyAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableProjection) []string { return v.NonKeyAttributes }).(pulumi.StringArrayOutput)
 }

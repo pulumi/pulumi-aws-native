@@ -46,10 +46,24 @@ namespace Pulumi.AwsNative.CleanRooms
         public Output<string> CollaborationIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The default job result configuration for the membership.
+        /// </summary>
+        [Output("defaultJobResultConfiguration")]
+        public Output<Outputs.MembershipProtectedJobResultConfiguration?> DefaultJobResultConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The default protected query result configuration as specified by the member who can receive results.
         /// </summary>
         [Output("defaultResultConfiguration")]
         public Output<Outputs.MembershipProtectedQueryResultConfiguration?> DefaultResultConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// An indicator as to whether job logging has been enabled or disabled for the collaboration.
+        /// 
+        /// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+        /// </summary>
+        [Output("jobLogStatus")]
+        public Output<Pulumi.AwsNative.CleanRooms.MembershipJobLogStatus?> JobLogStatus { get; private set; } = null!;
 
         /// <summary>
         /// Returns the unique identifier of the specified membership.
@@ -135,10 +149,24 @@ namespace Pulumi.AwsNative.CleanRooms
         public Input<string> CollaborationIdentifier { get; set; } = null!;
 
         /// <summary>
+        /// The default job result configuration for the membership.
+        /// </summary>
+        [Input("defaultJobResultConfiguration")]
+        public Input<Inputs.MembershipProtectedJobResultConfigurationArgs>? DefaultJobResultConfiguration { get; set; }
+
+        /// <summary>
         /// The default protected query result configuration as specified by the member who can receive results.
         /// </summary>
         [Input("defaultResultConfiguration")]
         public Input<Inputs.MembershipProtectedQueryResultConfigurationArgs>? DefaultResultConfiguration { get; set; }
+
+        /// <summary>
+        /// An indicator as to whether job logging has been enabled or disabled for the collaboration.
+        /// 
+        /// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+        /// </summary>
+        [Input("jobLogStatus")]
+        public Input<Pulumi.AwsNative.CleanRooms.MembershipJobLogStatus>? JobLogStatus { get; set; }
 
         /// <summary>
         /// The payment responsibilities accepted by the collaboration member.

@@ -74,7 +74,7 @@ class AwaitableGetCidrCollectionResult(GetCidrCollectionResult):
 def get_cidr_collection(id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCidrCollectionResult:
     """
-    Resource schema for AWS::Route53::CidrCollection.
+    Resource Type definition for AWS::Route53::CidrCollection.
 
 
     :param str id: UUID of the CIDR collection.
@@ -91,7 +91,7 @@ def get_cidr_collection(id: Optional[str] = None,
 def get_cidr_collection_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCidrCollectionResult]:
     """
-    Resource schema for AWS::Route53::CidrCollection.
+    Resource Type definition for AWS::Route53::CidrCollection.
 
 
     :param str id: UUID of the CIDR collection.

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Contains information about code hooks that Amazon Lex calls during a conversation.
-    /// </summary>
     [OutputType]
     public sealed class BotConversationLogSettings
     {

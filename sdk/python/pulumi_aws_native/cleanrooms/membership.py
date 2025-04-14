@@ -26,7 +26,9 @@ class MembershipArgs:
     def __init__(__self__, *,
                  collaboration_identifier: pulumi.Input[str],
                  query_log_status: pulumi.Input['MembershipQueryLogStatus'],
+                 default_job_result_configuration: Optional[pulumi.Input['MembershipProtectedJobResultConfigurationArgs']] = None,
                  default_result_configuration: Optional[pulumi.Input['MembershipProtectedQueryResultConfigurationArgs']] = None,
+                 job_log_status: Optional[pulumi.Input['MembershipJobLogStatus']] = None,
                  payment_configuration: Optional[pulumi.Input['MembershipPaymentConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -35,14 +37,22 @@ class MembershipArgs:
         :param pulumi.Input['MembershipQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
                
                When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+        :param pulumi.Input['MembershipProtectedJobResultConfigurationArgs'] default_job_result_configuration: The default job result configuration for the membership.
         :param pulumi.Input['MembershipProtectedQueryResultConfigurationArgs'] default_result_configuration: The default protected query result configuration as specified by the member who can receive results.
+        :param pulumi.Input['MembershipJobLogStatus'] job_log_status: An indicator as to whether job logging has been enabled or disabled for the collaboration.
+               
+               When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
         :param pulumi.Input['MembershipPaymentConfigurationArgs'] payment_configuration: The payment responsibilities accepted by the collaboration member.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
         """
         pulumi.set(__self__, "collaboration_identifier", collaboration_identifier)
         pulumi.set(__self__, "query_log_status", query_log_status)
+        if default_job_result_configuration is not None:
+            pulumi.set(__self__, "default_job_result_configuration", default_job_result_configuration)
         if default_result_configuration is not None:
             pulumi.set(__self__, "default_result_configuration", default_result_configuration)
+        if job_log_status is not None:
+            pulumi.set(__self__, "job_log_status", job_log_status)
         if payment_configuration is not None:
             pulumi.set(__self__, "payment_configuration", payment_configuration)
         if tags is not None:
@@ -75,6 +85,18 @@ class MembershipArgs:
         pulumi.set(self, "query_log_status", value)
 
     @property
+    @pulumi.getter(name="defaultJobResultConfiguration")
+    def default_job_result_configuration(self) -> Optional[pulumi.Input['MembershipProtectedJobResultConfigurationArgs']]:
+        """
+        The default job result configuration for the membership.
+        """
+        return pulumi.get(self, "default_job_result_configuration")
+
+    @default_job_result_configuration.setter
+    def default_job_result_configuration(self, value: Optional[pulumi.Input['MembershipProtectedJobResultConfigurationArgs']]):
+        pulumi.set(self, "default_job_result_configuration", value)
+
+    @property
     @pulumi.getter(name="defaultResultConfiguration")
     def default_result_configuration(self) -> Optional[pulumi.Input['MembershipProtectedQueryResultConfigurationArgs']]:
         """
@@ -85,6 +107,20 @@ class MembershipArgs:
     @default_result_configuration.setter
     def default_result_configuration(self, value: Optional[pulumi.Input['MembershipProtectedQueryResultConfigurationArgs']]):
         pulumi.set(self, "default_result_configuration", value)
+
+    @property
+    @pulumi.getter(name="jobLogStatus")
+    def job_log_status(self) -> Optional[pulumi.Input['MembershipJobLogStatus']]:
+        """
+        An indicator as to whether job logging has been enabled or disabled for the collaboration.
+
+        When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+        """
+        return pulumi.get(self, "job_log_status")
+
+    @job_log_status.setter
+    def job_log_status(self, value: Optional[pulumi.Input['MembershipJobLogStatus']]):
+        pulumi.set(self, "job_log_status", value)
 
     @property
     @pulumi.getter(name="paymentConfiguration")
@@ -117,7 +153,9 @@ class Membership(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collaboration_identifier: Optional[pulumi.Input[str]] = None,
+                 default_job_result_configuration: Optional[pulumi.Input[Union['MembershipProtectedJobResultConfigurationArgs', 'MembershipProtectedJobResultConfigurationArgsDict']]] = None,
                  default_result_configuration: Optional[pulumi.Input[Union['MembershipProtectedQueryResultConfigurationArgs', 'MembershipProtectedQueryResultConfigurationArgsDict']]] = None,
+                 job_log_status: Optional[pulumi.Input['MembershipJobLogStatus']] = None,
                  payment_configuration: Optional[pulumi.Input[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict']]] = None,
                  query_log_status: Optional[pulumi.Input['MembershipQueryLogStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -128,7 +166,11 @@ class Membership(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collaboration_identifier: The unique ID for the associated collaboration.
+        :param pulumi.Input[Union['MembershipProtectedJobResultConfigurationArgs', 'MembershipProtectedJobResultConfigurationArgsDict']] default_job_result_configuration: The default job result configuration for the membership.
         :param pulumi.Input[Union['MembershipProtectedQueryResultConfigurationArgs', 'MembershipProtectedQueryResultConfigurationArgsDict']] default_result_configuration: The default protected query result configuration as specified by the member who can receive results.
+        :param pulumi.Input['MembershipJobLogStatus'] job_log_status: An indicator as to whether job logging has been enabled or disabled for the collaboration.
+               
+               When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
         :param pulumi.Input[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict']] payment_configuration: The payment responsibilities accepted by the collaboration member.
         :param pulumi.Input['MembershipQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
                
@@ -160,7 +202,9 @@ class Membership(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collaboration_identifier: Optional[pulumi.Input[str]] = None,
+                 default_job_result_configuration: Optional[pulumi.Input[Union['MembershipProtectedJobResultConfigurationArgs', 'MembershipProtectedJobResultConfigurationArgsDict']]] = None,
                  default_result_configuration: Optional[pulumi.Input[Union['MembershipProtectedQueryResultConfigurationArgs', 'MembershipProtectedQueryResultConfigurationArgsDict']]] = None,
+                 job_log_status: Optional[pulumi.Input['MembershipJobLogStatus']] = None,
                  payment_configuration: Optional[pulumi.Input[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict']]] = None,
                  query_log_status: Optional[pulumi.Input['MembershipQueryLogStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -176,7 +220,9 @@ class Membership(pulumi.CustomResource):
             if collaboration_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'collaboration_identifier'")
             __props__.__dict__["collaboration_identifier"] = collaboration_identifier
+            __props__.__dict__["default_job_result_configuration"] = default_job_result_configuration
             __props__.__dict__["default_result_configuration"] = default_result_configuration
+            __props__.__dict__["job_log_status"] = job_log_status
             __props__.__dict__["payment_configuration"] = payment_configuration
             if query_log_status is None and not opts.urn:
                 raise TypeError("Missing required property 'query_log_status'")
@@ -214,7 +260,9 @@ class Membership(pulumi.CustomResource):
         __props__.__dict__["collaboration_arn"] = None
         __props__.__dict__["collaboration_creator_account_id"] = None
         __props__.__dict__["collaboration_identifier"] = None
+        __props__.__dict__["default_job_result_configuration"] = None
         __props__.__dict__["default_result_configuration"] = None
+        __props__.__dict__["job_log_status"] = None
         __props__.__dict__["membership_identifier"] = None
         __props__.__dict__["payment_configuration"] = None
         __props__.__dict__["query_log_status"] = None
@@ -260,12 +308,30 @@ class Membership(pulumi.CustomResource):
         return pulumi.get(self, "collaboration_identifier")
 
     @property
+    @pulumi.getter(name="defaultJobResultConfiguration")
+    def default_job_result_configuration(self) -> pulumi.Output[Optional['outputs.MembershipProtectedJobResultConfiguration']]:
+        """
+        The default job result configuration for the membership.
+        """
+        return pulumi.get(self, "default_job_result_configuration")
+
+    @property
     @pulumi.getter(name="defaultResultConfiguration")
     def default_result_configuration(self) -> pulumi.Output[Optional['outputs.MembershipProtectedQueryResultConfiguration']]:
         """
         The default protected query result configuration as specified by the member who can receive results.
         """
         return pulumi.get(self, "default_result_configuration")
+
+    @property
+    @pulumi.getter(name="jobLogStatus")
+    def job_log_status(self) -> pulumi.Output[Optional['MembershipJobLogStatus']]:
+        """
+        An indicator as to whether job logging has been enabled or disabled for the collaboration.
+
+        When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+        """
+        return pulumi.get(self, "job_log_status")
 
     @property
     @pulumi.getter(name="membershipIdentifier")

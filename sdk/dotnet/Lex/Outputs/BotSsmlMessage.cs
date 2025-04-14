@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// A message in Speech Synthesis Markup Language (SSML).
-    /// </summary>
     [OutputType]
     public sealed class BotSsmlMessage
     {
-        /// <summary>
-        /// The SSML text that defines the prompt.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

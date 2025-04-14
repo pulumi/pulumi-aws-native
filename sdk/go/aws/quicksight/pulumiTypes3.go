@@ -29352,7 +29352,8 @@ type TemplateTableFieldOptions struct {
 	// The settings for the pinned columns of a table visual.
 	PinnedFieldOptions *TemplateTablePinnedFieldOptions `pulumi:"pinnedFieldOptions"`
 	// The field options to be configured to a table.
-	SelectedFieldOptions   []TemplateTableFieldOption      `pulumi:"selectedFieldOptions"`
+	SelectedFieldOptions []TemplateTableFieldOption `pulumi:"selectedFieldOptions"`
+	// The `TableOptions` of a transposed table.
 	TransposedTableOptions []TemplateTransposedTableOption `pulumi:"transposedTableOptions"`
 }
 
@@ -29373,7 +29374,8 @@ type TemplateTableFieldOptionsArgs struct {
 	// The settings for the pinned columns of a table visual.
 	PinnedFieldOptions TemplateTablePinnedFieldOptionsPtrInput `pulumi:"pinnedFieldOptions"`
 	// The field options to be configured to a table.
-	SelectedFieldOptions   TemplateTableFieldOptionArrayInput      `pulumi:"selectedFieldOptions"`
+	SelectedFieldOptions TemplateTableFieldOptionArrayInput `pulumi:"selectedFieldOptions"`
+	// The `TableOptions` of a transposed table.
 	TransposedTableOptions TemplateTransposedTableOptionArrayInput `pulumi:"transposedTableOptions"`
 }
 
@@ -29469,6 +29471,7 @@ func (o TemplateTableFieldOptionsOutput) SelectedFieldOptions() TemplateTableFie
 	return o.ApplyT(func(v TemplateTableFieldOptions) []TemplateTableFieldOption { return v.SelectedFieldOptions }).(TemplateTableFieldOptionArrayOutput)
 }
 
+// The `TableOptions` of a transposed table.
 func (o TemplateTableFieldOptionsOutput) TransposedTableOptions() TemplateTransposedTableOptionArrayOutput {
 	return o.ApplyT(func(v TemplateTableFieldOptions) []TemplateTransposedTableOption { return v.TransposedTableOptions }).(TemplateTransposedTableOptionArrayOutput)
 }
@@ -29527,6 +29530,7 @@ func (o TemplateTableFieldOptionsPtrOutput) SelectedFieldOptions() TemplateTable
 	}).(TemplateTableFieldOptionArrayOutput)
 }
 
+// The `TableOptions` of a transposed table.
 func (o TemplateTableFieldOptionsPtrOutput) TransposedTableOptions() TemplateTransposedTableOptionArrayOutput {
 	return o.ApplyT(func(v *TemplateTableFieldOptions) []TemplateTransposedTableOption {
 		if v == nil {
@@ -35188,8 +35192,13 @@ func (o TemplateTotalOptionsPtrOutput) TotalsVisibility() pulumi.AnyOutput {
 }
 
 type TemplateTransposedTableOption struct {
-	ColumnIndex *float64                     `pulumi:"columnIndex"`
-	ColumnType  TemplateTransposedColumnType `pulumi:"columnType"`
+	// The index of a columns in a transposed table. The index range is 0-9999.
+	ColumnIndex *float64 `pulumi:"columnIndex"`
+	// The column type of the column in a transposed table. Choose one of the following options:
+	//
+	// - `ROW_HEADER_COLUMN` : Refers to the leftmost column of the row header in the transposed table.
+	// - `VALUE_COLUMN` : Refers to all value columns in the transposed table.
+	ColumnType TemplateTransposedColumnType `pulumi:"columnType"`
 	// String based length that is composed of value and unit in px
 	ColumnWidth *string `pulumi:"columnWidth"`
 }
@@ -35206,8 +35215,13 @@ type TemplateTransposedTableOptionInput interface {
 }
 
 type TemplateTransposedTableOptionArgs struct {
-	ColumnIndex pulumi.Float64PtrInput            `pulumi:"columnIndex"`
-	ColumnType  TemplateTransposedColumnTypeInput `pulumi:"columnType"`
+	// The index of a columns in a transposed table. The index range is 0-9999.
+	ColumnIndex pulumi.Float64PtrInput `pulumi:"columnIndex"`
+	// The column type of the column in a transposed table. Choose one of the following options:
+	//
+	// - `ROW_HEADER_COLUMN` : Refers to the leftmost column of the row header in the transposed table.
+	// - `VALUE_COLUMN` : Refers to all value columns in the transposed table.
+	ColumnType TemplateTransposedColumnTypeInput `pulumi:"columnType"`
 	// String based length that is composed of value and unit in px
 	ColumnWidth pulumi.StringPtrInput `pulumi:"columnWidth"`
 }
@@ -35263,10 +35277,15 @@ func (o TemplateTransposedTableOptionOutput) ToTemplateTransposedTableOptionOutp
 	return o
 }
 
+// The index of a columns in a transposed table. The index range is 0-9999.
 func (o TemplateTransposedTableOptionOutput) ColumnIndex() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TemplateTransposedTableOption) *float64 { return v.ColumnIndex }).(pulumi.Float64PtrOutput)
 }
 
+// The column type of the column in a transposed table. Choose one of the following options:
+//
+// - `ROW_HEADER_COLUMN` : Refers to the leftmost column of the row header in the transposed table.
+// - `VALUE_COLUMN` : Refers to all value columns in the transposed table.
 func (o TemplateTransposedTableOptionOutput) ColumnType() TemplateTransposedColumnTypeOutput {
 	return o.ApplyT(func(v TemplateTransposedTableOption) TemplateTransposedColumnType { return v.ColumnType }).(TemplateTransposedColumnTypeOutput)
 }

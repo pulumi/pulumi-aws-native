@@ -10,27 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Specifies the settings on DTMF input.
-    /// </summary>
     [OutputType]
     public sealed class BotDtmfSpecification
     {
-        /// <summary>
-        /// The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
-        /// </summary>
         public readonly string DeletionCharacter;
-        /// <summary>
-        /// The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
-        /// </summary>
         public readonly string EndCharacter;
-        /// <summary>
-        /// How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
-        /// </summary>
         public readonly int EndTimeoutMs;
-        /// <summary>
-        /// The maximum number of DTMF digits allowed in an utterance.
-        /// </summary>
         public readonly int MaxLength;
 
         [OutputConstructor]

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// The default value to use when a user doesn't provide a value for a slot.
-    /// </summary>
     public sealed class BotSlotDefaultValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

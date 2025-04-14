@@ -83,6 +83,9 @@ namespace Pulumi.AwsNative.ApplicationSignals
         /// Displays whether this is a period-based SLO or a request-based SLO.
         /// </summary>
         public readonly Pulumi.AwsNative.ApplicationSignals.ServiceLevelObjectiveEvaluationType? EvaluationType;
+        /// <summary>
+        /// The time window to be excluded from the SLO performance metrics.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ServiceLevelObjectiveExclusionWindow> ExclusionWindows;
         /// <summary>
         /// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.

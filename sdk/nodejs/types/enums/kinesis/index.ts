@@ -11,6 +11,22 @@ export const StreamEncryptionEncryptionType = {
  */
 export type StreamEncryptionEncryptionType = (typeof StreamEncryptionEncryptionType)[keyof typeof StreamEncryptionEncryptionType];
 
+export const StreamEnhancedMetric = {
+    IncomingBytes: "IncomingBytes",
+    IncomingRecords: "IncomingRecords",
+    OutgoingBytes: "OutgoingBytes",
+    OutgoingRecords: "OutgoingRecords",
+    WriteProvisionedThroughputExceeded: "WriteProvisionedThroughputExceeded",
+    ReadProvisionedThroughputExceeded: "ReadProvisionedThroughputExceeded",
+    IteratorAgeMilliseconds: "IteratorAgeMilliseconds",
+    All: "ALL",
+} as const;
+
+/**
+ * Value of an enhanced metric
+ */
+export type StreamEnhancedMetric = (typeof StreamEnhancedMetric)[keyof typeof StreamEnhancedMetric];
+
 export const StreamModeDetailsStreamMode = {
     OnDemand: "ON_DEMAND",
     Provisioned: "PROVISIONED",

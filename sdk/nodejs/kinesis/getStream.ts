@@ -30,6 +30,10 @@ export interface GetStreamResult {
      */
     readonly arn?: string;
     /**
+     * The final list of shard-level metrics
+     */
+    readonly desiredShardLevelMetrics?: enums.kinesis.StreamEnhancedMetric[];
+    /**
      * The number of hours for the data records that are stored in shards to remain accessible.
      */
     readonly retentionPeriodHours?: number;

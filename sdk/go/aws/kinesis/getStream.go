@@ -31,6 +31,8 @@ type LookupStreamArgs struct {
 type LookupStreamResult struct {
 	// The Amazon resource name (ARN) of the Kinesis stream
 	Arn *string `pulumi:"arn"`
+	// The final list of shard-level metrics
+	DesiredShardLevelMetrics []StreamEnhancedMetric `pulumi:"desiredShardLevelMetrics"`
 	// The number of hours for the data records that are stored in shards to remain accessible.
 	RetentionPeriodHours *int `pulumi:"retentionPeriodHours"`
 	// The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
@@ -78,6 +80,11 @@ func (o LookupStreamResultOutput) ToLookupStreamResultOutputWithContext(ctx cont
 // The Amazon resource name (ARN) of the Kinesis stream
 func (o LookupStreamResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStreamResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The final list of shard-level metrics
+func (o LookupStreamResultOutput) DesiredShardLevelMetrics() StreamEnhancedMetricArrayOutput {
+	return o.ApplyT(func(v LookupStreamResult) []StreamEnhancedMetric { return v.DesiredShardLevelMetrics }).(StreamEnhancedMetricArrayOutput)
 }
 
 // The number of hours for the data records that are stored in shards to remain accessible.

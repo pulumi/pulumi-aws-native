@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
             set => _containers = value;
         }
 
+        [Input("enableExecuteCommand")]
+        public Input<bool>? EnableExecuteCommand { get; set; }
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
         /// </summary>

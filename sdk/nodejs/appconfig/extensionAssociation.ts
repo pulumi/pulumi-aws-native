@@ -72,7 +72,7 @@ export class ExtensionAssociation extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ExtensionAssociation resource with the given unique name, arguments, and options.
@@ -106,7 +106,7 @@ export class ExtensionAssociation extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["extensionIdentifier", "extensionVersionNumber", "resourceIdentifier", "tags[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["extensionIdentifier", "extensionVersionNumber", "resourceIdentifier"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ExtensionAssociation.__pulumiType, name, resourceInputs, opts);
     }
@@ -135,5 +135,5 @@ export interface ExtensionAssociationArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

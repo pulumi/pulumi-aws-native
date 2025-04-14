@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
             set => _containers = value;
         }
 
+        [Input("enableExecuteCommand")]
+        public Input<bool>? EnableExecuteCommand { get; set; }
+
         /// <summary>
         /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate .
         /// </summary>

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// A session context that is activated when an intent is fulfilled.
-    /// </summary>
     [OutputType]
     public sealed class BotOutputContext
     {

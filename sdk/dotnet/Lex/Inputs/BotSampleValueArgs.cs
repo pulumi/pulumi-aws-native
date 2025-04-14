@@ -10,14 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Defines one of the values for a slot type.
-    /// </summary>
     public sealed class BotSampleValueArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The value that can be used for a slot type.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

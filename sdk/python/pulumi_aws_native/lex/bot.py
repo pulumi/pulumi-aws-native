@@ -36,17 +36,21 @@ class BotArgs:
                  test_bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]] = None):
         """
         The set of arguments for constructing a Bot resource.
-        :param pulumi.Input['DataPrivacyPropertiesArgs'] data_privacy: Data privacy setting of the Bot.
-        :param pulumi.Input[int] idle_session_ttl_in_seconds: IdleSessionTTLInSeconds of the resource
+        :param pulumi.Input['DataPrivacyPropertiesArgs'] data_privacy: By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
+        :param pulumi.Input[int] idle_session_ttl_in_seconds: The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
+               
+               A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
+               
+               You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
-        :param pulumi.Input[bool] auto_build_bot_locales: Specifies whether to build the bot locales after bot creation completes.
+        :param pulumi.Input[bool] auto_build_bot_locales: Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
         :param pulumi.Input['BotS3LocationArgs'] bot_file_s3_location: The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
-        :param pulumi.Input[Sequence[pulumi.Input['BotLocaleArgs']]] bot_locales: List of bot locales
-        :param pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]] bot_tags: A list of tags to add to the bot, which can only be added at bot creation.
+        :param pulumi.Input[Sequence[pulumi.Input['BotLocaleArgs']]] bot_locales: A list of locales for the bot.
+        :param pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]] bot_tags: A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
         :param pulumi.Input[str] description: The description of the version.
         :param pulumi.Input[str] name: The name of the bot locale.
         :param pulumi.Input['BotTestBotAliasSettingsArgs'] test_bot_alias_settings: Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
-        :param pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]] test_bot_alias_tags: A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
+        :param pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]] test_bot_alias_tags: A list of tags to add to the test alias for a bot. You can only add tags when you import a bot. You can't use the `UpdateAlias` operation to update tags. To update tags on the test alias, use the `TagResource` operation.
         """
         pulumi.set(__self__, "data_privacy", data_privacy)
         pulumi.set(__self__, "idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
@@ -74,7 +78,7 @@ class BotArgs:
     @pulumi.getter(name="dataPrivacy")
     def data_privacy(self) -> pulumi.Input['DataPrivacyPropertiesArgs']:
         """
-        Data privacy setting of the Bot.
+        By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
         """
         return pulumi.get(self, "data_privacy")
 
@@ -86,7 +90,11 @@ class BotArgs:
     @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> pulumi.Input[int]:
         """
-        IdleSessionTTLInSeconds of the resource
+        The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
+
+        A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
+
+        You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         """
         return pulumi.get(self, "idle_session_ttl_in_seconds")
 
@@ -110,7 +118,7 @@ class BotArgs:
     @pulumi.getter(name="autoBuildBotLocales")
     def auto_build_bot_locales(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether to build the bot locales after bot creation completes.
+        Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
         """
         return pulumi.get(self, "auto_build_bot_locales")
 
@@ -134,7 +142,7 @@ class BotArgs:
     @pulumi.getter(name="botLocales")
     def bot_locales(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotLocaleArgs']]]]:
         """
-        List of bot locales
+        A list of locales for the bot.
         """
         return pulumi.get(self, "bot_locales")
 
@@ -146,7 +154,7 @@ class BotArgs:
     @pulumi.getter(name="botTags")
     def bot_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]]:
         """
-        A list of tags to add to the bot, which can only be added at bot creation.
+        A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
         """
         return pulumi.get(self, "bot_tags")
 
@@ -203,7 +211,7 @@ class BotArgs:
     @pulumi.getter(name="testBotAliasTags")
     def test_bot_alias_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]]:
         """
-        A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
+        A list of tags to add to the test alias for a bot. You can only add tags when you import a bot. You can't use the `UpdateAlias` operation to update tags. To update tags on the test alias, use the `TagResource` operation.
         """
         return pulumi.get(self, "test_bot_alias_tags")
 
@@ -235,17 +243,21 @@ class Bot(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_build_bot_locales: Specifies whether to build the bot locales after bot creation completes.
+        :param pulumi.Input[bool] auto_build_bot_locales: Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
         :param pulumi.Input[Union['BotS3LocationArgs', 'BotS3LocationArgsDict']] bot_file_s3_location: The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BotLocaleArgs', 'BotLocaleArgsDict']]]] bot_locales: List of bot locales
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BotTagArgs', 'BotTagArgsDict']]]] bot_tags: A list of tags to add to the bot, which can only be added at bot creation.
-        :param pulumi.Input[Union['DataPrivacyPropertiesArgs', 'DataPrivacyPropertiesArgsDict']] data_privacy: Data privacy setting of the Bot.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BotLocaleArgs', 'BotLocaleArgsDict']]]] bot_locales: A list of locales for the bot.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BotTagArgs', 'BotTagArgsDict']]]] bot_tags: A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
+        :param pulumi.Input[Union['DataPrivacyPropertiesArgs', 'DataPrivacyPropertiesArgsDict']] data_privacy: By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
         :param pulumi.Input[str] description: The description of the version.
-        :param pulumi.Input[int] idle_session_ttl_in_seconds: IdleSessionTTLInSeconds of the resource
+        :param pulumi.Input[int] idle_session_ttl_in_seconds: The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
+               
+               A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
+               
+               You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         :param pulumi.Input[str] name: The name of the bot locale.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
         :param pulumi.Input[Union['BotTestBotAliasSettingsArgs', 'BotTestBotAliasSettingsArgsDict']] test_bot_alias_settings: Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BotTagArgs', 'BotTagArgsDict']]]] test_bot_alias_tags: A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BotTagArgs', 'BotTagArgsDict']]]] test_bot_alias_tags: A list of tags to add to the test alias for a bot. You can only add tags when you import a bot. You can't use the `UpdateAlias` operation to update tags. To update tags on the test alias, use the `TagResource` operation.
         """
         ...
     @overload
@@ -362,7 +374,7 @@ class Bot(pulumi.CustomResource):
     @pulumi.getter(name="autoBuildBotLocales")
     def auto_build_bot_locales(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether to build the bot locales after bot creation completes.
+        Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
         """
         return pulumi.get(self, "auto_build_bot_locales")
 
@@ -386,7 +398,7 @@ class Bot(pulumi.CustomResource):
     @pulumi.getter(name="botLocales")
     def bot_locales(self) -> pulumi.Output[Optional[Sequence['outputs.BotLocale']]]:
         """
-        List of bot locales
+        A list of locales for the bot.
         """
         return pulumi.get(self, "bot_locales")
 
@@ -394,7 +406,7 @@ class Bot(pulumi.CustomResource):
     @pulumi.getter(name="botTags")
     def bot_tags(self) -> pulumi.Output[Optional[Sequence['outputs.BotTag']]]:
         """
-        A list of tags to add to the bot, which can only be added at bot creation.
+        A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
         """
         return pulumi.get(self, "bot_tags")
 
@@ -402,7 +414,7 @@ class Bot(pulumi.CustomResource):
     @pulumi.getter(name="dataPrivacy")
     def data_privacy(self) -> pulumi.Output['outputs.DataPrivacyProperties']:
         """
-        Data privacy setting of the Bot.
+        By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
         """
         return pulumi.get(self, "data_privacy")
 
@@ -418,7 +430,11 @@ class Bot(pulumi.CustomResource):
     @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> pulumi.Output[int]:
         """
-        IdleSessionTTLInSeconds of the resource
+        The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
+
+        A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
+
+        You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         """
         return pulumi.get(self, "idle_session_ttl_in_seconds")
 
@@ -455,7 +471,7 @@ class Bot(pulumi.CustomResource):
     @pulumi.getter(name="testBotAliasTags")
     def test_bot_alias_tags(self) -> pulumi.Output[Optional[Sequence['outputs.BotTag']]]:
         """
-        A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
+        A list of tags to add to the test alias for a bot. You can only add tags when you import a bot. You can't use the `UpdateAlias` operation to update tags. To update tags on the test alias, use the `TagResource` operation.
         """
         return pulumi.get(self, "test_bot_alias_tags")
 

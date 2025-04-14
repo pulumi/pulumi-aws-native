@@ -10,12 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Represents an action that the user wants to perform.
-    /// </summary>
     [OutputType]
     public sealed class BotIntent
     {
+        public readonly Outputs.BotBedrockAgentIntentConfiguration? BedrockAgentIntentConfiguration;
         /// <summary>
         /// Description of thr intent.
         /// </summary>
@@ -49,7 +47,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly Outputs.BotKendraConfiguration? KendraConfiguration;
         /// <summary>
-        /// The name of the intent.
+        /// The name of the intent. Intent names must be unique within the locale that contains the intent and can't match the name of any built-in intent.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -60,9 +58,10 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// A unique identifier for the built-in intent to base this intent on.
         /// </summary>
         public readonly string? ParentIntentSignature;
+        public readonly Outputs.BotQInConnectIntentConfiguration? QInConnectIntentConfiguration;
         public readonly Outputs.BotQnAIntentConfiguration? QnAIntentConfiguration;
         /// <summary>
-        /// A sample utterance that invokes an intent or respond to a slot elicitation prompt.
+        /// A list of utterances that a user might say to signal the intent.
         /// </summary>
         public readonly ImmutableArray<Outputs.BotSampleUtterance> SampleUtterances;
         /// <summary>
@@ -70,12 +69,14 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.BotSlotPriority> SlotPriorities;
         /// <summary>
-        /// List of slots
+        /// A list of slots that the intent requires for fulfillment.
         /// </summary>
         public readonly ImmutableArray<Outputs.BotSlot> Slots;
 
         [OutputConstructor]
         private BotIntent(
+            Outputs.BotBedrockAgentIntentConfiguration? bedrockAgentIntentConfiguration,
+
             string? description,
 
             Outputs.BotDialogCodeHookSetting? dialogCodeHook,
@@ -98,6 +99,8 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             string? parentIntentSignature,
 
+            Outputs.BotQInConnectIntentConfiguration? qInConnectIntentConfiguration,
+
             Outputs.BotQnAIntentConfiguration? qnAIntentConfiguration,
 
             ImmutableArray<Outputs.BotSampleUtterance> sampleUtterances,
@@ -106,6 +109,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             ImmutableArray<Outputs.BotSlot> slots)
         {
+            BedrockAgentIntentConfiguration = bedrockAgentIntentConfiguration;
             Description = description;
             DialogCodeHook = dialogCodeHook;
             FulfillmentCodeHook = fulfillmentCodeHook;
@@ -117,6 +121,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
             Name = name;
             OutputContexts = outputContexts;
             ParentIntentSignature = parentIntentSignature;
+            QInConnectIntentConfiguration = qInConnectIntentConfiguration;
             QnAIntentConfiguration = qnAIntentConfiguration;
             SampleUtterances = sampleUtterances;
             SlotPriorities = slotPriorities;

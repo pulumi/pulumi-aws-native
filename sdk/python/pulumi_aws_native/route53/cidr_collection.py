@@ -67,7 +67,7 @@ class CidrCollection(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::Route53::CidrCollection.
+        Resource Type definition for AWS::Route53::CidrCollection.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -81,7 +81,7 @@ class CidrCollection(pulumi.CustomResource):
                  args: Optional[CidrCollectionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::Route53::CidrCollection.
+        Resource Type definition for AWS::Route53::CidrCollection.
 
         :param str resource_name: The name of the resource.
         :param CidrCollectionArgs args: The arguments to use to populate this resource's properties.

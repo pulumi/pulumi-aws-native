@@ -17272,6 +17272,9 @@ class VerifiedAccessTrustProviderOidcOptionsArgs:
 
 if not MYPY:
     class VpcEndpointDnsOptionsSpecificationArgsDict(TypedDict):
+        """
+        Describes the DNS options for an endpoint.
+        """
         dns_record_ip_type: NotRequired[pulumi.Input['VpcEndpointDnsOptionsSpecificationDnsRecordIpType']]
         """
         The DNS records created for the endpoint.
@@ -17289,6 +17292,7 @@ class VpcEndpointDnsOptionsSpecificationArgs:
                  dns_record_ip_type: Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationDnsRecordIpType']] = None,
                  private_dns_only_for_inbound_resolver_endpoint: Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint']] = None):
         """
+        Describes the DNS options for an endpoint.
         :param pulumi.Input['VpcEndpointDnsOptionsSpecificationDnsRecordIpType'] dns_record_ip_type: The DNS records created for the endpoint.
         :param pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint'] private_dns_only_for_inbound_resolver_endpoint: Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
         """

@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Specifies the text input specifications.
-    /// </summary>
     [OutputType]
     public sealed class BotTextInputSpecification
     {
-        /// <summary>
-        /// Time for which a bot waits before re-prompting a customer for text input.
-        /// </summary>
         public readonly int StartTimeoutMs;
 
         [OutputConstructor]

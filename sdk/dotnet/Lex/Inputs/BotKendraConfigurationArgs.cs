@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Configuration for searching a Amazon Kendra index specified for the intent.
-    /// </summary>
     public sealed class BotKendraConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -28,7 +25,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public Input<string>? QueryFilterString { get; set; }
 
         /// <summary>
-        /// Determines whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
+        /// Determines whether the `AMAZON.KendraSearchIntent` intent uses a custom query string to query the Amazon Kendra index.
         /// </summary>
         [Input("queryFilterStringEnabled")]
         public Input<bool>? QueryFilterStringEnabled { get; set; }

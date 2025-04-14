@@ -1260,6 +1260,171 @@ func (in *dataSourceAttributeValueOperatorPtr) ToDataSourceAttributeValueOperato
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceAttributeValueOperatorPtrOutput)
 }
 
+type DataSourceAudioExtractionStatus string
+
+const (
+	DataSourceAudioExtractionStatusEnabled  = DataSourceAudioExtractionStatus("ENABLED")
+	DataSourceAudioExtractionStatusDisabled = DataSourceAudioExtractionStatus("DISABLED")
+)
+
+func (DataSourceAudioExtractionStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceAudioExtractionStatus)(nil)).Elem()
+}
+
+func (e DataSourceAudioExtractionStatus) ToDataSourceAudioExtractionStatusOutput() DataSourceAudioExtractionStatusOutput {
+	return pulumi.ToOutput(e).(DataSourceAudioExtractionStatusOutput)
+}
+
+func (e DataSourceAudioExtractionStatus) ToDataSourceAudioExtractionStatusOutputWithContext(ctx context.Context) DataSourceAudioExtractionStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceAudioExtractionStatusOutput)
+}
+
+func (e DataSourceAudioExtractionStatus) ToDataSourceAudioExtractionStatusPtrOutput() DataSourceAudioExtractionStatusPtrOutput {
+	return e.ToDataSourceAudioExtractionStatusPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceAudioExtractionStatus) ToDataSourceAudioExtractionStatusPtrOutputWithContext(ctx context.Context) DataSourceAudioExtractionStatusPtrOutput {
+	return DataSourceAudioExtractionStatus(e).ToDataSourceAudioExtractionStatusOutputWithContext(ctx).ToDataSourceAudioExtractionStatusPtrOutputWithContext(ctx)
+}
+
+func (e DataSourceAudioExtractionStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceAudioExtractionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceAudioExtractionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceAudioExtractionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceAudioExtractionStatusOutput struct{ *pulumi.OutputState }
+
+func (DataSourceAudioExtractionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceAudioExtractionStatus)(nil)).Elem()
+}
+
+func (o DataSourceAudioExtractionStatusOutput) ToDataSourceAudioExtractionStatusOutput() DataSourceAudioExtractionStatusOutput {
+	return o
+}
+
+func (o DataSourceAudioExtractionStatusOutput) ToDataSourceAudioExtractionStatusOutputWithContext(ctx context.Context) DataSourceAudioExtractionStatusOutput {
+	return o
+}
+
+func (o DataSourceAudioExtractionStatusOutput) ToDataSourceAudioExtractionStatusPtrOutput() DataSourceAudioExtractionStatusPtrOutput {
+	return o.ToDataSourceAudioExtractionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceAudioExtractionStatusOutput) ToDataSourceAudioExtractionStatusPtrOutputWithContext(ctx context.Context) DataSourceAudioExtractionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceAudioExtractionStatus) *DataSourceAudioExtractionStatus {
+		return &v
+	}).(DataSourceAudioExtractionStatusPtrOutput)
+}
+
+func (o DataSourceAudioExtractionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceAudioExtractionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceAudioExtractionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceAudioExtractionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceAudioExtractionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceAudioExtractionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceAudioExtractionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceAudioExtractionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceAudioExtractionStatus)(nil)).Elem()
+}
+
+func (o DataSourceAudioExtractionStatusPtrOutput) ToDataSourceAudioExtractionStatusPtrOutput() DataSourceAudioExtractionStatusPtrOutput {
+	return o
+}
+
+func (o DataSourceAudioExtractionStatusPtrOutput) ToDataSourceAudioExtractionStatusPtrOutputWithContext(ctx context.Context) DataSourceAudioExtractionStatusPtrOutput {
+	return o
+}
+
+func (o DataSourceAudioExtractionStatusPtrOutput) Elem() DataSourceAudioExtractionStatusOutput {
+	return o.ApplyT(func(v *DataSourceAudioExtractionStatus) DataSourceAudioExtractionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceAudioExtractionStatus
+		return ret
+	}).(DataSourceAudioExtractionStatusOutput)
+}
+
+func (o DataSourceAudioExtractionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceAudioExtractionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceAudioExtractionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceAudioExtractionStatusInput is an input type that accepts values of the DataSourceAudioExtractionStatus enum
+// A concrete instance of `DataSourceAudioExtractionStatusInput` can be one of the following:
+//
+//	DataSourceAudioExtractionStatusEnabled
+//	DataSourceAudioExtractionStatusDisabled
+type DataSourceAudioExtractionStatusInput interface {
+	pulumi.Input
+
+	ToDataSourceAudioExtractionStatusOutput() DataSourceAudioExtractionStatusOutput
+	ToDataSourceAudioExtractionStatusOutputWithContext(context.Context) DataSourceAudioExtractionStatusOutput
+}
+
+var dataSourceAudioExtractionStatusPtrType = reflect.TypeOf((**DataSourceAudioExtractionStatus)(nil)).Elem()
+
+type DataSourceAudioExtractionStatusPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceAudioExtractionStatusPtrOutput() DataSourceAudioExtractionStatusPtrOutput
+	ToDataSourceAudioExtractionStatusPtrOutputWithContext(context.Context) DataSourceAudioExtractionStatusPtrOutput
+}
+
+type dataSourceAudioExtractionStatusPtr string
+
+func DataSourceAudioExtractionStatusPtr(v string) DataSourceAudioExtractionStatusPtrInput {
+	return (*dataSourceAudioExtractionStatusPtr)(&v)
+}
+
+func (*dataSourceAudioExtractionStatusPtr) ElementType() reflect.Type {
+	return dataSourceAudioExtractionStatusPtrType
+}
+
+func (in *dataSourceAudioExtractionStatusPtr) ToDataSourceAudioExtractionStatusPtrOutput() DataSourceAudioExtractionStatusPtrOutput {
+	return pulumi.ToOutput(in).(DataSourceAudioExtractionStatusPtrOutput)
+}
+
+func (in *dataSourceAudioExtractionStatusPtr) ToDataSourceAudioExtractionStatusPtrOutputWithContext(ctx context.Context) DataSourceAudioExtractionStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceAudioExtractionStatusPtrOutput)
+}
+
 type DataSourceDocumentContentOperator string
 
 const (
@@ -1863,6 +2028,171 @@ func (o DataSourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceVideoExtractionStatus string
+
+const (
+	DataSourceVideoExtractionStatusEnabled  = DataSourceVideoExtractionStatus("ENABLED")
+	DataSourceVideoExtractionStatusDisabled = DataSourceVideoExtractionStatus("DISABLED")
+)
+
+func (DataSourceVideoExtractionStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceVideoExtractionStatus)(nil)).Elem()
+}
+
+func (e DataSourceVideoExtractionStatus) ToDataSourceVideoExtractionStatusOutput() DataSourceVideoExtractionStatusOutput {
+	return pulumi.ToOutput(e).(DataSourceVideoExtractionStatusOutput)
+}
+
+func (e DataSourceVideoExtractionStatus) ToDataSourceVideoExtractionStatusOutputWithContext(ctx context.Context) DataSourceVideoExtractionStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceVideoExtractionStatusOutput)
+}
+
+func (e DataSourceVideoExtractionStatus) ToDataSourceVideoExtractionStatusPtrOutput() DataSourceVideoExtractionStatusPtrOutput {
+	return e.ToDataSourceVideoExtractionStatusPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceVideoExtractionStatus) ToDataSourceVideoExtractionStatusPtrOutputWithContext(ctx context.Context) DataSourceVideoExtractionStatusPtrOutput {
+	return DataSourceVideoExtractionStatus(e).ToDataSourceVideoExtractionStatusOutputWithContext(ctx).ToDataSourceVideoExtractionStatusPtrOutputWithContext(ctx)
+}
+
+func (e DataSourceVideoExtractionStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceVideoExtractionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceVideoExtractionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceVideoExtractionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceVideoExtractionStatusOutput struct{ *pulumi.OutputState }
+
+func (DataSourceVideoExtractionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceVideoExtractionStatus)(nil)).Elem()
+}
+
+func (o DataSourceVideoExtractionStatusOutput) ToDataSourceVideoExtractionStatusOutput() DataSourceVideoExtractionStatusOutput {
+	return o
+}
+
+func (o DataSourceVideoExtractionStatusOutput) ToDataSourceVideoExtractionStatusOutputWithContext(ctx context.Context) DataSourceVideoExtractionStatusOutput {
+	return o
+}
+
+func (o DataSourceVideoExtractionStatusOutput) ToDataSourceVideoExtractionStatusPtrOutput() DataSourceVideoExtractionStatusPtrOutput {
+	return o.ToDataSourceVideoExtractionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceVideoExtractionStatusOutput) ToDataSourceVideoExtractionStatusPtrOutputWithContext(ctx context.Context) DataSourceVideoExtractionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceVideoExtractionStatus) *DataSourceVideoExtractionStatus {
+		return &v
+	}).(DataSourceVideoExtractionStatusPtrOutput)
+}
+
+func (o DataSourceVideoExtractionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceVideoExtractionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceVideoExtractionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceVideoExtractionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceVideoExtractionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceVideoExtractionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceVideoExtractionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceVideoExtractionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceVideoExtractionStatus)(nil)).Elem()
+}
+
+func (o DataSourceVideoExtractionStatusPtrOutput) ToDataSourceVideoExtractionStatusPtrOutput() DataSourceVideoExtractionStatusPtrOutput {
+	return o
+}
+
+func (o DataSourceVideoExtractionStatusPtrOutput) ToDataSourceVideoExtractionStatusPtrOutputWithContext(ctx context.Context) DataSourceVideoExtractionStatusPtrOutput {
+	return o
+}
+
+func (o DataSourceVideoExtractionStatusPtrOutput) Elem() DataSourceVideoExtractionStatusOutput {
+	return o.ApplyT(func(v *DataSourceVideoExtractionStatus) DataSourceVideoExtractionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceVideoExtractionStatus
+		return ret
+	}).(DataSourceVideoExtractionStatusOutput)
+}
+
+func (o DataSourceVideoExtractionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceVideoExtractionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceVideoExtractionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceVideoExtractionStatusInput is an input type that accepts values of the DataSourceVideoExtractionStatus enum
+// A concrete instance of `DataSourceVideoExtractionStatusInput` can be one of the following:
+//
+//	DataSourceVideoExtractionStatusEnabled
+//	DataSourceVideoExtractionStatusDisabled
+type DataSourceVideoExtractionStatusInput interface {
+	pulumi.Input
+
+	ToDataSourceVideoExtractionStatusOutput() DataSourceVideoExtractionStatusOutput
+	ToDataSourceVideoExtractionStatusOutputWithContext(context.Context) DataSourceVideoExtractionStatusOutput
+}
+
+var dataSourceVideoExtractionStatusPtrType = reflect.TypeOf((**DataSourceVideoExtractionStatus)(nil)).Elem()
+
+type DataSourceVideoExtractionStatusPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceVideoExtractionStatusPtrOutput() DataSourceVideoExtractionStatusPtrOutput
+	ToDataSourceVideoExtractionStatusPtrOutputWithContext(context.Context) DataSourceVideoExtractionStatusPtrOutput
+}
+
+type dataSourceVideoExtractionStatusPtr string
+
+func DataSourceVideoExtractionStatusPtr(v string) DataSourceVideoExtractionStatusPtrInput {
+	return (*dataSourceVideoExtractionStatusPtr)(&v)
+}
+
+func (*dataSourceVideoExtractionStatusPtr) ElementType() reflect.Type {
+	return dataSourceVideoExtractionStatusPtrType
+}
+
+func (in *dataSourceVideoExtractionStatusPtr) ToDataSourceVideoExtractionStatusPtrOutput() DataSourceVideoExtractionStatusPtrOutput {
+	return pulumi.ToOutput(in).(DataSourceVideoExtractionStatusPtrOutput)
+}
+
+func (in *dataSourceVideoExtractionStatusPtr) ToDataSourceVideoExtractionStatusPtrOutputWithContext(ctx context.Context) DataSourceVideoExtractionStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceVideoExtractionStatusPtrOutput)
 }
 
 type IndexAttributeType string
@@ -3814,12 +4144,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSubscriptionTypePtrInput)(nil)).Elem(), ApplicationSubscriptionType("Q_LITE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAttributeValueOperatorInput)(nil)).Elem(), DataSourceAttributeValueOperator("DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAttributeValueOperatorPtrInput)(nil)).Elem(), DataSourceAttributeValueOperator("DELETE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAudioExtractionStatusInput)(nil)).Elem(), DataSourceAudioExtractionStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAudioExtractionStatusPtrInput)(nil)).Elem(), DataSourceAudioExtractionStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentContentOperatorInput)(nil)).Elem(), DataSourceDocumentContentOperator("DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentContentOperatorPtrInput)(nil)).Elem(), DataSourceDocumentContentOperator("DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentEnrichmentConditionOperatorInput)(nil)).Elem(), DataSourceDocumentEnrichmentConditionOperator("GREATER_THAN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentEnrichmentConditionOperatorPtrInput)(nil)).Elem(), DataSourceDocumentEnrichmentConditionOperator("GREATER_THAN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceImageExtractionStatusInput)(nil)).Elem(), DataSourceImageExtractionStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceImageExtractionStatusPtrInput)(nil)).Elem(), DataSourceImageExtractionStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVideoExtractionStatusInput)(nil)).Elem(), DataSourceVideoExtractionStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVideoExtractionStatusPtrInput)(nil)).Elem(), DataSourceVideoExtractionStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexAttributeTypeInput)(nil)).Elem(), IndexAttributeType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexAttributeTypePtrInput)(nil)).Elem(), IndexAttributeType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexTypeInput)(nil)).Elem(), IndexType("ENTERPRISE"))
@@ -3855,6 +4189,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationSubscriptionTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAttributeValueOperatorOutput{})
 	pulumi.RegisterOutputType(DataSourceAttributeValueOperatorPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceAudioExtractionStatusOutput{})
+	pulumi.RegisterOutputType(DataSourceAudioExtractionStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentContentOperatorOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentContentOperatorPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentEnrichmentConditionOperatorOutput{})
@@ -3863,6 +4199,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceImageExtractionStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceStatusOutput{})
 	pulumi.RegisterOutputType(DataSourceStatusPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceVideoExtractionStatusOutput{})
+	pulumi.RegisterOutputType(DataSourceVideoExtractionStatusPtrOutput{})
 	pulumi.RegisterOutputType(IndexAttributeTypeOutput{})
 	pulumi.RegisterOutputType(IndexAttributeTypePtrOutput{})
 	pulumi.RegisterOutputType(IndexStatusOutput{})

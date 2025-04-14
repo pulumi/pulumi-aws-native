@@ -10,20 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Contains the names of the fields used for an exact response to the user.
-    /// </summary>
     public sealed class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the field that contains the answer to the query made to the OpenSearch Service database.
-        /// </summary>
         [Input("answerField")]
         public Input<string>? AnswerField { get; set; }
 
-        /// <summary>
-        /// The name of the field that contains the query made to the OpenSearch Service database.
-        /// </summary>
         [Input("questionField")]
         public Input<string>? QuestionField { get; set; }
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Kinesis
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The final list of shard-level metrics
+        /// </summary>
+        [Output("desiredShardLevelMetrics")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Kinesis.StreamEnhancedMetric>> DesiredShardLevelMetrics { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Kinesis stream.
         /// </summary>
         [Output("name")]
@@ -106,6 +112,18 @@ namespace Pulumi.AwsNative.Kinesis
 
     public sealed class StreamArgs : global::Pulumi.ResourceArgs
     {
+        [Input("desiredShardLevelMetrics")]
+        private InputList<Pulumi.AwsNative.Kinesis.StreamEnhancedMetric>? _desiredShardLevelMetrics;
+
+        /// <summary>
+        /// The final list of shard-level metrics
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Kinesis.StreamEnhancedMetric> DesiredShardLevelMetrics
+        {
+            get => _desiredShardLevelMetrics ?? (_desiredShardLevelMetrics = new InputList<Pulumi.AwsNative.Kinesis.StreamEnhancedMetric>());
+            set => _desiredShardLevelMetrics = value;
+        }
+
         /// <summary>
         /// The name of the Kinesis stream.
         /// </summary>

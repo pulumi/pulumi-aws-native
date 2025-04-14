@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.Lex.Outputs
 {
 
     /// <summary>
-    /// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+    /// Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
     /// </summary>
     [OutputType]
     public sealed class BotTestBotAliasSettingsSentimentAnalysisSettingsProperties
     {
-        /// <summary>
-        /// Enable to call Amazon Comprehend for Sentiment natively within Lex
-        /// </summary>
         public readonly bool DetectSentiment;
 
         [OutputConstructor]

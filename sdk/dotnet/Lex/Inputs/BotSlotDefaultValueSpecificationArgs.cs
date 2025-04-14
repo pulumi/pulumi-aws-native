@@ -10,16 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// A list of values that Amazon Lex should use as the default value for a slot.
-    /// </summary>
     public sealed class BotSlotDefaultValueSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultValueList", required: true)]
         private InputList<Inputs.BotSlotDefaultValueArgs>? _defaultValueList;
 
         /// <summary>
-        /// A list of slot default values
+        /// A list of default values. Amazon Lex chooses the default value to use in the order that they are presented in the list.
         /// </summary>
         public InputList<Inputs.BotSlotDefaultValueArgs> DefaultValueList
         {

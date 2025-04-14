@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
-    /// </summary>
     [OutputType]
     public sealed class BotDialogCodeHookSetting
     {

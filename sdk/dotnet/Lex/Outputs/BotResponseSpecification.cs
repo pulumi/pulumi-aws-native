@@ -10,14 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// A list of message groups that Amazon Lex uses to respond the user input.
-    /// </summary>
     [OutputType]
     public sealed class BotResponseSpecification
     {
         /// <summary>
-        /// Indicates whether the user can interrupt a speech prompt from the bot.
+        /// Indicates whether the user can interrupt a speech response from Amazon Lex.
         /// </summary>
         public readonly bool? AllowInterrupt;
         /// <summary>

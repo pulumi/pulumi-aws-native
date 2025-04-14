@@ -17,6 +17,7 @@ import (
 type Key struct {
 	pulumi.CustomResourceState
 
+	DeriveKeyUsage KeyDeriveKeyUsagePtrOutput `pulumi:"deriveKeyUsage"`
 	// Specifies whether the key is enabled.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Specifies whether the key is exportable. This data is immutable after the key is created.
@@ -81,6 +82,7 @@ func (KeyState) ElementType() reflect.Type {
 }
 
 type keyArgs struct {
+	DeriveKeyUsage *KeyDeriveKeyUsage `pulumi:"deriveKeyUsage"`
 	// Specifies whether the key is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Specifies whether the key is exportable. This data is immutable after the key is created.
@@ -96,6 +98,7 @@ type keyArgs struct {
 
 // The set of arguments for constructing a Key resource.
 type KeyArgs struct {
+	DeriveKeyUsage KeyDeriveKeyUsagePtrInput
 	// Specifies whether the key is enabled.
 	Enabled pulumi.BoolPtrInput
 	// Specifies whether the key is exportable. This data is immutable after the key is created.
@@ -144,6 +147,10 @@ func (o KeyOutput) ToKeyOutput() KeyOutput {
 
 func (o KeyOutput) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return o
+}
+
+func (o KeyOutput) DeriveKeyUsage() KeyDeriveKeyUsagePtrOutput {
+	return o.ApplyT(func(v *Key) KeyDeriveKeyUsagePtrOutput { return v.DeriveKeyUsage }).(KeyDeriveKeyUsagePtrOutput)
 }
 
 // Specifies whether the key is enabled.

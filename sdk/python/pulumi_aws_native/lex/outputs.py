@@ -35,10 +35,14 @@ __all__ = [
     'BotAudioLogDestination',
     'BotAudioLogSetting',
     'BotAudioSpecification',
+    'BotBedrockAgentIntentConfiguration',
+    'BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties',
+    'BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties',
     'BotBedrockModelSpecification',
     'BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties',
     'BotButton',
     'BotCloudWatchLogGroupLogDestination',
+    'BotCompositeSlotTypeSetting',
     'BotCondition',
     'BotConditionalBranch',
     'BotConditionalSpecification',
@@ -79,6 +83,8 @@ __all__ = [
     'BotPostFulfillmentStatusSpecification',
     'BotPromptAttemptSpecification',
     'BotPromptSpecification',
+    'BotQInConnectIntentConfiguration',
+    'BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties',
     'BotQnAIntentConfiguration',
     'BotQnAIntentConfigurationDataSourceConfigurationProperties',
     'BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties',
@@ -108,6 +114,7 @@ __all__ = [
     'BotSlotValueSelectionSetting',
     'BotSsmlMessage',
     'BotStillWaitingResponseSpecification',
+    'BotSubSlotTypeComposition',
     'BotTag',
     'BotTestBotAliasSettings',
     'BotTestBotAliasSettingsSentimentAnalysisSettingsProperties',
@@ -125,9 +132,6 @@ __all__ = [
 
 @pulumi.output_type
 class BotAdvancedRecognitionSetting(dict):
-    """
-    Provides settings that enable advanced recognition settings for slot values.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -148,7 +152,6 @@ class BotAdvancedRecognitionSetting(dict):
     def __init__(__self__, *,
                  audio_recognition_strategy: Optional['BotAudioRecognitionStrategy'] = None):
         """
-        Provides settings that enable advanced recognition settings for slot values.
         :param 'BotAudioRecognitionStrategy' audio_recognition_strategy: Enables using the slot values as a custom vocabulary for recognizing user utterances.
         """
         if audio_recognition_strategy is not None:
@@ -668,9 +671,6 @@ class BotAliasTextLogSetting(dict):
 
 @pulumi.output_type
 class BotAllowedInputTypes(dict):
-    """
-    Specifies the allowed input types.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -693,36 +693,22 @@ class BotAllowedInputTypes(dict):
     def __init__(__self__, *,
                  allow_audio_input: bool,
                  allow_dtmf_input: bool):
-        """
-        Specifies the allowed input types.
-        :param bool allow_audio_input: Indicates whether audio input is allowed.
-        :param bool allow_dtmf_input: Indicates whether DTMF input is allowed.
-        """
         pulumi.set(__self__, "allow_audio_input", allow_audio_input)
         pulumi.set(__self__, "allow_dtmf_input", allow_dtmf_input)
 
     @property
     @pulumi.getter(name="allowAudioInput")
     def allow_audio_input(self) -> bool:
-        """
-        Indicates whether audio input is allowed.
-        """
         return pulumi.get(self, "allow_audio_input")
 
     @property
     @pulumi.getter(name="allowDtmfInput")
     def allow_dtmf_input(self) -> bool:
-        """
-        Indicates whether DTMF input is allowed.
-        """
         return pulumi.get(self, "allow_dtmf_input")
 
 
 @pulumi.output_type
 class BotAudioAndDtmfInputSpecification(dict):
-    """
-    Specifies the audio and DTMF input specification.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -748,10 +734,6 @@ class BotAudioAndDtmfInputSpecification(dict):
                  start_timeout_ms: int,
                  audio_specification: Optional['outputs.BotAudioSpecification'] = None,
                  dtmf_specification: Optional['outputs.BotDtmfSpecification'] = None):
-        """
-        Specifies the audio and DTMF input specification.
-        :param int start_timeout_ms: Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
-        """
         pulumi.set(__self__, "start_timeout_ms", start_timeout_ms)
         if audio_specification is not None:
             pulumi.set(__self__, "audio_specification", audio_specification)
@@ -761,9 +743,6 @@ class BotAudioAndDtmfInputSpecification(dict):
     @property
     @pulumi.getter(name="startTimeoutMs")
     def start_timeout_ms(self) -> int:
-        """
-        Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
-        """
         return pulumi.get(self, "start_timeout_ms")
 
     @property
@@ -779,9 +758,6 @@ class BotAudioAndDtmfInputSpecification(dict):
 
 @pulumi.output_type
 class BotAudioLogDestination(dict):
-    """
-    The location of audio log files collected when conversation logging is enabled for a bot.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -801,9 +777,6 @@ class BotAudioLogDestination(dict):
 
     def __init__(__self__, *,
                  s3_bucket: 'outputs.BotS3BucketLogDestination'):
-        """
-        The location of audio log files collected when conversation logging is enabled for a bot.
-        """
         pulumi.set(__self__, "s3_bucket", s3_bucket)
 
     @property
@@ -814,15 +787,9 @@ class BotAudioLogDestination(dict):
 
 @pulumi.output_type
 class BotAudioLogSetting(dict):
-    """
-    Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
-    """
     def __init__(__self__, *,
                  destination: 'outputs.BotAudioLogDestination',
                  enabled: bool):
-        """
-        Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
-        """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "enabled", enabled)
 
@@ -839,9 +806,6 @@ class BotAudioLogSetting(dict):
 
 @pulumi.output_type
 class BotAudioSpecification(dict):
-    """
-    Specifies the audio input specifications.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -864,36 +828,140 @@ class BotAudioSpecification(dict):
     def __init__(__self__, *,
                  end_timeout_ms: int,
                  max_length_ms: int):
-        """
-        Specifies the audio input specifications.
-        :param int end_timeout_ms: Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
-        :param int max_length_ms: Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
-        """
         pulumi.set(__self__, "end_timeout_ms", end_timeout_ms)
         pulumi.set(__self__, "max_length_ms", max_length_ms)
 
     @property
     @pulumi.getter(name="endTimeoutMs")
     def end_timeout_ms(self) -> int:
-        """
-        Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
-        """
         return pulumi.get(self, "end_timeout_ms")
 
     @property
     @pulumi.getter(name="maxLengthMs")
     def max_length_ms(self) -> int:
-        """
-        Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
-        """
         return pulumi.get(self, "max_length_ms")
 
 
 @pulumi.output_type
+class BotBedrockAgentIntentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bedrockAgentConfiguration":
+            suggest = "bedrock_agent_configuration"
+        elif key == "bedrockAgentIntentKnowledgeBaseConfiguration":
+            suggest = "bedrock_agent_intent_knowledge_base_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotBedrockAgentIntentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotBedrockAgentIntentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotBedrockAgentIntentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bedrock_agent_configuration: Optional['outputs.BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties'] = None,
+                 bedrock_agent_intent_knowledge_base_configuration: Optional['outputs.BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties'] = None):
+        if bedrock_agent_configuration is not None:
+            pulumi.set(__self__, "bedrock_agent_configuration", bedrock_agent_configuration)
+        if bedrock_agent_intent_knowledge_base_configuration is not None:
+            pulumi.set(__self__, "bedrock_agent_intent_knowledge_base_configuration", bedrock_agent_intent_knowledge_base_configuration)
+
+    @property
+    @pulumi.getter(name="bedrockAgentConfiguration")
+    def bedrock_agent_configuration(self) -> Optional['outputs.BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties']:
+        return pulumi.get(self, "bedrock_agent_configuration")
+
+    @property
+    @pulumi.getter(name="bedrockAgentIntentKnowledgeBaseConfiguration")
+    def bedrock_agent_intent_knowledge_base_configuration(self) -> Optional['outputs.BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties']:
+        return pulumi.get(self, "bedrock_agent_intent_knowledge_base_configuration")
+
+
+@pulumi.output_type
+class BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bedrockAgentAliasId":
+            suggest = "bedrock_agent_alias_id"
+        elif key == "bedrockAgentId":
+            suggest = "bedrock_agent_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotBedrockAgentIntentConfigurationBedrockAgentConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bedrock_agent_alias_id: Optional[str] = None,
+                 bedrock_agent_id: Optional[str] = None):
+        if bedrock_agent_alias_id is not None:
+            pulumi.set(__self__, "bedrock_agent_alias_id", bedrock_agent_alias_id)
+        if bedrock_agent_id is not None:
+            pulumi.set(__self__, "bedrock_agent_id", bedrock_agent_id)
+
+    @property
+    @pulumi.getter(name="bedrockAgentAliasId")
+    def bedrock_agent_alias_id(self) -> Optional[str]:
+        return pulumi.get(self, "bedrock_agent_alias_id")
+
+    @property
+    @pulumi.getter(name="bedrockAgentId")
+    def bedrock_agent_id(self) -> Optional[str]:
+        return pulumi.get(self, "bedrock_agent_id")
+
+
+@pulumi.output_type
+class BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bedrockKnowledgeBaseArn":
+            suggest = "bedrock_knowledge_base_arn"
+        elif key == "bedrockModelConfiguration":
+            suggest = "bedrock_model_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bedrock_knowledge_base_arn: str,
+                 bedrock_model_configuration: 'outputs.BotBedrockModelSpecification'):
+        pulumi.set(__self__, "bedrock_knowledge_base_arn", bedrock_knowledge_base_arn)
+        pulumi.set(__self__, "bedrock_model_configuration", bedrock_model_configuration)
+
+    @property
+    @pulumi.getter(name="bedrockKnowledgeBaseArn")
+    def bedrock_knowledge_base_arn(self) -> str:
+        return pulumi.get(self, "bedrock_knowledge_base_arn")
+
+    @property
+    @pulumi.getter(name="bedrockModelConfiguration")
+    def bedrock_model_configuration(self) -> 'outputs.BotBedrockModelSpecification':
+        return pulumi.get(self, "bedrock_model_configuration")
+
+
+@pulumi.output_type
 class BotBedrockModelSpecification(dict):
-    """
-    Contains information about the Amazon Bedrock model used to interpret the prompt used in descriptive bot building.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -923,11 +991,7 @@ class BotBedrockModelSpecification(dict):
                  bedrock_model_custom_prompt: Optional[str] = None,
                  bedrock_trace_status: Optional['BotBedrockModelSpecificationBedrockTraceStatus'] = None):
         """
-        Contains information about the Amazon Bedrock model used to interpret the prompt used in descriptive bot building.
         :param str model_arn: The ARN of the foundation model used in descriptive bot building.
-        :param 'BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties' bedrock_guardrail_configuration: The guardrail configuration in the Bedrock model specification details.
-        :param str bedrock_model_custom_prompt: The custom prompt used in the Bedrock model specification details.
-        :param 'BotBedrockModelSpecificationBedrockTraceStatus' bedrock_trace_status: The Bedrock trace status in the Bedrock model specification details.
         """
         pulumi.set(__self__, "model_arn", model_arn)
         if bedrock_guardrail_configuration is not None:
@@ -948,33 +1012,21 @@ class BotBedrockModelSpecification(dict):
     @property
     @pulumi.getter(name="bedrockGuardrailConfiguration")
     def bedrock_guardrail_configuration(self) -> Optional['outputs.BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties']:
-        """
-        The guardrail configuration in the Bedrock model specification details.
-        """
         return pulumi.get(self, "bedrock_guardrail_configuration")
 
     @property
     @pulumi.getter(name="bedrockModelCustomPrompt")
     def bedrock_model_custom_prompt(self) -> Optional[str]:
-        """
-        The custom prompt used in the Bedrock model specification details.
-        """
         return pulumi.get(self, "bedrock_model_custom_prompt")
 
     @property
     @pulumi.getter(name="bedrockTraceStatus")
     def bedrock_trace_status(self) -> Optional['BotBedrockModelSpecificationBedrockTraceStatus']:
-        """
-        The Bedrock trace status in the Bedrock model specification details.
-        """
         return pulumi.get(self, "bedrock_trace_status")
 
 
 @pulumi.output_type
 class BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties(dict):
-    """
-    The guardrail configuration in the Bedrock model specification details.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -997,11 +1049,6 @@ class BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties(dict):
     def __init__(__self__, *,
                  bedrock_guardrail_identifier: Optional[str] = None,
                  bedrock_guardrail_version: Optional[str] = None):
-        """
-        The guardrail configuration in the Bedrock model specification details.
-        :param str bedrock_guardrail_identifier: The unique guardrail id for the Bedrock guardrail configuration.
-        :param str bedrock_guardrail_version: The guardrail version for the Bedrock guardrail configuration.
-        """
         if bedrock_guardrail_identifier is not None:
             pulumi.set(__self__, "bedrock_guardrail_identifier", bedrock_guardrail_identifier)
         if bedrock_guardrail_version is not None:
@@ -1010,50 +1057,30 @@ class BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties(dict):
     @property
     @pulumi.getter(name="bedrockGuardrailIdentifier")
     def bedrock_guardrail_identifier(self) -> Optional[str]:
-        """
-        The unique guardrail id for the Bedrock guardrail configuration.
-        """
         return pulumi.get(self, "bedrock_guardrail_identifier")
 
     @property
     @pulumi.getter(name="bedrockGuardrailVersion")
     def bedrock_guardrail_version(self) -> Optional[str]:
-        """
-        The guardrail version for the Bedrock guardrail configuration.
-        """
         return pulumi.get(self, "bedrock_guardrail_version")
 
 
 @pulumi.output_type
 class BotButton(dict):
-    """
-    A button to use on a response card used to gather slot values from a user.
-    """
     def __init__(__self__, *,
                  text: str,
                  value: str):
-        """
-        A button to use on a response card used to gather slot values from a user.
-        :param str text: The text that appears on the button.
-        :param str value: The value returned to Amazon Lex when the user chooses this button.
-        """
         pulumi.set(__self__, "text", text)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def text(self) -> str:
-        """
-        The text that appears on the button.
-        """
         return pulumi.get(self, "text")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The value returned to Amazon Lex when the user chooses this button.
-        """
         return pulumi.get(self, "value")
 
 
@@ -1081,35 +1108,52 @@ class BotCloudWatchLogGroupLogDestination(dict):
     def __init__(__self__, *,
                  cloud_watch_log_group_arn: str,
                  log_prefix: str):
-        """
-        :param str cloud_watch_log_group_arn: A string used to identify the groupArn for the Cloudwatch Log Group
-        :param str log_prefix: A string containing the value for the Log Prefix
-        """
         pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         pulumi.set(__self__, "log_prefix", log_prefix)
 
     @property
     @pulumi.getter(name="cloudWatchLogGroupArn")
     def cloud_watch_log_group_arn(self) -> str:
-        """
-        A string used to identify the groupArn for the Cloudwatch Log Group
-        """
         return pulumi.get(self, "cloud_watch_log_group_arn")
 
     @property
     @pulumi.getter(name="logPrefix")
     def log_prefix(self) -> str:
-        """
-        A string containing the value for the Log Prefix
-        """
         return pulumi.get(self, "log_prefix")
 
 
 @pulumi.output_type
+class BotCompositeSlotTypeSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subSlots":
+            suggest = "sub_slots"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotCompositeSlotTypeSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotCompositeSlotTypeSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotCompositeSlotTypeSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sub_slots: Optional[Sequence['outputs.BotSubSlotTypeComposition']] = None):
+        if sub_slots is not None:
+            pulumi.set(__self__, "sub_slots", sub_slots)
+
+    @property
+    @pulumi.getter(name="subSlots")
+    def sub_slots(self) -> Optional[Sequence['outputs.BotSubSlotTypeComposition']]:
+        return pulumi.get(self, "sub_slots")
+
+
+@pulumi.output_type
 class BotCondition(dict):
-    """
-    Provides an expression that evaluates to true or false.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1129,26 +1173,16 @@ class BotCondition(dict):
 
     def __init__(__self__, *,
                  expression_string: str):
-        """
-        Provides an expression that evaluates to true or false.
-        :param str expression_string: The expression string that is evaluated.
-        """
         pulumi.set(__self__, "expression_string", expression_string)
 
     @property
     @pulumi.getter(name="expressionString")
     def expression_string(self) -> str:
-        """
-        The expression string that is evaluated.
-        """
         return pulumi.get(self, "expression_string")
 
 
 @pulumi.output_type
 class BotConditionalBranch(dict):
-    """
-    A set of actions that Amazon Lex should run if the condition is matched.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1171,13 +1205,6 @@ class BotConditionalBranch(dict):
                  name: str,
                  next_step: 'outputs.BotDialogState',
                  response: Optional['outputs.BotResponseSpecification'] = None):
-        """
-        A set of actions that Amazon Lex should run if the condition is matched.
-        :param 'BotCondition' condition: Contains the expression to evaluate. If the condition is true, the branch's actions are taken.
-        :param str name: The name of the branch.
-        :param 'BotDialogState' next_step: The next step in the conversation.
-        :param 'BotResponseSpecification' response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
-        """
         pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "next_step", next_step)
@@ -1187,41 +1214,26 @@ class BotConditionalBranch(dict):
     @property
     @pulumi.getter
     def condition(self) -> 'outputs.BotCondition':
-        """
-        Contains the expression to evaluate. If the condition is true, the branch's actions are taken.
-        """
         return pulumi.get(self, "condition")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The name of the branch.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nextStep")
     def next_step(self) -> 'outputs.BotDialogState':
-        """
-        The next step in the conversation.
-        """
         return pulumi.get(self, "next_step")
 
     @property
     @pulumi.getter
     def response(self) -> Optional['outputs.BotResponseSpecification']:
-        """
-        Specifies a list of message groups that Amazon Lex uses to respond the user input.
-        """
         return pulumi.get(self, "response")
 
 
 @pulumi.output_type
 class BotConditionalSpecification(dict):
-    """
-    Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1248,10 +1260,9 @@ class BotConditionalSpecification(dict):
                  default_branch: 'outputs.BotDefaultConditionalBranch',
                  is_active: bool):
         """
-        Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
         :param Sequence['BotConditionalBranch'] conditional_branches: A list of conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true.
         :param 'BotDefaultConditionalBranch' default_branch: The conditional branch that should be followed when the conditions for other branches are not satisfied. A conditional branch is made up of a condition, a response and a next step.
-        :param bool is_active: Determines whether a conditional branch is active. When active is false, the conditions are not evaluated.
+        :param bool is_active: Determines whether a conditional branch is active. When `IsActive` is false, the conditions are not evaluated.
         """
         pulumi.set(__self__, "conditional_branches", conditional_branches)
         pulumi.set(__self__, "default_branch", default_branch)
@@ -1277,16 +1288,13 @@ class BotConditionalSpecification(dict):
     @pulumi.getter(name="isActive")
     def is_active(self) -> bool:
         """
-        Determines whether a conditional branch is active. When active is false, the conditions are not evaluated.
+        Determines whether a conditional branch is active. When `IsActive` is false, the conditions are not evaluated.
         """
         return pulumi.get(self, "is_active")
 
 
 @pulumi.output_type
 class BotConversationLogSettings(dict):
-    """
-    Contains information about code hooks that Amazon Lex calls during a conversation.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1310,7 +1318,6 @@ class BotConversationLogSettings(dict):
                  audio_log_settings: Optional[Sequence['outputs.BotAudioLogSetting']] = None,
                  text_log_settings: Optional[Sequence['outputs.BotTextLogSetting']] = None):
         """
-        Contains information about code hooks that Amazon Lex calls during a conversation.
         :param Sequence['BotAudioLogSetting'] audio_log_settings: The Amazon S3 settings for logging audio to an S3 bucket.
         :param Sequence['BotTextLogSetting'] text_log_settings: The Amazon CloudWatch Logs settings for logging text and metadata.
         """
@@ -1338,31 +1345,18 @@ class BotConversationLogSettings(dict):
 
 @pulumi.output_type
 class BotCustomPayload(dict):
-    """
-    A message in a custom format defined by the client application.
-    """
     def __init__(__self__, *,
                  value: str):
-        """
-        A message in a custom format defined by the client application.
-        :param str value: The string that is sent to your application.
-        """
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The string that is sent to your application.
-        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class BotCustomVocabulary(dict):
-    """
-    A custom vocabulary is a list of specific phrases that you want Amazon Lex V2 to recognize in the audio input.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1383,7 +1377,6 @@ class BotCustomVocabulary(dict):
     def __init__(__self__, *,
                  custom_vocabulary_items: Sequence['outputs.BotCustomVocabularyItem']):
         """
-        A custom vocabulary is a list of specific phrases that you want Amazon Lex V2 to recognize in the audio input.
         :param Sequence['BotCustomVocabularyItem'] custom_vocabulary_items: Specifies a list of words that you expect to be used during a conversation with your bot.
         """
         pulumi.set(__self__, "custom_vocabulary_items", custom_vocabulary_items)
@@ -1399,9 +1392,6 @@ class BotCustomVocabulary(dict):
 
 @pulumi.output_type
 class BotCustomVocabularyItem(dict):
-    """
-    A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1423,12 +1413,6 @@ class BotCustomVocabularyItem(dict):
                  phrase: str,
                  display_as: Optional[str] = None,
                  weight: Optional[int] = None):
-        """
-        A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
-        :param str phrase: Phrase that should be recognized.
-        :param str display_as: Defines how you want your phrase to look in your transcription output.
-        :param int weight: The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
-        """
         pulumi.set(__self__, "phrase", phrase)
         if display_as is not None:
             pulumi.set(__self__, "display_as", display_as)
@@ -1438,33 +1422,21 @@ class BotCustomVocabularyItem(dict):
     @property
     @pulumi.getter
     def phrase(self) -> str:
-        """
-        Phrase that should be recognized.
-        """
         return pulumi.get(self, "phrase")
 
     @property
     @pulumi.getter(name="displayAs")
     def display_as(self) -> Optional[str]:
-        """
-        Defines how you want your phrase to look in your transcription output.
-        """
         return pulumi.get(self, "display_as")
 
     @property
     @pulumi.getter
     def weight(self) -> Optional[int]:
-        """
-        The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
-        """
         return pulumi.get(self, "weight")
 
 
 @pulumi.output_type
 class BotDefaultConditionalBranch(dict):
-    """
-    A set of actions that Amazon Lex should run if none of the other conditions are met.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1486,7 +1458,6 @@ class BotDefaultConditionalBranch(dict):
                  next_step: Optional['outputs.BotDialogState'] = None,
                  response: Optional['outputs.BotResponseSpecification'] = None):
         """
-        A set of actions that Amazon Lex should run if none of the other conditions are met.
         :param 'BotDialogState' next_step: The next step in the conversation.
         :param 'BotResponseSpecification' response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
         """
@@ -1514,9 +1485,6 @@ class BotDefaultConditionalBranch(dict):
 
 @pulumi.output_type
 class BotDialogAction(dict):
-    """
-    Defines the action that the bot executes at runtime when the conversation reaches this step.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1541,9 +1509,8 @@ class BotDialogAction(dict):
                  slot_to_elicit: Optional[str] = None,
                  suppress_next_message: Optional[bool] = None):
         """
-        Defines the action that the bot executes at runtime when the conversation reaches this step.
         :param 'BotDialogActionType' type: The action that the bot should execute.
-        :param str slot_to_elicit: If the dialog action is ElicitSlot, defines the slot to elicit from the user.
+        :param str slot_to_elicit: If the dialog action is `ElicitSlot` , defines the slot to elicit from the user.
         :param bool suppress_next_message: When true the next message for the intent is not used.
         """
         pulumi.set(__self__, "type", type)
@@ -1564,7 +1531,7 @@ class BotDialogAction(dict):
     @pulumi.getter(name="slotToElicit")
     def slot_to_elicit(self) -> Optional[str]:
         """
-        If the dialog action is ElicitSlot, defines the slot to elicit from the user.
+        If the dialog action is `ElicitSlot` , defines the slot to elicit from the user.
         """
         return pulumi.get(self, "slot_to_elicit")
 
@@ -1579,9 +1546,6 @@ class BotDialogAction(dict):
 
 @pulumi.output_type
 class BotDialogCodeHookInvocationSetting(dict):
-    """
-    Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1611,7 +1575,6 @@ class BotDialogCodeHookInvocationSetting(dict):
                  post_code_hook_specification: 'outputs.BotPostDialogCodeHookInvocationSpecification',
                  invocation_label: Optional[str] = None):
         """
-        Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
         :param bool enable_code_hook_invocation: Indicates whether a Lambda function should be invoked for the dialog.
         :param bool is_active: Determines whether a dialog code hook is used when the intent is activated.
         :param 'BotPostDialogCodeHookInvocationSpecification' post_code_hook_specification: Contains the responses and actions that Amazon Lex takes after the Lambda function is complete.
@@ -1658,13 +1621,9 @@ class BotDialogCodeHookInvocationSetting(dict):
 
 @pulumi.output_type
 class BotDialogCodeHookSetting(dict):
-    """
-    Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
-    """
     def __init__(__self__, *,
                  enabled: bool):
         """
-        Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
         :param bool enabled: Enables the dialog code hook so that it processes user requests.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -1680,9 +1639,6 @@ class BotDialogCodeHookSetting(dict):
 
 @pulumi.output_type
 class BotDialogState(dict):
-    """
-    The current state of the conversation with the user.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1707,10 +1663,9 @@ class BotDialogState(dict):
                  intent: Optional['outputs.BotIntentOverride'] = None,
                  session_attributes: Optional[Sequence['outputs.BotSessionAttribute']] = None):
         """
-        The current state of the conversation with the user.
         :param 'BotDialogAction' dialog_action: Defines the action that the bot executes at runtime when the conversation reaches this step.
         :param 'BotIntentOverride' intent: Override settings to configure the intent state.
-        :param Sequence['BotSessionAttribute'] session_attributes: List of session attributes to be applied when the conversation reaches this step.
+        :param Sequence['BotSessionAttribute'] session_attributes: Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
         """
         if dialog_action is not None:
             pulumi.set(__self__, "dialog_action", dialog_action)
@@ -1739,16 +1694,13 @@ class BotDialogState(dict):
     @pulumi.getter(name="sessionAttributes")
     def session_attributes(self) -> Optional[Sequence['outputs.BotSessionAttribute']]:
         """
-        List of session attributes to be applied when the conversation reaches this step.
+        Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
         """
         return pulumi.get(self, "session_attributes")
 
 
 @pulumi.output_type
 class BotDtmfSpecification(dict):
-    """
-    Specifies the settings on DTMF input.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1777,13 +1729,6 @@ class BotDtmfSpecification(dict):
                  end_character: str,
                  end_timeout_ms: int,
                  max_length: int):
-        """
-        Specifies the settings on DTMF input.
-        :param str deletion_character: The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
-        :param str end_character: The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
-        :param int end_timeout_ms: How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
-        :param int max_length: The maximum number of DTMF digits allowed in an utterance.
-        """
         pulumi.set(__self__, "deletion_character", deletion_character)
         pulumi.set(__self__, "end_character", end_character)
         pulumi.set(__self__, "end_timeout_ms", end_timeout_ms)
@@ -1792,41 +1737,26 @@ class BotDtmfSpecification(dict):
     @property
     @pulumi.getter(name="deletionCharacter")
     def deletion_character(self) -> str:
-        """
-        The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
-        """
         return pulumi.get(self, "deletion_character")
 
     @property
     @pulumi.getter(name="endCharacter")
     def end_character(self) -> str:
-        """
-        The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
-        """
         return pulumi.get(self, "end_character")
 
     @property
     @pulumi.getter(name="endTimeoutMs")
     def end_timeout_ms(self) -> int:
-        """
-        How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
-        """
         return pulumi.get(self, "end_timeout_ms")
 
     @property
     @pulumi.getter(name="maxLength")
     def max_length(self) -> int:
-        """
-        The maximum number of DTMF digits allowed in an utterance.
-        """
         return pulumi.get(self, "max_length")
 
 
 @pulumi.output_type
 class BotElicitationCodeHookInvocationSetting(dict):
-    """
-    Settings that specify the dialog code hook that is called by Amazon Lex between eliciting slot values.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1850,7 +1780,6 @@ class BotElicitationCodeHookInvocationSetting(dict):
                  enable_code_hook_invocation: bool,
                  invocation_label: Optional[str] = None):
         """
-        Settings that specify the dialog code hook that is called by Amazon Lex between eliciting slot values.
         :param bool enable_code_hook_invocation: Indicates whether a Lambda function should be invoked for the dialog.
         :param str invocation_label: A label that indicates the dialog step from which the dialog code hook is happening.
         """
@@ -1877,9 +1806,6 @@ class BotElicitationCodeHookInvocationSetting(dict):
 
 @pulumi.output_type
 class BotExternalSourceSetting(dict):
-    """
-    Provides information about the external source of the slot type's definition.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1900,7 +1826,6 @@ class BotExternalSourceSetting(dict):
     def __init__(__self__, *,
                  grammar_slot_type_setting: Optional['outputs.BotGrammarSlotTypeSetting'] = None):
         """
-        Provides information about the external source of the slot type's definition.
         :param 'BotGrammarSlotTypeSetting' grammar_slot_type_setting: Settings required for a slot type based on a grammar that you provide.
         """
         if grammar_slot_type_setting is not None:
@@ -1917,9 +1842,6 @@ class BotExternalSourceSetting(dict):
 
 @pulumi.output_type
 class BotFulfillmentCodeHookSetting(dict):
-    """
-    Settings that determine if a Lambda function should be invoked to fulfill a specific intent.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1947,10 +1869,9 @@ class BotFulfillmentCodeHookSetting(dict):
                  is_active: Optional[bool] = None,
                  post_fulfillment_status_specification: Optional['outputs.BotPostFulfillmentStatusSpecification'] = None):
         """
-        Settings that determine if a Lambda function should be invoked to fulfill a specific intent.
         :param bool enabled: Indicates whether a Lambda function should be invoked to fulfill a specific intent.
         :param 'BotFulfillmentUpdatesSpecification' fulfillment_updates_specification: Provides settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations.
-        :param bool is_active: Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
+        :param bool is_active: Determines whether the fulfillment code hook is used. When `active` is false, the code hook doesn't run.
         :param 'BotPostFulfillmentStatusSpecification' post_fulfillment_status_specification: Provides settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -1981,7 +1902,7 @@ class BotFulfillmentCodeHookSetting(dict):
     @pulumi.getter(name="isActive")
     def is_active(self) -> Optional[bool]:
         """
-        Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
+        Determines whether the fulfillment code hook is used. When `active` is false, the code hook doesn't run.
         """
         return pulumi.get(self, "is_active")
 
@@ -1996,9 +1917,6 @@ class BotFulfillmentCodeHookSetting(dict):
 
 @pulumi.output_type
 class BotFulfillmentStartResponseSpecification(dict):
-    """
-    Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2025,7 +1943,6 @@ class BotFulfillmentStartResponseSpecification(dict):
                  message_groups: Sequence['outputs.BotMessageGroup'],
                  allow_interrupt: Optional[bool] = None):
         """
-        Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
         :param int delay_in_seconds: The delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn't played.
         :param Sequence['BotMessageGroup'] message_groups: 1 - 5 message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user.
         :param bool allow_interrupt: Determines whether the user can interrupt the start message while it is playing.
@@ -2062,9 +1979,6 @@ class BotFulfillmentStartResponseSpecification(dict):
 
 @pulumi.output_type
 class BotFulfillmentUpdateResponseSpecification(dict):
-    """
-    Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2091,7 +2005,6 @@ class BotFulfillmentUpdateResponseSpecification(dict):
                  message_groups: Sequence['outputs.BotMessageGroup'],
                  allow_interrupt: Optional[bool] = None):
         """
-        Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
         :param int frequency_in_seconds: The frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
         :param Sequence['BotMessageGroup'] message_groups: 1 - 5 message groups that contain update messages. Amazon Lex chooses one of the messages to play to the user.
         :param bool allow_interrupt: Determines whether the user can interrupt an update message while it is playing.
@@ -2128,9 +2041,6 @@ class BotFulfillmentUpdateResponseSpecification(dict):
 
 @pulumi.output_type
 class BotFulfillmentUpdatesSpecification(dict):
-    """
-    Provides information for updating the user on the progress of fulfilling an intent.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2158,8 +2068,9 @@ class BotFulfillmentUpdatesSpecification(dict):
                  timeout_in_seconds: Optional[int] = None,
                  update_response: Optional['outputs.BotFulfillmentUpdateResponseSpecification'] = None):
         """
-        Provides information for updating the user on the progress of fulfilling an intent.
         :param bool active: Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
+               
+               If the `active` field is set to true, the `startResponse` , `updateResponse` , and `timeoutInSeconds` fields are required.
         :param 'BotFulfillmentStartResponseSpecification' start_response: Provides configuration information for the message sent to users when the fulfillment Lambda functions starts running.
         :param int timeout_in_seconds: The length of time that the fulfillment Lambda function should run before it times out.
         :param 'BotFulfillmentUpdateResponseSpecification' update_response: Provides configuration information for messages sent periodically to the user while the fulfillment Lambda function is running.
@@ -2177,6 +2088,8 @@ class BotFulfillmentUpdatesSpecification(dict):
     def active(self) -> bool:
         """
         Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
+
+        If the `active` field is set to true, the `startResponse` , `updateResponse` , and `timeoutInSeconds` fields are required.
         """
         return pulumi.get(self, "active")
 
@@ -2207,13 +2120,9 @@ class BotFulfillmentUpdatesSpecification(dict):
 
 @pulumi.output_type
 class BotGrammarSlotTypeSetting(dict):
-    """
-    Settings required for a slot type based on a grammar that you provide.
-    """
     def __init__(__self__, *,
                  source: Optional['outputs.BotGrammarSlotTypeSource'] = None):
         """
-        Settings required for a slot type based on a grammar that you provide.
         :param 'BotGrammarSlotTypeSource' source: The source of the grammar used to create the slot type.
         """
         if source is not None:
@@ -2230,9 +2139,6 @@ class BotGrammarSlotTypeSetting(dict):
 
 @pulumi.output_type
 class BotGrammarSlotTypeSource(dict):
-    """
-    Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2259,10 +2165,9 @@ class BotGrammarSlotTypeSource(dict):
                  s3_object_key: str,
                  kms_key_arn: Optional[str] = None):
         """
-        Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
-        :param str s3_bucket_name: The name of the S3 bucket that contains the grammar source.
-        :param str s3_object_key: The path to the grammar in the S3 bucket.
-        :param str kms_key_arn: The Amazon KMS key required to decrypt the contents of the grammar, if any.
+        :param str s3_bucket_name: The name of the Amazon S3 bucket that contains the grammar source.
+        :param str s3_object_key: The path to the grammar in the Amazon S3 bucket.
+        :param str kms_key_arn: The AWS KMS key required to decrypt the contents of the grammar, if any.
         """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         pulumi.set(__self__, "s3_object_key", s3_object_key)
@@ -2273,7 +2178,7 @@ class BotGrammarSlotTypeSource(dict):
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> str:
         """
-        The name of the S3 bucket that contains the grammar source.
+        The name of the Amazon S3 bucket that contains the grammar source.
         """
         return pulumi.get(self, "s3_bucket_name")
 
@@ -2281,7 +2186,7 @@ class BotGrammarSlotTypeSource(dict):
     @pulumi.getter(name="s3ObjectKey")
     def s3_object_key(self) -> str:
         """
-        The path to the grammar in the S3 bucket.
+        The path to the grammar in the Amazon S3 bucket.
         """
         return pulumi.get(self, "s3_object_key")
 
@@ -2289,16 +2194,13 @@ class BotGrammarSlotTypeSource(dict):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[str]:
         """
-        The Amazon KMS key required to decrypt the contents of the grammar, if any.
+        The AWS KMS key required to decrypt the contents of the grammar, if any.
         """
         return pulumi.get(self, "kms_key_arn")
 
 
 @pulumi.output_type
 class BotImageResponseCard(dict):
-    """
-    A message that defines a response card that the client application can show to the user.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2321,13 +2223,6 @@ class BotImageResponseCard(dict):
                  buttons: Optional[Sequence['outputs.BotButton']] = None,
                  image_url: Optional[str] = None,
                  subtitle: Optional[str] = None):
-        """
-        A message that defines a response card that the client application can show to the user.
-        :param str title: The title to display on the response card.
-        :param Sequence['BotButton'] buttons: A list of buttons that should be displayed on the response card.
-        :param str image_url: The URL of an image to display on the response card.
-        :param str subtitle: The subtitle to display on the response card.
-        """
         pulumi.set(__self__, "title", title)
         if buttons is not None:
             pulumi.set(__self__, "buttons", buttons)
@@ -2339,41 +2234,26 @@ class BotImageResponseCard(dict):
     @property
     @pulumi.getter
     def title(self) -> str:
-        """
-        The title to display on the response card.
-        """
         return pulumi.get(self, "title")
 
     @property
     @pulumi.getter
     def buttons(self) -> Optional[Sequence['outputs.BotButton']]:
-        """
-        A list of buttons that should be displayed on the response card.
-        """
         return pulumi.get(self, "buttons")
 
     @property
     @pulumi.getter(name="imageUrl")
     def image_url(self) -> Optional[str]:
-        """
-        The URL of an image to display on the response card.
-        """
         return pulumi.get(self, "image_url")
 
     @property
     @pulumi.getter
     def subtitle(self) -> Optional[str]:
-        """
-        The subtitle to display on the response card.
-        """
         return pulumi.get(self, "subtitle")
 
 
 @pulumi.output_type
 class BotInitialResponseSetting(dict):
-    """
-    Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2401,7 +2281,6 @@ class BotInitialResponseSetting(dict):
                  initial_response: Optional['outputs.BotResponseSpecification'] = None,
                  next_step: Optional['outputs.BotDialogState'] = None):
         """
-        Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
         :param 'BotDialogCodeHookInvocationSetting' code_hook: Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
         :param 'BotConditionalSpecification' conditional: Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
         :param 'BotResponseSpecification' initial_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
@@ -2451,35 +2330,24 @@ class BotInitialResponseSetting(dict):
 
 @pulumi.output_type
 class BotInputContext(dict):
-    """
-    InputContext specified for the intent.
-    """
     def __init__(__self__, *,
                  name: str):
-        """
-        InputContext specified for the intent.
-        :param str name: The name of the context.
-        """
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The name of the context.
-        """
         return pulumi.get(self, "name")
 
 
 @pulumi.output_type
 class BotIntent(dict):
-    """
-    Represents an action that the user wants to perform.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dialogCodeHook":
+        if key == "bedrockAgentIntentConfiguration":
+            suggest = "bedrock_agent_intent_configuration"
+        elif key == "dialogCodeHook":
             suggest = "dialog_code_hook"
         elif key == "fulfillmentCodeHook":
             suggest = "fulfillment_code_hook"
@@ -2497,6 +2365,8 @@ class BotIntent(dict):
             suggest = "output_contexts"
         elif key == "parentIntentSignature":
             suggest = "parent_intent_signature"
+        elif key == "qInConnectIntentConfiguration":
+            suggest = "q_in_connect_intent_configuration"
         elif key == "qnAIntentConfiguration":
             suggest = "qn_a_intent_configuration"
         elif key == "sampleUtterances":
@@ -2517,6 +2387,7 @@ class BotIntent(dict):
 
     def __init__(__self__, *,
                  name: str,
+                 bedrock_agent_intent_configuration: Optional['outputs.BotBedrockAgentIntentConfiguration'] = None,
                  description: Optional[str] = None,
                  dialog_code_hook: Optional['outputs.BotDialogCodeHookSetting'] = None,
                  fulfillment_code_hook: Optional['outputs.BotFulfillmentCodeHookSetting'] = None,
@@ -2527,13 +2398,13 @@ class BotIntent(dict):
                  kendra_configuration: Optional['outputs.BotKendraConfiguration'] = None,
                  output_contexts: Optional[Sequence['outputs.BotOutputContext']] = None,
                  parent_intent_signature: Optional[str] = None,
+                 q_in_connect_intent_configuration: Optional['outputs.BotQInConnectIntentConfiguration'] = None,
                  qn_a_intent_configuration: Optional['outputs.BotQnAIntentConfiguration'] = None,
                  sample_utterances: Optional[Sequence['outputs.BotSampleUtterance']] = None,
                  slot_priorities: Optional[Sequence['outputs.BotSlotPriority']] = None,
                  slots: Optional[Sequence['outputs.BotSlot']] = None):
         """
-        Represents an action that the user wants to perform.
-        :param str name: The name of the intent.
+        :param str name: The name of the intent. Intent names must be unique within the locale that contains the intent and can't match the name of any built-in intent.
         :param str description: Description of thr intent.
         :param 'BotDialogCodeHookSetting' dialog_code_hook: Specifies that Amazon Lex invokes the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction.
         :param 'BotFulfillmentCodeHookSetting' fulfillment_code_hook: Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user.
@@ -2544,11 +2415,13 @@ class BotIntent(dict):
         :param 'BotKendraConfiguration' kendra_configuration: Provides configuration information for the `AMAZON.KendraSearchIntent` intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra index and returns documents from the index that match the user's utterance.
         :param Sequence['BotOutputContext'] output_contexts: A list of contexts that the intent activates when it is fulfilled.
         :param str parent_intent_signature: A unique identifier for the built-in intent to base this intent on.
-        :param Sequence['BotSampleUtterance'] sample_utterances: A sample utterance that invokes an intent or respond to a slot elicitation prompt.
+        :param Sequence['BotSampleUtterance'] sample_utterances: A list of utterances that a user might say to signal the intent.
         :param Sequence['BotSlotPriority'] slot_priorities: Indicates the priority for slots. Amazon Lex prompts the user for slot values in priority order.
-        :param Sequence['BotSlot'] slots: List of slots
+        :param Sequence['BotSlot'] slots: A list of slots that the intent requires for fulfillment.
         """
         pulumi.set(__self__, "name", name)
+        if bedrock_agent_intent_configuration is not None:
+            pulumi.set(__self__, "bedrock_agent_intent_configuration", bedrock_agent_intent_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if dialog_code_hook is not None:
@@ -2569,6 +2442,8 @@ class BotIntent(dict):
             pulumi.set(__self__, "output_contexts", output_contexts)
         if parent_intent_signature is not None:
             pulumi.set(__self__, "parent_intent_signature", parent_intent_signature)
+        if q_in_connect_intent_configuration is not None:
+            pulumi.set(__self__, "q_in_connect_intent_configuration", q_in_connect_intent_configuration)
         if qn_a_intent_configuration is not None:
             pulumi.set(__self__, "qn_a_intent_configuration", qn_a_intent_configuration)
         if sample_utterances is not None:
@@ -2582,9 +2457,14 @@ class BotIntent(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the intent.
+        The name of the intent. Intent names must be unique within the locale that contains the intent and can't match the name of any built-in intent.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="bedrockAgentIntentConfiguration")
+    def bedrock_agent_intent_configuration(self) -> Optional['outputs.BotBedrockAgentIntentConfiguration']:
+        return pulumi.get(self, "bedrock_agent_intent_configuration")
 
     @property
     @pulumi.getter
@@ -2667,6 +2547,11 @@ class BotIntent(dict):
         return pulumi.get(self, "parent_intent_signature")
 
     @property
+    @pulumi.getter(name="qInConnectIntentConfiguration")
+    def q_in_connect_intent_configuration(self) -> Optional['outputs.BotQInConnectIntentConfiguration']:
+        return pulumi.get(self, "q_in_connect_intent_configuration")
+
+    @property
     @pulumi.getter(name="qnAIntentConfiguration")
     def qn_a_intent_configuration(self) -> Optional['outputs.BotQnAIntentConfiguration']:
         return pulumi.get(self, "qn_a_intent_configuration")
@@ -2675,7 +2560,7 @@ class BotIntent(dict):
     @pulumi.getter(name="sampleUtterances")
     def sample_utterances(self) -> Optional[Sequence['outputs.BotSampleUtterance']]:
         """
-        A sample utterance that invokes an intent or respond to a slot elicitation prompt.
+        A list of utterances that a user might say to signal the intent.
         """
         return pulumi.get(self, "sample_utterances")
 
@@ -2691,16 +2576,13 @@ class BotIntent(dict):
     @pulumi.getter
     def slots(self) -> Optional[Sequence['outputs.BotSlot']]:
         """
-        List of slots
+        A list of slots that the intent requires for fulfillment.
         """
         return pulumi.get(self, "slots")
 
 
 @pulumi.output_type
 class BotIntentClosingSetting(dict):
-    """
-    Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2728,10 +2610,9 @@ class BotIntentClosingSetting(dict):
                  is_active: Optional[bool] = None,
                  next_step: Optional['outputs.BotDialogState'] = None):
         """
-        Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
         :param 'BotResponseSpecification' closing_response: The response that Amazon Lex sends to the user when the intent is complete.
-        :param 'BotConditionalSpecification' conditional: A list of conditional branches associated with the intent's closing response. These branches are executed when the nextStep attribute is set to EvalutateConditional.
-        :param bool is_active: Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the active field isn't specified, the default is true.
+        :param 'BotConditionalSpecification' conditional: A list of conditional branches associated with the intent's closing response. These branches are executed when the `nextStep` attribute is set to `EvalutateConditional` .
+        :param bool is_active: Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the `IsActive` field isn't specified, the default is true.
         :param 'BotDialogState' next_step: Specifies the next step that the bot executes after playing the intent's closing response.
         """
         if closing_response is not None:
@@ -2755,7 +2636,7 @@ class BotIntentClosingSetting(dict):
     @pulumi.getter
     def conditional(self) -> Optional['outputs.BotConditionalSpecification']:
         """
-        A list of conditional branches associated with the intent's closing response. These branches are executed when the nextStep attribute is set to EvalutateConditional.
+        A list of conditional branches associated with the intent's closing response. These branches are executed when the `nextStep` attribute is set to `EvalutateConditional` .
         """
         return pulumi.get(self, "conditional")
 
@@ -2763,7 +2644,7 @@ class BotIntentClosingSetting(dict):
     @pulumi.getter(name="isActive")
     def is_active(self) -> Optional[bool]:
         """
-        Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the active field isn't specified, the default is true.
+        Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the `IsActive` field isn't specified, the default is true.
         """
         return pulumi.get(self, "is_active")
 
@@ -2778,9 +2659,6 @@ class BotIntentClosingSetting(dict):
 
 @pulumi.output_type
 class BotIntentConfirmationSetting(dict):
-    """
-    Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2837,20 +2715,21 @@ class BotIntentConfirmationSetting(dict):
                  failure_response: Optional['outputs.BotResponseSpecification'] = None,
                  is_active: Optional[bool] = None):
         """
-        Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
         :param 'BotPromptSpecification' prompt_specification: Prompts the user to confirm the intent. This question should have a yes or no answer.
-        :param 'BotDialogCodeHookInvocationSetting' code_hook: The DialogCodeHookInvocationSetting object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is InvokeDialogCodeHook.
+               
+               Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
+        :param 'BotDialogCodeHookInvocationSetting' code_hook: The `DialogCodeHookInvocationSetting` object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `InvokeDialogCodeHook` .
         :param 'BotConditionalSpecification' confirmation_conditional: A list of conditional branches to evaluate after the intent is closed.
         :param 'BotDialogState' confirmation_next_step: Specifies the next step that the bot executes when the customer confirms the intent.
         :param 'BotResponseSpecification' confirmation_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
         :param 'BotConditionalSpecification' declination_conditional: A list of conditional branches to evaluate after the intent is declined.
         :param 'BotDialogState' declination_next_step: Specifies the next step that the bot executes when the customer declines the intent.
-        :param 'BotResponseSpecification' declination_response: When the user answers "no" to the question defined in promptSpecification, Amazon Lex responds with this response to acknowledge that the intent was canceled.
-        :param 'BotElicitationCodeHookInvocationSetting' elicitation_code_hook: The DialogCodeHookInvocationSetting used when the code hook is invoked during confirmation prompt retries.
+        :param 'BotResponseSpecification' declination_response: When the user answers "no" to the question defined in `promptSpecification` , Amazon Lex responds with this response to acknowledge that the intent was canceled.
+        :param 'BotElicitationCodeHookInvocationSetting' elicitation_code_hook: The `DialogCodeHookInvocationSetting` used when the code hook is invoked during confirmation prompt retries.
         :param 'BotConditionalSpecification' failure_conditional: Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
         :param 'BotDialogState' failure_next_step: The next step to take in the conversation if the confirmation step fails.
-        :param 'BotResponseSpecification' failure_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
-        :param bool is_active: Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the active field isn't specified, the default is true.
+        :param 'BotResponseSpecification' failure_response: Specifies a list of message groups that Amazon Lex uses to respond the user input when the intent confirmation fails.
+        :param bool is_active: Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the `IsActive` field isn't specified, the default is true.
         """
         pulumi.set(__self__, "prompt_specification", prompt_specification)
         if code_hook is not None:
@@ -2883,6 +2762,8 @@ class BotIntentConfirmationSetting(dict):
     def prompt_specification(self) -> 'outputs.BotPromptSpecification':
         """
         Prompts the user to confirm the intent. This question should have a yes or no answer.
+
+        Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
         """
         return pulumi.get(self, "prompt_specification")
 
@@ -2890,7 +2771,7 @@ class BotIntentConfirmationSetting(dict):
     @pulumi.getter(name="codeHook")
     def code_hook(self) -> Optional['outputs.BotDialogCodeHookInvocationSetting']:
         """
-        The DialogCodeHookInvocationSetting object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is InvokeDialogCodeHook.
+        The `DialogCodeHookInvocationSetting` object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `InvokeDialogCodeHook` .
         """
         return pulumi.get(self, "code_hook")
 
@@ -2938,7 +2819,7 @@ class BotIntentConfirmationSetting(dict):
     @pulumi.getter(name="declinationResponse")
     def declination_response(self) -> Optional['outputs.BotResponseSpecification']:
         """
-        When the user answers "no" to the question defined in promptSpecification, Amazon Lex responds with this response to acknowledge that the intent was canceled.
+        When the user answers "no" to the question defined in `promptSpecification` , Amazon Lex responds with this response to acknowledge that the intent was canceled.
         """
         return pulumi.get(self, "declination_response")
 
@@ -2946,7 +2827,7 @@ class BotIntentConfirmationSetting(dict):
     @pulumi.getter(name="elicitationCodeHook")
     def elicitation_code_hook(self) -> Optional['outputs.BotElicitationCodeHookInvocationSetting']:
         """
-        The DialogCodeHookInvocationSetting used when the code hook is invoked during confirmation prompt retries.
+        The `DialogCodeHookInvocationSetting` used when the code hook is invoked during confirmation prompt retries.
         """
         return pulumi.get(self, "elicitation_code_hook")
 
@@ -2970,7 +2851,7 @@ class BotIntentConfirmationSetting(dict):
     @pulumi.getter(name="failureResponse")
     def failure_response(self) -> Optional['outputs.BotResponseSpecification']:
         """
-        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        Specifies a list of message groups that Amazon Lex uses to respond the user input when the intent confirmation fails.
         """
         return pulumi.get(self, "failure_response")
 
@@ -2978,23 +2859,19 @@ class BotIntentConfirmationSetting(dict):
     @pulumi.getter(name="isActive")
     def is_active(self) -> Optional[bool]:
         """
-        Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the active field isn't specified, the default is true.
+        Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the `IsActive` field isn't specified, the default is true.
         """
         return pulumi.get(self, "is_active")
 
 
 @pulumi.output_type
 class BotIntentOverride(dict):
-    """
-    Override settings to configure the intent state.
-    """
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  slots: Optional[Sequence['outputs.BotSlotValueOverrideMap']] = None):
         """
-        Override settings to configure the intent state.
         :param str name: The name of the intent. Only required when you're switching intents.
-        :param Sequence['BotSlotValueOverrideMap'] slots: A map of all of the slot value overrides for the intent.
+        :param Sequence['BotSlotValueOverrideMap'] slots: A map of all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -3013,16 +2890,13 @@ class BotIntentOverride(dict):
     @pulumi.getter
     def slots(self) -> Optional[Sequence['outputs.BotSlotValueOverrideMap']]:
         """
-        A map of all of the slot value overrides for the intent.
+        A map of all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden.
         """
         return pulumi.get(self, "slots")
 
 
 @pulumi.output_type
 class BotKendraConfiguration(dict):
-    """
-    Configuration for searching a Amazon Kendra index specified for the intent.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3049,10 +2923,9 @@ class BotKendraConfiguration(dict):
                  query_filter_string: Optional[str] = None,
                  query_filter_string_enabled: Optional[bool] = None):
         """
-        Configuration for searching a Amazon Kendra index specified for the intent.
         :param str kendra_index: The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the `AMAZON.KendraSearchIntent` intent to search. The index must be in the same account and Region as the Amazon Lex bot.
         :param str query_filter_string: A query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html) .
-        :param bool query_filter_string_enabled: Determines whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
+        :param bool query_filter_string_enabled: Determines whether the `AMAZON.KendraSearchIntent` intent uses a custom query string to query the Amazon Kendra index.
         """
         pulumi.set(__self__, "kendra_index", kendra_index)
         if query_filter_string is not None:
@@ -3080,16 +2953,13 @@ class BotKendraConfiguration(dict):
     @pulumi.getter(name="queryFilterStringEnabled")
     def query_filter_string_enabled(self) -> Optional[bool]:
         """
-        Determines whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
+        Determines whether the `AMAZON.KendraSearchIntent` intent uses a custom query string to query the Amazon Kendra index.
         """
         return pulumi.get(self, "query_filter_string_enabled")
 
 
 @pulumi.output_type
 class BotLocale(dict):
-    """
-    A locale in the bot, which contains the intents and slot types that the bot uses in conversations with users in the specified language and locale.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3124,13 +2994,12 @@ class BotLocale(dict):
                  slot_types: Optional[Sequence['outputs.BotSlotType']] = None,
                  voice_settings: Optional['outputs.BotVoiceSettings'] = None):
         """
-        A locale in the bot, which contains the intents and slot types that the bot uses in conversations with users in the specified language and locale.
         :param str locale_id: The identifier of the language and locale that the bot will be used in. The string must match one of the supported locales.
         :param float nlu_confidence_threshold: Determines the threshold where Amazon Lex will insert the `AMAZON.FallbackIntent` , `AMAZON.KendraSearchIntent` , or both when returning alternative intents. You must configure an `AMAZON.FallbackIntent` . `AMAZON.KendraSearchIntent` is only inserted if it is configured for the bot.
         :param 'BotCustomVocabulary' custom_vocabulary: Specifies a custom vocabulary to use with a specific locale.
         :param str description: A description of the bot locale. Use this to help identify the bot locale in lists.
-        :param Sequence['BotIntent'] intents: List of intents
-        :param Sequence['BotSlotType'] slot_types: List of SlotTypes
+        :param Sequence['BotIntent'] intents: One or more intents defined for the locale.
+        :param Sequence['BotSlotType'] slot_types: One or more slot types defined for the locale.
         :param 'BotVoiceSettings' voice_settings: Defines settings for using an Amazon Polly voice to communicate with a user.
                
                Valid values include:
@@ -3189,7 +3058,7 @@ class BotLocale(dict):
     @pulumi.getter
     def intents(self) -> Optional[Sequence['outputs.BotIntent']]:
         """
-        List of intents
+        One or more intents defined for the locale.
         """
         return pulumi.get(self, "intents")
 
@@ -3197,7 +3066,7 @@ class BotLocale(dict):
     @pulumi.getter(name="slotTypes")
     def slot_types(self) -> Optional[Sequence['outputs.BotSlotType']]:
         """
-        List of SlotTypes
+        One or more slot types defined for the locale.
         """
         return pulumi.get(self, "slot_types")
 
@@ -3219,9 +3088,6 @@ class BotLocale(dict):
 
 @pulumi.output_type
 class BotMessage(dict):
-    """
-    The primary message that Amazon Lex should send to the user.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3250,9 +3116,6 @@ class BotMessage(dict):
                  image_response_card: Optional['outputs.BotImageResponseCard'] = None,
                  plain_text_message: Optional['outputs.BotPlainTextMessage'] = None,
                  ssml_message: Optional['outputs.BotSsmlMessage'] = None):
-        """
-        The primary message that Amazon Lex should send to the user.
-        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -3285,16 +3148,9 @@ class BotMessage(dict):
 
 @pulumi.output_type
 class BotMessageGroup(dict):
-    """
-    One or more messages that Amazon Lex can send to the user.
-    """
     def __init__(__self__, *,
                  message: 'outputs.BotMessage',
                  variations: Optional[Sequence['outputs.BotMessage']] = None):
-        """
-        One or more messages that Amazon Lex can send to the user.
-        :param Sequence['BotMessage'] variations: Message variations to send to the user.
-        """
         pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
@@ -3307,17 +3163,11 @@ class BotMessageGroup(dict):
     @property
     @pulumi.getter
     def variations(self) -> Optional[Sequence['outputs.BotMessage']]:
-        """
-        Message variations to send to the user.
-        """
         return pulumi.get(self, "variations")
 
 
 @pulumi.output_type
 class BotMultipleValuesSetting(dict):
-    """
-    Indicates whether a slot can return multiple values.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3338,7 +3188,6 @@ class BotMultipleValuesSetting(dict):
     def __init__(__self__, *,
                  allow_multiple_values: Optional[bool] = None):
         """
-        Indicates whether a slot can return multiple values.
         :param bool allow_multiple_values: Indicates whether a slot can return multiple values. When `true` , the slot may return more than one value in a response. When `false` , the slot returns only a single value.
                
                Multi-value slots are only available in the en-US locale. If you set this value to `true` in any other locale, Amazon Lex throws a `ValidationException` .
@@ -3363,9 +3212,6 @@ class BotMultipleValuesSetting(dict):
 
 @pulumi.output_type
 class BotObfuscationSetting(dict):
-    """
-    Determines whether Amazon Lex obscures slot values in conversation logs.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3386,7 +3232,6 @@ class BotObfuscationSetting(dict):
     def __init__(__self__, *,
                  obfuscation_setting_type: 'BotObfuscationSettingObfuscationSettingType'):
         """
-        Determines whether Amazon Lex obscures slot values in conversation logs.
         :param 'BotObfuscationSettingObfuscationSettingType' obfuscation_setting_type: Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
         """
         pulumi.set(__self__, "obfuscation_setting_type", obfuscation_setting_type)
@@ -3402,9 +3247,6 @@ class BotObfuscationSetting(dict):
 
 @pulumi.output_type
 class BotOutputContext(dict):
-    """
-    A session context that is activated when an intent is fulfilled.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3428,9 +3270,6 @@ class BotOutputContext(dict):
                  name: str,
                  time_to_live_in_seconds: int,
                  turns_to_live: int):
-        """
-        A session context that is activated when an intent is fulfilled.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "time_to_live_in_seconds", time_to_live_in_seconds)
         pulumi.set(__self__, "turns_to_live", turns_to_live)
@@ -3453,31 +3292,18 @@ class BotOutputContext(dict):
 
 @pulumi.output_type
 class BotPlainTextMessage(dict):
-    """
-    A message in plain text format.
-    """
     def __init__(__self__, *,
                  value: str):
-        """
-        A message in plain text format.
-        :param str value: The message to send to the user.
-        """
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The message to send to the user.
-        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class BotPostDialogCodeHookInvocationSpecification(dict):
-    """
-    Specifies next steps to run after the dialog code hook finishes.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3522,16 +3348,15 @@ class BotPostDialogCodeHookInvocationSpecification(dict):
                  timeout_next_step: Optional['outputs.BotDialogState'] = None,
                  timeout_response: Optional['outputs.BotResponseSpecification'] = None):
         """
-        Specifies next steps to run after the dialog code hook finishes.
-        :param 'BotConditionalSpecification' failure_conditional: A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
-        :param 'BotDialogState' failure_next_step: Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
-        :param 'BotResponseSpecification' failure_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        :param 'BotConditionalSpecification' failure_conditional: A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
+        :param 'BotDialogState' failure_next_step: Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
+        :param 'BotResponseSpecification' failure_response: Specifies a list of message groups that Amazon Lex uses to respond the user input when the code hook fails.
         :param 'BotConditionalSpecification' success_conditional: A list of conditional branches to evaluate after the dialog code hook finishes successfully.
         :param 'BotDialogState' success_next_step: Specifics the next step the bot runs after the dialog code hook finishes successfully.
-        :param 'BotResponseSpecification' success_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        :param 'BotResponseSpecification' success_response: Specifies a list of message groups that Amazon Lex uses to respond when the code hook succeeds.
         :param 'BotConditionalSpecification' timeout_conditional: A list of conditional branches to evaluate if the code hook times out.
         :param 'BotDialogState' timeout_next_step: Specifies the next step that the bot runs when the code hook times out.
-        :param 'BotResponseSpecification' timeout_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        :param 'BotResponseSpecification' timeout_response: Specifies a list of message groups that Amazon Lex uses to respond to the user input when the code hook times out.
         """
         if failure_conditional is not None:
             pulumi.set(__self__, "failure_conditional", failure_conditional)
@@ -3556,7 +3381,7 @@ class BotPostDialogCodeHookInvocationSpecification(dict):
     @pulumi.getter(name="failureConditional")
     def failure_conditional(self) -> Optional['outputs.BotConditionalSpecification']:
         """
-        A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
         """
         return pulumi.get(self, "failure_conditional")
 
@@ -3564,7 +3389,7 @@ class BotPostDialogCodeHookInvocationSpecification(dict):
     @pulumi.getter(name="failureNextStep")
     def failure_next_step(self) -> Optional['outputs.BotDialogState']:
         """
-        Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
         """
         return pulumi.get(self, "failure_next_step")
 
@@ -3572,7 +3397,7 @@ class BotPostDialogCodeHookInvocationSpecification(dict):
     @pulumi.getter(name="failureResponse")
     def failure_response(self) -> Optional['outputs.BotResponseSpecification']:
         """
-        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        Specifies a list of message groups that Amazon Lex uses to respond the user input when the code hook fails.
         """
         return pulumi.get(self, "failure_response")
 
@@ -3596,7 +3421,7 @@ class BotPostDialogCodeHookInvocationSpecification(dict):
     @pulumi.getter(name="successResponse")
     def success_response(self) -> Optional['outputs.BotResponseSpecification']:
         """
-        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        Specifies a list of message groups that Amazon Lex uses to respond when the code hook succeeds.
         """
         return pulumi.get(self, "success_response")
 
@@ -3620,16 +3445,13 @@ class BotPostDialogCodeHookInvocationSpecification(dict):
     @pulumi.getter(name="timeoutResponse")
     def timeout_response(self) -> Optional['outputs.BotResponseSpecification']:
         """
-        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        Specifies a list of message groups that Amazon Lex uses to respond to the user input when the code hook times out.
         """
         return pulumi.get(self, "timeout_response")
 
 
 @pulumi.output_type
 class BotPostFulfillmentStatusSpecification(dict):
-    """
-    Provides a setting that determines whether the post-fulfillment response is sent to the user.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3674,16 +3496,15 @@ class BotPostFulfillmentStatusSpecification(dict):
                  timeout_next_step: Optional['outputs.BotDialogState'] = None,
                  timeout_response: Optional['outputs.BotResponseSpecification'] = None):
         """
-        Provides a setting that determines whether the post-fulfillment response is sent to the user.
-        :param 'BotConditionalSpecification' failure_conditional: A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
-        :param 'BotDialogState' failure_next_step: Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
-        :param 'BotResponseSpecification' failure_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        :param 'BotConditionalSpecification' failure_conditional: A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
+        :param 'BotDialogState' failure_next_step: Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
+        :param 'BotResponseSpecification' failure_response: Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't successful.
         :param 'BotConditionalSpecification' success_conditional: A list of conditional branches to evaluate after the fulfillment code hook finishes successfully.
         :param 'BotDialogState' success_next_step: Specifies the next step in the conversation that Amazon Lex invokes when the fulfillment code hook completes successfully.
-        :param 'BotResponseSpecification' success_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        :param 'BotResponseSpecification' success_response: Specifies a list of message groups that Amazon Lex uses to respond when the fulfillment is successful.
         :param 'BotConditionalSpecification' timeout_conditional: A list of conditional branches to evaluate if the fulfillment code hook times out.
         :param 'BotDialogState' timeout_next_step: Specifies the next step that the bot runs when the fulfillment code hook times out.
-        :param 'BotResponseSpecification' timeout_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        :param 'BotResponseSpecification' timeout_response: Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't completed within the timeout period.
         """
         if failure_conditional is not None:
             pulumi.set(__self__, "failure_conditional", failure_conditional)
@@ -3708,7 +3529,7 @@ class BotPostFulfillmentStatusSpecification(dict):
     @pulumi.getter(name="failureConditional")
     def failure_conditional(self) -> Optional['outputs.BotConditionalSpecification']:
         """
-        A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
         """
         return pulumi.get(self, "failure_conditional")
 
@@ -3716,7 +3537,7 @@ class BotPostFulfillmentStatusSpecification(dict):
     @pulumi.getter(name="failureNextStep")
     def failure_next_step(self) -> Optional['outputs.BotDialogState']:
         """
-        Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
         """
         return pulumi.get(self, "failure_next_step")
 
@@ -3724,7 +3545,7 @@ class BotPostFulfillmentStatusSpecification(dict):
     @pulumi.getter(name="failureResponse")
     def failure_response(self) -> Optional['outputs.BotResponseSpecification']:
         """
-        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't successful.
         """
         return pulumi.get(self, "failure_response")
 
@@ -3748,7 +3569,7 @@ class BotPostFulfillmentStatusSpecification(dict):
     @pulumi.getter(name="successResponse")
     def success_response(self) -> Optional['outputs.BotResponseSpecification']:
         """
-        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        Specifies a list of message groups that Amazon Lex uses to respond when the fulfillment is successful.
         """
         return pulumi.get(self, "success_response")
 
@@ -3772,16 +3593,13 @@ class BotPostFulfillmentStatusSpecification(dict):
     @pulumi.getter(name="timeoutResponse")
     def timeout_response(self) -> Optional['outputs.BotResponseSpecification']:
         """
-        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't completed within the timeout period.
         """
         return pulumi.get(self, "timeout_response")
 
 
 @pulumi.output_type
 class BotPromptAttemptSpecification(dict):
-    """
-    Specifies the settings on a prompt attempt.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3810,10 +3628,6 @@ class BotPromptAttemptSpecification(dict):
                  allow_interrupt: Optional[bool] = None,
                  audio_and_dtmf_input_specification: Optional['outputs.BotAudioAndDtmfInputSpecification'] = None,
                  text_input_specification: Optional['outputs.BotTextInputSpecification'] = None):
-        """
-        Specifies the settings on a prompt attempt.
-        :param bool allow_interrupt: Indicates whether the user can interrupt a speech prompt attempt from the bot.
-        """
         pulumi.set(__self__, "allowed_input_types", allowed_input_types)
         if allow_interrupt is not None:
             pulumi.set(__self__, "allow_interrupt", allow_interrupt)
@@ -3830,9 +3644,6 @@ class BotPromptAttemptSpecification(dict):
     @property
     @pulumi.getter(name="allowInterrupt")
     def allow_interrupt(self) -> Optional[bool]:
-        """
-        Indicates whether the user can interrupt a speech prompt attempt from the bot.
-        """
         return pulumi.get(self, "allow_interrupt")
 
     @property
@@ -3848,9 +3659,6 @@ class BotPromptAttemptSpecification(dict):
 
 @pulumi.output_type
 class BotPromptSpecification(dict):
-    """
-    Prompts the user to confirm the intent.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3883,7 +3691,6 @@ class BotPromptSpecification(dict):
                  message_selection_strategy: Optional['BotMessageSelectionStrategy'] = None,
                  prompt_attempts_specification: Optional[Mapping[str, 'outputs.BotPromptAttemptSpecification']] = None):
         """
-        Prompts the user to confirm the intent.
         :param int max_retries: The maximum number of times the bot tries to elicit a response from the user using this prompt.
         :param Sequence['BotMessageGroup'] message_groups_list: A collection of messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime.
         :param bool allow_interrupt: Indicates whether the user can interrupt a speech prompt from the bot.
@@ -3941,10 +3748,66 @@ class BotPromptSpecification(dict):
 
 
 @pulumi.output_type
+class BotQInConnectIntentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "qInConnectAssistantConfiguration":
+            suggest = "q_in_connect_assistant_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotQInConnectIntentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotQInConnectIntentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotQInConnectIntentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 q_in_connect_assistant_configuration: Optional['outputs.BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties'] = None):
+        if q_in_connect_assistant_configuration is not None:
+            pulumi.set(__self__, "q_in_connect_assistant_configuration", q_in_connect_assistant_configuration)
+
+    @property
+    @pulumi.getter(name="qInConnectAssistantConfiguration")
+    def q_in_connect_assistant_configuration(self) -> Optional['outputs.BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties']:
+        return pulumi.get(self, "q_in_connect_assistant_configuration")
+
+
+@pulumi.output_type
+class BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assistantArn":
+            suggest = "assistant_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assistant_arn: str):
+        pulumi.set(__self__, "assistant_arn", assistant_arn)
+
+    @property
+    @pulumi.getter(name="assistantArn")
+    def assistant_arn(self) -> str:
+        return pulumi.get(self, "assistant_arn")
+
+
+@pulumi.output_type
 class BotQnAIntentConfiguration(dict):
-    """
-    Details about the the configuration of the built-in Amazon.QnAIntent.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3968,8 +3831,7 @@ class BotQnAIntentConfiguration(dict):
                  bedrock_model_configuration: 'outputs.BotBedrockModelSpecification',
                  data_source_configuration: 'outputs.BotQnAIntentConfigurationDataSourceConfigurationProperties'):
         """
-        Details about the the configuration of the built-in Amazon.QnAIntent.
-        :param 'BotQnAIntentConfigurationDataSourceConfigurationProperties' data_source_configuration: Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+        :param 'BotQnAIntentConfigurationDataSourceConfigurationProperties' data_source_configuration: Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
         """
         pulumi.set(__self__, "bedrock_model_configuration", bedrock_model_configuration)
         pulumi.set(__self__, "data_source_configuration", data_source_configuration)
@@ -3983,7 +3845,7 @@ class BotQnAIntentConfiguration(dict):
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> 'outputs.BotQnAIntentConfigurationDataSourceConfigurationProperties':
         """
-        Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+        Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
         """
         return pulumi.get(self, "data_source_configuration")
 
@@ -3991,7 +3853,7 @@ class BotQnAIntentConfiguration(dict):
 @pulumi.output_type
 class BotQnAIntentConfigurationDataSourceConfigurationProperties(dict):
     """
-    Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+    Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4019,9 +3881,7 @@ class BotQnAIntentConfigurationDataSourceConfigurationProperties(dict):
                  kendra_configuration: Optional['outputs.BotQnAKendraConfiguration'] = None,
                  opensearch_configuration: Optional['outputs.BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties'] = None):
         """
-        Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
-        :param 'BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties' bedrock_knowledge_store_configuration: Contains details about the configuration of a Amazon Bedrock knowledge base.
-        :param 'BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties' opensearch_configuration: Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
+        Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
         """
         if bedrock_knowledge_store_configuration is not None:
             pulumi.set(__self__, "bedrock_knowledge_store_configuration", bedrock_knowledge_store_configuration)
@@ -4033,9 +3893,6 @@ class BotQnAIntentConfigurationDataSourceConfigurationProperties(dict):
     @property
     @pulumi.getter(name="bedrockKnowledgeStoreConfiguration")
     def bedrock_knowledge_store_configuration(self) -> Optional['outputs.BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties']:
-        """
-        Contains details about the configuration of a Amazon Bedrock knowledge base.
-        """
         return pulumi.get(self, "bedrock_knowledge_store_configuration")
 
     @property
@@ -4046,17 +3903,11 @@ class BotQnAIntentConfigurationDataSourceConfigurationProperties(dict):
     @property
     @pulumi.getter(name="opensearchConfiguration")
     def opensearch_configuration(self) -> Optional['outputs.BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties']:
-        """
-        Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
-        """
         return pulumi.get(self, "opensearch_configuration")
 
 
 @pulumi.output_type
 class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties(dict):
-    """
-    Contains details about the configuration of a Amazon Bedrock knowledge base.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4082,12 +3933,6 @@ class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledge
                  bedrock_knowledge_base_arn: Optional[str] = None,
                  bkb_exact_response_fields: Optional['outputs.BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties'] = None,
                  exact_response: Optional[bool] = None):
-        """
-        Contains details about the configuration of a Amazon Bedrock knowledge base.
-        :param str bedrock_knowledge_base_arn: The base ARN of the knowledge base used.
-        :param 'BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties' bkb_exact_response_fields: Contains the names of the fields used for an exact response to the user.
-        :param bool exact_response: Specifies whether to return an exact response, or to return an answer generated by the model, using the fields you specify from the database.
-        """
         if bedrock_knowledge_base_arn is not None:
             pulumi.set(__self__, "bedrock_knowledge_base_arn", bedrock_knowledge_base_arn)
         if bkb_exact_response_fields is not None:
@@ -4098,33 +3943,21 @@ class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledge
     @property
     @pulumi.getter(name="bedrockKnowledgeBaseArn")
     def bedrock_knowledge_base_arn(self) -> Optional[str]:
-        """
-        The base ARN of the knowledge base used.
-        """
         return pulumi.get(self, "bedrock_knowledge_base_arn")
 
     @property
     @pulumi.getter(name="bkbExactResponseFields")
     def bkb_exact_response_fields(self) -> Optional['outputs.BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties']:
-        """
-        Contains the names of the fields used for an exact response to the user.
-        """
         return pulumi.get(self, "bkb_exact_response_fields")
 
     @property
     @pulumi.getter(name="exactResponse")
     def exact_response(self) -> Optional[bool]:
-        """
-        Specifies whether to return an exact response, or to return an answer generated by the model, using the fields you specify from the database.
-        """
         return pulumi.get(self, "exact_response")
 
 
 @pulumi.output_type
 class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties(dict):
-    """
-    Contains the names of the fields used for an exact response to the user.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4144,27 +3977,17 @@ class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledge
 
     def __init__(__self__, *,
                  answer_field: Optional[str] = None):
-        """
-        Contains the names of the fields used for an exact response to the user.
-        :param str answer_field: The answer field used for an exact response from Bedrock Knowledge Store.
-        """
         if answer_field is not None:
             pulumi.set(__self__, "answer_field", answer_field)
 
     @property
     @pulumi.getter(name="answerField")
     def answer_field(self) -> Optional[str]:
-        """
-        The answer field used for an exact response from Bedrock Knowledge Store.
-        """
         return pulumi.get(self, "answer_field")
 
 
 @pulumi.output_type
 class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties(dict):
-    """
-    Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4196,14 +4019,6 @@ class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfig
                  exact_response_fields: Optional['outputs.BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties'] = None,
                  include_fields: Optional[Sequence[str]] = None,
                  index_name: Optional[str] = None):
-        """
-        Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
-        :param str domain_endpoint: The endpoint of the Amazon OpenSearch Service domain.
-        :param bool exact_response: Specifies whether to return an exact response or to return an answer generated by the model using the fields you specify from the database.
-        :param 'BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties' exact_response_fields: Contains the names of the fields used for an exact response to the user.
-        :param Sequence[str] include_fields: List of fields to include
-        :param str index_name: The name of the Amazon OpenSearch Service index.
-        """
         if domain_endpoint is not None:
             pulumi.set(__self__, "domain_endpoint", domain_endpoint)
         if exact_response is not None:
@@ -4218,49 +4033,31 @@ class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfig
     @property
     @pulumi.getter(name="domainEndpoint")
     def domain_endpoint(self) -> Optional[str]:
-        """
-        The endpoint of the Amazon OpenSearch Service domain.
-        """
         return pulumi.get(self, "domain_endpoint")
 
     @property
     @pulumi.getter(name="exactResponse")
     def exact_response(self) -> Optional[bool]:
-        """
-        Specifies whether to return an exact response or to return an answer generated by the model using the fields you specify from the database.
-        """
         return pulumi.get(self, "exact_response")
 
     @property
     @pulumi.getter(name="exactResponseFields")
     def exact_response_fields(self) -> Optional['outputs.BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties']:
-        """
-        Contains the names of the fields used for an exact response to the user.
-        """
         return pulumi.get(self, "exact_response_fields")
 
     @property
     @pulumi.getter(name="includeFields")
     def include_fields(self) -> Optional[Sequence[str]]:
-        """
-        List of fields to include
-        """
         return pulumi.get(self, "include_fields")
 
     @property
     @pulumi.getter(name="indexName")
     def index_name(self) -> Optional[str]:
-        """
-        The name of the Amazon OpenSearch Service index.
-        """
         return pulumi.get(self, "index_name")
 
 
 @pulumi.output_type
 class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsProperties(dict):
-    """
-    Contains the names of the fields used for an exact response to the user.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4283,11 +4080,6 @@ class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfig
     def __init__(__self__, *,
                  answer_field: Optional[str] = None,
                  question_field: Optional[str] = None):
-        """
-        Contains the names of the fields used for an exact response to the user.
-        :param str answer_field: The name of the field that contains the answer to the query made to the OpenSearch Service database.
-        :param str question_field: The name of the field that contains the query made to the OpenSearch Service database.
-        """
         if answer_field is not None:
             pulumi.set(__self__, "answer_field", answer_field)
         if question_field is not None:
@@ -4296,25 +4088,16 @@ class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfig
     @property
     @pulumi.getter(name="answerField")
     def answer_field(self) -> Optional[str]:
-        """
-        The name of the field that contains the answer to the query made to the OpenSearch Service database.
-        """
         return pulumi.get(self, "answer_field")
 
     @property
     @pulumi.getter(name="questionField")
     def question_field(self) -> Optional[str]:
-        """
-        The name of the field that contains the query made to the OpenSearch Service database.
-        """
         return pulumi.get(self, "question_field")
 
 
 @pulumi.output_type
 class BotQnAKendraConfiguration(dict):
-    """
-    Contains details about the configuration of the Amazon Kendra index used for the AMAZON.QnAIntent.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4344,11 +4127,10 @@ class BotQnAKendraConfiguration(dict):
                  query_filter_string_enabled: bool,
                  query_filter_string: Optional[str] = None):
         """
-        Contains details about the configuration of the Amazon Kendra index used for the AMAZON.QnAIntent.
-        :param bool exact_response: Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results.
+        :param bool exact_response: Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results. To use this feature, you must first add FAQ questions to your index by following the steps at [Adding frequently asked questions (FAQs) to an index](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html) .
         :param str kendra_index: The ARN of the Amazon Kendra index to use.
         :param bool query_filter_string_enabled: Specifies whether to enable an Amazon Kendra filter string or not.
-        :param str query_filter_string: Contains the Amazon Kendra filter string to use if enabled.
+        :param str query_filter_string: Contains the Amazon Kendra filter string to use if enabled. For more information on the Amazon Kendra search filter JSON format, see [Using document attributes to filter search results](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html#search-filtering) .
         """
         pulumi.set(__self__, "exact_response", exact_response)
         pulumi.set(__self__, "kendra_index", kendra_index)
@@ -4360,7 +4142,7 @@ class BotQnAKendraConfiguration(dict):
     @pulumi.getter(name="exactResponse")
     def exact_response(self) -> bool:
         """
-        Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results.
+        Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results. To use this feature, you must first add FAQ questions to your index by following the steps at [Adding frequently asked questions (FAQs) to an index](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html) .
         """
         return pulumi.get(self, "exact_response")
 
@@ -4384,16 +4166,13 @@ class BotQnAKendraConfiguration(dict):
     @pulumi.getter(name="queryFilterString")
     def query_filter_string(self) -> Optional[str]:
         """
-        Contains the Amazon Kendra filter string to use if enabled.
+        Contains the Amazon Kendra filter string to use if enabled. For more information on the Amazon Kendra search filter JSON format, see [Using document attributes to filter search results](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html#search-filtering) .
         """
         return pulumi.get(self, "query_filter_string")
 
 
 @pulumi.output_type
 class BotReplication(dict):
-    """
-    Parameter used to create a replication of the source bot in the secondary region.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4413,26 +4192,16 @@ class BotReplication(dict):
 
     def __init__(__self__, *,
                  replica_regions: Sequence[str]):
-        """
-        Parameter used to create a replication of the source bot in the secondary region.
-        :param Sequence[str] replica_regions: List of secondary regions for bot replication.
-        """
         pulumi.set(__self__, "replica_regions", replica_regions)
 
     @property
     @pulumi.getter(name="replicaRegions")
     def replica_regions(self) -> Sequence[str]:
-        """
-        List of secondary regions for bot replication.
-        """
         return pulumi.get(self, "replica_regions")
 
 
 @pulumi.output_type
 class BotResponseSpecification(dict):
-    """
-    A list of message groups that Amazon Lex uses to respond the user input.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4456,9 +4225,8 @@ class BotResponseSpecification(dict):
                  message_groups_list: Sequence['outputs.BotMessageGroup'],
                  allow_interrupt: Optional[bool] = None):
         """
-        A list of message groups that Amazon Lex uses to respond the user input.
         :param Sequence['BotMessageGroup'] message_groups_list: A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime.
-        :param bool allow_interrupt: Indicates whether the user can interrupt a speech prompt from the bot.
+        :param bool allow_interrupt: Indicates whether the user can interrupt a speech response from Amazon Lex.
         """
         pulumi.set(__self__, "message_groups_list", message_groups_list)
         if allow_interrupt is not None:
@@ -4476,16 +4244,13 @@ class BotResponseSpecification(dict):
     @pulumi.getter(name="allowInterrupt")
     def allow_interrupt(self) -> Optional[bool]:
         """
-        Indicates whether the user can interrupt a speech prompt from the bot.
+        Indicates whether the user can interrupt a speech response from Amazon Lex.
         """
         return pulumi.get(self, "allow_interrupt")
 
 
 @pulumi.output_type
 class BotS3BucketLogDestination(dict):
-    """
-    Specifies an Amazon S3 bucket for logging audio conversations
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4511,12 +4276,6 @@ class BotS3BucketLogDestination(dict):
                  log_prefix: str,
                  s3_bucket_arn: str,
                  kms_key_arn: Optional[str] = None):
-        """
-        Specifies an Amazon S3 bucket for logging audio conversations
-        :param str log_prefix: The Amazon S3 key of the deployment package.
-        :param str s3_bucket_arn: The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
-        :param str kms_key_arn: The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
-        """
         pulumi.set(__self__, "log_prefix", log_prefix)
         pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
         if kms_key_arn is not None:
@@ -4525,33 +4284,21 @@ class BotS3BucketLogDestination(dict):
     @property
     @pulumi.getter(name="logPrefix")
     def log_prefix(self) -> str:
-        """
-        The Amazon S3 key of the deployment package.
-        """
         return pulumi.get(self, "log_prefix")
 
     @property
     @pulumi.getter(name="s3BucketArn")
     def s3_bucket_arn(self) -> str:
-        """
-        The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
-        """
         return pulumi.get(self, "s3_bucket_arn")
 
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[str]:
-        """
-        The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
-        """
         return pulumi.get(self, "kms_key_arn")
 
 
 @pulumi.output_type
 class BotS3Location(dict):
-    """
-    S3 location of bot definitions zip file, if it's not defined inline in CloudFormation.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4578,10 +4325,9 @@ class BotS3Location(dict):
                  s3_object_key: str,
                  s3_object_version: Optional[str] = None):
         """
-        S3 location of bot definitions zip file, if it's not defined inline in CloudFormation.
-        :param str s3_bucket: An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
-        :param str s3_object_key: The Amazon S3 key of the deployment package.
-        :param str s3_object_version: For versioned objects, the version of the deployment package object to use. If not specified, the current object version will be used.
+        :param str s3_bucket: The S3 bucket name.
+        :param str s3_object_key: The path and file name to the object in the S3 bucket.
+        :param str s3_object_version: The version of the object in the S3 bucket.
         """
         pulumi.set(__self__, "s3_bucket", s3_bucket)
         pulumi.set(__self__, "s3_object_key", s3_object_key)
@@ -4592,7 +4338,7 @@ class BotS3Location(dict):
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> str:
         """
-        An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+        The S3 bucket name.
         """
         return pulumi.get(self, "s3_bucket")
 
@@ -4600,7 +4346,7 @@ class BotS3Location(dict):
     @pulumi.getter(name="s3ObjectKey")
     def s3_object_key(self) -> str:
         """
-        The Amazon S3 key of the deployment package.
+        The path and file name to the object in the S3 bucket.
         """
         return pulumi.get(self, "s3_object_key")
 
@@ -4608,21 +4354,15 @@ class BotS3Location(dict):
     @pulumi.getter(name="s3ObjectVersion")
     def s3_object_version(self) -> Optional[str]:
         """
-        For versioned objects, the version of the deployment package object to use. If not specified, the current object version will be used.
+        The version of the object in the S3 bucket.
         """
         return pulumi.get(self, "s3_object_version")
 
 
 @pulumi.output_type
 class BotSampleUtterance(dict):
-    """
-    A sample utterance that invokes an intent or respond to a slot elicitation prompt.
-    """
     def __init__(__self__, *,
                  utterance: str):
-        """
-        A sample utterance that invokes an intent or respond to a slot elicitation prompt.
-        """
         pulumi.set(__self__, "utterance", utterance)
 
     @property
@@ -4633,36 +4373,22 @@ class BotSampleUtterance(dict):
 
 @pulumi.output_type
 class BotSampleValue(dict):
-    """
-    Defines one of the values for a slot type.
-    """
     def __init__(__self__, *,
                  value: str):
-        """
-        Defines one of the values for a slot type.
-        :param str value: The value that can be used for a slot type.
-        """
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The value that can be used for a slot type.
-        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class BotSessionAttribute(dict):
-    """
-    Key/value pair representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
-    """
     def __init__(__self__, *,
                  key: str,
                  value: Optional[str] = None):
         """
-        Key/value pair representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
         :param str key: The name of the session attribute.
         :param str value: The session-specific context information for the session attribute.
         """
@@ -4689,9 +4415,6 @@ class BotSessionAttribute(dict):
 
 @pulumi.output_type
 class BotSlot(dict):
-    """
-    A slot is a variable needed to fulfill an intent, where an intent can require zero or more slots.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4723,7 +4446,6 @@ class BotSlot(dict):
                  multiple_values_setting: Optional['outputs.BotMultipleValuesSetting'] = None,
                  obfuscation_setting: Optional['outputs.BotObfuscationSetting'] = None):
         """
-        A slot is a variable needed to fulfill an intent, where an intent can require zero or more slots.
         :param str name: The name given to the slot.
         :param str slot_type_name: The name of the slot type that this slot is based on. The slot type defines the acceptable values for the slot.
         :param 'BotSlotValueElicitationSetting' value_elicitation_setting: Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
@@ -4802,9 +4524,6 @@ class BotSlot(dict):
 
 @pulumi.output_type
 class BotSlotCaptureSetting(dict):
-    """
-    Settings used when Amazon Lex successfully captures a slot value from a user.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4846,7 +4565,6 @@ class BotSlotCaptureSetting(dict):
                  failure_next_step: Optional['outputs.BotDialogState'] = None,
                  failure_response: Optional['outputs.BotResponseSpecification'] = None):
         """
-        Settings used when Amazon Lex successfully captures a slot value from a user.
         :param 'BotConditionalSpecification' capture_conditional: A list of conditional branches to evaluate after the slot value is captured.
         :param 'BotDialogState' capture_next_step: Specifies the next step that the bot runs when the slot value is captured before the code hook times out.
         :param 'BotResponseSpecification' capture_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
@@ -4854,7 +4572,7 @@ class BotSlotCaptureSetting(dict):
         :param 'BotElicitationCodeHookInvocationSetting' elicitation_code_hook: Code hook called when Amazon Lex doesn't capture a slot value.
         :param 'BotConditionalSpecification' failure_conditional: A list of conditional branches to evaluate when the slot value isn't captured.
         :param 'BotDialogState' failure_next_step: Specifies the next step that the bot runs when the slot value code is not recognized.
-        :param 'BotResponseSpecification' failure_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        :param 'BotResponseSpecification' failure_response: Specifies a list of message groups that Amazon Lex uses to respond the user input when the slot fails to be captured.
         """
         if capture_conditional is not None:
             pulumi.set(__self__, "capture_conditional", capture_conditional)
@@ -4933,16 +4651,13 @@ class BotSlotCaptureSetting(dict):
     @pulumi.getter(name="failureResponse")
     def failure_response(self) -> Optional['outputs.BotResponseSpecification']:
         """
-        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        Specifies a list of message groups that Amazon Lex uses to respond the user input when the slot fails to be captured.
         """
         return pulumi.get(self, "failure_response")
 
 
 @pulumi.output_type
 class BotSlotDefaultValue(dict):
-    """
-    The default value to use when a user doesn't provide a value for a slot.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4963,7 +4678,6 @@ class BotSlotDefaultValue(dict):
     def __init__(__self__, *,
                  default_value: str):
         """
-        The default value to use when a user doesn't provide a value for a slot.
         :param str default_value: The default value to use when a user doesn't provide a value for a slot.
         """
         pulumi.set(__self__, "default_value", default_value)
@@ -4979,9 +4693,6 @@ class BotSlotDefaultValue(dict):
 
 @pulumi.output_type
 class BotSlotDefaultValueSpecification(dict):
-    """
-    A list of values that Amazon Lex should use as the default value for a slot.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5002,8 +4713,7 @@ class BotSlotDefaultValueSpecification(dict):
     def __init__(__self__, *,
                  default_value_list: Sequence['outputs.BotSlotDefaultValue']):
         """
-        A list of values that Amazon Lex should use as the default value for a slot.
-        :param Sequence['BotSlotDefaultValue'] default_value_list: A list of slot default values
+        :param Sequence['BotSlotDefaultValue'] default_value_list: A list of default values. Amazon Lex chooses the default value to use in the order that they are presented in the list.
         """
         pulumi.set(__self__, "default_value_list", default_value_list)
 
@@ -5011,16 +4721,13 @@ class BotSlotDefaultValueSpecification(dict):
     @pulumi.getter(name="defaultValueList")
     def default_value_list(self) -> Sequence['outputs.BotSlotDefaultValue']:
         """
-        A list of slot default values
+        A list of default values. Amazon Lex chooses the default value to use in the order that they are presented in the list.
         """
         return pulumi.get(self, "default_value_list")
 
 
 @pulumi.output_type
 class BotSlotPriority(dict):
-    """
-    The priority that Amazon Lex should use when eliciting slot values from a user.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5041,10 +4748,6 @@ class BotSlotPriority(dict):
     def __init__(__self__, *,
                  priority: int,
                  slot_name: str):
-        """
-        The priority that Amazon Lex should use when eliciting slot values from a user.
-        :param str slot_name: The name of the slot.
-        """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "slot_name", slot_name)
 
@@ -5056,21 +4759,17 @@ class BotSlotPriority(dict):
     @property
     @pulumi.getter(name="slotName")
     def slot_name(self) -> str:
-        """
-        The name of the slot.
-        """
         return pulumi.get(self, "slot_name")
 
 
 @pulumi.output_type
 class BotSlotType(dict):
-    """
-    A custom, extended built-in or a grammar slot type.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "externalSourceSetting":
+        if key == "compositeSlotTypeSetting":
+            suggest = "composite_slot_type_setting"
+        elif key == "externalSourceSetting":
             suggest = "external_source_setting"
         elif key == "parentSlotTypeSignature":
             suggest = "parent_slot_type_signature"
@@ -5092,13 +4791,13 @@ class BotSlotType(dict):
 
     def __init__(__self__, *,
                  name: str,
+                 composite_slot_type_setting: Optional['outputs.BotCompositeSlotTypeSetting'] = None,
                  description: Optional[str] = None,
                  external_source_setting: Optional['outputs.BotExternalSourceSetting'] = None,
                  parent_slot_type_signature: Optional[str] = None,
                  slot_type_values: Optional[Sequence['outputs.BotSlotTypeValue']] = None,
                  value_selection_setting: Optional['outputs.BotSlotValueSelectionSetting'] = None):
         """
-        A custom, extended built-in or a grammar slot type.
         :param str name: The name of the slot type. A slot type name must be unique withing the account.
         :param str description: A description of the slot type. Use the description to help identify the slot type in lists.
         :param 'BotExternalSourceSetting' external_source_setting: Sets the type of external information used to create the slot type.
@@ -5114,6 +4813,8 @@ class BotSlotType(dict):
                If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
         """
         pulumi.set(__self__, "name", name)
+        if composite_slot_type_setting is not None:
+            pulumi.set(__self__, "composite_slot_type_setting", composite_slot_type_setting)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if external_source_setting is not None:
@@ -5132,6 +4833,11 @@ class BotSlotType(dict):
         The name of the slot type. A slot type name must be unique withing the account.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="compositeSlotTypeSetting")
+    def composite_slot_type_setting(self) -> Optional['outputs.BotCompositeSlotTypeSetting']:
+        return pulumi.get(self, "composite_slot_type_setting")
 
     @property
     @pulumi.getter
@@ -5183,9 +4889,6 @@ class BotSlotType(dict):
 
 @pulumi.output_type
 class BotSlotTypeValue(dict):
-    """
-    Value that the slot type can take.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5206,9 +4909,6 @@ class BotSlotTypeValue(dict):
     def __init__(__self__, *,
                  sample_value: 'outputs.BotSampleValue',
                  synonyms: Optional[Sequence['outputs.BotSampleValue']] = None):
-        """
-        Value that the slot type can take.
-        """
         pulumi.set(__self__, "sample_value", sample_value)
         if synonyms is not None:
             pulumi.set(__self__, "synonyms", synonyms)
@@ -5226,9 +4926,6 @@ class BotSlotTypeValue(dict):
 
 @pulumi.output_type
 class BotSlotValue(dict):
-    """
-    The value to set in a slot.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5249,8 +4946,7 @@ class BotSlotValue(dict):
     def __init__(__self__, *,
                  interpreted_value: Optional[str] = None):
         """
-        The value to set in a slot.
-        :param str interpreted_value: The value that Amazon Lex determines for the slot.
+        :param str interpreted_value: The value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the `resolvedValues` list.
         """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
@@ -5259,16 +4955,13 @@ class BotSlotValue(dict):
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[str]:
         """
-        The value that Amazon Lex determines for the slot.
+        The value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the `resolvedValues` list.
         """
         return pulumi.get(self, "interpreted_value")
 
 
 @pulumi.output_type
 class BotSlotValueElicitationSetting(dict):
-    """
-    Settings that you can use for eliciting a slot value.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5304,12 +4997,11 @@ class BotSlotValueElicitationSetting(dict):
                  slot_capture_setting: Optional['outputs.BotSlotCaptureSetting'] = None,
                  wait_and_continue_specification: Optional['outputs.BotWaitAndContinueSpecification'] = None):
         """
-        Settings that you can use for eliciting a slot value.
         :param 'BotSlotConstraint' slot_constraint: Specifies whether the slot is required or optional.
-        :param 'BotSlotDefaultValueSpecification' default_value_specification: A list of default values for a slot.
+        :param 'BotSlotDefaultValueSpecification' default_value_specification: A list of default values for a slot. Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
         :param 'BotPromptSpecification' prompt_specification: The prompt that Amazon Lex uses to elicit the slot value from the user.
-        :param Sequence['BotSampleUtterance'] sample_utterances: If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy.
-        :param 'BotSlotCaptureSetting' slot_capture_setting: Specifies the next stage in the conversation after capturing the slot.
+        :param Sequence['BotSampleUtterance'] sample_utterances: If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+        :param 'BotSlotCaptureSetting' slot_capture_setting: Specifies the settings that Amazon Lex uses when a slot value is successfully entered by a user.
         :param 'BotWaitAndContinueSpecification' wait_and_continue_specification: Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
         """
         pulumi.set(__self__, "slot_constraint", slot_constraint)
@@ -5336,7 +5028,7 @@ class BotSlotValueElicitationSetting(dict):
     @pulumi.getter(name="defaultValueSpecification")
     def default_value_specification(self) -> Optional['outputs.BotSlotDefaultValueSpecification']:
         """
-        A list of default values for a slot.
+        A list of default values for a slot. Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
         """
         return pulumi.get(self, "default_value_specification")
 
@@ -5352,7 +5044,7 @@ class BotSlotValueElicitationSetting(dict):
     @pulumi.getter(name="sampleUtterances")
     def sample_utterances(self) -> Optional[Sequence['outputs.BotSampleUtterance']]:
         """
-        If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy.
+        If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This is optional. In most cases, Amazon Lex is capable of understanding user utterances.
         """
         return pulumi.get(self, "sample_utterances")
 
@@ -5360,7 +5052,7 @@ class BotSlotValueElicitationSetting(dict):
     @pulumi.getter(name="slotCaptureSetting")
     def slot_capture_setting(self) -> Optional['outputs.BotSlotCaptureSetting']:
         """
-        Specifies the next stage in the conversation after capturing the slot.
+        Specifies the settings that Amazon Lex uses when a slot value is successfully entered by a user.
         """
         return pulumi.get(self, "slot_capture_setting")
 
@@ -5375,16 +5067,12 @@ class BotSlotValueElicitationSetting(dict):
 
 @pulumi.output_type
 class BotSlotValueOverride(dict):
-    """
-    The slot values that Amazon Lex uses when it sets slot values in a dialog step.
-    """
     def __init__(__self__, *,
                  shape: Optional['BotSlotShape'] = None,
                  value: Optional['outputs.BotSlotValue'] = None,
                  values: Optional[Sequence['outputs.BotSlotValueOverride']] = None):
         """
-        The slot values that Amazon Lex uses when it sets slot values in a dialog step.
-        :param 'BotSlotShape' shape: When the shape value is List, it indicates that the values field contains a list of slot values. When the value is Scalar, it indicates that the value field contains a single value.
+        :param 'BotSlotShape' shape: When the shape value is `List` , it indicates that the `values` field contains a list of slot values. When the value is `Scalar` , it indicates that the `value` field contains a single value.
         :param 'BotSlotValue' value: The current value of the slot.
         :param Sequence['BotSlotValueOverride'] values: A list of one or more values that the user provided for the slot. For example, for a slot that elicits pizza toppings, the values might be "pepperoni" and "pineapple."
         """
@@ -5399,7 +5087,7 @@ class BotSlotValueOverride(dict):
     @pulumi.getter
     def shape(self) -> Optional['BotSlotShape']:
         """
-        When the shape value is List, it indicates that the values field contains a list of slot values. When the value is Scalar, it indicates that the value field contains a single value.
+        When the shape value is `List` , it indicates that the `values` field contains a list of slot values. When the value is `Scalar` , it indicates that the `value` field contains a single value.
         """
         return pulumi.get(self, "shape")
 
@@ -5422,9 +5110,6 @@ class BotSlotValueOverride(dict):
 
 @pulumi.output_type
 class BotSlotValueOverrideMap(dict):
-    """
-    A map of slot names and their overridden values.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5448,7 +5133,6 @@ class BotSlotValueOverrideMap(dict):
                  slot_name: Optional[str] = None,
                  slot_value_override: Optional['outputs.BotSlotValueOverride'] = None):
         """
-        A map of slot names and their overridden values.
         :param str slot_name: The name of the slot.
         :param 'BotSlotValueOverride' slot_value_override: The SlotValueOverride object to which the slot name will be mapped.
         """
@@ -5476,14 +5160,23 @@ class BotSlotValueOverrideMap(dict):
 
 @pulumi.output_type
 class BotSlotValueRegexFilter(dict):
-    """
-    A regular expression used to validate the value of a slot.
-    """
     def __init__(__self__, *,
                  pattern: str):
         """
-        A regular expression used to validate the value of a slot.
-        :param str pattern: Regex pattern
+        :param str pattern: A regular expression used to validate the value of a slot.
+               
+               Use a standard regular expression. Amazon Lex supports the following characters in the regular expression:
+               
+               - A-Z, a-z
+               - 0-9
+               - Unicode characters ("\\⁠u<Unicode>")
+               
+               Represent Unicode characters with four digits, for example "\\⁠u0041" or "\\⁠u005A".
+               
+               The following regular expression operators are not supported:
+               
+               - Infinite repeaters: *, +, or {x,} with no upper bound.
+               - Wild card (.)
         """
         pulumi.set(__self__, "pattern", pattern)
 
@@ -5491,16 +5184,26 @@ class BotSlotValueRegexFilter(dict):
     @pulumi.getter
     def pattern(self) -> str:
         """
-        Regex pattern
+        A regular expression used to validate the value of a slot.
+
+        Use a standard regular expression. Amazon Lex supports the following characters in the regular expression:
+
+        - A-Z, a-z
+        - 0-9
+        - Unicode characters ("\\⁠u<Unicode>")
+
+        Represent Unicode characters with four digits, for example "\\⁠u0041" or "\\⁠u005A".
+
+        The following regular expression operators are not supported:
+
+        - Infinite repeaters: *, +, or {x,} with no upper bound.
+        - Wild card (.)
         """
         return pulumi.get(self, "pattern")
 
 
 @pulumi.output_type
 class BotSlotValueSelectionSetting(dict):
-    """
-    Contains settings used by Amazon Lex to select a slot value.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5527,7 +5230,6 @@ class BotSlotValueSelectionSetting(dict):
                  advanced_recognition_setting: Optional['outputs.BotAdvancedRecognitionSetting'] = None,
                  regex_filter: Optional['outputs.BotSlotValueRegexFilter'] = None):
         """
-        Contains settings used by Amazon Lex to select a slot value.
         :param 'BotSlotValueResolutionStrategy' resolution_strategy: Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
                
                - `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value.
@@ -5575,31 +5277,18 @@ class BotSlotValueSelectionSetting(dict):
 
 @pulumi.output_type
 class BotSsmlMessage(dict):
-    """
-    A message in Speech Synthesis Markup Language (SSML).
-    """
     def __init__(__self__, *,
                  value: str):
-        """
-        A message in Speech Synthesis Markup Language (SSML).
-        :param str value: The SSML text that defines the prompt.
-        """
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The SSML text that defines the prompt.
-        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class BotStillWaitingResponseSpecification(dict):
-    """
-    StillWaitingResponseSpecification.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5629,11 +5318,10 @@ class BotStillWaitingResponseSpecification(dict):
                  timeout_in_seconds: int,
                  allow_interrupt: Optional[bool] = None):
         """
-        StillWaitingResponseSpecification.
         :param int frequency_in_seconds: How often a message should be sent to the user. Minimum of 1 second, maximum of 5 minutes.
         :param Sequence['BotMessageGroup'] message_groups_list: One or more message groups, each containing one or more messages, that define the prompts that Amazon Lex sends to the user.
         :param int timeout_in_seconds: If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
-        :param bool allow_interrupt: Indicates whether the user can interrupt a speech prompt from the bot.
+        :param bool allow_interrupt: Indicates that the user can interrupt the response by speaking while the message is being played.
         """
         pulumi.set(__self__, "frequency_in_seconds", frequency_in_seconds)
         pulumi.set(__self__, "message_groups_list", message_groups_list)
@@ -5669,49 +5357,68 @@ class BotStillWaitingResponseSpecification(dict):
     @pulumi.getter(name="allowInterrupt")
     def allow_interrupt(self) -> Optional[bool]:
         """
-        Indicates whether the user can interrupt a speech prompt from the bot.
+        Indicates that the user can interrupt the response by speaking while the message is being played.
         """
         return pulumi.get(self, "allow_interrupt")
 
 
 @pulumi.output_type
+class BotSubSlotTypeComposition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "slotTypeId":
+            suggest = "slot_type_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotSubSlotTypeComposition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotSubSlotTypeComposition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotSubSlotTypeComposition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 slot_type_id: str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "slot_type_id", slot_type_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="slotTypeId")
+    def slot_type_id(self) -> str:
+        return pulumi.get(self, "slot_type_id")
+
+
+@pulumi.output_type
 class BotTag(dict):
-    """
-    A key-value pair for tagging Lex resources
-    """
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        """
-        A key-value pair for tagging Lex resources
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class BotTestBotAliasSettings(dict):
-    """
-    Configuring the test bot alias settings for a given bot
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5739,11 +5446,10 @@ class BotTestBotAliasSettings(dict):
                  description: Optional[str] = None,
                  sentiment_analysis_settings: Optional['outputs.BotTestBotAliasSettingsSentimentAnalysisSettingsProperties'] = None):
         """
-        Configuring the test bot alias settings for a given bot
         :param Sequence['BotAliasLocaleSettingsItem'] bot_alias_locale_settings: Specifies settings that are unique to a locale. For example, you can use a different Lambda function depending on the bot's locale.
         :param 'BotConversationLogSettings' conversation_log_settings: Specifies settings for conversation logs that save audio, text, and metadata information for conversations with your users.
         :param str description: Specifies a description for the test bot alias.
-        :param 'BotTestBotAliasSettingsSentimentAnalysisSettingsProperties' sentiment_analysis_settings: Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+        :param 'BotTestBotAliasSettingsSentimentAnalysisSettingsProperties' sentiment_analysis_settings: Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
         """
         if bot_alias_locale_settings is not None:
             pulumi.set(__self__, "bot_alias_locale_settings", bot_alias_locale_settings)
@@ -5782,7 +5488,7 @@ class BotTestBotAliasSettings(dict):
     @pulumi.getter(name="sentimentAnalysisSettings")
     def sentiment_analysis_settings(self) -> Optional['outputs.BotTestBotAliasSettingsSentimentAnalysisSettingsProperties']:
         """
-        Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+        Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
         """
         return pulumi.get(self, "sentiment_analysis_settings")
 
@@ -5790,7 +5496,7 @@ class BotTestBotAliasSettings(dict):
 @pulumi.output_type
 class BotTestBotAliasSettingsSentimentAnalysisSettingsProperties(dict):
     """
-    Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+    Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5812,25 +5518,18 @@ class BotTestBotAliasSettingsSentimentAnalysisSettingsProperties(dict):
     def __init__(__self__, *,
                  detect_sentiment: bool):
         """
-        Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
-        :param bool detect_sentiment: Enable to call Amazon Comprehend for Sentiment natively within Lex
+        Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
         """
         pulumi.set(__self__, "detect_sentiment", detect_sentiment)
 
     @property
     @pulumi.getter(name="detectSentiment")
     def detect_sentiment(self) -> bool:
-        """
-        Enable to call Amazon Comprehend for Sentiment natively within Lex
-        """
         return pulumi.get(self, "detect_sentiment")
 
 
 @pulumi.output_type
 class BotTextInputSpecification(dict):
-    """
-    Specifies the text input specifications.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5850,26 +5549,16 @@ class BotTextInputSpecification(dict):
 
     def __init__(__self__, *,
                  start_timeout_ms: int):
-        """
-        Specifies the text input specifications.
-        :param int start_timeout_ms: Time for which a bot waits before re-prompting a customer for text input.
-        """
         pulumi.set(__self__, "start_timeout_ms", start_timeout_ms)
 
     @property
     @pulumi.getter(name="startTimeoutMs")
     def start_timeout_ms(self) -> int:
-        """
-        Time for which a bot waits before re-prompting a customer for text input.
-        """
         return pulumi.get(self, "start_timeout_ms")
 
 
 @pulumi.output_type
 class BotTextLogDestination(dict):
-    """
-    Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5889,9 +5578,6 @@ class BotTextLogDestination(dict):
 
     def __init__(__self__, *,
                  cloud_watch: 'outputs.BotCloudWatchLogGroupLogDestination'):
-        """
-        Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
-        """
         pulumi.set(__self__, "cloud_watch", cloud_watch)
 
     @property
@@ -5902,15 +5588,9 @@ class BotTextLogDestination(dict):
 
 @pulumi.output_type
 class BotTextLogSetting(dict):
-    """
-    Contains information about code hooks that Amazon Lex calls during a conversation.
-    """
     def __init__(__self__, *,
                  destination: 'outputs.BotTextLogDestination',
                  enabled: bool):
-        """
-        Contains information about code hooks that Amazon Lex calls during a conversation.
-        """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "enabled", enabled)
 
@@ -6000,9 +5680,6 @@ class BotVersionLocaleSpecification(dict):
 
 @pulumi.output_type
 class BotVoiceSettings(dict):
-    """
-    Settings for using an Amazon Polly voice to communicate with a user.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6024,9 +5701,10 @@ class BotVoiceSettings(dict):
                  voice_id: str,
                  engine: Optional['BotVoiceSettingsEngine'] = None):
         """
-        Settings for using an Amazon Polly voice to communicate with a user.
-        :param str voice_id: The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
-        :param 'BotVoiceSettingsEngine' engine: Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+        :param str voice_id: The identifier of the Amazon Polly voice to use.
+        :param 'BotVoiceSettingsEngine' engine: Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .
+               
+               If you do not specify a value, the default is `standard` .
         """
         pulumi.set(__self__, "voice_id", voice_id)
         if engine is not None:
@@ -6036,7 +5714,7 @@ class BotVoiceSettings(dict):
     @pulumi.getter(name="voiceId")
     def voice_id(self) -> str:
         """
-        The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+        The identifier of the Amazon Polly voice to use.
         """
         return pulumi.get(self, "voice_id")
 
@@ -6044,16 +5722,15 @@ class BotVoiceSettings(dict):
     @pulumi.getter
     def engine(self) -> Optional['BotVoiceSettingsEngine']:
         """
-        Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+        Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .
+
+        If you do not specify a value, the default is `standard` .
         """
         return pulumi.get(self, "engine")
 
 
 @pulumi.output_type
 class BotWaitAndContinueSpecification(dict):
-    """
-    The prompts that Amazon Lex uses while a bot is waiting for customer input.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6083,11 +5760,10 @@ class BotWaitAndContinueSpecification(dict):
                  is_active: Optional[bool] = None,
                  still_waiting_response: Optional['outputs.BotStillWaitingResponseSpecification'] = None):
         """
-        The prompts that Amazon Lex uses while a bot is waiting for customer input.
         :param 'BotResponseSpecification' continue_response: The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
         :param 'BotResponseSpecification' waiting_response: The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
-        :param bool is_active: Specifies whether the bot will wait for a user to respond.
-        :param 'BotStillWaitingResponseSpecification' still_waiting_response: The response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+        :param bool is_active: Specifies whether the bot will wait for a user to respond. When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
+        :param 'BotStillWaitingResponseSpecification' still_waiting_response: A response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
         """
         pulumi.set(__self__, "continue_response", continue_response)
         pulumi.set(__self__, "waiting_response", waiting_response)
@@ -6116,7 +5792,7 @@ class BotWaitAndContinueSpecification(dict):
     @pulumi.getter(name="isActive")
     def is_active(self) -> Optional[bool]:
         """
-        Specifies whether the bot will wait for a user to respond.
+        Specifies whether the bot will wait for a user to respond. When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
         """
         return pulumi.get(self, "is_active")
 
@@ -6124,7 +5800,7 @@ class BotWaitAndContinueSpecification(dict):
     @pulumi.getter(name="stillWaitingResponse")
     def still_waiting_response(self) -> Optional['outputs.BotStillWaitingResponseSpecification']:
         """
-        The response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+        A response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
         """
         return pulumi.get(self, "still_waiting_response")
 
@@ -6132,7 +5808,7 @@ class BotWaitAndContinueSpecification(dict):
 @pulumi.output_type
 class DataPrivacyProperties(dict):
     """
-    Data privacy setting of the Bot.
+    By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -6154,7 +5830,7 @@ class DataPrivacyProperties(dict):
     def __init__(__self__, *,
                  child_directed: bool):
         """
-        Data privacy setting of the Bot.
+        By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
         :param bool child_directed: For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying `true` or `false` in the `childDirected` field. By specifying `true` in the `childDirected` field, you confirm that your use of Amazon Lex *is* related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying `false` in the `childDirected` field, you confirm that your use of Amazon Lex *is not* related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the `childDirected` field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the [Amazon Lex FAQ](https://docs.aws.amazon.com/lex/faqs#data-security) .
         """
         pulumi.set(__self__, "child_directed", child_directed)

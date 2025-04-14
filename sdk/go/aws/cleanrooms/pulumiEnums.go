@@ -232,7 +232,8 @@ func (in *analysisTemplateAnalysisParameterTypePtr) ToAnalysisTemplateAnalysisPa
 type AnalysisTemplateFormat string
 
 const (
-	AnalysisTemplateFormatSql = AnalysisTemplateFormat("SQL")
+	AnalysisTemplateFormatSql       = AnalysisTemplateFormat("SQL")
+	AnalysisTemplateFormatPyspark10 = AnalysisTemplateFormat("PYSPARK_1_0")
 )
 
 func (AnalysisTemplateFormat) ElementType() reflect.Type {
@@ -358,6 +359,7 @@ func (o AnalysisTemplateFormatPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // A concrete instance of `AnalysisTemplateFormatInput` can be one of the following:
 //
 //	AnalysisTemplateFormatSql
+//	AnalysisTemplateFormatPyspark10
 type AnalysisTemplateFormatInput interface {
 	pulumi.Input
 
@@ -767,10 +769,176 @@ func (o CollaborationCustomMlMemberAbilityArrayOutput) Index(i pulumi.IntInput) 
 	}).(CollaborationCustomMlMemberAbilityOutput)
 }
 
+type CollaborationJobLogStatus string
+
+const (
+	CollaborationJobLogStatusEnabled  = CollaborationJobLogStatus("ENABLED")
+	CollaborationJobLogStatusDisabled = CollaborationJobLogStatus("DISABLED")
+)
+
+func (CollaborationJobLogStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationJobLogStatus)(nil)).Elem()
+}
+
+func (e CollaborationJobLogStatus) ToCollaborationJobLogStatusOutput() CollaborationJobLogStatusOutput {
+	return pulumi.ToOutput(e).(CollaborationJobLogStatusOutput)
+}
+
+func (e CollaborationJobLogStatus) ToCollaborationJobLogStatusOutputWithContext(ctx context.Context) CollaborationJobLogStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CollaborationJobLogStatusOutput)
+}
+
+func (e CollaborationJobLogStatus) ToCollaborationJobLogStatusPtrOutput() CollaborationJobLogStatusPtrOutput {
+	return e.ToCollaborationJobLogStatusPtrOutputWithContext(context.Background())
+}
+
+func (e CollaborationJobLogStatus) ToCollaborationJobLogStatusPtrOutputWithContext(ctx context.Context) CollaborationJobLogStatusPtrOutput {
+	return CollaborationJobLogStatus(e).ToCollaborationJobLogStatusOutputWithContext(ctx).ToCollaborationJobLogStatusPtrOutputWithContext(ctx)
+}
+
+func (e CollaborationJobLogStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollaborationJobLogStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollaborationJobLogStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CollaborationJobLogStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CollaborationJobLogStatusOutput struct{ *pulumi.OutputState }
+
+func (CollaborationJobLogStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationJobLogStatus)(nil)).Elem()
+}
+
+func (o CollaborationJobLogStatusOutput) ToCollaborationJobLogStatusOutput() CollaborationJobLogStatusOutput {
+	return o
+}
+
+func (o CollaborationJobLogStatusOutput) ToCollaborationJobLogStatusOutputWithContext(ctx context.Context) CollaborationJobLogStatusOutput {
+	return o
+}
+
+func (o CollaborationJobLogStatusOutput) ToCollaborationJobLogStatusPtrOutput() CollaborationJobLogStatusPtrOutput {
+	return o.ToCollaborationJobLogStatusPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationJobLogStatusOutput) ToCollaborationJobLogStatusPtrOutputWithContext(ctx context.Context) CollaborationJobLogStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollaborationJobLogStatus) *CollaborationJobLogStatus {
+		return &v
+	}).(CollaborationJobLogStatusPtrOutput)
+}
+
+func (o CollaborationJobLogStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CollaborationJobLogStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollaborationJobLogStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CollaborationJobLogStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationJobLogStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollaborationJobLogStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CollaborationJobLogStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (CollaborationJobLogStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationJobLogStatus)(nil)).Elem()
+}
+
+func (o CollaborationJobLogStatusPtrOutput) ToCollaborationJobLogStatusPtrOutput() CollaborationJobLogStatusPtrOutput {
+	return o
+}
+
+func (o CollaborationJobLogStatusPtrOutput) ToCollaborationJobLogStatusPtrOutputWithContext(ctx context.Context) CollaborationJobLogStatusPtrOutput {
+	return o
+}
+
+func (o CollaborationJobLogStatusPtrOutput) Elem() CollaborationJobLogStatusOutput {
+	return o.ApplyT(func(v *CollaborationJobLogStatus) CollaborationJobLogStatus {
+		if v != nil {
+			return *v
+		}
+		var ret CollaborationJobLogStatus
+		return ret
+	}).(CollaborationJobLogStatusOutput)
+}
+
+func (o CollaborationJobLogStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationJobLogStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CollaborationJobLogStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CollaborationJobLogStatusInput is an input type that accepts values of the CollaborationJobLogStatus enum
+// A concrete instance of `CollaborationJobLogStatusInput` can be one of the following:
+//
+//	CollaborationJobLogStatusEnabled
+//	CollaborationJobLogStatusDisabled
+type CollaborationJobLogStatusInput interface {
+	pulumi.Input
+
+	ToCollaborationJobLogStatusOutput() CollaborationJobLogStatusOutput
+	ToCollaborationJobLogStatusOutputWithContext(context.Context) CollaborationJobLogStatusOutput
+}
+
+var collaborationJobLogStatusPtrType = reflect.TypeOf((**CollaborationJobLogStatus)(nil)).Elem()
+
+type CollaborationJobLogStatusPtrInput interface {
+	pulumi.Input
+
+	ToCollaborationJobLogStatusPtrOutput() CollaborationJobLogStatusPtrOutput
+	ToCollaborationJobLogStatusPtrOutputWithContext(context.Context) CollaborationJobLogStatusPtrOutput
+}
+
+type collaborationJobLogStatusPtr string
+
+func CollaborationJobLogStatusPtr(v string) CollaborationJobLogStatusPtrInput {
+	return (*collaborationJobLogStatusPtr)(&v)
+}
+
+func (*collaborationJobLogStatusPtr) ElementType() reflect.Type {
+	return collaborationJobLogStatusPtrType
+}
+
+func (in *collaborationJobLogStatusPtr) ToCollaborationJobLogStatusPtrOutput() CollaborationJobLogStatusPtrOutput {
+	return pulumi.ToOutput(in).(CollaborationJobLogStatusPtrOutput)
+}
+
+func (in *collaborationJobLogStatusPtr) ToCollaborationJobLogStatusPtrOutputWithContext(ctx context.Context) CollaborationJobLogStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CollaborationJobLogStatusPtrOutput)
+}
+
 type CollaborationMemberAbility string
 
 const (
 	CollaborationMemberAbilityCanQuery          = CollaborationMemberAbility("CAN_QUERY")
+	CollaborationMemberAbilityCanRunJob         = CollaborationMemberAbility("CAN_RUN_JOB")
 	CollaborationMemberAbilityCanReceiveResults = CollaborationMemberAbility("CAN_RECEIVE_RESULTS")
 )
 
@@ -897,6 +1065,7 @@ func (o CollaborationMemberAbilityPtrOutput) ToStringPtrOutputWithContext(ctx co
 // A concrete instance of `CollaborationMemberAbilityInput` can be one of the following:
 //
 //	CollaborationMemberAbilityCanQuery
+//	CollaborationMemberAbilityCanRunJob
 //	CollaborationMemberAbilityCanReceiveResults
 type CollaborationMemberAbilityInput interface {
 	pulumi.Input
@@ -1647,6 +1816,8 @@ type ConfiguredTableAnalysisMethod string
 
 const (
 	ConfiguredTableAnalysisMethodDirectQuery = ConfiguredTableAnalysisMethod("DIRECT_QUERY")
+	ConfiguredTableAnalysisMethodDirectJob   = ConfiguredTableAnalysisMethod("DIRECT_JOB")
+	ConfiguredTableAnalysisMethodMultiple    = ConfiguredTableAnalysisMethod("MULTIPLE")
 )
 
 func (ConfiguredTableAnalysisMethod) ElementType() reflect.Type {
@@ -1772,6 +1943,8 @@ func (o ConfiguredTableAnalysisMethodPtrOutput) ToStringPtrOutputWithContext(ctx
 // A concrete instance of `ConfiguredTableAnalysisMethodInput` can be one of the following:
 //
 //	ConfiguredTableAnalysisMethodDirectQuery
+//	ConfiguredTableAnalysisMethodDirectJob
+//	ConfiguredTableAnalysisMethodMultiple
 type ConfiguredTableAnalysisMethodInput interface {
 	pulumi.Input
 
@@ -2767,6 +2940,216 @@ func (o ConfiguredTableScalarFunctionsArrayOutput) Index(i pulumi.IntInput) Conf
 	}).(ConfiguredTableScalarFunctionsOutput)
 }
 
+type ConfiguredTableSelectedAnalysisMethod string
+
+const (
+	ConfiguredTableSelectedAnalysisMethodDirectQuery = ConfiguredTableSelectedAnalysisMethod("DIRECT_QUERY")
+	ConfiguredTableSelectedAnalysisMethodDirectJob   = ConfiguredTableSelectedAnalysisMethod("DIRECT_JOB")
+)
+
+func (ConfiguredTableSelectedAnalysisMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableSelectedAnalysisMethod)(nil)).Elem()
+}
+
+func (e ConfiguredTableSelectedAnalysisMethod) ToConfiguredTableSelectedAnalysisMethodOutput() ConfiguredTableSelectedAnalysisMethodOutput {
+	return pulumi.ToOutput(e).(ConfiguredTableSelectedAnalysisMethodOutput)
+}
+
+func (e ConfiguredTableSelectedAnalysisMethod) ToConfiguredTableSelectedAnalysisMethodOutputWithContext(ctx context.Context) ConfiguredTableSelectedAnalysisMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConfiguredTableSelectedAnalysisMethodOutput)
+}
+
+func (e ConfiguredTableSelectedAnalysisMethod) ToConfiguredTableSelectedAnalysisMethodPtrOutput() ConfiguredTableSelectedAnalysisMethodPtrOutput {
+	return e.ToConfiguredTableSelectedAnalysisMethodPtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableSelectedAnalysisMethod) ToConfiguredTableSelectedAnalysisMethodPtrOutputWithContext(ctx context.Context) ConfiguredTableSelectedAnalysisMethodPtrOutput {
+	return ConfiguredTableSelectedAnalysisMethod(e).ToConfiguredTableSelectedAnalysisMethodOutputWithContext(ctx).ToConfiguredTableSelectedAnalysisMethodPtrOutputWithContext(ctx)
+}
+
+func (e ConfiguredTableSelectedAnalysisMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableSelectedAnalysisMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableSelectedAnalysisMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableSelectedAnalysisMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConfiguredTableSelectedAnalysisMethodOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableSelectedAnalysisMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableSelectedAnalysisMethod)(nil)).Elem()
+}
+
+func (o ConfiguredTableSelectedAnalysisMethodOutput) ToConfiguredTableSelectedAnalysisMethodOutput() ConfiguredTableSelectedAnalysisMethodOutput {
+	return o
+}
+
+func (o ConfiguredTableSelectedAnalysisMethodOutput) ToConfiguredTableSelectedAnalysisMethodOutputWithContext(ctx context.Context) ConfiguredTableSelectedAnalysisMethodOutput {
+	return o
+}
+
+func (o ConfiguredTableSelectedAnalysisMethodOutput) ToConfiguredTableSelectedAnalysisMethodPtrOutput() ConfiguredTableSelectedAnalysisMethodPtrOutput {
+	return o.ToConfiguredTableSelectedAnalysisMethodPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableSelectedAnalysisMethodOutput) ToConfiguredTableSelectedAnalysisMethodPtrOutputWithContext(ctx context.Context) ConfiguredTableSelectedAnalysisMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredTableSelectedAnalysisMethod) *ConfiguredTableSelectedAnalysisMethod {
+		return &v
+	}).(ConfiguredTableSelectedAnalysisMethodPtrOutput)
+}
+
+func (o ConfiguredTableSelectedAnalysisMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableSelectedAnalysisMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableSelectedAnalysisMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableSelectedAnalysisMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableSelectedAnalysisMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableSelectedAnalysisMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfiguredTableSelectedAnalysisMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableSelectedAnalysisMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableSelectedAnalysisMethod)(nil)).Elem()
+}
+
+func (o ConfiguredTableSelectedAnalysisMethodPtrOutput) ToConfiguredTableSelectedAnalysisMethodPtrOutput() ConfiguredTableSelectedAnalysisMethodPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableSelectedAnalysisMethodPtrOutput) ToConfiguredTableSelectedAnalysisMethodPtrOutputWithContext(ctx context.Context) ConfiguredTableSelectedAnalysisMethodPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableSelectedAnalysisMethodPtrOutput) Elem() ConfiguredTableSelectedAnalysisMethodOutput {
+	return o.ApplyT(func(v *ConfiguredTableSelectedAnalysisMethod) ConfiguredTableSelectedAnalysisMethod {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableSelectedAnalysisMethod
+		return ret
+	}).(ConfiguredTableSelectedAnalysisMethodOutput)
+}
+
+func (o ConfiguredTableSelectedAnalysisMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableSelectedAnalysisMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConfiguredTableSelectedAnalysisMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConfiguredTableSelectedAnalysisMethodInput is an input type that accepts values of the ConfiguredTableSelectedAnalysisMethod enum
+// A concrete instance of `ConfiguredTableSelectedAnalysisMethodInput` can be one of the following:
+//
+//	ConfiguredTableSelectedAnalysisMethodDirectQuery
+//	ConfiguredTableSelectedAnalysisMethodDirectJob
+type ConfiguredTableSelectedAnalysisMethodInput interface {
+	pulumi.Input
+
+	ToConfiguredTableSelectedAnalysisMethodOutput() ConfiguredTableSelectedAnalysisMethodOutput
+	ToConfiguredTableSelectedAnalysisMethodOutputWithContext(context.Context) ConfiguredTableSelectedAnalysisMethodOutput
+}
+
+var configuredTableSelectedAnalysisMethodPtrType = reflect.TypeOf((**ConfiguredTableSelectedAnalysisMethod)(nil)).Elem()
+
+type ConfiguredTableSelectedAnalysisMethodPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredTableSelectedAnalysisMethodPtrOutput() ConfiguredTableSelectedAnalysisMethodPtrOutput
+	ToConfiguredTableSelectedAnalysisMethodPtrOutputWithContext(context.Context) ConfiguredTableSelectedAnalysisMethodPtrOutput
+}
+
+type configuredTableSelectedAnalysisMethodPtr string
+
+func ConfiguredTableSelectedAnalysisMethodPtr(v string) ConfiguredTableSelectedAnalysisMethodPtrInput {
+	return (*configuredTableSelectedAnalysisMethodPtr)(&v)
+}
+
+func (*configuredTableSelectedAnalysisMethodPtr) ElementType() reflect.Type {
+	return configuredTableSelectedAnalysisMethodPtrType
+}
+
+func (in *configuredTableSelectedAnalysisMethodPtr) ToConfiguredTableSelectedAnalysisMethodPtrOutput() ConfiguredTableSelectedAnalysisMethodPtrOutput {
+	return pulumi.ToOutput(in).(ConfiguredTableSelectedAnalysisMethodPtrOutput)
+}
+
+func (in *configuredTableSelectedAnalysisMethodPtr) ToConfiguredTableSelectedAnalysisMethodPtrOutputWithContext(ctx context.Context) ConfiguredTableSelectedAnalysisMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableSelectedAnalysisMethodPtrOutput)
+}
+
+// ConfiguredTableSelectedAnalysisMethodArrayInput is an input type that accepts ConfiguredTableSelectedAnalysisMethodArray and ConfiguredTableSelectedAnalysisMethodArrayOutput values.
+// You can construct a concrete instance of `ConfiguredTableSelectedAnalysisMethodArrayInput` via:
+//
+//	ConfiguredTableSelectedAnalysisMethodArray{ ConfiguredTableSelectedAnalysisMethodArgs{...} }
+type ConfiguredTableSelectedAnalysisMethodArrayInput interface {
+	pulumi.Input
+
+	ToConfiguredTableSelectedAnalysisMethodArrayOutput() ConfiguredTableSelectedAnalysisMethodArrayOutput
+	ToConfiguredTableSelectedAnalysisMethodArrayOutputWithContext(context.Context) ConfiguredTableSelectedAnalysisMethodArrayOutput
+}
+
+type ConfiguredTableSelectedAnalysisMethodArray []ConfiguredTableSelectedAnalysisMethod
+
+func (ConfiguredTableSelectedAnalysisMethodArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableSelectedAnalysisMethod)(nil)).Elem()
+}
+
+func (i ConfiguredTableSelectedAnalysisMethodArray) ToConfiguredTableSelectedAnalysisMethodArrayOutput() ConfiguredTableSelectedAnalysisMethodArrayOutput {
+	return i.ToConfiguredTableSelectedAnalysisMethodArrayOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableSelectedAnalysisMethodArray) ToConfiguredTableSelectedAnalysisMethodArrayOutputWithContext(ctx context.Context) ConfiguredTableSelectedAnalysisMethodArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableSelectedAnalysisMethodArrayOutput)
+}
+
+type ConfiguredTableSelectedAnalysisMethodArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableSelectedAnalysisMethodArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableSelectedAnalysisMethod)(nil)).Elem()
+}
+
+func (o ConfiguredTableSelectedAnalysisMethodArrayOutput) ToConfiguredTableSelectedAnalysisMethodArrayOutput() ConfiguredTableSelectedAnalysisMethodArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableSelectedAnalysisMethodArrayOutput) ToConfiguredTableSelectedAnalysisMethodArrayOutputWithContext(ctx context.Context) ConfiguredTableSelectedAnalysisMethodArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableSelectedAnalysisMethodArrayOutput) Index(i pulumi.IntInput) ConfiguredTableSelectedAnalysisMethodOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfiguredTableSelectedAnalysisMethod {
+		return vs[0].([]ConfiguredTableSelectedAnalysisMethod)[vs[1].(int)]
+	}).(ConfiguredTableSelectedAnalysisMethodOutput)
+}
+
 // The type of the input source of the ID mapping table.
 type IdMappingTableInputSourceType string
 
@@ -2947,6 +3330,171 @@ func (o IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput) 
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+type MembershipJobLogStatus string
+
+const (
+	MembershipJobLogStatusEnabled  = MembershipJobLogStatus("ENABLED")
+	MembershipJobLogStatusDisabled = MembershipJobLogStatus("DISABLED")
+)
+
+func (MembershipJobLogStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipJobLogStatus)(nil)).Elem()
+}
+
+func (e MembershipJobLogStatus) ToMembershipJobLogStatusOutput() MembershipJobLogStatusOutput {
+	return pulumi.ToOutput(e).(MembershipJobLogStatusOutput)
+}
+
+func (e MembershipJobLogStatus) ToMembershipJobLogStatusOutputWithContext(ctx context.Context) MembershipJobLogStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MembershipJobLogStatusOutput)
+}
+
+func (e MembershipJobLogStatus) ToMembershipJobLogStatusPtrOutput() MembershipJobLogStatusPtrOutput {
+	return e.ToMembershipJobLogStatusPtrOutputWithContext(context.Background())
+}
+
+func (e MembershipJobLogStatus) ToMembershipJobLogStatusPtrOutputWithContext(ctx context.Context) MembershipJobLogStatusPtrOutput {
+	return MembershipJobLogStatus(e).ToMembershipJobLogStatusOutputWithContext(ctx).ToMembershipJobLogStatusPtrOutputWithContext(ctx)
+}
+
+func (e MembershipJobLogStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MembershipJobLogStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MembershipJobLogStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MembershipJobLogStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MembershipJobLogStatusOutput struct{ *pulumi.OutputState }
+
+func (MembershipJobLogStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipJobLogStatus)(nil)).Elem()
+}
+
+func (o MembershipJobLogStatusOutput) ToMembershipJobLogStatusOutput() MembershipJobLogStatusOutput {
+	return o
+}
+
+func (o MembershipJobLogStatusOutput) ToMembershipJobLogStatusOutputWithContext(ctx context.Context) MembershipJobLogStatusOutput {
+	return o
+}
+
+func (o MembershipJobLogStatusOutput) ToMembershipJobLogStatusPtrOutput() MembershipJobLogStatusPtrOutput {
+	return o.ToMembershipJobLogStatusPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipJobLogStatusOutput) ToMembershipJobLogStatusPtrOutputWithContext(ctx context.Context) MembershipJobLogStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipJobLogStatus) *MembershipJobLogStatus {
+		return &v
+	}).(MembershipJobLogStatusPtrOutput)
+}
+
+func (o MembershipJobLogStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MembershipJobLogStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MembershipJobLogStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MembershipJobLogStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipJobLogStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MembershipJobLogStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MembershipJobLogStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipJobLogStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipJobLogStatus)(nil)).Elem()
+}
+
+func (o MembershipJobLogStatusPtrOutput) ToMembershipJobLogStatusPtrOutput() MembershipJobLogStatusPtrOutput {
+	return o
+}
+
+func (o MembershipJobLogStatusPtrOutput) ToMembershipJobLogStatusPtrOutputWithContext(ctx context.Context) MembershipJobLogStatusPtrOutput {
+	return o
+}
+
+func (o MembershipJobLogStatusPtrOutput) Elem() MembershipJobLogStatusOutput {
+	return o.ApplyT(func(v *MembershipJobLogStatus) MembershipJobLogStatus {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipJobLogStatus
+		return ret
+	}).(MembershipJobLogStatusOutput)
+}
+
+func (o MembershipJobLogStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipJobLogStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MembershipJobLogStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MembershipJobLogStatusInput is an input type that accepts values of the MembershipJobLogStatus enum
+// A concrete instance of `MembershipJobLogStatusInput` can be one of the following:
+//
+//	MembershipJobLogStatusEnabled
+//	MembershipJobLogStatusDisabled
+type MembershipJobLogStatusInput interface {
+	pulumi.Input
+
+	ToMembershipJobLogStatusOutput() MembershipJobLogStatusOutput
+	ToMembershipJobLogStatusOutputWithContext(context.Context) MembershipJobLogStatusOutput
+}
+
+var membershipJobLogStatusPtrType = reflect.TypeOf((**MembershipJobLogStatus)(nil)).Elem()
+
+type MembershipJobLogStatusPtrInput interface {
+	pulumi.Input
+
+	ToMembershipJobLogStatusPtrOutput() MembershipJobLogStatusPtrOutput
+	ToMembershipJobLogStatusPtrOutputWithContext(context.Context) MembershipJobLogStatusPtrOutput
+}
+
+type membershipJobLogStatusPtr string
+
+func MembershipJobLogStatusPtr(v string) MembershipJobLogStatusPtrInput {
+	return (*membershipJobLogStatusPtr)(&v)
+}
+
+func (*membershipJobLogStatusPtr) ElementType() reflect.Type {
+	return membershipJobLogStatusPtrType
+}
+
+func (in *membershipJobLogStatusPtr) ToMembershipJobLogStatusPtrOutput() MembershipJobLogStatusPtrOutput {
+	return pulumi.ToOutput(in).(MembershipJobLogStatusPtrOutput)
+}
+
+func (in *membershipJobLogStatusPtr) ToMembershipJobLogStatusPtrOutputWithContext(ctx context.Context) MembershipJobLogStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MembershipJobLogStatusPtrOutput)
 }
 
 type MembershipQueryLogStatus string
@@ -3621,6 +4169,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationCustomMlMemberAbilityInput)(nil)).Elem(), CollaborationCustomMlMemberAbility("CAN_RECEIVE_MODEL_OUTPUT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationCustomMlMemberAbilityPtrInput)(nil)).Elem(), CollaborationCustomMlMemberAbility("CAN_RECEIVE_MODEL_OUTPUT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationCustomMlMemberAbilityArrayInput)(nil)).Elem(), CollaborationCustomMlMemberAbilityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationJobLogStatusInput)(nil)).Elem(), CollaborationJobLogStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationJobLogStatusPtrInput)(nil)).Elem(), CollaborationJobLogStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberAbilityInput)(nil)).Elem(), CollaborationMemberAbility("CAN_QUERY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberAbilityPtrInput)(nil)).Elem(), CollaborationMemberAbility("CAN_QUERY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberAbilityArrayInput)(nil)).Elem(), CollaborationMemberAbilityArray{})
@@ -3646,6 +4196,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableScalarFunctionsInput)(nil)).Elem(), ConfiguredTableScalarFunctions("TRUNC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableScalarFunctionsPtrInput)(nil)).Elem(), ConfiguredTableScalarFunctions("TRUNC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableScalarFunctionsArrayInput)(nil)).Elem(), ConfiguredTableScalarFunctionsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableSelectedAnalysisMethodInput)(nil)).Elem(), ConfiguredTableSelectedAnalysisMethod("DIRECT_QUERY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableSelectedAnalysisMethodPtrInput)(nil)).Elem(), ConfiguredTableSelectedAnalysisMethod("DIRECT_QUERY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableSelectedAnalysisMethodArrayInput)(nil)).Elem(), ConfiguredTableSelectedAnalysisMethodArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipJobLogStatusInput)(nil)).Elem(), MembershipJobLogStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipJobLogStatusPtrInput)(nil)).Elem(), MembershipJobLogStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryLogStatusInput)(nil)).Elem(), MembershipQueryLogStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryLogStatusPtrInput)(nil)).Elem(), MembershipQueryLogStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipResultFormatInput)(nil)).Elem(), MembershipResultFormat("CSV"))
@@ -3663,6 +4218,8 @@ func init() {
 	pulumi.RegisterOutputType(CollaborationCustomMlMemberAbilityOutput{})
 	pulumi.RegisterOutputType(CollaborationCustomMlMemberAbilityPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationCustomMlMemberAbilityArrayOutput{})
+	pulumi.RegisterOutputType(CollaborationJobLogStatusOutput{})
+	pulumi.RegisterOutputType(CollaborationJobLogStatusPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberAbilityOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberAbilityPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberAbilityArrayOutput{})
@@ -3688,10 +4245,15 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableScalarFunctionsOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableScalarFunctionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableScalarFunctionsArrayOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableSelectedAnalysisMethodOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableSelectedAnalysisMethodPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableSelectedAnalysisMethodArrayOutput{})
 	pulumi.RegisterOutputType(IdMappingTableInputSourceTypeOutput{})
 	pulumi.RegisterOutputType(IdMappingTableInputSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput{})
 	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput{})
+	pulumi.RegisterOutputType(MembershipJobLogStatusOutput{})
+	pulumi.RegisterOutputType(MembershipJobLogStatusPtrOutput{})
 	pulumi.RegisterOutputType(MembershipQueryLogStatusOutput{})
 	pulumi.RegisterOutputType(MembershipQueryLogStatusPtrOutput{})
 	pulumi.RegisterOutputType(MembershipResultFormatOutput{})

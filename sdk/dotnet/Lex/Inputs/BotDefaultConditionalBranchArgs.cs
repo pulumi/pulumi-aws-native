@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// A set of actions that Amazon Lex should run if none of the other conditions are met.
-    /// </summary>
     public sealed class BotDefaultConditionalBranchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

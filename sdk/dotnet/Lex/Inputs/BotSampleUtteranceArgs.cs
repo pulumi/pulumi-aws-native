@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// A sample utterance that invokes an intent or respond to a slot elicitation prompt.
-    /// </summary>
     public sealed class BotSampleUtteranceArgs : global::Pulumi.ResourceArgs
     {
         [Input("utterance", required: true)]

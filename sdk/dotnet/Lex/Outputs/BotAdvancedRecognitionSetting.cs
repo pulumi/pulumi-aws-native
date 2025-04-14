@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Provides settings that enable advanced recognition settings for slot values.
-    /// </summary>
     [OutputType]
     public sealed class BotAdvancedRecognitionSetting
     {

@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'StreamEncryptionEncryptionType',
+    'StreamEnhancedMetric',
     'StreamModeDetailsStreamMode',
 ]
 
@@ -15,6 +16,20 @@ class StreamEncryptionEncryptionType(str, Enum):
     The encryption type to use. The only valid value is KMS. 
     """
     KMS = "KMS"
+
+
+class StreamEnhancedMetric(str, Enum):
+    """
+    Value of an enhanced metric
+    """
+    INCOMING_BYTES = "IncomingBytes"
+    INCOMING_RECORDS = "IncomingRecords"
+    OUTGOING_BYTES = "OutgoingBytes"
+    OUTGOING_RECORDS = "OutgoingRecords"
+    WRITE_PROVISIONED_THROUGHPUT_EXCEEDED = "WriteProvisionedThroughputExceeded"
+    READ_PROVISIONED_THROUGHPUT_EXCEEDED = "ReadProvisionedThroughputExceeded"
+    ITERATOR_AGE_MILLISECONDS = "IteratorAgeMilliseconds"
+    ALL = "ALL"
 
 
 class StreamModeDetailsStreamMode(str, Enum):

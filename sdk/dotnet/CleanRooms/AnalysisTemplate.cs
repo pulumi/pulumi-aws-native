@@ -85,14 +85,23 @@ namespace Pulumi.AwsNative.CleanRooms
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The entire schema object.
+        /// </summary>
         [Output("schema")]
-        public Output<Outputs.AnalysisTemplateAnalysisSchema> Schema { get; private set; } = null!;
+        public Output<Outputs.AnalysisTemplateAnalysisSchema?> Schema { get; private set; } = null!;
 
         /// <summary>
         /// The source of the analysis template.
         /// </summary>
         [Output("source")]
-        public Output<Outputs.AnalysisTemplateAnalysisSource> Source { get; private set; } = null!;
+        public Output<Union<Outputs.AnalysisTemplateAnalysisSource0Properties, Outputs.AnalysisTemplateAnalysisSource1Properties>> Source { get; private set; } = null!;
+
+        /// <summary>
+        /// The source metadata for the analysis template.
+        /// </summary>
+        [Output("sourceMetadata")]
+        public Output<Outputs.AnalysisTemplateAnalysisSourceMetadataProperties?> SourceMetadata { get; private set; } = null!;
 
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
@@ -129,6 +138,7 @@ namespace Pulumi.AwsNative.CleanRooms
                     "format",
                     "membershipIdentifier",
                     "name",
+                    "schema",
                     "source",
                 },
             };
@@ -190,10 +200,22 @@ namespace Pulumi.AwsNative.CleanRooms
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The entire schema object.
+        /// </summary>
+        [Input("schema")]
+        public Input<Inputs.AnalysisTemplateAnalysisSchemaArgs>? Schema { get; set; }
+
+        /// <summary>
         /// The source of the analysis template.
         /// </summary>
         [Input("source", required: true)]
-        public Input<Inputs.AnalysisTemplateAnalysisSourceArgs> Source { get; set; } = null!;
+        public InputUnion<Inputs.AnalysisTemplateAnalysisSource0PropertiesArgs, Inputs.AnalysisTemplateAnalysisSource1PropertiesArgs> Source { get; set; } = null!;
+
+        /// <summary>
+        /// The source metadata for the analysis template.
+        /// </summary>
+        [Input("sourceMetadata")]
+        public Input<Inputs.AnalysisTemplateAnalysisSourceMetadataPropertiesArgs>? SourceMetadata { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

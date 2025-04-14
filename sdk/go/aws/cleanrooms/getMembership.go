@@ -43,8 +43,14 @@ type LookupMembershipResult struct {
 	//
 	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 	CollaborationCreatorAccountId *string `pulumi:"collaborationCreatorAccountId"`
+	// The default job result configuration for the membership.
+	DefaultJobResultConfiguration *MembershipProtectedJobResultConfiguration `pulumi:"defaultJobResultConfiguration"`
 	// The default protected query result configuration as specified by the member who can receive results.
 	DefaultResultConfiguration *MembershipProtectedQueryResultConfiguration `pulumi:"defaultResultConfiguration"`
+	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
+	//
+	// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+	JobLogStatus *MembershipJobLogStatus `pulumi:"jobLogStatus"`
 	// Returns the unique identifier of the specified membership.
 	//
 	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
@@ -114,11 +120,25 @@ func (o LookupMembershipResultOutput) CollaborationCreatorAccountId() pulumi.Str
 	return o.ApplyT(func(v LookupMembershipResult) *string { return v.CollaborationCreatorAccountId }).(pulumi.StringPtrOutput)
 }
 
+// The default job result configuration for the membership.
+func (o LookupMembershipResultOutput) DefaultJobResultConfiguration() MembershipProtectedJobResultConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupMembershipResult) *MembershipProtectedJobResultConfiguration {
+		return v.DefaultJobResultConfiguration
+	}).(MembershipProtectedJobResultConfigurationPtrOutput)
+}
+
 // The default protected query result configuration as specified by the member who can receive results.
 func (o LookupMembershipResultOutput) DefaultResultConfiguration() MembershipProtectedQueryResultConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupMembershipResult) *MembershipProtectedQueryResultConfiguration {
 		return v.DefaultResultConfiguration
 	}).(MembershipProtectedQueryResultConfigurationPtrOutput)
+}
+
+// An indicator as to whether job logging has been enabled or disabled for the collaboration.
+//
+// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+func (o LookupMembershipResultOutput) JobLogStatus() MembershipJobLogStatusPtrOutput {
+	return o.ApplyT(func(v LookupMembershipResult) *MembershipJobLogStatus { return v.JobLogStatus }).(MembershipJobLogStatusPtrOutput)
 }
 
 // Returns the unique identifier of the specified membership.

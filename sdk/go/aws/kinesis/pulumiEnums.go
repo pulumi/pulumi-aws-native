@@ -174,6 +174,229 @@ func (in *streamEncryptionEncryptionTypePtr) ToStreamEncryptionEncryptionTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(StreamEncryptionEncryptionTypePtrOutput)
 }
 
+// Value of an enhanced metric
+type StreamEnhancedMetric string
+
+const (
+	StreamEnhancedMetricIncomingBytes                      = StreamEnhancedMetric("IncomingBytes")
+	StreamEnhancedMetricIncomingRecords                    = StreamEnhancedMetric("IncomingRecords")
+	StreamEnhancedMetricOutgoingBytes                      = StreamEnhancedMetric("OutgoingBytes")
+	StreamEnhancedMetricOutgoingRecords                    = StreamEnhancedMetric("OutgoingRecords")
+	StreamEnhancedMetricWriteProvisionedThroughputExceeded = StreamEnhancedMetric("WriteProvisionedThroughputExceeded")
+	StreamEnhancedMetricReadProvisionedThroughputExceeded  = StreamEnhancedMetric("ReadProvisionedThroughputExceeded")
+	StreamEnhancedMetricIteratorAgeMilliseconds            = StreamEnhancedMetric("IteratorAgeMilliseconds")
+	StreamEnhancedMetricAll                                = StreamEnhancedMetric("ALL")
+)
+
+func (StreamEnhancedMetric) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamEnhancedMetric)(nil)).Elem()
+}
+
+func (e StreamEnhancedMetric) ToStreamEnhancedMetricOutput() StreamEnhancedMetricOutput {
+	return pulumi.ToOutput(e).(StreamEnhancedMetricOutput)
+}
+
+func (e StreamEnhancedMetric) ToStreamEnhancedMetricOutputWithContext(ctx context.Context) StreamEnhancedMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StreamEnhancedMetricOutput)
+}
+
+func (e StreamEnhancedMetric) ToStreamEnhancedMetricPtrOutput() StreamEnhancedMetricPtrOutput {
+	return e.ToStreamEnhancedMetricPtrOutputWithContext(context.Background())
+}
+
+func (e StreamEnhancedMetric) ToStreamEnhancedMetricPtrOutputWithContext(ctx context.Context) StreamEnhancedMetricPtrOutput {
+	return StreamEnhancedMetric(e).ToStreamEnhancedMetricOutputWithContext(ctx).ToStreamEnhancedMetricPtrOutputWithContext(ctx)
+}
+
+func (e StreamEnhancedMetric) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StreamEnhancedMetric) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StreamEnhancedMetric) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StreamEnhancedMetric) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type StreamEnhancedMetricOutput struct{ *pulumi.OutputState }
+
+func (StreamEnhancedMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamEnhancedMetric)(nil)).Elem()
+}
+
+func (o StreamEnhancedMetricOutput) ToStreamEnhancedMetricOutput() StreamEnhancedMetricOutput {
+	return o
+}
+
+func (o StreamEnhancedMetricOutput) ToStreamEnhancedMetricOutputWithContext(ctx context.Context) StreamEnhancedMetricOutput {
+	return o
+}
+
+func (o StreamEnhancedMetricOutput) ToStreamEnhancedMetricPtrOutput() StreamEnhancedMetricPtrOutput {
+	return o.ToStreamEnhancedMetricPtrOutputWithContext(context.Background())
+}
+
+func (o StreamEnhancedMetricOutput) ToStreamEnhancedMetricPtrOutputWithContext(ctx context.Context) StreamEnhancedMetricPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamEnhancedMetric) *StreamEnhancedMetric {
+		return &v
+	}).(StreamEnhancedMetricPtrOutput)
+}
+
+func (o StreamEnhancedMetricOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StreamEnhancedMetricOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StreamEnhancedMetric) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StreamEnhancedMetricOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StreamEnhancedMetricOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StreamEnhancedMetric) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamEnhancedMetricPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamEnhancedMetricPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamEnhancedMetric)(nil)).Elem()
+}
+
+func (o StreamEnhancedMetricPtrOutput) ToStreamEnhancedMetricPtrOutput() StreamEnhancedMetricPtrOutput {
+	return o
+}
+
+func (o StreamEnhancedMetricPtrOutput) ToStreamEnhancedMetricPtrOutputWithContext(ctx context.Context) StreamEnhancedMetricPtrOutput {
+	return o
+}
+
+func (o StreamEnhancedMetricPtrOutput) Elem() StreamEnhancedMetricOutput {
+	return o.ApplyT(func(v *StreamEnhancedMetric) StreamEnhancedMetric {
+		if v != nil {
+			return *v
+		}
+		var ret StreamEnhancedMetric
+		return ret
+	}).(StreamEnhancedMetricOutput)
+}
+
+func (o StreamEnhancedMetricPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StreamEnhancedMetricPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StreamEnhancedMetric) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// StreamEnhancedMetricInput is an input type that accepts values of the StreamEnhancedMetric enum
+// A concrete instance of `StreamEnhancedMetricInput` can be one of the following:
+//
+//	StreamEnhancedMetricIncomingBytes
+//	StreamEnhancedMetricIncomingRecords
+//	StreamEnhancedMetricOutgoingBytes
+//	StreamEnhancedMetricOutgoingRecords
+//	StreamEnhancedMetricWriteProvisionedThroughputExceeded
+//	StreamEnhancedMetricReadProvisionedThroughputExceeded
+//	StreamEnhancedMetricIteratorAgeMilliseconds
+//	StreamEnhancedMetricAll
+type StreamEnhancedMetricInput interface {
+	pulumi.Input
+
+	ToStreamEnhancedMetricOutput() StreamEnhancedMetricOutput
+	ToStreamEnhancedMetricOutputWithContext(context.Context) StreamEnhancedMetricOutput
+}
+
+var streamEnhancedMetricPtrType = reflect.TypeOf((**StreamEnhancedMetric)(nil)).Elem()
+
+type StreamEnhancedMetricPtrInput interface {
+	pulumi.Input
+
+	ToStreamEnhancedMetricPtrOutput() StreamEnhancedMetricPtrOutput
+	ToStreamEnhancedMetricPtrOutputWithContext(context.Context) StreamEnhancedMetricPtrOutput
+}
+
+type streamEnhancedMetricPtr string
+
+func StreamEnhancedMetricPtr(v string) StreamEnhancedMetricPtrInput {
+	return (*streamEnhancedMetricPtr)(&v)
+}
+
+func (*streamEnhancedMetricPtr) ElementType() reflect.Type {
+	return streamEnhancedMetricPtrType
+}
+
+func (in *streamEnhancedMetricPtr) ToStreamEnhancedMetricPtrOutput() StreamEnhancedMetricPtrOutput {
+	return pulumi.ToOutput(in).(StreamEnhancedMetricPtrOutput)
+}
+
+func (in *streamEnhancedMetricPtr) ToStreamEnhancedMetricPtrOutputWithContext(ctx context.Context) StreamEnhancedMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StreamEnhancedMetricPtrOutput)
+}
+
+// StreamEnhancedMetricArrayInput is an input type that accepts StreamEnhancedMetricArray and StreamEnhancedMetricArrayOutput values.
+// You can construct a concrete instance of `StreamEnhancedMetricArrayInput` via:
+//
+//	StreamEnhancedMetricArray{ StreamEnhancedMetricArgs{...} }
+type StreamEnhancedMetricArrayInput interface {
+	pulumi.Input
+
+	ToStreamEnhancedMetricArrayOutput() StreamEnhancedMetricArrayOutput
+	ToStreamEnhancedMetricArrayOutputWithContext(context.Context) StreamEnhancedMetricArrayOutput
+}
+
+type StreamEnhancedMetricArray []StreamEnhancedMetric
+
+func (StreamEnhancedMetricArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamEnhancedMetric)(nil)).Elem()
+}
+
+func (i StreamEnhancedMetricArray) ToStreamEnhancedMetricArrayOutput() StreamEnhancedMetricArrayOutput {
+	return i.ToStreamEnhancedMetricArrayOutputWithContext(context.Background())
+}
+
+func (i StreamEnhancedMetricArray) ToStreamEnhancedMetricArrayOutputWithContext(ctx context.Context) StreamEnhancedMetricArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamEnhancedMetricArrayOutput)
+}
+
+type StreamEnhancedMetricArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamEnhancedMetricArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamEnhancedMetric)(nil)).Elem()
+}
+
+func (o StreamEnhancedMetricArrayOutput) ToStreamEnhancedMetricArrayOutput() StreamEnhancedMetricArrayOutput {
+	return o
+}
+
+func (o StreamEnhancedMetricArrayOutput) ToStreamEnhancedMetricArrayOutputWithContext(ctx context.Context) StreamEnhancedMetricArrayOutput {
+	return o
+}
+
+func (o StreamEnhancedMetricArrayOutput) Index(i pulumi.IntInput) StreamEnhancedMetricOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamEnhancedMetric {
+		return vs[0].([]StreamEnhancedMetric)[vs[1].(int)]
+	}).(StreamEnhancedMetricOutput)
+}
+
 // The mode of the stream
 type StreamModeDetailsStreamMode string
 
@@ -343,10 +566,16 @@ func (in *streamModeDetailsStreamModePtr) ToStreamModeDetailsStreamModePtrOutput
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamEncryptionEncryptionTypeInput)(nil)).Elem(), StreamEncryptionEncryptionType("KMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamEncryptionEncryptionTypePtrInput)(nil)).Elem(), StreamEncryptionEncryptionType("KMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamEnhancedMetricInput)(nil)).Elem(), StreamEnhancedMetric("IncomingBytes"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamEnhancedMetricPtrInput)(nil)).Elem(), StreamEnhancedMetric("IncomingBytes"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamEnhancedMetricArrayInput)(nil)).Elem(), StreamEnhancedMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamModeDetailsStreamModeInput)(nil)).Elem(), StreamModeDetailsStreamMode("ON_DEMAND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamModeDetailsStreamModePtrInput)(nil)).Elem(), StreamModeDetailsStreamMode("ON_DEMAND"))
 	pulumi.RegisterOutputType(StreamEncryptionEncryptionTypeOutput{})
 	pulumi.RegisterOutputType(StreamEncryptionEncryptionTypePtrOutput{})
+	pulumi.RegisterOutputType(StreamEnhancedMetricOutput{})
+	pulumi.RegisterOutputType(StreamEnhancedMetricPtrOutput{})
+	pulumi.RegisterOutputType(StreamEnhancedMetricArrayOutput{})
 	pulumi.RegisterOutputType(StreamModeDetailsStreamModeOutput{})
 	pulumi.RegisterOutputType(StreamModeDetailsStreamModePtrOutput{})
 }

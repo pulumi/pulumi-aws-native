@@ -13,10 +13,12 @@ __all__ = [
     'ApplicationStatus',
     'ApplicationSubscriptionType',
     'DataSourceAttributeValueOperator',
+    'DataSourceAudioExtractionStatus',
     'DataSourceDocumentContentOperator',
     'DataSourceDocumentEnrichmentConditionOperator',
     'DataSourceImageExtractionStatus',
     'DataSourceStatus',
+    'DataSourceVideoExtractionStatus',
     'IndexAttributeType',
     'IndexStatus',
     'IndexType',
@@ -77,6 +79,11 @@ class DataSourceAttributeValueOperator(str, Enum):
     DELETE = "DELETE"
 
 
+class DataSourceAudioExtractionStatus(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 class DataSourceDocumentContentOperator(str, Enum):
     DELETE = "DELETE"
 
@@ -107,6 +114,11 @@ class DataSourceStatus(str, Enum):
     DELETING = "DELETING"
     FAILED = "FAILED"
     UPDATING = "UPDATING"
+
+
+class DataSourceVideoExtractionStatus(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class IndexAttributeType(str, Enum):

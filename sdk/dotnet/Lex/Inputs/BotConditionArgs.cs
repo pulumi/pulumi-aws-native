@@ -10,14 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Provides an expression that evaluates to true or false.
-    /// </summary>
     public sealed class BotConditionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The expression string that is evaluated.
-        /// </summary>
         [Input("expressionString", required: true)]
         public Input<string> ExpressionString { get; set; } = null!;
 

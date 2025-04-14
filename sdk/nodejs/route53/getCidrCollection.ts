@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::Route53::CidrCollection.
+ * Resource Type definition for AWS::Route53::CidrCollection.
  */
 export function getCidrCollection(args: GetCidrCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetCidrCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,7 +39,7 @@ export interface GetCidrCollectionResult {
     readonly locations?: outputs.route53.CidrCollectionLocation[];
 }
 /**
- * Resource schema for AWS::Route53::CidrCollection.
+ * Resource Type definition for AWS::Route53::CidrCollection.
  */
 export function getCidrCollectionOutput(args: GetCidrCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCidrCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -57,6 +57,9 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      * Displays whether this is a period-based SLO or a request-based SLO.
      */
     public /*out*/ readonly evaluationType!: pulumi.Output<enums.applicationsignals.ServiceLevelObjectiveEvaluationType>;
+    /**
+     * The time window to be excluded from the SLO performance metrics.
+     */
     public readonly exclusionWindows!: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveExclusionWindow[] | undefined>;
     /**
      * This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
@@ -141,6 +144,9 @@ export interface ServiceLevelObjectiveArgs {
      * An optional description for this SLO. Default is 'No description'
      */
     description?: pulumi.Input<string>;
+    /**
+     * The time window to be excluded from the SLO performance metrics.
+     */
     exclusionWindows?: pulumi.Input<pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveExclusionWindowArgs>[]>;
     /**
      * This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.

@@ -62,6 +62,13 @@ export const DataSourceAttributeValueOperator = {
 
 export type DataSourceAttributeValueOperator = (typeof DataSourceAttributeValueOperator)[keyof typeof DataSourceAttributeValueOperator];
 
+export const DataSourceAudioExtractionStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type DataSourceAudioExtractionStatus = (typeof DataSourceAudioExtractionStatus)[keyof typeof DataSourceAudioExtractionStatus];
+
 export const DataSourceDocumentContentOperator = {
     Delete: "DELETE",
 } as const;
@@ -101,6 +108,13 @@ export const DataSourceStatus = {
 } as const;
 
 export type DataSourceStatus = (typeof DataSourceStatus)[keyof typeof DataSourceStatus];
+
+export const DataSourceVideoExtractionStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type DataSourceVideoExtractionStatus = (typeof DataSourceVideoExtractionStatus)[keyof typeof DataSourceVideoExtractionStatus];
 
 export const IndexAttributeType = {
     String: "STRING",

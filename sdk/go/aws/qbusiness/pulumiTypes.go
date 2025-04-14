@@ -2164,6 +2164,145 @@ type DataAccessorTag struct {
 	Value string `pulumi:"value"`
 }
 
+type DataSourceAudioExtractionConfiguration struct {
+	// The status of audio extraction (ENABLED or DISABLED) for processing audio content from files.
+	AudioExtractionStatus DataSourceAudioExtractionStatus `pulumi:"audioExtractionStatus"`
+}
+
+// DataSourceAudioExtractionConfigurationInput is an input type that accepts DataSourceAudioExtractionConfigurationArgs and DataSourceAudioExtractionConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceAudioExtractionConfigurationInput` via:
+//
+//	DataSourceAudioExtractionConfigurationArgs{...}
+type DataSourceAudioExtractionConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceAudioExtractionConfigurationOutput() DataSourceAudioExtractionConfigurationOutput
+	ToDataSourceAudioExtractionConfigurationOutputWithContext(context.Context) DataSourceAudioExtractionConfigurationOutput
+}
+
+type DataSourceAudioExtractionConfigurationArgs struct {
+	// The status of audio extraction (ENABLED or DISABLED) for processing audio content from files.
+	AudioExtractionStatus DataSourceAudioExtractionStatusInput `pulumi:"audioExtractionStatus"`
+}
+
+func (DataSourceAudioExtractionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceAudioExtractionConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceAudioExtractionConfigurationArgs) ToDataSourceAudioExtractionConfigurationOutput() DataSourceAudioExtractionConfigurationOutput {
+	return i.ToDataSourceAudioExtractionConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceAudioExtractionConfigurationArgs) ToDataSourceAudioExtractionConfigurationOutputWithContext(ctx context.Context) DataSourceAudioExtractionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAudioExtractionConfigurationOutput)
+}
+
+func (i DataSourceAudioExtractionConfigurationArgs) ToDataSourceAudioExtractionConfigurationPtrOutput() DataSourceAudioExtractionConfigurationPtrOutput {
+	return i.ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceAudioExtractionConfigurationArgs) ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceAudioExtractionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAudioExtractionConfigurationOutput).ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceAudioExtractionConfigurationPtrInput is an input type that accepts DataSourceAudioExtractionConfigurationArgs, DataSourceAudioExtractionConfigurationPtr and DataSourceAudioExtractionConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceAudioExtractionConfigurationPtrInput` via:
+//
+//	        DataSourceAudioExtractionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceAudioExtractionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceAudioExtractionConfigurationPtrOutput() DataSourceAudioExtractionConfigurationPtrOutput
+	ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(context.Context) DataSourceAudioExtractionConfigurationPtrOutput
+}
+
+type dataSourceAudioExtractionConfigurationPtrType DataSourceAudioExtractionConfigurationArgs
+
+func DataSourceAudioExtractionConfigurationPtr(v *DataSourceAudioExtractionConfigurationArgs) DataSourceAudioExtractionConfigurationPtrInput {
+	return (*dataSourceAudioExtractionConfigurationPtrType)(v)
+}
+
+func (*dataSourceAudioExtractionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceAudioExtractionConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceAudioExtractionConfigurationPtrType) ToDataSourceAudioExtractionConfigurationPtrOutput() DataSourceAudioExtractionConfigurationPtrOutput {
+	return i.ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceAudioExtractionConfigurationPtrType) ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceAudioExtractionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAudioExtractionConfigurationPtrOutput)
+}
+
+type DataSourceAudioExtractionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceAudioExtractionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceAudioExtractionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceAudioExtractionConfigurationOutput) ToDataSourceAudioExtractionConfigurationOutput() DataSourceAudioExtractionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceAudioExtractionConfigurationOutput) ToDataSourceAudioExtractionConfigurationOutputWithContext(ctx context.Context) DataSourceAudioExtractionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceAudioExtractionConfigurationOutput) ToDataSourceAudioExtractionConfigurationPtrOutput() DataSourceAudioExtractionConfigurationPtrOutput {
+	return o.ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceAudioExtractionConfigurationOutput) ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceAudioExtractionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceAudioExtractionConfiguration) *DataSourceAudioExtractionConfiguration {
+		return &v
+	}).(DataSourceAudioExtractionConfigurationPtrOutput)
+}
+
+// The status of audio extraction (ENABLED or DISABLED) for processing audio content from files.
+func (o DataSourceAudioExtractionConfigurationOutput) AudioExtractionStatus() DataSourceAudioExtractionStatusOutput {
+	return o.ApplyT(func(v DataSourceAudioExtractionConfiguration) DataSourceAudioExtractionStatus {
+		return v.AudioExtractionStatus
+	}).(DataSourceAudioExtractionStatusOutput)
+}
+
+type DataSourceAudioExtractionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceAudioExtractionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceAudioExtractionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceAudioExtractionConfigurationPtrOutput) ToDataSourceAudioExtractionConfigurationPtrOutput() DataSourceAudioExtractionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceAudioExtractionConfigurationPtrOutput) ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceAudioExtractionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceAudioExtractionConfigurationPtrOutput) Elem() DataSourceAudioExtractionConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceAudioExtractionConfiguration) DataSourceAudioExtractionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceAudioExtractionConfiguration
+		return ret
+	}).(DataSourceAudioExtractionConfigurationOutput)
+}
+
+// The status of audio extraction (ENABLED or DISABLED) for processing audio content from files.
+func (o DataSourceAudioExtractionConfigurationPtrOutput) AudioExtractionStatus() DataSourceAudioExtractionStatusPtrOutput {
+	return o.ApplyT(func(v *DataSourceAudioExtractionConfiguration) *DataSourceAudioExtractionStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.AudioExtractionStatus
+	}).(DataSourceAudioExtractionStatusPtrOutput)
+}
+
 type DataSourceDocumentAttributeCondition struct {
 	// The identifier of the document attribute used for the condition.
 	//
@@ -3268,7 +3407,7 @@ type DataSourceHookConfiguration struct {
 	//
 	// For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
 	InvocationCondition *DataSourceDocumentAttributeCondition `pulumi:"invocationCondition"`
-	// The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
+	// The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
 	LambdaArn *string `pulumi:"lambdaArn"`
 	// The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
 	RoleArn *string `pulumi:"roleArn"`
@@ -3292,7 +3431,7 @@ type DataSourceHookConfigurationArgs struct {
 	//
 	// For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
 	InvocationCondition DataSourceDocumentAttributeConditionPtrInput `pulumi:"invocationCondition"`
-	// The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
+	// The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
 	LambdaArn pulumi.StringPtrInput `pulumi:"lambdaArn"`
 	// The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
@@ -3386,7 +3525,7 @@ func (o DataSourceHookConfigurationOutput) InvocationCondition() DataSourceDocum
 	}).(DataSourceDocumentAttributeConditionPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
+// The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
 func (o DataSourceHookConfigurationOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceHookConfiguration) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
 }
@@ -3437,7 +3576,7 @@ func (o DataSourceHookConfigurationPtrOutput) InvocationCondition() DataSourceDo
 	}).(DataSourceDocumentAttributeConditionPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
+// The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
 func (o DataSourceHookConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceHookConfiguration) *string {
 		if v == nil {
@@ -3728,8 +3867,12 @@ func (o DataSourceInlineDocumentEnrichmentConfigurationArrayOutput) Index(i pulu
 }
 
 type DataSourceMediaExtractionConfiguration struct {
+	// Configuration settings for extracting and processing audio content from media files.
+	AudioExtractionConfiguration *DataSourceAudioExtractionConfiguration `pulumi:"audioExtractionConfiguration"`
 	// The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
 	ImageExtractionConfiguration *DataSourceImageExtractionConfiguration `pulumi:"imageExtractionConfiguration"`
+	// Configuration settings for extracting and processing video content from media files.
+	VideoExtractionConfiguration *DataSourceVideoExtractionConfiguration `pulumi:"videoExtractionConfiguration"`
 }
 
 // DataSourceMediaExtractionConfigurationInput is an input type that accepts DataSourceMediaExtractionConfigurationArgs and DataSourceMediaExtractionConfigurationOutput values.
@@ -3744,8 +3887,12 @@ type DataSourceMediaExtractionConfigurationInput interface {
 }
 
 type DataSourceMediaExtractionConfigurationArgs struct {
+	// Configuration settings for extracting and processing audio content from media files.
+	AudioExtractionConfiguration DataSourceAudioExtractionConfigurationPtrInput `pulumi:"audioExtractionConfiguration"`
 	// The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
 	ImageExtractionConfiguration DataSourceImageExtractionConfigurationPtrInput `pulumi:"imageExtractionConfiguration"`
+	// Configuration settings for extracting and processing video content from media files.
+	VideoExtractionConfiguration DataSourceVideoExtractionConfigurationPtrInput `pulumi:"videoExtractionConfiguration"`
 }
 
 func (DataSourceMediaExtractionConfigurationArgs) ElementType() reflect.Type {
@@ -3825,11 +3972,25 @@ func (o DataSourceMediaExtractionConfigurationOutput) ToDataSourceMediaExtractio
 	}).(DataSourceMediaExtractionConfigurationPtrOutput)
 }
 
+// Configuration settings for extracting and processing audio content from media files.
+func (o DataSourceMediaExtractionConfigurationOutput) AudioExtractionConfiguration() DataSourceAudioExtractionConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceMediaExtractionConfiguration) *DataSourceAudioExtractionConfiguration {
+		return v.AudioExtractionConfiguration
+	}).(DataSourceAudioExtractionConfigurationPtrOutput)
+}
+
 // The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
 func (o DataSourceMediaExtractionConfigurationOutput) ImageExtractionConfiguration() DataSourceImageExtractionConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceMediaExtractionConfiguration) *DataSourceImageExtractionConfiguration {
 		return v.ImageExtractionConfiguration
 	}).(DataSourceImageExtractionConfigurationPtrOutput)
+}
+
+// Configuration settings for extracting and processing video content from media files.
+func (o DataSourceMediaExtractionConfigurationOutput) VideoExtractionConfiguration() DataSourceVideoExtractionConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceMediaExtractionConfiguration) *DataSourceVideoExtractionConfiguration {
+		return v.VideoExtractionConfiguration
+	}).(DataSourceVideoExtractionConfigurationPtrOutput)
 }
 
 type DataSourceMediaExtractionConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -3856,6 +4017,16 @@ func (o DataSourceMediaExtractionConfigurationPtrOutput) Elem() DataSourceMediaE
 	}).(DataSourceMediaExtractionConfigurationOutput)
 }
 
+// Configuration settings for extracting and processing audio content from media files.
+func (o DataSourceMediaExtractionConfigurationPtrOutput) AudioExtractionConfiguration() DataSourceAudioExtractionConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceMediaExtractionConfiguration) *DataSourceAudioExtractionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AudioExtractionConfiguration
+	}).(DataSourceAudioExtractionConfigurationPtrOutput)
+}
+
 // The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
 func (o DataSourceMediaExtractionConfigurationPtrOutput) ImageExtractionConfiguration() DataSourceImageExtractionConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceMediaExtractionConfiguration) *DataSourceImageExtractionConfiguration {
@@ -3866,11 +4037,160 @@ func (o DataSourceMediaExtractionConfigurationPtrOutput) ImageExtractionConfigur
 	}).(DataSourceImageExtractionConfigurationPtrOutput)
 }
 
+// Configuration settings for extracting and processing video content from media files.
+func (o DataSourceMediaExtractionConfigurationPtrOutput) VideoExtractionConfiguration() DataSourceVideoExtractionConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceMediaExtractionConfiguration) *DataSourceVideoExtractionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.VideoExtractionConfiguration
+	}).(DataSourceVideoExtractionConfigurationPtrOutput)
+}
+
 type DataSourceTag struct {
 	// The key for the tag. Keys are not case sensitive and must be unique for the Amazon Q Business application or data source.
 	Key string `pulumi:"key"`
 	// The value associated with the tag. The value may be an empty string but it can't be null.
 	Value string `pulumi:"value"`
+}
+
+type DataSourceVideoExtractionConfiguration struct {
+	// The status of video extraction (ENABLED or DISABLED) for processing video content from files.
+	VideoExtractionStatus DataSourceVideoExtractionStatus `pulumi:"videoExtractionStatus"`
+}
+
+// DataSourceVideoExtractionConfigurationInput is an input type that accepts DataSourceVideoExtractionConfigurationArgs and DataSourceVideoExtractionConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceVideoExtractionConfigurationInput` via:
+//
+//	DataSourceVideoExtractionConfigurationArgs{...}
+type DataSourceVideoExtractionConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceVideoExtractionConfigurationOutput() DataSourceVideoExtractionConfigurationOutput
+	ToDataSourceVideoExtractionConfigurationOutputWithContext(context.Context) DataSourceVideoExtractionConfigurationOutput
+}
+
+type DataSourceVideoExtractionConfigurationArgs struct {
+	// The status of video extraction (ENABLED or DISABLED) for processing video content from files.
+	VideoExtractionStatus DataSourceVideoExtractionStatusInput `pulumi:"videoExtractionStatus"`
+}
+
+func (DataSourceVideoExtractionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceVideoExtractionConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceVideoExtractionConfigurationArgs) ToDataSourceVideoExtractionConfigurationOutput() DataSourceVideoExtractionConfigurationOutput {
+	return i.ToDataSourceVideoExtractionConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceVideoExtractionConfigurationArgs) ToDataSourceVideoExtractionConfigurationOutputWithContext(ctx context.Context) DataSourceVideoExtractionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceVideoExtractionConfigurationOutput)
+}
+
+func (i DataSourceVideoExtractionConfigurationArgs) ToDataSourceVideoExtractionConfigurationPtrOutput() DataSourceVideoExtractionConfigurationPtrOutput {
+	return i.ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceVideoExtractionConfigurationArgs) ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceVideoExtractionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceVideoExtractionConfigurationOutput).ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceVideoExtractionConfigurationPtrInput is an input type that accepts DataSourceVideoExtractionConfigurationArgs, DataSourceVideoExtractionConfigurationPtr and DataSourceVideoExtractionConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceVideoExtractionConfigurationPtrInput` via:
+//
+//	        DataSourceVideoExtractionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceVideoExtractionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceVideoExtractionConfigurationPtrOutput() DataSourceVideoExtractionConfigurationPtrOutput
+	ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(context.Context) DataSourceVideoExtractionConfigurationPtrOutput
+}
+
+type dataSourceVideoExtractionConfigurationPtrType DataSourceVideoExtractionConfigurationArgs
+
+func DataSourceVideoExtractionConfigurationPtr(v *DataSourceVideoExtractionConfigurationArgs) DataSourceVideoExtractionConfigurationPtrInput {
+	return (*dataSourceVideoExtractionConfigurationPtrType)(v)
+}
+
+func (*dataSourceVideoExtractionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceVideoExtractionConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceVideoExtractionConfigurationPtrType) ToDataSourceVideoExtractionConfigurationPtrOutput() DataSourceVideoExtractionConfigurationPtrOutput {
+	return i.ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceVideoExtractionConfigurationPtrType) ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceVideoExtractionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceVideoExtractionConfigurationPtrOutput)
+}
+
+type DataSourceVideoExtractionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceVideoExtractionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceVideoExtractionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceVideoExtractionConfigurationOutput) ToDataSourceVideoExtractionConfigurationOutput() DataSourceVideoExtractionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceVideoExtractionConfigurationOutput) ToDataSourceVideoExtractionConfigurationOutputWithContext(ctx context.Context) DataSourceVideoExtractionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceVideoExtractionConfigurationOutput) ToDataSourceVideoExtractionConfigurationPtrOutput() DataSourceVideoExtractionConfigurationPtrOutput {
+	return o.ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceVideoExtractionConfigurationOutput) ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceVideoExtractionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceVideoExtractionConfiguration) *DataSourceVideoExtractionConfiguration {
+		return &v
+	}).(DataSourceVideoExtractionConfigurationPtrOutput)
+}
+
+// The status of video extraction (ENABLED or DISABLED) for processing video content from files.
+func (o DataSourceVideoExtractionConfigurationOutput) VideoExtractionStatus() DataSourceVideoExtractionStatusOutput {
+	return o.ApplyT(func(v DataSourceVideoExtractionConfiguration) DataSourceVideoExtractionStatus {
+		return v.VideoExtractionStatus
+	}).(DataSourceVideoExtractionStatusOutput)
+}
+
+type DataSourceVideoExtractionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceVideoExtractionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceVideoExtractionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceVideoExtractionConfigurationPtrOutput) ToDataSourceVideoExtractionConfigurationPtrOutput() DataSourceVideoExtractionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceVideoExtractionConfigurationPtrOutput) ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceVideoExtractionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceVideoExtractionConfigurationPtrOutput) Elem() DataSourceVideoExtractionConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceVideoExtractionConfiguration) DataSourceVideoExtractionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceVideoExtractionConfiguration
+		return ret
+	}).(DataSourceVideoExtractionConfigurationOutput)
+}
+
+// The status of video extraction (ENABLED or DISABLED) for processing video content from files.
+func (o DataSourceVideoExtractionConfigurationPtrOutput) VideoExtractionStatus() DataSourceVideoExtractionStatusPtrOutput {
+	return o.ApplyT(func(v *DataSourceVideoExtractionConfiguration) *DataSourceVideoExtractionStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.VideoExtractionStatus
+	}).(DataSourceVideoExtractionStatusPtrOutput)
 }
 
 type DataSourceVpcConfiguration struct {
@@ -6834,6 +7154,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributeValue2PropertiesPtrInput)(nil)).Elem(), DataAccessorDocumentAttributeValue2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributeValue3PropertiesInput)(nil)).Elem(), DataAccessorDocumentAttributeValue3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributeValue3PropertiesPtrInput)(nil)).Elem(), DataAccessorDocumentAttributeValue3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAudioExtractionConfigurationInput)(nil)).Elem(), DataSourceAudioExtractionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAudioExtractionConfigurationPtrInput)(nil)).Elem(), DataSourceAudioExtractionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentAttributeConditionInput)(nil)).Elem(), DataSourceDocumentAttributeConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentAttributeConditionPtrInput)(nil)).Elem(), DataSourceDocumentAttributeConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentAttributeTargetInput)(nil)).Elem(), DataSourceDocumentAttributeTargetArgs{})
@@ -6856,6 +7178,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceInlineDocumentEnrichmentConfigurationArrayInput)(nil)).Elem(), DataSourceInlineDocumentEnrichmentConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMediaExtractionConfigurationInput)(nil)).Elem(), DataSourceMediaExtractionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMediaExtractionConfigurationPtrInput)(nil)).Elem(), DataSourceMediaExtractionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVideoExtractionConfigurationInput)(nil)).Elem(), DataSourceVideoExtractionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVideoExtractionConfigurationPtrInput)(nil)).Elem(), DataSourceVideoExtractionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConfigurationInput)(nil)).Elem(), DataSourceVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConfigurationPtrInput)(nil)).Elem(), DataSourceVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexCapacityConfigurationInput)(nil)).Elem(), IndexCapacityConfigurationArgs{})
@@ -6921,6 +7245,8 @@ func init() {
 	pulumi.RegisterOutputType(DataAccessorDocumentAttributeValue2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataAccessorDocumentAttributeValue3PropertiesOutput{})
 	pulumi.RegisterOutputType(DataAccessorDocumentAttributeValue3PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceAudioExtractionConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceAudioExtractionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentAttributeConditionOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentAttributeConditionPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentAttributeTargetOutput{})
@@ -6943,6 +7269,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceInlineDocumentEnrichmentConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceMediaExtractionConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceMediaExtractionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceVideoExtractionConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceVideoExtractionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IndexCapacityConfigurationOutput{})

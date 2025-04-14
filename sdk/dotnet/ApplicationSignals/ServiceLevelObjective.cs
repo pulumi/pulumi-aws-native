@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.ApplicationSignals
         [Output("evaluationType")]
         public Output<Pulumi.AwsNative.ApplicationSignals.ServiceLevelObjectiveEvaluationType> EvaluationType { get; private set; } = null!;
 
+        /// <summary>
+        /// The time window to be excluded from the SLO performance metrics.
+        /// </summary>
         [Output("exclusionWindows")]
         public Output<ImmutableArray<Outputs.ServiceLevelObjectiveExclusionWindow>> ExclusionWindows { get; private set; } = null!;
 
@@ -155,6 +158,10 @@ namespace Pulumi.AwsNative.ApplicationSignals
 
         [Input("exclusionWindows")]
         private InputList<Inputs.ServiceLevelObjectiveExclusionWindowArgs>? _exclusionWindows;
+
+        /// <summary>
+        /// The time window to be excluded from the SLO performance metrics.
+        /// </summary>
         public InputList<Inputs.ServiceLevelObjectiveExclusionWindowArgs> ExclusionWindows
         {
             get => _exclusionWindows ?? (_exclusionWindows = new InputList<Inputs.ServiceLevelObjectiveExclusionWindowArgs>());

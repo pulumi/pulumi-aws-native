@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
         /// </summary>
         public readonly ImmutableArray<string> Command;
+        public readonly bool? EnableExecuteCommand;
         /// <summary>
         /// The environment variables to pass to a container. This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
         /// 
@@ -130,6 +131,8 @@ namespace Pulumi.AwsNative.Batch.Outputs
         private JobDefinitionContainerProperties(
             ImmutableArray<string> command,
 
+            bool? enableExecuteCommand,
+
             ImmutableArray<Outputs.JobDefinitionEnvironment> environment,
 
             Outputs.JobDefinitionEphemeralStorage? ephemeralStorage,
@@ -173,6 +176,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
             ImmutableArray<Outputs.JobDefinitionVolume> volumes)
         {
             Command = command;
+            EnableExecuteCommand = enableExecuteCommand;
             Environment = environment;
             EphemeralStorage = ephemeralStorage;
             ExecutionRoleArn = executionRoleArn;

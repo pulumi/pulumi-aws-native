@@ -10,22 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// S3 location of bot definitions zip file, if it's not defined inline in CloudFormation.
-    /// </summary>
     [OutputType]
     public sealed class BotS3Location
     {
         /// <summary>
-        /// An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+        /// The S3 bucket name.
         /// </summary>
         public readonly string S3Bucket;
         /// <summary>
-        /// The Amazon S3 key of the deployment package.
+        /// The path and file name to the object in the S3 bucket.
         /// </summary>
         public readonly string S3ObjectKey;
         /// <summary>
-        /// For versioned objects, the version of the deployment package object to use. If not specified, the current object version will be used.
+        /// The version of the object in the S3 bucket.
         /// </summary>
         public readonly string? S3ObjectVersion;
 

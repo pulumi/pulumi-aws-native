@@ -10,14 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// A message in Speech Synthesis Markup Language (SSML).
-    /// </summary>
     public sealed class BotSsmlMessageArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The SSML text that defines the prompt.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

@@ -86,9 +86,19 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         public readonly string? CollaborationCreatorAccountId;
         /// <summary>
+        /// The default job result configuration for the membership.
+        /// </summary>
+        public readonly Outputs.MembershipProtectedJobResultConfiguration? DefaultJobResultConfiguration;
+        /// <summary>
         /// The default protected query result configuration as specified by the member who can receive results.
         /// </summary>
         public readonly Outputs.MembershipProtectedQueryResultConfiguration? DefaultResultConfiguration;
+        /// <summary>
+        /// An indicator as to whether job logging has been enabled or disabled for the collaboration.
+        /// 
+        /// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+        /// </summary>
+        public readonly Pulumi.AwsNative.CleanRooms.MembershipJobLogStatus? JobLogStatus;
         /// <summary>
         /// Returns the unique identifier of the specified membership.
         /// 
@@ -118,7 +128,11 @@ namespace Pulumi.AwsNative.CleanRooms
 
             string? collaborationCreatorAccountId,
 
+            Outputs.MembershipProtectedJobResultConfiguration? defaultJobResultConfiguration,
+
             Outputs.MembershipProtectedQueryResultConfiguration? defaultResultConfiguration,
+
+            Pulumi.AwsNative.CleanRooms.MembershipJobLogStatus? jobLogStatus,
 
             string? membershipIdentifier,
 
@@ -131,7 +145,9 @@ namespace Pulumi.AwsNative.CleanRooms
             Arn = arn;
             CollaborationArn = collaborationArn;
             CollaborationCreatorAccountId = collaborationCreatorAccountId;
+            DefaultJobResultConfiguration = defaultJobResultConfiguration;
             DefaultResultConfiguration = defaultResultConfiguration;
+            JobLogStatus = jobLogStatus;
             MembershipIdentifier = membershipIdentifier;
             PaymentConfiguration = paymentConfiguration;
             QueryLogStatus = queryLogStatus;

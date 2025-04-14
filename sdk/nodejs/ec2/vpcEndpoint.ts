@@ -108,6 +108,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the service network.
      */
     public readonly serviceNetworkArn!: pulumi.Output<string | undefined>;
+    public readonly serviceRegion!: pulumi.Output<string | undefined>;
     /**
      * The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
      */
@@ -149,6 +150,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["serviceNetworkArn"] = args ? args.serviceNetworkArn : undefined;
+            resourceInputs["serviceRegion"] = args ? args.serviceRegion : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcEndpointType"] = args ? args.vpcEndpointType : undefined;
@@ -171,13 +173,14 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["serviceName"] = undefined /*out*/;
             resourceInputs["serviceNetworkArn"] = undefined /*out*/;
+            resourceInputs["serviceRegion"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcEndpointType"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["resourceConfigurationArn", "serviceName", "serviceNetworkArn", "vpcEndpointType", "vpcId"] };
+        const replaceOnChanges = { replaceOnChanges: ["resourceConfigurationArn", "serviceName", "serviceNetworkArn", "serviceRegion", "vpcEndpointType", "vpcId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpcEndpoint.__pulumiType, name, resourceInputs, opts);
     }
@@ -230,6 +233,7 @@ export interface VpcEndpointArgs {
      * The Amazon Resource Name (ARN) of the service network.
      */
     serviceNetworkArn?: pulumi.Input<string>;
+    serviceRegion?: pulumi.Input<string>;
     /**
      * The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
      */

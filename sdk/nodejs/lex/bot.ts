@@ -42,7 +42,7 @@ export class Bot extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Specifies whether to build the bot locales after bot creation completes.
+     * Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
      */
     public readonly autoBuildBotLocales!: pulumi.Output<boolean | undefined>;
     /**
@@ -54,15 +54,15 @@ export class Bot extends pulumi.CustomResource {
      */
     public readonly botFileS3Location!: pulumi.Output<outputs.lex.BotS3Location | undefined>;
     /**
-     * List of bot locales
+     * A list of locales for the bot.
      */
     public readonly botLocales!: pulumi.Output<outputs.lex.BotLocale[] | undefined>;
     /**
-     * A list of tags to add to the bot, which can only be added at bot creation.
+     * A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
      */
     public readonly botTags!: pulumi.Output<outputs.lex.BotTag[] | undefined>;
     /**
-     * Data privacy setting of the Bot.
+     * By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
      */
     public readonly dataPrivacy!: pulumi.Output<outputs.lex.DataPrivacyProperties>;
     /**
@@ -70,7 +70,11 @@ export class Bot extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * IdleSessionTTLInSeconds of the resource
+     * The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
+     *
+     * A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
+     *
+     * You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
      */
     public readonly idleSessionTtlInSeconds!: pulumi.Output<number>;
     /**
@@ -87,7 +91,7 @@ export class Bot extends pulumi.CustomResource {
      */
     public readonly testBotAliasSettings!: pulumi.Output<outputs.lex.BotTestBotAliasSettings | undefined>;
     /**
-     * A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
+     * A list of tags to add to the test alias for a bot. You can only add tags when you import a bot. You can't use the `UpdateAlias` operation to update tags. To update tags on the test alias, use the `TagResource` operation.
      */
     public readonly testBotAliasTags!: pulumi.Output<outputs.lex.BotTag[] | undefined>;
 
@@ -151,7 +155,7 @@ export class Bot extends pulumi.CustomResource {
  */
 export interface BotArgs {
     /**
-     * Specifies whether to build the bot locales after bot creation completes.
+     * Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
      */
     autoBuildBotLocales?: pulumi.Input<boolean>;
     /**
@@ -159,15 +163,15 @@ export interface BotArgs {
      */
     botFileS3Location?: pulumi.Input<inputs.lex.BotS3LocationArgs>;
     /**
-     * List of bot locales
+     * A list of locales for the bot.
      */
     botLocales?: pulumi.Input<pulumi.Input<inputs.lex.BotLocaleArgs>[]>;
     /**
-     * A list of tags to add to the bot, which can only be added at bot creation.
+     * A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
      */
     botTags?: pulumi.Input<pulumi.Input<inputs.lex.BotTagArgs>[]>;
     /**
-     * Data privacy setting of the Bot.
+     * By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
      */
     dataPrivacy: pulumi.Input<inputs.lex.DataPrivacyPropertiesArgs>;
     /**
@@ -175,7 +179,11 @@ export interface BotArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * IdleSessionTTLInSeconds of the resource
+     * The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
+     *
+     * A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
+     *
+     * You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
      */
     idleSessionTtlInSeconds: pulumi.Input<number>;
     /**
@@ -192,7 +200,7 @@ export interface BotArgs {
      */
     testBotAliasSettings?: pulumi.Input<inputs.lex.BotTestBotAliasSettingsArgs>;
     /**
-     * A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
+     * A list of tags to add to the test alias for a bot. You can only add tags when you import a bot. You can't use the `UpdateAlias` operation to update tags. To update tags on the test alias, use the `TagResource` operation.
      */
     testBotAliasTags?: pulumi.Input<pulumi.Input<inputs.lex.BotTagArgs>[]>;
 }

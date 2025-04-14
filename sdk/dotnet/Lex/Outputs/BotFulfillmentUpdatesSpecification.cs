@@ -10,14 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Provides information for updating the user on the progress of fulfilling an intent.
-    /// </summary>
     [OutputType]
     public sealed class BotFulfillmentUpdatesSpecification
     {
         /// <summary>
         /// Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
+        /// 
+        /// If the `active` field is set to true, the `startResponse` , `updateResponse` , and `timeoutInSeconds` fields are required.
         /// </summary>
         public readonly bool Active;
         /// <summary>

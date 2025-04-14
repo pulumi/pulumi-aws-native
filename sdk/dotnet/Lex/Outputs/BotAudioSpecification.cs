@@ -10,19 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Specifies the audio input specifications.
-    /// </summary>
     [OutputType]
     public sealed class BotAudioSpecification
     {
-        /// <summary>
-        /// Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
-        /// </summary>
         public readonly int EndTimeoutMs;
-        /// <summary>
-        /// Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
-        /// </summary>
         public readonly int MaxLengthMs;
 
         [OutputConstructor]

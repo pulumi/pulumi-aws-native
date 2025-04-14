@@ -25,7 +25,8 @@ type ServiceLevelObjective struct {
 	// An optional description for this SLO. Default is 'No description'
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Displays whether this is a period-based SLO or a request-based SLO.
-	EvaluationType   ServiceLevelObjectiveEvaluationTypeOutput       `pulumi:"evaluationType"`
+	EvaluationType ServiceLevelObjectiveEvaluationTypeOutput `pulumi:"evaluationType"`
+	// The time window to be excluded from the SLO performance metrics.
 	ExclusionWindows ServiceLevelObjectiveExclusionWindowArrayOutput `pulumi:"exclusionWindows"`
 	// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
 	Goal ServiceLevelObjectiveGoalPtrOutput `pulumi:"goal"`
@@ -90,7 +91,8 @@ type serviceLevelObjectiveArgs struct {
 	// Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
 	BurnRateConfigurations []ServiceLevelObjectiveBurnRateConfiguration `pulumi:"burnRateConfigurations"`
 	// An optional description for this SLO. Default is 'No description'
-	Description      *string                                `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// The time window to be excluded from the SLO performance metrics.
 	ExclusionWindows []ServiceLevelObjectiveExclusionWindow `pulumi:"exclusionWindows"`
 	// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
 	Goal *ServiceLevelObjectiveGoal `pulumi:"goal"`
@@ -111,7 +113,8 @@ type ServiceLevelObjectiveArgs struct {
 	// Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
 	BurnRateConfigurations ServiceLevelObjectiveBurnRateConfigurationArrayInput
 	// An optional description for this SLO. Default is 'No description'
-	Description      pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// The time window to be excluded from the SLO performance metrics.
 	ExclusionWindows ServiceLevelObjectiveExclusionWindowArrayInput
 	// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
 	Goal ServiceLevelObjectiveGoalPtrInput
@@ -191,6 +194,7 @@ func (o ServiceLevelObjectiveOutput) EvaluationType() ServiceLevelObjectiveEvalu
 	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveEvaluationTypeOutput { return v.EvaluationType }).(ServiceLevelObjectiveEvaluationTypeOutput)
 }
 
+// The time window to be excluded from the SLO performance metrics.
 func (o ServiceLevelObjectiveOutput) ExclusionWindows() ServiceLevelObjectiveExclusionWindowArrayOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveExclusionWindowArrayOutput {
 		return v.ExclusionWindows

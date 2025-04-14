@@ -12,15 +12,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
     public sealed class BotCloudWatchLogGroupLogDestinationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A string used to identify the groupArn for the Cloudwatch Log Group
-        /// </summary>
         [Input("cloudWatchLogGroupArn", required: true)]
         public Input<string> CloudWatchLogGroupArn { get; set; } = null!;
 
-        /// <summary>
-        /// A string containing the value for the Log Prefix
-        /// </summary>
         [Input("logPrefix", required: true)]
         public Input<string> LogPrefix { get; set; } = null!;
 

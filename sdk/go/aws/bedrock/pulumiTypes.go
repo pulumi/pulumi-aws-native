@@ -27314,8 +27314,9 @@ type KnowledgeBaseOpenSearchManagedClusterConfiguration struct {
 	// The Amazon Resource Name (ARN) of the OpenSearch domain.
 	DomainArn string `pulumi:"domainArn"`
 	// The endpoint URL the OpenSearch domain.
-	DomainEndpoint string                                            `pulumi:"domainEndpoint"`
-	FieldMapping   KnowledgeBaseOpenSearchManagedClusterFieldMapping `pulumi:"fieldMapping"`
+	DomainEndpoint string `pulumi:"domainEndpoint"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping KnowledgeBaseOpenSearchManagedClusterFieldMapping `pulumi:"fieldMapping"`
 	// The name of the vector store.
 	VectorIndexName string `pulumi:"vectorIndexName"`
 }
@@ -27336,8 +27337,9 @@ type KnowledgeBaseOpenSearchManagedClusterConfigurationArgs struct {
 	// The Amazon Resource Name (ARN) of the OpenSearch domain.
 	DomainArn pulumi.StringInput `pulumi:"domainArn"`
 	// The endpoint URL the OpenSearch domain.
-	DomainEndpoint pulumi.StringInput                                     `pulumi:"domainEndpoint"`
-	FieldMapping   KnowledgeBaseOpenSearchManagedClusterFieldMappingInput `pulumi:"fieldMapping"`
+	DomainEndpoint pulumi.StringInput `pulumi:"domainEndpoint"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping KnowledgeBaseOpenSearchManagedClusterFieldMappingInput `pulumi:"fieldMapping"`
 	// The name of the vector store.
 	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
 }
@@ -27430,6 +27432,7 @@ func (o KnowledgeBaseOpenSearchManagedClusterConfigurationOutput) DomainEndpoint
 	return o.ApplyT(func(v KnowledgeBaseOpenSearchManagedClusterConfiguration) string { return v.DomainEndpoint }).(pulumi.StringOutput)
 }
 
+// Contains the names of the fields to which to map information about the vector store.
 func (o KnowledgeBaseOpenSearchManagedClusterConfigurationOutput) FieldMapping() KnowledgeBaseOpenSearchManagedClusterFieldMappingOutput {
 	return o.ApplyT(func(v KnowledgeBaseOpenSearchManagedClusterConfiguration) KnowledgeBaseOpenSearchManagedClusterFieldMapping {
 		return v.FieldMapping
@@ -27485,6 +27488,7 @@ func (o KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput) DomainEndpo
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains the names of the fields to which to map information about the vector store.
 func (o KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput) FieldMapping() KnowledgeBaseOpenSearchManagedClusterFieldMappingPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseOpenSearchManagedClusterConfiguration) *KnowledgeBaseOpenSearchManagedClusterFieldMapping {
 		if v == nil {
@@ -31079,7 +31083,8 @@ type KnowledgeBaseStorageConfiguration struct {
 	// Contains the storage configuration of the knowledge base in MongoDB Atlas.
 	MongoDbAtlasConfiguration *KnowledgeBaseMongoDbAtlasConfiguration `pulumi:"mongoDbAtlasConfiguration"`
 	// Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
-	NeptuneAnalyticsConfiguration         *KnowledgeBaseNeptuneAnalyticsConfiguration         `pulumi:"neptuneAnalyticsConfiguration"`
+	NeptuneAnalyticsConfiguration *KnowledgeBaseNeptuneAnalyticsConfiguration `pulumi:"neptuneAnalyticsConfiguration"`
+	// Contains details about the storage configuration of the knowledge base in OpenSearch Managed Cluster. For more information, see [Create a vector index in Amazon OpenSearch Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html) .
 	OpensearchManagedClusterConfiguration *KnowledgeBaseOpenSearchManagedClusterConfiguration `pulumi:"opensearchManagedClusterConfiguration"`
 	// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 	OpensearchServerlessConfiguration *KnowledgeBaseOpenSearchServerlessConfiguration `pulumi:"opensearchServerlessConfiguration"`
@@ -31107,7 +31112,8 @@ type KnowledgeBaseStorageConfigurationArgs struct {
 	// Contains the storage configuration of the knowledge base in MongoDB Atlas.
 	MongoDbAtlasConfiguration KnowledgeBaseMongoDbAtlasConfigurationPtrInput `pulumi:"mongoDbAtlasConfiguration"`
 	// Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
-	NeptuneAnalyticsConfiguration         KnowledgeBaseNeptuneAnalyticsConfigurationPtrInput         `pulumi:"neptuneAnalyticsConfiguration"`
+	NeptuneAnalyticsConfiguration KnowledgeBaseNeptuneAnalyticsConfigurationPtrInput `pulumi:"neptuneAnalyticsConfiguration"`
+	// Contains details about the storage configuration of the knowledge base in OpenSearch Managed Cluster. For more information, see [Create a vector index in Amazon OpenSearch Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html) .
 	OpensearchManagedClusterConfiguration KnowledgeBaseOpenSearchManagedClusterConfigurationPtrInput `pulumi:"opensearchManagedClusterConfiguration"`
 	// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 	OpensearchServerlessConfiguration KnowledgeBaseOpenSearchServerlessConfigurationPtrInput `pulumi:"opensearchServerlessConfiguration"`
@@ -31211,6 +31217,7 @@ func (o KnowledgeBaseStorageConfigurationOutput) NeptuneAnalyticsConfiguration()
 	}).(KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput)
 }
 
+// Contains details about the storage configuration of the knowledge base in OpenSearch Managed Cluster. For more information, see [Create a vector index in Amazon OpenSearch Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html) .
 func (o KnowledgeBaseStorageConfigurationOutput) OpensearchManagedClusterConfiguration() KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseStorageConfiguration) *KnowledgeBaseOpenSearchManagedClusterConfiguration {
 		return v.OpensearchManagedClusterConfiguration
@@ -31285,6 +31292,7 @@ func (o KnowledgeBaseStorageConfigurationPtrOutput) NeptuneAnalyticsConfiguratio
 	}).(KnowledgeBaseNeptuneAnalyticsConfigurationPtrOutput)
 }
 
+// Contains details about the storage configuration of the knowledge base in OpenSearch Managed Cluster. For more information, see [Create a vector index in Amazon OpenSearch Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html) .
 func (o KnowledgeBaseStorageConfigurationPtrOutput) OpensearchManagedClusterConfiguration() KnowledgeBaseOpenSearchManagedClusterConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseStorageConfiguration) *KnowledgeBaseOpenSearchManagedClusterConfiguration {
 		if v == nil {

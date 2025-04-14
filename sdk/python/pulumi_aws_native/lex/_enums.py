@@ -26,24 +26,15 @@ class BotAliasStatus(str, Enum):
 
 
 class BotAudioRecognitionStrategy(str, Enum):
-    """
-    Enables using slot values as a custom vocabulary when recognizing user utterances.
-    """
     USE_SLOT_VALUES_AS_CUSTOM_VOCABULARY = "UseSlotValuesAsCustomVocabulary"
 
 
 class BotBedrockModelSpecificationBedrockTraceStatus(str, Enum):
-    """
-    The Bedrock trace status in the Bedrock model specification details.
-    """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
 class BotDialogActionType(str, Enum):
-    """
-    The possible values of actions that the conversation can take.
-    """
     CLOSE_INTENT = "CloseIntent"
     CONFIRM_INTENT = "ConfirmIntent"
     ELICIT_INTENT = "ElicitIntent"
@@ -56,9 +47,6 @@ class BotDialogActionType(str, Enum):
 
 
 class BotMessageSelectionStrategy(str, Enum):
-    """
-    Indicates how a message is selected from a message group among retries.
-    """
     RANDOM = "Random"
     ORDERED = "Ordered"
 
@@ -77,9 +65,6 @@ class BotSlotConstraint(str, Enum):
 
 
 class BotSlotShape(str, Enum):
-    """
-    The different shapes that a slot can be in during a conversation.
-    """
     SCALAR = "Scalar"
     LIST = "List"
 
@@ -87,11 +72,14 @@ class BotSlotShape(str, Enum):
 class BotSlotValueResolutionStrategy(str, Enum):
     ORIGINAL_VALUE = "ORIGINAL_VALUE"
     TOP_RESOLUTION = "TOP_RESOLUTION"
+    CONCATENATION = "CONCATENATION"
 
 
 class BotVoiceSettingsEngine(str, Enum):
     """
-    Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+    Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .
+
+    If you do not specify a value, the default is `standard` .
     """
     STANDARD = "standard"
     NEURAL = "neural"

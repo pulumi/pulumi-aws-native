@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
-    /// </summary>
     [OutputType]
     public sealed class BotIntentClosingSetting
     {
@@ -21,11 +18,11 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly Outputs.BotResponseSpecification? ClosingResponse;
         /// <summary>
-        /// A list of conditional branches associated with the intent's closing response. These branches are executed when the nextStep attribute is set to EvalutateConditional.
+        /// A list of conditional branches associated with the intent's closing response. These branches are executed when the `nextStep` attribute is set to `EvalutateConditional` .
         /// </summary>
         public readonly Outputs.BotConditionalSpecification? Conditional;
         /// <summary>
-        /// Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the active field isn't specified, the default is true.
+        /// Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the `IsActive` field isn't specified, the default is true.
         /// </summary>
         public readonly bool? IsActive;
         /// <summary>

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type schema for AWS::Batch::ConsumableResource
+// Resource Type definition for AWS::Batch::ConsumableResource
 func LookupConsumableResource(ctx *pulumi.Context, args *LookupConsumableResourceArgs, opts ...pulumi.InvokeOption) (*LookupConsumableResourceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConsumableResourceResult

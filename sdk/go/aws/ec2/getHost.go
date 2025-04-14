@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,6 +37,8 @@ type LookupHostResult struct {
 	HostMaintenance *string `pulumi:"hostMaintenance"`
 	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
 	HostRecovery *string `pulumi:"hostRecovery"`
+	// Any tags assigned to the Host.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupHostOutput(ctx *pulumi.Context, args LookupHostOutputArgs, opts ...pulumi.InvokeOption) LookupHostResultOutput {
@@ -88,6 +91,11 @@ func (o LookupHostResultOutput) HostMaintenance() pulumi.StringPtrOutput {
 // Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
 func (o LookupHostResultOutput) HostRecovery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHostResult) *string { return v.HostRecovery }).(pulumi.StringPtrOutput)
+}
+
+// Any tags assigned to the Host.
+func (o LookupHostResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupHostResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

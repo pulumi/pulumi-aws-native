@@ -28,7 +28,6 @@ class RestoreTestingPlanArgs:
                  schedule_expression: pulumi.Input[str],
                  restore_testing_plan_name: Optional[pulumi.Input[str]] = None,
                  schedule_expression_timezone: Optional[pulumi.Input[str]] = None,
-                 schedule_status: Optional[pulumi.Input['RestoreTestingPlanRestoreTestingScheduleStatus']] = None,
                  start_window_hours: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -37,7 +36,6 @@ class RestoreTestingPlanArgs:
         :param pulumi.Input[str] schedule_expression: A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
         :param pulumi.Input[str] restore_testing_plan_name: The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
         :param pulumi.Input[str] schedule_expression_timezone: Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
-        :param pulumi.Input['RestoreTestingPlanRestoreTestingScheduleStatus'] schedule_status: This parameter is not currently supported.
         :param pulumi.Input[int] start_window_hours: Defaults to 24 hours.
                
                A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
@@ -49,8 +47,6 @@ class RestoreTestingPlanArgs:
             pulumi.set(__self__, "restore_testing_plan_name", restore_testing_plan_name)
         if schedule_expression_timezone is not None:
             pulumi.set(__self__, "schedule_expression_timezone", schedule_expression_timezone)
-        if schedule_status is not None:
-            pulumi.set(__self__, "schedule_status", schedule_status)
         if start_window_hours is not None:
             pulumi.set(__self__, "start_window_hours", start_window_hours)
         if tags is not None:
@@ -105,18 +101,6 @@ class RestoreTestingPlanArgs:
         pulumi.set(self, "schedule_expression_timezone", value)
 
     @property
-    @pulumi.getter(name="scheduleStatus")
-    def schedule_status(self) -> Optional[pulumi.Input['RestoreTestingPlanRestoreTestingScheduleStatus']]:
-        """
-        This parameter is not currently supported.
-        """
-        return pulumi.get(self, "schedule_status")
-
-    @schedule_status.setter
-    def schedule_status(self, value: Optional[pulumi.Input['RestoreTestingPlanRestoreTestingScheduleStatus']]):
-        pulumi.set(self, "schedule_status", value)
-
-    @property
     @pulumi.getter(name="startWindowHours")
     def start_window_hours(self) -> Optional[pulumi.Input[int]]:
         """
@@ -152,7 +136,6 @@ class RestoreTestingPlan(pulumi.CustomResource):
                  restore_testing_plan_name: Optional[pulumi.Input[str]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  schedule_expression_timezone: Optional[pulumi.Input[str]] = None,
-                 schedule_status: Optional[pulumi.Input['RestoreTestingPlanRestoreTestingScheduleStatus']] = None,
                  start_window_hours: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -165,7 +148,6 @@ class RestoreTestingPlan(pulumi.CustomResource):
         :param pulumi.Input[str] restore_testing_plan_name: The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
         :param pulumi.Input[str] schedule_expression: A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
         :param pulumi.Input[str] schedule_expression_timezone: Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
-        :param pulumi.Input['RestoreTestingPlanRestoreTestingScheduleStatus'] schedule_status: This parameter is not currently supported.
         :param pulumi.Input[int] start_window_hours: Defaults to 24 hours.
                
                A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
@@ -199,7 +181,6 @@ class RestoreTestingPlan(pulumi.CustomResource):
                  restore_testing_plan_name: Optional[pulumi.Input[str]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  schedule_expression_timezone: Optional[pulumi.Input[str]] = None,
-                 schedule_status: Optional[pulumi.Input['RestoreTestingPlanRestoreTestingScheduleStatus']] = None,
                  start_window_hours: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -219,7 +200,6 @@ class RestoreTestingPlan(pulumi.CustomResource):
                 raise TypeError("Missing required property 'schedule_expression'")
             __props__.__dict__["schedule_expression"] = schedule_expression
             __props__.__dict__["schedule_expression_timezone"] = schedule_expression_timezone
-            __props__.__dict__["schedule_status"] = schedule_status
             __props__.__dict__["start_window_hours"] = start_window_hours
             __props__.__dict__["tags"] = tags
             __props__.__dict__["restore_testing_plan_arn"] = None
@@ -252,7 +232,6 @@ class RestoreTestingPlan(pulumi.CustomResource):
         __props__.__dict__["restore_testing_plan_name"] = None
         __props__.__dict__["schedule_expression"] = None
         __props__.__dict__["schedule_expression_timezone"] = None
-        __props__.__dict__["schedule_status"] = None
         __props__.__dict__["start_window_hours"] = None
         __props__.__dict__["tags"] = None
         return RestoreTestingPlan(resource_name, opts=opts, __props__=__props__)
@@ -296,14 +275,6 @@ class RestoreTestingPlan(pulumi.CustomResource):
         Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
         """
         return pulumi.get(self, "schedule_expression_timezone")
-
-    @property
-    @pulumi.getter(name="scheduleStatus")
-    def schedule_status(self) -> pulumi.Output[Optional['RestoreTestingPlanRestoreTestingScheduleStatus']]:
-        """
-        This parameter is not currently supported.
-        """
-        return pulumi.get(self, "schedule_status")
 
     @property
     @pulumi.getter(name="startWindowHours")

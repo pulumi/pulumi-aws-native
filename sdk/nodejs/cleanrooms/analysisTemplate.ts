@@ -87,11 +87,18 @@ export class AnalysisTemplate extends pulumi.CustomResource {
      * The name of the analysis template.
      */
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly schema!: pulumi.Output<outputs.cleanrooms.AnalysisTemplateAnalysisSchema>;
+    /**
+     * The entire schema object.
+     */
+    public readonly schema!: pulumi.Output<outputs.cleanrooms.AnalysisTemplateAnalysisSchema | undefined>;
     /**
      * The source of the analysis template.
      */
-    public readonly source!: pulumi.Output<outputs.cleanrooms.AnalysisTemplateAnalysisSource>;
+    public readonly source!: pulumi.Output<outputs.cleanrooms.AnalysisTemplateAnalysisSource0Properties | outputs.cleanrooms.AnalysisTemplateAnalysisSource1Properties>;
+    /**
+     * The source metadata for the analysis template.
+     */
+    public readonly sourceMetadata!: pulumi.Output<outputs.cleanrooms.AnalysisTemplateAnalysisSourceMetadataProperties | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
      */
@@ -122,14 +129,15 @@ export class AnalysisTemplate extends pulumi.CustomResource {
             resourceInputs["format"] = args ? args.format : undefined;
             resourceInputs["membershipIdentifier"] = args ? args.membershipIdentifier : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["sourceMetadata"] = args ? args.sourceMetadata : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["analysisTemplateIdentifier"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationArn"] = undefined /*out*/;
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;
             resourceInputs["membershipArn"] = undefined /*out*/;
-            resourceInputs["schema"] = undefined /*out*/;
         } else {
             resourceInputs["analysisParameters"] = undefined /*out*/;
             resourceInputs["analysisTemplateIdentifier"] = undefined /*out*/;
@@ -143,10 +151,11 @@ export class AnalysisTemplate extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["schema"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["sourceMetadata"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["analysisParameters[*]", "format", "membershipIdentifier", "name", "source"] };
+        const replaceOnChanges = { replaceOnChanges: ["analysisParameters[*]", "format", "membershipIdentifier", "name", "schema", "source"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AnalysisTemplate.__pulumiType, name, resourceInputs, opts);
     }
@@ -177,9 +186,17 @@ export interface AnalysisTemplateArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * The entire schema object.
+     */
+    schema?: pulumi.Input<inputs.cleanrooms.AnalysisTemplateAnalysisSchemaArgs>;
+    /**
      * The source of the analysis template.
      */
-    source: pulumi.Input<inputs.cleanrooms.AnalysisTemplateAnalysisSourceArgs>;
+    source: pulumi.Input<inputs.cleanrooms.AnalysisTemplateAnalysisSource0PropertiesArgs | inputs.cleanrooms.AnalysisTemplateAnalysisSource1PropertiesArgs>;
+    /**
+     * The source metadata for the analysis template.
+     */
+    sourceMetadata?: pulumi.Input<inputs.cleanrooms.AnalysisTemplateAnalysisSourceMetadataPropertiesArgs>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
      */

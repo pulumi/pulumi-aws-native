@@ -18,6 +18,8 @@ type Stream struct {
 
 	// The Amazon resource name (ARN) of the Kinesis stream
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The final list of shard-level metrics
+	DesiredShardLevelMetrics StreamEnhancedMetricArrayOutput `pulumi:"desiredShardLevelMetrics"`
 	// The name of the Kinesis stream.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The number of hours for the data records that are stored in shards to remain accessible.
@@ -76,6 +78,8 @@ func (StreamState) ElementType() reflect.Type {
 }
 
 type streamArgs struct {
+	// The final list of shard-level metrics
+	DesiredShardLevelMetrics []StreamEnhancedMetric `pulumi:"desiredShardLevelMetrics"`
 	// The name of the Kinesis stream.
 	Name *string `pulumi:"name"`
 	// The number of hours for the data records that are stored in shards to remain accessible.
@@ -92,6 +96,8 @@ type streamArgs struct {
 
 // The set of arguments for constructing a Stream resource.
 type StreamArgs struct {
+	// The final list of shard-level metrics
+	DesiredShardLevelMetrics StreamEnhancedMetricArrayInput
 	// The name of the Kinesis stream.
 	Name pulumi.StringPtrInput
 	// The number of hours for the data records that are stored in shards to remain accessible.
@@ -146,6 +152,11 @@ func (o StreamOutput) ToStreamOutputWithContext(ctx context.Context) StreamOutpu
 // The Amazon resource name (ARN) of the Kinesis stream
 func (o StreamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The final list of shard-level metrics
+func (o StreamOutput) DesiredShardLevelMetrics() StreamEnhancedMetricArrayOutput {
+	return o.ApplyT(func(v *Stream) StreamEnhancedMetricArrayOutput { return v.DesiredShardLevelMetrics }).(StreamEnhancedMetricArrayOutput)
 }
 
 // The name of the Kinesis stream.

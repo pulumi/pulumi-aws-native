@@ -10,14 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Settings that you can use for eliciting a slot value.
-    /// </summary>
     [OutputType]
     public sealed class BotSlotValueElicitationSetting
     {
         /// <summary>
-        /// A list of default values for a slot.
+        /// A list of default values for a slot. Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
         /// </summary>
         public readonly Outputs.BotSlotDefaultValueSpecification? DefaultValueSpecification;
         /// <summary>
@@ -25,11 +22,11 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly Outputs.BotPromptSpecification? PromptSpecification;
         /// <summary>
-        /// If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy.
+        /// If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This is optional. In most cases, Amazon Lex is capable of understanding user utterances.
         /// </summary>
         public readonly ImmutableArray<Outputs.BotSampleUtterance> SampleUtterances;
         /// <summary>
-        /// Specifies the next stage in the conversation after capturing the slot.
+        /// Specifies the settings that Amazon Lex uses when a slot value is successfully entered by a user.
         /// </summary>
         public readonly Outputs.BotSlotCaptureSetting? SlotCaptureSetting;
         /// <summary>

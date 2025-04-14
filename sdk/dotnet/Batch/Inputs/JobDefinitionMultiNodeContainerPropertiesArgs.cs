@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
             set => _command = value;
         }
 
+        [Input("enableExecuteCommand")]
+        public Input<bool>? EnableExecuteCommand { get; set; }
+
         [Input("environment")]
         private InputList<Inputs.JobDefinitionEnvironmentArgs>? _environment;
 

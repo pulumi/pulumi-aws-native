@@ -28,6 +28,8 @@ type LookupSessionArgs struct {
 }
 
 type LookupSessionResult struct {
+	// The status of automated sensitive data discovery for the Macie session.
+	AutomatedDiscoveryStatus *SessionAutomatedDiscoveryStatus `pulumi:"automatedDiscoveryStatus"`
 	// AWS account ID of customer
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// A enumeration value that specifies how frequently finding updates are published.
@@ -68,6 +70,11 @@ func (o LookupSessionResultOutput) ToLookupSessionResultOutput() LookupSessionRe
 
 func (o LookupSessionResultOutput) ToLookupSessionResultOutputWithContext(ctx context.Context) LookupSessionResultOutput {
 	return o
+}
+
+// The status of automated sensitive data discovery for the Macie session.
+func (o LookupSessionResultOutput) AutomatedDiscoveryStatus() SessionAutomatedDiscoveryStatusPtrOutput {
+	return o.ApplyT(func(v LookupSessionResult) *SessionAutomatedDiscoveryStatus { return v.AutomatedDiscoveryStatus }).(SessionAutomatedDiscoveryStatusPtrOutput)
 }
 
 // AWS account ID of customer

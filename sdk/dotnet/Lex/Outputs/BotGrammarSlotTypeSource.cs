@@ -10,22 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
-    /// </summary>
     [OutputType]
     public sealed class BotGrammarSlotTypeSource
     {
         /// <summary>
-        /// The Amazon KMS key required to decrypt the contents of the grammar, if any.
+        /// The AWS KMS key required to decrypt the contents of the grammar, if any.
         /// </summary>
         public readonly string? KmsKeyArn;
         /// <summary>
-        /// The name of the S3 bucket that contains the grammar source.
+        /// The name of the Amazon S3 bucket that contains the grammar source.
         /// </summary>
         public readonly string S3BucketName;
         /// <summary>
-        /// The path to the grammar in the S3 bucket.
+        /// The path to the grammar in the Amazon S3 bucket.
         /// </summary>
         public readonly string S3ObjectKey;
 

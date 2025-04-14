@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
 {
 
     [OutputType]
-    public sealed class AnalysisTemplateAnalysisSource
+    public sealed class MembershipProtectedJobOutputConfiguration
     {
         /// <summary>
-        /// The query text.
+        /// Contains the configuration to write the job results to S3.
         /// </summary>
-        public readonly string Text;
+        public readonly Outputs.MembershipProtectedJobS3OutputConfigurationInput S3;
 
         [OutputConstructor]
-        private AnalysisTemplateAnalysisSource(string text)
+        private MembershipProtectedJobOutputConfiguration(Outputs.MembershipProtectedJobS3OutputConfigurationInput s3)
         {
-            Text = text;
+            S3 = s3;
         }
     }
 }

@@ -12,9 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisTransposedTableOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The index of a columns in a transposed table. The index range is 0-9999.
+        /// </summary>
         [Input("columnIndex")]
         public Input<double>? ColumnIndex { get; set; }
 
+        /// <summary>
+        /// The column type of the column in a transposed table. Choose one of the following options:
+        /// 
+        /// - `ROW_HEADER_COLUMN` : Refers to the leftmost column of the row header in the transposed table.
+        /// - `VALUE_COLUMN` : Refers to all value columns in the transposed table.
+        /// </summary>
         [Input("columnType", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisTransposedColumnType> ColumnType { get; set; } = null!;
 

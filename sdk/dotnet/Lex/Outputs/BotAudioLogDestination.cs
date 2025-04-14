@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// The location of audio log files collected when conversation logging is enabled for a bot.
-    /// </summary>
     [OutputType]
     public sealed class BotAudioLogDestination
     {

@@ -11,19 +11,13 @@ namespace Pulumi.AwsNative.Lex.Outputs
 {
 
     /// <summary>
-    /// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+    /// Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
     /// </summary>
     [OutputType]
     public sealed class BotQnAIntentConfigurationDataSourceConfigurationProperties
     {
-        /// <summary>
-        /// Contains details about the configuration of a Amazon Bedrock knowledge base.
-        /// </summary>
         public readonly Outputs.BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationProperties? BedrockKnowledgeStoreConfiguration;
         public readonly Outputs.BotQnAKendraConfiguration? KendraConfiguration;
-        /// <summary>
-        /// Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
-        /// </summary>
         public readonly Outputs.BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationProperties? OpensearchConfiguration;
 
         [OutputConstructor]

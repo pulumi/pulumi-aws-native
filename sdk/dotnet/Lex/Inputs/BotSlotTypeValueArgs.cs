@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Value that the slot type can take.
-    /// </summary>
     public sealed class BotSlotTypeValueArgs : global::Pulumi.ResourceArgs
     {
         [Input("sampleValue", required: true)]

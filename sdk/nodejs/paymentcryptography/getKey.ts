@@ -22,6 +22,7 @@ export interface GetKeyArgs {
 }
 
 export interface GetKeyResult {
+    readonly deriveKeyUsage?: enums.paymentcryptography.KeyDeriveKeyUsage;
     /**
      * Specifies whether the key is enabled.
      */

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.PaymentCryptography
     [AwsNativeResourceType("aws-native:paymentcryptography:Key")]
     public partial class Key : global::Pulumi.CustomResource
     {
+        [Output("deriveKeyUsage")]
+        public Output<Pulumi.AwsNative.PaymentCryptography.KeyDeriveKeyUsage?> DeriveKeyUsage { get; private set; } = null!;
+
         /// <summary>
         /// Specifies whether the key is enabled.
         /// </summary>
@@ -104,6 +107,9 @@ namespace Pulumi.AwsNative.PaymentCryptography
 
     public sealed class KeyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("deriveKeyUsage")]
+        public Input<Pulumi.AwsNative.PaymentCryptography.KeyDeriveKeyUsage>? DeriveKeyUsage { get; set; }
+
         /// <summary>
         /// Specifies whether the key is enabled.
         /// </summary>

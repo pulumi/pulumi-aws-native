@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Value that the slot type can take.
-    /// </summary>
     [OutputType]
     public sealed class BotSlotTypeValue
     {

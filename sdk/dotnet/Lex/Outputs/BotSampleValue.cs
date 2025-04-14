@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Defines one of the values for a slot type.
-    /// </summary>
     [OutputType]
     public sealed class BotSampleValue
     {
-        /// <summary>
-        /// The value that can be used for a slot type.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

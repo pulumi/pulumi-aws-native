@@ -102,7 +102,6 @@ func (o BotAliasStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enables using slot values as a custom vocabulary when recognizing user utterances.
 type BotAudioRecognitionStrategy string
 
 const (
@@ -266,7 +265,6 @@ func (in *botAudioRecognitionStrategyPtr) ToBotAudioRecognitionStrategyPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(BotAudioRecognitionStrategyPtrOutput)
 }
 
-// The Bedrock trace status in the Bedrock model specification details.
 type BotBedrockModelSpecificationBedrockTraceStatus string
 
 const (
@@ -432,7 +430,6 @@ func (in *botBedrockModelSpecificationBedrockTraceStatusPtr) ToBotBedrockModelSp
 	return pulumi.ToOutputWithContext(ctx, in).(BotBedrockModelSpecificationBedrockTraceStatusPtrOutput)
 }
 
-// The possible values of actions that the conversation can take.
 type BotDialogActionType string
 
 const (
@@ -612,7 +609,6 @@ func (in *botDialogActionTypePtr) ToBotDialogActionTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(BotDialogActionTypePtrOutput)
 }
 
-// Indicates how a message is selected from a message group among retries.
 type BotMessageSelectionStrategy string
 
 const (
@@ -1109,7 +1105,6 @@ func (in *botSlotConstraintPtr) ToBotSlotConstraintPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(BotSlotConstraintPtrOutput)
 }
 
-// The different shapes that a slot can be in during a conversation.
 type BotSlotShape string
 
 const (
@@ -1280,6 +1275,7 @@ type BotSlotValueResolutionStrategy string
 const (
 	BotSlotValueResolutionStrategyOriginalValue = BotSlotValueResolutionStrategy("ORIGINAL_VALUE")
 	BotSlotValueResolutionStrategyTopResolution = BotSlotValueResolutionStrategy("TOP_RESOLUTION")
+	BotSlotValueResolutionStrategyConcatenation = BotSlotValueResolutionStrategy("CONCATENATION")
 )
 
 func (BotSlotValueResolutionStrategy) ElementType() reflect.Type {
@@ -1406,6 +1402,7 @@ func (o BotSlotValueResolutionStrategyPtrOutput) ToStringPtrOutputWithContext(ct
 //
 //	BotSlotValueResolutionStrategyOriginalValue
 //	BotSlotValueResolutionStrategyTopResolution
+//	BotSlotValueResolutionStrategyConcatenation
 type BotSlotValueResolutionStrategyInput interface {
 	pulumi.Input
 
@@ -1440,7 +1437,9 @@ func (in *botSlotValueResolutionStrategyPtr) ToBotSlotValueResolutionStrategyPtr
 	return pulumi.ToOutputWithContext(ctx, in).(BotSlotValueResolutionStrategyPtrOutput)
 }
 
-// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .
+//
+// If you do not specify a value, the default is `standard` .
 type BotVoiceSettingsEngine string
 
 const (

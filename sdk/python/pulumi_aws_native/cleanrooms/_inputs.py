@@ -18,10 +18,28 @@ from ._enums import *
 __all__ = [
     'AnalysisTemplateAnalysisParameterArgs',
     'AnalysisTemplateAnalysisParameterArgsDict',
-    'AnalysisTemplateAnalysisSourceArgs',
-    'AnalysisTemplateAnalysisSourceArgsDict',
+    'AnalysisTemplateAnalysisSchemaArgs',
+    'AnalysisTemplateAnalysisSchemaArgsDict',
+    'AnalysisTemplateAnalysisSource0PropertiesArgs',
+    'AnalysisTemplateAnalysisSource0PropertiesArgsDict',
+    'AnalysisTemplateAnalysisSource1PropertiesArgs',
+    'AnalysisTemplateAnalysisSource1PropertiesArgsDict',
+    'AnalysisTemplateAnalysisSourceMetadataPropertiesArgs',
+    'AnalysisTemplateAnalysisSourceMetadataPropertiesArgsDict',
+    'AnalysisTemplateArtifactMetadataArgs',
+    'AnalysisTemplateArtifactMetadataArgsDict',
+    'AnalysisTemplateArtifactsArgs',
+    'AnalysisTemplateArtifactsArgsDict',
+    'AnalysisTemplateArtifactArgs',
+    'AnalysisTemplateArtifactArgsDict',
+    'AnalysisTemplateHashArgs',
+    'AnalysisTemplateHashArgsDict',
+    'AnalysisTemplateS3LocationArgs',
+    'AnalysisTemplateS3LocationArgsDict',
     'CollaborationDataEncryptionMetadataArgs',
     'CollaborationDataEncryptionMetadataArgsDict',
+    'CollaborationJobComputePaymentConfigArgs',
+    'CollaborationJobComputePaymentConfigArgsDict',
     'CollaborationMemberSpecificationArgs',
     'CollaborationMemberSpecificationArgsDict',
     'CollaborationMlMemberAbilitiesArgs',
@@ -98,6 +116,8 @@ __all__ = [
     'IdNamespaceAssociationIdMappingConfigArgsDict',
     'IdNamespaceAssociationInputReferenceConfigArgs',
     'IdNamespaceAssociationInputReferenceConfigArgsDict',
+    'MembershipJobComputePaymentConfigArgs',
+    'MembershipJobComputePaymentConfigArgsDict',
     'MembershipMlPaymentConfigArgs',
     'MembershipMlPaymentConfigArgsDict',
     'MembershipModelInferencePaymentConfigArgs',
@@ -106,6 +126,12 @@ __all__ = [
     'MembershipModelTrainingPaymentConfigArgsDict',
     'MembershipPaymentConfigurationArgs',
     'MembershipPaymentConfigurationArgsDict',
+    'MembershipProtectedJobOutputConfigurationArgs',
+    'MembershipProtectedJobOutputConfigurationArgsDict',
+    'MembershipProtectedJobResultConfigurationArgs',
+    'MembershipProtectedJobResultConfigurationArgsDict',
+    'MembershipProtectedJobS3OutputConfigurationInputArgs',
+    'MembershipProtectedJobS3OutputConfigurationInputArgsDict',
     'MembershipProtectedQueryOutputConfigurationArgs',
     'MembershipProtectedQueryOutputConfigurationArgsDict',
     'MembershipProtectedQueryResultConfigurationArgs',
@@ -191,34 +217,261 @@ class AnalysisTemplateAnalysisParameterArgs:
 
 
 if not MYPY:
-    class AnalysisTemplateAnalysisSourceArgsDict(TypedDict):
-        text: pulumi.Input[str]
+    class AnalysisTemplateAnalysisSchemaArgsDict(TypedDict):
+        referenced_tables: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
-        The query text.
+        The tables referenced in the analysis schema.
         """
 elif False:
-    AnalysisTemplateAnalysisSourceArgsDict: TypeAlias = Mapping[str, Any]
+    AnalysisTemplateAnalysisSchemaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class AnalysisTemplateAnalysisSourceArgs:
+class AnalysisTemplateAnalysisSchemaArgs:
+    def __init__(__self__, *,
+                 referenced_tables: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] referenced_tables: The tables referenced in the analysis schema.
+        """
+        pulumi.set(__self__, "referenced_tables", referenced_tables)
+
+    @property
+    @pulumi.getter(name="referencedTables")
+    def referenced_tables(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The tables referenced in the analysis schema.
+        """
+        return pulumi.get(self, "referenced_tables")
+
+    @referenced_tables.setter
+    def referenced_tables(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "referenced_tables", value)
+
+
+if not MYPY:
+    class AnalysisTemplateAnalysisSource0PropertiesArgsDict(TypedDict):
+        text: pulumi.Input[str]
+elif False:
+    AnalysisTemplateAnalysisSource0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalysisTemplateAnalysisSource0PropertiesArgs:
     def __init__(__self__, *,
                  text: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] text: The query text.
-        """
         pulumi.set(__self__, "text", text)
 
     @property
     @pulumi.getter
     def text(self) -> pulumi.Input[str]:
-        """
-        The query text.
-        """
         return pulumi.get(self, "text")
 
     @text.setter
     def text(self, value: pulumi.Input[str]):
         pulumi.set(self, "text", value)
+
+
+if not MYPY:
+    class AnalysisTemplateAnalysisSource1PropertiesArgsDict(TypedDict):
+        artifacts: pulumi.Input['AnalysisTemplateArtifactsArgsDict']
+elif False:
+    AnalysisTemplateAnalysisSource1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalysisTemplateAnalysisSource1PropertiesArgs:
+    def __init__(__self__, *,
+                 artifacts: pulumi.Input['AnalysisTemplateArtifactsArgs']):
+        pulumi.set(__self__, "artifacts", artifacts)
+
+    @property
+    @pulumi.getter
+    def artifacts(self) -> pulumi.Input['AnalysisTemplateArtifactsArgs']:
+        return pulumi.get(self, "artifacts")
+
+    @artifacts.setter
+    def artifacts(self, value: pulumi.Input['AnalysisTemplateArtifactsArgs']):
+        pulumi.set(self, "artifacts", value)
+
+
+if not MYPY:
+    class AnalysisTemplateAnalysisSourceMetadataPropertiesArgsDict(TypedDict):
+        artifacts: pulumi.Input['AnalysisTemplateArtifactMetadataArgsDict']
+elif False:
+    AnalysisTemplateAnalysisSourceMetadataPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalysisTemplateAnalysisSourceMetadataPropertiesArgs:
+    def __init__(__self__, *,
+                 artifacts: pulumi.Input['AnalysisTemplateArtifactMetadataArgs']):
+        pulumi.set(__self__, "artifacts", artifacts)
+
+    @property
+    @pulumi.getter
+    def artifacts(self) -> pulumi.Input['AnalysisTemplateArtifactMetadataArgs']:
+        return pulumi.get(self, "artifacts")
+
+    @artifacts.setter
+    def artifacts(self, value: pulumi.Input['AnalysisTemplateArtifactMetadataArgs']):
+        pulumi.set(self, "artifacts", value)
+
+
+if not MYPY:
+    class AnalysisTemplateArtifactMetadataArgsDict(TypedDict):
+        entry_point_hash: pulumi.Input['AnalysisTemplateHashArgsDict']
+        additional_artifact_hashes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateHashArgsDict']]]]
+elif False:
+    AnalysisTemplateArtifactMetadataArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalysisTemplateArtifactMetadataArgs:
+    def __init__(__self__, *,
+                 entry_point_hash: pulumi.Input['AnalysisTemplateHashArgs'],
+                 additional_artifact_hashes: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateHashArgs']]]] = None):
+        pulumi.set(__self__, "entry_point_hash", entry_point_hash)
+        if additional_artifact_hashes is not None:
+            pulumi.set(__self__, "additional_artifact_hashes", additional_artifact_hashes)
+
+    @property
+    @pulumi.getter(name="entryPointHash")
+    def entry_point_hash(self) -> pulumi.Input['AnalysisTemplateHashArgs']:
+        return pulumi.get(self, "entry_point_hash")
+
+    @entry_point_hash.setter
+    def entry_point_hash(self, value: pulumi.Input['AnalysisTemplateHashArgs']):
+        pulumi.set(self, "entry_point_hash", value)
+
+    @property
+    @pulumi.getter(name="additionalArtifactHashes")
+    def additional_artifact_hashes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateHashArgs']]]]:
+        return pulumi.get(self, "additional_artifact_hashes")
+
+    @additional_artifact_hashes.setter
+    def additional_artifact_hashes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateHashArgs']]]]):
+        pulumi.set(self, "additional_artifact_hashes", value)
+
+
+if not MYPY:
+    class AnalysisTemplateArtifactsArgsDict(TypedDict):
+        entry_point: pulumi.Input['AnalysisTemplateArtifactArgsDict']
+        role_arn: pulumi.Input[str]
+        additional_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateArtifactArgsDict']]]]
+elif False:
+    AnalysisTemplateArtifactsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalysisTemplateArtifactsArgs:
+    def __init__(__self__, *,
+                 entry_point: pulumi.Input['AnalysisTemplateArtifactArgs'],
+                 role_arn: pulumi.Input[str],
+                 additional_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateArtifactArgs']]]] = None):
+        pulumi.set(__self__, "entry_point", entry_point)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if additional_artifacts is not None:
+            pulumi.set(__self__, "additional_artifacts", additional_artifacts)
+
+    @property
+    @pulumi.getter(name="entryPoint")
+    def entry_point(self) -> pulumi.Input['AnalysisTemplateArtifactArgs']:
+        return pulumi.get(self, "entry_point")
+
+    @entry_point.setter
+    def entry_point(self, value: pulumi.Input['AnalysisTemplateArtifactArgs']):
+        pulumi.set(self, "entry_point", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="additionalArtifacts")
+    def additional_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateArtifactArgs']]]]:
+        return pulumi.get(self, "additional_artifacts")
+
+    @additional_artifacts.setter
+    def additional_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateArtifactArgs']]]]):
+        pulumi.set(self, "additional_artifacts", value)
+
+
+if not MYPY:
+    class AnalysisTemplateArtifactArgsDict(TypedDict):
+        location: pulumi.Input['AnalysisTemplateS3LocationArgsDict']
+elif False:
+    AnalysisTemplateArtifactArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalysisTemplateArtifactArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input['AnalysisTemplateS3LocationArgs']):
+        pulumi.set(__self__, "location", location)
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Input['AnalysisTemplateS3LocationArgs']:
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input['AnalysisTemplateS3LocationArgs']):
+        pulumi.set(self, "location", value)
+
+
+if not MYPY:
+    class AnalysisTemplateHashArgsDict(TypedDict):
+        sha256: NotRequired[pulumi.Input[str]]
+elif False:
+    AnalysisTemplateHashArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalysisTemplateHashArgs:
+    def __init__(__self__, *,
+                 sha256: Optional[pulumi.Input[str]] = None):
+        if sha256 is not None:
+            pulumi.set(__self__, "sha256", sha256)
+
+    @property
+    @pulumi.getter
+    def sha256(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sha256")
+
+    @sha256.setter
+    def sha256(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sha256", value)
+
+
+if not MYPY:
+    class AnalysisTemplateS3LocationArgsDict(TypedDict):
+        bucket: pulumi.Input[str]
+        key: pulumi.Input[str]
+elif False:
+    AnalysisTemplateS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalysisTemplateS3LocationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 key: pulumi.Input[str]):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
 
 
 if not MYPY:
@@ -307,6 +560,49 @@ class CollaborationDataEncryptionMetadataArgs:
     @preserve_nulls.setter
     def preserve_nulls(self, value: pulumi.Input[bool]):
         pulumi.set(self, "preserve_nulls", value)
+
+
+if not MYPY:
+    class CollaborationJobComputePaymentConfigArgsDict(TypedDict):
+        is_responsible: pulumi.Input[bool]
+        """
+        Indicates whether the collaboration creator has configured the collaboration member to pay for query and job compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query and job compute costs ( `FALSE` ).
+
+        Exactly one member can be configured to pay for query and job compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+
+        An error is returned if the collaboration creator sets a `FALSE` value for the member who can run queries and jobs.
+        """
+elif False:
+    CollaborationJobComputePaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CollaborationJobComputePaymentConfigArgs:
+    def __init__(__self__, *,
+                 is_responsible: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] is_responsible: Indicates whether the collaboration creator has configured the collaboration member to pay for query and job compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query and job compute costs ( `FALSE` ).
+               
+               Exactly one member can be configured to pay for query and job compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+               
+               An error is returned if the collaboration creator sets a `FALSE` value for the member who can run queries and jobs.
+        """
+        pulumi.set(__self__, "is_responsible", is_responsible)
+
+    @property
+    @pulumi.getter(name="isResponsible")
+    def is_responsible(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether the collaboration creator has configured the collaboration member to pay for query and job compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query and job compute costs ( `FALSE` ).
+
+        Exactly one member can be configured to pay for query and job compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+
+        An error is returned if the collaboration creator sets a `FALSE` value for the member who can run queries and jobs.
+        """
+        return pulumi.get(self, "is_responsible")
+
+    @is_responsible.setter
+    def is_responsible(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_responsible", value)
 
 
 if not MYPY:
@@ -605,6 +901,10 @@ if not MYPY:
         """
         The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
         """
+        job_compute: NotRequired[pulumi.Input['CollaborationJobComputePaymentConfigArgsDict']]
+        """
+        The compute configuration for the job.
+        """
         machine_learning: NotRequired[pulumi.Input['CollaborationMlPaymentConfigArgsDict']]
         """
         An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
@@ -616,12 +916,16 @@ elif False:
 class CollaborationPaymentConfigurationArgs:
     def __init__(__self__, *,
                  query_compute: pulumi.Input['CollaborationQueryComputePaymentConfigArgs'],
+                 job_compute: Optional[pulumi.Input['CollaborationJobComputePaymentConfigArgs']] = None,
                  machine_learning: Optional[pulumi.Input['CollaborationMlPaymentConfigArgs']] = None):
         """
         :param pulumi.Input['CollaborationQueryComputePaymentConfigArgs'] query_compute: The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+        :param pulumi.Input['CollaborationJobComputePaymentConfigArgs'] job_compute: The compute configuration for the job.
         :param pulumi.Input['CollaborationMlPaymentConfigArgs'] machine_learning: An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
         """
         pulumi.set(__self__, "query_compute", query_compute)
+        if job_compute is not None:
+            pulumi.set(__self__, "job_compute", job_compute)
         if machine_learning is not None:
             pulumi.set(__self__, "machine_learning", machine_learning)
 
@@ -636,6 +940,18 @@ class CollaborationPaymentConfigurationArgs:
     @query_compute.setter
     def query_compute(self, value: pulumi.Input['CollaborationQueryComputePaymentConfigArgs']):
         pulumi.set(self, "query_compute", value)
+
+    @property
+    @pulumi.getter(name="jobCompute")
+    def job_compute(self) -> Optional[pulumi.Input['CollaborationJobComputePaymentConfigArgs']]:
+        """
+        The compute configuration for the job.
+        """
+        return pulumi.get(self, "job_compute")
+
+    @job_compute.setter
+    def job_compute(self, value: Optional[pulumi.Input['CollaborationJobComputePaymentConfigArgs']]):
+        pulumi.set(self, "job_compute", value)
 
     @property
     @pulumi.getter(name="machineLearning")
@@ -1909,6 +2225,58 @@ class IdNamespaceAssociationInputReferenceConfigArgs:
 
 
 if not MYPY:
+    class MembershipJobComputePaymentConfigArgsDict(TypedDict):
+        is_responsible: pulumi.Input[bool]
+        """
+        Indicates whether the collaboration member has accepted to pay for job compute costs ( `TRUE` ) or has not accepted to pay for query and job compute costs ( `FALSE` ).
+
+        There is only one member who pays for queries and jobs.
+
+        An error message is returned for the following reasons:
+
+        - If you set the value to `FALSE` but you are responsible to pay for query and job compute costs.
+        - If you set the value to `TRUE` but you are not responsible to pay for query and job compute costs.
+        """
+elif False:
+    MembershipJobComputePaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MembershipJobComputePaymentConfigArgs:
+    def __init__(__self__, *,
+                 is_responsible: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] is_responsible: Indicates whether the collaboration member has accepted to pay for job compute costs ( `TRUE` ) or has not accepted to pay for query and job compute costs ( `FALSE` ).
+               
+               There is only one member who pays for queries and jobs.
+               
+               An error message is returned for the following reasons:
+               
+               - If you set the value to `FALSE` but you are responsible to pay for query and job compute costs.
+               - If you set the value to `TRUE` but you are not responsible to pay for query and job compute costs.
+        """
+        pulumi.set(__self__, "is_responsible", is_responsible)
+
+    @property
+    @pulumi.getter(name="isResponsible")
+    def is_responsible(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether the collaboration member has accepted to pay for job compute costs ( `TRUE` ) or has not accepted to pay for query and job compute costs ( `FALSE` ).
+
+        There is only one member who pays for queries and jobs.
+
+        An error message is returned for the following reasons:
+
+        - If you set the value to `FALSE` but you are responsible to pay for query and job compute costs.
+        - If you set the value to `TRUE` but you are not responsible to pay for query and job compute costs.
+        """
+        return pulumi.get(self, "is_responsible")
+
+    @is_responsible.setter
+    def is_responsible(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_responsible", value)
+
+
+if not MYPY:
     class MembershipMlPaymentConfigArgsDict(TypedDict):
         model_inference: NotRequired[pulumi.Input['MembershipModelInferencePaymentConfigArgsDict']]
         """
@@ -2070,6 +2438,10 @@ if not MYPY:
         """
         The payment responsibilities accepted by the collaboration member for query compute costs.
         """
+        job_compute: NotRequired[pulumi.Input['MembershipJobComputePaymentConfigArgsDict']]
+        """
+        The payment responsibilities accepted by the collaboration member for job compute costs.
+        """
         machine_learning: NotRequired[pulumi.Input['MembershipMlPaymentConfigArgsDict']]
         """
         The payment responsibilities accepted by the collaboration member for machine learning costs.
@@ -2081,12 +2453,16 @@ elif False:
 class MembershipPaymentConfigurationArgs:
     def __init__(__self__, *,
                  query_compute: pulumi.Input['MembershipQueryComputePaymentConfigArgs'],
+                 job_compute: Optional[pulumi.Input['MembershipJobComputePaymentConfigArgs']] = None,
                  machine_learning: Optional[pulumi.Input['MembershipMlPaymentConfigArgs']] = None):
         """
         :param pulumi.Input['MembershipQueryComputePaymentConfigArgs'] query_compute: The payment responsibilities accepted by the collaboration member for query compute costs.
+        :param pulumi.Input['MembershipJobComputePaymentConfigArgs'] job_compute: The payment responsibilities accepted by the collaboration member for job compute costs.
         :param pulumi.Input['MembershipMlPaymentConfigArgs'] machine_learning: The payment responsibilities accepted by the collaboration member for machine learning costs.
         """
         pulumi.set(__self__, "query_compute", query_compute)
+        if job_compute is not None:
+            pulumi.set(__self__, "job_compute", job_compute)
         if machine_learning is not None:
             pulumi.set(__self__, "machine_learning", machine_learning)
 
@@ -2103,6 +2479,18 @@ class MembershipPaymentConfigurationArgs:
         pulumi.set(self, "query_compute", value)
 
     @property
+    @pulumi.getter(name="jobCompute")
+    def job_compute(self) -> Optional[pulumi.Input['MembershipJobComputePaymentConfigArgs']]:
+        """
+        The payment responsibilities accepted by the collaboration member for job compute costs.
+        """
+        return pulumi.get(self, "job_compute")
+
+    @job_compute.setter
+    def job_compute(self, value: Optional[pulumi.Input['MembershipJobComputePaymentConfigArgs']]):
+        pulumi.set(self, "job_compute", value)
+
+    @property
     @pulumi.getter(name="machineLearning")
     def machine_learning(self) -> Optional[pulumi.Input['MembershipMlPaymentConfigArgs']]:
         """
@@ -2113,6 +2501,138 @@ class MembershipPaymentConfigurationArgs:
     @machine_learning.setter
     def machine_learning(self, value: Optional[pulumi.Input['MembershipMlPaymentConfigArgs']]):
         pulumi.set(self, "machine_learning", value)
+
+
+if not MYPY:
+    class MembershipProtectedJobOutputConfigurationArgsDict(TypedDict):
+        s3: pulumi.Input['MembershipProtectedJobS3OutputConfigurationInputArgsDict']
+        """
+        Contains the configuration to write the job results to S3.
+        """
+elif False:
+    MembershipProtectedJobOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MembershipProtectedJobOutputConfigurationArgs:
+    def __init__(__self__, *,
+                 s3: pulumi.Input['MembershipProtectedJobS3OutputConfigurationInputArgs']):
+        """
+        :param pulumi.Input['MembershipProtectedJobS3OutputConfigurationInputArgs'] s3: Contains the configuration to write the job results to S3.
+        """
+        pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> pulumi.Input['MembershipProtectedJobS3OutputConfigurationInputArgs']:
+        """
+        Contains the configuration to write the job results to S3.
+        """
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: pulumi.Input['MembershipProtectedJobS3OutputConfigurationInputArgs']):
+        pulumi.set(self, "s3", value)
+
+
+if not MYPY:
+    class MembershipProtectedJobResultConfigurationArgsDict(TypedDict):
+        output_configuration: pulumi.Input['MembershipProtectedJobOutputConfigurationArgsDict']
+        """
+        The output configuration for a protected job result.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected job results to the result location, given by the member who can receive results.
+        """
+elif False:
+    MembershipProtectedJobResultConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MembershipProtectedJobResultConfigurationArgs:
+    def __init__(__self__, *,
+                 output_configuration: pulumi.Input['MembershipProtectedJobOutputConfigurationArgs'],
+                 role_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input['MembershipProtectedJobOutputConfigurationArgs'] output_configuration: The output configuration for a protected job result.
+        :param pulumi.Input[str] role_arn: The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected job results to the result location, given by the member who can receive results.
+        """
+        pulumi.set(__self__, "output_configuration", output_configuration)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="outputConfiguration")
+    def output_configuration(self) -> pulumi.Input['MembershipProtectedJobOutputConfigurationArgs']:
+        """
+        The output configuration for a protected job result.
+        """
+        return pulumi.get(self, "output_configuration")
+
+    @output_configuration.setter
+    def output_configuration(self, value: pulumi.Input['MembershipProtectedJobOutputConfigurationArgs']):
+        pulumi.set(self, "output_configuration", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected job results to the result location, given by the member who can receive results.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+
+if not MYPY:
+    class MembershipProtectedJobS3OutputConfigurationInputArgsDict(TypedDict):
+        bucket: pulumi.Input[str]
+        """
+        The S3 bucket for job output.
+        """
+        key_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The S3 prefix to unload the protected job results.
+        """
+elif False:
+    MembershipProtectedJobS3OutputConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MembershipProtectedJobS3OutputConfigurationInputArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 key_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket: The S3 bucket for job output.
+        :param pulumi.Input[str] key_prefix: The S3 prefix to unload the protected job results.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        if key_prefix is not None:
+            pulumi.set(__self__, "key_prefix", key_prefix)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        The S3 bucket for job output.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The S3 prefix to unload the protected job results.
+        """
+        return pulumi.get(self, "key_prefix")
+
+    @key_prefix.setter
+    def key_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_prefix", value)
 
 
 if not MYPY:

@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// This object is a list of containers.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionTaskContainerProperties> Containers;
+        public readonly bool? EnableExecuteCommand;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
         /// </summary>
@@ -58,6 +59,8 @@ namespace Pulumi.AwsNative.Batch.Outputs
         private JobDefinitionMultiNodeEcsTaskProperties(
             ImmutableArray<Outputs.JobDefinitionTaskContainerProperties> containers,
 
+            bool? enableExecuteCommand,
+
             string? executionRoleArn,
 
             string? ipcMode,
@@ -69,6 +72,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
             ImmutableArray<Outputs.JobDefinitionVolume> volumes)
         {
             Containers = containers;
+            EnableExecuteCommand = enableExecuteCommand;
             ExecutionRoleArn = executionRoleArn;
             IpcMode = ipcMode;
             PidMode = pidMode;

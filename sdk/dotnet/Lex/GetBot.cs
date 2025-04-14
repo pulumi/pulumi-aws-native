@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Lex
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// Data privacy setting of the Bot.
+        /// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
         /// </summary>
         public readonly Outputs.DataPrivacyProperties? DataPrivacy;
         /// <summary>
@@ -80,7 +80,11 @@ namespace Pulumi.AwsNative.Lex
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// IdleSessionTTLInSeconds of the resource
+        /// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
+        /// 
+        /// A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
+        /// 
+        /// You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         /// </summary>
         public readonly int? IdleSessionTtlInSeconds;
         /// <summary>

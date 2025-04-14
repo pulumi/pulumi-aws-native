@@ -303,7 +303,7 @@ func (o ServiceLevelObjectiveCalendarIntervalPtrOutput) StartTime() pulumi.IntPt
 
 // Configuration for identifying a dependency and its operation
 type ServiceLevelObjectiveDependencyConfig struct {
-	// This is a string-to-string map. It can include the following fields.
+	// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which dependency the SLO metric is related to.
 	//
 	// - `Type` designates the type of object this is.
 	// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
@@ -328,7 +328,7 @@ type ServiceLevelObjectiveDependencyConfigInput interface {
 
 // Configuration for identifying a dependency and its operation
 type ServiceLevelObjectiveDependencyConfigArgs struct {
-	// This is a string-to-string map. It can include the following fields.
+	// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which dependency the SLO metric is related to.
 	//
 	// - `Type` designates the type of object this is.
 	// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
@@ -418,7 +418,7 @@ func (o ServiceLevelObjectiveDependencyConfigOutput) ToServiceLevelObjectiveDepe
 	}).(ServiceLevelObjectiveDependencyConfigPtrOutput)
 }
 
-// This is a string-to-string map. It can include the following fields.
+// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which dependency the SLO metric is related to.
 //
 // - `Type` designates the type of object this is.
 // - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
@@ -458,7 +458,7 @@ func (o ServiceLevelObjectiveDependencyConfigPtrOutput) Elem() ServiceLevelObjec
 	}).(ServiceLevelObjectiveDependencyConfigOutput)
 }
 
-// This is a string-to-string map. It can include the following fields.
+// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which dependency the SLO metric is related to.
 //
 // - `Type` designates the type of object this is.
 // - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
@@ -2067,6 +2067,7 @@ func (o ServiceLevelObjectiveRequestBasedSliPtrOutput) RequestBasedSliMetric() S
 
 // This structure contains the information about the metric that is used for a request-based SLO.
 type ServiceLevelObjectiveRequestBasedSliMetric struct {
+	// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 	DependencyConfig *ServiceLevelObjectiveDependencyConfig `pulumi:"dependencyConfig"`
 	// This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
 	//
@@ -2100,6 +2101,7 @@ type ServiceLevelObjectiveRequestBasedSliMetricInput interface {
 
 // This structure contains the information about the metric that is used for a request-based SLO.
 type ServiceLevelObjectiveRequestBasedSliMetricArgs struct {
+	// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 	DependencyConfig ServiceLevelObjectiveDependencyConfigPtrInput `pulumi:"dependencyConfig"`
 	// This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
 	//
@@ -2198,6 +2200,7 @@ func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) ToServiceLevelObjectiv
 	}).(ServiceLevelObjectiveRequestBasedSliMetricPtrOutput)
 }
 
+// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) DependencyConfig() ServiceLevelObjectiveDependencyConfigPtrOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveRequestBasedSliMetric) *ServiceLevelObjectiveDependencyConfig {
 		return v.DependencyConfig
@@ -2266,6 +2269,7 @@ func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) Elem() ServiceLevel
 	}).(ServiceLevelObjectiveRequestBasedSliMetricOutput)
 }
 
+// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) DependencyConfig() ServiceLevelObjectiveDependencyConfigPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSliMetric) *ServiceLevelObjectiveDependencyConfig {
 		if v == nil {
@@ -2673,6 +2677,7 @@ func (o ServiceLevelObjectiveSliPtrOutput) SliMetric() ServiceLevelObjectiveSliM
 
 // A structure that contains information about the metric that the SLO monitors.
 type ServiceLevelObjectiveSliMetric struct {
+	// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 	DependencyConfig *ServiceLevelObjectiveDependencyConfig `pulumi:"dependencyConfig"`
 	// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
 	//
@@ -2709,6 +2714,7 @@ type ServiceLevelObjectiveSliMetricInput interface {
 
 // A structure that contains information about the metric that the SLO monitors.
 type ServiceLevelObjectiveSliMetricArgs struct {
+	// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 	DependencyConfig ServiceLevelObjectiveDependencyConfigPtrInput `pulumi:"dependencyConfig"`
 	// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
 	//
@@ -2810,6 +2816,7 @@ func (o ServiceLevelObjectiveSliMetricOutput) ToServiceLevelObjectiveSliMetricPt
 	}).(ServiceLevelObjectiveSliMetricPtrOutput)
 }
 
+// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 func (o ServiceLevelObjectiveSliMetricOutput) DependencyConfig() ServiceLevelObjectiveDependencyConfigPtrOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveSliMetric) *ServiceLevelObjectiveDependencyConfig {
 		return v.DependencyConfig
@@ -2880,6 +2887,7 @@ func (o ServiceLevelObjectiveSliMetricPtrOutput) Elem() ServiceLevelObjectiveSli
 	}).(ServiceLevelObjectiveSliMetricOutput)
 }
 
+// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 func (o ServiceLevelObjectiveSliMetricPtrOutput) DependencyConfig() ServiceLevelObjectiveDependencyConfigPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveSliMetric) *ServiceLevelObjectiveDependencyConfig {
 		if v == nil {

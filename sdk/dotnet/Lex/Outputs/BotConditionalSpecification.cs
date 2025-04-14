@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
-    /// </summary>
     [OutputType]
     public sealed class BotConditionalSpecification
     {
@@ -25,7 +22,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly Outputs.BotDefaultConditionalBranch DefaultBranch;
         /// <summary>
-        /// Determines whether a conditional branch is active. When active is false, the conditions are not evaluated.
+        /// Determines whether a conditional branch is active. When `IsActive` is false, the conditions are not evaluated.
         /// </summary>
         public readonly bool IsActive;
 

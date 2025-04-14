@@ -10,13 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// The slot values that Amazon Lex uses when it sets slot values in a dialog step.
-    /// </summary>
     public sealed class BotSlotValueOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When the shape value is List, it indicates that the values field contains a list of slot values. When the value is Scalar, it indicates that the value field contains a single value.
+        /// When the shape value is `List` , it indicates that the `values` field contains a list of slot values. When the value is `Scalar` , it indicates that the `value` field contains a single value.
         /// </summary>
         [Input("shape")]
         public Input<Pulumi.AwsNative.Lex.BotSlotShape>? Shape { get; set; }

@@ -4055,6 +4055,171 @@ func (in *userMapTypePtr) ToUserMapTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(UserMapTypePtrOutput)
 }
 
+type WebAppEndpointPolicy string
+
+const (
+	WebAppEndpointPolicyStandard = WebAppEndpointPolicy("STANDARD")
+	WebAppEndpointPolicyFips     = WebAppEndpointPolicy("FIPS")
+)
+
+func (WebAppEndpointPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppEndpointPolicy)(nil)).Elem()
+}
+
+func (e WebAppEndpointPolicy) ToWebAppEndpointPolicyOutput() WebAppEndpointPolicyOutput {
+	return pulumi.ToOutput(e).(WebAppEndpointPolicyOutput)
+}
+
+func (e WebAppEndpointPolicy) ToWebAppEndpointPolicyOutputWithContext(ctx context.Context) WebAppEndpointPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAppEndpointPolicyOutput)
+}
+
+func (e WebAppEndpointPolicy) ToWebAppEndpointPolicyPtrOutput() WebAppEndpointPolicyPtrOutput {
+	return e.ToWebAppEndpointPolicyPtrOutputWithContext(context.Background())
+}
+
+func (e WebAppEndpointPolicy) ToWebAppEndpointPolicyPtrOutputWithContext(ctx context.Context) WebAppEndpointPolicyPtrOutput {
+	return WebAppEndpointPolicy(e).ToWebAppEndpointPolicyOutputWithContext(ctx).ToWebAppEndpointPolicyPtrOutputWithContext(ctx)
+}
+
+func (e WebAppEndpointPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAppEndpointPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAppEndpointPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAppEndpointPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAppEndpointPolicyOutput struct{ *pulumi.OutputState }
+
+func (WebAppEndpointPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppEndpointPolicy)(nil)).Elem()
+}
+
+func (o WebAppEndpointPolicyOutput) ToWebAppEndpointPolicyOutput() WebAppEndpointPolicyOutput {
+	return o
+}
+
+func (o WebAppEndpointPolicyOutput) ToWebAppEndpointPolicyOutputWithContext(ctx context.Context) WebAppEndpointPolicyOutput {
+	return o
+}
+
+func (o WebAppEndpointPolicyOutput) ToWebAppEndpointPolicyPtrOutput() WebAppEndpointPolicyPtrOutput {
+	return o.ToWebAppEndpointPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o WebAppEndpointPolicyOutput) ToWebAppEndpointPolicyPtrOutputWithContext(ctx context.Context) WebAppEndpointPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAppEndpointPolicy) *WebAppEndpointPolicy {
+		return &v
+	}).(WebAppEndpointPolicyPtrOutput)
+}
+
+func (o WebAppEndpointPolicyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAppEndpointPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAppEndpointPolicy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAppEndpointPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAppEndpointPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAppEndpointPolicy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAppEndpointPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAppEndpointPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppEndpointPolicy)(nil)).Elem()
+}
+
+func (o WebAppEndpointPolicyPtrOutput) ToWebAppEndpointPolicyPtrOutput() WebAppEndpointPolicyPtrOutput {
+	return o
+}
+
+func (o WebAppEndpointPolicyPtrOutput) ToWebAppEndpointPolicyPtrOutputWithContext(ctx context.Context) WebAppEndpointPolicyPtrOutput {
+	return o
+}
+
+func (o WebAppEndpointPolicyPtrOutput) Elem() WebAppEndpointPolicyOutput {
+	return o.ApplyT(func(v *WebAppEndpointPolicy) WebAppEndpointPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret WebAppEndpointPolicy
+		return ret
+	}).(WebAppEndpointPolicyOutput)
+}
+
+func (o WebAppEndpointPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAppEndpointPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAppEndpointPolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAppEndpointPolicyInput is an input type that accepts values of the WebAppEndpointPolicy enum
+// A concrete instance of `WebAppEndpointPolicyInput` can be one of the following:
+//
+//	WebAppEndpointPolicyStandard
+//	WebAppEndpointPolicyFips
+type WebAppEndpointPolicyInput interface {
+	pulumi.Input
+
+	ToWebAppEndpointPolicyOutput() WebAppEndpointPolicyOutput
+	ToWebAppEndpointPolicyOutputWithContext(context.Context) WebAppEndpointPolicyOutput
+}
+
+var webAppEndpointPolicyPtrType = reflect.TypeOf((**WebAppEndpointPolicy)(nil)).Elem()
+
+type WebAppEndpointPolicyPtrInput interface {
+	pulumi.Input
+
+	ToWebAppEndpointPolicyPtrOutput() WebAppEndpointPolicyPtrOutput
+	ToWebAppEndpointPolicyPtrOutputWithContext(context.Context) WebAppEndpointPolicyPtrOutput
+}
+
+type webAppEndpointPolicyPtr string
+
+func WebAppEndpointPolicyPtr(v string) WebAppEndpointPolicyPtrInput {
+	return (*webAppEndpointPolicyPtr)(&v)
+}
+
+func (*webAppEndpointPolicyPtr) ElementType() reflect.Type {
+	return webAppEndpointPolicyPtrType
+}
+
+func (in *webAppEndpointPolicyPtr) ToWebAppEndpointPolicyPtrOutput() WebAppEndpointPolicyPtrOutput {
+	return pulumi.ToOutput(in).(WebAppEndpointPolicyPtrOutput)
+}
+
+func (in *webAppEndpointPolicyPtr) ToWebAppEndpointPolicyPtrOutputWithContext(ctx context.Context) WebAppEndpointPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAppEndpointPolicyPtrOutput)
+}
+
 // A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
 type WorkflowStepCopyStepDetailsPropertiesOverwriteExisting string
 
@@ -4769,6 +4934,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHomeDirectoryTypePtrInput)(nil)).Elem(), UserHomeDirectoryType("PATH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserMapTypeInput)(nil)).Elem(), UserMapType("FILE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserMapTypePtrInput)(nil)).Elem(), UserMapType("FILE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppEndpointPolicyInput)(nil)).Elem(), WebAppEndpointPolicy("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppEndpointPolicyPtrInput)(nil)).Elem(), WebAppEndpointPolicy("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepCopyStepDetailsPropertiesOverwriteExistingInput)(nil)).Elem(), WorkflowStepCopyStepDetailsPropertiesOverwriteExisting("TRUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrInput)(nil)).Elem(), WorkflowStepCopyStepDetailsPropertiesOverwriteExisting("TRUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingInput)(nil)).Elem(), WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting("TRUE"))
@@ -4829,6 +4996,8 @@ func init() {
 	pulumi.RegisterOutputType(UserHomeDirectoryTypePtrOutput{})
 	pulumi.RegisterOutputType(UserMapTypeOutput{})
 	pulumi.RegisterOutputType(UserMapTypePtrOutput{})
+	pulumi.RegisterOutputType(WebAppEndpointPolicyOutput{})
+	pulumi.RegisterOutputType(WebAppEndpointPolicyPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowStepCopyStepDetailsPropertiesOverwriteExistingOutput{})
 	pulumi.RegisterOutputType(WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput{})

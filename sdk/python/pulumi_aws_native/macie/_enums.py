@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AllowListStatus',
     'FindingsFilterFindingFilterAction',
+    'SessionAutomatedDiscoveryStatus',
     'SessionFindingPublishingFrequency',
     'SessionStatus',
 ]
@@ -29,6 +30,14 @@ class AllowListStatus(str, Enum):
 class FindingsFilterFindingFilterAction(str, Enum):
     ARCHIVE = "ARCHIVE"
     NOOP = "NOOP"
+
+
+class SessionAutomatedDiscoveryStatus(str, Enum):
+    """
+    The status of automated sensitive data discovery for the Macie session.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class SessionFindingPublishingFrequency(str, Enum):

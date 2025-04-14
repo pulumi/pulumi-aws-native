@@ -10,14 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Specifies the text input specifications.
-    /// </summary>
     public sealed class BotTextInputSpecificationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Time for which a bot waits before re-prompting a customer for text input.
-        /// </summary>
         [Input("startTimeoutMs", required: true)]
         public Input<int> StartTimeoutMs { get; set; } = null!;
 

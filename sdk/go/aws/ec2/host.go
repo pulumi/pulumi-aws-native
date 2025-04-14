@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,6 +35,8 @@ type Host struct {
 	InstanceType pulumi.StringPtrOutput `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
 	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
+	// Any tags assigned to the Host.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewHost registers a new resource with the given unique name, arguments, and options.
@@ -103,6 +106,8 @@ type hostArgs struct {
 	InstanceType *string `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
 	OutpostArn *string `pulumi:"outpostArn"`
+	// Any tags assigned to the Host.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Host resource.
@@ -123,6 +128,8 @@ type HostArgs struct {
 	InstanceType pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
 	OutpostArn pulumi.StringPtrInput
+	// Any tags assigned to the Host.
+	Tags aws.TagArrayInput
 }
 
 func (HostArgs) ElementType() reflect.Type {
@@ -205,6 +212,11 @@ func (o HostOutput) InstanceType() pulumi.StringPtrOutput {
 // The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
 func (o HostOutput) OutpostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
+}
+
+// Any tags assigned to the Host.
+func (o HostOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Host) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

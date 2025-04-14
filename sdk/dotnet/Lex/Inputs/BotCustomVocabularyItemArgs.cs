@@ -10,26 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
-    /// </summary>
     public sealed class BotCustomVocabularyItemArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Defines how you want your phrase to look in your transcription output.
-        /// </summary>
         [Input("displayAs")]
         public Input<string>? DisplayAs { get; set; }
 
-        /// <summary>
-        /// Phrase that should be recognized.
-        /// </summary>
         [Input("phrase", required: true)]
         public Input<string> Phrase { get; set; } = null!;
 
-        /// <summary>
-        /// The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
-        /// </summary>
         [Input("weight")]
         public Input<int>? Weight { get; set; }
 

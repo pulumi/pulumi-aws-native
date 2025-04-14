@@ -33,7 +33,7 @@ type ExtensionAssociation struct {
 	// The ARN of an application, configuration profile, or environment.
 	ResourceIdentifier pulumi.StringPtrOutput `pulumi:"resourceIdentifier"`
 	// An array of key-value pairs to apply to this resource.
-	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewExtensionAssociation registers a new resource with the given unique name, arguments, and options.
@@ -47,7 +47,6 @@ func NewExtensionAssociation(ctx *pulumi.Context,
 		"extensionIdentifier",
 		"extensionVersionNumber",
 		"resourceIdentifier",
-		"tags[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -92,7 +91,7 @@ type extensionAssociationArgs struct {
 	// The ARN of an application, configuration profile, or environment.
 	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ExtensionAssociation resource.
@@ -106,7 +105,7 @@ type ExtensionAssociationArgs struct {
 	// The ARN of an application, configuration profile, or environment.
 	ResourceIdentifier pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags aws.CreateOnlyTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ExtensionAssociationArgs) ElementType() reflect.Type {
@@ -187,8 +186,8 @@ func (o ExtensionAssociationOutput) ResourceIdentifier() pulumi.StringPtrOutput 
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ExtensionAssociationOutput) Tags() aws.CreateOnlyTagArrayOutput {
-	return o.ApplyT(func(v *ExtensionAssociation) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
+func (o ExtensionAssociationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ExtensionAssociation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

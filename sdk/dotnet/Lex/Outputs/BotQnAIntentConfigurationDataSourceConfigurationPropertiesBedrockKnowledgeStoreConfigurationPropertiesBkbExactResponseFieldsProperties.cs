@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Contains the names of the fields used for an exact response to the user.
-    /// </summary>
     [OutputType]
     public sealed class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsProperties
     {
-        /// <summary>
-        /// The answer field used for an exact response from Bedrock Knowledge Store.
-        /// </summary>
         public readonly string? AnswerField;
 
         [OutputConstructor]

@@ -10,17 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Parameter used to create a replication of the source bot in the secondary region.
-    /// </summary>
     public sealed class BotReplicationArgs : global::Pulumi.ResourceArgs
     {
         [Input("replicaRegions", required: true)]
         private InputList<string>? _replicaRegions;
-
-        /// <summary>
-        /// List of secondary regions for bot replication.
-        /// </summary>
         public InputList<string> ReplicaRegions
         {
             get => _replicaRegions ?? (_replicaRegions = new InputList<string>());

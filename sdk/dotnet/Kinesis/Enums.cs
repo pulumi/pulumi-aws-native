@@ -38,6 +38,43 @@ namespace Pulumi.AwsNative.Kinesis
     }
 
     /// <summary>
+    /// Value of an enhanced metric
+    /// </summary>
+    [EnumType]
+    public readonly struct StreamEnhancedMetric : IEquatable<StreamEnhancedMetric>
+    {
+        private readonly string _value;
+
+        private StreamEnhancedMetric(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StreamEnhancedMetric IncomingBytes { get; } = new StreamEnhancedMetric("IncomingBytes");
+        public static StreamEnhancedMetric IncomingRecords { get; } = new StreamEnhancedMetric("IncomingRecords");
+        public static StreamEnhancedMetric OutgoingBytes { get; } = new StreamEnhancedMetric("OutgoingBytes");
+        public static StreamEnhancedMetric OutgoingRecords { get; } = new StreamEnhancedMetric("OutgoingRecords");
+        public static StreamEnhancedMetric WriteProvisionedThroughputExceeded { get; } = new StreamEnhancedMetric("WriteProvisionedThroughputExceeded");
+        public static StreamEnhancedMetric ReadProvisionedThroughputExceeded { get; } = new StreamEnhancedMetric("ReadProvisionedThroughputExceeded");
+        public static StreamEnhancedMetric IteratorAgeMilliseconds { get; } = new StreamEnhancedMetric("IteratorAgeMilliseconds");
+        public static StreamEnhancedMetric All { get; } = new StreamEnhancedMetric("ALL");
+
+        public static bool operator ==(StreamEnhancedMetric left, StreamEnhancedMetric right) => left.Equals(right);
+        public static bool operator !=(StreamEnhancedMetric left, StreamEnhancedMetric right) => !left.Equals(right);
+
+        public static explicit operator string(StreamEnhancedMetric value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StreamEnhancedMetric other && Equals(other);
+        public bool Equals(StreamEnhancedMetric other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The mode of the stream
     /// </summary>
     [EnumType]

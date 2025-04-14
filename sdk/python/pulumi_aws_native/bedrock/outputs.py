@@ -9261,6 +9261,7 @@ class KnowledgeBaseOpenSearchManagedClusterConfiguration(dict):
         Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
         :param str domain_arn: The Amazon Resource Name (ARN) of the OpenSearch domain.
         :param str domain_endpoint: The endpoint URL the OpenSearch domain.
+        :param 'KnowledgeBaseOpenSearchManagedClusterFieldMapping' field_mapping: Contains the names of the fields to which to map information about the vector store.
         :param str vector_index_name: The name of the vector store.
         """
         pulumi.set(__self__, "domain_arn", domain_arn)
@@ -9287,6 +9288,9 @@ class KnowledgeBaseOpenSearchManagedClusterConfiguration(dict):
     @property
     @pulumi.getter(name="fieldMapping")
     def field_mapping(self) -> 'outputs.KnowledgeBaseOpenSearchManagedClusterFieldMapping':
+        """
+        Contains the names of the fields to which to map information about the vector store.
+        """
         return pulumi.get(self, "field_mapping")
 
     @property
@@ -10566,6 +10570,7 @@ class KnowledgeBaseStorageConfiguration(dict):
         :param 'KnowledgeBaseStorageType' type: The vector store service in which the knowledge base is stored.
         :param 'KnowledgeBaseMongoDbAtlasConfiguration' mongo_db_atlas_configuration: Contains the storage configuration of the knowledge base in MongoDB Atlas.
         :param 'KnowledgeBaseNeptuneAnalyticsConfiguration' neptune_analytics_configuration: Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
+        :param 'KnowledgeBaseOpenSearchManagedClusterConfiguration' opensearch_managed_cluster_configuration: Contains details about the storage configuration of the knowledge base in OpenSearch Managed Cluster. For more information, see [Create a vector index in Amazon OpenSearch Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html) .
         :param 'KnowledgeBaseOpenSearchServerlessConfiguration' opensearch_serverless_configuration: Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
         :param 'KnowledgeBasePineconeConfiguration' pinecone_configuration: Contains the storage configuration of the knowledge base in Pinecone.
         :param 'KnowledgeBaseRdsConfiguration' rds_configuration: Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
@@ -10611,6 +10616,9 @@ class KnowledgeBaseStorageConfiguration(dict):
     @property
     @pulumi.getter(name="opensearchManagedClusterConfiguration")
     def opensearch_managed_cluster_configuration(self) -> Optional['outputs.KnowledgeBaseOpenSearchManagedClusterConfiguration']:
+        """
+        Contains details about the storage configuration of the knowledge base in OpenSearch Managed Cluster. For more information, see [Create a vector index in Amazon OpenSearch Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html) .
+        """
         return pulumi.get(self, "opensearch_managed_cluster_configuration")
 
     @property

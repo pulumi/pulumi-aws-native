@@ -79,6 +79,10 @@ namespace Pulumi.AwsNative.Ec2
         /// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
         /// </summary>
         public readonly string? HostRecovery;
+        /// <summary>
+        /// Any tags assigned to the Host.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetHostResult(
@@ -88,12 +92,15 @@ namespace Pulumi.AwsNative.Ec2
 
             string? hostMaintenance,
 
-            string? hostRecovery)
+            string? hostRecovery,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AutoPlacement = autoPlacement;
             HostId = hostId;
             HostMaintenance = hostMaintenance;
             HostRecovery = hostRecovery;
+            Tags = tags;
         }
     }
 }

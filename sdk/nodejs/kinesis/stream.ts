@@ -42,6 +42,10 @@ export class Stream extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The final list of shard-level metrics
+     */
+    public readonly desiredShardLevelMetrics!: pulumi.Output<enums.kinesis.StreamEnhancedMetric[] | undefined>;
+    /**
      * The name of the Kinesis stream.
      */
     public readonly name!: pulumi.Output<string | undefined>;
@@ -77,6 +81,7 @@ export class Stream extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["desiredShardLevelMetrics"] = args ? args.desiredShardLevelMetrics : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["retentionPeriodHours"] = args ? args.retentionPeriodHours : undefined;
             resourceInputs["shardCount"] = args ? args.shardCount : undefined;
@@ -86,6 +91,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["desiredShardLevelMetrics"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["retentionPeriodHours"] = undefined /*out*/;
             resourceInputs["shardCount"] = undefined /*out*/;
@@ -104,6 +110,10 @@ export class Stream extends pulumi.CustomResource {
  * The set of arguments for constructing a Stream resource.
  */
 export interface StreamArgs {
+    /**
+     * The final list of shard-level metrics
+     */
+    desiredShardLevelMetrics?: pulumi.Input<pulumi.Input<enums.kinesis.StreamEnhancedMetric>[]>;
     /**
      * The name of the Kinesis stream.
      */
