@@ -69,6 +69,12 @@ namespace Pulumi.AwsNative.Ec2
         [Output("outpostArn")]
         public Output<string?> OutpostArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Any tags assigned to the Host.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Host resource with the given unique name, arguments, and options.
@@ -169,6 +175,18 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Any tags assigned to the Host.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public HostArgs()
         {

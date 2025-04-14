@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Key/value pair representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
-    /// </summary>
     public sealed class BotSessionAttributeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

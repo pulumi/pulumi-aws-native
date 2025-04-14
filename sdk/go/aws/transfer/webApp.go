@@ -28,7 +28,8 @@ type WebApp struct {
 	// Key-value pairs that can be used to group and search for web apps.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
-	WebAppCustomization WebAppCustomizationPtrOutput `pulumi:"webAppCustomization"`
+	WebAppCustomization  WebAppCustomizationPtrOutput  `pulumi:"webAppCustomization"`
+	WebAppEndpointPolicy WebAppEndpointPolicyPtrOutput `pulumi:"webAppEndpointPolicy"`
 	// A unique identifier for the web app.
 	WebAppId pulumi.StringOutput `pulumi:"webAppId"`
 	// A union that contains the value for number of concurrent connections or the user sessions on your web app.
@@ -47,6 +48,7 @@ func NewWebApp(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"identityProviderDetails.instanceArn",
+		"webAppEndpointPolicy",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -91,7 +93,8 @@ type webAppArgs struct {
 	// Key-value pairs that can be used to group and search for web apps.
 	Tags []aws.Tag `pulumi:"tags"`
 	// A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
-	WebAppCustomization *WebAppCustomization `pulumi:"webAppCustomization"`
+	WebAppCustomization  *WebAppCustomization  `pulumi:"webAppCustomization"`
+	WebAppEndpointPolicy *WebAppEndpointPolicy `pulumi:"webAppEndpointPolicy"`
 	// A union that contains the value for number of concurrent connections or the user sessions on your web app.
 	WebAppUnits *WebAppUnitsProperties `pulumi:"webAppUnits"`
 }
@@ -107,7 +110,8 @@ type WebAppArgs struct {
 	// Key-value pairs that can be used to group and search for web apps.
 	Tags aws.TagArrayInput
 	// A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
-	WebAppCustomization WebAppCustomizationPtrInput
+	WebAppCustomization  WebAppCustomizationPtrInput
+	WebAppEndpointPolicy WebAppEndpointPolicyPtrInput
 	// A union that contains the value for number of concurrent connections or the user sessions on your web app.
 	WebAppUnits WebAppUnitsPropertiesPtrInput
 }
@@ -174,6 +178,10 @@ func (o WebAppOutput) Tags() aws.TagArrayOutput {
 // A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
 func (o WebAppOutput) WebAppCustomization() WebAppCustomizationPtrOutput {
 	return o.ApplyT(func(v *WebApp) WebAppCustomizationPtrOutput { return v.WebAppCustomization }).(WebAppCustomizationPtrOutput)
+}
+
+func (o WebAppOutput) WebAppEndpointPolicy() WebAppEndpointPolicyPtrOutput {
+	return o.ApplyT(func(v *WebApp) WebAppEndpointPolicyPtrOutput { return v.WebAppEndpointPolicy }).(WebAppEndpointPolicyPtrOutput)
 }
 
 // A unique identifier for the web app.

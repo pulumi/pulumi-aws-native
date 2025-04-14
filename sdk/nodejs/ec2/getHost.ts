@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -38,6 +41,10 @@ export interface GetHostResult {
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
      */
     readonly hostRecovery?: string;
+    /**
+     * Any tags assigned to the Host.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EC2::Host

@@ -97,7 +97,7 @@ class AwaitableGetConsumableResourceResult(GetConsumableResourceResult):
 def get_consumable_resource(consumable_resource_arn: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsumableResourceResult:
     """
-    Resource Type schema for AWS::Batch::ConsumableResource
+    Resource Type definition for AWS::Batch::ConsumableResource
 
 
     :param str consumable_resource_arn: The Amazon Resource Name (ARN) of the consumable resource.
@@ -116,7 +116,7 @@ def get_consumable_resource(consumable_resource_arn: Optional[str] = None,
 def get_consumable_resource_output(consumable_resource_arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConsumableResourceResult]:
     """
-    Resource Type schema for AWS::Batch::ConsumableResource
+    Resource Type definition for AWS::Batch::ConsumableResource
 
 
     :param str consumable_resource_arn: The Amazon Resource Name (ARN) of the consumable resource.

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Contains settings used by Amazon Lex to select a slot value.
-    /// </summary>
     public sealed class BotSlotValueSelectionSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

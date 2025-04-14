@@ -10,25 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Specifies next steps to run after the dialog code hook finishes.
-    /// </summary>
     public sealed class BotPostDialogCodeHookInvocationSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        /// A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
         /// </summary>
         [Input("failureConditional")]
         public Input<Inputs.BotConditionalSpecificationArgs>? FailureConditional { get; set; }
 
         /// <summary>
-        /// Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        /// Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
         /// </summary>
         [Input("failureNextStep")]
         public Input<Inputs.BotDialogStateArgs>? FailureNextStep { get; set; }
 
         /// <summary>
-        /// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        /// Specifies a list of message groups that Amazon Lex uses to respond the user input when the code hook fails.
         /// </summary>
         [Input("failureResponse")]
         public Input<Inputs.BotResponseSpecificationArgs>? FailureResponse { get; set; }
@@ -46,7 +43,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public Input<Inputs.BotDialogStateArgs>? SuccessNextStep { get; set; }
 
         /// <summary>
-        /// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        /// Specifies a list of message groups that Amazon Lex uses to respond when the code hook succeeds.
         /// </summary>
         [Input("successResponse")]
         public Input<Inputs.BotResponseSpecificationArgs>? SuccessResponse { get; set; }
@@ -64,7 +61,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public Input<Inputs.BotDialogStateArgs>? TimeoutNextStep { get; set; }
 
         /// <summary>
-        /// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        /// Specifies a list of message groups that Amazon Lex uses to respond to the user input when the code hook times out.
         /// </summary>
         [Input("timeoutResponse")]
         public Input<Inputs.BotResponseSpecificationArgs>? TimeoutResponse { get; set; }

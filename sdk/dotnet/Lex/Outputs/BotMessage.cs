@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// The primary message that Amazon Lex should send to the user.
-    /// </summary>
     [OutputType]
     public sealed class BotMessage
     {

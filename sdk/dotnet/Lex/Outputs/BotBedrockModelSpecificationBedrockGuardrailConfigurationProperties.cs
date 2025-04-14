@@ -10,19 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// The guardrail configuration in the Bedrock model specification details.
-    /// </summary>
     [OutputType]
     public sealed class BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties
     {
-        /// <summary>
-        /// The unique guardrail id for the Bedrock guardrail configuration.
-        /// </summary>
         public readonly string? BedrockGuardrailIdentifier;
-        /// <summary>
-        /// The guardrail version for the Bedrock guardrail configuration.
-        /// </summary>
         public readonly string? BedrockGuardrailVersion;
 
         [OutputConstructor]

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// One or more messages that Amazon Lex can send to the user.
-    /// </summary>
     public sealed class BotMessageGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("message", required: true)]
@@ -20,10 +17,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
         [Input("variations")]
         private InputList<Inputs.BotMessageArgs>? _variations;
-
-        /// <summary>
-        /// Message variations to send to the user.
-        /// </summary>
         public InputList<Inputs.BotMessageArgs> Variations
         {
             get => _variations ?? (_variations = new InputList<Inputs.BotMessageArgs>());

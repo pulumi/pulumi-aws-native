@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// The location of audio log files collected when conversation logging is enabled for a bot.
-    /// </summary>
     public sealed class BotAudioLogDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("s3Bucket", required: true)]

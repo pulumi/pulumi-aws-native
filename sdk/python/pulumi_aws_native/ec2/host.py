@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['HostArgs', 'Host']
 
@@ -26,7 +28,8 @@ class HostArgs:
                  host_recovery: Optional[pulumi.Input[str]] = None,
                  instance_family: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
-                 outpost_arn: Optional[pulumi.Input[str]] = None):
+                 outpost_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Host resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to allocate the Dedicated Host.
@@ -37,6 +40,7 @@ class HostArgs:
         :param pulumi.Input[str] instance_family: Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
         :param pulumi.Input[str] instance_type: Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags assigned to the Host.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         if asset_id is not None:
@@ -53,6 +57,8 @@ class HostArgs:
             pulumi.set(__self__, "instance_type", instance_type)
         if outpost_arn is not None:
             pulumi.set(__self__, "outpost_arn", outpost_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -150,6 +156,18 @@ class HostArgs:
     def outpost_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "outpost_arn", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Any tags assigned to the Host.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class Host(pulumi.CustomResource):
     @overload
@@ -164,6 +182,7 @@ class Host(pulumi.CustomResource):
                  instance_family: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::Host
@@ -178,6 +197,7 @@ class Host(pulumi.CustomResource):
         :param pulumi.Input[str] instance_family: Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
         :param pulumi.Input[str] instance_type: Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the Host.
         """
         ...
     @overload
@@ -211,6 +231,7 @@ class Host(pulumi.CustomResource):
                  instance_family: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -230,6 +251,7 @@ class Host(pulumi.CustomResource):
             __props__.__dict__["instance_family"] = instance_family
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["outpost_arn"] = outpost_arn
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["host_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["assetId", "availabilityZone", "instanceFamily", "instanceType", "outpostArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -264,6 +286,7 @@ class Host(pulumi.CustomResource):
         __props__.__dict__["instance_family"] = None
         __props__.__dict__["instance_type"] = None
         __props__.__dict__["outpost_arn"] = None
+        __props__.__dict__["tags"] = None
         return Host(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -337,4 +360,12 @@ class Host(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
         """
         return pulumi.get(self, "outpost_arn")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Any tags assigned to the Host.
+        """
+        return pulumi.get(self, "tags")
 

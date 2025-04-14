@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch
 {
     /// <summary>
-    /// Resource Type schema for AWS::Batch::ConsumableResource
+    /// Resource Type definition for AWS::Batch::ConsumableResource
     /// </summary>
     [AwsNativeResourceType("aws-native:batch:ConsumableResource")]
     public partial class ConsumableResource : global::Pulumi.CustomResource

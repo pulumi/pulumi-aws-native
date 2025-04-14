@@ -13,6 +13,12 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
     public sealed class CollaborationPaymentConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The compute configuration for the job.
+        /// </summary>
+        [Input("jobCompute")]
+        public Input<Inputs.CollaborationJobComputePaymentConfigArgs>? JobCompute { get; set; }
+
+        /// <summary>
         /// An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
         /// </summary>
         [Input("machineLearning")]

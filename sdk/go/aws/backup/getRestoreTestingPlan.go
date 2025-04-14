@@ -37,8 +37,6 @@ type LookupRestoreTestingPlanResult struct {
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
 	ScheduleExpressionTimezone *string `pulumi:"scheduleExpressionTimezone"`
-	// This parameter is not currently supported.
-	ScheduleStatus *RestoreTestingPlanRestoreTestingScheduleStatus `pulumi:"scheduleStatus"`
 	// Defaults to 24 hours.
 	//
 	// A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
@@ -99,13 +97,6 @@ func (o LookupRestoreTestingPlanResultOutput) ScheduleExpression() pulumi.String
 // Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
 func (o LookupRestoreTestingPlanResultOutput) ScheduleExpressionTimezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestoreTestingPlanResult) *string { return v.ScheduleExpressionTimezone }).(pulumi.StringPtrOutput)
-}
-
-// This parameter is not currently supported.
-func (o LookupRestoreTestingPlanResultOutput) ScheduleStatus() RestoreTestingPlanRestoreTestingScheduleStatusPtrOutput {
-	return o.ApplyT(func(v LookupRestoreTestingPlanResult) *RestoreTestingPlanRestoreTestingScheduleStatus {
-		return v.ScheduleStatus
-	}).(RestoreTestingPlanRestoreTestingScheduleStatusPtrOutput)
 }
 
 // Defaults to 24 hours.

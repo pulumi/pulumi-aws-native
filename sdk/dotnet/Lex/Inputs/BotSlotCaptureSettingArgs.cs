@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Settings used when Amazon Lex successfully captures a slot value from a user.
-    /// </summary>
     public sealed class BotSlotCaptureSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -58,7 +55,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public Input<Inputs.BotDialogStateArgs>? FailureNextStep { get; set; }
 
         /// <summary>
-        /// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        /// Specifies a list of message groups that Amazon Lex uses to respond the user input when the slot fails to be captured.
         /// </summary>
         [Input("failureResponse")]
         public Input<Inputs.BotResponseSpecificationArgs>? FailureResponse { get; set; }

@@ -15,9 +15,6 @@ export const BotAudioRecognitionStrategy = {
     UseSlotValuesAsCustomVocabulary: "UseSlotValuesAsCustomVocabulary",
 } as const;
 
-/**
- * Enables using slot values as a custom vocabulary when recognizing user utterances.
- */
 export type BotAudioRecognitionStrategy = (typeof BotAudioRecognitionStrategy)[keyof typeof BotAudioRecognitionStrategy];
 
 export const BotBedrockModelSpecificationBedrockTraceStatus = {
@@ -25,9 +22,6 @@ export const BotBedrockModelSpecificationBedrockTraceStatus = {
     Disabled: "DISABLED",
 } as const;
 
-/**
- * The Bedrock trace status in the Bedrock model specification details.
- */
 export type BotBedrockModelSpecificationBedrockTraceStatus = (typeof BotBedrockModelSpecificationBedrockTraceStatus)[keyof typeof BotBedrockModelSpecificationBedrockTraceStatus];
 
 export const BotDialogActionType = {
@@ -42,9 +36,6 @@ export const BotDialogActionType = {
     InvokeDialogCodeHook: "InvokeDialogCodeHook",
 } as const;
 
-/**
- * The possible values of actions that the conversation can take.
- */
 export type BotDialogActionType = (typeof BotDialogActionType)[keyof typeof BotDialogActionType];
 
 export const BotMessageSelectionStrategy = {
@@ -52,9 +43,6 @@ export const BotMessageSelectionStrategy = {
     Ordered: "Ordered",
 } as const;
 
-/**
- * Indicates how a message is selected from a message group among retries.
- */
 export type BotMessageSelectionStrategy = (typeof BotMessageSelectionStrategy)[keyof typeof BotMessageSelectionStrategy];
 
 export const BotObfuscationSettingObfuscationSettingType = {
@@ -79,14 +67,12 @@ export const BotSlotShape = {
     List: "List",
 } as const;
 
-/**
- * The different shapes that a slot can be in during a conversation.
- */
 export type BotSlotShape = (typeof BotSlotShape)[keyof typeof BotSlotShape];
 
 export const BotSlotValueResolutionStrategy = {
     OriginalValue: "ORIGINAL_VALUE",
     TopResolution: "TOP_RESOLUTION",
+    Concatenation: "CONCATENATION",
 } as const;
 
 export type BotSlotValueResolutionStrategy = (typeof BotSlotValueResolutionStrategy)[keyof typeof BotSlotValueResolutionStrategy];
@@ -99,6 +85,8 @@ export const BotVoiceSettingsEngine = {
 } as const;
 
 /**
- * Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+ * Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .
+ *
+ * If you do not specify a value, the default is `standard` .
  */
 export type BotVoiceSettingsEngine = (typeof BotVoiceSettingsEngine)[keyof typeof BotVoiceSettingsEngine];

@@ -60,6 +60,7 @@ namespace Pulumi.AwsNative.PaymentCryptography
 
         public static KeyCheckValueAlgorithm Cmac { get; } = new KeyCheckValueAlgorithm("CMAC");
         public static KeyCheckValueAlgorithm AnsiX924 { get; } = new KeyCheckValueAlgorithm("ANSI_X9_24");
+        public static KeyCheckValueAlgorithm Hmac { get; } = new KeyCheckValueAlgorithm("HMAC");
 
         public static bool operator ==(KeyCheckValueAlgorithm left, KeyCheckValueAlgorithm right) => left.Equals(right);
         public static bool operator !=(KeyCheckValueAlgorithm left, KeyCheckValueAlgorithm right) => !left.Equals(right);
@@ -99,6 +100,51 @@ namespace Pulumi.AwsNative.PaymentCryptography
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is KeyClass other && Equals(other);
         public bool Equals(KeyClass other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KeyDeriveKeyUsage : IEquatable<KeyDeriveKeyUsage>
+    {
+        private readonly string _value;
+
+        private KeyDeriveKeyUsage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KeyDeriveKeyUsage Tr31b0BaseDerivationKey { get; } = new KeyDeriveKeyUsage("TR31_B0_BASE_DERIVATION_KEY");
+        public static KeyDeriveKeyUsage Tr31c0CardVerificationKey { get; } = new KeyDeriveKeyUsage("TR31_C0_CARD_VERIFICATION_KEY");
+        public static KeyDeriveKeyUsage Tr31d0SymmetricDataEncryptionKey { get; } = new KeyDeriveKeyUsage("TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY");
+        public static KeyDeriveKeyUsage Tr31e0EmvMkeyAppCryptograms { get; } = new KeyDeriveKeyUsage("TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS");
+        public static KeyDeriveKeyUsage Tr31e1EmvMkeyConfidentiality { get; } = new KeyDeriveKeyUsage("TR31_E1_EMV_MKEY_CONFIDENTIALITY");
+        public static KeyDeriveKeyUsage Tr31e2EmvMkeyIntegrity { get; } = new KeyDeriveKeyUsage("TR31_E2_EMV_MKEY_INTEGRITY");
+        public static KeyDeriveKeyUsage Tr31e4EmvMkeyDynamicNumbers { get; } = new KeyDeriveKeyUsage("TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS");
+        public static KeyDeriveKeyUsage Tr31e5EmvMkeyCardPersonalization { get; } = new KeyDeriveKeyUsage("TR31_E5_EMV_MKEY_CARD_PERSONALIZATION");
+        public static KeyDeriveKeyUsage Tr31e6EmvMkeyOther { get; } = new KeyDeriveKeyUsage("TR31_E6_EMV_MKEY_OTHER");
+        public static KeyDeriveKeyUsage Tr31k0KeyEncryptionKey { get; } = new KeyDeriveKeyUsage("TR31_K0_KEY_ENCRYPTION_KEY");
+        public static KeyDeriveKeyUsage Tr31k1KeyBlockProtectionKey { get; } = new KeyDeriveKeyUsage("TR31_K1_KEY_BLOCK_PROTECTION_KEY");
+        public static KeyDeriveKeyUsage Tr31m3Iso97973MacKey { get; } = new KeyDeriveKeyUsage("TR31_M3_ISO_9797_3_MAC_KEY");
+        public static KeyDeriveKeyUsage Tr31m1Iso97971MacKey { get; } = new KeyDeriveKeyUsage("TR31_M1_ISO_9797_1_MAC_KEY");
+        public static KeyDeriveKeyUsage Tr31m6Iso97975CmacKey { get; } = new KeyDeriveKeyUsage("TR31_M6_ISO_9797_5_CMAC_KEY");
+        public static KeyDeriveKeyUsage Tr31m7HmacKey { get; } = new KeyDeriveKeyUsage("TR31_M7_HMAC_KEY");
+        public static KeyDeriveKeyUsage Tr31p0PinEncryptionKey { get; } = new KeyDeriveKeyUsage("TR31_P0_PIN_ENCRYPTION_KEY");
+        public static KeyDeriveKeyUsage Tr31p1PinGenerationKey { get; } = new KeyDeriveKeyUsage("TR31_P1_PIN_GENERATION_KEY");
+        public static KeyDeriveKeyUsage Tr31v1Ibm3624PinVerificationKey { get; } = new KeyDeriveKeyUsage("TR31_V1_IBM3624_PIN_VERIFICATION_KEY");
+        public static KeyDeriveKeyUsage Tr31v2VisaPinVerificationKey { get; } = new KeyDeriveKeyUsage("TR31_V2_VISA_PIN_VERIFICATION_KEY");
+
+        public static bool operator ==(KeyDeriveKeyUsage left, KeyDeriveKeyUsage right) => left.Equals(right);
+        public static bool operator !=(KeyDeriveKeyUsage left, KeyDeriveKeyUsage right) => !left.Equals(right);
+
+        public static explicit operator string(KeyDeriveKeyUsage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KeyDeriveKeyUsage other && Equals(other);
+        public bool Equals(KeyDeriveKeyUsage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

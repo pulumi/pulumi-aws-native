@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::Route53::CidrCollection.
+ * Resource Type definition for AWS::Route53::CidrCollection.
  */
 export class CidrCollection extends pulumi.CustomResource {
     /**

@@ -30,13 +30,17 @@ type LookupBotArgs struct {
 type LookupBotResult struct {
 	// The Amazon Resource Name (ARN) of the bot.
 	Arn *string `pulumi:"arn"`
-	// Data privacy setting of the Bot.
+	// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 	DataPrivacy *DataPrivacyProperties `pulumi:"dataPrivacy"`
 	// The description of the version.
 	Description *string `pulumi:"description"`
 	// The unique identifier of the bot.
 	Id *string `pulumi:"id"`
-	// IdleSessionTTLInSeconds of the resource
+	// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
+	//
+	// A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
+	//
+	// You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
 	// The name of the bot locale.
 	Name *string `pulumi:"name"`
@@ -83,7 +87,7 @@ func (o LookupBotResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBotResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Data privacy setting of the Bot.
+// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 func (o LookupBotResultOutput) DataPrivacy() DataPrivacyPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupBotResult) *DataPrivacyProperties { return v.DataPrivacy }).(DataPrivacyPropertiesPtrOutput)
 }
@@ -98,7 +102,11 @@ func (o LookupBotResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBotResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// IdleSessionTTLInSeconds of the resource
+// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
+//
+// A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
+//
+// You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
 func (o LookupBotResultOutput) IdleSessionTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupBotResult) *int { return v.IdleSessionTtlInSeconds }).(pulumi.IntPtrOutput)
 }

@@ -772,6 +772,34 @@ namespace Pulumi.AwsNative.Transfer
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct WebAppEndpointPolicy : IEquatable<WebAppEndpointPolicy>
+    {
+        private readonly string _value;
+
+        private WebAppEndpointPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAppEndpointPolicy Standard { get; } = new WebAppEndpointPolicy("STANDARD");
+        public static WebAppEndpointPolicy Fips { get; } = new WebAppEndpointPolicy("FIPS");
+
+        public static bool operator ==(WebAppEndpointPolicy left, WebAppEndpointPolicy right) => left.Equals(right);
+        public static bool operator !=(WebAppEndpointPolicy left, WebAppEndpointPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(WebAppEndpointPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAppEndpointPolicy other && Equals(other);
+        public bool Equals(WebAppEndpointPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
     /// </summary>

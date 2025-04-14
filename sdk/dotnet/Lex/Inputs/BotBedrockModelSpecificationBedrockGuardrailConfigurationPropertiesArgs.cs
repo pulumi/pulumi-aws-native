@@ -10,20 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// The guardrail configuration in the Bedrock model specification details.
-    /// </summary>
     public sealed class BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The unique guardrail id for the Bedrock guardrail configuration.
-        /// </summary>
         [Input("bedrockGuardrailIdentifier")]
         public Input<string>? BedrockGuardrailIdentifier { get; set; }
 
-        /// <summary>
-        /// The guardrail version for the Bedrock guardrail configuration.
-        /// </summary>
         [Input("bedrockGuardrailVersion")]
         public Input<string>? BedrockGuardrailVersion { get; set; }
 

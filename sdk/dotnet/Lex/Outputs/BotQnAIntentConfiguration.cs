@@ -10,15 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Details about the the configuration of the built-in Amazon.QnAIntent.
-    /// </summary>
     [OutputType]
     public sealed class BotQnAIntentConfiguration
     {
         public readonly Outputs.BotBedrockModelSpecification BedrockModelConfiguration;
         /// <summary>
-        /// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+        /// Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
         /// </summary>
         public readonly Outputs.BotQnAIntentConfigurationDataSourceConfigurationProperties DataSourceConfiguration;
 

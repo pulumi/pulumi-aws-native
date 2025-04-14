@@ -10,14 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Defines the action that the bot executes at runtime when the conversation reaches this step.
-    /// </summary>
     [OutputType]
     public sealed class BotDialogAction
     {
         /// <summary>
-        /// If the dialog action is ElicitSlot, defines the slot to elicit from the user.
+        /// If the dialog action is `ElicitSlot` , defines the slot to elicit from the user.
         /// </summary>
         public readonly string? SlotToElicit;
         /// <summary>

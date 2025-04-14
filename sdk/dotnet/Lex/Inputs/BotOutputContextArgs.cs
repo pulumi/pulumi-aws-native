@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// A session context that is activated when an intent is fulfilled.
-    /// </summary>
     public sealed class BotOutputContextArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]

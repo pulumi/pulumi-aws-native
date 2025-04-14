@@ -10,27 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// A message that defines a response card that the client application can show to the user.
-    /// </summary>
     [OutputType]
     public sealed class BotImageResponseCard
     {
-        /// <summary>
-        /// A list of buttons that should be displayed on the response card.
-        /// </summary>
         public readonly ImmutableArray<Outputs.BotButton> Buttons;
-        /// <summary>
-        /// The URL of an image to display on the response card.
-        /// </summary>
         public readonly string? ImageUrl;
-        /// <summary>
-        /// The subtitle to display on the response card.
-        /// </summary>
         public readonly string? Subtitle;
-        /// <summary>
-        /// The title to display on the response card.
-        /// </summary>
         public readonly string Title;
 
         [OutputConstructor]

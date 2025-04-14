@@ -10,19 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Specifies the allowed input types.
-    /// </summary>
     [OutputType]
     public sealed class BotAllowedInputTypes
     {
-        /// <summary>
-        /// Indicates whether audio input is allowed.
-        /// </summary>
         public readonly bool AllowAudioInput;
-        /// <summary>
-        /// Indicates whether DTMF input is allowed.
-        /// </summary>
         public readonly bool AllowDtmfInput;
 
         [OutputConstructor]

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::Route53::CidrCollection.
+// Resource Type definition for AWS::Route53::CidrCollection.
 func LookupCidrCollection(ctx *pulumi.Context, args *LookupCidrCollectionArgs, opts ...pulumi.InvokeOption) (*LookupCidrCollectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCidrCollectionResult

@@ -10,12 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// A custom, extended built-in or a grammar slot type.
-    /// </summary>
     [OutputType]
     public sealed class BotSlotType
     {
+        public readonly Outputs.BotCompositeSlotTypeSetting? CompositeSlotTypeSetting;
         /// <summary>
         /// A description of the slot type. Use the description to help identify the slot type in lists.
         /// </summary>
@@ -50,6 +48,8 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
         [OutputConstructor]
         private BotSlotType(
+            Outputs.BotCompositeSlotTypeSetting? compositeSlotTypeSetting,
+
             string? description,
 
             Outputs.BotExternalSourceSetting? externalSourceSetting,
@@ -62,6 +62,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             Outputs.BotSlotValueSelectionSetting? valueSelectionSetting)
         {
+            CompositeSlotTypeSetting = compositeSlotTypeSetting;
             Description = description;
             ExternalSourceSetting = externalSourceSetting;
             Name = name;

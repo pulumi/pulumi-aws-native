@@ -59,6 +59,7 @@ export class WebApp extends pulumi.CustomResource {
      * A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
      */
     public readonly webAppCustomization!: pulumi.Output<outputs.transfer.WebAppCustomization | undefined>;
+    public readonly webAppEndpointPolicy!: pulumi.Output<enums.transfer.WebAppEndpointPolicy | undefined>;
     /**
      * A unique identifier for the web app.
      */
@@ -86,6 +87,7 @@ export class WebApp extends pulumi.CustomResource {
             resourceInputs["identityProviderDetails"] = args ? args.identityProviderDetails : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["webAppCustomization"] = args ? args.webAppCustomization : undefined;
+            resourceInputs["webAppEndpointPolicy"] = args ? args.webAppEndpointPolicy : undefined;
             resourceInputs["webAppUnits"] = args ? args.webAppUnits : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["webAppId"] = undefined /*out*/;
@@ -95,11 +97,12 @@ export class WebApp extends pulumi.CustomResource {
             resourceInputs["identityProviderDetails"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["webAppCustomization"] = undefined /*out*/;
+            resourceInputs["webAppEndpointPolicy"] = undefined /*out*/;
             resourceInputs["webAppId"] = undefined /*out*/;
             resourceInputs["webAppUnits"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["identityProviderDetails.instanceArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["identityProviderDetails.instanceArn", "webAppEndpointPolicy"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(WebApp.__pulumiType, name, resourceInputs, opts);
     }
@@ -127,6 +130,7 @@ export interface WebAppArgs {
      * A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
      */
     webAppCustomization?: pulumi.Input<inputs.transfer.WebAppCustomizationArgs>;
+    webAppEndpointPolicy?: pulumi.Input<enums.transfer.WebAppEndpointPolicy>;
     /**
      * A union that contains the value for number of concurrent connections or the user sessions on your web app.
      */

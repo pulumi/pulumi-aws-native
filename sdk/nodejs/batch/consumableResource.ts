@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type schema for AWS::Batch::ConsumableResource
+ * Resource Type definition for AWS::Batch::ConsumableResource
  */
 export class ConsumableResource extends pulumi.CustomResource {
     /**

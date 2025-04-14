@@ -10,14 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// InputContext specified for the intent.
-    /// </summary>
     public sealed class BotInputContextArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the context.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

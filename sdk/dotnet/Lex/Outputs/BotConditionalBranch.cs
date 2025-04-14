@@ -10,27 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// A set of actions that Amazon Lex should run if the condition is matched.
-    /// </summary>
     [OutputType]
     public sealed class BotConditionalBranch
     {
-        /// <summary>
-        /// Contains the expression to evaluate. If the condition is true, the branch's actions are taken.
-        /// </summary>
         public readonly Outputs.BotCondition Condition;
-        /// <summary>
-        /// The name of the branch.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The next step in the conversation.
-        /// </summary>
         public readonly Outputs.BotDialogState NextStep;
-        /// <summary>
-        /// Specifies a list of message groups that Amazon Lex uses to respond the user input.
-        /// </summary>
         public readonly Outputs.BotResponseSpecification? Response;
 
         [OutputConstructor]

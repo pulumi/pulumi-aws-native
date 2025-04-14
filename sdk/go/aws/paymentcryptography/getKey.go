@@ -28,6 +28,7 @@ type LookupKeyArgs struct {
 }
 
 type LookupKeyResult struct {
+	DeriveKeyUsage *KeyDeriveKeyUsage `pulumi:"deriveKeyUsage"`
 	// Specifies whether the key is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Specifies whether the key is exportable. This data is immutable after the key is created.
@@ -75,6 +76,10 @@ func (o LookupKeyResultOutput) ToLookupKeyResultOutput() LookupKeyResultOutput {
 
 func (o LookupKeyResultOutput) ToLookupKeyResultOutputWithContext(ctx context.Context) LookupKeyResultOutput {
 	return o
+}
+
+func (o LookupKeyResultOutput) DeriveKeyUsage() KeyDeriveKeyUsagePtrOutput {
+	return o.ApplyT(func(v LookupKeyResult) *KeyDeriveKeyUsage { return v.DeriveKeyUsage }).(KeyDeriveKeyUsagePtrOutput)
 }
 
 // Specifies whether the key is enabled.

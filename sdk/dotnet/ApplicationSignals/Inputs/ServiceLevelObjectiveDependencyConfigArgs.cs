@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ApplicationSignals.Inputs
         private InputMap<string>? _dependencyKeyAttributes;
 
         /// <summary>
-        /// This is a string-to-string map. It can include the following fields.
+        /// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which dependency the SLO metric is related to.
         /// 
         /// - `Type` designates the type of object this is.
         /// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .

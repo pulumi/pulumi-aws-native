@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
-    /// </summary>
     public sealed class BotInitialResponseSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

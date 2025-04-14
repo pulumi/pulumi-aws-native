@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.Kinesis
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The final list of shard-level metrics
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Kinesis.StreamEnhancedMetric> DesiredShardLevelMetrics;
+        /// <summary>
         /// The number of hours for the data records that are stored in shards to remain accessible.
         /// </summary>
         public readonly int? RetentionPeriodHours;
@@ -92,6 +96,8 @@ namespace Pulumi.AwsNative.Kinesis
         private GetStreamResult(
             string? arn,
 
+            ImmutableArray<Pulumi.AwsNative.Kinesis.StreamEnhancedMetric> desiredShardLevelMetrics,
+
             int? retentionPeriodHours,
 
             int? shardCount,
@@ -103,6 +109,7 @@ namespace Pulumi.AwsNative.Kinesis
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
+            DesiredShardLevelMetrics = desiredShardLevelMetrics;
             RetentionPeriodHours = retentionPeriodHours;
             ShardCount = shardCount;
             StreamEncryption = streamEncryption;

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Specifies the audio and DTMF input specification.
-    /// </summary>
     public sealed class BotAudioAndDtmfInputSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("audioSpecification")]
@@ -21,9 +18,6 @@ namespace Pulumi.AwsNative.Lex.Inputs
         [Input("dtmfSpecification")]
         public Input<Inputs.BotDtmfSpecificationArgs>? DtmfSpecification { get; set; }
 
-        /// <summary>
-        /// Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
-        /// </summary>
         [Input("startTimeoutMs", required: true)]
         public Input<int> StartTimeoutMs { get; set; } = null!;
 

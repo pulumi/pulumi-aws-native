@@ -84,6 +84,10 @@ namespace Pulumi.AwsNative.AppConfig
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ExtensionParameter>? Parameters;
         /// <summary>
+        /// An array of key-value tags to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// The extension version number.
         /// </summary>
         public readonly int? VersionNumber;
@@ -100,6 +104,8 @@ namespace Pulumi.AwsNative.AppConfig
 
             ImmutableDictionary<string, Outputs.ExtensionParameter>? parameters,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             int? versionNumber)
         {
             Actions = actions;
@@ -107,6 +113,7 @@ namespace Pulumi.AwsNative.AppConfig
             Description = description;
             Id = id;
             Parameters = parameters;
+            Tags = tags;
             VersionNumber = versionNumber;
         }
     }

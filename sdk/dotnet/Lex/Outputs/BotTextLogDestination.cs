@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
-    /// </summary>
     [OutputType]
     public sealed class BotTextLogDestination
     {

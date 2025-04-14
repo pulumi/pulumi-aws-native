@@ -26,6 +26,7 @@ class KeyArgs:
     def __init__(__self__, *,
                  exportable: pulumi.Input[bool],
                  key_attributes: pulumi.Input['KeyAttributesArgs'],
+                 derive_key_usage: Optional[pulumi.Input['KeyDeriveKeyUsage']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input['KeyCheckValueAlgorithm']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -40,6 +41,8 @@ class KeyArgs:
         """
         pulumi.set(__self__, "exportable", exportable)
         pulumi.set(__self__, "key_attributes", key_attributes)
+        if derive_key_usage is not None:
+            pulumi.set(__self__, "derive_key_usage", derive_key_usage)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if key_check_value_algorithm is not None:
@@ -70,6 +73,15 @@ class KeyArgs:
     @key_attributes.setter
     def key_attributes(self, value: pulumi.Input['KeyAttributesArgs']):
         pulumi.set(self, "key_attributes", value)
+
+    @property
+    @pulumi.getter(name="deriveKeyUsage")
+    def derive_key_usage(self) -> Optional[pulumi.Input['KeyDeriveKeyUsage']]:
+        return pulumi.get(self, "derive_key_usage")
+
+    @derive_key_usage.setter
+    def derive_key_usage(self, value: Optional[pulumi.Input['KeyDeriveKeyUsage']]):
+        pulumi.set(self, "derive_key_usage", value)
 
     @property
     @pulumi.getter
@@ -112,6 +124,7 @@ class Key(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 derive_key_usage: Optional[pulumi.Input['KeyDeriveKeyUsage']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  exportable: Optional[pulumi.Input[bool]] = None,
                  key_attributes: Optional[pulumi.Input[Union['KeyAttributesArgs', 'KeyAttributesArgsDict']]] = None,
@@ -154,6 +167,7 @@ class Key(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 derive_key_usage: Optional[pulumi.Input['KeyDeriveKeyUsage']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  exportable: Optional[pulumi.Input[bool]] = None,
                  key_attributes: Optional[pulumi.Input[Union['KeyAttributesArgs', 'KeyAttributesArgsDict']]] = None,
@@ -168,6 +182,7 @@ class Key(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KeyArgs.__new__(KeyArgs)
 
+            __props__.__dict__["derive_key_usage"] = derive_key_usage
             __props__.__dict__["enabled"] = enabled
             if exportable is None and not opts.urn:
                 raise TypeError("Missing required property 'exportable'")
@@ -202,6 +217,7 @@ class Key(pulumi.CustomResource):
 
         __props__ = KeyArgs.__new__(KeyArgs)
 
+        __props__.__dict__["derive_key_usage"] = None
         __props__.__dict__["enabled"] = None
         __props__.__dict__["exportable"] = None
         __props__.__dict__["key_attributes"] = None
@@ -211,6 +227,11 @@ class Key(pulumi.CustomResource):
         __props__.__dict__["key_state"] = None
         __props__.__dict__["tags"] = None
         return Key(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="deriveKeyUsage")
+    def derive_key_usage(self) -> pulumi.Output[Optional['KeyDeriveKeyUsage']]:
+        return pulumi.get(self, "derive_key_usage")
 
     @property
     @pulumi.getter

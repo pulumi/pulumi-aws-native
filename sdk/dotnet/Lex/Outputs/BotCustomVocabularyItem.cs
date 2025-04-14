@@ -10,23 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
-    /// </summary>
     [OutputType]
     public sealed class BotCustomVocabularyItem
     {
-        /// <summary>
-        /// Defines how you want your phrase to look in your transcription output.
-        /// </summary>
         public readonly string? DisplayAs;
-        /// <summary>
-        /// Phrase that should be recognized.
-        /// </summary>
         public readonly string Phrase;
-        /// <summary>
-        /// The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
-        /// </summary>
         public readonly int? Weight;
 
         [OutputConstructor]

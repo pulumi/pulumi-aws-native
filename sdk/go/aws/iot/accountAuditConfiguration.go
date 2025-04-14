@@ -26,7 +26,7 @@ type AccountAuditConfiguration struct {
 	//
 	// You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
 	//
-	// For more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
+	// For more information on available audit checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
 	AuditCheckConfigurations AccountAuditConfigurationAuditCheckConfigurationsOutput `pulumi:"auditCheckConfigurations"`
 	// Information about the targets to which audit notifications are sent.
 	AuditNotificationTargetConfigurations AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput `pulumi:"auditNotificationTargetConfigurations"`
@@ -97,7 +97,7 @@ type accountAuditConfigurationArgs struct {
 	//
 	// You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
 	//
-	// For more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
+	// For more information on available audit checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
 	AuditCheckConfigurations AccountAuditConfigurationAuditCheckConfigurations `pulumi:"auditCheckConfigurations"`
 	// Information about the targets to which audit notifications are sent.
 	AuditNotificationTargetConfigurations *AccountAuditConfigurationAuditNotificationTargetConfigurations `pulumi:"auditNotificationTargetConfigurations"`
@@ -117,7 +117,7 @@ type AccountAuditConfigurationArgs struct {
 	//
 	// You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
 	//
-	// For more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
+	// For more information on available audit checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
 	AuditCheckConfigurations AccountAuditConfigurationAuditCheckConfigurationsInput
 	// Information about the targets to which audit notifications are sent.
 	AuditNotificationTargetConfigurations AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrInput
@@ -175,7 +175,7 @@ func (o AccountAuditConfigurationOutput) AccountId() pulumi.StringOutput {
 //
 // You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
 //
-// For more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
+// For more information on available audit checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
 func (o AccountAuditConfigurationOutput) AuditCheckConfigurations() AccountAuditConfigurationAuditCheckConfigurationsOutput {
 	return o.ApplyT(func(v *AccountAuditConfiguration) AccountAuditConfigurationAuditCheckConfigurationsOutput {
 		return v.AuditCheckConfigurations

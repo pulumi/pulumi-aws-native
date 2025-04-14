@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// A slot is a variable needed to fulfill an intent, where an intent can require zero or more slots.
-    /// </summary>
     public sealed class BotSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

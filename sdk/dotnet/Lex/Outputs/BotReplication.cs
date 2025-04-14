@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Parameter used to create a replication of the source bot in the secondary region.
-    /// </summary>
     [OutputType]
     public sealed class BotReplication
     {
-        /// <summary>
-        /// List of secondary regions for bot replication.
-        /// </summary>
         public readonly ImmutableArray<string> ReplicaRegions;
 
         [OutputConstructor]

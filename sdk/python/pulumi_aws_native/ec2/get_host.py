@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetHostResult',
@@ -23,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetHostResult:
-    def __init__(__self__, auto_placement=None, host_id=None, host_maintenance=None, host_recovery=None):
+    def __init__(__self__, auto_placement=None, host_id=None, host_maintenance=None, host_recovery=None, tags=None):
         if auto_placement and not isinstance(auto_placement, str):
             raise TypeError("Expected argument 'auto_placement' to be a str")
         pulumi.set(__self__, "auto_placement", auto_placement)
@@ -36,6 +37,9 @@ class GetHostResult:
         if host_recovery and not isinstance(host_recovery, str):
             raise TypeError("Expected argument 'host_recovery' to be a str")
         pulumi.set(__self__, "host_recovery", host_recovery)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="autoPlacement")
@@ -69,6 +73,14 @@ class GetHostResult:
         """
         return pulumi.get(self, "host_recovery")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Any tags assigned to the Host.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetHostResult(GetHostResult):
     # pylint: disable=using-constant-test
@@ -79,7 +91,8 @@ class AwaitableGetHostResult(GetHostResult):
             auto_placement=self.auto_placement,
             host_id=self.host_id,
             host_maintenance=self.host_maintenance,
-            host_recovery=self.host_recovery)
+            host_recovery=self.host_recovery,
+            tags=self.tags)
 
 
 def get_host(host_id: Optional[str] = None,
@@ -99,7 +112,8 @@ def get_host(host_id: Optional[str] = None,
         auto_placement=pulumi.get(__ret__, 'auto_placement'),
         host_id=pulumi.get(__ret__, 'host_id'),
         host_maintenance=pulumi.get(__ret__, 'host_maintenance'),
-        host_recovery=pulumi.get(__ret__, 'host_recovery'))
+        host_recovery=pulumi.get(__ret__, 'host_recovery'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_host_output(host_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostResult]:
     """
@@ -116,4 +130,5 @@ def get_host_output(host_id: Optional[pulumi.Input[str]] = None,
         auto_placement=pulumi.get(__response__, 'auto_placement'),
         host_id=pulumi.get(__response__, 'host_id'),
         host_maintenance=pulumi.get(__response__, 'host_maintenance'),
-        host_recovery=pulumi.get(__response__, 'host_recovery')))
+        host_recovery=pulumi.get(__response__, 'host_recovery'),
+        tags=pulumi.get(__response__, 'tags')))

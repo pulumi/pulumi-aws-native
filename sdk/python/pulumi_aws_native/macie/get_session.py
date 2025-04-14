@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetSessionResult:
-    def __init__(__self__, aws_account_id=None, finding_publishing_frequency=None, service_role=None, status=None):
+    def __init__(__self__, automated_discovery_status=None, aws_account_id=None, finding_publishing_frequency=None, service_role=None, status=None):
+        if automated_discovery_status and not isinstance(automated_discovery_status, str):
+            raise TypeError("Expected argument 'automated_discovery_status' to be a str")
+        pulumi.set(__self__, "automated_discovery_status", automated_discovery_status)
         if aws_account_id and not isinstance(aws_account_id, str):
             raise TypeError("Expected argument 'aws_account_id' to be a str")
         pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -37,6 +40,14 @@ class GetSessionResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="automatedDiscoveryStatus")
+    def automated_discovery_status(self) -> Optional['SessionAutomatedDiscoveryStatus']:
+        """
+        The status of automated sensitive data discovery for the Macie session.
+        """
+        return pulumi.get(self, "automated_discovery_status")
 
     @property
     @pulumi.getter(name="awsAccountId")
@@ -77,6 +88,7 @@ class AwaitableGetSessionResult(GetSessionResult):
         if False:
             yield self
         return GetSessionResult(
+            automated_discovery_status=self.automated_discovery_status,
             aws_account_id=self.aws_account_id,
             finding_publishing_frequency=self.finding_publishing_frequency,
             service_role=self.service_role,
@@ -97,6 +109,7 @@ def get_session(aws_account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:macie:getSession', __args__, opts=opts, typ=GetSessionResult).value
 
     return AwaitableGetSessionResult(
+        automated_discovery_status=pulumi.get(__ret__, 'automated_discovery_status'),
         aws_account_id=pulumi.get(__ret__, 'aws_account_id'),
         finding_publishing_frequency=pulumi.get(__ret__, 'finding_publishing_frequency'),
         service_role=pulumi.get(__ret__, 'service_role'),
@@ -114,6 +127,7 @@ def get_session_output(aws_account_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:macie:getSession', __args__, opts=opts, typ=GetSessionResult)
     return __ret__.apply(lambda __response__: GetSessionResult(
+        automated_discovery_status=pulumi.get(__response__, 'automated_discovery_status'),
         aws_account_id=pulumi.get(__response__, 'aws_account_id'),
         finding_publishing_frequency=pulumi.get(__response__, 'finding_publishing_frequency'),
         service_role=pulumi.get(__response__, 'service_role'),

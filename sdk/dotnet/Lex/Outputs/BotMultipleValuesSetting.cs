@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Indicates whether a slot can return multiple values.
-    /// </summary>
     [OutputType]
     public sealed class BotMultipleValuesSetting
     {

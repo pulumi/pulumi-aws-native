@@ -10,38 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// A message that defines a response card that the client application can show to the user.
-    /// </summary>
     public sealed class BotImageResponseCardArgs : global::Pulumi.ResourceArgs
     {
         [Input("buttons")]
         private InputList<Inputs.BotButtonArgs>? _buttons;
-
-        /// <summary>
-        /// A list of buttons that should be displayed on the response card.
-        /// </summary>
         public InputList<Inputs.BotButtonArgs> Buttons
         {
             get => _buttons ?? (_buttons = new InputList<Inputs.BotButtonArgs>());
             set => _buttons = value;
         }
 
-        /// <summary>
-        /// The URL of an image to display on the response card.
-        /// </summary>
         [Input("imageUrl")]
         public Input<string>? ImageUrl { get; set; }
 
-        /// <summary>
-        /// The subtitle to display on the response card.
-        /// </summary>
         [Input("subtitle")]
         public Input<string>? Subtitle { get; set; }
 
-        /// <summary>
-        /// The title to display on the response card.
-        /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 

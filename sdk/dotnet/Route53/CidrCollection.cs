@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Route53
 {
     /// <summary>
-    /// Resource schema for AWS::Route53::CidrCollection.
+    /// Resource Type definition for AWS::Route53::CidrCollection.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53:CidrCollection")]
     public partial class CidrCollection : global::Pulumi.CustomResource

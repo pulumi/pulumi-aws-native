@@ -83,6 +83,10 @@ namespace Pulumi.AwsNative.AppConfig
         /// The ARNs of applications, configuration profiles, or environments defined in the association.
         /// </summary>
         public readonly string? ResourceArn;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetExtensionAssociationResult(
@@ -94,13 +98,16 @@ namespace Pulumi.AwsNative.AppConfig
 
             ImmutableDictionary<string, string>? parameters,
 
-            string? resourceArn)
+            string? resourceArn,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             ExtensionArn = extensionArn;
             Id = id;
             Parameters = parameters;
             ResourceArn = resourceArn;
+            Tags = tags;
         }
     }
 }

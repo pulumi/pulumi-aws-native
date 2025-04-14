@@ -66,7 +66,10 @@ export interface GetAnalysisTemplateResult {
      * Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
      */
     readonly membershipArn?: string;
-    readonly schema?: outputs.cleanrooms.AnalysisTemplateAnalysisSchema;
+    /**
+     * The source metadata for the analysis template.
+     */
+    readonly sourceMetadata?: outputs.cleanrooms.AnalysisTemplateAnalysisSourceMetadataProperties;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
      */

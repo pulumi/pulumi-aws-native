@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// A locale in the bot, which contains the intents and slot types that the bot uses in conversations with users in the specified language and locale.
-    /// </summary>
     [OutputType]
     public sealed class BotLocale
     {
@@ -25,7 +22,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// List of intents
+        /// One or more intents defined for the locale.
         /// </summary>
         public readonly ImmutableArray<Outputs.BotIntent> Intents;
         /// <summary>
@@ -37,7 +34,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly double NluConfidenceThreshold;
         /// <summary>
-        /// List of SlotTypes
+        /// One or more slot types defined for the locale.
         /// </summary>
         public readonly ImmutableArray<Outputs.BotSlotType> SlotTypes;
         /// <summary>

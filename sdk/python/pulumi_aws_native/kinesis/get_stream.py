@@ -26,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetStreamResult:
-    def __init__(__self__, arn=None, retention_period_hours=None, shard_count=None, stream_encryption=None, stream_mode_details=None, tags=None):
+    def __init__(__self__, arn=None, desired_shard_level_metrics=None, retention_period_hours=None, shard_count=None, stream_encryption=None, stream_mode_details=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if desired_shard_level_metrics and not isinstance(desired_shard_level_metrics, list):
+            raise TypeError("Expected argument 'desired_shard_level_metrics' to be a list")
+        pulumi.set(__self__, "desired_shard_level_metrics", desired_shard_level_metrics)
         if retention_period_hours and not isinstance(retention_period_hours, int):
             raise TypeError("Expected argument 'retention_period_hours' to be a int")
         pulumi.set(__self__, "retention_period_hours", retention_period_hours)
@@ -53,6 +56,14 @@ class GetStreamResult:
         The Amazon resource name (ARN) of the Kinesis stream
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="desiredShardLevelMetrics")
+    def desired_shard_level_metrics(self) -> Optional[Sequence['StreamEnhancedMetric']]:
+        """
+        The final list of shard-level metrics
+        """
+        return pulumi.get(self, "desired_shard_level_metrics")
 
     @property
     @pulumi.getter(name="retentionPeriodHours")
@@ -102,6 +113,7 @@ class AwaitableGetStreamResult(GetStreamResult):
             yield self
         return GetStreamResult(
             arn=self.arn,
+            desired_shard_level_metrics=self.desired_shard_level_metrics,
             retention_period_hours=self.retention_period_hours,
             shard_count=self.shard_count,
             stream_encryption=self.stream_encryption,
@@ -124,6 +136,7 @@ def get_stream(name: Optional[str] = None,
 
     return AwaitableGetStreamResult(
         arn=pulumi.get(__ret__, 'arn'),
+        desired_shard_level_metrics=pulumi.get(__ret__, 'desired_shard_level_metrics'),
         retention_period_hours=pulumi.get(__ret__, 'retention_period_hours'),
         shard_count=pulumi.get(__ret__, 'shard_count'),
         stream_encryption=pulumi.get(__ret__, 'stream_encryption'),
@@ -143,6 +156,7 @@ def get_stream_output(name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:kinesis:getStream', __args__, opts=opts, typ=GetStreamResult)
     return __ret__.apply(lambda __response__: GetStreamResult(
         arn=pulumi.get(__response__, 'arn'),
+        desired_shard_level_metrics=pulumi.get(__response__, 'desired_shard_level_metrics'),
         retention_period_hours=pulumi.get(__response__, 'retention_period_hours'),
         shard_count=pulumi.get(__response__, 'shard_count'),
         stream_encryption=pulumi.get(__response__, 'stream_encryption'),

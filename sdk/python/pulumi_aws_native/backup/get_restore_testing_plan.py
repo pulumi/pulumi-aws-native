@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRestoreTestingPlanResult:
-    def __init__(__self__, recovery_point_selection=None, restore_testing_plan_arn=None, schedule_expression=None, schedule_expression_timezone=None, schedule_status=None, start_window_hours=None, tags=None):
+    def __init__(__self__, recovery_point_selection=None, restore_testing_plan_arn=None, schedule_expression=None, schedule_expression_timezone=None, start_window_hours=None, tags=None):
         if recovery_point_selection and not isinstance(recovery_point_selection, dict):
             raise TypeError("Expected argument 'recovery_point_selection' to be a dict")
         pulumi.set(__self__, "recovery_point_selection", recovery_point_selection)
@@ -39,9 +39,6 @@ class GetRestoreTestingPlanResult:
         if schedule_expression_timezone and not isinstance(schedule_expression_timezone, str):
             raise TypeError("Expected argument 'schedule_expression_timezone' to be a str")
         pulumi.set(__self__, "schedule_expression_timezone", schedule_expression_timezone)
-        if schedule_status and not isinstance(schedule_status, str):
-            raise TypeError("Expected argument 'schedule_status' to be a str")
-        pulumi.set(__self__, "schedule_status", schedule_status)
         if start_window_hours and not isinstance(start_window_hours, int):
             raise TypeError("Expected argument 'start_window_hours' to be a int")
         pulumi.set(__self__, "start_window_hours", start_window_hours)
@@ -82,14 +79,6 @@ class GetRestoreTestingPlanResult:
         return pulumi.get(self, "schedule_expression_timezone")
 
     @property
-    @pulumi.getter(name="scheduleStatus")
-    def schedule_status(self) -> Optional['RestoreTestingPlanRestoreTestingScheduleStatus']:
-        """
-        This parameter is not currently supported.
-        """
-        return pulumi.get(self, "schedule_status")
-
-    @property
     @pulumi.getter(name="startWindowHours")
     def start_window_hours(self) -> Optional[int]:
         """
@@ -118,7 +107,6 @@ class AwaitableGetRestoreTestingPlanResult(GetRestoreTestingPlanResult):
             restore_testing_plan_arn=self.restore_testing_plan_arn,
             schedule_expression=self.schedule_expression,
             schedule_expression_timezone=self.schedule_expression_timezone,
-            schedule_status=self.schedule_status,
             start_window_hours=self.start_window_hours,
             tags=self.tags)
 
@@ -141,7 +129,6 @@ def get_restore_testing_plan(restore_testing_plan_name: Optional[str] = None,
         restore_testing_plan_arn=pulumi.get(__ret__, 'restore_testing_plan_arn'),
         schedule_expression=pulumi.get(__ret__, 'schedule_expression'),
         schedule_expression_timezone=pulumi.get(__ret__, 'schedule_expression_timezone'),
-        schedule_status=pulumi.get(__ret__, 'schedule_status'),
         start_window_hours=pulumi.get(__ret__, 'start_window_hours'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_restore_testing_plan_output(restore_testing_plan_name: Optional[pulumi.Input[str]] = None,
@@ -161,6 +148,5 @@ def get_restore_testing_plan_output(restore_testing_plan_name: Optional[pulumi.I
         restore_testing_plan_arn=pulumi.get(__response__, 'restore_testing_plan_arn'),
         schedule_expression=pulumi.get(__response__, 'schedule_expression'),
         schedule_expression_timezone=pulumi.get(__response__, 'schedule_expression_timezone'),
-        schedule_status=pulumi.get(__response__, 'schedule_status'),
         start_window_hours=pulumi.get(__response__, 'start_window_hours'),
         tags=pulumi.get(__response__, 'tags')))

@@ -104,7 +104,7 @@ class ConsumableResource(pulumi.CustomResource):
                  total_quantity: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Resource Type schema for AWS::Batch::ConsumableResource
+        Resource Type definition for AWS::Batch::ConsumableResource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,7 +123,7 @@ class ConsumableResource(pulumi.CustomResource):
                  args: ConsumableResourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type schema for AWS::Batch::ConsumableResource
+        Resource Type definition for AWS::Batch::ConsumableResource
 
         :param str resource_name: The name of the resource.
         :param ConsumableResourceArgs args: The arguments to use to populate this resource's properties.

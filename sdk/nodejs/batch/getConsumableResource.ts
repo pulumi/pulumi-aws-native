@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type schema for AWS::Batch::ConsumableResource
+ * Resource Type definition for AWS::Batch::ConsumableResource
  */
 export function getConsumableResource(args: GetConsumableResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetConsumableResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,7 +44,7 @@ export interface GetConsumableResourceResult {
     readonly totalQuantity?: number;
 }
 /**
- * Resource Type schema for AWS::Batch::ConsumableResource
+ * Resource Type definition for AWS::Batch::ConsumableResource
  */
 export function getConsumableResourceOutput(args: GetConsumableResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConsumableResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

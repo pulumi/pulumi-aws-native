@@ -104,6 +104,9 @@ class GetServiceLevelObjectiveResult:
     @property
     @pulumi.getter(name="exclusionWindows")
     def exclusion_windows(self) -> Optional[Sequence['outputs.ServiceLevelObjectiveExclusionWindow']]:
+        """
+        The time window to be excluded from the SLO performance metrics.
+        """
         return pulumi.get(self, "exclusion_windows")
 
     @property

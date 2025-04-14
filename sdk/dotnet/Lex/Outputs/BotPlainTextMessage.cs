@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// A message in plain text format.
-    /// </summary>
     [OutputType]
     public sealed class BotPlainTextMessage
     {
-        /// <summary>
-        /// The message to send to the user.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

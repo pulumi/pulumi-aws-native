@@ -80,10 +80,6 @@ namespace Pulumi.AwsNative.Backup
         /// </summary>
         public readonly string? ScheduleExpressionTimezone;
         /// <summary>
-        /// This parameter is not currently supported.
-        /// </summary>
-        public readonly Pulumi.AwsNative.Backup.RestoreTestingPlanRestoreTestingScheduleStatus? ScheduleStatus;
-        /// <summary>
         /// Defaults to 24 hours.
         /// 
         /// A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
@@ -104,8 +100,6 @@ namespace Pulumi.AwsNative.Backup
 
             string? scheduleExpressionTimezone,
 
-            Pulumi.AwsNative.Backup.RestoreTestingPlanRestoreTestingScheduleStatus? scheduleStatus,
-
             int? startWindowHours,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
@@ -114,7 +108,6 @@ namespace Pulumi.AwsNative.Backup
             RestoreTestingPlanArn = restoreTestingPlanArn;
             ScheduleExpression = scheduleExpression;
             ScheduleExpressionTimezone = scheduleExpressionTimezone;
-            ScheduleStatus = scheduleStatus;
             StartWindowHours = startWindowHours;
             Tags = tags;
         }

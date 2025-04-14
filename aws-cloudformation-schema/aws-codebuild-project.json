@@ -159,6 +159,12 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "Scope" : {
+          "type" : "string"
+        },
+        "Domain" : {
+          "type" : "string"
+        },
         "Name" : {
           "type" : "string"
         }

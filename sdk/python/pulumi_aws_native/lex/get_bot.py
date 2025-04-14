@@ -62,7 +62,7 @@ class GetBotResult:
     @pulumi.getter(name="dataPrivacy")
     def data_privacy(self) -> Optional['outputs.DataPrivacyProperties']:
         """
-        Data privacy setting of the Bot.
+        By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
         """
         return pulumi.get(self, "data_privacy")
 
@@ -86,7 +86,11 @@ class GetBotResult:
     @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> Optional[int]:
         """
-        IdleSessionTTLInSeconds of the resource
+        The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
+
+        A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
+
+        You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         """
         return pulumi.get(self, "idle_session_ttl_in_seconds")
 

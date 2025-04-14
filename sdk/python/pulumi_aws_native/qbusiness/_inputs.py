@@ -44,6 +44,8 @@ __all__ = [
     'DataAccessorDocumentAttributeValue3PropertiesArgsDict',
     'DataAccessorDocumentAttributeArgs',
     'DataAccessorDocumentAttributeArgsDict',
+    'DataSourceAudioExtractionConfigurationArgs',
+    'DataSourceAudioExtractionConfigurationArgsDict',
     'DataSourceDocumentAttributeConditionArgs',
     'DataSourceDocumentAttributeConditionArgsDict',
     'DataSourceDocumentAttributeTargetArgs',
@@ -66,6 +68,8 @@ __all__ = [
     'DataSourceInlineDocumentEnrichmentConfigurationArgsDict',
     'DataSourceMediaExtractionConfigurationArgs',
     'DataSourceMediaExtractionConfigurationArgsDict',
+    'DataSourceVideoExtractionConfigurationArgs',
+    'DataSourceVideoExtractionConfigurationArgsDict',
     'DataSourceVpcConfigurationArgs',
     'DataSourceVpcConfigurationArgsDict',
     'IndexCapacityConfigurationArgs',
@@ -756,6 +760,37 @@ class DataAccessorDocumentAttributeArgs:
 
 
 if not MYPY:
+    class DataSourceAudioExtractionConfigurationArgsDict(TypedDict):
+        audio_extraction_status: pulumi.Input['DataSourceAudioExtractionStatus']
+        """
+        The status of audio extraction (ENABLED or DISABLED) for processing audio content from files.
+        """
+elif False:
+    DataSourceAudioExtractionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceAudioExtractionConfigurationArgs:
+    def __init__(__self__, *,
+                 audio_extraction_status: pulumi.Input['DataSourceAudioExtractionStatus']):
+        """
+        :param pulumi.Input['DataSourceAudioExtractionStatus'] audio_extraction_status: The status of audio extraction (ENABLED or DISABLED) for processing audio content from files.
+        """
+        pulumi.set(__self__, "audio_extraction_status", audio_extraction_status)
+
+    @property
+    @pulumi.getter(name="audioExtractionStatus")
+    def audio_extraction_status(self) -> pulumi.Input['DataSourceAudioExtractionStatus']:
+        """
+        The status of audio extraction (ENABLED or DISABLED) for processing audio content from files.
+        """
+        return pulumi.get(self, "audio_extraction_status")
+
+    @audio_extraction_status.setter
+    def audio_extraction_status(self, value: pulumi.Input['DataSourceAudioExtractionStatus']):
+        pulumi.set(self, "audio_extraction_status", value)
+
+
+if not MYPY:
     class DataSourceDocumentAttributeConditionArgsDict(TypedDict):
         key: pulumi.Input[str]
         """
@@ -1090,7 +1125,7 @@ if not MYPY:
         """
         lambda_arn: NotRequired[pulumi.Input[str]]
         """
-        The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
+        The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
         """
         role_arn: NotRequired[pulumi.Input[str]]
         """
@@ -1114,7 +1149,7 @@ class DataSourceHookConfigurationArgs:
         :param pulumi.Input['DataSourceDocumentAttributeConditionArgs'] invocation_condition: The condition used for when a Lambda function should be invoked.
                
                For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
-        :param pulumi.Input[str] lambda_arn: The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
+        :param pulumi.Input[str] lambda_arn: The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
         :param pulumi.Input[str] s3_bucket_name: Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts) .
         """
@@ -1145,7 +1180,7 @@ class DataSourceHookConfigurationArgs:
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
+        The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
         """
         return pulumi.get(self, "lambda_arn")
 
@@ -1283,9 +1318,17 @@ class DataSourceInlineDocumentEnrichmentConfigurationArgs:
 
 if not MYPY:
     class DataSourceMediaExtractionConfigurationArgsDict(TypedDict):
+        audio_extraction_configuration: NotRequired[pulumi.Input['DataSourceAudioExtractionConfigurationArgsDict']]
+        """
+        Configuration settings for extracting and processing audio content from media files.
+        """
         image_extraction_configuration: NotRequired[pulumi.Input['DataSourceImageExtractionConfigurationArgsDict']]
         """
         The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
+        """
+        video_extraction_configuration: NotRequired[pulumi.Input['DataSourceVideoExtractionConfigurationArgsDict']]
+        """
+        Configuration settings for extracting and processing video content from media files.
         """
 elif False:
     DataSourceMediaExtractionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1293,12 +1336,32 @@ elif False:
 @pulumi.input_type
 class DataSourceMediaExtractionConfigurationArgs:
     def __init__(__self__, *,
-                 image_extraction_configuration: Optional[pulumi.Input['DataSourceImageExtractionConfigurationArgs']] = None):
+                 audio_extraction_configuration: Optional[pulumi.Input['DataSourceAudioExtractionConfigurationArgs']] = None,
+                 image_extraction_configuration: Optional[pulumi.Input['DataSourceImageExtractionConfigurationArgs']] = None,
+                 video_extraction_configuration: Optional[pulumi.Input['DataSourceVideoExtractionConfigurationArgs']] = None):
         """
+        :param pulumi.Input['DataSourceAudioExtractionConfigurationArgs'] audio_extraction_configuration: Configuration settings for extracting and processing audio content from media files.
         :param pulumi.Input['DataSourceImageExtractionConfigurationArgs'] image_extraction_configuration: The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
+        :param pulumi.Input['DataSourceVideoExtractionConfigurationArgs'] video_extraction_configuration: Configuration settings for extracting and processing video content from media files.
         """
+        if audio_extraction_configuration is not None:
+            pulumi.set(__self__, "audio_extraction_configuration", audio_extraction_configuration)
         if image_extraction_configuration is not None:
             pulumi.set(__self__, "image_extraction_configuration", image_extraction_configuration)
+        if video_extraction_configuration is not None:
+            pulumi.set(__self__, "video_extraction_configuration", video_extraction_configuration)
+
+    @property
+    @pulumi.getter(name="audioExtractionConfiguration")
+    def audio_extraction_configuration(self) -> Optional[pulumi.Input['DataSourceAudioExtractionConfigurationArgs']]:
+        """
+        Configuration settings for extracting and processing audio content from media files.
+        """
+        return pulumi.get(self, "audio_extraction_configuration")
+
+    @audio_extraction_configuration.setter
+    def audio_extraction_configuration(self, value: Optional[pulumi.Input['DataSourceAudioExtractionConfigurationArgs']]):
+        pulumi.set(self, "audio_extraction_configuration", value)
 
     @property
     @pulumi.getter(name="imageExtractionConfiguration")
@@ -1311,6 +1374,49 @@ class DataSourceMediaExtractionConfigurationArgs:
     @image_extraction_configuration.setter
     def image_extraction_configuration(self, value: Optional[pulumi.Input['DataSourceImageExtractionConfigurationArgs']]):
         pulumi.set(self, "image_extraction_configuration", value)
+
+    @property
+    @pulumi.getter(name="videoExtractionConfiguration")
+    def video_extraction_configuration(self) -> Optional[pulumi.Input['DataSourceVideoExtractionConfigurationArgs']]:
+        """
+        Configuration settings for extracting and processing video content from media files.
+        """
+        return pulumi.get(self, "video_extraction_configuration")
+
+    @video_extraction_configuration.setter
+    def video_extraction_configuration(self, value: Optional[pulumi.Input['DataSourceVideoExtractionConfigurationArgs']]):
+        pulumi.set(self, "video_extraction_configuration", value)
+
+
+if not MYPY:
+    class DataSourceVideoExtractionConfigurationArgsDict(TypedDict):
+        video_extraction_status: pulumi.Input['DataSourceVideoExtractionStatus']
+        """
+        The status of video extraction (ENABLED or DISABLED) for processing video content from files.
+        """
+elif False:
+    DataSourceVideoExtractionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceVideoExtractionConfigurationArgs:
+    def __init__(__self__, *,
+                 video_extraction_status: pulumi.Input['DataSourceVideoExtractionStatus']):
+        """
+        :param pulumi.Input['DataSourceVideoExtractionStatus'] video_extraction_status: The status of video extraction (ENABLED or DISABLED) for processing video content from files.
+        """
+        pulumi.set(__self__, "video_extraction_status", video_extraction_status)
+
+    @property
+    @pulumi.getter(name="videoExtractionStatus")
+    def video_extraction_status(self) -> pulumi.Input['DataSourceVideoExtractionStatus']:
+        """
+        The status of video extraction (ENABLED or DISABLED) for processing video content from files.
+        """
+        return pulumi.get(self, "video_extraction_status")
+
+    @video_extraction_status.setter
+    def video_extraction_status(self, value: pulumi.Input['DataSourceVideoExtractionStatus']):
+        pulumi.set(self, "video_extraction_status", value)
 
 
 if not MYPY:

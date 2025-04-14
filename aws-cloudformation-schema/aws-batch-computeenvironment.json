@@ -236,7 +236,7 @@
     "tagUpdatable" : false,
     "cloudFormationSystemTags" : false,
     "tagProperty" : "/properties/Tags",
-    "permissions" : [ "Batch:TagResource", "Batch:UntagResource" ]
+    "permissions" : [ "Batch:TagResource", "Batch:UnTagResource" ]
   },
   "required" : [ "Type" ],
   "createOnlyProperties" : [ "/properties/ComputeResources/SpotIamFleetRole", "/properties/ComputeEnvironmentName", "/properties/Tags", "/properties/Type", "/properties/EksConfiguration" ],

@@ -10,13 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Contains details about the configuration of the Amazon Kendra index used for the AMAZON.QnAIntent.
-    /// </summary>
     public sealed class BotQnAKendraConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results.
+        /// Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results. To use this feature, you must first add FAQ questions to your index by following the steps at [Adding frequently asked questions (FAQs) to an index](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html) .
         /// </summary>
         [Input("exactResponse", required: true)]
         public Input<bool> ExactResponse { get; set; } = null!;
@@ -28,7 +25,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public Input<string> KendraIndex { get; set; } = null!;
 
         /// <summary>
-        /// Contains the Amazon Kendra filter string to use if enabled.
+        /// Contains the Amazon Kendra filter string to use if enabled. For more information on the Amazon Kendra search filter JSON format, see [Using document attributes to filter search results](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html#search-filtering) .
         /// </summary>
         [Input("queryFilterString")]
         public Input<string>? QueryFilterString { get; set; }

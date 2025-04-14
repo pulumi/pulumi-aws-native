@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// The current state of the conversation with the user.
-    /// </summary>
     [OutputType]
     public sealed class BotDialogState
     {
@@ -25,7 +22,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly Outputs.BotIntentOverride? Intent;
         /// <summary>
-        /// List of session attributes to be applied when the conversation reaches this step.
+        /// Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
         /// </summary>
         public readonly ImmutableArray<Outputs.BotSessionAttribute> SessionAttributes;
 

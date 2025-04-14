@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Settings required for a slot type based on a grammar that you provide.
-    /// </summary>
     [OutputType]
     public sealed class BotGrammarSlotTypeSetting
     {

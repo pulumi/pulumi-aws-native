@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Inputs
 {
 
+    /// <summary>
+    /// Describes the DNS options for an endpoint.
+    /// </summary>
     public sealed class VpcEndpointDnsOptionsSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

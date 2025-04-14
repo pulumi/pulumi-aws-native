@@ -57,6 +57,7 @@ namespace Pulumi.AwsNative.PaymentCryptography
     [OutputType]
     public sealed class GetKeyResult
     {
+        public readonly Pulumi.AwsNative.PaymentCryptography.KeyDeriveKeyUsage? DeriveKeyUsage;
         /// <summary>
         /// Specifies whether the key is enabled.
         /// </summary>
@@ -88,6 +89,8 @@ namespace Pulumi.AwsNative.PaymentCryptography
 
         [OutputConstructor]
         private GetKeyResult(
+            Pulumi.AwsNative.PaymentCryptography.KeyDeriveKeyUsage? deriveKeyUsage,
+
             bool? enabled,
 
             bool? exportable,
@@ -104,6 +107,7 @@ namespace Pulumi.AwsNative.PaymentCryptography
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            DeriveKeyUsage = deriveKeyUsage;
             Enabled = enabled;
             Exportable = exportable;
             KeyAttributes = keyAttributes;

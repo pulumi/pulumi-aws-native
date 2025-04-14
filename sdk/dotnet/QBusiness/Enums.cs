@@ -236,6 +236,34 @@ namespace Pulumi.AwsNative.QBusiness
     }
 
     [EnumType]
+    public readonly struct DataSourceAudioExtractionStatus : IEquatable<DataSourceAudioExtractionStatus>
+    {
+        private readonly string _value;
+
+        private DataSourceAudioExtractionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceAudioExtractionStatus Enabled { get; } = new DataSourceAudioExtractionStatus("ENABLED");
+        public static DataSourceAudioExtractionStatus Disabled { get; } = new DataSourceAudioExtractionStatus("DISABLED");
+
+        public static bool operator ==(DataSourceAudioExtractionStatus left, DataSourceAudioExtractionStatus right) => left.Equals(right);
+        public static bool operator !=(DataSourceAudioExtractionStatus left, DataSourceAudioExtractionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceAudioExtractionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceAudioExtractionStatus other && Equals(other);
+        public bool Equals(DataSourceAudioExtractionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DataSourceDocumentContentOperator : IEquatable<DataSourceDocumentContentOperator>
     {
         private readonly string _value;
@@ -352,6 +380,34 @@ namespace Pulumi.AwsNative.QBusiness
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSourceStatus other && Equals(other);
         public bool Equals(DataSourceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataSourceVideoExtractionStatus : IEquatable<DataSourceVideoExtractionStatus>
+    {
+        private readonly string _value;
+
+        private DataSourceVideoExtractionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceVideoExtractionStatus Enabled { get; } = new DataSourceVideoExtractionStatus("ENABLED");
+        public static DataSourceVideoExtractionStatus Disabled { get; } = new DataSourceVideoExtractionStatus("DISABLED");
+
+        public static bool operator ==(DataSourceVideoExtractionStatus left, DataSourceVideoExtractionStatus right) => left.Equals(right);
+        public static bool operator !=(DataSourceVideoExtractionStatus left, DataSourceVideoExtractionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceVideoExtractionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceVideoExtractionStatus other && Equals(other);
+        public bool Equals(DataSourceVideoExtractionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

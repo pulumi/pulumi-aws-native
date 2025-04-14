@@ -10,17 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// The priority that Amazon Lex should use when eliciting slot values from a user.
-    /// </summary>
     public sealed class BotSlotPriorityArgs : global::Pulumi.ResourceArgs
     {
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the slot.
-        /// </summary>
         [Input("slotName", required: true)]
         public Input<string> SlotName { get; set; } = null!;
 

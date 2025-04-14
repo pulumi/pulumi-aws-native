@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.QBusiness.Inputs
         public Input<Inputs.DataSourceDocumentAttributeConditionArgs>? InvocationCondition { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
+        /// The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
         /// </summary>
         [Input("lambdaArn")]
         public Input<string>? LambdaArn { get; set; }

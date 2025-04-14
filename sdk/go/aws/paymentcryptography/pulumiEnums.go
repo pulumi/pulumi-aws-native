@@ -206,6 +206,7 @@ type KeyCheckValueAlgorithm string
 const (
 	KeyCheckValueAlgorithmCmac     = KeyCheckValueAlgorithm("CMAC")
 	KeyCheckValueAlgorithmAnsiX924 = KeyCheckValueAlgorithm("ANSI_X9_24")
+	KeyCheckValueAlgorithmHmac     = KeyCheckValueAlgorithm("HMAC")
 )
 
 func (KeyCheckValueAlgorithm) ElementType() reflect.Type {
@@ -332,6 +333,7 @@ func (o KeyCheckValueAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx contex
 //
 //	KeyCheckValueAlgorithmCmac
 //	KeyCheckValueAlgorithmAnsiX924
+//	KeyCheckValueAlgorithmHmac
 type KeyCheckValueAlgorithmInput interface {
 	pulumi.Input
 
@@ -533,6 +535,205 @@ func (in *keyClassPtr) ToKeyClassPtrOutput() KeyClassPtrOutput {
 
 func (in *keyClassPtr) ToKeyClassPtrOutputWithContext(ctx context.Context) KeyClassPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(KeyClassPtrOutput)
+}
+
+type KeyDeriveKeyUsage string
+
+const (
+	KeyDeriveKeyUsageTr31b0BaseDerivationKey          = KeyDeriveKeyUsage("TR31_B0_BASE_DERIVATION_KEY")
+	KeyDeriveKeyUsageTr31c0CardVerificationKey        = KeyDeriveKeyUsage("TR31_C0_CARD_VERIFICATION_KEY")
+	KeyDeriveKeyUsageTr31d0SymmetricDataEncryptionKey = KeyDeriveKeyUsage("TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY")
+	KeyDeriveKeyUsageTr31e0EmvMkeyAppCryptograms      = KeyDeriveKeyUsage("TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS")
+	KeyDeriveKeyUsageTr31e1EmvMkeyConfidentiality     = KeyDeriveKeyUsage("TR31_E1_EMV_MKEY_CONFIDENTIALITY")
+	KeyDeriveKeyUsageTr31e2EmvMkeyIntegrity           = KeyDeriveKeyUsage("TR31_E2_EMV_MKEY_INTEGRITY")
+	KeyDeriveKeyUsageTr31e4EmvMkeyDynamicNumbers      = KeyDeriveKeyUsage("TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS")
+	KeyDeriveKeyUsageTr31e5EmvMkeyCardPersonalization = KeyDeriveKeyUsage("TR31_E5_EMV_MKEY_CARD_PERSONALIZATION")
+	KeyDeriveKeyUsageTr31e6EmvMkeyOther               = KeyDeriveKeyUsage("TR31_E6_EMV_MKEY_OTHER")
+	KeyDeriveKeyUsageTr31k0KeyEncryptionKey           = KeyDeriveKeyUsage("TR31_K0_KEY_ENCRYPTION_KEY")
+	KeyDeriveKeyUsageTr31k1KeyBlockProtectionKey      = KeyDeriveKeyUsage("TR31_K1_KEY_BLOCK_PROTECTION_KEY")
+	KeyDeriveKeyUsageTr31m3Iso97973MacKey             = KeyDeriveKeyUsage("TR31_M3_ISO_9797_3_MAC_KEY")
+	KeyDeriveKeyUsageTr31m1Iso97971MacKey             = KeyDeriveKeyUsage("TR31_M1_ISO_9797_1_MAC_KEY")
+	KeyDeriveKeyUsageTr31m6Iso97975CmacKey            = KeyDeriveKeyUsage("TR31_M6_ISO_9797_5_CMAC_KEY")
+	KeyDeriveKeyUsageTr31m7HmacKey                    = KeyDeriveKeyUsage("TR31_M7_HMAC_KEY")
+	KeyDeriveKeyUsageTr31p0PinEncryptionKey           = KeyDeriveKeyUsage("TR31_P0_PIN_ENCRYPTION_KEY")
+	KeyDeriveKeyUsageTr31p1PinGenerationKey           = KeyDeriveKeyUsage("TR31_P1_PIN_GENERATION_KEY")
+	KeyDeriveKeyUsageTr31v1Ibm3624PinVerificationKey  = KeyDeriveKeyUsage("TR31_V1_IBM3624_PIN_VERIFICATION_KEY")
+	KeyDeriveKeyUsageTr31v2VisaPinVerificationKey     = KeyDeriveKeyUsage("TR31_V2_VISA_PIN_VERIFICATION_KEY")
+)
+
+func (KeyDeriveKeyUsage) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyDeriveKeyUsage)(nil)).Elem()
+}
+
+func (e KeyDeriveKeyUsage) ToKeyDeriveKeyUsageOutput() KeyDeriveKeyUsageOutput {
+	return pulumi.ToOutput(e).(KeyDeriveKeyUsageOutput)
+}
+
+func (e KeyDeriveKeyUsage) ToKeyDeriveKeyUsageOutputWithContext(ctx context.Context) KeyDeriveKeyUsageOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KeyDeriveKeyUsageOutput)
+}
+
+func (e KeyDeriveKeyUsage) ToKeyDeriveKeyUsagePtrOutput() KeyDeriveKeyUsagePtrOutput {
+	return e.ToKeyDeriveKeyUsagePtrOutputWithContext(context.Background())
+}
+
+func (e KeyDeriveKeyUsage) ToKeyDeriveKeyUsagePtrOutputWithContext(ctx context.Context) KeyDeriveKeyUsagePtrOutput {
+	return KeyDeriveKeyUsage(e).ToKeyDeriveKeyUsageOutputWithContext(ctx).ToKeyDeriveKeyUsagePtrOutputWithContext(ctx)
+}
+
+func (e KeyDeriveKeyUsage) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeyDeriveKeyUsage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeyDeriveKeyUsage) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KeyDeriveKeyUsage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KeyDeriveKeyUsageOutput struct{ *pulumi.OutputState }
+
+func (KeyDeriveKeyUsageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyDeriveKeyUsage)(nil)).Elem()
+}
+
+func (o KeyDeriveKeyUsageOutput) ToKeyDeriveKeyUsageOutput() KeyDeriveKeyUsageOutput {
+	return o
+}
+
+func (o KeyDeriveKeyUsageOutput) ToKeyDeriveKeyUsageOutputWithContext(ctx context.Context) KeyDeriveKeyUsageOutput {
+	return o
+}
+
+func (o KeyDeriveKeyUsageOutput) ToKeyDeriveKeyUsagePtrOutput() KeyDeriveKeyUsagePtrOutput {
+	return o.ToKeyDeriveKeyUsagePtrOutputWithContext(context.Background())
+}
+
+func (o KeyDeriveKeyUsageOutput) ToKeyDeriveKeyUsagePtrOutputWithContext(ctx context.Context) KeyDeriveKeyUsagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyDeriveKeyUsage) *KeyDeriveKeyUsage {
+		return &v
+	}).(KeyDeriveKeyUsagePtrOutput)
+}
+
+func (o KeyDeriveKeyUsageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KeyDeriveKeyUsageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyDeriveKeyUsage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KeyDeriveKeyUsageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeyDeriveKeyUsageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyDeriveKeyUsage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeyDeriveKeyUsagePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyDeriveKeyUsagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyDeriveKeyUsage)(nil)).Elem()
+}
+
+func (o KeyDeriveKeyUsagePtrOutput) ToKeyDeriveKeyUsagePtrOutput() KeyDeriveKeyUsagePtrOutput {
+	return o
+}
+
+func (o KeyDeriveKeyUsagePtrOutput) ToKeyDeriveKeyUsagePtrOutputWithContext(ctx context.Context) KeyDeriveKeyUsagePtrOutput {
+	return o
+}
+
+func (o KeyDeriveKeyUsagePtrOutput) Elem() KeyDeriveKeyUsageOutput {
+	return o.ApplyT(func(v *KeyDeriveKeyUsage) KeyDeriveKeyUsage {
+		if v != nil {
+			return *v
+		}
+		var ret KeyDeriveKeyUsage
+		return ret
+	}).(KeyDeriveKeyUsageOutput)
+}
+
+func (o KeyDeriveKeyUsagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeyDeriveKeyUsagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KeyDeriveKeyUsage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KeyDeriveKeyUsageInput is an input type that accepts values of the KeyDeriveKeyUsage enum
+// A concrete instance of `KeyDeriveKeyUsageInput` can be one of the following:
+//
+//	KeyDeriveKeyUsageTr31b0BaseDerivationKey
+//	KeyDeriveKeyUsageTr31c0CardVerificationKey
+//	KeyDeriveKeyUsageTr31d0SymmetricDataEncryptionKey
+//	KeyDeriveKeyUsageTr31e0EmvMkeyAppCryptograms
+//	KeyDeriveKeyUsageTr31e1EmvMkeyConfidentiality
+//	KeyDeriveKeyUsageTr31e2EmvMkeyIntegrity
+//	KeyDeriveKeyUsageTr31e4EmvMkeyDynamicNumbers
+//	KeyDeriveKeyUsageTr31e5EmvMkeyCardPersonalization
+//	KeyDeriveKeyUsageTr31e6EmvMkeyOther
+//	KeyDeriveKeyUsageTr31k0KeyEncryptionKey
+//	KeyDeriveKeyUsageTr31k1KeyBlockProtectionKey
+//	KeyDeriveKeyUsageTr31m3Iso97973MacKey
+//	KeyDeriveKeyUsageTr31m1Iso97971MacKey
+//	KeyDeriveKeyUsageTr31m6Iso97975CmacKey
+//	KeyDeriveKeyUsageTr31m7HmacKey
+//	KeyDeriveKeyUsageTr31p0PinEncryptionKey
+//	KeyDeriveKeyUsageTr31p1PinGenerationKey
+//	KeyDeriveKeyUsageTr31v1Ibm3624PinVerificationKey
+//	KeyDeriveKeyUsageTr31v2VisaPinVerificationKey
+type KeyDeriveKeyUsageInput interface {
+	pulumi.Input
+
+	ToKeyDeriveKeyUsageOutput() KeyDeriveKeyUsageOutput
+	ToKeyDeriveKeyUsageOutputWithContext(context.Context) KeyDeriveKeyUsageOutput
+}
+
+var keyDeriveKeyUsagePtrType = reflect.TypeOf((**KeyDeriveKeyUsage)(nil)).Elem()
+
+type KeyDeriveKeyUsagePtrInput interface {
+	pulumi.Input
+
+	ToKeyDeriveKeyUsagePtrOutput() KeyDeriveKeyUsagePtrOutput
+	ToKeyDeriveKeyUsagePtrOutputWithContext(context.Context) KeyDeriveKeyUsagePtrOutput
+}
+
+type keyDeriveKeyUsagePtr string
+
+func KeyDeriveKeyUsagePtr(v string) KeyDeriveKeyUsagePtrInput {
+	return (*keyDeriveKeyUsagePtr)(&v)
+}
+
+func (*keyDeriveKeyUsagePtr) ElementType() reflect.Type {
+	return keyDeriveKeyUsagePtrType
+}
+
+func (in *keyDeriveKeyUsagePtr) ToKeyDeriveKeyUsagePtrOutput() KeyDeriveKeyUsagePtrOutput {
+	return pulumi.ToOutput(in).(KeyDeriveKeyUsagePtrOutput)
+}
+
+func (in *keyDeriveKeyUsagePtr) ToKeyDeriveKeyUsagePtrOutputWithContext(ctx context.Context) KeyDeriveKeyUsagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KeyDeriveKeyUsagePtrOutput)
 }
 
 // Defines the source of a key
@@ -933,6 +1134,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyCheckValueAlgorithmPtrInput)(nil)).Elem(), KeyCheckValueAlgorithm("CMAC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyClassInput)(nil)).Elem(), KeyClass("SYMMETRIC_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyClassPtrInput)(nil)).Elem(), KeyClass("SYMMETRIC_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyDeriveKeyUsageInput)(nil)).Elem(), KeyDeriveKeyUsage("TR31_B0_BASE_DERIVATION_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyDeriveKeyUsagePtrInput)(nil)).Elem(), KeyDeriveKeyUsage("TR31_B0_BASE_DERIVATION_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyUsageInput)(nil)).Elem(), KeyUsage("TR31_B0_BASE_DERIVATION_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyUsagePtrInput)(nil)).Elem(), KeyUsage("TR31_B0_BASE_DERIVATION_KEY"))
 	pulumi.RegisterOutputType(KeyAlgorithmOutput{})
@@ -941,6 +1144,8 @@ func init() {
 	pulumi.RegisterOutputType(KeyCheckValueAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(KeyClassOutput{})
 	pulumi.RegisterOutputType(KeyClassPtrOutput{})
+	pulumi.RegisterOutputType(KeyDeriveKeyUsageOutput{})
+	pulumi.RegisterOutputType(KeyDeriveKeyUsagePtrOutput{})
 	pulumi.RegisterOutputType(KeyOriginOutput{})
 	pulumi.RegisterOutputType(KeyOriginPtrOutput{})
 	pulumi.RegisterOutputType(KeyStateEnumOutput{})

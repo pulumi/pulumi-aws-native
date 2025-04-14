@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Macie
     public partial class Session : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The status of automated sensitive data discovery for the Macie session.
+        /// </summary>
+        [Output("automatedDiscoveryStatus")]
+        public Output<Pulumi.AwsNative.Macie.SessionAutomatedDiscoveryStatus> AutomatedDiscoveryStatus { get; private set; } = null!;
+
+        /// <summary>
         /// AWS account ID of customer
         /// </summary>
         [Output("awsAccountId")]

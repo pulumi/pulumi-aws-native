@@ -73,6 +73,37 @@ namespace Pulumi.AwsNative.Macie
     }
 
     /// <summary>
+    /// The status of automated sensitive data discovery for the Macie session.
+    /// </summary>
+    [EnumType]
+    public readonly struct SessionAutomatedDiscoveryStatus : IEquatable<SessionAutomatedDiscoveryStatus>
+    {
+        private readonly string _value;
+
+        private SessionAutomatedDiscoveryStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SessionAutomatedDiscoveryStatus Enabled { get; } = new SessionAutomatedDiscoveryStatus("ENABLED");
+        public static SessionAutomatedDiscoveryStatus Disabled { get; } = new SessionAutomatedDiscoveryStatus("DISABLED");
+
+        public static bool operator ==(SessionAutomatedDiscoveryStatus left, SessionAutomatedDiscoveryStatus right) => left.Equals(right);
+        public static bool operator !=(SessionAutomatedDiscoveryStatus left, SessionAutomatedDiscoveryStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SessionAutomatedDiscoveryStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SessionAutomatedDiscoveryStatus other && Equals(other);
+        public bool Equals(SessionAutomatedDiscoveryStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A enumeration value that specifies how frequently finding updates are published.
     /// </summary>
     [EnumType]

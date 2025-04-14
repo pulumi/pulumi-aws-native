@@ -6936,6 +6936,11 @@ func (o HibernationOptionsPropertiesPtrOutput) Configured() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+type HostTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type InstanceAssociationParameter struct {
 	// The name of an input parameter that is in the associated SSM document.
 	Key string `pulumi:"key"`
@@ -33848,6 +33853,7 @@ type VpcBlockPublicAccessExclusionTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Describes the DNS options for an endpoint.
 type VpcEndpointDnsOptionsSpecification struct {
 	// The DNS records created for the endpoint.
 	DnsRecordIpType *VpcEndpointDnsOptionsSpecificationDnsRecordIpType `pulumi:"dnsRecordIpType"`
@@ -33866,6 +33872,7 @@ type VpcEndpointDnsOptionsSpecificationInput interface {
 	ToVpcEndpointDnsOptionsSpecificationOutputWithContext(context.Context) VpcEndpointDnsOptionsSpecificationOutput
 }
 
+// Describes the DNS options for an endpoint.
 type VpcEndpointDnsOptionsSpecificationArgs struct {
 	// The DNS records created for the endpoint.
 	DnsRecordIpType VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrInput `pulumi:"dnsRecordIpType"`
@@ -33926,6 +33933,7 @@ func (i *vpcEndpointDnsOptionsSpecificationPtrType) ToVpcEndpointDnsOptionsSpeci
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointDnsOptionsSpecificationPtrOutput)
 }
 
+// Describes the DNS options for an endpoint.
 type VpcEndpointDnsOptionsSpecificationOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointDnsOptionsSpecificationOutput) ElementType() reflect.Type {
@@ -34019,14 +34027,13 @@ type VpcEndpointServiceTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Describes a tag.
 type VpcEndpointTag struct {
 	// The key of the tag.
-	//
-	// Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with `aws:` .
+	//  Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with ``aws:``.
 	Key string `pulumi:"key"`
 	// The value of the tag.
-	//
-	// Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
+	//  Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
 	Value string `pulumi:"value"`
 }
 

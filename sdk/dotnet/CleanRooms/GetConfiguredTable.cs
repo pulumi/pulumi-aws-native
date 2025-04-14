@@ -68,6 +68,16 @@ namespace Pulumi.AwsNative.CleanRooms
     public sealed class GetConfiguredTableResult
     {
         /// <summary>
+        /// The analysis method for the configured table.
+        /// 
+        /// `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+        /// 
+        /// `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+        /// 
+        /// `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
+        /// </summary>
+        public readonly Pulumi.AwsNative.CleanRooms.ConfiguredTableAnalysisMethod? AnalysisMethod;
+        /// <summary>
         /// The analysis rule that was created for the configured table.
         /// </summary>
         public readonly ImmutableArray<Outputs.ConfiguredTableAnalysisRule> AnalysisRules;
@@ -92,12 +102,18 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// The selected analysis methods for the configured table.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.CleanRooms.ConfiguredTableSelectedAnalysisMethod> SelectedAnalysisMethods;
+        /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetConfiguredTableResult(
+            Pulumi.AwsNative.CleanRooms.ConfiguredTableAnalysisMethod? analysisMethod,
+
             ImmutableArray<Outputs.ConfiguredTableAnalysisRule> analysisRules,
 
             string? arn,
@@ -108,13 +124,17 @@ namespace Pulumi.AwsNative.CleanRooms
 
             string? name,
 
+            ImmutableArray<Pulumi.AwsNative.CleanRooms.ConfiguredTableSelectedAnalysisMethod> selectedAnalysisMethods,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            AnalysisMethod = analysisMethod;
             AnalysisRules = analysisRules;
             Arn = arn;
             ConfiguredTableIdentifier = configuredTableIdentifier;
             Description = description;
             Name = name;
+            SelectedAnalysisMethods = selectedAnalysisMethods;
             Tags = tags;
         }
     }

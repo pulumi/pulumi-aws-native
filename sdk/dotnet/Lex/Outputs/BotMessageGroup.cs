@@ -10,16 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// One or more messages that Amazon Lex can send to the user.
-    /// </summary>
     [OutputType]
     public sealed class BotMessageGroup
     {
         public readonly Outputs.BotMessage Message;
-        /// <summary>
-        /// Message variations to send to the user.
-        /// </summary>
         public readonly ImmutableArray<Outputs.BotMessage> Variations;
 
         [OutputConstructor]

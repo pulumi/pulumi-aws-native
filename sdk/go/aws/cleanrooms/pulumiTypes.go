@@ -133,6 +133,75 @@ type AnalysisTemplateAnalysisSchema struct {
 	ReferencedTables []string `pulumi:"referencedTables"`
 }
 
+// AnalysisTemplateAnalysisSchemaInput is an input type that accepts AnalysisTemplateAnalysisSchemaArgs and AnalysisTemplateAnalysisSchemaOutput values.
+// You can construct a concrete instance of `AnalysisTemplateAnalysisSchemaInput` via:
+//
+//	AnalysisTemplateAnalysisSchemaArgs{...}
+type AnalysisTemplateAnalysisSchemaInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateAnalysisSchemaOutput() AnalysisTemplateAnalysisSchemaOutput
+	ToAnalysisTemplateAnalysisSchemaOutputWithContext(context.Context) AnalysisTemplateAnalysisSchemaOutput
+}
+
+type AnalysisTemplateAnalysisSchemaArgs struct {
+	// The tables referenced in the analysis schema.
+	ReferencedTables pulumi.StringArrayInput `pulumi:"referencedTables"`
+}
+
+func (AnalysisTemplateAnalysisSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateAnalysisSchema)(nil)).Elem()
+}
+
+func (i AnalysisTemplateAnalysisSchemaArgs) ToAnalysisTemplateAnalysisSchemaOutput() AnalysisTemplateAnalysisSchemaOutput {
+	return i.ToAnalysisTemplateAnalysisSchemaOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateAnalysisSchemaArgs) ToAnalysisTemplateAnalysisSchemaOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateAnalysisSchemaOutput)
+}
+
+func (i AnalysisTemplateAnalysisSchemaArgs) ToAnalysisTemplateAnalysisSchemaPtrOutput() AnalysisTemplateAnalysisSchemaPtrOutput {
+	return i.ToAnalysisTemplateAnalysisSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateAnalysisSchemaArgs) ToAnalysisTemplateAnalysisSchemaPtrOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateAnalysisSchemaOutput).ToAnalysisTemplateAnalysisSchemaPtrOutputWithContext(ctx)
+}
+
+// AnalysisTemplateAnalysisSchemaPtrInput is an input type that accepts AnalysisTemplateAnalysisSchemaArgs, AnalysisTemplateAnalysisSchemaPtr and AnalysisTemplateAnalysisSchemaPtrOutput values.
+// You can construct a concrete instance of `AnalysisTemplateAnalysisSchemaPtrInput` via:
+//
+//	        AnalysisTemplateAnalysisSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisTemplateAnalysisSchemaPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateAnalysisSchemaPtrOutput() AnalysisTemplateAnalysisSchemaPtrOutput
+	ToAnalysisTemplateAnalysisSchemaPtrOutputWithContext(context.Context) AnalysisTemplateAnalysisSchemaPtrOutput
+}
+
+type analysisTemplateAnalysisSchemaPtrType AnalysisTemplateAnalysisSchemaArgs
+
+func AnalysisTemplateAnalysisSchemaPtr(v *AnalysisTemplateAnalysisSchemaArgs) AnalysisTemplateAnalysisSchemaPtrInput {
+	return (*analysisTemplateAnalysisSchemaPtrType)(v)
+}
+
+func (*analysisTemplateAnalysisSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateAnalysisSchema)(nil)).Elem()
+}
+
+func (i *analysisTemplateAnalysisSchemaPtrType) ToAnalysisTemplateAnalysisSchemaPtrOutput() AnalysisTemplateAnalysisSchemaPtrOutput {
+	return i.ToAnalysisTemplateAnalysisSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisTemplateAnalysisSchemaPtrType) ToAnalysisTemplateAnalysisSchemaPtrOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateAnalysisSchemaPtrOutput)
+}
+
 type AnalysisTemplateAnalysisSchemaOutput struct{ *pulumi.OutputState }
 
 func (AnalysisTemplateAnalysisSchemaOutput) ElementType() reflect.Type {
@@ -145,6 +214,16 @@ func (o AnalysisTemplateAnalysisSchemaOutput) ToAnalysisTemplateAnalysisSchemaOu
 
 func (o AnalysisTemplateAnalysisSchemaOutput) ToAnalysisTemplateAnalysisSchemaOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSchemaOutput {
 	return o
+}
+
+func (o AnalysisTemplateAnalysisSchemaOutput) ToAnalysisTemplateAnalysisSchemaPtrOutput() AnalysisTemplateAnalysisSchemaPtrOutput {
+	return o.ToAnalysisTemplateAnalysisSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateAnalysisSchemaOutput) ToAnalysisTemplateAnalysisSchemaPtrOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTemplateAnalysisSchema) *AnalysisTemplateAnalysisSchema {
+		return &v
+	}).(AnalysisTemplateAnalysisSchemaPtrOutput)
 }
 
 // The tables referenced in the analysis schema.
@@ -186,56 +265,777 @@ func (o AnalysisTemplateAnalysisSchemaPtrOutput) ReferencedTables() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-type AnalysisTemplateAnalysisSource struct {
-	// The query text.
+type AnalysisTemplateAnalysisSource0Properties struct {
 	Text string `pulumi:"text"`
 }
 
-// AnalysisTemplateAnalysisSourceInput is an input type that accepts AnalysisTemplateAnalysisSourceArgs and AnalysisTemplateAnalysisSourceOutput values.
-// You can construct a concrete instance of `AnalysisTemplateAnalysisSourceInput` via:
+// AnalysisTemplateAnalysisSource0PropertiesInput is an input type that accepts AnalysisTemplateAnalysisSource0PropertiesArgs and AnalysisTemplateAnalysisSource0PropertiesOutput values.
+// You can construct a concrete instance of `AnalysisTemplateAnalysisSource0PropertiesInput` via:
 //
-//	AnalysisTemplateAnalysisSourceArgs{...}
-type AnalysisTemplateAnalysisSourceInput interface {
+//	AnalysisTemplateAnalysisSource0PropertiesArgs{...}
+type AnalysisTemplateAnalysisSource0PropertiesInput interface {
 	pulumi.Input
 
-	ToAnalysisTemplateAnalysisSourceOutput() AnalysisTemplateAnalysisSourceOutput
-	ToAnalysisTemplateAnalysisSourceOutputWithContext(context.Context) AnalysisTemplateAnalysisSourceOutput
+	ToAnalysisTemplateAnalysisSource0PropertiesOutput() AnalysisTemplateAnalysisSource0PropertiesOutput
+	ToAnalysisTemplateAnalysisSource0PropertiesOutputWithContext(context.Context) AnalysisTemplateAnalysisSource0PropertiesOutput
 }
 
-type AnalysisTemplateAnalysisSourceArgs struct {
-	// The query text.
+type AnalysisTemplateAnalysisSource0PropertiesArgs struct {
 	Text pulumi.StringInput `pulumi:"text"`
 }
 
-func (AnalysisTemplateAnalysisSourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTemplateAnalysisSource)(nil)).Elem()
+func (AnalysisTemplateAnalysisSource0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateAnalysisSource0Properties)(nil)).Elem()
 }
 
-func (i AnalysisTemplateAnalysisSourceArgs) ToAnalysisTemplateAnalysisSourceOutput() AnalysisTemplateAnalysisSourceOutput {
-	return i.ToAnalysisTemplateAnalysisSourceOutputWithContext(context.Background())
+func (i AnalysisTemplateAnalysisSource0PropertiesArgs) ToAnalysisTemplateAnalysisSource0PropertiesOutput() AnalysisTemplateAnalysisSource0PropertiesOutput {
+	return i.ToAnalysisTemplateAnalysisSource0PropertiesOutputWithContext(context.Background())
 }
 
-func (i AnalysisTemplateAnalysisSourceArgs) ToAnalysisTemplateAnalysisSourceOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateAnalysisSourceOutput)
+func (i AnalysisTemplateAnalysisSource0PropertiesArgs) ToAnalysisTemplateAnalysisSource0PropertiesOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSource0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateAnalysisSource0PropertiesOutput)
 }
 
-type AnalysisTemplateAnalysisSourceOutput struct{ *pulumi.OutputState }
+type AnalysisTemplateAnalysisSource0PropertiesOutput struct{ *pulumi.OutputState }
 
-func (AnalysisTemplateAnalysisSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTemplateAnalysisSource)(nil)).Elem()
+func (AnalysisTemplateAnalysisSource0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateAnalysisSource0Properties)(nil)).Elem()
 }
 
-func (o AnalysisTemplateAnalysisSourceOutput) ToAnalysisTemplateAnalysisSourceOutput() AnalysisTemplateAnalysisSourceOutput {
+func (o AnalysisTemplateAnalysisSource0PropertiesOutput) ToAnalysisTemplateAnalysisSource0PropertiesOutput() AnalysisTemplateAnalysisSource0PropertiesOutput {
 	return o
 }
 
-func (o AnalysisTemplateAnalysisSourceOutput) ToAnalysisTemplateAnalysisSourceOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSourceOutput {
+func (o AnalysisTemplateAnalysisSource0PropertiesOutput) ToAnalysisTemplateAnalysisSource0PropertiesOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSource0PropertiesOutput {
 	return o
 }
 
-// The query text.
-func (o AnalysisTemplateAnalysisSourceOutput) Text() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalysisTemplateAnalysisSource) string { return v.Text }).(pulumi.StringOutput)
+func (o AnalysisTemplateAnalysisSource0PropertiesOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisTemplateAnalysisSource0Properties) string { return v.Text }).(pulumi.StringOutput)
+}
+
+type AnalysisTemplateAnalysisSource1Properties struct {
+	Artifacts AnalysisTemplateArtifacts `pulumi:"artifacts"`
+}
+
+// AnalysisTemplateAnalysisSource1PropertiesInput is an input type that accepts AnalysisTemplateAnalysisSource1PropertiesArgs and AnalysisTemplateAnalysisSource1PropertiesOutput values.
+// You can construct a concrete instance of `AnalysisTemplateAnalysisSource1PropertiesInput` via:
+//
+//	AnalysisTemplateAnalysisSource1PropertiesArgs{...}
+type AnalysisTemplateAnalysisSource1PropertiesInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateAnalysisSource1PropertiesOutput() AnalysisTemplateAnalysisSource1PropertiesOutput
+	ToAnalysisTemplateAnalysisSource1PropertiesOutputWithContext(context.Context) AnalysisTemplateAnalysisSource1PropertiesOutput
+}
+
+type AnalysisTemplateAnalysisSource1PropertiesArgs struct {
+	Artifacts AnalysisTemplateArtifactsInput `pulumi:"artifacts"`
+}
+
+func (AnalysisTemplateAnalysisSource1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateAnalysisSource1Properties)(nil)).Elem()
+}
+
+func (i AnalysisTemplateAnalysisSource1PropertiesArgs) ToAnalysisTemplateAnalysisSource1PropertiesOutput() AnalysisTemplateAnalysisSource1PropertiesOutput {
+	return i.ToAnalysisTemplateAnalysisSource1PropertiesOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateAnalysisSource1PropertiesArgs) ToAnalysisTemplateAnalysisSource1PropertiesOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSource1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateAnalysisSource1PropertiesOutput)
+}
+
+type AnalysisTemplateAnalysisSource1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateAnalysisSource1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateAnalysisSource1Properties)(nil)).Elem()
+}
+
+func (o AnalysisTemplateAnalysisSource1PropertiesOutput) ToAnalysisTemplateAnalysisSource1PropertiesOutput() AnalysisTemplateAnalysisSource1PropertiesOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisSource1PropertiesOutput) ToAnalysisTemplateAnalysisSource1PropertiesOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSource1PropertiesOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisSource1PropertiesOutput) Artifacts() AnalysisTemplateArtifactsOutput {
+	return o.ApplyT(func(v AnalysisTemplateAnalysisSource1Properties) AnalysisTemplateArtifacts { return v.Artifacts }).(AnalysisTemplateArtifactsOutput)
+}
+
+type AnalysisTemplateAnalysisSourceMetadata0Properties struct {
+	Artifacts AnalysisTemplateArtifactMetadata `pulumi:"artifacts"`
+}
+
+type AnalysisTemplateAnalysisSourceMetadataProperties struct {
+	Artifacts AnalysisTemplateArtifactMetadata `pulumi:"artifacts"`
+}
+
+// AnalysisTemplateAnalysisSourceMetadataPropertiesInput is an input type that accepts AnalysisTemplateAnalysisSourceMetadataPropertiesArgs and AnalysisTemplateAnalysisSourceMetadataPropertiesOutput values.
+// You can construct a concrete instance of `AnalysisTemplateAnalysisSourceMetadataPropertiesInput` via:
+//
+//	AnalysisTemplateAnalysisSourceMetadataPropertiesArgs{...}
+type AnalysisTemplateAnalysisSourceMetadataPropertiesInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateAnalysisSourceMetadataPropertiesOutput() AnalysisTemplateAnalysisSourceMetadataPropertiesOutput
+	ToAnalysisTemplateAnalysisSourceMetadataPropertiesOutputWithContext(context.Context) AnalysisTemplateAnalysisSourceMetadataPropertiesOutput
+}
+
+type AnalysisTemplateAnalysisSourceMetadataPropertiesArgs struct {
+	Artifacts AnalysisTemplateArtifactMetadataInput `pulumi:"artifacts"`
+}
+
+func (AnalysisTemplateAnalysisSourceMetadataPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateAnalysisSourceMetadataProperties)(nil)).Elem()
+}
+
+func (i AnalysisTemplateAnalysisSourceMetadataPropertiesArgs) ToAnalysisTemplateAnalysisSourceMetadataPropertiesOutput() AnalysisTemplateAnalysisSourceMetadataPropertiesOutput {
+	return i.ToAnalysisTemplateAnalysisSourceMetadataPropertiesOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateAnalysisSourceMetadataPropertiesArgs) ToAnalysisTemplateAnalysisSourceMetadataPropertiesOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSourceMetadataPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateAnalysisSourceMetadataPropertiesOutput)
+}
+
+func (i AnalysisTemplateAnalysisSourceMetadataPropertiesArgs) ToAnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput() AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput {
+	return i.ToAnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateAnalysisSourceMetadataPropertiesArgs) ToAnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateAnalysisSourceMetadataPropertiesOutput).ToAnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutputWithContext(ctx)
+}
+
+// AnalysisTemplateAnalysisSourceMetadataPropertiesPtrInput is an input type that accepts AnalysisTemplateAnalysisSourceMetadataPropertiesArgs, AnalysisTemplateAnalysisSourceMetadataPropertiesPtr and AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput values.
+// You can construct a concrete instance of `AnalysisTemplateAnalysisSourceMetadataPropertiesPtrInput` via:
+//
+//	        AnalysisTemplateAnalysisSourceMetadataPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisTemplateAnalysisSourceMetadataPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput() AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput
+	ToAnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutputWithContext(context.Context) AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput
+}
+
+type analysisTemplateAnalysisSourceMetadataPropertiesPtrType AnalysisTemplateAnalysisSourceMetadataPropertiesArgs
+
+func AnalysisTemplateAnalysisSourceMetadataPropertiesPtr(v *AnalysisTemplateAnalysisSourceMetadataPropertiesArgs) AnalysisTemplateAnalysisSourceMetadataPropertiesPtrInput {
+	return (*analysisTemplateAnalysisSourceMetadataPropertiesPtrType)(v)
+}
+
+func (*analysisTemplateAnalysisSourceMetadataPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateAnalysisSourceMetadataProperties)(nil)).Elem()
+}
+
+func (i *analysisTemplateAnalysisSourceMetadataPropertiesPtrType) ToAnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput() AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput {
+	return i.ToAnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisTemplateAnalysisSourceMetadataPropertiesPtrType) ToAnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput)
+}
+
+type AnalysisTemplateAnalysisSourceMetadataPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateAnalysisSourceMetadataPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateAnalysisSourceMetadataProperties)(nil)).Elem()
+}
+
+func (o AnalysisTemplateAnalysisSourceMetadataPropertiesOutput) ToAnalysisTemplateAnalysisSourceMetadataPropertiesOutput() AnalysisTemplateAnalysisSourceMetadataPropertiesOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisSourceMetadataPropertiesOutput) ToAnalysisTemplateAnalysisSourceMetadataPropertiesOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSourceMetadataPropertiesOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisSourceMetadataPropertiesOutput) ToAnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput() AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput {
+	return o.ToAnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateAnalysisSourceMetadataPropertiesOutput) ToAnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTemplateAnalysisSourceMetadataProperties) *AnalysisTemplateAnalysisSourceMetadataProperties {
+		return &v
+	}).(AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput)
+}
+
+func (o AnalysisTemplateAnalysisSourceMetadataPropertiesOutput) Artifacts() AnalysisTemplateArtifactMetadataOutput {
+	return o.ApplyT(func(v AnalysisTemplateAnalysisSourceMetadataProperties) AnalysisTemplateArtifactMetadata {
+		return v.Artifacts
+	}).(AnalysisTemplateArtifactMetadataOutput)
+}
+
+type AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateAnalysisSourceMetadataProperties)(nil)).Elem()
+}
+
+func (o AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput) ToAnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput() AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput) ToAnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput) Elem() AnalysisTemplateAnalysisSourceMetadataPropertiesOutput {
+	return o.ApplyT(func(v *AnalysisTemplateAnalysisSourceMetadataProperties) AnalysisTemplateAnalysisSourceMetadataProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTemplateAnalysisSourceMetadataProperties
+		return ret
+	}).(AnalysisTemplateAnalysisSourceMetadataPropertiesOutput)
+}
+
+func (o AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput) Artifacts() AnalysisTemplateArtifactMetadataPtrOutput {
+	return o.ApplyT(func(v *AnalysisTemplateAnalysisSourceMetadataProperties) *AnalysisTemplateArtifactMetadata {
+		if v == nil {
+			return nil
+		}
+		return &v.Artifacts
+	}).(AnalysisTemplateArtifactMetadataPtrOutput)
+}
+
+type AnalysisTemplateArtifact struct {
+	Location AnalysisTemplateS3Location `pulumi:"location"`
+}
+
+// AnalysisTemplateArtifactInput is an input type that accepts AnalysisTemplateArtifactArgs and AnalysisTemplateArtifactOutput values.
+// You can construct a concrete instance of `AnalysisTemplateArtifactInput` via:
+//
+//	AnalysisTemplateArtifactArgs{...}
+type AnalysisTemplateArtifactInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateArtifactOutput() AnalysisTemplateArtifactOutput
+	ToAnalysisTemplateArtifactOutputWithContext(context.Context) AnalysisTemplateArtifactOutput
+}
+
+type AnalysisTemplateArtifactArgs struct {
+	Location AnalysisTemplateS3LocationInput `pulumi:"location"`
+}
+
+func (AnalysisTemplateArtifactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateArtifact)(nil)).Elem()
+}
+
+func (i AnalysisTemplateArtifactArgs) ToAnalysisTemplateArtifactOutput() AnalysisTemplateArtifactOutput {
+	return i.ToAnalysisTemplateArtifactOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateArtifactArgs) ToAnalysisTemplateArtifactOutputWithContext(ctx context.Context) AnalysisTemplateArtifactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateArtifactOutput)
+}
+
+// AnalysisTemplateArtifactArrayInput is an input type that accepts AnalysisTemplateArtifactArray and AnalysisTemplateArtifactArrayOutput values.
+// You can construct a concrete instance of `AnalysisTemplateArtifactArrayInput` via:
+//
+//	AnalysisTemplateArtifactArray{ AnalysisTemplateArtifactArgs{...} }
+type AnalysisTemplateArtifactArrayInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateArtifactArrayOutput() AnalysisTemplateArtifactArrayOutput
+	ToAnalysisTemplateArtifactArrayOutputWithContext(context.Context) AnalysisTemplateArtifactArrayOutput
+}
+
+type AnalysisTemplateArtifactArray []AnalysisTemplateArtifactInput
+
+func (AnalysisTemplateArtifactArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisTemplateArtifact)(nil)).Elem()
+}
+
+func (i AnalysisTemplateArtifactArray) ToAnalysisTemplateArtifactArrayOutput() AnalysisTemplateArtifactArrayOutput {
+	return i.ToAnalysisTemplateArtifactArrayOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateArtifactArray) ToAnalysisTemplateArtifactArrayOutputWithContext(ctx context.Context) AnalysisTemplateArtifactArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateArtifactArrayOutput)
+}
+
+type AnalysisTemplateArtifactOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateArtifactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateArtifact)(nil)).Elem()
+}
+
+func (o AnalysisTemplateArtifactOutput) ToAnalysisTemplateArtifactOutput() AnalysisTemplateArtifactOutput {
+	return o
+}
+
+func (o AnalysisTemplateArtifactOutput) ToAnalysisTemplateArtifactOutputWithContext(ctx context.Context) AnalysisTemplateArtifactOutput {
+	return o
+}
+
+func (o AnalysisTemplateArtifactOutput) Location() AnalysisTemplateS3LocationOutput {
+	return o.ApplyT(func(v AnalysisTemplateArtifact) AnalysisTemplateS3Location { return v.Location }).(AnalysisTemplateS3LocationOutput)
+}
+
+type AnalysisTemplateArtifactArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateArtifactArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisTemplateArtifact)(nil)).Elem()
+}
+
+func (o AnalysisTemplateArtifactArrayOutput) ToAnalysisTemplateArtifactArrayOutput() AnalysisTemplateArtifactArrayOutput {
+	return o
+}
+
+func (o AnalysisTemplateArtifactArrayOutput) ToAnalysisTemplateArtifactArrayOutputWithContext(ctx context.Context) AnalysisTemplateArtifactArrayOutput {
+	return o
+}
+
+func (o AnalysisTemplateArtifactArrayOutput) Index(i pulumi.IntInput) AnalysisTemplateArtifactOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisTemplateArtifact {
+		return vs[0].([]AnalysisTemplateArtifact)[vs[1].(int)]
+	}).(AnalysisTemplateArtifactOutput)
+}
+
+type AnalysisTemplateArtifactMetadata struct {
+	AdditionalArtifactHashes []AnalysisTemplateHash `pulumi:"additionalArtifactHashes"`
+	EntryPointHash           AnalysisTemplateHash   `pulumi:"entryPointHash"`
+}
+
+// AnalysisTemplateArtifactMetadataInput is an input type that accepts AnalysisTemplateArtifactMetadataArgs and AnalysisTemplateArtifactMetadataOutput values.
+// You can construct a concrete instance of `AnalysisTemplateArtifactMetadataInput` via:
+//
+//	AnalysisTemplateArtifactMetadataArgs{...}
+type AnalysisTemplateArtifactMetadataInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateArtifactMetadataOutput() AnalysisTemplateArtifactMetadataOutput
+	ToAnalysisTemplateArtifactMetadataOutputWithContext(context.Context) AnalysisTemplateArtifactMetadataOutput
+}
+
+type AnalysisTemplateArtifactMetadataArgs struct {
+	AdditionalArtifactHashes AnalysisTemplateHashArrayInput `pulumi:"additionalArtifactHashes"`
+	EntryPointHash           AnalysisTemplateHashInput      `pulumi:"entryPointHash"`
+}
+
+func (AnalysisTemplateArtifactMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateArtifactMetadata)(nil)).Elem()
+}
+
+func (i AnalysisTemplateArtifactMetadataArgs) ToAnalysisTemplateArtifactMetadataOutput() AnalysisTemplateArtifactMetadataOutput {
+	return i.ToAnalysisTemplateArtifactMetadataOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateArtifactMetadataArgs) ToAnalysisTemplateArtifactMetadataOutputWithContext(ctx context.Context) AnalysisTemplateArtifactMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateArtifactMetadataOutput)
+}
+
+func (i AnalysisTemplateArtifactMetadataArgs) ToAnalysisTemplateArtifactMetadataPtrOutput() AnalysisTemplateArtifactMetadataPtrOutput {
+	return i.ToAnalysisTemplateArtifactMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateArtifactMetadataArgs) ToAnalysisTemplateArtifactMetadataPtrOutputWithContext(ctx context.Context) AnalysisTemplateArtifactMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateArtifactMetadataOutput).ToAnalysisTemplateArtifactMetadataPtrOutputWithContext(ctx)
+}
+
+// AnalysisTemplateArtifactMetadataPtrInput is an input type that accepts AnalysisTemplateArtifactMetadataArgs, AnalysisTemplateArtifactMetadataPtr and AnalysisTemplateArtifactMetadataPtrOutput values.
+// You can construct a concrete instance of `AnalysisTemplateArtifactMetadataPtrInput` via:
+//
+//	        AnalysisTemplateArtifactMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisTemplateArtifactMetadataPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateArtifactMetadataPtrOutput() AnalysisTemplateArtifactMetadataPtrOutput
+	ToAnalysisTemplateArtifactMetadataPtrOutputWithContext(context.Context) AnalysisTemplateArtifactMetadataPtrOutput
+}
+
+type analysisTemplateArtifactMetadataPtrType AnalysisTemplateArtifactMetadataArgs
+
+func AnalysisTemplateArtifactMetadataPtr(v *AnalysisTemplateArtifactMetadataArgs) AnalysisTemplateArtifactMetadataPtrInput {
+	return (*analysisTemplateArtifactMetadataPtrType)(v)
+}
+
+func (*analysisTemplateArtifactMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateArtifactMetadata)(nil)).Elem()
+}
+
+func (i *analysisTemplateArtifactMetadataPtrType) ToAnalysisTemplateArtifactMetadataPtrOutput() AnalysisTemplateArtifactMetadataPtrOutput {
+	return i.ToAnalysisTemplateArtifactMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisTemplateArtifactMetadataPtrType) ToAnalysisTemplateArtifactMetadataPtrOutputWithContext(ctx context.Context) AnalysisTemplateArtifactMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateArtifactMetadataPtrOutput)
+}
+
+type AnalysisTemplateArtifactMetadataOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateArtifactMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateArtifactMetadata)(nil)).Elem()
+}
+
+func (o AnalysisTemplateArtifactMetadataOutput) ToAnalysisTemplateArtifactMetadataOutput() AnalysisTemplateArtifactMetadataOutput {
+	return o
+}
+
+func (o AnalysisTemplateArtifactMetadataOutput) ToAnalysisTemplateArtifactMetadataOutputWithContext(ctx context.Context) AnalysisTemplateArtifactMetadataOutput {
+	return o
+}
+
+func (o AnalysisTemplateArtifactMetadataOutput) ToAnalysisTemplateArtifactMetadataPtrOutput() AnalysisTemplateArtifactMetadataPtrOutput {
+	return o.ToAnalysisTemplateArtifactMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateArtifactMetadataOutput) ToAnalysisTemplateArtifactMetadataPtrOutputWithContext(ctx context.Context) AnalysisTemplateArtifactMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTemplateArtifactMetadata) *AnalysisTemplateArtifactMetadata {
+		return &v
+	}).(AnalysisTemplateArtifactMetadataPtrOutput)
+}
+
+func (o AnalysisTemplateArtifactMetadataOutput) AdditionalArtifactHashes() AnalysisTemplateHashArrayOutput {
+	return o.ApplyT(func(v AnalysisTemplateArtifactMetadata) []AnalysisTemplateHash { return v.AdditionalArtifactHashes }).(AnalysisTemplateHashArrayOutput)
+}
+
+func (o AnalysisTemplateArtifactMetadataOutput) EntryPointHash() AnalysisTemplateHashOutput {
+	return o.ApplyT(func(v AnalysisTemplateArtifactMetadata) AnalysisTemplateHash { return v.EntryPointHash }).(AnalysisTemplateHashOutput)
+}
+
+type AnalysisTemplateArtifactMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateArtifactMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateArtifactMetadata)(nil)).Elem()
+}
+
+func (o AnalysisTemplateArtifactMetadataPtrOutput) ToAnalysisTemplateArtifactMetadataPtrOutput() AnalysisTemplateArtifactMetadataPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateArtifactMetadataPtrOutput) ToAnalysisTemplateArtifactMetadataPtrOutputWithContext(ctx context.Context) AnalysisTemplateArtifactMetadataPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateArtifactMetadataPtrOutput) Elem() AnalysisTemplateArtifactMetadataOutput {
+	return o.ApplyT(func(v *AnalysisTemplateArtifactMetadata) AnalysisTemplateArtifactMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTemplateArtifactMetadata
+		return ret
+	}).(AnalysisTemplateArtifactMetadataOutput)
+}
+
+func (o AnalysisTemplateArtifactMetadataPtrOutput) AdditionalArtifactHashes() AnalysisTemplateHashArrayOutput {
+	return o.ApplyT(func(v *AnalysisTemplateArtifactMetadata) []AnalysisTemplateHash {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalArtifactHashes
+	}).(AnalysisTemplateHashArrayOutput)
+}
+
+func (o AnalysisTemplateArtifactMetadataPtrOutput) EntryPointHash() AnalysisTemplateHashPtrOutput {
+	return o.ApplyT(func(v *AnalysisTemplateArtifactMetadata) *AnalysisTemplateHash {
+		if v == nil {
+			return nil
+		}
+		return &v.EntryPointHash
+	}).(AnalysisTemplateHashPtrOutput)
+}
+
+type AnalysisTemplateArtifacts struct {
+	AdditionalArtifacts []AnalysisTemplateArtifact `pulumi:"additionalArtifacts"`
+	EntryPoint          AnalysisTemplateArtifact   `pulumi:"entryPoint"`
+	RoleArn             string                     `pulumi:"roleArn"`
+}
+
+// AnalysisTemplateArtifactsInput is an input type that accepts AnalysisTemplateArtifactsArgs and AnalysisTemplateArtifactsOutput values.
+// You can construct a concrete instance of `AnalysisTemplateArtifactsInput` via:
+//
+//	AnalysisTemplateArtifactsArgs{...}
+type AnalysisTemplateArtifactsInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateArtifactsOutput() AnalysisTemplateArtifactsOutput
+	ToAnalysisTemplateArtifactsOutputWithContext(context.Context) AnalysisTemplateArtifactsOutput
+}
+
+type AnalysisTemplateArtifactsArgs struct {
+	AdditionalArtifacts AnalysisTemplateArtifactArrayInput `pulumi:"additionalArtifacts"`
+	EntryPoint          AnalysisTemplateArtifactInput      `pulumi:"entryPoint"`
+	RoleArn             pulumi.StringInput                 `pulumi:"roleArn"`
+}
+
+func (AnalysisTemplateArtifactsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateArtifacts)(nil)).Elem()
+}
+
+func (i AnalysisTemplateArtifactsArgs) ToAnalysisTemplateArtifactsOutput() AnalysisTemplateArtifactsOutput {
+	return i.ToAnalysisTemplateArtifactsOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateArtifactsArgs) ToAnalysisTemplateArtifactsOutputWithContext(ctx context.Context) AnalysisTemplateArtifactsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateArtifactsOutput)
+}
+
+type AnalysisTemplateArtifactsOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateArtifactsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateArtifacts)(nil)).Elem()
+}
+
+func (o AnalysisTemplateArtifactsOutput) ToAnalysisTemplateArtifactsOutput() AnalysisTemplateArtifactsOutput {
+	return o
+}
+
+func (o AnalysisTemplateArtifactsOutput) ToAnalysisTemplateArtifactsOutputWithContext(ctx context.Context) AnalysisTemplateArtifactsOutput {
+	return o
+}
+
+func (o AnalysisTemplateArtifactsOutput) AdditionalArtifacts() AnalysisTemplateArtifactArrayOutput {
+	return o.ApplyT(func(v AnalysisTemplateArtifacts) []AnalysisTemplateArtifact { return v.AdditionalArtifacts }).(AnalysisTemplateArtifactArrayOutput)
+}
+
+func (o AnalysisTemplateArtifactsOutput) EntryPoint() AnalysisTemplateArtifactOutput {
+	return o.ApplyT(func(v AnalysisTemplateArtifacts) AnalysisTemplateArtifact { return v.EntryPoint }).(AnalysisTemplateArtifactOutput)
+}
+
+func (o AnalysisTemplateArtifactsOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisTemplateArtifacts) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type AnalysisTemplateHash struct {
+	Sha256 *string `pulumi:"sha256"`
+}
+
+// AnalysisTemplateHashInput is an input type that accepts AnalysisTemplateHashArgs and AnalysisTemplateHashOutput values.
+// You can construct a concrete instance of `AnalysisTemplateHashInput` via:
+//
+//	AnalysisTemplateHashArgs{...}
+type AnalysisTemplateHashInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateHashOutput() AnalysisTemplateHashOutput
+	ToAnalysisTemplateHashOutputWithContext(context.Context) AnalysisTemplateHashOutput
+}
+
+type AnalysisTemplateHashArgs struct {
+	Sha256 pulumi.StringPtrInput `pulumi:"sha256"`
+}
+
+func (AnalysisTemplateHashArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateHash)(nil)).Elem()
+}
+
+func (i AnalysisTemplateHashArgs) ToAnalysisTemplateHashOutput() AnalysisTemplateHashOutput {
+	return i.ToAnalysisTemplateHashOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateHashArgs) ToAnalysisTemplateHashOutputWithContext(ctx context.Context) AnalysisTemplateHashOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateHashOutput)
+}
+
+func (i AnalysisTemplateHashArgs) ToAnalysisTemplateHashPtrOutput() AnalysisTemplateHashPtrOutput {
+	return i.ToAnalysisTemplateHashPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateHashArgs) ToAnalysisTemplateHashPtrOutputWithContext(ctx context.Context) AnalysisTemplateHashPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateHashOutput).ToAnalysisTemplateHashPtrOutputWithContext(ctx)
+}
+
+// AnalysisTemplateHashPtrInput is an input type that accepts AnalysisTemplateHashArgs, AnalysisTemplateHashPtr and AnalysisTemplateHashPtrOutput values.
+// You can construct a concrete instance of `AnalysisTemplateHashPtrInput` via:
+//
+//	        AnalysisTemplateHashArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisTemplateHashPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateHashPtrOutput() AnalysisTemplateHashPtrOutput
+	ToAnalysisTemplateHashPtrOutputWithContext(context.Context) AnalysisTemplateHashPtrOutput
+}
+
+type analysisTemplateHashPtrType AnalysisTemplateHashArgs
+
+func AnalysisTemplateHashPtr(v *AnalysisTemplateHashArgs) AnalysisTemplateHashPtrInput {
+	return (*analysisTemplateHashPtrType)(v)
+}
+
+func (*analysisTemplateHashPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateHash)(nil)).Elem()
+}
+
+func (i *analysisTemplateHashPtrType) ToAnalysisTemplateHashPtrOutput() AnalysisTemplateHashPtrOutput {
+	return i.ToAnalysisTemplateHashPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisTemplateHashPtrType) ToAnalysisTemplateHashPtrOutputWithContext(ctx context.Context) AnalysisTemplateHashPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateHashPtrOutput)
+}
+
+// AnalysisTemplateHashArrayInput is an input type that accepts AnalysisTemplateHashArray and AnalysisTemplateHashArrayOutput values.
+// You can construct a concrete instance of `AnalysisTemplateHashArrayInput` via:
+//
+//	AnalysisTemplateHashArray{ AnalysisTemplateHashArgs{...} }
+type AnalysisTemplateHashArrayInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateHashArrayOutput() AnalysisTemplateHashArrayOutput
+	ToAnalysisTemplateHashArrayOutputWithContext(context.Context) AnalysisTemplateHashArrayOutput
+}
+
+type AnalysisTemplateHashArray []AnalysisTemplateHashInput
+
+func (AnalysisTemplateHashArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisTemplateHash)(nil)).Elem()
+}
+
+func (i AnalysisTemplateHashArray) ToAnalysisTemplateHashArrayOutput() AnalysisTemplateHashArrayOutput {
+	return i.ToAnalysisTemplateHashArrayOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateHashArray) ToAnalysisTemplateHashArrayOutputWithContext(ctx context.Context) AnalysisTemplateHashArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateHashArrayOutput)
+}
+
+type AnalysisTemplateHashOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateHashOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateHash)(nil)).Elem()
+}
+
+func (o AnalysisTemplateHashOutput) ToAnalysisTemplateHashOutput() AnalysisTemplateHashOutput {
+	return o
+}
+
+func (o AnalysisTemplateHashOutput) ToAnalysisTemplateHashOutputWithContext(ctx context.Context) AnalysisTemplateHashOutput {
+	return o
+}
+
+func (o AnalysisTemplateHashOutput) ToAnalysisTemplateHashPtrOutput() AnalysisTemplateHashPtrOutput {
+	return o.ToAnalysisTemplateHashPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateHashOutput) ToAnalysisTemplateHashPtrOutputWithContext(ctx context.Context) AnalysisTemplateHashPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTemplateHash) *AnalysisTemplateHash {
+		return &v
+	}).(AnalysisTemplateHashPtrOutput)
+}
+
+func (o AnalysisTemplateHashOutput) Sha256() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisTemplateHash) *string { return v.Sha256 }).(pulumi.StringPtrOutput)
+}
+
+type AnalysisTemplateHashPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateHashPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateHash)(nil)).Elem()
+}
+
+func (o AnalysisTemplateHashPtrOutput) ToAnalysisTemplateHashPtrOutput() AnalysisTemplateHashPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateHashPtrOutput) ToAnalysisTemplateHashPtrOutputWithContext(ctx context.Context) AnalysisTemplateHashPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateHashPtrOutput) Elem() AnalysisTemplateHashOutput {
+	return o.ApplyT(func(v *AnalysisTemplateHash) AnalysisTemplateHash {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTemplateHash
+		return ret
+	}).(AnalysisTemplateHashOutput)
+}
+
+func (o AnalysisTemplateHashPtrOutput) Sha256() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisTemplateHash) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sha256
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisTemplateHashArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateHashArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisTemplateHash)(nil)).Elem()
+}
+
+func (o AnalysisTemplateHashArrayOutput) ToAnalysisTemplateHashArrayOutput() AnalysisTemplateHashArrayOutput {
+	return o
+}
+
+func (o AnalysisTemplateHashArrayOutput) ToAnalysisTemplateHashArrayOutputWithContext(ctx context.Context) AnalysisTemplateHashArrayOutput {
+	return o
+}
+
+func (o AnalysisTemplateHashArrayOutput) Index(i pulumi.IntInput) AnalysisTemplateHashOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisTemplateHash {
+		return vs[0].([]AnalysisTemplateHash)[vs[1].(int)]
+	}).(AnalysisTemplateHashOutput)
+}
+
+type AnalysisTemplateS3Location struct {
+	Bucket string `pulumi:"bucket"`
+	Key    string `pulumi:"key"`
+}
+
+// AnalysisTemplateS3LocationInput is an input type that accepts AnalysisTemplateS3LocationArgs and AnalysisTemplateS3LocationOutput values.
+// You can construct a concrete instance of `AnalysisTemplateS3LocationInput` via:
+//
+//	AnalysisTemplateS3LocationArgs{...}
+type AnalysisTemplateS3LocationInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateS3LocationOutput() AnalysisTemplateS3LocationOutput
+	ToAnalysisTemplateS3LocationOutputWithContext(context.Context) AnalysisTemplateS3LocationOutput
+}
+
+type AnalysisTemplateS3LocationArgs struct {
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	Key    pulumi.StringInput `pulumi:"key"`
+}
+
+func (AnalysisTemplateS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateS3Location)(nil)).Elem()
+}
+
+func (i AnalysisTemplateS3LocationArgs) ToAnalysisTemplateS3LocationOutput() AnalysisTemplateS3LocationOutput {
+	return i.ToAnalysisTemplateS3LocationOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateS3LocationArgs) ToAnalysisTemplateS3LocationOutputWithContext(ctx context.Context) AnalysisTemplateS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateS3LocationOutput)
+}
+
+type AnalysisTemplateS3LocationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateS3Location)(nil)).Elem()
+}
+
+func (o AnalysisTemplateS3LocationOutput) ToAnalysisTemplateS3LocationOutput() AnalysisTemplateS3LocationOutput {
+	return o
+}
+
+func (o AnalysisTemplateS3LocationOutput) ToAnalysisTemplateS3LocationOutputWithContext(ctx context.Context) AnalysisTemplateS3LocationOutput {
+	return o
+}
+
+func (o AnalysisTemplateS3LocationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisTemplateS3Location) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+func (o AnalysisTemplateS3LocationOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisTemplateS3Location) string { return v.Key }).(pulumi.StringOutput)
 }
 
 type AnalysisTemplateTag struct {
@@ -436,6 +1236,159 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) PreserveNulls() pulumi.Boo
 			return nil
 		}
 		return &v.PreserveNulls
+	}).(pulumi.BoolPtrOutput)
+}
+
+type CollaborationJobComputePaymentConfig struct {
+	// Indicates whether the collaboration creator has configured the collaboration member to pay for query and job compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query and job compute costs ( `FALSE` ).
+	//
+	// Exactly one member can be configured to pay for query and job compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+	//
+	// An error is returned if the collaboration creator sets a `FALSE` value for the member who can run queries and jobs.
+	IsResponsible bool `pulumi:"isResponsible"`
+}
+
+// CollaborationJobComputePaymentConfigInput is an input type that accepts CollaborationJobComputePaymentConfigArgs and CollaborationJobComputePaymentConfigOutput values.
+// You can construct a concrete instance of `CollaborationJobComputePaymentConfigInput` via:
+//
+//	CollaborationJobComputePaymentConfigArgs{...}
+type CollaborationJobComputePaymentConfigInput interface {
+	pulumi.Input
+
+	ToCollaborationJobComputePaymentConfigOutput() CollaborationJobComputePaymentConfigOutput
+	ToCollaborationJobComputePaymentConfigOutputWithContext(context.Context) CollaborationJobComputePaymentConfigOutput
+}
+
+type CollaborationJobComputePaymentConfigArgs struct {
+	// Indicates whether the collaboration creator has configured the collaboration member to pay for query and job compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query and job compute costs ( `FALSE` ).
+	//
+	// Exactly one member can be configured to pay for query and job compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+	//
+	// An error is returned if the collaboration creator sets a `FALSE` value for the member who can run queries and jobs.
+	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
+}
+
+func (CollaborationJobComputePaymentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationJobComputePaymentConfig)(nil)).Elem()
+}
+
+func (i CollaborationJobComputePaymentConfigArgs) ToCollaborationJobComputePaymentConfigOutput() CollaborationJobComputePaymentConfigOutput {
+	return i.ToCollaborationJobComputePaymentConfigOutputWithContext(context.Background())
+}
+
+func (i CollaborationJobComputePaymentConfigArgs) ToCollaborationJobComputePaymentConfigOutputWithContext(ctx context.Context) CollaborationJobComputePaymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationJobComputePaymentConfigOutput)
+}
+
+func (i CollaborationJobComputePaymentConfigArgs) ToCollaborationJobComputePaymentConfigPtrOutput() CollaborationJobComputePaymentConfigPtrOutput {
+	return i.ToCollaborationJobComputePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CollaborationJobComputePaymentConfigArgs) ToCollaborationJobComputePaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationJobComputePaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationJobComputePaymentConfigOutput).ToCollaborationJobComputePaymentConfigPtrOutputWithContext(ctx)
+}
+
+// CollaborationJobComputePaymentConfigPtrInput is an input type that accepts CollaborationJobComputePaymentConfigArgs, CollaborationJobComputePaymentConfigPtr and CollaborationJobComputePaymentConfigPtrOutput values.
+// You can construct a concrete instance of `CollaborationJobComputePaymentConfigPtrInput` via:
+//
+//	        CollaborationJobComputePaymentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CollaborationJobComputePaymentConfigPtrInput interface {
+	pulumi.Input
+
+	ToCollaborationJobComputePaymentConfigPtrOutput() CollaborationJobComputePaymentConfigPtrOutput
+	ToCollaborationJobComputePaymentConfigPtrOutputWithContext(context.Context) CollaborationJobComputePaymentConfigPtrOutput
+}
+
+type collaborationJobComputePaymentConfigPtrType CollaborationJobComputePaymentConfigArgs
+
+func CollaborationJobComputePaymentConfigPtr(v *CollaborationJobComputePaymentConfigArgs) CollaborationJobComputePaymentConfigPtrInput {
+	return (*collaborationJobComputePaymentConfigPtrType)(v)
+}
+
+func (*collaborationJobComputePaymentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationJobComputePaymentConfig)(nil)).Elem()
+}
+
+func (i *collaborationJobComputePaymentConfigPtrType) ToCollaborationJobComputePaymentConfigPtrOutput() CollaborationJobComputePaymentConfigPtrOutput {
+	return i.ToCollaborationJobComputePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *collaborationJobComputePaymentConfigPtrType) ToCollaborationJobComputePaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationJobComputePaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationJobComputePaymentConfigPtrOutput)
+}
+
+type CollaborationJobComputePaymentConfigOutput struct{ *pulumi.OutputState }
+
+func (CollaborationJobComputePaymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationJobComputePaymentConfig)(nil)).Elem()
+}
+
+func (o CollaborationJobComputePaymentConfigOutput) ToCollaborationJobComputePaymentConfigOutput() CollaborationJobComputePaymentConfigOutput {
+	return o
+}
+
+func (o CollaborationJobComputePaymentConfigOutput) ToCollaborationJobComputePaymentConfigOutputWithContext(ctx context.Context) CollaborationJobComputePaymentConfigOutput {
+	return o
+}
+
+func (o CollaborationJobComputePaymentConfigOutput) ToCollaborationJobComputePaymentConfigPtrOutput() CollaborationJobComputePaymentConfigPtrOutput {
+	return o.ToCollaborationJobComputePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationJobComputePaymentConfigOutput) ToCollaborationJobComputePaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationJobComputePaymentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollaborationJobComputePaymentConfig) *CollaborationJobComputePaymentConfig {
+		return &v
+	}).(CollaborationJobComputePaymentConfigPtrOutput)
+}
+
+// Indicates whether the collaboration creator has configured the collaboration member to pay for query and job compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query and job compute costs ( `FALSE` ).
+//
+// Exactly one member can be configured to pay for query and job compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+//
+// An error is returned if the collaboration creator sets a `FALSE` value for the member who can run queries and jobs.
+func (o CollaborationJobComputePaymentConfigOutput) IsResponsible() pulumi.BoolOutput {
+	return o.ApplyT(func(v CollaborationJobComputePaymentConfig) bool { return v.IsResponsible }).(pulumi.BoolOutput)
+}
+
+type CollaborationJobComputePaymentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CollaborationJobComputePaymentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationJobComputePaymentConfig)(nil)).Elem()
+}
+
+func (o CollaborationJobComputePaymentConfigPtrOutput) ToCollaborationJobComputePaymentConfigPtrOutput() CollaborationJobComputePaymentConfigPtrOutput {
+	return o
+}
+
+func (o CollaborationJobComputePaymentConfigPtrOutput) ToCollaborationJobComputePaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationJobComputePaymentConfigPtrOutput {
+	return o
+}
+
+func (o CollaborationJobComputePaymentConfigPtrOutput) Elem() CollaborationJobComputePaymentConfigOutput {
+	return o.ApplyT(func(v *CollaborationJobComputePaymentConfig) CollaborationJobComputePaymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CollaborationJobComputePaymentConfig
+		return ret
+	}).(CollaborationJobComputePaymentConfigOutput)
+}
+
+// Indicates whether the collaboration creator has configured the collaboration member to pay for query and job compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query and job compute costs ( `FALSE` ).
+//
+// Exactly one member can be configured to pay for query and job compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+//
+// An error is returned if the collaboration creator sets a `FALSE` value for the member who can run queries and jobs.
+func (o CollaborationJobComputePaymentConfigPtrOutput) IsResponsible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CollaborationJobComputePaymentConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsResponsible
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -1190,6 +2143,8 @@ func (o CollaborationModelTrainingPaymentConfigPtrOutput) IsResponsible() pulumi
 }
 
 type CollaborationPaymentConfiguration struct {
+	// The compute configuration for the job.
+	JobCompute *CollaborationJobComputePaymentConfig `pulumi:"jobCompute"`
 	// An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
 	MachineLearning *CollaborationMlPaymentConfig `pulumi:"machineLearning"`
 	// The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
@@ -1208,6 +2163,8 @@ type CollaborationPaymentConfigurationInput interface {
 }
 
 type CollaborationPaymentConfigurationArgs struct {
+	// The compute configuration for the job.
+	JobCompute CollaborationJobComputePaymentConfigPtrInput `pulumi:"jobCompute"`
 	// An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
 	MachineLearning CollaborationMlPaymentConfigPtrInput `pulumi:"machineLearning"`
 	// The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
@@ -1291,6 +2248,11 @@ func (o CollaborationPaymentConfigurationOutput) ToCollaborationPaymentConfigura
 	}).(CollaborationPaymentConfigurationPtrOutput)
 }
 
+// The compute configuration for the job.
+func (o CollaborationPaymentConfigurationOutput) JobCompute() CollaborationJobComputePaymentConfigPtrOutput {
+	return o.ApplyT(func(v CollaborationPaymentConfiguration) *CollaborationJobComputePaymentConfig { return v.JobCompute }).(CollaborationJobComputePaymentConfigPtrOutput)
+}
+
 // An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
 func (o CollaborationPaymentConfigurationOutput) MachineLearning() CollaborationMlPaymentConfigPtrOutput {
 	return o.ApplyT(func(v CollaborationPaymentConfiguration) *CollaborationMlPaymentConfig { return v.MachineLearning }).(CollaborationMlPaymentConfigPtrOutput)
@@ -1325,6 +2287,16 @@ func (o CollaborationPaymentConfigurationPtrOutput) Elem() CollaborationPaymentC
 		var ret CollaborationPaymentConfiguration
 		return ret
 	}).(CollaborationPaymentConfigurationOutput)
+}
+
+// The compute configuration for the job.
+func (o CollaborationPaymentConfigurationPtrOutput) JobCompute() CollaborationJobComputePaymentConfigPtrOutput {
+	return o.ApplyT(func(v *CollaborationPaymentConfiguration) *CollaborationJobComputePaymentConfig {
+		if v == nil {
+			return nil
+		}
+		return v.JobCompute
+	}).(CollaborationJobComputePaymentConfigPtrOutput)
 }
 
 // An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
@@ -4021,6 +4993,171 @@ type IdNamespaceAssociationTag struct {
 	Value string `pulumi:"value"`
 }
 
+type MembershipJobComputePaymentConfig struct {
+	// Indicates whether the collaboration member has accepted to pay for job compute costs ( `TRUE` ) or has not accepted to pay for query and job compute costs ( `FALSE` ).
+	//
+	// There is only one member who pays for queries and jobs.
+	//
+	// An error message is returned for the following reasons:
+	//
+	// - If you set the value to `FALSE` but you are responsible to pay for query and job compute costs.
+	// - If you set the value to `TRUE` but you are not responsible to pay for query and job compute costs.
+	IsResponsible bool `pulumi:"isResponsible"`
+}
+
+// MembershipJobComputePaymentConfigInput is an input type that accepts MembershipJobComputePaymentConfigArgs and MembershipJobComputePaymentConfigOutput values.
+// You can construct a concrete instance of `MembershipJobComputePaymentConfigInput` via:
+//
+//	MembershipJobComputePaymentConfigArgs{...}
+type MembershipJobComputePaymentConfigInput interface {
+	pulumi.Input
+
+	ToMembershipJobComputePaymentConfigOutput() MembershipJobComputePaymentConfigOutput
+	ToMembershipJobComputePaymentConfigOutputWithContext(context.Context) MembershipJobComputePaymentConfigOutput
+}
+
+type MembershipJobComputePaymentConfigArgs struct {
+	// Indicates whether the collaboration member has accepted to pay for job compute costs ( `TRUE` ) or has not accepted to pay for query and job compute costs ( `FALSE` ).
+	//
+	// There is only one member who pays for queries and jobs.
+	//
+	// An error message is returned for the following reasons:
+	//
+	// - If you set the value to `FALSE` but you are responsible to pay for query and job compute costs.
+	// - If you set the value to `TRUE` but you are not responsible to pay for query and job compute costs.
+	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
+}
+
+func (MembershipJobComputePaymentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipJobComputePaymentConfig)(nil)).Elem()
+}
+
+func (i MembershipJobComputePaymentConfigArgs) ToMembershipJobComputePaymentConfigOutput() MembershipJobComputePaymentConfigOutput {
+	return i.ToMembershipJobComputePaymentConfigOutputWithContext(context.Background())
+}
+
+func (i MembershipJobComputePaymentConfigArgs) ToMembershipJobComputePaymentConfigOutputWithContext(ctx context.Context) MembershipJobComputePaymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipJobComputePaymentConfigOutput)
+}
+
+func (i MembershipJobComputePaymentConfigArgs) ToMembershipJobComputePaymentConfigPtrOutput() MembershipJobComputePaymentConfigPtrOutput {
+	return i.ToMembershipJobComputePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MembershipJobComputePaymentConfigArgs) ToMembershipJobComputePaymentConfigPtrOutputWithContext(ctx context.Context) MembershipJobComputePaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipJobComputePaymentConfigOutput).ToMembershipJobComputePaymentConfigPtrOutputWithContext(ctx)
+}
+
+// MembershipJobComputePaymentConfigPtrInput is an input type that accepts MembershipJobComputePaymentConfigArgs, MembershipJobComputePaymentConfigPtr and MembershipJobComputePaymentConfigPtrOutput values.
+// You can construct a concrete instance of `MembershipJobComputePaymentConfigPtrInput` via:
+//
+//	        MembershipJobComputePaymentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MembershipJobComputePaymentConfigPtrInput interface {
+	pulumi.Input
+
+	ToMembershipJobComputePaymentConfigPtrOutput() MembershipJobComputePaymentConfigPtrOutput
+	ToMembershipJobComputePaymentConfigPtrOutputWithContext(context.Context) MembershipJobComputePaymentConfigPtrOutput
+}
+
+type membershipJobComputePaymentConfigPtrType MembershipJobComputePaymentConfigArgs
+
+func MembershipJobComputePaymentConfigPtr(v *MembershipJobComputePaymentConfigArgs) MembershipJobComputePaymentConfigPtrInput {
+	return (*membershipJobComputePaymentConfigPtrType)(v)
+}
+
+func (*membershipJobComputePaymentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipJobComputePaymentConfig)(nil)).Elem()
+}
+
+func (i *membershipJobComputePaymentConfigPtrType) ToMembershipJobComputePaymentConfigPtrOutput() MembershipJobComputePaymentConfigPtrOutput {
+	return i.ToMembershipJobComputePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *membershipJobComputePaymentConfigPtrType) ToMembershipJobComputePaymentConfigPtrOutputWithContext(ctx context.Context) MembershipJobComputePaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipJobComputePaymentConfigPtrOutput)
+}
+
+type MembershipJobComputePaymentConfigOutput struct{ *pulumi.OutputState }
+
+func (MembershipJobComputePaymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipJobComputePaymentConfig)(nil)).Elem()
+}
+
+func (o MembershipJobComputePaymentConfigOutput) ToMembershipJobComputePaymentConfigOutput() MembershipJobComputePaymentConfigOutput {
+	return o
+}
+
+func (o MembershipJobComputePaymentConfigOutput) ToMembershipJobComputePaymentConfigOutputWithContext(ctx context.Context) MembershipJobComputePaymentConfigOutput {
+	return o
+}
+
+func (o MembershipJobComputePaymentConfigOutput) ToMembershipJobComputePaymentConfigPtrOutput() MembershipJobComputePaymentConfigPtrOutput {
+	return o.ToMembershipJobComputePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipJobComputePaymentConfigOutput) ToMembershipJobComputePaymentConfigPtrOutputWithContext(ctx context.Context) MembershipJobComputePaymentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipJobComputePaymentConfig) *MembershipJobComputePaymentConfig {
+		return &v
+	}).(MembershipJobComputePaymentConfigPtrOutput)
+}
+
+// Indicates whether the collaboration member has accepted to pay for job compute costs ( `TRUE` ) or has not accepted to pay for query and job compute costs ( `FALSE` ).
+//
+// There is only one member who pays for queries and jobs.
+//
+// An error message is returned for the following reasons:
+//
+// - If you set the value to `FALSE` but you are responsible to pay for query and job compute costs.
+// - If you set the value to `TRUE` but you are not responsible to pay for query and job compute costs.
+func (o MembershipJobComputePaymentConfigOutput) IsResponsible() pulumi.BoolOutput {
+	return o.ApplyT(func(v MembershipJobComputePaymentConfig) bool { return v.IsResponsible }).(pulumi.BoolOutput)
+}
+
+type MembershipJobComputePaymentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipJobComputePaymentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipJobComputePaymentConfig)(nil)).Elem()
+}
+
+func (o MembershipJobComputePaymentConfigPtrOutput) ToMembershipJobComputePaymentConfigPtrOutput() MembershipJobComputePaymentConfigPtrOutput {
+	return o
+}
+
+func (o MembershipJobComputePaymentConfigPtrOutput) ToMembershipJobComputePaymentConfigPtrOutputWithContext(ctx context.Context) MembershipJobComputePaymentConfigPtrOutput {
+	return o
+}
+
+func (o MembershipJobComputePaymentConfigPtrOutput) Elem() MembershipJobComputePaymentConfigOutput {
+	return o.ApplyT(func(v *MembershipJobComputePaymentConfig) MembershipJobComputePaymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipJobComputePaymentConfig
+		return ret
+	}).(MembershipJobComputePaymentConfigOutput)
+}
+
+// Indicates whether the collaboration member has accepted to pay for job compute costs ( `TRUE` ) or has not accepted to pay for query and job compute costs ( `FALSE` ).
+//
+// There is only one member who pays for queries and jobs.
+//
+// An error message is returned for the following reasons:
+//
+// - If you set the value to `FALSE` but you are responsible to pay for query and job compute costs.
+// - If you set the value to `TRUE` but you are not responsible to pay for query and job compute costs.
+func (o MembershipJobComputePaymentConfigPtrOutput) IsResponsible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MembershipJobComputePaymentConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsResponsible
+	}).(pulumi.BoolPtrOutput)
+}
+
 type MembershipMlPaymentConfig struct {
 	// The payment responsibilities accepted by the member for model inference.
 	ModelInference *MembershipModelInferencePaymentConfig `pulumi:"modelInference"`
@@ -4508,6 +5645,8 @@ func (o MembershipModelTrainingPaymentConfigPtrOutput) IsResponsible() pulumi.Bo
 }
 
 type MembershipPaymentConfiguration struct {
+	// The payment responsibilities accepted by the collaboration member for job compute costs.
+	JobCompute *MembershipJobComputePaymentConfig `pulumi:"jobCompute"`
 	// The payment responsibilities accepted by the collaboration member for machine learning costs.
 	MachineLearning *MembershipMlPaymentConfig `pulumi:"machineLearning"`
 	// The payment responsibilities accepted by the collaboration member for query compute costs.
@@ -4526,6 +5665,8 @@ type MembershipPaymentConfigurationInput interface {
 }
 
 type MembershipPaymentConfigurationArgs struct {
+	// The payment responsibilities accepted by the collaboration member for job compute costs.
+	JobCompute MembershipJobComputePaymentConfigPtrInput `pulumi:"jobCompute"`
 	// The payment responsibilities accepted by the collaboration member for machine learning costs.
 	MachineLearning MembershipMlPaymentConfigPtrInput `pulumi:"machineLearning"`
 	// The payment responsibilities accepted by the collaboration member for query compute costs.
@@ -4609,6 +5750,11 @@ func (o MembershipPaymentConfigurationOutput) ToMembershipPaymentConfigurationPt
 	}).(MembershipPaymentConfigurationPtrOutput)
 }
 
+// The payment responsibilities accepted by the collaboration member for job compute costs.
+func (o MembershipPaymentConfigurationOutput) JobCompute() MembershipJobComputePaymentConfigPtrOutput {
+	return o.ApplyT(func(v MembershipPaymentConfiguration) *MembershipJobComputePaymentConfig { return v.JobCompute }).(MembershipJobComputePaymentConfigPtrOutput)
+}
+
 // The payment responsibilities accepted by the collaboration member for machine learning costs.
 func (o MembershipPaymentConfigurationOutput) MachineLearning() MembershipMlPaymentConfigPtrOutput {
 	return o.ApplyT(func(v MembershipPaymentConfiguration) *MembershipMlPaymentConfig { return v.MachineLearning }).(MembershipMlPaymentConfigPtrOutput)
@@ -4643,6 +5789,16 @@ func (o MembershipPaymentConfigurationPtrOutput) Elem() MembershipPaymentConfigu
 	}).(MembershipPaymentConfigurationOutput)
 }
 
+// The payment responsibilities accepted by the collaboration member for job compute costs.
+func (o MembershipPaymentConfigurationPtrOutput) JobCompute() MembershipJobComputePaymentConfigPtrOutput {
+	return o.ApplyT(func(v *MembershipPaymentConfiguration) *MembershipJobComputePaymentConfig {
+		if v == nil {
+			return nil
+		}
+		return v.JobCompute
+	}).(MembershipJobComputePaymentConfigPtrOutput)
+}
+
 // The payment responsibilities accepted by the collaboration member for machine learning costs.
 func (o MembershipPaymentConfigurationPtrOutput) MachineLearning() MembershipMlPaymentConfigPtrOutput {
 	return o.ApplyT(func(v *MembershipPaymentConfiguration) *MembershipMlPaymentConfig {
@@ -4661,6 +5817,459 @@ func (o MembershipPaymentConfigurationPtrOutput) QueryCompute() MembershipQueryC
 		}
 		return &v.QueryCompute
 	}).(MembershipQueryComputePaymentConfigPtrOutput)
+}
+
+type MembershipProtectedJobOutputConfiguration struct {
+	// Contains the configuration to write the job results to S3.
+	S3 MembershipProtectedJobS3OutputConfigurationInput `pulumi:"s3"`
+}
+
+// MembershipProtectedJobOutputConfigurationInput is an input type that accepts MembershipProtectedJobOutputConfigurationArgs and MembershipProtectedJobOutputConfigurationOutput values.
+// You can construct a concrete instance of `MembershipProtectedJobOutputConfigurationInput` via:
+//
+//	MembershipProtectedJobOutputConfigurationArgs{...}
+type MembershipProtectedJobOutputConfigurationInput interface {
+	pulumi.Input
+
+	ToMembershipProtectedJobOutputConfigurationOutput() MembershipProtectedJobOutputConfigurationOutput
+	ToMembershipProtectedJobOutputConfigurationOutputWithContext(context.Context) MembershipProtectedJobOutputConfigurationOutput
+}
+
+type MembershipProtectedJobOutputConfigurationArgs struct {
+	// Contains the configuration to write the job results to S3.
+	S3 MembershipProtectedJobS3OutputConfigurationInputInput `pulumi:"s3"`
+}
+
+func (MembershipProtectedJobOutputConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipProtectedJobOutputConfiguration)(nil)).Elem()
+}
+
+func (i MembershipProtectedJobOutputConfigurationArgs) ToMembershipProtectedJobOutputConfigurationOutput() MembershipProtectedJobOutputConfigurationOutput {
+	return i.ToMembershipProtectedJobOutputConfigurationOutputWithContext(context.Background())
+}
+
+func (i MembershipProtectedJobOutputConfigurationArgs) ToMembershipProtectedJobOutputConfigurationOutputWithContext(ctx context.Context) MembershipProtectedJobOutputConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedJobOutputConfigurationOutput)
+}
+
+func (i MembershipProtectedJobOutputConfigurationArgs) ToMembershipProtectedJobOutputConfigurationPtrOutput() MembershipProtectedJobOutputConfigurationPtrOutput {
+	return i.ToMembershipProtectedJobOutputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MembershipProtectedJobOutputConfigurationArgs) ToMembershipProtectedJobOutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedJobOutputConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedJobOutputConfigurationOutput).ToMembershipProtectedJobOutputConfigurationPtrOutputWithContext(ctx)
+}
+
+// MembershipProtectedJobOutputConfigurationPtrInput is an input type that accepts MembershipProtectedJobOutputConfigurationArgs, MembershipProtectedJobOutputConfigurationPtr and MembershipProtectedJobOutputConfigurationPtrOutput values.
+// You can construct a concrete instance of `MembershipProtectedJobOutputConfigurationPtrInput` via:
+//
+//	        MembershipProtectedJobOutputConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MembershipProtectedJobOutputConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMembershipProtectedJobOutputConfigurationPtrOutput() MembershipProtectedJobOutputConfigurationPtrOutput
+	ToMembershipProtectedJobOutputConfigurationPtrOutputWithContext(context.Context) MembershipProtectedJobOutputConfigurationPtrOutput
+}
+
+type membershipProtectedJobOutputConfigurationPtrType MembershipProtectedJobOutputConfigurationArgs
+
+func MembershipProtectedJobOutputConfigurationPtr(v *MembershipProtectedJobOutputConfigurationArgs) MembershipProtectedJobOutputConfigurationPtrInput {
+	return (*membershipProtectedJobOutputConfigurationPtrType)(v)
+}
+
+func (*membershipProtectedJobOutputConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipProtectedJobOutputConfiguration)(nil)).Elem()
+}
+
+func (i *membershipProtectedJobOutputConfigurationPtrType) ToMembershipProtectedJobOutputConfigurationPtrOutput() MembershipProtectedJobOutputConfigurationPtrOutput {
+	return i.ToMembershipProtectedJobOutputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *membershipProtectedJobOutputConfigurationPtrType) ToMembershipProtectedJobOutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedJobOutputConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedJobOutputConfigurationPtrOutput)
+}
+
+type MembershipProtectedJobOutputConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MembershipProtectedJobOutputConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipProtectedJobOutputConfiguration)(nil)).Elem()
+}
+
+func (o MembershipProtectedJobOutputConfigurationOutput) ToMembershipProtectedJobOutputConfigurationOutput() MembershipProtectedJobOutputConfigurationOutput {
+	return o
+}
+
+func (o MembershipProtectedJobOutputConfigurationOutput) ToMembershipProtectedJobOutputConfigurationOutputWithContext(ctx context.Context) MembershipProtectedJobOutputConfigurationOutput {
+	return o
+}
+
+func (o MembershipProtectedJobOutputConfigurationOutput) ToMembershipProtectedJobOutputConfigurationPtrOutput() MembershipProtectedJobOutputConfigurationPtrOutput {
+	return o.ToMembershipProtectedJobOutputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipProtectedJobOutputConfigurationOutput) ToMembershipProtectedJobOutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedJobOutputConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipProtectedJobOutputConfiguration) *MembershipProtectedJobOutputConfiguration {
+		return &v
+	}).(MembershipProtectedJobOutputConfigurationPtrOutput)
+}
+
+// Contains the configuration to write the job results to S3.
+func (o MembershipProtectedJobOutputConfigurationOutput) S3() MembershipProtectedJobS3OutputConfigurationInputOutput {
+	return o.ApplyT(func(v MembershipProtectedJobOutputConfiguration) MembershipProtectedJobS3OutputConfigurationInput {
+		return v.S3
+	}).(MembershipProtectedJobS3OutputConfigurationInputOutput)
+}
+
+type MembershipProtectedJobOutputConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipProtectedJobOutputConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipProtectedJobOutputConfiguration)(nil)).Elem()
+}
+
+func (o MembershipProtectedJobOutputConfigurationPtrOutput) ToMembershipProtectedJobOutputConfigurationPtrOutput() MembershipProtectedJobOutputConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipProtectedJobOutputConfigurationPtrOutput) ToMembershipProtectedJobOutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedJobOutputConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipProtectedJobOutputConfigurationPtrOutput) Elem() MembershipProtectedJobOutputConfigurationOutput {
+	return o.ApplyT(func(v *MembershipProtectedJobOutputConfiguration) MembershipProtectedJobOutputConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipProtectedJobOutputConfiguration
+		return ret
+	}).(MembershipProtectedJobOutputConfigurationOutput)
+}
+
+// Contains the configuration to write the job results to S3.
+func (o MembershipProtectedJobOutputConfigurationPtrOutput) S3() MembershipProtectedJobS3OutputConfigurationInputPtrOutput {
+	return o.ApplyT(func(v *MembershipProtectedJobOutputConfiguration) *MembershipProtectedJobS3OutputConfigurationInput {
+		if v == nil {
+			return nil
+		}
+		return &v.S3
+	}).(MembershipProtectedJobS3OutputConfigurationInputPtrOutput)
+}
+
+type MembershipProtectedJobResultConfiguration struct {
+	// The output configuration for a protected job result.
+	OutputConfiguration MembershipProtectedJobOutputConfiguration `pulumi:"outputConfiguration"`
+	// The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected job results to the result location, given by the member who can receive results.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// MembershipProtectedJobResultConfigurationInput is an input type that accepts MembershipProtectedJobResultConfigurationArgs and MembershipProtectedJobResultConfigurationOutput values.
+// You can construct a concrete instance of `MembershipProtectedJobResultConfigurationInput` via:
+//
+//	MembershipProtectedJobResultConfigurationArgs{...}
+type MembershipProtectedJobResultConfigurationInput interface {
+	pulumi.Input
+
+	ToMembershipProtectedJobResultConfigurationOutput() MembershipProtectedJobResultConfigurationOutput
+	ToMembershipProtectedJobResultConfigurationOutputWithContext(context.Context) MembershipProtectedJobResultConfigurationOutput
+}
+
+type MembershipProtectedJobResultConfigurationArgs struct {
+	// The output configuration for a protected job result.
+	OutputConfiguration MembershipProtectedJobOutputConfigurationInput `pulumi:"outputConfiguration"`
+	// The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected job results to the result location, given by the member who can receive results.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (MembershipProtectedJobResultConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipProtectedJobResultConfiguration)(nil)).Elem()
+}
+
+func (i MembershipProtectedJobResultConfigurationArgs) ToMembershipProtectedJobResultConfigurationOutput() MembershipProtectedJobResultConfigurationOutput {
+	return i.ToMembershipProtectedJobResultConfigurationOutputWithContext(context.Background())
+}
+
+func (i MembershipProtectedJobResultConfigurationArgs) ToMembershipProtectedJobResultConfigurationOutputWithContext(ctx context.Context) MembershipProtectedJobResultConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedJobResultConfigurationOutput)
+}
+
+func (i MembershipProtectedJobResultConfigurationArgs) ToMembershipProtectedJobResultConfigurationPtrOutput() MembershipProtectedJobResultConfigurationPtrOutput {
+	return i.ToMembershipProtectedJobResultConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MembershipProtectedJobResultConfigurationArgs) ToMembershipProtectedJobResultConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedJobResultConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedJobResultConfigurationOutput).ToMembershipProtectedJobResultConfigurationPtrOutputWithContext(ctx)
+}
+
+// MembershipProtectedJobResultConfigurationPtrInput is an input type that accepts MembershipProtectedJobResultConfigurationArgs, MembershipProtectedJobResultConfigurationPtr and MembershipProtectedJobResultConfigurationPtrOutput values.
+// You can construct a concrete instance of `MembershipProtectedJobResultConfigurationPtrInput` via:
+//
+//	        MembershipProtectedJobResultConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MembershipProtectedJobResultConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMembershipProtectedJobResultConfigurationPtrOutput() MembershipProtectedJobResultConfigurationPtrOutput
+	ToMembershipProtectedJobResultConfigurationPtrOutputWithContext(context.Context) MembershipProtectedJobResultConfigurationPtrOutput
+}
+
+type membershipProtectedJobResultConfigurationPtrType MembershipProtectedJobResultConfigurationArgs
+
+func MembershipProtectedJobResultConfigurationPtr(v *MembershipProtectedJobResultConfigurationArgs) MembershipProtectedJobResultConfigurationPtrInput {
+	return (*membershipProtectedJobResultConfigurationPtrType)(v)
+}
+
+func (*membershipProtectedJobResultConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipProtectedJobResultConfiguration)(nil)).Elem()
+}
+
+func (i *membershipProtectedJobResultConfigurationPtrType) ToMembershipProtectedJobResultConfigurationPtrOutput() MembershipProtectedJobResultConfigurationPtrOutput {
+	return i.ToMembershipProtectedJobResultConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *membershipProtectedJobResultConfigurationPtrType) ToMembershipProtectedJobResultConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedJobResultConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedJobResultConfigurationPtrOutput)
+}
+
+type MembershipProtectedJobResultConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MembershipProtectedJobResultConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipProtectedJobResultConfiguration)(nil)).Elem()
+}
+
+func (o MembershipProtectedJobResultConfigurationOutput) ToMembershipProtectedJobResultConfigurationOutput() MembershipProtectedJobResultConfigurationOutput {
+	return o
+}
+
+func (o MembershipProtectedJobResultConfigurationOutput) ToMembershipProtectedJobResultConfigurationOutputWithContext(ctx context.Context) MembershipProtectedJobResultConfigurationOutput {
+	return o
+}
+
+func (o MembershipProtectedJobResultConfigurationOutput) ToMembershipProtectedJobResultConfigurationPtrOutput() MembershipProtectedJobResultConfigurationPtrOutput {
+	return o.ToMembershipProtectedJobResultConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipProtectedJobResultConfigurationOutput) ToMembershipProtectedJobResultConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedJobResultConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipProtectedJobResultConfiguration) *MembershipProtectedJobResultConfiguration {
+		return &v
+	}).(MembershipProtectedJobResultConfigurationPtrOutput)
+}
+
+// The output configuration for a protected job result.
+func (o MembershipProtectedJobResultConfigurationOutput) OutputConfiguration() MembershipProtectedJobOutputConfigurationOutput {
+	return o.ApplyT(func(v MembershipProtectedJobResultConfiguration) MembershipProtectedJobOutputConfiguration {
+		return v.OutputConfiguration
+	}).(MembershipProtectedJobOutputConfigurationOutput)
+}
+
+// The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected job results to the result location, given by the member who can receive results.
+func (o MembershipProtectedJobResultConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MembershipProtectedJobResultConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type MembershipProtectedJobResultConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipProtectedJobResultConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipProtectedJobResultConfiguration)(nil)).Elem()
+}
+
+func (o MembershipProtectedJobResultConfigurationPtrOutput) ToMembershipProtectedJobResultConfigurationPtrOutput() MembershipProtectedJobResultConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipProtectedJobResultConfigurationPtrOutput) ToMembershipProtectedJobResultConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedJobResultConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipProtectedJobResultConfigurationPtrOutput) Elem() MembershipProtectedJobResultConfigurationOutput {
+	return o.ApplyT(func(v *MembershipProtectedJobResultConfiguration) MembershipProtectedJobResultConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipProtectedJobResultConfiguration
+		return ret
+	}).(MembershipProtectedJobResultConfigurationOutput)
+}
+
+// The output configuration for a protected job result.
+func (o MembershipProtectedJobResultConfigurationPtrOutput) OutputConfiguration() MembershipProtectedJobOutputConfigurationPtrOutput {
+	return o.ApplyT(func(v *MembershipProtectedJobResultConfiguration) *MembershipProtectedJobOutputConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.OutputConfiguration
+	}).(MembershipProtectedJobOutputConfigurationPtrOutput)
+}
+
+// The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected job results to the result location, given by the member who can receive results.
+func (o MembershipProtectedJobResultConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MembershipProtectedJobResultConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type MembershipProtectedJobS3OutputConfigurationInput struct {
+	// The S3 bucket for job output.
+	Bucket string `pulumi:"bucket"`
+	// The S3 prefix to unload the protected job results.
+	KeyPrefix *string `pulumi:"keyPrefix"`
+}
+
+// MembershipProtectedJobS3OutputConfigurationInputInput is an input type that accepts MembershipProtectedJobS3OutputConfigurationInputArgs and MembershipProtectedJobS3OutputConfigurationInputOutput values.
+// You can construct a concrete instance of `MembershipProtectedJobS3OutputConfigurationInputInput` via:
+//
+//	MembershipProtectedJobS3OutputConfigurationInputArgs{...}
+type MembershipProtectedJobS3OutputConfigurationInputInput interface {
+	pulumi.Input
+
+	ToMembershipProtectedJobS3OutputConfigurationInputOutput() MembershipProtectedJobS3OutputConfigurationInputOutput
+	ToMembershipProtectedJobS3OutputConfigurationInputOutputWithContext(context.Context) MembershipProtectedJobS3OutputConfigurationInputOutput
+}
+
+type MembershipProtectedJobS3OutputConfigurationInputArgs struct {
+	// The S3 bucket for job output.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The S3 prefix to unload the protected job results.
+	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
+}
+
+func (MembershipProtectedJobS3OutputConfigurationInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipProtectedJobS3OutputConfigurationInput)(nil)).Elem()
+}
+
+func (i MembershipProtectedJobS3OutputConfigurationInputArgs) ToMembershipProtectedJobS3OutputConfigurationInputOutput() MembershipProtectedJobS3OutputConfigurationInputOutput {
+	return i.ToMembershipProtectedJobS3OutputConfigurationInputOutputWithContext(context.Background())
+}
+
+func (i MembershipProtectedJobS3OutputConfigurationInputArgs) ToMembershipProtectedJobS3OutputConfigurationInputOutputWithContext(ctx context.Context) MembershipProtectedJobS3OutputConfigurationInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedJobS3OutputConfigurationInputOutput)
+}
+
+func (i MembershipProtectedJobS3OutputConfigurationInputArgs) ToMembershipProtectedJobS3OutputConfigurationInputPtrOutput() MembershipProtectedJobS3OutputConfigurationInputPtrOutput {
+	return i.ToMembershipProtectedJobS3OutputConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i MembershipProtectedJobS3OutputConfigurationInputArgs) ToMembershipProtectedJobS3OutputConfigurationInputPtrOutputWithContext(ctx context.Context) MembershipProtectedJobS3OutputConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedJobS3OutputConfigurationInputOutput).ToMembershipProtectedJobS3OutputConfigurationInputPtrOutputWithContext(ctx)
+}
+
+// MembershipProtectedJobS3OutputConfigurationInputPtrInput is an input type that accepts MembershipProtectedJobS3OutputConfigurationInputArgs, MembershipProtectedJobS3OutputConfigurationInputPtr and MembershipProtectedJobS3OutputConfigurationInputPtrOutput values.
+// You can construct a concrete instance of `MembershipProtectedJobS3OutputConfigurationInputPtrInput` via:
+//
+//	        MembershipProtectedJobS3OutputConfigurationInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type MembershipProtectedJobS3OutputConfigurationInputPtrInput interface {
+	pulumi.Input
+
+	ToMembershipProtectedJobS3OutputConfigurationInputPtrOutput() MembershipProtectedJobS3OutputConfigurationInputPtrOutput
+	ToMembershipProtectedJobS3OutputConfigurationInputPtrOutputWithContext(context.Context) MembershipProtectedJobS3OutputConfigurationInputPtrOutput
+}
+
+type membershipProtectedJobS3OutputConfigurationInputPtrType MembershipProtectedJobS3OutputConfigurationInputArgs
+
+func MembershipProtectedJobS3OutputConfigurationInputPtr(v *MembershipProtectedJobS3OutputConfigurationInputArgs) MembershipProtectedJobS3OutputConfigurationInputPtrInput {
+	return (*membershipProtectedJobS3OutputConfigurationInputPtrType)(v)
+}
+
+func (*membershipProtectedJobS3OutputConfigurationInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipProtectedJobS3OutputConfigurationInput)(nil)).Elem()
+}
+
+func (i *membershipProtectedJobS3OutputConfigurationInputPtrType) ToMembershipProtectedJobS3OutputConfigurationInputPtrOutput() MembershipProtectedJobS3OutputConfigurationInputPtrOutput {
+	return i.ToMembershipProtectedJobS3OutputConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i *membershipProtectedJobS3OutputConfigurationInputPtrType) ToMembershipProtectedJobS3OutputConfigurationInputPtrOutputWithContext(ctx context.Context) MembershipProtectedJobS3OutputConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedJobS3OutputConfigurationInputPtrOutput)
+}
+
+type MembershipProtectedJobS3OutputConfigurationInputOutput struct{ *pulumi.OutputState }
+
+func (MembershipProtectedJobS3OutputConfigurationInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipProtectedJobS3OutputConfigurationInput)(nil)).Elem()
+}
+
+func (o MembershipProtectedJobS3OutputConfigurationInputOutput) ToMembershipProtectedJobS3OutputConfigurationInputOutput() MembershipProtectedJobS3OutputConfigurationInputOutput {
+	return o
+}
+
+func (o MembershipProtectedJobS3OutputConfigurationInputOutput) ToMembershipProtectedJobS3OutputConfigurationInputOutputWithContext(ctx context.Context) MembershipProtectedJobS3OutputConfigurationInputOutput {
+	return o
+}
+
+func (o MembershipProtectedJobS3OutputConfigurationInputOutput) ToMembershipProtectedJobS3OutputConfigurationInputPtrOutput() MembershipProtectedJobS3OutputConfigurationInputPtrOutput {
+	return o.ToMembershipProtectedJobS3OutputConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipProtectedJobS3OutputConfigurationInputOutput) ToMembershipProtectedJobS3OutputConfigurationInputPtrOutputWithContext(ctx context.Context) MembershipProtectedJobS3OutputConfigurationInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipProtectedJobS3OutputConfigurationInput) *MembershipProtectedJobS3OutputConfigurationInput {
+		return &v
+	}).(MembershipProtectedJobS3OutputConfigurationInputPtrOutput)
+}
+
+// The S3 bucket for job output.
+func (o MembershipProtectedJobS3OutputConfigurationInputOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v MembershipProtectedJobS3OutputConfigurationInput) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The S3 prefix to unload the protected job results.
+func (o MembershipProtectedJobS3OutputConfigurationInputOutput) KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MembershipProtectedJobS3OutputConfigurationInput) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+type MembershipProtectedJobS3OutputConfigurationInputPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipProtectedJobS3OutputConfigurationInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipProtectedJobS3OutputConfigurationInput)(nil)).Elem()
+}
+
+func (o MembershipProtectedJobS3OutputConfigurationInputPtrOutput) ToMembershipProtectedJobS3OutputConfigurationInputPtrOutput() MembershipProtectedJobS3OutputConfigurationInputPtrOutput {
+	return o
+}
+
+func (o MembershipProtectedJobS3OutputConfigurationInputPtrOutput) ToMembershipProtectedJobS3OutputConfigurationInputPtrOutputWithContext(ctx context.Context) MembershipProtectedJobS3OutputConfigurationInputPtrOutput {
+	return o
+}
+
+func (o MembershipProtectedJobS3OutputConfigurationInputPtrOutput) Elem() MembershipProtectedJobS3OutputConfigurationInputOutput {
+	return o.ApplyT(func(v *MembershipProtectedJobS3OutputConfigurationInput) MembershipProtectedJobS3OutputConfigurationInput {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipProtectedJobS3OutputConfigurationInput
+		return ret
+	}).(MembershipProtectedJobS3OutputConfigurationInputOutput)
+}
+
+// The S3 bucket for job output.
+func (o MembershipProtectedJobS3OutputConfigurationInputPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MembershipProtectedJobS3OutputConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 prefix to unload the protected job results.
+func (o MembershipProtectedJobS3OutputConfigurationInputPtrOutput) KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MembershipProtectedJobS3OutputConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPrefix
+	}).(pulumi.StringPtrOutput)
 }
 
 type MembershipProtectedQueryOutputConfiguration struct {
@@ -5448,9 +7057,25 @@ type PrivacyBudgetTemplateTag struct {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterArrayInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisSourceInput)(nil)).Elem(), AnalysisTemplateAnalysisSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisSchemaInput)(nil)).Elem(), AnalysisTemplateAnalysisSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisSchemaPtrInput)(nil)).Elem(), AnalysisTemplateAnalysisSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisSource0PropertiesInput)(nil)).Elem(), AnalysisTemplateAnalysisSource0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisSource1PropertiesInput)(nil)).Elem(), AnalysisTemplateAnalysisSource1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisSourceMetadataPropertiesInput)(nil)).Elem(), AnalysisTemplateAnalysisSourceMetadataPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisSourceMetadataPropertiesPtrInput)(nil)).Elem(), AnalysisTemplateAnalysisSourceMetadataPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateArtifactInput)(nil)).Elem(), AnalysisTemplateArtifactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateArtifactArrayInput)(nil)).Elem(), AnalysisTemplateArtifactArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateArtifactMetadataInput)(nil)).Elem(), AnalysisTemplateArtifactMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateArtifactMetadataPtrInput)(nil)).Elem(), AnalysisTemplateArtifactMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateArtifactsInput)(nil)).Elem(), AnalysisTemplateArtifactsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateHashInput)(nil)).Elem(), AnalysisTemplateHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateHashPtrInput)(nil)).Elem(), AnalysisTemplateHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateHashArrayInput)(nil)).Elem(), AnalysisTemplateHashArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateS3LocationInput)(nil)).Elem(), AnalysisTemplateS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationDataEncryptionMetadataInput)(nil)).Elem(), CollaborationDataEncryptionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationDataEncryptionMetadataPtrInput)(nil)).Elem(), CollaborationDataEncryptionMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationJobComputePaymentConfigInput)(nil)).Elem(), CollaborationJobComputePaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationJobComputePaymentConfigPtrInput)(nil)).Elem(), CollaborationJobComputePaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberSpecificationInput)(nil)).Elem(), CollaborationMemberSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberSpecificationArrayInput)(nil)).Elem(), CollaborationMemberSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMlMemberAbilitiesInput)(nil)).Elem(), CollaborationMlMemberAbilitiesArgs{})
@@ -5504,6 +7129,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationIdMappingConfigInput)(nil)).Elem(), IdNamespaceAssociationIdMappingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationIdMappingConfigPtrInput)(nil)).Elem(), IdNamespaceAssociationIdMappingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationInputReferenceConfigInput)(nil)).Elem(), IdNamespaceAssociationInputReferenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipJobComputePaymentConfigInput)(nil)).Elem(), MembershipJobComputePaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipJobComputePaymentConfigPtrInput)(nil)).Elem(), MembershipJobComputePaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipMlPaymentConfigInput)(nil)).Elem(), MembershipMlPaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipMlPaymentConfigPtrInput)(nil)).Elem(), MembershipMlPaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipModelInferencePaymentConfigInput)(nil)).Elem(), MembershipModelInferencePaymentConfigArgs{})
@@ -5512,6 +7139,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipModelTrainingPaymentConfigPtrInput)(nil)).Elem(), MembershipModelTrainingPaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipPaymentConfigurationInput)(nil)).Elem(), MembershipPaymentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipPaymentConfigurationPtrInput)(nil)).Elem(), MembershipPaymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedJobOutputConfigurationInput)(nil)).Elem(), MembershipProtectedJobOutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedJobOutputConfigurationPtrInput)(nil)).Elem(), MembershipProtectedJobOutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedJobResultConfigurationInput)(nil)).Elem(), MembershipProtectedJobResultConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedJobResultConfigurationPtrInput)(nil)).Elem(), MembershipProtectedJobResultConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedJobS3OutputConfigurationInputInput)(nil)).Elem(), MembershipProtectedJobS3OutputConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedJobS3OutputConfigurationInputPtrInput)(nil)).Elem(), MembershipProtectedJobS3OutputConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryOutputConfigurationInput)(nil)).Elem(), MembershipProtectedQueryOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryOutputConfigurationPtrInput)(nil)).Elem(), MembershipProtectedQueryOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryResultConfigurationInput)(nil)).Elem(), MembershipProtectedQueryResultConfigurationArgs{})
@@ -5525,9 +7158,23 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisSchemaOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisSchemaPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisTemplateAnalysisSourceOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateAnalysisSource0PropertiesOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateAnalysisSource1PropertiesOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateAnalysisSourceMetadataPropertiesOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateArtifactOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateArtifactArrayOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateArtifactMetadataOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateArtifactMetadataPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateArtifactsOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateHashOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateHashPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateHashArrayOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateS3LocationOutput{})
 	pulumi.RegisterOutputType(CollaborationDataEncryptionMetadataOutput{})
 	pulumi.RegisterOutputType(CollaborationDataEncryptionMetadataPtrOutput{})
+	pulumi.RegisterOutputType(CollaborationJobComputePaymentConfigOutput{})
+	pulumi.RegisterOutputType(CollaborationJobComputePaymentConfigPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberSpecificationOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(CollaborationMlMemberAbilitiesOutput{})
@@ -5589,6 +7236,8 @@ func init() {
 	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferenceConfigOutput{})
 	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferencePropertiesOutput{})
 	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferencePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MembershipJobComputePaymentConfigOutput{})
+	pulumi.RegisterOutputType(MembershipJobComputePaymentConfigPtrOutput{})
 	pulumi.RegisterOutputType(MembershipMlPaymentConfigOutput{})
 	pulumi.RegisterOutputType(MembershipMlPaymentConfigPtrOutput{})
 	pulumi.RegisterOutputType(MembershipModelInferencePaymentConfigOutput{})
@@ -5597,6 +7246,12 @@ func init() {
 	pulumi.RegisterOutputType(MembershipModelTrainingPaymentConfigPtrOutput{})
 	pulumi.RegisterOutputType(MembershipPaymentConfigurationOutput{})
 	pulumi.RegisterOutputType(MembershipPaymentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MembershipProtectedJobOutputConfigurationOutput{})
+	pulumi.RegisterOutputType(MembershipProtectedJobOutputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MembershipProtectedJobResultConfigurationOutput{})
+	pulumi.RegisterOutputType(MembershipProtectedJobResultConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MembershipProtectedJobS3OutputConfigurationInputOutput{})
+	pulumi.RegisterOutputType(MembershipProtectedJobS3OutputConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(MembershipProtectedQueryOutputConfigurationOutput{})
 	pulumi.RegisterOutputType(MembershipProtectedQueryOutputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MembershipProtectedQueryResultConfigurationOutput{})

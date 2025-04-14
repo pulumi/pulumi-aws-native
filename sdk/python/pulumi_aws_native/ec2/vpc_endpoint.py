@@ -34,6 +34,7 @@ class VpcEndpointArgs:
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_network_arn: Optional[pulumi.Input[str]] = None,
+                 service_region: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_endpoint_type: Optional[pulumi.Input['VpcEndpointType']] = None):
@@ -80,6 +81,8 @@ class VpcEndpointArgs:
             pulumi.set(__self__, "service_name", service_name)
         if service_network_arn is not None:
             pulumi.set(__self__, "service_network_arn", service_network_arn)
+        if service_region is not None:
+            pulumi.set(__self__, "service_region", service_region)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
@@ -215,6 +218,15 @@ class VpcEndpointArgs:
         pulumi.set(self, "service_network_arn", value)
 
     @property
+    @pulumi.getter(name="serviceRegion")
+    def service_region(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "service_region")
+
+    @service_region.setter
+    def service_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_region", value)
+
+    @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -266,6 +278,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_network_arn: Optional[pulumi.Input[str]] = None,
+                 service_region: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_endpoint_type: Optional[pulumi.Input['VpcEndpointType']] = None,
@@ -343,6 +356,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_network_arn: Optional[pulumi.Input[str]] = None,
+                 service_region: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_endpoint_type: Optional[pulumi.Input['VpcEndpointType']] = None,
@@ -365,6 +379,7 @@ class VpcEndpoint(pulumi.CustomResource):
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["service_network_arn"] = service_network_arn
+            __props__.__dict__["service_region"] = service_region
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_endpoint_type"] = vpc_endpoint_type
@@ -375,7 +390,7 @@ class VpcEndpoint(pulumi.CustomResource):
             __props__.__dict__["creation_timestamp"] = None
             __props__.__dict__["dns_entries"] = None
             __props__.__dict__["network_interface_ids"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resourceConfigurationArn", "serviceName", "serviceNetworkArn", "vpcEndpointType", "vpcId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resourceConfigurationArn", "serviceName", "serviceNetworkArn", "serviceRegion", "vpcEndpointType", "vpcId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcEndpoint, __self__).__init__(
             'aws-native:ec2:VpcEndpoint',
@@ -412,6 +427,7 @@ class VpcEndpoint(pulumi.CustomResource):
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["service_name"] = None
         __props__.__dict__["service_network_arn"] = None
+        __props__.__dict__["service_region"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_endpoint_type"] = None
@@ -534,6 +550,11 @@ class VpcEndpoint(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the service network.
         """
         return pulumi.get(self, "service_network_arn")
+
+    @property
+    @pulumi.getter(name="serviceRegion")
+    def service_region(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "service_region")
 
     @property
     @pulumi.getter(name="subnetIds")

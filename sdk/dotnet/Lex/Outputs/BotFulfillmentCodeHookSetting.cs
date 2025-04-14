@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Settings that determine if a Lambda function should be invoked to fulfill a specific intent.
-    /// </summary>
     [OutputType]
     public sealed class BotFulfillmentCodeHookSetting
     {
@@ -25,7 +22,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly Outputs.BotFulfillmentUpdatesSpecification? FulfillmentUpdatesSpecification;
         /// <summary>
-        /// Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
+        /// Determines whether the fulfillment code hook is used. When `active` is false, the code hook doesn't run.
         /// </summary>
         public readonly bool? IsActive;
         /// <summary>

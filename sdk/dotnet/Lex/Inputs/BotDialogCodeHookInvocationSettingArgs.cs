@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
-    /// </summary>
     public sealed class BotDialogCodeHookInvocationSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

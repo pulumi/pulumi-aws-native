@@ -41,6 +41,11 @@ type LookupFunctionResult struct {
 	Architectures []FunctionArchitecturesItem `pulumi:"architectures"`
 	// The Amazon Resource Name (ARN) of the function.
 	Arn *string `pulumi:"arn"`
+	// The code for the function. You can define your function code in multiple ways:
+	//   +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
+	//   +  For .zip deployment packages, you can alternatively define the function code inline in the ``ZipFile`` property. This method works only for Node.js and Python functions.
+	//   +  For container images, specify the URI of your container image in the ECR registry in the ``ImageUri`` property.
+	Code *FunctionCode `pulumi:"code"`
 	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
 	CodeSigningConfigArn *string `pulumi:"codeSigningConfigArn"`
 	// A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
@@ -139,6 +144,14 @@ func (o LookupFunctionResultOutput) Architectures() FunctionArchitecturesItemArr
 // The Amazon Resource Name (ARN) of the function.
 func (o LookupFunctionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The code for the function. You can define your function code in multiple ways:
+//   - For .zip deployment packages, you can specify the S3 location of the .zip file in the “S3Bucket“, “S3Key“, and “S3ObjectVersion“ properties.
+//   - For .zip deployment packages, you can alternatively define the function code inline in the “ZipFile“ property. This method works only for Node.js and Python functions.
+//   - For container images, specify the URI of your container image in the ECR registry in the “ImageUri“ property.
+func (o LookupFunctionResultOutput) Code() FunctionCodePtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *FunctionCode { return v.Code }).(FunctionCodePtrOutput)
 }
 
 // To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.

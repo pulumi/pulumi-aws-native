@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['WebAppArgs', 'WebApp']
@@ -27,6 +28,7 @@ class WebAppArgs:
                  access_endpoint: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  web_app_customization: Optional[pulumi.Input['WebAppCustomizationArgs']] = None,
+                 web_app_endpoint_policy: Optional[pulumi.Input['WebAppEndpointPolicy']] = None,
                  web_app_units: Optional[pulumi.Input['WebAppUnitsPropertiesArgs']] = None):
         """
         The set of arguments for constructing a WebApp resource.
@@ -45,6 +47,8 @@ class WebAppArgs:
             pulumi.set(__self__, "tags", tags)
         if web_app_customization is not None:
             pulumi.set(__self__, "web_app_customization", web_app_customization)
+        if web_app_endpoint_policy is not None:
+            pulumi.set(__self__, "web_app_endpoint_policy", web_app_endpoint_policy)
         if web_app_units is not None:
             pulumi.set(__self__, "web_app_units", web_app_units)
 
@@ -99,6 +103,15 @@ class WebAppArgs:
         pulumi.set(self, "web_app_customization", value)
 
     @property
+    @pulumi.getter(name="webAppEndpointPolicy")
+    def web_app_endpoint_policy(self) -> Optional[pulumi.Input['WebAppEndpointPolicy']]:
+        return pulumi.get(self, "web_app_endpoint_policy")
+
+    @web_app_endpoint_policy.setter
+    def web_app_endpoint_policy(self, value: Optional[pulumi.Input['WebAppEndpointPolicy']]):
+        pulumi.set(self, "web_app_endpoint_policy", value)
+
+    @property
     @pulumi.getter(name="webAppUnits")
     def web_app_units(self) -> Optional[pulumi.Input['WebAppUnitsPropertiesArgs']]:
         """
@@ -120,6 +133,7 @@ class WebApp(pulumi.CustomResource):
                  identity_provider_details: Optional[pulumi.Input[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  web_app_customization: Optional[pulumi.Input[Union['WebAppCustomizationArgs', 'WebAppCustomizationArgsDict']]] = None,
+                 web_app_endpoint_policy: Optional[pulumi.Input['WebAppEndpointPolicy']] = None,
                  web_app_units: Optional[pulumi.Input[Union['WebAppUnitsPropertiesArgs', 'WebAppUnitsPropertiesArgsDict']]] = None,
                  __props__=None):
         """
@@ -163,6 +177,7 @@ class WebApp(pulumi.CustomResource):
                  identity_provider_details: Optional[pulumi.Input[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  web_app_customization: Optional[pulumi.Input[Union['WebAppCustomizationArgs', 'WebAppCustomizationArgsDict']]] = None,
+                 web_app_endpoint_policy: Optional[pulumi.Input['WebAppEndpointPolicy']] = None,
                  web_app_units: Optional[pulumi.Input[Union['WebAppUnitsPropertiesArgs', 'WebAppUnitsPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -179,10 +194,11 @@ class WebApp(pulumi.CustomResource):
             __props__.__dict__["identity_provider_details"] = identity_provider_details
             __props__.__dict__["tags"] = tags
             __props__.__dict__["web_app_customization"] = web_app_customization
+            __props__.__dict__["web_app_endpoint_policy"] = web_app_endpoint_policy
             __props__.__dict__["web_app_units"] = web_app_units
             __props__.__dict__["arn"] = None
             __props__.__dict__["web_app_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["identityProviderDetails.instanceArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["identityProviderDetails.instanceArn", "webAppEndpointPolicy"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(WebApp, __self__).__init__(
             'aws-native:transfer:WebApp',
@@ -211,6 +227,7 @@ class WebApp(pulumi.CustomResource):
         __props__.__dict__["identity_provider_details"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["web_app_customization"] = None
+        __props__.__dict__["web_app_endpoint_policy"] = None
         __props__.__dict__["web_app_id"] = None
         __props__.__dict__["web_app_units"] = None
         return WebApp(resource_name, opts=opts, __props__=__props__)
@@ -256,6 +273,11 @@ class WebApp(pulumi.CustomResource):
         A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
         """
         return pulumi.get(self, "web_app_customization")
+
+    @property
+    @pulumi.getter(name="webAppEndpointPolicy")
+    def web_app_endpoint_policy(self) -> pulumi.Output[Optional['WebAppEndpointPolicy']]:
+        return pulumi.get(self, "web_app_endpoint_policy")
 
     @property
     @pulumi.getter(name="webAppId")

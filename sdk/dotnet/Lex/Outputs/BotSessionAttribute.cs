@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Key/value pair representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
-    /// </summary>
     [OutputType]
     public sealed class BotSessionAttribute
     {

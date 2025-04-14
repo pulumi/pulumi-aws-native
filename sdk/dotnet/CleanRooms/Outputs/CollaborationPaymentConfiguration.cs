@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     public sealed class CollaborationPaymentConfiguration
     {
         /// <summary>
+        /// The compute configuration for the job.
+        /// </summary>
+        public readonly Outputs.CollaborationJobComputePaymentConfig? JobCompute;
+        /// <summary>
         /// An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
         /// </summary>
         public readonly Outputs.CollaborationMlPaymentConfig? MachineLearning;
@@ -24,10 +28,13 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
 
         [OutputConstructor]
         private CollaborationPaymentConfiguration(
+            Outputs.CollaborationJobComputePaymentConfig? jobCompute,
+
             Outputs.CollaborationMlPaymentConfig? machineLearning,
 
             Outputs.CollaborationQueryComputePaymentConfig queryCompute)
         {
+            JobCompute = jobCompute;
             MachineLearning = machineLearning;
             QueryCompute = queryCompute;
         }

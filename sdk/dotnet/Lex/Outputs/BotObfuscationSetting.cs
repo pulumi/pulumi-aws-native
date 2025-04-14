@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Determines whether Amazon Lex obscures slot values in conversation logs.
-    /// </summary>
     [OutputType]
     public sealed class BotObfuscationSetting
     {

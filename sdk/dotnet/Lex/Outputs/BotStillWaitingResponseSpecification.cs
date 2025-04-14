@@ -10,14 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// StillWaitingResponseSpecification.
-    /// </summary>
     [OutputType]
     public sealed class BotStillWaitingResponseSpecification
     {
         /// <summary>
-        /// Indicates whether the user can interrupt a speech prompt from the bot.
+        /// Indicates that the user can interrupt the response by speaking while the message is being played.
         /// </summary>
         public readonly bool? AllowInterrupt;
         /// <summary>

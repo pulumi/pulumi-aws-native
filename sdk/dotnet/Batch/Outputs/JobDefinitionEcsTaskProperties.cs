@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// This object is a list of containers.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionTaskContainerProperties> Containers;
+        public readonly bool? EnableExecuteCommand;
         /// <summary>
         /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate .
         /// </summary>
@@ -74,6 +75,8 @@ namespace Pulumi.AwsNative.Batch.Outputs
         private JobDefinitionEcsTaskProperties(
             ImmutableArray<Outputs.JobDefinitionTaskContainerProperties> containers,
 
+            bool? enableExecuteCommand,
+
             Outputs.JobDefinitionEphemeralStorage? ephemeralStorage,
 
             string? executionRoleArn,
@@ -93,6 +96,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
             ImmutableArray<Outputs.JobDefinitionVolume> volumes)
         {
             Containers = containers;
+            EnableExecuteCommand = enableExecuteCommand;
             EphemeralStorage = ephemeralStorage;
             ExecutionRoleArn = executionRoleArn;
             IpcMode = ipcMode;

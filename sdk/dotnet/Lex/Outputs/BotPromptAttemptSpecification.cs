@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Specifies the settings on a prompt attempt.
-    /// </summary>
     [OutputType]
     public sealed class BotPromptAttemptSpecification
     {
-        /// <summary>
-        /// Indicates whether the user can interrupt a speech prompt attempt from the bot.
-        /// </summary>
         public readonly bool? AllowInterrupt;
         public readonly Outputs.BotAllowedInputTypes AllowedInputTypes;
         public readonly Outputs.BotAudioAndDtmfInputSpecification? AudioAndDtmfInputSpecification;

@@ -846,7 +846,7 @@
       "tags": {
         "type": "array",
         "items": {
-          "$ref": "#/types/aws-native:index:CreateOnlyTag"
+          "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "An array of key-value pairs to apply to this resource."
       }
@@ -1551,9 +1551,17 @@
         "type": "string",
         "description": "The unique ID for the associated collaboration."
       },
+      "defaultJobResultConfiguration": {
+        "$ref": "#/types/aws-native:cleanrooms:MembershipProtectedJobResultConfiguration",
+        "description": "The default job result configuration for the membership."
+      },
       "defaultResultConfiguration": {
         "$ref": "#/types/aws-native:cleanrooms:MembershipProtectedQueryResultConfiguration",
         "description": "The default protected query result configuration as specified by the member who can receive results."
+      },
+      "jobLogStatus": {
+        "$ref": "#/types/aws-native:cleanrooms:MembershipJobLogStatus",
+        "description": "An indicator as to whether job logging has been enabled or disabled for the collaboration.\n\nWhen `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` ."
       },
       "paymentConfiguration": {
         "$ref": "#/types/aws-native:cleanrooms:MembershipPaymentConfiguration",
@@ -4246,6 +4254,13 @@
       "outpostArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Any tags assigned to the Host."
       }
     }
   },
@@ -6343,6 +6358,9 @@
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the service network."
       },
+      "serviceRegion": {
+        "type": "string"
+      },
       "subnetIds": {
         "type": "array",
         "items": {
@@ -8305,7 +8323,7 @@
       },
       "auditCheckConfigurations": {
         "$ref": "#/types/aws-native:iot:AccountAuditConfigurationAuditCheckConfigurations",
-        "description": "Specifies which audit checks are enabled and disabled for this account.\n\nSome data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted. To disable a check, set the value of the `Enabled:` key to `false` .\n\nIf an enabled check is removed from the template, it will also be disabled.\n\nYou can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.\n\nFor more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)"
+        "description": "Specifies which audit checks are enabled and disabled for this account.\n\nSome data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted. To disable a check, set the value of the `Enabled:` key to `false` .\n\nIf an enabled check is removed from the template, it will also be disabled.\n\nYou can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.\n\nFor more information on available audit checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)"
       },
       "auditNotificationTargetConfigurations": {
         "$ref": "#/types/aws-native:iot:AccountAuditConfigurationAuditNotificationTargetConfigurations",
@@ -10601,6 +10619,9 @@
   "aws-native:paymentcryptography:Key": {
     "cfTypeName": "AWS::PaymentCryptography::Key",
     "properties": {
+      "deriveKeyUsage": {
+        "$ref": "#/types/aws-native:paymentcryptography:KeyDeriveKeyUsage"
+      },
       "enabled": {
         "type": "boolean",
         "description": "Specifies whether the key is enabled."
@@ -13880,6 +13901,9 @@
       "webAppCustomization": {
         "$ref": "#/types/aws-native:transfer:WebAppCustomization",
         "description": "A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app."
+      },
+      "webAppEndpointPolicy": {
+        "$ref": "#/types/aws-native:transfer:WebAppEndpointPolicy"
       },
       "webAppUnits": {
         "$ref": "#/types/aws-native:transfer:WebAppUnitsProperties",

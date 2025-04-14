@@ -24,6 +24,7 @@ __all__ = ['StreamArgs', 'Stream']
 @pulumi.input_type
 class StreamArgs:
     def __init__(__self__, *,
+                 desired_shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
@@ -32,6 +33,7 @@ class StreamArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Stream resource.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]] desired_shard_level_metrics: The final list of shard-level metrics
         :param pulumi.Input[str] name: The name of the Kinesis stream.
         :param pulumi.Input[int] retention_period_hours: The number of hours for the data records that are stored in shards to remain accessible.
         :param pulumi.Input[int] shard_count: The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
@@ -39,6 +41,8 @@ class StreamArgs:
         :param pulumi.Input['StreamModeDetailsArgs'] stream_mode_details: The mode in which the stream is running.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         """
+        if desired_shard_level_metrics is not None:
+            pulumi.set(__self__, "desired_shard_level_metrics", desired_shard_level_metrics)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if retention_period_hours is not None:
@@ -51,6 +55,18 @@ class StreamArgs:
             pulumi.set(__self__, "stream_mode_details", stream_mode_details)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="desiredShardLevelMetrics")
+    def desired_shard_level_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]]]:
+        """
+        The final list of shard-level metrics
+        """
+        return pulumi.get(self, "desired_shard_level_metrics")
+
+    @desired_shard_level_metrics.setter
+    def desired_shard_level_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]]]):
+        pulumi.set(self, "desired_shard_level_metrics", value)
 
     @property
     @pulumi.getter
@@ -130,6 +146,7 @@ class Stream(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 desired_shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
@@ -142,6 +159,7 @@ class Stream(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]] desired_shard_level_metrics: The final list of shard-level metrics
         :param pulumi.Input[str] name: The name of the Kinesis stream.
         :param pulumi.Input[int] retention_period_hours: The number of hours for the data records that are stored in shards to remain accessible.
         :param pulumi.Input[int] shard_count: The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
@@ -173,6 +191,7 @@ class Stream(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 desired_shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
@@ -188,6 +207,7 @@ class Stream(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StreamArgs.__new__(StreamArgs)
 
+            __props__.__dict__["desired_shard_level_metrics"] = desired_shard_level_metrics
             __props__.__dict__["name"] = name
             __props__.__dict__["retention_period_hours"] = retention_period_hours
             __props__.__dict__["shard_count"] = shard_count
@@ -220,6 +240,7 @@ class Stream(pulumi.CustomResource):
         __props__ = StreamArgs.__new__(StreamArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["desired_shard_level_metrics"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["retention_period_hours"] = None
         __props__.__dict__["shard_count"] = None
@@ -235,6 +256,14 @@ class Stream(pulumi.CustomResource):
         The Amazon resource name (ARN) of the Kinesis stream
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="desiredShardLevelMetrics")
+    def desired_shard_level_metrics(self) -> pulumi.Output[Optional[Sequence['StreamEnhancedMetric']]]:
+        """
+        The final list of shard-level metrics
+        """
+        return pulumi.get(self, "desired_shard_level_metrics")
 
     @property
     @pulumi.getter

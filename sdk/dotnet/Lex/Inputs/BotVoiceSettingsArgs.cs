@@ -10,19 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Settings for using an Amazon Polly voice to communicate with a user.
-    /// </summary>
     public sealed class BotVoiceSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
+        /// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .
+        /// 
+        /// If you do not specify a value, the default is `standard` .
         /// </summary>
         [Input("engine")]
         public Input<Pulumi.AwsNative.Lex.BotVoiceSettingsEngine>? Engine { get; set; }
 
         /// <summary>
-        /// The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+        /// The identifier of the Amazon Polly voice to use.
         /// </summary>
         [Input("voiceId", required: true)]
         public Input<string> VoiceId { get; set; } = null!;

@@ -76,6 +76,14 @@ namespace Pulumi.AwsNative.CleanRooms
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
+        /// An indicator as to whether job logging has been enabled or disabled for the collaboration.
+        /// 
+        /// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+        /// </summary>
+        [Output("jobLogStatus")]
+        public Output<Pulumi.AwsNative.CleanRooms.CollaborationJobLogStatus?> JobLogStatus { get; private set; } = null!;
+
+        /// <summary>
         /// A list of initial members, not including the creator. This list is immutable.
         /// </summary>
         [Output("members")]
@@ -132,6 +140,7 @@ namespace Pulumi.AwsNative.CleanRooms
                     "creatorMlMemberAbilities",
                     "creatorPaymentConfiguration",
                     "dataEncryptionMetadata",
+                    "jobLogStatus",
                     "members[*]",
                     "queryLogStatus",
                 },
@@ -206,6 +215,14 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
+
+        /// <summary>
+        /// An indicator as to whether job logging has been enabled or disabled for the collaboration.
+        /// 
+        /// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+        /// </summary>
+        [Input("jobLogStatus")]
+        public Input<Pulumi.AwsNative.CleanRooms.CollaborationJobLogStatus>? JobLogStatus { get; set; }
 
         [Input("members", required: true)]
         private InputList<Inputs.CollaborationMemberSpecificationArgs>? _members;

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// The primary message that Amazon Lex should send to the user.
-    /// </summary>
     public sealed class BotMessageArgs : global::Pulumi.ResourceArgs
     {
         [Input("customPayload")]

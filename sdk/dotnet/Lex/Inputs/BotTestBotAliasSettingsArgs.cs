@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Configuring the test bot alias settings for a given bot
-    /// </summary>
     public sealed class BotTestBotAliasSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("botAliasLocaleSettings")]
@@ -40,7 +37,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+        /// Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
         /// </summary>
         [Input("sentimentAnalysisSettings")]
         public Input<Inputs.BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs>? SentimentAnalysisSettings { get; set; }

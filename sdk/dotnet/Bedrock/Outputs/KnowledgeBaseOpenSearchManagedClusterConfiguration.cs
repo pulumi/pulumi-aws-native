@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// The endpoint URL the OpenSearch domain.
         /// </summary>
         public readonly string DomainEndpoint;
+        /// <summary>
+        /// Contains the names of the fields to which to map information about the vector store.
+        /// </summary>
         public readonly Outputs.KnowledgeBaseOpenSearchManagedClusterFieldMapping FieldMapping;
         /// <summary>
         /// The name of the vector store.

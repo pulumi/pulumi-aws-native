@@ -25,14 +25,14 @@ class ExtensionAssociationArgs:
                  extension_version_number: Optional[pulumi.Input[int]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_identifier: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ExtensionAssociation resource.
         :param pulumi.Input[str] extension_identifier: The name, the ID, or the Amazon Resource Name (ARN) of the extension.
         :param pulumi.Input[int] extension_version_number: The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
         :param pulumi.Input[str] resource_identifier: The ARN of an application, configuration profile, or environment.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if extension_identifier is not None:
             pulumi.set(__self__, "extension_identifier", extension_identifier)
@@ -95,14 +95,14 @@ class ExtensionAssociationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -115,7 +115,7 @@ class ExtensionAssociation(pulumi.CustomResource):
                  extension_version_number: Optional[pulumi.Input[int]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_identifier: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -126,7 +126,7 @@ class ExtensionAssociation(pulumi.CustomResource):
         :param pulumi.Input[int] extension_version_number: The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
         :param pulumi.Input[str] resource_identifier: The ARN of an application, configuration profile, or environment.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -156,7 +156,7 @@ class ExtensionAssociation(pulumi.CustomResource):
                  extension_version_number: Optional[pulumi.Input[int]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_identifier: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -175,7 +175,7 @@ class ExtensionAssociation(pulumi.CustomResource):
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["extension_arn"] = None
             __props__.__dict__["resource_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["extensionIdentifier", "extensionVersionNumber", "resourceIdentifier", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["extensionIdentifier", "extensionVersionNumber", "resourceIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ExtensionAssociation, __self__).__init__(
             'aws-native:appconfig:ExtensionAssociation',
@@ -276,7 +276,7 @@ class ExtensionAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

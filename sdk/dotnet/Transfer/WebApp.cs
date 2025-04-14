@@ -47,6 +47,9 @@ namespace Pulumi.AwsNative.Transfer
         [Output("webAppCustomization")]
         public Output<Outputs.WebAppCustomization?> WebAppCustomization { get; private set; } = null!;
 
+        [Output("webAppEndpointPolicy")]
+        public Output<Pulumi.AwsNative.Transfer.WebAppEndpointPolicy?> WebAppEndpointPolicy { get; private set; } = null!;
+
         /// <summary>
         /// A unique identifier for the web app.
         /// </summary>
@@ -85,6 +88,7 @@ namespace Pulumi.AwsNative.Transfer
                 ReplaceOnChanges =
                 {
                     "identityProviderDetails.instanceArn",
+                    "webAppEndpointPolicy",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -139,6 +143,9 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         [Input("webAppCustomization")]
         public Input<Inputs.WebAppCustomizationArgs>? WebAppCustomization { get; set; }
+
+        [Input("webAppEndpointPolicy")]
+        public Input<Pulumi.AwsNative.Transfer.WebAppEndpointPolicy>? WebAppEndpointPolicy { get; set; }
 
         /// <summary>
         /// A union that contains the value for number of concurrent connections or the user sessions on your web app.

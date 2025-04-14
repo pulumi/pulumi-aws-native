@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAnalysisTemplateResult:
-    def __init__(__self__, analysis_template_identifier=None, arn=None, collaboration_arn=None, collaboration_identifier=None, description=None, membership_arn=None, schema=None, tags=None):
+    def __init__(__self__, analysis_template_identifier=None, arn=None, collaboration_arn=None, collaboration_identifier=None, description=None, membership_arn=None, source_metadata=None, tags=None):
         if analysis_template_identifier and not isinstance(analysis_template_identifier, str):
             raise TypeError("Expected argument 'analysis_template_identifier' to be a str")
         pulumi.set(__self__, "analysis_template_identifier", analysis_template_identifier)
@@ -44,9 +44,9 @@ class GetAnalysisTemplateResult:
         if membership_arn and not isinstance(membership_arn, str):
             raise TypeError("Expected argument 'membership_arn' to be a str")
         pulumi.set(__self__, "membership_arn", membership_arn)
-        if schema and not isinstance(schema, dict):
-            raise TypeError("Expected argument 'schema' to be a dict")
-        pulumi.set(__self__, "schema", schema)
+        if source_metadata and not isinstance(source_metadata, dict):
+            raise TypeError("Expected argument 'source_metadata' to be a dict")
+        pulumi.set(__self__, "source_metadata", source_metadata)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -110,9 +110,12 @@ class GetAnalysisTemplateResult:
         return pulumi.get(self, "membership_arn")
 
     @property
-    @pulumi.getter
-    def schema(self) -> Optional['outputs.AnalysisTemplateAnalysisSchema']:
-        return pulumi.get(self, "schema")
+    @pulumi.getter(name="sourceMetadata")
+    def source_metadata(self) -> Optional['outputs.AnalysisTemplateAnalysisSourceMetadataProperties']:
+        """
+        The source metadata for the analysis template.
+        """
+        return pulumi.get(self, "source_metadata")
 
     @property
     @pulumi.getter
@@ -135,7 +138,7 @@ class AwaitableGetAnalysisTemplateResult(GetAnalysisTemplateResult):
             collaboration_identifier=self.collaboration_identifier,
             description=self.description,
             membership_arn=self.membership_arn,
-            schema=self.schema,
+            source_metadata=self.source_metadata,
             tags=self.tags)
 
 
@@ -164,7 +167,7 @@ def get_analysis_template(analysis_template_identifier: Optional[str] = None,
         collaboration_identifier=pulumi.get(__ret__, 'collaboration_identifier'),
         description=pulumi.get(__ret__, 'description'),
         membership_arn=pulumi.get(__ret__, 'membership_arn'),
-        schema=pulumi.get(__ret__, 'schema'),
+        source_metadata=pulumi.get(__ret__, 'source_metadata'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_analysis_template_output(analysis_template_identifier: Optional[pulumi.Input[str]] = None,
                                  membership_identifier: Optional[pulumi.Input[str]] = None,
@@ -190,5 +193,5 @@ def get_analysis_template_output(analysis_template_identifier: Optional[pulumi.I
         collaboration_identifier=pulumi.get(__response__, 'collaboration_identifier'),
         description=pulumi.get(__response__, 'description'),
         membership_arn=pulumi.get(__response__, 'membership_arn'),
-        schema=pulumi.get(__response__, 'schema'),
+        source_metadata=pulumi.get(__response__, 'source_metadata'),
         tags=pulumi.get(__response__, 'tags')))

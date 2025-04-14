@@ -10,19 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// A button to use on a response card used to gather slot values from a user.
-    /// </summary>
     [OutputType]
     public sealed class BotButton
     {
-        /// <summary>
-        /// The text that appears on the button.
-        /// </summary>
         public readonly string Text;
-        /// <summary>
-        /// The value returned to Amazon Lex when the user chooses this button.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

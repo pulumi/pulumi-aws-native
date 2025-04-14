@@ -40,6 +40,7 @@ export type AnalysisTemplateAnalysisParameterType = (typeof AnalysisTemplateAnal
 
 export const AnalysisTemplateFormat = {
     Sql: "SQL",
+    Pyspark10: "PYSPARK_1_0",
 } as const;
 
 /**
@@ -61,8 +62,16 @@ export const CollaborationCustomMlMemberAbility = {
 
 export type CollaborationCustomMlMemberAbility = (typeof CollaborationCustomMlMemberAbility)[keyof typeof CollaborationCustomMlMemberAbility];
 
+export const CollaborationJobLogStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type CollaborationJobLogStatus = (typeof CollaborationJobLogStatus)[keyof typeof CollaborationJobLogStatus];
+
 export const CollaborationMemberAbility = {
     CanQuery: "CAN_QUERY",
+    CanRunJob: "CAN_RUN_JOB",
     CanReceiveResults: "CAN_RECEIVE_RESULTS",
 } as const;
 
@@ -101,6 +110,8 @@ export type ConfiguredTableAggregationType = (typeof ConfiguredTableAggregationT
 
 export const ConfiguredTableAnalysisMethod = {
     DirectQuery: "DIRECT_QUERY",
+    DirectJob: "DIRECT_JOB",
+    Multiple: "MULTIPLE",
 } as const;
 
 export type ConfiguredTableAnalysisMethod = (typeof ConfiguredTableAnalysisMethod)[keyof typeof ConfiguredTableAnalysisMethod];
@@ -163,6 +174,13 @@ export const ConfiguredTableScalarFunctions = {
 
 export type ConfiguredTableScalarFunctions = (typeof ConfiguredTableScalarFunctions)[keyof typeof ConfiguredTableScalarFunctions];
 
+export const ConfiguredTableSelectedAnalysisMethod = {
+    DirectQuery: "DIRECT_QUERY",
+    DirectJob: "DIRECT_JOB",
+} as const;
+
+export type ConfiguredTableSelectedAnalysisMethod = (typeof ConfiguredTableSelectedAnalysisMethod)[keyof typeof ConfiguredTableSelectedAnalysisMethod];
+
 export const IdMappingTableInputSourceType = {
     Source: "SOURCE",
     Target: "TARGET",
@@ -182,6 +200,13 @@ export const IdNamespaceAssociationInputReferencePropertiesIdNamespaceType = {
  * The ID namespace type for this ID namespace association.
  */
 export type IdNamespaceAssociationInputReferencePropertiesIdNamespaceType = (typeof IdNamespaceAssociationInputReferencePropertiesIdNamespaceType)[keyof typeof IdNamespaceAssociationInputReferencePropertiesIdNamespaceType];
+
+export const MembershipJobLogStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type MembershipJobLogStatus = (typeof MembershipJobLogStatus)[keyof typeof MembershipJobLogStatus];
 
 export const MembershipQueryLogStatus = {
     Enabled: "ENABLED",

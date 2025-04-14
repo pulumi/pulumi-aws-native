@@ -272,9 +272,9 @@ namespace Pulumi.AwsNative.SsmQuickSetup.Inputs
         /// - Description: (Optional) A boolean value that determines whether command output logs are sent to Amazon S3.
         /// - `OutputS3Location`
         /// 
-        /// - Description: (Optional) A JSON string containing information about the Amazon S3 bucket where you want to store the output details of the request.
+        /// - Description: (Optional) Information about the Amazon S3 bucket where you want to store the output details of the request.
         /// 
-        /// - `OutputS3BucketRegion`
+        /// - `OutputBucketRegion`
         /// 
         /// - Description: (Optional) The AWS Region where the Amazon S3 bucket you want to deliver command output to is located.
         /// - `OutputS3BucketName`

@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
 {
 
     /// <summary>
-    /// Data privacy setting of the Bot.
+    /// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
     /// </summary>
     public sealed class DataPrivacyPropertiesArgs : global::Pulumi.ResourceArgs
     {

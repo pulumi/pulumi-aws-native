@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Lex
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to build the bot locales after bot creation completes.
+        /// Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
         /// </summary>
         [Output("autoBuildBotLocales")]
         public Output<bool?> AutoBuildBotLocales { get; private set; } = null!;
@@ -40,19 +40,19 @@ namespace Pulumi.AwsNative.Lex
         public Output<Outputs.BotS3Location?> BotFileS3Location { get; private set; } = null!;
 
         /// <summary>
-        /// List of bot locales
+        /// A list of locales for the bot.
         /// </summary>
         [Output("botLocales")]
         public Output<ImmutableArray<Outputs.BotLocale>> BotLocales { get; private set; } = null!;
 
         /// <summary>
-        /// A list of tags to add to the bot, which can only be added at bot creation.
+        /// A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
         /// </summary>
         [Output("botTags")]
         public Output<ImmutableArray<Outputs.BotTag>> BotTags { get; private set; } = null!;
 
         /// <summary>
-        /// Data privacy setting of the Bot.
+        /// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
         /// </summary>
         [Output("dataPrivacy")]
         public Output<Outputs.DataPrivacyProperties> DataPrivacy { get; private set; } = null!;
@@ -64,7 +64,11 @@ namespace Pulumi.AwsNative.Lex
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// IdleSessionTTLInSeconds of the resource
+        /// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
+        /// 
+        /// A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
+        /// 
+        /// You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         /// </summary>
         [Output("idleSessionTtlInSeconds")]
         public Output<int> IdleSessionTtlInSeconds { get; private set; } = null!;
@@ -91,7 +95,7 @@ namespace Pulumi.AwsNative.Lex
         public Output<Outputs.BotTestBotAliasSettings?> TestBotAliasSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
+        /// A list of tags to add to the test alias for a bot. You can only add tags when you import a bot. You can't use the `UpdateAlias` operation to update tags. To update tags on the test alias, use the `TagResource` operation.
         /// </summary>
         [Output("testBotAliasTags")]
         public Output<ImmutableArray<Outputs.BotTag>> TestBotAliasTags { get; private set; } = null!;
@@ -142,7 +146,7 @@ namespace Pulumi.AwsNative.Lex
     public sealed class BotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to build the bot locales after bot creation completes.
+        /// Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
         /// </summary>
         [Input("autoBuildBotLocales")]
         public Input<bool>? AutoBuildBotLocales { get; set; }
@@ -157,7 +161,7 @@ namespace Pulumi.AwsNative.Lex
         private InputList<Inputs.BotLocaleArgs>? _botLocales;
 
         /// <summary>
-        /// List of bot locales
+        /// A list of locales for the bot.
         /// </summary>
         public InputList<Inputs.BotLocaleArgs> BotLocales
         {
@@ -169,7 +173,7 @@ namespace Pulumi.AwsNative.Lex
         private InputList<Inputs.BotTagArgs>? _botTags;
 
         /// <summary>
-        /// A list of tags to add to the bot, which can only be added at bot creation.
+        /// A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
         /// </summary>
         public InputList<Inputs.BotTagArgs> BotTags
         {
@@ -178,7 +182,7 @@ namespace Pulumi.AwsNative.Lex
         }
 
         /// <summary>
-        /// Data privacy setting of the Bot.
+        /// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
         /// </summary>
         [Input("dataPrivacy", required: true)]
         public Input<Inputs.DataPrivacyPropertiesArgs> DataPrivacy { get; set; } = null!;
@@ -190,7 +194,11 @@ namespace Pulumi.AwsNative.Lex
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// IdleSessionTTLInSeconds of the resource
+        /// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
+        /// 
+        /// A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
+        /// 
+        /// You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         /// </summary>
         [Input("idleSessionTtlInSeconds", required: true)]
         public Input<int> IdleSessionTtlInSeconds { get; set; } = null!;
@@ -220,7 +228,7 @@ namespace Pulumi.AwsNative.Lex
         private InputList<Inputs.BotTagArgs>? _testBotAliasTags;
 
         /// <summary>
-        /// A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
+        /// A list of tags to add to the test alias for a bot. You can only add tags when you import a bot. You can't use the `UpdateAlias` operation to update tags. To update tags on the test alias, use the `TagResource` operation.
         /// </summary>
         public InputList<Inputs.BotTagArgs> TestBotAliasTags
         {

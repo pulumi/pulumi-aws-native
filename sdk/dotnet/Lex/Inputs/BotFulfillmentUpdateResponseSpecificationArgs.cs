@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
-    /// </summary>
     public sealed class BotFulfillmentUpdateResponseSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

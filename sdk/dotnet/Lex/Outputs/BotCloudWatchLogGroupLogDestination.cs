@@ -13,13 +13,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotCloudWatchLogGroupLogDestination
     {
-        /// <summary>
-        /// A string used to identify the groupArn for the Cloudwatch Log Group
-        /// </summary>
         public readonly string CloudWatchLogGroupArn;
-        /// <summary>
-        /// A string containing the value for the Log Prefix
-        /// </summary>
         public readonly string LogPrefix;
 
         [OutputConstructor]

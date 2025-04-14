@@ -11,22 +11,16 @@ namespace Pulumi.AwsNative.Lex.Inputs
 {
 
     /// <summary>
-    /// Contains details about the configuration of the data source used for the AMAZON.QnAIntent.
+    /// Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
     /// </summary>
     public sealed class BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Contains details about the configuration of a Amazon Bedrock knowledge base.
-        /// </summary>
         [Input("bedrockKnowledgeStoreConfiguration")]
         public Input<Inputs.BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs>? BedrockKnowledgeStoreConfiguration { get; set; }
 
         [Input("kendraConfiguration")]
         public Input<Inputs.BotQnAKendraConfigurationArgs>? KendraConfiguration { get; set; }
 
-        /// <summary>
-        /// Contains details about the configuration of the Amazon OpenSearch Service database used for the AMAZON.QnAIntent.
-        /// </summary>
         [Input("opensearchConfiguration")]
         public Input<Inputs.BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs>? OpensearchConfiguration { get; set; }
 

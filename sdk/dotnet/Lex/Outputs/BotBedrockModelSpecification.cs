@@ -10,23 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
-    /// <summary>
-    /// Contains information about the Amazon Bedrock model used to interpret the prompt used in descriptive bot building.
-    /// </summary>
     [OutputType]
     public sealed class BotBedrockModelSpecification
     {
-        /// <summary>
-        /// The guardrail configuration in the Bedrock model specification details.
-        /// </summary>
         public readonly Outputs.BotBedrockModelSpecificationBedrockGuardrailConfigurationProperties? BedrockGuardrailConfiguration;
-        /// <summary>
-        /// The custom prompt used in the Bedrock model specification details.
-        /// </summary>
         public readonly string? BedrockModelCustomPrompt;
-        /// <summary>
-        /// The Bedrock trace status in the Bedrock model specification details.
-        /// </summary>
         public readonly Pulumi.AwsNative.Lex.BotBedrockModelSpecificationBedrockTraceStatus? BedrockTraceStatus;
         /// <summary>
         /// The ARN of the foundation model used in descriptive bot building.

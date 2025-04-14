@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::Route53::CidrCollection.
+// Resource Type definition for AWS::Route53::CidrCollection.
 type CidrCollection struct {
 	pulumi.CustomResourceState
 

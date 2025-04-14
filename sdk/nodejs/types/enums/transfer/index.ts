@@ -242,6 +242,13 @@ export const UserMapType = {
 
 export type UserMapType = (typeof UserMapType)[keyof typeof UserMapType];
 
+export const WebAppEndpointPolicy = {
+    Standard: "STANDARD",
+    Fips: "FIPS",
+} as const;
+
+export type WebAppEndpointPolicy = (typeof WebAppEndpointPolicy)[keyof typeof WebAppEndpointPolicy];
+
 export const WorkflowStepCopyStepDetailsPropertiesOverwriteExisting = {
     True: "TRUE",
     False: "FALSE",

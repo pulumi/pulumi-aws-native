@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Override settings to configure the intent state.
-    /// </summary>
     public sealed class BotIntentOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -25,7 +22,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         private InputList<Inputs.BotSlotValueOverrideMapArgs>? _slots;
 
         /// <summary>
-        /// A map of all of the slot value overrides for the intent.
+        /// A map of all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden.
         /// </summary>
         public InputList<Inputs.BotSlotValueOverrideMapArgs> Slots
         {

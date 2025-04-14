@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Prompts the user to confirm the intent.
-    /// </summary>
     public sealed class BotPromptSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

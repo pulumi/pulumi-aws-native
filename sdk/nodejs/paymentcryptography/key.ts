@@ -37,6 +37,7 @@ export class Key extends pulumi.CustomResource {
         return obj['__pulumiType'] === Key.__pulumiType;
     }
 
+    public readonly deriveKeyUsage!: pulumi.Output<enums.paymentcryptography.KeyDeriveKeyUsage | undefined>;
     /**
      * Specifies whether the key is enabled.
      */
@@ -83,6 +84,7 @@ export class Key extends pulumi.CustomResource {
             if ((!args || args.keyAttributes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyAttributes'");
             }
+            resourceInputs["deriveKeyUsage"] = args ? args.deriveKeyUsage : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["exportable"] = args ? args.exportable : undefined;
             resourceInputs["keyAttributes"] = args ? args.keyAttributes : undefined;
@@ -92,6 +94,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["keyOrigin"] = undefined /*out*/;
             resourceInputs["keyState"] = undefined /*out*/;
         } else {
+            resourceInputs["deriveKeyUsage"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["exportable"] = undefined /*out*/;
             resourceInputs["keyAttributes"] = undefined /*out*/;
@@ -110,6 +113,7 @@ export class Key extends pulumi.CustomResource {
  * The set of arguments for constructing a Key resource.
  */
 export interface KeyArgs {
+    deriveKeyUsage?: pulumi.Input<enums.paymentcryptography.KeyDeriveKeyUsage>;
     /**
      * Specifies whether the key is enabled.
      */

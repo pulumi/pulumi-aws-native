@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// The current state of the conversation with the user.
-    /// </summary>
     public sealed class BotDialogStateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -31,7 +28,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         private InputList<Inputs.BotSessionAttributeArgs>? _sessionAttributes;
 
         /// <summary>
-        /// List of session attributes to be applied when the conversation reaches this step.
+        /// Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
         /// </summary>
         public InputList<Inputs.BotSessionAttributeArgs> SessionAttributes
         {

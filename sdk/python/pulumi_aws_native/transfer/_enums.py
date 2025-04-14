@@ -30,6 +30,7 @@ __all__ = [
     'ServerTlsSessionResumptionMode',
     'UserHomeDirectoryType',
     'UserMapType',
+    'WebAppEndpointPolicy',
     'WorkflowStepCopyStepDetailsPropertiesOverwriteExisting',
     'WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting',
     'WorkflowStepDecryptStepDetailsPropertiesType',
@@ -225,6 +226,11 @@ class UserHomeDirectoryType(str, Enum):
 class UserMapType(str, Enum):
     FILE = "FILE"
     DIRECTORY = "DIRECTORY"
+
+
+class WebAppEndpointPolicy(str, Enum):
+    STANDARD = "STANDARD"
+    FIPS = "FIPS"
 
 
 class WorkflowStepCopyStepDetailsPropertiesOverwriteExisting(str, Enum):

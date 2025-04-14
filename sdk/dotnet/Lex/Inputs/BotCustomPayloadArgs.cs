@@ -10,14 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// A message in a custom format defined by the client application.
-    /// </summary>
     public sealed class BotCustomPayloadArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The string that is sent to your application.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

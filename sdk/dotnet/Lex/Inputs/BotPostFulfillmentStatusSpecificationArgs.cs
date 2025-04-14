@@ -10,25 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Inputs
 {
 
-    /// <summary>
-    /// Provides a setting that determines whether the post-fulfillment response is sent to the user.
-    /// </summary>
     public sealed class BotPostFulfillmentStatusSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        /// A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
         /// </summary>
         [Input("failureConditional")]
         public Input<Inputs.BotConditionalSpecificationArgs>? FailureConditional { get; set; }
 
         /// <summary>
-        /// Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        /// Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
         /// </summary>
         [Input("failureNextStep")]
         public Input<Inputs.BotDialogStateArgs>? FailureNextStep { get; set; }
 
         /// <summary>
-        /// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        /// Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't successful.
         /// </summary>
         [Input("failureResponse")]
         public Input<Inputs.BotResponseSpecificationArgs>? FailureResponse { get; set; }
@@ -46,7 +43,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public Input<Inputs.BotDialogStateArgs>? SuccessNextStep { get; set; }
 
         /// <summary>
-        /// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        /// Specifies a list of message groups that Amazon Lex uses to respond when the fulfillment is successful.
         /// </summary>
         [Input("successResponse")]
         public Input<Inputs.BotResponseSpecificationArgs>? SuccessResponse { get; set; }
@@ -64,7 +61,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public Input<Inputs.BotDialogStateArgs>? TimeoutNextStep { get; set; }
 
         /// <summary>
-        /// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        /// Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't completed within the timeout period.
         /// </summary>
         [Input("timeoutResponse")]
         public Input<Inputs.BotResponseSpecificationArgs>? TimeoutResponse { get; set; }

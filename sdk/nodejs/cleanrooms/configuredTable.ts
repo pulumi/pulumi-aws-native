@@ -76,6 +76,10 @@ export class ConfiguredTable extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The selected analysis methods for the configured table.
+     */
+    public readonly selectedAnalysisMethods!: pulumi.Output<enums.cleanrooms.ConfiguredTableSelectedAnalysisMethod[] | undefined>;
+    /**
      * The table that this configured table represents.
      */
     public readonly tableReference!: pulumi.Output<outputs.cleanrooms.ConfiguredTableTableReference0Properties | outputs.cleanrooms.ConfiguredTableTableReference1Properties | outputs.cleanrooms.ConfiguredTableTableReference2Properties>;
@@ -109,6 +113,7 @@ export class ConfiguredTable extends pulumi.CustomResource {
             resourceInputs["analysisRules"] = args ? args.analysisRules : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["selectedAnalysisMethods"] = args ? args.selectedAnalysisMethods : undefined;
             resourceInputs["tableReference"] = args ? args.tableReference : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -121,11 +126,12 @@ export class ConfiguredTable extends pulumi.CustomResource {
             resourceInputs["configuredTableIdentifier"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["selectedAnalysisMethods"] = undefined /*out*/;
             resourceInputs["tableReference"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["allowedColumns[*]", "analysisMethod", "tableReference"] };
+        const replaceOnChanges = { replaceOnChanges: ["allowedColumns[*]", "tableReference"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConfiguredTable.__pulumiType, name, resourceInputs, opts);
     }
@@ -161,6 +167,10 @@ export interface ConfiguredTableArgs {
      * A name for the configured table.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The selected analysis methods for the configured table.
+     */
+    selectedAnalysisMethods?: pulumi.Input<pulumi.Input<enums.cleanrooms.ConfiguredTableSelectedAnalysisMethod>[]>;
     /**
      * The table that this configured table represents.
      */

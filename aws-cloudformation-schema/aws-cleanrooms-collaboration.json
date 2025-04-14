@@ -7,6 +7,10 @@
       "type" : "string",
       "enum" : [ "CLEAN_ROOMS_SQL", "SPARK" ]
     },
+    "CollaborationJobLogStatus" : {
+      "type" : "string",
+      "enum" : [ "ENABLED", "DISABLED" ]
+    },
     "CollaborationQueryLogStatus" : {
       "type" : "string",
       "enum" : [ "ENABLED", "DISABLED" ]
@@ -32,7 +36,7 @@
     },
     "MemberAbility" : {
       "type" : "string",
-      "enum" : [ "CAN_QUERY", "CAN_RECEIVE_RESULTS" ]
+      "enum" : [ "CAN_QUERY", "CAN_RUN_JOB", "CAN_RECEIVE_RESULTS" ]
     },
     "MemberAbilities" : {
       "type" : "array",
@@ -120,6 +124,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "JobCompute" : {
+          "$ref" : "#/definitions/JobComputePaymentConfig"
+        },
         "QueryCompute" : {
           "$ref" : "#/definitions/QueryComputePaymentConfig"
         },
@@ -128,6 +135,16 @@
         }
       },
       "required" : [ "QueryCompute" ]
+    },
+    "JobComputePaymentConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "IsResponsible" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "IsResponsible" ]
     },
     "QueryComputePaymentConfig" : {
       "type" : "object",
@@ -225,6 +242,9 @@
       "minLength" : 1,
       "pattern" : "^(?!\\s*$)[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDBFF-\\uDC00\\uDFFF\\t]*$"
     },
+    "JobLogStatus" : {
+      "$ref" : "#/definitions/CollaborationJobLogStatus"
+    },
     "QueryLogStatus" : {
       "$ref" : "#/definitions/CollaborationQueryLogStatus"
     },
@@ -237,7 +257,7 @@
   },
   "required" : [ "CreatorDisplayName", "CreatorMemberAbilities", "Members", "Name", "Description", "QueryLogStatus" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CollaborationIdentifier" ],
-  "createOnlyProperties" : [ "/properties/CreatorDisplayName", "/properties/CreatorMemberAbilities", "/properties/CreatorMLMemberAbilities", "/properties/DataEncryptionMetadata", "/properties/QueryLogStatus", "/properties/Members", "/properties/CreatorPaymentConfiguration", "/properties/AnalyticsEngine" ],
+  "createOnlyProperties" : [ "/properties/CreatorDisplayName", "/properties/CreatorMemberAbilities", "/properties/CreatorMLMemberAbilities", "/properties/DataEncryptionMetadata", "/properties/JobLogStatus", "/properties/QueryLogStatus", "/properties/Members", "/properties/CreatorPaymentConfiguration", "/properties/AnalyticsEngine" ],
   "primaryIdentifier" : [ "/properties/CollaborationIdentifier" ],
   "tagging" : {
     "taggable" : true,

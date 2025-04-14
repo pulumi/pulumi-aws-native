@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type schema for AWS::Batch::ConsumableResource
+// Resource Type definition for AWS::Batch::ConsumableResource
 type ConsumableResource struct {
 	pulumi.CustomResourceState
 

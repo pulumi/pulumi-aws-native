@@ -67,6 +67,7 @@ __all__ = [
     'JobDefinitionSecret',
     'JobDefinitionTaskContainerDependency',
     'JobDefinitionTaskContainerProperties',
+    'JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties',
     'JobDefinitionTmpfs',
     'JobDefinitionUlimit',
     'JobDefinitionVolume',
@@ -984,7 +985,9 @@ class JobDefinitionContainerProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "ephemeralStorage":
+        if key == "enableExecuteCommand":
+            suggest = "enable_execute_command"
+        elif key == "ephemeralStorage":
             suggest = "ephemeral_storage"
         elif key == "executionRoleArn":
             suggest = "execution_role_arn"
@@ -1023,6 +1026,7 @@ class JobDefinitionContainerProperties(dict):
     def __init__(__self__, *,
                  image: str,
                  command: Optional[Sequence[str]] = None,
+                 enable_execute_command: Optional[bool] = None,
                  environment: Optional[Sequence['outputs.JobDefinitionEnvironment']] = None,
                  ephemeral_storage: Optional['outputs.JobDefinitionEphemeralStorage'] = None,
                  execution_role_arn: Optional[str] = None,
@@ -1094,6 +1098,8 @@ class JobDefinitionContainerProperties(dict):
         pulumi.set(__self__, "image", image)
         if command is not None:
             pulumi.set(__self__, "command", command)
+        if enable_execute_command is not None:
+            pulumi.set(__self__, "enable_execute_command", enable_execute_command)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
         if ephemeral_storage is not None:
@@ -1158,6 +1164,11 @@ class JobDefinitionContainerProperties(dict):
         The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
         """
         return pulumi.get(self, "command")
+
+    @property
+    @pulumi.getter(name="enableExecuteCommand")
+    def enable_execute_command(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_execute_command")
 
     @property
     @pulumi.getter
@@ -1478,7 +1489,9 @@ class JobDefinitionEcsTaskProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "ephemeralStorage":
+        if key == "enableExecuteCommand":
+            suggest = "enable_execute_command"
+        elif key == "ephemeralStorage":
             suggest = "ephemeral_storage"
         elif key == "executionRoleArn":
             suggest = "execution_role_arn"
@@ -1508,6 +1521,7 @@ class JobDefinitionEcsTaskProperties(dict):
 
     def __init__(__self__, *,
                  containers: Optional[Sequence['outputs.JobDefinitionTaskContainerProperties']] = None,
+                 enable_execute_command: Optional[bool] = None,
                  ephemeral_storage: Optional['outputs.JobDefinitionEphemeralStorage'] = None,
                  execution_role_arn: Optional[str] = None,
                  ipc_mode: Optional[str] = None,
@@ -1547,6 +1561,8 @@ class JobDefinitionEcsTaskProperties(dict):
         """
         if containers is not None:
             pulumi.set(__self__, "containers", containers)
+        if enable_execute_command is not None:
+            pulumi.set(__self__, "enable_execute_command", enable_execute_command)
         if ephemeral_storage is not None:
             pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if execution_role_arn is not None:
@@ -1573,6 +1589,11 @@ class JobDefinitionEcsTaskProperties(dict):
         This object is a list of containers.
         """
         return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter(name="enableExecuteCommand")
+    def enable_execute_command(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_execute_command")
 
     @property
     @pulumi.getter(name="ephemeralStorage")
@@ -3289,7 +3310,9 @@ class JobDefinitionMultiNodeContainerProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "ephemeralStorage":
+        if key == "enableExecuteCommand":
+            suggest = "enable_execute_command"
+        elif key == "ephemeralStorage":
             suggest = "ephemeral_storage"
         elif key == "executionRoleArn":
             suggest = "execution_role_arn"
@@ -3326,6 +3349,7 @@ class JobDefinitionMultiNodeContainerProperties(dict):
     def __init__(__self__, *,
                  image: str,
                  command: Optional[Sequence[str]] = None,
+                 enable_execute_command: Optional[bool] = None,
                  environment: Optional[Sequence['outputs.JobDefinitionEnvironment']] = None,
                  ephemeral_storage: Optional['outputs.JobDefinitionEphemeralStorage'] = None,
                  execution_role_arn: Optional[str] = None,
@@ -3401,6 +3425,8 @@ class JobDefinitionMultiNodeContainerProperties(dict):
         pulumi.set(__self__, "image", image)
         if command is not None:
             pulumi.set(__self__, "command", command)
+        if enable_execute_command is not None:
+            pulumi.set(__self__, "enable_execute_command", enable_execute_command)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
         if ephemeral_storage is not None:
@@ -3463,6 +3489,11 @@ class JobDefinitionMultiNodeContainerProperties(dict):
         The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
         """
         return pulumi.get(self, "command")
+
+    @property
+    @pulumi.getter(name="enableExecuteCommand")
+    def enable_execute_command(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_execute_command")
 
     @property
     @pulumi.getter
@@ -3683,7 +3714,9 @@ class JobDefinitionMultiNodeEcsTaskProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "executionRoleArn":
+        if key == "enableExecuteCommand":
+            suggest = "enable_execute_command"
+        elif key == "executionRoleArn":
             suggest = "execution_role_arn"
         elif key == "ipcMode":
             suggest = "ipc_mode"
@@ -3705,6 +3738,7 @@ class JobDefinitionMultiNodeEcsTaskProperties(dict):
 
     def __init__(__self__, *,
                  containers: Optional[Sequence['outputs.JobDefinitionTaskContainerProperties']] = None,
+                 enable_execute_command: Optional[bool] = None,
                  execution_role_arn: Optional[str] = None,
                  ipc_mode: Optional[str] = None,
                  pid_mode: Optional[str] = None,
@@ -3736,6 +3770,8 @@ class JobDefinitionMultiNodeEcsTaskProperties(dict):
         """
         if containers is not None:
             pulumi.set(__self__, "containers", containers)
+        if enable_execute_command is not None:
+            pulumi.set(__self__, "enable_execute_command", enable_execute_command)
         if execution_role_arn is not None:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if ipc_mode is not None:
@@ -3754,6 +3790,11 @@ class JobDefinitionMultiNodeEcsTaskProperties(dict):
         This object is a list of containers.
         """
         return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter(name="enableExecuteCommand")
+    def enable_execute_command(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_execute_command")
 
     @property
     @pulumi.getter(name="executionRoleArn")
@@ -4377,6 +4418,8 @@ class JobDefinitionTaskContainerProperties(dict):
         suggest = None
         if key == "dependsOn":
             suggest = "depends_on"
+        elif key == "firelensConfiguration":
+            suggest = "firelens_configuration"
         elif key == "linuxParameters":
             suggest = "linux_parameters"
         elif key == "logConfiguration":
@@ -4407,6 +4450,7 @@ class JobDefinitionTaskContainerProperties(dict):
                  depends_on: Optional[Sequence['outputs.JobDefinitionTaskContainerDependency']] = None,
                  environment: Optional[Sequence['outputs.JobDefinitionEnvironment']] = None,
                  essential: Optional[bool] = None,
+                 firelens_configuration: Optional['outputs.JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties'] = None,
                  linux_parameters: Optional['outputs.JobDefinitionLinuxParameters'] = None,
                  log_configuration: Optional['outputs.JobDefinitionLogConfiguration'] = None,
                  mount_points: Optional[Sequence['outputs.JobDefinitionMountPoint']] = None,
@@ -4486,6 +4530,8 @@ class JobDefinitionTaskContainerProperties(dict):
             pulumi.set(__self__, "environment", environment)
         if essential is not None:
             pulumi.set(__self__, "essential", essential)
+        if firelens_configuration is not None:
+            pulumi.set(__self__, "firelens_configuration", firelens_configuration)
         if linux_parameters is not None:
             pulumi.set(__self__, "linux_parameters", linux_parameters)
         if log_configuration is not None:
@@ -4552,6 +4598,11 @@ class JobDefinitionTaskContainerProperties(dict):
         All jobs must have at least one essential container. If you have an application that's composed of multiple containers, group containers that are used for a common purpose into components, and separate the different components into multiple task definitions. For more information, see [Application Architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html) in the *Amazon Elastic Container Service Developer Guide* .
         """
         return pulumi.get(self, "essential")
+
+    @property
+    @pulumi.getter(name="firelensConfiguration")
+    def firelens_configuration(self) -> Optional['outputs.JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties']:
+        return pulumi.get(self, "firelens_configuration")
 
     @property
     @pulumi.getter(name="linuxParameters")
@@ -4677,6 +4728,26 @@ class JobDefinitionTaskContainerProperties(dict):
         > This parameter is not supported for Windows containers.
         """
         return pulumi.get(self, "user")
+
+
+@pulumi.output_type
+class JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 options: Optional[Mapping[str, str]] = None):
+        pulumi.set(__self__, "type", type)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "options")
 
 
 @pulumi.output_type

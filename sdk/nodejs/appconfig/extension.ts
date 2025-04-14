@@ -101,7 +101,7 @@ export class Extension extends pulumi.CustomResource {
     /**
      * An array of key-value tags to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The extension version number.
      */
@@ -142,7 +142,7 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["versionNumber"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name", "tags[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Extension.__pulumiType, name, resourceInputs, opts);
     }
@@ -175,5 +175,5 @@ export interface ExtensionArgs {
     /**
      * An array of key-value tags to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }
