@@ -661,15 +661,6 @@ func (p *cfnProvider) getInvokeFunc(ctx context.Context, tok string) (invokeFunc
 	}, true
 }
 
-// StreamInvoke dynamically executes a built-in function in the provider. The result is streamed
-// back as a series of messages.
-func (p *cfnProvider) StreamInvoke(
-	req *pulumirpc.InvokeRequest, server pulumirpc.ResourceProvider_StreamInvokeServer) error {
-
-	tok := req.GetTok()
-	return errors.Errorf("unrecognized function (StreamInvoke): %s", tok)
-}
-
 // filterNullValues removes nested null values from the given property value. If all nested values in the property
 // value are null, the property value itself is considered null. This allows for easier integration with CloudFormation
 // templates, which use `AWS::NoValue` to remove values from lists, maps, etc. We use `null` to the same effect.
