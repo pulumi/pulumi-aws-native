@@ -71,6 +71,10 @@
       },
       "additionalProperties" : false
     },
+    "WebAppEndpointPolicy" : {
+      "type" : "string",
+      "enum" : [ "STANDARD", "FIPS" ]
+    },
     "WebAppUnits" : {
       "oneOf" : [ {
         "type" : "object",
@@ -117,6 +121,9 @@
     "WebAppCustomization" : {
       "$ref" : "#/definitions/WebAppCustomization"
     },
+    "WebAppEndpointPolicy" : {
+      "$ref" : "#/definitions/WebAppEndpointPolicy"
+    },
     "Tags" : {
       "type" : "array",
       "description" : "Key-value pairs that can be used to group and search for web apps.",
@@ -130,7 +137,7 @@
   "additionalProperties" : false,
   "required" : [ "IdentityProviderDetails" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/WebAppId", "/properties/IdentityProviderDetails/ApplicationArn" ],
-  "createOnlyProperties" : [ "/properties/IdentityProviderDetails/InstanceArn" ],
+  "createOnlyProperties" : [ "/properties/WebAppEndpointPolicy", "/properties/IdentityProviderDetails/InstanceArn" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "additionalIdentifiers" : [ [ "/properties/WebAppId" ] ],
   "tagging" : {
