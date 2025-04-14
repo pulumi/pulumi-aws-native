@@ -5,7 +5,7 @@ go 1.22
 toolchain go1.23.5
 
 require (
-	github.com/pulumi/pulumi-aws-native/sdk v1.26.0
+	github.com/pulumi/pulumi-aws-native/sdk v1.27.0
 	github.com/pulumi/pulumi/sdk/v3 v3.162.0
 )
 
