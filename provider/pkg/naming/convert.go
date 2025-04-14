@@ -191,7 +191,7 @@ func (c *sdkToCfnConverter) sdkTypedValueToCfn(spec *pschema.TypeSpec, v interfa
 			return v, nil
 		}
 	default:
-		return nil, fmt.Errorf("Unrecognized type: " + spec.Type)
+		return nil, errors.New("Unrecognized type: " + spec.Type)
 	}
 	return nil, &ConversionError{spec.Type, v}
 }

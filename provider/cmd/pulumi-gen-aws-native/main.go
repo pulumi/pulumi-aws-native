@@ -19,8 +19,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"slices"
+
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
@@ -207,7 +208,7 @@ func main() {
 // Fail loud and clear.
 func fatalf(format string, a ...any) {
 	barrier := strings.Repeat("=", 110)
-	log.Fatalf(fmt.Sprintf("schema generation failed\n%s\n%s\n%s\n", barrier, fmt.Sprintf(format, a...), barrier))
+	log.Fatalf("schema generation failed\n%s\n%s\n%s\n", barrier, fmt.Sprintf(format, a...), barrier)
 }
 
 func readJsonSchemas(schemaDir string, overlay map[string]AutoNamingOverlay) (res []*jsschema.Schema) {
@@ -233,7 +234,7 @@ func readJsonSchemas(schemaDir string, overlay map[string]AutoNamingOverlay) (re
 func readJsonSchema(schemaPath string, overlay map[string]AutoNamingOverlay) *jsschema.Schema {
 	s, err := jsschema.ReadFile(schemaPath)
 	if err != nil {
-		fatalf("%v", errors.Wrapf(err, schemaPath))
+		fatalf("%v", errors.Wrap(err, schemaPath))
 	}
 	mergeAutoNaming(s, overlay)
 
