@@ -108,6 +108,9 @@ export class VpcEndpoint extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the service network.
      */
     public readonly serviceNetworkArn!: pulumi.Output<string | undefined>;
+    /**
+     * Describes a Region.
+     */
     public readonly serviceRegion!: pulumi.Output<string | undefined>;
     /**
      * The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
@@ -233,6 +236,9 @@ export interface VpcEndpointArgs {
      * The Amazon Resource Name (ARN) of the service network.
      */
     serviceNetworkArn?: pulumi.Input<string>;
+    /**
+     * Describes a Region.
+     */
     serviceRegion?: pulumi.Input<string>;
     /**
      * The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.

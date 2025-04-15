@@ -39,6 +39,9 @@ class WebAppArgs:
         :param pulumi.Input[builtins.str] access_endpoint: The AccessEndpoint is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to group and search for web apps.
         :param pulumi.Input['WebAppCustomizationArgs'] web_app_customization: A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
+        :param pulumi.Input['WebAppEndpointPolicy'] web_app_endpoint_policy: Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .
+               
+               If your web app was created in an AWS GovCloud (US) Region , the value of this parameter can be `FIPS` , which indicates the web app endpoint is FIPS-compliant.
         :param pulumi.Input['WebAppUnitsPropertiesArgs'] web_app_units: A union that contains the value for number of concurrent connections or the user sessions on your web app.
         """
         pulumi.set(__self__, "identity_provider_details", identity_provider_details)
@@ -106,6 +109,11 @@ class WebAppArgs:
     @property
     @pulumi.getter(name="webAppEndpointPolicy")
     def web_app_endpoint_policy(self) -> Optional[pulumi.Input['WebAppEndpointPolicy']]:
+        """
+        Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .
+
+        If your web app was created in an AWS GovCloud (US) Region , the value of this parameter can be `FIPS` , which indicates the web app endpoint is FIPS-compliant.
+        """
         return pulumi.get(self, "web_app_endpoint_policy")
 
     @web_app_endpoint_policy.setter
@@ -148,6 +156,9 @@ class WebApp(pulumi.CustomResource):
                For more details about this parameter, see [Configure your identity provider for Transfer Family web apps](https://docs.aws.amazon.com//transfer/latest/userguide/webapp-identity-center.html) .
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to group and search for web apps.
         :param pulumi.Input[Union['WebAppCustomizationArgs', 'WebAppCustomizationArgsDict']] web_app_customization: A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
+        :param pulumi.Input['WebAppEndpointPolicy'] web_app_endpoint_policy: Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .
+               
+               If your web app was created in an AWS GovCloud (US) Region , the value of this parameter can be `FIPS` , which indicates the web app endpoint is FIPS-compliant.
         :param pulumi.Input[Union['WebAppUnitsPropertiesArgs', 'WebAppUnitsPropertiesArgsDict']] web_app_units: A union that contains the value for number of concurrent connections or the user sessions on your web app.
         """
         ...
@@ -278,6 +289,11 @@ class WebApp(pulumi.CustomResource):
     @property
     @pulumi.getter(name="webAppEndpointPolicy")
     def web_app_endpoint_policy(self) -> pulumi.Output[Optional['WebAppEndpointPolicy']]:
+        """
+        Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .
+
+        If your web app was created in an AWS GovCloud (US) Region , the value of this parameter can be `FIPS` , which indicates the web app endpoint is FIPS-compliant.
+        """
         return pulumi.get(self, "web_app_endpoint_policy")
 
     @property

@@ -28,7 +28,10 @@ type WebApp struct {
 	// Key-value pairs that can be used to group and search for web apps.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
-	WebAppCustomization  WebAppCustomizationPtrOutput  `pulumi:"webAppCustomization"`
+	WebAppCustomization WebAppCustomizationPtrOutput `pulumi:"webAppCustomization"`
+	// Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .
+	//
+	// If your web app was created in an AWS GovCloud (US) Region , the value of this parameter can be `FIPS` , which indicates the web app endpoint is FIPS-compliant.
 	WebAppEndpointPolicy WebAppEndpointPolicyPtrOutput `pulumi:"webAppEndpointPolicy"`
 	// A unique identifier for the web app.
 	WebAppId pulumi.StringOutput `pulumi:"webAppId"`
@@ -93,7 +96,10 @@ type webAppArgs struct {
 	// Key-value pairs that can be used to group and search for web apps.
 	Tags []aws.Tag `pulumi:"tags"`
 	// A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
-	WebAppCustomization  *WebAppCustomization  `pulumi:"webAppCustomization"`
+	WebAppCustomization *WebAppCustomization `pulumi:"webAppCustomization"`
+	// Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .
+	//
+	// If your web app was created in an AWS GovCloud (US) Region , the value of this parameter can be `FIPS` , which indicates the web app endpoint is FIPS-compliant.
 	WebAppEndpointPolicy *WebAppEndpointPolicy `pulumi:"webAppEndpointPolicy"`
 	// A union that contains the value for number of concurrent connections or the user sessions on your web app.
 	WebAppUnits *WebAppUnitsProperties `pulumi:"webAppUnits"`
@@ -110,7 +116,10 @@ type WebAppArgs struct {
 	// Key-value pairs that can be used to group and search for web apps.
 	Tags aws.TagArrayInput
 	// A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
-	WebAppCustomization  WebAppCustomizationPtrInput
+	WebAppCustomization WebAppCustomizationPtrInput
+	// Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .
+	//
+	// If your web app was created in an AWS GovCloud (US) Region , the value of this parameter can be `FIPS` , which indicates the web app endpoint is FIPS-compliant.
 	WebAppEndpointPolicy WebAppEndpointPolicyPtrInput
 	// A union that contains the value for number of concurrent connections or the user sessions on your web app.
 	WebAppUnits WebAppUnitsPropertiesPtrInput
@@ -180,6 +189,9 @@ func (o WebAppOutput) WebAppCustomization() WebAppCustomizationPtrOutput {
 	return o.ApplyT(func(v *WebApp) WebAppCustomizationPtrOutput { return v.WebAppCustomization }).(WebAppCustomizationPtrOutput)
 }
 
+// Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .
+//
+// If your web app was created in an AWS GovCloud (US) Region , the value of this parameter can be `FIPS` , which indicates the web app endpoint is FIPS-compliant.
 func (o WebAppOutput) WebAppEndpointPolicy() WebAppEndpointPolicyPtrOutput {
 	return o.ApplyT(func(v *WebApp) WebAppEndpointPolicyPtrOutput { return v.WebAppEndpointPolicy }).(WebAppEndpointPolicyPtrOutput)
 }

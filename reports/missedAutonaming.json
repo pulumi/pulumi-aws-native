@@ -6359,7 +6359,8 @@
         "description": "The Amazon Resource Name (ARN) of the service network."
       },
       "serviceRegion": {
-        "type": "string"
+        "type": "string",
+        "description": "Describes a Region."
       },
       "subnetIds": {
         "type": "array",
@@ -13903,7 +13904,8 @@
         "description": "A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app."
       },
       "webAppEndpointPolicy": {
-        "$ref": "#/types/aws-native:transfer:WebAppEndpointPolicy"
+        "$ref": "#/types/aws-native:transfer:WebAppEndpointPolicy",
+        "description": "Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .\n\nIf your web app was created in an AWS GovCloud (US) Region , the value of this parameter can be `FIPS` , which indicates the web app endpoint is FIPS-compliant."
       },
       "webAppUnits": {
         "$ref": "#/types/aws-native:transfer:WebAppUnitsProperties",

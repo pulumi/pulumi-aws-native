@@ -59,6 +59,11 @@ export class WebApp extends pulumi.CustomResource {
      * A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
      */
     public readonly webAppCustomization!: pulumi.Output<outputs.transfer.WebAppCustomization | undefined>;
+    /**
+     * Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .
+     *
+     * If your web app was created in an AWS GovCloud (US) Region , the value of this parameter can be `FIPS` , which indicates the web app endpoint is FIPS-compliant.
+     */
     public readonly webAppEndpointPolicy!: pulumi.Output<enums.transfer.WebAppEndpointPolicy | undefined>;
     /**
      * A unique identifier for the web app.
@@ -130,6 +135,11 @@ export interface WebAppArgs {
      * A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
      */
     webAppCustomization?: pulumi.Input<inputs.transfer.WebAppCustomizationArgs>;
+    /**
+     * Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .
+     *
+     * If your web app was created in an AWS GovCloud (US) Region , the value of this parameter can be `FIPS` , which indicates the web app endpoint is FIPS-compliant.
+     */
     webAppEndpointPolicy?: pulumi.Input<enums.transfer.WebAppEndpointPolicy>;
     /**
      * A union that contains the value for number of concurrent connections or the user sessions on your web app.

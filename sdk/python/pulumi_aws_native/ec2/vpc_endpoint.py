@@ -58,6 +58,7 @@ class VpcEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: The IDs of the security groups to associate with the endpoint network interfaces. If this parameter is not specified, we use the default security group for the VPC. Security groups are supported only for interface endpoints.
         :param pulumi.Input[builtins.str] service_name: The name of the endpoint service.
         :param pulumi.Input[builtins.str] service_network_arn: The Amazon Resource Name (ARN) of the service network.
+        :param pulumi.Input[builtins.str] service_region: Describes a Region.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to associate with the endpoint.
         :param pulumi.Input['VpcEndpointType'] vpc_endpoint_type: The type of endpoint.
@@ -221,6 +222,9 @@ class VpcEndpointArgs:
     @property
     @pulumi.getter(name="serviceRegion")
     def service_region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Describes a Region.
+        """
         return pulumi.get(self, "service_region")
 
     @service_region.setter
@@ -312,6 +316,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: The IDs of the security groups to associate with the endpoint network interfaces. If this parameter is not specified, we use the default security group for the VPC. Security groups are supported only for interface endpoints.
         :param pulumi.Input[builtins.str] service_name: The name of the endpoint service.
         :param pulumi.Input[builtins.str] service_network_arn: The Amazon Resource Name (ARN) of the service network.
+        :param pulumi.Input[builtins.str] service_region: Describes a Region.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to associate with the endpoint.
         :param pulumi.Input['VpcEndpointType'] vpc_endpoint_type: The type of endpoint.
@@ -555,6 +560,9 @@ class VpcEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="serviceRegion")
     def service_region(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Describes a Region.
+        """
         return pulumi.get(self, "service_region")
 
     @property

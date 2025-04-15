@@ -112,6 +112,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("serviceNetworkArn")]
         public Output<string?> ServiceNetworkArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes a Region.
+        /// </summary>
         [Output("serviceRegion")]
         public Output<string?> ServiceRegion { get; private set; } = null!;
 
@@ -267,6 +270,9 @@ namespace Pulumi.AwsNative.Ec2
         [Input("serviceNetworkArn")]
         public Input<string>? ServiceNetworkArn { get; set; }
 
+        /// <summary>
+        /// Describes a Region.
+        /// </summary>
         [Input("serviceRegion")]
         public Input<string>? ServiceRegion { get; set; }
 

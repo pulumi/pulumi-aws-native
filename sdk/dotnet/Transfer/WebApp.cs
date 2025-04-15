@@ -47,6 +47,11 @@ namespace Pulumi.AwsNative.Transfer
         [Output("webAppCustomization")]
         public Output<Outputs.WebAppCustomization?> WebAppCustomization { get; private set; } = null!;
 
+        /// <summary>
+        /// Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .
+        /// 
+        /// If your web app was created in an AWS GovCloud (US) Region , the value of this parameter can be `FIPS` , which indicates the web app endpoint is FIPS-compliant.
+        /// </summary>
         [Output("webAppEndpointPolicy")]
         public Output<Pulumi.AwsNative.Transfer.WebAppEndpointPolicy?> WebAppEndpointPolicy { get; private set; } = null!;
 
@@ -144,6 +149,11 @@ namespace Pulumi.AwsNative.Transfer
         [Input("webAppCustomization")]
         public Input<Inputs.WebAppCustomizationArgs>? WebAppCustomization { get; set; }
 
+        /// <summary>
+        /// Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .
+        /// 
+        /// If your web app was created in an AWS GovCloud (US) Region , the value of this parameter can be `FIPS` , which indicates the web app endpoint is FIPS-compliant.
+        /// </summary>
         [Input("webAppEndpointPolicy")]
         public Input<Pulumi.AwsNative.Transfer.WebAppEndpointPolicy>? WebAppEndpointPolicy { get; set; }
 
