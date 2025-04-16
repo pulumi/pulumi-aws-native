@@ -475,8 +475,8 @@ github.com/pulumi/inflector v0.1.1 h1:dvlxlWtXwOJTUUtcYDvwnl6Mpg33prhK+7mzeF+Sob
 github.com/pulumi/inflector v0.1.1/go.mod h1:HUFCjcPTz96YtTuUlwG3i3EZG4WlniBvR9bd+iJxCUY=
 github.com/pulumi/jsschema v0.0.0-20240222154951-2ba83b66ea54 h1:bKq2LqtQOtab1ZuR9eU8ReGfik564A1YCSIt3q1mlkM=
 github.com/pulumi/jsschema v0.0.0-20240222154951-2ba83b66ea54/go.mod h1:nXH0b0s3hX5wMv1UlCz9n/O6832x4dPIVl7t5aonm0Q=
-github.com/pulumi/providertest v0.2.0 h1:sTSwGI+1T6PIETiSLbn3tEZEa90skPcMhRIaIHOeTLk=
-github.com/pulumi/providertest v0.2.0/go.mod h1:aTxVfdxP/Pe0iPbokjBp99x0XaY4fkZB2CjIS5wysMs=
+github.com/pulumi/providertest v0.3.0 h1:Dv10aoFaNQBDRtK8cRbd2uk9vEhpC/NryN+0y7NX4/o=
+github.com/pulumi/providertest v0.3.0/go.mod h1:aTxVfdxP/Pe0iPbokjBp99x0XaY4fkZB2CjIS5wysMs=
 github.com/pulumi/pulumi-go-provider v0.25.0 h1:59Z1ZRcIgGW5YOB7hluZnD6FJvMeLhSLecQDjWC9d74=
 github.com/pulumi/pulumi-go-provider v0.25.0/go.mod h1:KXg7CXESL2Tvheq7Kki6ZtiXh2E8QABuNQQ1VjAzIAQ=
 github.com/pulumi/pulumi/pkg/v3 v3.162.0 h1:o8XbI2MpywlAnXKhRChtLMA8I0XkBD6wUDX5wNwMs4o=
