@@ -24,6 +24,11 @@
     },
     "RetentionDays" : {
       "type" : "integer"
+    },
+    "KmsKeyIdentifier" : {
+      "type" : "string",
+      "maxLength" : 2048,
+      "minLength" : 0
     }
   },
   "required" : [ "SourceArn" ],
@@ -38,7 +43,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "events:DescribeArchive", "events:CreateArchive" ]
+      "permissions" : [ "events:DescribeArchive", "events:CreateArchive", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "delete" : {
       "permissions" : [ "events:DescribeArchive", "events:DeleteArchive" ]
@@ -47,10 +52,10 @@
       "permissions" : [ "events:ListArchives" ]
     },
     "update" : {
-      "permissions" : [ "events:DescribeArchive", "events:UpdateArchive" ]
+      "permissions" : [ "events:DescribeArchive", "events:UpdateArchive", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt", "kms:ReEncryptTo", "kms:ReEncryptFrom" ]
     },
     "read" : {
-      "permissions" : [ "events:DescribeArchive" ]
+      "permissions" : [ "events:DescribeArchive", "kms:Decrypt" ]
     }
   }
 }
