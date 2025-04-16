@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterVpcConnectivityTls
     {
+        /// <summary>
+        /// TLS authentication is enabled or not.
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

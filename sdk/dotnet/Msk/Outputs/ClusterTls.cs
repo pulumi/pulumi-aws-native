@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterTls
     {
+        /// <summary>
+        /// List of AWS Private CA ARNs.
+        /// </summary>
         public readonly ImmutableArray<string> CertificateAuthorityArnList;
+        /// <summary>
+        /// TLS authentication is enabled or not.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

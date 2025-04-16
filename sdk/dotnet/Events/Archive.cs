@@ -41,6 +41,9 @@ namespace Pulumi.AwsNative.Events
         [Output("eventPattern")]
         public Output<object?> EventPattern { get; private set; } = null!;
 
+        [Output("kmsKeyIdentifier")]
+        public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
+
         /// <summary>
         /// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
         /// </summary>
@@ -122,6 +125,9 @@ namespace Pulumi.AwsNative.Events
         /// </summary>
         [Input("eventPattern")]
         public Input<object>? EventPattern { get; set; }
+
+        [Input("kmsKeyIdentifier")]
+        public Input<string>? KmsKeyIdentifier { get; set; }
 
         /// <summary>
         /// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterProvisionedThroughput
     {
+        /// <summary>
+        /// Provisioned throughput is on or off.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.
+        /// </summary>
         public readonly int? VolumeThroughput;
 
         [OutputConstructor]

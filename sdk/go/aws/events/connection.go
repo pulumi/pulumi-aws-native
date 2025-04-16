@@ -63,6 +63,8 @@ type Connection struct {
 
 	// The arn of the connection resource.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The arn of the connection resource to be used in IAM policies.
+	ArnForPolicy pulumi.StringOutput `pulumi:"arnForPolicy"`
 	// The authorization parameters to use to authorize with the endpoint.
 	//
 	// You must include only authorization parameters for the `AuthorizationType` you specify.
@@ -199,6 +201,11 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 // The arn of the connection resource.
 func (o ConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The arn of the connection resource to be used in IAM policies.
+func (o ConnectionOutput) ArnForPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ArnForPolicy }).(pulumi.StringOutput)
 }
 
 // The authorization parameters to use to authorize with the endpoint.

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.PaymentCryptography
     [AwsNativeResourceType("aws-native:paymentcryptography:Key")]
     public partial class Key : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
+        /// </summary>
         [Output("deriveKeyUsage")]
         public Output<Pulumi.AwsNative.PaymentCryptography.KeyDeriveKeyUsage?> DeriveKeyUsage { get; private set; } = null!;
 
@@ -107,6 +110,9 @@ namespace Pulumi.AwsNative.PaymentCryptography
 
     public sealed class KeyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
+        /// </summary>
         [Input("deriveKeyUsage")]
         public Input<Pulumi.AwsNative.PaymentCryptography.KeyDeriveKeyUsage>? DeriveKeyUsage { get; set; }
 

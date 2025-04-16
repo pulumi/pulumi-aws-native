@@ -59,6 +59,9 @@ class GetKeyResult:
     @property
     @pulumi.getter(name="deriveKeyUsage")
     def derive_key_usage(self) -> Optional['KeyDeriveKeyUsage']:
+        """
+        The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
+        """
         return pulumi.get(self, "derive_key_usage")
 
     @property

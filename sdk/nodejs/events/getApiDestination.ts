@@ -30,6 +30,10 @@ export interface GetApiDestinationResult {
      */
     readonly arn?: string;
     /**
+     * The arn of the api destination to be used in IAM policies.
+     */
+    readonly arnForPolicy?: string;
+    /**
      * The arn of the connection.
      */
     readonly connectionArn?: string;

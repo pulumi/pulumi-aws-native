@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterS3
     {
+        /// <summary>
+        /// The name of the S3 bucket that is the destination for broker logs.
+        /// </summary>
         public readonly string? Bucket;
+        /// <summary>
+        /// Specifies whether broker logs get sent to the specified Amazon S3 destination.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// The S3 prefix that is the destination for broker logs.
+        /// </summary>
         public readonly string? Prefix;
 
         [OutputConstructor]

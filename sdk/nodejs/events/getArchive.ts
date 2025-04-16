@@ -36,6 +36,7 @@ export interface GetArchiveResult {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
      */
     readonly eventPattern?: any;
+    readonly kmsKeyIdentifier?: string;
     /**
      * The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
      */

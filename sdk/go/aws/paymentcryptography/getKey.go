@@ -28,6 +28,7 @@ type LookupKeyArgs struct {
 }
 
 type LookupKeyResult struct {
+	// The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
 	DeriveKeyUsage *KeyDeriveKeyUsage `pulumi:"deriveKeyUsage"`
 	// Specifies whether the key is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -78,6 +79,7 @@ func (o LookupKeyResultOutput) ToLookupKeyResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
 func (o LookupKeyResultOutput) DeriveKeyUsage() KeyDeriveKeyUsagePtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *KeyDeriveKeyUsage { return v.DeriveKeyUsage }).(KeyDeriveKeyUsagePtrOutput)
 }

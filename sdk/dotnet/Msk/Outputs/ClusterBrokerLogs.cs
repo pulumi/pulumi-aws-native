@@ -14,7 +14,13 @@ namespace Pulumi.AwsNative.Msk.Outputs
     public sealed class ClusterBrokerLogs
     {
         public readonly Outputs.ClusterCloudWatchLogs? CloudWatchLogs;
+        /// <summary>
+        /// Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
+        /// </summary>
         public readonly Outputs.ClusterFirehose? Firehose;
+        /// <summary>
+        /// Details of the Amazon S3 destination for broker logs.
+        /// </summary>
         public readonly Outputs.ClusterS3? S3;
 
         [OutputConstructor]

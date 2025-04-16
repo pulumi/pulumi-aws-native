@@ -195,6 +195,7 @@ class ApiDestination(pulumi.CustomResource):
             __props__.__dict__["invocation_rate_limit_per_second"] = invocation_rate_limit_per_second
             __props__.__dict__["name"] = name
             __props__.__dict__["arn"] = None
+            __props__.__dict__["arn_for_policy"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApiDestination, __self__).__init__(
@@ -220,6 +221,7 @@ class ApiDestination(pulumi.CustomResource):
         __props__ = ApiDestinationArgs.__new__(ApiDestinationArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["arn_for_policy"] = None
         __props__.__dict__["connection_arn"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["http_method"] = None
@@ -235,6 +237,14 @@ class ApiDestination(pulumi.CustomResource):
         The arn of the api destination.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="arnForPolicy")
+    def arn_for_policy(self) -> pulumi.Output[builtins.str]:
+        """
+        The arn of the api destination to be used in IAM policies.
+        """
+        return pulumi.get(self, "arn_for_policy")
 
     @property
     @pulumi.getter(name="connectionArn")

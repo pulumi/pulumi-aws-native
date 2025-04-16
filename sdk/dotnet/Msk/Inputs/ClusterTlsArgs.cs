@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.Msk.Inputs
     {
         [Input("certificateAuthorityArnList")]
         private InputList<string>? _certificateAuthorityArnList;
+
+        /// <summary>
+        /// List of AWS Private CA ARNs.
+        /// </summary>
         public InputList<string> CertificateAuthorityArnList
         {
             get => _certificateAuthorityArnList ?? (_certificateAuthorityArnList = new InputList<string>());
             set => _certificateAuthorityArnList = value;
         }
 
+        /// <summary>
+        /// TLS authentication is enabled or not.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

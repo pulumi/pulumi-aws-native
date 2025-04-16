@@ -77,6 +77,7 @@ namespace Pulumi.AwsNative.Events
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? EventPattern;
+        public readonly string? KmsKeyIdentifier;
         /// <summary>
         /// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
         /// </summary>
@@ -90,11 +91,14 @@ namespace Pulumi.AwsNative.Events
 
             object? eventPattern,
 
+            string? kmsKeyIdentifier,
+
             int? retentionDays)
         {
             Arn = arn;
             Description = description;
             EventPattern = eventPattern;
+            KmsKeyIdentifier = kmsKeyIdentifier;
             RetentionDays = retentionDays;
         }
     }

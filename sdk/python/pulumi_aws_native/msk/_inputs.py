@@ -113,7 +113,13 @@ if not MYPY:
     class ClusterBrokerLogsArgsDict(TypedDict):
         cloud_watch_logs: NotRequired[pulumi.Input['ClusterCloudWatchLogsArgsDict']]
         firehose: NotRequired[pulumi.Input['ClusterFirehoseArgsDict']]
+        """
+        Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
+        """
         s3: NotRequired[pulumi.Input['ClusterS3ArgsDict']]
+        """
+        Details of the Amazon S3 destination for broker logs.
+        """
 elif False:
     ClusterBrokerLogsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -123,6 +129,10 @@ class ClusterBrokerLogsArgs:
                  cloud_watch_logs: Optional[pulumi.Input['ClusterCloudWatchLogsArgs']] = None,
                  firehose: Optional[pulumi.Input['ClusterFirehoseArgs']] = None,
                  s3: Optional[pulumi.Input['ClusterS3Args']] = None):
+        """
+        :param pulumi.Input['ClusterFirehoseArgs'] firehose: Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
+        :param pulumi.Input['ClusterS3Args'] s3: Details of the Amazon S3 destination for broker logs.
+        """
         if cloud_watch_logs is not None:
             pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
         if firehose is not None:
@@ -142,6 +152,9 @@ class ClusterBrokerLogsArgs:
     @property
     @pulumi.getter
     def firehose(self) -> Optional[pulumi.Input['ClusterFirehoseArgs']]:
+        """
+        Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
+        """
         return pulumi.get(self, "firehose")
 
     @firehose.setter
@@ -151,6 +164,9 @@ class ClusterBrokerLogsArgs:
     @property
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['ClusterS3Args']]:
+        """
+        Details of the Amazon S3 destination for broker logs.
+        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -303,8 +319,17 @@ class ClusterBrokerNodeGroupInfoArgs:
 if not MYPY:
     class ClusterClientAuthenticationArgsDict(TypedDict):
         sasl: NotRequired[pulumi.Input['ClusterSaslArgsDict']]
+        """
+        Details for client authentication using SASL. To turn on SASL, you must also turn on `EncryptionInTransit` by setting `inCluster` to true. You must set `clientBroker` to either `TLS` or `TLS_PLAINTEXT` . If you choose `TLS_PLAINTEXT` , then you must also set `unauthenticated` to true.
+        """
         tls: NotRequired[pulumi.Input['ClusterTlsArgsDict']]
+        """
+        Details for ClientAuthentication using TLS. To turn on TLS access control, you must also turn on `EncryptionInTransit` by setting `inCluster` to true and `clientBroker` to `TLS` .
+        """
         unauthenticated: NotRequired[pulumi.Input['ClusterUnauthenticatedArgsDict']]
+        """
+        Details for ClientAuthentication using no authentication.
+        """
 elif False:
     ClusterClientAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -314,6 +339,11 @@ class ClusterClientAuthenticationArgs:
                  sasl: Optional[pulumi.Input['ClusterSaslArgs']] = None,
                  tls: Optional[pulumi.Input['ClusterTlsArgs']] = None,
                  unauthenticated: Optional[pulumi.Input['ClusterUnauthenticatedArgs']] = None):
+        """
+        :param pulumi.Input['ClusterSaslArgs'] sasl: Details for client authentication using SASL. To turn on SASL, you must also turn on `EncryptionInTransit` by setting `inCluster` to true. You must set `clientBroker` to either `TLS` or `TLS_PLAINTEXT` . If you choose `TLS_PLAINTEXT` , then you must also set `unauthenticated` to true.
+        :param pulumi.Input['ClusterTlsArgs'] tls: Details for ClientAuthentication using TLS. To turn on TLS access control, you must also turn on `EncryptionInTransit` by setting `inCluster` to true and `clientBroker` to `TLS` .
+        :param pulumi.Input['ClusterUnauthenticatedArgs'] unauthenticated: Details for ClientAuthentication using no authentication.
+        """
         if sasl is not None:
             pulumi.set(__self__, "sasl", sasl)
         if tls is not None:
@@ -324,6 +354,9 @@ class ClusterClientAuthenticationArgs:
     @property
     @pulumi.getter
     def sasl(self) -> Optional[pulumi.Input['ClusterSaslArgs']]:
+        """
+        Details for client authentication using SASL. To turn on SASL, you must also turn on `EncryptionInTransit` by setting `inCluster` to true. You must set `clientBroker` to either `TLS` or `TLS_PLAINTEXT` . If you choose `TLS_PLAINTEXT` , then you must also set `unauthenticated` to true.
+        """
         return pulumi.get(self, "sasl")
 
     @sasl.setter
@@ -333,6 +366,9 @@ class ClusterClientAuthenticationArgs:
     @property
     @pulumi.getter
     def tls(self) -> Optional[pulumi.Input['ClusterTlsArgs']]:
+        """
+        Details for ClientAuthentication using TLS. To turn on TLS access control, you must also turn on `EncryptionInTransit` by setting `inCluster` to true and `clientBroker` to `TLS` .
+        """
         return pulumi.get(self, "tls")
 
     @tls.setter
@@ -342,6 +378,9 @@ class ClusterClientAuthenticationArgs:
     @property
     @pulumi.getter
     def unauthenticated(self) -> Optional[pulumi.Input['ClusterUnauthenticatedArgs']]:
+        """
+        Details for ClientAuthentication using no authentication.
+        """
         return pulumi.get(self, "unauthenticated")
 
     @unauthenticated.setter
@@ -352,7 +391,13 @@ class ClusterClientAuthenticationArgs:
 if not MYPY:
     class ClusterCloudWatchLogsArgsDict(TypedDict):
         enabled: pulumi.Input[builtins.bool]
+        """
+        Specifies whether broker logs get sent to the specified CloudWatch Logs destination.
+        """
         log_group: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The CloudWatch log group that is the destination for broker logs.
+        """
 elif False:
     ClusterCloudWatchLogsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -361,6 +406,10 @@ class ClusterCloudWatchLogsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[builtins.bool],
                  log_group: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.bool] enabled: Specifies whether broker logs get sent to the specified CloudWatch Logs destination.
+        :param pulumi.Input[builtins.str] log_group: The CloudWatch log group that is the destination for broker logs.
+        """
         pulumi.set(__self__, "enabled", enabled)
         if log_group is not None:
             pulumi.set(__self__, "log_group", log_group)
@@ -368,6 +417,9 @@ class ClusterCloudWatchLogsArgs:
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[builtins.bool]:
+        """
+        Specifies whether broker logs get sent to the specified CloudWatch Logs destination.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -377,6 +429,9 @@ class ClusterCloudWatchLogsArgs:
     @property
     @pulumi.getter(name="logGroup")
     def log_group(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The CloudWatch log group that is the destination for broker logs.
+        """
         return pulumi.get(self, "log_group")
 
     @log_group.setter
@@ -387,7 +442,13 @@ class ClusterCloudWatchLogsArgs:
 if not MYPY:
     class ClusterConfigurationInfoArgsDict(TypedDict):
         arn: pulumi.Input[builtins.str]
+        """
+        ARN of the configuration to use.
+        """
         revision: pulumi.Input[builtins.int]
+        """
+        The revision of the configuration to use.
+        """
 elif False:
     ClusterConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -396,12 +457,19 @@ class ClusterConfigurationInfoArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[builtins.str],
                  revision: pulumi.Input[builtins.int]):
+        """
+        :param pulumi.Input[builtins.str] arn: ARN of the configuration to use.
+        :param pulumi.Input[builtins.int] revision: The revision of the configuration to use.
+        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "revision", revision)
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Input[builtins.str]:
+        """
+        ARN of the configuration to use.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -411,6 +479,9 @@ class ClusterConfigurationInfoArgs:
     @property
     @pulumi.getter
     def revision(self) -> pulumi.Input[builtins.int]:
+        """
+        The revision of the configuration to use.
+        """
         return pulumi.get(self, "revision")
 
     @revision.setter
@@ -421,7 +492,13 @@ class ClusterConfigurationInfoArgs:
 if not MYPY:
     class ClusterConnectivityInfoArgsDict(TypedDict):
         public_access: NotRequired[pulumi.Input['ClusterPublicAccessArgsDict']]
+        """
+        Access control settings for the cluster's brokers.
+        """
         vpc_connectivity: NotRequired[pulumi.Input['ClusterVpcConnectivityArgsDict']]
+        """
+        VPC connection control settings for brokers.
+        """
 elif False:
     ClusterConnectivityInfoArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -430,6 +507,10 @@ class ClusterConnectivityInfoArgs:
     def __init__(__self__, *,
                  public_access: Optional[pulumi.Input['ClusterPublicAccessArgs']] = None,
                  vpc_connectivity: Optional[pulumi.Input['ClusterVpcConnectivityArgs']] = None):
+        """
+        :param pulumi.Input['ClusterPublicAccessArgs'] public_access: Access control settings for the cluster's brokers.
+        :param pulumi.Input['ClusterVpcConnectivityArgs'] vpc_connectivity: VPC connection control settings for brokers.
+        """
         if public_access is not None:
             pulumi.set(__self__, "public_access", public_access)
         if vpc_connectivity is not None:
@@ -438,6 +519,9 @@ class ClusterConnectivityInfoArgs:
     @property
     @pulumi.getter(name="publicAccess")
     def public_access(self) -> Optional[pulumi.Input['ClusterPublicAccessArgs']]:
+        """
+        Access control settings for the cluster's brokers.
+        """
         return pulumi.get(self, "public_access")
 
     @public_access.setter
@@ -447,6 +531,9 @@ class ClusterConnectivityInfoArgs:
     @property
     @pulumi.getter(name="vpcConnectivity")
     def vpc_connectivity(self) -> Optional[pulumi.Input['ClusterVpcConnectivityArgs']]:
+        """
+        VPC connection control settings for brokers.
+        """
         return pulumi.get(self, "vpc_connectivity")
 
     @vpc_connectivity.setter
@@ -457,7 +544,13 @@ class ClusterConnectivityInfoArgs:
 if not MYPY:
     class ClusterEbsStorageInfoArgsDict(TypedDict):
         provisioned_throughput: NotRequired[pulumi.Input['ClusterProvisionedThroughputArgsDict']]
+        """
+        EBS volume provisioned throughput information.
+        """
         volume_size: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The size in GiB of the EBS volume for the data drive on each broker node.
+        """
 elif False:
     ClusterEbsStorageInfoArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -466,6 +559,10 @@ class ClusterEbsStorageInfoArgs:
     def __init__(__self__, *,
                  provisioned_throughput: Optional[pulumi.Input['ClusterProvisionedThroughputArgs']] = None,
                  volume_size: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input['ClusterProvisionedThroughputArgs'] provisioned_throughput: EBS volume provisioned throughput information.
+        :param pulumi.Input[builtins.int] volume_size: The size in GiB of the EBS volume for the data drive on each broker node.
+        """
         if provisioned_throughput is not None:
             pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
         if volume_size is not None:
@@ -474,6 +571,9 @@ class ClusterEbsStorageInfoArgs:
     @property
     @pulumi.getter(name="provisionedThroughput")
     def provisioned_throughput(self) -> Optional[pulumi.Input['ClusterProvisionedThroughputArgs']]:
+        """
+        EBS volume provisioned throughput information.
+        """
         return pulumi.get(self, "provisioned_throughput")
 
     @provisioned_throughput.setter
@@ -483,6 +583,9 @@ class ClusterEbsStorageInfoArgs:
     @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The size in GiB of the EBS volume for the data drive on each broker node.
+        """
         return pulumi.get(self, "volume_size")
 
     @volume_size.setter
@@ -493,6 +596,9 @@ class ClusterEbsStorageInfoArgs:
 if not MYPY:
     class ClusterEncryptionAtRestArgsDict(TypedDict):
         data_volume_kms_key_id: pulumi.Input[builtins.str]
+        """
+        The ARN of the Amazon KMS key for encrypting data at rest. If you don't specify a KMS key, MSK creates one for you and uses it.
+        """
 elif False:
     ClusterEncryptionAtRestArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -500,11 +606,17 @@ elif False:
 class ClusterEncryptionAtRestArgs:
     def __init__(__self__, *,
                  data_volume_kms_key_id: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] data_volume_kms_key_id: The ARN of the Amazon KMS key for encrypting data at rest. If you don't specify a KMS key, MSK creates one for you and uses it.
+        """
         pulumi.set(__self__, "data_volume_kms_key_id", data_volume_kms_key_id)
 
     @property
     @pulumi.getter(name="dataVolumeKmsKeyId")
     def data_volume_kms_key_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The ARN of the Amazon KMS key for encrypting data at rest. If you don't specify a KMS key, MSK creates one for you and uses it.
+        """
         return pulumi.get(self, "data_volume_kms_key_id")
 
     @data_volume_kms_key_id.setter
@@ -591,6 +703,9 @@ class ClusterEncryptionInTransitArgs:
 if not MYPY:
     class ClusterEncryptionInfoArgsDict(TypedDict):
         encryption_at_rest: NotRequired[pulumi.Input['ClusterEncryptionAtRestArgsDict']]
+        """
+        The data-volume encryption details.
+        """
         encryption_in_transit: NotRequired[pulumi.Input['ClusterEncryptionInTransitArgsDict']]
         """
         The details for encryption in transit.
@@ -604,6 +719,7 @@ class ClusterEncryptionInfoArgs:
                  encryption_at_rest: Optional[pulumi.Input['ClusterEncryptionAtRestArgs']] = None,
                  encryption_in_transit: Optional[pulumi.Input['ClusterEncryptionInTransitArgs']] = None):
         """
+        :param pulumi.Input['ClusterEncryptionAtRestArgs'] encryption_at_rest: The data-volume encryption details.
         :param pulumi.Input['ClusterEncryptionInTransitArgs'] encryption_in_transit: The details for encryption in transit.
         """
         if encryption_at_rest is not None:
@@ -614,6 +730,9 @@ class ClusterEncryptionInfoArgs:
     @property
     @pulumi.getter(name="encryptionAtRest")
     def encryption_at_rest(self) -> Optional[pulumi.Input['ClusterEncryptionAtRestArgs']]:
+        """
+        The data-volume encryption details.
+        """
         return pulumi.get(self, "encryption_at_rest")
 
     @encryption_at_rest.setter
@@ -636,7 +755,13 @@ class ClusterEncryptionInfoArgs:
 if not MYPY:
     class ClusterFirehoseArgsDict(TypedDict):
         enabled: pulumi.Input[builtins.bool]
+        """
+        Specifies whether broker logs get send to the specified Kinesis Data Firehose delivery stream.
+        """
         delivery_stream: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Kinesis Data Firehose delivery stream that is the destination for broker logs.
+        """
 elif False:
     ClusterFirehoseArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -645,6 +770,10 @@ class ClusterFirehoseArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[builtins.bool],
                  delivery_stream: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.bool] enabled: Specifies whether broker logs get send to the specified Kinesis Data Firehose delivery stream.
+        :param pulumi.Input[builtins.str] delivery_stream: The Kinesis Data Firehose delivery stream that is the destination for broker logs.
+        """
         pulumi.set(__self__, "enabled", enabled)
         if delivery_stream is not None:
             pulumi.set(__self__, "delivery_stream", delivery_stream)
@@ -652,6 +781,9 @@ class ClusterFirehoseArgs:
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[builtins.bool]:
+        """
+        Specifies whether broker logs get send to the specified Kinesis Data Firehose delivery stream.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -661,6 +793,9 @@ class ClusterFirehoseArgs:
     @property
     @pulumi.getter(name="deliveryStream")
     def delivery_stream(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Kinesis Data Firehose delivery stream that is the destination for broker logs.
+        """
         return pulumi.get(self, "delivery_stream")
 
     @delivery_stream.setter
@@ -671,6 +806,9 @@ class ClusterFirehoseArgs:
 if not MYPY:
     class ClusterIamArgsDict(TypedDict):
         enabled: pulumi.Input[builtins.bool]
+        """
+        SASL/IAM authentication is enabled or not.
+        """
 elif False:
     ClusterIamArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -678,11 +816,17 @@ elif False:
 class ClusterIamArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[builtins.bool]):
+        """
+        :param pulumi.Input[builtins.bool] enabled: SASL/IAM authentication is enabled or not.
+        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[builtins.bool]:
+        """
+        SASL/IAM authentication is enabled or not.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -693,6 +837,9 @@ class ClusterIamArgs:
 if not MYPY:
     class ClusterJmxExporterArgsDict(TypedDict):
         enabled_in_broker: pulumi.Input[builtins.bool]
+        """
+        Indicates whether you want to enable or disable the JMX Exporter.
+        """
 elif False:
     ClusterJmxExporterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -700,11 +847,17 @@ elif False:
 class ClusterJmxExporterArgs:
     def __init__(__self__, *,
                  enabled_in_broker: pulumi.Input[builtins.bool]):
+        """
+        :param pulumi.Input[builtins.bool] enabled_in_broker: Indicates whether you want to enable or disable the JMX Exporter.
+        """
         pulumi.set(__self__, "enabled_in_broker", enabled_in_broker)
 
     @property
     @pulumi.getter(name="enabledInBroker")
     def enabled_in_broker(self) -> pulumi.Input[builtins.bool]:
+        """
+        Indicates whether you want to enable or disable the JMX Exporter.
+        """
         return pulumi.get(self, "enabled_in_broker")
 
     @enabled_in_broker.setter
@@ -715,6 +868,9 @@ class ClusterJmxExporterArgs:
 if not MYPY:
     class ClusterLoggingInfoArgsDict(TypedDict):
         broker_logs: pulumi.Input['ClusterBrokerLogsArgsDict']
+        """
+        You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
+        """
 elif False:
     ClusterLoggingInfoArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -722,11 +878,17 @@ elif False:
 class ClusterLoggingInfoArgs:
     def __init__(__self__, *,
                  broker_logs: pulumi.Input['ClusterBrokerLogsArgs']):
+        """
+        :param pulumi.Input['ClusterBrokerLogsArgs'] broker_logs: You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
+        """
         pulumi.set(__self__, "broker_logs", broker_logs)
 
     @property
     @pulumi.getter(name="brokerLogs")
     def broker_logs(self) -> pulumi.Input['ClusterBrokerLogsArgs']:
+        """
+        You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
+        """
         return pulumi.get(self, "broker_logs")
 
     @broker_logs.setter
@@ -737,6 +899,9 @@ class ClusterLoggingInfoArgs:
 if not MYPY:
     class ClusterNodeExporterArgsDict(TypedDict):
         enabled_in_broker: pulumi.Input[builtins.bool]
+        """
+        Indicates whether you want to enable or disable the Node Exporter.
+        """
 elif False:
     ClusterNodeExporterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -744,11 +909,17 @@ elif False:
 class ClusterNodeExporterArgs:
     def __init__(__self__, *,
                  enabled_in_broker: pulumi.Input[builtins.bool]):
+        """
+        :param pulumi.Input[builtins.bool] enabled_in_broker: Indicates whether you want to enable or disable the Node Exporter.
+        """
         pulumi.set(__self__, "enabled_in_broker", enabled_in_broker)
 
     @property
     @pulumi.getter(name="enabledInBroker")
     def enabled_in_broker(self) -> pulumi.Input[builtins.bool]:
+        """
+        Indicates whether you want to enable or disable the Node Exporter.
+        """
         return pulumi.get(self, "enabled_in_broker")
 
     @enabled_in_broker.setter
@@ -759,6 +930,9 @@ class ClusterNodeExporterArgs:
 if not MYPY:
     class ClusterOpenMonitoringArgsDict(TypedDict):
         prometheus: pulumi.Input['ClusterPrometheusArgsDict']
+        """
+        Prometheus exporter settings.
+        """
 elif False:
     ClusterOpenMonitoringArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -766,11 +940,17 @@ elif False:
 class ClusterOpenMonitoringArgs:
     def __init__(__self__, *,
                  prometheus: pulumi.Input['ClusterPrometheusArgs']):
+        """
+        :param pulumi.Input['ClusterPrometheusArgs'] prometheus: Prometheus exporter settings.
+        """
         pulumi.set(__self__, "prometheus", prometheus)
 
     @property
     @pulumi.getter
     def prometheus(self) -> pulumi.Input['ClusterPrometheusArgs']:
+        """
+        Prometheus exporter settings.
+        """
         return pulumi.get(self, "prometheus")
 
     @prometheus.setter
@@ -781,7 +961,13 @@ class ClusterOpenMonitoringArgs:
 if not MYPY:
     class ClusterPrometheusArgsDict(TypedDict):
         jmx_exporter: NotRequired[pulumi.Input['ClusterJmxExporterArgsDict']]
+        """
+        Indicates whether you want to enable or disable the JMX Exporter.
+        """
         node_exporter: NotRequired[pulumi.Input['ClusterNodeExporterArgsDict']]
+        """
+        Indicates whether you want to enable or disable the Node Exporter.
+        """
 elif False:
     ClusterPrometheusArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -790,6 +976,10 @@ class ClusterPrometheusArgs:
     def __init__(__self__, *,
                  jmx_exporter: Optional[pulumi.Input['ClusterJmxExporterArgs']] = None,
                  node_exporter: Optional[pulumi.Input['ClusterNodeExporterArgs']] = None):
+        """
+        :param pulumi.Input['ClusterJmxExporterArgs'] jmx_exporter: Indicates whether you want to enable or disable the JMX Exporter.
+        :param pulumi.Input['ClusterNodeExporterArgs'] node_exporter: Indicates whether you want to enable or disable the Node Exporter.
+        """
         if jmx_exporter is not None:
             pulumi.set(__self__, "jmx_exporter", jmx_exporter)
         if node_exporter is not None:
@@ -798,6 +988,9 @@ class ClusterPrometheusArgs:
     @property
     @pulumi.getter(name="jmxExporter")
     def jmx_exporter(self) -> Optional[pulumi.Input['ClusterJmxExporterArgs']]:
+        """
+        Indicates whether you want to enable or disable the JMX Exporter.
+        """
         return pulumi.get(self, "jmx_exporter")
 
     @jmx_exporter.setter
@@ -807,6 +1000,9 @@ class ClusterPrometheusArgs:
     @property
     @pulumi.getter(name="nodeExporter")
     def node_exporter(self) -> Optional[pulumi.Input['ClusterNodeExporterArgs']]:
+        """
+        Indicates whether you want to enable or disable the Node Exporter.
+        """
         return pulumi.get(self, "node_exporter")
 
     @node_exporter.setter
@@ -817,7 +1013,13 @@ class ClusterPrometheusArgs:
 if not MYPY:
     class ClusterProvisionedThroughputArgsDict(TypedDict):
         enabled: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Provisioned throughput is on or off.
+        """
         volume_throughput: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.
+        """
 elif False:
     ClusterProvisionedThroughputArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -826,6 +1028,10 @@ class ClusterProvisionedThroughputArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  volume_throughput: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.bool] enabled: Provisioned throughput is on or off.
+        :param pulumi.Input[builtins.int] volume_throughput: Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if volume_throughput is not None:
@@ -834,6 +1040,9 @@ class ClusterProvisionedThroughputArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Provisioned throughput is on or off.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -843,6 +1052,9 @@ class ClusterProvisionedThroughputArgs:
     @property
     @pulumi.getter(name="volumeThroughput")
     def volume_throughput(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.
+        """
         return pulumi.get(self, "volume_throughput")
 
     @volume_throughput.setter
@@ -853,6 +1065,9 @@ class ClusterProvisionedThroughputArgs:
 if not MYPY:
     class ClusterPublicAccessArgsDict(TypedDict):
         type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        DISABLED means that public access is turned off. SERVICE_PROVIDED_EIPS means that public access is turned on.
+        """
 elif False:
     ClusterPublicAccessArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -860,12 +1075,18 @@ elif False:
 class ClusterPublicAccessArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] type: DISABLED means that public access is turned off. SERVICE_PROVIDED_EIPS means that public access is turned on.
+        """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        DISABLED means that public access is turned off. SERVICE_PROVIDED_EIPS means that public access is turned on.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -876,8 +1097,17 @@ class ClusterPublicAccessArgs:
 if not MYPY:
     class ClusterS3ArgsDict(TypedDict):
         enabled: pulumi.Input[builtins.bool]
+        """
+        Specifies whether broker logs get sent to the specified Amazon S3 destination.
+        """
         bucket: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The name of the S3 bucket that is the destination for broker logs.
+        """
         prefix: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The S3 prefix that is the destination for broker logs.
+        """
 elif False:
     ClusterS3ArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -887,6 +1117,11 @@ class ClusterS3Args:
                  enabled: pulumi.Input[builtins.bool],
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  prefix: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.bool] enabled: Specifies whether broker logs get sent to the specified Amazon S3 destination.
+        :param pulumi.Input[builtins.str] bucket: The name of the S3 bucket that is the destination for broker logs.
+        :param pulumi.Input[builtins.str] prefix: The S3 prefix that is the destination for broker logs.
+        """
         pulumi.set(__self__, "enabled", enabled)
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -896,6 +1131,9 @@ class ClusterS3Args:
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[builtins.bool]:
+        """
+        Specifies whether broker logs get sent to the specified Amazon S3 destination.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -905,6 +1143,9 @@ class ClusterS3Args:
     @property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the S3 bucket that is the destination for broker logs.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -914,6 +1155,9 @@ class ClusterS3Args:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The S3 prefix that is the destination for broker logs.
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -924,7 +1168,13 @@ class ClusterS3Args:
 if not MYPY:
     class ClusterSaslArgsDict(TypedDict):
         iam: NotRequired[pulumi.Input['ClusterIamArgsDict']]
+        """
+        Details for ClientAuthentication using IAM.
+        """
         scram: NotRequired[pulumi.Input['ClusterScramArgsDict']]
+        """
+        Details for SASL/SCRAM client authentication.
+        """
 elif False:
     ClusterSaslArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -933,6 +1183,10 @@ class ClusterSaslArgs:
     def __init__(__self__, *,
                  iam: Optional[pulumi.Input['ClusterIamArgs']] = None,
                  scram: Optional[pulumi.Input['ClusterScramArgs']] = None):
+        """
+        :param pulumi.Input['ClusterIamArgs'] iam: Details for ClientAuthentication using IAM.
+        :param pulumi.Input['ClusterScramArgs'] scram: Details for SASL/SCRAM client authentication.
+        """
         if iam is not None:
             pulumi.set(__self__, "iam", iam)
         if scram is not None:
@@ -941,6 +1195,9 @@ class ClusterSaslArgs:
     @property
     @pulumi.getter
     def iam(self) -> Optional[pulumi.Input['ClusterIamArgs']]:
+        """
+        Details for ClientAuthentication using IAM.
+        """
         return pulumi.get(self, "iam")
 
     @iam.setter
@@ -950,6 +1207,9 @@ class ClusterSaslArgs:
     @property
     @pulumi.getter
     def scram(self) -> Optional[pulumi.Input['ClusterScramArgs']]:
+        """
+        Details for SASL/SCRAM client authentication.
+        """
         return pulumi.get(self, "scram")
 
     @scram.setter
@@ -960,6 +1220,9 @@ class ClusterSaslArgs:
 if not MYPY:
     class ClusterScramArgsDict(TypedDict):
         enabled: pulumi.Input[builtins.bool]
+        """
+        SASL/SCRAM authentication is enabled or not.
+        """
 elif False:
     ClusterScramArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -967,11 +1230,17 @@ elif False:
 class ClusterScramArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[builtins.bool]):
+        """
+        :param pulumi.Input[builtins.bool] enabled: SASL/SCRAM authentication is enabled or not.
+        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[builtins.bool]:
+        """
+        SASL/SCRAM authentication is enabled or not.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -982,6 +1251,9 @@ class ClusterScramArgs:
 if not MYPY:
     class ClusterStorageInfoArgsDict(TypedDict):
         ebs_storage_info: NotRequired[pulumi.Input['ClusterEbsStorageInfoArgsDict']]
+        """
+        EBS volume information.
+        """
 elif False:
     ClusterStorageInfoArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -989,12 +1261,18 @@ elif False:
 class ClusterStorageInfoArgs:
     def __init__(__self__, *,
                  ebs_storage_info: Optional[pulumi.Input['ClusterEbsStorageInfoArgs']] = None):
+        """
+        :param pulumi.Input['ClusterEbsStorageInfoArgs'] ebs_storage_info: EBS volume information.
+        """
         if ebs_storage_info is not None:
             pulumi.set(__self__, "ebs_storage_info", ebs_storage_info)
 
     @property
     @pulumi.getter(name="ebsStorageInfo")
     def ebs_storage_info(self) -> Optional[pulumi.Input['ClusterEbsStorageInfoArgs']]:
+        """
+        EBS volume information.
+        """
         return pulumi.get(self, "ebs_storage_info")
 
     @ebs_storage_info.setter
@@ -1005,7 +1283,13 @@ class ClusterStorageInfoArgs:
 if not MYPY:
     class ClusterTlsArgsDict(TypedDict):
         certificate_authority_arn_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        List of AWS Private CA ARNs.
+        """
         enabled: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        TLS authentication is enabled or not.
+        """
 elif False:
     ClusterTlsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1014,6 +1298,10 @@ class ClusterTlsArgs:
     def __init__(__self__, *,
                  certificate_authority_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] certificate_authority_arn_list: List of AWS Private CA ARNs.
+        :param pulumi.Input[builtins.bool] enabled: TLS authentication is enabled or not.
+        """
         if certificate_authority_arn_list is not None:
             pulumi.set(__self__, "certificate_authority_arn_list", certificate_authority_arn_list)
         if enabled is not None:
@@ -1022,6 +1310,9 @@ class ClusterTlsArgs:
     @property
     @pulumi.getter(name="certificateAuthorityArnList")
     def certificate_authority_arn_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        List of AWS Private CA ARNs.
+        """
         return pulumi.get(self, "certificate_authority_arn_list")
 
     @certificate_authority_arn_list.setter
@@ -1031,6 +1322,9 @@ class ClusterTlsArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        TLS authentication is enabled or not.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -1041,6 +1335,9 @@ class ClusterTlsArgs:
 if not MYPY:
     class ClusterUnauthenticatedArgsDict(TypedDict):
         enabled: pulumi.Input[builtins.bool]
+        """
+        Unauthenticated is enabled or not.
+        """
 elif False:
     ClusterUnauthenticatedArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1048,11 +1345,17 @@ elif False:
 class ClusterUnauthenticatedArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[builtins.bool]):
+        """
+        :param pulumi.Input[builtins.bool] enabled: Unauthenticated is enabled or not.
+        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[builtins.bool]:
+        """
+        Unauthenticated is enabled or not.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -1063,7 +1366,13 @@ class ClusterUnauthenticatedArgs:
 if not MYPY:
     class ClusterVpcConnectivityClientAuthenticationArgsDict(TypedDict):
         sasl: NotRequired[pulumi.Input['ClusterVpcConnectivitySaslArgsDict']]
+        """
+        Details for VpcConnectivity ClientAuthentication using SASL.
+        """
         tls: NotRequired[pulumi.Input['ClusterVpcConnectivityTlsArgsDict']]
+        """
+        Details for VpcConnectivity ClientAuthentication using TLS.
+        """
 elif False:
     ClusterVpcConnectivityClientAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1072,6 +1381,10 @@ class ClusterVpcConnectivityClientAuthenticationArgs:
     def __init__(__self__, *,
                  sasl: Optional[pulumi.Input['ClusterVpcConnectivitySaslArgs']] = None,
                  tls: Optional[pulumi.Input['ClusterVpcConnectivityTlsArgs']] = None):
+        """
+        :param pulumi.Input['ClusterVpcConnectivitySaslArgs'] sasl: Details for VpcConnectivity ClientAuthentication using SASL.
+        :param pulumi.Input['ClusterVpcConnectivityTlsArgs'] tls: Details for VpcConnectivity ClientAuthentication using TLS.
+        """
         if sasl is not None:
             pulumi.set(__self__, "sasl", sasl)
         if tls is not None:
@@ -1080,6 +1393,9 @@ class ClusterVpcConnectivityClientAuthenticationArgs:
     @property
     @pulumi.getter
     def sasl(self) -> Optional[pulumi.Input['ClusterVpcConnectivitySaslArgs']]:
+        """
+        Details for VpcConnectivity ClientAuthentication using SASL.
+        """
         return pulumi.get(self, "sasl")
 
     @sasl.setter
@@ -1089,6 +1405,9 @@ class ClusterVpcConnectivityClientAuthenticationArgs:
     @property
     @pulumi.getter
     def tls(self) -> Optional[pulumi.Input['ClusterVpcConnectivityTlsArgs']]:
+        """
+        Details for VpcConnectivity ClientAuthentication using TLS.
+        """
         return pulumi.get(self, "tls")
 
     @tls.setter
@@ -1099,6 +1418,9 @@ class ClusterVpcConnectivityClientAuthenticationArgs:
 if not MYPY:
     class ClusterVpcConnectivityIamArgsDict(TypedDict):
         enabled: pulumi.Input[builtins.bool]
+        """
+        SASL/IAM authentication is enabled or not.
+        """
 elif False:
     ClusterVpcConnectivityIamArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1106,11 +1428,17 @@ elif False:
 class ClusterVpcConnectivityIamArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[builtins.bool]):
+        """
+        :param pulumi.Input[builtins.bool] enabled: SASL/IAM authentication is enabled or not.
+        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[builtins.bool]:
+        """
+        SASL/IAM authentication is enabled or not.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -1121,7 +1449,13 @@ class ClusterVpcConnectivityIamArgs:
 if not MYPY:
     class ClusterVpcConnectivitySaslArgsDict(TypedDict):
         iam: NotRequired[pulumi.Input['ClusterVpcConnectivityIamArgsDict']]
+        """
+        Details for ClientAuthentication using IAM for VpcConnectivity.
+        """
         scram: NotRequired[pulumi.Input['ClusterVpcConnectivityScramArgsDict']]
+        """
+        Details for SASL/SCRAM client authentication for VpcConnectivity.
+        """
 elif False:
     ClusterVpcConnectivitySaslArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1130,6 +1464,10 @@ class ClusterVpcConnectivitySaslArgs:
     def __init__(__self__, *,
                  iam: Optional[pulumi.Input['ClusterVpcConnectivityIamArgs']] = None,
                  scram: Optional[pulumi.Input['ClusterVpcConnectivityScramArgs']] = None):
+        """
+        :param pulumi.Input['ClusterVpcConnectivityIamArgs'] iam: Details for ClientAuthentication using IAM for VpcConnectivity.
+        :param pulumi.Input['ClusterVpcConnectivityScramArgs'] scram: Details for SASL/SCRAM client authentication for VpcConnectivity.
+        """
         if iam is not None:
             pulumi.set(__self__, "iam", iam)
         if scram is not None:
@@ -1138,6 +1476,9 @@ class ClusterVpcConnectivitySaslArgs:
     @property
     @pulumi.getter
     def iam(self) -> Optional[pulumi.Input['ClusterVpcConnectivityIamArgs']]:
+        """
+        Details for ClientAuthentication using IAM for VpcConnectivity.
+        """
         return pulumi.get(self, "iam")
 
     @iam.setter
@@ -1147,6 +1488,9 @@ class ClusterVpcConnectivitySaslArgs:
     @property
     @pulumi.getter
     def scram(self) -> Optional[pulumi.Input['ClusterVpcConnectivityScramArgs']]:
+        """
+        Details for SASL/SCRAM client authentication for VpcConnectivity.
+        """
         return pulumi.get(self, "scram")
 
     @scram.setter
@@ -1157,6 +1501,9 @@ class ClusterVpcConnectivitySaslArgs:
 if not MYPY:
     class ClusterVpcConnectivityScramArgsDict(TypedDict):
         enabled: pulumi.Input[builtins.bool]
+        """
+        SASL/SCRAM authentication is enabled or not.
+        """
 elif False:
     ClusterVpcConnectivityScramArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1164,11 +1511,17 @@ elif False:
 class ClusterVpcConnectivityScramArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[builtins.bool]):
+        """
+        :param pulumi.Input[builtins.bool] enabled: SASL/SCRAM authentication is enabled or not.
+        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[builtins.bool]:
+        """
+        SASL/SCRAM authentication is enabled or not.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -1179,6 +1532,9 @@ class ClusterVpcConnectivityScramArgs:
 if not MYPY:
     class ClusterVpcConnectivityTlsArgsDict(TypedDict):
         enabled: pulumi.Input[builtins.bool]
+        """
+        TLS authentication is enabled or not.
+        """
 elif False:
     ClusterVpcConnectivityTlsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1186,11 +1542,17 @@ elif False:
 class ClusterVpcConnectivityTlsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[builtins.bool]):
+        """
+        :param pulumi.Input[builtins.bool] enabled: TLS authentication is enabled or not.
+        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[builtins.bool]:
+        """
+        TLS authentication is enabled or not.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -1201,6 +1563,9 @@ class ClusterVpcConnectivityTlsArgs:
 if not MYPY:
     class ClusterVpcConnectivityArgsDict(TypedDict):
         client_authentication: NotRequired[pulumi.Input['ClusterVpcConnectivityClientAuthenticationArgsDict']]
+        """
+        VPC connection control settings for brokers.
+        """
 elif False:
     ClusterVpcConnectivityArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1208,12 +1573,18 @@ elif False:
 class ClusterVpcConnectivityArgs:
     def __init__(__self__, *,
                  client_authentication: Optional[pulumi.Input['ClusterVpcConnectivityClientAuthenticationArgs']] = None):
+        """
+        :param pulumi.Input['ClusterVpcConnectivityClientAuthenticationArgs'] client_authentication: VPC connection control settings for brokers.
+        """
         if client_authentication is not None:
             pulumi.set(__self__, "client_authentication", client_authentication)
 
     @property
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> Optional[pulumi.Input['ClusterVpcConnectivityClientAuthenticationArgs']]:
+        """
+        VPC connection control settings for brokers.
+        """
         return pulumi.get(self, "client_authentication")
 
     @client_authentication.setter
@@ -1869,6 +2240,9 @@ class ReplicatorTopicReplicationArgs:
 if not MYPY:
     class ServerlessClusterClientAuthenticationArgsDict(TypedDict):
         sasl: pulumi.Input['ServerlessClusterSaslArgsDict']
+        """
+        Details for client authentication using SASL. To turn on SASL, you must also turn on `EncryptionInTransit` by setting `inCluster` to true. You must set `clientBroker` to either `TLS` or `TLS_PLAINTEXT` . If you choose `TLS_PLAINTEXT` , then you must also set `unauthenticated` to true.
+        """
 elif False:
     ServerlessClusterClientAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1876,11 +2250,17 @@ elif False:
 class ServerlessClusterClientAuthenticationArgs:
     def __init__(__self__, *,
                  sasl: pulumi.Input['ServerlessClusterSaslArgs']):
+        """
+        :param pulumi.Input['ServerlessClusterSaslArgs'] sasl: Details for client authentication using SASL. To turn on SASL, you must also turn on `EncryptionInTransit` by setting `inCluster` to true. You must set `clientBroker` to either `TLS` or `TLS_PLAINTEXT` . If you choose `TLS_PLAINTEXT` , then you must also set `unauthenticated` to true.
+        """
         pulumi.set(__self__, "sasl", sasl)
 
     @property
     @pulumi.getter
     def sasl(self) -> pulumi.Input['ServerlessClusterSaslArgs']:
+        """
+        Details for client authentication using SASL. To turn on SASL, you must also turn on `EncryptionInTransit` by setting `inCluster` to true. You must set `clientBroker` to either `TLS` or `TLS_PLAINTEXT` . If you choose `TLS_PLAINTEXT` , then you must also set `unauthenticated` to true.
+        """
         return pulumi.get(self, "sasl")
 
     @sasl.setter
@@ -1891,6 +2271,9 @@ class ServerlessClusterClientAuthenticationArgs:
 if not MYPY:
     class ServerlessClusterIamArgsDict(TypedDict):
         enabled: pulumi.Input[builtins.bool]
+        """
+        SASL/IAM authentication is enabled or not.
+        """
 elif False:
     ServerlessClusterIamArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1898,11 +2281,17 @@ elif False:
 class ServerlessClusterIamArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[builtins.bool]):
+        """
+        :param pulumi.Input[builtins.bool] enabled: SASL/IAM authentication is enabled or not.
+        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[builtins.bool]:
+        """
+        SASL/IAM authentication is enabled or not.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -1913,6 +2302,9 @@ class ServerlessClusterIamArgs:
 if not MYPY:
     class ServerlessClusterSaslArgsDict(TypedDict):
         iam: pulumi.Input['ServerlessClusterIamArgsDict']
+        """
+        Details for ClientAuthentication using IAM.
+        """
 elif False:
     ServerlessClusterSaslArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1920,11 +2312,17 @@ elif False:
 class ServerlessClusterSaslArgs:
     def __init__(__self__, *,
                  iam: pulumi.Input['ServerlessClusterIamArgs']):
+        """
+        :param pulumi.Input['ServerlessClusterIamArgs'] iam: Details for ClientAuthentication using IAM.
+        """
         pulumi.set(__self__, "iam", iam)
 
     @property
     @pulumi.getter
     def iam(self) -> pulumi.Input['ServerlessClusterIamArgs']:
+        """
+        Details for ClientAuthentication using IAM.
+        """
         return pulumi.get(self, "iam")
 
     @iam.setter

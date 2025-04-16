@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotCompositeSlotTypeSetting
     {
+        /// <summary>
+        /// Subslots in the composite slot.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BotSubSlotTypeComposition> SubSlots;
 
         [OutputConstructor]

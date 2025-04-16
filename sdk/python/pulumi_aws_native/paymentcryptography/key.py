@@ -35,6 +35,7 @@ class KeyArgs:
         The set of arguments for constructing a Key resource.
         :param pulumi.Input[builtins.bool] exportable: Specifies whether the key is exportable. This data is immutable after the key is created.
         :param pulumi.Input['KeyAttributesArgs'] key_attributes: The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+        :param pulumi.Input['KeyDeriveKeyUsage'] derive_key_usage: The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether the key is enabled.
         :param pulumi.Input['KeyCheckValueAlgorithm'] key_check_value_algorithm: The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
                
@@ -78,6 +79,9 @@ class KeyArgs:
     @property
     @pulumi.getter(name="deriveKeyUsage")
     def derive_key_usage(self) -> Optional[pulumi.Input['KeyDeriveKeyUsage']]:
+        """
+        The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
+        """
         return pulumi.get(self, "derive_key_usage")
 
     @derive_key_usage.setter
@@ -137,6 +141,7 @@ class Key(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['KeyDeriveKeyUsage'] derive_key_usage: The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether the key is enabled.
         :param pulumi.Input[builtins.bool] exportable: Specifies whether the key is exportable. This data is immutable after the key is created.
         :param pulumi.Input[Union['KeyAttributesArgs', 'KeyAttributesArgsDict']] key_attributes: The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
@@ -232,6 +237,9 @@ class Key(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deriveKeyUsage")
     def derive_key_usage(self) -> pulumi.Output[Optional['KeyDeriveKeyUsage']]:
+        """
+        The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
+        """
         return pulumi.get(self, "derive_key_usage")
 
     @property

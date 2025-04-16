@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterOpenMonitoringArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Prometheus exporter settings.
+        /// </summary>
         [Input("prometheus", required: true)]
         public Input<Inputs.ClusterPrometheusArgs> Prometheus { get; set; } = null!;
 

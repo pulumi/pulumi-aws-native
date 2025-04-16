@@ -52,6 +52,7 @@ export class Archive extends pulumi.CustomResource {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
      */
     public readonly eventPattern!: pulumi.Output<any | undefined>;
+    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
      */
@@ -78,6 +79,7 @@ export class Archive extends pulumi.CustomResource {
             resourceInputs["archiveName"] = args ? args.archiveName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["eventPattern"] = args ? args.eventPattern : undefined;
+            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
             resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -86,6 +88,7 @@ export class Archive extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["eventPattern"] = undefined /*out*/;
+            resourceInputs["kmsKeyIdentifier"] = undefined /*out*/;
             resourceInputs["retentionDays"] = undefined /*out*/;
             resourceInputs["sourceArn"] = undefined /*out*/;
         }
@@ -114,6 +117,7 @@ export interface ArchiveArgs {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
      */
     eventPattern?: any;
+    kmsKeyIdentifier?: pulumi.Input<string>;
     /**
      * The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
      */

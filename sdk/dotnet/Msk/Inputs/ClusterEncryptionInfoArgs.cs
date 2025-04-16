@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterEncryptionInfoArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The data-volume encryption details.
+        /// </summary>
         [Input("encryptionAtRest")]
         public Input<Inputs.ClusterEncryptionAtRestArgs>? EncryptionAtRest { get; set; }
 

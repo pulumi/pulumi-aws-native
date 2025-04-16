@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetArchiveResult:
-    def __init__(__self__, arn=None, description=None, event_pattern=None, retention_days=None):
+    def __init__(__self__, arn=None, description=None, event_pattern=None, kms_key_identifier=None, retention_days=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -34,6 +34,9 @@ class GetArchiveResult:
         if event_pattern and not isinstance(event_pattern, dict):
             raise TypeError("Expected argument 'event_pattern' to be a dict")
         pulumi.set(__self__, "event_pattern", event_pattern)
+        if kms_key_identifier and not isinstance(kms_key_identifier, str):
+            raise TypeError("Expected argument 'kms_key_identifier' to be a str")
+        pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if retention_days and not isinstance(retention_days, int):
             raise TypeError("Expected argument 'retention_days' to be a int")
         pulumi.set(__self__, "retention_days", retention_days)
@@ -65,6 +68,11 @@ class GetArchiveResult:
         return pulumi.get(self, "event_pattern")
 
     @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "kms_key_identifier")
+
+    @property
     @pulumi.getter(name="retentionDays")
     def retention_days(self) -> Optional[builtins.int]:
         """
@@ -82,6 +90,7 @@ class AwaitableGetArchiveResult(GetArchiveResult):
             arn=self.arn,
             description=self.description,
             event_pattern=self.event_pattern,
+            kms_key_identifier=self.kms_key_identifier,
             retention_days=self.retention_days)
 
 
@@ -102,6 +111,7 @@ def get_archive(archive_name: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
         event_pattern=pulumi.get(__ret__, 'event_pattern'),
+        kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
         retention_days=pulumi.get(__ret__, 'retention_days'))
 def get_archive_output(archive_name: Optional[pulumi.Input[builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetArchiveResult]:
@@ -119,4 +129,5 @@ def get_archive_output(archive_name: Optional[pulumi.Input[builtins.str]] = None
         arn=pulumi.get(__response__, 'arn'),
         description=pulumi.get(__response__, 'description'),
         event_pattern=pulumi.get(__response__, 'event_pattern'),
+        kms_key_identifier=pulumi.get(__response__, 'kms_key_identifier'),
         retention_days=pulumi.get(__response__, 'retention_days')))

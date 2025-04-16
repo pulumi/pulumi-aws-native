@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.Events
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The arn of the connection resource to be used in IAM policies.
+        /// </summary>
+        public readonly string? ArnForPolicy;
+        /// <summary>
         /// The authorization parameters to use to authorize with the endpoint.
         /// 
         /// You must include only authorization parameters for the `AuthorizationType` you specify.
@@ -96,6 +100,8 @@ namespace Pulumi.AwsNative.Events
         private GetConnectionResult(
             string? arn,
 
+            string? arnForPolicy,
+
             Outputs.ConnectionAuthParameters? authParameters,
 
             Pulumi.AwsNative.Events.ConnectionAuthorizationType? authorizationType,
@@ -107,6 +113,7 @@ namespace Pulumi.AwsNative.Events
             string? secretArn)
         {
             Arn = arn;
+            ArnForPolicy = arnForPolicy;
             AuthParameters = authParameters;
             AuthorizationType = authorizationType;
             Description = description;

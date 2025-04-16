@@ -60,7 +60,7 @@ export class Collaboration extends pulumi.CustomResource {
     /**
      * The abilities granted to the collaboration creator.
      *
-     * *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+     * *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
      */
     public readonly creatorMemberAbilities!: pulumi.Output<enums.cleanrooms.CollaborationMemberAbility[]>;
     /**
@@ -182,7 +182,7 @@ export interface CollaborationArgs {
     /**
      * The abilities granted to the collaboration creator.
      *
-     * *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+     * *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
      */
     creatorMemberAbilities: pulumi.Input<pulumi.Input<enums.cleanrooms.CollaborationMemberAbility>[]>;
     /**

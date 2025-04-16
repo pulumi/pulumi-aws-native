@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Events
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The arn of the api destination to be used in IAM policies.
+        /// </summary>
+        [Output("arnForPolicy")]
+        public Output<string> ArnForPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The arn of the connection.
         /// </summary>
         [Output("connectionArn")]

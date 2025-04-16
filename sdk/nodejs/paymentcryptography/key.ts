@@ -37,6 +37,9 @@ export class Key extends pulumi.CustomResource {
         return obj['__pulumiType'] === Key.__pulumiType;
     }
 
+    /**
+     * The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
+     */
     public readonly deriveKeyUsage!: pulumi.Output<enums.paymentcryptography.KeyDeriveKeyUsage | undefined>;
     /**
      * Specifies whether the key is enabled.
@@ -113,6 +116,9 @@ export class Key extends pulumi.CustomResource {
  * The set of arguments for constructing a Key resource.
  */
 export interface KeyArgs {
+    /**
+     * The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
+     */
     deriveKeyUsage?: pulumi.Input<enums.paymentcryptography.KeyDeriveKeyUsage>;
     /**
      * Specifies whether the key is enabled.

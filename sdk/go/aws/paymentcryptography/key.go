@@ -17,6 +17,7 @@ import (
 type Key struct {
 	pulumi.CustomResourceState
 
+	// The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
 	DeriveKeyUsage KeyDeriveKeyUsagePtrOutput `pulumi:"deriveKeyUsage"`
 	// Specifies whether the key is enabled.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
@@ -82,6 +83,7 @@ func (KeyState) ElementType() reflect.Type {
 }
 
 type keyArgs struct {
+	// The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
 	DeriveKeyUsage *KeyDeriveKeyUsage `pulumi:"deriveKeyUsage"`
 	// Specifies whether the key is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -98,6 +100,7 @@ type keyArgs struct {
 
 // The set of arguments for constructing a Key resource.
 type KeyArgs struct {
+	// The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
 	DeriveKeyUsage KeyDeriveKeyUsagePtrInput
 	// Specifies whether the key is enabled.
 	Enabled pulumi.BoolPtrInput
@@ -149,6 +152,7 @@ func (o KeyOutput) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return o
 }
 
+// The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
 func (o KeyOutput) DeriveKeyUsage() KeyDeriveKeyUsagePtrOutput {
 	return o.ApplyT(func(v *Key) KeyDeriveKeyUsagePtrOutput { return v.DeriveKeyUsage }).(KeyDeriveKeyUsagePtrOutput)
 }

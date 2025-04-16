@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterEncryptionAtRest
     {
+        /// <summary>
+        /// The ARN of the Amazon KMS key for encrypting data at rest. If you don't specify a KMS key, MSK creates one for you and uses it.
+        /// </summary>
         public readonly string DataVolumeKmsKeyId;
 
         [OutputConstructor]

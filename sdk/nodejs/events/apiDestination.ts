@@ -42,6 +42,10 @@ export class ApiDestination extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The arn of the api destination to be used in IAM policies.
+     */
+    public /*out*/ readonly arnForPolicy!: pulumi.Output<string>;
+    /**
      * The arn of the connection.
      */
     public readonly connectionArn!: pulumi.Output<string>;
@@ -93,8 +97,10 @@ export class ApiDestination extends pulumi.CustomResource {
             resourceInputs["invocationRateLimitPerSecond"] = args ? args.invocationRateLimitPerSecond : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["arnForPolicy"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["arnForPolicy"] = undefined /*out*/;
             resourceInputs["connectionArn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["httpMethod"] = undefined /*out*/;

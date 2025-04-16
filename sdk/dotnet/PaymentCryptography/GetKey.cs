@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.PaymentCryptography
     [OutputType]
     public sealed class GetKeyResult
     {
+        /// <summary>
+        /// The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
+        /// </summary>
         public readonly Pulumi.AwsNative.PaymentCryptography.KeyDeriveKeyUsage? DeriveKeyUsage;
         /// <summary>
         /// Specifies whether the key is enabled.

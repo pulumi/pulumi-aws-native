@@ -2793,6 +2793,7 @@ type BotCodeHookSpecification struct {
 }
 
 type BotCompositeSlotTypeSetting struct {
+	// Subslots in the composite slot.
 	SubSlots []BotSubSlotTypeComposition `pulumi:"subSlots"`
 }
 
@@ -2808,6 +2809,7 @@ type BotCompositeSlotTypeSettingInput interface {
 }
 
 type BotCompositeSlotTypeSettingArgs struct {
+	// Subslots in the composite slot.
 	SubSlots BotSubSlotTypeCompositionArrayInput `pulumi:"subSlots"`
 }
 
@@ -2888,6 +2890,7 @@ func (o BotCompositeSlotTypeSettingOutput) ToBotCompositeSlotTypeSettingPtrOutpu
 	}).(BotCompositeSlotTypeSettingPtrOutput)
 }
 
+// Subslots in the composite slot.
 func (o BotCompositeSlotTypeSettingOutput) SubSlots() BotSubSlotTypeCompositionArrayOutput {
 	return o.ApplyT(func(v BotCompositeSlotTypeSetting) []BotSubSlotTypeComposition { return v.SubSlots }).(BotSubSlotTypeCompositionArrayOutput)
 }
@@ -2916,6 +2919,7 @@ func (o BotCompositeSlotTypeSettingPtrOutput) Elem() BotCompositeSlotTypeSetting
 	}).(BotCompositeSlotTypeSettingOutput)
 }
 
+// Subslots in the composite slot.
 func (o BotCompositeSlotTypeSettingPtrOutput) SubSlots() BotSubSlotTypeCompositionArrayOutput {
 	return o.ApplyT(func(v *BotCompositeSlotTypeSetting) []BotSubSlotTypeComposition {
 		if v == nil {
@@ -14188,7 +14192,9 @@ func (o BotStillWaitingResponseSpecificationPtrOutput) TimeoutInSeconds() pulumi
 }
 
 type BotSubSlotTypeComposition struct {
-	Name       string `pulumi:"name"`
+	// Name of a constituent sub slot inside a composite slot.
+	Name string `pulumi:"name"`
+	// The unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
 	SlotTypeId string `pulumi:"slotTypeId"`
 }
 
@@ -14204,7 +14210,9 @@ type BotSubSlotTypeCompositionInput interface {
 }
 
 type BotSubSlotTypeCompositionArgs struct {
-	Name       pulumi.StringInput `pulumi:"name"`
+	// Name of a constituent sub slot inside a composite slot.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
 	SlotTypeId pulumi.StringInput `pulumi:"slotTypeId"`
 }
 
@@ -14259,10 +14267,12 @@ func (o BotSubSlotTypeCompositionOutput) ToBotSubSlotTypeCompositionOutputWithCo
 	return o
 }
 
+// Name of a constituent sub slot inside a composite slot.
 func (o BotSubSlotTypeCompositionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BotSubSlotTypeComposition) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
 func (o BotSubSlotTypeCompositionOutput) SlotTypeId() pulumi.StringOutput {
 	return o.ApplyT(func(v BotSubSlotTypeComposition) string { return v.SlotTypeId }).(pulumi.StringOutput)
 }

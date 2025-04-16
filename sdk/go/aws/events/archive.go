@@ -25,7 +25,8 @@ type Archive struct {
 	// An event pattern to use to filter events sent to the archive.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
-	EventPattern pulumi.AnyOutput `pulumi:"eventPattern"`
+	EventPattern     pulumi.AnyOutput       `pulumi:"eventPattern"`
+	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
 	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
 	// The ARN of the event bus that sends events to the archive.
@@ -87,7 +88,8 @@ type archiveArgs struct {
 	// An event pattern to use to filter events sent to the archive.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
-	EventPattern interface{} `pulumi:"eventPattern"`
+	EventPattern     interface{} `pulumi:"eventPattern"`
+	KmsKeyIdentifier *string     `pulumi:"kmsKeyIdentifier"`
 	// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
 	RetentionDays *int `pulumi:"retentionDays"`
 	// The ARN of the event bus that sends events to the archive.
@@ -103,7 +105,8 @@ type ArchiveArgs struct {
 	// An event pattern to use to filter events sent to the archive.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
-	EventPattern pulumi.Input
+	EventPattern     pulumi.Input
+	KmsKeyIdentifier pulumi.StringPtrInput
 	// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
 	RetentionDays pulumi.IntPtrInput
 	// The ARN of the event bus that sends events to the archive.
@@ -167,6 +170,10 @@ func (o ArchiveOutput) Description() pulumi.StringPtrOutput {
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
 func (o ArchiveOutput) EventPattern() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Archive) pulumi.AnyOutput { return v.EventPattern }).(pulumi.AnyOutput)
+}
+
+func (o ArchiveOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Archive) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely

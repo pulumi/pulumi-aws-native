@@ -70,6 +70,10 @@ export class Connection extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The arn of the connection resource to be used in IAM policies.
+     */
+    public /*out*/ readonly arnForPolicy!: pulumi.Output<string>;
+    /**
      * The authorization parameters to use to authorize with the endpoint.
      *
      * You must include only authorization parameters for the `AuthorizationType` you specify.
@@ -115,9 +119,11 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["invocationConnectivityParameters"] = args ? args.invocationConnectivityParameters : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["arnForPolicy"] = undefined /*out*/;
             resourceInputs["secretArn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["arnForPolicy"] = undefined /*out*/;
             resourceInputs["authParameters"] = undefined /*out*/;
             resourceInputs["authorizationType"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

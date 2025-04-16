@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterEncryptionInfo
     {
+        /// <summary>
+        /// The data-volume encryption details.
+        /// </summary>
         public readonly Outputs.ClusterEncryptionAtRest? EncryptionAtRest;
         /// <summary>
         /// The details for encryption in transit.

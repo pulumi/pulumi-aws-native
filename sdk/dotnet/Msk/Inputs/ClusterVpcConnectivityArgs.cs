@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterVpcConnectivityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// VPC connection control settings for brokers.
+        /// </summary>
         [Input("clientAuthentication")]
         public Input<Inputs.ClusterVpcConnectivityClientAuthenticationArgs>? ClientAuthentication { get; set; }
 

@@ -31,7 +31,7 @@ type Collaboration struct {
 	CreatorDisplayName pulumi.StringOutput `pulumi:"creatorDisplayName"`
 	// The abilities granted to the collaboration creator.
 	//
-	// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+	// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
 	CreatorMemberAbilities CollaborationMemberAbilityArrayOutput `pulumi:"creatorMemberAbilities"`
 	// The ML member abilities for a collaboration member.
 	CreatorMlMemberAbilities CollaborationMlMemberAbilitiesPtrOutput `pulumi:"creatorMlMemberAbilities"`
@@ -130,7 +130,7 @@ type collaborationArgs struct {
 	CreatorDisplayName string `pulumi:"creatorDisplayName"`
 	// The abilities granted to the collaboration creator.
 	//
-	// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+	// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
 	CreatorMemberAbilities []CollaborationMemberAbility `pulumi:"creatorMemberAbilities"`
 	// The ML member abilities for a collaboration member.
 	CreatorMlMemberAbilities *CollaborationMlMemberAbilities `pulumi:"creatorMlMemberAbilities"`
@@ -164,7 +164,7 @@ type CollaborationArgs struct {
 	CreatorDisplayName pulumi.StringInput
 	// The abilities granted to the collaboration creator.
 	//
-	// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+	// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
 	CreatorMemberAbilities CollaborationMemberAbilityArrayInput
 	// The ML member abilities for a collaboration member.
 	CreatorMlMemberAbilities CollaborationMlMemberAbilitiesPtrInput
@@ -253,7 +253,7 @@ func (o CollaborationOutput) CreatorDisplayName() pulumi.StringOutput {
 
 // The abilities granted to the collaboration creator.
 //
-// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
 func (o CollaborationOutput) CreatorMemberAbilities() CollaborationMemberAbilityArrayOutput {
 	return o.ApplyT(func(v *Collaboration) CollaborationMemberAbilityArrayOutput { return v.CreatorMemberAbilities }).(CollaborationMemberAbilityArrayOutput)
 }

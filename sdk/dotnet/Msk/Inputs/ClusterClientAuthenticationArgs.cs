@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterClientAuthenticationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Details for client authentication using SASL. To turn on SASL, you must also turn on `EncryptionInTransit` by setting `inCluster` to true. You must set `clientBroker` to either `TLS` or `TLS_PLAINTEXT` . If you choose `TLS_PLAINTEXT` , then you must also set `unauthenticated` to true.
+        /// </summary>
         [Input("sasl")]
         public Input<Inputs.ClusterSaslArgs>? Sasl { get; set; }
 
+        /// <summary>
+        /// Details for ClientAuthentication using TLS. To turn on TLS access control, you must also turn on `EncryptionInTransit` by setting `inCluster` to true and `clientBroker` to `TLS` .
+        /// </summary>
         [Input("tls")]
         public Input<Inputs.ClusterTlsArgs>? Tls { get; set; }
 
+        /// <summary>
+        /// Details for ClientAuthentication using no authentication.
+        /// </summary>
         [Input("unauthenticated")]
         public Input<Inputs.ClusterUnauthenticatedArgs>? Unauthenticated { get; set; }
 

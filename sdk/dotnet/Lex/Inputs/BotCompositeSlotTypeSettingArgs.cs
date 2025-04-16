@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Lex.Inputs
     {
         [Input("subSlots")]
         private InputList<Inputs.BotSubSlotTypeCompositionArgs>? _subSlots;
+
+        /// <summary>
+        /// Subslots in the composite slot.
+        /// </summary>
         public InputList<Inputs.BotSubSlotTypeCompositionArgs> SubSlots
         {
             get => _subSlots ?? (_subSlots = new InputList<Inputs.BotSubSlotTypeCompositionArgs>());

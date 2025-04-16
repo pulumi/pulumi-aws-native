@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
     public sealed class BotSubSlotTypeCompositionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of a constituent sub slot inside a composite slot.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
+        /// </summary>
         [Input("slotTypeId", required: true)]
         public Input<string> SlotTypeId { get; set; } = null!;
 

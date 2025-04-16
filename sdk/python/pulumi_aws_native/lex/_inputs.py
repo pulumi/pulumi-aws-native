@@ -1277,6 +1277,9 @@ class BotCloudWatchLogGroupLogDestinationArgs:
 if not MYPY:
     class BotCompositeSlotTypeSettingArgsDict(TypedDict):
         sub_slots: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSubSlotTypeCompositionArgsDict']]]]
+        """
+        Subslots in the composite slot.
+        """
 elif False:
     BotCompositeSlotTypeSettingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1284,12 +1287,18 @@ elif False:
 class BotCompositeSlotTypeSettingArgs:
     def __init__(__self__, *,
                  sub_slots: Optional[pulumi.Input[Sequence[pulumi.Input['BotSubSlotTypeCompositionArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['BotSubSlotTypeCompositionArgs']]] sub_slots: Subslots in the composite slot.
+        """
         if sub_slots is not None:
             pulumi.set(__self__, "sub_slots", sub_slots)
 
     @property
     @pulumi.getter(name="subSlots")
     def sub_slots(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotSubSlotTypeCompositionArgs']]]]:
+        """
+        Subslots in the composite slot.
+        """
         return pulumi.get(self, "sub_slots")
 
     @sub_slots.setter
@@ -6318,7 +6327,13 @@ class BotStillWaitingResponseSpecificationArgs:
 if not MYPY:
     class BotSubSlotTypeCompositionArgsDict(TypedDict):
         name: pulumi.Input[builtins.str]
+        """
+        Name of a constituent sub slot inside a composite slot.
+        """
         slot_type_id: pulumi.Input[builtins.str]
+        """
+        The unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
+        """
 elif False:
     BotSubSlotTypeCompositionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6327,12 +6342,19 @@ class BotSubSlotTypeCompositionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[builtins.str],
                  slot_type_id: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] name: Name of a constituent sub slot inside a composite slot.
+        :param pulumi.Input[builtins.str] slot_type_id: The unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "slot_type_id", slot_type_id)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
+        """
+        Name of a constituent sub slot inside a composite slot.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -6342,6 +6364,9 @@ class BotSubSlotTypeCompositionArgs:
     @property
     @pulumi.getter(name="slotTypeId")
     def slot_type_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
+        """
         return pulumi.get(self, "slot_type_id")
 
     @slot_type_id.setter

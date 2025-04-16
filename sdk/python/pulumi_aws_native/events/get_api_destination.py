@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetApiDestinationResult:
-    def __init__(__self__, arn=None, connection_arn=None, description=None, http_method=None, invocation_endpoint=None, invocation_rate_limit_per_second=None):
+    def __init__(__self__, arn=None, arn_for_policy=None, connection_arn=None, description=None, http_method=None, invocation_endpoint=None, invocation_rate_limit_per_second=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if arn_for_policy and not isinstance(arn_for_policy, str):
+            raise TypeError("Expected argument 'arn_for_policy' to be a str")
+        pulumi.set(__self__, "arn_for_policy", arn_for_policy)
         if connection_arn and not isinstance(connection_arn, str):
             raise TypeError("Expected argument 'connection_arn' to be a str")
         pulumi.set(__self__, "connection_arn", connection_arn)
@@ -52,6 +55,14 @@ class GetApiDestinationResult:
         The arn of the api destination.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="arnForPolicy")
+    def arn_for_policy(self) -> Optional[builtins.str]:
+        """
+        The arn of the api destination to be used in IAM policies.
+        """
+        return pulumi.get(self, "arn_for_policy")
 
     @property
     @pulumi.getter(name="connectionArn")
@@ -101,6 +112,7 @@ class AwaitableGetApiDestinationResult(GetApiDestinationResult):
             yield self
         return GetApiDestinationResult(
             arn=self.arn,
+            arn_for_policy=self.arn_for_policy,
             connection_arn=self.connection_arn,
             description=self.description,
             http_method=self.http_method,
@@ -123,6 +135,7 @@ def get_api_destination(name: Optional[builtins.str] = None,
 
     return AwaitableGetApiDestinationResult(
         arn=pulumi.get(__ret__, 'arn'),
+        arn_for_policy=pulumi.get(__ret__, 'arn_for_policy'),
         connection_arn=pulumi.get(__ret__, 'connection_arn'),
         description=pulumi.get(__ret__, 'description'),
         http_method=pulumi.get(__ret__, 'http_method'),
@@ -142,6 +155,7 @@ def get_api_destination_output(name: Optional[pulumi.Input[builtins.str]] = None
     __ret__ = pulumi.runtime.invoke_output('aws-native:events:getApiDestination', __args__, opts=opts, typ=GetApiDestinationResult)
     return __ret__.apply(lambda __response__: GetApiDestinationResult(
         arn=pulumi.get(__response__, 'arn'),
+        arn_for_policy=pulumi.get(__response__, 'arn_for_policy'),
         connection_arn=pulumi.get(__response__, 'connection_arn'),
         description=pulumi.get(__response__, 'description'),
         http_method=pulumi.get(__response__, 'http_method'),

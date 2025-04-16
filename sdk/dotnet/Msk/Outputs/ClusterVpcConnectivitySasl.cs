@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterVpcConnectivitySasl
     {
+        /// <summary>
+        /// Details for ClientAuthentication using IAM for VpcConnectivity.
+        /// </summary>
         public readonly Outputs.ClusterVpcConnectivityIam? Iam;
+        /// <summary>
+        /// Details for SASL/SCRAM client authentication for VpcConnectivity.
+        /// </summary>
         public readonly Outputs.ClusterVpcConnectivityScram? Scram;
 
         [OutputConstructor]

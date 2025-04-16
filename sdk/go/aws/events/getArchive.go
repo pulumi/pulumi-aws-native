@@ -35,7 +35,8 @@ type LookupArchiveResult struct {
 	// An event pattern to use to filter events sent to the archive.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
-	EventPattern interface{} `pulumi:"eventPattern"`
+	EventPattern     interface{} `pulumi:"eventPattern"`
+	KmsKeyIdentifier *string     `pulumi:"kmsKeyIdentifier"`
 	// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
 	RetentionDays *int `pulumi:"retentionDays"`
 }
@@ -87,6 +88,10 @@ func (o LookupArchiveResultOutput) Description() pulumi.StringPtrOutput {
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
 func (o LookupArchiveResultOutput) EventPattern() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupArchiveResult) interface{} { return v.EventPattern }).(pulumi.AnyOutput)
+}
+
+func (o LookupArchiveResultOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArchiveResult) *string { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely

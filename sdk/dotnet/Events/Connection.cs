@@ -61,6 +61,12 @@ namespace Pulumi.AwsNative.Events
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The arn of the connection resource to be used in IAM policies.
+        /// </summary>
+        [Output("arnForPolicy")]
+        public Output<string> ArnForPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The authorization parameters to use to authorize with the endpoint.
         /// 
         /// You must include only authorization parameters for the `AuthorizationType` you specify.

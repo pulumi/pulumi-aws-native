@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterCloudWatchLogs
     {
+        /// <summary>
+        /// Specifies whether broker logs get sent to the specified CloudWatch Logs destination.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// The CloudWatch log group that is the destination for broker logs.
+        /// </summary>
         public readonly string? LogGroup;
 
         [OutputConstructor]

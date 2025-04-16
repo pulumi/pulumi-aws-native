@@ -30,6 +30,8 @@ type LookupConnectionArgs struct {
 type LookupConnectionResult struct {
 	// The arn of the connection resource.
 	Arn *string `pulumi:"arn"`
+	// The arn of the connection resource to be used in IAM policies.
+	ArnForPolicy *string `pulumi:"arnForPolicy"`
 	// The authorization parameters to use to authorize with the endpoint.
 	//
 	// You must include only authorization parameters for the `AuthorizationType` you specify.
@@ -81,6 +83,11 @@ func (o LookupConnectionResultOutput) ToLookupConnectionResultOutputWithContext(
 // The arn of the connection resource.
 func (o LookupConnectionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The arn of the connection resource to be used in IAM policies.
+func (o LookupConnectionResultOutput) ArnForPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.ArnForPolicy }).(pulumi.StringPtrOutput)
 }
 
 // The authorization parameters to use to authorize with the endpoint.

@@ -238,6 +238,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["invocation_connectivity_parameters"] = invocation_connectivity_parameters
             __props__.__dict__["name"] = name
             __props__.__dict__["arn"] = None
+            __props__.__dict__["arn_for_policy"] = None
             __props__.__dict__["secret_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -264,6 +265,7 @@ class Connection(pulumi.CustomResource):
         __props__ = ConnectionArgs.__new__(ConnectionArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["arn_for_policy"] = None
         __props__.__dict__["auth_parameters"] = None
         __props__.__dict__["authorization_type"] = None
         __props__.__dict__["description"] = None
@@ -279,6 +281,14 @@ class Connection(pulumi.CustomResource):
         The arn of the connection resource.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="arnForPolicy")
+    def arn_for_policy(self) -> pulumi.Output[builtins.str]:
+        """
+        The arn of the connection resource to be used in IAM policies.
+        """
+        return pulumi.get(self, "arn_for_policy")
 
     @property
     @pulumi.getter(name="authParameters")

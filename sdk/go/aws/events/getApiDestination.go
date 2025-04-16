@@ -30,6 +30,8 @@ type LookupApiDestinationArgs struct {
 type LookupApiDestinationResult struct {
 	// The arn of the api destination.
 	Arn *string `pulumi:"arn"`
+	// The arn of the api destination to be used in IAM policies.
+	ArnForPolicy *string `pulumi:"arnForPolicy"`
 	// The arn of the connection.
 	ConnectionArn *string `pulumi:"connectionArn"`
 	// A description for the API destination to create.
@@ -77,6 +79,11 @@ func (o LookupApiDestinationResultOutput) ToLookupApiDestinationResultOutputWith
 // The arn of the api destination.
 func (o LookupApiDestinationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiDestinationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The arn of the api destination to be used in IAM policies.
+func (o LookupApiDestinationResultOutput) ArnForPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiDestinationResult) *string { return v.ArnForPolicy }).(pulumi.StringPtrOutput)
 }
 
 // The arn of the connection.

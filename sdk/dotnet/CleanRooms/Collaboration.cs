@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.CleanRooms
         /// <summary>
         /// The abilities granted to the collaboration creator.
         /// 
-        /// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+        /// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
         /// </summary>
         [Output("creatorMemberAbilities")]
         public Output<ImmutableArray<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility>> CreatorMemberAbilities { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.AwsNative.CleanRooms
         /// <summary>
         /// The abilities granted to the collaboration creator.
         /// 
-        /// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+        /// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
         /// </summary>
         public InputList<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility> CreatorMemberAbilities
         {

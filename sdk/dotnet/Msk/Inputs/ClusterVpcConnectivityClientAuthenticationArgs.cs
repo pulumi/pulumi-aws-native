@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterVpcConnectivityClientAuthenticationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Details for VpcConnectivity ClientAuthentication using SASL.
+        /// </summary>
         [Input("sasl")]
         public Input<Inputs.ClusterVpcConnectivitySaslArgs>? Sasl { get; set; }
 
+        /// <summary>
+        /// Details for VpcConnectivity ClientAuthentication using TLS.
+        /// </summary>
         [Input("tls")]
         public Input<Inputs.ClusterVpcConnectivityTlsArgs>? Tls { get; set; }
 

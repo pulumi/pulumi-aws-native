@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterPrometheus
     {
+        /// <summary>
+        /// Indicates whether you want to enable or disable the JMX Exporter.
+        /// </summary>
         public readonly Outputs.ClusterJmxExporter? JmxExporter;
+        /// <summary>
+        /// Indicates whether you want to enable or disable the Node Exporter.
+        /// </summary>
         public readonly Outputs.ClusterNodeExporter? NodeExporter;
 
         [OutputConstructor]

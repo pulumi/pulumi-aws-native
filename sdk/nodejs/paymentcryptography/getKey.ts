@@ -22,6 +22,9 @@ export interface GetKeyArgs {
 }
 
 export interface GetKeyResult {
+    /**
+     * The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
+     */
     readonly deriveKeyUsage?: enums.paymentcryptography.KeyDeriveKeyUsage;
     /**
      * Specifies whether the key is enabled.

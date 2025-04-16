@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.Events
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The arn of the api destination to be used in IAM policies.
+        /// </summary>
+        public readonly string? ArnForPolicy;
+        /// <summary>
         /// The arn of the connection.
         /// </summary>
         public readonly string? ConnectionArn;
@@ -92,6 +96,8 @@ namespace Pulumi.AwsNative.Events
         private GetApiDestinationResult(
             string? arn,
 
+            string? arnForPolicy,
+
             string? connectionArn,
 
             string? description,
@@ -103,6 +109,7 @@ namespace Pulumi.AwsNative.Events
             int? invocationRateLimitPerSecond)
         {
             Arn = arn;
+            ArnForPolicy = arnForPolicy;
             ConnectionArn = connectionArn;
             Description = description;
             HttpMethod = httpMethod;

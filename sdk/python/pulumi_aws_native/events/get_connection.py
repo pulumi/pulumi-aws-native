@@ -26,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectionResult:
-    def __init__(__self__, arn=None, auth_parameters=None, authorization_type=None, description=None, invocation_connectivity_parameters=None, secret_arn=None):
+    def __init__(__self__, arn=None, arn_for_policy=None, auth_parameters=None, authorization_type=None, description=None, invocation_connectivity_parameters=None, secret_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if arn_for_policy and not isinstance(arn_for_policy, str):
+            raise TypeError("Expected argument 'arn_for_policy' to be a str")
+        pulumi.set(__self__, "arn_for_policy", arn_for_policy)
         if auth_parameters and not isinstance(auth_parameters, dict):
             raise TypeError("Expected argument 'auth_parameters' to be a dict")
         pulumi.set(__self__, "auth_parameters", auth_parameters)
@@ -53,6 +56,14 @@ class GetConnectionResult:
         The arn of the connection resource.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="arnForPolicy")
+    def arn_for_policy(self) -> Optional[builtins.str]:
+        """
+        The arn of the connection resource to be used in IAM policies.
+        """
+        return pulumi.get(self, "arn_for_policy")
 
     @property
     @pulumi.getter(name="authParameters")
@@ -106,6 +117,7 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             yield self
         return GetConnectionResult(
             arn=self.arn,
+            arn_for_policy=self.arn_for_policy,
             auth_parameters=self.auth_parameters,
             authorization_type=self.authorization_type,
             description=self.description,
@@ -128,6 +140,7 @@ def get_connection(name: Optional[builtins.str] = None,
 
     return AwaitableGetConnectionResult(
         arn=pulumi.get(__ret__, 'arn'),
+        arn_for_policy=pulumi.get(__ret__, 'arn_for_policy'),
         auth_parameters=pulumi.get(__ret__, 'auth_parameters'),
         authorization_type=pulumi.get(__ret__, 'authorization_type'),
         description=pulumi.get(__ret__, 'description'),
@@ -147,6 +160,7 @@ def get_connection_output(name: Optional[pulumi.Input[builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:events:getConnection', __args__, opts=opts, typ=GetConnectionResult)
     return __ret__.apply(lambda __response__: GetConnectionResult(
         arn=pulumi.get(__response__, 'arn'),
+        arn_for_policy=pulumi.get(__response__, 'arn_for_policy'),
         auth_parameters=pulumi.get(__response__, 'auth_parameters'),
         authorization_type=pulumi.get(__response__, 'authorization_type'),
         description=pulumi.get(__response__, 'description'),

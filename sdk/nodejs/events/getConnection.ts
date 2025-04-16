@@ -30,6 +30,10 @@ export interface GetConnectionResult {
      */
     readonly arn?: string;
     /**
+     * The arn of the connection resource to be used in IAM policies.
+     */
+    readonly arnForPolicy?: string;
+    /**
      * The authorization parameters to use to authorize with the endpoint.
      *
      * You must include only authorization parameters for the `AuthorizationType` you specify.

@@ -18,6 +18,8 @@ type ApiDestination struct {
 
 	// The arn of the api destination.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The arn of the api destination to be used in IAM policies.
+	ArnForPolicy pulumi.StringOutput `pulumi:"arnForPolicy"`
 	// The arn of the connection.
 	ConnectionArn pulumi.StringOutput `pulumi:"connectionArn"`
 	// A description for the API destination to create.
@@ -155,6 +157,11 @@ func (o ApiDestinationOutput) ToApiDestinationOutputWithContext(ctx context.Cont
 // The arn of the api destination.
 func (o ApiDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiDestination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The arn of the api destination to be used in IAM policies.
+func (o ApiDestinationOutput) ArnForPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiDestination) pulumi.StringOutput { return v.ArnForPolicy }).(pulumi.StringOutput)
 }
 
 // The arn of the connection.
