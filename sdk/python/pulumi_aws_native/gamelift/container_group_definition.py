@@ -188,6 +188,9 @@ class ContainerGroupDefinitionArgs:
 
 
 class ContainerGroupDefinition(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:gamelift:ContainerGroupDefinition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

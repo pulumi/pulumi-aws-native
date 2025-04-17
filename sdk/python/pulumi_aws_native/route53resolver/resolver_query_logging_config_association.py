@@ -59,6 +59,9 @@ class ResolverQueryLoggingConfigAssociationArgs:
 
 
 class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:route53resolver:ResolverQueryLoggingConfigAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

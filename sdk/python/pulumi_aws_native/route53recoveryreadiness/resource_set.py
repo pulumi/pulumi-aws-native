@@ -96,6 +96,9 @@ class ResourceSetArgs:
 
 
 class ResourceSet(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:route53recoveryreadiness:ResourceSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

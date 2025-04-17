@@ -109,6 +109,9 @@ class KeyspaceArgs:
 
 
 class Keyspace(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cassandra:Keyspace"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

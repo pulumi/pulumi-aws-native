@@ -78,6 +78,9 @@ class LoggingConfigurationArgs:
 
 
 class LoggingConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ivschat:LoggingConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

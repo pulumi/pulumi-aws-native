@@ -108,6 +108,9 @@ class MetricFilterArgs:
 
 
 class MetricFilter(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:logs:MetricFilter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

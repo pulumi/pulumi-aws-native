@@ -169,6 +169,9 @@ class FeatureArgs:
 
 
 class Feature(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:evidently:Feature"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

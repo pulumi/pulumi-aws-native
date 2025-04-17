@@ -124,6 +124,9 @@ class SegmentDefinitionArgs:
 
 
 class SegmentDefinition(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:customerprofiles:SegmentDefinition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

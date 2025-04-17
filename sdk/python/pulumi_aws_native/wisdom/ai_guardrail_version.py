@@ -72,6 +72,9 @@ class AiGuardrailVersionArgs:
 
 
 class AiGuardrailVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:wisdom:AiGuardrailVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

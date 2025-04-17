@@ -91,6 +91,9 @@ class UserPolicyInitArgs:
 
 
 class UserPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iam:UserPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

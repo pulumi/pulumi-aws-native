@@ -200,6 +200,9 @@ class ScheduledQueryArgs:
 
 
 class ScheduledQuery(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:timestream:ScheduledQuery"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

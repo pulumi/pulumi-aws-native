@@ -277,6 +277,9 @@ class DashboardArgs:
 
 
 class Dashboard(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:quicksight:Dashboard"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

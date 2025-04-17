@@ -108,6 +108,9 @@ class ModelArgs:
 
 
 class Model(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:apigatewayv2:Model"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -138,6 +138,9 @@ class AnomalySubscriptionArgs:
 
 
 class AnomalySubscription(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ce:AnomalySubscription"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

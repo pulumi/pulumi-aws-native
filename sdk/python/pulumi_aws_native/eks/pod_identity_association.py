@@ -104,6 +104,9 @@ class PodIdentityAssociationArgs:
 
 
 class PodIdentityAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:eks:PodIdentityAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

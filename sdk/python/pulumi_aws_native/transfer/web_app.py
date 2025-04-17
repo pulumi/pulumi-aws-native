@@ -134,6 +134,9 @@ class WebAppArgs:
 
 
 class WebApp(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:transfer:WebApp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

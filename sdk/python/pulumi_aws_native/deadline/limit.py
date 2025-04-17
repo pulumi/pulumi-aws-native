@@ -114,6 +114,9 @@ class LimitArgs:
 
 
 class Limit(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:deadline:Limit"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

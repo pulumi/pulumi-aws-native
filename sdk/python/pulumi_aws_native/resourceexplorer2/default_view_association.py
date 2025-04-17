@@ -41,6 +41,9 @@ class DefaultViewAssociationArgs:
 
 
 class DefaultViewAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:resourceexplorer2:DefaultViewAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

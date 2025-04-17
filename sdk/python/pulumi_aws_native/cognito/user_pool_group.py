@@ -113,6 +113,9 @@ class UserPoolGroupArgs:
 
 
 class UserPoolGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cognito:UserPoolGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

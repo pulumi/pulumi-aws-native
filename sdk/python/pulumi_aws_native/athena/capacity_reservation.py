@@ -94,6 +94,9 @@ class CapacityReservationArgs:
 
 
 class CapacityReservation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:athena:CapacityReservation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

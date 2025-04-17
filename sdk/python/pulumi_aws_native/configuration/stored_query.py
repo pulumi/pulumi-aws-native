@@ -91,6 +91,9 @@ class StoredQueryArgs:
 
 
 class StoredQuery(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:configuration:StoredQuery"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

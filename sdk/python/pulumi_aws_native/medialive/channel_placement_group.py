@@ -93,6 +93,9 @@ class ChannelPlacementGroupArgs:
 
 
 class ChannelPlacementGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:medialive:ChannelPlacementGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

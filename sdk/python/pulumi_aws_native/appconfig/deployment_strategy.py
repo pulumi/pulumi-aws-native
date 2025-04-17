@@ -178,6 +178,9 @@ class DeploymentStrategyArgs:
 
 
 class DeploymentStrategy(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:appconfig:DeploymentStrategy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

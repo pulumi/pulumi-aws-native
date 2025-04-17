@@ -108,6 +108,9 @@ class VariantStoreArgs:
 
 
 class VariantStore(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:omics:VariantStore"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

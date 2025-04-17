@@ -163,6 +163,9 @@ class ServiceLevelObjectiveArgs:
 
 
 class ServiceLevelObjective(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:applicationsignals:ServiceLevelObjective"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

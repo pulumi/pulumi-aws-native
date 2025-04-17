@@ -194,6 +194,9 @@ class FlowArgs:
 
 
 class Flow(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:bedrock:Flow"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -155,6 +155,9 @@ class SamlProviderArgs:
 
 
 class SamlProvider(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iam:SamlProvider"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

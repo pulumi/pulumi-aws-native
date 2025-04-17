@@ -91,6 +91,9 @@ class UserHierarchyGroupArgs:
 
 
 class UserHierarchyGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:connect:UserHierarchyGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

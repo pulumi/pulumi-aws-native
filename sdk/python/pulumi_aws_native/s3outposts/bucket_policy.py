@@ -60,6 +60,9 @@ class BucketPolicyArgs:
 
 
 class BucketPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:s3outposts:BucketPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

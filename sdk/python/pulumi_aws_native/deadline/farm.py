@@ -99,6 +99,9 @@ class FarmArgs:
 
 
 class Farm(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:deadline:Farm"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

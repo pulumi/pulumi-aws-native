@@ -93,6 +93,9 @@ class ReferenceStoreArgs:
 
 
 class ReferenceStore(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:omics:ReferenceStore"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -27,6 +27,9 @@ class LogAnomalyDetectionIntegrationArgs:
 
 
 class LogAnomalyDetectionIntegration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:devopsguru:LogAnomalyDetectionIntegration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

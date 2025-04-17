@@ -164,6 +164,9 @@ class DbShardGroupArgs:
 
 
 class DbShardGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:rds:DbShardGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

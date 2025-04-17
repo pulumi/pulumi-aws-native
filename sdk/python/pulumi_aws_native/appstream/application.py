@@ -227,6 +227,9 @@ class ApplicationArgs:
 
 
 class Application(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:appstream:Application"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

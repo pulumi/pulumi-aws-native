@@ -92,6 +92,9 @@ class IntegrationAssociationArgs:
 
 
 class IntegrationAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:connect:IntegrationAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

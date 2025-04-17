@@ -111,6 +111,9 @@ class RegexPatternSetArgs:
 
 
 class RegexPatternSet(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:wafv2:RegexPatternSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

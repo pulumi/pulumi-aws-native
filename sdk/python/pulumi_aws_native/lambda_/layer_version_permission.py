@@ -87,6 +87,9 @@ class LayerVersionPermissionArgs:
 
 
 class LayerVersionPermission(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:lambda:LayerVersionPermission"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

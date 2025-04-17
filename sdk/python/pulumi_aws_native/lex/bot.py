@@ -222,6 +222,9 @@ class BotArgs:
 
 
 class Bot(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:lex:Bot"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

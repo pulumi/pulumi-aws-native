@@ -56,6 +56,9 @@ class VpnConnectionRouteArgs:
 
 
 class VpnConnectionRoute(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:VpnConnectionRoute"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

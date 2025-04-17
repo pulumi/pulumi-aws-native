@@ -94,6 +94,9 @@ class UsageProfileArgs:
 
 
 class UsageProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:glue:UsageProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

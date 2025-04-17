@@ -203,6 +203,9 @@ class PartnerAppArgs:
 
 
 class PartnerApp(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:sagemaker:PartnerApp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

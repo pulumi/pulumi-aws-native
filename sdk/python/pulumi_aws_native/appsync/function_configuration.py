@@ -250,6 +250,9 @@ class FunctionConfigurationArgs:
 
 
 class FunctionConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:appsync:FunctionConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

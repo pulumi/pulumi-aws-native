@@ -76,6 +76,9 @@ class SoftwarePackageArgs:
 
 
 class SoftwarePackage(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iot:SoftwarePackage"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

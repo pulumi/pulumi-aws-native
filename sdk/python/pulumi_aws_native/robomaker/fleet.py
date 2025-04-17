@@ -58,6 +58,9 @@ class FleetArgs:
 
 
 class Fleet(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:robomaker:Fleet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

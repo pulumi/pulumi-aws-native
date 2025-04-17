@@ -425,6 +425,9 @@ class TaskDefinitionArgs:
 
 
 class TaskDefinition(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ecs:TaskDefinition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

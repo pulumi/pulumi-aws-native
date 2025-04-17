@@ -375,6 +375,9 @@ class KeyArgs:
 
 
 class Key(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:kms:Key"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

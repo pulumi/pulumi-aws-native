@@ -223,6 +223,9 @@ class NetworkProfileArgs:
 
 
 class NetworkProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:devicefarm:NetworkProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

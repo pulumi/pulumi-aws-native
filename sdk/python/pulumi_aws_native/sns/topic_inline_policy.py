@@ -60,6 +60,9 @@ class TopicInlinePolicyArgs:
 
 
 class TopicInlinePolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:sns:TopicInlinePolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

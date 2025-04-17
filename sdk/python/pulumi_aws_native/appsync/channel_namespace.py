@@ -142,6 +142,9 @@ class ChannelNamespaceArgs:
 
 
 class ChannelNamespace(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:appsync:ChannelNamespace"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

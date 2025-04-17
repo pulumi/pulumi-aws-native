@@ -121,6 +121,9 @@ class MemberArgs:
 
 
 class Member(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:guardduty:Member"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

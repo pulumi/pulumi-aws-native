@@ -107,6 +107,9 @@ class TransitGatewayAttachmentArgs:
 
 
 class TransitGatewayAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:TransitGatewayAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

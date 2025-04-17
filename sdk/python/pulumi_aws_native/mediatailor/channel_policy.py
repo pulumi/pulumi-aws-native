@@ -60,6 +60,9 @@ class ChannelPolicyArgs:
 
 
 class ChannelPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:mediatailor:ChannelPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

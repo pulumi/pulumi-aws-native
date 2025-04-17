@@ -209,6 +209,9 @@ class ResourceConfigurationArgs:
 
 
 class ResourceConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:vpclattice:ResourceConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

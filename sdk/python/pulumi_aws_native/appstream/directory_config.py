@@ -89,6 +89,9 @@ class DirectoryConfigArgs:
 
 
 class DirectoryConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:appstream:DirectoryConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

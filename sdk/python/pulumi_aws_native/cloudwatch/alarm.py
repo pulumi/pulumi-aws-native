@@ -408,6 +408,9 @@ class AlarmArgs:
 
 
 class Alarm(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cloudwatch:Alarm"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

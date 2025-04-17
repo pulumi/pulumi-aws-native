@@ -241,6 +241,9 @@ class SecurityGroupIngressInitArgs:
 
 
 class SecurityGroupIngress(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:SecurityGroupIngress"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

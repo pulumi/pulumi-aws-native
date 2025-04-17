@@ -381,6 +381,9 @@ class DeliveryStreamArgs:
 
 
 class DeliveryStream(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:kinesisfirehose:DeliveryStream"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

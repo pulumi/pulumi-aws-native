@@ -91,6 +91,9 @@ class DimensionArgs:
 
 
 class Dimension(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iot:Dimension"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

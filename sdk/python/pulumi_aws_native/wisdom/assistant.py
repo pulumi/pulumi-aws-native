@@ -110,6 +110,9 @@ class AssistantArgs:
 
 
 class Assistant(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:wisdom:Assistant"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

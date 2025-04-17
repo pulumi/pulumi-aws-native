@@ -87,6 +87,9 @@ class MountTargetArgs:
 
 
 class MountTarget(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:efs:MountTarget"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

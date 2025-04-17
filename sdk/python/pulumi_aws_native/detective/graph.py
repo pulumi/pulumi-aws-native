@@ -60,6 +60,9 @@ class GraphArgs:
 
 
 class Graph(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:detective:Graph"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

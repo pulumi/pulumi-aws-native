@@ -173,6 +173,9 @@ class NetworkInsightsPathArgs:
 
 
 class NetworkInsightsPath(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:NetworkInsightsPath"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

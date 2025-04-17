@@ -243,6 +243,9 @@ class Ec2FleetArgs:
 
 
 class Ec2Fleet(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:Ec2Fleet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

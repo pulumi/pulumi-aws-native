@@ -155,6 +155,9 @@ class MatchingWorkflowArgs:
 
 
 class MatchingWorkflow(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:entityresolution:MatchingWorkflow"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

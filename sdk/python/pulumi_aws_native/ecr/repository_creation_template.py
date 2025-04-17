@@ -171,6 +171,9 @@ class RepositoryCreationTemplateArgs:
 
 
 class RepositoryCreationTemplate(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ecr:RepositoryCreationTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -140,6 +140,9 @@ class ConformancePackArgs:
 
 
 class ConformancePack(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:configuration:ConformancePack"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

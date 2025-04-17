@@ -105,6 +105,9 @@ class AlertArgs:
 
 
 class Alert(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:lookoutmetrics:Alert"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -41,6 +41,9 @@ class OrganizationAdminArgs:
 
 
 class OrganizationAdmin(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:detective:OrganizationAdmin"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

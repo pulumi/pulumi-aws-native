@@ -157,6 +157,9 @@ class VpcEndpointServiceArgs:
 
 
 class VpcEndpointService(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:VpcEndpointService"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

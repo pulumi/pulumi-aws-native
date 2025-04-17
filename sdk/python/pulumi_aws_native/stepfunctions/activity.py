@@ -115,6 +115,9 @@ class ActivityArgs:
 
 
 class Activity(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:stepfunctions:Activity"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

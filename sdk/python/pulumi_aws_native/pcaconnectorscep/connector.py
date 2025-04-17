@@ -72,6 +72,9 @@ class ConnectorArgs:
 
 
 class Connector(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:pcaconnectorscep:Connector"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

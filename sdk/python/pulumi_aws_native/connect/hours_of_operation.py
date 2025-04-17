@@ -140,6 +140,9 @@ class HoursOfOperationArgs:
 
 
 class HoursOfOperation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:connect:HoursOfOperation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

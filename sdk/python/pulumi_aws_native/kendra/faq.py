@@ -156,6 +156,9 @@ class FaqArgs:
 
 
 class Faq(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:kendra:Faq"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

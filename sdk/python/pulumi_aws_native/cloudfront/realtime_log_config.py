@@ -91,6 +91,9 @@ class RealtimeLogConfigArgs:
 
 
 class RealtimeLogConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cloudfront:RealtimeLogConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -155,6 +155,9 @@ class CalculatedAttributeDefinitionArgs:
 
 
 class CalculatedAttributeDefinition(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:customerprofiles:CalculatedAttributeDefinition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

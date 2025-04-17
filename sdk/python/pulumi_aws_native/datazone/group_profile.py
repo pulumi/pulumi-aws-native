@@ -73,6 +73,9 @@ class GroupProfileArgs:
 
 
 class GroupProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:datazone:GroupProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -107,6 +107,9 @@ class DeploymentArgs:
 
 
 class Deployment(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:launchwizard:Deployment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

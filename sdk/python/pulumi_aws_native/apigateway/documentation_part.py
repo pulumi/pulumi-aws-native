@@ -74,6 +74,9 @@ class DocumentationPartArgs:
 
 
 class DocumentationPart(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:apigateway:DocumentationPart"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

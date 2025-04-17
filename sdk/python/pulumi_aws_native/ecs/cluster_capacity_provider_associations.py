@@ -74,6 +74,9 @@ class ClusterCapacityProviderAssociationsArgs:
 
 
 class ClusterCapacityProviderAssociations(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ecs:ClusterCapacityProviderAssociations"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

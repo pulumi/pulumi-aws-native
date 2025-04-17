@@ -129,6 +129,9 @@ class PolicyStatementArgs:
 
 
 class PolicyStatement(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:entityresolution:PolicyStatement"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

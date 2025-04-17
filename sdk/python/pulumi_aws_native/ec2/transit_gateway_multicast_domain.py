@@ -77,6 +77,9 @@ class TransitGatewayMulticastDomainArgs:
 
 
 class TransitGatewayMulticastDomain(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:TransitGatewayMulticastDomain"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

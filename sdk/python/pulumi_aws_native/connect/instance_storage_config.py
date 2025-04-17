@@ -138,6 +138,9 @@ class InstanceStorageConfigArgs:
 
 
 class InstanceStorageConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:connect:InstanceStorageConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

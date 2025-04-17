@@ -139,6 +139,9 @@ class BridgeArgs:
 
 
 class Bridge(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:mediaconnect:Bridge"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

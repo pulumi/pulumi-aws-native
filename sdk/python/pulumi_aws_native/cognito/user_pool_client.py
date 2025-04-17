@@ -545,6 +545,9 @@ class UserPoolClientArgs:
 
 
 class UserPoolClient(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cognito:UserPoolClient"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

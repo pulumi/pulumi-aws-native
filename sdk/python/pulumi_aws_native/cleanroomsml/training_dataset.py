@@ -113,6 +113,9 @@ class TrainingDatasetArgs:
 
 
 class TrainingDataset(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cleanroomsml:TrainingDataset"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

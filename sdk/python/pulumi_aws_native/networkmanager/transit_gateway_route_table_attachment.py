@@ -124,6 +124,9 @@ class TransitGatewayRouteTableAttachmentArgs:
 
 
 class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:networkmanager:TransitGatewayRouteTableAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

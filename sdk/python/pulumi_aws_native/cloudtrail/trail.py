@@ -297,6 +297,9 @@ class TrailArgs:
 
 
 class Trail(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cloudtrail:Trail"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

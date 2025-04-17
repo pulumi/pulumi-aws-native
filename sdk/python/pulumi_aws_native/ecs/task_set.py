@@ -240,6 +240,9 @@ class TaskSetArgs:
 
 
 class TaskSet(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ecs:TaskSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

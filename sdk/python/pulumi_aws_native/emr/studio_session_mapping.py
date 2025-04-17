@@ -87,6 +87,9 @@ class StudioSessionMappingArgs:
 
 
 class StudioSessionMapping(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:emr:StudioSessionMapping"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

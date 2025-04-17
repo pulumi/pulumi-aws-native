@@ -75,6 +75,9 @@ class MultiRegionAccessPointArgs:
 
 
 class MultiRegionAccessPoint(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:s3:MultiRegionAccessPoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

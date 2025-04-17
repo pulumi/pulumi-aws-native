@@ -99,6 +99,9 @@ class ResourceVersionArgs:
 
 
 class ResourceVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cloudformation:ResourceVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

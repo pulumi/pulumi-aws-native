@@ -58,6 +58,9 @@ class PublisherArgs:
 
 
 class Publisher(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cloudformation:Publisher"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

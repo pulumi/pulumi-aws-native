@@ -119,6 +119,9 @@ class WarmPoolArgs:
 
 
 class WarmPool(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:autoscaling:WarmPool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

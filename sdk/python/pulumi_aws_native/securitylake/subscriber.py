@@ -143,6 +143,9 @@ class SubscriberArgs:
 
 
 class Subscriber(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:securitylake:Subscriber"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

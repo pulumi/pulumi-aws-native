@@ -56,6 +56,9 @@ class TransitGatewayRegistrationArgs:
 
 
 class TransitGatewayRegistration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:networkmanager:TransitGatewayRegistration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

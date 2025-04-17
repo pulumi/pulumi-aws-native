@@ -238,6 +238,9 @@ class StateMachineArgs:
 
 
 class StateMachine(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:stepfunctions:StateMachine"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

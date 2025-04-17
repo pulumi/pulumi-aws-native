@@ -59,6 +59,9 @@ class CarrierGatewayArgs:
 
 
 class CarrierGateway(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:CarrierGateway"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -143,6 +143,9 @@ class JobQueueArgs:
 
 
 class JobQueue(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:batch:JobQueue"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

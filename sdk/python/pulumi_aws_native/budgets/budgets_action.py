@@ -168,6 +168,9 @@ class BudgetsActionArgs:
 
 
 class BudgetsAction(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:budgets:BudgetsAction"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

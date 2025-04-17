@@ -59,6 +59,9 @@ class StreamKeyArgs:
 
 
 class StreamKey(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ivs:StreamKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

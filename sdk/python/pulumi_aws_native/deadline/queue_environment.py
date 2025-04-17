@@ -102,6 +102,9 @@ class QueueEnvironmentArgs:
 
 
 class QueueEnvironment(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:deadline:QueueEnvironment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

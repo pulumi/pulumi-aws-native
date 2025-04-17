@@ -44,6 +44,9 @@ class SpotFleetArgs:
 
 
 class SpotFleet(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:SpotFleet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

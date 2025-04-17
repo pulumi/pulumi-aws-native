@@ -94,6 +94,9 @@ class AllowListArgs:
 
 
 class AllowList(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:macie:AllowList"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

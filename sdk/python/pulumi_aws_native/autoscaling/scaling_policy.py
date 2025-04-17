@@ -203,6 +203,9 @@ class ScalingPolicyArgs:
 
 
 class ScalingPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:autoscaling:ScalingPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

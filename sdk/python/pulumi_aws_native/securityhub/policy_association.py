@@ -72,6 +72,9 @@ class PolicyAssociationArgs:
 
 
 class PolicyAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:securityhub:PolicyAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

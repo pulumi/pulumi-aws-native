@@ -118,6 +118,9 @@ class DetectorArgs:
 
 
 class Detector(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:guardduty:Detector"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

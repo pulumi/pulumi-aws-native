@@ -199,6 +199,9 @@ class AssessmentArgs:
 
 
 class Assessment(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:auditmanager:Assessment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

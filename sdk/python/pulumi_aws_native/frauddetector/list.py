@@ -108,6 +108,9 @@ class ListArgs:
 
 
 class List(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:frauddetector:List"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

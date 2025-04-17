@@ -77,6 +77,9 @@ class StorageLensGroupArgs:
 
 
 class StorageLensGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:s3:StorageLensGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -253,6 +253,9 @@ class AnalysisArgs:
 
 
 class Analysis(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:quicksight:Analysis"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

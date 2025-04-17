@@ -116,6 +116,9 @@ class ViewArgs:
 
 
 class View(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:resourceexplorer2:View"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

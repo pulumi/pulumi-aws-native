@@ -131,6 +131,9 @@ class SafetyRuleArgs:
 
 
 class SafetyRule(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:route53recoverycontrol:SafetyRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

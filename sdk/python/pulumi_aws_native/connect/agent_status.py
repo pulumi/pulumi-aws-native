@@ -155,6 +155,9 @@ class AgentStatusArgs:
 
 
 class AgentStatus(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:connect:AgentStatus"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

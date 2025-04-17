@@ -61,6 +61,9 @@ class SecurityConfigurationArgs:
 
 
 class SecurityConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:emr:SecurityConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -60,6 +60,9 @@ class ProfileArgs:
 
 
 class Profile(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:route53profiles:Profile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

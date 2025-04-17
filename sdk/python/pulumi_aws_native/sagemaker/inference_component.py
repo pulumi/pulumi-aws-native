@@ -145,6 +145,9 @@ class InferenceComponentArgs:
 
 
 class InferenceComponent(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:sagemaker:InferenceComponent"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -57,6 +57,9 @@ class ContactFlowVersionArgs:
 
 
 class ContactFlowVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:connect:ContactFlowVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

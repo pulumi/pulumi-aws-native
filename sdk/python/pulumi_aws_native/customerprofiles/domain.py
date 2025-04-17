@@ -142,6 +142,9 @@ class DomainArgs:
 
 
 class Domain(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:customerprofiles:Domain"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

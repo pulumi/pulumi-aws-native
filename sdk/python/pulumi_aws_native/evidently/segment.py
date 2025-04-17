@@ -92,6 +92,9 @@ class SegmentArgs:
 
 
 class Segment(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:evidently:Segment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

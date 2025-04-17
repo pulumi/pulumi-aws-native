@@ -43,6 +43,9 @@ class ResolverDnssecConfigArgs:
 
 
 class ResolverDnssecConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:route53resolver:ResolverDnssecConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

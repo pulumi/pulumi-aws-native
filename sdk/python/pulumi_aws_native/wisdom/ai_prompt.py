@@ -168,6 +168,9 @@ class AiPromptArgs:
 
 
 class AiPrompt(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:wisdom:AiPrompt"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

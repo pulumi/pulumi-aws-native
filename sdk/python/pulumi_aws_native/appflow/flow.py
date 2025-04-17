@@ -187,6 +187,9 @@ class FlowArgs:
 
 
 class Flow(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:appflow:Flow"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

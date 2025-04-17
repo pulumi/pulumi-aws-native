@@ -89,6 +89,9 @@ class SecurityPolicyArgs:
 
 
 class SecurityPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:opensearchserverless:SecurityPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

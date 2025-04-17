@@ -76,6 +76,9 @@ class LabelArgs:
 
 
 class Label(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:frauddetector:Label"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

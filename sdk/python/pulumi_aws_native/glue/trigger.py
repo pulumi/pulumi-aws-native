@@ -190,6 +190,9 @@ class TriggerArgs:
 
 
 class Trigger(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:glue:Trigger"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

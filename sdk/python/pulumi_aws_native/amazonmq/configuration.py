@@ -139,6 +139,9 @@ class ConfigurationArgs:
 
 
 class Configuration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:amazonmq:Configuration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

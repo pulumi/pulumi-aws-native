@@ -124,6 +124,9 @@ class EventTypeArgs:
 
 
 class EventType(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:frauddetector:EventType"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

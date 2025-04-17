@@ -94,6 +94,9 @@ class DataflowEndpointGroupArgs:
 
 
 class DataflowEndpointGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:groundstation:DataflowEndpointGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

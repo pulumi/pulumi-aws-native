@@ -57,6 +57,9 @@ class MessageTemplateVersionArgs:
 
 
 class MessageTemplateVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:wisdom:MessageTemplateVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

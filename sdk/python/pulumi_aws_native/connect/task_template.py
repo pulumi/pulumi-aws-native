@@ -206,6 +206,9 @@ class TaskTemplateArgs:
 
 
 class TaskTemplate(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:connect:TaskTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

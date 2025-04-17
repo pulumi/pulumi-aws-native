@@ -60,6 +60,9 @@ class WalWorkspaceArgs:
 
 
 class WalWorkspace(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:emr:WalWorkspace"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

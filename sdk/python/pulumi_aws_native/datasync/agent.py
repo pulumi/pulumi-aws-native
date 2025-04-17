@@ -125,6 +125,9 @@ class AgentArgs:
 
 
 class Agent(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:datasync:Agent"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -187,6 +187,9 @@ class FuotaTaskArgs:
 
 
 class FuotaTask(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iotwireless:FuotaTask"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -495,6 +495,9 @@ class EnvironmentArgs:
 
 
 class Environment(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:mwaa:Environment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

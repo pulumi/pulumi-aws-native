@@ -107,6 +107,9 @@ class VirtualMfaDeviceArgs:
 
 
 class VirtualMfaDevice(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iam:VirtualMfaDevice"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -117,6 +117,9 @@ class AccountPolicyArgs:
 
 
 class AccountPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:logs:AccountPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

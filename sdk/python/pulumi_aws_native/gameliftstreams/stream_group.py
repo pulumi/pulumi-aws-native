@@ -183,6 +183,9 @@ class StreamGroupArgs:
 
 
 class StreamGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:gameliftstreams:StreamGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

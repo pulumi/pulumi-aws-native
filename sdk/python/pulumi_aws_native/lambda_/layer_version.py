@@ -123,6 +123,9 @@ class LayerVersionArgs:
 
 
 class LayerVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:lambda:LayerVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

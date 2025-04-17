@@ -157,6 +157,9 @@ class FlywheelArgs:
 
 
 class Flywheel(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:comprehend:Flywheel"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

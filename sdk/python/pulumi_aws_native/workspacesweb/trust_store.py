@@ -59,6 +59,9 @@ class TrustStoreArgs:
 
 
 class TrustStore(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:workspacesweb:TrustStore"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

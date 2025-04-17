@@ -188,6 +188,9 @@ class FlowArgs:
 
 
 class Flow(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:mediaconnect:Flow"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

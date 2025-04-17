@@ -234,6 +234,9 @@ class UserSettingsArgs:
 
 
 class UserSettings(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:workspacesweb:UserSettings"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

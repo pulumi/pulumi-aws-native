@@ -59,6 +59,9 @@ class PolicyArgs:
 
 
 class Policy(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:verifiedpermissions:Policy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

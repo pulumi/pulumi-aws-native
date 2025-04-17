@@ -72,6 +72,9 @@ class ApplicationAssignmentArgs:
 
 
 class ApplicationAssignment(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:sso:ApplicationAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

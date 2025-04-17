@@ -75,6 +75,9 @@ class IntegrationArgs:
 
 
 class Integration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:logs:Integration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

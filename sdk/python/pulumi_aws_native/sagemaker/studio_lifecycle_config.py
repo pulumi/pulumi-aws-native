@@ -91,6 +91,9 @@ class StudioLifecycleConfigArgs:
 
 
 class StudioLifecycleConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:sagemaker:StudioLifecycleConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

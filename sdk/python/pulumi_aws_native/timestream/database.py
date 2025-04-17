@@ -76,6 +76,9 @@ class DatabaseArgs:
 
 
 class Database(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:timestream:Database"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

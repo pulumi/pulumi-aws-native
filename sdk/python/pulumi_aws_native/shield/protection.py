@@ -114,6 +114,9 @@ class ProtectionArgs:
 
 
 class Protection(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:shield:Protection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

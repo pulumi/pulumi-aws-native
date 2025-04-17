@@ -90,6 +90,9 @@ class DomainNameAccessAssociationArgs:
 
 
 class DomainNameAccessAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:apigateway:DomainNameAccessAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

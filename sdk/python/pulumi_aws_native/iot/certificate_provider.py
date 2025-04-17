@@ -91,6 +91,9 @@ class CertificateProviderArgs:
 
 
 class CertificateProvider(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iot:CertificateProvider"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

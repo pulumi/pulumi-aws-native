@@ -127,6 +127,9 @@ class BuildArgs:
 
 
 class Build(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:gamelift:Build"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

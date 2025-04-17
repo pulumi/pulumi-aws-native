@@ -91,6 +91,9 @@ class TemplateGroupAccessControlEntryArgs:
 
 
 class TemplateGroupAccessControlEntry(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:pcaconnectorad:TemplateGroupAccessControlEntry"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

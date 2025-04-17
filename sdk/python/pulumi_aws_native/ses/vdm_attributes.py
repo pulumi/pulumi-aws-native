@@ -60,6 +60,9 @@ class VdmAttributesArgs:
 
 
 class VdmAttributes(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ses:VdmAttributes"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -127,6 +127,9 @@ class EmailIdentityArgs:
 
 
 class EmailIdentity(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ses:EmailIdentity"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

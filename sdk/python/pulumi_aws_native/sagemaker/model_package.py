@@ -473,6 +473,9 @@ class ModelPackageArgs:
 
 
 class ModelPackage(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:sagemaker:ModelPackage"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

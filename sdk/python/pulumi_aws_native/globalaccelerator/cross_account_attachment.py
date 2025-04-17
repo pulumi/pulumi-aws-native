@@ -98,6 +98,9 @@ class CrossAccountAttachmentArgs:
 
 
 class CrossAccountAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:globalaccelerator:CrossAccountAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -141,6 +141,9 @@ class AccessEntryArgs:
 
 
 class AccessEntry(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:eks:AccessEntry"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

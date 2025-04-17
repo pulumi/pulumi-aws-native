@@ -303,6 +303,9 @@ class InfluxDbInstanceArgs:
 
 
 class InfluxDbInstance(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:timestream:InfluxDbInstance"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

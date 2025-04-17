@@ -124,6 +124,9 @@ class StreamArgs:
 
 
 class Stream(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:kinesisvideo:Stream"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

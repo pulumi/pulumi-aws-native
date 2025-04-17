@@ -108,6 +108,9 @@ class AnomalyMonitorArgs:
 
 
 class AnomalyMonitor(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ce:AnomalyMonitor"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

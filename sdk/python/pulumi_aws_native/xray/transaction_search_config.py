@@ -38,6 +38,9 @@ class TransactionSearchConfigArgs:
 
 
 class TransactionSearchConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:xray:TransactionSearchConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

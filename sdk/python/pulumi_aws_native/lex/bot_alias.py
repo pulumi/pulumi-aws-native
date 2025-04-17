@@ -156,6 +156,9 @@ class BotAliasArgs:
 
 
 class BotAlias(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:lex:BotAlias"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

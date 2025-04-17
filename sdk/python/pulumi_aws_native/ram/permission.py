@@ -94,6 +94,9 @@ class PermissionArgs:
 
 
 class Permission(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ram:Permission"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -58,6 +58,9 @@ class IndexArgs:
 
 
 class Index(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:resourceexplorer2:Index"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

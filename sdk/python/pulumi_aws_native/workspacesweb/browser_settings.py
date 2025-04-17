@@ -96,6 +96,9 @@ class BrowserSettingsArgs:
 
 
 class BrowserSettings(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:workspacesweb:BrowserSettings"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -129,6 +129,9 @@ class StateMachineAliasArgs:
 
 
 class StateMachineAlias(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:stepfunctions:StateMachineAlias"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

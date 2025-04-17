@@ -78,6 +78,9 @@ class SinkArgs:
 
 
 class Sink(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:oam:Sink"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

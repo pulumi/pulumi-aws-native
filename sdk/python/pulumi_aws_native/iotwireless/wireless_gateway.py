@@ -141,6 +141,9 @@ class WirelessGatewayArgs:
 
 
 class WirelessGateway(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iotwireless:WirelessGateway"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

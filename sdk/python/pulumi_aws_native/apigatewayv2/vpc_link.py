@@ -89,6 +89,9 @@ class VpcLinkArgs:
 
 
 class VpcLink(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:apigatewayv2:VpcLink"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

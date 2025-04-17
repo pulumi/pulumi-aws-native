@@ -263,6 +263,9 @@ class DomainConfigurationArgs:
 
 
 class DomainConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iot:DomainConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

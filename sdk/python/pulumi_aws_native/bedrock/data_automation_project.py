@@ -159,6 +159,9 @@ class DataAutomationProjectArgs:
 
 
 class DataAutomationProject(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:bedrock:DataAutomationProject"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

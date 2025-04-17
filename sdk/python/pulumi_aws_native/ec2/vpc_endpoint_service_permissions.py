@@ -57,6 +57,9 @@ class VpcEndpointServicePermissionsArgs:
 
 
 class VpcEndpointServicePermissions(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:VpcEndpointServicePermissions"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

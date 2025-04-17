@@ -41,6 +41,9 @@ class DnssecArgs:
 
 
 class Dnssec(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:route53:Dnssec"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

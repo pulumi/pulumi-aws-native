@@ -107,6 +107,9 @@ class AnomalyDetectorArgs:
 
 
 class AnomalyDetector(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:lookoutmetrics:AnomalyDetector"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

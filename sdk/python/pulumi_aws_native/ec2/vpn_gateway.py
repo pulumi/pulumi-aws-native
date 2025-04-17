@@ -75,6 +75,9 @@ class VpnGatewayArgs:
 
 
 class VpnGateway(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:VpnGateway"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

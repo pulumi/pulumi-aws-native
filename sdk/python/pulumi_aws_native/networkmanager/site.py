@@ -93,6 +93,9 @@ class SiteArgs:
 
 
 class Site(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:networkmanager:Site"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -146,6 +146,9 @@ class AssetArgs:
 
 
 class Asset(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iotsitewise:Asset"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

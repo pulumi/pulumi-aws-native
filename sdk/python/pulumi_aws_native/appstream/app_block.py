@@ -159,6 +159,9 @@ class AppBlockArgs:
 
 
 class AppBlock(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:appstream:AppBlock"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

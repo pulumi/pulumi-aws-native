@@ -74,6 +74,9 @@ class TransitGatewayPeeringArgs:
 
 
 class TransitGatewayPeering(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:networkmanager:TransitGatewayPeering"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

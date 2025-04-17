@@ -123,6 +123,9 @@ class CostCategoryArgs:
 
 
 class CostCategory(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ce:CostCategory"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

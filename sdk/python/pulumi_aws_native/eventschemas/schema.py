@@ -121,6 +121,9 @@ class SchemaArgs:
 
 
 class Schema(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:eventschemas:Schema"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

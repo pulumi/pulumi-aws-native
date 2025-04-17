@@ -143,6 +143,9 @@ class ExtensionResourceArgs:
 
 
 class ExtensionResource(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:index:ExtensionResource"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

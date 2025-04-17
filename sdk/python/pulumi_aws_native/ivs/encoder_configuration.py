@@ -78,6 +78,9 @@ class EncoderConfigurationArgs:
 
 
 class EncoderConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ivs:EncoderConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

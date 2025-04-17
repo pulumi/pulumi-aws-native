@@ -57,6 +57,9 @@ class DashboardArgs:
 
 
 class Dashboard(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cloudwatch:Dashboard"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

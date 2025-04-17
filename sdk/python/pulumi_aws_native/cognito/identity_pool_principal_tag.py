@@ -92,6 +92,9 @@ class IdentityPoolPrincipalTagArgs:
 
 
 class IdentityPoolPrincipalTag(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cognito:IdentityPoolPrincipalTag"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

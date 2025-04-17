@@ -75,6 +75,9 @@ class InstanceAccessControlAttributeConfigurationArgs:
 
 
 class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:sso:InstanceAccessControlAttributeConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

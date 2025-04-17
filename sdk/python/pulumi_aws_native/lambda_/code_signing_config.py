@@ -94,6 +94,9 @@ class CodeSigningConfigArgs:
 
 
 class CodeSigningConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:lambda:CodeSigningConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

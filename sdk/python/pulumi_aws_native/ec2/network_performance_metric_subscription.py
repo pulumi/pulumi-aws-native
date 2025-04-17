@@ -86,6 +86,9 @@ class NetworkPerformanceMetricSubscriptionArgs:
 
 
 class NetworkPerformanceMetricSubscription(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:NetworkPerformanceMetricSubscription"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

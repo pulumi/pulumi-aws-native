@@ -57,6 +57,9 @@ class LogStreamArgs:
 
 
 class LogStream(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:logs:LogStream"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

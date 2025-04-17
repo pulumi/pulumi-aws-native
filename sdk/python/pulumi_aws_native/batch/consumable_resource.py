@@ -95,6 +95,9 @@ class ConsumableResourceArgs:
 
 
 class ConsumableResource(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:batch:ConsumableResource"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

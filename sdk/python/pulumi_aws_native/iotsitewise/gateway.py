@@ -110,6 +110,9 @@ class GatewayArgs:
 
 
 class Gateway(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iotsitewise:Gateway"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

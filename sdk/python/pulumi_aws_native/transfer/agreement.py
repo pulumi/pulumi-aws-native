@@ -203,6 +203,9 @@ class AgreementArgs:
 
 
 class Agreement(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:transfer:Agreement"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -94,6 +94,9 @@ class CustomPermissionsArgs:
 
 
 class CustomPermissions(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:quicksight:CustomPermissions"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -153,6 +153,9 @@ class ScheduledActionArgs:
 
 
 class ScheduledAction(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:autoscaling:ScheduledAction"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

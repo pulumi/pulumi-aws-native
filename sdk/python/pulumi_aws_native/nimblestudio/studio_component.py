@@ -190,6 +190,9 @@ class StudioComponentArgs:
 
 
 class StudioComponent(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:nimblestudio:StudioComponent"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

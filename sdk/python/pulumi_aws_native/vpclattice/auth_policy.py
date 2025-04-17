@@ -61,6 +61,9 @@ class AuthPolicyArgs:
 
 
 class AuthPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:vpclattice:AuthPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

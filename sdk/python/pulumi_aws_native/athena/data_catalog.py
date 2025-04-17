@@ -156,6 +156,9 @@ class DataCatalogArgs:
 
 
 class DataCatalog(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:athena:DataCatalog"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

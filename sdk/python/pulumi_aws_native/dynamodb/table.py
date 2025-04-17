@@ -386,6 +386,9 @@ class TableArgs:
 
 
 class Table(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:dynamodb:Table"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

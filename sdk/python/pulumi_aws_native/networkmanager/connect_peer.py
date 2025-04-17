@@ -140,6 +140,9 @@ class ConnectPeerArgs:
 
 
 class ConnectPeer(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:networkmanager:ConnectPeer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -63,6 +63,9 @@ class MailManagerAddonSubscriptionArgs:
 
 
 class MailManagerAddonSubscription(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ses:MailManagerAddonSubscription"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

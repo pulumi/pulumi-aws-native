@@ -77,6 +77,9 @@ class TopicRuleDestinationArgs:
 
 
 class TopicRuleDestination(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iot:TopicRuleDestination"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -216,6 +216,9 @@ class MicrosoftTeamsChannelConfigurationArgs:
 
 
 class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:chatbot:MicrosoftTeamsChannelConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -107,6 +107,9 @@ class DbProxyTargetGroupArgs:
 
 
 class DbProxyTargetGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:rds:DbProxyTargetGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

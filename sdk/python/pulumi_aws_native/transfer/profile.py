@@ -91,6 +91,9 @@ class ProfileArgs:
 
 
 class Profile(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:transfer:Profile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -150,6 +150,9 @@ class IdNamespaceArgs:
 
 
 class IdNamespace(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:entityresolution:IdNamespace"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

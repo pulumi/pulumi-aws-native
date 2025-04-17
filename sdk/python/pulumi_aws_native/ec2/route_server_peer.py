@@ -92,6 +92,9 @@ class RouteServerPeerArgs:
 
 
 class RouteServerPeer(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:RouteServerPeer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

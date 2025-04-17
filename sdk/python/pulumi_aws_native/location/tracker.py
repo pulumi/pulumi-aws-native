@@ -189,6 +189,9 @@ class TrackerArgs:
 
 
 class Tracker(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:location:Tracker"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

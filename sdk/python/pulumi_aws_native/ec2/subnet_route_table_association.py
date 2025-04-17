@@ -58,6 +58,9 @@ class SubnetRouteTableAssociationArgs:
 
 
 class SubnetRouteTableAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:SubnetRouteTableAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

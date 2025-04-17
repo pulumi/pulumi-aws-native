@@ -121,6 +121,9 @@ class ArchiveArgs:
 
 
 class Archive(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:events:Archive"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

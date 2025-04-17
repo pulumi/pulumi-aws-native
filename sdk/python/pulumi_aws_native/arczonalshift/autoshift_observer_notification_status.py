@@ -38,6 +38,9 @@ class AutoshiftObserverNotificationStatusArgs:
 
 
 class AutoshiftObserverNotificationStatus(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:arczonalshift:AutoshiftObserverNotificationStatus"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -93,6 +93,9 @@ class RecipeArgs:
 
 
 class Recipe(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:databrew:Recipe"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

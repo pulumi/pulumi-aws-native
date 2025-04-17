@@ -105,6 +105,9 @@ class ServiceNetworkArgs:
 
 
 class ServiceNetwork(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:vpclattice:ServiceNetwork"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

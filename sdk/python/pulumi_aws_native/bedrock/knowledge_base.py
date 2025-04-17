@@ -129,6 +129,9 @@ class KnowledgeBaseArgs:
 
 
 class KnowledgeBase(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:bedrock:KnowledgeBase"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

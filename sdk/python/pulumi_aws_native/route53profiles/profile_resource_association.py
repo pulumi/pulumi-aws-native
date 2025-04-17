@@ -88,6 +88,9 @@ class ProfileResourceAssociationArgs:
 
 
 class ProfileResourceAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:route53profiles:ProfileResourceAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

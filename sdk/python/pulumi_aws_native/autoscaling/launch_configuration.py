@@ -330,6 +330,9 @@ class LaunchConfigurationArgs:
 
 
 class LaunchConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:autoscaling:LaunchConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -139,6 +139,9 @@ class PhoneNumberArgs:
 
 
 class PhoneNumber(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:connect:PhoneNumber"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

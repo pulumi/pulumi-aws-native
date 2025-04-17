@@ -41,6 +41,9 @@ class EgressOnlyInternetGatewayArgs:
 
 
 class EgressOnlyInternetGateway(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:EgressOnlyInternetGateway"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -169,6 +169,9 @@ class LogGroupArgs:
 
 
 class LogGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:logs:LogGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

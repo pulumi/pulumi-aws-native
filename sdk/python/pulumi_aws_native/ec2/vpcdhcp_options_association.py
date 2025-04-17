@@ -56,6 +56,9 @@ class VpcdhcpOptionsAssociationArgs:
 
 
 class VpcdhcpOptionsAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:VpcdhcpOptionsAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

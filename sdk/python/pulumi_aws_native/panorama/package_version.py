@@ -120,6 +120,9 @@ class PackageVersionArgs:
 
 
 class PackageVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:panorama:PackageVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

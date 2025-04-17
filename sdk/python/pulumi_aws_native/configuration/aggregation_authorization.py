@@ -74,6 +74,9 @@ class AggregationAuthorizationArgs:
 
 
 class AggregationAuthorization(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:configuration:AggregationAuthorization"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -73,6 +73,9 @@ class ViewVersionArgs:
 
 
 class ViewVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:connect:ViewVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

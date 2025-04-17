@@ -121,6 +121,9 @@ class CollectionArgs:
 
 
 class Collection(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:opensearchserverless:Collection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -154,6 +154,9 @@ class SoftwarePackageVersionArgs:
 
 
 class SoftwarePackageVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iot:SoftwarePackageVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

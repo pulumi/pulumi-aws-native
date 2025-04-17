@@ -147,6 +147,9 @@ class EvaluationFormArgs:
 
 
 class EvaluationForm(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:connect:EvaluationForm"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
