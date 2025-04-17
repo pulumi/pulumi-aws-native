@@ -283,6 +283,9 @@ class TopicArgs:
 
 
 class Topic(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:sns:Topic"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

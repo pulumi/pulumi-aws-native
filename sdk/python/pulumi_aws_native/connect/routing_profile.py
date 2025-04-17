@@ -155,6 +155,9 @@ class RoutingProfileArgs:
 
 
 class RoutingProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:connect:RoutingProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

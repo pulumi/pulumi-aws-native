@@ -125,6 +125,9 @@ class MulticastGroupArgs:
 
 
 class MulticastGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iotwireless:MulticastGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

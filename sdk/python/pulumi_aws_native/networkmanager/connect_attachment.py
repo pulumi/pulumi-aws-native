@@ -154,6 +154,9 @@ class ConnectAttachmentArgs:
 
 
 class ConnectAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:networkmanager:ConnectAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

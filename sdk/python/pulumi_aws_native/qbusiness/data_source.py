@@ -235,6 +235,9 @@ class DataSourceArgs:
 
 
 class DataSource(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:qbusiness:DataSource"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

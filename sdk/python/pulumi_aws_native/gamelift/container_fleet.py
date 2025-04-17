@@ -306,6 +306,9 @@ class ContainerFleetArgs:
 
 
 class ContainerFleet(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:gamelift:ContainerFleet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

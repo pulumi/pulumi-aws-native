@@ -125,6 +125,9 @@ class ResourceGatewayArgs:
 
 
 class ResourceGateway(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:vpclattice:ResourceGateway"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

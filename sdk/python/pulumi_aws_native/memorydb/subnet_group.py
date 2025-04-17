@@ -91,6 +91,9 @@ class SubnetGroupArgs:
 
 
 class SubnetGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:memorydb:SubnetGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

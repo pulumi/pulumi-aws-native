@@ -124,6 +124,9 @@ class EnvironmentActionsArgs:
 
 
 class EnvironmentActions(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:datazone:EnvironmentActions"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

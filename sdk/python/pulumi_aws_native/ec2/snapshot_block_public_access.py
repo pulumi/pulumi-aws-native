@@ -42,6 +42,9 @@ class SnapshotBlockPublicAccessArgs:
 
 
 class SnapshotBlockPublicAccess(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:SnapshotBlockPublicAccess"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

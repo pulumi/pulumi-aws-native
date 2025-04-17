@@ -315,6 +315,9 @@ class FlowOutputArgs:
 
 
 class FlowOutput(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:mediaconnect:FlowOutput"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

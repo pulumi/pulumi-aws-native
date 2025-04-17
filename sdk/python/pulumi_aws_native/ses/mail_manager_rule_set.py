@@ -78,6 +78,9 @@ class MailManagerRuleSetArgs:
 
 
 class MailManagerRuleSet(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ses:MailManagerRuleSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -114,6 +114,9 @@ class LocationS3Args:
 
 
 class LocationS3(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:datasync:LocationS3"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

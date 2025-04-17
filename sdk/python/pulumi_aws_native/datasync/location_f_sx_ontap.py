@@ -109,6 +109,9 @@ class LocationFSxOntapArgs:
 
 
 class LocationFSxOntap(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:datasync:LocationFSxOntap"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -92,6 +92,9 @@ class DatasetGroupArgs:
 
 
 class DatasetGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:forecast:DatasetGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

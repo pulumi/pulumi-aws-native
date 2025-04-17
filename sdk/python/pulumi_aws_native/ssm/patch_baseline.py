@@ -255,6 +255,9 @@ class PatchBaselineArgs:
 
 
 class PatchBaseline(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ssm:PatchBaseline"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

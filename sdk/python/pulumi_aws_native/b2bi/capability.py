@@ -109,6 +109,9 @@ class CapabilityArgs:
 
 
 class Capability(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:b2bi:Capability"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -221,6 +221,9 @@ class FlowLogArgs:
 
 
 class FlowLog(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:FlowLog"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

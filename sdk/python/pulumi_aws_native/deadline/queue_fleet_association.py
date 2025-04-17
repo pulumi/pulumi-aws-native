@@ -71,6 +71,9 @@ class QueueFleetAssociationArgs:
 
 
 class QueueFleetAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:deadline:QueueFleetAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

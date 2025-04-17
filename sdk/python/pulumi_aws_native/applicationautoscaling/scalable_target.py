@@ -241,6 +241,9 @@ class ScalableTargetArgs:
 
 
 class ScalableTarget(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:applicationautoscaling:ScalableTarget"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

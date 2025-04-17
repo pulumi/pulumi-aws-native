@@ -269,6 +269,9 @@ class ContainerRecipeArgs:
 
 
 class ContainerRecipe(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:imagebuilder:ContainerRecipe"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -76,6 +76,9 @@ class SchedulingPolicyArgs:
 
 
 class SchedulingPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:batch:SchedulingPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

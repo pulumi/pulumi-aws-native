@@ -71,6 +71,9 @@ class SchemaVersionMetadataArgs:
 
 
 class SchemaVersionMetadata(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:glue:SchemaVersionMetadata"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -89,6 +89,9 @@ class RequestValidatorArgs:
 
 
 class RequestValidator(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:apigateway:RequestValidator"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -236,6 +236,9 @@ class LocationHdfsArgs:
 
 
 class LocationHdfs(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:datasync:LocationHdfs"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

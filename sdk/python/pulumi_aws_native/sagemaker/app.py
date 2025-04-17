@@ -124,6 +124,9 @@ class AppArgs:
 
 
 class App(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:sagemaker:App"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

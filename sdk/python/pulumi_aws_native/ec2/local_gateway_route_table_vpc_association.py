@@ -74,6 +74,9 @@ class LocalGatewayRouteTableVpcAssociationArgs:
 
 
 class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:LocalGatewayRouteTableVpcAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

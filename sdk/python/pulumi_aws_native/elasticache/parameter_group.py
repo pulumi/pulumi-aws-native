@@ -90,6 +90,9 @@ class ParameterGroupArgs:
 
 
 class ParameterGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:elasticache:ParameterGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

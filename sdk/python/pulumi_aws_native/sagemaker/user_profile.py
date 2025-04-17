@@ -126,6 +126,9 @@ class UserProfileArgs:
 
 
 class UserProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:sagemaker:UserProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

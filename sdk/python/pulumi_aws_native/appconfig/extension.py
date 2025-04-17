@@ -125,6 +125,9 @@ class ExtensionArgs:
 
 
 class Extension(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:appconfig:Extension"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

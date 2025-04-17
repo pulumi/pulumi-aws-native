@@ -130,6 +130,9 @@ class DomainNameV2Args:
 
 
 class DomainNameV2(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:apigateway:DomainNameV2"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

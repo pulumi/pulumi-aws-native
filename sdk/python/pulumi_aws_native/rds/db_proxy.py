@@ -187,6 +187,9 @@ class DbProxyArgs:
 
 
 class DbProxy(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:rds:DbProxy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

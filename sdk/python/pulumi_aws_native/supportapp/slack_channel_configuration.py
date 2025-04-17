@@ -151,6 +151,9 @@ class SlackChannelConfigurationArgs:
 
 
 class SlackChannelConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:supportapp:SlackChannelConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

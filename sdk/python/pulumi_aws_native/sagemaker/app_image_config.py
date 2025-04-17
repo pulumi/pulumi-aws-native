@@ -110,6 +110,9 @@ class AppImageConfigArgs:
 
 
 class AppImageConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:sagemaker:AppImageConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

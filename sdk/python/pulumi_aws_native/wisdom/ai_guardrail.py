@@ -202,6 +202,9 @@ class AiGuardrailArgs:
 
 
 class AiGuardrail(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:wisdom:AiGuardrail"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

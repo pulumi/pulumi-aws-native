@@ -132,6 +132,9 @@ class ThreatIntelSetArgs:
 
 
 class ThreatIntelSet(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:guardduty:ThreatIntelSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

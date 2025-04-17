@@ -74,6 +74,9 @@ class ServiceLinkedRoleArgs:
 
 
 class ServiceLinkedRole(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iam:ServiceLinkedRole"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

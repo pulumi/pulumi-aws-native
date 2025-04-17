@@ -93,6 +93,9 @@ class VodSourceArgs:
 
 
 class VodSource(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:mediatailor:VodSource"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

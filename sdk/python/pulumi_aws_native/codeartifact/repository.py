@@ -159,6 +159,9 @@ class RepositoryArgs:
 
 
 class Repository(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:codeartifact:Repository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -71,6 +71,9 @@ class UserPoolUserToGroupAttachmentArgs:
 
 
 class UserPoolUserToGroupAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cognito:UserPoolUserToGroupAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

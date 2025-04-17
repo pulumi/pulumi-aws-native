@@ -375,6 +375,9 @@ class DomainArgs:
 
 
 class Domain(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:opensearchservice:Domain"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

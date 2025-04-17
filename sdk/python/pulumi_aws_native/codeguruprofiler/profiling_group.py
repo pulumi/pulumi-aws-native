@@ -111,6 +111,9 @@ class ProfilingGroupArgs:
 
 
 class ProfilingGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:codeguruprofiler:ProfilingGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -138,6 +138,9 @@ class SubscriptionFilterArgs:
 
 
 class SubscriptionFilter(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:logs:SubscriptionFilter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

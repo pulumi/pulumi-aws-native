@@ -192,6 +192,9 @@ class FeatureGroupArgs:
 
 
 class FeatureGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:sagemaker:FeatureGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

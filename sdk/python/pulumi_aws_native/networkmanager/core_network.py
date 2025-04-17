@@ -96,6 +96,9 @@ class CoreNetworkArgs:
 
 
 class CoreNetwork(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:networkmanager:CoreNetwork"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

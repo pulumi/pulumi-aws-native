@@ -198,6 +198,9 @@ class DataQualityJobDefinitionArgs:
 
 
 class DataQualityJobDefinition(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:sagemaker:DataQualityJobDefinition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

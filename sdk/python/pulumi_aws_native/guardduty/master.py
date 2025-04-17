@@ -72,6 +72,9 @@ class MasterArgs:
 
 
 class Master(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:guardduty:Master"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

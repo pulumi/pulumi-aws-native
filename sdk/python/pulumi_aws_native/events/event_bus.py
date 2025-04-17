@@ -146,6 +146,9 @@ class EventBusArgs:
 
 
 class EventBus(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:events:EventBus"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

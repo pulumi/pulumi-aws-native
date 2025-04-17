@@ -175,6 +175,9 @@ class UserPoolIdentityProviderArgs:
 
 
 class UserPoolIdentityProvider(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cognito:UserPoolIdentityProvider"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

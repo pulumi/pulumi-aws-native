@@ -148,6 +148,9 @@ class RouteCalculatorArgs:
 
 
 class RouteCalculator(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:location:RouteCalculator"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

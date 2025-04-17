@@ -72,6 +72,9 @@ class AiPromptVersionArgs:
 
 
 class AiPromptVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:wisdom:AiPromptVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

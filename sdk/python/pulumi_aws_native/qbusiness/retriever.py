@@ -123,6 +123,9 @@ class RetrieverArgs:
 
 
 class Retriever(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:qbusiness:Retriever"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

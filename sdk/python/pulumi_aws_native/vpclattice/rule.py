@@ -144,6 +144,9 @@ class RuleArgs:
 
 
 class Rule(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:vpclattice:Rule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

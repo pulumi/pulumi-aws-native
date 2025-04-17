@@ -59,6 +59,9 @@ class AccessPointArgs:
 
 
 class AccessPoint(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:s3objectlambda:AccessPoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

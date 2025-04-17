@@ -215,6 +215,9 @@ class ComputeNodeGroupArgs:
 
 
 class ComputeNodeGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:pcs:ComputeNodeGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

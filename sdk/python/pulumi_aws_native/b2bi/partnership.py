@@ -131,6 +131,9 @@ class PartnershipArgs:
 
 
 class Partnership(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:b2bi:Partnership"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -57,6 +57,9 @@ class DirectoryRegistrationArgs:
 
 
 class DirectoryRegistration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:pcaconnectorad:DirectoryRegistration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

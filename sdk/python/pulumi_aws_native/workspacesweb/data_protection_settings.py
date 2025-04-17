@@ -127,6 +127,9 @@ class DataProtectionSettingsArgs:
 
 
 class DataProtectionSettings(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:workspacesweb:DataProtectionSettings"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

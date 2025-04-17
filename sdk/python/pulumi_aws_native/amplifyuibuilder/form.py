@@ -221,6 +221,9 @@ class FormArgs:
 
 
 class Form(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:amplifyuibuilder:Form"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

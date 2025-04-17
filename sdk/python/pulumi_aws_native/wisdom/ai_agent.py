@@ -122,6 +122,9 @@ class AiAgentArgs:
 
 
 class AiAgent(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:wisdom:AiAgent"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

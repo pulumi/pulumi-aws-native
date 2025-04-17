@@ -57,6 +57,9 @@ class ResolverConfigArgs:
 
 
 class ResolverConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:route53resolver:ResolverConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

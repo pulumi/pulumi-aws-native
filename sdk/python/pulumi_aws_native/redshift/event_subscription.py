@@ -157,6 +157,9 @@ class EventSubscriptionArgs:
 
 
 class EventSubscription(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:redshift:EventSubscription"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

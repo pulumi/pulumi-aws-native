@@ -105,6 +105,9 @@ class EntitlementArgs:
 
 
 class Entitlement(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:appstream:Entitlement"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

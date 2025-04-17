@@ -222,6 +222,9 @@ class CommandArgs:
 
 
 class Command(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iot:Command"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

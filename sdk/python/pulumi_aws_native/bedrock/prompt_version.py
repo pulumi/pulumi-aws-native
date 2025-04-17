@@ -75,6 +75,9 @@ class PromptVersionArgs:
 
 
 class PromptVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:bedrock:PromptVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

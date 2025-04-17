@@ -120,6 +120,9 @@ class ApiDestinationArgs:
 
 
 class ApiDestination(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:events:ApiDestination"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

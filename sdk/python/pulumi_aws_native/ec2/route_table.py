@@ -59,6 +59,9 @@ class RouteTableArgs:
 
 
 class RouteTable(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:RouteTable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

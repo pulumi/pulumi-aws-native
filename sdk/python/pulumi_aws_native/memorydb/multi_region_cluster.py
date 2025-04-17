@@ -192,6 +192,9 @@ class MultiRegionClusterArgs:
 
 
 class MultiRegionCluster(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:memorydb:MultiRegionCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

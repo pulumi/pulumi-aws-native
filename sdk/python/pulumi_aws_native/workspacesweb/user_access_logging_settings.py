@@ -59,6 +59,9 @@ class UserAccessLoggingSettingsArgs:
 
 
 class UserAccessLoggingSettings(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:workspacesweb:UserAccessLoggingSettings"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -74,6 +74,9 @@ class BotVersionArgs:
 
 
 class BotVersion(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:lex:BotVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

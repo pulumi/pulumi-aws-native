@@ -75,6 +75,9 @@ class BridgeOutputResourceArgs:
 
 
 class BridgeOutputResource(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:mediaconnect:BridgeOutputResource"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

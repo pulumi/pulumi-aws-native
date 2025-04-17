@@ -286,6 +286,9 @@ class ServerlessCacheArgs:
 
 
 class ServerlessCache(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:elasticache:ServerlessCache"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -146,6 +146,9 @@ class CertificateArgs:
 
 
 class Certificate(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:acmpca:Certificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

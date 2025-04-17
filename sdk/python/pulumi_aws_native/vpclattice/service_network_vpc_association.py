@@ -93,6 +93,9 @@ class ServiceNetworkVpcAssociationArgs:
 
 
 class ServiceNetworkVpcAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:vpclattice:ServiceNetworkVpcAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

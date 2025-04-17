@@ -102,6 +102,9 @@ class ProfilePermissionArgs:
 
 
 class ProfilePermission(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:signer:ProfilePermission"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

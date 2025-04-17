@@ -285,6 +285,9 @@ class IpamPoolArgs:
 
 
 class IpamPool(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:IpamPool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

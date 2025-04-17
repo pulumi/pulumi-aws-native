@@ -99,6 +99,9 @@ class CapacityProviderArgs:
 
 
 class CapacityProvider(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ecs:CapacityProvider"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -91,6 +91,9 @@ class PublishingDestinationArgs:
 
 
 class PublishingDestination(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:guardduty:PublishingDestination"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -141,6 +141,9 @@ class ModelCardArgs:
 
 
 class ModelCard(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:sagemaker:ModelCard"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

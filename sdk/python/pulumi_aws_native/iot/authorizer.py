@@ -172,6 +172,9 @@ class AuthorizerArgs:
 
 
 class Authorizer(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iot:Authorizer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -107,6 +107,9 @@ class RotationScheduleArgs:
 
 
 class RotationSchedule(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:secretsmanager:RotationSchedule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

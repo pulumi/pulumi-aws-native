@@ -71,6 +71,9 @@ class QueueLimitAssociationArgs:
 
 
 class QueueLimitAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:deadline:QueueLimitAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

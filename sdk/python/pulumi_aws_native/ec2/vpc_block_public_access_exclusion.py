@@ -92,6 +92,9 @@ class VpcBlockPublicAccessExclusionArgs:
 
 
 class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:VpcBlockPublicAccessExclusion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

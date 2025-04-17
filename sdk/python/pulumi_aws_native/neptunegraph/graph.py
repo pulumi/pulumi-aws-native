@@ -173,6 +173,9 @@ class GraphArgs:
 
 
 class Graph(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:neptunegraph:Graph"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

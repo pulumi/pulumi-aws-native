@@ -98,6 +98,9 @@ class ChannelArgs:
 
 
 class Channel(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iotanalytics:Channel"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

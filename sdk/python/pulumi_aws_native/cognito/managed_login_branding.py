@@ -132,6 +132,9 @@ class ManagedLoginBrandingArgs:
 
 
 class ManagedLoginBranding(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cognito:ManagedLoginBranding"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

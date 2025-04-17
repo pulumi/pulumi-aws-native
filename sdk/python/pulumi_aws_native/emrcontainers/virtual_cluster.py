@@ -93,6 +93,9 @@ class VirtualClusterArgs:
 
 
 class VirtualCluster(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:emrcontainers:VirtualCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

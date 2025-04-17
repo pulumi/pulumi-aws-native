@@ -133,6 +133,9 @@ class DevicePoolArgs:
 
 
 class DevicePool(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:devicefarm:DevicePool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -153,6 +153,9 @@ class DbClusterParameterGroupArgs:
 
 
 class DbClusterParameterGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:rds:DbClusterParameterGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

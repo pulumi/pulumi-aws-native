@@ -227,6 +227,9 @@ class ExperimentArgs:
 
 
 class Experiment(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:evidently:Experiment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

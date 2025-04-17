@@ -43,6 +43,9 @@ class PublicKeyArgs:
 
 
 class PublicKey(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cloudfront:PublicKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -221,6 +221,9 @@ class PipelineArgs:
 
 
 class Pipeline(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:codepipeline:Pipeline"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

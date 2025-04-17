@@ -174,6 +174,9 @@ class AddonArgs:
 
 
 class Addon(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:eks:Addon"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

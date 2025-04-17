@@ -314,6 +314,9 @@ class WorkspaceArgs:
 
 
 class Workspace(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:grafana:Workspace"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

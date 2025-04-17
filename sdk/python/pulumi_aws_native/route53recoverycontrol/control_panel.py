@@ -77,6 +77,9 @@ class ControlPanelArgs:
 
 
 class ControlPanel(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:route53recoverycontrol:ControlPanel"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

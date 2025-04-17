@@ -106,6 +106,9 @@ class PlaybackRestrictionPolicyArgs:
 
 
 class PlaybackRestrictionPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ivs:PlaybackRestrictionPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

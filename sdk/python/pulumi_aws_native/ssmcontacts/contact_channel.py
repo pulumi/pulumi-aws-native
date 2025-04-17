@@ -107,6 +107,9 @@ class ContactChannelArgs:
 
 
 class ContactChannel(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ssmcontacts:ContactChannel"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -238,6 +238,9 @@ class LocationSmbArgs:
 
 
 class LocationSmb(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:datasync:LocationSmb"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

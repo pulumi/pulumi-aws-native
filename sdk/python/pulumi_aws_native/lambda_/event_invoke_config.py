@@ -122,6 +122,9 @@ class EventInvokeConfigArgs:
 
 
 class EventInvokeConfig(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:lambda:EventInvokeConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

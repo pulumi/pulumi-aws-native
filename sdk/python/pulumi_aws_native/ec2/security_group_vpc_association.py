@@ -57,6 +57,9 @@ class SecurityGroupVpcAssociationArgs:
 
 
 class SecurityGroupVpcAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:SecurityGroupVpcAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

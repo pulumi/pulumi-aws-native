@@ -225,6 +225,9 @@ class TaskArgs:
 
 
 class Task(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:datasync:Task"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

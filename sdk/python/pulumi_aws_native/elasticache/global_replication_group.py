@@ -188,6 +188,9 @@ class GlobalReplicationGroupArgs:
 
 
 class GlobalReplicationGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:elasticache:GlobalReplicationGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

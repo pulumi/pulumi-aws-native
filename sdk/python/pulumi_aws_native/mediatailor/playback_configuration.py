@@ -269,6 +269,9 @@ class PlaybackConfigurationArgs:
 
 
 class PlaybackConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:mediatailor:PlaybackConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

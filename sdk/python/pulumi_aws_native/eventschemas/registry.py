@@ -76,6 +76,9 @@ class RegistryArgs:
 
 
 class Registry(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:eventschemas:Registry"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

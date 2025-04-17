@@ -59,6 +59,9 @@ class TransitGatewayRouteTableArgs:
 
 
 class TransitGatewayRouteTable(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:TransitGatewayRouteTable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

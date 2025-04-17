@@ -125,6 +125,9 @@ class SecurityGroupArgs:
 
 
 class SecurityGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:SecurityGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

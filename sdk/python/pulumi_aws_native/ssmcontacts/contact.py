@@ -90,6 +90,9 @@ class ContactArgs:
 
 
 class Contact(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ssmcontacts:Contact"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

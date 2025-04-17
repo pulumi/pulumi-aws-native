@@ -198,6 +198,9 @@ class ModelBiasJobDefinitionArgs:
 
 
 class ModelBiasJobDefinition(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:sagemaker:ModelBiasJobDefinition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

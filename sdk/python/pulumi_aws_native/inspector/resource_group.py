@@ -47,6 +47,9 @@ class ResourceGroupArgs:
 
 
 class ResourceGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:inspector:ResourceGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

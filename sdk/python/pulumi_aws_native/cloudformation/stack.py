@@ -384,6 +384,9 @@ class StackArgs:
 
 
 class Stack(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cloudformation:Stack"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

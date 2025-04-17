@@ -61,6 +61,9 @@ class StandardArgs:
 
 
 class Standard(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:securityhub:Standard"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

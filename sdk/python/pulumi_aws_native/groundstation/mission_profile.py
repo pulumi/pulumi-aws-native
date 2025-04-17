@@ -171,6 +171,9 @@ class MissionProfileArgs:
 
 
 class MissionProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:groundstation:MissionProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

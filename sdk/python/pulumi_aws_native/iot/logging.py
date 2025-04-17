@@ -72,6 +72,9 @@ class LoggingArgs:
 
 
 class Logging(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iot:Logging"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -103,6 +103,9 @@ class EnabledBaselineArgs:
 
 
 class EnabledBaseline(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:controltower:EnabledBaseline"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

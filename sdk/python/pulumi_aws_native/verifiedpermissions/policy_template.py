@@ -72,6 +72,9 @@ class PolicyTemplateArgs:
 
 
 class PolicyTemplate(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:verifiedpermissions:PolicyTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -120,6 +120,9 @@ class EventBridgeRuleTemplateArgs:
 
 
 class EventBridgeRuleTemplate(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:medialive:EventBridgeRuleTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

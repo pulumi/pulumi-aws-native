@@ -214,6 +214,9 @@ class WebExperienceArgs:
 
 
 class WebExperience(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:qbusiness:WebExperience"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

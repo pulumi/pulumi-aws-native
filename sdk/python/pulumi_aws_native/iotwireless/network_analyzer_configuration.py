@@ -127,6 +127,9 @@ class NetworkAnalyzerConfigurationArgs:
 
 
 class NetworkAnalyzerConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iotwireless:NetworkAnalyzerConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

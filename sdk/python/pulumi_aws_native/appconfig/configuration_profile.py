@@ -189,6 +189,9 @@ class ConfigurationProfileArgs:
 
 
 class ConfigurationProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:appconfig:ConfigurationProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

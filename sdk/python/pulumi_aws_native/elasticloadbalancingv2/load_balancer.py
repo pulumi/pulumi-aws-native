@@ -266,6 +266,9 @@ class LoadBalancerArgs:
 
 
 class LoadBalancer(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:elasticloadbalancingv2:LoadBalancer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

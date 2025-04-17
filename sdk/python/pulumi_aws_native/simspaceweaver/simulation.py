@@ -123,6 +123,9 @@ class SimulationArgs:
 
 
 class Simulation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:simspaceweaver:Simulation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

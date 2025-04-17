@@ -134,6 +134,9 @@ class GrantArgs:
 
 
 class Grant(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:licensemanager:Grant"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

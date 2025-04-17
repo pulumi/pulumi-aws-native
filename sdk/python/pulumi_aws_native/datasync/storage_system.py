@@ -140,6 +140,9 @@ class StorageSystemArgs:
 
 
 class StorageSystem(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:datasync:StorageSystem"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

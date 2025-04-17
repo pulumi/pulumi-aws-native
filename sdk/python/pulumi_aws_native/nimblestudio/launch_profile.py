@@ -155,6 +155,9 @@ class LaunchProfileArgs:
 
 
 class LaunchProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:nimblestudio:LaunchProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

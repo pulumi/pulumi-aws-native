@@ -187,6 +187,9 @@ class EndpointGroupArgs:
 
 
 class EndpointGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:globalaccelerator:EndpointGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

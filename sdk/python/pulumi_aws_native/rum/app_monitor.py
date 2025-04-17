@@ -195,6 +195,9 @@ class AppMonitorArgs:
 
 
 class AppMonitor(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:rum:AppMonitor"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

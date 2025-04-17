@@ -125,6 +125,9 @@ class IngestConfigurationArgs:
 
 
 class IngestConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ivs:IngestConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

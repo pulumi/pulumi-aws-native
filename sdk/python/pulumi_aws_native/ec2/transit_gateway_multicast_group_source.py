@@ -71,6 +71,9 @@ class TransitGatewayMulticastGroupSourceArgs:
 
 
 class TransitGatewayMulticastGroupSource(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:TransitGatewayMulticastGroupSource"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

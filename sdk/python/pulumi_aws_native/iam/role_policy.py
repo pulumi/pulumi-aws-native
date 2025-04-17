@@ -91,6 +91,9 @@ class RolePolicyInitArgs:
 
 
 class RolePolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iam:RolePolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -143,6 +143,9 @@ class GroupArgs:
 
 
 class Group(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:resourcegroups:Group"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

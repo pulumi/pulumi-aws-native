@@ -123,6 +123,9 @@ class RotationArgs:
 
 
 class Rotation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ssmcontacts:Rotation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

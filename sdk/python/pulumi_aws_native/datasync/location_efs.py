@@ -142,6 +142,9 @@ class LocationEfsArgs:
 
 
 class LocationEfs(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:datasync:LocationEfs"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

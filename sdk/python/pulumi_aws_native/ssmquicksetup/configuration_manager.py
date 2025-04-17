@@ -92,6 +92,9 @@ class ConfigurationManagerArgs:
 
 
 class ConfigurationManager(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ssmquicksetup:ConfigurationManager"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

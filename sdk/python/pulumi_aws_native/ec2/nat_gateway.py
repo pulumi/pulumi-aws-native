@@ -175,6 +175,9 @@ class NatGatewayArgs:
 
 
 class NatGateway(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:NatGateway"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

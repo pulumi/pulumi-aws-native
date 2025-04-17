@@ -76,6 +76,9 @@ class OutcomeArgs:
 
 
 class Outcome(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:frauddetector:Outcome"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

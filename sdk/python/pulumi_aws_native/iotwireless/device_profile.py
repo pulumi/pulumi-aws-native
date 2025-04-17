@@ -78,6 +78,9 @@ class DeviceProfileArgs:
 
 
 class DeviceProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iotwireless:DeviceProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

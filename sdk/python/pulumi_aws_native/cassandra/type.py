@@ -74,6 +74,9 @@ class TypeArgs:
 
 
 class Type(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cassandra:Type"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

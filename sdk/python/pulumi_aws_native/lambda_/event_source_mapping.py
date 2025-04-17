@@ -522,6 +522,9 @@ class EventSourceMappingArgs:
 
 
 class EventSourceMapping(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:lambda:EventSourceMapping"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

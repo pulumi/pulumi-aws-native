@@ -125,6 +125,9 @@ class KeyArgs:
 
 
 class Key(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:paymentcryptography:Key"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

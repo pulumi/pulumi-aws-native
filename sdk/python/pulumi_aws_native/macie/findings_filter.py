@@ -126,6 +126,9 @@ class FindingsFilterArgs:
 
 
 class FindingsFilter(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:macie:FindingsFilter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

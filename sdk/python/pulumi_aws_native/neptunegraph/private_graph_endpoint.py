@@ -88,6 +88,9 @@ class PrivateGraphEndpointArgs:
 
 
 class PrivateGraphEndpoint(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:neptunegraph:PrivateGraphEndpoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

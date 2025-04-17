@@ -94,6 +94,9 @@ class SigningProfileArgs:
 
 
 class SigningProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:signer:SigningProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

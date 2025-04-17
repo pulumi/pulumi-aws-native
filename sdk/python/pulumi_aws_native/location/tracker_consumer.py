@@ -72,6 +72,9 @@ class TrackerConsumerArgs:
 
 
 class TrackerConsumer(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:location:TrackerConsumer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

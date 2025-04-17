@@ -92,6 +92,9 @@ class AccessLogSubscriptionArgs:
 
 
 class AccessLogSubscription(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:vpclattice:AccessLogSubscription"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -118,6 +118,9 @@ class ThingGroupArgs:
 
 
 class ThingGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iot:ThingGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

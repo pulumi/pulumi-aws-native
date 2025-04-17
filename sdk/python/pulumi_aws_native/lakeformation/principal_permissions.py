@@ -105,6 +105,9 @@ class PrincipalPermissionsArgs:
 
 
 class PrincipalPermissions(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:lakeformation:PrincipalPermissions"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

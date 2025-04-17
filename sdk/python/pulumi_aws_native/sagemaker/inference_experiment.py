@@ -239,6 +239,9 @@ class InferenceExperimentArgs:
 
 
 class InferenceExperiment(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:sagemaker:InferenceExperiment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

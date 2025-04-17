@@ -75,6 +75,9 @@ class IdentitySourceArgs:
 
 
 class IdentitySource(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:verifiedpermissions:IdentitySource"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

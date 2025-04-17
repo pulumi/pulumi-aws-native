@@ -223,6 +223,9 @@ class CloudWatchAlarmTemplateArgs:
 
 
 class CloudWatchAlarmTemplate(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:medialive:CloudWatchAlarmTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

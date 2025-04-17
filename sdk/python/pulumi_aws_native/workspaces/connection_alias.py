@@ -61,6 +61,9 @@ class ConnectionAliasArgs:
 
 
 class ConnectionAlias(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:workspaces:ConnectionAlias"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

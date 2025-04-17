@@ -73,6 +73,9 @@ class VpcGatewayAttachmentArgs:
 
 
 class VpcGatewayAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ec2:VpcGatewayAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

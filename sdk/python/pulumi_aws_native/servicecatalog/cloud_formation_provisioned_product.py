@@ -261,6 +261,9 @@ class CloudFormationProvisionedProductArgs:
 
 
 class CloudFormationProvisionedProduct(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:servicecatalog:CloudFormationProvisionedProduct"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

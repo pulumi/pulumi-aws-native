@@ -92,6 +92,9 @@ class TrafficDistributionGroupArgs:
 
 
 class TrafficDistributionGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:connect:TrafficDistributionGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

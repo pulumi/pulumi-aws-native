@@ -92,6 +92,9 @@ class ConfigurationPolicyArgs:
 
 
 class ConfigurationPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:securityhub:ConfigurationPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

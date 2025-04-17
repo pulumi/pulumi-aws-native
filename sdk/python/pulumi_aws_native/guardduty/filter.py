@@ -154,6 +154,9 @@ class FilterArgs:
 
 
 class Filter(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:guardduty:Filter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

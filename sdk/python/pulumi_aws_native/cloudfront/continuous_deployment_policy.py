@@ -44,6 +44,9 @@ class ContinuousDeploymentPolicyArgs:
 
 
 class ContinuousDeploymentPolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cloudfront:ContinuousDeploymentPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

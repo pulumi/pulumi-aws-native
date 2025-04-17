@@ -264,6 +264,9 @@ class GlobalTableArgs:
 
 
 class GlobalTable(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:dynamodb:GlobalTable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

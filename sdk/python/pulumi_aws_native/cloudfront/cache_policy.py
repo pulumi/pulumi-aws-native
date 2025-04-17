@@ -43,6 +43,9 @@ class CachePolicyArgs:
 
 
 class CachePolicy(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cloudfront:CachePolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

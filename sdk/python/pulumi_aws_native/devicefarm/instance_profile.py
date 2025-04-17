@@ -132,6 +132,9 @@ class InstanceProfileArgs:
 
 
 class InstanceProfile(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:devicefarm:InstanceProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

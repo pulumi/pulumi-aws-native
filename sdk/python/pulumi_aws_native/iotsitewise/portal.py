@@ -185,6 +185,9 @@ class PortalArgs:
 
 
 class Portal(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iotsitewise:Portal"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

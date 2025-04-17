@@ -90,6 +90,9 @@ class RuleGroupsNamespaceArgs:
 
 
 class RuleGroupsNamespace(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:aps:RuleGroupsNamespace"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

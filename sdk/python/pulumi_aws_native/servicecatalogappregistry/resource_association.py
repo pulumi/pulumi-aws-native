@@ -72,6 +72,9 @@ class ResourceAssociationArgs:
 
 
 class ResourceAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:servicecatalogappregistry:ResourceAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -60,6 +60,9 @@ class ClientCertificateArgs:
 
 
 class ClientCertificate(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:apigateway:ClientCertificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

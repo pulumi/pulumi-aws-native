@@ -205,6 +205,9 @@ class ObjectTypeArgs:
 
 
 class ObjectType(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:customerprofiles:ObjectType"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -95,6 +95,9 @@ class InputArgs:
 
 
 class Input(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iotevents:Input"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

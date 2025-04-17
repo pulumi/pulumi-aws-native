@@ -154,6 +154,9 @@ class SimpleAdArgs:
 
 
 class SimpleAd(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:directoryservice:SimpleAd"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

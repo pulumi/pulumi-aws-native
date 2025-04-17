@@ -58,6 +58,9 @@ class DedicatedIpPoolArgs:
 
 
 class DedicatedIpPool(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ses:DedicatedIpPool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

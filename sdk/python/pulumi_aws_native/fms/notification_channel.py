@@ -56,6 +56,9 @@ class NotificationChannelArgs:
 
 
 class NotificationChannel(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:fms:NotificationChannel"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

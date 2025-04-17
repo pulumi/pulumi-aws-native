@@ -125,6 +125,9 @@ class RouteResponseArgs:
 
 
 class RouteResponse(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:apigatewayv2:RouteResponse"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

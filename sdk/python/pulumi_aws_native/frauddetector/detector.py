@@ -172,6 +172,9 @@ class DetectorArgs:
 
 
 class Detector(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:frauddetector:Detector"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

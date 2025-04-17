@@ -273,6 +273,9 @@ class FileSystemArgs:
 
 
 class FileSystem(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:efs:FileSystem"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

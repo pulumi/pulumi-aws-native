@@ -94,6 +94,9 @@ class UserPoolDomainArgs:
 
 
 class UserPoolDomain(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cognito:UserPoolDomain"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

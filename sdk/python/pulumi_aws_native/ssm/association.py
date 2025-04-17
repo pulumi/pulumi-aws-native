@@ -321,6 +321,9 @@ class AssociationArgs:
 
 
 class Association(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ssm:Association"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

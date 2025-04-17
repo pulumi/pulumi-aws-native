@@ -77,6 +77,9 @@ class StorageConfigurationArgs:
 
 
 class StorageConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:ivs:StorageConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

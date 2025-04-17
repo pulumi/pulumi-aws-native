@@ -92,6 +92,9 @@ class DeliverySourceArgs:
 
 
 class DeliverySource(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:logs:DeliverySource"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

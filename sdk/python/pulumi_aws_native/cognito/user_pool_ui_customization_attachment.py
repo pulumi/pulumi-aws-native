@@ -72,6 +72,9 @@ class UserPoolUiCustomizationAttachmentArgs:
 
 
 class UserPoolUiCustomizationAttachment(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:cognito:UserPoolUiCustomizationAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

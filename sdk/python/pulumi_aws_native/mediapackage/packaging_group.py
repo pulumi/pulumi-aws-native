@@ -93,6 +93,9 @@ class PackagingGroupArgs:
 
 
 class PackagingGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:mediapackage:PackagingGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

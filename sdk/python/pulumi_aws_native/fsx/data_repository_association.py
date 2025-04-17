@@ -148,6 +148,9 @@ class DataRepositoryAssociationArgs:
 
 
 class DataRepositoryAssociation(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:fsx:DataRepositoryAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -109,6 +109,9 @@ class MultiplexArgs:
 
 
 class Multiplex(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:medialive:Multiplex"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -124,6 +124,9 @@ class ThemeArgs:
 
 
 class Theme(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:amplifyuibuilder:Theme"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

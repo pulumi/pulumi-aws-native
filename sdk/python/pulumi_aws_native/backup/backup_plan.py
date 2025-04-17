@@ -59,6 +59,9 @@ class BackupPlanArgs:
 
 
 class BackupPlan(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:backup:BackupPlan"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

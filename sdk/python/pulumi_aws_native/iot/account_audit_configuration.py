@@ -105,6 +105,9 @@ class AccountAuditConfigurationArgs:
 
 
 class AccountAuditConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:iot:AccountAuditConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -98,6 +98,9 @@ class TestGridProjectArgs:
 
 
 class TestGridProject(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:devicefarm:TestGridProject"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

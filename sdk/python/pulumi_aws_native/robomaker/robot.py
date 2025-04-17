@@ -105,6 +105,9 @@ class RobotArgs:
 
 
 class Robot(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:robomaker:Robot"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -128,6 +128,9 @@ class ProtectionGroupArgs:
 
 
 class ProtectionGroup(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:shield:ProtectionGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -169,6 +169,9 @@ class WorkflowArgs:
 
 
 class Workflow(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:imagebuilder:Workflow"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

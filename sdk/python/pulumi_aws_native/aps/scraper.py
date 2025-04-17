@@ -119,6 +119,9 @@ class ScraperArgs:
 
 
 class Scraper(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:aps:Scraper"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

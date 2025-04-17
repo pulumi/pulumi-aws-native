@@ -58,6 +58,9 @@ class ServicePrincipalNameArgs:
 
 
 class ServicePrincipalName(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:pcaconnectorad:ServicePrincipalName"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

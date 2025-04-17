@@ -129,6 +129,9 @@ class ServiceTemplateArgs:
 
 
 class ServiceTemplate(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:proton:ServiceTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

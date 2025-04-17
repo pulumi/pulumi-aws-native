@@ -162,6 +162,9 @@ class GlobalClusterArgs:
 
 
 class GlobalCluster(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:rds:GlobalCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

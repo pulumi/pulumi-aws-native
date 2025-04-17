@@ -109,6 +109,9 @@ class CustomPluginArgs:
 
 
 class CustomPlugin(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:kafkaconnect:CustomPlugin"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

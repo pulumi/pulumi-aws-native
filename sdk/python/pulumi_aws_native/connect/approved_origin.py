@@ -68,6 +68,9 @@ class ApprovedOriginArgs:
 
 
 class ApprovedOrigin(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:connect:ApprovedOrigin"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

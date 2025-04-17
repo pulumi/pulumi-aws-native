@@ -155,6 +155,9 @@ class CertificateArgs:
 
 
 class Certificate(pulumi.CustomResource):
+
+    pulumi_type = "aws-native:transfer:Certificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
