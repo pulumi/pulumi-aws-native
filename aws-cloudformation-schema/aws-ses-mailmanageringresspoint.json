@@ -42,6 +42,58 @@
       "type" : "string",
       "enum" : [ "OPEN", "AUTH" ]
     },
+    "IpType" : {
+      "type" : "string",
+      "enum" : [ "IPV4", "DUAL_STACK" ]
+    },
+    "NetworkConfiguration" : {
+      "oneOf" : [ {
+        "type" : "object",
+        "title" : "PublicNetworkConfiguration",
+        "properties" : {
+          "PublicNetworkConfiguration" : {
+            "$ref" : "#/definitions/PublicNetworkConfiguration"
+          }
+        },
+        "required" : [ "PublicNetworkConfiguration" ],
+        "additionalProperties" : false
+      }, {
+        "type" : "object",
+        "title" : "PrivateNetworkConfiguration",
+        "properties" : {
+          "PrivateNetworkConfiguration" : {
+            "$ref" : "#/definitions/PrivateNetworkConfiguration"
+          }
+        },
+        "required" : [ "PrivateNetworkConfiguration" ],
+        "additionalProperties" : false
+      } ]
+    },
+    "PrivateNetworkConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "VpcEndpointId" : {
+          "type" : "string",
+          "pattern" : "^vpce-[a-zA-Z0-9]{17}$"
+        }
+      },
+      "required" : [ "VpcEndpointId" ],
+      "additionalProperties" : false
+    },
+    "PublicNetworkConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "IpType" : {
+          "allOf" : [ {
+            "$ref" : "#/definitions/IpType"
+          }, {
+            "default" : "IPV4"
+          } ]
+        }
+      },
+      "required" : [ "IpType" ],
+      "additionalProperties" : false
+    },
     "Tag" : {
       "type" : "object",
       "properties" : {
@@ -88,6 +140,9 @@
       "minLength" : 3,
       "pattern" : "^[A-Za-z0-9_\\-]+$"
     },
+    "NetworkConfiguration" : {
+      "$ref" : "#/definitions/NetworkConfiguration"
+    },
     "RuleSetId" : {
       "type" : "string",
       "maxLength" : 100,
@@ -121,12 +176,12 @@
   },
   "required" : [ "Type", "TrafficPolicyId", "RuleSetId" ],
   "readOnlyProperties" : [ "/properties/IngressPointId", "/properties/IngressPointArn", "/properties/Status", "/properties/ARecord" ],
-  "createOnlyProperties" : [ "/properties/Type" ],
+  "createOnlyProperties" : [ "/properties/NetworkConfiguration", "/properties/Type" ],
   "writeOnlyProperties" : [ "/properties/IngressPointConfiguration" ],
   "primaryIdentifier" : [ "/properties/IngressPointId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ses:TagResource", "ses:ListTagsForResource", "ses:GetIngressPoint", "ses:CreateIngressPoint", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "ses:TagResource", "ses:ListTagsForResource", "ses:GetIngressPoint", "ses:CreateIngressPoint", "iam:CreateServiceLinkedRole", "ec2:DescribeVpcEndpoints" ]
     },
     "read" : {
       "permissions" : [ "ses:ListTagsForResource", "ses:GetIngressPoint" ]

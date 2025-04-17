@@ -105,7 +105,7 @@
       "pattern" : "^[A-Za-z][a-zA-Z0-9-_]*$"
     }
   },
-  "required" : [ "DeploymentPatternName", "Name", "Specifications", "WorkloadName" ],
+  "required" : [ "DeploymentPatternName", "Name", "WorkloadName" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/DeletedAt", "/properties/DeploymentId", "/properties/ResourceGroup", "/properties/Status" ],
   "createOnlyProperties" : [ "/properties/DeploymentPatternName", "/properties/Name", "/properties/WorkloadName" ],
   "writeOnlyProperties" : [ "/properties/Specifications" ],
@@ -133,7 +133,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "launchwizard:ListTagsForResource", "launchwizard:TagResource", "launchwizard:UntagResource" ]
   },
   "additionalProperties" : false
 }
