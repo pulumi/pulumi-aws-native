@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.Ses.Outputs
     [OutputType]
     public sealed class MailManagerTrafficPolicyPolicyCondition3Properties
     {
-        public readonly Outputs.MailManagerTrafficPolicyIngressBooleanExpression BooleanExpression;
+        public readonly Outputs.MailManagerTrafficPolicyIngressTlsProtocolExpression TlsExpression;
 
         [OutputConstructor]
-        private MailManagerTrafficPolicyPolicyCondition3Properties(Outputs.MailManagerTrafficPolicyIngressBooleanExpression booleanExpression)
+        private MailManagerTrafficPolicyPolicyCondition3Properties(Outputs.MailManagerTrafficPolicyIngressTlsProtocolExpression tlsExpression)
         {
-            BooleanExpression = booleanExpression;
+            TlsExpression = tlsExpression;
         }
     }
 }

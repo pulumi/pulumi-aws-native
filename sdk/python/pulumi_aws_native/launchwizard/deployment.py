@@ -24,23 +24,24 @@ __all__ = ['DeploymentArgs', 'Deployment']
 class DeploymentArgs:
     def __init__(__self__, *,
                  deployment_pattern_name: pulumi.Input[builtins.str],
-                 specifications: pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]],
                  workload_name: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 specifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[builtins.str] deployment_pattern_name: Workload deployment pattern name
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] specifications: LaunchWizard deployment specifications
         :param pulumi.Input[builtins.str] workload_name: Workload Name for LaunchWizard deployment
         :param pulumi.Input[builtins.str] name: Name of LaunchWizard deployment
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] specifications: LaunchWizard deployment specifications
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags for LaunchWizard deployment
         """
         pulumi.set(__self__, "deployment_pattern_name", deployment_pattern_name)
-        pulumi.set(__self__, "specifications", specifications)
         pulumi.set(__self__, "workload_name", workload_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if specifications is not None:
+            pulumi.set(__self__, "specifications", specifications)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -55,18 +56,6 @@ class DeploymentArgs:
     @deployment_pattern_name.setter
     def deployment_pattern_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "deployment_pattern_name", value)
-
-    @property
-    @pulumi.getter
-    def specifications(self) -> pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]:
-        """
-        LaunchWizard deployment specifications
-        """
-        return pulumi.get(self, "specifications")
-
-    @specifications.setter
-    def specifications(self, value: pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]):
-        pulumi.set(self, "specifications", value)
 
     @property
     @pulumi.getter(name="workloadName")
@@ -91,6 +80,18 @@ class DeploymentArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def specifications(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        LaunchWizard deployment specifications
+        """
+        return pulumi.get(self, "specifications")
+
+    @specifications.setter
+    def specifications(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "specifications", value)
 
     @property
     @pulumi.getter
@@ -169,8 +170,6 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'deployment_pattern_name'")
             __props__.__dict__["deployment_pattern_name"] = deployment_pattern_name
             __props__.__dict__["name"] = name
-            if specifications is None and not opts.urn:
-                raise TypeError("Missing required property 'specifications'")
             __props__.__dict__["specifications"] = specifications
             __props__.__dict__["tags"] = tags
             if workload_name is None and not opts.urn:
@@ -277,7 +276,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def specifications(self) -> pulumi.Output[Mapping[str, builtins.str]]:
+    def specifications(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         LaunchWizard deployment specifications
         """

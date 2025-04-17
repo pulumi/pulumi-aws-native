@@ -24,10 +24,14 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// List of text examples
         /// </summary>
         public readonly ImmutableArray<string> Examples;
+        public readonly Pulumi.AwsNative.Bedrock.GuardrailTopicAction? InputAction;
+        public readonly bool? InputEnabled;
         /// <summary>
         /// Name of topic in topic policy
         /// </summary>
         public readonly string Name;
+        public readonly Pulumi.AwsNative.Bedrock.GuardrailTopicAction? OutputAction;
+        public readonly bool? OutputEnabled;
         /// <summary>
         /// Specifies to deny the topic.
         /// </summary>
@@ -39,13 +43,25 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
             ImmutableArray<string> examples,
 
+            Pulumi.AwsNative.Bedrock.GuardrailTopicAction? inputAction,
+
+            bool? inputEnabled,
+
             string name,
+
+            Pulumi.AwsNative.Bedrock.GuardrailTopicAction? outputAction,
+
+            bool? outputEnabled,
 
             Pulumi.AwsNative.Bedrock.GuardrailTopicType type)
         {
             Definition = definition;
             Examples = examples;
+            InputAction = inputAction;
+            InputEnabled = inputEnabled;
             Name = name;
+            OutputAction = outputAction;
+            OutputEnabled = outputEnabled;
             Type = type;
         }
     }

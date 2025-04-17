@@ -1224,6 +1224,7 @@ class DomainNameMutualTlsAuthenticationArgs:
 
 if not MYPY:
     class DomainNameV2EndpointConfigurationArgsDict(TypedDict):
+        ip_address_type: NotRequired[pulumi.Input[builtins.str]]
         types: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
         A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
@@ -1234,12 +1235,24 @@ elif False:
 @pulumi.input_type
 class DomainNameV2EndpointConfigurationArgs:
     def __init__(__self__, *,
+                 ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] types: A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
         """
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if types is not None:
             pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ip_address_type", value)
 
     @property
     @pulumi.getter

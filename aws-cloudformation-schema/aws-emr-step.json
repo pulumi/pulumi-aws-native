@@ -79,6 +79,9 @@
     },
     "delete" : {
       "permissions" : [ ]
+    },
+    "read" : {
+      "permissions" : [ ]
     }
   }
 }

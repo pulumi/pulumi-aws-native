@@ -15,6 +15,7 @@ import (
 type TableBucket struct {
 	pulumi.CustomResourceState
 
+	EncryptionConfiguration TableBucketEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of the table bucket.
 	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
 	// The name for the table bucket.
@@ -67,6 +68,7 @@ func (TableBucketState) ElementType() reflect.Type {
 }
 
 type tableBucketArgs struct {
+	EncryptionConfiguration *TableBucketEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The name for the table bucket.
 	TableBucketName *string `pulumi:"tableBucketName"`
 	// The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
@@ -75,6 +77,7 @@ type tableBucketArgs struct {
 
 // The set of arguments for constructing a TableBucket resource.
 type TableBucketArgs struct {
+	EncryptionConfiguration TableBucketEncryptionConfigurationPtrInput
 	// The name for the table bucket.
 	TableBucketName pulumi.StringPtrInput
 	// The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
@@ -116,6 +119,10 @@ func (o TableBucketOutput) ToTableBucketOutput() TableBucketOutput {
 
 func (o TableBucketOutput) ToTableBucketOutputWithContext(ctx context.Context) TableBucketOutput {
 	return o
+}
+
+func (o TableBucketOutput) EncryptionConfiguration() TableBucketEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *TableBucket) TableBucketEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(TableBucketEncryptionConfigurationPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the table bucket.

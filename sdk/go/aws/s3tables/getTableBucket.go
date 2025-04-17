@@ -28,6 +28,7 @@ type LookupTableBucketArgs struct {
 }
 
 type LookupTableBucketResult struct {
+	EncryptionConfiguration *TableBucketEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of the table bucket.
 	TableBucketArn *string `pulumi:"tableBucketArn"`
 	// The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
@@ -64,6 +65,10 @@ func (o LookupTableBucketResultOutput) ToLookupTableBucketResultOutput() LookupT
 
 func (o LookupTableBucketResultOutput) ToLookupTableBucketResultOutputWithContext(ctx context.Context) LookupTableBucketResultOutput {
 	return o
+}
+
+func (o LookupTableBucketResultOutput) EncryptionConfiguration() TableBucketEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupTableBucketResult) *TableBucketEncryptionConfiguration { return v.EncryptionConfiguration }).(TableBucketEncryptionConfigurationPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the table bucket.

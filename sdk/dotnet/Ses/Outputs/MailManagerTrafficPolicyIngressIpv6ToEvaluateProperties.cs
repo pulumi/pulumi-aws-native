@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.Ses.Outputs
 {
 
     [OutputType]
-    public sealed class MailManagerRuleSetRuleBooleanToEvaluateProperties
+    public sealed class MailManagerTrafficPolicyIngressIpv6ToEvaluateProperties
     {
-        public readonly Pulumi.AwsNative.Ses.MailManagerRuleSetRuleBooleanEmailAttribute Attribute;
+        public readonly Pulumi.AwsNative.Ses.MailManagerTrafficPolicyIngressIpv6Attribute Attribute;
 
         [OutputConstructor]
-        private MailManagerRuleSetRuleBooleanToEvaluateProperties(Pulumi.AwsNative.Ses.MailManagerRuleSetRuleBooleanEmailAttribute attribute)
+        private MailManagerTrafficPolicyIngressIpv6ToEvaluateProperties(Pulumi.AwsNative.Ses.MailManagerTrafficPolicyIngressIpv6Attribute attribute)
         {
             Attribute = attribute;
         }

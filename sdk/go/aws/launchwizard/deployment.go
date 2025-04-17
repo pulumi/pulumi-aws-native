@@ -51,9 +51,6 @@ func NewDeployment(ctx *pulumi.Context,
 	if args.DeploymentPatternName == nil {
 		return nil, errors.New("invalid value for required argument 'DeploymentPatternName'")
 	}
-	if args.Specifications == nil {
-		return nil, errors.New("invalid value for required argument 'Specifications'")
-	}
 	if args.WorkloadName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkloadName'")
 	}

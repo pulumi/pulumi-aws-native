@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:emr:SecurityConfiguration":
 		r = &SecurityConfiguration{}
+	case "aws-native:emr:Step":
+		r = &Step{}
 	case "aws-native:emr:Studio":
 		r = &Studio{}
 	case "aws-native:emr:StudioSessionMapping":

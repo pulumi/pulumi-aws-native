@@ -16,14 +16,31 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class GuardrailWordConfig
     {
+        public readonly Pulumi.AwsNative.Bedrock.GuardrailWordAction? InputAction;
+        public readonly bool? InputEnabled;
+        public readonly Pulumi.AwsNative.Bedrock.GuardrailWordAction? OutputAction;
+        public readonly bool? OutputEnabled;
         /// <summary>
         /// The custom word text.
         /// </summary>
         public readonly string Text;
 
         [OutputConstructor]
-        private GuardrailWordConfig(string text)
+        private GuardrailWordConfig(
+            Pulumi.AwsNative.Bedrock.GuardrailWordAction? inputAction,
+
+            bool? inputEnabled,
+
+            Pulumi.AwsNative.Bedrock.GuardrailWordAction? outputAction,
+
+            bool? outputEnabled,
+
+            string text)
         {
+            InputAction = inputAction;
+            InputEnabled = inputEnabled;
+            OutputAction = outputAction;
+            OutputEnabled = outputEnabled;
             Text = text;
         }
     }

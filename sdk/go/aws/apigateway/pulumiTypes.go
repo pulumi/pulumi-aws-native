@@ -1868,6 +1868,7 @@ type DomainNameTag struct {
 }
 
 type DomainNameV2EndpointConfiguration struct {
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
 	Types []string `pulumi:"types"`
 }
@@ -1884,6 +1885,7 @@ type DomainNameV2EndpointConfigurationInput interface {
 }
 
 type DomainNameV2EndpointConfigurationArgs struct {
+	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 	// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
 	Types pulumi.StringArrayInput `pulumi:"types"`
 }
@@ -1965,6 +1967,10 @@ func (o DomainNameV2EndpointConfigurationOutput) ToDomainNameV2EndpointConfigura
 	}).(DomainNameV2EndpointConfigurationPtrOutput)
 }
 
+func (o DomainNameV2EndpointConfigurationOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameV2EndpointConfiguration) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
 // A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
 func (o DomainNameV2EndpointConfigurationOutput) Types() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainNameV2EndpointConfiguration) []string { return v.Types }).(pulumi.StringArrayOutput)
@@ -1992,6 +1998,15 @@ func (o DomainNameV2EndpointConfigurationPtrOutput) Elem() DomainNameV2EndpointC
 		var ret DomainNameV2EndpointConfiguration
 		return ret
 	}).(DomainNameV2EndpointConfigurationOutput)
+}
+
+func (o DomainNameV2EndpointConfigurationPtrOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNameV2EndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .

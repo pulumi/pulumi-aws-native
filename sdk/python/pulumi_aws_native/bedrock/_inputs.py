@@ -7656,10 +7656,14 @@ if not MYPY:
         """
         The harmful category that the content filter is applied to.
         """
+        input_action: NotRequired[pulumi.Input['GuardrailContentFilterAction']]
+        input_enabled: NotRequired[pulumi.Input[builtins.bool]]
         input_modalities: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]
         """
         List of modalities
         """
+        output_action: NotRequired[pulumi.Input['GuardrailContentFilterAction']]
+        output_enabled: NotRequired[pulumi.Input[builtins.bool]]
         output_modalities: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]
         """
         List of modalities
@@ -7673,7 +7677,11 @@ class GuardrailContentFilterConfigArgs:
                  input_strength: pulumi.Input['GuardrailFilterStrength'],
                  output_strength: pulumi.Input['GuardrailFilterStrength'],
                  type: pulumi.Input['GuardrailContentFilterType'],
+                 input_action: Optional[pulumi.Input['GuardrailContentFilterAction']] = None,
+                 input_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  input_modalities: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]] = None,
+                 output_action: Optional[pulumi.Input['GuardrailContentFilterAction']] = None,
+                 output_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  output_modalities: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]] = None):
         """
         Content filter config in content policy.
@@ -7686,8 +7694,16 @@ class GuardrailContentFilterConfigArgs:
         pulumi.set(__self__, "input_strength", input_strength)
         pulumi.set(__self__, "output_strength", output_strength)
         pulumi.set(__self__, "type", type)
+        if input_action is not None:
+            pulumi.set(__self__, "input_action", input_action)
+        if input_enabled is not None:
+            pulumi.set(__self__, "input_enabled", input_enabled)
         if input_modalities is not None:
             pulumi.set(__self__, "input_modalities", input_modalities)
+        if output_action is not None:
+            pulumi.set(__self__, "output_action", output_action)
+        if output_enabled is not None:
+            pulumi.set(__self__, "output_enabled", output_enabled)
         if output_modalities is not None:
             pulumi.set(__self__, "output_modalities", output_modalities)
 
@@ -7728,6 +7744,24 @@ class GuardrailContentFilterConfigArgs:
         pulumi.set(self, "type", value)
 
     @property
+    @pulumi.getter(name="inputAction")
+    def input_action(self) -> Optional[pulumi.Input['GuardrailContentFilterAction']]:
+        return pulumi.get(self, "input_action")
+
+    @input_action.setter
+    def input_action(self, value: Optional[pulumi.Input['GuardrailContentFilterAction']]):
+        pulumi.set(self, "input_action", value)
+
+    @property
+    @pulumi.getter(name="inputEnabled")
+    def input_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "input_enabled")
+
+    @input_enabled.setter
+    def input_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "input_enabled", value)
+
+    @property
     @pulumi.getter(name="inputModalities")
     def input_modalities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]:
         """
@@ -7738,6 +7772,24 @@ class GuardrailContentFilterConfigArgs:
     @input_modalities.setter
     def input_modalities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]):
         pulumi.set(self, "input_modalities", value)
+
+    @property
+    @pulumi.getter(name="outputAction")
+    def output_action(self) -> Optional[pulumi.Input['GuardrailContentFilterAction']]:
+        return pulumi.get(self, "output_action")
+
+    @output_action.setter
+    def output_action(self, value: Optional[pulumi.Input['GuardrailContentFilterAction']]):
+        pulumi.set(self, "output_action", value)
+
+    @property
+    @pulumi.getter(name="outputEnabled")
+    def output_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "output_enabled")
+
+    @output_enabled.setter
+    def output_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "output_enabled", value)
 
     @property
     @pulumi.getter(name="outputModalities")
@@ -7800,6 +7852,8 @@ if not MYPY:
         """
         The filter details for the guardrails contextual grounding filter.
         """
+        action: NotRequired[pulumi.Input['GuardrailContextualGroundingAction']]
+        enabled: NotRequired[pulumi.Input[builtins.bool]]
 elif False:
     GuardrailContextualGroundingFilterConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -7807,7 +7861,9 @@ elif False:
 class GuardrailContextualGroundingFilterConfigArgs:
     def __init__(__self__, *,
                  threshold: pulumi.Input[builtins.float],
-                 type: pulumi.Input['GuardrailContextualGroundingFilterType']):
+                 type: pulumi.Input['GuardrailContextualGroundingFilterType'],
+                 action: Optional[pulumi.Input['GuardrailContextualGroundingAction']] = None,
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None):
         """
         A config for grounding filter.
         :param pulumi.Input[builtins.float] threshold: The threshold for this filter.
@@ -7815,6 +7871,10 @@ class GuardrailContextualGroundingFilterConfigArgs:
         """
         pulumi.set(__self__, "threshold", threshold)
         pulumi.set(__self__, "type", type)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -7839,6 +7899,24 @@ class GuardrailContextualGroundingFilterConfigArgs:
     @type.setter
     def type(self, value: pulumi.Input['GuardrailContextualGroundingFilterType']):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input['GuardrailContextualGroundingAction']]:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input['GuardrailContextualGroundingAction']]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:
@@ -7885,18 +7963,34 @@ if not MYPY:
         """
         The managed word type to configure for the guardrail.
         """
+        input_action: NotRequired[pulumi.Input['GuardrailWordAction']]
+        input_enabled: NotRequired[pulumi.Input[builtins.bool]]
+        output_action: NotRequired[pulumi.Input['GuardrailWordAction']]
+        output_enabled: NotRequired[pulumi.Input[builtins.bool]]
 elif False:
     GuardrailManagedWordsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GuardrailManagedWordsConfigArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input['GuardrailManagedWordsType']):
+                 type: pulumi.Input['GuardrailManagedWordsType'],
+                 input_action: Optional[pulumi.Input['GuardrailWordAction']] = None,
+                 input_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 output_action: Optional[pulumi.Input['GuardrailWordAction']] = None,
+                 output_enabled: Optional[pulumi.Input[builtins.bool]] = None):
         """
         A managed words config.
         :param pulumi.Input['GuardrailManagedWordsType'] type: The managed word type to configure for the guardrail.
         """
         pulumi.set(__self__, "type", type)
+        if input_action is not None:
+            pulumi.set(__self__, "input_action", input_action)
+        if input_enabled is not None:
+            pulumi.set(__self__, "input_enabled", input_enabled)
+        if output_action is not None:
+            pulumi.set(__self__, "output_action", output_action)
+        if output_enabled is not None:
+            pulumi.set(__self__, "output_enabled", output_enabled)
 
     @property
     @pulumi.getter
@@ -7909,6 +8003,42 @@ class GuardrailManagedWordsConfigArgs:
     @type.setter
     def type(self, value: pulumi.Input['GuardrailManagedWordsType']):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="inputAction")
+    def input_action(self) -> Optional[pulumi.Input['GuardrailWordAction']]:
+        return pulumi.get(self, "input_action")
+
+    @input_action.setter
+    def input_action(self, value: Optional[pulumi.Input['GuardrailWordAction']]):
+        pulumi.set(self, "input_action", value)
+
+    @property
+    @pulumi.getter(name="inputEnabled")
+    def input_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "input_enabled")
+
+    @input_enabled.setter
+    def input_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "input_enabled", value)
+
+    @property
+    @pulumi.getter(name="outputAction")
+    def output_action(self) -> Optional[pulumi.Input['GuardrailWordAction']]:
+        return pulumi.get(self, "output_action")
+
+    @output_action.setter
+    def output_action(self, value: Optional[pulumi.Input['GuardrailWordAction']]):
+        pulumi.set(self, "output_action", value)
+
+    @property
+    @pulumi.getter(name="outputEnabled")
+    def output_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "output_enabled")
+
+    @output_enabled.setter
+    def output_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "output_enabled", value)
 
 
 if not MYPY:
@@ -8041,6 +8171,10 @@ if not MYPY:
 
         - *Regex filter* - You can use a regular expressions to define patterns for a guardrail to recognize and act upon such as serial number, booking ID etc..
         """
+        input_action: NotRequired[pulumi.Input['GuardrailSensitiveInformationAction']]
+        input_enabled: NotRequired[pulumi.Input[builtins.bool]]
+        output_action: NotRequired[pulumi.Input['GuardrailSensitiveInformationAction']]
+        output_enabled: NotRequired[pulumi.Input[builtins.bool]]
 elif False:
     GuardrailPiiEntityConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -8048,7 +8182,11 @@ elif False:
 class GuardrailPiiEntityConfigArgs:
     def __init__(__self__, *,
                  action: pulumi.Input['GuardrailSensitiveInformationAction'],
-                 type: pulumi.Input['GuardrailPiiEntityType']):
+                 type: pulumi.Input['GuardrailPiiEntityType'],
+                 input_action: Optional[pulumi.Input['GuardrailSensitiveInformationAction']] = None,
+                 input_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 output_action: Optional[pulumi.Input['GuardrailSensitiveInformationAction']] = None,
+                 output_enabled: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Pii entity configuration.
         :param pulumi.Input['GuardrailSensitiveInformationAction'] action: Configure guardrail action when the PII entity is detected.
@@ -8173,6 +8311,14 @@ class GuardrailPiiEntityConfigArgs:
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "type", type)
+        if input_action is not None:
+            pulumi.set(__self__, "input_action", input_action)
+        if input_enabled is not None:
+            pulumi.set(__self__, "input_enabled", input_enabled)
+        if output_action is not None:
+            pulumi.set(__self__, "output_action", output_action)
+        if output_enabled is not None:
+            pulumi.set(__self__, "output_enabled", output_enabled)
 
     @property
     @pulumi.getter
@@ -8315,6 +8461,42 @@ class GuardrailPiiEntityConfigArgs:
     def type(self, value: pulumi.Input['GuardrailPiiEntityType']):
         pulumi.set(self, "type", value)
 
+    @property
+    @pulumi.getter(name="inputAction")
+    def input_action(self) -> Optional[pulumi.Input['GuardrailSensitiveInformationAction']]:
+        return pulumi.get(self, "input_action")
+
+    @input_action.setter
+    def input_action(self, value: Optional[pulumi.Input['GuardrailSensitiveInformationAction']]):
+        pulumi.set(self, "input_action", value)
+
+    @property
+    @pulumi.getter(name="inputEnabled")
+    def input_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "input_enabled")
+
+    @input_enabled.setter
+    def input_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "input_enabled", value)
+
+    @property
+    @pulumi.getter(name="outputAction")
+    def output_action(self) -> Optional[pulumi.Input['GuardrailSensitiveInformationAction']]:
+        return pulumi.get(self, "output_action")
+
+    @output_action.setter
+    def output_action(self, value: Optional[pulumi.Input['GuardrailSensitiveInformationAction']]):
+        pulumi.set(self, "output_action", value)
+
+    @property
+    @pulumi.getter(name="outputEnabled")
+    def output_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "output_enabled")
+
+    @output_enabled.setter
+    def output_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "output_enabled", value)
+
 
 if not MYPY:
     class GuardrailRegexConfigArgsDict(TypedDict):
@@ -8337,6 +8519,10 @@ if not MYPY:
         """
         The regex description.
         """
+        input_action: NotRequired[pulumi.Input['GuardrailSensitiveInformationAction']]
+        input_enabled: NotRequired[pulumi.Input[builtins.bool]]
+        output_action: NotRequired[pulumi.Input['GuardrailSensitiveInformationAction']]
+        output_enabled: NotRequired[pulumi.Input[builtins.bool]]
 elif False:
     GuardrailRegexConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -8346,7 +8532,11 @@ class GuardrailRegexConfigArgs:
                  action: pulumi.Input['GuardrailSensitiveInformationAction'],
                  name: pulumi.Input[builtins.str],
                  pattern: pulumi.Input[builtins.str],
-                 description: Optional[pulumi.Input[builtins.str]] = None):
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 input_action: Optional[pulumi.Input['GuardrailSensitiveInformationAction']] = None,
+                 input_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 output_action: Optional[pulumi.Input['GuardrailSensitiveInformationAction']] = None,
+                 output_enabled: Optional[pulumi.Input[builtins.bool]] = None):
         """
         A regex configuration.
         :param pulumi.Input['GuardrailSensitiveInformationAction'] action: The guardrail action to configure when matching regular expression is detected.
@@ -8359,6 +8549,14 @@ class GuardrailRegexConfigArgs:
         pulumi.set(__self__, "pattern", pattern)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if input_action is not None:
+            pulumi.set(__self__, "input_action", input_action)
+        if input_enabled is not None:
+            pulumi.set(__self__, "input_enabled", input_enabled)
+        if output_action is not None:
+            pulumi.set(__self__, "output_action", output_action)
+        if output_enabled is not None:
+            pulumi.set(__self__, "output_enabled", output_enabled)
 
     @property
     @pulumi.getter
@@ -8407,6 +8605,42 @@ class GuardrailRegexConfigArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="inputAction")
+    def input_action(self) -> Optional[pulumi.Input['GuardrailSensitiveInformationAction']]:
+        return pulumi.get(self, "input_action")
+
+    @input_action.setter
+    def input_action(self, value: Optional[pulumi.Input['GuardrailSensitiveInformationAction']]):
+        pulumi.set(self, "input_action", value)
+
+    @property
+    @pulumi.getter(name="inputEnabled")
+    def input_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "input_enabled")
+
+    @input_enabled.setter
+    def input_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "input_enabled", value)
+
+    @property
+    @pulumi.getter(name="outputAction")
+    def output_action(self) -> Optional[pulumi.Input['GuardrailSensitiveInformationAction']]:
+        return pulumi.get(self, "output_action")
+
+    @output_action.setter
+    def output_action(self, value: Optional[pulumi.Input['GuardrailSensitiveInformationAction']]):
+        pulumi.set(self, "output_action", value)
+
+    @property
+    @pulumi.getter(name="outputEnabled")
+    def output_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "output_enabled")
+
+    @output_enabled.setter
+    def output_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "output_enabled", value)
 
 
 if not MYPY:
@@ -8486,6 +8720,10 @@ if not MYPY:
         """
         List of text examples
         """
+        input_action: NotRequired[pulumi.Input['GuardrailTopicAction']]
+        input_enabled: NotRequired[pulumi.Input[builtins.bool]]
+        output_action: NotRequired[pulumi.Input['GuardrailTopicAction']]
+        output_enabled: NotRequired[pulumi.Input[builtins.bool]]
 elif False:
     GuardrailTopicConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -8495,7 +8733,11 @@ class GuardrailTopicConfigArgs:
                  definition: pulumi.Input[builtins.str],
                  name: pulumi.Input[builtins.str],
                  type: pulumi.Input['GuardrailTopicType'],
-                 examples: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 examples: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 input_action: Optional[pulumi.Input['GuardrailTopicAction']] = None,
+                 input_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 output_action: Optional[pulumi.Input['GuardrailTopicAction']] = None,
+                 output_enabled: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Topic config in topic policy.
         :param pulumi.Input[builtins.str] definition: Definition of topic in topic policy
@@ -8508,6 +8750,14 @@ class GuardrailTopicConfigArgs:
         pulumi.set(__self__, "type", type)
         if examples is not None:
             pulumi.set(__self__, "examples", examples)
+        if input_action is not None:
+            pulumi.set(__self__, "input_action", input_action)
+        if input_enabled is not None:
+            pulumi.set(__self__, "input_enabled", input_enabled)
+        if output_action is not None:
+            pulumi.set(__self__, "output_action", output_action)
+        if output_enabled is not None:
+            pulumi.set(__self__, "output_enabled", output_enabled)
 
     @property
     @pulumi.getter
@@ -8557,6 +8807,42 @@ class GuardrailTopicConfigArgs:
     def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "examples", value)
 
+    @property
+    @pulumi.getter(name="inputAction")
+    def input_action(self) -> Optional[pulumi.Input['GuardrailTopicAction']]:
+        return pulumi.get(self, "input_action")
+
+    @input_action.setter
+    def input_action(self, value: Optional[pulumi.Input['GuardrailTopicAction']]):
+        pulumi.set(self, "input_action", value)
+
+    @property
+    @pulumi.getter(name="inputEnabled")
+    def input_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "input_enabled")
+
+    @input_enabled.setter
+    def input_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "input_enabled", value)
+
+    @property
+    @pulumi.getter(name="outputAction")
+    def output_action(self) -> Optional[pulumi.Input['GuardrailTopicAction']]:
+        return pulumi.get(self, "output_action")
+
+    @output_action.setter
+    def output_action(self, value: Optional[pulumi.Input['GuardrailTopicAction']]):
+        pulumi.set(self, "output_action", value)
+
+    @property
+    @pulumi.getter(name="outputEnabled")
+    def output_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "output_enabled")
+
+    @output_enabled.setter
+    def output_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "output_enabled", value)
+
 
 if not MYPY:
     class GuardrailTopicPolicyConfigArgsDict(TypedDict):
@@ -8602,18 +8888,34 @@ if not MYPY:
         """
         The custom word text.
         """
+        input_action: NotRequired[pulumi.Input['GuardrailWordAction']]
+        input_enabled: NotRequired[pulumi.Input[builtins.bool]]
+        output_action: NotRequired[pulumi.Input['GuardrailWordAction']]
+        output_enabled: NotRequired[pulumi.Input[builtins.bool]]
 elif False:
     GuardrailWordConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GuardrailWordConfigArgs:
     def __init__(__self__, *,
-                 text: pulumi.Input[builtins.str]):
+                 text: pulumi.Input[builtins.str],
+                 input_action: Optional[pulumi.Input['GuardrailWordAction']] = None,
+                 input_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 output_action: Optional[pulumi.Input['GuardrailWordAction']] = None,
+                 output_enabled: Optional[pulumi.Input[builtins.bool]] = None):
         """
         A custom word config.
         :param pulumi.Input[builtins.str] text: The custom word text.
         """
         pulumi.set(__self__, "text", text)
+        if input_action is not None:
+            pulumi.set(__self__, "input_action", input_action)
+        if input_enabled is not None:
+            pulumi.set(__self__, "input_enabled", input_enabled)
+        if output_action is not None:
+            pulumi.set(__self__, "output_action", output_action)
+        if output_enabled is not None:
+            pulumi.set(__self__, "output_enabled", output_enabled)
 
     @property
     @pulumi.getter
@@ -8626,6 +8928,42 @@ class GuardrailWordConfigArgs:
     @text.setter
     def text(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter(name="inputAction")
+    def input_action(self) -> Optional[pulumi.Input['GuardrailWordAction']]:
+        return pulumi.get(self, "input_action")
+
+    @input_action.setter
+    def input_action(self, value: Optional[pulumi.Input['GuardrailWordAction']]):
+        pulumi.set(self, "input_action", value)
+
+    @property
+    @pulumi.getter(name="inputEnabled")
+    def input_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "input_enabled")
+
+    @input_enabled.setter
+    def input_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "input_enabled", value)
+
+    @property
+    @pulumi.getter(name="outputAction")
+    def output_action(self) -> Optional[pulumi.Input['GuardrailWordAction']]:
+        return pulumi.get(self, "output_action")
+
+    @output_action.setter
+    def output_action(self, value: Optional[pulumi.Input['GuardrailWordAction']]):
+        pulumi.set(self, "output_action", value)
+
+    @property
+    @pulumi.getter(name="outputEnabled")
+    def output_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "output_enabled")
+
+    @output_enabled.setter
+    def output_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "output_enabled", value)
 
 
 if not MYPY:
@@ -8979,6 +9317,10 @@ if not MYPY:
         """
         MongoDB Atlas endpoint service name.
         """
+        text_index_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Name of a MongoDB Atlas text index.
+        """
 elif False:
     KnowledgeBaseMongoDbAtlasConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -8991,7 +9333,8 @@ class KnowledgeBaseMongoDbAtlasConfigurationArgs:
                  endpoint: pulumi.Input[builtins.str],
                  field_mapping: pulumi.Input['KnowledgeBaseMongoDbAtlasFieldMappingArgs'],
                  vector_index_name: pulumi.Input[builtins.str],
-                 endpoint_service_name: Optional[pulumi.Input[builtins.str]] = None):
+                 endpoint_service_name: Optional[pulumi.Input[builtins.str]] = None,
+                 text_index_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
         :param pulumi.Input[builtins.str] collection_name: Name of the collection within MongoDB Atlas.
@@ -9001,6 +9344,7 @@ class KnowledgeBaseMongoDbAtlasConfigurationArgs:
         :param pulumi.Input['KnowledgeBaseMongoDbAtlasFieldMappingArgs'] field_mapping: Contains the names of the fields to which to map information about the vector store.
         :param pulumi.Input[builtins.str] vector_index_name: Name of a MongoDB Atlas index.
         :param pulumi.Input[builtins.str] endpoint_service_name: MongoDB Atlas endpoint service name.
+        :param pulumi.Input[builtins.str] text_index_name: Name of a MongoDB Atlas text index.
         """
         pulumi.set(__self__, "collection_name", collection_name)
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
@@ -9010,6 +9354,8 @@ class KnowledgeBaseMongoDbAtlasConfigurationArgs:
         pulumi.set(__self__, "vector_index_name", vector_index_name)
         if endpoint_service_name is not None:
             pulumi.set(__self__, "endpoint_service_name", endpoint_service_name)
+        if text_index_name is not None:
+            pulumi.set(__self__, "text_index_name", text_index_name)
 
     @property
     @pulumi.getter(name="collectionName")
@@ -9094,6 +9440,18 @@ class KnowledgeBaseMongoDbAtlasConfigurationArgs:
     @endpoint_service_name.setter
     def endpoint_service_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "endpoint_service_name", value)
+
+    @property
+    @pulumi.getter(name="textIndexName")
+    def text_index_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Name of a MongoDB Atlas text index.
+        """
+        return pulumi.get(self, "text_index_name")
+
+    @text_index_name.setter
+    def text_index_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "text_index_name", value)
 
 
 if not MYPY:
@@ -10101,6 +10459,10 @@ if not MYPY:
         """
         The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
         """
+        custom_metadata_field: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The name of the field in which Amazon Bedrock stores custom metadata about the vector store.
+        """
 elif False:
     KnowledgeBaseRdsFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -10110,18 +10472,22 @@ class KnowledgeBaseRdsFieldMappingArgs:
                  metadata_field: pulumi.Input[builtins.str],
                  primary_key_field: pulumi.Input[builtins.str],
                  text_field: pulumi.Input[builtins.str],
-                 vector_field: pulumi.Input[builtins.str]):
+                 vector_field: pulumi.Input[builtins.str],
+                 custom_metadata_field: Optional[pulumi.Input[builtins.str]] = None):
         """
         Contains the names of the fields to which to map information about the vector store.
         :param pulumi.Input[builtins.str] metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
         :param pulumi.Input[builtins.str] primary_key_field: The name of the field in which Amazon Bedrock stores the ID for each entry.
         :param pulumi.Input[builtins.str] text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         :param pulumi.Input[builtins.str] vector_field: The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        :param pulumi.Input[builtins.str] custom_metadata_field: The name of the field in which Amazon Bedrock stores custom metadata about the vector store.
         """
         pulumi.set(__self__, "metadata_field", metadata_field)
         pulumi.set(__self__, "primary_key_field", primary_key_field)
         pulumi.set(__self__, "text_field", text_field)
         pulumi.set(__self__, "vector_field", vector_field)
+        if custom_metadata_field is not None:
+            pulumi.set(__self__, "custom_metadata_field", custom_metadata_field)
 
     @property
     @pulumi.getter(name="metadataField")
@@ -10170,6 +10536,18 @@ class KnowledgeBaseRdsFieldMappingArgs:
     @vector_field.setter
     def vector_field(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "vector_field", value)
+
+    @property
+    @pulumi.getter(name="customMetadataField")
+    def custom_metadata_field(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the field in which Amazon Bedrock stores custom metadata about the vector store.
+        """
+        return pulumi.get(self, "custom_metadata_field")
+
+    @custom_metadata_field.setter
+    def custom_metadata_field(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "custom_metadata_field", value)
 
 
 if not MYPY:

@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.Ses.Inputs
 
     public sealed class MailManagerTrafficPolicyPolicyCondition3PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("booleanExpression", required: true)]
-        public Input<Inputs.MailManagerTrafficPolicyIngressBooleanExpressionArgs> BooleanExpression { get; set; } = null!;
+        [Input("tlsExpression", required: true)]
+        public Input<Inputs.MailManagerTrafficPolicyIngressTlsProtocolExpressionArgs> TlsExpression { get; set; } = null!;
 
         public MailManagerTrafficPolicyPolicyCondition3PropertiesArgs()
         {

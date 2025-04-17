@@ -24,10 +24,14 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// The regex description.
         /// </summary>
         public readonly string? Description;
+        public readonly Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction? InputAction;
+        public readonly bool? InputEnabled;
         /// <summary>
         /// The regex name.
         /// </summary>
         public readonly string Name;
+        public readonly Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction? OutputAction;
+        public readonly bool? OutputEnabled;
         /// <summary>
         /// The regex pattern.
         /// </summary>
@@ -39,13 +43,25 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
             string? description,
 
+            Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction? inputAction,
+
+            bool? inputEnabled,
+
             string name,
+
+            Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction? outputAction,
+
+            bool? outputEnabled,
 
             string pattern)
         {
             Action = action;
             Description = description;
+            InputAction = inputAction;
+            InputEnabled = inputEnabled;
             Name = name;
+            OutputAction = outputAction;
+            OutputEnabled = outputEnabled;
             Pattern = pattern;
         }
     }

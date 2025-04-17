@@ -3970,6 +3970,169 @@ func (in *mailManagerTrafficPolicyIngressIpv4AttributePtr) ToMailManagerTrafficP
 	return pulumi.ToOutputWithContext(ctx, in).(MailManagerTrafficPolicyIngressIpv4AttributePtrOutput)
 }
 
+type MailManagerTrafficPolicyIngressIpv6Attribute string
+
+const (
+	MailManagerTrafficPolicyIngressIpv6AttributeSenderIpv6 = MailManagerTrafficPolicyIngressIpv6Attribute("SENDER_IPV6")
+)
+
+func (MailManagerTrafficPolicyIngressIpv6Attribute) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv6Attribute)(nil)).Elem()
+}
+
+func (e MailManagerTrafficPolicyIngressIpv6Attribute) ToMailManagerTrafficPolicyIngressIpv6AttributeOutput() MailManagerTrafficPolicyIngressIpv6AttributeOutput {
+	return pulumi.ToOutput(e).(MailManagerTrafficPolicyIngressIpv6AttributeOutput)
+}
+
+func (e MailManagerTrafficPolicyIngressIpv6Attribute) ToMailManagerTrafficPolicyIngressIpv6AttributeOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressIpv6AttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MailManagerTrafficPolicyIngressIpv6AttributeOutput)
+}
+
+func (e MailManagerTrafficPolicyIngressIpv6Attribute) ToMailManagerTrafficPolicyIngressIpv6AttributePtrOutput() MailManagerTrafficPolicyIngressIpv6AttributePtrOutput {
+	return e.ToMailManagerTrafficPolicyIngressIpv6AttributePtrOutputWithContext(context.Background())
+}
+
+func (e MailManagerTrafficPolicyIngressIpv6Attribute) ToMailManagerTrafficPolicyIngressIpv6AttributePtrOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressIpv6AttributePtrOutput {
+	return MailManagerTrafficPolicyIngressIpv6Attribute(e).ToMailManagerTrafficPolicyIngressIpv6AttributeOutputWithContext(ctx).ToMailManagerTrafficPolicyIngressIpv6AttributePtrOutputWithContext(ctx)
+}
+
+func (e MailManagerTrafficPolicyIngressIpv6Attribute) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MailManagerTrafficPolicyIngressIpv6Attribute) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MailManagerTrafficPolicyIngressIpv6Attribute) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MailManagerTrafficPolicyIngressIpv6Attribute) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MailManagerTrafficPolicyIngressIpv6AttributeOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressIpv6AttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv6Attribute)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6AttributeOutput) ToMailManagerTrafficPolicyIngressIpv6AttributeOutput() MailManagerTrafficPolicyIngressIpv6AttributeOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6AttributeOutput) ToMailManagerTrafficPolicyIngressIpv6AttributeOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressIpv6AttributeOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6AttributeOutput) ToMailManagerTrafficPolicyIngressIpv6AttributePtrOutput() MailManagerTrafficPolicyIngressIpv6AttributePtrOutput {
+	return o.ToMailManagerTrafficPolicyIngressIpv6AttributePtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6AttributeOutput) ToMailManagerTrafficPolicyIngressIpv6AttributePtrOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressIpv6AttributePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MailManagerTrafficPolicyIngressIpv6Attribute) *MailManagerTrafficPolicyIngressIpv6Attribute {
+		return &v
+	}).(MailManagerTrafficPolicyIngressIpv6AttributePtrOutput)
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6AttributeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6AttributeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MailManagerTrafficPolicyIngressIpv6Attribute) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6AttributeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6AttributeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MailManagerTrafficPolicyIngressIpv6Attribute) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MailManagerTrafficPolicyIngressIpv6AttributePtrOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressIpv6AttributePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerTrafficPolicyIngressIpv6Attribute)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6AttributePtrOutput) ToMailManagerTrafficPolicyIngressIpv6AttributePtrOutput() MailManagerTrafficPolicyIngressIpv6AttributePtrOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6AttributePtrOutput) ToMailManagerTrafficPolicyIngressIpv6AttributePtrOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressIpv6AttributePtrOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6AttributePtrOutput) Elem() MailManagerTrafficPolicyIngressIpv6AttributeOutput {
+	return o.ApplyT(func(v *MailManagerTrafficPolicyIngressIpv6Attribute) MailManagerTrafficPolicyIngressIpv6Attribute {
+		if v != nil {
+			return *v
+		}
+		var ret MailManagerTrafficPolicyIngressIpv6Attribute
+		return ret
+	}).(MailManagerTrafficPolicyIngressIpv6AttributeOutput)
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6AttributePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6AttributePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MailManagerTrafficPolicyIngressIpv6Attribute) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MailManagerTrafficPolicyIngressIpv6AttributeInput is an input type that accepts values of the MailManagerTrafficPolicyIngressIpv6Attribute enum
+// A concrete instance of `MailManagerTrafficPolicyIngressIpv6AttributeInput` can be one of the following:
+//
+//	MailManagerTrafficPolicyIngressIpv6AttributeSenderIpv6
+type MailManagerTrafficPolicyIngressIpv6AttributeInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressIpv6AttributeOutput() MailManagerTrafficPolicyIngressIpv6AttributeOutput
+	ToMailManagerTrafficPolicyIngressIpv6AttributeOutputWithContext(context.Context) MailManagerTrafficPolicyIngressIpv6AttributeOutput
+}
+
+var mailManagerTrafficPolicyIngressIpv6AttributePtrType = reflect.TypeOf((**MailManagerTrafficPolicyIngressIpv6Attribute)(nil)).Elem()
+
+type MailManagerTrafficPolicyIngressIpv6AttributePtrInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressIpv6AttributePtrOutput() MailManagerTrafficPolicyIngressIpv6AttributePtrOutput
+	ToMailManagerTrafficPolicyIngressIpv6AttributePtrOutputWithContext(context.Context) MailManagerTrafficPolicyIngressIpv6AttributePtrOutput
+}
+
+type mailManagerTrafficPolicyIngressIpv6AttributePtr string
+
+func MailManagerTrafficPolicyIngressIpv6AttributePtr(v string) MailManagerTrafficPolicyIngressIpv6AttributePtrInput {
+	return (*mailManagerTrafficPolicyIngressIpv6AttributePtr)(&v)
+}
+
+func (*mailManagerTrafficPolicyIngressIpv6AttributePtr) ElementType() reflect.Type {
+	return mailManagerTrafficPolicyIngressIpv6AttributePtrType
+}
+
+func (in *mailManagerTrafficPolicyIngressIpv6AttributePtr) ToMailManagerTrafficPolicyIngressIpv6AttributePtrOutput() MailManagerTrafficPolicyIngressIpv6AttributePtrOutput {
+	return pulumi.ToOutput(in).(MailManagerTrafficPolicyIngressIpv6AttributePtrOutput)
+}
+
+func (in *mailManagerTrafficPolicyIngressIpv6AttributePtr) ToMailManagerTrafficPolicyIngressIpv6AttributePtrOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressIpv6AttributePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MailManagerTrafficPolicyIngressIpv6AttributePtrOutput)
+}
+
 type MailManagerTrafficPolicyIngressStringEmailAttribute string
 
 const (
@@ -4844,6 +5007,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressIpOperatorPtrInput)(nil)).Elem(), MailManagerTrafficPolicyIngressIpOperator("CIDR_MATCHES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv4AttributeInput)(nil)).Elem(), MailManagerTrafficPolicyIngressIpv4Attribute("SENDER_IP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv4AttributePtrInput)(nil)).Elem(), MailManagerTrafficPolicyIngressIpv4Attribute("SENDER_IP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv6AttributeInput)(nil)).Elem(), MailManagerTrafficPolicyIngressIpv6Attribute("SENDER_IPV6"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv6AttributePtrInput)(nil)).Elem(), MailManagerTrafficPolicyIngressIpv6Attribute("SENDER_IPV6"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressStringEmailAttributeInput)(nil)).Elem(), MailManagerTrafficPolicyIngressStringEmailAttribute("RECIPIENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressStringEmailAttributePtrInput)(nil)).Elem(), MailManagerTrafficPolicyIngressStringEmailAttribute("RECIPIENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressStringOperatorInput)(nil)).Elem(), MailManagerTrafficPolicyIngressStringOperator("EQUALS"))
@@ -4904,6 +5069,8 @@ func init() {
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressIpOperatorPtrOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressIpv4AttributeOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressIpv4AttributePtrOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressIpv6AttributeOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressIpv6AttributePtrOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressStringEmailAttributeOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressStringEmailAttributePtrOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressStringOperatorOutput{})

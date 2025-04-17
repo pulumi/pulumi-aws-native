@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Ses.Outputs
     [OutputType]
     public sealed class MailManagerTrafficPolicyIngressStringExpression
     {
-        public readonly Outputs.MailManagerTrafficPolicyIngressStringToEvaluateProperties Evaluate;
+        public readonly Union<Outputs.MailManagerTrafficPolicyIngressStringToEvaluate0Properties, Outputs.MailManagerTrafficPolicyIngressStringToEvaluate1Properties> Evaluate;
         public readonly Pulumi.AwsNative.Ses.MailManagerTrafficPolicyIngressStringOperator Operator;
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
         private MailManagerTrafficPolicyIngressStringExpression(
-            Outputs.MailManagerTrafficPolicyIngressStringToEvaluateProperties evaluate,
+            Union<Outputs.MailManagerTrafficPolicyIngressStringToEvaluate0Properties, Outputs.MailManagerTrafficPolicyIngressStringToEvaluate1Properties> evaluate,
 
             Pulumi.AwsNative.Ses.MailManagerTrafficPolicyIngressStringOperator @operator,
 

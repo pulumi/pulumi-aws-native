@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.S3Tables
     [AwsNativeResourceType("aws-native:s3tables:TableBucket")]
     public partial class TableBucket : global::Pulumi.CustomResource
     {
+        [Output("encryptionConfiguration")]
+        public Output<Outputs.TableBucketEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the table bucket.
         /// </summary>
@@ -82,6 +85,9 @@ namespace Pulumi.AwsNative.S3Tables
 
     public sealed class TableBucketArgs : global::Pulumi.ResourceArgs
     {
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.TableBucketEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
+
         /// <summary>
         /// The name for the table bucket.
         /// </summary>

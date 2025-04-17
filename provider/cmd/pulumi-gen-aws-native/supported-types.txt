@@ -446,6 +446,7 @@ AWS::EKS::IdentityProviderConfig
 AWS::EKS::Nodegroup
 AWS::EKS::PodIdentityAssociation
 AWS::EMR::SecurityConfiguration
+AWS::EMR::Step
 AWS::EMR::Studio
 AWS::EMR::StudioSessionMapping
 AWS::EMR::WALWorkspace

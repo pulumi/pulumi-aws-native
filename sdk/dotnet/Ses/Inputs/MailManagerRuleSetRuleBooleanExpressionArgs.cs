@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Ses.Inputs
     public sealed class MailManagerRuleSetRuleBooleanExpressionArgs : global::Pulumi.ResourceArgs
     {
         [Input("evaluate", required: true)]
-        public Input<Inputs.MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs> Evaluate { get; set; } = null!;
+        public InputUnion<Inputs.MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs, Inputs.MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs> Evaluate { get; set; } = null!;
 
         [Input("operator", required: true)]
         public Input<Pulumi.AwsNative.Ses.MailManagerRuleSetRuleBooleanOperator> Operator { get; set; } = null!;

@@ -23950,10 +23950,14 @@ func (o FlowVersionTextPromptTemplateConfigurationPtrOutput) Text() pulumi.Strin
 
 // Content filter config in content policy.
 type GuardrailContentFilterConfig struct {
+	InputAction  *GuardrailContentFilterAction `pulumi:"inputAction"`
+	InputEnabled *bool                         `pulumi:"inputEnabled"`
 	// List of modalities
 	InputModalities []GuardrailModality `pulumi:"inputModalities"`
 	// The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
-	InputStrength GuardrailFilterStrength `pulumi:"inputStrength"`
+	InputStrength GuardrailFilterStrength       `pulumi:"inputStrength"`
+	OutputAction  *GuardrailContentFilterAction `pulumi:"outputAction"`
+	OutputEnabled *bool                         `pulumi:"outputEnabled"`
 	// List of modalities
 	OutputModalities []GuardrailModality `pulumi:"outputModalities"`
 	// The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
@@ -23975,10 +23979,14 @@ type GuardrailContentFilterConfigInput interface {
 
 // Content filter config in content policy.
 type GuardrailContentFilterConfigArgs struct {
+	InputAction  GuardrailContentFilterActionPtrInput `pulumi:"inputAction"`
+	InputEnabled pulumi.BoolPtrInput                  `pulumi:"inputEnabled"`
 	// List of modalities
 	InputModalities GuardrailModalityArrayInput `pulumi:"inputModalities"`
 	// The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
-	InputStrength GuardrailFilterStrengthInput `pulumi:"inputStrength"`
+	InputStrength GuardrailFilterStrengthInput         `pulumi:"inputStrength"`
+	OutputAction  GuardrailContentFilterActionPtrInput `pulumi:"outputAction"`
+	OutputEnabled pulumi.BoolPtrInput                  `pulumi:"outputEnabled"`
 	// List of modalities
 	OutputModalities GuardrailModalityArrayInput `pulumi:"outputModalities"`
 	// The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
@@ -24039,6 +24047,14 @@ func (o GuardrailContentFilterConfigOutput) ToGuardrailContentFilterConfigOutput
 	return o
 }
 
+func (o GuardrailContentFilterConfigOutput) InputAction() GuardrailContentFilterActionPtrOutput {
+	return o.ApplyT(func(v GuardrailContentFilterConfig) *GuardrailContentFilterAction { return v.InputAction }).(GuardrailContentFilterActionPtrOutput)
+}
+
+func (o GuardrailContentFilterConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailContentFilterConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // List of modalities
 func (o GuardrailContentFilterConfigOutput) InputModalities() GuardrailModalityArrayOutput {
 	return o.ApplyT(func(v GuardrailContentFilterConfig) []GuardrailModality { return v.InputModalities }).(GuardrailModalityArrayOutput)
@@ -24047,6 +24063,14 @@ func (o GuardrailContentFilterConfigOutput) InputModalities() GuardrailModalityA
 // The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
 func (o GuardrailContentFilterConfigOutput) InputStrength() GuardrailFilterStrengthOutput {
 	return o.ApplyT(func(v GuardrailContentFilterConfig) GuardrailFilterStrength { return v.InputStrength }).(GuardrailFilterStrengthOutput)
+}
+
+func (o GuardrailContentFilterConfigOutput) OutputAction() GuardrailContentFilterActionPtrOutput {
+	return o.ApplyT(func(v GuardrailContentFilterConfig) *GuardrailContentFilterAction { return v.OutputAction }).(GuardrailContentFilterActionPtrOutput)
+}
+
+func (o GuardrailContentFilterConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailContentFilterConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // List of modalities
@@ -24226,6 +24250,8 @@ func (o GuardrailContentPolicyConfigPtrOutput) FiltersConfig() GuardrailContentF
 
 // A config for grounding filter.
 type GuardrailContextualGroundingFilterConfig struct {
+	Action  *GuardrailContextualGroundingAction `pulumi:"action"`
+	Enabled *bool                               `pulumi:"enabled"`
 	// The threshold for this filter.
 	Threshold float64 `pulumi:"threshold"`
 	// The filter details for the guardrails contextual grounding filter.
@@ -24245,6 +24271,8 @@ type GuardrailContextualGroundingFilterConfigInput interface {
 
 // A config for grounding filter.
 type GuardrailContextualGroundingFilterConfigArgs struct {
+	Action  GuardrailContextualGroundingActionPtrInput `pulumi:"action"`
+	Enabled pulumi.BoolPtrInput                        `pulumi:"enabled"`
 	// The threshold for this filter.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// The filter details for the guardrails contextual grounding filter.
@@ -24301,6 +24329,14 @@ func (o GuardrailContextualGroundingFilterConfigOutput) ToGuardrailContextualGro
 
 func (o GuardrailContextualGroundingFilterConfigOutput) ToGuardrailContextualGroundingFilterConfigOutputWithContext(ctx context.Context) GuardrailContextualGroundingFilterConfigOutput {
 	return o
+}
+
+func (o GuardrailContextualGroundingFilterConfigOutput) Action() GuardrailContextualGroundingActionPtrOutput {
+	return o.ApplyT(func(v GuardrailContextualGroundingFilterConfig) *GuardrailContextualGroundingAction { return v.Action }).(GuardrailContextualGroundingActionPtrOutput)
+}
+
+func (o GuardrailContextualGroundingFilterConfigOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailContextualGroundingFilterConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // The threshold for this filter.
@@ -24477,6 +24513,10 @@ func (o GuardrailContextualGroundingPolicyConfigPtrOutput) FiltersConfig() Guard
 
 // A managed words config.
 type GuardrailManagedWordsConfig struct {
+	InputAction   *GuardrailWordAction `pulumi:"inputAction"`
+	InputEnabled  *bool                `pulumi:"inputEnabled"`
+	OutputAction  *GuardrailWordAction `pulumi:"outputAction"`
+	OutputEnabled *bool                `pulumi:"outputEnabled"`
 	// The managed word type to configure for the guardrail.
 	Type GuardrailManagedWordsType `pulumi:"type"`
 }
@@ -24494,6 +24534,10 @@ type GuardrailManagedWordsConfigInput interface {
 
 // A managed words config.
 type GuardrailManagedWordsConfigArgs struct {
+	InputAction   GuardrailWordActionPtrInput `pulumi:"inputAction"`
+	InputEnabled  pulumi.BoolPtrInput         `pulumi:"inputEnabled"`
+	OutputAction  GuardrailWordActionPtrInput `pulumi:"outputAction"`
+	OutputEnabled pulumi.BoolPtrInput         `pulumi:"outputEnabled"`
 	// The managed word type to configure for the guardrail.
 	Type GuardrailManagedWordsTypeInput `pulumi:"type"`
 }
@@ -24550,6 +24594,22 @@ func (o GuardrailManagedWordsConfigOutput) ToGuardrailManagedWordsConfigOutputWi
 	return o
 }
 
+func (o GuardrailManagedWordsConfigOutput) InputAction() GuardrailWordActionPtrOutput {
+	return o.ApplyT(func(v GuardrailManagedWordsConfig) *GuardrailWordAction { return v.InputAction }).(GuardrailWordActionPtrOutput)
+}
+
+func (o GuardrailManagedWordsConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailManagedWordsConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GuardrailManagedWordsConfigOutput) OutputAction() GuardrailWordActionPtrOutput {
+	return o.ApplyT(func(v GuardrailManagedWordsConfig) *GuardrailWordAction { return v.OutputAction }).(GuardrailWordActionPtrOutput)
+}
+
+func (o GuardrailManagedWordsConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailManagedWordsConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The managed word type to configure for the guardrail.
 func (o GuardrailManagedWordsConfigOutput) Type() GuardrailManagedWordsTypeOutput {
 	return o.ApplyT(func(v GuardrailManagedWordsConfig) GuardrailManagedWordsType { return v.Type }).(GuardrailManagedWordsTypeOutput)
@@ -24578,7 +24638,11 @@ func (o GuardrailManagedWordsConfigArrayOutput) Index(i pulumi.IntInput) Guardra
 // Pii entity configuration.
 type GuardrailPiiEntityConfig struct {
 	// Configure guardrail action when the PII entity is detected.
-	Action GuardrailSensitiveInformationAction `pulumi:"action"`
+	Action        GuardrailSensitiveInformationAction  `pulumi:"action"`
+	InputAction   *GuardrailSensitiveInformationAction `pulumi:"inputAction"`
+	InputEnabled  *bool                                `pulumi:"inputEnabled"`
+	OutputAction  *GuardrailSensitiveInformationAction `pulumi:"outputAction"`
+	OutputEnabled *bool                                `pulumi:"outputEnabled"`
 	// Configure guardrail type when the PII entity is detected.
 	//
 	// The following PIIs are used to block or mask sensitive information:
@@ -24714,7 +24778,11 @@ type GuardrailPiiEntityConfigInput interface {
 // Pii entity configuration.
 type GuardrailPiiEntityConfigArgs struct {
 	// Configure guardrail action when the PII entity is detected.
-	Action GuardrailSensitiveInformationActionInput `pulumi:"action"`
+	Action        GuardrailSensitiveInformationActionInput    `pulumi:"action"`
+	InputAction   GuardrailSensitiveInformationActionPtrInput `pulumi:"inputAction"`
+	InputEnabled  pulumi.BoolPtrInput                         `pulumi:"inputEnabled"`
+	OutputAction  GuardrailSensitiveInformationActionPtrInput `pulumi:"outputAction"`
+	OutputEnabled pulumi.BoolPtrInput                         `pulumi:"outputEnabled"`
 	// Configure guardrail type when the PII entity is detected.
 	//
 	// The following PIIs are used to block or mask sensitive information:
@@ -24893,6 +24961,22 @@ func (o GuardrailPiiEntityConfigOutput) Action() GuardrailSensitiveInformationAc
 	return o.ApplyT(func(v GuardrailPiiEntityConfig) GuardrailSensitiveInformationAction { return v.Action }).(GuardrailSensitiveInformationActionOutput)
 }
 
+func (o GuardrailPiiEntityConfigOutput) InputAction() GuardrailSensitiveInformationActionPtrOutput {
+	return o.ApplyT(func(v GuardrailPiiEntityConfig) *GuardrailSensitiveInformationAction { return v.InputAction }).(GuardrailSensitiveInformationActionPtrOutput)
+}
+
+func (o GuardrailPiiEntityConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailPiiEntityConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GuardrailPiiEntityConfigOutput) OutputAction() GuardrailSensitiveInformationActionPtrOutput {
+	return o.ApplyT(func(v GuardrailPiiEntityConfig) *GuardrailSensitiveInformationAction { return v.OutputAction }).(GuardrailSensitiveInformationActionPtrOutput)
+}
+
+func (o GuardrailPiiEntityConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailPiiEntityConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Configure guardrail type when the PII entity is detected.
 //
 // The following PIIs are used to block or mask sensitive information:
@@ -25040,9 +25124,13 @@ type GuardrailRegexConfig struct {
 	// The guardrail action to configure when matching regular expression is detected.
 	Action GuardrailSensitiveInformationAction `pulumi:"action"`
 	// The regex description.
-	Description *string `pulumi:"description"`
+	Description  *string                              `pulumi:"description"`
+	InputAction  *GuardrailSensitiveInformationAction `pulumi:"inputAction"`
+	InputEnabled *bool                                `pulumi:"inputEnabled"`
 	// The regex name.
-	Name string `pulumi:"name"`
+	Name          string                               `pulumi:"name"`
+	OutputAction  *GuardrailSensitiveInformationAction `pulumi:"outputAction"`
+	OutputEnabled *bool                                `pulumi:"outputEnabled"`
 	// The regex pattern.
 	Pattern string `pulumi:"pattern"`
 }
@@ -25063,9 +25151,13 @@ type GuardrailRegexConfigArgs struct {
 	// The guardrail action to configure when matching regular expression is detected.
 	Action GuardrailSensitiveInformationActionInput `pulumi:"action"`
 	// The regex description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
+	Description  pulumi.StringPtrInput                       `pulumi:"description"`
+	InputAction  GuardrailSensitiveInformationActionPtrInput `pulumi:"inputAction"`
+	InputEnabled pulumi.BoolPtrInput                         `pulumi:"inputEnabled"`
 	// The regex name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name          pulumi.StringInput                          `pulumi:"name"`
+	OutputAction  GuardrailSensitiveInformationActionPtrInput `pulumi:"outputAction"`
+	OutputEnabled pulumi.BoolPtrInput                         `pulumi:"outputEnabled"`
 	// The regex pattern.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
@@ -25132,9 +25224,25 @@ func (o GuardrailRegexConfigOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuardrailRegexConfig) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+func (o GuardrailRegexConfigOutput) InputAction() GuardrailSensitiveInformationActionPtrOutput {
+	return o.ApplyT(func(v GuardrailRegexConfig) *GuardrailSensitiveInformationAction { return v.InputAction }).(GuardrailSensitiveInformationActionPtrOutput)
+}
+
+func (o GuardrailRegexConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailRegexConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The regex name.
 func (o GuardrailRegexConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GuardrailRegexConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GuardrailRegexConfigOutput) OutputAction() GuardrailSensitiveInformationActionPtrOutput {
+	return o.ApplyT(func(v GuardrailRegexConfig) *GuardrailSensitiveInformationAction { return v.OutputAction }).(GuardrailSensitiveInformationActionPtrOutput)
+}
+
+func (o GuardrailRegexConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailRegexConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The regex pattern.
@@ -25336,9 +25444,13 @@ type GuardrailTopicConfig struct {
 	// Definition of topic in topic policy
 	Definition string `pulumi:"definition"`
 	// List of text examples
-	Examples []string `pulumi:"examples"`
+	Examples     []string              `pulumi:"examples"`
+	InputAction  *GuardrailTopicAction `pulumi:"inputAction"`
+	InputEnabled *bool                 `pulumi:"inputEnabled"`
 	// Name of topic in topic policy
-	Name string `pulumi:"name"`
+	Name          string                `pulumi:"name"`
+	OutputAction  *GuardrailTopicAction `pulumi:"outputAction"`
+	OutputEnabled *bool                 `pulumi:"outputEnabled"`
 	// Specifies to deny the topic.
 	Type GuardrailTopicType `pulumi:"type"`
 }
@@ -25359,9 +25471,13 @@ type GuardrailTopicConfigArgs struct {
 	// Definition of topic in topic policy
 	Definition pulumi.StringInput `pulumi:"definition"`
 	// List of text examples
-	Examples pulumi.StringArrayInput `pulumi:"examples"`
+	Examples     pulumi.StringArrayInput      `pulumi:"examples"`
+	InputAction  GuardrailTopicActionPtrInput `pulumi:"inputAction"`
+	InputEnabled pulumi.BoolPtrInput          `pulumi:"inputEnabled"`
 	// Name of topic in topic policy
-	Name pulumi.StringInput `pulumi:"name"`
+	Name          pulumi.StringInput           `pulumi:"name"`
+	OutputAction  GuardrailTopicActionPtrInput `pulumi:"outputAction"`
+	OutputEnabled pulumi.BoolPtrInput          `pulumi:"outputEnabled"`
 	// Specifies to deny the topic.
 	Type GuardrailTopicTypeInput `pulumi:"type"`
 }
@@ -25428,9 +25544,25 @@ func (o GuardrailTopicConfigOutput) Examples() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GuardrailTopicConfig) []string { return v.Examples }).(pulumi.StringArrayOutput)
 }
 
+func (o GuardrailTopicConfigOutput) InputAction() GuardrailTopicActionPtrOutput {
+	return o.ApplyT(func(v GuardrailTopicConfig) *GuardrailTopicAction { return v.InputAction }).(GuardrailTopicActionPtrOutput)
+}
+
+func (o GuardrailTopicConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailTopicConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Name of topic in topic policy
 func (o GuardrailTopicConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GuardrailTopicConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GuardrailTopicConfigOutput) OutputAction() GuardrailTopicActionPtrOutput {
+	return o.ApplyT(func(v GuardrailTopicConfig) *GuardrailTopicAction { return v.OutputAction }).(GuardrailTopicActionPtrOutput)
+}
+
+func (o GuardrailTopicConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailTopicConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies to deny the topic.
@@ -25600,6 +25732,10 @@ func (o GuardrailTopicPolicyConfigPtrOutput) TopicsConfig() GuardrailTopicConfig
 
 // A custom word config.
 type GuardrailWordConfig struct {
+	InputAction   *GuardrailWordAction `pulumi:"inputAction"`
+	InputEnabled  *bool                `pulumi:"inputEnabled"`
+	OutputAction  *GuardrailWordAction `pulumi:"outputAction"`
+	OutputEnabled *bool                `pulumi:"outputEnabled"`
 	// The custom word text.
 	Text string `pulumi:"text"`
 }
@@ -25617,6 +25753,10 @@ type GuardrailWordConfigInput interface {
 
 // A custom word config.
 type GuardrailWordConfigArgs struct {
+	InputAction   GuardrailWordActionPtrInput `pulumi:"inputAction"`
+	InputEnabled  pulumi.BoolPtrInput         `pulumi:"inputEnabled"`
+	OutputAction  GuardrailWordActionPtrInput `pulumi:"outputAction"`
+	OutputEnabled pulumi.BoolPtrInput         `pulumi:"outputEnabled"`
 	// The custom word text.
 	Text pulumi.StringInput `pulumi:"text"`
 }
@@ -25671,6 +25811,22 @@ func (o GuardrailWordConfigOutput) ToGuardrailWordConfigOutput() GuardrailWordCo
 
 func (o GuardrailWordConfigOutput) ToGuardrailWordConfigOutputWithContext(ctx context.Context) GuardrailWordConfigOutput {
 	return o
+}
+
+func (o GuardrailWordConfigOutput) InputAction() GuardrailWordActionPtrOutput {
+	return o.ApplyT(func(v GuardrailWordConfig) *GuardrailWordAction { return v.InputAction }).(GuardrailWordActionPtrOutput)
+}
+
+func (o GuardrailWordConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailWordConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GuardrailWordConfigOutput) OutputAction() GuardrailWordActionPtrOutput {
+	return o.ApplyT(func(v GuardrailWordConfig) *GuardrailWordAction { return v.OutputAction }).(GuardrailWordActionPtrOutput)
+}
+
+func (o GuardrailWordConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailWordConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The custom word text.
@@ -26569,6 +26725,8 @@ type KnowledgeBaseMongoDbAtlasConfiguration struct {
 	EndpointServiceName *string `pulumi:"endpointServiceName"`
 	// Contains the names of the fields to which to map information about the vector store.
 	FieldMapping KnowledgeBaseMongoDbAtlasFieldMapping `pulumi:"fieldMapping"`
+	// Name of a MongoDB Atlas text index.
+	TextIndexName *string `pulumi:"textIndexName"`
 	// Name of a MongoDB Atlas index.
 	VectorIndexName string `pulumi:"vectorIndexName"`
 }
@@ -26598,6 +26756,8 @@ type KnowledgeBaseMongoDbAtlasConfigurationArgs struct {
 	EndpointServiceName pulumi.StringPtrInput `pulumi:"endpointServiceName"`
 	// Contains the names of the fields to which to map information about the vector store.
 	FieldMapping KnowledgeBaseMongoDbAtlasFieldMappingInput `pulumi:"fieldMapping"`
+	// Name of a MongoDB Atlas text index.
+	TextIndexName pulumi.StringPtrInput `pulumi:"textIndexName"`
 	// Name of a MongoDB Atlas index.
 	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
 }
@@ -26712,6 +26872,11 @@ func (o KnowledgeBaseMongoDbAtlasConfigurationOutput) FieldMapping() KnowledgeBa
 	}).(KnowledgeBaseMongoDbAtlasFieldMappingOutput)
 }
 
+// Name of a MongoDB Atlas text index.
+func (o KnowledgeBaseMongoDbAtlasConfigurationOutput) TextIndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseMongoDbAtlasConfiguration) *string { return v.TextIndexName }).(pulumi.StringPtrOutput)
+}
+
 // Name of a MongoDB Atlas index.
 func (o KnowledgeBaseMongoDbAtlasConfigurationOutput) VectorIndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v KnowledgeBaseMongoDbAtlasConfiguration) string { return v.VectorIndexName }).(pulumi.StringOutput)
@@ -26799,6 +26964,16 @@ func (o KnowledgeBaseMongoDbAtlasConfigurationPtrOutput) FieldMapping() Knowledg
 		}
 		return &v.FieldMapping
 	}).(KnowledgeBaseMongoDbAtlasFieldMappingPtrOutput)
+}
+
+// Name of a MongoDB Atlas text index.
+func (o KnowledgeBaseMongoDbAtlasConfigurationPtrOutput) TextIndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseMongoDbAtlasConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextIndexName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Name of a MongoDB Atlas index.
@@ -29162,6 +29337,8 @@ func (o KnowledgeBaseRdsConfigurationPtrOutput) TableName() pulumi.StringPtrOutp
 
 // Contains the names of the fields to which to map information about the vector store.
 type KnowledgeBaseRdsFieldMapping struct {
+	// The name of the field in which Amazon Bedrock stores custom metadata about the vector store.
+	CustomMetadataField *string `pulumi:"customMetadataField"`
 	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
 	MetadataField string `pulumi:"metadataField"`
 	// The name of the field in which Amazon Bedrock stores the ID for each entry.
@@ -29185,6 +29362,8 @@ type KnowledgeBaseRdsFieldMappingInput interface {
 
 // Contains the names of the fields to which to map information about the vector store.
 type KnowledgeBaseRdsFieldMappingArgs struct {
+	// The name of the field in which Amazon Bedrock stores custom metadata about the vector store.
+	CustomMetadataField pulumi.StringPtrInput `pulumi:"customMetadataField"`
 	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
 	MetadataField pulumi.StringInput `pulumi:"metadataField"`
 	// The name of the field in which Amazon Bedrock stores the ID for each entry.
@@ -29273,6 +29452,11 @@ func (o KnowledgeBaseRdsFieldMappingOutput) ToKnowledgeBaseRdsFieldMappingPtrOut
 	}).(KnowledgeBaseRdsFieldMappingPtrOutput)
 }
 
+// The name of the field in which Amazon Bedrock stores custom metadata about the vector store.
+func (o KnowledgeBaseRdsFieldMappingOutput) CustomMetadataField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseRdsFieldMapping) *string { return v.CustomMetadataField }).(pulumi.StringPtrOutput)
+}
+
 // The name of the field in which Amazon Bedrock stores metadata about the vector store.
 func (o KnowledgeBaseRdsFieldMappingOutput) MetadataField() pulumi.StringOutput {
 	return o.ApplyT(func(v KnowledgeBaseRdsFieldMapping) string { return v.MetadataField }).(pulumi.StringOutput)
@@ -29315,6 +29499,16 @@ func (o KnowledgeBaseRdsFieldMappingPtrOutput) Elem() KnowledgeBaseRdsFieldMappi
 		var ret KnowledgeBaseRdsFieldMapping
 		return ret
 	}).(KnowledgeBaseRdsFieldMappingOutput)
+}
+
+// The name of the field in which Amazon Bedrock stores custom metadata about the vector store.
+func (o KnowledgeBaseRdsFieldMappingPtrOutput) CustomMetadataField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseRdsFieldMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomMetadataField
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the field in which Amazon Bedrock stores metadata about the vector store.

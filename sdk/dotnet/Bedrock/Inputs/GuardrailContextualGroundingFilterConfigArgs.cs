@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class GuardrailContextualGroundingFilterConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("action")]
+        public Input<Pulumi.AwsNative.Bedrock.GuardrailContextualGroundingAction>? Action { get; set; }
+
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
         /// <summary>
         /// The threshold for this filter.
         /// </summary>

@@ -16,6 +16,8 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class GuardrailContextualGroundingFilterConfig
     {
+        public readonly Pulumi.AwsNative.Bedrock.GuardrailContextualGroundingAction? Action;
+        public readonly bool? Enabled;
         /// <summary>
         /// The threshold for this filter.
         /// </summary>
@@ -27,10 +29,16 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
         [OutputConstructor]
         private GuardrailContextualGroundingFilterConfig(
+            Pulumi.AwsNative.Bedrock.GuardrailContextualGroundingAction? action,
+
+            bool? enabled,
+
             double threshold,
 
             Pulumi.AwsNative.Bedrock.GuardrailContextualGroundingFilterType type)
         {
+            Action = action;
+            Enabled = enabled;
             Threshold = threshold;
             Type = type;
         }

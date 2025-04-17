@@ -11,7 +11,8 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 {
 
     /// <summary>
-    /// Specifies an elastic inference accelerator.
+    /// Amazon Elastic Inference is no longer available.
+    ///   Specifies an elastic inference accelerator.
     ///   ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     /// </summary>
     public sealed class LaunchTemplateElasticInferenceAcceleratorArgs : global::Pulumi.ResourceArgs

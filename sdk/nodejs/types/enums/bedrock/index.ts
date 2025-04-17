@@ -596,6 +596,13 @@ export const FlowVersionPromptTemplateType = {
  */
 export type FlowVersionPromptTemplateType = (typeof FlowVersionPromptTemplateType)[keyof typeof FlowVersionPromptTemplateType];
 
+export const GuardrailContentFilterAction = {
+    Block: "BLOCK",
+    None: "NONE",
+} as const;
+
+export type GuardrailContentFilterAction = (typeof GuardrailContentFilterAction)[keyof typeof GuardrailContentFilterAction];
+
 export const GuardrailContentFilterType = {
     Sexual: "SEXUAL",
     Violence: "VIOLENCE",
@@ -609,6 +616,13 @@ export const GuardrailContentFilterType = {
  * Type of filter in content policy
  */
 export type GuardrailContentFilterType = (typeof GuardrailContentFilterType)[keyof typeof GuardrailContentFilterType];
+
+export const GuardrailContextualGroundingAction = {
+    Block: "BLOCK",
+    None: "NONE",
+} as const;
+
+export type GuardrailContextualGroundingAction = (typeof GuardrailContextualGroundingAction)[keyof typeof GuardrailContextualGroundingAction];
 
 export const GuardrailContextualGroundingFilterType = {
     Grounding: "GROUNDING",
@@ -693,6 +707,7 @@ export type GuardrailPiiEntityType = (typeof GuardrailPiiEntityType)[keyof typeo
 export const GuardrailSensitiveInformationAction = {
     Block: "BLOCK",
     Anonymize: "ANONYMIZE",
+    None: "NONE",
 } as const;
 
 /**
@@ -714,6 +729,13 @@ export const GuardrailStatus = {
  */
 export type GuardrailStatus = (typeof GuardrailStatus)[keyof typeof GuardrailStatus];
 
+export const GuardrailTopicAction = {
+    Block: "BLOCK",
+    None: "NONE",
+} as const;
+
+export type GuardrailTopicAction = (typeof GuardrailTopicAction)[keyof typeof GuardrailTopicAction];
+
 export const GuardrailTopicType = {
     Deny: "DENY",
 } as const;
@@ -722,6 +744,13 @@ export const GuardrailTopicType = {
  * Type of topic in a policy
  */
 export type GuardrailTopicType = (typeof GuardrailTopicType)[keyof typeof GuardrailTopicType];
+
+export const GuardrailWordAction = {
+    Block: "BLOCK",
+    None: "NONE",
+} as const;
+
+export type GuardrailWordAction = (typeof GuardrailWordAction)[keyof typeof GuardrailWordAction];
 
 export const KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType = {
     Float32: "FLOAT32",

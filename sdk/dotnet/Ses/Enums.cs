@@ -712,6 +712,33 @@ namespace Pulumi.AwsNative.Ses
     }
 
     [EnumType]
+    public readonly struct MailManagerTrafficPolicyIngressIpv6Attribute : IEquatable<MailManagerTrafficPolicyIngressIpv6Attribute>
+    {
+        private readonly string _value;
+
+        private MailManagerTrafficPolicyIngressIpv6Attribute(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MailManagerTrafficPolicyIngressIpv6Attribute SenderIpv6 { get; } = new MailManagerTrafficPolicyIngressIpv6Attribute("SENDER_IPV6");
+
+        public static bool operator ==(MailManagerTrafficPolicyIngressIpv6Attribute left, MailManagerTrafficPolicyIngressIpv6Attribute right) => left.Equals(right);
+        public static bool operator !=(MailManagerTrafficPolicyIngressIpv6Attribute left, MailManagerTrafficPolicyIngressIpv6Attribute right) => !left.Equals(right);
+
+        public static explicit operator string(MailManagerTrafficPolicyIngressIpv6Attribute value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MailManagerTrafficPolicyIngressIpv6Attribute other && Equals(other);
+        public bool Equals(MailManagerTrafficPolicyIngressIpv6Attribute other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct MailManagerTrafficPolicyIngressStringEmailAttribute : IEquatable<MailManagerTrafficPolicyIngressStringEmailAttribute>
     {
         private readonly string _value;

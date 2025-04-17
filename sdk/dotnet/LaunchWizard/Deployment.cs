@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.LaunchWizard
         /// LaunchWizard deployment specifications
         /// </summary>
         [Output("specifications")]
-        public Output<ImmutableDictionary<string, string>> Specifications { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Specifications { get; private set; } = null!;
 
         /// <summary>
         /// Status of LaunchWizard deployment
@@ -144,7 +144,7 @@ namespace Pulumi.AwsNative.LaunchWizard
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("specifications", required: true)]
+        [Input("specifications")]
         private InputMap<string>? _specifications;
 
         /// <summary>

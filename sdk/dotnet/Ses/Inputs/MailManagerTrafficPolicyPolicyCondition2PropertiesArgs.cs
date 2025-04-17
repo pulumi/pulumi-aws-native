@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.Ses.Inputs
 
     public sealed class MailManagerTrafficPolicyPolicyCondition2PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("tlsExpression", required: true)]
-        public Input<Inputs.MailManagerTrafficPolicyIngressTlsProtocolExpressionArgs> TlsExpression { get; set; } = null!;
+        [Input("ipv6Expression", required: true)]
+        public Input<Inputs.MailManagerTrafficPolicyIngressIpv6ExpressionArgs> Ipv6Expression { get; set; } = null!;
 
         public MailManagerTrafficPolicyPolicyCondition2PropertiesArgs()
         {

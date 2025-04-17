@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Ses.Inputs
     public sealed class MailManagerTrafficPolicyIngressStringExpressionArgs : global::Pulumi.ResourceArgs
     {
         [Input("evaluate", required: true)]
-        public Input<Inputs.MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs> Evaluate { get; set; } = null!;
+        public InputUnion<Inputs.MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesArgs, Inputs.MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesArgs> Evaluate { get; set; } = null!;
 
         [Input("operator", required: true)]
         public Input<Pulumi.AwsNative.Ses.MailManagerTrafficPolicyIngressStringOperator> Operator { get; set; } = null!;

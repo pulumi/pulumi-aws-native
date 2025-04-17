@@ -10,14 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ses.Inputs
 {
 
-    public sealed class MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("attribute", required: true)]
         public Input<Pulumi.AwsNative.Ses.MailManagerRuleSetRuleBooleanEmailAttribute> Attribute { get; set; } = null!;
 
-        public MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs()
+        public MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs()
         {
         }
-        public static new MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs Empty => new MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs();
+        public static new MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs Empty => new MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs();
     }
 }

@@ -7,8 +7,17 @@ import builtins
 from enum import Enum
 
 __all__ = [
+    'TableBucketEncryptionConfigurationSseAlgorithm',
     'TableBucketUnreferencedFileRemovalStatus',
 ]
+
+
+class TableBucketEncryptionConfigurationSseAlgorithm(builtins.str, Enum):
+    """
+    Server-side encryption algorithm
+    """
+    AES256 = "AES256"
+    AWSKMS = "aws:kms"
 
 
 class TableBucketUnreferencedFileRemovalStatus(builtins.str, Enum):

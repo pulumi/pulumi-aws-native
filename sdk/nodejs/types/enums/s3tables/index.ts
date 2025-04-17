@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const TableBucketEncryptionConfigurationSseAlgorithm = {
+    Aes256: "AES256",
+    Awskms: "aws:kms",
+} as const;
+
+/**
+ * Server-side encryption algorithm
+ */
+export type TableBucketEncryptionConfigurationSseAlgorithm = (typeof TableBucketEncryptionConfigurationSseAlgorithm)[keyof typeof TableBucketEncryptionConfigurationSseAlgorithm];
+
 export const TableBucketUnreferencedFileRemovalStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",

@@ -31,6 +31,7 @@ __all__ = [
     'MailManagerTrafficPolicyIngressBooleanOperator',
     'MailManagerTrafficPolicyIngressIpOperator',
     'MailManagerTrafficPolicyIngressIpv4Attribute',
+    'MailManagerTrafficPolicyIngressIpv6Attribute',
     'MailManagerTrafficPolicyIngressStringEmailAttribute',
     'MailManagerTrafficPolicyIngressStringOperator',
     'MailManagerTrafficPolicyIngressTlsAttribute',
@@ -189,6 +190,10 @@ class MailManagerTrafficPolicyIngressIpOperator(builtins.str, Enum):
 
 class MailManagerTrafficPolicyIngressIpv4Attribute(builtins.str, Enum):
     SENDER_IP = "SENDER_IP"
+
+
+class MailManagerTrafficPolicyIngressIpv6Attribute(builtins.str, Enum):
+    SENDER_IPV6 = "SENDER_IPV6"
 
 
 class MailManagerTrafficPolicyIngressStringEmailAttribute(builtins.str, Enum):

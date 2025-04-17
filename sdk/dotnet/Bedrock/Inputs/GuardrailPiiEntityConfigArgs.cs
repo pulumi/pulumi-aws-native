@@ -21,6 +21,18 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("action", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction> Action { get; set; } = null!;
 
+        [Input("inputAction")]
+        public Input<Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction>? InputAction { get; set; }
+
+        [Input("inputEnabled")]
+        public Input<bool>? InputEnabled { get; set; }
+
+        [Input("outputAction")]
+        public Input<Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction>? OutputAction { get; set; }
+
+        [Input("outputEnabled")]
+        public Input<bool>? OutputEnabled { get; set; }
+
         /// <summary>
         /// Configure guardrail type when the PII entity is detected.
         /// 

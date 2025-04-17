@@ -15,6 +15,18 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class GuardrailWordConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("inputAction")]
+        public Input<Pulumi.AwsNative.Bedrock.GuardrailWordAction>? InputAction { get; set; }
+
+        [Input("inputEnabled")]
+        public Input<bool>? InputEnabled { get; set; }
+
+        [Input("outputAction")]
+        public Input<Pulumi.AwsNative.Bedrock.GuardrailWordAction>? OutputAction { get; set; }
+
+        [Input("outputEnabled")]
+        public Input<bool>? OutputEnabled { get; set; }
+
         /// <summary>
         /// The custom word text.
         /// </summary>

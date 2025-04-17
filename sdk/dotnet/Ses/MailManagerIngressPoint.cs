@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.Ses
         [Output("ingressPointName")]
         public Output<string?> IngressPointName { get; private set; } = null!;
 
+        [Output("networkConfiguration")]
+        public Output<Union<Outputs.MailManagerIngressPointNetworkConfiguration0Properties, Outputs.MailManagerIngressPointNetworkConfiguration1Properties>?> NetworkConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The identifier of an existing rule set that you attach to an ingress endpoint resource.
         /// </summary>
@@ -106,6 +109,7 @@ namespace Pulumi.AwsNative.Ses
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "networkConfiguration",
                     "type",
                 },
             };
@@ -141,6 +145,9 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         [Input("ingressPointName")]
         public Input<string>? IngressPointName { get; set; }
+
+        [Input("networkConfiguration")]
+        public InputUnion<Inputs.MailManagerIngressPointNetworkConfiguration0PropertiesArgs, Inputs.MailManagerIngressPointNetworkConfiguration1PropertiesArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
         /// The identifier of an existing rule set that you attach to an ingress endpoint resource.

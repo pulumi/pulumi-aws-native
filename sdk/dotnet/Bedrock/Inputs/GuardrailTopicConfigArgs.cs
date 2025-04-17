@@ -33,11 +33,23 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
             set => _examples = value;
         }
 
+        [Input("inputAction")]
+        public Input<Pulumi.AwsNative.Bedrock.GuardrailTopicAction>? InputAction { get; set; }
+
+        [Input("inputEnabled")]
+        public Input<bool>? InputEnabled { get; set; }
+
         /// <summary>
         /// Name of topic in topic policy
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("outputAction")]
+        public Input<Pulumi.AwsNative.Bedrock.GuardrailTopicAction>? OutputAction { get; set; }
+
+        [Input("outputEnabled")]
+        public Input<bool>? OutputEnabled { get; set; }
 
         /// <summary>
         /// Specifies to deny the topic.

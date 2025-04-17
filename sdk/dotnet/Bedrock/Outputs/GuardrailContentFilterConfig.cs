@@ -16,6 +16,8 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class GuardrailContentFilterConfig
     {
+        public readonly Pulumi.AwsNative.Bedrock.GuardrailContentFilterAction? InputAction;
+        public readonly bool? InputEnabled;
         /// <summary>
         /// List of modalities
         /// </summary>
@@ -24,6 +26,8 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.GuardrailFilterStrength InputStrength;
+        public readonly Pulumi.AwsNative.Bedrock.GuardrailContentFilterAction? OutputAction;
+        public readonly bool? OutputEnabled;
         /// <summary>
         /// List of modalities
         /// </summary>
@@ -39,9 +43,17 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
         [OutputConstructor]
         private GuardrailContentFilterConfig(
+            Pulumi.AwsNative.Bedrock.GuardrailContentFilterAction? inputAction,
+
+            bool? inputEnabled,
+
             ImmutableArray<Pulumi.AwsNative.Bedrock.GuardrailModality> inputModalities,
 
             Pulumi.AwsNative.Bedrock.GuardrailFilterStrength inputStrength,
+
+            Pulumi.AwsNative.Bedrock.GuardrailContentFilterAction? outputAction,
+
+            bool? outputEnabled,
 
             ImmutableArray<Pulumi.AwsNative.Bedrock.GuardrailModality> outputModalities,
 
@@ -49,8 +61,12 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
             Pulumi.AwsNative.Bedrock.GuardrailContentFilterType type)
         {
+            InputAction = inputAction;
+            InputEnabled = inputEnabled;
             InputModalities = inputModalities;
             InputStrength = inputStrength;
+            OutputAction = outputAction;
+            OutputEnabled = outputEnabled;
             OutputModalities = outputModalities;
             OutputStrength = outputStrength;
             Type = type;

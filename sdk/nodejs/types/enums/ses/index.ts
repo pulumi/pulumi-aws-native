@@ -202,6 +202,12 @@ export const MailManagerTrafficPolicyIngressIpv4Attribute = {
 
 export type MailManagerTrafficPolicyIngressIpv4Attribute = (typeof MailManagerTrafficPolicyIngressIpv4Attribute)[keyof typeof MailManagerTrafficPolicyIngressIpv4Attribute];
 
+export const MailManagerTrafficPolicyIngressIpv6Attribute = {
+    SenderIpv6: "SENDER_IPV6",
+} as const;
+
+export type MailManagerTrafficPolicyIngressIpv6Attribute = (typeof MailManagerTrafficPolicyIngressIpv6Attribute)[keyof typeof MailManagerTrafficPolicyIngressIpv6Attribute];
+
 export const MailManagerTrafficPolicyIngressStringEmailAttribute = {
     Recipient: "RECIPIENT",
 } as const;

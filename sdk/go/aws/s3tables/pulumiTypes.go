@@ -13,6 +13,167 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Specifies encryption settings for the table bucket
+type TableBucketEncryptionConfiguration struct {
+	// ARN of the KMS key to use for encryption
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// Server-side encryption algorithm
+	SseAlgorithm *TableBucketEncryptionConfigurationSseAlgorithm `pulumi:"sseAlgorithm"`
+}
+
+// TableBucketEncryptionConfigurationInput is an input type that accepts TableBucketEncryptionConfigurationArgs and TableBucketEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `TableBucketEncryptionConfigurationInput` via:
+//
+//	TableBucketEncryptionConfigurationArgs{...}
+type TableBucketEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToTableBucketEncryptionConfigurationOutput() TableBucketEncryptionConfigurationOutput
+	ToTableBucketEncryptionConfigurationOutputWithContext(context.Context) TableBucketEncryptionConfigurationOutput
+}
+
+// Specifies encryption settings for the table bucket
+type TableBucketEncryptionConfigurationArgs struct {
+	// ARN of the KMS key to use for encryption
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// Server-side encryption algorithm
+	SseAlgorithm TableBucketEncryptionConfigurationSseAlgorithmPtrInput `pulumi:"sseAlgorithm"`
+}
+
+func (TableBucketEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i TableBucketEncryptionConfigurationArgs) ToTableBucketEncryptionConfigurationOutput() TableBucketEncryptionConfigurationOutput {
+	return i.ToTableBucketEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i TableBucketEncryptionConfigurationArgs) ToTableBucketEncryptionConfigurationOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketEncryptionConfigurationOutput)
+}
+
+func (i TableBucketEncryptionConfigurationArgs) ToTableBucketEncryptionConfigurationPtrOutput() TableBucketEncryptionConfigurationPtrOutput {
+	return i.ToTableBucketEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TableBucketEncryptionConfigurationArgs) ToTableBucketEncryptionConfigurationPtrOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketEncryptionConfigurationOutput).ToTableBucketEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// TableBucketEncryptionConfigurationPtrInput is an input type that accepts TableBucketEncryptionConfigurationArgs, TableBucketEncryptionConfigurationPtr and TableBucketEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `TableBucketEncryptionConfigurationPtrInput` via:
+//
+//	        TableBucketEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableBucketEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTableBucketEncryptionConfigurationPtrOutput() TableBucketEncryptionConfigurationPtrOutput
+	ToTableBucketEncryptionConfigurationPtrOutputWithContext(context.Context) TableBucketEncryptionConfigurationPtrOutput
+}
+
+type tableBucketEncryptionConfigurationPtrType TableBucketEncryptionConfigurationArgs
+
+func TableBucketEncryptionConfigurationPtr(v *TableBucketEncryptionConfigurationArgs) TableBucketEncryptionConfigurationPtrInput {
+	return (*tableBucketEncryptionConfigurationPtrType)(v)
+}
+
+func (*tableBucketEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *tableBucketEncryptionConfigurationPtrType) ToTableBucketEncryptionConfigurationPtrOutput() TableBucketEncryptionConfigurationPtrOutput {
+	return i.ToTableBucketEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableBucketEncryptionConfigurationPtrType) ToTableBucketEncryptionConfigurationPtrOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketEncryptionConfigurationPtrOutput)
+}
+
+// Specifies encryption settings for the table bucket
+type TableBucketEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TableBucketEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o TableBucketEncryptionConfigurationOutput) ToTableBucketEncryptionConfigurationOutput() TableBucketEncryptionConfigurationOutput {
+	return o
+}
+
+func (o TableBucketEncryptionConfigurationOutput) ToTableBucketEncryptionConfigurationOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationOutput {
+	return o
+}
+
+func (o TableBucketEncryptionConfigurationOutput) ToTableBucketEncryptionConfigurationPtrOutput() TableBucketEncryptionConfigurationPtrOutput {
+	return o.ToTableBucketEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TableBucketEncryptionConfigurationOutput) ToTableBucketEncryptionConfigurationPtrOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableBucketEncryptionConfiguration) *TableBucketEncryptionConfiguration {
+		return &v
+	}).(TableBucketEncryptionConfigurationPtrOutput)
+}
+
+// ARN of the KMS key to use for encryption
+func (o TableBucketEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableBucketEncryptionConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// Server-side encryption algorithm
+func (o TableBucketEncryptionConfigurationOutput) SseAlgorithm() TableBucketEncryptionConfigurationSseAlgorithmPtrOutput {
+	return o.ApplyT(func(v TableBucketEncryptionConfiguration) *TableBucketEncryptionConfigurationSseAlgorithm {
+		return v.SseAlgorithm
+	}).(TableBucketEncryptionConfigurationSseAlgorithmPtrOutput)
+}
+
+type TableBucketEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableBucketEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o TableBucketEncryptionConfigurationPtrOutput) ToTableBucketEncryptionConfigurationPtrOutput() TableBucketEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o TableBucketEncryptionConfigurationPtrOutput) ToTableBucketEncryptionConfigurationPtrOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o TableBucketEncryptionConfigurationPtrOutput) Elem() TableBucketEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *TableBucketEncryptionConfiguration) TableBucketEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TableBucketEncryptionConfiguration
+		return ret
+	}).(TableBucketEncryptionConfigurationOutput)
+}
+
+// ARN of the KMS key to use for encryption
+func (o TableBucketEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableBucketEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Server-side encryption algorithm
+func (o TableBucketEncryptionConfigurationPtrOutput) SseAlgorithm() TableBucketEncryptionConfigurationSseAlgorithmPtrOutput {
+	return o.ApplyT(func(v *TableBucketEncryptionConfiguration) *TableBucketEncryptionConfigurationSseAlgorithm {
+		if v == nil {
+			return nil
+		}
+		return v.SseAlgorithm
+	}).(TableBucketEncryptionConfigurationSseAlgorithmPtrOutput)
+}
+
 // A policy document containing permissions to add to the specified table bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
 type TableBucketPolicyResourcePolicy struct {
 }
@@ -262,9 +423,13 @@ func (o TableBucketUnreferencedFileRemovalPtrOutput) UnreferencedDays() pulumi.I
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationInput)(nil)).Elem(), TableBucketEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationPtrInput)(nil)).Elem(), TableBucketEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketPolicyResourcePolicyInput)(nil)).Elem(), TableBucketPolicyResourcePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalPtrInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalArgs{})
+	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketPolicyResourcePolicyOutput{})
 	pulumi.RegisterOutputType(TableBucketPolicyResourcePolicyPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketUnreferencedFileRemovalOutput{})

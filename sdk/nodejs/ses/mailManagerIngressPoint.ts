@@ -57,6 +57,7 @@ export class MailManagerIngressPoint extends pulumi.CustomResource {
      * A user friendly name for an ingress endpoint resource.
      */
     public readonly ingressPointName!: pulumi.Output<string | undefined>;
+    public readonly networkConfiguration!: pulumi.Output<outputs.ses.MailManagerIngressPointNetworkConfiguration0Properties | outputs.ses.MailManagerIngressPointNetworkConfiguration1Properties | undefined>;
     /**
      * The identifier of an existing rule set that you attach to an ingress endpoint resource.
      */
@@ -104,6 +105,7 @@ export class MailManagerIngressPoint extends pulumi.CustomResource {
             }
             resourceInputs["ingressPointConfiguration"] = args ? args.ingressPointConfiguration : undefined;
             resourceInputs["ingressPointName"] = args ? args.ingressPointName : undefined;
+            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
             resourceInputs["ruleSetId"] = args ? args.ruleSetId : undefined;
             resourceInputs["statusToUpdate"] = args ? args.statusToUpdate : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -119,6 +121,7 @@ export class MailManagerIngressPoint extends pulumi.CustomResource {
             resourceInputs["ingressPointConfiguration"] = undefined /*out*/;
             resourceInputs["ingressPointId"] = undefined /*out*/;
             resourceInputs["ingressPointName"] = undefined /*out*/;
+            resourceInputs["networkConfiguration"] = undefined /*out*/;
             resourceInputs["ruleSetId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusToUpdate"] = undefined /*out*/;
@@ -127,7 +130,7 @@ export class MailManagerIngressPoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["type"] };
+        const replaceOnChanges = { replaceOnChanges: ["networkConfiguration", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(MailManagerIngressPoint.__pulumiType, name, resourceInputs, opts);
     }
@@ -145,6 +148,7 @@ export interface MailManagerIngressPointArgs {
      * A user friendly name for an ingress endpoint resource.
      */
     ingressPointName?: pulumi.Input<string>;
+    networkConfiguration?: pulumi.Input<inputs.ses.MailManagerIngressPointNetworkConfiguration0PropertiesArgs | inputs.ses.MailManagerIngressPointNetworkConfiguration1PropertiesArgs>;
     /**
      * The identifier of an existing rule set that you attach to an ingress endpoint resource.
      */

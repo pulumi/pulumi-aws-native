@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
 
     public sealed class DomainNameV2EndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
+
         [Input("types")]
         private InputList<string>? _types;
 

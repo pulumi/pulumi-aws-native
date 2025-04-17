@@ -4,10 +4,199 @@
 package emr
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
+
+type StepHadoopJarStepConfig struct {
+	// A list of command line arguments passed to the JAR file's main function when executed.
+	Args []string `pulumi:"args"`
+	// A path to a JAR file run during the step.
+	Jar string `pulumi:"jar"`
+	// The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+	MainClass *string `pulumi:"mainClass"`
+	// A list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+	StepProperties []StepKeyValue `pulumi:"stepProperties"`
+}
+
+// StepHadoopJarStepConfigInput is an input type that accepts StepHadoopJarStepConfigArgs and StepHadoopJarStepConfigOutput values.
+// You can construct a concrete instance of `StepHadoopJarStepConfigInput` via:
+//
+//	StepHadoopJarStepConfigArgs{...}
+type StepHadoopJarStepConfigInput interface {
+	pulumi.Input
+
+	ToStepHadoopJarStepConfigOutput() StepHadoopJarStepConfigOutput
+	ToStepHadoopJarStepConfigOutputWithContext(context.Context) StepHadoopJarStepConfigOutput
+}
+
+type StepHadoopJarStepConfigArgs struct {
+	// A list of command line arguments passed to the JAR file's main function when executed.
+	Args pulumi.StringArrayInput `pulumi:"args"`
+	// A path to a JAR file run during the step.
+	Jar pulumi.StringInput `pulumi:"jar"`
+	// The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+	MainClass pulumi.StringPtrInput `pulumi:"mainClass"`
+	// A list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+	StepProperties StepKeyValueArrayInput `pulumi:"stepProperties"`
+}
+
+func (StepHadoopJarStepConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StepHadoopJarStepConfig)(nil)).Elem()
+}
+
+func (i StepHadoopJarStepConfigArgs) ToStepHadoopJarStepConfigOutput() StepHadoopJarStepConfigOutput {
+	return i.ToStepHadoopJarStepConfigOutputWithContext(context.Background())
+}
+
+func (i StepHadoopJarStepConfigArgs) ToStepHadoopJarStepConfigOutputWithContext(ctx context.Context) StepHadoopJarStepConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StepHadoopJarStepConfigOutput)
+}
+
+type StepHadoopJarStepConfigOutput struct{ *pulumi.OutputState }
+
+func (StepHadoopJarStepConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StepHadoopJarStepConfig)(nil)).Elem()
+}
+
+func (o StepHadoopJarStepConfigOutput) ToStepHadoopJarStepConfigOutput() StepHadoopJarStepConfigOutput {
+	return o
+}
+
+func (o StepHadoopJarStepConfigOutput) ToStepHadoopJarStepConfigOutputWithContext(ctx context.Context) StepHadoopJarStepConfigOutput {
+	return o
+}
+
+// A list of command line arguments passed to the JAR file's main function when executed.
+func (o StepHadoopJarStepConfigOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StepHadoopJarStepConfig) []string { return v.Args }).(pulumi.StringArrayOutput)
+}
+
+// A path to a JAR file run during the step.
+func (o StepHadoopJarStepConfigOutput) Jar() pulumi.StringOutput {
+	return o.ApplyT(func(v StepHadoopJarStepConfig) string { return v.Jar }).(pulumi.StringOutput)
+}
+
+// The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+func (o StepHadoopJarStepConfigOutput) MainClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StepHadoopJarStepConfig) *string { return v.MainClass }).(pulumi.StringPtrOutput)
+}
+
+// A list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+func (o StepHadoopJarStepConfigOutput) StepProperties() StepKeyValueArrayOutput {
+	return o.ApplyT(func(v StepHadoopJarStepConfig) []StepKeyValue { return v.StepProperties }).(StepKeyValueArrayOutput)
+}
+
+type StepKeyValue struct {
+	// The unique identifier of a key-value pair.
+	Key *string `pulumi:"key"`
+	// The value part of the identified key.
+	Value *string `pulumi:"value"`
+}
+
+// StepKeyValueInput is an input type that accepts StepKeyValueArgs and StepKeyValueOutput values.
+// You can construct a concrete instance of `StepKeyValueInput` via:
+//
+//	StepKeyValueArgs{...}
+type StepKeyValueInput interface {
+	pulumi.Input
+
+	ToStepKeyValueOutput() StepKeyValueOutput
+	ToStepKeyValueOutputWithContext(context.Context) StepKeyValueOutput
+}
+
+type StepKeyValueArgs struct {
+	// The unique identifier of a key-value pair.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The value part of the identified key.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StepKeyValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StepKeyValue)(nil)).Elem()
+}
+
+func (i StepKeyValueArgs) ToStepKeyValueOutput() StepKeyValueOutput {
+	return i.ToStepKeyValueOutputWithContext(context.Background())
+}
+
+func (i StepKeyValueArgs) ToStepKeyValueOutputWithContext(ctx context.Context) StepKeyValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StepKeyValueOutput)
+}
+
+// StepKeyValueArrayInput is an input type that accepts StepKeyValueArray and StepKeyValueArrayOutput values.
+// You can construct a concrete instance of `StepKeyValueArrayInput` via:
+//
+//	StepKeyValueArray{ StepKeyValueArgs{...} }
+type StepKeyValueArrayInput interface {
+	pulumi.Input
+
+	ToStepKeyValueArrayOutput() StepKeyValueArrayOutput
+	ToStepKeyValueArrayOutputWithContext(context.Context) StepKeyValueArrayOutput
+}
+
+type StepKeyValueArray []StepKeyValueInput
+
+func (StepKeyValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StepKeyValue)(nil)).Elem()
+}
+
+func (i StepKeyValueArray) ToStepKeyValueArrayOutput() StepKeyValueArrayOutput {
+	return i.ToStepKeyValueArrayOutputWithContext(context.Background())
+}
+
+func (i StepKeyValueArray) ToStepKeyValueArrayOutputWithContext(ctx context.Context) StepKeyValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StepKeyValueArrayOutput)
+}
+
+type StepKeyValueOutput struct{ *pulumi.OutputState }
+
+func (StepKeyValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StepKeyValue)(nil)).Elem()
+}
+
+func (o StepKeyValueOutput) ToStepKeyValueOutput() StepKeyValueOutput {
+	return o
+}
+
+func (o StepKeyValueOutput) ToStepKeyValueOutputWithContext(ctx context.Context) StepKeyValueOutput {
+	return o
+}
+
+// The unique identifier of a key-value pair.
+func (o StepKeyValueOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StepKeyValue) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The value part of the identified key.
+func (o StepKeyValueOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StepKeyValue) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StepKeyValueArrayOutput struct{ *pulumi.OutputState }
+
+func (StepKeyValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StepKeyValue)(nil)).Elem()
+}
+
+func (o StepKeyValueArrayOutput) ToStepKeyValueArrayOutput() StepKeyValueArrayOutput {
+	return o
+}
+
+func (o StepKeyValueArrayOutput) ToStepKeyValueArrayOutputWithContext(ctx context.Context) StepKeyValueArrayOutput {
+	return o
+}
+
+func (o StepKeyValueArrayOutput) Index(i pulumi.IntInput) StepKeyValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StepKeyValue {
+		return vs[0].([]StepKeyValue)[vs[1].(int)]
+	}).(StepKeyValueOutput)
+}
 
 // An arbitrary set of tags (key-value pairs) for this EMR Studio.
 type StudioTag struct {
@@ -26,4 +215,10 @@ type WalWorkspaceTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StepHadoopJarStepConfigInput)(nil)).Elem(), StepHadoopJarStepConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StepKeyValueInput)(nil)).Elem(), StepKeyValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StepKeyValueArrayInput)(nil)).Elem(), StepKeyValueArray{})
+	pulumi.RegisterOutputType(StepHadoopJarStepConfigOutput{})
+	pulumi.RegisterOutputType(StepKeyValueOutput{})
+	pulumi.RegisterOutputType(StepKeyValueArrayOutput{})
 }

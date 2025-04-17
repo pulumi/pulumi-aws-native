@@ -68,7 +68,7 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * LaunchWizard deployment specifications
      */
-    public readonly specifications!: pulumi.Output<{[key: string]: string}>;
+    public readonly specifications!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Status of LaunchWizard deployment
      */
@@ -95,9 +95,6 @@ export class Deployment extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.deploymentPatternName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deploymentPatternName'");
-            }
-            if ((!args || args.specifications === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'specifications'");
             }
             if ((!args || args.workloadName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workloadName'");
@@ -148,7 +145,7 @@ export interface DeploymentArgs {
     /**
      * LaunchWizard deployment specifications
      */
-    specifications: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    specifications?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Tags for LaunchWizard deployment
      */

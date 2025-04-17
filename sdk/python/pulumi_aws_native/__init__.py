@@ -1695,6 +1695,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.emr",
   "classes": {
    "aws-native:emr:SecurityConfiguration": "SecurityConfiguration",
+   "aws-native:emr:Step": "Step",
    "aws-native:emr:Studio": "Studio",
    "aws-native:emr:StudioSessionMapping": "StudioSessionMapping",
    "aws-native:emr:WalWorkspace": "WalWorkspace"

@@ -6090,14 +6090,13 @@ if not MYPY:
         elastic_gpu_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgsDict']]]]
         """
         Deprecated.
-          Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+          Amazon Elastic Graphics reached end of life on January 8, 2024.
         """
         elastic_inference_accelerators: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgsDict']]]]
         """
         Amazon Elastic Inference is no longer available.
           An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
          You cannot specify accelerators from different generations in the same request.
-          Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
         """
         enclave_options: NotRequired[pulumi.Input['LaunchTemplateEnclaveOptionsArgsDict']]
         """
@@ -6266,11 +6265,10 @@ class LaunchTemplateDataArgs:
         :param pulumi.Input[builtins.bool] disable_api_termination: Indicates whether termination protection is enabled for the instance. The default is ``false``, which means that you can terminate the instance using the Amazon EC2 console, command line tools, or API. You can enable termination protection when you launch an instance, while the instance is running, or while the instance is stopped.
         :param pulumi.Input[builtins.bool] ebs_optimized: Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]] elastic_gpu_specifications: Deprecated.
-                 Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+                 Amazon Elastic Graphics reached end of life on January 8, 2024.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs']]] elastic_inference_accelerators: Amazon Elastic Inference is no longer available.
                  An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
                 You cannot specify accelerators from different generations in the same request.
-                 Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
         :param pulumi.Input['LaunchTemplateEnclaveOptionsArgs'] enclave_options: Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
                 You can't enable AWS Nitro Enclaves and hibernation on the same instance.
         :param pulumi.Input['LaunchTemplateHibernationOptionsArgs'] hibernation_options: Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your Amazon EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide*.
@@ -6475,7 +6473,7 @@ class LaunchTemplateDataArgs:
     def elastic_gpu_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]]:
         """
         Deprecated.
-          Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+          Amazon Elastic Graphics reached end of life on January 8, 2024.
         """
         return pulumi.get(self, "elastic_gpu_specifications")
 
@@ -6490,7 +6488,6 @@ class LaunchTemplateDataArgs:
         Amazon Elastic Inference is no longer available.
           An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
          You cannot specify accelerators from different generations in the same request.
-          Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
         """
         return pulumi.get(self, "elastic_inference_accelerators")
 
@@ -7021,7 +7018,7 @@ class LaunchTemplateEbsArgs:
 if not MYPY:
     class LaunchTemplateElasticGpuSpecificationArgsDict(TypedDict):
         """
-        Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+        Amazon Elastic Graphics reached end of life on January 8, 2024.
           Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
           ``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         """
@@ -7037,7 +7034,7 @@ class LaunchTemplateElasticGpuSpecificationArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
-        Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+        Amazon Elastic Graphics reached end of life on January 8, 2024.
           Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
           ``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param pulumi.Input[builtins.str] type: The type of Elastic Graphics accelerator.
@@ -7061,7 +7058,8 @@ class LaunchTemplateElasticGpuSpecificationArgs:
 if not MYPY:
     class LaunchTemplateElasticInferenceAcceleratorArgsDict(TypedDict):
         """
-        Specifies an elastic inference accelerator.
+        Amazon Elastic Inference is no longer available.
+          Specifies an elastic inference accelerator.
           ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         """
         count: NotRequired[pulumi.Input[builtins.int]]
@@ -7082,7 +7080,8 @@ class LaunchTemplateElasticInferenceAcceleratorArgs:
                  count: Optional[pulumi.Input[builtins.int]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
-        Specifies an elastic inference accelerator.
+        Amazon Elastic Inference is no longer available.
+          Specifies an elastic inference accelerator.
           ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param pulumi.Input[builtins.int] count: The number of elastic inference accelerators to attach to the instance. 
                 Default: 1
@@ -7467,7 +7466,6 @@ if not MYPY:
         The accelerator types that must be on the instance type.
           +  For instance types with FPGA accelerators, specify ``fpga``.
           +  For instance types with GPU accelerators, specify ``gpu``.
-          +  For instance types with Inference accelerators, specify ``inference``.
           
          Default: Any accelerator type
         """
@@ -7681,7 +7679,6 @@ class LaunchTemplateInstanceRequirementsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] accelerator_types: The accelerator types that must be on the instance type.
                  +  For instance types with FPGA accelerators, specify ``fpga``.
                  +  For instance types with GPU accelerators, specify ``gpu``.
-                 +  For instance types with Inference accelerators, specify ``inference``.
                  
                 Default: Any accelerator type
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -7892,7 +7889,6 @@ class LaunchTemplateInstanceRequirementsArgs:
         The accelerator types that must be on the instance type.
           +  For instance types with FPGA accelerators, specify ``fpga``.
           +  For instance types with GPU accelerators, specify ``gpu``.
-          +  For instance types with Inference accelerators, specify ``inference``.
           
          Default: Any accelerator type
         """
@@ -8827,7 +8823,7 @@ if not MYPY:
         """
         device_index: NotRequired[pulumi.Input[builtins.int]]
         """
-        The device index for the network interface attachment. If the network interface is of type ``interface``, you must specify a device index.
+        The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type ``interface``, you must specify a device index.
          If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
         """
         ena_srd_specification: NotRequired[pulumi.Input['LaunchTemplateEnaSrdSpecificationArgsDict']]
@@ -8935,7 +8931,7 @@ class LaunchTemplateNetworkInterfaceArgs:
         :param pulumi.Input['LaunchTemplateConnectionTrackingSpecificationArgs'] connection_tracking_specification: A connection tracking specification for the network interface.
         :param pulumi.Input[builtins.bool] delete_on_termination: Indicates whether the network interface is deleted when the instance is terminated.
         :param pulumi.Input[builtins.str] description: A description for the network interface.
-        :param pulumi.Input[builtins.int] device_index: The device index for the network interface attachment. If the network interface is of type ``interface``, you must specify a device index.
+        :param pulumi.Input[builtins.int] device_index: The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type ``interface``, you must specify a device index.
                 If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
         :param pulumi.Input['LaunchTemplateEnaSrdSpecificationArgs'] ena_srd_specification: The ENA Express configuration for the network interface.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] groups: The IDs of one or more security groups.
@@ -9068,7 +9064,7 @@ class LaunchTemplateNetworkInterfaceArgs:
     @pulumi.getter(name="deviceIndex")
     def device_index(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The device index for the network interface attachment. If the network interface is of type ``interface``, you must specify a device index.
+        The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type ``interface``, you must specify a device index.
          If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
         """
         return pulumi.get(self, "device_index")
@@ -9275,9 +9271,13 @@ class LaunchTemplateNetworkInterfaceArgs:
 
 if not MYPY:
     class LaunchTemplateNetworkPerformanceOptionsArgsDict(TypedDict):
+        """
+        Contains settings for the network performance options for the instance.
+        """
         bandwidth_weighting: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies the performance options of your instance or sets it to default.
+        Specify the bandwidth weighting option to boost the associated type of baseline bandwidth, as follows:
+          + default This option uses the standard bandwidth configuration for your instance type. + vpc-1 This option boosts your networking baseline bandwidth and reduces your EBS baseline bandwidth. + ebs-1 This option boosts your EBS baseline bandwidth and reduces your networking baseline bandwidth.
         """
 elif False:
     LaunchTemplateNetworkPerformanceOptionsArgsDict: TypeAlias = Mapping[str, Any]
@@ -9287,7 +9287,9 @@ class LaunchTemplateNetworkPerformanceOptionsArgs:
     def __init__(__self__, *,
                  bandwidth_weighting: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] bandwidth_weighting: Specifies the performance options of your instance or sets it to default.
+        Contains settings for the network performance options for the instance.
+        :param pulumi.Input[builtins.str] bandwidth_weighting: Specify the bandwidth weighting option to boost the associated type of baseline bandwidth, as follows:
+                 + default This option uses the standard bandwidth configuration for your instance type. + vpc-1 This option boosts your networking baseline bandwidth and reduces your EBS baseline bandwidth. + ebs-1 This option boosts your EBS baseline bandwidth and reduces your networking baseline bandwidth.
         """
         if bandwidth_weighting is not None:
             pulumi.set(__self__, "bandwidth_weighting", bandwidth_weighting)
@@ -9296,7 +9298,8 @@ class LaunchTemplateNetworkPerformanceOptionsArgs:
     @pulumi.getter(name="bandwidthWeighting")
     def bandwidth_weighting(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the performance options of your instance or sets it to default.
+        Specify the bandwidth weighting option to boost the associated type of baseline bandwidth, as follows:
+          + default This option uses the standard bandwidth configuration for your instance type. + vpc-1 This option boosts your networking baseline bandwidth and reduces your EBS baseline bandwidth. + ebs-1 This option boosts your EBS baseline bandwidth and reduces your networking baseline bandwidth.
         """
         return pulumi.get(self, "bandwidth_weighting")
 

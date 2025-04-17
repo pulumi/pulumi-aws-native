@@ -1798,6 +1798,34 @@ namespace Pulumi.AwsNative.Bedrock
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct GuardrailContentFilterAction : IEquatable<GuardrailContentFilterAction>
+    {
+        private readonly string _value;
+
+        private GuardrailContentFilterAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardrailContentFilterAction Block { get; } = new GuardrailContentFilterAction("BLOCK");
+        public static GuardrailContentFilterAction None { get; } = new GuardrailContentFilterAction("NONE");
+
+        public static bool operator ==(GuardrailContentFilterAction left, GuardrailContentFilterAction right) => left.Equals(right);
+        public static bool operator !=(GuardrailContentFilterAction left, GuardrailContentFilterAction right) => !left.Equals(right);
+
+        public static explicit operator string(GuardrailContentFilterAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardrailContentFilterAction other && Equals(other);
+        public bool Equals(GuardrailContentFilterAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Type of filter in content policy
     /// </summary>
@@ -1826,6 +1854,34 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is GuardrailContentFilterType other && Equals(other);
         public bool Equals(GuardrailContentFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GuardrailContextualGroundingAction : IEquatable<GuardrailContextualGroundingAction>
+    {
+        private readonly string _value;
+
+        private GuardrailContextualGroundingAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardrailContextualGroundingAction Block { get; } = new GuardrailContextualGroundingAction("BLOCK");
+        public static GuardrailContextualGroundingAction None { get; } = new GuardrailContextualGroundingAction("NONE");
+
+        public static bool operator ==(GuardrailContextualGroundingAction left, GuardrailContextualGroundingAction right) => left.Equals(right);
+        public static bool operator !=(GuardrailContextualGroundingAction left, GuardrailContextualGroundingAction right) => !left.Equals(right);
+
+        public static explicit operator string(GuardrailContextualGroundingAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardrailContextualGroundingAction other && Equals(other);
+        public bool Equals(GuardrailContextualGroundingAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2033,6 +2089,7 @@ namespace Pulumi.AwsNative.Bedrock
 
         public static GuardrailSensitiveInformationAction Block { get; } = new GuardrailSensitiveInformationAction("BLOCK");
         public static GuardrailSensitiveInformationAction Anonymize { get; } = new GuardrailSensitiveInformationAction("ANONYMIZE");
+        public static GuardrailSensitiveInformationAction None { get; } = new GuardrailSensitiveInformationAction("NONE");
 
         public static bool operator ==(GuardrailSensitiveInformationAction left, GuardrailSensitiveInformationAction right) => left.Equals(right);
         public static bool operator !=(GuardrailSensitiveInformationAction left, GuardrailSensitiveInformationAction right) => !left.Equals(right);
@@ -2084,6 +2141,34 @@ namespace Pulumi.AwsNative.Bedrock
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct GuardrailTopicAction : IEquatable<GuardrailTopicAction>
+    {
+        private readonly string _value;
+
+        private GuardrailTopicAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardrailTopicAction Block { get; } = new GuardrailTopicAction("BLOCK");
+        public static GuardrailTopicAction None { get; } = new GuardrailTopicAction("NONE");
+
+        public static bool operator ==(GuardrailTopicAction left, GuardrailTopicAction right) => left.Equals(right);
+        public static bool operator !=(GuardrailTopicAction left, GuardrailTopicAction right) => !left.Equals(right);
+
+        public static explicit operator string(GuardrailTopicAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardrailTopicAction other && Equals(other);
+        public bool Equals(GuardrailTopicAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Type of topic in a policy
     /// </summary>
@@ -2107,6 +2192,34 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is GuardrailTopicType other && Equals(other);
         public bool Equals(GuardrailTopicType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GuardrailWordAction : IEquatable<GuardrailWordAction>
+    {
+        private readonly string _value;
+
+        private GuardrailWordAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardrailWordAction Block { get; } = new GuardrailWordAction("BLOCK");
+        public static GuardrailWordAction None { get; } = new GuardrailWordAction("NONE");
+
+        public static bool operator ==(GuardrailWordAction left, GuardrailWordAction right) => left.Equals(right);
+        public static bool operator !=(GuardrailWordAction left, GuardrailWordAction right) => !left.Equals(right);
+
+        public static explicit operator string(GuardrailWordAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardrailWordAction other && Equals(other);
+        public bool Equals(GuardrailWordAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -26,13 +26,21 @@ __all__ = [
 
 @pulumi.output_type
 class GetTableBucketResult:
-    def __init__(__self__, table_bucket_arn=None, unreferenced_file_removal=None):
+    def __init__(__self__, encryption_configuration=None, table_bucket_arn=None, unreferenced_file_removal=None):
+        if encryption_configuration and not isinstance(encryption_configuration, dict):
+            raise TypeError("Expected argument 'encryption_configuration' to be a dict")
+        pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if table_bucket_arn and not isinstance(table_bucket_arn, str):
             raise TypeError("Expected argument 'table_bucket_arn' to be a str")
         pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
         if unreferenced_file_removal and not isinstance(unreferenced_file_removal, dict):
             raise TypeError("Expected argument 'unreferenced_file_removal' to be a dict")
         pulumi.set(__self__, "unreferenced_file_removal", unreferenced_file_removal)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional['outputs.TableBucketEncryptionConfiguration']:
+        return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter(name="tableBucketArn")
@@ -57,6 +65,7 @@ class AwaitableGetTableBucketResult(GetTableBucketResult):
         if False:
             yield self
         return GetTableBucketResult(
+            encryption_configuration=self.encryption_configuration,
             table_bucket_arn=self.table_bucket_arn,
             unreferenced_file_removal=self.unreferenced_file_removal)
 
@@ -75,6 +84,7 @@ def get_table_bucket(table_bucket_arn: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:s3tables:getTableBucket', __args__, opts=opts, typ=GetTableBucketResult).value
 
     return AwaitableGetTableBucketResult(
+        encryption_configuration=pulumi.get(__ret__, 'encryption_configuration'),
         table_bucket_arn=pulumi.get(__ret__, 'table_bucket_arn'),
         unreferenced_file_removal=pulumi.get(__ret__, 'unreferenced_file_removal'))
 def get_table_bucket_output(table_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -90,5 +100,6 @@ def get_table_bucket_output(table_bucket_arn: Optional[pulumi.Input[builtins.str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:s3tables:getTableBucket', __args__, opts=opts, typ=GetTableBucketResult)
     return __ret__.apply(lambda __response__: GetTableBucketResult(
+        encryption_configuration=pulumi.get(__response__, 'encryption_configuration'),
         table_bucket_arn=pulumi.get(__response__, 'table_bucket_arn'),
         unreferenced_file_removal=pulumi.get(__response__, 'unreferenced_file_removal')))

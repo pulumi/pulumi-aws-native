@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The device index for the network interface attachment. If the network interface is of type ``interface``, you must specify a device index.
+        /// The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type ``interface``, you must specify a device index.
         ///  If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
         /// </summary>
         [Input("deviceIndex")]

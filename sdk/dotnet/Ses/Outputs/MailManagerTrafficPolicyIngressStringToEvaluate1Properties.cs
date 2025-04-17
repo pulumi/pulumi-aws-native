@@ -11,14 +11,14 @@ namespace Pulumi.AwsNative.Ses.Outputs
 {
 
     [OutputType]
-    public sealed class MailManagerTrafficPolicyIngressStringToEvaluateProperties
+    public sealed class MailManagerTrafficPolicyIngressStringToEvaluate1Properties
     {
-        public readonly Pulumi.AwsNative.Ses.MailManagerTrafficPolicyIngressStringEmailAttribute Attribute;
+        public readonly Outputs.MailManagerTrafficPolicyIngressAnalysis Analysis;
 
         [OutputConstructor]
-        private MailManagerTrafficPolicyIngressStringToEvaluateProperties(Pulumi.AwsNative.Ses.MailManagerTrafficPolicyIngressStringEmailAttribute attribute)
+        private MailManagerTrafficPolicyIngressStringToEvaluate1Properties(Outputs.MailManagerTrafficPolicyIngressAnalysis analysis)
         {
-            Attribute = attribute;
+            Analysis = analysis;
         }
     }
 }

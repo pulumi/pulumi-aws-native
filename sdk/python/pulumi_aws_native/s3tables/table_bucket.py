@@ -23,6 +23,7 @@ __all__ = ['TableBucketArgs', 'TableBucket']
 @pulumi.input_type
 class TableBucketArgs:
     def __init__(__self__, *,
+                 encryption_configuration: Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']] = None,
                  table_bucket_name: Optional[pulumi.Input[builtins.str]] = None,
                  unreferenced_file_removal: Optional[pulumi.Input['TableBucketUnreferencedFileRemovalArgs']] = None):
         """
@@ -30,10 +31,21 @@ class TableBucketArgs:
         :param pulumi.Input[builtins.str] table_bucket_name: The name for the table bucket.
         :param pulumi.Input['TableBucketUnreferencedFileRemovalArgs'] unreferenced_file_removal: The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
         """
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if table_bucket_name is not None:
             pulumi.set(__self__, "table_bucket_name", table_bucket_name)
         if unreferenced_file_removal is not None:
             pulumi.set(__self__, "unreferenced_file_removal", unreferenced_file_removal)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']]:
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
 
     @property
     @pulumi.getter(name="tableBucketName")
@@ -65,6 +77,7 @@ class TableBucket(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']]] = None,
                  table_bucket_name: Optional[pulumi.Input[builtins.str]] = None,
                  unreferenced_file_removal: Optional[pulumi.Input[Union['TableBucketUnreferencedFileRemovalArgs', 'TableBucketUnreferencedFileRemovalArgsDict']]] = None,
                  __props__=None):
@@ -100,6 +113,7 @@ class TableBucket(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']]] = None,
                  table_bucket_name: Optional[pulumi.Input[builtins.str]] = None,
                  unreferenced_file_removal: Optional[pulumi.Input[Union['TableBucketUnreferencedFileRemovalArgs', 'TableBucketUnreferencedFileRemovalArgsDict']]] = None,
                  __props__=None):
@@ -111,6 +125,7 @@ class TableBucket(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TableBucketArgs.__new__(TableBucketArgs)
 
+            __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["table_bucket_name"] = table_bucket_name
             __props__.__dict__["unreferenced_file_removal"] = unreferenced_file_removal
             __props__.__dict__["table_bucket_arn"] = None
@@ -138,10 +153,16 @@ class TableBucket(pulumi.CustomResource):
 
         __props__ = TableBucketArgs.__new__(TableBucketArgs)
 
+        __props__.__dict__["encryption_configuration"] = None
         __props__.__dict__["table_bucket_arn"] = None
         __props__.__dict__["table_bucket_name"] = None
         __props__.__dict__["unreferenced_file_removal"] = None
         return TableBucket(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Output[Optional['outputs.TableBucketEncryptionConfiguration']]:
+        return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter(name="tableBucketArn")

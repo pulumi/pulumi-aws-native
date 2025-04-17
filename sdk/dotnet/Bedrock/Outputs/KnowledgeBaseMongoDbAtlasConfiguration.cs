@@ -41,6 +41,10 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.KnowledgeBaseMongoDbAtlasFieldMapping FieldMapping;
         /// <summary>
+        /// Name of a MongoDB Atlas text index.
+        /// </summary>
+        public readonly string? TextIndexName;
+        /// <summary>
         /// Name of a MongoDB Atlas index.
         /// </summary>
         public readonly string VectorIndexName;
@@ -59,6 +63,8 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
             Outputs.KnowledgeBaseMongoDbAtlasFieldMapping fieldMapping,
 
+            string? textIndexName,
+
             string vectorIndexName)
         {
             CollectionName = collectionName;
@@ -67,6 +73,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
             Endpoint = endpoint;
             EndpointServiceName = endpointServiceName;
             FieldMapping = fieldMapping;
+            TextIndexName = textIndexName;
             VectorIndexName = vectorIndexName;
         }
     }

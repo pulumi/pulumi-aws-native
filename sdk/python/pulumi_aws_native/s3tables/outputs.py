@@ -17,9 +17,64 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'TableBucketEncryptionConfiguration',
     'TableBucketPolicyResourcePolicy',
     'TableBucketUnreferencedFileRemoval',
 ]
+
+@pulumi.output_type
+class TableBucketEncryptionConfiguration(dict):
+    """
+    Specifies encryption settings for the table bucket
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+        elif key == "sseAlgorithm":
+            suggest = "sse_algorithm"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableBucketEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableBucketEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableBucketEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_arn: Optional[builtins.str] = None,
+                 sse_algorithm: Optional['TableBucketEncryptionConfigurationSseAlgorithm'] = None):
+        """
+        Specifies encryption settings for the table bucket
+        :param builtins.str kms_key_arn: ARN of the KMS key to use for encryption
+        :param 'TableBucketEncryptionConfigurationSseAlgorithm' sse_algorithm: Server-side encryption algorithm
+        """
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if sse_algorithm is not None:
+            pulumi.set(__self__, "sse_algorithm", sse_algorithm)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[builtins.str]:
+        """
+        ARN of the KMS key to use for encryption
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @property
+    @pulumi.getter(name="sseAlgorithm")
+    def sse_algorithm(self) -> Optional['TableBucketEncryptionConfigurationSseAlgorithm']:
+        """
+        Server-side encryption algorithm
+        """
+        return pulumi.get(self, "sse_algorithm")
+
 
 @pulumi.output_type
 class TableBucketPolicyResourcePolicy(dict):

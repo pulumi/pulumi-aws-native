@@ -250,6 +250,12 @@
           "maxLength" : 63,
           "pattern" : "^[a-zA-Z0-9_\\-]+$",
           "description" : "The name of the field in which Amazon Bedrock stores metadata about the vector store."
+        },
+        "CustomMetadataField" : {
+          "type" : "string",
+          "maxLength" : 63,
+          "pattern" : "^[a-zA-Z0-9_\\-]+$",
+          "description" : "The name of the field in which Amazon Bedrock stores custom metadata about the vector store."
         }
       },
       "required" : [ "MetadataField", "PrimaryKeyField", "TextField", "VectorField" ],
@@ -367,6 +373,12 @@
           "maxLength" : 2048,
           "pattern" : "^.*$",
           "description" : "Name of a MongoDB Atlas index."
+        },
+        "TextIndexName" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "pattern" : "^.*$",
+          "description" : "Name of a MongoDB Atlas text index."
         },
         "EndpointServiceName" : {
           "type" : "string",

@@ -10,11 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
+    /// <summary>
+    /// Contains settings for the network performance options for the instance.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateNetworkPerformanceOptions
     {
         /// <summary>
-        /// Specifies the performance options of your instance or sets it to default.
+        /// Specify the bandwidth weighting option to boost the associated type of baseline bandwidth, as follows:
+        ///   + default This option uses the standard bandwidth configuration for your instance type. + vpc-1 This option boosts your networking baseline bandwidth and reduces your EBS baseline bandwidth. + ebs-1 This option boosts your EBS baseline bandwidth and reduces your networking baseline bandwidth.
         /// </summary>
         public readonly string? BandwidthWeighting;
 

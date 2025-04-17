@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetStepArgs, GetStepResult, GetStepOutputArgs } from "./getStep";
+export const getStep: typeof import("./getStep").getStep = null as any;
+export const getStepOutput: typeof import("./getStep").getStepOutput = null as any;
+utilities.lazyLoad(exports, ["getStep","getStepOutput"], () => require("./getStep"));
+
 export { GetStudioArgs, GetStudioResult, GetStudioOutputArgs } from "./getStudio";
 export const getStudio: typeof import("./getStudio").getStudio = null as any;
 export const getStudioOutput: typeof import("./getStudio").getStudioOutput = null as any;
@@ -24,6 +29,11 @@ export { SecurityConfigurationArgs } from "./securityConfiguration";
 export type SecurityConfiguration = import("./securityConfiguration").SecurityConfiguration;
 export const SecurityConfiguration: typeof import("./securityConfiguration").SecurityConfiguration = null as any;
 utilities.lazyLoad(exports, ["SecurityConfiguration"], () => require("./securityConfiguration"));
+
+export { StepArgs } from "./step";
+export type Step = import("./step").Step;
+export const Step: typeof import("./step").Step = null as any;
+utilities.lazyLoad(exports, ["Step"], () => require("./step"));
 
 export { StudioArgs } from "./studio";
 export type Studio = import("./studio").Studio;
@@ -50,6 +60,8 @@ const _module = {
         switch (type) {
             case "aws-native:emr:SecurityConfiguration":
                 return new SecurityConfiguration(name, <any>undefined, { urn })
+            case "aws-native:emr:Step":
+                return new Step(name, <any>undefined, { urn })
             case "aws-native:emr:Studio":
                 return new Studio(name, <any>undefined, { urn })
             case "aws-native:emr:StudioSessionMapping":

@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.S3Tables
     [OutputType]
     public sealed class GetTableBucketResult
     {
+        public readonly Outputs.TableBucketEncryptionConfiguration? EncryptionConfiguration;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the table bucket.
         /// </summary>
@@ -74,10 +75,13 @@ namespace Pulumi.AwsNative.S3Tables
 
         [OutputConstructor]
         private GetTableBucketResult(
+            Outputs.TableBucketEncryptionConfiguration? encryptionConfiguration,
+
             string? tableBucketArn,
 
             Outputs.TableBucketUnreferencedFileRemoval? unreferencedFileRemoval)
         {
+            EncryptionConfiguration = encryptionConfiguration;
             TableBucketArn = tableBucketArn;
             UnreferencedFileRemoval = unreferencedFileRemoval;
         }

@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     public sealed class KnowledgeBaseRdsFieldMapping
     {
         /// <summary>
+        /// The name of the field in which Amazon Bedrock stores custom metadata about the vector store.
+        /// </summary>
+        public readonly string? CustomMetadataField;
+        /// <summary>
         /// The name of the field in which Amazon Bedrock stores metadata about the vector store.
         /// </summary>
         public readonly string MetadataField;
@@ -35,6 +39,8 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
         [OutputConstructor]
         private KnowledgeBaseRdsFieldMapping(
+            string? customMetadataField,
+
             string metadataField,
 
             string primaryKeyField,
@@ -43,6 +49,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
             string vectorField)
         {
+            CustomMetadataField = customMetadataField;
             MetadataField = metadataField;
             PrimaryKeyField = primaryKeyField;
             TextField = textField;

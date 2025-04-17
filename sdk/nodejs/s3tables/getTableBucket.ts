@@ -25,6 +25,7 @@ export interface GetTableBucketArgs {
 }
 
 export interface GetTableBucketResult {
+    readonly encryptionConfiguration?: outputs.s3tables.TableBucketEncryptionConfiguration;
     /**
      * The Amazon Resource Name (ARN) of the table bucket.
      */

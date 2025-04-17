@@ -37,6 +37,7 @@ export class TableBucket extends pulumi.CustomResource {
         return obj['__pulumiType'] === TableBucket.__pulumiType;
     }
 
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.s3tables.TableBucketEncryptionConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the table bucket.
      */
@@ -61,10 +62,12 @@ export class TableBucket extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["tableBucketName"] = args ? args.tableBucketName : undefined;
             resourceInputs["unreferencedFileRemoval"] = args ? args.unreferencedFileRemoval : undefined;
             resourceInputs["tableBucketArn"] = undefined /*out*/;
         } else {
+            resourceInputs["encryptionConfiguration"] = undefined /*out*/;
             resourceInputs["tableBucketArn"] = undefined /*out*/;
             resourceInputs["tableBucketName"] = undefined /*out*/;
             resourceInputs["unreferencedFileRemoval"] = undefined /*out*/;
@@ -80,6 +83,7 @@ export class TableBucket extends pulumi.CustomResource {
  * The set of arguments for constructing a TableBucket resource.
  */
 export interface TableBucketArgs {
+    encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableBucketEncryptionConfigurationArgs>;
     /**
      * The name for the table bucket.
      */

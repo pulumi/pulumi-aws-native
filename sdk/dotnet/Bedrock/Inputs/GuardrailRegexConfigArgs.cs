@@ -27,11 +27,23 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("inputAction")]
+        public Input<Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction>? InputAction { get; set; }
+
+        [Input("inputEnabled")]
+        public Input<bool>? InputEnabled { get; set; }
+
         /// <summary>
         /// The regex name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("outputAction")]
+        public Input<Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction>? OutputAction { get; set; }
+
+        [Input("outputEnabled")]
+        public Input<bool>? OutputEnabled { get; set; }
 
         /// <summary>
         /// The regex pattern.

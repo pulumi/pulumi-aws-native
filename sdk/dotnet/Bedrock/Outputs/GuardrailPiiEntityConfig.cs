@@ -20,6 +20,10 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Configure guardrail action when the PII entity is detected.
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction Action;
+        public readonly Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction? InputAction;
+        public readonly bool? InputEnabled;
+        public readonly Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction? OutputAction;
+        public readonly bool? OutputEnabled;
         /// <summary>
         /// Configure guardrail type when the PII entity is detected.
         /// 
@@ -146,9 +150,21 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         private GuardrailPiiEntityConfig(
             Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction action,
 
+            Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction? inputAction,
+
+            bool? inputEnabled,
+
+            Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction? outputAction,
+
+            bool? outputEnabled,
+
             Pulumi.AwsNative.Bedrock.GuardrailPiiEntityType type)
         {
             Action = action;
+            InputAction = inputAction;
+            InputEnabled = inputEnabled;
+            OutputAction = outputAction;
+            OutputEnabled = outputEnabled;
             Type = type;
         }
     }

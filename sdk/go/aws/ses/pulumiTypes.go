@@ -3438,6 +3438,542 @@ func (o MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput) Se
 	}).(pulumi.StringPtrOutput)
 }
 
+type MailManagerIngressPointNetworkConfiguration0Properties struct {
+	PublicNetworkConfiguration MailManagerIngressPointPublicNetworkConfiguration `pulumi:"publicNetworkConfiguration"`
+}
+
+// MailManagerIngressPointNetworkConfiguration0PropertiesInput is an input type that accepts MailManagerIngressPointNetworkConfiguration0PropertiesArgs and MailManagerIngressPointNetworkConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerIngressPointNetworkConfiguration0PropertiesInput` via:
+//
+//	MailManagerIngressPointNetworkConfiguration0PropertiesArgs{...}
+type MailManagerIngressPointNetworkConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerIngressPointNetworkConfiguration0PropertiesOutput() MailManagerIngressPointNetworkConfiguration0PropertiesOutput
+	ToMailManagerIngressPointNetworkConfiguration0PropertiesOutputWithContext(context.Context) MailManagerIngressPointNetworkConfiguration0PropertiesOutput
+}
+
+type MailManagerIngressPointNetworkConfiguration0PropertiesArgs struct {
+	PublicNetworkConfiguration MailManagerIngressPointPublicNetworkConfigurationInput `pulumi:"publicNetworkConfiguration"`
+}
+
+func (MailManagerIngressPointNetworkConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerIngressPointNetworkConfiguration0Properties)(nil)).Elem()
+}
+
+func (i MailManagerIngressPointNetworkConfiguration0PropertiesArgs) ToMailManagerIngressPointNetworkConfiguration0PropertiesOutput() MailManagerIngressPointNetworkConfiguration0PropertiesOutput {
+	return i.ToMailManagerIngressPointNetworkConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerIngressPointNetworkConfiguration0PropertiesArgs) ToMailManagerIngressPointNetworkConfiguration0PropertiesOutputWithContext(ctx context.Context) MailManagerIngressPointNetworkConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointNetworkConfiguration0PropertiesOutput)
+}
+
+func (i MailManagerIngressPointNetworkConfiguration0PropertiesArgs) ToMailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput() MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput {
+	return i.ToMailManagerIngressPointNetworkConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MailManagerIngressPointNetworkConfiguration0PropertiesArgs) ToMailManagerIngressPointNetworkConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointNetworkConfiguration0PropertiesOutput).ToMailManagerIngressPointNetworkConfiguration0PropertiesPtrOutputWithContext(ctx)
+}
+
+// MailManagerIngressPointNetworkConfiguration0PropertiesPtrInput is an input type that accepts MailManagerIngressPointNetworkConfiguration0PropertiesArgs, MailManagerIngressPointNetworkConfiguration0PropertiesPtr and MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput values.
+// You can construct a concrete instance of `MailManagerIngressPointNetworkConfiguration0PropertiesPtrInput` via:
+//
+//	        MailManagerIngressPointNetworkConfiguration0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MailManagerIngressPointNetworkConfiguration0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput() MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput
+	ToMailManagerIngressPointNetworkConfiguration0PropertiesPtrOutputWithContext(context.Context) MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput
+}
+
+type mailManagerIngressPointNetworkConfiguration0PropertiesPtrType MailManagerIngressPointNetworkConfiguration0PropertiesArgs
+
+func MailManagerIngressPointNetworkConfiguration0PropertiesPtr(v *MailManagerIngressPointNetworkConfiguration0PropertiesArgs) MailManagerIngressPointNetworkConfiguration0PropertiesPtrInput {
+	return (*mailManagerIngressPointNetworkConfiguration0PropertiesPtrType)(v)
+}
+
+func (*mailManagerIngressPointNetworkConfiguration0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerIngressPointNetworkConfiguration0Properties)(nil)).Elem()
+}
+
+func (i *mailManagerIngressPointNetworkConfiguration0PropertiesPtrType) ToMailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput() MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput {
+	return i.ToMailManagerIngressPointNetworkConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *mailManagerIngressPointNetworkConfiguration0PropertiesPtrType) ToMailManagerIngressPointNetworkConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput)
+}
+
+type MailManagerIngressPointNetworkConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerIngressPointNetworkConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerIngressPointNetworkConfiguration0Properties)(nil)).Elem()
+}
+
+func (o MailManagerIngressPointNetworkConfiguration0PropertiesOutput) ToMailManagerIngressPointNetworkConfiguration0PropertiesOutput() MailManagerIngressPointNetworkConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o MailManagerIngressPointNetworkConfiguration0PropertiesOutput) ToMailManagerIngressPointNetworkConfiguration0PropertiesOutputWithContext(ctx context.Context) MailManagerIngressPointNetworkConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o MailManagerIngressPointNetworkConfiguration0PropertiesOutput) ToMailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput() MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput {
+	return o.ToMailManagerIngressPointNetworkConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerIngressPointNetworkConfiguration0PropertiesOutput) ToMailManagerIngressPointNetworkConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MailManagerIngressPointNetworkConfiguration0Properties) *MailManagerIngressPointNetworkConfiguration0Properties {
+		return &v
+	}).(MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput)
+}
+
+func (o MailManagerIngressPointNetworkConfiguration0PropertiesOutput) PublicNetworkConfiguration() MailManagerIngressPointPublicNetworkConfigurationOutput {
+	return o.ApplyT(func(v MailManagerIngressPointNetworkConfiguration0Properties) MailManagerIngressPointPublicNetworkConfiguration {
+		return v.PublicNetworkConfiguration
+	}).(MailManagerIngressPointPublicNetworkConfigurationOutput)
+}
+
+type MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerIngressPointNetworkConfiguration0Properties)(nil)).Elem()
+}
+
+func (o MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput) ToMailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput() MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput) ToMailManagerIngressPointNetworkConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput) Elem() MailManagerIngressPointNetworkConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *MailManagerIngressPointNetworkConfiguration0Properties) MailManagerIngressPointNetworkConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret MailManagerIngressPointNetworkConfiguration0Properties
+		return ret
+	}).(MailManagerIngressPointNetworkConfiguration0PropertiesOutput)
+}
+
+func (o MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput) PublicNetworkConfiguration() MailManagerIngressPointPublicNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v *MailManagerIngressPointNetworkConfiguration0Properties) *MailManagerIngressPointPublicNetworkConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.PublicNetworkConfiguration
+	}).(MailManagerIngressPointPublicNetworkConfigurationPtrOutput)
+}
+
+type MailManagerIngressPointNetworkConfiguration1Properties struct {
+	PrivateNetworkConfiguration MailManagerIngressPointPrivateNetworkConfiguration `pulumi:"privateNetworkConfiguration"`
+}
+
+// MailManagerIngressPointNetworkConfiguration1PropertiesInput is an input type that accepts MailManagerIngressPointNetworkConfiguration1PropertiesArgs and MailManagerIngressPointNetworkConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerIngressPointNetworkConfiguration1PropertiesInput` via:
+//
+//	MailManagerIngressPointNetworkConfiguration1PropertiesArgs{...}
+type MailManagerIngressPointNetworkConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerIngressPointNetworkConfiguration1PropertiesOutput() MailManagerIngressPointNetworkConfiguration1PropertiesOutput
+	ToMailManagerIngressPointNetworkConfiguration1PropertiesOutputWithContext(context.Context) MailManagerIngressPointNetworkConfiguration1PropertiesOutput
+}
+
+type MailManagerIngressPointNetworkConfiguration1PropertiesArgs struct {
+	PrivateNetworkConfiguration MailManagerIngressPointPrivateNetworkConfigurationInput `pulumi:"privateNetworkConfiguration"`
+}
+
+func (MailManagerIngressPointNetworkConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerIngressPointNetworkConfiguration1Properties)(nil)).Elem()
+}
+
+func (i MailManagerIngressPointNetworkConfiguration1PropertiesArgs) ToMailManagerIngressPointNetworkConfiguration1PropertiesOutput() MailManagerIngressPointNetworkConfiguration1PropertiesOutput {
+	return i.ToMailManagerIngressPointNetworkConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerIngressPointNetworkConfiguration1PropertiesArgs) ToMailManagerIngressPointNetworkConfiguration1PropertiesOutputWithContext(ctx context.Context) MailManagerIngressPointNetworkConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointNetworkConfiguration1PropertiesOutput)
+}
+
+func (i MailManagerIngressPointNetworkConfiguration1PropertiesArgs) ToMailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput() MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput {
+	return i.ToMailManagerIngressPointNetworkConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MailManagerIngressPointNetworkConfiguration1PropertiesArgs) ToMailManagerIngressPointNetworkConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointNetworkConfiguration1PropertiesOutput).ToMailManagerIngressPointNetworkConfiguration1PropertiesPtrOutputWithContext(ctx)
+}
+
+// MailManagerIngressPointNetworkConfiguration1PropertiesPtrInput is an input type that accepts MailManagerIngressPointNetworkConfiguration1PropertiesArgs, MailManagerIngressPointNetworkConfiguration1PropertiesPtr and MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput values.
+// You can construct a concrete instance of `MailManagerIngressPointNetworkConfiguration1PropertiesPtrInput` via:
+//
+//	        MailManagerIngressPointNetworkConfiguration1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MailManagerIngressPointNetworkConfiguration1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput() MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput
+	ToMailManagerIngressPointNetworkConfiguration1PropertiesPtrOutputWithContext(context.Context) MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput
+}
+
+type mailManagerIngressPointNetworkConfiguration1PropertiesPtrType MailManagerIngressPointNetworkConfiguration1PropertiesArgs
+
+func MailManagerIngressPointNetworkConfiguration1PropertiesPtr(v *MailManagerIngressPointNetworkConfiguration1PropertiesArgs) MailManagerIngressPointNetworkConfiguration1PropertiesPtrInput {
+	return (*mailManagerIngressPointNetworkConfiguration1PropertiesPtrType)(v)
+}
+
+func (*mailManagerIngressPointNetworkConfiguration1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerIngressPointNetworkConfiguration1Properties)(nil)).Elem()
+}
+
+func (i *mailManagerIngressPointNetworkConfiguration1PropertiesPtrType) ToMailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput() MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput {
+	return i.ToMailManagerIngressPointNetworkConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *mailManagerIngressPointNetworkConfiguration1PropertiesPtrType) ToMailManagerIngressPointNetworkConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput)
+}
+
+type MailManagerIngressPointNetworkConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerIngressPointNetworkConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerIngressPointNetworkConfiguration1Properties)(nil)).Elem()
+}
+
+func (o MailManagerIngressPointNetworkConfiguration1PropertiesOutput) ToMailManagerIngressPointNetworkConfiguration1PropertiesOutput() MailManagerIngressPointNetworkConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerIngressPointNetworkConfiguration1PropertiesOutput) ToMailManagerIngressPointNetworkConfiguration1PropertiesOutputWithContext(ctx context.Context) MailManagerIngressPointNetworkConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerIngressPointNetworkConfiguration1PropertiesOutput) ToMailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput() MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput {
+	return o.ToMailManagerIngressPointNetworkConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerIngressPointNetworkConfiguration1PropertiesOutput) ToMailManagerIngressPointNetworkConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MailManagerIngressPointNetworkConfiguration1Properties) *MailManagerIngressPointNetworkConfiguration1Properties {
+		return &v
+	}).(MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput)
+}
+
+func (o MailManagerIngressPointNetworkConfiguration1PropertiesOutput) PrivateNetworkConfiguration() MailManagerIngressPointPrivateNetworkConfigurationOutput {
+	return o.ApplyT(func(v MailManagerIngressPointNetworkConfiguration1Properties) MailManagerIngressPointPrivateNetworkConfiguration {
+		return v.PrivateNetworkConfiguration
+	}).(MailManagerIngressPointPrivateNetworkConfigurationOutput)
+}
+
+type MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerIngressPointNetworkConfiguration1Properties)(nil)).Elem()
+}
+
+func (o MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput) ToMailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput() MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput) ToMailManagerIngressPointNetworkConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput) Elem() MailManagerIngressPointNetworkConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *MailManagerIngressPointNetworkConfiguration1Properties) MailManagerIngressPointNetworkConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret MailManagerIngressPointNetworkConfiguration1Properties
+		return ret
+	}).(MailManagerIngressPointNetworkConfiguration1PropertiesOutput)
+}
+
+func (o MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput) PrivateNetworkConfiguration() MailManagerIngressPointPrivateNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v *MailManagerIngressPointNetworkConfiguration1Properties) *MailManagerIngressPointPrivateNetworkConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateNetworkConfiguration
+	}).(MailManagerIngressPointPrivateNetworkConfigurationPtrOutput)
+}
+
+type MailManagerIngressPointPrivateNetworkConfiguration struct {
+	VpcEndpointId string `pulumi:"vpcEndpointId"`
+}
+
+// MailManagerIngressPointPrivateNetworkConfigurationInput is an input type that accepts MailManagerIngressPointPrivateNetworkConfigurationArgs and MailManagerIngressPointPrivateNetworkConfigurationOutput values.
+// You can construct a concrete instance of `MailManagerIngressPointPrivateNetworkConfigurationInput` via:
+//
+//	MailManagerIngressPointPrivateNetworkConfigurationArgs{...}
+type MailManagerIngressPointPrivateNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToMailManagerIngressPointPrivateNetworkConfigurationOutput() MailManagerIngressPointPrivateNetworkConfigurationOutput
+	ToMailManagerIngressPointPrivateNetworkConfigurationOutputWithContext(context.Context) MailManagerIngressPointPrivateNetworkConfigurationOutput
+}
+
+type MailManagerIngressPointPrivateNetworkConfigurationArgs struct {
+	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
+}
+
+func (MailManagerIngressPointPrivateNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerIngressPointPrivateNetworkConfiguration)(nil)).Elem()
+}
+
+func (i MailManagerIngressPointPrivateNetworkConfigurationArgs) ToMailManagerIngressPointPrivateNetworkConfigurationOutput() MailManagerIngressPointPrivateNetworkConfigurationOutput {
+	return i.ToMailManagerIngressPointPrivateNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i MailManagerIngressPointPrivateNetworkConfigurationArgs) ToMailManagerIngressPointPrivateNetworkConfigurationOutputWithContext(ctx context.Context) MailManagerIngressPointPrivateNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointPrivateNetworkConfigurationOutput)
+}
+
+func (i MailManagerIngressPointPrivateNetworkConfigurationArgs) ToMailManagerIngressPointPrivateNetworkConfigurationPtrOutput() MailManagerIngressPointPrivateNetworkConfigurationPtrOutput {
+	return i.ToMailManagerIngressPointPrivateNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MailManagerIngressPointPrivateNetworkConfigurationArgs) ToMailManagerIngressPointPrivateNetworkConfigurationPtrOutputWithContext(ctx context.Context) MailManagerIngressPointPrivateNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointPrivateNetworkConfigurationOutput).ToMailManagerIngressPointPrivateNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// MailManagerIngressPointPrivateNetworkConfigurationPtrInput is an input type that accepts MailManagerIngressPointPrivateNetworkConfigurationArgs, MailManagerIngressPointPrivateNetworkConfigurationPtr and MailManagerIngressPointPrivateNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `MailManagerIngressPointPrivateNetworkConfigurationPtrInput` via:
+//
+//	        MailManagerIngressPointPrivateNetworkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MailManagerIngressPointPrivateNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMailManagerIngressPointPrivateNetworkConfigurationPtrOutput() MailManagerIngressPointPrivateNetworkConfigurationPtrOutput
+	ToMailManagerIngressPointPrivateNetworkConfigurationPtrOutputWithContext(context.Context) MailManagerIngressPointPrivateNetworkConfigurationPtrOutput
+}
+
+type mailManagerIngressPointPrivateNetworkConfigurationPtrType MailManagerIngressPointPrivateNetworkConfigurationArgs
+
+func MailManagerIngressPointPrivateNetworkConfigurationPtr(v *MailManagerIngressPointPrivateNetworkConfigurationArgs) MailManagerIngressPointPrivateNetworkConfigurationPtrInput {
+	return (*mailManagerIngressPointPrivateNetworkConfigurationPtrType)(v)
+}
+
+func (*mailManagerIngressPointPrivateNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerIngressPointPrivateNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *mailManagerIngressPointPrivateNetworkConfigurationPtrType) ToMailManagerIngressPointPrivateNetworkConfigurationPtrOutput() MailManagerIngressPointPrivateNetworkConfigurationPtrOutput {
+	return i.ToMailManagerIngressPointPrivateNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *mailManagerIngressPointPrivateNetworkConfigurationPtrType) ToMailManagerIngressPointPrivateNetworkConfigurationPtrOutputWithContext(ctx context.Context) MailManagerIngressPointPrivateNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointPrivateNetworkConfigurationPtrOutput)
+}
+
+type MailManagerIngressPointPrivateNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MailManagerIngressPointPrivateNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerIngressPointPrivateNetworkConfiguration)(nil)).Elem()
+}
+
+func (o MailManagerIngressPointPrivateNetworkConfigurationOutput) ToMailManagerIngressPointPrivateNetworkConfigurationOutput() MailManagerIngressPointPrivateNetworkConfigurationOutput {
+	return o
+}
+
+func (o MailManagerIngressPointPrivateNetworkConfigurationOutput) ToMailManagerIngressPointPrivateNetworkConfigurationOutputWithContext(ctx context.Context) MailManagerIngressPointPrivateNetworkConfigurationOutput {
+	return o
+}
+
+func (o MailManagerIngressPointPrivateNetworkConfigurationOutput) ToMailManagerIngressPointPrivateNetworkConfigurationPtrOutput() MailManagerIngressPointPrivateNetworkConfigurationPtrOutput {
+	return o.ToMailManagerIngressPointPrivateNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerIngressPointPrivateNetworkConfigurationOutput) ToMailManagerIngressPointPrivateNetworkConfigurationPtrOutputWithContext(ctx context.Context) MailManagerIngressPointPrivateNetworkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MailManagerIngressPointPrivateNetworkConfiguration) *MailManagerIngressPointPrivateNetworkConfiguration {
+		return &v
+	}).(MailManagerIngressPointPrivateNetworkConfigurationPtrOutput)
+}
+
+func (o MailManagerIngressPointPrivateNetworkConfigurationOutput) VpcEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerIngressPointPrivateNetworkConfiguration) string { return v.VpcEndpointId }).(pulumi.StringOutput)
+}
+
+type MailManagerIngressPointPrivateNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MailManagerIngressPointPrivateNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerIngressPointPrivateNetworkConfiguration)(nil)).Elem()
+}
+
+func (o MailManagerIngressPointPrivateNetworkConfigurationPtrOutput) ToMailManagerIngressPointPrivateNetworkConfigurationPtrOutput() MailManagerIngressPointPrivateNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o MailManagerIngressPointPrivateNetworkConfigurationPtrOutput) ToMailManagerIngressPointPrivateNetworkConfigurationPtrOutputWithContext(ctx context.Context) MailManagerIngressPointPrivateNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o MailManagerIngressPointPrivateNetworkConfigurationPtrOutput) Elem() MailManagerIngressPointPrivateNetworkConfigurationOutput {
+	return o.ApplyT(func(v *MailManagerIngressPointPrivateNetworkConfiguration) MailManagerIngressPointPrivateNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MailManagerIngressPointPrivateNetworkConfiguration
+		return ret
+	}).(MailManagerIngressPointPrivateNetworkConfigurationOutput)
+}
+
+func (o MailManagerIngressPointPrivateNetworkConfigurationPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MailManagerIngressPointPrivateNetworkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcEndpointId
+	}).(pulumi.StringPtrOutput)
+}
+
+type MailManagerIngressPointPublicNetworkConfiguration struct {
+	IpType interface{} `pulumi:"ipType"`
+}
+
+// MailManagerIngressPointPublicNetworkConfigurationInput is an input type that accepts MailManagerIngressPointPublicNetworkConfigurationArgs and MailManagerIngressPointPublicNetworkConfigurationOutput values.
+// You can construct a concrete instance of `MailManagerIngressPointPublicNetworkConfigurationInput` via:
+//
+//	MailManagerIngressPointPublicNetworkConfigurationArgs{...}
+type MailManagerIngressPointPublicNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToMailManagerIngressPointPublicNetworkConfigurationOutput() MailManagerIngressPointPublicNetworkConfigurationOutput
+	ToMailManagerIngressPointPublicNetworkConfigurationOutputWithContext(context.Context) MailManagerIngressPointPublicNetworkConfigurationOutput
+}
+
+type MailManagerIngressPointPublicNetworkConfigurationArgs struct {
+	IpType pulumi.Input `pulumi:"ipType"`
+}
+
+func (MailManagerIngressPointPublicNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerIngressPointPublicNetworkConfiguration)(nil)).Elem()
+}
+
+func (i MailManagerIngressPointPublicNetworkConfigurationArgs) ToMailManagerIngressPointPublicNetworkConfigurationOutput() MailManagerIngressPointPublicNetworkConfigurationOutput {
+	return i.ToMailManagerIngressPointPublicNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i MailManagerIngressPointPublicNetworkConfigurationArgs) ToMailManagerIngressPointPublicNetworkConfigurationOutputWithContext(ctx context.Context) MailManagerIngressPointPublicNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointPublicNetworkConfigurationOutput)
+}
+
+func (i MailManagerIngressPointPublicNetworkConfigurationArgs) ToMailManagerIngressPointPublicNetworkConfigurationPtrOutput() MailManagerIngressPointPublicNetworkConfigurationPtrOutput {
+	return i.ToMailManagerIngressPointPublicNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MailManagerIngressPointPublicNetworkConfigurationArgs) ToMailManagerIngressPointPublicNetworkConfigurationPtrOutputWithContext(ctx context.Context) MailManagerIngressPointPublicNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointPublicNetworkConfigurationOutput).ToMailManagerIngressPointPublicNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// MailManagerIngressPointPublicNetworkConfigurationPtrInput is an input type that accepts MailManagerIngressPointPublicNetworkConfigurationArgs, MailManagerIngressPointPublicNetworkConfigurationPtr and MailManagerIngressPointPublicNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `MailManagerIngressPointPublicNetworkConfigurationPtrInput` via:
+//
+//	        MailManagerIngressPointPublicNetworkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MailManagerIngressPointPublicNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMailManagerIngressPointPublicNetworkConfigurationPtrOutput() MailManagerIngressPointPublicNetworkConfigurationPtrOutput
+	ToMailManagerIngressPointPublicNetworkConfigurationPtrOutputWithContext(context.Context) MailManagerIngressPointPublicNetworkConfigurationPtrOutput
+}
+
+type mailManagerIngressPointPublicNetworkConfigurationPtrType MailManagerIngressPointPublicNetworkConfigurationArgs
+
+func MailManagerIngressPointPublicNetworkConfigurationPtr(v *MailManagerIngressPointPublicNetworkConfigurationArgs) MailManagerIngressPointPublicNetworkConfigurationPtrInput {
+	return (*mailManagerIngressPointPublicNetworkConfigurationPtrType)(v)
+}
+
+func (*mailManagerIngressPointPublicNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerIngressPointPublicNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *mailManagerIngressPointPublicNetworkConfigurationPtrType) ToMailManagerIngressPointPublicNetworkConfigurationPtrOutput() MailManagerIngressPointPublicNetworkConfigurationPtrOutput {
+	return i.ToMailManagerIngressPointPublicNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *mailManagerIngressPointPublicNetworkConfigurationPtrType) ToMailManagerIngressPointPublicNetworkConfigurationPtrOutputWithContext(ctx context.Context) MailManagerIngressPointPublicNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerIngressPointPublicNetworkConfigurationPtrOutput)
+}
+
+type MailManagerIngressPointPublicNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MailManagerIngressPointPublicNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerIngressPointPublicNetworkConfiguration)(nil)).Elem()
+}
+
+func (o MailManagerIngressPointPublicNetworkConfigurationOutput) ToMailManagerIngressPointPublicNetworkConfigurationOutput() MailManagerIngressPointPublicNetworkConfigurationOutput {
+	return o
+}
+
+func (o MailManagerIngressPointPublicNetworkConfigurationOutput) ToMailManagerIngressPointPublicNetworkConfigurationOutputWithContext(ctx context.Context) MailManagerIngressPointPublicNetworkConfigurationOutput {
+	return o
+}
+
+func (o MailManagerIngressPointPublicNetworkConfigurationOutput) ToMailManagerIngressPointPublicNetworkConfigurationPtrOutput() MailManagerIngressPointPublicNetworkConfigurationPtrOutput {
+	return o.ToMailManagerIngressPointPublicNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerIngressPointPublicNetworkConfigurationOutput) ToMailManagerIngressPointPublicNetworkConfigurationPtrOutputWithContext(ctx context.Context) MailManagerIngressPointPublicNetworkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MailManagerIngressPointPublicNetworkConfiguration) *MailManagerIngressPointPublicNetworkConfiguration {
+		return &v
+	}).(MailManagerIngressPointPublicNetworkConfigurationPtrOutput)
+}
+
+func (o MailManagerIngressPointPublicNetworkConfigurationOutput) IpType() pulumi.AnyOutput {
+	return o.ApplyT(func(v MailManagerIngressPointPublicNetworkConfiguration) interface{} { return v.IpType }).(pulumi.AnyOutput)
+}
+
+type MailManagerIngressPointPublicNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MailManagerIngressPointPublicNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerIngressPointPublicNetworkConfiguration)(nil)).Elem()
+}
+
+func (o MailManagerIngressPointPublicNetworkConfigurationPtrOutput) ToMailManagerIngressPointPublicNetworkConfigurationPtrOutput() MailManagerIngressPointPublicNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o MailManagerIngressPointPublicNetworkConfigurationPtrOutput) ToMailManagerIngressPointPublicNetworkConfigurationPtrOutputWithContext(ctx context.Context) MailManagerIngressPointPublicNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o MailManagerIngressPointPublicNetworkConfigurationPtrOutput) Elem() MailManagerIngressPointPublicNetworkConfigurationOutput {
+	return o.ApplyT(func(v *MailManagerIngressPointPublicNetworkConfiguration) MailManagerIngressPointPublicNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MailManagerIngressPointPublicNetworkConfiguration
+		return ret
+	}).(MailManagerIngressPointPublicNetworkConfigurationOutput)
+}
+
+func (o MailManagerIngressPointPublicNetworkConfigurationPtrOutput) IpType() pulumi.AnyOutput {
+	return o.ApplyT(func(v *MailManagerIngressPointPublicNetworkConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.IpType
+	}).(pulumi.AnyOutput)
+}
+
 type MailManagerIngressPointTag struct {
 	// The key of the key-value tag.
 	Key string `pulumi:"key"`
@@ -4711,8 +5247,8 @@ func (o MailManagerRuleSetRuleAction8PropertiesOutput) DeliverToQBusiness() Mail
 }
 
 type MailManagerRuleSetRuleBooleanExpression struct {
-	Evaluate MailManagerRuleSetRuleBooleanToEvaluateProperties `pulumi:"evaluate"`
-	Operator MailManagerRuleSetRuleBooleanOperator             `pulumi:"operator"`
+	Evaluate interface{}                           `pulumi:"evaluate"`
+	Operator MailManagerRuleSetRuleBooleanOperator `pulumi:"operator"`
 }
 
 // MailManagerRuleSetRuleBooleanExpressionInput is an input type that accepts MailManagerRuleSetRuleBooleanExpressionArgs and MailManagerRuleSetRuleBooleanExpressionOutput values.
@@ -4727,8 +5263,8 @@ type MailManagerRuleSetRuleBooleanExpressionInput interface {
 }
 
 type MailManagerRuleSetRuleBooleanExpressionArgs struct {
-	Evaluate MailManagerRuleSetRuleBooleanToEvaluatePropertiesInput `pulumi:"evaluate"`
-	Operator MailManagerRuleSetRuleBooleanOperatorInput             `pulumi:"operator"`
+	Evaluate pulumi.Input                               `pulumi:"evaluate"`
+	Operator MailManagerRuleSetRuleBooleanOperatorInput `pulumi:"operator"`
 }
 
 func (MailManagerRuleSetRuleBooleanExpressionArgs) ElementType() reflect.Type {
@@ -4757,10 +5293,8 @@ func (o MailManagerRuleSetRuleBooleanExpressionOutput) ToMailManagerRuleSetRuleB
 	return o
 }
 
-func (o MailManagerRuleSetRuleBooleanExpressionOutput) Evaluate() MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput {
-	return o.ApplyT(func(v MailManagerRuleSetRuleBooleanExpression) MailManagerRuleSetRuleBooleanToEvaluateProperties {
-		return v.Evaluate
-	}).(MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput)
+func (o MailManagerRuleSetRuleBooleanExpressionOutput) Evaluate() pulumi.AnyOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleBooleanExpression) interface{} { return v.Evaluate }).(pulumi.AnyOutput)
 }
 
 func (o MailManagerRuleSetRuleBooleanExpressionOutput) Operator() MailManagerRuleSetRuleBooleanOperatorOutput {
@@ -4773,55 +5307,102 @@ type MailManagerRuleSetRuleBooleanToEvaluate0Properties struct {
 	Attribute MailManagerRuleSetRuleBooleanEmailAttribute `pulumi:"attribute"`
 }
 
-type MailManagerRuleSetRuleBooleanToEvaluateProperties struct {
-	Attribute MailManagerRuleSetRuleBooleanEmailAttribute `pulumi:"attribute"`
-}
-
-// MailManagerRuleSetRuleBooleanToEvaluatePropertiesInput is an input type that accepts MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs and MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput values.
-// You can construct a concrete instance of `MailManagerRuleSetRuleBooleanToEvaluatePropertiesInput` via:
+// MailManagerRuleSetRuleBooleanToEvaluate0PropertiesInput is an input type that accepts MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs and MailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleBooleanToEvaluate0PropertiesInput` via:
 //
-//	MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs{...}
-type MailManagerRuleSetRuleBooleanToEvaluatePropertiesInput interface {
+//	MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs{...}
+type MailManagerRuleSetRuleBooleanToEvaluate0PropertiesInput interface {
 	pulumi.Input
 
-	ToMailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput() MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput
-	ToMailManagerRuleSetRuleBooleanToEvaluatePropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput
+	ToMailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput() MailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput
+	ToMailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput
 }
 
-type MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs struct {
+type MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs struct {
 	Attribute MailManagerRuleSetRuleBooleanEmailAttributeInput `pulumi:"attribute"`
 }
 
-func (MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluateProperties)(nil)).Elem()
+func (MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluate0Properties)(nil)).Elem()
 }
 
-func (i MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs) ToMailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput() MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput {
-	return i.ToMailManagerRuleSetRuleBooleanToEvaluatePropertiesOutputWithContext(context.Background())
+func (i MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs) ToMailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput() MailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutputWithContext(context.Background())
 }
 
-func (i MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs) ToMailManagerRuleSetRuleBooleanToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput)
+func (i MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs) ToMailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput)
 }
 
-type MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput struct{ *pulumi.OutputState }
+type MailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput struct{ *pulumi.OutputState }
 
-func (MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluateProperties)(nil)).Elem()
+func (MailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluate0Properties)(nil)).Elem()
 }
 
-func (o MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput) ToMailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput() MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput {
+func (o MailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput) ToMailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput() MailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput {
 	return o
 }
 
-func (o MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput) ToMailManagerRuleSetRuleBooleanToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput {
+func (o MailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput) ToMailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput {
 	return o
 }
 
-func (o MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput) Attribute() MailManagerRuleSetRuleBooleanEmailAttributeOutput {
-	return o.ApplyT(func(v MailManagerRuleSetRuleBooleanToEvaluateProperties) MailManagerRuleSetRuleBooleanEmailAttribute {
+func (o MailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput) Attribute() MailManagerRuleSetRuleBooleanEmailAttributeOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleBooleanToEvaluate0Properties) MailManagerRuleSetRuleBooleanEmailAttribute {
 		return v.Attribute
 	}).(MailManagerRuleSetRuleBooleanEmailAttributeOutput)
+}
+
+type MailManagerRuleSetRuleBooleanToEvaluate1Properties struct {
+	Analysis MailManagerRuleSetAnalysis `pulumi:"analysis"`
+}
+
+// MailManagerRuleSetRuleBooleanToEvaluate1PropertiesInput is an input type that accepts MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs and MailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleBooleanToEvaluate1PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs{...}
+type MailManagerRuleSetRuleBooleanToEvaluate1PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput() MailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput
+	ToMailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput
+}
+
+type MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs struct {
+	Analysis MailManagerRuleSetAnalysisInput `pulumi:"analysis"`
+}
+
+func (MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluate1Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs) ToMailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput() MailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs) ToMailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluate1Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput) ToMailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput() MailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput) ToMailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput) Analysis() MailManagerRuleSetAnalysisOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleBooleanToEvaluate1Properties) MailManagerRuleSetAnalysis {
+		return v.Analysis
+	}).(MailManagerRuleSetAnalysisOutput)
 }
 
 type MailManagerRuleSetRuleCondition0Properties struct {
@@ -5582,6 +6163,57 @@ func (o MailManagerRuleSetRuleStringToEvaluate1PropertiesOutput) MimeHeaderAttri
 	return o.ApplyT(func(v MailManagerRuleSetRuleStringToEvaluate1Properties) string { return v.MimeHeaderAttribute }).(pulumi.StringOutput)
 }
 
+type MailManagerRuleSetRuleStringToEvaluate2Properties struct {
+	Analysis MailManagerRuleSetAnalysis `pulumi:"analysis"`
+}
+
+// MailManagerRuleSetRuleStringToEvaluate2PropertiesInput is an input type that accepts MailManagerRuleSetRuleStringToEvaluate2PropertiesArgs and MailManagerRuleSetRuleStringToEvaluate2PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleStringToEvaluate2PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleStringToEvaluate2PropertiesArgs{...}
+type MailManagerRuleSetRuleStringToEvaluate2PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleStringToEvaluate2PropertiesOutput() MailManagerRuleSetRuleStringToEvaluate2PropertiesOutput
+	ToMailManagerRuleSetRuleStringToEvaluate2PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleStringToEvaluate2PropertiesOutput
+}
+
+type MailManagerRuleSetRuleStringToEvaluate2PropertiesArgs struct {
+	Analysis MailManagerRuleSetAnalysisInput `pulumi:"analysis"`
+}
+
+func (MailManagerRuleSetRuleStringToEvaluate2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleStringToEvaluate2Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleStringToEvaluate2PropertiesArgs) ToMailManagerRuleSetRuleStringToEvaluate2PropertiesOutput() MailManagerRuleSetRuleStringToEvaluate2PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleStringToEvaluate2PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleStringToEvaluate2PropertiesArgs) ToMailManagerRuleSetRuleStringToEvaluate2PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleStringToEvaluate2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleStringToEvaluate2PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleStringToEvaluate2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleStringToEvaluate2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleStringToEvaluate2Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleStringToEvaluate2PropertiesOutput) ToMailManagerRuleSetRuleStringToEvaluate2PropertiesOutput() MailManagerRuleSetRuleStringToEvaluate2PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleStringToEvaluate2PropertiesOutput) ToMailManagerRuleSetRuleStringToEvaluate2PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleStringToEvaluate2PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleStringToEvaluate2PropertiesOutput) Analysis() MailManagerRuleSetAnalysisOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleStringToEvaluate2Properties) MailManagerRuleSetAnalysis {
+		return v.Analysis
+	}).(MailManagerRuleSetAnalysisOutput)
+}
+
 type MailManagerRuleSetRuleVerdictExpression struct {
 	Evaluate interface{}                           `pulumi:"evaluate"`
 	Operator MailManagerRuleSetRuleVerdictOperator `pulumi:"operator"`
@@ -6175,10 +6807,130 @@ func (o MailManagerTrafficPolicyIngressIpv4ExpressionOutput) Values() pulumi.Str
 	return o.ApplyT(func(v MailManagerTrafficPolicyIngressIpv4Expression) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
+type MailManagerTrafficPolicyIngressIpv6Expression struct {
+	Evaluate MailManagerTrafficPolicyIngressIpv6ToEvaluateProperties `pulumi:"evaluate"`
+	Operator MailManagerTrafficPolicyIngressIpOperator               `pulumi:"operator"`
+	Values   []string                                                `pulumi:"values"`
+}
+
+// MailManagerTrafficPolicyIngressIpv6ExpressionInput is an input type that accepts MailManagerTrafficPolicyIngressIpv6ExpressionArgs and MailManagerTrafficPolicyIngressIpv6ExpressionOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyIngressIpv6ExpressionInput` via:
+//
+//	MailManagerTrafficPolicyIngressIpv6ExpressionArgs{...}
+type MailManagerTrafficPolicyIngressIpv6ExpressionInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressIpv6ExpressionOutput() MailManagerTrafficPolicyIngressIpv6ExpressionOutput
+	ToMailManagerTrafficPolicyIngressIpv6ExpressionOutputWithContext(context.Context) MailManagerTrafficPolicyIngressIpv6ExpressionOutput
+}
+
+type MailManagerTrafficPolicyIngressIpv6ExpressionArgs struct {
+	Evaluate MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesInput `pulumi:"evaluate"`
+	Operator MailManagerTrafficPolicyIngressIpOperatorInput               `pulumi:"operator"`
+	Values   pulumi.StringArrayInput                                      `pulumi:"values"`
+}
+
+func (MailManagerTrafficPolicyIngressIpv6ExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv6Expression)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyIngressIpv6ExpressionArgs) ToMailManagerTrafficPolicyIngressIpv6ExpressionOutput() MailManagerTrafficPolicyIngressIpv6ExpressionOutput {
+	return i.ToMailManagerTrafficPolicyIngressIpv6ExpressionOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyIngressIpv6ExpressionArgs) ToMailManagerTrafficPolicyIngressIpv6ExpressionOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressIpv6ExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressIpv6ExpressionOutput)
+}
+
+type MailManagerTrafficPolicyIngressIpv6ExpressionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressIpv6ExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv6Expression)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6ExpressionOutput) ToMailManagerTrafficPolicyIngressIpv6ExpressionOutput() MailManagerTrafficPolicyIngressIpv6ExpressionOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6ExpressionOutput) ToMailManagerTrafficPolicyIngressIpv6ExpressionOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressIpv6ExpressionOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6ExpressionOutput) Evaluate() MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressIpv6Expression) MailManagerTrafficPolicyIngressIpv6ToEvaluateProperties {
+		return v.Evaluate
+	}).(MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput)
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6ExpressionOutput) Operator() MailManagerTrafficPolicyIngressIpOperatorOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressIpv6Expression) MailManagerTrafficPolicyIngressIpOperator {
+		return v.Operator
+	}).(MailManagerTrafficPolicyIngressIpOperatorOutput)
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6ExpressionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressIpv6Expression) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type MailManagerTrafficPolicyIngressIpv6ToEvaluate0Properties struct {
+	Attribute MailManagerTrafficPolicyIngressIpv6Attribute `pulumi:"attribute"`
+}
+
+type MailManagerTrafficPolicyIngressIpv6ToEvaluateProperties struct {
+	Attribute MailManagerTrafficPolicyIngressIpv6Attribute `pulumi:"attribute"`
+}
+
+// MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesInput is an input type that accepts MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesArgs and MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesInput` via:
+//
+//	MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesArgs{...}
+type MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput
+	ToMailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutputWithContext(context.Context) MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput
+}
+
+type MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesArgs struct {
+	Attribute MailManagerTrafficPolicyIngressIpv6AttributeInput `pulumi:"attribute"`
+}
+
+func (MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv6ToEvaluateProperties)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesArgs) ToMailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput {
+	return i.ToMailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesArgs) ToMailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput)
+}
+
+type MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv6ToEvaluateProperties)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput) ToMailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput) ToMailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput) Attribute() MailManagerTrafficPolicyIngressIpv6AttributeOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressIpv6ToEvaluateProperties) MailManagerTrafficPolicyIngressIpv6Attribute {
+		return v.Attribute
+	}).(MailManagerTrafficPolicyIngressIpv6AttributeOutput)
+}
+
 type MailManagerTrafficPolicyIngressStringExpression struct {
-	Evaluate MailManagerTrafficPolicyIngressStringToEvaluateProperties `pulumi:"evaluate"`
-	Operator MailManagerTrafficPolicyIngressStringOperator             `pulumi:"operator"`
-	Values   []string                                                  `pulumi:"values"`
+	Evaluate interface{}                                   `pulumi:"evaluate"`
+	Operator MailManagerTrafficPolicyIngressStringOperator `pulumi:"operator"`
+	Values   []string                                      `pulumi:"values"`
 }
 
 // MailManagerTrafficPolicyIngressStringExpressionInput is an input type that accepts MailManagerTrafficPolicyIngressStringExpressionArgs and MailManagerTrafficPolicyIngressStringExpressionOutput values.
@@ -6193,9 +6945,9 @@ type MailManagerTrafficPolicyIngressStringExpressionInput interface {
 }
 
 type MailManagerTrafficPolicyIngressStringExpressionArgs struct {
-	Evaluate MailManagerTrafficPolicyIngressStringToEvaluatePropertiesInput `pulumi:"evaluate"`
-	Operator MailManagerTrafficPolicyIngressStringOperatorInput             `pulumi:"operator"`
-	Values   pulumi.StringArrayInput                                        `pulumi:"values"`
+	Evaluate pulumi.Input                                       `pulumi:"evaluate"`
+	Operator MailManagerTrafficPolicyIngressStringOperatorInput `pulumi:"operator"`
+	Values   pulumi.StringArrayInput                            `pulumi:"values"`
 }
 
 func (MailManagerTrafficPolicyIngressStringExpressionArgs) ElementType() reflect.Type {
@@ -6224,10 +6976,8 @@ func (o MailManagerTrafficPolicyIngressStringExpressionOutput) ToMailManagerTraf
 	return o
 }
 
-func (o MailManagerTrafficPolicyIngressStringExpressionOutput) Evaluate() MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput {
-	return o.ApplyT(func(v MailManagerTrafficPolicyIngressStringExpression) MailManagerTrafficPolicyIngressStringToEvaluateProperties {
-		return v.Evaluate
-	}).(MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput)
+func (o MailManagerTrafficPolicyIngressStringExpressionOutput) Evaluate() pulumi.AnyOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressStringExpression) interface{} { return v.Evaluate }).(pulumi.AnyOutput)
 }
 
 func (o MailManagerTrafficPolicyIngressStringExpressionOutput) Operator() MailManagerTrafficPolicyIngressStringOperatorOutput {
@@ -6244,55 +6994,102 @@ type MailManagerTrafficPolicyIngressStringToEvaluate0Properties struct {
 	Attribute MailManagerTrafficPolicyIngressStringEmailAttribute `pulumi:"attribute"`
 }
 
-type MailManagerTrafficPolicyIngressStringToEvaluateProperties struct {
-	Attribute MailManagerTrafficPolicyIngressStringEmailAttribute `pulumi:"attribute"`
-}
-
-// MailManagerTrafficPolicyIngressStringToEvaluatePropertiesInput is an input type that accepts MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs and MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput values.
-// You can construct a concrete instance of `MailManagerTrafficPolicyIngressStringToEvaluatePropertiesInput` via:
+// MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesInput is an input type that accepts MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesArgs and MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesInput` via:
 //
-//	MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs{...}
-type MailManagerTrafficPolicyIngressStringToEvaluatePropertiesInput interface {
+//	MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesArgs{...}
+type MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesInput interface {
 	pulumi.Input
 
-	ToMailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput
-	ToMailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutputWithContext(context.Context) MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput
+	ToMailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput() MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput
+	ToMailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutputWithContext(context.Context) MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput
 }
 
-type MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs struct {
+type MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesArgs struct {
 	Attribute MailManagerTrafficPolicyIngressStringEmailAttributeInput `pulumi:"attribute"`
 }
 
-func (MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MailManagerTrafficPolicyIngressStringToEvaluateProperties)(nil)).Elem()
+func (MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressStringToEvaluate0Properties)(nil)).Elem()
 }
 
-func (i MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs) ToMailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput {
-	return i.ToMailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutputWithContext(context.Background())
+func (i MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesArgs) ToMailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput() MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput {
+	return i.ToMailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutputWithContext(context.Background())
 }
 
-func (i MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs) ToMailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput)
+func (i MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesArgs) ToMailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput)
 }
 
-type MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput struct{ *pulumi.OutputState }
+type MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput struct{ *pulumi.OutputState }
 
-func (MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MailManagerTrafficPolicyIngressStringToEvaluateProperties)(nil)).Elem()
+func (MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressStringToEvaluate0Properties)(nil)).Elem()
 }
 
-func (o MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput) ToMailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput {
+func (o MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput) ToMailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput() MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput {
 	return o
 }
 
-func (o MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput) ToMailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput {
+func (o MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput) ToMailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput {
 	return o
 }
 
-func (o MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput) Attribute() MailManagerTrafficPolicyIngressStringEmailAttributeOutput {
-	return o.ApplyT(func(v MailManagerTrafficPolicyIngressStringToEvaluateProperties) MailManagerTrafficPolicyIngressStringEmailAttribute {
+func (o MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput) Attribute() MailManagerTrafficPolicyIngressStringEmailAttributeOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressStringToEvaluate0Properties) MailManagerTrafficPolicyIngressStringEmailAttribute {
 		return v.Attribute
 	}).(MailManagerTrafficPolicyIngressStringEmailAttributeOutput)
+}
+
+type MailManagerTrafficPolicyIngressStringToEvaluate1Properties struct {
+	Analysis MailManagerTrafficPolicyIngressAnalysis `pulumi:"analysis"`
+}
+
+// MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesInput is an input type that accepts MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesArgs and MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesInput` via:
+//
+//	MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesArgs{...}
+type MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput() MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput
+	ToMailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutputWithContext(context.Context) MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput
+}
+
+type MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesArgs struct {
+	Analysis MailManagerTrafficPolicyIngressAnalysisInput `pulumi:"analysis"`
+}
+
+func (MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressStringToEvaluate1Properties)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesArgs) ToMailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput() MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput {
+	return i.ToMailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesArgs) ToMailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput)
+}
+
+type MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressStringToEvaluate1Properties)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput) ToMailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput() MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput) ToMailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput) Analysis() MailManagerTrafficPolicyIngressAnalysisOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressStringToEvaluate1Properties) MailManagerTrafficPolicyIngressAnalysis {
+		return v.Analysis
+	}).(MailManagerTrafficPolicyIngressAnalysisOutput)
 }
 
 type MailManagerTrafficPolicyIngressTlsProtocolExpression struct {
@@ -6520,7 +7317,7 @@ func (o MailManagerTrafficPolicyPolicyCondition1PropertiesOutput) IpExpression()
 }
 
 type MailManagerTrafficPolicyPolicyCondition2Properties struct {
-	TlsExpression MailManagerTrafficPolicyIngressTlsProtocolExpression `pulumi:"tlsExpression"`
+	Ipv6Expression MailManagerTrafficPolicyIngressIpv6Expression `pulumi:"ipv6Expression"`
 }
 
 // MailManagerTrafficPolicyPolicyCondition2PropertiesInput is an input type that accepts MailManagerTrafficPolicyPolicyCondition2PropertiesArgs and MailManagerTrafficPolicyPolicyCondition2PropertiesOutput values.
@@ -6535,7 +7332,7 @@ type MailManagerTrafficPolicyPolicyCondition2PropertiesInput interface {
 }
 
 type MailManagerTrafficPolicyPolicyCondition2PropertiesArgs struct {
-	TlsExpression MailManagerTrafficPolicyIngressTlsProtocolExpressionInput `pulumi:"tlsExpression"`
+	Ipv6Expression MailManagerTrafficPolicyIngressIpv6ExpressionInput `pulumi:"ipv6Expression"`
 }
 
 func (MailManagerTrafficPolicyPolicyCondition2PropertiesArgs) ElementType() reflect.Type {
@@ -6564,14 +7361,14 @@ func (o MailManagerTrafficPolicyPolicyCondition2PropertiesOutput) ToMailManagerT
 	return o
 }
 
-func (o MailManagerTrafficPolicyPolicyCondition2PropertiesOutput) TlsExpression() MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput {
-	return o.ApplyT(func(v MailManagerTrafficPolicyPolicyCondition2Properties) MailManagerTrafficPolicyIngressTlsProtocolExpression {
-		return v.TlsExpression
-	}).(MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput)
+func (o MailManagerTrafficPolicyPolicyCondition2PropertiesOutput) Ipv6Expression() MailManagerTrafficPolicyIngressIpv6ExpressionOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyPolicyCondition2Properties) MailManagerTrafficPolicyIngressIpv6Expression {
+		return v.Ipv6Expression
+	}).(MailManagerTrafficPolicyIngressIpv6ExpressionOutput)
 }
 
 type MailManagerTrafficPolicyPolicyCondition3Properties struct {
-	BooleanExpression MailManagerTrafficPolicyIngressBooleanExpression `pulumi:"booleanExpression"`
+	TlsExpression MailManagerTrafficPolicyIngressTlsProtocolExpression `pulumi:"tlsExpression"`
 }
 
 // MailManagerTrafficPolicyPolicyCondition3PropertiesInput is an input type that accepts MailManagerTrafficPolicyPolicyCondition3PropertiesArgs and MailManagerTrafficPolicyPolicyCondition3PropertiesOutput values.
@@ -6586,7 +7383,7 @@ type MailManagerTrafficPolicyPolicyCondition3PropertiesInput interface {
 }
 
 type MailManagerTrafficPolicyPolicyCondition3PropertiesArgs struct {
-	BooleanExpression MailManagerTrafficPolicyIngressBooleanExpressionInput `pulumi:"booleanExpression"`
+	TlsExpression MailManagerTrafficPolicyIngressTlsProtocolExpressionInput `pulumi:"tlsExpression"`
 }
 
 func (MailManagerTrafficPolicyPolicyCondition3PropertiesArgs) ElementType() reflect.Type {
@@ -6615,8 +7412,59 @@ func (o MailManagerTrafficPolicyPolicyCondition3PropertiesOutput) ToMailManagerT
 	return o
 }
 
-func (o MailManagerTrafficPolicyPolicyCondition3PropertiesOutput) BooleanExpression() MailManagerTrafficPolicyIngressBooleanExpressionOutput {
-	return o.ApplyT(func(v MailManagerTrafficPolicyPolicyCondition3Properties) MailManagerTrafficPolicyIngressBooleanExpression {
+func (o MailManagerTrafficPolicyPolicyCondition3PropertiesOutput) TlsExpression() MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyPolicyCondition3Properties) MailManagerTrafficPolicyIngressTlsProtocolExpression {
+		return v.TlsExpression
+	}).(MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput)
+}
+
+type MailManagerTrafficPolicyPolicyCondition4Properties struct {
+	BooleanExpression MailManagerTrafficPolicyIngressBooleanExpression `pulumi:"booleanExpression"`
+}
+
+// MailManagerTrafficPolicyPolicyCondition4PropertiesInput is an input type that accepts MailManagerTrafficPolicyPolicyCondition4PropertiesArgs and MailManagerTrafficPolicyPolicyCondition4PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyPolicyCondition4PropertiesInput` via:
+//
+//	MailManagerTrafficPolicyPolicyCondition4PropertiesArgs{...}
+type MailManagerTrafficPolicyPolicyCondition4PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyPolicyCondition4PropertiesOutput() MailManagerTrafficPolicyPolicyCondition4PropertiesOutput
+	ToMailManagerTrafficPolicyPolicyCondition4PropertiesOutputWithContext(context.Context) MailManagerTrafficPolicyPolicyCondition4PropertiesOutput
+}
+
+type MailManagerTrafficPolicyPolicyCondition4PropertiesArgs struct {
+	BooleanExpression MailManagerTrafficPolicyIngressBooleanExpressionInput `pulumi:"booleanExpression"`
+}
+
+func (MailManagerTrafficPolicyPolicyCondition4PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition4Properties)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyPolicyCondition4PropertiesArgs) ToMailManagerTrafficPolicyPolicyCondition4PropertiesOutput() MailManagerTrafficPolicyPolicyCondition4PropertiesOutput {
+	return i.ToMailManagerTrafficPolicyPolicyCondition4PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyPolicyCondition4PropertiesArgs) ToMailManagerTrafficPolicyPolicyCondition4PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyPolicyCondition4PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyPolicyCondition4PropertiesOutput)
+}
+
+type MailManagerTrafficPolicyPolicyCondition4PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyPolicyCondition4PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition4Properties)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyPolicyCondition4PropertiesOutput) ToMailManagerTrafficPolicyPolicyCondition4PropertiesOutput() MailManagerTrafficPolicyPolicyCondition4PropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyPolicyCondition4PropertiesOutput) ToMailManagerTrafficPolicyPolicyCondition4PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyPolicyCondition4PropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyPolicyCondition4PropertiesOutput) BooleanExpression() MailManagerTrafficPolicyIngressBooleanExpressionOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyPolicyCondition4Properties) MailManagerTrafficPolicyIngressBooleanExpression {
 		return v.BooleanExpression
 	}).(MailManagerTrafficPolicyIngressBooleanExpressionOutput)
 }
@@ -7257,6 +8105,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerIngressPointIngressPointConfiguration0PropertiesPtrInput)(nil)).Elem(), MailManagerIngressPointIngressPointConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerIngressPointIngressPointConfiguration1PropertiesInput)(nil)).Elem(), MailManagerIngressPointIngressPointConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerIngressPointIngressPointConfiguration1PropertiesPtrInput)(nil)).Elem(), MailManagerIngressPointIngressPointConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerIngressPointNetworkConfiguration0PropertiesInput)(nil)).Elem(), MailManagerIngressPointNetworkConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerIngressPointNetworkConfiguration0PropertiesPtrInput)(nil)).Elem(), MailManagerIngressPointNetworkConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerIngressPointNetworkConfiguration1PropertiesInput)(nil)).Elem(), MailManagerIngressPointNetworkConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerIngressPointNetworkConfiguration1PropertiesPtrInput)(nil)).Elem(), MailManagerIngressPointNetworkConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerIngressPointPrivateNetworkConfigurationInput)(nil)).Elem(), MailManagerIngressPointPrivateNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerIngressPointPrivateNetworkConfigurationPtrInput)(nil)).Elem(), MailManagerIngressPointPrivateNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerIngressPointPublicNetworkConfigurationInput)(nil)).Elem(), MailManagerIngressPointPublicNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerIngressPointPublicNetworkConfigurationPtrInput)(nil)).Elem(), MailManagerIngressPointPublicNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRelayNoAuthenticationInput)(nil)).Elem(), MailManagerRelayNoAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRelayRelayAuthentication0PropertiesInput)(nil)).Elem(), MailManagerRelayRelayAuthentication0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRelayRelayAuthentication1PropertiesInput)(nil)).Elem(), MailManagerRelayRelayAuthentication1PropertiesArgs{})
@@ -7280,7 +8136,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleAction7PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleAction7PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleAction8PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleAction8PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleBooleanExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleBooleanExpressionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluatePropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluate0PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluate1PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleCondition0PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleCondition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleCondition1PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleCondition1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleCondition2PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleCondition2PropertiesArgs{})
@@ -7295,6 +8152,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleStringExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleStringExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleStringToEvaluate0PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleStringToEvaluate0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleStringToEvaluate1PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleStringToEvaluate1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleStringToEvaluate2PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleStringToEvaluate2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleVerdictExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleVerdictExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleVerdictToEvaluate0PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleVerdictToEvaluate1PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgs{})
@@ -7305,14 +8163,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressIpToEvaluatePropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv4ExpressionInput)(nil)).Elem(), MailManagerTrafficPolicyIngressIpv4ExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv6ExpressionInput)(nil)).Elem(), MailManagerTrafficPolicyIngressIpv6ExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressStringExpressionInput)(nil)).Elem(), MailManagerTrafficPolicyIngressStringExpressionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressStringToEvaluatePropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressTlsProtocolExpressionInput)(nil)).Elem(), MailManagerTrafficPolicyIngressTlsProtocolExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition0PropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyPolicyCondition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition1PropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyPolicyCondition1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition2PropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyPolicyCondition2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition3PropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyPolicyCondition3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition4PropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyPolicyCondition4PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyPolicyStatementInput)(nil)).Elem(), MailManagerTrafficPolicyPolicyStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyPolicyStatementArrayInput)(nil)).Elem(), MailManagerTrafficPolicyPolicyStatementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTypeInput)(nil)).Elem(), TemplateTypeArgs{})
@@ -7367,6 +8229,14 @@ func init() {
 	pulumi.RegisterOutputType(MailManagerIngressPointIngressPointConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MailManagerIngressPointIngressPointConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerIngressPointIngressPointConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MailManagerIngressPointNetworkConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerIngressPointNetworkConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MailManagerIngressPointNetworkConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerIngressPointNetworkConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MailManagerIngressPointPrivateNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(MailManagerIngressPointPrivateNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MailManagerIngressPointPublicNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(MailManagerIngressPointPublicNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MailManagerRelayNoAuthenticationOutput{})
 	pulumi.RegisterOutputType(MailManagerRelayNoAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(MailManagerRelayRelayAuthentication0PropertiesOutput{})
@@ -7393,7 +8263,8 @@ func init() {
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleAction7PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleAction8PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleBooleanExpressionOutput{})
-	pulumi.RegisterOutputType(MailManagerRuleSetRuleBooleanToEvaluatePropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleCondition0PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleCondition1PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleCondition2PropertiesOutput{})
@@ -7408,6 +8279,7 @@ func init() {
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleStringExpressionOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleStringToEvaluate0PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleStringToEvaluate1PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleStringToEvaluate2PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleVerdictExpressionOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput{})
@@ -7418,14 +8290,18 @@ func init() {
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressIpv4ExpressionOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressIpv6ExpressionOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressStringExpressionOutput{})
-	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressStringToEvaluatePropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressTlsProtocolExpressionOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyPolicyCondition0PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyPolicyCondition1PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyPolicyCondition2PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyPolicyCondition3PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyPolicyCondition4PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyPolicyStatementOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyPolicyStatementArrayOutput{})
 	pulumi.RegisterOutputType(TemplateTypeOutput{})

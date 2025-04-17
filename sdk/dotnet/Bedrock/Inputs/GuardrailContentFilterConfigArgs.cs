@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class GuardrailContentFilterConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("inputAction")]
+        public Input<Pulumi.AwsNative.Bedrock.GuardrailContentFilterAction>? InputAction { get; set; }
+
+        [Input("inputEnabled")]
+        public Input<bool>? InputEnabled { get; set; }
+
         [Input("inputModalities")]
         private InputList<Pulumi.AwsNative.Bedrock.GuardrailModality>? _inputModalities;
 
@@ -32,6 +38,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         /// </summary>
         [Input("inputStrength", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.GuardrailFilterStrength> InputStrength { get; set; } = null!;
+
+        [Input("outputAction")]
+        public Input<Pulumi.AwsNative.Bedrock.GuardrailContentFilterAction>? OutputAction { get; set; }
+
+        [Input("outputEnabled")]
+        public Input<bool>? OutputEnabled { get; set; }
 
         [Input("outputModalities")]
         private InputList<Pulumi.AwsNative.Bedrock.GuardrailModality>? _outputModalities;

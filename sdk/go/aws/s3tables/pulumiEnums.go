@@ -10,6 +10,172 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Server-side encryption algorithm
+type TableBucketEncryptionConfigurationSseAlgorithm string
+
+const (
+	TableBucketEncryptionConfigurationSseAlgorithmAes256 = TableBucketEncryptionConfigurationSseAlgorithm("AES256")
+	TableBucketEncryptionConfigurationSseAlgorithmAwskms = TableBucketEncryptionConfigurationSseAlgorithm("aws:kms")
+)
+
+func (TableBucketEncryptionConfigurationSseAlgorithm) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketEncryptionConfigurationSseAlgorithm)(nil)).Elem()
+}
+
+func (e TableBucketEncryptionConfigurationSseAlgorithm) ToTableBucketEncryptionConfigurationSseAlgorithmOutput() TableBucketEncryptionConfigurationSseAlgorithmOutput {
+	return pulumi.ToOutput(e).(TableBucketEncryptionConfigurationSseAlgorithmOutput)
+}
+
+func (e TableBucketEncryptionConfigurationSseAlgorithm) ToTableBucketEncryptionConfigurationSseAlgorithmOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationSseAlgorithmOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TableBucketEncryptionConfigurationSseAlgorithmOutput)
+}
+
+func (e TableBucketEncryptionConfigurationSseAlgorithm) ToTableBucketEncryptionConfigurationSseAlgorithmPtrOutput() TableBucketEncryptionConfigurationSseAlgorithmPtrOutput {
+	return e.ToTableBucketEncryptionConfigurationSseAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (e TableBucketEncryptionConfigurationSseAlgorithm) ToTableBucketEncryptionConfigurationSseAlgorithmPtrOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationSseAlgorithmPtrOutput {
+	return TableBucketEncryptionConfigurationSseAlgorithm(e).ToTableBucketEncryptionConfigurationSseAlgorithmOutputWithContext(ctx).ToTableBucketEncryptionConfigurationSseAlgorithmPtrOutputWithContext(ctx)
+}
+
+func (e TableBucketEncryptionConfigurationSseAlgorithm) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableBucketEncryptionConfigurationSseAlgorithm) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableBucketEncryptionConfigurationSseAlgorithm) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TableBucketEncryptionConfigurationSseAlgorithm) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TableBucketEncryptionConfigurationSseAlgorithmOutput struct{ *pulumi.OutputState }
+
+func (TableBucketEncryptionConfigurationSseAlgorithmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketEncryptionConfigurationSseAlgorithm)(nil)).Elem()
+}
+
+func (o TableBucketEncryptionConfigurationSseAlgorithmOutput) ToTableBucketEncryptionConfigurationSseAlgorithmOutput() TableBucketEncryptionConfigurationSseAlgorithmOutput {
+	return o
+}
+
+func (o TableBucketEncryptionConfigurationSseAlgorithmOutput) ToTableBucketEncryptionConfigurationSseAlgorithmOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationSseAlgorithmOutput {
+	return o
+}
+
+func (o TableBucketEncryptionConfigurationSseAlgorithmOutput) ToTableBucketEncryptionConfigurationSseAlgorithmPtrOutput() TableBucketEncryptionConfigurationSseAlgorithmPtrOutput {
+	return o.ToTableBucketEncryptionConfigurationSseAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (o TableBucketEncryptionConfigurationSseAlgorithmOutput) ToTableBucketEncryptionConfigurationSseAlgorithmPtrOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationSseAlgorithmPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableBucketEncryptionConfigurationSseAlgorithm) *TableBucketEncryptionConfigurationSseAlgorithm {
+		return &v
+	}).(TableBucketEncryptionConfigurationSseAlgorithmPtrOutput)
+}
+
+func (o TableBucketEncryptionConfigurationSseAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TableBucketEncryptionConfigurationSseAlgorithmOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableBucketEncryptionConfigurationSseAlgorithm) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TableBucketEncryptionConfigurationSseAlgorithmOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableBucketEncryptionConfigurationSseAlgorithmOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableBucketEncryptionConfigurationSseAlgorithm) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableBucketEncryptionConfigurationSseAlgorithmPtrOutput struct{ *pulumi.OutputState }
+
+func (TableBucketEncryptionConfigurationSseAlgorithmPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketEncryptionConfigurationSseAlgorithm)(nil)).Elem()
+}
+
+func (o TableBucketEncryptionConfigurationSseAlgorithmPtrOutput) ToTableBucketEncryptionConfigurationSseAlgorithmPtrOutput() TableBucketEncryptionConfigurationSseAlgorithmPtrOutput {
+	return o
+}
+
+func (o TableBucketEncryptionConfigurationSseAlgorithmPtrOutput) ToTableBucketEncryptionConfigurationSseAlgorithmPtrOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationSseAlgorithmPtrOutput {
+	return o
+}
+
+func (o TableBucketEncryptionConfigurationSseAlgorithmPtrOutput) Elem() TableBucketEncryptionConfigurationSseAlgorithmOutput {
+	return o.ApplyT(func(v *TableBucketEncryptionConfigurationSseAlgorithm) TableBucketEncryptionConfigurationSseAlgorithm {
+		if v != nil {
+			return *v
+		}
+		var ret TableBucketEncryptionConfigurationSseAlgorithm
+		return ret
+	}).(TableBucketEncryptionConfigurationSseAlgorithmOutput)
+}
+
+func (o TableBucketEncryptionConfigurationSseAlgorithmPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableBucketEncryptionConfigurationSseAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TableBucketEncryptionConfigurationSseAlgorithm) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TableBucketEncryptionConfigurationSseAlgorithmInput is an input type that accepts values of the TableBucketEncryptionConfigurationSseAlgorithm enum
+// A concrete instance of `TableBucketEncryptionConfigurationSseAlgorithmInput` can be one of the following:
+//
+//	TableBucketEncryptionConfigurationSseAlgorithmAes256
+//	TableBucketEncryptionConfigurationSseAlgorithmAwskms
+type TableBucketEncryptionConfigurationSseAlgorithmInput interface {
+	pulumi.Input
+
+	ToTableBucketEncryptionConfigurationSseAlgorithmOutput() TableBucketEncryptionConfigurationSseAlgorithmOutput
+	ToTableBucketEncryptionConfigurationSseAlgorithmOutputWithContext(context.Context) TableBucketEncryptionConfigurationSseAlgorithmOutput
+}
+
+var tableBucketEncryptionConfigurationSseAlgorithmPtrType = reflect.TypeOf((**TableBucketEncryptionConfigurationSseAlgorithm)(nil)).Elem()
+
+type TableBucketEncryptionConfigurationSseAlgorithmPtrInput interface {
+	pulumi.Input
+
+	ToTableBucketEncryptionConfigurationSseAlgorithmPtrOutput() TableBucketEncryptionConfigurationSseAlgorithmPtrOutput
+	ToTableBucketEncryptionConfigurationSseAlgorithmPtrOutputWithContext(context.Context) TableBucketEncryptionConfigurationSseAlgorithmPtrOutput
+}
+
+type tableBucketEncryptionConfigurationSseAlgorithmPtr string
+
+func TableBucketEncryptionConfigurationSseAlgorithmPtr(v string) TableBucketEncryptionConfigurationSseAlgorithmPtrInput {
+	return (*tableBucketEncryptionConfigurationSseAlgorithmPtr)(&v)
+}
+
+func (*tableBucketEncryptionConfigurationSseAlgorithmPtr) ElementType() reflect.Type {
+	return tableBucketEncryptionConfigurationSseAlgorithmPtrType
+}
+
+func (in *tableBucketEncryptionConfigurationSseAlgorithmPtr) ToTableBucketEncryptionConfigurationSseAlgorithmPtrOutput() TableBucketEncryptionConfigurationSseAlgorithmPtrOutput {
+	return pulumi.ToOutput(in).(TableBucketEncryptionConfigurationSseAlgorithmPtrOutput)
+}
+
+func (in *tableBucketEncryptionConfigurationSseAlgorithmPtr) ToTableBucketEncryptionConfigurationSseAlgorithmPtrOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationSseAlgorithmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TableBucketEncryptionConfigurationSseAlgorithmPtrOutput)
+}
+
 // Indicates whether the Unreferenced File Removal maintenance action is enabled.
 type TableBucketUnreferencedFileRemovalStatus string
 
@@ -177,8 +343,12 @@ func (in *tableBucketUnreferencedFileRemovalStatusPtr) ToTableBucketUnreferenced
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationSseAlgorithmInput)(nil)).Elem(), TableBucketEncryptionConfigurationSseAlgorithm("AES256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationSseAlgorithmPtrInput)(nil)).Elem(), TableBucketEncryptionConfigurationSseAlgorithm("AES256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalStatusInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalStatusPtrInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalStatus("Enabled"))
+	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationSseAlgorithmOutput{})
+	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationSseAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketUnreferencedFileRemovalStatusOutput{})
 	pulumi.RegisterOutputType(TableBucketUnreferencedFileRemovalStatusPtrOutput{})
 }

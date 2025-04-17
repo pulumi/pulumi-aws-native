@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         public Input<Inputs.KnowledgeBaseMongoDbAtlasFieldMappingArgs> FieldMapping { get; set; } = null!;
 
         /// <summary>
+        /// Name of a MongoDB Atlas text index.
+        /// </summary>
+        [Input("textIndexName")]
+        public Input<string>? TextIndexName { get; set; }
+
+        /// <summary>
         /// Name of a MongoDB Atlas index.
         /// </summary>
         [Input("vectorIndexName", required: true)]

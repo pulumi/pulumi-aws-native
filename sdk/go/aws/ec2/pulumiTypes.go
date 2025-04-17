@@ -11745,12 +11745,11 @@ type LaunchTemplateData struct {
 	// Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
 	EbsOptimized *bool `pulumi:"ebsOptimized"`
 	// Deprecated.
-	//   Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+	//   Amazon Elastic Graphics reached end of life on January 8, 2024.
 	ElasticGpuSpecifications []LaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
 	// Amazon Elastic Inference is no longer available.
 	//   An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
 	//  You cannot specify accelerators from different generations in the same request.
-	//   Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
 	ElasticInferenceAccelerators []LaunchTemplateElasticInferenceAccelerator `pulumi:"elasticInferenceAccelerators"`
 	// Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
 	//  You can't enable AWS Nitro Enclaves and hibernation on the same instance.
@@ -11856,12 +11855,11 @@ type LaunchTemplateDataArgs struct {
 	// Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
 	EbsOptimized pulumi.BoolPtrInput `pulumi:"ebsOptimized"`
 	// Deprecated.
-	//   Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+	//   Amazon Elastic Graphics reached end of life on January 8, 2024.
 	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationArrayInput `pulumi:"elasticGpuSpecifications"`
 	// Amazon Elastic Inference is no longer available.
 	//   An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
 	//  You cannot specify accelerators from different generations in the same request.
-	//   Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
 	ElasticInferenceAccelerators LaunchTemplateElasticInferenceAcceleratorArrayInput `pulumi:"elasticInferenceAccelerators"`
 	// Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
 	//  You can't enable AWS Nitro Enclaves and hibernation on the same instance.
@@ -12005,7 +12003,7 @@ func (o LaunchTemplateDataOutput) EbsOptimized() pulumi.BoolPtrOutput {
 
 // Deprecated.
 //
-//	Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+//	Amazon Elastic Graphics reached end of life on January 8, 2024.
 func (o LaunchTemplateDataOutput) ElasticGpuSpecifications() LaunchTemplateElasticGpuSpecificationArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateElasticGpuSpecification { return v.ElasticGpuSpecifications }).(LaunchTemplateElasticGpuSpecificationArrayOutput)
 }
@@ -12014,7 +12012,6 @@ func (o LaunchTemplateDataOutput) ElasticGpuSpecifications() LaunchTemplateElast
 //
 //	 An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
 //	You cannot specify accelerators from different generations in the same request.
-//	 Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
 func (o LaunchTemplateDataOutput) ElasticInferenceAccelerators() LaunchTemplateElasticInferenceAcceleratorArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateElasticInferenceAccelerator {
 		return v.ElasticInferenceAccelerators
@@ -12511,7 +12508,7 @@ func (o LaunchTemplateEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+// Amazon Elastic Graphics reached end of life on January 8, 2024.
 //
 //	Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
 //	``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
@@ -12531,7 +12528,7 @@ type LaunchTemplateElasticGpuSpecificationInput interface {
 	ToLaunchTemplateElasticGpuSpecificationOutputWithContext(context.Context) LaunchTemplateElasticGpuSpecificationOutput
 }
 
-// Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+// Amazon Elastic Graphics reached end of life on January 8, 2024.
 //
 //	Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
 //	``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
@@ -12577,7 +12574,7 @@ func (i LaunchTemplateElasticGpuSpecificationArray) ToLaunchTemplateElasticGpuSp
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticGpuSpecificationArrayOutput)
 }
 
-// Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+// Amazon Elastic Graphics reached end of life on January 8, 2024.
 //
 //	Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
 //	``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
@@ -12620,8 +12617,9 @@ func (o LaunchTemplateElasticGpuSpecificationArrayOutput) Index(i pulumi.IntInpu
 	}).(LaunchTemplateElasticGpuSpecificationOutput)
 }
 
-// Specifies an elastic inference accelerator.
+// Amazon Elastic Inference is no longer available.
 //
+//	Specifies an elastic inference accelerator.
 //	``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateElasticInferenceAccelerator struct {
 	// The number of elastic inference accelerators to attach to the instance.
@@ -12642,8 +12640,9 @@ type LaunchTemplateElasticInferenceAcceleratorInput interface {
 	ToLaunchTemplateElasticInferenceAcceleratorOutputWithContext(context.Context) LaunchTemplateElasticInferenceAcceleratorOutput
 }
 
-// Specifies an elastic inference accelerator.
+// Amazon Elastic Inference is no longer available.
 //
+//	Specifies an elastic inference accelerator.
 //	``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateElasticInferenceAcceleratorArgs struct {
 	// The number of elastic inference accelerators to attach to the instance.
@@ -12690,8 +12689,9 @@ func (i LaunchTemplateElasticInferenceAcceleratorArray) ToLaunchTemplateElasticI
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticInferenceAcceleratorArrayOutput)
 }
 
-// Specifies an elastic inference accelerator.
+// Amazon Elastic Inference is no longer available.
 //
+//	Specifies an elastic inference accelerator.
 //	``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateElasticInferenceAcceleratorOutput struct{ *pulumi.OutputState }
 
@@ -13718,7 +13718,6 @@ type LaunchTemplateInstanceRequirements struct {
 	// The accelerator types that must be on the instance type.
 	//   +  For instance types with FPGA accelerators, specify ``fpga``.
 	//   +  For instance types with GPU accelerators, specify ``gpu``.
-	//   +  For instance types with Inference accelerators, specify ``inference``.
 	//
 	//  Default: Any accelerator type
 	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
@@ -13879,7 +13878,6 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	// The accelerator types that must be on the instance type.
 	//   +  For instance types with FPGA accelerators, specify ``fpga``.
 	//   +  For instance types with GPU accelerators, specify ``gpu``.
-	//   +  For instance types with Inference accelerators, specify ``inference``.
 	//
 	//  Default: Any accelerator type
 	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
@@ -14140,8 +14138,6 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTotalMemoryMiB() La
 //   - For instance types with FPGA accelerators, specify “fpga“.
 //
 //   - For instance types with GPU accelerators, specify “gpu“.
-//
-//   - For instance types with Inference accelerators, specify “inference“.
 //
 //     Default: Any accelerator type
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
@@ -14456,8 +14452,6 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMiB()
 //   - For instance types with FPGA accelerators, specify “fpga“.
 //
 //   - For instance types with GPU accelerators, specify “gpu“.
-//
-//   - For instance types with Inference accelerators, specify “inference“.
 //
 //     Default: Any accelerator type
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
@@ -16232,7 +16226,7 @@ type LaunchTemplateNetworkInterface struct {
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
-	// The device index for the network interface attachment. If the network interface is of type ``interface``, you must specify a device index.
+	// The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type ``interface``, you must specify a device index.
 	//  If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
 	DeviceIndex *int `pulumi:"deviceIndex"`
 	// The ENA Express configuration for the network interface.
@@ -16299,7 +16293,7 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
 	// A description for the network interface.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The device index for the network interface attachment. If the network interface is of type ``interface``, you must specify a device index.
+	// The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type ``interface``, you must specify a device index.
 	//  If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
 	DeviceIndex pulumi.IntPtrInput `pulumi:"deviceIndex"`
 	// The ENA Express configuration for the network interface.
@@ -16424,7 +16418,7 @@ func (o LaunchTemplateNetworkInterfaceOutput) Description() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The device index for the network interface attachment. If the network interface is of type “interface“, you must specify a device index.
+// The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type “interface“, you must specify a device index.
 //
 //	If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
 func (o LaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntPtrOutput {
@@ -16696,8 +16690,10 @@ func (o LaunchTemplateNetworkInterfaceCountPtrOutput) Min() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
+// Contains settings for the network performance options for the instance.
 type LaunchTemplateNetworkPerformanceOptions struct {
-	// Specifies the performance options of your instance or sets it to default.
+	// Specify the bandwidth weighting option to boost the associated type of baseline bandwidth, as follows:
+	//   + default This option uses the standard bandwidth configuration for your instance type. + vpc-1 This option boosts your networking baseline bandwidth and reduces your EBS baseline bandwidth. + ebs-1 This option boosts your EBS baseline bandwidth and reduces your networking baseline bandwidth.
 	BandwidthWeighting *string `pulumi:"bandwidthWeighting"`
 }
 
@@ -16712,8 +16708,10 @@ type LaunchTemplateNetworkPerformanceOptionsInput interface {
 	ToLaunchTemplateNetworkPerformanceOptionsOutputWithContext(context.Context) LaunchTemplateNetworkPerformanceOptionsOutput
 }
 
+// Contains settings for the network performance options for the instance.
 type LaunchTemplateNetworkPerformanceOptionsArgs struct {
-	// Specifies the performance options of your instance or sets it to default.
+	// Specify the bandwidth weighting option to boost the associated type of baseline bandwidth, as follows:
+	//   + default This option uses the standard bandwidth configuration for your instance type. + vpc-1 This option boosts your networking baseline bandwidth and reduces your EBS baseline bandwidth. + ebs-1 This option boosts your EBS baseline bandwidth and reduces your networking baseline bandwidth.
 	BandwidthWeighting pulumi.StringPtrInput `pulumi:"bandwidthWeighting"`
 }
 
@@ -16770,6 +16768,7 @@ func (i *launchTemplateNetworkPerformanceOptionsPtrType) ToLaunchTemplateNetwork
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkPerformanceOptionsPtrOutput)
 }
 
+// Contains settings for the network performance options for the instance.
 type LaunchTemplateNetworkPerformanceOptionsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateNetworkPerformanceOptionsOutput) ElementType() reflect.Type {
@@ -16794,7 +16793,8 @@ func (o LaunchTemplateNetworkPerformanceOptionsOutput) ToLaunchTemplateNetworkPe
 	}).(LaunchTemplateNetworkPerformanceOptionsPtrOutput)
 }
 
-// Specifies the performance options of your instance or sets it to default.
+// Specify the bandwidth weighting option to boost the associated type of baseline bandwidth, as follows:
+//   - default This option uses the standard bandwidth configuration for your instance type. + vpc-1 This option boosts your networking baseline bandwidth and reduces your EBS baseline bandwidth. + ebs-1 This option boosts your EBS baseline bandwidth and reduces your networking baseline bandwidth.
 func (o LaunchTemplateNetworkPerformanceOptionsOutput) BandwidthWeighting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkPerformanceOptions) *string { return v.BandwidthWeighting }).(pulumi.StringPtrOutput)
 }
@@ -16823,7 +16823,8 @@ func (o LaunchTemplateNetworkPerformanceOptionsPtrOutput) Elem() LaunchTemplateN
 	}).(LaunchTemplateNetworkPerformanceOptionsOutput)
 }
 
-// Specifies the performance options of your instance or sets it to default.
+// Specify the bandwidth weighting option to boost the associated type of baseline bandwidth, as follows:
+//   - default This option uses the standard bandwidth configuration for your instance type. + vpc-1 This option boosts your networking baseline bandwidth and reduces your EBS baseline bandwidth. + ebs-1 This option boosts your EBS baseline bandwidth and reduces your networking baseline bandwidth.
 func (o LaunchTemplateNetworkPerformanceOptionsPtrOutput) BandwidthWeighting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateNetworkPerformanceOptions) *string {
 		if v == nil {

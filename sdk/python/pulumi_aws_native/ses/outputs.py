@@ -41,6 +41,10 @@ __all__ = [
     'MailManagerArchiveArchiveRetentionProperties',
     'MailManagerIngressPointIngressPointConfiguration0Properties',
     'MailManagerIngressPointIngressPointConfiguration1Properties',
+    'MailManagerIngressPointNetworkConfiguration0Properties',
+    'MailManagerIngressPointNetworkConfiguration1Properties',
+    'MailManagerIngressPointPrivateNetworkConfiguration',
+    'MailManagerIngressPointPublicNetworkConfiguration',
     'MailManagerRelayNoAuthentication',
     'MailManagerRelayRelayAuthentication0Properties',
     'MailManagerRelayRelayAuthentication1Properties',
@@ -63,7 +67,8 @@ __all__ = [
     'MailManagerRuleSetRuleAction7Properties',
     'MailManagerRuleSetRuleAction8Properties',
     'MailManagerRuleSetRuleBooleanExpression',
-    'MailManagerRuleSetRuleBooleanToEvaluateProperties',
+    'MailManagerRuleSetRuleBooleanToEvaluate0Properties',
+    'MailManagerRuleSetRuleBooleanToEvaluate1Properties',
     'MailManagerRuleSetRuleCondition0Properties',
     'MailManagerRuleSetRuleCondition1Properties',
     'MailManagerRuleSetRuleCondition2Properties',
@@ -78,6 +83,7 @@ __all__ = [
     'MailManagerRuleSetRuleStringExpression',
     'MailManagerRuleSetRuleStringToEvaluate0Properties',
     'MailManagerRuleSetRuleStringToEvaluate1Properties',
+    'MailManagerRuleSetRuleStringToEvaluate2Properties',
     'MailManagerRuleSetRuleVerdictExpression',
     'MailManagerRuleSetRuleVerdictToEvaluate0Properties',
     'MailManagerRuleSetRuleVerdictToEvaluate1Properties',
@@ -88,14 +94,18 @@ __all__ = [
     'MailManagerTrafficPolicyIngressBooleanToEvaluateProperties',
     'MailManagerTrafficPolicyIngressIpToEvaluateProperties',
     'MailManagerTrafficPolicyIngressIpv4Expression',
+    'MailManagerTrafficPolicyIngressIpv6Expression',
+    'MailManagerTrafficPolicyIngressIpv6ToEvaluateProperties',
     'MailManagerTrafficPolicyIngressStringExpression',
-    'MailManagerTrafficPolicyIngressStringToEvaluateProperties',
+    'MailManagerTrafficPolicyIngressStringToEvaluate0Properties',
+    'MailManagerTrafficPolicyIngressStringToEvaluate1Properties',
     'MailManagerTrafficPolicyIngressTlsProtocolExpression',
     'MailManagerTrafficPolicyIngressTlsProtocolToEvaluateProperties',
     'MailManagerTrafficPolicyPolicyCondition0Properties',
     'MailManagerTrafficPolicyPolicyCondition1Properties',
     'MailManagerTrafficPolicyPolicyCondition2Properties',
     'MailManagerTrafficPolicyPolicyCondition3Properties',
+    'MailManagerTrafficPolicyPolicyCondition4Properties',
     'MailManagerTrafficPolicyPolicyStatement',
     'Template',
     'VdmAttributesDashboardAttributes',
@@ -1233,6 +1243,122 @@ class MailManagerIngressPointIngressPointConfiguration1Properties(dict):
 
 
 @pulumi.output_type
+class MailManagerIngressPointNetworkConfiguration0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicNetworkConfiguration":
+            suggest = "public_network_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerIngressPointNetworkConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerIngressPointNetworkConfiguration0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerIngressPointNetworkConfiguration0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 public_network_configuration: 'outputs.MailManagerIngressPointPublicNetworkConfiguration'):
+        pulumi.set(__self__, "public_network_configuration", public_network_configuration)
+
+    @property
+    @pulumi.getter(name="publicNetworkConfiguration")
+    def public_network_configuration(self) -> 'outputs.MailManagerIngressPointPublicNetworkConfiguration':
+        return pulumi.get(self, "public_network_configuration")
+
+
+@pulumi.output_type
+class MailManagerIngressPointNetworkConfiguration1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateNetworkConfiguration":
+            suggest = "private_network_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerIngressPointNetworkConfiguration1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerIngressPointNetworkConfiguration1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerIngressPointNetworkConfiguration1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_network_configuration: 'outputs.MailManagerIngressPointPrivateNetworkConfiguration'):
+        pulumi.set(__self__, "private_network_configuration", private_network_configuration)
+
+    @property
+    @pulumi.getter(name="privateNetworkConfiguration")
+    def private_network_configuration(self) -> 'outputs.MailManagerIngressPointPrivateNetworkConfiguration':
+        return pulumi.get(self, "private_network_configuration")
+
+
+@pulumi.output_type
+class MailManagerIngressPointPrivateNetworkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcEndpointId":
+            suggest = "vpc_endpoint_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerIngressPointPrivateNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerIngressPointPrivateNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerIngressPointPrivateNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vpc_endpoint_id: builtins.str):
+        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> builtins.str:
+        return pulumi.get(self, "vpc_endpoint_id")
+
+
+@pulumi.output_type
+class MailManagerIngressPointPublicNetworkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipType":
+            suggest = "ip_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerIngressPointPublicNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerIngressPointPublicNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerIngressPointPublicNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_type: Any):
+        pulumi.set(__self__, "ip_type", ip_type)
+
+    @property
+    @pulumi.getter(name="ipType")
+    def ip_type(self) -> Any:
+        return pulumi.get(self, "ip_type")
+
+
+@pulumi.output_type
 class MailManagerRelayNoAuthentication(dict):
     def __init__(__self__):
         pass
@@ -1847,14 +1973,14 @@ class MailManagerRuleSetRuleAction8Properties(dict):
 @pulumi.output_type
 class MailManagerRuleSetRuleBooleanExpression(dict):
     def __init__(__self__, *,
-                 evaluate: 'outputs.MailManagerRuleSetRuleBooleanToEvaluateProperties',
+                 evaluate: Any,
                  operator: 'MailManagerRuleSetRuleBooleanOperator'):
         pulumi.set(__self__, "evaluate", evaluate)
         pulumi.set(__self__, "operator", operator)
 
     @property
     @pulumi.getter
-    def evaluate(self) -> 'outputs.MailManagerRuleSetRuleBooleanToEvaluateProperties':
+    def evaluate(self) -> Any:
         return pulumi.get(self, "evaluate")
 
     @property
@@ -1864,7 +1990,7 @@ class MailManagerRuleSetRuleBooleanExpression(dict):
 
 
 @pulumi.output_type
-class MailManagerRuleSetRuleBooleanToEvaluateProperties(dict):
+class MailManagerRuleSetRuleBooleanToEvaluate0Properties(dict):
     def __init__(__self__, *,
                  attribute: 'MailManagerRuleSetRuleBooleanEmailAttribute'):
         pulumi.set(__self__, "attribute", attribute)
@@ -1873,6 +1999,18 @@ class MailManagerRuleSetRuleBooleanToEvaluateProperties(dict):
     @pulumi.getter
     def attribute(self) -> 'MailManagerRuleSetRuleBooleanEmailAttribute':
         return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleBooleanToEvaluate1Properties(dict):
+    def __init__(__self__, *,
+                 analysis: 'outputs.MailManagerRuleSetAnalysis'):
+        pulumi.set(__self__, "analysis", analysis)
+
+    @property
+    @pulumi.getter
+    def analysis(self) -> 'outputs.MailManagerRuleSetAnalysis':
+        return pulumi.get(self, "analysis")
 
 
 @pulumi.output_type
@@ -2212,6 +2350,18 @@ class MailManagerRuleSetRuleStringToEvaluate1Properties(dict):
 
 
 @pulumi.output_type
+class MailManagerRuleSetRuleStringToEvaluate2Properties(dict):
+    def __init__(__self__, *,
+                 analysis: 'outputs.MailManagerRuleSetAnalysis'):
+        pulumi.set(__self__, "analysis", analysis)
+
+    @property
+    @pulumi.getter
+    def analysis(self) -> 'outputs.MailManagerRuleSetAnalysis':
+        return pulumi.get(self, "analysis")
+
+
+@pulumi.output_type
 class MailManagerRuleSetRuleVerdictExpression(dict):
     def __init__(__self__, *,
                  evaluate: Any,
@@ -2474,9 +2624,47 @@ class MailManagerTrafficPolicyIngressIpv4Expression(dict):
 
 
 @pulumi.output_type
+class MailManagerTrafficPolicyIngressIpv6Expression(dict):
+    def __init__(__self__, *,
+                 evaluate: 'outputs.MailManagerTrafficPolicyIngressIpv6ToEvaluateProperties',
+                 operator: 'MailManagerTrafficPolicyIngressIpOperator',
+                 values: Sequence[builtins.str]):
+        pulumi.set(__self__, "evaluate", evaluate)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def evaluate(self) -> 'outputs.MailManagerTrafficPolicyIngressIpv6ToEvaluateProperties':
+        return pulumi.get(self, "evaluate")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> 'MailManagerTrafficPolicyIngressIpOperator':
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyIngressIpv6ToEvaluateProperties(dict):
+    def __init__(__self__, *,
+                 attribute: 'MailManagerTrafficPolicyIngressIpv6Attribute'):
+        pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> 'MailManagerTrafficPolicyIngressIpv6Attribute':
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
 class MailManagerTrafficPolicyIngressStringExpression(dict):
     def __init__(__self__, *,
-                 evaluate: 'outputs.MailManagerTrafficPolicyIngressStringToEvaluateProperties',
+                 evaluate: Any,
                  operator: 'MailManagerTrafficPolicyIngressStringOperator',
                  values: Sequence[builtins.str]):
         pulumi.set(__self__, "evaluate", evaluate)
@@ -2485,7 +2673,7 @@ class MailManagerTrafficPolicyIngressStringExpression(dict):
 
     @property
     @pulumi.getter
-    def evaluate(self) -> 'outputs.MailManagerTrafficPolicyIngressStringToEvaluateProperties':
+    def evaluate(self) -> Any:
         return pulumi.get(self, "evaluate")
 
     @property
@@ -2500,7 +2688,7 @@ class MailManagerTrafficPolicyIngressStringExpression(dict):
 
 
 @pulumi.output_type
-class MailManagerTrafficPolicyIngressStringToEvaluateProperties(dict):
+class MailManagerTrafficPolicyIngressStringToEvaluate0Properties(dict):
     def __init__(__self__, *,
                  attribute: 'MailManagerTrafficPolicyIngressStringEmailAttribute'):
         pulumi.set(__self__, "attribute", attribute)
@@ -2509,6 +2697,18 @@ class MailManagerTrafficPolicyIngressStringToEvaluateProperties(dict):
     @pulumi.getter
     def attribute(self) -> 'MailManagerTrafficPolicyIngressStringEmailAttribute':
         return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyIngressStringToEvaluate1Properties(dict):
+    def __init__(__self__, *,
+                 analysis: 'outputs.MailManagerTrafficPolicyIngressAnalysis'):
+        pulumi.set(__self__, "analysis", analysis)
+
+    @property
+    @pulumi.getter
+    def analysis(self) -> 'outputs.MailManagerTrafficPolicyIngressAnalysis':
+        return pulumi.get(self, "analysis")
 
 
 @pulumi.output_type
@@ -2612,8 +2812,8 @@ class MailManagerTrafficPolicyPolicyCondition2Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "tlsExpression":
-            suggest = "tls_expression"
+        if key == "ipv6Expression":
+            suggest = "ipv6_expression"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MailManagerTrafficPolicyPolicyCondition2Properties. Access the value via the '{suggest}' property getter instead.")
@@ -2627,13 +2827,13 @@ class MailManagerTrafficPolicyPolicyCondition2Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 tls_expression: 'outputs.MailManagerTrafficPolicyIngressTlsProtocolExpression'):
-        pulumi.set(__self__, "tls_expression", tls_expression)
+                 ipv6_expression: 'outputs.MailManagerTrafficPolicyIngressIpv6Expression'):
+        pulumi.set(__self__, "ipv6_expression", ipv6_expression)
 
     @property
-    @pulumi.getter(name="tlsExpression")
-    def tls_expression(self) -> 'outputs.MailManagerTrafficPolicyIngressTlsProtocolExpression':
-        return pulumi.get(self, "tls_expression")
+    @pulumi.getter(name="ipv6Expression")
+    def ipv6_expression(self) -> 'outputs.MailManagerTrafficPolicyIngressIpv6Expression':
+        return pulumi.get(self, "ipv6_expression")
 
 
 @pulumi.output_type
@@ -2641,8 +2841,8 @@ class MailManagerTrafficPolicyPolicyCondition3Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "booleanExpression":
-            suggest = "boolean_expression"
+        if key == "tlsExpression":
+            suggest = "tls_expression"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MailManagerTrafficPolicyPolicyCondition3Properties. Access the value via the '{suggest}' property getter instead.")
@@ -2653,6 +2853,35 @@ class MailManagerTrafficPolicyPolicyCondition3Properties(dict):
 
     def get(self, key: str, default = None) -> Any:
         MailManagerTrafficPolicyPolicyCondition3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tls_expression: 'outputs.MailManagerTrafficPolicyIngressTlsProtocolExpression'):
+        pulumi.set(__self__, "tls_expression", tls_expression)
+
+    @property
+    @pulumi.getter(name="tlsExpression")
+    def tls_expression(self) -> 'outputs.MailManagerTrafficPolicyIngressTlsProtocolExpression':
+        return pulumi.get(self, "tls_expression")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyPolicyCondition4Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "booleanExpression":
+            suggest = "boolean_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerTrafficPolicyPolicyCondition4Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerTrafficPolicyPolicyCondition4Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerTrafficPolicyPolicyCondition4Properties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2672,7 +2901,7 @@ class MailManagerTrafficPolicyPolicyStatement(dict):
                  conditions: Sequence[Any]):
         """
         :param 'MailManagerTrafficPolicyAcceptAction' action: The action that informs a traffic policy resource to either allow or block the email if it matches a condition in the policy statement.
-        :param Sequence[Union['MailManagerTrafficPolicyPolicyCondition0Properties', 'MailManagerTrafficPolicyPolicyCondition1Properties', 'MailManagerTrafficPolicyPolicyCondition2Properties', 'MailManagerTrafficPolicyPolicyCondition3Properties']] conditions: The list of conditions to apply to incoming messages for filtering email traffic.
+        :param Sequence[Union['MailManagerTrafficPolicyPolicyCondition0Properties', 'MailManagerTrafficPolicyPolicyCondition1Properties', 'MailManagerTrafficPolicyPolicyCondition2Properties', 'MailManagerTrafficPolicyPolicyCondition3Properties', 'MailManagerTrafficPolicyPolicyCondition4Properties']] conditions: The list of conditions to apply to incoming messages for filtering email traffic.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "conditions", conditions)
