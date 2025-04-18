@@ -21,6 +21,9 @@
         },
         "UserAssignment" : {
           "$ref" : "#/definitions/UserAssignment"
+        },
+        "IdcInstanceArn" : {
+          "$ref" : "#/definitions/IdcInstanceArn"
         }
       },
       "additionalProperties" : false
@@ -49,6 +52,13 @@
       "type" : "string",
       "description" : "The single sign-on user assignment in Amazon DataZone.",
       "enum" : [ "AUTOMATIC", "MANUAL" ]
+    },
+    "IdcInstanceArn" : {
+      "type" : "string",
+      "description" : "The ARN of the AWS Identity Center instance.",
+      "minLength" : 10,
+      "maxLength" : 1224,
+      "pattern" : "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}"
     }
   },
   "properties" : {
@@ -150,7 +160,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "datazone:CreateDomain", "datazone:UpdateDomain", "datazone:GetDomain", "datazone:TagResource", "sso:CreateManagedApplicationInstance", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration", "sso:ListInstances", "sso:PutApplicationAccessScope", "iam:PassRole" ]
+      "permissions" : [ "datazone:CreateDomain", "datazone:UpdateDomain", "datazone:GetDomain", "datazone:TagResource", "sso:CreateManagedApplicationInstance", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration", "sso:ListInstances", "sso:PutApplicationAccessScope", "sso:PutApplicationGrant", "sso:PutApplicationAuthenticationMethod", "sso:PutApplicationAccessScope", "sso:CreateApplication", "sso:DeleteApplication", "sso:CreateApplicationAssignment", "sso:DeleteApplicationAssignment", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "datazone:GetDomain" ]
@@ -159,7 +169,7 @@
       "permissions" : [ "datazone:UpdateDomain", "datazone:GetDomain", "datazone:TagResource", "datazone:UntagResource", "sso:CreateManagedApplicationInstance", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration", "sso:ListInstances", "sso:PutApplicationAccessScope", "iam:PassRole" ]
     },
     "delete" : {
-      "permissions" : [ "datazone:DeleteDomain", "datazone:GetDomain", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration", "sso:ListInstances" ]
+      "permissions" : [ "datazone:DeleteDomain", "datazone:GetDomain", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration", "sso:DeleteApplication", "sso:DeleteApplicationAssignment", "sso:ListInstances" ]
     },
     "list" : {
       "permissions" : [ "datazone:ListDomains" ]

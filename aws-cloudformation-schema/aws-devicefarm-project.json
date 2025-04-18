@@ -1,6 +1,6 @@
 {
   "typeName" : "AWS::DeviceFarm::Project",
-  "description" : "AWS::DeviceFarm::Project creates a new Device Farm Project",
+  "description" : "Resource Type definition for a Device Farm Project",
   "properties" : {
     "DefaultJobTimeoutMinutes" : {
       "type" : "integer",
@@ -96,7 +96,12 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "tagging" : {
-    "taggable" : true
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "devicefarm:TagResource", "devicefarm:UntagResource", "devicefarm:ListTagsForResource" ]
   },
   "handlers" : {
     "create" : {

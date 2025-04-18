@@ -82,19 +82,19 @@
   "primaryIdentifier" : [ "/properties/TransitGatewayMulticastDomainId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:DescribeTransitGatewayMulticastDomains", "ec2:CreateTransitGatewayMulticastDomain", "ec2:CreateTags" ]
+      "permissions" : [ "ec2:DescribeTransitGatewayMulticastDomains", "ec2:CreateTransitGatewayMulticastDomain", "ec2:CreateTags", "ec2:DescribeTags" ]
     },
     "read" : {
-      "permissions" : [ "ec2:DescribeTransitGatewayMulticastDomains" ]
+      "permissions" : [ "ec2:DescribeTransitGatewayMulticastDomains", "ec2:DescribeTags" ]
     },
     "update" : {
-      "permissions" : [ "ec2:DescribeTransitGatewayMulticastDomains", "ec2:DeleteTags", "ec2:CreateTags" ]
+      "permissions" : [ "ec2:DescribeTransitGatewayMulticastDomains", "ec2:DeleteTags", "ec2:CreateTags", "ec2:DescribeTags" ]
     },
     "delete" : {
-      "permissions" : [ "ec2:DescribeTransitGatewayMulticastDomains", "ec2:DeleteTransitGatewayMulticastDomain", "ec2:DeleteTags" ]
+      "permissions" : [ "ec2:DescribeTransitGatewayMulticastDomains", "ec2:DeleteTransitGatewayMulticastDomain", "ec2:DeleteTags", "ec2:DescribeTags" ]
     },
     "list" : {
-      "permissions" : [ "ec2:DescribeTransitGatewayMulticastDomains" ]
+      "permissions" : [ "ec2:DescribeTransitGatewayMulticastDomains", "ec2:DescribeTags" ]
     }
   }
 }
